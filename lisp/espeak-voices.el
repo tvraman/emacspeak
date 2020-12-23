@@ -61,10 +61,10 @@
 (defun espeak ()
   "Start ESpeak engine."
   (interactive)
-  (dtk-select-server "espeak")
-  (dtk-initialize)
+  (espeak-configure-tts)
   (ems--fastload "voice-defs")
-  (espeak-configure-tts))
+  (dtk-select-server "espeak")
+  (dtk-initialize))
 
 ;;}}}
 ;;{{{  voice table

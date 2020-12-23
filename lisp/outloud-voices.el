@@ -80,10 +80,10 @@
 (defun outloud (&optional device)
   "Select Outloud server."
   (interactive "P")
-  (funcall-interactively #'dtk-select-server "outloud" device)
-  (dtk-initialize)
   (ems--fastload "voice-defs")
-  (outloud-configure-tts))
+  (outloud-configure-tts)
+  (funcall-interactively #'dtk-select-server "outloud" device)
+  (dtk-initialize))
 
 ;;}}}
 ;;{{{  voice table
@@ -108,7 +108,7 @@
    (t (or  (gethash name outloud-voice-table)
            outloud-default-voice-string))))
 
-(defsubst outloud-get-voice-command (name)
+(defun outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (cl-declare (special dtk-speech-rate))
   (concat

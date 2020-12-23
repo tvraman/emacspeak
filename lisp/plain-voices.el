@@ -57,10 +57,10 @@
 (defun plain ()
   "Select Plain TTS server."
   (interactive)
-  (dtk-select-server "plain")
-  (dtk-initialize)
+  (plain-configure-tts)
   (ems--fastload "voice-defs")
-  (plain-configure-tts))
+  (dtk-select-server "plain")
+  (dtk-initialize))
 
 ;;;### autoload
 

@@ -58,10 +58,10 @@
 (defun mac ()
   "Select Mac TTS server."
   (interactive)
-  (dtk-select-server "mac")
-  (dtk-initialize)
+  (mac-configure-tts)
   (ems--fastload "voice-defs")
-  (mac-configure-tts))
+  (dtk-select-server "mac")
+  (dtk-initialize))
 
 ;;;### autoload
 

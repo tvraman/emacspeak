@@ -71,10 +71,10 @@
 (defun dectalk ()
   "Select Dectalk TTS."
   (interactive)
-  (dtk-select-server "dtk-exp")
-  (dtk-initialize)
+  (dectalk-configure-tts)
   (ems--fastload "voice-defs")
-  (dectalk-configure-tts))
+  (dtk-select-server "dtk-exp")
+  (dtk-initialize))
 
 ;;}}}
 ;;{{{ Forward declarations:
@@ -100,7 +100,7 @@
   (cl-declare (special dectalk-voice-table))
   (puthash  name command-string  dectalk-voice-table))
 
-(defsubst dectalk-get-voice-command (name)
+(defun dectalk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (cl-declare (special dectalk-voice-table))
   (cond
