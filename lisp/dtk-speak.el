@@ -1490,7 +1490,7 @@ available TTS servers.")
    (t (plain-configure-tts)))
     (unless (member tts-name tts-configured-engines)
       (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
-      (ems--fastload "voice-setup")))
+      (ems--fastload "voice-defs")))
 
 (defvar tts-device "default"
   "Name of  sound device.")
