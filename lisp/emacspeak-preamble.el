@@ -37,7 +37,7 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-;;{{{ Required modules 
+;;{{{ Define Locations, Require modules 
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -137,6 +137,7 @@
 (require 'emacspeak-keymap)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
+
 ;;}}}
 ;;{{{ Interactive Check Implementation:
 
