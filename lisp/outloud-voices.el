@@ -118,14 +118,6 @@
 
 ;;; the nine predefined voices:
 (outloud-define-voice 'paul  " `v1 ")
-(outloud-define-voice 'harry " `v1 `vh65 `vb50 ")
-(outloud-define-voice 'dennis " `v1  `vb0 ")
-(outloud-define-voice 'frank " `v1 `vr100 ")
-(outloud-define-voice 'betty " `v7 ")
-(outloud-define-voice 'ursula " `v2 ")
-(outloud-define-voice 'rita " `v2 `vr100 ")
-(outloud-define-voice 'wendy " `v2 `vy50 ")
-(outloud-define-voice 'kit " `v3 ")
 
 ;;; Modified voices:
 
@@ -202,57 +194,8 @@
   (outloud-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
-;;{{{  harry average pitch
 
-(let ((table (make-vector 10 "")))
 
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " `vb%s `vh% s"
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 0 90)
-     (1 10 85)
-     (2 20 80)
-     (3 30 70)
-     (4 40 60)
-     (5 50 60)
-     (6 60 50)
-     (7 70 40)
-     (8 80 30)
-     (9 90 20)))
-  (outloud-css-set-code-table 'harry 'average-pitch table))
-
-;;}}}
-;;{{{  betty average pitch
-
-;;;defalt baseline is average pitch of 81
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " `vb%s `vh% s"
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 5 70)
-     (1 17 66)
-     (2 33 62)
-     (3 49 58)
-     (4 65 54)
-     (5 81  50)
-     (6 85 55)
-     (7 89  60)
-     (8 93 65)
-     (9 97 69)))
-  (outloud-css-set-code-table 'betty 'average-pitch table))
-
-;;}}}
 
 (defun outloud-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for  VALUE and  FAMILY."
@@ -293,52 +236,8 @@
   (outloud-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
-;;{{{  harry pitch range
 
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " `vf%s  "
-                     (cl-second setting))))
-   '(
-     (0 0)
-     (1 5)
-     (2  15)
-     (3  20)
-     (4  25)
-     (5  30)
-     (6  47)
-     (7  64)
-     (8  81)
-     (9  100)))
-  (outloud-css-set-code-table 'harry 'pitch-range table))
 
-;;}}}
-;;{{{  betty pitch range
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " `vf%s  "
-                     (cl-second setting))))
-   '(
-     (0 0)
-     (1 5)
-     (2  15)
-     (3  20)
-     (4  25)
-     (5  30)
-     (6  47)
-     (7  64)
-     (8  81)
-     (9  100)))
-  (outloud-css-set-code-table 'betty 'pitch-range table))
-
-;;}}}
 (defun outloud-get-pitch-range-code (value family)
   "Get pitch-range code for  VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -353,7 +252,6 @@
 ;;; On the outloud we map stress to roughness
 ;;; we also use stress markers `00 .. `4  (disabled after experimentation)
 ;;{{{  paul stress
-
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
@@ -372,9 +270,8 @@
      (7  35 "`v2")
      (8  40 "`v3")
      (9  45 "`v4")))
-  (outloud-css-set-code-table 'paul 'stress table)
-  (outloud-css-set-code-table 'harry 'stress table)
-  (outloud-css-set-code-table 'betty  'stress table))
+  (outloud-css-set-code-table 'paul 'stress table))
+
 
 ;;}}}
 (defun outloud-get-stress-code (value family)
@@ -408,9 +305,7 @@
      (7 28 95)
      (8 32 97)
      (9 36 100)))
-  (outloud-css-set-code-table 'paul 'richness table)
-  (outloud-css-set-code-table 'harry 'richness table)
-  (outloud-css-set-code-table 'betty 'richness table))
+  (outloud-css-set-code-table 'paul 'richness table))
 
 ;;}}}
 

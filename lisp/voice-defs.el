@@ -119,9 +119,6 @@
 (defvoice voice-bolden-and-animate (list nil 3 8 8 8)
   "Bolden and animate.")
 
-(defvoice voice-womanize-1 (list 'betty 5 nil nil nil nil)
-  "Apply first female voice.")
-
 ;;}}}
 ;;{{{  indentation and annotation
 
