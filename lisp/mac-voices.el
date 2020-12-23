@@ -54,7 +54,7 @@
 
 ;;}}}
 ;;{{{mac:
-;;;### autoload
+;;;###autoload
 (defun mac ()
   "Select Mac TTS server."
   (interactive)
@@ -63,7 +63,7 @@
   (dtk-select-server "mac")
   (dtk-initialize))
 
-;;;### autoload
+
 
 ;;}}}
 ;;{{{ Customizations:

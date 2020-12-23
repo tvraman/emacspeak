@@ -76,7 +76,7 @@
 ;;}}}
 ;;{{{ Top level TTS  switcher
 
-;;;### autoload
+;;;###autoload
 (defun outloud (&optional device)
   "Select Outloud server."
   (interactive "P")

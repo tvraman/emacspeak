@@ -53,7 +53,7 @@
 ;;}}}
 
 ;;{{{plain:
-;;;### autoload
+;;;###autoload
 (defun plain ()
   "Select Plain TTS server."
   (interactive)
@@ -62,7 +62,7 @@
   (dtk-select-server "plain")
   (dtk-initialize))
 
-;;;### autoload
+
 
 ;;}}}
 ;;{{{ Forward declarations:

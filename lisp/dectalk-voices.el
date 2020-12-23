@@ -67,7 +67,7 @@
 ;;}}}
 ;;{{{  Top-level TTS  switcher
 
-;;;### autoload
+;;;###autoload
 (defun dectalk ()
   "Select Dectalk TTS."
   (interactive)

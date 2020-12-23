@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 22, 2020.
+last updated on December 23, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -5231,7 +5231,7 @@ File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: sox-gen,  Up: Em
 =============
 
 
-File: emacspeak.info,  Node: toy-braille,  Next: voice-setup,  Prev: tetris,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: toy-braille,  Next: voice-defs,  Prev: tetris,  Up: Emacspeak Commands And Options
 
 12.228 toy-braille
 ==================
@@ -5264,9 +5264,108 @@ configured).
    http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
 
-File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: toy-braille,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: toy-braille,  Up: Emacspeak Commands And Options
 
-12.229 voice-setup
+12.229 voice-defs
+=================
+
+Contains just the voice definitions.  Voices are defined using the
+facilities of module voice-setup.
+
+12.229.1 voice-defs Options
+---------------------------
+
+ -- Variable: User Option voice-animate-extra-settings
+     Adds extra animation.
+
+ -- Variable: User Option voice-animate-medium-settings
+     Adds medium animation.
+
+ -- Variable: User Option voice-animate-settings
+     Animates current voice.
+
+ -- Variable: User Option voice-annotate-settings
+     Annotation..
+
+ -- Variable: User Option voice-bolden-and-animate-settings
+     Bolden and animate.
+
+ -- Variable: User Option voice-bolden-extra-settings
+     Extra bolden.
+
+ -- Variable: User Option voice-bolden-medium-settings
+     Add medium bolden.
+
+ -- Variable: User Option voice-bolden-settings
+     Bolden current voice.
+
+ -- Variable: User Option voice-brighten-extra-settings
+     Extra brighten.
+
+ -- Variable: User Option voice-brighten-medium-settings
+     Brighten (medium).
+
+ -- Variable: User Option voice-brighten-settings
+     Brighten.
+
+ -- Variable: User Option voice-indent-settings
+     Indent voice .
+
+ -- Variable: User Option voice-lighten-extra-settings
+     Add extra lightness.
+
+ -- Variable: User Option voice-lighten-medium-settings
+     Add medium lightness.
+
+ -- Variable: User Option voice-lighten-settings
+     Lighten current voice.
+
+ -- Variable: User Option voice-lock-overlay-0-settings
+     Pitch to 8.
+
+ -- Variable: User Option voice-lock-overlay-1-settings
+     Pitch-range to 8.
+
+ -- Variable: User Option voice-lock-overlay-2-settings
+     Richness to 8.
+
+ -- Variable: User Option voice-lock-overlay-3-settings
+     Smoothness to 8.
+
+ -- Variable: User Option voice-monotone-light-settings
+     Add light monotone and speak punctuations.
+
+ -- Variable: User Option voice-monotone-medium-settings
+     Add medium monotone and speak punctuations.
+
+ -- Variable: User Option voice-monotone-settings
+     Add monotone and speaks all punctuations.
+
+ -- Variable: User Option voice-punctuations-all-settings
+     Add speaks all punctuations.
+
+ -- Variable: User Option voice-punctuations-none-settings
+     Add speaks no punctuations.
+
+ -- Variable: User Option voice-punctuations-some-settings
+     Add speaks some punctuations.
+
+ -- Variable: User Option voice-smoothen-extra-settings
+     Extra smoothen.
+
+ -- Variable: User Option voice-smoothen-medium-settings
+     Add medium smoothen.
+
+ -- Variable: User Option voice-smoothen-settings
+     Smoothen current voice.
+
+ -- Variable: User Option voice-womanize-1-settings
+     Apply first female voice.
+
+
+File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
+
+12.230 voice-setup
 ==================
 
 A voice is to audio as a font is to a visual display.  A personality is
@@ -5331,10 +5430,10 @@ available via custom.  new voices can be defined using CSS style
 specifications see special form defvoice Voices defined via defvoice can
 be customized via custom see the documentation for defvoice.
 
-12.229.1 Voice-Setup Commands
+12.230.1 Voice-Setup Commands
 -----------------------------
 
-12.229.1.1 voice-lock-mode
+12.230.1.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -5356,14 +5455,14 @@ be customized via custom see the documentation for defvoice.
 
      (fn &optional ARG)
 
-12.229.1.2 voice-lock-mode–turn-on
+12.230.1.2 voice-lock-mode–turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
 
      Turn on Voice Lock mode .
 
-12.229.1.3 voice-setup-describe-personality
+12.230.1.3 voice-setup-describe-personality
 ...........................................
 
  -- Command: voice-setup-describe-personality (personality)
@@ -5376,7 +5475,7 @@ be customized via custom see the documentation for defvoice.
 
      (fn PERSONALITY)
 
-12.229.1.4 voice-setup-toggle-silence-personality
+12.230.1.4 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
@@ -5385,105 +5484,18 @@ be customized via custom see the documentation for defvoice.
 
      Toggle audibility of personality under point  .
 
-12.229.2 voice-setup Options
+12.230.2 voice-setup Options
 ----------------------------
-
- -- Variable: User Option voice-animate-extra-settings
-     Adds extra animation.
-
- -- Variable: User Option voice-animate-medium-settings
-     Adds medium animation.
-
- -- Variable: User Option voice-animate-settings
-     Animates current voice.
-
- -- Variable: User Option voice-annotate-settings
-     Annotation..
-
- -- Variable: User Option voice-bolden-and-animate-settings
-     Bolden and animate.
-
- -- Variable: User Option voice-bolden-extra-settings
-     Extra bolden.
-
- -- Variable: User Option voice-bolden-medium-settings
-     Add medium bolden.
-
- -- Variable: User Option voice-bolden-settings
-     Bolden current voice.
-
- -- Variable: User Option voice-brighten-extra-settings
-     Extra brighten.
-
- -- Variable: User Option voice-brighten-medium-settings
-     Brighten (medium).
-
- -- Variable: User Option voice-brighten-settings
-     Brighten.
-
- -- Variable: User Option voice-indent-settings
-     Indent voice .
-
- -- Variable: User Option voice-lighten-extra-settings
-     Add extra lightness.
-
- -- Variable: User Option voice-lighten-medium-settings
-     Add medium lightness.
-
- -- Variable: User Option voice-lighten-settings
-     Lighten current voice.
 
  -- Variable: User Option voice-lock-mode-hook
      Hook run after entering or leaving ‘voice-lock-mode’.  No problems
      result if this variable is not bound.  ‘add-hook’ automatically
      binds it.  (This is true for all hook variables.)
 
- -- Variable: User Option voice-lock-overlay-0-settings
-     Pitch to 8.
-
- -- Variable: User Option voice-lock-overlay-1-settings
-     Pitch-range to 8.
-
- -- Variable: User Option voice-lock-overlay-2-settings
-     Richness to 8.
-
- -- Variable: User Option voice-lock-overlay-3-settings
-     Smoothness to 8.
-
- -- Variable: User Option voice-monotone-light-settings
-     Add light monotone and speak punctuations.
-
- -- Variable: User Option voice-monotone-medium-settings
-     Add medium monotone and speak punctuations.
-
- -- Variable: User Option voice-monotone-settings
-     Add monotone and speaks all punctuations.
-
- -- Variable: User Option voice-punctuations-all-settings
-     Add speaks all punctuations.
-
- -- Variable: User Option voice-punctuations-none-settings
-     Add speaks no punctuations.
-
- -- Variable: User Option voice-punctuations-some-settings
-     Add speaks some punctuations.
-
- -- Variable: User Option voice-smoothen-extra-settings
-     Extra smoothen.
-
- -- Variable: User Option voice-smoothen-medium-settings
-     Add medium smoothen.
-
- -- Variable: User Option voice-smoothen-settings
-     Smoothen current voice.
-
- -- Variable: User Option voice-womanize-1-settings
-     Apply first female voice.
-
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
 
-12.230 xbacklight
+12.231 xbacklight
 =================
 
 Provide an emacs front-end to xbacklight.  This is a tool that controls
@@ -5493,38 +5505,38 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-12.230.1 Xbacklight Commands
+12.231.1 Xbacklight Commands
 ----------------------------
 
-12.230.1.1 xbacklight-black
+12.231.1.1 xbacklight-black
 ...........................
 
  -- Command: xbacklight-black
 
      Turn screen black.
 
-12.230.1.2 xbacklight-decrement
+12.231.1.2 xbacklight-decrement
 ...............................
 
  -- Command: xbacklight-decrement
 
      Decrease brightness by  by one step.
 
-12.230.1.3 xbacklight-get
+12.231.1.3 xbacklight-get
 .........................
 
  -- Command: xbacklight-get
 
      Get  brightness level.
 
-12.230.1.4 xbacklight-increment
+12.231.1.4 xbacklight-increment
 ...............................
 
  -- Command: xbacklight-increment
 
      Increase brightness by  by one step.
 
-12.230.1.5 xbacklight-set
+12.231.1.5 xbacklight-set
 .........................
 
  -- Command: xbacklight-set (brightness)
@@ -5533,7 +5545,7 @@ package-install hydra
 
      (fn BRIGHTNESS)
 
-12.230.1.6 xbacklight-white
+12.231.1.6 xbacklight-white
 ...........................
 
  -- Command: xbacklight-white
@@ -5543,7 +5555,7 @@ package-install hydra
 
 File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
 
-12.231 URL Templates
+12.232 URL Templates
 ====================
 
 This section documents a total of 76 URL Templates.

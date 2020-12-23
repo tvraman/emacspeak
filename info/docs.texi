@@ -235,6 +235,7 @@ This chapter documents a total of 1139 commands and 864 options.
 * sox-gen::Binaural Beats And More Using SoX.
 * tetris::implementation of Tetris for Emacs.
 * toy-braille::
+* voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
 * xbacklight::Control Display Brightness From Emacs.
 * URL Templates ::
@@ -23473,6 +23474,159 @@ http://www.nbp.org/ic/nbp/braille/index.html
 
 http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
+@node voice-defs
+@section voice-defs
+
+Contains just the voice definitions. Voices are defined using the
+facilities of module voice-setup.
+
+@subsection voice-defs Options
+
+@defvar {User Option} voice-animate-extra-settings
+Adds extra animation.
+
+@end defvar
+
+@defvar {User Option} voice-animate-medium-settings
+Adds medium animation.
+
+@end defvar
+
+@defvar {User Option} voice-animate-settings
+Animates current voice.
+
+@end defvar
+
+@defvar {User Option} voice-annotate-settings
+Annotation..
+
+@end defvar
+
+@defvar {User Option} voice-bolden-and-animate-settings
+Bolden and animate.
+
+@end defvar
+
+@defvar {User Option} voice-bolden-extra-settings
+Extra bolden.
+
+@end defvar
+
+@defvar {User Option} voice-bolden-medium-settings
+Add medium bolden.
+
+@end defvar
+
+@defvar {User Option} voice-bolden-settings
+Bolden current voice.
+
+@end defvar
+
+@defvar {User Option} voice-brighten-extra-settings
+Extra brighten.
+
+@end defvar
+
+@defvar {User Option} voice-brighten-medium-settings
+Brighten  (medium).
+
+@end defvar
+
+@defvar {User Option} voice-brighten-settings
+Brighten.
+
+@end defvar
+
+@defvar {User Option} voice-indent-settings
+Indent voice .
+
+@end defvar
+
+@defvar {User Option} voice-lighten-extra-settings
+Add extra lightness.
+
+@end defvar
+
+@defvar {User Option} voice-lighten-medium-settings
+Add medium lightness.
+
+@end defvar
+
+@defvar {User Option} voice-lighten-settings
+Lighten current voice.
+
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-0-settings
+Pitch to 8.
+
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-1-settings
+Pitch-range to 8.
+
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-2-settings
+ Richness to 8.
+
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-3-settings
+Smoothness to 8.
+
+@end defvar
+
+@defvar {User Option} voice-monotone-light-settings
+Add light monotone and speak punctuations.
+
+@end defvar
+
+@defvar {User Option} voice-monotone-medium-settings
+Add medium monotone and speak punctuations.
+
+@end defvar
+
+@defvar {User Option} voice-monotone-settings
+Add monotone and speaks all punctuations.
+
+@end defvar
+
+@defvar {User Option} voice-punctuations-all-settings
+Add   speaks all punctuations.
+
+@end defvar
+
+@defvar {User Option} voice-punctuations-none-settings
+Add speaks no punctuations.
+
+@end defvar
+
+@defvar {User Option} voice-punctuations-some-settings
+Add speaks some punctuations.
+
+@end defvar
+
+@defvar {User Option} voice-smoothen-extra-settings
+Extra smoothen.
+
+@end defvar
+
+@defvar {User Option} voice-smoothen-medium-settings
+Add medium smoothen.
+
+@end defvar
+
+@defvar {User Option} voice-smoothen-settings
+Smoothen current voice.
+
+@end defvar
+
+@defvar {User Option} voice-womanize-1-settings
+Apply first female voice.
+
+@end defvar
+
 @node voice-setup
 @section voice-setup
 
@@ -23629,155 +23783,10 @@ Toggle audibility of personality under point  .
 
 @subsection voice-setup Options
 
-@defvar {User Option} voice-animate-extra-settings
-Adds extra animation.
-
-@end defvar
-
-@defvar {User Option} voice-animate-medium-settings
-Adds medium animation.
-
-@end defvar
-
-@defvar {User Option} voice-animate-settings
-Animates current voice.
-
-@end defvar
-
-@defvar {User Option} voice-annotate-settings
-Annotation..
-
-@end defvar
-
-@defvar {User Option} voice-bolden-and-animate-settings
-Bolden and animate.
-
-@end defvar
-
-@defvar {User Option} voice-bolden-extra-settings
-Extra bolden.
-
-@end defvar
-
-@defvar {User Option} voice-bolden-medium-settings
-Add medium bolden.
-
-@end defvar
-
-@defvar {User Option} voice-bolden-settings
-Bolden current voice.
-
-@end defvar
-
-@defvar {User Option} voice-brighten-extra-settings
-Extra brighten.
-
-@end defvar
-
-@defvar {User Option} voice-brighten-medium-settings
-Brighten  (medium).
-
-@end defvar
-
-@defvar {User Option} voice-brighten-settings
-Brighten.
-
-@end defvar
-
-@defvar {User Option} voice-indent-settings
-Indent voice .
-
-@end defvar
-
-@defvar {User Option} voice-lighten-extra-settings
-Add extra lightness.
-
-@end defvar
-
-@defvar {User Option} voice-lighten-medium-settings
-Add medium lightness.
-
-@end defvar
-
-@defvar {User Option} voice-lighten-settings
-Lighten current voice.
-
-@end defvar
-
 @defvar {User Option} voice-lock-mode-hook
 Hook run after entering or leaving ‘voice-lock-mode’.
 No problems result if this variable is not bound.
 ‘add-hook’ automatically binds it.  (This is true for all hook variables.)
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-0-settings
-Pitch to 8.
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-1-settings
-Pitch-range to 8.
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-2-settings
- Richness to 8.
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-3-settings
-Smoothness to 8.
-
-@end defvar
-
-@defvar {User Option} voice-monotone-light-settings
-Add light monotone and speak punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-monotone-medium-settings
-Add medium monotone and speak punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-monotone-settings
-Add monotone and speaks all punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-punctuations-all-settings
-Add   speaks all punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-punctuations-none-settings
-Add speaks no punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-punctuations-some-settings
-Add speaks some punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-smoothen-extra-settings
-Extra smoothen.
-
-@end defvar
-
-@defvar {User Option} voice-smoothen-medium-settings
-Add medium smoothen.
-
-@end defvar
-
-@defvar {User Option} voice-smoothen-settings
-Smoothen current voice.
-
-@end defvar
-
-@defvar {User Option} voice-womanize-1-settings
-Apply first female voice.
 
 @end defvar
 

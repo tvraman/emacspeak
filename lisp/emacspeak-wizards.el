@@ -2662,7 +2662,7 @@ under point as either the foreground or background color."
           (propertize msg 'face `(:foreground ,fg :background ,hexcol)))
     msg))
 
-;;;### autoload
+;;;###autoload
 (defun emacspeak-wizards-color-wheel (start)
   "Interactively manipulate a simple color wheel and display the name
   and shade of the resulting color.  This makes for a fun color

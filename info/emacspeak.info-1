@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 22, 2020.
+last updated on December 23, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3098,6 +3098,7 @@ documentation, then read *Note emacspeak-eww::.
 * sox-gen::Binaural Beats And More Using SoX.
 * tetris::implementation of Tetris for Emacs.
 * toy-braille::
+* voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
 * xbacklight::Control Display Brightness From Emacs.
 * URL Templates ::
