@@ -129,12 +129,19 @@
 (defgroup voice-fonts nil
   "Voices"
   :group 'emacspeak)
+
 ;;}}}
 ;;{{{Configure:
 
 (defsubst voice-setup-guess-tts ()
   "TTS name."
   (or dtk-program  "espeak"))
+;;; This configures Emacspeak for the TTS engine used at start.
+;;; Subsequent switches to other engines  causes that engine to get
+;;; configured --- see the various tts-engine startup  commands, e.g.,
+;;; outloud, dectalk, espeak.
+;;; Whenever we switch engines, we load voice-definitions for that
+;;; engine by reloading module voice-defs.
 
 (let ((tts-name (voice-setup-guess-tts)))
   (cond
@@ -158,8 +165,7 @@
   "First compute a symbol that will be name for this STYLE.
 Define a voice for it if needed, then return the symbol."
   (cond
-   ((and (acss-gain style) (= 0 (acss-gain style)))
-    'inaudible)
+   ((and (acss-gain style) (= 0 (acss-gain style))) 'inaudible)
    (t
     (let ((f (acss-family style))
           (a (acss-average-pitch style))
@@ -300,7 +306,7 @@ Define a voice for it if needed, then return the symbol."
 ;;}}}
 ;;{{{  special form defvoice
 
-(defvar voice-setup-personality-table (make-hash-table)
+(defvar voice-setup-personality-table (make-hash-table :test #'eq)
   "Maps personality names to ACSS  settings. ")
 
 (defun voice-setup-personality-from-style (style-list)

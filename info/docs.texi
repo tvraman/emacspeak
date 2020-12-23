@@ -529,18 +529,10 @@ Reset TTS engine.
 
 @subsubsection dtk-select-server
 @deffn {Command} dtk-select-server  (program &optional device)
-@table @kbd
-@item C-e d d
-@kindex C-e d d
-@item <fn> d d
-@kindex <fn> d d
-@end table
-
 @findex dtk-select-server
 
 @format
 Select a speech server interactively.
-When called interactively, restarts speech server.
 Argument PROGRAM specifies the speech server program.
  Optional arg device sets up environment variable
 ALSA_DEFAULT to specified device before starting the server.
