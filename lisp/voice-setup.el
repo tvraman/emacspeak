@@ -132,7 +132,7 @@
 ;;}}}
 ;;{{{Configure:
 
-;;;###autoload
+
 (defvar tts-configured-engines nil
   "Record TTS engines that   have been configured in this emacs session.")
 (defsubst voice-setup-guess-tts ()
