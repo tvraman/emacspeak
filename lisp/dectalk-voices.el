@@ -73,7 +73,8 @@
   (interactive)
   (dtk-select-server "dtk-exp")
   (dtk-initialize)
-  (ems--fastload "voice-defs"))
+  (ems--fastload "voice-defs")
+  (dectalk-configure-tts))
 
 ;;}}}
 ;;{{{ Forward declarations:
@@ -625,7 +626,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 
 ;;; Configure on load
-(dectalk-configure-tts)
+
 
 
 (provide 'dectalk-voices)

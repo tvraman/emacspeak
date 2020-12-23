@@ -60,7 +60,8 @@
   (interactive)
   (dtk-select-server "mac")
   (dtk-initialize)
-  (ems--fastload "voice-defs"))
+  (ems--fastload "voice-defs")
+  (mac-configure-tts))
 
 ;;;### autoload
 
@@ -408,7 +409,7 @@ and TABLE gives the values along that dimension."
 ;;{{{ tts-env for Mac:
 
 ;;; Configure on load
-(mac-configure-tts)
+
 
 (provide 'mac-voices)
 ;;{{{  emacs local variables

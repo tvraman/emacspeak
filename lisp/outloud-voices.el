@@ -82,7 +82,8 @@
   (interactive "P")
   (funcall-interactively #'dtk-select-server "outloud" device)
   (dtk-initialize)
-  (ems--fastload "voice-defs"))
+  (ems--fastload "voice-defs")
+  (outloud-configure-tts))
 
 ;;}}}
 ;;{{{  voice table
@@ -478,7 +479,7 @@
 ;;}}}
 
 ;;; Configure on load
-(outloud-configure-tts)
+
 
 (provide 'outloud-voices)
 ;;{{{  emacs local variables

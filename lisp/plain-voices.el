@@ -59,7 +59,8 @@
   (interactive)
   (dtk-select-server "plain")
   (dtk-initialize)
-  (ems--fastload "voice-defs"))
+  (ems--fastload "voice-defs")
+  (plain-configure-tts))
 
 ;;;### autoload
 
@@ -595,7 +596,7 @@ and TABLE gives the values along that dimension."
 ;;; Configure on load
 
 (plain-configure-tts)
-(plain-configure-tts)
+
 
 
 (provide 'plain-voices)

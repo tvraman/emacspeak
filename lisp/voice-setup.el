@@ -141,11 +141,21 @@
 
 (let ((tts-name (voice-setup-guess-tts)))
   (cond
-   ((string-match "outloud" tts-name) (require 'outloud-voices))
-   ((string-match "dtk" tts-name) (require 'dectalk-voices))
-   ((string-match "mac$" tts-name) (require 'mac-voices))
-   ((string-match "espeak$" tts-name) (require 'espeak-voices))
-   (t (require 'plain-voices)))
+   ((string-match "outloud" tts-name)
+    (require 'outloud-voices)
+    (outloud-configure-tts))
+   ((string-match "dtk" tts-name)
+    (require 'dectalk-voices)
+    (dectalk-configure-tts))
+   ((string-match "mac$" tts-name)
+    (require 'mac-voices)
+    (mac-configure-tts))
+   ((string-match "espeak$" tts-name)
+    (require 'espeak-voices)
+    (espeak-configure-tts))
+   (t
+    (require 'plain-voices)
+    (plain-configure-tts)))
   (cl-pushnew tts-name tts-configured-engines :test #'string-equal))
 
 (defun acss-personality-from-speech-style (style)

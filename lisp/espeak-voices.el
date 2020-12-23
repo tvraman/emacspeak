@@ -63,7 +63,8 @@
   (interactive)
   (dtk-select-server "espeak")
   (dtk-initialize)
-  (ems--fastload "voice-defs"))
+  (ems--fastload "voice-defs")
+  (espeak-configure-tts))
 
 ;;}}}
 ;;{{{  voice table
@@ -488,7 +489,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 
 ;;; Configure on load
-(espeak-configure-tts)
+
 
 (provide 'espeak-voices)
 ;;{{{  emacs local variables
