@@ -1480,20 +1480,14 @@ available TTS servers.")
 ;;;###autoload
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
-  (cl-declare (special dtk-program
-                       tts-configured-engines))
+  (cl-declare (special dtk-program tts-configured-engines))
   (unless tts-name (setq tts-name dtk-program))
   (cond
-                                        ;viavoice outloud family
    ((string-match "outloud" tts-name) (outloud-configure-tts))
-;;;all dectalks
    ((string-match "dtk" tts-name) (dectalk-configure-tts))
    ((string-match "mac$" tts-name) (mac-configure-tts))
    ((string-match "espeak$" tts-name) (espeak-configure-tts))
-;;; generic configure
    (t (plain-configure-tts)))
-  ;(dtk-set-rate tts-default-speech-rate t)
-  ;(dtk-interp-sync)
     (unless (member tts-name tts-configured-engines)
       (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
       (ems--fastload "voice-setup")))

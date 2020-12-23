@@ -132,6 +132,7 @@
 ;;}}}
 (require 'dtk-speak)
 (require 'voice-setup)
+(require 'voice-defs)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-keymap)
 (require 'emacspeak-speak)

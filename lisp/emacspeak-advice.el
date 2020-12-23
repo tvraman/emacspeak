@@ -143,6 +143,31 @@ that is being replaced.")
 
 ;;}}}
 ;;{{{ advice overlays
+;;; Helpers:
+
+(defun ems--add-personality (start end voice &optional object)
+  "Apply personality VOICE to  region in object."
+  (when
+      (and
+       (integerp start) (integerp end)
+       (not (= start end)))
+    (with-current-buffer
+        (if (bufferp object) object (current-buffer))
+      (with-silent-modifications
+        (put-text-property start end 'personality voice object)))))
+
+(defun ems--remove-personality  (start end voice &optional object)
+  "Remove  personality VOICE from region in object. "
+  (when
+      (and
+       voice
+       (integerp start) (integerp end)
+       (not (= start end))
+       (eq voice (get-text-property start 'personality object)))
+      (with-current-buffer
+          (if (bufferp object) object (current-buffer))
+        (with-silent-modifications
+          (put-text-property start end 'personality nil object)))))
 
 (defvar ems--voiceify-overlays t
   "Determines how and if we voiceify overlays. ")
@@ -172,7 +197,7 @@ that is being replaced.")
         (with-current-buffer buffer
           (save-restriction
             (widen)
-            (voice-setup-remove start end voice buffer))))
+            (ems--remove-personality start end voice buffer))))
       (when  (and start end invisible)
         (with-silent-modifications
           (put-text-property start end 'invisible nil))))))
@@ -195,7 +220,7 @@ that is being replaced.")
         (when (eq prop 'category) (setq value (get value 'face)))
         (setq voice (dtk-get-voice-for-face value))
         (when voice
-            (voice-setup-add
+            (ems--add-personality
              start end voice (overlay-buffer overlay))))
        ((eq prop 'invisible)
         (with-current-buffer (overlay-buffer overlay)
@@ -218,9 +243,9 @@ that is being replaced.")
           (and voice
                (integerp (overlay-start overlay))
                (integerp (overlay-end overlay)))
-        (voice-setup-remove
+        (ems--remove-personality
          (overlay-start overlay) (overlay-end overlay) voice buffer)
-        (voice-setup-add beg end voice object))
+        (ems--add-personality beg end voice object))
       (when invisible
         (with-current-buffer buffer
           (with-silent-modifications
