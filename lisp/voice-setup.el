@@ -122,12 +122,15 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'easy-mmode))
+
 ;;}}}
 ;;{{{ customization group
 
 (defgroup voice-fonts nil
   "Voices"
   :group 'emacspeak)
+;;}}}
+;;{{{Configure:
 
 ;;;###autoload
 (defvar tts-configured-engines nil
@@ -146,12 +149,12 @@
 
 
 
-;;; may be redefined at runtime when alternative tts engine is
-;;; configured.
 
 
-(declare-function tts-define-voice-from-speech-style "voice-setup" (name style))
-(declare-function tts-voice-defined-p "voice-setup" (name))
+
+
+
+
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.
