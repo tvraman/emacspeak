@@ -132,9 +132,6 @@
 ;;}}}
 ;;{{{Configure:
 
-
-(defvar tts-configured-engines nil
-  "Record TTS engines that   have been configured in this emacs session.")
 (defsubst voice-setup-guess-tts ()
   "TTS name."
   (or dtk-program  "espeak"))
@@ -155,8 +152,7 @@
     (espeak-configure-tts))
    (t
     (require 'plain-voices)
-    (plain-configure-tts)))
-  (cl-pushnew tts-name tts-configured-engines :test #'string-equal))
+    (plain-configure-tts))))
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.
