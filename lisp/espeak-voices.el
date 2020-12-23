@@ -62,7 +62,8 @@
   "Start ESpeak engine."
   (interactive)
   (dtk-select-server "espeak")
-  (dtk-initialize))
+  (dtk-initialize)
+  (ems--fastload "voice-defs"))
 
 ;;}}}
 ;;{{{  voice table

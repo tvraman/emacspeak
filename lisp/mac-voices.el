@@ -53,6 +53,18 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
+;;{{{mac:
+;;;### autoload
+(defun mac ()
+  "Select Mac TTS server."
+  (interactive)
+  (dtk-select-server "mac")
+  (dtk-initialize)
+  (ems--fastload "voice-defs"))
+
+;;;### autoload
+
+;;}}}
 ;;{{{ Customizations:
 
 (defcustom mac-default-speech-rate 225

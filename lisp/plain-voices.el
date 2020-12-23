@@ -51,14 +51,15 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
-;;;{{{  Top-level TTS  switcher
+
 ;;{{{plain:
 ;;;### autoload
 (defun plain ()
   "Select Plain TTS server."
   (interactive)
   (dtk-select-server "plain")
-  (dtk-initialize))
+  (dtk-initialize)
+  (ems--fastload "voice-defs"))
 
 ;;;### autoload
 

@@ -81,7 +81,8 @@
   "Select Outloud server."
   (interactive "P")
   (funcall-interactively #'dtk-select-server "outloud" device)
-  (dtk-initialize))
+  (dtk-initialize)
+  (ems--fastload "voice-defs"))
 
 ;;}}}
 ;;{{{  voice table

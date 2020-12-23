@@ -72,7 +72,8 @@
   "Select Dectalk TTS."
   (interactive)
   (dtk-select-server "dtk-exp")
-  (dtk-initialize))
+  (dtk-initialize)
+  (ems--fastload "voice-defs"))
 
 ;;}}}
 ;;{{{ Forward declarations:
