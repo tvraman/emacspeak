@@ -135,8 +135,11 @@
 ;;;###autoload
 (defvar tts-configured-engines nil
   "Record TTS engines that   have been configured in this emacs session.")
+(defsubst voice-setup-guess-tts ()
+  "TTS name."
+  (or dtk-program  "espeak"))
 
-(let ((tts-name (or dtk-program  "espeak")))
+(let ((tts-name (voice-setup-guess-tts)))
   (unless (member tts-name tts-configured-engines)
     (cond
      ((string-match "outloud" tts-name) (require 'outloud-voices))
@@ -147,19 +150,9 @@
     (cl-pushnew tts-name tts-configured-engines :test #'string-equal))
   (tts-configure-synthesis-setup tts-name))
 
-
-
-
-
-
-
-
-
-
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.
-Then see if a voice defined for it.
-Finally return the symbol"
+Define a voice for it if needed, then return the symbol."
   (cond
    ((and (acss-gain style) (= 0 (acss-gain style)))
     'inaudible)
@@ -189,7 +182,7 @@ Finally return the symbol"
   (cl-declare (special dectalk-voice-table espeak-voice-table
                        plain-voice-table mac-voice-table
                        outloud-voice-table))
-  (let* ((tts-name (or dtk-program  "espeak"))
+  (let* ((tts-name (voice-setup-guess-tts))
          (voice-table
           (cond
            ((string-match "outloud" tts-name) outloud-voice-table)
