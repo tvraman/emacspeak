@@ -342,11 +342,11 @@ Define a voice for it if needed, then return the symbol."
 ;;; note that for now we dont use  gain settings
 
 (defmacro defvoice (personality settings doc)
-  "Define personality using ACSS setting.  Setting is a list of the form
-(list paul 5 5 5 5 'all) which is the  male voice
-that speaks `all' punctuations.  
-Personality can be customized 
-by  \\[customize-variable] on <personality>-settings. "
+  "Define voice using ACSS setting.  Setting is a list of the form
+(list paul 5 5 5 5 'all) which defines a standard male voice
+that speaks `all' punctuations.  Once
+defined, the newly declared personality can be customized by calling
+command \\[customize-variable] on <personality>-settings. "
   (declare (indent 1) (debug t))
   `(progn
      (defvar  ,personality
@@ -362,6 +362,8 @@ by  \\[customize-variable] on <personality>-settings. "
                 (choice :tag "Family"
                         (const :tag "Unspecified" nil)
                         (const  :tag "Paul" paul)
+                        (const :tag "Harry" harry)
+                        (const :tag "Betty" betty))
                 (choice :tag "Average Pitch"
                         (const :tag "Unspecified" nil)
                         (integer :tag "Number"))
@@ -386,7 +388,7 @@ by  \\[customize-variable] on <personality>-settings. "
             (setq ,personality voice-name)
 ;;; update all observers
             (voice-setup-update-personalities ',personality)
-            (set-default sym val)))))))
+            (set-default sym val))))))
 
 ;;}}}                                   ; ; ; ;
 ;;{{{ new light-weight voice lock
