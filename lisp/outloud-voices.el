@@ -73,8 +73,8 @@
 (defun outloud (&optional device)
   "Start Outloud."
   (interactive "P")
-  (ems--fastload "voice-defs")
   (outloud-configure-tts)
+  (ems--fastload "voice-defs")
   (funcall-interactively #'dtk-select-server "outloud" device)
   (dtk-initialize))
 
