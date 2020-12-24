@@ -119,14 +119,6 @@
 
 ;;; the nine predefined voices:
 (dectalk-define-voice 'paul "[:np ]")
-(dectalk-define-voice 'harry "[:nh ]")
-(dectalk-define-voice 'dennis "[:nd]")
-(dectalk-define-voice 'frank "[:nf]")
-(dectalk-define-voice 'betty "[:nb]")
-(dectalk-define-voice 'ursula "[:nu]")
-(dectalk-define-voice 'rita "[:nr]")
-(dectalk-define-voice 'wendy "[:nw]")
-(dectalk-define-voice 'kit "[:nk]")
 
 ;;}}}
 ;;{{{  the inaudible voice
@@ -161,14 +153,6 @@
       ""))
 
 (dectalk-set-family-code 'paul ":np")
-(dectalk-set-family-code 'harry ":nh")
-(dectalk-set-family-code 'dennis ":nd")
-(dectalk-set-family-code 'frank ":nf")
-(dectalk-set-family-code 'betty ":nb")
-(dectalk-set-family-code 'ursula ":nu")
-(dectalk-set-family-code 'wendy ":nw")
-(dectalk-set-family-code 'rita ":nr")
-(dectalk-set-family-code 'kid ":nk")
 
 ;;}}}
 ;;{{{  hash table for mapping families to their dimensions
@@ -232,33 +216,6 @@ and TABLE gives the values along that dimension."
   (dectalk-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
-;;{{{  harry average pitch
-;;; Harry  has a big head --and a lower pitch for the middle setting
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " ap %s hs % s"
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 50 125)
-     (1 59 123)
-     (2 68 121)
-     (3 77 120)
-     (4 83  118)
-     (5 89 115)
-     (6 95 112)
-     (7 110 105)
-     (8 125 100)
-     (9 140 95)
-     ))
-  (dectalk-css-set-code-table 'harry 'average-pitch table))
-
-;;}}}
-;;{{{  betty average pitch
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -326,56 +283,7 @@ and TABLE gives the values along that dimension."
   (dectalk-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
-;;{{{  harry pitch range
 
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " pr %s as %s "
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 0 0)
-     (1 16 20)
-     (2 32 40)
-     (3 48 60)
-     (4 64 80)
-     (5 80 100)
-     (6 137 100)
-     (7 174 100)
-     (8 211 100)
-     (9 250 100)
-     ))
-  (dectalk-css-set-code-table 'harry 'pitch-range table))
-
-;;}}}
-;;{{{  betty pitch range
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " pr %s as %s "
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 0 0)
-     (1 50 10)
-     (2 80 20)
-     (3 100 25)
-     (4 110 30)
-     (5 140 35)
-     (6 165 57)
-     (7 190 75)
-     (8 220 87)
-     (9 250 100)
-     ))
-  (dectalk-css-set-code-table 'betty 'pitch-range table))
-
-;;}}}
 (defun dectalk-get-pitch-range-code (value family)
   "Get pitch-range code for  VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -423,60 +331,7 @@ and TABLE gives the values along that dimension."
   (dectalk-css-set-code-table 'paul 'stress table))
 
 ;;}}}
-;;{{{  harry stress
 
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " hr %s sr %s qu %s bf %s "
-                     (cl-second setting)
-                     (cl-third setting)
-                     (cl-fourth setting)
-                     (cl-fifth setting))))
-   '(
-     (0  0 0 0 0)
-     (1 4 6 2 2)
-     (2 8 12 4 4)
-     (3 12 18 6 6)
-     (4 16 24 8 8)
-     (5 20 30 10 9)
-     (6 40  48 32 16)
-     (7 60 66 54 22)
-     (8 80 78 77 34)
-     (9 100 100 100 40)
-     ))
-  (dectalk-css-set-code-table 'harry 'stress table))
-
-;;}}}
-;;{{{  betty stress
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " hr %s sr %s qu %s bf %s "
-                     (cl-second setting)
-                     (cl-third setting)
-                     (cl-fourth setting)
-                     (cl-fifth setting))))
-   '(
-     (0  1 1 0 0)
-     (1 3 4 11 0)
-     (2 5 8 22 0)
-     (3 8 12 33 0)
-     (4 11  16 44 0)
-     (5 14 20 55 0)
-     (6 35 40 65 10)
-     (7 56 80 75 20)
-     (8 77 90 85 30)
-     (9 100 100 100 40)
-     ))
-  (dectalk-css-set-code-table 'betty 'stress table))
-
-;;}}}
 (defun dectalk-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -512,54 +367,6 @@ and TABLE gives the values along that dimension."
      (9 100  0)
      ))
   (dectalk-css-set-code-table 'paul 'richness table))
-
-;;}}}
-;;{{{  harry richness
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table (cl-first setting)
-             (format " ri %s sm %s "
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 100 0)
-     (1 96 3)
-     (2 93 6)
-     (3 90 9)
-     (4 88 11)
-     (5 86 12)
-     (6 60 24)
-     (7 40 44)
-     (8 20 65)
-     (9 0 70)
-     ))
-  (dectalk-css-set-code-table 'harry 'richness table))
-
-;;}}}
-;;{{{  betty richness
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table (cl-first setting)
-             (format " ri %s sm %s "
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 0 100)
-     (1 8 76)
-     (2 16 52)
-     (3 24  28)
-     (4 32 10)
-     (5 40 4)
-     (6 50 3)
-     (7 65 3)
-     (8 80 8 2)
-     (9 100  0)
-     ))
-  (dectalk-css-set-code-table 'betty 'richness table))
 
 ;;}}}
 
@@ -626,8 +433,6 @@ and TABLE gives the values along that dimension."
 ;;}}}
 
 ;;; Configure on load
-
-
 
 (provide 'dectalk-voices)
 ;;{{{  emacs local variables

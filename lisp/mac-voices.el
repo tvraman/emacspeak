@@ -120,14 +120,6 @@ COMMAND-STRING to the TTS engine."
 ;;; possible (and update voice names).
 
 (mac-define-voice 'paul  " [{voice systemDefault}] ")
-(mac-define-voice 'harry " [{voice alex}] ")
-(mac-define-voice 'dennis " [{voice bruce}] ")
-(mac-define-voice 'frank " [{voice fred}] ")
-(mac-define-voice 'betty " [{voice victoria}] ")
-(mac-define-voice 'ursula " [{voice kathy}] ")
-(mac-define-voice 'rita " [{voice vicki}] ")
-(mac-define-voice 'wendy " [{voice kathy}] ")
-(mac-define-voice 'kit " [{voice junior}] ")
 
 ;;; Modified voices:
 
@@ -207,54 +199,8 @@ and TABLE gives the values along that dimension."
   (mac-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
-;;{{{  harry average pitch
 
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " [[pbas %s]]"
-                     (cl-second setting))))
-   '(
-     (0 0)
-     (1 10)
-     (2 20)
-     (3 30)
-     (4 40)
-     (5 50)
-     (6 60)
-     (7 70)
-     (8 80)
-     (9 90)))
-  (mac-css-set-code-table 'harry 'average-pitch table))
 
-;;}}}
-;;{{{  betty average pitch
-
-;;;defalt baseline is average pitch of 81 
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " [[pbas %s]] "
-                     (cl-second setting))))
-   '(
-     (0 5)
-     (1 17)
-     (2 33)
-     (3 49)
-     (4 65)
-     (5 81)
-     (6 85)
-     (7 89)
-     (8 93)
-     (9 97)))
-  (mac-css-set-code-table 'betty 'average-pitch table))
-
-;;}}}
 
 (defun mac-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
@@ -293,10 +239,6 @@ and TABLE gives the values along that dimension."
      (8  112.8)
      (9  127)))
   (mac-css-set-code-table 'paul 'pitch-range table))
-(let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'harry 'pitch-range table))
-(let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
 (defun mac-get-pitch-range-code (value family)
@@ -336,10 +278,6 @@ and TABLE gives the values along that dimension."
      (9  1 1 90 .3)))
   (mac-css-set-code-table 'paul 'stress table))
 
-(let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'harry 'stress table)
-  (mac-css-set-code-table 'betty 'stress table))
-
 ;;}}}
 (defun mac-get-stress-code (value family)
   (or family (setq family 'paul))
@@ -352,11 +290,6 @@ and TABLE gives the values along that dimension."
 ;;{{{  richness
 
 ;;{{{  paul richness TODO
-
-(let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'paul 'richness table)
-  (mac-css-set-code-table 'harry 'richness table)
-  (mac-css-set-code-table 'betty 'richness table))
 
 ;;}}}
 

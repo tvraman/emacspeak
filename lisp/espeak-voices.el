@@ -106,14 +106,6 @@ COMMAND-STRING to the TTS engine."
 
 ;;; the nine predefined voices:
 (espeak-define-voice 'paul "<voice gender=\"male\" variant=\"1\">")
-(espeak-define-voice 'harry "<voice gender=\"male\" variant=\"3\">")
-(espeak-define-voice 'dennis "<voice gender=\"male\" variant=\"5\">")
-(espeak-define-voice 'frank "<voice gender=\"male\" variant=\"9\">")
-(espeak-define-voice 'betty "<voice gender=\"female\" variant=\"1\">")
-(espeak-define-voice 'ursula "<voice gender=\"female\" variant=\"5\">")
-(espeak-define-voice 'rita "<voice gender=\"female\" variant=\"5\">")
-(espeak-define-voice 'wendy "<voice gender=\"female\" variant=\"5\">")
-(espeak-define-voice 'kit "<voice gender=\"neutral\">")
 
 ;;; Modified voices:
 
@@ -190,52 +182,6 @@ and TABLE gives the values along that dimension."
   (espeak-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
-;;{{{  harry average pitch
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format "<prosody pitch=\"%s\">"
-                     (cl-second setting))))
-   '(
-     (0 26)
-     (1 32.5)
-     (2 39)
-     (3 45.5)
-     (4 52)
-     (5 58.5)
-     (6 65)
-     (7 71.5)
-     (8 78)
-     (9 84.5)))
-  (espeak-css-set-code-table 'harry 'average-pitch table))
-
-;;}}}
-;;{{{  betty average pitch
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format "<prosody pitch=\"%s\">"
-                     (cl-second setting))))
-   '(
-     (0 40)
-     (1 48)
-     (2 56)
-     (3 64)
-     (4 72)
-     (5 80)
-     (6 88)
-     (7 96)
-     (8 104)
-     (9 112)))
-  (espeak-css-set-code-table 'betty 'average-pitch table))
-
-;;}}}
 
 (defun espeak-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
@@ -273,52 +219,7 @@ and TABLE gives the values along that dimension."
   (espeak-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
-;;{{{  harry pitch range
 
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format "<prosody range=\"%s\">"
-                     (cl-second setting))))
-   '(
-     (0 0)
-     (1 10)
-     (2 30)
-     (3 40)
-     (4 50)
-     (5 60)
-     (6 70)
-     (7 80)
-     (8 90)
-     (9 100)))
-  (espeak-css-set-code-table 'harry 'pitch-range table))
-
-;;}}}
-;;{{{  betty pitch range
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format "<prosody range=\"%s\">"
-                     (cl-second setting))))
-   '(
-     (0 0)
-     (1 10)
-     (2 30)
-     (3 40)
-     (4 50)
-     (5 60)
-     (6 70)
-     (7 80)
-     (8 90)
-     (9 100)))
-  (espeak-css-set-code-table 'betty 'pitch-range table))
-
-;;}}}
 (defun espeak-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -366,56 +267,6 @@ and TABLE gives the values along that dimension."
      (8 90 20)
      (9 100  0)))
   (espeak-css-set-code-table 'paul 'richness table))
-
-;;}}}
-;;{{{  harry richness
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table (cl-first setting)
-             (format "<prosody volume=\"%s\">"
-                     (cl-second setting))))
-   ;;            (format " ri:%s sm:%s "
-   ;;                     (cl-second setting)
-   ;;                     (cl-third setting)))))
-   '(
-     (0 10 100)
-     (1 20 80)
-     (2 30 60)
-     (3 40 40)
-     (4 50 20)
-     (5 60 3)
-     (6 70 24)
-     (7 80 16)
-     (8 90 20)
-     (9 100  0)))
-  (espeak-css-set-code-table 'harry 'richness table))
-
-;;}}}
-;;{{{  betty richness
-
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table (cl-first setting)
-             (format "<prosody volume=\"%s\">"
-                     (cl-second setting))))
-   ;;            (format " ri:%s sm:%s "
-   ;;                     (cl-second setting)
-   ;;                     (cl-third setting)))))
-   '(
-     (0 10 100)
-     (1 20 80)
-     (2 30 60)
-     (3 40 40)
-     (4 50 20)
-     (5 60 3)
-     (6 70 24)
-     (7 80 16)
-     (8 90 20)
-     (9 100  0)))
-  (espeak-css-set-code-table 'betty 'richness table))
 
 ;;}}}
 

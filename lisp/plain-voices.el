@@ -110,14 +110,6 @@ COMMAND-STRING to the TTS server."
 
 ;;; the nine predefined voices:
 (plain-define-voice 'paul "")
-(plain-define-voice 'harry "")
-(plain-define-voice 'dennis "")
-(plain-define-voice 'frank "")
-(plain-define-voice 'betty "")
-(plain-define-voice 'ursula "")
-(plain-define-voice 'rita "")
-(plain-define-voice 'wendy "")
-(plain-define-voice 'kit "")
 
 ;;}}}
 ;;{{{  the inaudible voice
@@ -151,14 +143,6 @@ COMMAND-STRING to the TTS server."
       ""))
 
 (plain-set-family-code 'paul "")
-(plain-set-family-code 'harry "")
-(plain-set-family-code 'dennis "")
-(plain-set-family-code 'frank "")
-(plain-set-family-code 'betty "")
-(plain-set-family-code 'ursula "")
-(plain-set-family-code 'wendy "")
-(plain-set-family-code 'rita "")
-(plain-set-family-code 'kid "")
 
 ;;}}}
 ;;{{{  hash table for mapping families to their dimensions
@@ -222,55 +206,6 @@ and TABLE gives the values along that dimension."
   (plain-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
-;;{{{  harry average pitch
-;;; Harry  has a big head --and a lower pitch for the middle setting
-
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "") ; no-op --- change to taste
-            ))
-   '(
-     (0 50 125)
-     (1 59 123)
-     (2 68 121)
-     (3 77 120)
-     (4 83  118)
-     (5 89 115)
-     (6 95 112)
-     (7 110 105)
-     (8 125 100)
-     (9 140 95)
-     ))
-  (plain-css-set-code-table 'harry 'average-pitch table))
-
-;;}}}
-;;{{{  betty average pitch
-
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format ""); no-op --- change to taste
-            ))
-   '(
-     (0 160 115)
-     (1 170 112)
-     (2 181 109)
-     (3 192 106)
-     (4 200 103)
-     (5 208  100)
-     (6 219 98)
-     (7 225  96)
-     (8 240 94)
-     (9 260  91)
-     ))
-  (plain-css-set-code-table 'betty 'average-pitch table))
-
-;;}}}
 
 (defun plain-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
@@ -313,54 +248,7 @@ and TABLE gives the values along that dimension."
   (plain-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
-;;{{{  harry pitch range
 
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format ""); no-op --- change to taste
-            ))
-   '(
-     (0 0 0)
-     (1 16 20)
-     (2 32 40)
-     (3 48 60)
-     (4 64 80)
-     (5 80 100)
-     (6 137 100)
-     (7 174 100)
-     (8 211 100)
-     (9 250 100)
-     ))
-  (plain-css-set-code-table 'harry 'pitch-range table))
-
-;;}}}
-;;{{{  betty pitch range
-
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format ""); no-op --- change to taste
-            ))
-   '(
-     (0 0 0)
-     (1 50 10)
-     (2 80 20)
-     (3 100 25)
-     (4 110 30)
-     (5 140 35)
-     (6 165 57)
-     (7 190 75)
-     (8 220 87)
-     (9 250 100)
-     ))
-  (plain-css-set-code-table 'betty 'pitch-range table))
-
-;;}}}
 (defun plain-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -405,54 +293,7 @@ and TABLE gives the values along that dimension."
   (plain-css-set-code-table 'paul 'stress table))
 
 ;;}}}
-;;{{{  harry stress
 
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "") ; no-op --- change to taste
-            ))
-   '(
-     (0  0 0 0 0)
-     (1 4 6 2 2)
-     (2 8 12 4 4)
-     (3 12 18 6 6)
-     (4 16 24 8 8)
-     (5 20 30 10 9)
-     (6 40  48 32 16)
-     (7 60 66 54 22)
-     (8 80 78 77 34)
-     (9 100 100 100 40)
-     ))
-  (plain-css-set-code-table 'harry 'stress table))
-
-;;}}}
-;;{{{  betty stress
-
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "") ; no-op --- change to taste.
-            ))
-   '(
-     (0  1 1 0 0)
-     (1 3 4 11 0)
-     (2 5 8 22 0)
-     (3 8 12 33 0)
-     (4 11  16 44 0)
-     (5 14 20 55 0)
-     (6 35 40 65 10)
-     (7 56 80 75 20)
-     (8 77 90 85 30)
-     (9 100 100 100 40)
-     ))
-  (plain-css-set-code-table 'betty 'stress table))
-
-;;}}}
 (defun plain-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -489,52 +330,8 @@ and TABLE gives the values along that dimension."
   (plain-css-set-code-table 'paul 'richness table))
 
 ;;}}}
-;;{{{  harry richness
 
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format "") ; no-op --- change to taste
-            ))
-   '(
-     (0 100 0)
-     (1 96 3)
-     (2 93 6)
-     (3 90 9)
-     (4 88 11)
-     (5 86 12)
-     (6 60 24)
-     (7 40 44)
-     (8 20 65)
-     (9 0 70)
-     ))
-  (plain-css-set-code-table 'harry 'richness table))
 
-;;}}}
-;;{{{  betty richness
-
-(let ((table (make-vector 10 "")))
-  (mapc
-    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format "") ; no-op -- change to taste.
-            ))
-   '(
-     (0 0 100)
-     (1 8 76)
-     (2 16 52)
-     (3 24  28)
-     (4 32 10)
-     (5 40 4)
-     (6 50 3)
-     (7 65 3)
-     (8 80 8 2)
-     (9 100  0)
-     ))
-  (plain-css-set-code-table 'betty 'richness table))
-
-;;}}}
 
 (defun plain-get-richness-code (value family)
   (or family (setq family 'paul))
