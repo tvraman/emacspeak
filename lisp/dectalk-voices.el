@@ -217,27 +217,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(let ((table (make-vector 10 "")))
-  (mapc
-   #'(lambda (setting)
-       (aset table
-             (cl-first setting)
-             (format " ap %s hs % s"
-                     (cl-second setting)
-                     (cl-third setting))))
-   '(
-     (0 160 115)
-     (1 170 112)
-     (2 181 109)
-     (3 192 106)
-     (4 200 103)
-     (5 208  100)
-     (6 219 98)
-     (7 225  96)
-     (8 240 94)
-     (9 260  91)
-     ))
-  (dectalk-css-set-code-table 'betty 'average-pitch table))
+
 
 ;;}}}
 
@@ -385,8 +365,6 @@ and TABLE gives the values along that dimension."
   (if value
       (format " :pu %s " value)
     ""))
-
-;;}}}
 
 ;;}}}
 ;;{{{  dectalk-define-voice-from-speech-style
