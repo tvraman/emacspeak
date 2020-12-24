@@ -69,7 +69,7 @@
    (vterm-color-cyan voice-smoothen)
    (vterm-color-default 'paul)
    (vterm-color-green voice-lighten)
-   (vterm-color-inverse-video 'betty)
+   (vterm-color-inverse-video voice-bolden)
    (vterm-color-magenta voice-annotate)
    (vterm-color-underline voice-monotone)
    (vterm-color-white 'paul)
