@@ -341,7 +341,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ tts-env for Mac:
 
-;;; Configure on load
+ 
 
 
 (provide 'mac-voices)

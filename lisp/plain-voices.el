@@ -390,7 +390,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-;;; Configure on load
+ 
 
 (plain-configure-tts)
 

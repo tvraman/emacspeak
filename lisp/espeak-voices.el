@@ -339,7 +339,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-;;; Configure on load
+ 
 
 
 (provide 'espeak-voices)

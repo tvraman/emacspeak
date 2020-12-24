@@ -410,7 +410,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-;;; Configure on load
+ 
 
 (provide 'dectalk-voices)
 ;;{{{  emacs local variables
