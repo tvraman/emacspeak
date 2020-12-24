@@ -386,7 +386,7 @@ by  \\[customize-variable] on <personality>-settings. "
             (setq ,personality voice-name)
 ;;; update all observers
             (voice-setup-update-personalities ',personality)
-            (set-default sym val))))))
+            (set-default sym val)))))))
 
 ;;}}}                                   ; ; ; ;
 ;;{{{ new light-weight voice lock
