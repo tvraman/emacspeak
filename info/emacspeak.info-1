@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1139 commands and 864 options.
+   This chapter documents a total of 1139 commands and 863 options.
 
 * Menu:
 
@@ -3335,11 +3335,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 ..........................
 
  -- Command: dtk-select-server (program &optional device)
-     ‘C-e d d’
-     ‘<fn> d d’
 
      Select a speech server interactively.
-     When called interactively, restarts speech server.
      Argument PROGRAM specifies the speech server program.
       Optional arg device sets up environment variable
      ALSA_DEFAULT to specified device before starting the server.

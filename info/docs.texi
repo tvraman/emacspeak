@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1139 commands and 864 options.
+This chapter documents a total of 1139 commands and 863 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -18878,7 +18878,7 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @defvar {User Option} voice-vterm-color-inverse-video
 Personality used for vterm-color-inverse-video
-This personality uses  ’betty whose  effect can be changed globally by customizing ’betty-settings.
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
@@ -22832,7 +22832,7 @@ Default speech rate for mac.
 @node outloud-voices
 @section outloud-voices
 
-This module defines the various voices used in voice-lock mode.
+ Interface to outloud server.
 This module is IBM ViaVoice Outloud specific.
 
 @subsection Outloud-Voices Commands
@@ -22849,7 +22849,7 @@ This module is IBM ViaVoice Outloud specific.
 @findex outloud
 
 @format
-Select Outloud server.
+Start Outloud.
 
 (fn &optional DEVICE)
 @end format
@@ -22858,7 +22858,7 @@ Select Outloud server.
 @subsection outloud-voices Options
 
 @defvar {User Option} outloud-default-speech-rate
-Default speech rate for outloud.
+Default speech rate.
 
 @end defvar
 
@@ -23611,11 +23611,6 @@ Add medium smoothen.
 
 @defvar {User Option} voice-smoothen-settings
 Smoothen current voice.
-
-@end defvar
-
-@defvar {User Option} voice-womanize-1-settings
-Apply first female voice.
 
 @end defvar
 
