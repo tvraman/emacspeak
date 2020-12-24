@@ -82,7 +82,7 @@
 ;;{{{  voice table
 
 (defvar outloud-default-voice-string "`v1"
-  "Outloud tag for  default voice -- no-op.")
+  "Default voice")
 
 (defvar outloud-voice-table (make-hash-table :test #'eq)
   "Association between symbols and strings to set Outloud  voices. ")
@@ -98,25 +98,21 @@
   (cond
    ((listp name)
     (mapconcat #'outloud-get-voice-command-internal name " "))
-   (t (or  (gethash name outloud-voice-table)
-           outloud-default-voice-string))))
+   (t (or  (gethash name outloud-voice-table) outloud-default-voice-string))))
 
 (defun outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
    (outloud-get-voice-command-internal name))
 
 (defun outloud-voice-defined-p (name)
-  "Check if there is a voice named NAME defined."
+  "Check if voice `name' is  defined."
   (cl-declare (special outloud-voice-table))
   (gethash name outloud-voice-table))
 
 ;;}}}
 ;;{{{ voice definitions
 
-;;; the nine predefined voices:
 (outloud-define-voice 'paul  " `v1 ")
-
-;;; Modified voices:
 
 ;;}}}
 ;;{{{  the inaudible voice
@@ -125,14 +121,6 @@
 
 ;;}}}
 ;;{{{  Mapping css parameters to tts codes
-
-;;{{{ voice family codes
-
-(defun outloud-get-family-code (name)
-  "Get control code for voice family NAME."
-  (outloud-get-voice-command-internal name))
-
-;;}}}
 ;;{{{  hash table for mapping families to their dimensions
 
 (defvar outloud-css-code-tables (make-hash-table)
@@ -321,6 +309,7 @@
   "")
 
 ;;}}}
+
 ;;}}}
 ;;{{{  outloud-define-voice-from-speech-style
 
@@ -329,7 +318,6 @@
   (let* ((family(acss-family style))
          (command
           (concat
-           (outloud-get-family-code family)
            (outloud-get-punctuations-code (acss-punctuations style))
            (outloud-get-average-pitch-code (acss-average-pitch style) family)
            (outloud-get-pitch-range-code (acss-pitch-range style) family)
@@ -339,6 +327,7 @@
 
 ;;}}}
 ;;{{{ Configurater
+
 ;;;###autoload
 (defun outloud-configure-tts ()
   "Configure TTS environment to use Outloud."
@@ -362,9 +351,6 @@
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
 ;;}}}
-
-;;; Configure on load
-
 
 (provide 'outloud-voices)
 ;;{{{  emacs local variables
