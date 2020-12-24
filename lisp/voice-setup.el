@@ -362,8 +362,6 @@ by  \\[customize-variable] on <personality>-settings. "
                 (choice :tag "Family"
                         (const :tag "Unspecified" nil)
                         (const  :tag "Paul" paul)
-                        (const :tag "Harry" harry)
-                        (const :tag "Betty" betty))
                 (choice :tag "Average Pitch"
                         (const :tag "Unspecified" nil)
                         (integer :tag "Number"))
