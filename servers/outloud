@@ -357,7 +357,6 @@ proc speech_task {} {
     set tts(not_stopped) 1
     set rate $tts(speech_rate)
     set length [queue_length]
-#    synth "`v1`vs$rate "
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
@@ -368,7 +367,7 @@ proc speech_task {} {
             }
             c {
                 set text  [lindex $event 1]
-                synth " $text"
+                synth " $text `v1`vs$rate "
             }
             a {
                 set sound [lindex $event 1]

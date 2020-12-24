@@ -103,10 +103,7 @@
 
 (defun outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
-  (cl-declare (special dtk-speech-rate))
-  (concat
-   (outloud-get-voice-command-internal name)
-   (format "`vs%s" dtk-speech-rate)))
+   (outloud-get-voice-command-internal name))
 
 (defun outloud-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
