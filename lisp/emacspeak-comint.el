@@ -232,7 +232,7 @@ set the current local value to the result.")
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (voice-setup-add-map
  '(
-   (comint-highlight-prompt voice-monotone)
+   (comint-highlight-prompt voice-lighten)
    (comint-highlight-input voice-bolden)))
 (cl-declaim (special emacspeak-pronounce-sha-checksum-pattern))
 
