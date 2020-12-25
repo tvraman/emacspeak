@@ -367,7 +367,8 @@ proc speech_task {} {
             }
             c {
                 set text  [lindex $event 1]
-                synth " $text `v1`vs$rate "
+                synth " $text "
+synth "`vs$rate "
             }
             a {
                 set sound [lindex $event 1]
