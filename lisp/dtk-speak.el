@@ -60,7 +60,9 @@
 
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
-(declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
+(declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el"
+                  (icon))
+;;;###autoload
 (defvar dtk-program
   (cond
    ((getenv "DTK_PROGRAM") (getenv "DTK_PROGRAM"))

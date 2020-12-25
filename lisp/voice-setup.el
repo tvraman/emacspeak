@@ -133,9 +133,6 @@
 ;;}}}
 ;;{{{Configure:
 
-(defsubst voice-setup-guess-tts ()
-  "TTS name."
-  (or dtk-program  "espeak"))
 ;;; This configures Emacspeak for the TTS engine used at start.
 ;;; Subsequent switches to other engines  causes that engine to get
 ;;; configured --- see the various tts-engine startup  commands, e.g.,
@@ -143,23 +140,23 @@
 ;;; Whenever we switch engines, we load voice-definitions for that
 ;;; engine by reloading module voice-defs.
 
-(let ((tts-name (voice-setup-guess-tts)))
-  (cond
-   ((string-match "outloud" tts-name)
+
+(cond
+   ((string-match "outloud" dtk-program)
     (require 'outloud-voices)
     (outloud-configure-tts))
-   ((string-match "dtk" tts-name)
+   ((string-match "dtk" dtk-program)
     (require 'dectalk-voices)
     (dectalk-configure-tts))
-   ((string-match "mac$" tts-name)
+   ((string-match "mac$" dtk-program)
     (require 'mac-voices)
     (mac-configure-tts))
-   ((string-match "espeak$" tts-name)
+   ((string-match "espeak$" dtk-program)
     (require 'espeak-voices)
     (espeak-configure-tts))
    (t
     (require 'plain-voices)
-    (plain-configure-tts))))
+    (plain-configure-tts)))
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.
@@ -191,14 +188,13 @@ Define a voice for it if needed, then return the symbol."
   "List  voices."
   (cl-declare (special dectalk-voice-table espeak-voice-table
                        plain-voice-table mac-voice-table
-                       outloud-voice-table))
-  (let* ((tts-name (voice-setup-guess-tts))
-         (voice-table
+                       outloud-voice-table dtk-program))
+  (let ((voice-table
           (cond
-           ((string-match "outloud" tts-name) outloud-voice-table)
-           ((string-match "dtk" tts-name) dectalk-voice-table)
-           ((string-match "mac$" tts-name) mac-voice-table)
-           ((string-match "espeak$" tts-name) espeak-voice-table)
+           ((string-match "outloud" dtk-program) outloud-voice-table)
+           ((string-match "dtk" dtk-program) dectalk-voice-table)
+           ((string-match "mac$" dtk-program) mac-voice-table)
+           ((string-match "espeak$" dtk-program) espeak-voice-table)
            (t plain-voice-table))))
     (cl-loop for k being the hash-keys of voice-table collect   k)))
 
