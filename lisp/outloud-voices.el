@@ -118,7 +118,7 @@
 (outloud-define-voice 'inaudible " `vv0 ")
 
 ;;}}}
-;;{{{  Mapping css parameters to tts codes
+;;;  Mapping css parameters to tts codes
 ;;{{{  hash table for mapping families to their dimensions
 
 (defvar outloud-css-code-tables (make-hash-table)
@@ -305,8 +305,6 @@
 (defun outloud-get-punctuations-code (_value)
   "Return string  to set  punctuations mode."
   "")
-
-;;}}}
 
 ;;}}}
 ;;{{{  outloud-define-voice-from-speech-style
