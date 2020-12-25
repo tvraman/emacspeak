@@ -423,8 +423,8 @@ command \\[customize-variable] on <personality>-settings. "
 ;;}}}
 ;;{{{ interactively silence personalities 
 
-(defvar voice-setup-buffer-face-voice-table (make-hash-table)
-  "Hash table used to store buffer local face->personality mappings.")
+(defvar voice-setup-buffer-face-voice-table (make-hash-table :test #'eq)
+  "Buffer local face->personality.")
 
 ;;; If personality at point is currently audible, its
 ;;; face->personality map is cached in a buffer local variable, and
@@ -456,45 +456,6 @@ command \\[customize-variable] on <personality>-settings. "
     (when (buffer-file-name) (normal-mode))))
 
 ;;}}}
-;;{{{ describe-voice at point:
-
-(defun voice-setup-describe-personality(personality)
-  "Describe specified voice --- analogous to \\[describe-face].
-When called interactively, `personality' defaults to first personality at point. "
-  (interactive
-   (list
-    (let* ((v (dtk-get-style)))
-      (setq v
-            (if (listp v)
-                (mapcar #'symbol-name v)
-              (symbol-name v)))
-      (when (listp v) (setq v (cl-first v)))
-      (read-from-minibuffer
-       "Personality: "
-       nil nil 'read nil  v))))
-  (let ((voice (get personality 'observing))
-        (settings nil)
-        (n '(family average-pitch pitch-range stress richness punctuations))
-        (values nil))
-    (when voice (setq settings (intern (format "%s-settings" voice))))
-    (cond
-     ((symbol-value settings) ;;; globally bound, display it
-      (setq values (symbol-value settings))
-      (with-help-window (help-buffer)
-        (with-current-buffer standard-output
-          (insert (format "Personality: %s\tVoice:%s\n\n" personality voice))
-          (put-text-property (point-min) (point)
-                             'personality personality)
-          (cl-loop
-           for i from 0 to (1- (length n))do
-           (insert (format "%s: %s\n"
-                           (elt n i) (elt values i))))))
-      (when (called-interactively-p 'interactive)
-        (emacspeak-speak-help)))
-     (t (message "%s doesn't look like a valid personality." personality)))))
-
-;;}}}
-
 (provide 'voice-setup)
 ;;{{{ end of file
 

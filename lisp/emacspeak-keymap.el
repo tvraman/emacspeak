@@ -211,7 +211,7 @@
            ("C-m" man)
            ("C-r" info-display-manual)
            ("C-s" emacspeak-wizards-customize-saved)
-           ("C-v" voice-setup-describe-personality)
+           ("C-v" emacspeak-wizards-describe-personality)
            ("G" customize-group)
            ("M" emacspeak-speak-popup-messages)
            ("M-F" find-function-at-point)
