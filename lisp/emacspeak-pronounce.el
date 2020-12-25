@@ -66,7 +66,7 @@
 ;;}}}
 ;;{{{ Dictionary structure:
 
-(defvar emacspeak-pronounce-dictionaries (make-hash-table)
+(defvar emacspeak-pronounce-dictionaries (make-hash-table :test #'eq)
   "Hash table  for   pronunciation dictionaries.
 Keys are either filenames, directory names, or major mode names.
 Values are alists containing string.pronunciation pairs.")
@@ -529,9 +529,6 @@ See http://www.charm.net/~kmarsh/smiley.html. "
                 (string :tag "String")
                 (string :tag "Pronunciation")))
   :group 'emacspeak)
-
-;;}}}
-;;{{{Text Mode Entries:
 
 ;;}}}
 ;;{{{ xml namespace uri's
