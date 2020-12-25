@@ -49,7 +49,7 @@
 (require 'voice-setup)
 
 ;;}}}
-;;{{{ voices defined using ACSS         
+;;{{{ Voice Definitions: bold and friends
 
 ;;; these voices are device independent 
 
@@ -145,7 +145,7 @@
   "Smoothness to 8.")
 
 ;;}}}
-;;{{{  Define some voice personalities:
+;;{{{  Map some voice personalities:
 
 (voice-setup-add-map
  '(
@@ -155,7 +155,7 @@
    (bold-italic voice-bolden-and-animate)
    (button voice-bolden-medium)
    (link voice-bolden-medium)
-   (link-visited voice-bolden)
+   (link-visited voice-bolden-extra)
    (success voice-brighten-extra)
    (error voice-animate)
    (warning voice-smoothen)
@@ -186,10 +186,8 @@
    (isearch-fail voice-monotone)
    (highlight voice-animate)
    (italic voice-animate)
-   (match voice-animate)
    (region voice-brighten)
-   (underline voice-lighten-extra)
-   ))
+   (underline voice-lighten-extra)))
 
 ;;}}}
 (provide 'voice-defs)
