@@ -92,17 +92,15 @@
   (cl-declare (special outloud-voice-table))
   (puthash name command-string outloud-voice-table))
 
-(defun outloud-get-voice-command-internal  (name)
+(defun outloud-get-voice-command  (name)
   "Retrieve command string for  voice NAME."
   (cl-declare (special outloud-voice-table))
   (cond
    ((listp name)
-    (mapconcat #'outloud-get-voice-command-internal name " "))
+    (mapconcat #'outloud-get-voice-command name " "))
    (t (or  (gethash name outloud-voice-table) outloud-default-voice-string))))
 
-(defun outloud-get-voice-command (name)
-  "Retrieve command string for  voice NAME."
-   (outloud-get-voice-command-internal name))
+
 
 (defun outloud-voice-defined-p (name)
   "Check if voice `name' is  defined."
