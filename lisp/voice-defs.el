@@ -40,6 +40,7 @@
 ;;; Commentary:
 ;;; Contains just the voice definitions. Voices are defined using the
 ;;; facilities of module voice-setup.
+;;; Code:
 
 ;;}}}
 ;;{{{ Required modules
@@ -52,8 +53,6 @@
 ;;{{{ Voice Definitions: bold and friends
 
 ;;; these voices are device independent 
-
-
 
 (defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
   "Add speaks some punctuations.")
@@ -168,7 +167,7 @@
    (font-lock-regexp-grouping-construct voice-smoothen)
    (font-lock-string-face voice-lighten-extra)
    (font-lock-type-face voice-smoothen)
-   (font-lock-variable-name-face voice-bolden-extra)
+   (font-lock-variable-name-face voice-animate)
    (font-lock-warning-face voice-bolden-and-animate)
    (fringe voice-monotone-medium)
    (help-argument-name voice-smoothen)
