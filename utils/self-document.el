@@ -68,11 +68,14 @@
  (expand-file-name "../../site-lisp" (file-name-directory
                                       load-file-name)))
 (load "emacspeak-preamble")
+(load "plain-voices")
+(load "voice-setup")
 (load "emacspeak-loaddefs")
 (defconst self-document-files
   (append
-   (list "emacspeak-maths.el" "emacspeak-muggles.el" "extra-muggles.el")
-   (directory-files self-document-lisp-directory nil "\\.elc$"))
+   (directory-files self-document-lisp-directory nil "\\.elc$")
+   (list "emacspeak-maths.el" "emacspeak-muggles.el"
+         "extra-muggles.el" "emacspeak-extras.el"))
   "List of elisp modules  to document.")
 (defvar emacspeak-muggles-activate-p t)
 (defvar self-document-fn-key
