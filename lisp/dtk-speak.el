@@ -1507,7 +1507,7 @@ ALSA_DEFAULT."
     current-prefix-arg))
   (cl-declare (special dtk-program dtk-servers-alist
                        tts-device emacspeak-servers-directory
-                        emacspeak-ssh-tts-server))
+                       emacspeak-ssh-tts-server))
   (when  device
     (setq tts-device
           (completing-read "Device: "
@@ -1519,7 +1519,10 @@ ALSA_DEFAULT."
     (when
         (file-exists-p (expand-file-name ssh-server emacspeak-servers-directory))
       (setq emacspeak-ssh-tts-server ssh-server)
-      (setq-default emacspeak-ssh-tts-server ssh-server))))
+      (setq-default emacspeak-ssh-tts-server ssh-server)))
+  (when (called-interactively-p 'interactive)
+    (ems--fastload "voice-setup")
+    (dtk-initialize)))
 
 (defun dtk-cloud ()
   "Select  Cloud TTS server."
