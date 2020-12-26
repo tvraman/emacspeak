@@ -298,7 +298,6 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   "Audio-format seconds."
   (format-seconds "%H %M and%z %S" secs))
 
-;;;###autoload
 (defun sox-binaural (name duration)
   "Play specified binaural effect."
   (interactive
@@ -446,7 +445,6 @@ binaural beat to another."
           b next slider-len)
          (setq start (+ start slider-len)))))))
 
-;;;###autoload
 (defun sox-rev-up (length)
   "Play rev-up set of  binaural beats.
 Param `length' specifies total duration."
@@ -454,7 +452,6 @@ Param `length' specifies total duration."
   (cl-declare (special sox-rev-up-beats))
   (sox--theme-play sox-rev-up-beats length))
 
-;;;###autoload
 (defun sox-turn-down (length)
   "Play turn-down set of  binaural beats.
 Param `length' specifies total duration."
@@ -462,7 +459,6 @@ Param `length' specifies total duration."
   (cl-declare (special sox-turn-down-beats))
   (sox--theme-play sox-turn-down-beats length))
 
-;;;###autoload
 (defun sox-wind-down (length)
   "Play wind-down set of  binaural beats.
 Param `length' specifies total duration."
@@ -470,7 +466,6 @@ Param `length' specifies total duration."
   (cl-declare (special sox-wind-down-beats))
   (sox--theme-play sox-wind-down-beats length))
 
-;;;###autoload
 (defun sox-relax (length)
   "Play relax set of  binaural beats.
 Param `length' specifies total duration."
@@ -527,7 +522,6 @@ Param `length' specifies total duration."
    :beats `(,(cdr s))
    :gain -10)))
 
-;;;###autoload
 (defun sox-chakras (theme duration)
   "Play each chakra for specified duration.
 Parameter `theme' specifies variant."
@@ -624,7 +618,6 @@ echo .9 .5 40 0.5 60 0.3 5 0.2 \
 channels 2 tempo 1.3   gain -4"
   "Chime used to indicate multiple windows.")
 
-;;;###autoload
 (defun sox-multiwindow (&optional swap  speed)
   "Produce a short note used to cue multiwindow."
   (cl-declare (special sox-multiwindow-cmd))
@@ -644,7 +637,6 @@ delay 0.1 0.5 \
 tempo 2 channels 2"
   "A quick scroll sound.")
 
-;;;###autoload
 (defun sox-do-scroll-up (&optional  speed)
   "Produce a short do-scroll-up."
   (cl-declare (special sox-do-scroll-up-cmd))
@@ -660,7 +652,6 @@ delay 0.5 0.1 \
 tempo 2 channels 2   "
   "A quick scroll sound.")
 
-;;;###autoload
 (defun sox-do-scroll-down (&optional speed)
   "Produce a short do-scroll-down."
   (cl-declare (special sox-do-scroll-down-cmd))
@@ -680,7 +671,6 @@ delay  1.3 1 .76 .54 .27 \
   norm -1 channels 2"
   "Command-line that produces a sequence of  tones.")
 
-;;;###autoload
 (defun sox-tones (&optional tempo speed)
   "Play sequence of tones --- optional args tempo and speed default to 1."
   (cl-declare (special sox-tones-cmd))
