@@ -132,7 +132,7 @@
   "Test if `s' can to be bound to a key."
   (or (commandp s) (keymapp s)))
 
-;;;###autoload
+
 (defun emacspeak-keymap-update (keymap binding)
   "Update keymap with  binding."
   (define-key keymap  (ems-kbd (cl-first binding)) (cl-second binding)))

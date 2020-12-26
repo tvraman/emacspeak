@@ -175,7 +175,7 @@
 ;;}}}
 ;;{{{ pause/resume if needed
 
-;;;###autoload
+
 (defun emacspeak-emms-pause-or-resume ()
   "Pause/resume if emms is running. For use  in
 emacspeak-silence-hook."

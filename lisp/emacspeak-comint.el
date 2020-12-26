@@ -140,7 +140,7 @@ When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
-;;;###autoload
+
 (defun emacspeak-comint-speech-setup ()
   "Speech setup for comint buffers."
   (cl-declare (special comint-mode-map

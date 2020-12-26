@@ -199,7 +199,7 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  serve an auditory icon
 
-;;;###autoload
+
 (defun emacspeak-serve-auditory-icon (sound-name)
   "Serve auditory icon SOUND-NAME."
   (cl-declare (special dtk-speaker-process))

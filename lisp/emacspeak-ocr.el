@@ -319,7 +319,7 @@ See \\{emacspeak-ocr-mode-map}.
 
 ;;}}}
 ;;{{{ interactive commands
-;;;###autoload
+
 (defun emacspeak-ocr-customize ()
   "Customize OCR settings."
   (interactive)

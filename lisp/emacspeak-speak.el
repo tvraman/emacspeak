@@ -1165,7 +1165,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
        ((> char 128) (emacspeak-speak-char-name char))
        (t (emacspeak-speak-this-char char))))))
 
-;;;###autoload
+
 (defun emacspeak-speak-char-name (char)
   "tell me what this is"
   (interactive)
