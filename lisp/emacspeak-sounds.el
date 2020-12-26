@@ -100,7 +100,6 @@ Use `emacspeak-toggle-auditory-icons' bound to
   (make-hash-table)
   "Maps valid sound themes to the file name extension used by that theme.")
 
-;;;###autoload
 (defsubst emacspeak-sounds-define-theme (theme-name file-ext)
   "Define a sounds theme for auditory icons. "
   (cl-declare (special emacspeak-sounds-themes-table))
@@ -230,7 +229,6 @@ Do not set this by hand;
       (start-process
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-get-sound-filename sound-name)))))
-;;;###autoload
 (defvar emacspeak-sox (executable-find "sox")
   "Name of SoX executable.")
 
@@ -260,7 +258,6 @@ Queue : Add auditory icon to speech queue.
 Use Serve when working with remote speech servers."
   )
 
-;;;###autoload
 (defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (cl-declare (special emacspeak-auditory-icon-function
@@ -303,7 +300,6 @@ Optional interactive PREFIX arg toggles global value."
   (expand-file-name "prompts" emacspeak-sounds-directory)
   "Where pre-defined prompt files are located.")
 
-;;;###autoload 
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
   (cl-declare (special emacspeak-prompts-directory emacspeak-m-player-program))

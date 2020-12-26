@@ -84,7 +84,6 @@ Values are alists containing string.pronunciation pairs.")
     (setq key (intern key)))
   (gethash key emacspeak-pronounce-dictionaries))
 
-;;;###autoload
 (defun emacspeak-pronounce-add-dictionary-entry (key string pronunciation)
   " Adds pronunciation pair STRING.PRONUNCIATION to the dictionary.
 Argument KEY specifies a dictionary key e.g. directory, mode etc.
@@ -280,7 +279,6 @@ applied.")
 
 (defvar emacspeak-pronounce-dictionaries-loaded nil
   "Indicates if dictionaries already loaded.")
-;;;###autoload
 (defun emacspeak-pronounce-load-dictionaries (&optional filename)
   "Load pronunciation dictionaries.
 Optional argument FILENAME specifies the dictionary file,
