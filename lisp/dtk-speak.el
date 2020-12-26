@@ -807,7 +807,7 @@ this pattern if previously added.    "
 ;;}}}
 ;;{{{ helper --generate state switcher:
 
-;;;###autoload
+
 (defun ems-generate-switcher (command switch documentation)
   "Generate  command to switch  state."
   (eval

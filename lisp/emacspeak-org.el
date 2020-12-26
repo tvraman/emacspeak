@@ -499,7 +499,7 @@
 ;;}}}
 ;;{{{ global input wizard
 
-;;;###autoload
+
 (defun emacspeak-org-popup-input ()
   "Pops up an org input area."
   (interactive)
@@ -733,7 +733,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 ;;; Taken from a message on the org mailing list.
 
-;;;###autoload
+
 (defun emacspeak-org-popup-input-buffer (mode)
   "Provide an input buffer in a specified mode."
   (interactive

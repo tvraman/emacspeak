@@ -365,7 +365,7 @@
 ;;}}}
 ;;{{{ Global sunrise/sunset wizard:
 
-;;;###autoload
+
 (defun emacspeak-calendar-sunrise-sunset (address &optional arg)
   "Display sunrise/sunset for specified address."
   (interactive
@@ -468,7 +468,7 @@
 
 ;;}}}
 ;;{{{ Use GWeb if available for configuring sunrise/sunset coords
-;;;###autoload
+
 (defun emacspeak-calendar-setup-sunrise-sunset ()
   "Set up geo-coordinates using Google Maps reverse geocoding.
 To use, configure variable gmaps-my-address via M-x customize-variable."

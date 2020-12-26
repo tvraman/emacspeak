@@ -471,7 +471,7 @@ Optional prefix arg prompts for toolbelt options."
   "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
   "URI for Ask Jeeves  search")
 
-;;;###autoload
+
 (defun emacspeak-websearch-ask-jeeves (query)
   "Ask Jeeves for the answer."
   (interactive

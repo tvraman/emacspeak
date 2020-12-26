@@ -57,7 +57,7 @@ restored across multiple Emacs sessions."
     (list frame-map other-maps)))
 
 
-;;;###autoload
+
 (defun set-tapestry (map &optional n root-window-edges)
   "Restore the frame/window/buffer configuration described by MAP,
 which should be a list previously returned by a call to
