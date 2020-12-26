@@ -81,8 +81,6 @@
     (?S . ?\S-\^@))
   "Map modifier names to modifier bit-values.")
 
-;;;###autoload
-
 (defun ems-kbd (string )
   "Like function kbd, but returns a vector."
   (cl-declare (special ems--kbd-mod-table ems--kbd-char-table))
