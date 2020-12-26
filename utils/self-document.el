@@ -65,7 +65,9 @@
 (add-to-list 'load-path self-document-lisp-directory)
 (add-to-list
  'load-path
- (expand-file-name "../../site-lisp" (file-name-directory load-file-name)))
+ (expand-file-name "../../site-lisp" (file-name-directory
+                                      load-file-name)))
+(load "emacspeak-preamble")
 (load "emacspeak-loaddefs")
 (defconst self-document-files
   (append
