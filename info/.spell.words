@@ -1,5 +1,4 @@
 acc
-acss
 ACSS
 addons
 affordances
@@ -7,7 +6,6 @@ alist
 Alist
 allcaps
 AllCaps
-allout
 alsa
 Alsa
 ALSA
@@ -36,12 +34,10 @@ auctex
 Auctex
 AucTeX
 AUCTeX
-auth
 autoload
 autopan
 autosat
 autospeak
-axies
 backend
 bbdb
 BBDB
@@ -122,8 +118,8 @@ Dectalk
 DecTalk
 DECTalk
 Dectalks
+defs
 defun
-defvoice
 deref
 Dfilter
 DHTML
@@ -153,7 +149,6 @@ dvi
 DVI
 EasyPG
 ebook
-EBook
 ebooks
 EBooks
 ecb
@@ -230,7 +225,6 @@ EWW's
 facevoice
 fastload
 fg
-fil
 filesystem
 filladapt
 fillin
@@ -285,7 +279,6 @@ GTAGS
 gud
 gv
 hideshow
-HideShow
 highlightflycheck
 Hoogle
 hostname
@@ -301,7 +294,6 @@ IEDIT
 iex
 IEX
 ILisp
-IM
 imap
 IMap
 imenu
@@ -312,7 +304,6 @@ inlined
 inlinetask
 Installable
 interp
-invada
 iplayer
 IPython
 isearch
@@ -344,7 +335,6 @@ libxsl
 libxslt
 linearize
 Linearizing
-liquidsoap
 lispy
 Lispy
 LISPY
@@ -362,7 +352,6 @@ makepp
 manpage
 maths
 Maths
-mcp
 MDash
 melpa
 mELPA
@@ -431,7 +420,6 @@ param
 parametrized
 paredit
 paren
-Parens
 pathname
 pdftotext
 PerlDB
@@ -528,7 +516,6 @@ shx
 SHX
 situationally
 smartparens
-SmartParens
 SMARTPARENS
 smoothen
 Smoothen
@@ -537,7 +524,6 @@ Sorenson
 sox
 Sox
 SoX
-spc
 SPC
 speakable
 speedbar
@@ -554,7 +540,6 @@ strikethru
 stylesheets
 su
 subdir
-subdirectories
 subjob
 submode
 subtrees
@@ -562,7 +547,6 @@ sudo
 summarizer
 SunOS
 supercite
-swh
 symlink
 symlinks
 syslog
@@ -577,12 +561,10 @@ texi
 texinfo
 Texinfo
 textarea
-textfilter
 theEmacspeak
 tiffcp
 timesavers
 toc
-TOC
 todo
 toolbelt
 tooltip
@@ -602,7 +584,6 @@ txicodequotebacktick
 txicodequoteundirected
 txt
 udisks
-UDisks
 ui
 Ui
 UI
@@ -612,7 +593,6 @@ unescape
 unifont
 unmapped
 unmerged
-unnested
 unraised
 untranscode
 untrusted
@@ -624,7 +604,6 @@ utf
 UTF
 utils
 vc
-vco
 vdiff
 Vdiff
 VDIFF
@@ -638,7 +617,6 @@ VM
 VMMail
 voiceified
 voiceify
-Voicification
 Voicifies
 voxin
 Voxin
@@ -647,7 +625,6 @@ VTERM
 vuiet
 Vuiet
 VUIET
-wah
 wav
 wdired
 wearables
@@ -694,6 +671,5 @@ yasnippet
 YASNIPPET
 yyyy
 yyyymmdd
-zam
 Zandt
 zoneinfo
