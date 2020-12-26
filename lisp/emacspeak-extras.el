@@ -427,7 +427,7 @@ Interactive  arguments specify filename pattern and search pattern."
     (setq annotation (buffer-string))
     (bury-buffer)
     annotation))
-;;;###autoload
+
 (defun emacspeak-annotate-add-annotation (&optional reset)
   "Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
