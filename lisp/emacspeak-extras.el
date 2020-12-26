@@ -226,6 +226,13 @@ for the current voice family."
               (string-match  "^acss-" (symbol-name  (symbol-value s))))
            (push s result))))
     result))
+
+
+(defun voice-setup-defined-fonts ()
+  "Return list of voices defined via def-voice-font."
+  (cl-declare (special outloud-voice-table))
+  (cl-loop for k being the hash-keys of outloud-voice-table collect k))
+
 ;;;###autoload
 (defun emacspeak-wizards-show-defined-voices ()
   "Display a buffer with sample text in the defined voices."
@@ -234,6 +241,30 @@ for the current voice family."
         (voices
          (sort
           (voice-setup-defined-voices)
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
+    (save-current-buffer
+      (set-buffer buffer)
+      (erase-buffer)
+      (cl-loop
+       for v in voices do
+       (insert
+        (format "This is a sample of voice %s. " (symbol-name v)))
+       (put-text-property
+        (line-beginning-position) (line-end-position) 'personality v)
+       (end-of-line)
+       (insert "\n")))
+    (funcall-interactively #'pop-to-buffer buffer)
+    (goto-char (point-min))))
+
+
+;;;###autoload
+(defun emacspeak-wizards-show-defined-voice-fonts ()
+  "Display a buffer with sample text in the defined voice fonts."
+  (interactive)
+  (let ((buffer (get-buffer-create "*Voice Fonts Sampler*"))
+        (voices
+         (sort
+          (voice-setup-defined-fonts)
           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
     (save-current-buffer
       (set-buffer buffer)
