@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 23, 2020.
+last updated on December 26, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1139 commands and 863 options.
+   This chapter documents a total of 1137 commands and 859 options.
 
 * Menu:
 
@@ -3335,11 +3335,12 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 ..........................
 
  -- Command: dtk-select-server (program &optional device)
+     ‘C-e d d’
+     ‘<fn> d d’
 
-     Select a speech server interactively.
-     Argument PROGRAM specifies the speech server program.
+     Select  speech server ‘program’.
       Optional arg device sets up environment variable
-     ALSA_DEFAULT to specified device before starting the server.
+     ALSA_DEFAULT.
 
      (fn PROGRAM &optional DEVICE)
 
@@ -3697,12 +3698,25 @@ File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-2048,  Prev: dtk-unicod
 ==============
 
 Emacspeak extends Emacs to be a fully functional audio desktop.  This is
-the main emacspeak module.  It actually does very little: It sets up
-Emacs to load package-specific Emacspeak modules as each package is
-loaded.  It implements function emacspeak which loads the rest of the
-system.
+the main emacspeak module.
 
-12.8.1 emacspeak Options
+12.8.1 Emacspeak Commands
+-------------------------
+
+12.8.1.1 emacspeak-toggle-comint-output-monitor
+...............................................
+
+ -- Command: emacspeak-toggle-comint-output-monitor (&optional prefix)
+     ‘C-e o’
+     ‘<fn> o’
+
+     Toggle state of Emacspeak comint monitor.
+     When turned on, comint output is automatically spoken.  Turn this on if
+     you want your shell to speak its results.  Interactive
+     PREFIX arg means toggle the global default value, and then
+     set the current local value to the result.
+
+12.8.2 emacspeak Options
 ------------------------
 
  -- Variable: User Option emacspeak-play-emacspeak-startup-icon
@@ -3749,9 +3763,9 @@ system.
      customizing voice-monotone-medium-settings.
 
  -- Variable: User Option voice-error
-     Personality used for error This personality uses voice-animate
+     Personality used for error This personality uses voice-brighten
      whose effect can be changed globally by customizing
-     voice-animate-settings.
+     voice-brighten-settings.
 
  -- Variable: User Option voice-file-name-shadow
      Personality used for file-name-shadow This personality uses
@@ -3788,31 +3802,6 @@ system.
      whose effect can be changed globally by customizing
      voice-animate-settings.
 
- -- Variable: User Option voice-hydra-face-amaranth
-     Personality used for hydra-face-amaranth This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-hydra-face-blue
-     Personality used for hydra-face-blue This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-hydra-face-pink
-     Personality used for hydra-face-pink This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-hydra-face-red
-     Personality used for hydra-face-red This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-hydra-face-teal
-     Personality used for hydra-face-teal This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
  -- Variable: User Option voice-isearch
      Personality used for isearch This personality uses voice-bolden
      whose effect can be changed globally by customizing
@@ -3840,8 +3829,8 @@ system.
 
  -- Variable: User Option voice-link-visited
      Personality used for link-visited This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
 
  -- Variable: User Option voice-match
      Personality used for match This personality uses voice-lighten
@@ -3945,18 +3934,18 @@ system.
 
  -- Variable: User Option voice-variable-name-personality
      Personality used for font-lock-variable-name-face This personality
-     uses voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
 
  -- Variable: User Option voice-variable-pitch
      Personality used for variable-pitch This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
 
  -- Variable: User Option voice-warning
-     Personality used for warning This personality uses voice-smoothen
+     Personality used for warning This personality uses voice-brighten
      whose effect can be changed globally by customizing
-     voice-smoothen-settings.
+     voice-brighten-settings.
 
  -- Variable: User Option voice-warning-personality
      Personality used for font-lock-warning-face This personality uses
@@ -4577,23 +4566,6 @@ detailed usage instructions and key-bindings.
 12.23.3 Sample Interaction
 --------------------------
 
-Assuming you have correctly setup your API key:
-   • Customize group ‘emacspeak-bookshare’ by pressing ‘C-h G’.
-   • Press ‘C-e C-b’ to open or switch to the Bookshare buffer.
-   • Perform a search ‘a’ or ‘t’ for author or title search.
-   • You will be prompted for your Bookshare password if this is the
-     first time.
-   • The password will be saved to your configured ‘auth-source’ —
-     usually ‘~/.authinfo.gpg’.  You can also use ‘password-store[.]’
-   • The results of the search appear in the Bookshare buffer.  Audio
-     formatting and auditory icons convey if a result is already
-     available locally.
-   • If not available locally, press ‘D’ to download the content.
-   • Press ‘U’ to unpack the downloaded content.
-   • Press ‘e’ to display the entire book.
-   • Press ‘c’ to display the table of contents.
-   • Now, use all of EWW *Note emacspeak-eww:: extensions and profit!
-
 12.23.4 Emacspeak-Bookshare Commands
 ------------------------------------
 
@@ -5151,9 +5123,7 @@ File: emacspeak.info,  Node: emacspeak-calendar,  Next: emacspeak-chess,  Prev: 
 12.30 emacspeak-calendar
 ========================
 
-This module speech enables the Emacs Calendar.  Speech enabling is not
-the same as speaking the screen: This is an excellent example of the
-advantages of speech-enabled interaction.
+This module speech enables the Emacs Calendar.
 
 12.30.1 Emacspeak-Calendar Commands
 -----------------------------------
@@ -5219,80 +5189,24 @@ The Emacs Chess package provides a rich environment for playing and
 exploring Chess Games.  That package comes with a light-weight module
 that announces moves.
 
-   This module aims do do much more, including:
-   • Navigate the board along various axies with audio-formatted output.
-   • Browse games via rich audio-formatted output.
-   • Speech-enable all interactive commands provided by the Chess
-     package.
-   • Enable various means of exploring the state of game, perhaps with a
-     view to being able to spot patterns from listening to the output.
-
-12.31.1 Navigating And Examining The Board
-------------------------------------------
-
-The board can be navigated along the 8 compass directions.  Arrow keys
-move to the appropriate squares on the board.  ‘/’ and ‘\’ move down the
-diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
-   • Move North: ‘emacspeak-chess-north’ bound to ‘up’.
-   • Move South: ‘emacspeak-chess-south’ bound to ‘down’.
-   • Move West: ‘emacspeak-chess-west’ bound to ‘left’.
-   • Move East: ‘emacspeak-chess-east’ bound to ‘right’.
-   You can also move along the diagonals:
-   • Move Northwest: ‘emacspeak-chess-northwest’ bound to ‘[’.
-   • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘]’.
-   • Move Southwest: ‘emacspeak-chess-southwest’ bound to ‘/’.
-   • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\’.
-   You can also jump to a given board position by:
-   • Jump: ‘emacspeak-chess-jump’ bound to ‘j’.
-   • Target of last move: ‘emacspeak-chess-goto-target’ bound to ‘t’.
-   • Look: ‘emacspeak-chess-speak-that-square’ bound to ‘l’.
-   • Review current square: ‘;’.
-   • Review Board: ‘emacspeak-chess-speak-board’ bound to ‘z’.  Useful
-     in end-state.
-   • Locate pieces: ‘emacspeak-chess-speak-piece-squares’ bound to ‘s’.
-     Specify piece as a single char — ‘w’ speaks all white pieces, ‘l’
-     speaks all black pieces, use SAN notation char for a specific
-     piece.  Use ‘a’ to hear entire board, this last is most useful when
-     the game is an end-state.
-   • Discover who targets a square: ‘emacspeak-chess-speak-who-targets’
-     bound to ‘w’.  Argument ‘piece’ is similar to the previously listed
-     command.
-   You can obtain views of the board along the rows and diagonals, as
-well as a _knight’s perspective _:
-   • Viewers: ‘v’ followed by the directional navigation keys speaks the
-     squares in that direction from the current square.  ‘vn’ speaks the
-     squares from a knight’s perspective, i.e.  the squares the Knight
-     would see from the current position.  similarly, ‘vk’ speaks the
-     non-empty squares seen by the King from the current position.  ‘v’
-     followed by a rank-or-file char speaks that complete rank or file.
-
-12.31.2 Examining Games
------------------------
-
-Package _Chess_ allows one to browse through a game using ‘,’ and ‘.’ —
-‘chess-display-move-backward’ and ‘chess-display-move-forward’.
-Emacspeak speech-enables these commands to speak the move that led to
-the currently displayed state of the game.  Finally, ‘m’ speaks the
-_current move_ being displayed.
-
-12.31.3 Emacspeak-Chess Commands
+12.31.1 Emacspeak-Chess Commands
 --------------------------------
 
-12.31.3.1 emacspeak-chess-east
+12.31.1.1 emacspeak-chess-east
 ..............................
 
  -- Command: emacspeak-chess-east
 
      Move east one step.
 
-12.31.3.2 emacspeak-chess-goto-target
+12.31.1.2 emacspeak-chess-goto-target
 .....................................
 
  -- Command: emacspeak-chess-goto-target
 
      Jump to the most recent target square.
 
-12.31.3.3 emacspeak-chess-jump
+12.31.1.3 emacspeak-chess-jump
 ..............................
 
  -- Command: emacspeak-chess-jump (coord)
@@ -5301,126 +5215,126 @@ _current move_ being displayed.
 
      (fn COORD)
 
-12.31.3.4 emacspeak-chess-look-east
+12.31.1.4 emacspeak-chess-look-east
 ...................................
 
  -- Command: emacspeak-chess-look-east
 
      Look east
 
-12.31.3.5 emacspeak-chess-look-king
+12.31.1.5 emacspeak-chess-look-king
 ...................................
 
  -- Command: emacspeak-chess-look-king
 
      Look along non-empty squares reachable by the king  from current position.
 
-12.31.3.6 emacspeak-chess-look-knight
+12.31.1.6 emacspeak-chess-look-knight
 .....................................
 
  -- Command: emacspeak-chess-look-knight
 
      Look along non-empty squares reachable by a knight from current position.
 
-12.31.3.7 emacspeak-chess-look-north
+12.31.1.7 emacspeak-chess-look-north
 ....................................
 
  -- Command: emacspeak-chess-look-north
 
      Look north
 
-12.31.3.8 emacspeak-chess-look-northeast
+12.31.1.8 emacspeak-chess-look-northeast
 ........................................
 
  -- Command: emacspeak-chess-look-northeast
 
      Look northeast
 
-12.31.3.9 emacspeak-chess-look-northwest
+12.31.1.9 emacspeak-chess-look-northwest
 ........................................
 
  -- Command: emacspeak-chess-look-northwest
 
      Look northwest
 
-12.31.3.10 emacspeak-chess-look-south
+12.31.1.10 emacspeak-chess-look-south
 .....................................
 
  -- Command: emacspeak-chess-look-south
 
      Look south
 
-12.31.3.11 emacspeak-chess-look-southeast
+12.31.1.11 emacspeak-chess-look-southeast
 .........................................
 
  -- Command: emacspeak-chess-look-southeast
 
      Look southeast
 
-12.31.3.12 emacspeak-chess-look-southwest
+12.31.1.12 emacspeak-chess-look-southwest
 .........................................
 
  -- Command: emacspeak-chess-look-southwest
 
      Look southwest
 
-12.31.3.13 emacspeak-chess-look-west
+12.31.1.13 emacspeak-chess-look-west
 ....................................
 
  -- Command: emacspeak-chess-look-west
 
      Look west
 
-12.31.3.14 emacspeak-chess-north
+12.31.1.14 emacspeak-chess-north
 ................................
 
  -- Command: emacspeak-chess-north
 
      Move north one step.
 
-12.31.3.15 emacspeak-chess-northeast
+12.31.1.15 emacspeak-chess-northeast
 ....................................
 
  -- Command: emacspeak-chess-northeast
 
      Move northeast one step.
 
-12.31.3.16 emacspeak-chess-northwest
+12.31.1.16 emacspeak-chess-northwest
 ....................................
 
  -- Command: emacspeak-chess-northwest
 
      Move northwest one step.
 
-12.31.3.17 emacspeak-chess-south
+12.31.1.17 emacspeak-chess-south
 ................................
 
  -- Command: emacspeak-chess-south
 
      Move south one step.
 
-12.31.3.18 emacspeak-chess-southeast
+12.31.1.18 emacspeak-chess-southeast
 ....................................
 
  -- Command: emacspeak-chess-southeast
 
      Move southeast one step.
 
-12.31.3.19 emacspeak-chess-southwest
+12.31.1.19 emacspeak-chess-southwest
 ....................................
 
  -- Command: emacspeak-chess-southwest
 
      Move southwest one step.
 
-12.31.3.20 emacspeak-chess-speak-board
+12.31.1.20 emacspeak-chess-speak-board
 ......................................
 
  -- Command: emacspeak-chess-speak-board
 
      Speak complete board. Only useful in end-states.
 
-12.31.3.21 emacspeak-chess-speak-piece-squares
+12.31.1.21 emacspeak-chess-speak-piece-squares
 ..............................................
 
  -- Command: emacspeak-chess-speak-piece-squares (piece)
@@ -5432,7 +5346,7 @@ _current move_ being displayed.
 
      (fn PIECE)
 
-12.31.3.22 emacspeak-chess-speak-that-square
+12.31.1.22 emacspeak-chess-speak-that-square
 ............................................
 
  -- Command: emacspeak-chess-speak-that-square (coord)
@@ -5441,21 +5355,21 @@ _current move_ being displayed.
 
      (fn COORD)
 
-12.31.3.23 emacspeak-chess-speak-this-move
+12.31.1.23 emacspeak-chess-speak-this-move
 ..........................................
 
  -- Command: emacspeak-chess-speak-this-move
 
      Speak move at current display index.
 
-12.31.3.24 emacspeak-chess-speak-this-square
+12.31.1.24 emacspeak-chess-speak-this-square
 ............................................
 
  -- Command: emacspeak-chess-speak-this-square
 
      Speak square under point.
 
-12.31.3.25 emacspeak-chess-speak-who-targets
+12.31.1.25 emacspeak-chess-speak-who-targets
 ............................................
 
  -- Command: emacspeak-chess-speak-who-targets (piece)
@@ -5466,14 +5380,14 @@ _current move_ being displayed.
 
      (fn PIECE)
 
-12.31.3.26 emacspeak-chess-view-rank-or-file
+12.31.1.26 emacspeak-chess-view-rank-or-file
 ............................................
 
  -- Command: emacspeak-chess-view-rank-or-file
 
      View a complete rank or file from white’s perspective.
 
-12.31.3.27 emacspeak-chess-west
+12.31.1.27 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west
@@ -5553,20 +5467,7 @@ comint == command interaction.  Advice comint and friends to speak.
 
      (fn &optional PREFIX)
 
-12.36.1.3 emacspeak-toggle-comint-output-monitor
-................................................
-
- -- Command: emacspeak-toggle-comint-output-monitor (&optional prefix)
-     ‘C-e o’
-     ‘<fn> o’
-
-     Toggle state of Emacspeak comint monitor.
-     When turned on, comint output is automatically spoken.  Turn this on if
-     you want your shell to speak its results.  Interactive
-     PREFIX arg means toggle the global default value, and then
-     set the current local value to the result.
-
-12.36.1.4 emacspeak-toggle-inaudible-or-comint-autospeak
+12.36.1.3 emacspeak-toggle-inaudible-or-comint-autospeak
 ........................................................
 
  -- Command: emacspeak-toggle-inaudible-or-comint-autospeak
@@ -5592,8 +5493,8 @@ comint == command interaction.  Advice comint and friends to speak.
 
  -- Variable: User Option voice-comint-highlight-prompt
      Personality used for comint-highlight-prompt This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-comint,  Up: Emacspeak Commands And Options
@@ -5883,24 +5784,6 @@ after emacspeak has been started.
 12.41.1 Overview
 ----------------
 
-This module provides integration via DBus for the following:
-   • Respond to network coming up or going down — ‘(nm-enable)’.
-   • Respond to screen getting locked/unlocked by gnome-screen-saver —
-     ‘(emacspeak-dbus-watch-screen-lock)’.
-   • Respond to laptop going to sleep or waking up —
-     ‘(emacspeak-dbus-sleep-enable)’.
-   • Respond to insertion/ejection of removable storage —
-     ‘(emacspeak-dbus-udisks-enable)’.
-   • Watch for power devices — ‘(emacspeak-dbus-upower-enable)’.
-   • An interactive command ‘emacspeak-dbus-lock-screen’ bound to ‘C-,
-     C-d’ to lock the screen using DBus.  Note: this key-binding is
-     available only if this module is loaded.
-   Add calls to the desired functions from the above list to the emacs
-startup file after this module has been loaded.  See relevant hooks for
-customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
-network/up-down can be separately enabled/disabled, and the actions
-customized via appropriately named hook functions.
-
 12.41.2 Emacspeak-Dbus Commands
 -------------------------------
 
@@ -6104,9 +5987,7 @@ File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: em
 12.47 emacspeak-dired
 =====================
 
-This module speech enables dired.  It reduces the amount of speech you
-hear: Typically you hear the file names as you move through the dired
-buffer Voicification is used to indicate directories, marked files etc.
+This module speech enables dired.
 
 12.47.1 Emacspeak-Dired Commands
 --------------------------------
@@ -7025,94 +6906,12 @@ the various commands and user options.
 In the simplest case, EBooks can be placed under a specific directory
 (with sub-directories as needed).  Customize user option
 ‘emacspeak-epub-library-directory’ to point to this location.  Here is a
-quick summary of commands for organizing, saving and opening a
-bookshelf:
+quick summary of commands for
 
-‘a’
-     emacspeak-epub-bookshelf-add-epub
-‘b’
-     emacspeak-epub-bookshelf-open
-‘c’
-     emacspeak-epub-bookshelf-clear
-‘d’
-     emacspeak-epub-bookshelf-remove-this-book
-‘r’
-     emacspeak-epub-bookshelf-rename
-‘l’
-     emacspeak-epub-locate-epubs
-‘C-a’
-     emacspeak-epub-bookshelf-add-directory
-‘C-d’
-     emacspeak-epub-bookshelf-remove-directory
-‘C-l’
-     emacspeak-epub-bookshelf-redraw
-‘C-o’
-     emacspeak-epub-bookshelf-open-epub
-‘M-s’
-     emacspeak-epub-bookshelf-save
-‘C-x C-q’
-     emacspeak-epub-bookshelf-refresh
-‘C-x C-s’
-     emacspeak-epub-bookshelf-save
-
-12.64.3 Integrating With Project Gutenberg
-------------------------------------------
-
-Gutenberg integration provides one-shot commands for downloading the
-latest copy of the Gutenberg catalog and finding and downloading the
-desired epub for offline reading.
-
-‘C’
-     emacspeak-epub-gutenberg-catalog
-‘g’
-     emacspeak-epub-gutenberg-download
-   Once downloaded, these EBooks can be organized under
-‘emacspeak-epub-library-directory’ For more advanced usage, see the next
-section on integrating with Calibre catalogs.
-
-12.64.4 Calibre Integration
----------------------------
-
-Project Calibre enables the indexing and searching of large EBook
-collections.  Read the Calibre documentation for organizing and indexing
-your EBook library.  See user options named ‘emacspeak-epub-calibre-*’
-for customizing emacspeak to work with Calibre.  Once set up, Calibre
-integration provides the following commands from the _bookshelf_ buffer:
-
-‘/’
-     emacspeak-epub-calibre-results
-‘A’
-     emacspeak-epub-bookshelf-calibre-author
-‘S’
-     emacspeak-epub-bookshelf-calibre-search
-‘T’
-     emacspeak-epub-bookshelf-calibre-title
-
-12.64.5 Reading EBooks From The Bookshelf
------------------------------------------
-
-The most efficient means to read an EBook is to have EWW render the
-entire book — this works well even for very large EBooks given that EWW
-is efficient at rendering HTML. Rendering the entire book means that all
-of the contents are available for searching.  To view an EBook in its
-entirety, use command ‘emacspeak-epub-eww’.  You can open the EPub table
-of contents with command ‘emacspeak-epub-open’; for a well-constructed
-epub, this TOC should provide hyperlinks to each section listed in the
-table of contents.
-
-‘RET’
-     emacspeak-epub-eww
-‘e’
-     emacspeak-epub-eww
-‘f’
-     emacspeak-epub-browse-files
-‘o’
-     emacspeak-epub-open
-
-12.64.6 Emacspeak-Epub Commands
+12.64.3 Emacspeak-Epub Commands
 -------------------------------
 
-12.64.6.1 emacspeak-calibre-mode
+12.64.3.1 emacspeak-calibre-mode
 ................................
 
  -- Command: emacspeak-calibre-mode
@@ -7129,7 +6928,7 @@ table of contents.
      this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.64.6.2 emacspeak-epub
+12.64.3.2 emacspeak-epub
 ........................
 
  -- Command: emacspeak-epub
@@ -7141,7 +6940,7 @@ table of contents.
      root directory.
      For detailed documentation, see M-x emacspeak-epub-mode
 
-12.64.6.3 emacspeak-epub-bookshelf-add-directory
+12.64.3.3 emacspeak-epub-bookshelf-add-directory
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-add-directory (directory &optional
@@ -7152,7 +6951,7 @@ table of contents.
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.64.6.4 emacspeak-epub-bookshelf-add-epub
+12.64.3.4 emacspeak-epub-bookshelf-add-epub
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-add-epub (epub-file)
@@ -7161,7 +6960,7 @@ table of contents.
 
      (fn EPUB-FILE)
 
-12.64.6.5 emacspeak-epub-bookshelf-calibre-author
+12.64.3.5 emacspeak-epub-bookshelf-calibre-author
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-author (pattern)
@@ -7170,7 +6969,7 @@ table of contents.
 
      (fn PATTERN)
 
-12.64.6.6 emacspeak-epub-bookshelf-calibre-search
+12.64.3.6 emacspeak-epub-bookshelf-calibre-search
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-search (pattern)
@@ -7179,7 +6978,7 @@ table of contents.
 
      (fn PATTERN)
 
-12.64.6.7 emacspeak-epub-bookshelf-calibre-title
+12.64.3.7 emacspeak-epub-bookshelf-calibre-title
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-title (pattern)
@@ -7188,21 +6987,21 @@ table of contents.
 
      (fn PATTERN)
 
-12.64.6.8 emacspeak-epub-bookshelf-clear
+12.64.3.8 emacspeak-epub-bookshelf-clear
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-clear
 
      Clear all books from bookshelf.
 
-12.64.6.9 emacspeak-epub-bookshelf-load
+12.64.3.9 emacspeak-epub-bookshelf-load
 .......................................
 
  -- Command: emacspeak-epub-bookshelf-load
 
      Load bookshelf metadata from disk.
 
-12.64.6.10 emacspeak-epub-bookshelf-open
+12.64.3.10 emacspeak-epub-bookshelf-open
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-open (bookshelf)
@@ -7211,7 +7010,7 @@ table of contents.
 
      (fn BOOKSHELF)
 
-12.64.6.11 emacspeak-epub-bookshelf-open-epub
+12.64.3.11 emacspeak-epub-bookshelf-open-epub
 .............................................
 
  -- Command: emacspeak-epub-bookshelf-open-epub (epub-file)
@@ -7220,7 +7019,7 @@ table of contents.
 
      (fn EPUB-FILE)
 
-12.64.6.12 emacspeak-epub-bookshelf-redraw
+12.64.3.12 emacspeak-epub-bookshelf-redraw
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-redraw (&optional author-first)
@@ -7231,14 +7030,14 @@ table of contents.
 
      (fn &optional AUTHOR-FIRST)
 
-12.64.6.13 emacspeak-epub-bookshelf-refresh
+12.64.3.13 emacspeak-epub-bookshelf-refresh
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-refresh
 
      Refresh and redraw bookshelf.
 
-12.64.6.14 emacspeak-epub-bookshelf-remove-directory
+12.64.3.14 emacspeak-epub-bookshelf-remove-directory
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-directory (directory
@@ -7249,7 +7048,7 @@ table of contents.
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.64.6.15 emacspeak-epub-bookshelf-remove-this-book
+12.64.3.15 emacspeak-epub-bookshelf-remove-this-book
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-this-book
@@ -7257,7 +7056,7 @@ table of contents.
      Remove the book on current line from this bookshelf.
      No book files are deleted.
 
-12.64.6.16 emacspeak-epub-bookshelf-rename
+12.64.3.16 emacspeak-epub-bookshelf-rename
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-rename (name &optional overwrite)
@@ -7267,14 +7066,14 @@ table of contents.
 
      (fn NAME &optional OVERWRITE)
 
-12.64.6.17 emacspeak-epub-bookshelf-save
+12.64.3.17 emacspeak-epub-bookshelf-save
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-save
 
      Save bookshelf metadata.
 
-12.64.6.18 emacspeak-epub-browse-files
+12.64.3.18 emacspeak-epub-browse-files
 ......................................
 
  -- Command: emacspeak-epub-browse-files (epub)
@@ -7284,28 +7083,28 @@ table of contents.
 
      (fn EPUB)
 
-12.64.6.19 emacspeak-epub-calibre-dired-at-point
+12.64.3.19 emacspeak-epub-calibre-dired-at-point
 ................................................
 
  -- Command: emacspeak-epub-calibre-dired-at-point
 
      Open directory containing current result.
 
-12.64.6.20 emacspeak-epub-calibre-results
+12.64.3.20 emacspeak-epub-calibre-results
 .........................................
 
  -- Command: emacspeak-epub-calibre-results
 
      Show most recent Calibre search results.
 
-12.64.6.21 emacspeak-epub-delete
+12.64.3.21 emacspeak-epub-delete
 ................................
 
  -- Command: emacspeak-epub-delete
 
      Delete EPub under point.
 
-12.64.6.22 emacspeak-epub-eww
+12.64.3.22 emacspeak-epub-eww
 .............................
 
  -- Command: emacspeak-epub-eww (epub-file &optional broken-ncx)
@@ -7317,7 +7116,7 @@ table of contents.
 
      (fn EPUB-FILE &optional BROKEN-NCX)
 
-12.64.6.23 emacspeak-epub-google
+12.64.3.23 emacspeak-epub-google
 ................................
 
  -- Command: emacspeak-epub-google (query)
@@ -7326,7 +7125,7 @@ table of contents.
 
      (fn QUERY)
 
-12.64.6.24 emacspeak-epub-gutenberg-catalog
+12.64.3.24 emacspeak-epub-gutenberg-catalog
 ...........................................
 
  -- Command: emacspeak-epub-gutenberg-catalog (&optional refresh)
@@ -7336,7 +7135,7 @@ table of contents.
 
      (fn &optional REFRESH)
 
-12.64.6.25 emacspeak-epub-gutenberg-download
+12.64.3.25 emacspeak-epub-gutenberg-download
 ............................................
 
  -- Command: emacspeak-epub-gutenberg-download (book-id &optional
@@ -7348,7 +7147,7 @@ table of contents.
 
      (fn BOOK-ID &optional DOWNLOAD)
 
-12.64.6.26 emacspeak-epub-locate-epubs
+12.64.3.26 emacspeak-epub-locate-epubs
 ......................................
 
  -- Command: emacspeak-epub-locate-epubs (pattern)
@@ -7357,7 +7156,7 @@ table of contents.
 
      (fn PATTERN)
 
-12.64.6.27 emacspeak-epub-mode
+12.64.3.27 emacspeak-epub-mode
 ..............................
 
  -- Command: emacspeak-epub-mode
@@ -7403,14 +7202,14 @@ table of contents.
      this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.64.6.28 emacspeak-epub-next
+12.64.3.28 emacspeak-epub-next
 ..............................
 
  -- Command: emacspeak-epub-next
 
      Move to next book.
 
-12.64.6.29 emacspeak-epub-open
+12.64.3.29 emacspeak-epub-open
 ..............................
 
  -- Command: emacspeak-epub-open (epub-file)
@@ -7420,21 +7219,21 @@ table of contents.
 
      (fn EPUB-FILE)
 
-12.64.6.30 emacspeak-epub-open-with-nov
+12.64.3.30 emacspeak-epub-open-with-nov
 .......................................
 
  -- Command: emacspeak-epub-open-with-nov
 
      Open ebook at point in nov-mode.
 
-12.64.6.31 emacspeak-epub-previous
+12.64.3.31 emacspeak-epub-previous
 ..................................
 
  -- Command: emacspeak-epub-previous
 
      Move to previous book.
 
-12.64.6.32 emacspeak-epub-url-executor
+12.64.3.32 emacspeak-epub-url-executor
 ......................................
 
  -- Command: emacspeak-epub-url-executor (url)
@@ -7443,7 +7242,7 @@ table of contents.
 
      (fn URL)
 
-12.64.7 emacspeak-epub Options
+12.64.4 emacspeak-epub Options
 ------------------------------
 
  -- Variable: User Option emacspeak-epub-bookshelf-directory
@@ -8282,171 +8081,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 12.72.5 Table Browsing
 ----------------------
 
-Summary Of Keyboard Commands:
-   • ‘M-<left>’ emacspeak-eww-table-previous-cell — Speak previous cell.
-   • ‘M-<right>’ emacspeak-eww-table-next-cell — Speak previous cell.
-   • ‘M-<up>’ emacspeak-eww-table-previous-row — Speak cell above.
-   • ‘M-<down>’ emacspeak-eww-table-next-row — Speak cell below.
-   • ‘M-.’ emacspeak-eww-table-speak-cell — Speak current cell.
-   • ‘M-,’ emacspeak-eww-table-speak-dimensions — Speak number of rows
-     and columns.
-   • ‘C-t’ emacspeak-eww-table-data — Browse this table in Emacspeak’s
-     Table UI — *Note emacspeak-table-ui::.
-
-   Emacspeak EWW supports table navigation via keys ‘M-.’, ‘M-LEFT’ and
-‘M-RIGHT’, to speak the current, previous and next table cell
-respectively.  The latter commands also move to the cell being spoken.
-You can get a sense of the table’s size via ‘M-,’ which speaks the
-number of rows and cells in the table.  This works for plain tables, not
-nested tables; for nested tables, first have then _unnested_ using one
-of the XSLT transforms like ‘sort-tables’.
-
-12.72.6 Miscellaneous Commands
+12.72.6 Emacspeak-Eww Commands
 ------------------------------
 
-‘C-RET’
-     ‘emacspeak-eww-fillin-form-field’ When on an input field, insert
-     username/password information accessed via auth-source.
-‘'’
-     ‘emacspeak-speak-rest-of-buffer’ Speak rest of current Web page
-     starting from point.
-‘*’
-     ‘eww-add-bookmark’ Bookmark current Web page.
-‘= dtk-toggle-punctuation-mode’
-     Toggle punctuation mode.
-‘?’
-     ‘emacspeak-google-similar-to-this-page’ Google similarity search.
-‘C-t’
-‘G emacspeak-google-command’
-     Prefix key to invoke Google-specific commands.
-‘L’
-     ‘emacspeak-eww-links-rel’ Display any related links discovered via
-     the document’s ‘meta’ tag.
-‘Q’
-     ‘emacspeak-kill-buffer-quietly’ Delete this buffer.
-‘V’
-     ‘eww-view-source’ Display Web page source.
-‘e’
-     ‘emacspeak-we-xsl-map’ Prefix key for invoking XSLT-based filters.
-‘k’
-     ‘eww-copy-page-url’ Copy page URL to kill-ring.
-
-   In addition, see commands in *Note emacspeak-google::, for
-Google-Search specific commands, many of which are available via
-prefix-key ‘G’.
-
-12.72.7 Filtering Content Using XSLT And XPath
-----------------------------------------------
-
-‘C-c’
-     ‘emacspeak-we-junk-by-class-list’ Prompts for list of class-names
-     with completion, and filters out matching elements.
-‘C-f’
-     ‘emacspeak-we-count-matches’ Prompts for XPath expression, and
-     returns count of matching elements.
-‘C-p’
-     ‘emacspeak-we-xpath-junk-and-follow’ Follows link under point, and
-     displays that page after filtering by a specified XPath expression.
-‘C-t’
-     ‘emacspeak-we-count-tables’ Display a count of tables in the page.
-‘C-x’
-     ‘emacspeak-we-count-nested-tables’ Counts nested tables.
-‘C’
-     ‘emacspeak-we-extract-by-class-list’ Prompts for a list of
-     class-names, and displays matching elements.
-‘D’
-     ‘emacspeak-we-junk-by-class-list’ Filters out elements having
-     specified class attributes.
-‘I’
-     ‘emacspeak-we-extract-by-id-list’ Extracts elements by specified
-     list of ID values.
-‘M’
-     ‘emacspeak-we-extract-tables-by-match-list’ Extracts tables that
-     match specified selection pattern.
-‘P’
-     ‘emacspeak-we-follow-and-extract-main’ Follows link under point,
-     and extracts readable content, by default, this is all paragraphs
-     and headings.
-‘S’
-     ‘emacspeak-we-style-filter’ Filters content by style attribute.
-‘T’
-     ‘emacspeak-we-extract-tables-by-position-list’ Extracts tables by
-     their position on the page.
-‘X’
-     ‘emacspeak-we-extract-nested-table-list’ Extracts nested tables.
-‘a’
-     ‘emacspeak-we-xslt-apply’ Prompt for and apply specified XSLT
-     transform to current page.
-‘b’
-     ‘emacspeak-we-follow-and-filter-by-id’ Follow link under point, and
-     filter by specified id value.
-‘c’
-     ‘emacspeak-we-extract-by-class’ Extracts elements by class.
-‘d’
-     ‘emacspeak-we-junk-by-class’ Filters out elements having specified
-     class value.
-‘e’
-     ‘emacspeak-we-url-expand-and-execute’ Follow link under point, but
-     pass the result to a custom executor.
-‘f’
-     ‘emacspeak-we-xslt-filter’ Apply a specified XSLT filter (XPath) to
-     current page.
-‘i’
-     ‘emacspeak-we-extract-by-id’ Extract elements by id value.
-‘j’
-     ‘emacspeak-we-xslt-junk’ Filter out elements matching specified
-     pattern.
-‘k’
-     ‘emacspeak-we-toggle-xsl-keep-result’ Debugging tool — retains the
-     HTML source after XSLT.
-‘m’
-     ‘emacspeak-we-extract-table-by-match’ Extract matching table.
-‘p’
-     ‘emacspeak-we-xpath-filter-and-follow’ Follow link under point, and
-     filter results by a specified XPath filter.
-‘r’
-     ‘emacspeak-we-extract-by-role’ Extract elements by specified role
-     value.
-‘s’
-     ‘emacspeak-we-xslt-select’ Select default XSLT transform that is
-     applied before rendering the page.
-‘t’
-     ‘emacspeak-we-extract-table-by-position’ Extracts tables by their
-     position on the page.
-‘u’
-     ‘emacspeak-we-extract-matching-urls’ Display matching links on the
-     page.
-‘v’
-     ‘emacspeak-we-class-filter-and-follow-link’ Follow link under
-     point, and filter by specified class value.
-‘w’
-     ‘emacspeak-we-extract-by-property’ Extract element using a
-     combination of DOM attributes.
-‘x’
-     ‘emacspeak-we-extract-nested-table’ Extract a nested table using a
-     match-list.
-‘y’
-     ‘emacspeak-we-class-filter-and-follow’ Follow link under point and
-     filter by class values.
-
-12.72.8 EWW And EBooks On The Emacspeak Audio Desktop
------------------------------------------------------
-
-Modules emacspeak-epub and emacspeak-bookshare provide EBook front-ends
-to EPub-2 and Daisy EBooks.  Both modules now use EWW to render these
-EBooks.  Module emacspeak-eww provides a simple bookmarking facility —
-called eww-marks (to avoid confusion with EWW’s Web Bookmarks).  When
-reading an EBook, you can use ‘m’ to create an EWW-mark at that
-position.  These marks are automatically saved across Emacs sessions.
-To open a previously created eww-mark, use command
-‘emacspeak-eww-open-mark’ bound to ‘C-x r e’.  This command reads a
-eww-mark name with completion.  Use this command with an interactive
-prefix arg to delete a previously created eww-mark.
-
-12.72.9 Emacspeak-Eww Commands
-------------------------------
-
-12.72.9.1 emacspeak-eww-add-mark
+12.72.6.1 emacspeak-eww-add-mark
 ................................
 
  -- Command: emacspeak-eww-add-mark (name)
@@ -8455,7 +8093,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn NAME)
 
-12.72.9.2 emacspeak-eww-curl-play-media-at-point
+12.72.6.2 emacspeak-eww-curl-play-media-at-point
 ................................................
 
  -- Command: emacspeak-eww-curl-play-media-at-point
@@ -8464,7 +8102,7 @@ prefix arg to delete a previously created eww-mark.
      the first line to MPlayer as a playlist.
      Useful in handling double-redirect from TuneIn.
 
-12.72.9.3 emacspeak-eww-delete-mark
+12.72.6.3 emacspeak-eww-delete-mark
 ...................................
 
  -- Command: emacspeak-eww-delete-mark (name)
@@ -8473,21 +8111,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn NAME)
 
-12.72.9.4 emacspeak-eww-dive-into-div
+12.72.6.4 emacspeak-eww-dive-into-div
 .....................................
 
  -- Command: emacspeak-eww-dive-into-div
 
      Focus on current div by rendering it in a new buffer.
 
-12.72.9.5 emacspeak-eww-fillin-form-field
+12.72.6.5 emacspeak-eww-fillin-form-field
 .........................................
 
  -- Command: emacspeak-eww-fillin-form-field
 
      Fill in user or passwd field using auth-source backend.
 
-12.72.9.6 emacspeak-eww-google-knowledge-card
+12.72.6.6 emacspeak-eww-google-knowledge-card
 .............................................
 
  -- Command: emacspeak-eww-google-knowledge-card
@@ -8496,7 +8134,7 @@ prefix arg to delete a previously created eww-mark.
      Warning, this is fragile, and depends on a stable id/class for the
        knowledge card.
 
-12.72.9.7 emacspeak-eww-links-rel
+12.72.6.7 emacspeak-eww-links-rel
 .................................
 
  -- Command: emacspeak-eww-links-rel
@@ -8504,28 +8142,28 @@ prefix arg to delete a previously created eww-mark.
      Display Link tags of type rel.  Web pages for which alternate links
      are available are cued by an auditory icon on the header line.
 
-12.72.9.8 emacspeak-eww-marks-load
+12.72.6.8 emacspeak-eww-marks-load
 ..................................
 
  -- Command: emacspeak-eww-marks-load
 
      Load saved marks.
 
-12.72.9.9 emacspeak-eww-marks-save
+12.72.6.9 emacspeak-eww-marks-save
 ..................................
 
  -- Command: emacspeak-eww-marks-save
 
      Save Emacspeak EWW marks.
 
-12.72.9.10 emacspeak-eww-masquerade
+12.72.6.10 emacspeak-eww-masquerade
 ...................................
 
  -- Command: emacspeak-eww-masquerade
 
      Toggle masquerade state.
 
-12.72.9.11 emacspeak-eww-next-dd
+12.72.6.11 emacspeak-eww-next-dd
 ................................
 
  -- Command: emacspeak-eww-next-dd (&optional speak)
@@ -8534,7 +8172,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dd.
      The dd is automatically spoken if there is no user activity.
 
-12.72.9.12 emacspeak-eww-next-dl
+12.72.6.12 emacspeak-eww-next-dl
 ................................
 
  -- Command: emacspeak-eww-next-dl (&optional speak)
@@ -8543,7 +8181,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dl.
      The dl is automatically spoken if there is no user activity.
 
-12.72.9.13 emacspeak-eww-next-dt
+12.72.6.13 emacspeak-eww-next-dt
 ................................
 
  -- Command: emacspeak-eww-next-dt (&optional speak)
@@ -8552,7 +8190,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dt.
      The dt is automatically spoken if there is no user activity.
 
-12.72.9.14 emacspeak-eww-next-element
+12.72.6.14 emacspeak-eww-next-element
 .....................................
 
  -- Command: emacspeak-eww-next-element (el)
@@ -8561,14 +8199,14 @@ prefix arg to delete a previously created eww-mark.
 
      (fn EL)
 
-12.72.9.15 emacspeak-eww-next-element-from-history
+12.72.6.15 emacspeak-eww-next-element-from-history
 ..................................................
 
  -- Command: emacspeak-eww-next-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.72.9.16 emacspeak-eww-next-element-like-this
+12.72.6.16 emacspeak-eww-next-element-like-this
 ...............................................
 
  -- Command: emacspeak-eww-next-element-like-this (element)
@@ -8578,7 +8216,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.72.9.17 emacspeak-eww-next-h
+12.72.6.17 emacspeak-eww-next-h
 ...............................
 
  -- Command: emacspeak-eww-next-h (&optional speak)
@@ -8587,7 +8225,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h.
      The h is automatically spoken if there is no user activity.
 
-12.72.9.18 emacspeak-eww-next-h1
+12.72.6.18 emacspeak-eww-next-h1
 ................................
 
  -- Command: emacspeak-eww-next-h1 (&optional speak)
@@ -8596,7 +8234,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h1.
      The h1 is automatically spoken if there is no user activity.
 
-12.72.9.19 emacspeak-eww-next-h2
+12.72.6.19 emacspeak-eww-next-h2
 ................................
 
  -- Command: emacspeak-eww-next-h2 (&optional speak)
@@ -8605,7 +8243,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h2.
      The h2 is automatically spoken if there is no user activity.
 
-12.72.9.20 emacspeak-eww-next-h3
+12.72.6.20 emacspeak-eww-next-h3
 ................................
 
  -- Command: emacspeak-eww-next-h3 (&optional speak)
@@ -8614,7 +8252,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h3.
      The h3 is automatically spoken if there is no user activity.
 
-12.72.9.21 emacspeak-eww-next-h4
+12.72.6.21 emacspeak-eww-next-h4
 ................................
 
  -- Command: emacspeak-eww-next-h4 (&optional speak)
@@ -8623,7 +8261,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h4.
      The h4 is automatically spoken if there is no user activity.
 
-12.72.9.22 emacspeak-eww-next-h5
+12.72.6.22 emacspeak-eww-next-h5
 ................................
 
  -- Command: emacspeak-eww-next-h5 (&optional speak)
@@ -8632,7 +8270,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h5.
      The h5 is automatically spoken if there is no user activity.
 
-12.72.9.23 emacspeak-eww-next-h6
+12.72.6.23 emacspeak-eww-next-h6
 ................................
 
  -- Command: emacspeak-eww-next-h6 (&optional speak)
@@ -8641,7 +8279,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h6.
      The h6 is automatically spoken if there is no user activity.
 
-12.72.9.24 emacspeak-eww-next-li
+12.72.6.24 emacspeak-eww-next-li
 ................................
 
  -- Command: emacspeak-eww-next-li (&optional speak)
@@ -8650,7 +8288,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the li.
      The li is automatically spoken if there is no user activity.
 
-12.72.9.25 emacspeak-eww-next-ol
+12.72.6.25 emacspeak-eww-next-ol
 ................................
 
  -- Command: emacspeak-eww-next-ol (&optional speak)
@@ -8659,7 +8297,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ol.
      The ol is automatically spoken if there is no user activity.
 
-12.72.9.26 emacspeak-eww-next-p
+12.72.6.26 emacspeak-eww-next-p
 ...............................
 
  -- Command: emacspeak-eww-next-p (&optional speak)
@@ -8668,7 +8306,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the p.
      The p is automatically spoken if there is no user activity.
 
-12.72.9.27 emacspeak-eww-next-table
+12.72.6.27 emacspeak-eww-next-table
 ...................................
 
  -- Command: emacspeak-eww-next-table (&optional speak)
@@ -8677,7 +8315,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the table.
      The table is automatically spoken if there is no user activity.
 
-12.72.9.28 emacspeak-eww-next-ul
+12.72.6.28 emacspeak-eww-next-ul
 ................................
 
  -- Command: emacspeak-eww-next-ul (&optional speak)
@@ -8686,7 +8324,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ul.
      The ul is automatically spoken if there is no user activity.
 
-12.72.9.29 emacspeak-eww-open-mark
+12.72.6.29 emacspeak-eww-open-mark
 ..................................
 
  -- Command: emacspeak-eww-open-mark (name &optional delete)
@@ -8698,7 +8336,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn NAME &optional DELETE)
 
-12.72.9.30 emacspeak-eww-play-media-at-point
+12.72.6.30 emacspeak-eww-play-media-at-point
 ............................................
 
  -- Command: emacspeak-eww-play-media-at-point (&optional playlist-p)
@@ -8712,7 +8350,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PLAYLIST-P)
 
-12.72.9.31 emacspeak-eww-previous-dd
+12.72.6.31 emacspeak-eww-previous-dd
 ....................................
 
  -- Command: emacspeak-eww-previous-dd (&optional speak)
@@ -8721,7 +8359,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dd.
      The dd is automatically spoken if there is no user activity.
 
-12.72.9.32 emacspeak-eww-previous-dl
+12.72.6.32 emacspeak-eww-previous-dl
 ....................................
 
  -- Command: emacspeak-eww-previous-dl (&optional speak)
@@ -8730,7 +8368,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dl.
      The dl is automatically spoken if there is no user activity.
 
-12.72.9.33 emacspeak-eww-previous-dt
+12.72.6.33 emacspeak-eww-previous-dt
 ....................................
 
  -- Command: emacspeak-eww-previous-dt (&optional speak)
@@ -8739,7 +8377,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dt.
      The dt is automatically spoken if there is no user activity.
 
-12.72.9.34 emacspeak-eww-previous-element
+12.72.6.34 emacspeak-eww-previous-element
 .........................................
 
  -- Command: emacspeak-eww-previous-element (el)
@@ -8748,14 +8386,14 @@ prefix arg to delete a previously created eww-mark.
 
      (fn EL)
 
-12.72.9.35 emacspeak-eww-previous-element-from-history
+12.72.6.35 emacspeak-eww-previous-element-from-history
 ......................................................
 
  -- Command: emacspeak-eww-previous-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.72.9.36 emacspeak-eww-previous-element-like-this
+12.72.6.36 emacspeak-eww-previous-element-like-this
 ...................................................
 
  -- Command: emacspeak-eww-previous-element-like-this (element)
@@ -8765,7 +8403,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.72.9.37 emacspeak-eww-previous-h
+12.72.6.37 emacspeak-eww-previous-h
 ...................................
 
  -- Command: emacspeak-eww-previous-h (&optional speak)
@@ -8774,7 +8412,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h.
      The h is automatically spoken if there is no user activity.
 
-12.72.9.38 emacspeak-eww-previous-h1
+12.72.6.38 emacspeak-eww-previous-h1
 ....................................
 
  -- Command: emacspeak-eww-previous-h1 (&optional speak)
@@ -8783,7 +8421,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h1.
      The h1 is automatically spoken if there is no user activity.
 
-12.72.9.39 emacspeak-eww-previous-h2
+12.72.6.39 emacspeak-eww-previous-h2
 ....................................
 
  -- Command: emacspeak-eww-previous-h2 (&optional speak)
@@ -8792,7 +8430,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h2.
      The h2 is automatically spoken if there is no user activity.
 
-12.72.9.40 emacspeak-eww-previous-h3
+12.72.6.40 emacspeak-eww-previous-h3
 ....................................
 
  -- Command: emacspeak-eww-previous-h3 (&optional speak)
@@ -8801,7 +8439,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h3.
      The h3 is automatically spoken if there is no user activity.
 
-12.72.9.41 emacspeak-eww-previous-h4
+12.72.6.41 emacspeak-eww-previous-h4
 ....................................
 
  -- Command: emacspeak-eww-previous-h4 (&optional speak)
@@ -8810,7 +8448,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h4.
      The h4 is automatically spoken if there is no user activity.
 
-12.72.9.42 emacspeak-eww-previous-h5
+12.72.6.42 emacspeak-eww-previous-h5
 ....................................
 
  -- Command: emacspeak-eww-previous-h5 (&optional speak)
@@ -8819,7 +8457,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h5.
      The h5 is automatically spoken if there is no user activity.
 
-12.72.9.43 emacspeak-eww-previous-h6
+12.72.6.43 emacspeak-eww-previous-h6
 ....................................
 
  -- Command: emacspeak-eww-previous-h6 (&optional speak)
@@ -8828,7 +8466,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h6.
      The h6 is automatically spoken if there is no user activity.
 
-12.72.9.44 emacspeak-eww-previous-li
+12.72.6.44 emacspeak-eww-previous-li
 ....................................
 
  -- Command: emacspeak-eww-previous-li (&optional speak)
@@ -8837,7 +8475,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the li.
      The li is automatically spoken if there is no user activity.
 
-12.72.9.45 emacspeak-eww-previous-ol
+12.72.6.45 emacspeak-eww-previous-ol
 ....................................
 
  -- Command: emacspeak-eww-previous-ol (&optional speak)
@@ -8846,7 +8484,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ol.
      The ol is automatically spoken if there is no user activity.
 
-12.72.9.46 emacspeak-eww-previous-p
+12.72.6.46 emacspeak-eww-previous-p
 ...................................
 
  -- Command: emacspeak-eww-previous-p (&optional speak)
@@ -8855,7 +8493,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the p.
      The p is automatically spoken if there is no user activity.
 
-12.72.9.47 emacspeak-eww-previous-table
+12.72.6.47 emacspeak-eww-previous-table
 .......................................
 
  -- Command: emacspeak-eww-previous-table (&optional speak)
@@ -8864,7 +8502,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the table.
      The table is automatically spoken if there is no user activity.
 
-12.72.9.48 emacspeak-eww-previous-ul
+12.72.6.48 emacspeak-eww-previous-ul
 ....................................
 
  -- Command: emacspeak-eww-previous-ul (&optional speak)
@@ -8873,21 +8511,21 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ul.
      The ul is automatically spoken if there is no user activity.
 
-12.72.9.49 emacspeak-eww-reading-settings
+12.72.6.49 emacspeak-eww-reading-settings
 .........................................
 
  -- Command: emacspeak-eww-reading-settings
 
      Setup speech-rate, punctuation and split-caps for reading prose.
 
-12.72.9.50 emacspeak-eww-restore
+12.72.6.50 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.72.9.51 emacspeak-eww-shell-command-on-url-at-point
+12.72.6.51 emacspeak-eww-shell-command-on-url-at-point
 ......................................................
 
  -- Command: emacspeak-eww-shell-command-on-url-at-point (&optional
@@ -8898,7 +8536,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.72.9.52 emacspeak-eww-smart-tabs
+12.72.6.52 emacspeak-eww-smart-tabs
 ...................................
 
  -- Command: emacspeak-eww-smart-tabs (char &optional define)
@@ -8911,7 +8549,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn CHAR &optional DEFINE)
 
-12.72.9.53 emacspeak-eww-smart-tabs-add
+12.72.6.53 emacspeak-eww-smart-tabs-add
 .......................................
 
  -- Command: emacspeak-eww-smart-tabs-add (char url)
@@ -8920,21 +8558,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn CHAR URL)
 
-12.72.9.54 emacspeak-eww-smart-tabs-load
+12.72.6.54 emacspeak-eww-smart-tabs-load
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-load
 
      Load our smart tabsfrom a file.
 
-12.72.9.55 emacspeak-eww-smart-tabs-save
+12.72.6.55 emacspeak-eww-smart-tabs-save
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-save
 
      Save our smart tabs to a file for reloading.
 
-12.72.9.56 emacspeak-eww-speak-this-element
+12.72.6.56 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -8945,14 +8583,14 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.72.9.57 emacspeak-eww-table-data
+12.72.6.57 emacspeak-eww-table-data
 ...................................
 
  -- Command: emacspeak-eww-table-data
 
      View  table at point as a data table using Emacspeak Table UI.
 
-12.72.9.58 emacspeak-eww-table-next-cell
+12.72.6.58 emacspeak-eww-table-next-cell
 ........................................
 
  -- Command: emacspeak-eww-table-next-cell (&optional prefix)
@@ -8962,7 +8600,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.72.9.59 emacspeak-eww-table-next-row
+12.72.6.59 emacspeak-eww-table-next-row
 .......................................
 
  -- Command: emacspeak-eww-table-next-row (&optional prefix)
@@ -8972,7 +8610,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.72.9.60 emacspeak-eww-table-previous-cell
+12.72.6.60 emacspeak-eww-table-previous-cell
 ............................................
 
  -- Command: emacspeak-eww-table-previous-cell (&optional prefix)
@@ -8982,7 +8620,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.72.9.61 emacspeak-eww-table-previous-row
+12.72.6.61 emacspeak-eww-table-previous-row
 ...........................................
 
  -- Command: emacspeak-eww-table-previous-row (&optional prefix)
@@ -8992,28 +8630,28 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.72.9.62 emacspeak-eww-table-speak-cell
+12.72.6.62 emacspeak-eww-table-speak-cell
 .........................................
 
  -- Command: emacspeak-eww-table-speak-cell
 
      Speak current cell.
 
-12.72.9.63 emacspeak-eww-table-speak-dimensions
+12.72.6.63 emacspeak-eww-table-speak-dimensions
 ...............................................
 
  -- Command: emacspeak-eww-table-speak-dimensions
 
      Speak number of rows and cells.
 
-12.72.9.64 emacspeak-eww-tags-at-point
+12.72.6.64 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.72.9.65 emacspeak-eww-update-title
+12.72.6.65 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
@@ -9022,8 +8660,8 @@ prefix arg to delete a previously created eww-mark.
 
      (fn TITLE)
 
-12.72.10 emacspeak-eww Options
-------------------------------
+12.72.7 emacspeak-eww Options
+-----------------------------
 
  -- Variable: User Option emacspeak-eww-inhibit-images
      Turn this on to avoid rendering images.

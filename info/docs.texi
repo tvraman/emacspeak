@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1139 commands and 863 options.
+This chapter documents a total of 1137 commands and 859 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -529,13 +529,19 @@ Reset TTS engine.
 
 @subsubsection dtk-select-server
 @deffn {Command} dtk-select-server  (program &optional device)
+@table @kbd
+@item C-e d d
+@kindex C-e d d
+@item <fn> d d
+@kindex <fn> d d
+@end table
+
 @findex dtk-select-server
 
 @format
-Select a speech server interactively.
-Argument PROGRAM specifies the speech server program.
+Select  speech server ‘program’.
  Optional arg device sets up environment variable
-ALSA_DEFAULT to specified device before starting the server.
+ALSA_DEFAULT.
 
 (fn PROGRAM &optional DEVICE)
 @end format
@@ -1067,10 +1073,28 @@ Characters of these charsets are  ignored by
 
 Emacspeak extends Emacs to be a fully functional audio desktop.
 This is the main emacspeak module.
-It actually does very little:
-It sets up Emacs to load package-specific
-Emacspeak modules as each package is loaded.
-It implements function emacspeak which loads the rest of the system.
+
+@subsection Emacspeak Commands
+
+@subsubsection emacspeak-toggle-comint-output-monitor
+@deffn {Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
+@table @kbd
+@item C-e o
+@kindex C-e o
+@item <fn> o
+@kindex <fn> o
+@end table
+
+@findex emacspeak-toggle-comint-output-monitor
+
+@format
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+@end format
+@end deffn
 
 @subsection emacspeak Options
 
@@ -1129,7 +1153,7 @@ This personality uses  voice-monotone-medium whose  effect can be changed global
 
 @defvar {User Option} voice-error
 Personality used for error
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -1175,36 +1199,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
-@defvar {User Option} voice-hydra-face-amaranth
-Personality used for hydra-face-amaranth
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-hydra-face-blue
-Personality used for hydra-face-blue
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-hydra-face-pink
-Personality used for hydra-face-pink
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-hydra-face-red
-Personality used for hydra-face-red
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-hydra-face-teal
-Personality used for hydra-face-teal
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
 @defvar {User Option} voice-isearch
 Personality used for isearch
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
@@ -1237,7 +1231,7 @@ This personality uses  voice-bolden-medium whose  effect can be changed globally
 
 @defvar {User Option} voice-link-visited
 Personality used for link-visited
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 
 @end defvar
 
@@ -1363,19 +1357,19 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 
 @defvar {User Option} voice-variable-name-personality
 Personality used for font-lock-variable-name-face
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
 @defvar {User Option} voice-variable-pitch
 Personality used for variable-pitch
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 
 @end defvar
 
 @defvar {User Option} voice-warning
 Personality used for warning
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -2050,25 +2044,6 @@ Se the help for that mode on detailed usage instructions and key-bindings.
 
 @subsection Sample Interaction
 
-Assuming you have correctly setup your API key:
-@itemize
-@item Customize group @code{emacspeak-bookshare} by pressing @kbd{C-h G}.
-@item  Press @kbd{C-e C-b} to open or switch to the Bookshare buffer.
-@item Perform a search @kbd{a} or @kbd{t} for author or title search.
-@item You will be prompted for your Bookshare password if this is
-the first time.
-@item The password will be saved to your configured
-@code{auth-source} --- usually @code{~/.authinfo.gpg}.
-You can also use @code{password-store[.]}
-@item The results of the search appear in the Bookshare buffer.
-Audio formatting and auditory icons convey if  a result is already available locally.
-@item If not available locally, press @kbd{D} to download the content.
-@item Press @kbd{U} to unpack the downloaded content.
-@item Press @kbd{e} to  display the entire book.
-@item Press @kbd{c} to display the table of contents.
-@item Now, use all of EWW  @xref{emacspeak-eww} extensions  and profit!
-@end itemize
-
 @subsection Emacspeak-Bookshare Commands
 
 @subsubsection emacspeak-bookshare
@@ -2708,8 +2683,6 @@ Speech enable desktop calculator
 @section emacspeak-calendar
 
 This module speech enables the Emacs Calendar.
-Speech enabling is not the same as speaking the screen:
-This is an excellent example of the advantages of speech-enabled  interaction.
 
 @subsection Emacspeak-Calendar Commands
 
@@ -2786,77 +2759,6 @@ The Emacs Chess package provides a rich environment for playing and
 exploring Chess Games.
 That package comes with a light-weight module that announces
 moves.
-
-This module aims do do much more, including:
-@itemize @bullet
-@item Navigate the board along various axies with audio-formatted  output.
- @item Browse games via  rich audio-formatted   output.
-@item Speech-enable all interactive commands  provided by the Chess
-package.
-@item Enable various means of exploring the state of game, perhaps with
-a view to being able to spot patterns   from listening to the
-output.
-@end itemize
-@subsection Navigating And Examining The Board
-The board can be navigated along the 8 compass directions.
-Arrow keys move to the appropriate squares on the board.
-@kbd{/} and @kbd{\} move down the diagonals.
-@kbd{[} and @kbd{]} move up the respective diagonals.
-@itemize  @bullet
-@item  Move North: @code{emacspeak-chess-north} bound to @kbd{up}.
-@item  Move South: @code{emacspeak-chess-south} bound to
-@kbd{down}.
-@item  Move West: @code{emacspeak-chess-west} bound to @kbd{left}.
-@item  Move East: @code{emacspeak-chess-east} bound to @kbd{right}.
-@end itemize
-You can also move along the diagonals:
-@itemize @bullet
-@item  Move Northwest: @code{emacspeak-chess-northwest} bound to
-@kbd{[}.
-@item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{]}.
-@item  Move Southwest: @code{emacspeak-chess-southwest} bound to
-@kbd{/}.
-@item  Move Southeast: @code{emacspeak-chess-southeast} bound to
-@kbd{\}.
-@end itemize
-You can also jump to a given board position by:
-@itemize @bullet
-@item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
-@item Target of last move: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
-@item Look: @code{emacspeak-chess-speak-that-square} bound to
-@kbd{l}.
-@item  Review   current square: @kbd{;}.
-@item Review Board: @code{emacspeak-chess-speak-board} bound to
-@kbd{z}. Useful in end-state.
-@item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
-bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
-all white pieces, @kbd{l} speaks all black pieces, use SAN notation
-char for a specific piece.  Use @kbd{a} to hear entire board, this
-last is most useful when the game is an end-state.
-@item Discover who targets a square:
-@code{emacspeak-chess-speak-who-targets} bound to @kbd{w}. Argument
-@code{piece} is similar to the previously listed command.
-@end itemize
-You can obtain views of the board along the rows and diagonals, as
-well as a @emph{knight's perspective }:
-@itemize @bullet
-@item Viewers: @kbd{v} followed by the directional navigation keys
-speaks the squares in that direction from the current
-square. @kbd{vn} speaks the squares from a knight's perspective,
-i.e. the squares the Knight would see  from the current
-position. similarly, @kbd{vk} speaks the non-empty squares seen by the King
-from the current position.
-@kbd{v} followed by a rank-or-file char speaks that complete rank
-or file.
-@end itemize
-@subsection Examining Games
-
-Package @emph{Chess} allows one to browse through a game using
-@kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
-@code{chess-display-move-forward}.  Emacspeak speech-enables these
-commands to speak the move that led to the currently displayed
-state of the game. Finally, @kbd{m} speaks the @emph{current move}
-being displayed.
 
 @subsection Emacspeak-Chess Commands
 
@@ -3178,26 +3080,6 @@ set the current local value to the result.
 @end format
 @end deffn
 
-@subsubsection emacspeak-toggle-comint-output-monitor
-@deffn {Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
-@table @kbd
-@item C-e o
-@kindex C-e o
-@item <fn> o
-@kindex <fn> o
-@end table
-
-@findex emacspeak-toggle-comint-output-monitor
-
-@format
-Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-@end format
-@end deffn
-
 @subsubsection emacspeak-toggle-inaudible-or-comint-autospeak
 @deffn {Command} emacspeak-toggle-inaudible-or-comint-autospeak   
 @table @kbd
@@ -3235,7 +3117,7 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @defvar {User Option} voice-comint-highlight-prompt
 Personality used for comint-highlight-prompt
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
@@ -3552,29 +3434,6 @@ after emacspeak has been started.
 
 @subsection Overview
 
-This module provides integration via DBus  for the following:
-@itemize @bullet
-@item Respond to network coming up or going down
---- @code{(nm-enable)}.
-@item Respond to screen getting locked/unlocked by gnome-screen-saver
---- @code{(emacspeak-dbus-watch-screen-lock)}.
-@item Respond to laptop  going to sleep or waking up
----  @code{(emacspeak-dbus-sleep-enable)}.
-@item Respond to insertion/ejection of removable storage
---- @code{(emacspeak-dbus-udisks-enable)}.
-@item Watch for power devices
---- @code{(emacspeak-dbus-upower-enable)}.
-@item An interactive command  @command{emacspeak-dbus-lock-screen}
-bound to @kbd{C-, C-d} to lock the screen using DBus.
-Note: this key-binding is available only if this module is loaded.
-@end itemize
-Add calls to the desired functions from the above list
-to the emacs startup file after  this module has been loaded.
-See relevant hooks for customizing behavior.
-Note that each of the  sleep/wake-up, UDisks2   and network/up-down
-can be separately enabled/disabled, and the actions customized
-via appropriately named hook functions.
-
 @subsection Emacspeak-Dbus Commands
 
 @subsubsection emacspeak-dbus-lock-screen
@@ -3791,9 +3650,6 @@ This personality uses  voice-smoothen-extra whose  effect can be changed globall
 @section emacspeak-dired
 
 This module speech enables dired.
-It reduces the amount of speech you hear:
-Typically you hear the file names as you move through the dired buffer
-Voicification is used to indicate directories, marked files etc.
 
 @subsection Emacspeak-Dired Commands
 
@@ -4824,97 +4680,6 @@ directory (with sub-directories as needed).
 Customize   user option @code{emacspeak-epub-library-directory}
 to point to this location.
 Here is  a quick summary of commands for
-organizing, saving and opening  a bookshelf:
-
-@table @kbd
-@item a
-emacspeak-epub-bookshelf-add-epub
-@item b
-emacspeak-epub-bookshelf-open
-@item c
-emacspeak-epub-bookshelf-clear
-@item d
-emacspeak-epub-bookshelf-remove-this-book
-@item r
-emacspeak-epub-bookshelf-rename
-@item l
-emacspeak-epub-locate-epubs
-@item C-a
-emacspeak-epub-bookshelf-add-directory
-@item C-d
-emacspeak-epub-bookshelf-remove-directory
-@item C-l
-emacspeak-epub-bookshelf-redraw
-@item C-o
-emacspeak-epub-bookshelf-open-epub
-@item M-s
-emacspeak-epub-bookshelf-save
-@item C-x C-q
-emacspeak-epub-bookshelf-refresh
-@item C-x C-s
-emacspeak-epub-bookshelf-save
-@end table
-
-@subsection Integrating With Project Gutenberg
-
-Gutenberg integration provides one-shot commands for downloading
-the latest copy of the Gutenberg catalog and  finding and downloading
-the desired epub for offline reading.
-
-@table @kbd
-@item C
-emacspeak-epub-gutenberg-catalog
-@item g
-emacspeak-epub-gutenberg-download
-@end table
-Once downloaded, these EBooks can be
-organized under  @code{emacspeak-epub-library-directory}
-For  more advanced usage, see the next section
-on integrating with Calibre catalogs.
-
-@subsection Calibre Integration
-
-Project Calibre  enables the indexing and searching of
-large EBook collections.
-Read the Calibre documentation for organizing and indexing your EBook library.
-See user options named @code{emacspeak-epub-calibre-*} for
-customizing  emacspeak to work with Calibre.
-Once set up, Calibre integration provides
-the following commands from the @emph{bookshelf} buffer:
-
-@table @kbd
-@item /
-emacspeak-epub-calibre-results
-@item A
-emacspeak-epub-bookshelf-calibre-author
-@item S
-emacspeak-epub-bookshelf-calibre-search
-@item T
-emacspeak-epub-bookshelf-calibre-title
-@end table
-
-@subsection Reading EBooks From The Bookshelf
-
-The most efficient means to read an EBook is to have EWW render
-the entire book --- this works well even for very large EBooks
-given that EWW is efficient at rendering HTML. Rendering the
-entire book means that all of the contents are available for
-searching. To view an EBook in its entirety, use command
-@code{emacspeak-epub-eww}. You can open the EPub table of contents
-with command @code{emacspeak-epub-open}; for a
-well-constructed epub, this TOC should provide hyperlinks to each
-section listed in the table of contents.
-
-@table @kbd
-@item RET
-emacspeak-epub-eww
-@item e
-emacspeak-epub-eww
-@item f
-emacspeak-epub-browse-files
-@item o
-emacspeak-epub-open
-@end table
 
 @subsection Emacspeak-Epub Commands
 
@@ -6294,191 +6059,6 @@ Play link under point as a Youtube stream.
 
 @subsection Table Browsing
 
-Summary Of Keyboard Commands:
-@itemize
-@item @kbd{M-<left>} emacspeak-eww-table-previous-cell@MDash{}
-Speak previous cell.
-@item @kbd{M-<right>} emacspeak-eww-table-next-cell @MDash{}
-Speak previous cell.
-@item @kbd{M-<up>} emacspeak-eww-table-previous-row @MDash{}
-Speak cell above.
-@item @kbd{M-<down>} emacspeak-eww-table-next-row @MDash{}
-Speak  cell below.
-@item @kbd{M-.} emacspeak-eww-table-speak-cell @MDash{}
-Speak current cell.
-@item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
-Speak number of rows and columns.
-@item @kbd{C-t} emacspeak-eww-table-data @MDash{}
-Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
-@end itemize
-
-Emacspeak EWW supports table navigation via keys @kbd{M-.},
-@kbd{M-LEFT} and @kbd{M-RIGHT},
-to speak the current, previous and next table cell
-respectively. The latter commands also move to the cell being
-spoken.  You can get  a sense of the table's size via @kbd{M-,}
-which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
-tables, first have then @emph{unnested} using one of the XSLT
-transforms like @code{sort-tables}.
-
-@subsection Miscellaneous Commands
-
-@table @kbd
-@item  C-RET
-@command {emacspeak-eww-fillin-form-field}
-When on an input field, insert  username/password information
-accessed via auth-source.
-@item '
-@command{emacspeak-speak-rest-of-buffer}
-Speak rest of current Web page starting from point.
-@item *
-@command{eww-add-bookmark}
-Bookmark current Web page.
-@item = @command{dtk-toggle-punctuation-mode}
-Toggle punctuation mode.
-@item ?
-@command{emacspeak-google-similar-to-this-page}
-Google similarity search.
-@item C-t
-@item G @command{emacspeak-google-command}
-Prefix key to invoke Google-specific commands.
-@item L
-@command{emacspeak-eww-links-rel}
-Display any related links discovered via the document's @code{meta} tag.
-@item Q
-@command{emacspeak-kill-buffer-quietly}
-Delete this buffer.
-@item V
-@command{eww-view-source}
-Display Web page source.
-@item e
-@command{emacspeak-we-xsl-map}
-Prefix key for invoking XSLT-based filters.
-@item k
-@command{eww-copy-page-url}
-Copy page URL to kill-ring.
-@end table
-
-In addition, see commands in
-@xref{emacspeak-google},  for Google-Search specific commands, many of
-which are available via prefix-key @kbd{G}.
-
-@subsection Filtering Content Using XSLT And XPath
-
-@table @kbd
-@item C-c
-@command{emacspeak-we-junk-by-class-list}
-Prompts for list of class-names with completion,
-and filters out matching elements.
-@item C-f
-@command{emacspeak-we-count-matches}
-Prompts for XPath expression, and returns count of matching elements.
-@item C-p
-@command{emacspeak-we-xpath-junk-and-follow}
-Follows link under point, and displays that page
-after filtering by a specified XPath expression.
-@item C-t
-@command{emacspeak-we-count-tables}
-Display a count of tables in the page.
-@item C-x
-@command{emacspeak-we-count-nested-tables}
-Counts nested tables.
-@item C
-@command{emacspeak-we-extract-by-class-list}
-Prompts for a list of class-names, and displays matching elements.
-@item D
-@command{emacspeak-we-junk-by-class-list}
-Filters out elements  having specified class attributes.
-@item I
-@command{emacspeak-we-extract-by-id-list}
-Extracts elements by specified list of ID values.
-@item M
-@command{emacspeak-we-extract-tables-by-match-list}
-Extracts tables that match specified selection pattern.
-@item P
-@command{emacspeak-we-follow-and-extract-main}
-Follows link under point, and extracts readable content,
-by default, this is all paragraphs and headings.
-@item S
-@command{emacspeak-we-style-filter}
-Filters content by style attribute.
-@item T
-@command{emacspeak-we-extract-tables-by-position-list}
-Extracts tables by their position on the page.
-@item X
-@command{emacspeak-we-extract-nested-table-list}
-Extracts nested tables.
-@item a
-@command{emacspeak-we-xslt-apply}
-Prompt for and apply specified XSLT transform to current page.
-@item b
-@command{emacspeak-we-follow-and-filter-by-id}
-Follow link under point, and filter by specified id value.
-@item c
-@command{emacspeak-we-extract-by-class}
-Extracts elements by class.
-@item d
-@command{emacspeak-we-junk-by-class}
-Filters out elements having specified class value.
-@item e
-@command{emacspeak-we-url-expand-and-execute}
-Follow link under point, but pass the result to a custom executor.
-@item f
-@command{emacspeak-we-xslt-filter}
-Apply a specified XSLT filter (XPath) to current page.
-@item i
-@command{emacspeak-we-extract-by-id}
-Extract elements by id value.
-@item j
-@command{emacspeak-we-xslt-junk}
-Filter out elements matching specified pattern.
-@item k
-@command{emacspeak-we-toggle-xsl-keep-result}
-Debugging tool  --- retains the  HTML source after XSLT.
-@item m
-@command{emacspeak-we-extract-table-by-match}
-Extract matching table.
-@item p
-@command{emacspeak-we-xpath-filter-and-follow}
-Follow link under point, and filter results by a specified XPath filter.
-@item r
-@command{emacspeak-we-extract-by-role}
-Extract elements by specified role value.
-@item s
-@command{emacspeak-we-xslt-select}
-Select default XSLT transform that is applied before rendering the page.
-@item t
-@command{emacspeak-we-extract-table-by-position}
-Extracts tables by their position on the page.
-@item u
-@command{emacspeak-we-extract-matching-urls}
-Display matching links on the page.
-@item v
-@command{emacspeak-we-class-filter-and-follow-link}
-Follow link under point, and filter by specified class value.
-@item w
-@command{emacspeak-we-extract-by-property}
-Extract element using a combination of DOM attributes.
-@item x
-@command{emacspeak-we-extract-nested-table}
-Extract a nested table using a match-list.
-@item y
-@command{emacspeak-we-class-filter-and-follow}
-Follow link under point and filter by class values.
-@end table
-@subsection EWW And EBooks On The Emacspeak Audio Desktop
-Modules emacspeak-epub and emacspeak-bookshare provide EBook
-front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW to
-render these EBooks. Module emacspeak-eww provides a simple
-bookmarking facility --- called eww-marks (to avoid confusion with
-EWW's Web Bookmarks). When reading an EBook, you can use @code{m}
-to create an EWW-mark at that position. These marks are
-automatically saved across Emacs sessions. To open a previously
-created eww-mark, use command @code{emacspeak-eww-open-mark} bound
-to @code{C-x r e}. This command reads a eww-mark name with
-completion. Use this command with an interactive prefix arg to
-delete a previously created eww-mark.
-
 @subsection Emacspeak-Eww Commands
 
 @subsubsection emacspeak-eww-add-mark
@@ -7285,8 +6865,6 @@ Interactive prefix arg ‘reset’ prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete.
-
-(fn &optional RESET)
 @end format
 @end deffn
 
@@ -7312,8 +6890,6 @@ interactive prefix arg results in Emacspeak prompting for the
 clipboard file to use. Argument START and END specifies
 region. Optional argument PROMPT specifies whether we prompt for the
 name of a clipboard file.
-
-(fn START END &optional PROMPT)
 @end format
 @end deffn
 
@@ -7336,8 +6912,6 @@ machines.  Do not use this for sharing information within an Emacs
 session --Emacs’ register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead.
-
-(fn &optional PASTE-TABLE)
 @end format
 @end deffn
 
@@ -7347,8 +6921,6 @@ the emacspeak table clipboard instead.
 
 @format
 Grab URL using Curl, and preview it with a browser .
-
-(fn URL)
 @end format
 @end deffn
 
@@ -7359,8 +6931,6 @@ Grab URL using Curl, and preview it with a browser .
 @format
 Add autoload cookies to file f.
 Default is to add autoload cookies to current file.
-
-(fn &optional F)
 @end format
 @end deffn
 
@@ -7370,8 +6940,6 @@ Default is to add autoload cookies to current file.
 
 @format
 Load bindings from a specified file.
-
-(fn VARIABLE FILENAME)
 @end format
 @end deffn
 
@@ -7381,8 +6949,6 @@ Load bindings from a specified file.
 
 @format
 Persists mapping to org file.
-
-(fn VARIABLE FILENAME)
 @end format
 @end deffn
 
@@ -7392,8 +6958,6 @@ Persists mapping to org file.
 
 @format
 Insert Braille string at point.
-
-(fn S)
 @end format
 @end deffn
 
@@ -7403,8 +6967,6 @@ Insert Braille string at point.
 
 @format
 Create a virtual manpage in Emacs from the Perl Online Documentation.
-
-(fn FILENAME)
 @end format
 @end deffn
 
@@ -7415,8 +6977,6 @@ Create a virtual manpage in Emacs from the Perl Online Documentation.
 @format
 Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
-
-(fn GLOB PATTERN)
 @end format
 @end deffn
 
@@ -7426,8 +6986,6 @@ Interactive  arguments specify filename pattern and search pattern.
 
 @format
 Nuke read-only property on text range.
-
-(fn START END)
 @end format
 @end deffn
 
@@ -7438,8 +6996,6 @@ Nuke read-only property on text range.
 @format
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
-
-(fn STEP)
 @end format
 @end deffn
 
@@ -7460,8 +7016,6 @@ for the current voice family.
 Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   ‘ems--wizards-sampler-text 
-
-(fn PATTERN)
 @end format
 @end deffn
 
@@ -7471,8 +7025,15 @@ Sample text to use comes from variable
 
 @format
 Play midi file using mscore from musescore package.
+@end format
+@end deffn
 
-(fn MIDI-FILE)
+@subsubsection emacspeak-wizards-show-defined-voice-fonts
+@deffn {Command} emacspeak-wizards-show-defined-voice-fonts   
+@findex emacspeak-wizards-show-defined-voice-fonts
+
+@format
+Display a buffer with sample text in the defined voice fonts.
 @end format
 @end deffn
 
@@ -7492,8 +7053,6 @@ Display a buffer with sample text in the defined voices.
 @format
 Open specified tramp location.
 Location is specified by name.
-
-(fn NAME)
 @end format
 @end deffn
 
@@ -7503,8 +7062,6 @@ Location is specified by name.
 
 @format
 Read a personality  and apply it to the current line.
-
-(fn PERSONALITY)
 @end format
 @end deffn
 
@@ -7673,15 +7230,6 @@ large amounts of text.;;; Typically you do this with
 various combinations of grep and friends.
 When doing so it requires explicit effort to not destroy
 the original text being filtered.
-This module provides a textfilter utility that:
-A) Copies over the selected text to a special filtertext
-buffer
-B) Implements a filtertext mode for that buffer that
-allows easy application of filters
-C: Provides commands for reverting to the original
-unfiltered text
-D: Provides commands for saving results from
-intermediate filters.
 
 @subsection Emacspeak-Filtertext Commands
 
@@ -7868,17 +7416,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 This module speech enables flyspell.
 it loads flyspell-correct if available,
 And when loading flyspell-correct sets up that module
-to use  one of   three supported correction styles:
-@itemize @bullet
-@item ido: IDO-like completion with C-s and C-r moving through choices.
-@item popup:Use  up and down arrows to move through  corrections.
-@item helm: A helm interface for picking amongst  corrections.
-@end itemize
-See documentation for package flyspell-correct for additional
-details.
-
-Use Customization emacspeak-flyspell-correct to pick
-between ido, popup and helm.
 
 @subsection emacspeak-flyspell Options
 
@@ -7903,10 +7440,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @section emacspeak-folding
 
 Folding mode turns emacs into a folding editor.
-Folding mode is what I use:
-emacs 19 comes with similar packages, e.g. allout.el
-This module defines some advice forms that make folding mode a pleasure to use.
-Think of a fold as a container.
 
 @node emacspeak-forge
 @section emacspeak-forge
@@ -8072,9 +7605,6 @@ for inclusion in documents.
 This module advises gnus to speak.
 Updating support in 2014 (Emacspeak is nearly 20 years old)
 Updating in 2018 as I switch to gnus as my primary mail interface.
-These customizations to gnus make it convenient to listen to news:
-You can read news mostly by using the four arrow keys.
-By default all article headers are hidden, so you hear the real news.
 
 @subsection Emacspeak-Gnus Commands
 
@@ -9138,13 +8668,6 @@ The "grid" is specified as a list of (start end) tuples..
 
 @subsubsection emacspeak-gridtext-apply
 @deffn {Command} emacspeak-gridtext-apply  (start end grid)
-@table @kbd
-@item C-e # a
-@kindex C-e # a
-@item <fn> # a
-@kindex <fn> # a
-@end table
-
 @findex emacspeak-gridtext-apply
 
 @format
@@ -9156,13 +8679,6 @@ Apply grid to region.
 
 @subsubsection emacspeak-gridtext-load
 @deffn {Command} emacspeak-gridtext-load  (file)
-@table @kbd
-@item C-e # l
-@kindex C-e # l
-@item <fn> # l
-@kindex <fn> # l
-@end table
-
 @findex emacspeak-gridtext-load
 
 @format
@@ -9174,13 +8690,6 @@ Load saved grid settings.
 
 @subsubsection emacspeak-gridtext-save
 @deffn {Command} emacspeak-gridtext-save  (file)
-@table @kbd
-@item C-e # s
-@kindex C-e # s
-@item <fn> # s
-@kindex <fn> # s
-@end table
-
 @findex emacspeak-gridtext-save
 
 @format
@@ -9330,9 +8839,6 @@ speech-enable hideshow.el
 @node emacspeak-hydra
 @section emacspeak-hydra
 
-Speech-enable package hydra:
-For  uses of hydra see module @xref{emacspeak-muggles}.
-
 @subsection Emacspeak-Hydra Commands
 
 @subsubsection emacspeak-hydra-toggle-talkative
@@ -9343,6 +8849,38 @@ For  uses of hydra see module @xref{emacspeak-muggles}.
 Toggle state of hydra-is-helpful
 @end format
 @end deffn
+
+@subsection emacspeak-hydra Options
+
+@defvar {User Option} voice-hydra-face-amaranth
+Personality used for hydra-face-amaranth
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-hydra-face-blue
+Personality used for hydra-face-blue
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-hydra-face-pink
+Personality used for hydra-face-pink
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-hydra-face-red
+Personality used for hydra-face-red
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-hydra-face-teal
+Personality used for hydra-face-teal
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
 
 @node emacspeak-ibuffer
 @section emacspeak-ibuffer
@@ -10056,17 +9594,6 @@ This module implements an Emacspeak Librivox client.
 @subsection Usage
 
 main entry point is command @code{emacspeak-librivox} bound to @kbd{C-; l}.
-This prompts with the following choices:
-@itemize
-@item @kbd{a} Author --- Search  by Author.
-@item @kbd{t} Title --- Search  by Title.
-@item @kbd{g} Genre --- Search  by Genre --- with minibuffer completion.
-@item @kbd{p} Play --- Play a  book.
-@item @kbd{d} Directory --- Browse local cache.
-@end itemize
-
-Search results are displayed in a Web page that provides controls
-for accessing the book.
 
 @subsection Emacspeak-Librivox Commands
 
@@ -10153,14 +9680,6 @@ This module speech-enables lispy.
 Lispy editing keeps delimiters balanced and Lispy navigators
 reliably place point on either the opening or closing delimiter of
 the current s-expression. Emacspeak leverages this fact in the
-type of spoken feedback that is produced. All navigation commands  produce the following:
-@itemize
-@item  Speak the current s-expression when at the front of a sexp.
-@item  Speak the current line with option @code{emacspeak-show-point}
-turned on when at the end of an s-expression.
-@item  Produce auditory icon @code{left} or @code{right} to indicate point being at the beginning or end of current line.
-@item Indicate with an auditory icon if point did not move.
-@end itemize
 
 @subsection emacspeak-lispy Options
 
@@ -11966,38 +11485,6 @@ an annotated S-expression that is rendered via Emacspeak's speech
 facilities. Annotations follow Aural CSS as implemented in
 Emacspeak, This allows us to map these expressions to aural
 properties supported by specific TTS engines.
-@subsection Basic Usage:
-
-Start  the server/client: M-x emacspeak-maths-start. Once the server
-and client are started, you can browse any number of math
-expressions using the emacspeak-maths-navigator described below.
-Note: In general, once everything is configured correctly, using
-the maths navigator automatically starts the server and
-client. Invoke the Navigator using s-spc --- this is the <windows>
-key on
-Linux. Now you can use these keys:
-@itemize
-@item  Show Output <o> Switch to output buffer and quit Maths Navigator
-@item Enter: <SPC>
-Enter a LaTeX expression.
-@item Smart-Enter: <enter> Enter the guessed expression with no prompting.
-@item Alt-Text <a> Process alt-text
-under point as LaTeX.
-@item Down <down> Move down a level.
-@item
-Up <up> Move up a level.
-@item Left <left> Move left.
-@item Right
-<right> Move right.
-@item Exit <any other key> Exit
-navigator.
-
-@end itemize
-The current expression is spoken after
-each of the above commands. It is also displayed in a special
-buffer *Spoken Math*. That buffer holds all previously generated
-output, And Emacs commands forward-page and backward-page can be
-used to move through each chunk of output.
 
 @subsection Emacspeak-Maths Commands
 
@@ -12026,8 +11513,6 @@ Move down in current Math expression. (auto-generated)
 @format
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context. 
-
-(fn LATEX)
 @end format
 @end deffn
 
@@ -12261,21 +11746,6 @@ http://www.dmriley.demon.co.uk/code/midge/
 
 MINES == Minesweeper game in emacs. The game itself provides a
 fully keyboard driven interface. In addition, Emacspeak provides
-these additional interactive commands:
-@itemize @bullet
-@item @kbd{SPC} Speak current cell.
-@item @kbd{.} Speak neighbors of current cell.
-@item @kbd{,} Speak number of marks
-@item @kbd{a} Move to beginning of row.
-@item @kbd{e} Move to end of row.
-@item @kbd{g} Move to specified cell
-@item @kbd{s} Move to next uncovered cell.
-@item @kbd{/} Speak number of remaining uncovered cells.
-@item @kbd{'} Speaks entire board.
-@end itemize
-
-Speaking cell neighbors uses appropriate clause boundaries to group  related cells --- neighbors are read left-to-right, top-to-bottom.
-Moving to the left/right edge of the board produces an appropriate auditory icon.
 
 @subsection Emacspeak-Mines Commands
 
@@ -12379,38 +11849,6 @@ This module implements no new functionality --- contrast with
 emacspeak-wizards.  Instead, it uses package hydra to provide
 convenience key-bindings that access existing Emacspeak
 functionality.
-You need to install package Hydra first:
-@samp{M-x package-install  hydra}.
-
-Note that on newer versions of Emacs, loading this module will
-attempt to automatically install package hydra if it is not found.
-@subsection Using Hydras
-See the high-level documentation for the Hydra package by executing
-@kbd {C-h C-j } hydra @kbd{RET}.
-The documentation in this section uses the same terminology as
-shown in the hydra package documentation.
-
-@subsection Implemented Muggles
-
-@itemize
-@item Brightness: @kbd{print} Control display brightness using xbacklight.
-@item Navigate: @kbd{s-n} Navigate with ease.
-@item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
-@item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
-@item hideshow: C-, h Provide HideShow bindings.
-@item toggle-option:  @kbd{C-c o} Single binding for toggling options.
-@item Repeatable-Yank: @kbd{C-y} Smart yank
-@item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
-@item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and
-undo-redo on @kbd{\}
-@item emacspeak-maths @kbd{s-SPC} Speak and browse math.
-@end itemize
-
-Emacspeak automatically speaks Hydra hints when displayed.
-To silence all Hydra hints, set hydra-is-helpful to nil.  To
-temporarily silence speaking of Hydra hints, Muggles can bind
-command @code{emacspeak-hydra-toggle-talkative}.  As an
-example, Muggle @samp{ViewMode} binds @code{s} to this command.
 
 @subsection Emacspeak-Muggles Commands
 
@@ -13055,13 +12493,6 @@ This module assumes that sane is installed and working
 for image acquisition,
 and that there is an OCR engine that can take acquired
 images and produce text.
-Prerequisites:
-Sane installed and working.
-scanimage to generate tiff files from scanner.
-tiffcp to compress the tiff file.
-working ocr executable
-by default this module assumes that the OCR executable
-is named "ocr"
 
 @subsection Emacspeak-Ocr Commands
 
@@ -14097,37 +13528,6 @@ Provide additional advice to perl-mode
 @section emacspeak-pianobar
 
 @subsection PIANOBAR ==  Pandora Client for Emacs
-pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian:
-sudo apt-get install pianobar
-
-Pianobar Is a stand-alone client for Pandora Radio. pianobar.el
-available on the Emacs Wiki at
-http://www.emacswiki.org/emacs/pianobar.el Provides access to
-Pandora Radio via pianobar from the comfort of Emacs. This module
-speech-enables Pianobar and enhances it for the Complete Audio
-Desktop.
-
-@subsection Emacspeak Usage:
-
-Emacspeak implements command emacspeak-pianobar, a light-weight
-wrapper on top of pianobar. Emacspeak binds this command to
-@code{C-e '}.
- Command emacspeak-pianobar is designed to let you
-launch Pandora channels and switch tracks/channels without moving
-away from your primary tasks such as editting code or
-reading/composing email. Toward this end, launching command
-emacspeak-pianobar the first time initializes the
-@code{*pianobar*} buffer and launches command @code{pianobar};
-but focus  remains   in your current buffer. Pianobar can be
-controlled with single keystrokes while in  the pianobar  buffer
---- switch to   using @code{C-e ''}. The most
-useful keys are @code{right} for skipping tracks, @code{up} and
-@code{down} for switching channels etc.; see the keys bound in
-@code{pianobar-key-map} for a complete list. Pressing @code{C-e '}
-in  the @code{*pianobar*} buffer  buries the
-@code{*pianobar*}. From here on, Pianobar can be controlled
-by pressing the Pianobar prefix key (@code{C-e '}) followed by
-keys from @code{pianobar-key-map}.
 
 @subsection Emacspeak-Pianobar Commands
 
@@ -14896,14 +14296,6 @@ Summarize current cell.
 @section emacspeak-setup
 
 Entry point for Emacspeak.
-The simplest and most basic way to start emacspeak is:
-emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el
-The above starts a vanilla Emacs with just Emacspeak loaded.
-Once the above has been verified to work,
-You can  add
-(load-library "emacspeak-setup")
-To your .emacs file.
-See tvr/emacs-startup.el in the Emacspeak Git repository for  my setup.
 
 @node emacspeak-sgml-mode
 @section emacspeak-sgml-mode
@@ -15032,24 +14424,6 @@ Speak number of stones remaining.
 @section emacspeak-sounds
 
 This module provides the interface for generating auditory icons in emacspeak.
-Design goal:
-1) Auditory icons should be used to provide additional feedback,
-not as a gimmick.
-2) The interface should be usable at all times without the icons:
-e.g. when on a machine without a sound card.
-3) General principle for when to use an icon:
-Convey information about events taking place in parallel.
-For instance, if making a selection automatically moves the current focus
-to the next choice,
-We speak the next choice, while indicating the fact that something was selected with a sound cue.
- This interface will assume the availability of a shell command "play"
-that can take one or more sound files and play them.
-This module will also provide a mapping between names in the elisp world and actual sound files.
-Modules that wish to use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes
-architecture for  auditory icons.
-Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
 
 @subsection Emacspeak-Sounds Commands
 
@@ -20084,28 +19458,6 @@ Give a brief overview of emacspeak.
 @end format
 @end deffn
 
-@subsubsection emacspeak-emergency-tts-restart
-@deffn {Command} emacspeak-emergency-tts-restart   
-@table @kbd
-@item C-e <insert>
-@kindex C-e <insert>
-@item <fn> <insert>
-@kindex <fn> <insert>
-@item C-e x s
-@kindex C-e x s
-@item <fn> x s
-@kindex <fn> x s
-@end table
-
-@findex emacspeak-emergency-tts-restart
-
-@format
-For use in an emergency.
-Will start TTS engine specified by
-emacspeak-emergency-tts-server.
-@end format
-@end deffn
-
 @subsubsection emacspeak-kill-buffer-quietly
 @deffn {Command} emacspeak-kill-buffer-quietly   
 @table @kbd
@@ -20468,15 +19820,6 @@ meaning of ‘previous’.
 @end format
 @end deffn
 
-@subsubsection emacspeak-ssh-tts-restart
-@deffn {Command} emacspeak-ssh-tts-restart   
-@findex emacspeak-ssh-tts-restart
-
-@format
-Restart specified ssh tts server.
-@end format
-@end deffn
-
 @subsubsection emacspeak-symlink-current-file
 @deffn {Command} emacspeak-symlink-current-file   
 @table @kbd
@@ -20711,6 +20054,27 @@ Cycles to next buffer having same mode.
 
 @format
 Cycles to previous buffer having same mode.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-describe-personality
+@deffn {Command} emacspeak-wizards-describe-personality  (personality)
+@table @kbd
+@item C-h C-v
+@kindex C-h C-v
+@item <f1> C-v
+@kindex <f1> C-v
+@item <help> C-v
+@kindex <help> C-v
+@end table
+
+@findex emacspeak-wizards-describe-personality
+
+@format
+Describe specified voice --- analogous to C-h /.
+When called interactively, ‘personality’ defaults to first personality at point. 
+
+(fn PERSONALITY)
 @end format
 @end deffn
 
@@ -21646,17 +21010,6 @@ term if needed.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-terminal
-@deffn {Command} emacspeak-wizards-terminal  (program)
-@findex emacspeak-wizards-terminal
-
-@format
-Launch terminal and rename buffer appropriately.
-
-(fn PROGRAM)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 @deffn {Command} emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer   
 @findex emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
@@ -21822,17 +21175,6 @@ Buffer menu filtered by  mode of current-buffer.
 
 @subsection emacspeak-wizards Options
 
-@defvar {User Option} emacspeak-emergency-tts-server
-TTS server to use in an emergency.
-Set this to a TTS server that is known to work at all times.
-If you are debugging another speech server and that server
-gets wedged for some reason,
-you can use command emacspeak-emergency-tts-restart
-to get speech back using the reliable TTS server.
-It’s useful to bind the above command to a convenient key.
-
-@end defvar
-
 @defvar {User Option} emacspeak-iex-api-key
 Web API  key for IEX Finance access.
 See IEX Login Console   at
@@ -21844,11 +21186,6 @@ for how to get  an API key.
 @defvar {User Option} emacspeak-speak-telephone-directory
 File holding telephone directory.
 This is just a text file, and we use grep to search it.
-
-@end defvar
-
-@defvar {User Option} emacspeak-ssh-tts-server
-SSH TTS server to use by default.
 
 @end defvar
 
@@ -22050,35 +21387,6 @@ This module implements no new functionality --- contrast with
 emacspeak-wizards.  Instead, it uses package hydra to provide
 convenience key-bindings that access existing Emacspeak
 functionality.
-You need to install package Hydra first:
-@samp{M-x package-install  hydra}.
-
-Note that on newer versions of Emacs, loading this module will
-attempt to automatically install package hydra if it is not found.
-@subsection Using Hydras
-See the high-level documentation for the Hydra package by executing
-@kbd {C-h C-j } hydra @kbd{RET}.
-The documentation in this section uses the same terminology as
-shown in the hydra package documentation.
-
-@subsection Extra Muggles
-
-@itemize
-@item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
-@item SmartParens: @kbd{C-c ,} Smart Parens
-@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
-@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
-@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
-@item origami: C-, / Origami   bindings.
-@item outliner: <C-c .> Bindings from outline-minor-mode.
-@item Info-Summary: <?> in Info Info Summary Muggle
-@end itemize
-
-Emacspeak automatically speaks Hydra hints when displayed.
-To silence all Hydra hints, set hydra-is-helpful to nil.  To
-temporarily silence speaking of Hydra hints, Muggles can bind
-command @code{emacspeak-hydra-toggle-talkative}.  As an
-example, Muggle @samp{ViewMode} binds @code{s} to this command.
 
 @subsection Extra-Muggles Commands
 
@@ -22747,10 +22055,6 @@ The goal is to make it easy to inspect Ladspa Plugins,
 And invoke them easily from  Ladspa host applications such as MPlayer.
 See
 @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
-Some Ladspa Packages that provide plugins:
-sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins
-swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa
-ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins
 
 @subsection Ladspa Commands
 
@@ -22891,28 +22195,6 @@ additional Boodler Agents and SoundScapes  that
 I have created for use with Emacspeak.
 
  Module soundscape.el  defines Emacs conveniences for running
-Soundscapes. Main Entry Points:
-
-@itemize
-@item M-x soundscape-toggle -- Enables or
-disables automatic SoundScapes.
-@item M-x soundscape --
-runs a named SoundScape
-@item M-x soundscape-stop -- Stops a specified running Soundscape.
-@item M-x soundscape-kill -- Kills all running Soundscapes.
-@end itemize
-
-When automatic Soundscapes are enabled, SoundScapes are
- started and stopped based on the current major
-mode. Active Soundscape  are displayed as part of the minor-mode-alist.
-Command emacspeak-speak-minor-mode-line can be used to have this spoken.
-
-Thus, SoundScapes can be thought of as reflecting the
-@emph{mood} of the current @emph{mode}.
-This package defines a single @var{soundscape-default-theme}
-that is loaded using @code{(soundscape-load soundscape-default-theme)}.
-Emacs modes that provide similar functionality e.g.,
-communication == email, IM, ... map to  the same @emph{mood}.
 
 @subsection Soundscape Commands
 
@@ -23584,16 +22866,6 @@ Add monotone and speaks all punctuations.
 
 @end defvar
 
-@defvar {User Option} voice-punctuations-all-settings
-Add   speaks all punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-punctuations-none-settings
-Add speaks no punctuations.
-
-@end defvar
-
 @defvar {User Option} voice-punctuations-some-settings
 Add speaks some punctuations.
 
@@ -23633,63 +22905,6 @@ Reserved words will be spoken in `voice-keyword-personality'.
 To make the text you type be voiceified, use M-x voice-lock-mode.
 When this minor mode is on, the voices of the current line are
 updated with every insertion or deletion.
-
-Voice-Lock And Aural CSS:
-The CSS Speech Style Sheet specification defines a number of
-abstract device independent voice properties.
-A setting conforming to the CSS speech specification can be
-represented in elisp as a structure.
-
-We will refer to this structure as a "speech style".  This
-structure needs to be mapped to device dependent codes to produce
-the desired effect.  This module forms a bridge between emacs
-packages    that wish to implement audio formatting
-and Emacspeak's TTS module.  Emacspeak produces voice
-change effects by examining the value of text-property
-'personality.
-
-Think of a buffer of formatted text along with the text-property
-'personality appropriately set as a "aural display list".
-Module voice-setup.el  help applications like EWW
- produce audio-formatted output by calling  function
-acss-personality-from-speech-style  with a  "speech-style"
---a structure as defined in this module and get back a symbol that
-they then assign to the value of property 'personality.
-Emacspeak's rendering engine then does the needful at the time
-speech is produced.
-Function acss-personality-from-speech-style does the following:
-Takes as input a "speech style"
-(1)  Computes a symbol that will be used henceforth to refer to this
-specific speech style.
-(2) Examines emacspeak's internal voice table to see if this
-speech style has a voice already defined.
-If so it returns immediately.
-Otherwise, it does the additional work of defining a -voice for
-future use.
-See its use in   this module to see how voices are defined
-independent of a given TTS engine.
-How faces map to voices: TTS engine specific modules e.g.,
-dectalk-voices.el and outloud-voices.el define a standard set
-of voice names.  This module maps standard "personality"
-names to these pre-defined voices.  It does this via special
-form def-voice-font which takes a personality name, a voice
-name and a face name to set up the mapping between face and
-personality, and personality and voice.
-Newer Emacspeak modules should use voice-setup-add-map when
-defining face->personality mappings.
-Older code calls def-voice-font directly, but over time those
-calls will be changed to the more succinct form provided by
-voice-setup-add-map. For use from other modules, also see
-function voice-setup-map-face which is useful when mapping a
-single face.
-Both voice-setup-add-map and voice-setup-map-face call
-special form def-voice-font.
-
-Special form def-voice-font sets up the personality name to
-be available via custom.  new voices can be defined using CSS
-style specifications see special form defvoice Voices defined
-via defvoice can be customized via custom see the
-documentation for defvoice.
 
 @subsection Voice-Setup Commands
 
@@ -23731,27 +22946,6 @@ Turn on Voice Lock mode .
 @end format
 @end deffn
 
-@subsubsection voice-setup-describe-personality
-@deffn {Command} voice-setup-describe-personality  (personality)
-@table @kbd
-@item C-h C-v
-@kindex C-h C-v
-@item <f1> C-v
-@kindex <f1> C-v
-@item <help> C-v
-@kindex <help> C-v
-@end table
-
-@findex voice-setup-describe-personality
-
-@format
-Describe specified voice --- analogous to C-h /.
-When called interactively, ‘personality’ defaults to first personality at point. 
-
-(fn PERSONALITY)
-@end format
-@end deffn
-
 @subsubsection voice-setup-toggle-silence-personality
 @deffn {Command} voice-setup-toggle-silence-personality   
 @table @kbd
@@ -23784,9 +22978,6 @@ Provide an emacs front-end to xbacklight.
 This is a tool that controls the brightness on laptops.
 To install xbacklight,
 sudo apt-get install xbacklight
-
-This module  is most   easily used in conjunction with  hydra:
-M-x package-install hydra
 
 @subsection Xbacklight Commands
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 23, 2020.
+last updated on December 26, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-feeds,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -37,8 +37,6 @@ Infrequently used wizards archived for posterity.
      Annotation is entered in a temporary buffer and the
      annotation is inserted into the working buffer when complete.
 
-     (fn &optional RESET)
-
 12.73.1.2 emacspeak-clipboard-copy
 ..................................
 
@@ -57,8 +55,6 @@ Infrequently used wizards archived for posterity.
      region. Optional argument PROMPT specifies whether we prompt for the
      name of a clipboard file.
 
-     (fn START END &optional PROMPT)
-
 12.73.1.3 emacspeak-clipboard-paste
 ...................................
 
@@ -74,16 +70,12 @@ Infrequently used wizards archived for posterity.
      light-weight.  Optional interactive prefix arg pastes from
      the emacspeak table clipboard instead.
 
-     (fn &optional PASTE-TABLE)
-
 12.73.1.4 emacspeak-curl
 ........................
 
  -- Command: emacspeak-curl (url)
 
      Grab URL using Curl, and preview it with a browser .
-
-     (fn URL)
 
 12.73.1.5 emacspeak-wizards-add-autoload-cookies
 ................................................
@@ -93,16 +85,12 @@ Infrequently used wizards archived for posterity.
      Add autoload cookies to file f.
      Default is to add autoload cookies to current file.
 
-     (fn &optional F)
-
 12.73.1.6 emacspeak-wizards-bindings-from-org
 .............................................
 
  -- Command: emacspeak-wizards-bindings-from-org (variable filename)
 
      Load bindings from a specified file.
-
-     (fn VARIABLE FILENAME)
 
 12.73.1.7 emacspeak-wizards-bindings-to-org
 ...........................................
@@ -111,8 +99,6 @@ Infrequently used wizards archived for posterity.
 
      Persists mapping to org file.
 
-     (fn VARIABLE FILENAME)
-
 12.73.1.8 emacspeak-wizards-braille
 ...................................
 
@@ -120,16 +106,12 @@ Infrequently used wizards archived for posterity.
 
      Insert Braille string at point.
 
-     (fn S)
-
 12.73.1.9 emacspeak-wizards-display-pod-as-manpage
 ..................................................
 
  -- Command: emacspeak-wizards-display-pod-as-manpage (filename)
 
      Create a virtual manpage in Emacs from the Perl Online Documentation.
-
-     (fn FILENAME)
 
 12.73.1.10 emacspeak-wizards-find-grep
 ......................................
@@ -139,16 +121,12 @@ Infrequently used wizards archived for posterity.
      Run compile using find and grep.
      Interactive  arguments specify filename pattern and search pattern.
 
-     (fn GLOB PATTERN)
-
 12.73.1.11 emacspeak-wizards-fix-read-only-text
 ...............................................
 
  -- Command: emacspeak-wizards-fix-read-only-text (start end)
 
      Nuke read-only property on text range.
-
-     (fn START END)
 
 12.73.1.12 emacspeak-wizards-generate-voice-sampler
 ...................................................
@@ -157,8 +135,6 @@ Infrequently used wizards archived for posterity.
 
      Generate a buffer that shows a sample line in all the ACSS settings
      for the current voice family.
-
-     (fn STEP)
 
 12.73.1.13 emacspeak-wizards-list-voices
 ........................................
@@ -172,8 +148,6 @@ Infrequently used wizards archived for posterity.
      Sample text to use comes from variable
        ‘ems–wizards-sampler-text
 
-     (fn PATTERN)
-
 12.73.1.14 emacspeak-wizards-midi-using-m-score
 ...............................................
 
@@ -181,16 +155,21 @@ Infrequently used wizards archived for posterity.
 
      Play midi file using mscore from musescore package.
 
-     (fn MIDI-FILE)
+12.73.1.15 emacspeak-wizards-show-defined-voice-fonts
+.....................................................
 
-12.73.1.15 emacspeak-wizards-show-defined-voices
+ -- Command: emacspeak-wizards-show-defined-voice-fonts
+
+     Display a buffer with sample text in the defined voice fonts.
+
+12.73.1.16 emacspeak-wizards-show-defined-voices
 ................................................
 
  -- Command: emacspeak-wizards-show-defined-voices
 
      Display a buffer with sample text in the defined voices.
 
-12.73.1.16 emacspeak-wizards-tramp-open-location
+12.73.1.17 emacspeak-wizards-tramp-open-location
 ................................................
 
  -- Command: emacspeak-wizards-tramp-open-location (name)
@@ -198,16 +177,12 @@ Infrequently used wizards archived for posterity.
      Open specified tramp location.
      Location is specified by name.
 
-     (fn NAME)
-
-12.73.1.17 emacspeak-wizards-voice-sampler
+12.73.1.18 emacspeak-wizards-voice-sampler
 ..........................................
 
  -- Command: emacspeak-wizards-voice-sampler (personality)
 
      Read a personality  and apply it to the current line.
-
-     (fn PERSONALITY)
 
 12.73.2 emacspeak-extras Options
 --------------------------------
@@ -332,12 +307,7 @@ File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-fix-interact
 It is often useful to view the results of filtering large amounts of
 text.;;; Typically you do this with various combinations of grep and
 friends.  When doing so it requires explicit effort to not destroy the
-original text being filtered.  This module provides a textfilter utility
-that: A) Copies over the selected text to a special filtertext buffer B)
-Implements a filtertext mode for that buffer that allows easy
-application of filters C: Provides commands for reverting to the
-original unfiltered text D: Provides commands for saving results from
-intermediate filters.
+original text being filtered.
 
 12.75.1 Emacspeak-Filtertext Commands
 -------------------------------------
@@ -510,16 +480,7 @@ File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev
 ========================
 
 This module speech enables flyspell.  it loads flyspell-correct if
-available, And when loading flyspell-correct sets up that module to use
-one of three supported correction styles:
-   • ido: IDO-like completion with C-s and C-r moving through choices.
-   • popup:Use up and down arrows to move through corrections.
-   • helm: A helm interface for picking amongst corrections.
-   See documentation for package flyspell-correct for additional
-details.
-
-   Use Customization emacspeak-flyspell-correct to pick between ido,
-popup and helm.
+available, And when loading flyspell-correct sets up that module
 
 12.79.1 emacspeak-flyspell Options
 ----------------------------------
@@ -543,10 +504,7 @@ File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: e
 12.80 emacspeak-folding
 =======================
 
-Folding mode turns emacs into a folding editor.  Folding mode is what I
-use: emacs 19 comes with similar packages, e.g.  allout.el This module
-defines some advice forms that make folding mode a pleasure to use.
-Think of a fold as a container.
+Folding mode turns emacs into a folding editor.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -706,10 +664,7 @@ File: emacspeak.info,  Node: emacspeak-gnus,  Next: emacspeak-go-mode,  Prev: em
 
 This module advises gnus to speak.  Updating support in 2014 (Emacspeak
 is nearly 20 years old) Updating in 2018 as I switch to gnus as my
-primary mail interface.  These customizations to gnus make it convenient
-to listen to news: You can read news mostly by using the four arrow
-keys.  By default all article headers are hidden, so you hear the real
-news.
+primary mail interface.
 
 12.86.1 Emacspeak-Gnus Commands
 -------------------------------
@@ -1584,8 +1539,6 @@ list of (start end) tuples..
 ..................................
 
  -- Command: emacspeak-gridtext-apply (start end grid)
-     ‘C-e # a’
-     ‘<fn> # a’
 
      Apply grid to region.
 
@@ -1595,8 +1548,6 @@ list of (start end) tuples..
 .................................
 
  -- Command: emacspeak-gridtext-load (file)
-     ‘C-e # l’
-     ‘<fn> # l’
 
      Load saved grid settings.
 
@@ -1606,8 +1557,6 @@ list of (start end) tuples..
 .................................
 
  -- Command: emacspeak-gridtext-save (file)
-     ‘C-e # s’
-     ‘<fn> # s’
 
      Save out grid settings.
 
@@ -1755,9 +1704,6 @@ File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: e
 12.98 emacspeak-hydra
 =====================
 
-Speech-enable package hydra: For uses of hydra see module *Note
-emacspeak-muggles::.
-
 12.98.1 Emacspeak-Hydra Commands
 --------------------------------
 
@@ -1767,6 +1713,34 @@ emacspeak-muggles::.
  -- Command: emacspeak-hydra-toggle-talkative
 
      Toggle state of hydra-is-helpful
+
+12.98.2 emacspeak-hydra Options
+-------------------------------
+
+ -- Variable: User Option voice-hydra-face-amaranth
+     Personality used for hydra-face-amaranth This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-hydra-face-blue
+     Personality used for hydra-face-blue This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-hydra-face-pink
+     Personality used for hydra-face-pink This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-hydra-face-red
+     Personality used for hydra-face-red This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-hydra-face-teal
+     Personality used for hydra-face-teal This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
@@ -2394,16 +2368,7 @@ implements an Emacspeak Librivox client.
 12.111.1 Usage
 --------------
 
-main entry point is command ‘emacspeak-librivox’ bound to ‘C-; l’.  This
-prompts with the following choices:
-   • ‘a’ Author — Search by Author.
-   • ‘t’ Title — Search by Title.
-   • ‘g’ Genre — Search by Genre — with minibuffer completion.
-   • ‘p’ Play — Play a book.
-   • ‘d’ Directory — Browse local cache.
-
-   Search results are displayed in a Web page that provides controls for
-accessing the book.
+main entry point is command ‘emacspeak-librivox’ bound to ‘C-; l’.
 
 12.111.2 Emacspeak-Librivox Commands
 ------------------------------------
@@ -2480,15 +2445,7 @@ LISPY == smart Navigation Of Lisp code This module speech-enables lispy.
 
 Lispy editing keeps delimiters balanced and Lispy navigators reliably
 place point on either the opening or closing delimiter of the current
-s-expression.  Emacspeak leverages this fact in the type of spoken
-feedback that is produced.  All navigation commands produce the
-following:
-   • Speak the current s-expression when at the front of a sexp.
-   • Speak the current line with option ‘emacspeak-show-point’ turned on
-     when at the end of an s-expression.
-   • Produce auditory icon ‘left’ or ‘right’ to indicate point being at
-     the beginning or end of current line.
-   • Indicate with an auditory icon if point did not move.
+s-expression.  Emacspeak leverages this fact in the
 
 12.112.2 emacspeak-lispy Options
 --------------------------------
@@ -4006,49 +3963,24 @@ Annotations follow Aural CSS as implemented in Emacspeak, This allows us
 to map these expressions to aural properties supported by specific TTS
 engines.
 
-12.119.3 Basic Usage:
----------------------
-
-Start the server/client: M-x emacspeak-maths-start.  Once the server and
-client are started, you can browse any number of math expressions using
-the emacspeak-maths-navigator described below.  Note: In general, once
-everything is configured correctly, using the maths navigator
-automatically starts the server and client.  Invoke the Navigator using
-s-spc — this is the <windows> key on Linux.  Now you can use these keys:
-   • Show Output <o> Switch to output buffer and quit Maths Navigator
-   • Enter: <SPC> Enter a LaTeX expression.
-   • Smart-Enter: <enter> Enter the guessed expression with no
-     prompting.
-   • Alt-Text <a> Process alt-text under point as LaTeX.
-   • Down <down> Move down a level.
-   • Up <up> Move up a level.
-   • Left <left> Move left.
-   • Right <right> Move right.
-   • Exit <any other key> Exit navigator.
-
-   The current expression is spoken after each of the above commands.
-It is also displayed in a special buffer *Spoken Math*.  That buffer
-holds all previously generated output, And Emacs commands forward-page
-and backward-page can be used to move through each chunk of output.
-
-12.119.4 Emacspeak-Maths Commands
+12.119.3 Emacspeak-Maths Commands
 ---------------------------------
 
-12.119.4.1 emacspeak-maths-depth
+12.119.3.1 emacspeak-maths-depth
 ................................
 
  -- Command: emacspeak-maths-depth
 
      Move depth in current Math expression. (auto-generated)
 
-12.119.4.2 emacspeak-maths-down
+12.119.3.2 emacspeak-maths-down
 ...............................
 
  -- Command: emacspeak-maths-down
 
      Move down in current Math expression. (auto-generated)
 
-12.119.4.3 emacspeak-maths-enter
+12.119.3.3 emacspeak-maths-enter
 ................................
 
  -- Command: emacspeak-maths-enter (latex)
@@ -4056,9 +3988,7 @@ and backward-page can be used to move through each chunk of output.
      Send a LaTeX expression to Maths server.
      Tries to guess default based on context.
 
-     (fn LATEX)
-
-12.119.4.4 emacspeak-maths-enter-guess
+12.119.3.4 emacspeak-maths-enter-guess
 ......................................
 
  -- Command: emacspeak-maths-enter-guess
@@ -4066,49 +3996,49 @@ and backward-page can be used to move through each chunk of output.
      Send the guessed  LaTeX expression to Maths server.
      Guess is based on context.
 
-12.119.4.5 emacspeak-maths-flush-output
+12.119.3.5 emacspeak-maths-flush-output
 .......................................
 
  -- Command: emacspeak-maths-flush-output
 
      Flush client buffer if things go out of sync.
 
-12.119.4.6 emacspeak-maths-left
+12.119.3.6 emacspeak-maths-left
 ...............................
 
  -- Command: emacspeak-maths-left
 
      Move left in current Math expression. (auto-generated)
 
-12.119.4.7 emacspeak-maths-restart
+12.119.3.7 emacspeak-maths-restart
 ..................................
 
  -- Command: emacspeak-maths-restart
 
      Restart Node math-server if running. Otherwise starts a new one.
 
-12.119.4.8 emacspeak-maths-right
+12.119.3.8 emacspeak-maths-right
 ................................
 
  -- Command: emacspeak-maths-right
 
      Move right in current Math expression. (auto-generated)
 
-12.119.4.9 emacspeak-maths-root
+12.119.3.9 emacspeak-maths-root
 ...............................
 
  -- Command: emacspeak-maths-root
 
      Move root in current Math expression. (auto-generated)
 
-12.119.4.10 emacspeak-maths-shutdown
+12.119.3.10 emacspeak-maths-shutdown
 ....................................
 
  -- Command: emacspeak-maths-shutdown
 
      Shutdown client and server processes.
 
-12.119.4.11 emacspeak-maths-speak-alt
+12.119.3.11 emacspeak-maths-speak-alt
 .....................................
 
  -- Command: emacspeak-maths-speak-alt
@@ -4116,7 +4046,7 @@ and backward-page can be used to move through each chunk of output.
      Speak alt text as Maths.
      For use on Wikipedia pages  for example.
 
-12.119.4.12 emacspeak-maths-spoken-mode
+12.119.3.12 emacspeak-maths-spoken-mode
 .......................................
 
  -- Command: emacspeak-maths-spoken-mode
@@ -4143,21 +4073,21 @@ and backward-page can be used to move through each chunk of output.
      this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.119.4.13 emacspeak-maths-start
+12.119.3.13 emacspeak-maths-start
 .................................
 
  -- Command: emacspeak-maths-start
 
      Start Maths server bridge.
 
-12.119.4.14 emacspeak-maths-switch-to-output
+12.119.3.14 emacspeak-maths-switch-to-output
 ............................................
 
  -- Command: emacspeak-maths-switch-to-output
 
      Switch to output buffer.
 
-12.119.4.15 emacspeak-maths-up
+12.119.3.15 emacspeak-maths-up
 ..............................
 
  -- Command: emacspeak-maths-up
@@ -4258,22 +4188,7 @@ File: emacspeak.info,  Node: emacspeak-mines,  Next: emacspeak-mspools,  Prev: e
 ======================
 
 MINES == Minesweeper game in emacs.  The game itself provides a fully
-keyboard driven interface.  In addition, Emacspeak provides these
-additional interactive commands:
-   • ‘SPC’ Speak current cell.
-   • ‘.’ Speak neighbors of current cell.
-   • ‘,’ Speak number of marks
-   • ‘a’ Move to beginning of row.
-   • ‘e’ Move to end of row.
-   • ‘g’ Move to specified cell
-   • ‘s’ Move to next uncovered cell.
-   • ‘/’ Speak number of remaining uncovered cells.
-   • ‘'’ Speaks entire board.
-
-   Speaking cell neighbors uses appropriate clause boundaries to group
-related cells — neighbors are read left-to-right, top-to-bottom.  Moving
-to the left/right edge of the board produces an appropriate auditory
-icon.
+keyboard driven interface.  In addition, Emacspeak provides
 
 12.123.1 Emacspeak-Mines Commands
 ---------------------------------
@@ -4364,44 +4279,12 @@ File: emacspeak.info,  Node: emacspeak-muggles,  Next: emacspeak-muse,  Prev: em
 MUGGLES == Emacspeak spells for power-users.  This module implements no
 new functionality — contrast with emacspeak-wizards.  Instead, it uses
 package hydra to provide convenience key-bindings that access existing
-Emacspeak functionality.  You need to install package Hydra first: ‘M-x
-package-install hydra’.
+Emacspeak functionality.
 
-   Note that on newer versions of Emacs, loading this module will
-attempt to automatically install package hydra if it is not found.
-
-12.125.1 Using Hydras
----------------------
-
-See the high-level documentation for the Hydra package by executing ‘C-h
-C-j ’ hydra ‘RET’.  The documentation in this section uses the same
-terminology as shown in the hydra package documentation.
-
-12.125.2 Implemented Muggles
-----------------------------
-
-   • Brightness: ‘print’ Control display brightness using xbacklight.
-   • Navigate: ‘s-n’ Navigate with ease.
-   • org-mode structure nav: ‘C-c C-SPC’ Structure navigation for
-     org-mode.
-   • org-mode tables: ‘C-c t’ Table UI for org-mode tables.
-   • hideshow: C-, h Provide HideShow bindings.
-   • toggle-option: ‘C-c o’ Single binding for toggling options.
-   • Repeatable-Yank: ‘C-y’ Smart yank
-   • Vuiet Explorer: ‘C-; v’ Vuiet Music Explorer and Player
-   • undo-only/undo-redo: ‘C-/ ’ Undo-only on ‘/’ and undo-redo on ‘\’
-   • emacspeak-maths ‘s-SPC’ Speak and browse math.
-
-   Emacspeak automatically speaks Hydra hints when displayed.  To
-silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
-silence speaking of Hydra hints, Muggles can bind command
-‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
-binds ‘s’ to this command.
-
-12.125.3 Emacspeak-Muggles Commands
+12.125.1 Emacspeak-Muggles Commands
 -----------------------------------
 
-12.125.3.1 emacspeak-muggles-brightness/body
+12.125.1.1 emacspeak-muggles-brightness/body
 ............................................
 
  -- Command: emacspeak-muggles-brightness/body
@@ -4424,7 +4307,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
-12.125.3.2 emacspeak-muggles-hideshow/body
+12.125.1.2 emacspeak-muggles-hideshow/body
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
@@ -4446,7 +4329,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 
-12.125.3.3 emacspeak-muggles-ido-yank
+12.125.1.3 emacspeak-muggles-ido-yank
 .....................................
 
  -- Command: emacspeak-muggles-ido-yank
@@ -4454,14 +4337,14 @@ binds ‘s’ to this command.
 
      Pick what to yank using ido completion.
 
-12.125.3.4 emacspeak-muggles-lispy-or-sp
+12.125.1.4 emacspeak-muggles-lispy-or-sp
 ........................................
 
  -- Command: emacspeak-muggles-lispy-or-sp
 
      Toggle between lispy and smartparens.
 
-12.125.3.5 emacspeak-muggles-maths-navigator/body
+12.125.1.5 emacspeak-muggles-maths-navigator/body
 .................................................
 
  -- Command: emacspeak-muggles-maths-navigator/body
@@ -4484,7 +4367,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
 
-12.125.3.6 emacspeak-muggles-navigate/body
+12.125.1.6 emacspeak-muggles-navigate/body
 ..........................................
 
  -- Command: emacspeak-muggles-navigate/body
@@ -4512,7 +4395,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 
-12.125.3.7 emacspeak-muggles-org-nav/body
+12.125.1.7 emacspeak-muggles-org-nav/body
 .........................................
 
  -- Command: emacspeak-muggles-org-nav/body
@@ -4532,7 +4415,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 
-12.125.3.8 emacspeak-muggles-org-table/body
+12.125.1.8 emacspeak-muggles-org-table/body
 ...........................................
 
  -- Command: emacspeak-muggles-org-table/body
@@ -4554,7 +4437,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
-12.125.3.9 emacspeak-muggles-toggle-option/body
+12.125.1.9 emacspeak-muggles-toggle-option/body
 ...............................................
 
  -- Command: emacspeak-muggles-toggle-option/body
@@ -4582,7 +4465,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.125.3.10 emacspeak-muggles-undo-only/undo-redo/body
+12.125.1.10 emacspeak-muggles-undo-only/undo-redo/body
 ......................................................
 
  -- Command: emacspeak-muggles-undo-only/undo-redo/body
@@ -4598,7 +4481,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 
-12.125.3.11 emacspeak-muggles-vuiet/body
+12.125.1.11 emacspeak-muggles-vuiet/body
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
@@ -4631,7 +4514,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
 
-12.125.3.12 emacspeak-muggles-yank-pop/body
+12.125.1.12 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -4955,10 +4838,6 @@ File: emacspeak.info,  Node: emacspeak-ocr,  Next: emacspeak-org,  Prev: emacspe
 This module defines Emacspeak front-end to OCR. This module assumes that
 sane is installed and working for image acquisition, and that there is
 an OCR engine that can take acquired images and produce text.
-Prerequisites: Sane installed and working.  scanimage to generate tiff
-files from scanner.  tiffcp to compress the tiff file.  working ocr
-executable by default this module assumes that the OCR executable is
-named "ocr"
 
 12.132.1 Emacspeak-Ocr Commands
 -------------------------------
@@ -5843,37 +5722,10 @@ File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: 
 12.140.1 PIANOBAR == Pandora Client for Emacs
 ---------------------------------------------
 
-pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian: sudo
-apt-get install pianobar
-
-   Pianobar Is a stand-alone client for Pandora Radio.  pianobar.el
-available on the Emacs Wiki at
-http://www.emacswiki.org/emacs/pianobar.el Provides access to Pandora
-Radio via pianobar from the comfort of Emacs.  This module
-speech-enables Pianobar and enhances it for the Complete Audio Desktop.
-
-12.140.2 Emacspeak Usage:
--------------------------
-
-Emacspeak implements command emacspeak-pianobar, a light-weight wrapper
-on top of pianobar.  Emacspeak binds this command to ‘C-e '’.  Command
-emacspeak-pianobar is designed to let you launch Pandora channels and
-switch tracks/channels without moving away from your primary tasks such
-as editting code or reading/composing email.  Toward this end, launching
-command emacspeak-pianobar the first time initializes the ‘*pianobar*’
-buffer and launches command ‘pianobar’; but focus remains in your
-current buffer.  Pianobar can be controlled with single keystrokes while
-in the pianobar buffer — switch to using ‘C-e ''’.  The most useful keys
-are ‘right’ for skipping tracks, ‘up’ and ‘down’ for switching channels
-etc.; see the keys bound in ‘pianobar-key-map’ for a complete list.
-Pressing ‘C-e '’ in the ‘*pianobar*’ buffer buries the ‘*pianobar*’.
-From here on, Pianobar can be controlled by pressing the Pianobar prefix
-key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
-
-12.140.3 Emacspeak-Pianobar Commands
+12.140.2 Emacspeak-Pianobar Commands
 ------------------------------------
 
-12.140.3.1 emacspeak-pianobar
+12.140.2.1 emacspeak-pianobar
 .............................
 
  -- Command: emacspeak-pianobar
@@ -5882,7 +5734,7 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
 
      Start or control Emacspeak Pianobar player.
 
-12.140.3.2 emacspeak-pianobar-command
+12.140.2.2 emacspeak-pianobar-command
 .....................................
 
  -- Command: emacspeak-pianobar-command (key)
@@ -5891,7 +5743,7 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
 
      (fn KEY)
 
-12.140.3.3 emacspeak-pianobar-electric-mode-toggle
+12.140.2.3 emacspeak-pianobar-electric-mode-toggle
 ..................................................
 
  -- Command: emacspeak-pianobar-electric-mode-toggle
@@ -5899,21 +5751,21 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
      Toggle electric mode in pianobar buffer.
      If electric mode is on, keystrokes invoke pianobar commands directly.
 
-12.140.3.4 emacspeak-pianobar-next-preset
+12.140.2.4 emacspeak-pianobar-next-preset
 .........................................
 
  -- Command: emacspeak-pianobar-next-preset
 
      Switch to next preset.
 
-12.140.3.5 emacspeak-pianobar-previous-preset
+12.140.2.5 emacspeak-pianobar-previous-preset
 .............................................
 
  -- Command: emacspeak-pianobar-previous-preset
 
      Switch to previous preset.
 
-12.140.3.6 emacspeak-pianobar-send-raw
+12.140.2.6 emacspeak-pianobar-send-raw
 ......................................
 
  -- Command: emacspeak-pianobar-send-raw (string)
@@ -5922,21 +5774,21 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
 
      (fn STRING)
 
-12.140.3.7 emacspeak-pianobar-switch-to-preset
+12.140.2.7 emacspeak-pianobar-switch-to-preset
 ..............................................
 
  -- Command: emacspeak-pianobar-switch-to-preset
 
      Switch to one of the  presets.
 
-12.140.3.8 emacspeak-pianobar-volume-down
+12.140.2.8 emacspeak-pianobar-volume-down
 .........................................
 
  -- Command: emacspeak-pianobar-volume-down
 
      Decrease volume
 
-12.140.3.9 emacspeak-pianobar-volume-up
+12.140.2.9 emacspeak-pianobar-volume-up
 .......................................
 
  -- Command: emacspeak-pianobar-volume-up
@@ -6591,12 +6443,7 @@ File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev:
 12.164 emacspeak-setup
 ======================
 
-Entry point for Emacspeak.  The simplest and most basic way to start
-emacspeak is: emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el The
-above starts a vanilla Emacs with just Emacspeak loaded.  Once the above
-has been verified to work, You can add (load-library "emacspeak-setup")
-To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
-repository for my setup.
+Entry point for Emacspeak.
 
 
 File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
@@ -6737,21 +6584,7 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 =======================
 
 This module provides the interface for generating auditory icons in
-emacspeak.  Design goal: 1) Auditory icons should be used to provide
-additional feedback, not as a gimmick.  2) The interface should be
-usable at all times without the icons: e.g.  when on a machine without a
-sound card.  3) General principle for when to use an icon: Convey
-information about events taking place in parallel.  For instance, if
-making a selection automatically moves the current focus to the next
-choice, We speak the next choice, while indicating the fact that
-something was selected with a sound cue.  This interface will assume the
-availability of a shell command "play" that can take one or more sound
-files and play them.  This module will also provide a mapping between
-names in the elisp world and actual sound files.  Modules that wish to
-use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes architecture for
-auditory icons.  Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
+emacspeak.
 
 12.172.1 Emacspeak-Sounds Commands
 ----------------------------------
@@ -7900,4 +7733,867 @@ of emacspeak from becoming dependent on the speech server modules
  -- Variable: User Option emacspeak-word-echo
      If t, then emacspeak echoes words as you type.  You can use C-e d w
      to toggle this option.
+
+
+File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
+
+12.174 emacspeak-speedbar
+=========================
+
+This module advises speedbar.el for use with Emacs.  The latest speedbar
+can be obtained from ftp://ftp.ultranet.com/pub/zappo/ This module
+ensures that speedbar works smoothly outside a windowing system in
+addition to speech enabling all interactive commands.  Emacspeak also
+adds an Emacspeak environment specific entry point to speedbar
+–emacspeak-speedbar-goto-speedbar– and binds this
+
+12.174.1 Emacspeak-Speedbar Commands
+------------------------------------
+
+12.174.1.1 emacspeak-speedbar-click
+...................................
+
+ -- Command: emacspeak-speedbar-click
+
+     Does the equivalent of the mouse click from the keyboard
+
+12.174.1.2 emacspeak-speedbar-goto-speedbar
+...........................................
+
+ -- Command: emacspeak-speedbar-goto-speedbar
+
+     Switch to the speedbar
+
+
+File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands And Options
+
+12.175 emacspeak-sql
+====================
+
+This module speech enables sql-mode– available from the Emacs package
+archive.  sql-mode.el implemented by the above package sets up an Emacs
+to SQL interface where you can interactively evaluate SQL expressions.
+
+
+File: emacspeak.info,  Node: emacspeak-sudoku,  Next: emacspeak-supercite,  Prev: emacspeak-sql,  Up: Emacspeak Commands And Options
+
+12.176 emacspeak-sudoku
+=======================
+
+Playing SuDoku using speech output.  Written to discover what type of
+feedback one needs for this task.  See
+http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
+
+12.176.1 Emacspeak-Sudoku Commands
+----------------------------------
+
+12.176.1.1 emacspeak-sudoku-board-columns-summarize
+...................................................
+
+ -- Command: emacspeak-sudoku-board-columns-summarize
+
+     Summarize columns — speaks number of remaining cells.
+
+12.176.1.2 emacspeak-sudoku-board-distribution-summarize
+........................................................
+
+ -- Command: emacspeak-sudoku-board-distribution-summarize
+
+     Shows distribution of filled numbers.
+
+12.176.1.3 emacspeak-sudoku-board-rows-summarize
+................................................
+
+ -- Command: emacspeak-sudoku-board-rows-summarize
+
+     Summarize rows — speaks number of remaining cells.
+
+12.176.1.4 emacspeak-sudoku-board-sub-squares-summarize
+.......................................................
+
+ -- Command: emacspeak-sudoku-board-sub-squares-summarize
+
+     Summarize sub-squares — speaks number of remaining cells.
+
+12.176.1.5 emacspeak-sudoku-board-summarizer
+............................................
+
+ -- Command: emacspeak-sudoku-board-summarizer
+
+     Dispatch to  appropriate summarizer.
+
+     d   Number Distribution
+     r   Row Distribution
+     c   Column Distribution
+     s   Sub-square Distribution.
+
+
+12.176.1.6 emacspeak-sudoku-down-sub-square
+...........................................
+
+ -- Command: emacspeak-sudoku-down-sub-square
+
+     Move to top-left corner of  sub-square below current one.
+
+12.176.1.7 emacspeak-sudoku-erase-current-column
+................................................
+
+ -- Command: emacspeak-sudoku-erase-current-column
+
+     Erase current column.
+
+12.176.1.8 emacspeak-sudoku-erase-current-row
+.............................................
+
+ -- Command: emacspeak-sudoku-erase-current-row
+
+     Erase current row.
+
+12.176.1.9 emacspeak-sudoku-erase-current-sub-square
+....................................................
+
+ -- Command: emacspeak-sudoku-erase-current-sub-square
+
+     Erase current sub-square.
+
+12.176.1.10 emacspeak-sudoku-hint
+.................................
+
+ -- Command: emacspeak-sudoku-hint
+
+     Provide hint for current cell.
+
+12.176.1.11 emacspeak-sudoku-history-pop
+........................................
+
+ -- Command: emacspeak-sudoku-history-pop
+
+     Pop saved state off stack and redraw board.
+
+12.176.1.12 emacspeak-sudoku-history-push
+.........................................
+
+ -- Command: emacspeak-sudoku-history-push
+
+     Push current state on to history stack.
+
+12.176.1.13 emacspeak-sudoku-how-many-remaining
+...............................................
+
+ -- Command: emacspeak-sudoku-how-many-remaining
+
+     Speak number of remaining squares to fill.
+
+12.176.1.14 emacspeak-sudoku-next-sub-square
+............................................
+
+ -- Command: emacspeak-sudoku-next-sub-square
+
+     Move to top-left corner of next sub-square.
+
+12.176.1.15 emacspeak-sudoku-previous-sub-square
+................................................
+
+ -- Command: emacspeak-sudoku-previous-sub-square
+
+     Move to top-left corner of previous sub-square.
+
+12.176.1.16 emacspeak-sudoku-speak-current-cell-coordinates
+...........................................................
+
+ -- Command: emacspeak-sudoku-speak-current-cell-coordinates
+
+     speak current cell coordinates.
+
+12.176.1.17 emacspeak-sudoku-speak-current-cell-value
+.....................................................
+
+ -- Command: emacspeak-sudoku-speak-current-cell-value
+
+     Speak value in current cell.
+
+12.176.1.18 emacspeak-sudoku-speak-current-column
+.................................................
+
+ -- Command: emacspeak-sudoku-speak-current-column
+
+     Speak current column.
+
+12.176.1.19 emacspeak-sudoku-speak-current-row
+..............................................
+
+ -- Command: emacspeak-sudoku-speak-current-row
+
+     Speak current row.
+
+12.176.1.20 emacspeak-sudoku-speak-current-sub-square
+.....................................................
+
+ -- Command: emacspeak-sudoku-speak-current-sub-square
+
+     Speak current sub-square.
+
+12.176.1.21 emacspeak-sudoku-speak-remaining-in-column
+......................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-column
+
+     Speaks number of remaining cells in current column.
+
+12.176.1.22 emacspeak-sudoku-speak-remaining-in-row
+...................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-row
+
+     Speaks number of remaining cells in current row.
+
+12.176.1.23 emacspeak-sudoku-speak-remaining-in-sub-square
+..........................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-sub-square
+
+     Speaks number of remaining cells in current sub-square.
+
+12.176.1.24 emacspeak-sudoku-up-sub-square
+..........................................
+
+ -- Command: emacspeak-sudoku-up-sub-square
+
+     Move to top-left corner of  sub-square above current one.
+
+
+File: emacspeak.info,  Node: emacspeak-supercite,  Next: emacspeak-syslog,  Prev: emacspeak-sudoku,  Up: Emacspeak Commands And Options
+
+12.177 emacspeak-supercite
+==========================
+
+Speech-enable supercite.
+
+
+File: emacspeak.info,  Node: emacspeak-syslog,  Next: emacspeak-tab-bar,  Prev: emacspeak-supercite,  Up: Emacspeak Commands And Options
+
+12.178 emacspeak-syslog
+=======================
+
+SYSLOG-MODE == Working with various log files.  Install package
+syslog-mode from melpa.
+
+12.178.1 emacspeak-syslog Options
+---------------------------------
+
+ -- Variable: User Option voice-syslog-debug
+     Personality used for syslog-debug This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-syslog-error
+     Personality used for syslog-error This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-syslog-file
+     Personality used for syslog-file This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option voice-syslog-hide
+     Personality used for syslog-hide This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+ -- Variable: User Option voice-syslog-hour
+     Personality used for syslog-hour This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-syslog-info
+     Personality used for syslog-info This personality uses
+     voice-highlight whose effect can be changed globally by customizing
+     voice-highlight-settings.
+
+ -- Variable: User Option voice-syslog-ip
+     Personality used for syslog-ip This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-syslog-su
+     Personality used for syslog-su This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-syslog-warn
+     Personality used for syslog-warn This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-tab-bar,  Next: emacspeak-table,  Prev: emacspeak-syslog,  Up: Emacspeak Commands And Options
+
+12.179 emacspeak-tab-bar
+========================
+
+tab-bar == tabs for window configuration.  Speech-enable tab-bar
+interaction.  If you have BROWSE-URL-NEW-WINDOW-FLAG set to T to have
+EWW open Web pages in a new buffer, then set
+EWW-BROWSE-URL-NEW-WINDOW-IS-TAB to nil to avoid leaking tabs.
+
+12.179.1 emacspeak-tab-bar Options
+----------------------------------
+
+ -- Variable: User Option voice-tab-bar
+     Personality used for tab-bar This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-tab-bar-tab
+     Personality used for tab-bar-tab This personality uses
+     voice-highlight whose effect can be changed globally by customizing
+     voice-highlight-settings.
+
+ -- Variable: User Option voice-tab-bar-tab-inactive
+     Personality used for tab-bar-tab-inactive This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-tab-line
+     Personality used for tab-line This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-table,  Next: emacspeak-table-ui,  Prev: emacspeak-tab-bar,  Up: Emacspeak Commands And Options
+
+12.180 emacspeak-table
+======================
+
+Implements a module that provides a high level interface to tabulated
+information.
+
+
+File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Prev: emacspeak-table,  Up: Emacspeak Commands And Options
+
+12.181 emacspeak-table-ui
+=========================
+
+User interface to tables
+
+12.181.1 Emacspeak-Table-Ui Commands
+------------------------------------
+
+12.181.1.1 emacspeak-table-copy-current-element-to-kill-ring
+............................................................
+
+ -- Command: emacspeak-table-copy-current-element-to-kill-ring
+     ‘C-e C-t w’
+     ‘<fn> C-t w’
+
+     Copy current table element to kill ring.
+
+12.181.1.2 emacspeak-table-copy-current-element-to-register
+...........................................................
+
+ -- Command: emacspeak-table-copy-current-element-to-register (register)
+     ‘C-e C-t x’
+     ‘<fn> C-t x’
+
+     Copy current table element to specified register.
+
+     (fn REGISTER)
+
+12.181.1.3 emacspeak-table-copy-to-clipboard
+............................................
+
+ -- Command: emacspeak-table-copy-to-clipboard
+     ‘C-e C-t k’
+     ‘<fn> C-t k’
+
+     Copy table in current buffer to the table clipboard.
+     Current buffer must be in emacspeak-table mode.
+
+12.181.1.4 emacspeak-table-display-table-in-region
+..................................................
+
+ -- Command: emacspeak-table-display-table-in-region (start end)
+     ‘C-e M-i’
+     ‘<fn> M-i’
+
+     Recognize tabular data in current region and display it in table
+     browsing mode in a a separate buffer.
+     emacspeak table mode is designed to let you browse tabular data using
+     all the power of the two-dimensional spatial layout while giving you
+     sufficient contextual information.  The tables subdirectory of the
+     emacspeak distribution contains some sample tables –these are the
+     CalTrain schedules.  Execute command ‘describe-mode’ bound to
+     C-h m in a buffer that is in emacspeak table mode to read
+     the documentation on the table browser.
+
+     (fn START END)
+
+12.181.1.5 emacspeak-table-find-csv-file
+........................................
+
+ -- Command: emacspeak-table-find-csv-file (filename)
+     ‘C-e C-t ,’
+     ‘<fn> C-t ,’
+
+     Process a csv (comma separated values) file.
+     The processed  data is presented using emacspeak table navigation.
+
+     (fn FILENAME)
+
+12.181.1.6 emacspeak-table-find-file
+....................................
+
+ -- Command: emacspeak-table-find-file (filename)
+
+     Open a file containing table data and display it in table mode.
+     emacspeak table mode is designed to let you browse tabular data using
+     all the power of the two-dimensional spatial layout while giving you
+     sufficient contextual information.  The etc/tables subdirectory of the
+     emacspeak distribution contains some sample tables –these are the
+     CalTrain schedules.  Execute command ‘describe-mode’ bound to
+     C-h m in a buffer that is in emacspeak table mode to read
+     the documentation on the table browser.
+
+     (fn FILENAME)
+
+12.181.1.7 emacspeak-table-goto
+...............................
+
+ -- Command: emacspeak-table-goto (row column)
+     ‘C-e C-t j’
+     ‘<fn> C-t j’
+
+     Prompt for a table cell coordinates and jump to it.
+
+     (fn ROW COLUMN)
+
+12.181.1.8 emacspeak-table-goto-bottom
+......................................
+
+ -- Command: emacspeak-table-goto-bottom
+     ‘C-e C-t B’
+     ‘<fn> C-t B’
+     ‘C-e C-t M->’
+     ‘<fn> C-t M->’
+
+     Goes to the bottom of the current column.
+
+12.181.1.9 emacspeak-table-goto-left
+....................................
+
+ -- Command: emacspeak-table-goto-left
+     ‘C-e C-t A’
+     ‘C-e C-t <’
+     ‘<fn> C-t A’
+     ‘<fn> C-t <’
+
+     Goes to the left of the current row.
+
+12.181.1.10 emacspeak-table-goto-right
+......................................
+
+ -- Command: emacspeak-table-goto-right
+     ‘C-e C-t E’
+     ‘C-e C-t >’
+     ‘<fn> C-t E’
+     ‘<fn> C-t >’
+
+     Goes to the right of the current row.
+
+12.181.1.11 emacspeak-table-goto-top
+....................................
+
+ -- Command: emacspeak-table-goto-top
+     ‘C-e C-t T’
+     ‘<fn> C-t T’
+     ‘C-e C-t M-<’
+     ‘<fn> C-t M-<’
+
+     Goes to the top of the current column.
+
+12.181.1.12 emacspeak-table-mode
+................................
+
+ -- Command: emacspeak-table-mode
+
+     Major mode for browsing tables.
+     Table mode is designed to allow speech users to browse tabular data
+     with full contextual feedback while retaining all the power of the
+     two-dimensional spatial layout of tables.
+
+     In table mode, the arrow keys move between cells of the table.
+     Emacspeak speaks the cell contents in a user-customizable way.  The
+     visual display is kept in sync with the speech you hear; however
+     Emacspeak is examining the entire table in order to speak the current
+     cell content intelligently.
+
+     You can interactively specify that emacspeak should speak either the row or
+     column header (or both) while speaking each cell.  You can also specify a row
+     or column filter that should be applied when speaking entire rows or columns
+     –this lets you view slices of a table.  You can move to a specific row or
+     column by searching the cell contents or by searching the row or column
+     headers to locate items of interest.
+
+     Here is a short description of the special commands provided in this mode.
+
+     The next four commands help you move to the edges of the table:
+
+     E               emacspeak-table-goto-right
+     A               emacspeak-table-goto-left
+     B               emacspeak-table-goto-bottom
+     T               emacspeak-table-goto-top
+
+     The next two commands let you search the table.
+     The commands ask you if you want to search rows or columns.
+     When searching headers remember that row 0 is the column header, and that column 0 is the row header.
+
+     h               emacspeak-table-search-headers
+     s               emacspeak-table-search
+
+     The next command lets you specify how cell contents should be spoken.  Specify
+     one of: ‘b’ for both, ‘c’ for column, ‘r’ for row, ‘f’ for row filtering and
+     ‘g’ for column filtering. –table cells with then be spoken with both (or
+     either)row and column headers, or with the filter applied.
+
+     a               emacspeak-table-select-automatic-speaking-method
+
+     The next set of commands speak the current table cell:
+
+     .               emacspeak-table-speak-coordinates
+     b               emacspeak-table-speak-both-headers-and-element
+     SPC             emacspeak-table-speak-current-element
+     c               emacspeak-table-speak-column-header-and-element
+     r               e macspeak-table-speak-row-header-and-element
+
+     The next set of commands navigate the table:
+
+     right               emacspeak-table-next-column
+     left               emacspeak-table-previous-column
+     down               emacspeak-table-next-row
+     up               emacspeak-table-previous-row
+     j               emacspeak-table-goto
+     S-tab               emacspeak-table-previous-column
+     TAB               emacspeak-table-next-column
+
+     Row and Column Filtering
+
+     Filtering is designed to let you view slices of a table.
+     They are specified as lists of numbers and strings.
+     The concept is best explained with an example.
+
+     A row filter specifies which of the entries in the current row should be
+     spoken.Entries are numbered starting with 0.  Thus, when working with a table
+     having 8 columns, a row filter of (1 2 3) will speak only entries 1 2 and 3.
+     Use the sample tables in etc/tables   to familiarize yourself with this
+     feature. Note that you can intersperse meaningful strings in the list that
+     specifies the filter.
+
+     Full List Of Keybindings:
+     key             binding
+     —             ——-
+
+     C-b		emacspeak-table-previous-column
+     C-f		emacspeak-table-next-column
+     TAB		emacspeak-table-next-column
+     C-n		emacspeak-table-next-row
+     C-p		emacspeak-table-previous-row
+     ESC		Prefix Command
+     SPC		emacspeak-table-speak-current-element
+     #		emacspeak-table-sort-on-current-column
+     ,		emacspeak-table-find-csv-file
+     .		emacspeak-table-speak-coordinates
+     <		emacspeak-table-goto-left
+     =		emacspeak-table-speak-dimensions
+     >		emacspeak-table-goto-right
+     A		emacspeak-table-goto-left
+     B		emacspeak-table-goto-bottom
+     C		emacspeak-table-search-column
+     E		emacspeak-table-goto-right
+     Q		emacspeak-kill-buffer-quietly
+     R		emacspeak-table-search-row
+     T		emacspeak-table-goto-top
+     a		emacspeak-table-select-automatic-speaking-method
+     b		emacspeak-table-speak-both-headers-and-element
+     c		emacspeak-table-speak-column-header-and-element
+     f		emacspeak-table-speak-row-filtered
+     g		emacspeak-table-speak-column-filtered
+     h		emacspeak-table-search-headers
+     j		emacspeak-table-goto
+     k		emacspeak-table-copy-to-clipboard
+     n		emacspeak-table-next-row
+     p		emacspeak-table-previous-row
+     q		quit-window
+     r		emacspeak-table-speak-row-header-and-element
+     s		emacspeak-table-search
+     v		emacspeak-table-view-csv-buffer
+     w		emacspeak-table-copy-current-element-to-kill-ring
+     x		emacspeak-table-copy-current-element-to-register
+     <S-tab>		emacspeak-table-previous-column
+     <down>		emacspeak-table-next-row
+     <left>		emacspeak-table-previous-column
+     <right>		emacspeak-table-next-column
+     <up>		emacspeak-table-previous-row
+
+     M-<		emacspeak-table-goto-top
+     M->		emacspeak-table-goto-bottom
+     M-l		emacspeak-table-ui-filter-load
+     M-s		emacspeak-table-ui-filter-save
+
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-table-mode-hook’, as the final or penultimate step
+     during initialization.
+
+12.181.1.13 emacspeak-table-next-column
+.......................................
+
+ -- Command: emacspeak-table-next-column (&optional count)
+     ‘C-e C-t TAB’
+     ‘C-e C-t C-f’
+     ‘C-e C-t <right>’
+     ‘<fn> C-t TAB’
+     ‘<fn> C-t C-f’
+     ‘<fn> C-t <right>’
+
+     Move to the next column if possible
+
+     (fn &optional COUNT)
+
+12.181.1.14 emacspeak-table-next-row
+....................................
+
+ -- Command: emacspeak-table-next-row (&optional count)
+     ‘C-e C-t n’
+     ‘C-e C-t C-n’
+     ‘C-e C-t <down>’
+     ‘<fn> C-t n’
+     ‘<fn> C-t C-n’
+     ‘<fn> C-t <down>’
+
+     Move to the next row if possible
+
+     (fn &optional COUNT)
+
+12.181.1.15 emacspeak-table-paste-from-clipboard
+................................................
+
+ -- Command: emacspeak-table-paste-from-clipboard
+
+     Paste the emacspeak table clipboard into the current buffer.
+     Use the major  mode of this buffer to  decide what kind of table
+     markup to use.
+
+12.181.1.16 emacspeak-table-previous-column
+...........................................
+
+ -- Command: emacspeak-table-previous-column (&optional count)
+     ‘C-e C-t C-b’
+     ‘C-e C-t <left>’
+     ‘C-e C-t <S-tab>’
+     ‘<fn> C-t C-b’
+     ‘<fn> C-t <left>’
+     ‘<fn> C-t <S-tab>’
+
+     Move to the previous column  if possible
+
+     (fn &optional COUNT)
+
+12.181.1.17 emacspeak-table-previous-row
+........................................
+
+ -- Command: emacspeak-table-previous-row (&optional count)
+     ‘C-e C-t p’
+     ‘C-e C-t C-p’
+     ‘C-e C-t <up>’
+     ‘<fn> C-t p’
+     ‘<fn> C-t C-p’
+     ‘<fn> C-t <up>’
+
+     Move to the previous row if possible
+
+     (fn &optional COUNT)
+
+12.181.1.18 emacspeak-table-search
+..................................
+
+ -- Command: emacspeak-table-search (&optional what)
+     ‘C-e C-t s’
+     ‘<fn> C-t s’
+
+     Search the table for matching elements.  Interactively prompts for
+     row or column to search and pattern to look for.    If there is a match, makes
+     the matching cell current. When called from a program, ‘what’ can
+       be either ‘row’ or ‘column’.
+
+     (fn &optional WHAT)
+
+12.181.1.19 emacspeak-table-search-column
+.........................................
+
+ -- Command: emacspeak-table-search-column
+     ‘C-e C-t C’
+     ‘<fn> C-t C’
+
+     Search in current table column.
+
+12.181.1.20 emacspeak-table-search-headers
+..........................................
+
+ -- Command: emacspeak-table-search-headers
+     ‘C-e C-t h’
+     ‘<fn> C-t h’
+
+     Search the table row or column headers.  Interactively prompts for
+     row or column to search and pattern to look for.  If there is a
+     match, makes the matching row or column current.
+
+12.181.1.21 emacspeak-table-search-row
+......................................
+
+ -- Command: emacspeak-table-search-row
+     ‘C-e C-t R’
+     ‘<fn> C-t R’
+
+     Search in current table row.
+
+12.181.1.22 emacspeak-table-select-automatic-speaking-method
+............................................................
+
+ -- Command: emacspeak-table-select-automatic-speaking-method
+     ‘C-e C-t a’
+     ‘<fn> C-t a’
+
+     Interactively select the kind of automatic speech to produce when
+     browsing table elements
+
+12.181.1.23 emacspeak-table-sort-on-current-column
+..................................................
+
+ -- Command: emacspeak-table-sort-on-current-column
+     ‘C-e C-t #’
+     ‘<fn> C-t #’
+
+     Sort table on current column.
+
+12.181.1.24 emacspeak-table-speak-both-headers-and-element
+..........................................................
+
+ -- Command: emacspeak-table-speak-both-headers-and-element
+     ‘C-e C-t b’
+     ‘<fn> C-t b’
+
+     Speak  both row and column header and table element
+
+12.181.1.25 emacspeak-table-speak-column-filtered
+.................................................
+
+ -- Command: emacspeak-table-speak-column-filtered (&optional prefix)
+     ‘C-e C-t g’
+     ‘<fn> C-t g’
+
+     Speaks a table column after applying a specified column filter.
+     Optional prefix arg prompts for a new filter.
+
+     (fn &optional PREFIX)
+
+12.181.1.26 emacspeak-table-speak-column-header-and-element
+...........................................................
+
+ -- Command: emacspeak-table-speak-column-header-and-element
+     ‘C-e C-t c’
+     ‘<fn> C-t c’
+
+     Speak  column header and table element
+
+12.181.1.27 emacspeak-table-speak-coordinates
+.............................................
+
+ -- Command: emacspeak-table-speak-coordinates
+     ‘C-e C-t .’
+     ‘<fn> C-t .’
+
+     Speak current table coordinates.
+
+12.181.1.28 emacspeak-table-speak-current-element
+.................................................
+
+ -- Command: emacspeak-table-speak-current-element
+     ‘C-e C-t SPC’
+     ‘<fn> C-t SPC’
+
+     Speak current table element
+
+12.181.1.29 emacspeak-table-speak-dimensions
+............................................
+
+ -- Command: emacspeak-table-speak-dimensions
+     ‘C-e C-t =’
+     ‘<fn> C-t =’
+
+     Speak current table dimensions.
+
+12.181.1.30 emacspeak-table-speak-row-filtered
+..............................................
+
+ -- Command: emacspeak-table-speak-row-filtered (&optional prefix)
+     ‘C-e C-t f’
+     ‘<fn> C-t f’
+
+     Speaks a table row after applying a specified row filter.
+     Optional prefix arg prompts for a new filter.
+
+     (fn &optional PREFIX)
+
+12.181.1.31 emacspeak-table-speak-row-header-and-element
+........................................................
+
+ -- Command: emacspeak-table-speak-row-header-and-element
+     ‘C-e C-t r’
+     ‘<fn> C-t r’
+
+     Speak  row header and table element
+
+12.181.1.32 emacspeak-table-ui-filter-load
+..........................................
+
+ -- Command: emacspeak-table-ui-filter-load (file)
+     ‘C-e C-t M-l’
+     ‘<fn> C-t M-l’
+
+     Load saved filter settings.
+
+     (fn FILE)
+
+12.181.1.33 emacspeak-table-ui-filter-save
+..........................................
+
+ -- Command: emacspeak-table-ui-filter-save (file)
+     ‘C-e C-t M-s’
+     ‘<fn> C-t M-s’
+
+     Save out filter settings.
+
+     (fn FILE)
+
+12.181.1.34 emacspeak-table-view-csv-buffer
+...........................................
+
+ -- Command: emacspeak-table-view-csv-buffer (&optional buffer-name)
+     ‘C-e C-t v’
+     ‘<fn> C-t v’
+
+     Process a csv (comma separated values) data.
+     The processed  data is  presented using emacspeak table navigation.
+
+     (fn &optional BUFFER-NAME)
+
+12.181.1.35 emacspeak-table-view-csv-url
+........................................
+
+ -- Command: emacspeak-table-view-csv-url (url &optional buffer-name)
+
+     Process a csv (comma separated values) data at  ‘URL’.
+     The processed  data is  presented using emacspeak table navigation.
+
+     (fn URL &optional BUFFER-NAME)
 
