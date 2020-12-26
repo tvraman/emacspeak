@@ -437,7 +437,7 @@ ROOT-WINDOW-EDGES will be used."
 	(setq prev curr curr (cdr curr))))
     list ))
 
-;;;###autoload
+
 (defun tapestry-remove-frame-parameters (map params)
   (let (frame-map)
     (while params
@@ -447,7 +447,7 @@ ROOT-WINDOW-EDGES will be used."
 	(setq frame-map (cdr frame-map)))
       (setq params (cdr params)))))
 
-;;;###autoload
+
 (defun tapestry-nullify-tapestry-elements (map &optional buf-file-name buf-name
 					window-start window-point
 					window-hscroll selected-window)
@@ -468,7 +468,7 @@ ROOT-WINDOW-EDGES will be used."
 	(setq p (cdr p)))
       (setq map (cdr map)))))
 
-;;;###autoload
+
 (defun tapestry-replace-tapestry-element (map what function)
   (let (mapi mapj p old new)
     (cond ((eq what 'buffer-file-name)
