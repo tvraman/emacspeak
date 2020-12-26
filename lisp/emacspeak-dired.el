@@ -514,7 +514,7 @@ Optional interactive prefix arg shuffles playlist."
 
 ;;}}}
 ;;{{{ Open Downloads:
-;;;###autoload
+
 (defun emacspeak-dired-downloads ()
   "Open Downloads directory."
   (interactive)
