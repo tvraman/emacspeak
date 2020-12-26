@@ -173,7 +173,7 @@ Default is to add autoload cookies to current file."
   "Read name of a pre-defined personality using completion."
   (read (completing-read (or prompt "Personality: ")
                          (tts-list-voices))))
-
+;;;###autoload
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
   (interactive (list (voice-setup-read-personality)))
@@ -181,7 +181,7 @@ Default is to add autoload cookies to current file."
                      'personality personality)
   (emacspeak-speak-line))
 
-
+;;;###autoload
 (defun emacspeak-wizards-generate-voice-sampler (step)
   "Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family."
@@ -226,10 +226,7 @@ for the current voice family."
               (string-match  "^acss-" (symbol-name  (symbol-value s))))
            (push s result))))
     result))
-
-
-
-
+;;;###autoload
 (defun emacspeak-wizards-show-defined-voices ()
   "Display a buffer with sample text in the defined voices."
   (interactive)
@@ -237,8 +234,7 @@ for the current voice family."
         (voices
          (sort
           (voice-setup-defined-voices)
-          #'(lambda (a b)
-              (string-lessp (symbol-name a) (symbol-name b))))))
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
@@ -247,11 +243,10 @@ for the current voice family."
        (insert
         (format "This is a sample of voice %s. " (symbol-name v)))
        (put-text-property
-        (line-beginning-position) (line-end-position)
-        'personality v)
+        (line-beginning-position) (line-end-position) 'personality v)
        (end-of-line)
        (insert "\n")))
-    (funcall-interactively #'switch-to-buffer buffer)
+    (funcall-interactively #'pop-to-buffer buffer)
     (goto-char (point-min))))
 
 ;;}}}
