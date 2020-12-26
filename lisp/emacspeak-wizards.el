@@ -607,43 +607,6 @@ meaning of `next'."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-;;{{{ emergency tts restart
-
-(defcustom emacspeak-emergency-tts-server
-  "outloud"
-  "TTS server to use in an emergency.
-Set this to a TTS server that is known to work at all times.
-If you are debugging another speech server and that server
-gets wedged for some reason,
-you can use command emacspeak-emergency-tts-restart
-to get speech back using the reliable TTS server.
-It's useful to bind the above command to a convenient key."
-  :type 'string
-  :group 'emacspeak)
-;;;###autoload
-(defun emacspeak-emergency-tts-restart ()
-  "For use in an emergency.
-Will start TTS engine specified by
-emacspeak-emergency-tts-server."
-  (interactive)
-  (cl-declare (special emacspeak-emergency-tts-server))
-  (funcall-interactively #'dtk-select-server emacspeak-emergency-tts-server))
-
-(defcustom emacspeak-ssh-tts-server
-  "ssh-outloud"
-  "SSH TTS server to use by default."
-  :type 'string
-  :group 'emacspeak)
-
-;;;###autoload
-(defun emacspeak-ssh-tts-restart ()
-  "Restart specified ssh tts server."
-  (interactive)
-  (cl-declare (special emacspeak-ssh-tts-server))
-  (dtk-select-server emacspeak-ssh-tts-server)
-  (dtk-initialize))
-
-;;}}}
 ;;{{{  Display properties conveniently
 
 ;;; Useful for developping emacspeak:
