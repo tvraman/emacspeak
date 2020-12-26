@@ -68,39 +68,10 @@
   <h3 class="section">12.140 emacspeak-pianobar</h3><span id=
   "PIANOBAR-_003d_003d-Pandora-Client-for-Emacs"></span>
   <h4 class="subsection">12.140.1 PIANOBAR == Pandora Client for
-  Emacs</h4>
-  <p>pianobar git://github.com/PromyLOPh/pianobar.git
-  Ubuntu/Debian: sudo apt-get install pianobar</p>
-  <p>Pianobar Is a stand-alone client for Pandora Radio.
-  pianobar.el available on the Emacs Wiki at
-  http://www.emacswiki.org/emacs/pianobar.el Provides access to
-  Pandora Radio via pianobar from the comfort of Emacs. This module
-  speech-enables Pianobar and enhances it for the Complete Audio
-  Desktop.</p><span id="Emacspeak-Usage_003a"></span>
-  <h4 class="subsection">12.140.2 Emacspeak Usage:</h4>
-  <p>Emacspeak implements command emacspeak-pianobar, a
-  light-weight wrapper on top of pianobar. Emacspeak binds this
-  command to <code>C-e '</code>. Command emacspeak-pianobar is
-  designed to let you launch Pandora channels and switch
-  tracks/channels without moving away from your primary tasks such
-  as editting code or reading/composing email. Toward this end,
-  launching command emacspeak-pianobar the first time initializes
-  the <code>*pianobar*</code> buffer and launches command
-  <code>pianobar</code>; but focus remains in your current buffer.
-  Pianobar can be controlled with single keystrokes while in the
-  pianobar buffer — switch to using <code>C-e ''</code>. The most
-  useful keys are <code>right</code> for skipping tracks,
-  <code>up</code> and <code>down</code> for switching channels
-  etc.; see the keys bound in <code>pianobar-key-map</code> for a
-  complete list. Pressing <code>C-e '</code> in the
-  <code>*pianobar*</code> buffer buries the
-  <code>*pianobar*</code>. From here on, Pianobar can be controlled
-  by pressing the Pianobar prefix key (<code>C-e '</code>) followed
-  by keys from <code>pianobar-key-map</code>.</p><span id=
-  "Emacspeak_002dPianobar-Commands"></span>
-  <h4 class="subsection">12.140.3 Emacspeak-Pianobar
+  Emacs</h4><span id="Emacspeak_002dPianobar-Commands"></span>
+  <h4 class="subsection">12.140.2 Emacspeak-Pianobar
   Commands</h4><span id="emacspeak_002dpianobar-2"></span>
-  <h4 class="subsubsection">12.140.3.1 emacspeak-pianobar</h4>
+  <h4 class="subsubsection">12.140.2.1 emacspeak-pianobar</h4>
   <dl>
     <dt id="index-emacspeak_002dpianobar">Command:
     <strong>emacspeak-pianobar</strong></dt>
@@ -118,7 +89,7 @@
       </div>
     </dd>
   </dl><span id="emacspeak_002dpianobar_002dcommand"></span>
-  <h4 class="subsubsection">12.140.3.2
+  <h4 class="subsubsection">12.140.2.2
   emacspeak-pianobar-command</h4>
   <dl>
     <dt id="index-emacspeak_002dpianobar_002dcommand">Command:
@@ -134,7 +105,7 @@
     </dd>
   </dl><span id=
   "emacspeak_002dpianobar_002delectric_002dmode_002dtoggle"></span>
-  <h4 class="subsubsection">12.140.3.3
+  <h4 class="subsubsection">12.140.2.3
   emacspeak-pianobar-electric-mode-toggle</h4>
   <dl>
     <dt id=
@@ -154,7 +125,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
     </dd>
   </dl><span id=
   "emacspeak_002dpianobar_002dnext_002dpreset"></span>
-  <h4 class="subsubsection">12.140.3.4
+  <h4 class="subsubsection">12.140.2.4
   emacspeak-pianobar-next-preset</h4>
   <dl>
     <dt id="index-emacspeak_002dpianobar_002dnext_002dpreset">
@@ -169,7 +140,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
     </dd>
   </dl><span id=
   "emacspeak_002dpianobar_002dprevious_002dpreset"></span>
-  <h4 class="subsubsection">12.140.3.5
+  <h4 class="subsubsection">12.140.2.5
   emacspeak-pianobar-previous-preset</h4>
   <dl>
     <dt id="index-emacspeak_002dpianobar_002dprevious_002dpreset">
@@ -184,7 +155,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
     </dd>
   </dl><span id="emacspeak_002dpianobar_002dsend_002draw"></span>
-  <h4 class="subsubsection">12.140.3.6
+  <h4 class="subsubsection">12.140.2.6
   emacspeak-pianobar-send-raw</h4>
   <dl>
     <dt id="index-emacspeak_002dpianobar_002dsend_002draw">Command:
@@ -203,7 +174,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
     </dd>
   </dl><span id=
   "emacspeak_002dpianobar_002dswitch_002dto_002dpreset"></span>
-  <h4 class="subsubsection">12.140.3.7
+  <h4 class="subsubsection">12.140.2.7
   emacspeak-pianobar-switch-to-preset</h4>
   <dl>
     <dt id=
@@ -221,7 +192,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
     </dd>
   </dl><span id=
   "emacspeak_002dpianobar_002dvolume_002ddown"></span>
-  <h4 class="subsubsection">12.140.3.8
+  <h4 class="subsubsection">12.140.2.8
   emacspeak-pianobar-volume-down</h4>
   <dl>
     <dt id="index-emacspeak_002dpianobar_002dvolume_002ddown">
@@ -235,7 +206,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
     </dd>
   </dl><span id="emacspeak_002dpianobar_002dvolume_002dup"></span>
-  <h4 class="subsubsection">12.140.3.9
+  <h4 class="subsubsection">12.140.2.9
   emacspeak-pianobar-volume-up</h4>
   <dl>
     <dt id="index-emacspeak_002dpianobar_002dvolume_002dup">
@@ -249,17 +220,5 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
     </dd>
   </dl>
-  <hr />
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dpopup.html" accesskey="n" rel=
-    "next">emacspeak-popup</a>, Previous: <a href=
-    "emacspeak_002dperl.html" accesskey="p" rel=
-    "prev">emacspeak-perl</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
 </body>
 </html>

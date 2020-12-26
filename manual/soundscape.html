@@ -80,28 +80,8 @@
   file lists all installed SoundScapes. Directory emacspeak/scapes
   also contains additional Boodler Agents and SoundScapes that I
   have created for use with Emacspeak.</p>
-  <p>Module soundscape.el defines Emacs conveniences for running
-  Soundscapes. Main Entry Points:</p>
-  <ul>
-    <li>M-x soundscape-toggle – Enables or disables automatic
-    SoundScapes.</li>
-    <li>M-x soundscape – runs a named SoundScape</li>
-    <li>M-x soundscape-stop – Stops a specified running
-    Soundscape.</li>
-    <li>M-x soundscape-kill – Kills all running Soundscapes.</li>
-  </ul>
-  <p>When automatic Soundscapes are enabled, SoundScapes are
-  started and stopped based on the current major mode. Active
-  Soundscape are displayed as part of the minor-mode-alist. Command
-  emacspeak-speak-minor-mode-line can be used to have this
-  spoken.</p>
-  <p>Thus, SoundScapes can be thought of as reflecting the
-  <em>mood</em> of the current <em>mode</em>. This package defines
-  a single <var>soundscape-default-theme</var> that is loaded using
-  <code>(soundscape-load soundscape-default-theme)</code>. Emacs
-  modes that provide similar functionality e.g., communication ==
-  email, IM, ... map to the same <em>mood</em>.</p><span id=
-  "Soundscape-Commands"></span>
+  <p>Module soundscape.el defines Emacs conveniences for
+  running</p><span id="Soundscape-Commands"></span>
   <h4 class="subsection">12.224.1 Soundscape Commands</h4><span id=
   "soundscape-2"></span>
   <h4 class="subsubsection">12.224.1.1 soundscape</h4>
@@ -276,21 +256,21 @@ Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
   </dl><span id="soundscape-Options"></span>
   <h4 class="subsection">12.224.2 soundscape Options</h4>
   <dl>
-    <dt id="index-User-Option-828">Variable: <strong>User
+    <dt id="index-User-Option-826">Variable: <strong>User
     Option</strong> <em>soundscape-data</em></dt>
     <dd>
       <p>Soundscape data directory.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-829">Variable: <strong>User
+    <dt id="index-User-Option-827">Variable: <strong>User
     Option</strong> <em>soundscape-device</em></dt>
     <dd>
       <p>Alsa sound device to use for soundscapes.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-830">Variable: <strong>User
+    <dt id="index-User-Option-828">Variable: <strong>User
     Option</strong> <em>soundscape-idle-delay</em></dt>
     <dd>
       <p>Number of seconds of idle time before soundscapes are
@@ -298,7 +278,7 @@ Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-831">Variable: <strong>User
+    <dt id="index-User-Option-829">Variable: <strong>User
     Option</strong> <em>soundscape-manager-options</em></dt>
     <dd>
       <p>User customizable options list passed to boodler. Defaults

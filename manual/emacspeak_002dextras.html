@@ -88,8 +88,6 @@ Interactive prefix arg ‘reset’ prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete.
-
-(fn &amp;optional RESET)
 </pre>
       </div>
     </dd>
@@ -119,8 +117,6 @@ interactive prefix arg results in Emacspeak prompting for the
 clipboard file to use. Argument START and END specifies
 region. Optional argument PROMPT specifies whether we prompt for the
 name of a clipboard file.
-
-(fn START END &amp;optional PROMPT)
 </pre>
       </div>
     </dd>
@@ -148,8 +144,6 @@ machines.  Do not use this for sharing information within an Emacs
 session –Emacs’ register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead.
-
-(fn &amp;optional PASTE-TABLE)
 </pre>
       </div>
     </dd>
@@ -163,8 +157,6 @@ the emacspeak table clipboard instead.
       <div class="format">
         <pre class=
         "format">Grab URL using Curl, and preview it with a browser .
-
-(fn URL)
 </pre>
       </div>
     </dd>
@@ -185,8 +177,6 @@ the emacspeak table clipboard instead.
       <div class="format">
         <pre class="format">Add autoload cookies to file f.
 Default is to add autoload cookies to current file.
-
-(fn &amp;optional F)
 </pre>
       </div>
     </dd>
@@ -205,8 +195,6 @@ Default is to add autoload cookies to current file.
       </span>
       <div class="format">
         <pre class="format">Load bindings from a specified file.
-
-(fn VARIABLE FILENAME)
 </pre>
       </div>
     </dd>
@@ -224,8 +212,6 @@ Default is to add autoload cookies to current file.
       "index-emacspeak_002dwizards_002dbindings_002dto_002dorg-1"></span>
       <div class="format">
         <pre class="format">Persists mapping to org file.
-
-(fn VARIABLE FILENAME)
 </pre>
       </div>
     </dd>
@@ -239,8 +225,6 @@ Default is to add autoload cookies to current file.
       <span id="index-emacspeak_002dwizards_002dbraille-1"></span>
       <div class="format">
         <pre class="format">Insert Braille string at point.
-
-(fn S)
 </pre>
       </div>
     </dd>
@@ -261,8 +245,6 @@ Default is to add autoload cookies to current file.
       <div class="format">
         <pre class=
         "format">Create a virtual manpage in Emacs from the Perl Online Documentation.
-
-(fn FILENAME)
 </pre>
       </div>
     </dd>
@@ -279,8 +261,6 @@ Default is to add autoload cookies to current file.
       <div class="format">
         <pre class="format">Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
-
-(fn GLOB PATTERN)
 </pre>
       </div>
     </dd>
@@ -299,8 +279,6 @@ Interactive  arguments specify filename pattern and search pattern.
       </span>
       <div class="format">
         <pre class="format">Nuke read-only property on text range.
-
-(fn START END)
 </pre>
       </div>
     </dd>
@@ -322,8 +300,6 @@ Interactive  arguments specify filename pattern and search pattern.
         <pre class=
         "format">Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
-
-(fn STEP)
 </pre>
       </div>
     </dd>
@@ -349,8 +325,6 @@ for the current voice family.
         "format">Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   ‘ems–wizards-sampler-text 
-
-(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -370,14 +344,31 @@ Sample text to use comes from variable
       <div class="format">
         <pre class=
         "format">Play midi file using mscore from musescore package.
-
-(fn MIDI-FILE)
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
+  "emacspeak_002dwizards_002dshow_002ddefined_002dvoice_002dfonts"></span>
+  <h4 class="subsubsection">12.73.1.15
+  emacspeak-wizards-show-defined-voice-fonts</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002dwizards_002dshow_002ddefined_002dvoice_002dfonts">
+    Command:
+    <strong>emacspeak-wizards-show-defined-voice-fonts</strong></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002dwizards_002dshow_002ddefined_002dvoice_002dfonts-1">
+      </span>
+      <div class="format">
+        <pre class=
+        "format">Display a buffer with sample text in the defined voice fonts.
 </pre>
       </div>
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dshow_002ddefined_002dvoices"></span>
-  <h4 class="subsubsection">12.73.1.15
+  <h4 class="subsubsection">12.73.1.16
   emacspeak-wizards-show-defined-voices</h4>
   <dl>
     <dt id=
@@ -396,7 +387,7 @@ Sample text to use comes from variable
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dtramp_002dopen_002dlocation"></span>
-  <h4 class="subsubsection">12.73.1.16
+  <h4 class="subsubsection">12.73.1.17
   emacspeak-wizards-tramp-open-location</h4>
   <dl>
     <dt id=
@@ -410,14 +401,12 @@ Sample text to use comes from variable
       <div class="format">
         <pre class="format">Open specified tramp location.
 Location is specified by name.
-
-(fn NAME)
 </pre>
       </div>
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dvoice_002dsampler"></span>
-  <h4 class="subsubsection">12.73.1.17
+  <h4 class="subsubsection">12.73.1.18
   emacspeak-wizards-voice-sampler</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dvoice_002dsampler">
@@ -429,15 +418,13 @@ Location is specified by name.
       <div class="format">
         <pre class=
         "format">Read a personality  and apply it to the current line.
-
-(fn PERSONALITY)
 </pre>
       </div>
     </dd>
   </dl><span id="emacspeak_002dextras-Options"></span>
   <h4 class="subsection">12.73.2 emacspeak-extras Options</h4>
   <dl>
-    <dt id="index-User-Option-259">Variable: <strong>User
+    <dt id="index-User-Option-254">Variable: <strong>User
     Option</strong> <em>emacspeak-clipboard-file</em></dt>
     <dd>
       <p>File used to save Emacspeak clipboard. The emacspeak
@@ -446,14 +433,14 @@ Location is specified by name.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-260">Variable: <strong>User
+    <dt id="index-User-Option-255">Variable: <strong>User
     Option</strong> <em>emacspeak-curl-cookie-store</em></dt>
     <dd>
       <p>Cookie store used by Curl.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-261">Variable: <strong>User
+    <dt id="index-User-Option-256">Variable: <strong>User
     Option</strong> <em>emacspeak-wizards-tramp-locations</em></dt>
     <dd>
       <p>Tramp locations used by Emacspeak tramp wizard. Locations

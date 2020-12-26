@@ -75,52 +75,8 @@
   in ‘voice-keyword-personality’.</p>
   <p>To make the text you type be voiceified, use M-x
   voice-lock-mode. When this minor mode is on, the voices of the
-  current line are updated with every insertion or deletion.</p>
-  <p>Voice-Lock And Aural CSS: The CSS Speech Style Sheet
-  specification defines a number of abstract device independent
-  voice properties. A setting conforming to the CSS speech
-  specification can be represented in elisp as a structure.</p>
-  <p>We will refer to this structure as a "speech style". This
-  structure needs to be mapped to device dependent codes to produce
-  the desired effect. This module forms a bridge between emacs
-  packages that wish to implement audio formatting and Emacspeak’s
-  TTS module. Emacspeak produces voice change effects by examining
-  the value of text-property ’personality.</p>
-  <p>Think of a buffer of formatted text along with the
-  text-property ’personality appropriately set as a "aural display
-  list". Module voice-setup.el help applications like EWW produce
-  audio-formatted output by calling function
-  acss-personality-from-speech-style with a "speech-style" –a
-  structure as defined in this module and get back a symbol that
-  they then assign to the value of property ’personality.
-  Emacspeak’s rendering engine then does the needful at the time
-  speech is produced. Function acss-personality-from-speech-style
-  does the following: Takes as input a "speech style" (1) Computes
-  a symbol that will be used henceforth to refer to this specific
-  speech style. (2) Examines emacspeak’s internal voice table to
-  see if this speech style has a voice already defined. If so it
-  returns immediately. Otherwise, it does the additional work of
-  defining a -voice for future use. See its use in this module to
-  see how voices are defined independent of a given TTS engine. How
-  faces map to voices: TTS engine specific modules e.g.,
-  dectalk-voices.el and outloud-voices.el define a standard set of
-  voice names. This module maps standard "personality" names to
-  these pre-defined voices. It does this via special form
-  def-voice-font which takes a personality name, a voice name and a
-  face name to set up the mapping between face and personality, and
-  personality and voice. Newer Emacspeak modules should use
-  voice-setup-add-map when defining face-&gt;personality mappings.
-  Older code calls def-voice-font directly, but over time those
-  calls will be changed to the more succinct form provided by
-  voice-setup-add-map. For use from other modules, also see
-  function voice-setup-map-face which is useful when mapping a
-  single face. Both voice-setup-add-map and voice-setup-map-face
-  call special form def-voice-font.</p>
-  <p>Special form def-voice-font sets up the personality name to be
-  available via custom. new voices can be defined using CSS style
-  specifications see special form defvoice Voices defined via
-  defvoice can be customized via custom see the documentation for
-  defvoice.</p><span id="Voice_002dSetup-Commands"></span>
+  current line are updated with every insertion or
+  deletion.</p><span id="Voice_002dSetup-Commands"></span>
   <h4 class="subsection">12.230.1 Voice-Setup
   Commands</h4><span id="voice_002dlock_002dmode"></span>
   <h4 class="subsubsection">12.230.1.1 voice-lock-mode</h4>
@@ -168,35 +124,8 @@ it is disabled.
       </div>
     </dd>
   </dl><span id=
-  "voice_002dsetup_002ddescribe_002dpersonality"></span>
-  <h4 class="subsubsection">12.230.1.3
-  voice-setup-describe-personality</h4>
-  <dl>
-    <dt id="index-voice_002dsetup_002ddescribe_002dpersonality">
-    Command: <strong>voice-setup-describe-personality</strong>
-    <em>(personality)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-h C-v</kbd></dt>
-        <dd><span id="index-C_002dh-C_002dv"></span></dd>
-        <dt><kbd>&lt;f1&gt; C-v</kbd></dt>
-        <dd><span id="index-_003cf1_003e-C_002dv"></span></dd>
-        <dt><kbd>&lt;help&gt; C-v</kbd></dt>
-        <dd><span id="index-_003chelp_003e-C_002dv"></span></dd>
-      </dl><span id=
-      "index-voice_002dsetup_002ddescribe_002dpersonality-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Describe specified voice — analogous to C-h /.
-When called interactively, ‘personality’ defaults to first personality at point. 
-
-(fn PERSONALITY)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "voice_002dsetup_002dtoggle_002dsilence_002dpersonality"></span>
-  <h4 class="subsubsection">12.230.1.4
+  <h4 class="subsubsection">12.230.1.3
   voice-setup-toggle-silence-personality</h4>
   <dl>
     <dt id=
@@ -220,7 +149,7 @@ When called interactively, ‘personality’ defaults to first personality at po
   </dl><span id="voice_002dsetup-Options"></span>
   <h4 class="subsection">12.230.2 voice-setup Options</h4>
   <dl>
-    <dt id="index-User-Option-864">Variable: <strong>User
+    <dt id="index-User-Option-859">Variable: <strong>User
     Option</strong> <em>voice-lock-mode-hook</em></dt>
     <dd>
       <p>Hook run after entering or leaving ‘voice-lock-mode’. No

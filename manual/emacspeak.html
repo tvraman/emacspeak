@@ -66,12 +66,38 @@
   <span id="emacspeak-1"></span>
   <h3 class="section">12.8 emacspeak</h3>
   <p>Emacspeak extends Emacs to be a fully functional audio
-  desktop. This is the main emacspeak module. It actually does very
-  little: It sets up Emacs to load package-specific Emacspeak
-  modules as each package is loaded. It implements function
-  emacspeak which loads the rest of the system.</p><span id=
-  "emacspeak-Options"></span>
-  <h4 class="subsection">12.8.1 emacspeak Options</h4>
+  desktop. This is the main emacspeak module.</p><span id=
+  "Emacspeak-Commands"></span>
+  <h4 class="subsection">12.8.1 Emacspeak Commands</h4><span id=
+  "emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"></span>
+  <h4 class="subsubsection">12.8.1.1
+  emacspeak-toggle-comint-output-monitor</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor">
+    Command:
+    <strong>emacspeak-toggle-comint-output-monitor</strong>
+    <em>(&amp;optional prefix)</em></dt>
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-e o</kbd></dt>
+        <dd><span id="index-C_002de-o"></span></dd>
+        <dt><kbd>&lt;fn&gt; o</kbd></dt>
+        <dd><span id="index-_003cfn_003e-o"></span></dd>
+      </dl><span id=
+      "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+</pre>
+      </div>
+    </dd>
+  </dl><span id="emacspeak-Options"></span>
+  <h4 class="subsection">12.8.2 emacspeak Options</h4>
   <dl>
     <dt id="index-User-Option-17">Variable: <strong>User
     Option</strong>
@@ -159,8 +185,8 @@
     Option</strong> <em>voice-error</em></dt>
     <dd>
       <p>Personality used for error This personality uses
-      voice-animate whose effect can be changed globally by
-      customizing voice-animate-settings.</p>
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
     </dd>
   </dl>
   <dl>
@@ -229,51 +255,6 @@
   </dl>
   <dl>
     <dt id="index-User-Option-34">Variable: <strong>User
-    Option</strong> <em>voice-hydra-face-amaranth</em></dt>
-    <dd>
-      <p>Personality used for hydra-face-amaranth This personality
-      uses voice-animate whose effect can be changed globally by
-      customizing voice-animate-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-35">Variable: <strong>User
-    Option</strong> <em>voice-hydra-face-blue</em></dt>
-    <dd>
-      <p>Personality used for hydra-face-blue This personality uses
-      voice-lighten whose effect can be changed globally by
-      customizing voice-lighten-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-36">Variable: <strong>User
-    Option</strong> <em>voice-hydra-face-pink</em></dt>
-    <dd>
-      <p>Personality used for hydra-face-pink This personality uses
-      voice-bolden-medium whose effect can be changed globally by
-      customizing voice-bolden-medium-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-37">Variable: <strong>User
-    Option</strong> <em>voice-hydra-face-red</em></dt>
-    <dd>
-      <p>Personality used for hydra-face-red This personality uses
-      voice-bolden whose effect can be changed globally by
-      customizing voice-bolden-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-38">Variable: <strong>User
-    Option</strong> <em>voice-hydra-face-teal</em></dt>
-    <dd>
-      <p>Personality used for hydra-face-teal This personality uses
-      voice-lighten-medium whose effect can be changed globally by
-      customizing voice-lighten-medium-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-39">Variable: <strong>User
     Option</strong> <em>voice-isearch</em></dt>
     <dd>
       <p>Personality used for isearch This personality uses
@@ -282,7 +263,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-40">Variable: <strong>User
+    <dt id="index-User-Option-35">Variable: <strong>User
     Option</strong> <em>voice-isearch-fail</em></dt>
     <dd>
       <p>Personality used for isearch-fail This personality uses
@@ -291,7 +272,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-41">Variable: <strong>User
+    <dt id="index-User-Option-36">Variable: <strong>User
     Option</strong> <em>voice-italic</em></dt>
     <dd>
       <p>Personality used for italic This personality uses
@@ -300,7 +281,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-42">Variable: <strong>User
+    <dt id="index-User-Option-37">Variable: <strong>User
     Option</strong> <em>voice-keyword-personality</em></dt>
     <dd>
       <p>Personality used for font-lock-keyword-face This
@@ -310,7 +291,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-43">Variable: <strong>User
+    <dt id="index-User-Option-38">Variable: <strong>User
     Option</strong> <em>voice-link</em></dt>
     <dd>
       <p>Personality used for link This personality uses
@@ -319,16 +300,16 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-44">Variable: <strong>User
+    <dt id="index-User-Option-39">Variable: <strong>User
     Option</strong> <em>voice-link-visited</em></dt>
     <dd>
       <p>Personality used for link-visited This personality uses
-      voice-bolden whose effect can be changed globally by
-      customizing voice-bolden-settings.</p>
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-45">Variable: <strong>User
+    <dt id="index-User-Option-40">Variable: <strong>User
     Option</strong> <em>voice-match</em></dt>
     <dd>
       <p>Personality used for match This personality uses
@@ -337,7 +318,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-46">Variable: <strong>User
+    <dt id="index-User-Option-41">Variable: <strong>User
     Option</strong> <em>voice-negation-char-personality</em></dt>
     <dd>
       <p>Personality used for font-lock-negation-char-face This
@@ -347,7 +328,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-47">Variable: <strong>User
+    <dt id="index-User-Option-42">Variable: <strong>User
     Option</strong> <em>voice-outline-1</em></dt>
     <dd>
       <p>Personality used for outline-1 This personality uses
@@ -356,7 +337,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-48">Variable: <strong>User
+    <dt id="index-User-Option-43">Variable: <strong>User
     Option</strong> <em>voice-outline-2</em></dt>
     <dd>
       <p>Personality used for outline-2 This personality uses
@@ -365,7 +346,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-49">Variable: <strong>User
+    <dt id="index-User-Option-44">Variable: <strong>User
     Option</strong> <em>voice-outline-3</em></dt>
     <dd>
       <p>Personality used for outline-3 This personality uses
@@ -374,7 +355,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-50">Variable: <strong>User
+    <dt id="index-User-Option-45">Variable: <strong>User
     Option</strong> <em>voice-outline-4</em></dt>
     <dd>
       <p>Personality used for outline-4 This personality uses
@@ -383,7 +364,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-51">Variable: <strong>User
+    <dt id="index-User-Option-46">Variable: <strong>User
     Option</strong> <em>voice-outline-5</em></dt>
     <dd>
       <p>Personality used for outline-5 This personality uses
@@ -392,7 +373,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-52">Variable: <strong>User
+    <dt id="index-User-Option-47">Variable: <strong>User
     Option</strong> <em>voice-outline-6</em></dt>
     <dd>
       <p>Personality used for outline-6 This personality uses
@@ -401,7 +382,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-53">Variable: <strong>User
+    <dt id="index-User-Option-48">Variable: <strong>User
     Option</strong> <em>voice-preprocessor-personality</em></dt>
     <dd>
       <p>Personality used for font-lock-preprocessor-face This
@@ -411,7 +392,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-54">Variable: <strong>User
+    <dt id="index-User-Option-49">Variable: <strong>User
     Option</strong> <em>voice-query-replace</em></dt>
     <dd>
       <p>Personality used for query-replace This personality uses
@@ -420,7 +401,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-55">Variable: <strong>User
+    <dt id="index-User-Option-50">Variable: <strong>User
     Option</strong> <em>voice-regexp-grouping-backslash</em></dt>
     <dd>
       <p>Personality used for font-lock-regexp-grouping-backslash
@@ -430,7 +411,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-56">Variable: <strong>User
+    <dt id="index-User-Option-51">Variable: <strong>User
     Option</strong> <em>voice-regexp-grouping-construct</em></dt>
     <dd>
       <p>Personality used for font-lock-regexp-grouping-construct
@@ -439,7 +420,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-57">Variable: <strong>User
+    <dt id="index-User-Option-52">Variable: <strong>User
     Option</strong> <em>voice-region</em></dt>
     <dd>
       <p>Personality used for region This personality uses
@@ -448,7 +429,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-58">Variable: <strong>User
+    <dt id="index-User-Option-53">Variable: <strong>User
     Option</strong> <em>voice-secondary-selection</em></dt>
     <dd>
       <p>Personality used for secondary-selection This personality
@@ -457,7 +438,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-59">Variable: <strong>User
+    <dt id="index-User-Option-54">Variable: <strong>User
     Option</strong> <em>voice-shadow</em></dt>
     <dd>
       <p>Personality used for shadow This personality uses
@@ -466,7 +447,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-60">Variable: <strong>User
+    <dt id="index-User-Option-55">Variable: <strong>User
     Option</strong> <em>voice-shr-link</em></dt>
     <dd>
       <p>Personality used for shr-link This personality uses
@@ -475,7 +456,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-61">Variable: <strong>User
+    <dt id="index-User-Option-56">Variable: <strong>User
     Option</strong> <em>voice-string-personality</em></dt>
     <dd>
       <p>Personality used for font-lock-string-face This
@@ -485,7 +466,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-62">Variable: <strong>User
+    <dt id="index-User-Option-57">Variable: <strong>User
     Option</strong> <em>voice-success</em></dt>
     <dd>
       <p>Personality used for success This personality uses
@@ -494,7 +475,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-63">Variable: <strong>User
+    <dt id="index-User-Option-58">Variable: <strong>User
     Option</strong> <em>voice-type-personality</em></dt>
     <dd>
       <p>Personality used for font-lock-type-face This personality
@@ -503,7 +484,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-64">Variable: <strong>User
+    <dt id="index-User-Option-59">Variable: <strong>User
     Option</strong> <em>voice-underline</em></dt>
     <dd>
       <p>Personality used for underline This personality uses
@@ -512,35 +493,34 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-65">Variable: <strong>User
+    <dt id="index-User-Option-60">Variable: <strong>User
     Option</strong> <em>voice-variable-name-personality</em></dt>
     <dd>
       <p>Personality used for font-lock-variable-name-face This
-      personality uses voice-bolden-extra whose effect can be
-      changed globally by customizing
-      voice-bolden-extra-settings.</p>
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-66">Variable: <strong>User
+    <dt id="index-User-Option-61">Variable: <strong>User
     Option</strong> <em>voice-variable-pitch</em></dt>
     <dd>
       <p>Personality used for variable-pitch This personality uses
-      voice-animate whose effect can be changed globally by
-      customizing voice-animate-settings.</p>
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-67">Variable: <strong>User
+    <dt id="index-User-Option-62">Variable: <strong>User
     Option</strong> <em>voice-warning</em></dt>
     <dd>
       <p>Personality used for warning This personality uses
-      voice-smoothen whose effect can be changed globally by
-      customizing voice-smoothen-settings.</p>
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-68">Variable: <strong>User
+    <dt id="index-User-Option-63">Variable: <strong>User
     Option</strong> <em>voice-warning-personality</em></dt>
     <dd>
       <p>Personality used for font-lock-warning-face This

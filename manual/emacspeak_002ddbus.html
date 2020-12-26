@@ -70,32 +70,7 @@
   notifications. This module needs to be loaded explicitly from the
   user’s init file after emacspeak has been started.</p><span id=
   "Overview-1"></span>
-  <h4 class="subsection">12.41.1 Overview</h4>
-  <p>This module provides integration via DBus for the
-  following:</p>
-  <ul>
-    <li>Respond to network coming up or going down —
-    <code>(nm-enable)</code>.</li>
-    <li>Respond to screen getting locked/unlocked by
-    gnome-screen-saver —
-    <code>(emacspeak-dbus-watch-screen-lock)</code>.</li>
-    <li>Respond to laptop going to sleep or waking up —
-    <code>(emacspeak-dbus-sleep-enable)</code>.</li>
-    <li>Respond to insertion/ejection of removable storage —
-    <code>(emacspeak-dbus-udisks-enable)</code>.</li>
-    <li>Watch for power devices —
-    <code>(emacspeak-dbus-upower-enable)</code>.</li>
-    <li>An interactive command
-    <code>emacspeak-dbus-lock-screen</code> bound to <kbd>C-,
-    C-d</kbd> to lock the screen using DBus. Note: this key-binding
-    is available only if this module is loaded.</li>
-  </ul>
-  <p>Add calls to the desired functions from the above list to the
-  emacs startup file after this module has been loaded. See
-  relevant hooks for customizing behavior. Note that each of the
-  sleep/wake-up, UDisks2 and network/up-down can be separately
-  enabled/disabled, and the actions customized via appropriately
-  named hook functions.</p><span id=
+  <h4 class="subsection">12.41.1 Overview</h4><span id=
   "Emacspeak_002dDbus-Commands"></span>
   <h4 class="subsection">12.41.2 Emacspeak-Dbus
   Commands</h4><span id=
