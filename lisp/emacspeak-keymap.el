@@ -367,6 +367,7 @@
    ("C-o" outloud)
    ("C-s" dtk-notify-shutdown)
    ("C-v" global-voice-lock-mode)
+   ("d" dtk-select-server)
    ("L" dtk-local-server)
    ("N" dtk-set-next-language)
    ("P" dtk-set-previous-language)
