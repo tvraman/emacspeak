@@ -151,7 +151,7 @@
    (bold voice-bolden)
    (bold-italic voice-bolden-and-animate)
    (button voice-bolden-medium)
-   (error voice-animate)
+   (error voice-brighten)
    (file-name-shadow voice-monotone-medium)
    (fixed-pitch voice-monotone)
    (font-lock-builtin-face voice-bolden)
@@ -185,8 +185,8 @@
    (shr-link voice-bolden)
    (success voice-brighten-extra)
    (underline voice-lighten-extra)
-   (variable-pitch voice-animate)
-   (warning voice-smoothen)
+   (variable-pitch voice-animate-extra)
+   (warning voice-brighten)
    ))
 
 ;;}}}
