@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 26, 2020.
+last updated on December 27, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3128,7 +3128,7 @@ To reset all controls to their default values, Press ‘C-j’.
 
  -- Command: amixer (&optional refresh)
 
-     Manipulate ALSA settings.
+     ALSA settings.
      Interactive prefix arg refreshes cache.
 
      (fn &optional REFRESH)
@@ -3138,7 +3138,7 @@ To reset all controls to their default values, Press ‘C-j’.
 
  -- Command: amixer-store
 
-     Persist current amixer settings.
+     Persist  amixer.
 
 12.1.2 amixer Options
 ---------------------
@@ -3169,10 +3169,6 @@ is a cd to wav converter.
      ‘<fn> DEL’
 
      Front-end to CDTool.
-     Bind this function to a convenient key-
-     Emacspeak users automatically have
-     this bound to <DEL> in the emacspeak keymap.
-
      Key     Action
      —     ——
 
@@ -3214,7 +3210,7 @@ module is Dectalk specific.
      ‘C-e d C-d’
      ‘<fn> d C-d’
 
-     Select Dectalk TTS.
+     Dectalk TTS.
 
 12.3.2 dectalk-voices Options
 -----------------------------
@@ -4253,7 +4249,7 @@ and friends to set and jump to bookmarks.
 
  -- Command: emacspeak-amark-save
 
-     Save buffer-local AMarks in  directory of currently playing resource.
+     Save buffer-local AMarks in  currently playing directory.
 
 
 File: emacspeak.info,  Node: emacspeak-analog,  Next: emacspeak-apt-sources,  Prev: emacspeak-amark,  Up: Emacspeak Commands And Options
@@ -4712,7 +4708,7 @@ detailed usage instructions and key-bindings.
 
  -- Command: emacspeak-bookshare-eww (directory)
 
-     Render complete book using EWW
+     Render  book using EWW
 
      (fn DIRECTORY)
 
@@ -6937,8 +6933,7 @@ quick summary of commands for
 
      EPub  Interaction.
      When opened, displays a bookshelf consisting of  epubs found at the
-     root directory.
-     For detailed documentation, see M-x emacspeak-epub-mode
+     root directory,see M-x emacspeak-epub-mode
 
 12.64.3.3 emacspeak-epub-bookshelf-add-directory
 ................................................
@@ -8330,9 +8325,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-open-mark (name &optional delete)
      ‘C-x r e’
 
-     Open specified EWW marked location. If the content is already being
-     displayed in this Emacs session, jump to it directly. With optional
-     interactive prefix arg ‘delete’, delete that mark instead.
+     Open EWW marked location.  With optional interactive prefix
+     arg ‘delete’, delete that mark instead.
 
      (fn NAME &optional DELETE)
 

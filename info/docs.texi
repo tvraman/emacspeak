@@ -263,7 +263,7 @@ default values, Press @kbd{C-j}.
 @findex amixer
 
 @format
-Manipulate ALSA settings.
+ALSA settings.
 Interactive prefix arg refreshes cache.
 
 (fn &optional REFRESH)
@@ -275,7 +275,7 @@ Interactive prefix arg refreshes cache.
 @findex amixer-store
 
 @format
-Persist current amixer settings.
+Persist  amixer.
 @end format
 @end deffn
 
@@ -313,10 +313,6 @@ cdda2wav is a cd to wav converter.
 
 @format
 Front-end to CDTool.
-Bind this function to a convenient key-
-Emacspeak users automatically have
-this bound to <DEL> in the emacspeak keymap.
-
 Key     Action
 ---     ------
 
@@ -362,7 +358,7 @@ This module is Dectalk specific.
 @findex dectalk
 
 @format
-Select Dectalk TTS.
+Dectalk TTS.
 @end format
 @end deffn
 
@@ -1719,7 +1715,7 @@ Return matching AMark if found in buffer-local AMark list.
 @findex emacspeak-amark-save
 
 @format
-Save buffer-local AMarks in  directory of currently playing resource.
+Save buffer-local AMarks in  currently playing directory.
 @end format
 @end deffn
 
@@ -2225,7 +2221,7 @@ Download content  to target location.
 @findex emacspeak-bookshare-eww
 
 @format
-Render complete book using EWW
+Render  book using EWW
 
 (fn DIRECTORY)
 @end format
@@ -4716,8 +4712,7 @@ during initialization.
 @format
 EPub  Interaction.
 When opened, displays a bookshelf consisting of  epubs found at the
-root directory.
-For detailed documentation, see M-x emacspeak-epub-mode
+root directory,see M-x emacspeak-epub-mode
 @end format
 @end deffn
 
@@ -6367,9 +6362,8 @@ The ul is automatically spoken if there is no user activity.
 @findex emacspeak-eww-open-mark
 
 @format
-Open specified EWW marked location. If the content is already being
-displayed in this Emacs session, jump to it directly. With optional
-interactive prefix arg ‘delete’, delete that mark instead.
+Open EWW marked location.  With optional interactive prefix
+arg ‘delete’, delete that mark instead.
 
 (fn NAME &optional DELETE)
 @end format
@@ -6880,16 +6874,9 @@ annotation is inserted into the working buffer when complete.
 @findex emacspeak-clipboard-copy
 
 @format
-Copy contents of the region to the emacspeak clipboard. Previous
-contents of the clipboard will be overwritten. The Emacspeak clipboard
-is a convenient way of sharing information between independent
-Emacspeak sessions running on the same or different machines. Do not
-use this for sharing information within an Emacs session --Emacs’
-register commands are far more efficient and light-weight. Optional
-interactive prefix arg results in Emacspeak prompting for the
-clipboard file to use. Argument START and END specifies
-region. Optional argument PROMPT specifies whether we prompt for the
-name of a clipboard file.
+Use file-based Emacspeak Clipboard ---
+dis a convenient way of sharing information between independent
+Emacspeak sessions running on  different machines. 
 @end format
 @end deffn
 
@@ -6905,13 +6892,7 @@ name of a clipboard file.
 @findex emacspeak-clipboard-paste
 
 @format
-Yank contents of the Emacspeak clipboard at point.
-The Emacspeak clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session --Emacs’ register commands are far more efficient and
-light-weight.  Optional interactive prefix arg pastes from
-the emacspeak table clipboard instead.
+Yank contents of the Emacspeak clipboard at point. 
 @end format
 @end deffn
 
@@ -7152,7 +7133,7 @@ Display ATOM feed.
 @findex emacspeak-feeds-browse
 
 @format
-Browse specified  feed.
+Browse   feed.
 
 (fn FEED)
 @end format
@@ -7245,8 +7226,7 @@ the original text being filtered.
 @findex emacspeak-filtertext
 
 @format
-Copy over text in region to special filtertext buffer in
-preparation for interactively filtering text. 
+Copy over text in region to special filtertext buffer to  filter text. 
 
 (fn START END)
 @end format
@@ -8594,7 +8574,7 @@ Change  web-history-visited in the currently active toolbelt.
 @findex emacspeak-google-tts
 
 @format
-Speak text using Google Network TTS.
+Google Network TTS.
 Optional interactive prefix arg ‘lang’ specifies  language identifier.
 
 (fn TEXT &optional LANG)
@@ -9778,7 +9758,6 @@ buffer  to list  @code{m-player} keybindings.
 Play specified resource using m-player.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode.
 
 (fn RESOURCE &optional PLAY-LIST)
@@ -10220,12 +10199,9 @@ Load specified playlist file.
 
 @format
 Locate media matching specified pattern.  The results can be
-played as a play-list by pressing [RET] on the first line.
-Pattern is first converted to a regexp that accepts common
-punctuation separators (-,._’") in place of white-space.
-Results are placed in a Locate buffer and can be played using
-M-Player --- use M-x emacspeak-dired-open-this-file locally bound to C-RET 
-to play individual tracks.
+played as a play-list by pressing [RET] on the first line, see
+ M-x emacspeak-dired-open-this-file locally bound to C-RET 
+to play  tracks.
 
 (fn PATTERN)
 @end format
@@ -10540,7 +10516,7 @@ Set start of clip marker.
 @findex emacspeak-m-player-shuffle
 
 @format
-Launch M-Player with shuffle turned on.
+M-Player with shuffle turned on.
 @end format
 @end deffn
 
@@ -10589,7 +10565,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
 @findex emacspeak-m-player-url
 
 @format
-Call emacspeak-m-player with specified URL.
+Call emacspeak-m-player with  URL.
 
 (fn URL &optional PLAYLIST-P)
 @end format
@@ -10624,10 +10600,7 @@ This will work if the soundcard is set to 48000.
 @findex emacspeak-m-player-using-openal
 
 @format
-Use openal as the audio output driver. Adding hrtf=true to
-~/.alsoftrc gives HRTF. You need to have openal installed and have an
-mplayer that has been compiled with openal support to use this
-feature. Calling spec is like ‘emacspeak-m-player’.
+Use openal as the audio output driver.  
 
 (fn RESOURCE &optional PLAY-LIST)
 @end format
@@ -10694,9 +10667,9 @@ Invoke mp3splt to clip selected range in current file.
 @findex emacspeak-m-player-youtube-player
 
 @format
-Use youtube-dl and mplayer to stream the audio for YouTube content.
-Default is to pick smallest (lowest quality) audio format.
-Optional prefix arg ‘best’ chooses highest quality.
+Use youtube-dl and mplayer to stream  audio from Youtube.
+Default picks lowest quality ---
+Optional prefix arg ‘best’ chooses highest.
 
 (fn URL &optional BEST)
 @end format
@@ -10816,8 +10789,7 @@ YouTube download tool
 @end defvar
 
 @defvar {User Option} emacspeak-media-location-bindings
-Map specific key sequences to launching MPlayer accelerators
-on a specific directory.
+Map  keys  to launch MPlayer on a given directory.
 
 @end defvar
 
@@ -11511,8 +11483,8 @@ Move down in current Math expression. (auto-generated)
 @findex emacspeak-maths-enter
 
 @format
-Send a LaTeX expression to Maths server.
-Tries to guess default based on context. 
+Send a LaTeX expression to Maths server,
+ guess  based on context. 
 @end format
 @end deffn
 
@@ -11521,8 +11493,7 @@ Tries to guess default based on context.
 @findex emacspeak-maths-enter-guess
 
 @format
-Send the guessed  LaTeX expression to Maths server.
-Guess is based on context.
+Send the guessed  LaTeX expression to Maths server. 
 @end format
 @end deffn
 
