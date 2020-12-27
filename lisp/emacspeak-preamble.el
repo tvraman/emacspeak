@@ -1,24 +1,24 @@
 ;;; emacspeak-preamble.el --- standard  include for Emacspeak modules  -*- lexical-binding: t; -*-
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for auctex-mode
 ;;; Keywords:emacspeak, audio interface to emacs AUCTEX
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2018, T. V. Raman 
+;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -37,19 +37,17 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-;;{{{ Define Locations, Require modules 
+;;{{{ Define Locations, Require modules
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(cl-pushnew (file-name-directory load-file-name) load-path :test
-            #'string-equal)
+(cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
 
 (cl-defstruct  acss
   family
   gain left-volume right-volume
   average-pitch pitch-range stress richness
   punctuations)
-
 
 (eval-when-compile (require 'subr-x))
 (require 'advice)
@@ -154,14 +152,14 @@
  Memoizes result  via property 'emacspeak."
   (cond
    ((not (symbolp f)) nil)
-   ((get f 'emacspeak) t) ; already memoized 
+   ((get f 'emacspeak) t) ; already memoized
    ((ad-find-some-advice f 'any  "emacspeak");emacspeak advice present
     (put f 'emacspeak t)); memoize and return t
    (t nil)))
 
 (defadvice funcall-interactively (around emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an advice."
-  (let ((ems-called-interactively-p ems-called-interactively-p)) ; save state 
+  (let ((ems-called-interactively-p ems-called-interactively-p)) ; save state
     (when (ems-record-interactive-p (ad-get-arg 0))
       (setq ems-called-interactively-p (ad-get-arg 0)))
     ad-do-it))
@@ -196,15 +194,15 @@ Return T if set and we are called from the advice for the current
 (defsubst ems--fastload (file)
   "Load file efficiently."
   (let ((file-name-handler-alist nil)
-         (load-source-file-function nil))
+        (load-source-file-function nil))
     (load file)))
 
 ;;}}}
 (provide  'emacspeak-preamble)
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; folded-file: t
-;;; end: 
+;;; end:
 
 ;;}}}
