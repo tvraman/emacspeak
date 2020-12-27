@@ -66,7 +66,7 @@
 
 ;;;###autoload
 (defun xbacklight-set (brightness)
-  "Set brightness, a percentage value."
+  "Set brightness."
   (interactive "sBrightness: ")
   (cl-declare (special xbacklight-cmd))
       (when xbacklight-cmd
@@ -77,25 +77,25 @@
 
 ;;;###autoload
 (defun xbacklight-increment ()
-  "Increase brightness by  by one step."
+  "Increase brightness."
   (interactive)
   (start-process "XBacklight" nil  xbacklight-cmd "-inc" xbacklight-step))
 
 ;;;###autoload
 (defun xbacklight-decrement ()
-  "Decrease brightness by  by one step."
+  "Decrease brightness."
   (interactive)
   (start-process "XBacklight" nil xbacklight-cmd  "-dec" xbacklight-step))
 
 ;;;###autoload
 (defun xbacklight-black ()
-  "Turn screen black."
+  "Black screen."
   (interactive)
   (xbacklight-set "0"))
 
 ;;;###autoload
 (defun xbacklight-white ()
-  "Turn screen white."
+  "White screen."
   (interactive)
    (xbacklight-set "100"))
 
