@@ -118,7 +118,7 @@ Use `emacspeak-toggle-auditory-icons' bound to
    (getenv "EMACSPEAK_PLAY_PROGRAM")
    (executable-find "aplay")
    (executable-find "play"))
-  "Executable that plays sound files. "
+  "Play program."
   :group 'emacspeak
   :type 'string)
 
