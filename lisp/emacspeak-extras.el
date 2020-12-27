@@ -248,7 +248,11 @@ for the current voice family."
       (cl-loop
        for v in voices do
        (insert
-        (format "This is a sample of voice %s. " (symbol-name v)))
+        (format "This is a sample of voice %s%s. "
+                (symbol-name v)
+                (if (get v 'observing)
+                    (format " which uses %s" (get v 'observing))
+                  "")))
        (put-text-property
         (line-beginning-position) (line-end-position) 'personality v)
        (end-of-line)
