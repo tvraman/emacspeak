@@ -225,9 +225,8 @@ This is set to nil when playing Internet  streams.")
   :group 'emacspeak-m-player
   :group 'emacspeak-media
   :type '(repeat
-          :tag "Emacspeak Media Locations"
+          :tag "Media Locations"
           (list
-           :tag "KeyBinding"
            (string :tag "Key")
            (directory :tag "Directory")))
   :set #'(lambda (sym val)
@@ -336,7 +335,7 @@ etc to be ignored when guessing directory.")
 
 ;;;###autoload
 (defun emacspeak-m-player-url (url &optional playlist-p)
-  "Call emacspeak-m-player with  URL."
+  "Call emacspeak-m-player on  URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (ems-with-messages-silenced
    (emacspeak-m-player url playlist-p)))
@@ -428,7 +427,7 @@ Also cleanup ANSI escape sequences."
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
-  "Play specified resource using m-player.  Optional prefix argument
+  "Play  resource.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 The player is placed in a buffer in emacspeak-m-player-mode."
@@ -506,7 +505,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
-  "Use openal as the audio output driver.  "
+  "Use openal for audio output.  "
   (interactive
    (list
     (emacspeak-media-read-resource)
