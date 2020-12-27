@@ -50,9 +50,8 @@
   :type 'integer
   :set #'(lambda(sym val)
            (set-default sym val)
-           (when (and (getenv "DTK_PROGRAM")
-                      (string-match "espeak$" (getenv "DTK_PROGRAM")))
-             (setq-default dt-speech-rate val))))
+           (when (string-match "espeak" dtk-program)
+             (setq-default dtk-speech-rate val))))
 
 ;;}}}
 ;;{{{ Top-Level TTS Call
