@@ -170,7 +170,7 @@
     (when (ems-record-interactive-p (ad-get-arg 0))
       (setq ems-called-interactively-p (ad-get-arg 0)))
     ad-do-it))
-;;;###autoload
+
 (defsubst ems-interactive-p ()
   "Check  interactive flag.
 Return T if set and we are called from the advice for the current
