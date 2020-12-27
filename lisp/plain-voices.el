@@ -55,7 +55,7 @@
 ;;{{{plain:
 ;;;###autoload
 (defun plain ()
-  "Select Plain TTS server."
+  "Plain TTS."
   (interactive)
   (plain-configure-tts)
   (ems--fastload "voice-defs")
@@ -376,7 +376,7 @@ and TABLE gives the values along that dimension."
 ;;{{{ configurater
 ;;;###autoload
 (defun plain-configure-tts ()
-  "Configures TTS environment to use Plain family of synthesizers."
+  "Configures TTS  to use Plain."
   (cl-declare (special  plain-default-speech-rate
                         tts-default-speech-rate
                         tts-default-voice))

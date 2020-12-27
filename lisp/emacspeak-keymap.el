@@ -311,7 +311,6 @@
    ("M-u" emacspeak-feeds-add-feed)
    ("M-v" emacspeak-show-style-at-point)
    ("M-w" emacspeak-speak-which-function)
-   ("M-x" emacspeak-wizards-execute-emacspeak-command)
    ("N" emacspeak-view-emacspeak-news)
    ("P" emacspeak-speak-paragraph-interactively)
    ("R" emacspeak-speak-rectangle)
@@ -481,11 +480,7 @@
     ("" desktop-clear)
 
     ) 
-  "Key bindings for  C-e x.
-For example, binding  `s' to 
-emacspeak-emergency-tts-restart makes  it available on C-e x s.
-KEYS should be a string  in the format used by `kbd'.
-Command is an interactive command or a prefix-command ."
+  "Key bindings for  C-e x. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal Keymap"
@@ -514,13 +509,7 @@ Command is an interactive command or a prefix-command ."
   'emacspeak-personal-ctlx-keymap)
 
 (defcustom emacspeak-personal-ctlx-keys nil
-  "Key bindings for use with C-e C-x.
- Bindings specified here are available on
-prefix key C-e C-x, for example, binding  `C-s' to 
-emacspeak-emergency-tts-restart makes it 
-available on key C-e C-x C-s. KEYS should be a string  in
-the format used by `kbd'.
-Command is an interactive command or a prefix-command . "
+  "Key bindings for use with C-e C-x. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal-Ctlx Keymap"
@@ -568,21 +557,8 @@ Command is an interactive command or a prefix-command . "
     ("s" emacspeak-wizards-shell)
     ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
-    ("w" define-word)
-    )
-  "Specifies super key bindings for the audio desktop. You can
-Bindings specified here are available on prefix key `super' for
-example, if you bind `s' to command
-emacspeak-emergency-tts-restart then that command will be
-available on key `super s'. KEYS should be a string constant in
-the format used for saving keyboard macros (see `edmacro-mode').
-
-Command is an interactive command or a prefix-command that can be
-bound to a key.
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes."
+    ("w" define-word))
+  "Super key bindings. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Super Keymap"
@@ -630,13 +606,7 @@ interactive command that the key sequence executes."
     ("y" emacspeak-m-player-youtube-player)
 ("SPC" emacspeak-eww-smart-tabs)
     ) 
-  "Alt key bindings.
-These bindings  are available on prefix key `alt' (not to be
- confused with alt==meta) for example, binding `s' to 
- emacspeak-emergency-tts-restart makes it  available
- on key `ALT s'
-KEYS is a string  in the format used by `kbd'.
-Command is an interactive command or a prefix-command. "
+  "Alt key bindings. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Alt Keymap"
@@ -677,10 +647,7 @@ Command is an interactive command or a prefix-command. "
     ("s" magit-status)
     ("z" suspend-frame)
     )
-  " Bindings specified here are available on prefix key `C-z' for
-example, binding `z' to `suspend-frame' makes it available on `C-z z'.
-KEYS should be a string  in the format used by `kbd'.
-Command is an interactive command or a prefix-command. "
+  "CTL-z keymap."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak C-Z  Keys"
@@ -736,11 +703,7 @@ Command is an interactive command or a prefix-command. "
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand)
     )
-  "Hyper-Key bindings.
-Bindings specified here are available on prefix key `hyper' for
-example, binding `b' to command `bbdb ' makes it available on key
-`hyper b'.  KEYS should be a string in the format used by
-`kbd'. Command is an interactive command or a prefix-command . "
+  "Hyper-Key bindings. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Hyper Keys"

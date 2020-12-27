@@ -56,7 +56,7 @@
 ;;{{{  xslt Environment:
 ;;;###autoload
 (defsubst emacspeak-xslt-get (style)
-  "Return fully qualified stylesheet path."
+  "Return  stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
 
 ;;;###autoload
@@ -159,9 +159,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
 
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params no-comment)
-  "Apply XSLT transformation to region and replace it with
-the result.  This uses XSLT processor xsltproc available as
-part of the libxslt package."
+  "Apply XSLT transformation to region and replace it with the result.  "
   (cl-declare (special emacspeak-xslt-program emacspeak-xslt-options
                        emacspeak-xslt-keep-errors modification-flag))
   (save-excursion
@@ -223,9 +221,7 @@ Region defaults to entire buffer."
 ;;;###autoload
 (defun emacspeak-xslt-url (xsl url &optional params no-comment)
   "Apply XSLT transformation to url
-and return the results in a newly created buffer.
-  This uses XSLT processor xsltproc available as
-part of the libxslt package."
+and return the results in a newly created buffer. "
   (cl-declare (special emacspeak-xslt-program
                        emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
@@ -329,9 +325,7 @@ part of the libxslt package."
 ;;;###autoload
 (defun emacspeak-xslt-xml-url (xsl url &optional params)
   "Apply XSLT transformation to XML url
-and return the results in a newly created buffer.
-  This uses XSLT processor xsltproc available as
-part of the libxslt package."
+and return the results in a newly created buffer. "
   (cl-declare (special emacspeak-xslt-program
                        emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))

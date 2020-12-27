@@ -249,7 +249,7 @@ list of parsed ladspa-plugin structures, one per label."
 
 ;;;###autoload
 (defun ladspa (&optional refresh)
-  "Launch Ladspa workbench."
+  "Ladspa workbench."
   (interactive "P")
   (cl-declare (special ladspa-libs ladspa-plugins))
   (let ((buffer (get-buffer-create "*Ladspa*")))

@@ -259,7 +259,7 @@ Returns t if a block was found and hidden."
 ;;{{{  Hiding and exposing  all blocks in a buffer
 ;;;###autoload
 (defun emacspeak-hide-all-blocks-in-buffer ()
-  "Hide all blocks in current buffer."
+  "Hide all blocks."
   (ems-with-messages-silenced
    (let ((count 0)
          (prefix nil))
@@ -319,11 +319,8 @@ Returns t if a block was found and hidden."
 ;;;###autoload
 (defun emacspeak-hide-or-expose-block (&optional prefix)
   "Hide or expose a block of text.
-This command either hides or exposes a block of text
-starting on the current line.  A block of text is defined as
-a portion of the buffer in which all lines start with a
-common PREFIX.  Optional interactive prefix arg causes all
-blocks in current buffer to be hidden or exposed."
+ Optional interactive prefix arg causes all blocks in current
+buffer to be hidden or exposed."
 
   (interactive "P")
   (save-excursion
@@ -351,7 +348,7 @@ blocks in current buffer to be hidden or exposed."
           (emacspeak-hide-current-block  block-prefix)))))))
 ;;;###autoload
 (defun emacspeak-hide-or-expose-all-blocks ()
-  "Hide or expose all blocks in buffer."
+  "Hide or expose all blocks."
   (interactive)
   (emacspeak-hide-or-expose-block 'all))
 
@@ -360,11 +357,7 @@ blocks in current buffer to be hidden or exposed."
 
 ;;;###autoload
 (defun emacspeak-hide-speak-block-sans-prefix ()
-  "Speaks current block after stripping its prefix.
-If the current block is not hidden, it first hides it.
-This is useful because as you locate blocks, you can invoke this
-command to listen to the block,
-and when you have heard enough navigate easily  to move past the block."
+  "Speaks current block after stripping its prefix. "
   (interactive)
   (unless (get-text-property (point) 'emacspeak-hidden-block)
     (emacspeak-hide-current-block

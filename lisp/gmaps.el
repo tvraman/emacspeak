@@ -91,7 +91,7 @@
   "Hash table that memoizes geolocation.")
 ;;;###autoload
 (defun gmaps-address-location (address)
-  "Returns gmaps--location structure. Memoized to save network calls."
+  "Returns gmaps--location structure. "
   (cl-declare (special gmaps-location-table gmaps-locations-loaded-p))
   (unless gmaps-locations-loaded-p (gmaps-locations-load))
   (let ((found (gethash address gmaps-location-table))
@@ -911,6 +911,7 @@ Insert reviews if already displaying details."
                              'place-details t)
           (gmaps-display-place-details .result))
          (t (error "Status %s from Maps" .result))))))))
+(declare-function g-html-string "g-utils" (html-string))
 
 (defun gmaps-place-reviews ()
   "Display reviews for place at point.

@@ -56,7 +56,7 @@
 ;;{{{mac:
 ;;;###autoload
 (defun mac ()
-  "Select Mac TTS server."
+  "Mac TTS."
   (interactive)
   (mac-configure-tts)
   (ems--fastload "voice-defs")
@@ -328,7 +328,7 @@ and TABLE gives the values along that dimension."
 ;;{{{ Configurater 
 ;;;###autoload
 (defun mac-configure-tts ()
-  "Configure TTS environment to use mac  TTS."
+  "Configure TTS  to use mac."
   (cl-declare (special tts-default-speech-rate mac-default-speech-rate))
   (fset 'tts-voice-defined-p 'mac-voice-defined-p)
   (fset 'tts-get-voice-command 'mac-get-voice-command)

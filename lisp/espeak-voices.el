@@ -59,7 +59,7 @@
 
 ;;;###autoload
 (defun espeak ()
-  "Start ESpeak engine."
+  "Start ESpeak."
   (interactive)
   (espeak-configure-tts)
   (ems--fastload "voice-defs")
@@ -323,7 +323,7 @@ and TABLE gives the values along that dimension."
             table))))
 ;;;###autoload
 (defun espeak-configure-tts ()
-  "Configure TTS environment to use eSpeak."
+  "Configure  to use eSpeak."
   (cl-declare (special tts-default-speech-rate
                        espeak-default-speech-rate
                        dtk-speaker-process))

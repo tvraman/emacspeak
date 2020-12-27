@@ -154,7 +154,7 @@
 
 ;;;###autoload
 (defun sox ()
-  "Create a new Audio Workbench or switch to an existing workbench."
+  "Create a new Audio Workbench or switch to one."
   (interactive)
   (cl-declare (special sox-buffer))
   (unless (get-buffer sox-buffer)
@@ -256,7 +256,7 @@
            action file options)))
 ;;;###autoload
 (defun sox-play ()
-  "Play sound from current context."
+  "Play sound ."
   (interactive)
   (cl-declare (special sox-context sox-play))
   (when (process-live-p (sox-context-play sox-context))

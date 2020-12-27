@@ -408,7 +408,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
 
 ;;;###autoload
 (defun soundscape-init ()
-  "Initialize Soundscape module."
+  "Initialize Soundscape."
   (soundscape-catalog)
   (soundscape-listener)
   (unless (member '(soundscape--auto (:eval (soundscape-current)))
@@ -419,7 +419,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
 (defun soundscape-listener  (&optional restart)
   "Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
-Optional interactive prefix arg restarts the listener if already running."
+Optional interactive prefix arg restarts the listener."
   (interactive "P")
   (cl-declare (special soundscape-listener-process soundscape--remote
                        soundscape-manager-options soundscape-device
@@ -547,7 +547,6 @@ before soundscapes are synchronized with current mode."
 ;;;###autoload
 (defun soundscape-toggle ()
   "Toggle automatic SoundScapes.
-When turned on, Soundscapes are automatically run based on current major mode.
 Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (interactive)
   (cl-declare (special soundscape--auto soundscape--scapes

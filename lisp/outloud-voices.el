@@ -326,7 +326,7 @@
 
 ;;;###autoload
 (defun outloud-configure-tts ()
-  "Configure TTS environment to use Outloud."
+  "Configure TTS  to use Outloud."
   (cl-declare (special tts-default-speech-rate tts-default-voice
                        outloud-default-speech-rate
                        dtk-speech-rate-step dtk-speech-rate-base))

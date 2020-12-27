@@ -366,9 +366,8 @@ With prefix arg, opens the phone book for editing."
 ;;; 2013/03/editing-with-root-privileges-once-more.html
 ;;;###autoload
 (defun emacspeak-wizards-find-file-as-root (file)
-  "Like `ido-find-file, but automatically edit the file with
-root-privileges (using tramp/sudo), if the file is not writable by
-user."
+  "Automatically edit file with root-privileges (using
+tramp/sudo), if the file is not writable by user."
   (interactive
    (list
     (cond
@@ -457,12 +456,7 @@ allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
 portions of the buffer.  This is equivalent to leaving a
 book open at places at once.  This command allows you to
-listen to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to speak.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to speak."
+listen to the places where you have left the book open.  "
   (interactive (list (read-number "Frame Or Window: " 0)))
   (let ((win nil)
         (window-list (get-buffer-window-list (current-buffer) nil 'visible)))
@@ -497,17 +491,11 @@ meaning of `next'."
   (emacspeak-speak-this-buffer-other-window-display 1))
 ;;;###autoload
 (defun emacspeak-select-this-buffer-other-window-display (&optional arg)
-  "Switch  to this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at multiple places at once.  This command allows you to
-move to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to select.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to select."
+  "Switch to this buffer as displayed in a different frame.
+Emacs allows you to display the same buffer in multiple windows
+or frames.  These different windows can display different
+portions of the buffer.  This is equivalent to leaving a book
+open at multiple places at once.  "
   (interactive "P")
   (let ((window
          (or arg
@@ -552,7 +540,7 @@ meaning of `next'."
 
 ;;;###autoload
 (defun emacspeak-wizards-show-eval-result (form)
-  "Convenience command to pretty-print and view Lisp evaluation results."
+  "Pretty-print and view Lisp evaluation results."
   (interactive
    (list
     (let ((minibuffer-completing-symbol t))
@@ -651,9 +639,7 @@ meaning of `next'."
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property)
   "Show value of PROPERTY at point.
-If optional arg property is not supplied, read it interactively.
-Provides completion based on properties at point.
-If no property is set, show a message and exit."
+If optional arg property is not supplied, read it interactively. "
   (interactive
    (let
        ((properties (text-properties-at (point))))
@@ -679,9 +665,8 @@ If no property is set, show a message and exit."
 ;;{{{  moving across blank lines
 ;;;###autoload
 (defun emacspeak-skip-blank-lines-forward ()
-  "Move forward across blank lines.
-The line under point is then spoken.
-Signals end of buffer."
+  "Move forward across blank lines, then speak line.
+"
   (interactive)
   (let ((save-syntax (char-syntax 10))
         (start (point))
@@ -713,9 +698,7 @@ Signals end of buffer."
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 ;;;###autoload
 (defun emacspeak-skip-blank-lines-backward ()
-  "Move backward  across blank lines.
-The line under point is   then spoken.
-Signals beginning  of buffer."
+  "Move backward  across blank lines, then speak line. "
   (interactive)
   (let ((save-syntax (char-syntax 10))
         (newlines nil)
@@ -757,8 +740,8 @@ Signals beginning  of buffer."
 ;;; buffer.
 ;;;###autoload
 (defun emacspeak-wizards-shell-toggle ()
-  "Switch to the shell buffer and cd to
- the directory of the previously current buffer."
+  "Switch to  shell  and cd to
+  directory of the previously current buffer."
   (interactive)
   (cl-declare (special default-directory))
   (let ((dir default-directory))
@@ -984,7 +967,7 @@ directory to where find is to be launched."
 ;;{{{ squeeze blank lines in current buffer:
 ;;;###autoload
 (defun emacspeak-wizards-squeeze-blanks (start end)
-  "Squeeze multiple blank lines in current buffer."
+  "Squeeze multiple blank lines."
   (interactive "r")
   (shell-command-on-region start end
                            "cat -s"
@@ -1014,7 +997,7 @@ emacspeak-wizards-occur-header-lines.")
 (defun emacspeak-wizards-how-many-matches (start end &optional prefix)
   "If you define a file local variable
 called `emacspeak-occur-pattern' that holds a regular expression
-that matches  lines of interest, you can use this command to conveniently
+that matches  lines of interest, you can use this command to 
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern."
   (interactive
@@ -1037,7 +1020,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
 (defun emacspeak-wizards-occur-header-lines (&optional prefix)
   "If you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
-matches header lines, you can use this command to conveniently
+matches header lines, you can use this command to 
 run `occur' to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern."
   (interactive "P")
@@ -1059,7 +1042,7 @@ prompts for and sets value of the file local pattern."
 
 ;;;###autoload
 (defun emacspeak-kill-buffer-quietly ()
-  "Kill current buffer without asking for confirmation."
+  "Kill current buffer without  confirmation."
   (interactive)
   (kill-buffer nil)
   (when (called-interactively-p 'interactive)
@@ -1086,7 +1069,7 @@ Ubuntu and Debian this is group `tty'.")
 
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer (console)
-  "View contents of specified virtual console."
+  "View contents of  virtual console."
   (interactive "nConsole:")
   (cl-declare (special emacspeak-wizards-vc-viewer-command
                        emacspeak-wizards-vc-console
@@ -1164,8 +1147,7 @@ Ubuntu and Debian this is group `tty'.")
 ;;{{{ longest line in region
 ;;;###autoload
 (defun emacspeak-wizards-find-longest-line-in-region (start end)
-  "Find longest line in region.
-Moves to the longest line when called interactively."
+  "Find longest line in region and move to it. "
   (interactive "r")
   (let ((max 0)
         (where nil))
@@ -1215,8 +1197,7 @@ Moves to the shortest line when called interactively."
 ;;{{{ longest para in region
 ;;;###autoload
 (defun emacspeak-wizards-find-longest-paragraph-in-region (start end)
-  "Find longest paragraph in region.
-Moves to the longest paragraph when called interactively."
+  "Find longest paragraph in region, and move to it. "
   (interactive "r")
   (let ((max 0)
         (where nil)
@@ -1241,7 +1222,7 @@ Moves to the longest paragraph when called interactively."
 ;;{{{ face wizard
 ;;;###autoload
 (defun emacspeak-wizards-show-face (face)
-  "Show salient properties of specified face."
+  "Show  properties of  face."
   (interactive
    (list
     (read-face-name "Face")))
@@ -1275,7 +1256,7 @@ Moves to the longest paragraph when called interactively."
 
 ;;;###autoload
 (defun emacspeak-wizards-speak-iso-datetime (iso)
-  "Make ISO date-time speech friendly."
+  "Speak ISO date-time."
   (interactive
    (list
     (read-from-minibuffer "ISO DateTime:"
@@ -1341,7 +1322,7 @@ dates.")
 
 ;;;###autoload
 (defun emacspeak-wizards-units ()
-  "Run units in a comint sub-process."
+  "Run units."
   (interactive)
   (cl-declare (special emacspeak-comint-autospeak))
   (let ((process-environment '("PAGER=cat")))
@@ -1818,18 +1799,8 @@ mapped to voices."
                  "gm-" "gmap"  "gweb"
              "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match Emacspeak command names.")
-;;;###autoload
-(defun emacspeak-wizards-execute-emacspeak-command (command)
-  "Prompt for and execute an Emacspeak command."
-  (interactive
-   (list
-    (read
-     (completing-read
-      "Emacspeak Command:"
-      (emacspeak-wizards-enumerate-matching-commands
-       emacspeak-wizards-emacspeak-command-pattern)))))
-  (cl-declare (special emacspeak-wizards-emacspeak-command-pattern))
-  (call-interactively command))
+
+
 
 ;;}}}
 ;;{{{ Shell Helper: Path Cleanup
@@ -1917,7 +1888,7 @@ mapped to voices."
 
 ;;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
-  "Display list of open EWW buffers."
+  "Display list of  EWW buffers."
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode 'eww-mode))
 ;;}}}
@@ -2326,7 +2297,7 @@ Optional interactive prefix arg refreshes cache."
 ;;; Top-Level Dispatch:
 ;;;###autoload
 (defun emacspeak-wizards-quote (&optional refresh)
-  "Top-level dispatch for looking up Stock Market information.
+  "Top-level dispatch for  Stock Market information.
 
 Key : Action
 f   :  Financials
@@ -2475,7 +2446,7 @@ Optional interactive prefix arg shows  unprocessed results."
 
 ;;;###autoload
 (defun emacspeak-wizards-set-colors ()
-  "Interactively prompt for foreground and background colors."
+  "Prompt for foreground and background colors."
   (interactive)
   (let ((bg (read-color "Background: "))
         (fg (read-color "Foreground: ")))
@@ -2485,7 +2456,7 @@ Optional interactive prefix arg shows  unprocessed results."
 
 ;;;###autoload
 (defun emacspeak-wizards-color-diff-at-point (&optional set)
-  "Meaningfully speak difference between background and foreground color at point.
+  "Speak difference between background and foreground color at point.
 With interactive prefix arg, set foreground and background color first."
   (interactive "P")
   (when set (call-interactively #'emacspeak-wizards-set-colors))
@@ -2616,10 +2587,9 @@ under point as either the foreground or background color."
 
 ;;;###autoload
 (defun emacspeak-wizards-color-wheel (start)
-  "Interactively manipulate a simple color wheel and display the name
-  and shade of the resulting color.  This makes for a fun color
-  exploration tool with verbal descriptions of the colors from package
-  name-this-color. Prompts for a color from which to start exploration.
+  "Manipulate a simple color wheel and display the name and shade
+  of the resulting color.  Prompts for a color from which to
+  start exploration.
 
 Keyboard Commands During Interaction:
 Up/Down: Increase/Decrement along current axis using specified step-size.
@@ -2886,7 +2856,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
 
 ;;;###autoload
 (defun emacspeak-wizards-noaa-weather (&optional ask)
-  "Display weather information using NOAA Weather API.
+  "Display weather  using NOAA Weather API.
 Data is retrieved only once, subsequent calls switch to previously
 displayed results. Kill that buffer or use an interactive prefix
 arg (C-u) to get new data.  Optional second interactive prefix
@@ -2936,7 +2906,7 @@ external package."
 
 ;;;###autoload
 (defun emacspeak-wizards-google-news ()
-  "Clean up news.google.com for  skimming the news."
+  "Clean up news.google.com."
   (interactive)
   (cl-declare (special emacspeak-we-xsl-junk emacspeak-we-xsl-filter))
   (add-hook
@@ -2951,7 +2921,7 @@ external package."
 
 ;;;###autoload
 (defun emacspeak-wizards-google-headlines ()
-  "Display just the headlines from Google News for fast loading."
+  "Display just the headlines from Google News."
   (interactive)
   (emacspeak-we-xslt-filter "//h3" "https://news.google.com" 'speak))
 

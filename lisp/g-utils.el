@@ -433,7 +433,7 @@ Note that in the Curl output, we see lf rather than crlf.")
 
 ;;}}}
 ;;{{{ convert html to text
-;;;###autoload
+
 (defun g-html-string (html-string)
   "Return formatted string."
   (with-temp-buffer
