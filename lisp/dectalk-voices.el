@@ -60,8 +60,7 @@
   :type 'integer
   :set #'(lambda(sym val)
            (set-default sym val)
-           (when (and (getenv "DTK_PROGRAM")
-                      (string-match "dtk" (getenv "DTK_PROGRAM")))
+           (when (string-match "dtk" dtk-program)
              (setq-default dtk-speech-rate val))))
 
 ;;}}}
