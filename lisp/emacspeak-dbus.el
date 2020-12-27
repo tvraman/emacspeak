@@ -385,7 +385,7 @@ already disabled."
 ;;{{{Setup:
 ;;;###autoload
 (defun emacspeak-dbus-setup ()
-  "Turn on all defined handlers."
+  "Turn on DBus handlers."
   (require 'dbus)
   (when (dbus-list-known-names :session)
     (nm-enable)

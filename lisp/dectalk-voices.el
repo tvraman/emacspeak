@@ -69,7 +69,7 @@
 
 ;;;###autoload
 (defun dectalk ()
-  "Select Dectalk TTS."
+  "Dectalk TTS."
   (interactive)
   (dectalk-configure-tts)
   (ems--fastload "voice-defs")
@@ -393,7 +393,7 @@ and TABLE gives the values along that dimension."
 
 ;;;###autoload
 (defun dectalk-configure-tts ()
-  "Configures TTS environment to use Dectalk  synthesizers."
+  "Configures   to use Dectalk."
   (cl-declare (special  dectalk-default-speech-rate
                         tts-default-speech-rate tts-default-voice))
   (setq tts-default-voice 'paul)

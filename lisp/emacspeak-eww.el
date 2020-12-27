@@ -968,7 +968,7 @@ Retain previously set punctuations  mode."
 
 ;;;###autoload
 (defun emacspeak-eww-autospeak()
-  "Setup post process hook to speak the Web page when rendered. "
+  "Setup post process hook to speak the Web page. "
   (add-hook
    'emacspeak-eww-post-process-hook
    #'(lambda nil
@@ -1002,7 +1002,7 @@ Note that the Web browser should reset this hook after using it.")
 
 ;;;###autoload
 (defun emacspeak-eww-run-post-process-hook (&rest _ignore)
-  "Use web post process hook."
+  "Run web post process hook."
   (cl-declare (special emacspeak-eww-post-process-hook))
   (when     emacspeak-eww-post-process-hook
     (condition-case nil
@@ -2076,9 +2076,8 @@ Warning, this is fragile, and depends on a stable id/class for the
 
 ;;;###autoload
 (defun emacspeak-eww-open-mark (name &optional delete)
-  "Open specified EWW marked location. If the content is already being
-displayed in this Emacs session, jump to it directly. With optional
-interactive prefix arg `delete', delete that mark instead."
+  "Open EWW marked location.  With optional interactive prefix
+arg `delete', delete that mark instead."
   (interactive
    (list
     (progn

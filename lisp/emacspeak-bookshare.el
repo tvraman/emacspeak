@@ -1316,7 +1316,7 @@ Useful for fulltext search in a book."
 
 ;;;###autoload
 (defun emacspeak-bookshare-eww (directory)
-  "Render complete book using EWW"
+  "Render  book using EWW"
   (interactive
    (list
     (or (emacspeak-bookshare-get-directory)

@@ -290,7 +290,7 @@ Argument `feed' is a feed structure (label url type)."
 
 ;;;###autoload
 (defun emacspeak-feeds-browse (feed)
-  "Browse specified  feed."
+  "Browse   feed."
   (interactive
    (list
     (let ((completion-ignore-case t))

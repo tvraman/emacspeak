@@ -681,7 +681,7 @@ current page."
   "REST endpoint for network speech synthesis.")
 ;;;###autoload
 (defun emacspeak-google-tts (text &optional lang)
-  "Speak text using Google Network TTS.
+  "Google Network TTS.
 Optional interactive prefix arg `lang' specifies  language identifier."
   (interactive
    (list

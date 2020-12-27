@@ -91,8 +91,7 @@
 ;;{{{ Interactive commands 
 ;;;###autoload
 (defun emacspeak-filtertext(start end)
-  "Copy over text in region to special filtertext buffer in
-preparation for interactively filtering text. "
+  "Copy over text in region to special filtertext buffer to  filter text. "
   (interactive "r")
   (cl-declare (special emacspeak-filtertext-info
                        case-fold-search))

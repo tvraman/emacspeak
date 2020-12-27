@@ -306,7 +306,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 
 ;;;Helper: IDo Search for kill ring
 
-;;;###autoload
+
 (defun emacspeak-muggles-ido-yank ()
   "Pick what to yank using ido completion."
   (interactive)

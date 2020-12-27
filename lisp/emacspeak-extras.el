@@ -502,16 +502,9 @@ information between different Emacs sessions."
   :type 'string)
 ;;;###autoload
 (defun emacspeak-clipboard-copy (start end &optional prompt)
-  "Copy contents of the region to the emacspeak clipboard. Previous
-contents of the clipboard will be overwritten. The Emacspeak clipboard
-is a convenient way of sharing information between independent
-Emacspeak sessions running on the same or different machines. Do not
-use this for sharing information within an Emacs session --Emacs'
-register commands are far more efficient and light-weight. Optional
-interactive prefix arg results in Emacspeak prompting for the
-clipboard file to use. Argument START and END specifies
-region. Optional argument PROMPT specifies whether we prompt for the
-name of a clipboard file."
+  "Use file-based Emacspeak Clipboard ---
+dis a convenient way of sharing information between independent
+Emacspeak sessions running on  different machines. "
   (interactive "r\nP")
   (cl-declare (special emacspeak-user-directory emacspeak-clipboard-file))
   (let ((clip (buffer-substring-no-properties start end))
@@ -524,11 +517,11 @@ name of a clipboard file."
         (clipboard nil))
     (setq clipboard (find-file-noselect clipboard-file))
     (ems-with-messages-silenced
-     (save-current-buffer
-       (set-buffer clipboard)
-       (erase-buffer)
-       (insert clip)
-       (save-buffer)))
+        (save-current-buffer
+          (set-buffer clipboard)
+          (erase-buffer)
+          (insert clip)
+          (save-buffer)))
     (message "Copied %s lines to Emacspeak clipboard %s"
              (count-lines start end)
              clipboard-file)))
@@ -538,13 +531,7 @@ name of a clipboard file."
 
 ;;;###autoload
 (defun emacspeak-clipboard-paste (&optional paste-table)
-  "Yank contents of the Emacspeak clipboard at point.
-The Emacspeak clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session --Emacs' register commands are far more efficient and
-light-weight.  Optional interactive prefix arg pastes from
-the emacspeak table clipboard instead."
+  "Yank contents of the Emacspeak clipboard at point. "
   (interactive "P")
   (cl-declare (special emacspeak-user-directory emacspeak-clipboard-file))
   (let ((start (point))

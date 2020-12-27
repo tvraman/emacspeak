@@ -59,10 +59,6 @@
 ;;;###autoload
 (defun cd-tool ()
   "Front-end to CDTool.
-Bind this function to a convenient key-
-Emacspeak users automatically have
-this bound to <DEL> in the emacspeak keymap.
-
 Key     Action
 ---     ------
 

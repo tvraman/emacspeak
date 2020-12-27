@@ -490,8 +490,7 @@ Set calc-language to tex to use this feature."
 
 ;;;###autoload
 (defun emacspeak-maths-enter-guess ()
-  "Send the guessed  LaTeX expression to Maths server.
-Guess is based on context."
+  "Send the guessed  LaTeX expression to Maths server. "
   (interactive)
   (cl-declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)        
@@ -502,8 +501,8 @@ Guess is based on context."
 
 ;;;###autoload
 (defun emacspeak-maths-enter (latex)
-  "Send a LaTeX expression to Maths server.
-Tries to guess default based on context. "
+  "Send a LaTeX expression to Maths server,
+ guess  based on context. "
   (interactive (list (emacspeak-maths-guess-input)))
   (cl-declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)

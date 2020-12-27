@@ -285,7 +285,7 @@ Controls media playback when already playing a stream.
   (cl-declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
 
-;;;###autoload
+
 (defun emacspeak-m-player-bind-accelerator (directory key)
   "Binds key to invoke m-player  on specified directory."
   (interactive
@@ -336,7 +336,7 @@ etc to be ignored when guessing directory.")
 
 ;;;###autoload
 (defun emacspeak-m-player-url (url &optional playlist-p)
-  "Call emacspeak-m-player with specified URL."
+  "Call emacspeak-m-player with  URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (ems-with-messages-silenced
    (emacspeak-m-player url playlist-p)))
@@ -431,7 +431,6 @@ Also cleanup ANSI escape sequences."
   "Play specified resource using m-player.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
@@ -507,10 +506,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
-  "Use openal as the audio output driver. Adding hrtf=true to
-~/.alsoftrc gives HRTF. You need to have openal installed and have an
-mplayer that has been compiled with openal support to use this
-feature. Calling spec is like `emacspeak-m-player'."
+  "Use openal as the audio output driver.  "
   (interactive
    (list
     (emacspeak-media-read-resource)
@@ -551,7 +547,7 @@ This will work if the soundcard is set to 48000."
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
-  "Launch M-Player with shuffle turned on."
+  "M-Player with shuffle turned on."
   (interactive)
   (cl-declare (special emacspeak-m-player-options))
   (let ((emacspeak-m-player-options
@@ -1347,9 +1343,9 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional best)
-  "Use youtube-dl and mplayer to stream the audio for YouTube content.
-Default is to pick smallest (lowest quality) audio format.
-Optional prefix arg `best' chooses highest quality."
+  "Use youtube-dl and mplayer to stream  audio from Youtube.
+Default picks lowest quality ---
+Optional prefix arg `best' chooses highest."
   (interactive
    (list
     (emacspeak-eww-read-url)
@@ -1688,12 +1684,9 @@ tap-reverb already installed."
 ;;;###autoload
 (defun emacspeak-m-player-locate-media (pattern)
   "Locate media matching specified pattern.  The results can be
-played as a play-list by pressing [RET] on the first line.
-Pattern is first converted to a regexp that accepts common
-punctuation separators (-,._\'\") in place of white-space.
-Results are placed in a Locate buffer and can be played using
-M-Player --- use \\[emacspeak-dired-open-this-file] locally bound to C-RET 
-to play individual tracks."
+played as a play-list by pressing [RET] on the first line, see
+ \\[emacspeak-dired-open-this-file] locally bound to C-RET 
+to play  tracks."
   (interactive "sSearch Pattern: ")
   (cl-declare  (special emacspeak-media-extensions
                         locate-command locate-make-command-line))

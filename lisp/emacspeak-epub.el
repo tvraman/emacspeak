@@ -823,8 +823,7 @@ No book files are deleted."
 (defun emacspeak-epub ()
   "EPub  Interaction.
 When opened, displays a bookshelf consisting of  epubs found at the
-root directory.
-For detailed documentation, see \\[emacspeak-epub-mode]"
+root directory,see \\[emacspeak-epub-mode]"
   (interactive)
   (cl-declare (special emacspeak-epub-interaction-buffer
                        emacspeak-epub-zip-info

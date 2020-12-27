@@ -225,7 +225,7 @@ to  ~/.emacs.d ")
 
 ;;;###autoload
 (defun amixer-restore (&optional conf-file)
-  "Restore alsa settings."
+  "Reset Alsa."
   (cl-declare (special alsactl-program))
   (if conf-file
       (start-process
@@ -241,7 +241,7 @@ to  ~/.emacs.d ")
 
 ;;;###autoload
 (defun amixer (&optional refresh)
-  "Manipulate ALSA settings.
+  "ALSA settings.
 Interactive prefix arg refreshes cache."
   (interactive "P")
   (cl-declare (special amixer-db amixer-alsactl-config-file amixer-program))
@@ -292,7 +292,7 @@ Interactive prefix arg refreshes cache."
 
 ;;;###autoload
 (defun amixer-store()
-  "Persist current amixer settings."
+  "Persist  amixer."
   (interactive)
   (cl-declare (special  amixer-alsactl-config-file alsactl-program))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))

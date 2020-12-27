@@ -107,7 +107,7 @@ given name, it is updated with path and position."
   "Name of file used to save AMarks.")
 ;;;###autoload
 (defun emacspeak-amark-save ()
-  "Save buffer-local AMarks in  directory of currently playing resource."
+  "Save buffer-local AMarks in  currently playing directory."
   (interactive)
   (cl-declare (special  emacspeak-amark-file))
   (let ((l  emacspeak-amark-list)
