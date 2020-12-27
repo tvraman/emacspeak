@@ -94,7 +94,7 @@
 (defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
   "Emacspeak resources, e.g. pronunciation dicts.")
 
-;;;###autoload
+
 (defvar emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
   "README file with  Git  revision number.")
