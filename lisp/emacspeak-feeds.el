@@ -117,7 +117,7 @@ The feed list is persisted to file saved-feeds on exit."
   "Check if this feed has been added before."
   (cl-declare (special emacspeak-feeds-feeds-table))
   (gethash feed-url emacspeak-feeds-feeds-table))
-
+;;;###autoload
 (defun emacspeak-feeds-add-feed (title url type)
   "Add specified feed to our feed store."
   (interactive
