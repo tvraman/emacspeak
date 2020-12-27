@@ -129,18 +129,6 @@
 ;;{{{ NNIR Engine For GMail 
 
 ;;; GMail Search Commands 
-;;;###autoload
-(defun gm-nnir-group-make-nnir-group (q)
-  "GMail equivalent of gnus-group-make-nnir-group.
-This uses standard IMap search operators."
-  (interactive (list  (gm-nnir-read-imap-query)))
-  (let ((nnir-imap-default-search-key "imap"))
-    (cond
-     ((gnus-group-group-name)           ; Search current group 
-      (gnus-group-make-nnir-group
-       nil                              ; no extra parms needed
-       `(nnir-specs (nnir-query-spec (query  ,q)))))
-     (t (error "Not on a group")))))
 
 ;;;###autoload
 (defun gm-nnir-group-make-gmail-group (query)
