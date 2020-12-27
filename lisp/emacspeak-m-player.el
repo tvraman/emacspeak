@@ -221,8 +221,7 @@ This is set to nil when playing Internet  streams.")
 
 ;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
-"Map specific key sequences to launching MPlayer accelerators
-on a specific directory."
+"Map  keys  to launch MPlayer on a given directory."
   :group 'emacspeak-m-player
   :group 'emacspeak-media
   :type '(repeat
