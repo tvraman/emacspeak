@@ -233,17 +233,18 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
-  (emacspeak-prompt "waking-up")
-  (when (featurep 'xbacklight) (xbacklight-black))
-  (amixer-restore amixer-alsactl-config-file)
-  (when (featurep 'soundscape) (soundscape-restart))
-  (when
-      (dbus-call-method
-       :session
-       "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-       "org.gnome.ScreenSaver" "GetActive")
-    (emacspeak-prompt "pwd")
-    (emacspeak-auditory-icon 'help)))
+  (ems-with-messages-silenced
+      (emacspeak-prompt "waking-up")
+    (when (featurep 'xbacklight) (xbacklight-black))
+    (amixer-restore amixer-alsactl-config-file)
+    (when (featurep 'soundscape) (soundscape-restart))
+    (when
+        (dbus-call-method
+         :session
+         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+         "org.gnome.ScreenSaver" "GetActive")
+      (emacspeak-prompt "pwd")
+      (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
