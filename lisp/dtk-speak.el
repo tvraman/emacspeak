@@ -64,10 +64,11 @@
                   (icon))
 ;;;###autoload
 (defvar dtk-program
-  (cond
-   ((getenv "DTK_PROGRAM") (getenv "DTK_PROGRAM"))
-   ((eq system-type 'darwin) "mac")
-   (t "espeak"))
+  (or
+   (getenv "DTK_PROGRAM")
+   (cond
+    ((eq system-type 'darwin) "mac")
+    (t "espeak")))
   "Speech-server.
 Choices:
 dtk-exp     For the Dectalk Express.
@@ -75,10 +76,7 @@ outloud     For IBM ViaVoice Outloud
 espeak      For eSpeak (default on Linux)
 mac for MAC TTS (default on Mac)")
 
-(defvar dtk-program-args
-  (when (getenv "DTK_PROGRAM_ARGS")
-    (split-string (getenv "DTK_PROGRAM_ARGS")))
-  "Speech server args.")
+
 
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server)
@@ -1600,11 +1598,11 @@ program. Port defaults to dtk-local-server-port"
 ;;; Helper: dtk-make-process:
 (defun dtk-make-process (name)
   "Make a  TTS process called name."
-  (cl-declare (special dtk-program dtk-program-args emacspeak-servers-directory))
+  (cl-declare (special dtk-program  emacspeak-servers-directory))
   (let ((process-connection-type nil)
         (program (expand-file-name dtk-program emacspeak-servers-directory))
         (process nil))
-    (setq process (apply #'start-process name nil program dtk-program-args))
+    (setq process (start-process name nil program))
     (set-process-coding-system process 'utf-8 'utf-8)
     process))
 
