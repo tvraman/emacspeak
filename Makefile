@@ -38,8 +38,6 @@
 .POSIX:
 MAKE=make
 MAKEFLAGS=--no-print-directory
-prefix = /usr
-SRC = $(shell pwd)
 README = README
 
 # }}}
@@ -82,7 +80,7 @@ dist:
 config:
 	@cd etc && $(MAKE) config   --no-print-directory
 	@cd lisp && $(MAKE) config --no-print-directory
-	@echo "Configured emacspeak in directory $(SRC)."
+
 
 # }}}
 # {{{  complete build
