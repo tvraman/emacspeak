@@ -332,9 +332,9 @@ Controls media playback when already playing.
   (ems-with-messages-silenced (emacspeak-m-player url playlist-p)))
 
 (defvar-local  emacspeak-m-player-file-list nil
-  "List  that records list of files being played.")
+  "Records list of files being played.")
 
-(defun emacspeak-m-player-directory-files (directory)
+(defsubst emacspeak-m-player-directory-files (directory)
   "Return media files in directory by searching recursively. "
   (cl-declare (special emacspeak-media-extensions))
   (directory-files-recursively directory emacspeak-media-extensions))
