@@ -156,7 +156,7 @@ This is set to nil when playing Internet  streams.")
         (cl-third v)))))
 
 (defun emacspeak-m-player-mode-line ()
-  "Meaningful mode-line for *M-Player* buffers."
+  "Mode-line for M-Player buffers."
   (interactive)
   (cl-declare (special emacspeak-m-player-process))
   (dtk-notify-speak
