@@ -1013,30 +1013,27 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 ;;}}}
 ;;{{{ Media History:
 
-(defvar emacspeak-m-player-history nil)
 ;;;###autoload
 (defvar emacspeak-m-player-media-history nil
   "Record media urls we played.")
 
 (defun emacspeak-m-player-from-media-history (posn)
-  "Play media from media-history.
-Numeric arg `posn' specifies position in history."
+  "Play media from position `posn'media-history. "
   (interactive "p")
-  (cl-declare (special emacspeak-m-player-history))
+  (cl-declare (special emacspeak-m-player-media-history))
   (setq posn (1- posn))
-  (cl-assert (and emacspeak-m-player-history (> (length emacspeak-m-player-history)  posn)) t "Not that many elements in media history")
-  (apply #'emacspeak-m-player (elt emacspeak-m-player-history posn)))
+  (cl-assert (and emacspeak-m-player-media-history (> (length emacspeak-m-player-media-history)  posn)) t "Not that many elements in media history")
+  (apply #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
 
 ;;}}}
 ;;{{{ Reset Options:
 
 (defun emacspeak-m-player-reset-options ()
-  "Reset MPlayer options to initial defaults."
+  "Reset MPlayer options."
   (interactive)
   (cl-declare (special emacspeak-m-player-default-options
                        emacspeak-m-player-options))
-  (setq emacspeak-m-player-options
-        emacspeak-m-player-default-options)
+  (setq emacspeak-m-player-options (copy-sequence emacspeak-m-player-default-options))
   (message "Reset options."))
 
 ;;}}}
@@ -1091,7 +1088,7 @@ Numeric arg `posn' specifies position in history."
   "Center frequencies for the 10 equalizer bands in MPlayer.")
 
 (defun emacspeak-m-player-equalizer-control (v)
-  "Manipulate values in specified vector using minibuffer.
+  "Manipulate values in  vector using minibuffer.
 Applies  the resulting value at each step."
   (interactive)
   (cl-declare (special emacspeak-m-player-equalizer-bands))
@@ -1145,7 +1142,7 @@ Applies  the resulting value at each step."
     result))
 
 (defun emacspeak-m-player-add-equalizer (&optional reset)
-  "Add equalizer to playing stream.  Equalizer is updated as each change
+  "Add equalizer.  Equalizer is updated as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg `reset' starts with all filters set to 0."
   (interactive "P")
@@ -1161,7 +1158,7 @@ arg `reset' starts with all filters set to 0."
    (t (message "No stream playing at present."))))
 
 (defun emacspeak-m-player-equalizer-preset  (name)
-  "Prompts for  equalizer preset and applies it to current stream.
+  "Prompts for  and apply equalizer preset.
 
 The following presets are available:
 
@@ -1260,7 +1257,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("{" emacspeak-m-player-half-speed)
     ("}" emacspeak-m-player-double-speed)
     )
-  "Key bindings used by Emacspeak M-Player.")
+  "M-Player Key bindings.")
 
 (cl-loop for k in emacspeak-m-player-bindings do
          (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
@@ -1286,14 +1283,12 @@ flat classical club dance full-bass full-bass-and-treble
 ;;}}}
 ;;{{{ YouTube Player
 
-(defcustom emacspeak-m-player-youtube-dl
+(defvar emacspeak-m-player-youtube-dl
   (executable-find "youtube-dl")
-  "YouTube download tool"
-  :type 'string
-  :group 'emacspeak-m-player)
+  "YouTube download tool")
 
 (defsubst ems--m-p-get-yt-audio-first-fmt (url)
-  "Get first available audio format code for   YT URL"
+  "First available audio format code for   YT URL"
   (substring
    (shell-command-to-string
     (format
@@ -1302,7 +1297,7 @@ flat classical club dance full-bass full-bass-and-treble
    0 -1))
 
 (defsubst ems--m-p-get-yt-audio-last-fmt (url)
-  "Get last  available (best audio format code for   YT URL"
+  "Last  available (best audio format code for   YT URL"
   (substring
    (shell-command-to-string
     (format
@@ -1356,7 +1351,7 @@ emacspeak-silence-hook."
 ;;{{{ AMarks:
 
 (defun emacspeak-m-player-amark-add (name &optional prompt-position)
-  "Set AMark `name' at current position in current audio stream.
+  "Set AMark `name' at current position.
 Interactive prefix arg prompts for position.
 As the default, use current position."
   (interactive "sAMark Name:\nP")
@@ -1376,7 +1371,7 @@ As the default, use current position."
   (cl-position (expand-file-name name) file-list :test #'string=))
 
 (defun emacspeak-m-player-amark-jump ()
-  "Jump to specified AMark."
+  "Jump to AMark."
   (interactive)
   (cl-declare (special emacspeak-m-player-file-list))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
@@ -1400,76 +1395,13 @@ As the default, use current position."
 
 ;;; tap_reverb filter
 
-(defcustom emacspeak-m-player-reverb-filter
+(defvar emacspeak-m-player-reverb-filter
   '("ladspa=tap_reverb:tap_reverb" 10000 -2 -10 1 1 1 1 6)
   "Tap Reverb Settings."
-  :type
-  '(list
-    (const :tag "Ladspa Tap Reverb" :value "ladspa=tap_reverb:tap_reverb")
-    (integer :tag "Decay MS" :value 2500)
-    (integer :tag "Dry-Level" :value 0)
-    (integer :tag "Wet-Level" :value 0)
-    (choice :tag "Comb Filter"
-            (const :tag "On" :value 1)
-            (const :tag "Off" :value 0))
-    (choice :tag "Allpass Filter"
-            (const :tag "On" :value 1)
-            (const :tag "Off" :value 0))
-    (choice :tag "Bandpass Filter"
-            (const :tag "On" :value 1)
-            (const :tag "Off" :value 0))
-    (choice :tag "Enhanced Stereo"
-            (const :tag "On" :value 1)
-            (const :tag "Off" :value 0))
-    (choice :tag "Reverb Preset"
-            (const :tag "AfterBurn" :value 0)
-            (const :tag "AfterBurn (Long)" :value 1)
-            (const :tag "Ambience" :value 2)
-            (const :tag "Ambience (Thick)" :value 3)
-            (const :tag "Ambience (Thick) - HD" :value 4)
-            (const :tag "Cathedral" :value 5)
-            (const :tag "Cathedral - HD" :value 6)
-            (const :tag "Drum Chamber" :value 7)
-            (const :tag "Garage" :value 8)
-            (const :tag "Garage (Bright)" :value 9)
-            (const :tag "Gymnasium" :value 10)
-            (const :tag "Gymnasium (Bright)" :value 11)
-            (const :tag "Gymnasium (Bright) - HD" :value 12)
-            (const :tag "Hall (Small)" :value 13)
-            (const :tag "Hall (Medium)" :value 14)
-            (const :tag "Hall (Large)" :value 15)
-            (const :tag "Hall (Large) - HD" :value 16)
-            (const :tag "Plate (Small)" :value 17)
-            (const :tag "Plate (Medium)" :value 18)
-            (const :tag "Plate (Large)" :value 19)
-            (const :tag "Plate (Large) - HD" :value 20)
-            (const :tag "Pulse Chamber" :value 21)
-            (const :tag "Pulse Chamber (Reverse)" :value 22)
-            (const :tag "Resonator (96 ms)" :value 23)
-            (const :tag "Resonator (152 ms)" :value 24)
-            (const :tag "Resonator (28 ms)" :value 25)
-            (const :tag "Room (Small)" :value 26)
-            (const :tag "Room (Medium)" :value 27)
-            (const :tag "Room (Large)" :value 28)
-            (const :tag "Room (Large) - HD" :value 29)
-            (const :tag "Slap Chamber" :value 30)
-            (const :tag "Slap Chamber - HD" :value 31)
-            (const :tag "Slap Chamber (Bright)" :value 32)
-            (const :tag "Slap Chamber (Bright) - HD" :value 33)
-            (const :tag "Smooth Hall (Small)" :value 34)
-            (const :tag "Smooth Hall (Medium)" :value 35)
-            (const :tag "Smooth Hall (Large)" :value 36)
-            (const :tag "Smooth Hall (Large) - HD" :value 37)
-            (const :tag "Vocal Plate" :value 38)
-            (const :tag "Vocal Plate - HD" :value 39)
-            (const :tag "Warble Chamber" :value 40)
-            (const :tag "Warehouse" :value 41)
-            (const :tag "Warehouse - HD" :value 42)))
-  :group 'emacspeak-m-player)
+)
 
 (defun emacspeak-m-player-edit-reverb ()
-  "Edit  current ladspa reverb filter.
-See option emacspeak-m-player-reverb-filter to customize reverb filter values.
+  "Edit ladspa reverb filter.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed."
   (interactive)
@@ -1584,7 +1516,7 @@ tap-reverb already installed."
   "Table of tap-reverb presets along with recommended decay values.")
 
 (defun emacspeak-m-player-apply-reverb-preset (preset)
-  "Prompt for a predefined reverb preset and apply it.
+  "Prompt for and apply a reverb preset.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed."
   (interactive
@@ -1623,9 +1555,10 @@ tap-reverb already installed."
 
 ;;}}}
 ;;{{{ Play RSS Stream:
+
 ;;;###autoload
 (defun emacspeak-m-player-play-rss (rss-url)
-  "Play an RSS stream by converting to  an M3U playlist."
+  "Play an RSS stream."
   (interactive
    (list
     (emacspeak-eww-read-url)))
@@ -1639,6 +1572,7 @@ tap-reverb already installed."
         rss-url))
       (save-buffer))
     (emacspeak-m-player file 'playlist)))
+
 ;;}}}
 ;;{{{ Use locate to construct media playlist:
 
@@ -1650,7 +1584,7 @@ tap-reverb already installed."
 
 ;;;###autoload
 (defun emacspeak-m-player-locate-media (pattern)
-  "Locate media matching specified pattern.  The results can be
+  "Locate media matching  pattern.  The results can be
 played as a play-list by pressing [RET] on the first line, see
  \\[emacspeak-dired-open-this-file] locally bound to C-RET
 to play  tracks."
@@ -1677,7 +1611,7 @@ to play  tracks."
 ;;{{{ MultiPlayer Support:
 
 (defun emacspeak-m-player-persist-process (&optional name)
-  "Persists current m-player process instance by renaming its buffer.
+  "Persists  m-player process instance by renaming its buffer.
 Optional interactive prefix arg prompts for name to use for  player."
   (interactive "P")
   (cl-declare (special  emacspeak-m-player-process))
@@ -1715,13 +1649,11 @@ Check first if current buffer is in emacspeak-m-player-mode."
 ;;}}}
 ;;{{{ Panning:
 
-(defvar emacspeak-m-player-panner 0
-  "The 11 pre-defined panning locations,.")
-
-(make-variable-buffer-local 'emacspeak-m-player-panner)
+(defvar-local emacspeak-m-player-panner 0
+  "The 11 pre-defined panning locations.")
 
 (defun emacspeak-m-player-pan ()
-  "Pan from left to right   and back from right to left one step at a time."
+  "Pan from left to right   and back  one step at a time."
   (interactive)
   (cl-declare (special emacspeak-m-player-panner emacspeak-m-player-process))
   (unless (process-live-p emacspeak-m-player-process) (error "No   player."))
