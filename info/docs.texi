@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1137 commands and 859 options.
+This chapter documents a total of 1135 commands and 859 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -8759,7 +8759,7 @@ the prefix parsing is inspired by filladapt.el
 @findex emacspeak-hide-or-expose-all-blocks
 
 @format
-Hide or expose all blocks in buffer.
+Hide or expose all blocks.
 @end format
 @end deffn
 
@@ -8776,11 +8776,8 @@ Hide or expose all blocks in buffer.
 
 @format
 Hide or expose a block of text.
-This command either hides or exposes a block of text
-starting on the current line.  A block of text is defined as
-a portion of the buffer in which all lines start with a
-common PREFIX.  Optional interactive prefix arg causes all
-blocks in current buffer to be hidden or exposed.
+ Optional interactive prefix arg causes all blocks in current
+buffer to be hidden or exposed.
 
 (fn &optional PREFIX)
 @end format
@@ -8798,11 +8795,7 @@ blocks in current buffer to be hidden or exposed.
 @findex emacspeak-hide-speak-block-sans-prefix
 
 @format
-Speaks current block after stripping its prefix.
-If the current block is not hidden, it first hides it.
-This is useful because as you locate blocks, you can invoke this
-command to listen to the block,
-and when you have heard enough navigate easily  to move past the block.
+Speaks current block after stripping its prefix. 
 @end format
 @end deffn
 
@@ -9494,67 +9487,32 @@ Note that the <fn> key found on laptops is denoted <fn>
 @subsection emacspeak-keymap Options
 
 @defvar {User Option} emacspeak-alt-keys
-Alt key bindings.
-These bindings  are available on prefix key ‘alt’ (not to be
- confused with alt==meta) for example, binding ‘s’ to 
- emacspeak-emergency-tts-restart makes it  available
- on key ‘ALT s’
-KEYS is a string  in the format used by ‘kbd’.
-Command is an interactive command or a prefix-command. 
+Alt key bindings. 
 
 @end defvar
 
 @defvar {User Option} emacspeak-ctl-z-keys
- Bindings specified here are available on prefix key ‘C-z’ for
-example, binding ‘z’ to ‘suspend-frame’ makes it available on ‘C-z z’.
-KEYS should be a string  in the format used by ‘kbd’.
-Command is an interactive command or a prefix-command. 
+CTL-z keymap.
 
 @end defvar
 
 @defvar {User Option} emacspeak-hyper-keys
-Hyper-Key bindings.
-Bindings specified here are available on prefix key ‘hyper’ for
-example, binding ‘b’ to command ‘bbdb ’ makes it available on key
-‘hyper b’.  KEYS should be a string in the format used by
-‘kbd’. Command is an interactive command or a prefix-command . 
+Hyper-Key bindings. 
 
 @end defvar
 
 @defvar {User Option} emacspeak-personal-ctlx-keys
-Key bindings for use with C-e C-x.
- Bindings specified here are available on
-prefix key C-e C-x, for example, binding  ‘C-s’ to 
-emacspeak-emergency-tts-restart makes it 
-available on key C-e C-x C-s. KEYS should be a string  in
-the format used by ‘kbd’.
-Command is an interactive command or a prefix-command . 
+Key bindings for use with C-e C-x. 
 
 @end defvar
 
 @defvar {User Option} emacspeak-personal-keys
-Key bindings for  C-e x.
-For example, binding  ‘s’ to 
-emacspeak-emergency-tts-restart makes  it available on C-e x s.
-KEYS should be a string  in the format used by ‘kbd’.
-Command is an interactive command or a prefix-command .
+Key bindings for  C-e x. 
 
 @end defvar
 
 @defvar {User Option} emacspeak-super-keys
-Specifies super key bindings for the audio desktop. You can
-Bindings specified here are available on prefix key ‘super’ for
-example, if you bind ‘s’ to command
-emacspeak-emergency-tts-restart then that command will be
-available on key ‘super s’. KEYS should be a string constant in
-the format used for saving keyboard macros (see ‘edmacro-mode’).
-
-Command is an interactive command or a prefix-command that can be
-bound to a key.
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
+Super key bindings. 
 
 @end defvar
 
@@ -9755,7 +9713,7 @@ buffer  to list  @code{m-player} keybindings.
 @findex emacspeak-m-player
 
 @format
-Play specified resource using m-player.  Optional prefix argument
+Play  resource.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 The player is placed in a buffer in emacspeak-m-player-mode.
@@ -10565,7 +10523,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
 @findex emacspeak-m-player-url
 
 @format
-Call emacspeak-m-player with  URL.
+Call emacspeak-m-player on  URL.
 
 (fn URL &optional PLAYLIST-P)
 @end format
@@ -10600,7 +10558,7 @@ This will work if the soundcard is set to 48000.
 @findex emacspeak-m-player-using-openal
 
 @format
-Use openal as the audio output driver.  
+Use openal for audio output.  
 
 (fn RESOURCE &optional PLAY-LIST)
 @end format
@@ -14461,7 +14419,7 @@ Set this to nil if using paplay from pulseaudio.
 @end defvar
 
 @defvar {User Option} emacspeak-play-program
-Executable that plays sound files. 
+Play program.
 
 @end defvar
 
@@ -19441,7 +19399,7 @@ Give a brief overview of emacspeak.
 @findex emacspeak-kill-buffer-quietly
 
 @format
-Kill current buffer without asking for confirmation.
+Kill current buffer without  confirmation.
 @end format
 @end deffn
 
@@ -19547,17 +19505,11 @@ meaning of ‘next’.
 @findex emacspeak-select-this-buffer-other-window-display
 
 @format
-Switch  to this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at multiple places at once.  This command allows you to
-move to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to select.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to select.
+Switch to this buffer as displayed in a different frame.
+Emacs allows you to display the same buffer in multiple windows
+or frames.  These different windows can display different
+portions of the buffer.  This is equivalent to leaving a book
+open at multiple places at once.  
 
 (fn &optional ARG)
 @end format
@@ -19595,9 +19547,7 @@ meaning of ‘previous’.
 
 @format
 Show value of PROPERTY at point.
-If optional arg property is not supplied, read it interactively.
-Provides completion based on properties at point.
-If no property is set, show a message and exit.
+If optional arg property is not supplied, read it interactively. 
 
 (fn &optional PROPERTY)
 @end format
@@ -19629,9 +19579,7 @@ Show value of property personality (and possibly face) at point.
 @findex emacspeak-skip-blank-lines-backward
 
 @format
-Move backward  across blank lines.
-The line under point is   then spoken.
-Signals beginning  of buffer.
+Move backward  across blank lines, then speak line. 
 @end format
 @end deffn
 
@@ -19645,9 +19593,8 @@ Signals beginning  of buffer.
 @findex emacspeak-skip-blank-lines-forward
 
 @format
-Move forward across blank lines.
-The line under point is then spoken.
-Signals end of buffer.
+Move forward across blank lines, then speak line.
+
 @end format
 @end deffn
 
@@ -19761,12 +19708,7 @@ allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
 portions of the buffer.  This is equivalent to leaving a
 book open at places at once.  This command allows you to
-listen to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to speak.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to speak.
+listen to the places where you have left the book open.  
 
 (fn WINDOW)
 @end format
@@ -19905,7 +19847,7 @@ Echo foreground/background color at point.
 @findex emacspeak-wizards-color-diff-at-point
 
 @format
-Meaningfully speak difference between background and foreground color at point.
+Speak difference between background and foreground color at point.
 With interactive prefix arg, set foreground and background color first.
 
 (fn &optional SET)
@@ -19924,10 +19866,9 @@ With interactive prefix arg, set foreground and background color first.
 @findex emacspeak-wizards-color-wheel
 
 @format
-Interactively manipulate a simple color wheel and display the name
-  and shade of the resulting color.  This makes for a fun color
-  exploration tool with verbal descriptions of the colors from package
-  name-this-color. Prompts for a color from which to start exploration.
+Manipulate a simple color wheel and display the name and shade
+  of the resulting color.  Prompts for a color from which to
+  start exploration.
 
 Keyboard Commands During Interaction:
 Up/Down: Increase/Decrement along current axis using specified step-size.
@@ -20147,7 +20088,7 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
 @findex emacspeak-wizards-eww-buffer-list
 
 @format
-Display list of open EWW buffers.
+Display list of  EWW buffers.
 @end format
 @end deffn
 
@@ -20180,24 +20121,6 @@ Read key-sequence, then execute its command on a new thread.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-execute-emacspeak-command
-@deffn {Command} emacspeak-wizards-execute-emacspeak-command  (command)
-@table @kbd
-@item C-e M-x
-@kindex C-e M-x
-@item <fn> M-x
-@kindex <fn> M-x
-@end table
-
-@findex emacspeak-wizards-execute-emacspeak-command
-
-@format
-Prompt for and execute an Emacspeak command.
-
-(fn COMMAND)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-find-file-as-root
 @deffn {Command} emacspeak-wizards-find-file-as-root  (file)
 @table @kbd
@@ -20210,9 +20133,8 @@ Prompt for and execute an Emacspeak command.
 @findex emacspeak-wizards-find-file-as-root
 
 @format
-Like ‘ido-find-file, but automatically edit the file with
-root-privileges (using tramp/sudo), if the file is not writable by
-user.
+Automatically edit file with root-privileges (using
+tramp/sudo), if the file is not writable by user.
 
 (fn FILE)
 @end format
@@ -20230,8 +20152,7 @@ user.
 @findex emacspeak-wizards-find-longest-line-in-region
 
 @format
-Find longest line in region.
-Moves to the longest line when called interactively.
+Find longest line in region and move to it. 
 
 (fn START END)
 @end format
@@ -20242,8 +20163,7 @@ Moves to the longest line when called interactively.
 @findex emacspeak-wizards-find-longest-paragraph-in-region
 
 @format
-Find longest paragraph in region.
-Moves to the longest paragraph when called interactively.
+Find longest paragraph in region, and move to it. 
 
 (fn START END)
 @end format
@@ -20347,7 +20267,7 @@ Generate a widget-enabled finder wizard.
 @findex emacspeak-wizards-google-headlines
 
 @format
-Display just the headlines from Google News for fast loading.
+Display just the headlines from Google News.
 @end format
 @end deffn
 
@@ -20365,7 +20285,7 @@ Display just the headlines from Google News for fast loading.
 @findex emacspeak-wizards-google-news
 
 @format
-Clean up news.google.com for  skimming the news.
+Clean up news.google.com.
 @end format
 @end deffn
 
@@ -20383,7 +20303,7 @@ Clean up news.google.com for  skimming the news.
 @format
 If you define a file local variable
 called ‘emacspeak-occur-pattern’ that holds a regular expression
-that matches  lines of interest, you can use this command to conveniently
+that matches  lines of interest, you can use this command to 
 run ‘how-many’ to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 
@@ -20582,7 +20502,7 @@ Move point to the next interactive defun
 @findex emacspeak-wizards-noaa-weather
 
 @format
-Display weather information using NOAA Weather API.
+Display weather  using NOAA Weather API.
 Data is retrieved only once, subsequent calls switch to previously
 displayed results. Kill that buffer or use an interactive prefix
 arg (C-u) to get new data.  Optional second interactive prefix
@@ -20607,7 +20527,7 @@ weather for ‘gmaps-my-address’.
 @format
 If you define a file local variable called
 ‘emacspeak-occur-pattern’ that holds a regular expression that
-matches header lines, you can use this command to conveniently
+matches header lines, you can use this command to 
 run ‘occur’ to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern.
 
@@ -20655,7 +20575,7 @@ Navigate to and speak previous ‘bullet’.
 @findex emacspeak-wizards-quote
 
 @format
-Top-level dispatch for looking up Stock Market information.
+Top-level dispatch for  Stock Market information.
 
 Key : Action
 f   :  Financials
@@ -20709,7 +20629,7 @@ Switch to *scratch* buffer, creating it if necessary.
 @findex emacspeak-wizards-set-colors
 
 @format
-Interactively prompt for foreground and background colors.
+Prompt for foreground and background colors.
 @end format
 @end deffn
 
@@ -20872,8 +20792,8 @@ Define current directory as this shell’s project directory.
 @findex emacspeak-wizards-shell-toggle
 
 @format
-Switch to the shell buffer and cd to
- the directory of the previously current buffer.
+Switch to  shell  and cd to
+  directory of the previously current buffer.
 @end format
 @end deffn
 
@@ -20887,7 +20807,7 @@ Switch to the shell buffer and cd to
 @findex emacspeak-wizards-show-eval-result
 
 @format
-Convenience command to pretty-print and view Lisp evaluation results.
+Pretty-print and view Lisp evaluation results.
 
 (fn FORM)
 @end format
@@ -20898,7 +20818,7 @@ Convenience command to pretty-print and view Lisp evaluation results.
 @findex emacspeak-wizards-show-face
 
 @format
-Show salient properties of specified face.
+Show  properties of  face.
 
 (fn FACE)
 @end format
@@ -20918,7 +20838,7 @@ Convenience command to view state of memory used in this session so far.
 @findex emacspeak-wizards-speak-iso-datetime
 
 @format
-Make ISO date-time speech friendly.
+Speak ISO date-time.
 
 (fn ISO)
 @end format
@@ -20936,7 +20856,7 @@ Make ISO date-time speech friendly.
 @findex emacspeak-wizards-squeeze-blanks
 
 @format
-Squeeze multiple blank lines in current buffer.
+Squeeze multiple blank lines.
 
 (fn START END)
 @end format
@@ -21046,7 +20966,7 @@ Search Tune-In Radio.
 @findex emacspeak-wizards-units
 
 @format
-Run units in a comint sub-process.
+Run units.
 @end format
 @end deffn
 
@@ -21089,7 +21009,7 @@ during initialization.
 @findex emacspeak-wizards-vc-viewer
 
 @format
-View contents of specified virtual console.
+View contents of  virtual console.
 
 (fn CONSOLE)
 @end format
@@ -21335,7 +21255,7 @@ the ESpeak TTS engine.
 @findex espeak
 
 @format
-Start ESpeak engine.
+Start ESpeak.
 @end format
 @end deffn
 
@@ -21760,18 +21680,6 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax.
 @end format
 @end deffn
 
-@subsubsection gm-nnir-group-make-nnir-group
-@deffn {Command} gm-nnir-group-make-nnir-group  (q)
-@findex gm-nnir-group-make-nnir-group
-
-@format
-GMail equivalent of gnus-group-make-nnir-group.
-This uses standard IMap search operators.
-
-(fn Q)
-@end format
-@end deffn
-
 @node gmaps
 @section gmaps
 
@@ -22034,7 +21942,7 @@ See
 @findex ladspa
 
 @format
-Launch Ladspa workbench.
+Ladspa workbench.
 
 (fn &optional REFRESH)
 @end format
@@ -22196,7 +22104,7 @@ Stop all running soundscapes.
 @format
 Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
-Optional interactive prefix arg restarts the listener if already running.
+Optional interactive prefix arg restarts the listener.
 
 (fn &optional RESTART)
 @end format
@@ -22279,7 +22187,6 @@ Shows default theme in a special buffer.
 
 @format
 Toggle automatic SoundScapes.
-When turned on, Soundscapes are automatically run based on current major mode.
 Run command M-x soundscape-theme to see the default mode->mood mapping.
 @end format
 @end deffn
@@ -22418,7 +22325,7 @@ Open specified snd-file on the Audio Workbench.
 @findex sox-play
 
 @format
-Play sound from current context.
+Play sound .
 @end format
 @end deffn
 
@@ -22957,7 +22864,7 @@ sudo apt-get install xbacklight
 @findex xbacklight-black
 
 @format
-Turn screen black.
+Black screen.
 @end format
 @end deffn
 
@@ -22966,7 +22873,7 @@ Turn screen black.
 @findex xbacklight-decrement
 
 @format
-Decrease brightness by  by one step.
+Decrease brightness.
 @end format
 @end deffn
 
@@ -22984,7 +22891,7 @@ Get  brightness level.
 @findex xbacklight-increment
 
 @format
-Increase brightness by  by one step.
+Increase brightness.
 @end format
 @end deffn
 
@@ -22993,7 +22900,7 @@ Increase brightness by  by one step.
 @findex xbacklight-set
 
 @format
-Set brightness, a percentage value.
+Set brightness.
 
 (fn BRIGHTNESS)
 @end format
@@ -23004,7 +22911,7 @@ Set brightness, a percentage value.
 @findex xbacklight-white
 
 @format
-Turn screen white.
+White screen.
 @end format
 @end deffn
 

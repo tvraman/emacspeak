@@ -72,7 +72,6 @@ cdata
 CDATA
 cdda
 cdplay
-cdr
 cdrom
 cdstart
 cdtool
@@ -102,6 +101,7 @@ cperl
 CPerl
 csv
 ctl
+CTL
 ctlx
 customizable
 customizations
@@ -160,7 +160,6 @@ ECLIM
 ediff
 Ediff
 editting
-edmacro
 eflite
 eglot
 EGLOT

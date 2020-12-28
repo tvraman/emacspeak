@@ -1637,7 +1637,7 @@ filladapt.el
 
  -- Command: emacspeak-hide-or-expose-all-blocks
 
-     Hide or expose all blocks in buffer.
+     Hide or expose all blocks.
 
 12.95.1.2 emacspeak-hide-or-expose-block
 ........................................
@@ -1647,11 +1647,8 @@ filladapt.el
      ‘<fn> j’
 
      Hide or expose a block of text.
-     This command either hides or exposes a block of text
-     starting on the current line.  A block of text is defined as
-     a portion of the buffer in which all lines start with a
-     common PREFIX.  Optional interactive prefix arg causes all
-     blocks in current buffer to be hidden or exposed.
+      Optional interactive prefix arg causes all blocks in current
+     buffer to be hidden or exposed.
 
      (fn &optional PREFIX)
 
@@ -1663,10 +1660,6 @@ filladapt.el
      ‘<fn> C-j’
 
      Speaks current block after stripping its prefix.
-     If the current block is not hidden, it first hides it.
-     This is useful because as you locate blocks, you can invoke this
-     command to listen to the block,
-     and when you have heard enough navigate easily  to move past the block.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -2286,52 +2279,22 @@ found on laptops is denoted <fn>
 ---------------------------------
 
  -- Variable: User Option emacspeak-alt-keys
-     Alt key bindings.  These bindings are available on prefix key ‘alt’
-     (not to be confused with alt==meta) for example, binding ‘s’ to
-     emacspeak-emergency-tts-restart makes it available on key ‘ALT s’
-     KEYS is a string in the format used by ‘kbd’.  Command is an
-     interactive command or a prefix-command.
+     Alt key bindings.
 
  -- Variable: User Option emacspeak-ctl-z-keys
-     Bindings specified here are available on prefix key ‘C-z’ for
-     example, binding ‘z’ to ‘suspend-frame’ makes it available on ‘C-z
-     z’.  KEYS should be a string in the format used by ‘kbd’.  Command
-     is an interactive command or a prefix-command.
+     CTL-z keymap.
 
  -- Variable: User Option emacspeak-hyper-keys
-     Hyper-Key bindings.  Bindings specified here are available on
-     prefix key ‘hyper’ for example, binding ‘b’ to command ‘bbdb ’
-     makes it available on key ‘hyper b’.  KEYS should be a string in
-     the format used by ‘kbd’.  Command is an interactive command or a
-     prefix-command .
+     Hyper-Key bindings.
 
  -- Variable: User Option emacspeak-personal-ctlx-keys
-     Key bindings for use with C-e C-x.  Bindings specified here are
-     available on prefix key C-e C-x, for example, binding ‘C-s’ to
-     emacspeak-emergency-tts-restart makes it available on key C-e C-x
-     C-s.  KEYS should be a string in the format used by ‘kbd’.  Command
-     is an interactive command or a prefix-command .
+     Key bindings for use with C-e C-x.
 
  -- Variable: User Option emacspeak-personal-keys
-     Key bindings for C-e x.  For example, binding ‘s’ to
-     emacspeak-emergency-tts-restart makes it available on C-e x s.
-     KEYS should be a string in the format used by ‘kbd’.  Command is an
-     interactive command or a prefix-command .
+     Key bindings for C-e x.
 
  -- Variable: User Option emacspeak-super-keys
-     Specifies super key bindings for the audio desktop.  You can
-     Bindings specified here are available on prefix key ‘super’ for
-     example, if you bind ‘s’ to command emacspeak-emergency-tts-restart
-     then that command will be available on key ‘super s’.  KEYS should
-     be a string constant in the format used for saving keyboard macros
-     (see ‘edmacro-mode’).
-
-     Command is an interactive command or a prefix-command that can be
-     bound to a key.
-
-     The value of this variable is an association list.  The car of each
-     element specifies a key sequence.  The cdr specifies an interactive
-     command that the key sequence executes.
+     Super key bindings.
 
 
 File: emacspeak.info,  Node: emacspeak-kmacro,  Next: emacspeak-librivox,  Prev: emacspeak-keymap,  Up: Emacspeak Commands And Options
@@ -2521,7 +2484,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player (resource &optional play-list)
 
-     Play specified resource using m-player.  Optional prefix argument
+     Play  resource.  Optional prefix argument
      play-list interprets resource as a play-list.  Second interactive
      prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
      The player is placed in a buffer in emacspeak-m-player-mode.
@@ -3174,7 +3137,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘C-, u’
      ‘C-x @ a u’
 
-     Call emacspeak-m-player with  URL.
+     Call emacspeak-m-player on  URL.
 
      (fn URL &optional PLAYLIST-P)
 
@@ -3196,7 +3159,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘C-; ;’
      ‘C-x @ h ;’
 
-     Use openal as the audio output driver.
+     Use openal for audio output.
 
      (fn RESOURCE &optional PLAY-LIST)
 
@@ -6607,7 +6570,7 @@ emacspeak.
      Set this to nil if using paplay from pulseaudio.
 
  -- Variable: User Option emacspeak-play-program
-     Executable that plays sound files.
+     Play program.
 
  -- Variable: User Option emacspeak-sounds-default-theme
      Default theme for auditory icons.
