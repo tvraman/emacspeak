@@ -2292,7 +2292,7 @@ and add relevant properties to the rendered region."
         'table-dom table-dom)))
     ad-return-value))
 
-(defvar-local ems--eww-table-cell 0
+(defvar-local emacspeak-eww-table-cell 0
   "Track current table cell to enable table navigation.
 Value is specified as a position in the list of table cells.")
 
@@ -2343,29 +2343,29 @@ Value is specified as a position in the list of table cells.")
 (defsubst emacspeak-eww-table-speak-cell ()
   "Speak current cell."
   (interactive)
-  (cl-declare (special ems--eww-table-cell))
+  (cl-declare (special emacspeak-eww-table-cell))
   (dtk-speak
    (dom-node-as-text
-    (elt (emacspeak-eww-table-cells) ems--eww-table-cell))))
+    (elt (emacspeak-eww-table-cells) emacspeak-eww-table-cell))))
 
 (defun emacspeak-eww-table-previous-row (&optional prefix)
   "Speak  cell after moving to previous row.
  Optional interactive prefix arg moves to start of table."
   (interactive "P")
-  (cl-declare (special ems--eww-table-cell))
+  (cl-declare (special emacspeak-eww-table-cell))
   (emacspeak-eww-browser-check)
   (cond
    (prefix
     (goto-char (get-text-property (point) 'table-start))
-    (setq ems--eww-table-cell 0))
+    (setq emacspeak-eww-table-cell 0))
    (t
     (let* ((n-rows (emacspeak-eww-table-row-count))
            (n-cells (emacspeak-eww-table-cell-count))
            (quotient (/ n-cells n-rows)))
       (cl-assert
-       (>= ems--eww-table-cell quotient)
+       (>= emacspeak-eww-table-cell quotient)
        t "On first row.")
-      (cl-decf ems--eww-table-cell quotient)
+      (cl-decf emacspeak-eww-table-cell quotient)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-eww-table-speak-cell)))))
 
@@ -2373,22 +2373,22 @@ Value is specified as a position in the list of table cells.")
   "Speak  cell after moving to next row.
  Optional interactive prefix arg moves to end of table."
   (interactive "P")
-  (cl-declare (special ems--eww-table-cell))
+  (cl-declare (special emacspeak-eww-table-cell))
   (emacspeak-eww-browser-check)
   (cond
    (prefix
     (goto-char (get-text-property (point) 'table-end))
     (setq
-     ems--eww-table-cell
+     emacspeak-eww-table-cell
      (1- (length (emacspeak-eww-table-cells)))))
    (t
     (let* ((n-rows (emacspeak-eww-table-row-count))
            (n-cells (emacspeak-eww-table-cell-count))
            (quotient (/ n-cells n-rows)))
       (cl-assert
-       (< (+ ems--eww-table-cell quotient) n-cells)
+       (< (+ emacspeak-eww-table-cell quotient) n-cells)
        t "On last row.")
-      (cl-incf ems--eww-table-cell quotient)
+      (cl-incf emacspeak-eww-table-cell quotient)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-eww-table-speak-cell)))))
 
@@ -2396,20 +2396,20 @@ Value is specified as a position in the list of table cells.")
   "Speak next cell after making it current.
 Interactive prefix arg moves to the last cell in the table."
   (interactive "P")
-  (cl-declare (special ems--eww-table-cell))
+  (cl-declare (special emacspeak-eww-table-cell))
   (emacspeak-eww-browser-check)
   (cl-assert
-   (< (1+ ems--eww-table-cell) (length (emacspeak-eww-table-cells)))
+   (< (1+ emacspeak-eww-table-cell) (length (emacspeak-eww-table-cells)))
    t "On last cell.")
   (cond
    (prefix
     (goto-char (get-text-property (point) 'table-end))
-    (cl-incf ems--eww-table-cell
+    (cl-incf emacspeak-eww-table-cell
              (1- (length (emacspeak-eww-table-cells)))))
    (t
     (goto-char (next-single-property-change (point) 'display))
     (skip-syntax-forward " ")
-    (cl-incf ems--eww-table-cell 1)
+    (cl-incf emacspeak-eww-table-cell 1)
     (goto-char (next-single-property-change (point) 'display))))
   (emacspeak-auditory-icon 'left)
   (emacspeak-eww-table-speak-cell))
@@ -2418,18 +2418,18 @@ Interactive prefix arg moves to the last cell in the table."
   "Speak previous cell after making it current.
 With interactive prefix arg, move to the start of the table."
   (interactive "P")
-  (cl-declare (special ems--eww-table-cell))
+  (cl-declare (special emacspeak-eww-table-cell))
   (emacspeak-eww-browser-check)
-  (when  (zerop ems--eww-table-cell  ) (error  "On first cell."))
+  (when  (zerop emacspeak-eww-table-cell  ) (error  "On first cell."))
   (cond
    (prefix
     (goto-char (get-text-property (point) 'table-start))
-    (setq ems--eww-table-cell 0)
+    (setq emacspeak-eww-table-cell 0)
     (goto-char (get-text-property (point) 'table-start)))
    (t
     (goto-char (previous-single-property-change (point) 'display))
     (skip-syntax-backward " ")
-    (cl-decf ems--eww-table-cell 1)))
+    (cl-decf emacspeak-eww-table-cell 1)))
   (emacspeak-auditory-icon 'right)
   (emacspeak-eww-table-speak-cell))
 
