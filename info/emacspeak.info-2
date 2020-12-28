@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 27, 2020.
+last updated on December 28, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-feeds,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -2487,7 +2487,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Play  resource.  Optional prefix argument
      play-list interprets resource as a play-list.  Second interactive
      prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-     The player is placed in a buffer in emacspeak-m-player-mode.
 
      (fn RESOURCE &optional PLAY-LIST)
 
@@ -2496,21 +2495,21 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-add-autopan
 
-     Add predefined autopan effect.
+     Add autopan effect.
 
 12.114.2.3 emacspeak-m-player-add-autosat
 .........................................
 
  -- Command: emacspeak-m-player-add-autosat
 
-     Add predefined ZamAutoSat (auto saturation) effect.
+     Add ZamAutoSat (auto saturation) effect.
 
 12.114.2.4 emacspeak-m-player-add-equalizer
 ...........................................
 
  -- Command: emacspeak-m-player-add-equalizer (&optional reset)
 
-     Add equalizer to playing stream.  Equalizer is updated as each change
+     Add equalizer.  Equalizer is updated as each change
      is made, and the final effect set by pressing RET.  Interactive prefix
      arg ‘reset’ starts with all filters set to 0.
 
@@ -2521,9 +2520,8 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-add-filter (filter-name &optional edit)
 
-     Adds specified filter. Prompts with one of several pre-defined
-     filters. Optional interactive prefix arg ‘edit’ enables editing the
-     selected filter before it is applied.
+     Adds  filter with completion.
+      Optional interactive prefix arg ‘edit’ edits the.
 
      (fn FILTER-NAME &optional EDIT)
 
@@ -2551,7 +2549,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Command: emacspeak-m-player-amark-add (name &optional
           prompt-position)
 
-     Set AMark ‘name’ at current position in current audio stream.
+     Set AMark ‘name’ at current position.
      Interactive prefix arg prompts for position.
      As the default, use current position.
 
@@ -2562,21 +2560,21 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-amark-jump
 
-     Jump to specified AMark.
+     Jump to AMark.
 
 12.114.2.10 emacspeak-m-player-amark-save
 .........................................
 
  -- Command: emacspeak-m-player-amark-save
 
-     Ensure that amarks are saved in the directory of the resource .
+     Save amarks.
 
 12.114.2.11 emacspeak-m-player-apply-reverb-preset
 ..................................................
 
  -- Command: emacspeak-m-player-apply-reverb-preset (preset)
 
-     Prompt for a predefined reverb preset and apply it.
+     Prompt for and apply a reverb preset.
      You need to use mplayer built with ladspa support, and have package
      tap-reverb already installed.
 
@@ -2587,21 +2585,21 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-backward-10min
 
-     Move backward by ten minutes.
+     Move backward ten minutes.
 
 12.114.2.13 emacspeak-m-player-backward-10s
 ...........................................
 
  -- Command: emacspeak-m-player-backward-10s
 
-     Move back by 10 seconds.
+     Move back 10 seconds.
 
 12.114.2.14 emacspeak-m-player-backward-1min
 ............................................
 
  -- Command: emacspeak-m-player-backward-1min
 
-     Move back by 1 minute.
+     Move back 1 minute.
 
 12.114.2.15 emacspeak-m-player-balance
 ......................................
@@ -2615,7 +2613,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-beginning-of-track
 
-     Move to beginning of track.
+     Move to beginning.
 
 12.114.2.17 emacspeak-m-player-bind-accelerator
 ...............................................
@@ -2631,7 +2629,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-clear-filters
 
-     Clear all active filters
+     Clear all filters
 
 12.114.2.19 emacspeak-m-player-command
 ......................................
@@ -2647,7 +2645,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-customize-options
 
-     Use Customize to manipulate MPlayer options.
+     Use Customize to set MPlayer options.
 
 12.114.2.21 emacspeak-m-player-delete-filter
 ............................................
@@ -2684,7 +2682,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-display-position
 
-     Display current position in track and its length.
+     Display current position in track.
 
 12.114.2.26 emacspeak-m-player-double-speed
 ...........................................
@@ -2698,8 +2696,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-edit-reverb
 
-     Edit  current ladspa reverb filter.
-     See option emacspeak-m-player-reverb-filter to customize reverb filter values.
+     Edit ladspa reverb filter.
      You need to use mplayer built with ladspa support, and have package
      tap-reverb already installed.
 
@@ -2708,14 +2705,14 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-end-of-track
 
-     Move to beginning of track.
+     Move to end.
 
 12.114.2.29 emacspeak-m-player-equalizer-control
 ................................................
 
  -- Command: emacspeak-m-player-equalizer-control (v)
 
-     Manipulate values in specified vector using minibuffer.
+     Manipulate values in  vector using minibuffer.
      Applies  the resulting value at each step.
 
      (fn V)
@@ -2725,7 +2722,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-equalizer-preset (name)
 
-     Prompts for  equalizer preset and applies it to current stream.
+     Prompts for  and apply equalizer preset.
 
      The following presets are available:
 
@@ -2741,21 +2738,20 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Command: emacspeak-m-player-faster
 
      Speed up  playback.
-     This affects pitch.
 
 12.114.2.32 emacspeak-m-player-forward-10min
 ............................................
 
  -- Command: emacspeak-m-player-forward-10min
 
-     Move forward by ten minutes.
+     Move forward ten minutes.
 
 12.114.2.33 emacspeak-m-player-forward-10s
 ..........................................
 
  -- Command: emacspeak-m-player-forward-10s
 
-     Move forward by 10 seconds.
+     Move forward 10 seconds.
 
 12.114.2.34 emacspeak-m-player-forward-1min
 ...........................................
@@ -2772,8 +2768,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘C-' h’
      ‘C-x @ s h’
 
-     Play media from media-history.
-     Numeric arg ‘posn’ specifies position in history.
+     Play media from position ‘posn’media-history.
 
      (fn POSN)
 
@@ -2782,7 +2777,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-get-length
 
-     Display length of track in seconds.
+     Display length of track.
 
 12.114.2.37 emacspeak-m-player-half-speed
 .........................................
@@ -2796,7 +2791,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-left-channel
 
-     Play both channels on left channel.
+     Play both channels on left.
 
 12.114.2.39 emacspeak-m-player-load
 ...................................
@@ -2813,7 +2808,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-load-file (f)
 
-     Load specified file.
+     Load file.
 
      (fn F)
 
@@ -2822,7 +2817,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-load-playlist (f)
 
-     Load specified playlist file.
+     Load playlist.
 
      (fn F)
 
@@ -2834,7 +2829,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘C-' l’
      ‘C-x @ s l’
 
-     Locate media matching specified pattern.  The results can be
+     Locate media matching  pattern.  The results can be
      played as a play-list by pressing [RET] on the first line, see
       M-x emacspeak-dired-open-this-file locally bound to C-RET
      to play  tracks.
@@ -2939,28 +2934,28 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-next-track
 
-     Move to next track.
+     Next track.
 
 12.114.2.46 emacspeak-m-player-pan
 ..................................
 
  -- Command: emacspeak-m-player-pan
 
-     Pan from left to right   and back from right to left one step at a time.
+     Pan from left to right   and back  one step at a time.
 
 12.114.2.47 emacspeak-m-player-pause
 ....................................
 
  -- Command: emacspeak-m-player-pause
 
-     Pause or unpause media player.
+     Pause or unpause.
 
 12.114.2.48 emacspeak-m-player-persist-process
 ..............................................
 
  -- Command: emacspeak-m-player-persist-process (&optional name)
 
-     Persists current m-player process instance by renaming its buffer.
+     Persists  m-player process instance by renaming its buffer.
      Optional interactive prefix arg prompts for name to use for  player.
 
      (fn &optional NAME)
@@ -2970,7 +2965,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-play-rss (rss-url)
 
-     Play an RSS stream by converting to  an M3U playlist.
+     Play an RSS stream.
 
      (fn RSS-URL)
 
@@ -2979,7 +2974,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-play-tracks-jump (step)
 
-     Move within the play tree.
+     Skip tracks.
 
      (fn STEP)
 
@@ -3004,28 +2999,28 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-previous-track
 
-     Move to previous track.
+     Previous track.
 
 12.114.2.54 emacspeak-m-player-quit
 ...................................
 
  -- Command: emacspeak-m-player-quit
 
-     Quit media player.
+     Quit.
 
 12.114.2.55 emacspeak-m-player-reset-options
 ............................................
 
  -- Command: emacspeak-m-player-reset-options
 
-     Reset MPlayer options to initial defaults.
+     Reset MPlayer options.
 
 12.114.2.56 emacspeak-m-player-reset-speed
 ..........................................
 
  -- Command: emacspeak-m-player-reset-speed
 
-     Reset playing speed to normal.
+     Reset  speed.
 
 12.114.2.57 emacspeak-m-player-restore-process
 ..............................................
@@ -3047,7 +3042,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-scale-speed (factor)
 
-     Scale speed by specified factor.
+     Scale speed by factor.
 
      (fn FACTOR)
 
@@ -3056,7 +3051,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-seek-absolute (pos)
 
-     Seek  to absolute specified pos in seconds.
+     Seek  to absolute pos in seconds.
      The time position can also be specified as HH:MM:SS.
 
      (fn POS)
@@ -3066,7 +3061,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-seek-percentage (pos)
 
-     Seek  to absolute specified pos in percent.
+     Seek  to absolute pos in percent.
 
      (fn POS)
 
@@ -3075,7 +3070,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-seek-relative (offset)
 
-     Seek  by offset into stream from current position.
+     Seek  by offset from current position.
      Time offset can be specified as a number of seconds, or as HH:MM:SS.
 
      (fn OFFSET)
@@ -3108,7 +3103,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-slave-command (command)
 
-     Dispatch slave command read from minibuffer.
+     Dispatch slave command.
 
      (fn COMMAND)
 
@@ -3118,14 +3113,13 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Command: emacspeak-m-player-slower
 
      Slow down playback.
-     This affects pitch.
 
 12.114.2.68 emacspeak-m-player-stream-info
 ..........................................
 
  -- Command: emacspeak-m-player-stream-info (&optional toggle-cue)
 
-     Speak and display metadata if available.
+     Speak and display metadata.
      Interactive prefix arg toggles automatic cueing of ICY info updates.
 
      (fn &optional TOGGLE-CUE)
@@ -3159,7 +3153,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘C-; ;’
      ‘C-x @ h ;’
 
-     Use openal for audio output.
+     Use openal.
 
      (fn RESOURCE &optional PLAY-LIST)
 
@@ -3168,7 +3162,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-volume-change (value)
 
-     Change volume to specified absolute value.
+     Set volume.
 
      (fn VALUE)
 
@@ -3177,7 +3171,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-volume-down
 
-     Decrease volume.
+     Volume down.
 
 12.114.2.74 emacspeak-m-player-volume-set
 .........................................
@@ -3193,7 +3187,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-volume-up
 
-     Increase volume.
+     Volume up.
 
 12.114.2.76 emacspeak-m-player-write-clip
 .........................................
@@ -3307,12 +3301,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Variable: User Option emacspeak-m-player-program
      Media player program.
-
- -- Variable: User Option emacspeak-m-player-reverb-filter
-     Tap Reverb Settings.
-
- -- Variable: User Option emacspeak-m-player-youtube-dl
-     YouTube download tool
 
  -- Variable: User Option emacspeak-media-location-bindings
      Map keys to launch MPlayer on a directory.

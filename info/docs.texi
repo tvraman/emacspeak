@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1135 commands and 859 options.
+This chapter documents a total of 1135 commands and 857 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -9715,8 +9715,7 @@ buffer  to list  @code{m-player} keybindings.
 @format
 Play  resource.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
-prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-The player is placed in a buffer in emacspeak-m-player-mode.
+prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. 
 
 (fn RESOURCE &optional PLAY-LIST)
 @end format
@@ -9727,7 +9726,7 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 @findex emacspeak-m-player-add-autopan
 
 @format
-Add predefined autopan effect.
+Add autopan effect.
 @end format
 @end deffn
 
@@ -9736,7 +9735,7 @@ Add predefined autopan effect.
 @findex emacspeak-m-player-add-autosat
 
 @format
-Add predefined ZamAutoSat (auto saturation) effect.
+Add ZamAutoSat (auto saturation) effect.
 @end format
 @end deffn
 
@@ -9745,7 +9744,7 @@ Add predefined ZamAutoSat (auto saturation) effect.
 @findex emacspeak-m-player-add-equalizer
 
 @format
-Add equalizer to playing stream.  Equalizer is updated as each change
+Add equalizer.  Equalizer is updated as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg ‘reset’ starts with all filters set to 0.
 
@@ -9758,9 +9757,8 @@ arg ‘reset’ starts with all filters set to 0.
 @findex emacspeak-m-player-add-filter
 
 @format
-Adds specified filter. Prompts with one of several pre-defined
-filters. Optional interactive prefix arg ‘edit’ enables editing the
-selected filter before it is applied.
+Adds  filter with completion.
+ Optional interactive prefix arg ‘edit’ edits the.
 
 (fn FILTER-NAME &optional EDIT)
 @end format
@@ -9793,7 +9791,7 @@ Move within an ASF playlist.
 @findex emacspeak-m-player-amark-add
 
 @format
-Set AMark ‘name’ at current position in current audio stream.
+Set AMark ‘name’ at current position.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 
@@ -9806,7 +9804,7 @@ As the default, use current position.
 @findex emacspeak-m-player-amark-jump
 
 @format
-Jump to specified AMark.
+Jump to AMark.
 @end format
 @end deffn
 
@@ -9815,7 +9813,7 @@ Jump to specified AMark.
 @findex emacspeak-m-player-amark-save
 
 @format
-Ensure that amarks are saved in the directory of the resource .
+Save amarks.
 @end format
 @end deffn
 
@@ -9824,7 +9822,7 @@ Ensure that amarks are saved in the directory of the resource .
 @findex emacspeak-m-player-apply-reverb-preset
 
 @format
-Prompt for a predefined reverb preset and apply it.
+Prompt for and apply a reverb preset.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed.
 
@@ -9837,7 +9835,7 @@ tap-reverb already installed.
 @findex emacspeak-m-player-backward-10min
 
 @format
-Move backward by ten minutes.
+Move backward ten minutes.
 @end format
 @end deffn
 
@@ -9846,7 +9844,7 @@ Move backward by ten minutes.
 @findex emacspeak-m-player-backward-10s
 
 @format
-Move back by 10 seconds.
+Move back 10 seconds.
 @end format
 @end deffn
 
@@ -9855,7 +9853,7 @@ Move back by 10 seconds.
 @findex emacspeak-m-player-backward-1min
 
 @format
-Move back by 1 minute.
+Move back 1 minute.
 @end format
 @end deffn
 
@@ -9873,7 +9871,7 @@ Set left/right balance.
 @findex emacspeak-m-player-beginning-of-track
 
 @format
-Move to beginning of track.
+Move to beginning.
 @end format
 @end deffn
 
@@ -9893,7 +9891,7 @@ Binds key to invoke m-player  on specified directory.
 @findex emacspeak-m-player-clear-filters
 
 @format
-Clear all active filters
+Clear all filters
 @end format
 @end deffn
 
@@ -9913,7 +9911,7 @@ Invoke MPlayer commands.
 @findex emacspeak-m-player-customize-options
 
 @format
-Use Customize to manipulate MPlayer options.
+Use Customize to set MPlayer options.
 @end format
 @end deffn
 
@@ -9960,7 +9958,7 @@ Display current percentage.
 @findex emacspeak-m-player-display-position
 
 @format
-Display current position in track and its length.
+Display current position in track.
 @end format
 @end deffn
 
@@ -9978,8 +9976,7 @@ Scale speed by 2.0
 @findex emacspeak-m-player-edit-reverb
 
 @format
-Edit  current ladspa reverb filter.
-See option emacspeak-m-player-reverb-filter to customize reverb filter values.
+Edit ladspa reverb filter.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed.
 @end format
@@ -9990,7 +9987,7 @@ tap-reverb already installed.
 @findex emacspeak-m-player-end-of-track
 
 @format
-Move to beginning of track.
+Move to end.
 @end format
 @end deffn
 
@@ -9999,7 +9996,7 @@ Move to beginning of track.
 @findex emacspeak-m-player-equalizer-control
 
 @format
-Manipulate values in specified vector using minibuffer.
+Manipulate values in  vector using minibuffer.
 Applies  the resulting value at each step.
 
 (fn V)
@@ -10011,7 +10008,7 @@ Applies  the resulting value at each step.
 @findex emacspeak-m-player-equalizer-preset
 
 @format
-Prompts for  equalizer preset and applies it to current stream.
+Prompts for  and apply equalizer preset.
 
 The following presets are available:
 
@@ -10028,8 +10025,7 @@ flat classical club dance full-bass full-bass-and-treble
 @findex emacspeak-m-player-faster
 
 @format
-Speed up  playback.
-This affects pitch.
+Speed up  playback. 
 @end format
 @end deffn
 
@@ -10038,7 +10034,7 @@ This affects pitch.
 @findex emacspeak-m-player-forward-10min
 
 @format
-Move forward by ten minutes.
+Move forward ten minutes.
 @end format
 @end deffn
 
@@ -10047,7 +10043,7 @@ Move forward by ten minutes.
 @findex emacspeak-m-player-forward-10s
 
 @format
-Move forward by 10 seconds.
+Move forward 10 seconds.
 @end format
 @end deffn
 
@@ -10074,8 +10070,7 @@ Move forward by 1 minute.
 @findex emacspeak-m-player-from-media-history
 
 @format
-Play media from media-history.
-Numeric arg ‘posn’ specifies position in history.
+Play media from position ‘posn’media-history. 
 
 (fn POSN)
 @end format
@@ -10086,7 +10081,7 @@ Numeric arg ‘posn’ specifies position in history.
 @findex emacspeak-m-player-get-length
 
 @format
-Display length of track in seconds.
+Display length of track.
 @end format
 @end deffn
 
@@ -10104,7 +10099,7 @@ Scale speed by 0.5.
 @findex emacspeak-m-player-left-channel
 
 @format
-Play both channels on left channel.
+Play both channels on left.
 @end format
 @end deffn
 
@@ -10125,7 +10120,7 @@ Interactive prefix arg appends the new resource to what is playing.
 @findex emacspeak-m-player-load-file
 
 @format
-Load specified file.
+Load file.
 
 (fn F)
 @end format
@@ -10136,7 +10131,7 @@ Load specified file.
 @findex emacspeak-m-player-load-playlist
 
 @format
-Load specified playlist file.
+Load playlist.
 
 (fn F)
 @end format
@@ -10156,7 +10151,7 @@ Load specified playlist file.
 @findex emacspeak-m-player-locate-media
 
 @format
-Locate media matching specified pattern.  The results can be
+Locate media matching  pattern.  The results can be
 played as a play-list by pressing [RET] on the first line, see
  M-x emacspeak-dired-open-this-file locally bound to C-RET
 to play  tracks.
@@ -10267,7 +10262,7 @@ Mode-line for M-Player buffers.
 @findex emacspeak-m-player-next-track
 
 @format
-Move to next track.
+Next track.
 @end format
 @end deffn
 
@@ -10276,7 +10271,7 @@ Move to next track.
 @findex emacspeak-m-player-pan
 
 @format
-Pan from left to right   and back from right to left one step at a time.
+Pan from left to right   and back  one step at a time.
 @end format
 @end deffn
 
@@ -10285,7 +10280,7 @@ Pan from left to right   and back from right to left one step at a time.
 @findex emacspeak-m-player-pause
 
 @format
-Pause or unpause media player.
+Pause or unpause.
 @end format
 @end deffn
 
@@ -10294,7 +10289,7 @@ Pause or unpause media player.
 @findex emacspeak-m-player-persist-process
 
 @format
-Persists current m-player process instance by renaming its buffer.
+Persists  m-player process instance by renaming its buffer.
 Optional interactive prefix arg prompts for name to use for  player.
 
 (fn &optional NAME)
@@ -10306,7 +10301,7 @@ Optional interactive prefix arg prompts for name to use for  player.
 @findex emacspeak-m-player-play-rss
 
 @format
-Play an RSS stream by converting to  an M3U playlist.
+Play an RSS stream.
 
 (fn RSS-URL)
 @end format
@@ -10317,7 +10312,7 @@ Play an RSS stream by converting to  an M3U playlist.
 @findex emacspeak-m-player-play-tracks-jump
 
 @format
-Move within the play tree.
+Skip tracks.
 
 (fn STEP)
 @end format
@@ -10348,7 +10343,7 @@ Pop to m-player buffer.
 @findex emacspeak-m-player-previous-track
 
 @format
-Move to previous track.
+Previous track.
 @end format
 @end deffn
 
@@ -10357,7 +10352,7 @@ Move to previous track.
 @findex emacspeak-m-player-quit
 
 @format
-Quit media player.
+Quit.
 @end format
 @end deffn
 
@@ -10366,7 +10361,7 @@ Quit media player.
 @findex emacspeak-m-player-reset-options
 
 @format
-Reset MPlayer options to initial defaults.
+Reset MPlayer options.
 @end format
 @end deffn
 
@@ -10375,7 +10370,7 @@ Reset MPlayer options to initial defaults.
 @findex emacspeak-m-player-reset-speed
 
 @format
-Reset playing speed to normal.
+Reset  speed.
 @end format
 @end deffn
 
@@ -10403,7 +10398,7 @@ Play on right channel.
 @findex emacspeak-m-player-scale-speed
 
 @format
-Scale speed by specified factor.
+Scale speed by factor.
 
 (fn FACTOR)
 @end format
@@ -10414,7 +10409,7 @@ Scale speed by specified factor.
 @findex emacspeak-m-player-seek-absolute
 
 @format
-Seek  to absolute specified pos in seconds.
+Seek  to absolute pos in seconds.
 The time position can also be specified as HH:MM:SS.
 
 (fn POS)
@@ -10426,7 +10421,7 @@ The time position can also be specified as HH:MM:SS.
 @findex emacspeak-m-player-seek-percentage
 
 @format
-Seek  to absolute specified pos in percent.
+Seek  to absolute pos in percent.
 
 (fn POS)
 @end format
@@ -10437,7 +10432,7 @@ Seek  to absolute specified pos in percent.
 @findex emacspeak-m-player-seek-relative
 
 @format
-Seek  by offset into stream from current position.
+Seek  by offset from current position.
 Time offset can be specified as a number of seconds, or as HH:MM:SS.
 
 (fn OFFSET)
@@ -10483,7 +10478,7 @@ M-Player with shuffle turned on.
 @findex emacspeak-m-player-slave-command
 
 @format
-Dispatch slave command read from minibuffer.
+Dispatch slave command.
 
 (fn COMMAND)
 @end format
@@ -10494,8 +10489,7 @@ Dispatch slave command read from minibuffer.
 @findex emacspeak-m-player-slower
 
 @format
-Slow down playback.
-This affects pitch.
+Slow down playback. 
 @end format
 @end deffn
 
@@ -10504,7 +10498,7 @@ This affects pitch.
 @findex emacspeak-m-player-stream-info
 
 @format
-Speak and display metadata if available.
+Speak and display metadata.
 Interactive prefix arg toggles automatic cueing of ICY info updates.
 
 (fn &optional TOGGLE-CUE)
@@ -10558,7 +10552,7 @@ This will work if the soundcard is set to 48000.
 @findex emacspeak-m-player-using-openal
 
 @format
-Use openal for audio output.  
+Use openal.  
 
 (fn RESOURCE &optional PLAY-LIST)
 @end format
@@ -10569,7 +10563,7 @@ Use openal for audio output.
 @findex emacspeak-m-player-volume-change
 
 @format
-Change volume to specified absolute value.
+Set volume.
 
 (fn VALUE)
 @end format
@@ -10580,7 +10574,7 @@ Change volume to specified absolute value.
 @findex emacspeak-m-player-volume-down
 
 @format
-Decrease volume.
+Volume down.
 @end format
 @end deffn
 
@@ -10600,7 +10594,7 @@ Set Volume in steps from 1 to 9.
 @findex emacspeak-m-player-volume-up
 
 @format
-Increase volume.
+Volume up.
 @end format
 @end deffn
 
@@ -10731,16 +10725,6 @@ M-l		emacspeak-m-player-load-playlist
 
 @defvar {User Option} emacspeak-m-player-program
 Media player program.
-
-@end defvar
-
-@defvar {User Option} emacspeak-m-player-reverb-filter
-Tap Reverb Settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-m-player-youtube-dl
-YouTube download tool
 
 @end defvar
 
