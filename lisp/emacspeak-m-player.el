@@ -340,7 +340,7 @@ Controls media playback when already playing.
   (directory-files-recursively directory emacspeak-media-extensions))
 
 (defvar-local emacspeak-m-player-url-p nil
-  "Flag that records if we are playing a stream URL")
+  "Records if  playing a URL")
 
 (defun emacspeak-media-read-resource ()
   "Read resource from minibuffer with contextual smarts."
