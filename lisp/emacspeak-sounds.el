@@ -114,8 +114,9 @@ Use `emacspeak-toggle-auditory-icons' bound to
   :group 'emacspeak)
 
 (defcustom emacspeak-play-program
+  (or
    (executable-find "aplay")
-   (executable-find "play")
+   (executable-find "play"))
   "Play program."
   :group 'emacspeak
   :type 'string)
