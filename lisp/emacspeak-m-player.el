@@ -303,7 +303,7 @@ Controls media playback when already playing.
  to be ignored when guessing directory.")
 
 (defun emacspeak-m-player-accelerator (directory)
-  "Launch MPlayer on specified directory."
+  "Launch MPlayer on   `directory'."
   (cl-declare (special ido-case-fold))
   (let ((ido-case-fold t)
         (emacspeak-m-player-accelerator-p t)
@@ -329,8 +329,7 @@ Controls media playback when already playing.
 (defun emacspeak-m-player-url (url &optional playlist-p)
   "Call emacspeak-m-player on  URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
-  (ems-with-messages-silenced
-      (emacspeak-m-player url playlist-p)))
+  (ems-with-messages-silenced (emacspeak-m-player url playlist-p)))
 
 (defvar-local  emacspeak-m-player-file-list nil
   "List  that records list of files being played.")
