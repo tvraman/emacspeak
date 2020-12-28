@@ -294,7 +294,7 @@ maths: emacspeak-maths.elc
 
 force:
 
-config: emacspeak-loaddefs.el    custom
+config: emacspeak-loaddefs.el    
 lint:
 	echo "." |\
 emacs -batch -q \
@@ -311,7 +311,7 @@ emacspeak-loaddefs.el: force
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
-custom: force
+
 	$(EMACS) $(BATCH) -l ./emacspeak-preamble.el  -l cus-dep -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."
 	cat cus-load.el  >> emacspeak-loaddefs.el
