@@ -300,7 +300,7 @@ Controls media playback when already playing.
 
 (defvar emacspeak-m-player-accelerator-p nil
   "Flag set by accelerators. Let-binding this causes default-directory
-etc to be ignored when guessing directory.")
+ to be ignored when guessing directory.")
 
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory."
