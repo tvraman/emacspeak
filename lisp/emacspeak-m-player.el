@@ -68,6 +68,7 @@
 
 ;;}}}
 ;;{{{  Required modules
+
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
@@ -184,8 +185,9 @@ This is set to nil when playing Internet  streams.")
 ;;{{{ emacspeak-m-player
 
 (defgroup emacspeak-m-player nil
-  "Emacspeak media player settings."
+  "Emacspeak media player."
   :group 'emacspeak)
+
 ;;;###autoload
 (defcustom emacspeak-m-player-program
   (executable-find "mplayer")
@@ -195,7 +197,7 @@ This is set to nil when playing Internet  streams.")
 
 (defvar emacspeak-m-player-openal-options
   '("-ao" "openal")
-  "Additional options to use openal  --- this gives us hrtf for instance.")
+  "Options to use openal  --- this gives us hrtf etc..")
 
 (defvar emacspeak-m-player-default-options
   (list
@@ -217,7 +219,7 @@ This is set to nil when playing Internet  streams.")
 
 ;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
-  "Map  keys  to launch MPlayer on a given directory."
+  "Map  keys  to launch MPlayer on a  directory."
   :group 'emacspeak-m-player
   :group 'emacspeak-media
   :type '(repeat
@@ -241,9 +243,7 @@ This is set to nil when playing Internet  streams.")
 ;;;###autoload
 (defun emacspeak-multimedia  ()
   "Start or control Emacspeak multimedia player.
-
-Uses current context to prompt for media to play.
-Controls media playback when already playing a stream.
+Controls media playback when already playing.
 
 \\{emacspeak-m-player-mode-map}."
   (interactive)
@@ -263,8 +263,7 @@ Controls media playback when already playing a stream.
   (cl-declare (special emacspeak-m-player-process))
   (unless (process-live-p emacspeak-m-player-process)
     (emacspeak-multimedia))
-  (pop-to-buffer (process-buffer emacspeak-m-player-process))
-  (emacspeak-speak-mode-line))
+  (funcall-interactively #'pop-to-buffer (process-buffer emacspeak-m-player-process)))
 
 (defun emacspeak-m-player-command (key)
   "Invoke MPlayer commands."
