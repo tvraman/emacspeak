@@ -10014,7 +10014,7 @@ Applies  the resulting value at each step.
 Prompts for  equalizer preset and applies it to current stream.
 
 The following presets are available:
- 
+
 flat classical club dance full-bass full-bass-and-treble
  full-treble headphones large-hall live party pop reggae rock
  ska soft soft-rock techno 
@@ -10158,7 +10158,7 @@ Load specified playlist file.
 @format
 Locate media matching specified pattern.  The results can be
 played as a play-list by pressing [RET] on the first line, see
- M-x emacspeak-dired-open-this-file locally bound to C-RET 
+ M-x emacspeak-dired-open-this-file locally bound to C-RET
 to play  tracks.
 
 (fn PATTERN)
@@ -10258,7 +10258,7 @@ during initialization.
 @findex emacspeak-m-player-mode-line
 
 @format
-Meaningful mode-line for *M-Player* buffers.
+Mode-line for M-Player buffers.
 @end format
 @end deffn
 
@@ -10646,9 +10646,7 @@ Optional prefix arg ‘best’ chooses highest.
 
 @format
 Start or control Emacspeak multimedia player.
-
-Uses current context to prompt for media to play.
-Controls media playback when already playing a stream.
+Controls media playback when already playing.
 
 key             binding
 ---             -------
@@ -10747,7 +10745,7 @@ YouTube download tool
 @end defvar
 
 @defvar {User Option} emacspeak-media-location-bindings
-Map  keys  to launch MPlayer on a given directory.
+Map  keys  to launch MPlayer on a  directory.
 
 @end defvar
 

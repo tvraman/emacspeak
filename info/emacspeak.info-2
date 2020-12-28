@@ -2932,7 +2932,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-mode-line
 
-     Meaningful mode-line for *M-Player* buffers.
+     Mode-line for M-Player buffers.
 
 12.114.2.45 emacspeak-m-player-next-track
 .........................................
@@ -3223,9 +3223,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘<fn> ;’
 
      Start or control Emacspeak multimedia player.
-
-     Uses current context to prompt for media to play.
-     Controls media playback when already playing a stream.
+     Controls media playback when already playing.
 
      key             binding
      —             ——-
@@ -3317,7 +3315,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      YouTube download tool
 
  -- Variable: User Option emacspeak-media-location-bindings
-     Map keys to launch MPlayer on a given directory.
+     Map keys to launch MPlayer on a directory.
 
 
 File: emacspeak.info,  Node: emacspeak-magit,  Next: emacspeak-make-mode,  Prev: emacspeak-m-player,  Up: Emacspeak Commands And Options
