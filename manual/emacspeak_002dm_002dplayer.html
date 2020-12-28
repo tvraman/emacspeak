@@ -98,7 +98,7 @@
       <span id="index-emacspeak_002dm_002dplayer-1"></span>
       <div class="format">
         <pre class=
-        "format">Play specified resource using m-player.  Optional prefix argument
+        "format">Play  resource.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 The player is placed in a buffer in emacspeak-m-player-mode.
@@ -626,7 +626,7 @@ Applies  the resulting value at each step.
         "format">Prompts for  equalizer preset and applies it to current stream.
 
 The following presets are available:
- 
+
 flat classical club dance full-bass full-bass-and-treble
  full-treble headphones large-hall live party pop reggae rock
  ska soft soft-rock techno 
@@ -846,7 +846,7 @@ Interactive prefix arg appends the new resource to what is playing.
         <pre class=
         "format">Locate media matching specified pattern.  The results can be
 played as a play-list by pressing [RET] on the first line, see
- M-x emacspeak-dired-open-this-file locally bound to C-RET 
+ M-x emacspeak-dired-open-this-file locally bound to C-RET
 to play  tracks.
 
 (fn PATTERN)
@@ -957,8 +957,7 @@ during initialization.
       <span id=
       "index-emacspeak_002dm_002dplayer_002dmode_002dline-1"></span>
       <div class="format">
-        <pre class=
-        "format">Meaningful mode-line for *M-Player* buffers.
+        <pre class="format">Mode-line for M-Player buffers.
 </pre>
       </div>
     </dd>
@@ -1403,7 +1402,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
       </dl><span id=
       "index-emacspeak_002dm_002dplayer_002durl-1"></span>
       <div class="format">
-        <pre class="format">Call emacspeak-m-player with  URL.
+        <pre class="format">Call emacspeak-m-player on  URL.
 
 (fn URL &amp;optional PLAYLIST-P)
 </pre>
@@ -1448,8 +1447,7 @@ This will work if the soundcard is set to 48000.
       </dl><span id=
       "index-emacspeak_002dm_002dplayer_002dusing_002dopenal-1"></span>
       <div class="format">
-        <pre class=
-        "format">Use openal as the audio output driver.  
+        <pre class="format">Use openal for audio output.  
 
 (fn RESOURCE &amp;optional PLAY-LIST)
 </pre>
@@ -1581,9 +1579,7 @@ Optional prefix arg ‘best’ chooses highest.
       <div class="format">
         <pre class=
         "format">Start or control Emacspeak multimedia player.
-
-Uses current context to prompt for media to play.
-Controls media playback when already playing a stream.
+Controls media playback when already playing.
 
 key             binding
 —             ——-
@@ -1691,7 +1687,7 @@ M-l             emacspeak-m-player-load-playlist
     <dt id="index-User-Option-457">Variable: <strong>User
     Option</strong> <em>emacspeak-media-location-bindings</em></dt>
     <dd>
-      <p>Map keys to launch MPlayer on a given directory.</p>
+      <p>Map keys to launch MPlayer on a directory.</p>
     </dd>
   </dl>
   <hr />
