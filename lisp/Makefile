@@ -305,7 +305,7 @@ emacs -batch -q \
 # }}}
 # {{{build time target --loaddefs
 
-emacspeak-loaddefs.el: force
+emacspeak-loaddefs.el:
 	@echo ";;;Auto generated" > emacspeak-loaddefs.el
 	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
 	-l ./emacspeak-autoload.el  \
@@ -555,7 +555,7 @@ emacspeak-yasnippet.elc: emacspeak-yasnippet.el dtk-speak.elc
 
 emacspeak.elc: emacspeak.el
 emacspeak-setup.elc: emacspeak-setup.el
-loaddefs: emacspeak-loaddefs.el
+
 
 # }}}
 # {{{Development  target: indent, tags, relint 
