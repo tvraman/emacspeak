@@ -335,7 +335,7 @@ Controls media playback when already playing.
   "Records list of files being played.")
 
 (defsubst emacspeak-m-player-directory-files (directory)
-  "Return media files in directory by searching recursively. "
+  "Return media files in directory. "
   (cl-declare (special emacspeak-media-extensions))
   (directory-files-recursively directory emacspeak-media-extensions))
 
