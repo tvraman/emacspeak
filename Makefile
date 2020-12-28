@@ -35,14 +35,15 @@
 
 # }}}
 # {{{ Configuration
-
 .POSIX:
 MAKE=make
 MAKEFLAGS=--no-print-directory
+prefix = /usr
+SRC = $(shell pwd)
 README = README
 
 # }}}
-# {{{  User level targets emacspeak info  outloud espeak
+# {{{  User level targets emacspeak info  outloud espeak 
 
 emacspeak:
 	@test -f  lisp/emacspeak-loaddefs.el || $(MAKE) config
@@ -50,21 +51,21 @@ emacspeak:
 	@make   $(README)
 	@chmod 644 $(README)
 	@echo "See the NEWS file for a  summary of new features — Control e cap n in Emacs"
-	@echo "S	ee Emacspeak Customizations for customizations — control e cap C in Emacs"
+	@echo "See Emacspeak Customizations for customizations — control e cap C in Emacs"
 	@echo  "Read the Emacspeak Manual — Control e TAB in Emacs"
 	@make install
 
-outloud:
+outloud: 
 	@cd servers/linux-outloud && $(MAKE) --no-print-directory || echo "Cant build Outloud server!"
 
-espeak:
+espeak: 
 	@cd servers/native-espeak && $(MAKE) --no-print-directory  || echo "Cant build espeak server!"
 
 # }}}
 # {{{  Maintainance targets   dist
 
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
-README:
+README: 
 	@rm -f README
 	@echo "Emacspeak  Revision $(GITVERSION)" > $(README)
 	@echo "Distribution created by `whoami` at `date`" >> $(README)
@@ -80,7 +81,8 @@ dist:
 
 config:
 	@cd etc && $(MAKE) config   --no-print-directory
-	@cd lisp	 && $(MAKE) config --no-print-directory
+	@cd lisp && $(MAKE) config --no-print-directory
+	@echo "Configured emacspeak in directory $(SRC)."
 
 # }}}
 # {{{  complete build
@@ -92,20 +94,20 @@ help:
 #clean, config and build (development)
 q:
 	make clean
-	make config
+	make config 
 	make
 	@cd lisp && make muggles --no-print-directory
 	@cd lisp && make extra-muggles --no-print-directory
-	@cd      tvr && make  --no-print-directory
+	@cd	 tvr && make  --no-print-directory
 
 qq:
-	make -s q 2>&1 |grep -v Loading
+	make -s q 2>&1 |grep -v Loading  
 
 # }}}
 # {{{  user level target-- clean
 
 clean:
-	@cd l	isp &&  $(MAKE) --no-print-directory clean
+	@cd lisp &&  $(MAKE) --no-print-directory clean
 
 # }}}
 # {{{ labeling releases
@@ -118,29 +120,28 @@ release: #supply LABEL=NN.NN
 	git push --tags
 	$(MAKE) dist
 	mkdir emacspeak-${LABEL}; \
-	cd emacspeak-${LABEL} ;\
+cd emacspeak-${LABEL} ;\
 	tar xvf ../emacspeak.tar ; \
 	rm -f ../emacspeak.tar ; \
-	cd .. ;\
+cd .. ;\
 	tar cvfj emacspeak-${LABEL}.tar.bz2 emacspeak-$(LABEL); \
 	/bin/rm -rf emacspeak-${LABEL} ;\
 	echo "Prepared release in emacspeak-${LABEL}.tar.bz2"
 	./utils/emacspeak-ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
 
 # }}}
-# {{{Install:
+# {{{Install: 
 
 install:
 	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
 	@echo "(load-file \"`pwd`/lisp/emacspeak-setup.el\")"
 	@echo "If using espeak or outloud for TTS, "
 	@echo "type make <engine> to first build that speech-server."
-	@echo "Package maintainers: see   etc/install.org        for instructions."
+	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 # }}}
 # {{{Worktree:
-
-# Usage: make wk  TAG=tag
+# Usage make wk TAG=tag
 wk:
 	git worktree add ../${TAG} ${TAG}
 
