@@ -36,7 +36,7 @@ except:
 osx_version, _, _ = platform.mac_ver()
 osx_version = int(osx_version.split(".")[1])
 
-ttsState = {}
+ttsState = {"allCaps": 0, "capitalize": 0}
 
 # amount to increase pitch of capital letters.  This may need tweaking. 
 capsPitchIncrease = 8
@@ -281,7 +281,10 @@ class _ProtocolHandler:
   def handleAuditoryIcon(self, args):
     writeDebugLog(6, "Auditory icon " + args + "\n")
     if args:
-      NSSound.alloc().initWithContentsOfFile_byReference_(args, True).play()
+      try:
+        NSSound.alloc().initWithContentsOfFile_byReference_(args, True).play()
+      except:
+        pass
 
   def handleLetter(self, args):
     output = args.strip(" }")
@@ -301,7 +304,10 @@ class _ProtocolHandler:
     output = prefix + " " + output + " " + suffix
     writeDebugLog(4, "about to speak letter: " + output + "\n")
     # Send directly to TTS to avoid any line processing.
-    speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
+    try:
+      speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
+    except:
+      pass
 
   def handleQueueCode(self, args):
     global codeQueue
@@ -354,9 +360,12 @@ class _ProtocolHandler:
 
   def handleTtsSay(self, args):
     self.handleStopSpeaking(None)
-    speechSynthesizer.startSpeakingString_(
-      '[[rate %i]] %s' % (ttsState['sayRate'],
+    try:
+      speechSynthesizer.startSpeakingString_(
+          '[[rate %i]] %s' % (ttsState['sayRate'],
                           args.replace('[*]','[[slnc 50 ]]')))
+    except:
+      pass
 
   def handleTtsSelftest(self, args):
     samples = ["phaser 0.8 0.74 3.0 0.4 0.5 -t",
@@ -403,10 +412,16 @@ class _ProtocolHandler:
     params = args.split()
     global ttsState
     ttsState['punctuationLevel'] = params[0]
-    ttsState['capitalize'] = int(params[1])
-    ttsState['allCaps'] = int(params[2])
-    ttsState['splitCaps'] = int(params[3])
-    ttsState['speechRate'] = int(params[4])
+    ttsState['splitCaps'] = int(params[1])
+    ttsState['speechRate'] = int(params[2])
+
+    # For older versions of the protocol.
+    if len(params) == 5:
+      ttsState['capitalize'] = int(params[1])
+      ttsState['allCaps'] = int(params[2])
+      ttsState['splitCaps'] = int(params[3])
+      ttsState['speechRate'] = int(params[4])
+
     writeDebugLog(6, "tts_sync: set punctuation level to: " + ttsState['punctuationLevel'] + " capitalize to " + str(ttsState['capitalize']) + " allcaps " + str(ttsState['allCaps']) + " splitCaps " + str(ttsState['splitCaps']) + " rate to: " + str(ttsState['speechRate']) + "\n")
 
   def dispatchRawTtsMessage(self, message):
@@ -560,8 +575,11 @@ def processSpeechQueue():
       output = item[1].strip(" {}")
       if output:
         speechSynthesizer.setRate_(ttsState['speechRate'])
-        speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
-        writeDebugLog(2, "\nsay: " + output + "\nend\n")
+        try:
+          speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
+          writeDebugLog(2, "\nsay: " + output + "\nend\n")
+        except:
+          pass
       else:
         processSpeechQueue()
 
@@ -589,7 +607,10 @@ def processSpeechQueue():
       writeDebugLog(4, "rendering text clip" + str(output))
       speechSynthesizer.setRate_(ttsState['speechRate'])
       if not enableSox:
-        speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
+        try:
+          speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
+        except:
+          pass
       else:
         if speechSynthesizer.startSpeakingString_toURL_(
 output, speechOutUrl) and output not in renderingBlacklist:
