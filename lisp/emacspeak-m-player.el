@@ -343,7 +343,7 @@ Controls media playback when already playing.
   "Records if  playing a URL")
 
 (defun emacspeak-media-read-resource ()
-  "Read resource from minibuffer with contextual smarts."
+  "Read resource from minibuffer."
   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
@@ -364,7 +364,7 @@ Controls media playback when already playing.
     result))
 
 (defun emacspeak-m-player-refresh-metadata ()
-  "Populate metadata fields from currently playing  stream."
+  "Populate metadata fields from current  stream."
   (cl-declare (special emacspeak-m-player-metadata))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (cl-loop
@@ -382,8 +382,8 @@ Controls media playback when already playing.
   "Set to T if  ICY info cued automatically.")
 
 (defun emacspeak-m-player-process-filter (process output)
-  "Filter function that captures metadata.
-Also cleanup ANSI escape sequences."
+  "Filter function to captures metadata.
+ Cleanup ANSI escape sequences."
   (cl-declare (special emacspeak-m-player-cue-info
                        ansi-color-control-seq-regexp))
   (when (process-live-p process)
@@ -406,7 +406,7 @@ Also cleanup ANSI escape sequences."
             (delete-region (match-beginning 0) (match-end 0))))))))
 
 (defun emacspeak-m-player-amark-save ()
-  "Ensure that amarks are saved in the directory of the resource ."
+  "Save amarks."
   (interactive)
   (cl-declare (special emacspeak-m-player-process))
   (when (process-live-p emacspeak-m-player-process)
@@ -418,8 +418,7 @@ Also cleanup ANSI escape sequences."
 (defun emacspeak-m-player (resource &optional play-list)
   "Play  resource.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
-prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-The player is placed in a buffer in emacspeak-m-player-mode."
+prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
   (interactive
    (list
     (emacspeak-media-read-resource)
@@ -494,7 +493,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
-  "Use openal for audio output.  "
+  "Use openal.  "
   (interactive
    (list
     (emacspeak-media-read-resource)
@@ -595,8 +594,7 @@ necessary."
 ;;{{{ commands
 
 (defun emacspeak-m-player-get-position ()
-  "Return list suitable to use as an amark. --- see emacspeak-amark.el.
-Return value is of the form (position filename length)."
+  "Return list (position filename length)  to use as an amark. "
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
 ;;; dispatch command twice to avoid flakiness in mplayer
@@ -615,27 +613,25 @@ Return value is of the form (position filename length)."
        (format "%s" (cl-third fields))))))
 
 (defun emacspeak-m-player-current-filename ()
-  "Return filename of currently playing track."
+  "Return filename of current  track."
   (cl-second
    (split-string
     (emacspeak-m-player-dispatch "get_file_name\n")
     "=")))
 
 (defun emacspeak-m-player-scale-speed (factor)
-  "Scale speed by specified factor."
+  "Scale speed by factor."
   (interactive "nFactor:")
   (emacspeak-m-player-dispatch
    (format "af_add scaletempo=scale=%f:speed=pitch" factor)))
 
 (defun emacspeak-m-player-slower ()
-  "Slow down playback.
-This affects pitch."
+  "Slow down playback. "
   (interactive)
   (emacspeak-m-player-scale-speed 0.9091))
 
 (defun emacspeak-m-player-faster ()
-  "Speed up  playback.
-This affects pitch."
+  "Speed up  playback. "
   (interactive)
   (emacspeak-m-player-scale-speed 1.1))
 
@@ -650,25 +646,25 @@ This affects pitch."
   (emacspeak-m-player-scale-speed 2.0))
 
 (defun emacspeak-m-player-reset-speed ()
-  "Reset playing speed to normal."
+  "Reset  speed."
   (interactive)
   (emacspeak-m-player-dispatch
    "speed_set 1.0"))
 
 (defun emacspeak-m-player-play-tracks-jump (step)
-  "Move within the play tree."
+  "Skip tracks."
   (interactive"nSkip Tracks:")
   (unless (zerop step)
     (emacspeak-m-player-dispatch
      (format "pt_step %d" step))))
 
 (defun emacspeak-m-player-previous-track ()
-  "Move to previous track."
+  "Previous track."
   (interactive)
   (emacspeak-m-player-play-tracks-jump -1))
 
 (defun emacspeak-m-player-next-track ()
-  "Move to next track."
+  "Next track."
   (interactive)
   (emacspeak-m-player-play-tracks-jump 1))
 
@@ -689,7 +685,7 @@ This affects pitch."
    (format "alt_src_step %s" step)))
 
 (defun emacspeak-m-player-seek-relative (offset)
-  "Seek  by offset into stream from current position.
+  "Seek  by offset from current position.
 Time offset can be specified as a number of seconds, or as HH:MM:SS."
   (interactive
    (list
@@ -699,7 +695,7 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS."
   (emacspeak-m-player-dispatch (format "seek %s" offset)))
 
 (defun emacspeak-m-player-seek-percentage (pos)
-  "Seek  to absolute specified pos in percent."
+  "Seek  to absolute pos in percent."
   (interactive
    (list
     (read-from-minibuffer "Seek to percentage: ")))
@@ -707,7 +703,7 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS."
    (format "seek %s 1" pos)))
 
 (defun emacspeak-m-player-seek-absolute (pos)
-  "Seek  to absolute specified pos in seconds.
+  "Seek  to absolute pos in seconds.
 The time position can also be specified as HH:MM:SS."
   (interactive
    (list
@@ -717,27 +713,27 @@ The time position can also be specified as HH:MM:SS."
   (emacspeak-m-player-dispatch (format "seek %s 2" pos)))
 
 (defun emacspeak-m-player-beginning-of-track()
-  "Move to beginning of track."
+  "Move to beginning."
   (interactive)
   (emacspeak-m-player-seek-absolute "0"))
 
 (defun emacspeak-m-player-end-of-track()
-  "Move to beginning of track."
+  "Move to end."
   (interactive)
   (emacspeak-m-player-seek-absolute "99"))
 
 (defun emacspeak-m-player-backward-10s ()
-  "Move back by 10 seconds."
+  "Move back 10 seconds."
   (interactive)
   (emacspeak-m-player-seek-relative "-10"))
 
 (defun emacspeak-m-player-forward-10s ()
-  "Move forward by 10 seconds."
+  "Move forward 10 seconds."
   (interactive)
   (emacspeak-m-player-seek-relative "10"))
 
 (defun emacspeak-m-player-backward-1min ()
-  "Move back by 1 minute."
+  "Move back 1 minute."
   (interactive)
   (emacspeak-m-player-seek-relative "-60"))
 
@@ -747,25 +743,25 @@ The time position can also be specified as HH:MM:SS."
   (emacspeak-m-player-seek-relative "60"))
 
 (defun emacspeak-m-player-backward-10min ()
-  "Move backward by ten minutes."
+  "Move backward ten minutes."
   (interactive)
   (emacspeak-m-player-seek-relative "-600"))
 
 (defun emacspeak-m-player-forward-10min ()
-  "Move forward by ten minutes."
+  "Move forward ten minutes."
   (interactive)
   (emacspeak-m-player-seek-relative "600"))
 
 (defun emacspeak-m-player-pause ()
-  "Pause or unpause media player."
+  "Pause or unpause."
   (interactive)
   (emacspeak-m-player-dispatch "pause"))
 
 (defvar ems--m-player-mark "LastStopped"
-  "Name used to  mark position where we quit a stream.")
+  "Name used to  mark position where we stopped.")
 
 (defun emacspeak-m-player-quit ()
-  "Quit media player."
+  "Quit."
   (interactive)
   (cl-declare (special emacspeak-amark-list ems--m-player-mark
                        emacspeak-m-player-url-p emacspeak-m-player-process))
@@ -789,21 +785,20 @@ The time position can also be specified as HH:MM:SS."
       (emacspeak-speak-mode-line))))
 
 (defun emacspeak-m-player-volume-up ()
-  "Increase volume."
+  "Volume up."
   (interactive)
   (emacspeak-m-player-dispatch "volume 1"))
 
 (defun emacspeak-m-player-volume-down ()
-  "Decrease volume."
+  "Volume down."
   (interactive)
   (emacspeak-m-player-dispatch "volume -1"))
 
-(defvar emacspeak-m-player-active-filters nil
-  "Caches filters that are active.")
-(make-variable-buffer-local 'emacspeak-m-player-active-filters)
+(defvar-local emacspeak-m-player-active-filters nil
+  "Active filters.")
 
 (defun emacspeak-m-player-volume-change (value)
-  "Change volume to specified absolute value."
+  "Set volume."
   (interactive"sChange Volume to:")
   (cl-declare (special emacspeak-m-player-active-filters))
   (cl-pushnew "volume" emacspeak-m-player-active-filters :test #'string=)
@@ -818,7 +813,7 @@ The time position can also be specified as HH:MM:SS."
            (read-from-minibuffer "Balance -- Between -1 and 1:"))))
 
 (defun emacspeak-m-player-slave-command (command)
-  "Dispatch slave command read from minibuffer."
+  "Dispatch slave command."
   (interactive
    (list
     (completing-read "Slave Command: " (emacspeak-m-player-command-list))))
@@ -863,7 +858,7 @@ The time position can also be specified as HH:MM:SS."
   (dtk-speak-and-echo (emacspeak-m-player-slave-command "get_percent_pos")))
 
 (defun emacspeak-m-player-stream-info (&optional toggle-cue)
-  "Speak and display metadata if available.
+  "Speak and display metadata.
 Interactive prefix arg toggles automatic cueing of ICY info updates."
   (interactive "P")
   (cl-declare (special emacspeak-m-player-metadata emacspeak-m-player-cue-info))
@@ -882,7 +877,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
         (message"%s" (format "%s" (or info  "No Stream Info")))))))
 
 (defun emacspeak-m-player-get-length ()
-  "Display length of track in seconds."
+  "Display length of track."
   (interactive)
   (dtk-speak-and-echo (emacspeak-m-player-dispatch "get_time_length")))
 
@@ -891,7 +886,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   "Command we send MPlayer to display position.")
 
 (defun emacspeak-m-player-display-position ()
-  "Display current position in track and its length."
+  "Display current position in track."
   (interactive)
   (cl-declare (special emacspeak-m-player-display-cmd))
   (let ((fields nil)
@@ -920,14 +915,14 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
      (t (dtk-speak-and-echo "Waiting")))))
 
 (defun emacspeak-m-player-load-file(f)
-  "Load specified file."
+  "Load file."
   (interactive "fMedia File:")
   (emacspeak-m-player-dispatch
    (format "loadfile %s"
            (expand-file-name f))))
 
 (defun emacspeak-m-player-load-playlist(f)
-  "Load specified playlist file."
+  "Load playlist."
   (interactive "fPlaylist File:")
   (emacspeak-m-player-dispatch
    (format "loadlist %s"
@@ -949,10 +944,10 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "ladspa=amp:amp_stereo:0.5"
     "ladspa=tap_autopan:tap_autopan:.0016:100:1.5, ladspa=tap_autopan:tap_autopan:.06:33:2"
     "bs2b=cmoy" "bs2b=jmeier" "bs2b")
-  "Table of useful MPlayer filters.")
+  "Table of MPlayer filters.")
 
 (defun emacspeak-m-player-add-autopan ()
-  "Add predefined autopan effect."
+  "Add autopan effect."
   (interactive)
   (emacspeak-m-player-add-filter
    (concat
@@ -960,15 +955,14 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "ladspa=tap_autopan:tap_autopan:.016:33:1")))
 
 (defun emacspeak-m-player-add-autosat ()
-  "Add predefined ZamAutoSat (auto saturation) effect."
+  "Add ZamAutoSat (auto saturation) effect."
   (interactive)
   (emacspeak-m-player-add-filter
    "ladspa=ZamAutoSat-ladspa.so:ZamAutoSat:"))
 
 (defun emacspeak-m-player-add-filter (filter-name &optional edit)
-  "Adds specified filter. Prompts with one of several pre-defined
-filters. Optional interactive prefix arg `edit' enables editing the
-selected filter before it is applied."
+  "Adds  filter with completion.
+ Optional interactive prefix arg `edit' edits the."
   (interactive
    (list
     (completing-read "Filter:"
@@ -986,7 +980,7 @@ selected filter before it is applied."
     (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
 
 (defun emacspeak-m-player-left-channel ()
-  "Play both channels on left channel."
+  "Play both channels on left."
   (interactive)
   (let ((filter-name "channels=2:1:0:0:1:0"))
     (when (process-live-p  emacspeak-m-player-process)
@@ -1000,7 +994,7 @@ selected filter before it is applied."
       (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
 
 (defun emacspeak-m-player-clear-filters ()
-  "Clear all active filters"
+  "Clear all filters"
   (interactive)
   (cl-declare (special emacspeak-m-player-process
                        emacspeak-m-player-active-filters))
@@ -1010,7 +1004,7 @@ selected filter before it is applied."
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-m-player-customize-options ()
-  "Use Customize to manipulate MPlayer options."
+  "Use Customize to set MPlayer options."
   (interactive)
   (customize-variable 'emacspeak-m-player-options)
   (goto-char (point-min))
