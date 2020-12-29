@@ -331,32 +331,20 @@ custom: force
 # }}}
 # {{{  Make rules for the various modules
 
-#dtk module:
-#dtk-interp contains the interface to the interpreter
-#Modules using functions from the dtk module should depend on dtk-speak
 
-dtk-interp.elc: dtk-interp.el
-dtk-unicode.elc: dtk-unicode.el
-dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc 
-dectalk-voices.elc: dectalk-voices.el 
-outloud-voices.elc: outloud-voices.el 
-plain-voices.elc: plain-voices.el 
-mac-voices.elc: mac-voices.el 
-espeak-voices.elc: espeak-voices.el 
-voice-setup.elc: voice-setup.el 
-voice-defs.elc: voice-defs.el  voice-setup.elc
-emacspeak-amark.elc: emacspeak-amark.el
-cd-tool.elc: cd-tool.el
-nm.elc: nm.el
 amixer.elc: amixer.el
-
-# Core Modules 
-emacspeak-actions.elc: emacspeak-actions.el dtk-speak.elc
+cd-tool.elc: cd-tool.el
+dectalk-voices.elc: dectalk-voices.el 
+dom-addons.elc: dom-addons.el 
+dtk-interp.elc: dtk-interp.el
+dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc 
+dtk-unicode.elc: dtk-unicode.el
+emacspeak-2048.elc: emacspeak-2048.el dtk-speak.elc
 emacspeak-abc-mode.elc: emacspeak-abc-mode.el dtk-speak.elc 
+emacspeak-actions.elc: emacspeak-actions.el dtk-speak.elc
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
-emacspeak-preamble.elc: emacspeak-preamble.el
-emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
+emacspeak-amark.elc: emacspeak-amark.el
 emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc voice-setup.elc
 emacspeak-apt-sources.elc: emacspeak-apt-sources.el dtk-speak.elc voice-setup.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc voice-setup.elc
@@ -371,21 +359,20 @@ emacspeak-browse-kill-ring.elc: emacspeak-browse-kill-ring.el dtk-speak.elc voic
 emacspeak-bs.elc: emacspeak-bs.el dtk-speak.elc voice-setup.elc
 emacspeak-buff-menu.elc: emacspeak-buff-menu.el dtk-speak.elc voice-setup.elc
 emacspeak-c.elc: emacspeak-c.el dtk-speak.elc voice-setup.elc
-emacspeak-comint.elc: emacspeak-comint.el dtk-speak.elc voice-setup.elc
-emacspeak-cider.elc: emacspeak-cider.el dtk-speak.elc voice-setup.elc
-emacspeak-clojure.elc: emacspeak-clojure.el dtk-speak.elc voice-setup.elc
-emacspeak-cmuscheme.elc: emacspeak-cmuscheme.el dtk-speak.elc voice-setup.elc
-emacspeak-ciel.elc: emacspeak-ciel.el dtk-speak.elc
 emacspeak-calc.elc: emacspeak-calc.el
 emacspeak-calculator.elc: emacspeak-calculator.el  dtk-speak.elc voice-setup.elc
 emacspeak-calendar.elc: emacspeak-calendar.el dtk-speak.el
 emacspeak-chess.elc: emacspeak-chess.el dtk-speak.elc voice-setup.elc
-emacspeak-compile.elc: emacspeak-compile.el  dtk-speak.elc
+emacspeak-cider.elc: emacspeak-cider.el dtk-speak.elc voice-setup.elc
+emacspeak-ciel.elc: emacspeak-ciel.el dtk-speak.elc
+emacspeak-clojure.elc: emacspeak-clojure.el dtk-speak.elc voice-setup.elc
+emacspeak-cmuscheme.elc: emacspeak-cmuscheme.el dtk-speak.elc voice-setup.elc
+emacspeak-comint.elc: emacspeak-comint.el dtk-speak.elc voice-setup.elc
 emacspeak-company.elc: emacspeak-company.el dtk-speak.elc
+emacspeak-compile.elc: emacspeak-compile.el  dtk-speak.elc
 emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc voice-setup.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc voice-setup.elc
 emacspeak-cyclebuffer.elc: emacspeak-cyclebuffer.el dtk-speak.elc
-emacspeak-epub.elc: emacspeak-epub.el dtk-speak.elc voice-setup.elc
 emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc nm.elc
 emacspeak-deadgrep.elc: emacspeak-deadgrep.el dtk-speak.elc
 emacspeak-debugger.elc: emacspeak-debugger.el dtk-speak.elc
@@ -395,26 +382,28 @@ emacspeak-diff-mode.elc: emacspeak-diff-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-dired.elc: emacspeak-dired.el dtk-speak.elc voice-setup.elc
 emacspeak-dismal.elc: emacspeak-dismal.el dtk-speak.elc voice-setup.elc
 emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc voice-setup.elc
-emacspeak-ein.elc: emacspeak-ein.el dtk-speak.elc voice-setup.elc
-emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
-emacspeak-elisp-refs.elc: emacspeak-elisp-refs.el dtk-speak.elc voice-setup.elc
-emacspeak-elscreen.elc: emacspeak-elscreen.el dtk-speak.elc voice-setup.elc
-emacspeak-xkcd.elc: emacspeak-xkcd.el dtk-speak.elc
 emacspeak-eclim.elc: emacspeak-eclim.el dtk-speak.elc voice-setup.elc
+emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
+emacspeak-ein.elc: emacspeak-ein.el dtk-speak.elc voice-setup.elc
 emacspeak-elfeed.elc: emacspeak-elfeed.el dtk-speak.elc
-emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc voice-setup.elc
+emacspeak-elisp-refs.elc: emacspeak-elisp-refs.el dtk-speak.elc voice-setup.elc
+emacspeak-elpy.elc: emacspeak-elpy.el dtk-speak.elc
+emacspeak-elscreen.elc: emacspeak-elscreen.el dtk-speak.elc voice-setup.elc
 emacspeak-emms.elc: emacspeak-emms.el dtk-speak.elc
+emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc voice-setup.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc voice-setup.elc
 emacspeak-epa.elc: emacspeak-epa.el dtk-speak.elc voice-setup.elc
 emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc voice-setup.elc
+emacspeak-epub.elc: emacspeak-epub.el dtk-speak.elc voice-setup.elc
 emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc voice-setup.elc
 emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc voice-setup.elc
 emacspeak-ess.elc: emacspeak-ess.el dtk-speak.elc voice-setup.elc
-emacspeak-evil.elc: emacspeak-evil.el dtk-speak.elc voice-setup.elc
+emacspeak-etable.elc: emacspeak-etable.el dtk-speak.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc voice-setup.elc
 emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc voice-setup.elc
-dom-addons.elc: dom-addons.el 
+emacspeak-evil.elc: emacspeak-evil.el dtk-speak.elc voice-setup.elc
 emacspeak-eww.elc: emacspeak-eww.el  dom-addons.elc dtk-speak.elc voice-setup.elc
+emacspeak-extras.elc: emacspeak-extras.el dtk-speak.elc voice-setup.elc
 emacspeak-feeds.elc: emacspeak-feeds.el  dtk-speak.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
 emacspeak-flycheck.elc: emacspeak-flycheck.el dtk-speak.elc voice-setup.elc
@@ -427,149 +416,154 @@ emacspeak-geiser.elc: emacspeak-geiser.el dtk-speak.elc voice-setup.elc
 emacspeak-gh-explorer.elc: emacspeak-gh-explorer.el dtk-speak.elc voice-setup.elc
 emacspeak-gnuplot.elc: emacspeak-gnuplot.el dtk-speak.elc voice-setup.elc
 emacspeak-gnus.elc: emacspeak-gnus.el dtk-speak.elc voice-setup.elc
-emacspeak-google.elc: emacspeak-google.el dtk-speak.elc
 emacspeak-go-mode.elc: emacspeak-go-mode.el dtk-speak.elc
 emacspeak-gomoku.elc: emacspeak-gomoku.el dtk-speak.elc voice-setup.elc
+emacspeak-google.elc: emacspeak-google.el dtk-speak.elc
 emacspeak-gridtext.elc: emacspeak-gridtext.el dtk-speak.elc voice-setup.elc
 emacspeak-gtags.elc: emacspeak-gtags.el dtk-speak.elc voice-setup.elc
 emacspeak-gud.elc: emacspeak-gud.el dtk-speak.elc voice-setup.elc
 emacspeak-haskell.elc: emacspeak-haskell.el dtk-speak.elc
 emacspeak-helm.elc: emacspeak-helm.el dtk-speak.elc
+emacspeak-hide-lines.elc: emacspeak-hide-lines.el dtk-speak.elc voice-setup.elc
 emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
 emacspeak-hideshow.elc: emacspeak-hideshow.el dtk-speak.elc voice-setup.elc
-emacspeak-hide-lines.elc: emacspeak-hide-lines.el dtk-speak.elc voice-setup.elc
 emacspeak-hydra.elc: emacspeak-hydra.el dtk-speak.elc
 emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc voice-setup.elc
 emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
 emacspeak-iedit.elc: emacspeak-iedit.el dtk-speak.elc voice-setup.elc
-emacspeak-ivy.elc: emacspeak-ivy.el dtk-speak.elc voice-setup.elc
+emacspeak-indium.elc: emacspeak-indium.el dtk-speak.elc voice-setup.elc
 emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
+emacspeak-ivy.elc: emacspeak-ivy.el dtk-speak.elc voice-setup.elc
 emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc voice-setup.elc
-emacspeak-indium.elc: emacspeak-indium.el dtk-speak.elc voice-setup.elc
 emacspeak-jdee.elc: emacspeak-jdee.el dtk-speak.elc voice-setup.elc
 emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-librivox.elc: emacspeak-librivox.el emacspeak-m-player.elc dtk-speak.elc voice-setup.elc
 emacspeak-lispy.elc: emacspeak-lispy.el  dtk-speak.elc voice-setup.elc
+emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-lua.elc: emacspeak-lua.el dtk-speak.elc
-emacspeak-magit.elc: emacspeak-magit.el dtk-speak.elc voice-setup.elc
 emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc ladspa.elc
-emacspeak-maths.elc: emacspeak-maths.el  dtk-speak.elc
+emacspeak-magit.elc: emacspeak-magit.el dtk-speak.elc voice-setup.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc voice-setup.elc
-emacspeak-markdown.elc: emacspeak-markdown.el dtk-speak.elc
 emacspeak-man.elc: emacspeak-man.el dtk-speak.elc voice-setup.elc
+emacspeak-markdown.elc: emacspeak-markdown.el dtk-speak.elc
+emacspeak-maths.elc: emacspeak-maths.el  dtk-speak.elc
 emacspeak-message.elc: emacspeak-message.el dtk-speak.elc voice-setup.elc
 emacspeak-metapost.elc: emacspeak-metapost.el dtk-speak.elc voice-setup.elc
 emacspeak-midge.elc: emacspeak-midge.el dtk-speak.elc voice-setup.elc
 emacspeak-mines.elc: emacspeak-mines.el dtk-speak.elc
-emacspeak-muse.elc: emacspeak-muse.el dtk-speak.elc
 emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc voice-setup.elc
 emacspeak-muggles.elc: emacspeak-muggles.el dtk-speak.elc
-extra-muggles.elc: extra-muggles.el dtk-speak.elc
+emacspeak-muse.elc: emacspeak-muse.el dtk-speak.elc
 emacspeak-navi-mode.elc: emacspeak-navi-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc
 emacspeak-nov.elc: emacspeak-nov.el dtk-speak.elc voice-setup.elc
 emacspeak-nxml.elc: emacspeak-nxml.el dtk-speak.elc voice-setup.elc
+emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-org.elc: emacspeak-org.el dtk-speak.elc voice-setup.elc
 emacspeak-orgalist.elc: emacspeak-orgalist.el dtk-speak.elc voice-setup.elc
 emacspeak-origami.elc: emacspeak-origami.el dtk-speak.elc voice-setup.elc
 emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
-emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-package.elc: emacspeak-package.el dtk-speak.elc voice-setup.elc
 emacspeak-paradox.elc: emacspeak-paradox.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
 emacspeak-pianobar.elc: emacspeak-pianobar.el dtk-speak.elc voice-setup.elc
-emacspeak-pronounce.elc: emacspeak-pronounce.el
 emacspeak-popup.elc: emacspeak-popup.el dtk-speak.elc
+emacspeak-preamble.elc: emacspeak-preamble.el
 emacspeak-proced.elc: emacspeak-proced.el dtk-speak.elc voice-setup.elc
 emacspeak-project.elc: emacspeak-project.el dtk-speak.elc
 emacspeak-projectile.elc: emacspeak-projectile.el dtk-speak.elc
+emacspeak-pronounce.elc: emacspeak-pronounce.el
 emacspeak-py.elc: emacspeak-py.el dtk-speak.elc voice-setup.elc
-emacspeak-python.elc: emacspeak-python.el dtk-speak.elc voice-setup.elc
-emacspeak-racket.elc: emacspeak-racket.el dtk-speak.elc voice-setup.elc
-emacspeak-elpy.elc: emacspeak-elpy.el dtk-speak.elc
 emacspeak-pydoc.elc: emacspeak-pydoc.el dtk-speak.elc
-emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
-emacspeak-rg.elc: emacspeak-rg.el dtk-speak.elc voice-setup.elc
+emacspeak-python.elc: emacspeak-python.el dtk-speak.elc voice-setup.elc
 emacspeak-racer.elc: emacspeak-racer.el dtk-speak.elc voice-setup.elc
-emacspeak-rust-mode.elc: emacspeak-rust-mode.el dtk-speak.elc voice-setup.elc
+emacspeak-racket.elc: emacspeak-racket.el dtk-speak.elc voice-setup.elc
+emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
 emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc voice-setup.elc
-emacspeak-rst.elc: emacspeak-rst.el dtk-speak.elc voice-setup.elc
 emacspeak-related.elc: emacspeak-related.el dtk-speak.elc voice-setup.elc
-emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc voice-setup.elc
 emacspeak-replace.elc: emacspeak-replace.el dtk-speak.elc voice-setup.elc
-emacspeak-ruby.elc: emacspeak-ruby.el dtk-speak.elc
+emacspeak-rg.elc: emacspeak-rg.el dtk-speak.elc voice-setup.elc
 emacspeak-rmail.elc: emacspeak-rmail.el dtk-speak.elc voice-setup.elc
+emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc voice-setup.elc
+emacspeak-rst.elc: emacspeak-rst.el dtk-speak.elc voice-setup.elc
+emacspeak-ruby.elc: emacspeak-ruby.el dtk-speak.elc
+emacspeak-rust-mode.elc: emacspeak-rust-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-sage.elc: emacspeak-sage.el dtk-speak.elc
-emacspeak-slime.elc: emacspeak-slime.el dtk-speak.elc
+emacspeak-sdcv.elc: emacspeak-sdcv.el dtk-speak.elc voice-setup.elc
+emacspeak-selectrum.elc: emacspeak-selectrum.el dtk-speak.elc voice-setup.elc
 emacspeak-ses.elc: emacspeak-ses.el dtk-speak.elc voice-setup.elc
+emacspeak-setup.elc: emacspeak-setup.el
 emacspeak-setup.elc: emacspeak-setup.el
 emacspeak-sgml-mode.elc: emacspeak-sgml-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-sh-script.elc: emacspeak-sh-script.el dtk-speak.elc voice-setup.elc
 emacspeak-shx.elc: emacspeak-shx.el dtk-speak.elc
-emacspeak-smartparens.elc: emacspeak-smartparens.el dtk-speak.elc voice-setup.elc
+emacspeak-slime.elc: emacspeak-slime.el dtk-speak.elc
 emacspeak-smart-window.elc: emacspeak-smart-window.el dtk-speak.elc
+emacspeak-smartparens.elc: emacspeak-smartparens.el dtk-speak.elc voice-setup.elc
 emacspeak-solitaire.elc: emacspeak-solitaire.el dtk-speak.elc voice-setup.elc
 emacspeak-sounds.elc: emacspeak-sounds.el
 emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-setup.elc
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc voice-setup.elc
-emacspeak-syslog.elc: emacspeak-syslog.el dtk-speak.elc voice-setup.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc voice-setup.elc
-ladspa.elc: ladspa.el 
-sox.elc: sox.el ladspa.elc
-soundscape.elc: soundscape.el
-sox-gen.elc: sox-gen.el sox.elc
-emacspeak-sdcv.elc: emacspeak-sdcv.el dtk-speak.elc voice-setup.elc
-emacspeak-selectrum.elc: emacspeak-selectrum.el dtk-speak.elc voice-setup.elc
-emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc voice-setup.elc
 emacspeak-sudoku.elc: emacspeak-sudoku.el dtk-speak.elc
+emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc voice-setup.elc
+emacspeak-syslog.elc: emacspeak-syslog.el dtk-speak.elc voice-setup.elc
+emacspeak-tab-bar.elc: emacspeak-tab-bar.el dtk-speak.elc voice-setup.elc
 emacspeak-table-ui.elc: emacspeak-table-ui.el emacspeak-tabulate.elc  \
 emacspeak-table.elc
 emacspeak-table.elc: emacspeak-table.el
 emacspeak-tabulate.elc: emacspeak-tabulate.el dtk-speak.elc voice-setup.elc
-emacspeak-etable.elc: emacspeak-etable.el dtk-speak.elc
-emacspeak-tab-bar.elc: emacspeak-tab-bar.el dtk-speak.elc voice-setup.elc
 emacspeak-tapestry.elc: emacspeak-tapestry.el dtk-speak.elc voice-setup.elc
 emacspeak-tar.elc: emacspeak-tar.el dtk-speak.elc voice-setup.elc
 emacspeak-tcl.elc: emacspeak-tcl.el dtk-speak.elc voice-setup.elc
 emacspeak-tempo.elc: emacspeak-tempo.el dtk-speak.elc voice-setup.elc
 emacspeak-tetris.elc: emacspeak-tetris.el dtk-speak.elc voice-setup.elc
+emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
 emacspeak-threes.elc: emacspeak-threes.el dtk-speak.elc
 emacspeak-tide.elc: emacspeak-tide.el dtk-speak.elc
-emacspeak-2048.elc: emacspeak-2048.el dtk-speak.elc
-emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
-emacspeak-transient.elc: emacspeak-transient.el dtk-speak.elc voice-setup.elc
 emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
+emacspeak-transient.elc: emacspeak-transient.el dtk-speak.elc voice-setup.elc
 emacspeak-twittering.elc: emacspeak-twittering.el dtk-speak.elc voice-setup.elc
 emacspeak-typo.elc: emacspeak-typo.el dtk-speak.elc 
 emacspeak-url-template.elc: emacspeak-url-template.el  emacspeak-we.elc
 emacspeak-vdiff.elc: emacspeak-vdiff.el dtk-speak.elc voice-setup.elc
-emacspeak-vuiet.elc: emacspeak-vuiet.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
-emacspeak-vterm.elc: emacspeak-vterm.el dtk-speak.elc voice-setup.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc voice-setup.elc
+emacspeak-vterm.elc: emacspeak-vterm.el dtk-speak.elc voice-setup.elc
+emacspeak-vuiet.elc: emacspeak-vuiet.el dtk-speak.elc voice-setup.elc
 emacspeak-wdired.elc: emacspeak-wdired.el dtk-speak.elc voice-setup.elc
 emacspeak-we.elc: emacspeak-we.el 
-emacspeak-webspace.elc: emacspeak-webspace.el 
-emacspeak-websearch.elc: emacspeak-websearch.el emacspeak-we.elc
 emacspeak-webmarks.elc: emacspeak-webmarks.el emacspeak-we.elc
+emacspeak-websearch.elc: emacspeak-websearch.el emacspeak-we.elc
+emacspeak-webspace.elc: emacspeak-webspace.el 
 emacspeak-widget.elc: emacspeak-widget.el dtk-speak.elc voice-setup.elc
-emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc voice-setup.elc
-emacspeak-woman.elc: emacspeak-woman.el dtk-speak.elc
 emacspeak-windmove.elc: emacspeak-windmove.el dtk-speak.elc voice-setup.elc
+emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc voice-setup.elc
 emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc voice-setup.elc
-emacspeak-extras.elc: emacspeak-extras.el dtk-speak.elc voice-setup.elc
+emacspeak-woman.elc: emacspeak-woman.el dtk-speak.elc
+emacspeak-xkcd.elc: emacspeak-xkcd.el dtk-speak.elc
 emacspeak-xref.elc: emacspeak-xref.el dtk-speak.elc
 emacspeak-xslt.elc: emacspeak-xslt.el
 emacspeak-yaml.elc: emacspeak-yaml.el dtk-speak.elc
 emacspeak-yasnippet.elc: emacspeak-yasnippet.el dtk-speak.elc
-
 emacspeak.elc: emacspeak.el
-emacspeak-setup.elc: emacspeak-setup.el
+espeak-voices.elc: espeak-voices.el 
+extra-muggles.elc: extra-muggles.el dtk-speak.elc
+ladspa.elc: ladspa.el 
 loaddefs: emacspeak-loaddefs.el
+mac-voices.elc: mac-voices.el 
+nm.elc: nm.el
+outloud-voices.elc: outloud-voices.el 
+plain-voices.elc: plain-voices.el 
+soundscape.elc: soundscape.el
+sox-gen.elc: sox-gen.el sox.elc
+sox.elc: sox.el ladspa.elc
+voice-defs.elc: voice-defs.el  voice-setup.elc
+voice-setup.elc: voice-setup.el 
 
 # }}}
 # {{{Development  target: indent, tags, relint 
