@@ -349,7 +349,7 @@ command \\[customize-variable] on <personality>-settings. "
        (voice-setup-personality-from-style ,settings)
        ,(concat
          doc
-         (format "Customize this overlay via %s-settings."
+         (format "\nCustomize this overlay via %s-settings."
                  personality)))
      (defcustom ,(intern (format "%s-settings"  personality))
        ,settings

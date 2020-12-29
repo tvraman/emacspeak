@@ -1,4 +1,4 @@
-;;; dtk-interp.el --- Language specific (e.g. TCL) interface to speech server  -*- lexical-binding: t; -*- 
+;;; dtk-interp.el ---  interface to speech server  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Interfacing to the speech server

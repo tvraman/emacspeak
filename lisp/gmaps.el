@@ -230,7 +230,8 @@ Optional argument `raw-p' returns raw JSON  object."
 ;;;###autoload
 (defcustom gmaps-my-address
   nil
-  "Location address. Setting this updates gmaps-my-location coordinates  via geocoding."
+  "Location address. Setting this updates gmaps-my-location
+coordinates via geocoding."
   :type '(choice
           (const :tag "None" nil)
           (string  :tag "Address"))

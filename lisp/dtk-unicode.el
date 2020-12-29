@@ -1,4 +1,4 @@
-;;; dtk-unicode.el --- Pronounce Unicode characters correctly  -*- lexical-binding: t; -*-
+;;; dtk-unicode.el --- Pronounce Unicode characters -*- lexical-binding: t; -*-
 ;;{{{ Header: Lukas
 
 ;; Copyright 2007, 2011 Lukas Loehrer
@@ -107,11 +107,13 @@
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
     ("BOX DRAWING" . (lambda (s) "."))
-    ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
+    ("^greek\\( small\\| capital\\)? letter \\(.*\\)$"
+     . (lambda (s) (match-string 2 s)))
     ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s)
                                                            (match-string 2 s)))
-    ("^DEVANAGARI \\(sign\\|vowel sign\\|letter\\)? \\(.*\\)$" . (lambda (s) (match-string 2 s)))
-                                        ;("\\(.*\\) sign$" . (lambda (s) (match-string 1 s)))
+    ("^DEVANAGARI \\(sign\\|vowel sign\\|letter\\)? \\(.*\\)$"
+     . (lambda (s) (match-string 2 s)))
+                                        
     )
   "Alist of character name transformation rules."
   :group 'dtk
@@ -133,9 +135,9 @@
 
 (defvar dtk-unicode-handlers
   '(dtk-unicode-user-table-handler dtk-unicode-full-table-handler)
-  "List of functions which are called in in this order for replacing an unspeakable character.
-
-A handler returns a non-nil value if the   replacement was successful, nil otherwise.")
+  "List of functions which are called in this order for replacing
+an unspeakable character.  A handler returns a non-nil value if
+the replacement was successful, nil otherwise.")
 
 ;;}}}
 ;;{{{ Helper functions
@@ -158,20 +160,26 @@ A handler returns a non-nil value if the   replacement was successful, nil other
       (list (make-char charset min min) (make-char charset max max))))))
 
 (defun dtk-unicode-build-skip-regexp (charsets)
-  "Construct regexp to match all but the characters in dtk-unicode-untouched-charsets."
+  "Construct regexp to match all but the characters in
+dtk-unicode-untouched-charsets."
   (format "[^%s]"
           (cl-loop for charset in charsets
                    when (charsetp charset)
-                   concat (apply 'format "%c-%c" (dtk-unicode-charset-limits charset)))))
+                   concat
+                   (apply
+                    #'format
+                    "%c-%c" (dtk-unicode-charset-limits charset)))))
 
 (defvar dtk-unicode-charset-filter-regexp
   (dtk-unicode-build-skip-regexp dtk-unicode-untouched-charsets)
-  "Regular exppression that matches characters not in dtk-unicode-untouched-charsets.")
+  "Regular exppression that matches characters not in
+  dtk-unicode-untouched-charsets.")
 
 (defun dtk-unicode-update-untouched-charsets (charsets)
   "Update list of charsets we will not touch."
   (setq dtk-unicode-untouched-charsets charsets)
-  (setq dtk-unicode-charset-filter-regexp (dtk-unicode-build-skip-regexp dtk-unicode-untouched-charsets)))
+  (setq dtk-unicode-charset-filter-regexp
+        (dtk-unicode-build-skip-regexp dtk-unicode-untouched-charsets)))
 
 (eval-and-compile
   (defmacro dtk--with-charset-priority (charsets &rest body)
@@ -192,7 +200,8 @@ charsets returned by operations such as `find-charset-region'."
     (dtk--with-charset-priority charsets (memq (char-charset char) charsets))))
 
 (defun dtk-unicode-char-untouched-p (char)
-  "Return t if char is a member of one of the charsets in dtk-unicode-untouched-charsets."
+  "Return t if char is a member of one of the charsets in
+dtk-unicode-untouched-charsets."
   (dtk-unicode-char-in-charsets-p char dtk-unicode-untouched-charsets))
 
 (defvar dtk-unicode-cache (make-hash-table)
@@ -220,16 +229,21 @@ charsets returned by operations such as `find-charset-region'."
       (format "%c" char))))))
 
 (defun dtk-unicode-char-punctuation-p (char)
-  "Use unicode properties to determine whether CHAR is a ppunctuation character."
+  "Use unicode properties to determine whether CHAR is a
+ppunctuation character."
   (let ((category (get-char-code-property char 'category))
         (case-fold-search t))
     (when (stringp category)
       (string-match "punctuation" category))))
 
 (defun dtk-unicode-apply-name-transformation-rules (name)
-  "Apply transformation rules in dtk-unicode-name-transformation-rules-alist to NAME."
+  "Apply transformation rules in
+dtk-unicode-name-transformation-rules-alist to NAME."
   (funcall
-   (or (assoc-default name dtk-unicode-name-transformation-rules-alist 'string-match)
+   (or
+    (assoc-default
+     name
+     dtk-unicode-name-transformation-rules-alist 'string-match)
        'identity)
    name))
 
@@ -250,7 +264,9 @@ When called interactively, CHAR defaults to the character after point."
    (let ((char (following-char)))
      (list char
            (read-string
-            (format "Replacement for %c (0x%x) from charset %s: " char char (char-charset char))))))
+            (format
+             "Replacement for %c (0x%x) from charset %s: "
+             char char (char-charset char))))))
   (push (cons char replacement) dtk-unicode-character-replacement-alist))
 
 ;;}}}
@@ -264,30 +280,23 @@ When called interactively, CHAR defaults to the character after point."
   "Uses the unicode data file to find the name of CHAR."
   (let ((char-desc (dtk-unicode-name-for-char char)))
     (when char-desc
-      (format " %s " (dtk-unicode-apply-name-transformation-rules char-desc)))))
+      (format
+       " %s " (dtk-unicode-apply-name-transformation-rules char-desc)))))
 
 ;;}}}
 ;;{{{ External interface
 
 (defun dtk-unicode-full-name-for-char (char)
-  "Return full name of CHAR.
-
-This is meant to be used in places where the user asks for a detailed description of CHAR."
+  "Return full name of CHAR. "
   (dtk-unicode-name-for-char char))
 (defun dtk-unicode-short-name-for-char (char)
-  "Return name of CHAR.
-
-This is meant to be used in places where the user asks for a short description of CHAR."
+  "Return short name of CHAR. "
   (if (memq char dtk-unicode-untouched-charsets)
       (char-to-string char)
     (dtk-unicode-name-for-char char)))
 
 (defun dtk-unicode-replace-chars (mode)
-  "Replace unicode characters in current buffer with something more TTS friendly.
-
-This is the main entry point for this module.
-The argument MODE specifies the current punctuation mode.
-Does nothing for unibyte buffers."
+  "Replace unicode characters in current buffer with something  TTS friendly. "
   (cl-declare (special dtk-unicode-process-utf8))
   (when dtk-unicode-process-utf8
     (let ((inhibit-read-only t))
@@ -303,7 +312,8 @@ Does nothing for unibyte buffers."
                          (memq mode '(some none))
                          (dtk-unicode-char-punctuation-p char))
                         " "
-                      (run-hook-with-args-until-success 'dtk-unicode-handlers char)))))
+                      (run-hook-with-args-until-success
+                       'dtk-unicode-handlers char)))))
             (replace-match replacement t t nil)
             (when props
               (set-text-properties pos (point) props))))))))

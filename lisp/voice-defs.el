@@ -55,16 +55,16 @@
 ;;; these voices are device independent 
 
 (defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
-  "Add speaks some punctuations.")
+  "Speaks some punctuations.")
 
 (defvoice  voice-monotone (list nil nil 0 0 nil 'all)
-  "Add monotone and speaks all punctuations.")
+  "Add monotone and  all punctuations.")
 
 (defvoice  voice-monotone-medium (list nil nil 2 2  nil 'all)
-  "Add medium monotone and speak punctuations.")
+  "Add medium monotone and  punctuations.")
 
 (defvoice  voice-monotone-light (list nil nil 4 4   nil 'all)
-  "Add light monotone and speak punctuations.")
+  "Add light monotone and  punctuations.")
 
 (defvoice voice-animate-extra (list nil 8 8 6)
   "Adds extra animation.")

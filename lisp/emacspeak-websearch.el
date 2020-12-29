@@ -68,7 +68,7 @@
 ;;{{{ searcher table
 
 (defvar emacspeak-websearch-table (make-hash-table)
-  "Table holding mapping from search engine names to appropriate searcher functions.")
+  "Table to map  search engine names to appropriate searcher functions.")
 
 (defun emacspeak-websearch-set-searcher  (engine searcher)
   (cl-declare (special emacspeak-websearch-table))
@@ -126,7 +126,8 @@
 ;;;###autoload
 (defun emacspeak-websearch-dispatch  ()
   " Press `?' to list available search engines.
-   This interface attempts to speak the most relevant information on the result page."
+   This interface attempts to speak the most relevant information
+   on the result page."
   (interactive)
   (let ((engine nil)
         (searcher nil))

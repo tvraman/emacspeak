@@ -2996,8 +2996,9 @@ Remote workstation is  `emacspeak-wizards-remote-workstation'."
 ;;{{{ describe-voice at point:
 ;;;###autoload
 (defun emacspeak-wizards-describe-personality(personality)
-  "Describe specified voice --- analogous to \\[describe-face].
-When called interactively, `personality' defaults to first personality at point. "
+  "Describe  voice --- analogous to \\[describe-face].
+When called interactively, `personality' defaults to first
+personality at point. "
   (interactive
    (list
     (let* ((v (dtk-get-style)))

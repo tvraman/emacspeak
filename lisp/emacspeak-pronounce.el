@@ -1,4 +1,4 @@
-;;; emacspeak-pronounce.el --- Implements Emacspeak pronunciation dictionaries  -*- lexical-binding: t; -*-
+;;; emacspeak-pronounce.el --- Emacspeak pronunciation dictionaries -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Emacspeak pronunciation dictionaries
@@ -321,7 +321,8 @@ Default is emacspeak-pronounce-dictionaries-file."
   "Buffer name where we are currently defining a pronunciation.")
 
 (defvar emacspeak-pronounce-yank-word-point nil
-  "Point where we left off reading from the buffer containing the term being defined.")
+  "Point where we left off reading from the buffer containing the
+  term being defined.")
 
 (make-variable-buffer-local ' emacspeak-pronounce-yank-word-point)
 
