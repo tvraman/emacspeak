@@ -49,8 +49,6 @@ BATCH = -batch -q -no-site-file     \
 load-source-file-function  nil)' 
 DEPS=-l $(SRC)/emacspeak-preamble.el -l $(SRC)/emacspeak-loaddefs.el 
 
-
-
 COMPILE =  -f batch-byte-compile
 # How to compile
 %.elc:  %.el
