@@ -2073,6 +2073,7 @@ Warning, this is fragile, and depends on a stable id/class for the
   (message "Removed Emacspeak EWW mark %s" name))
 
 
+(declare-function emacspeak-bookshare-eww "emacspeak-bookshare" (directory))
 
 ;;;###autoload
 (defun emacspeak-eww-open-mark (name &optional delete)

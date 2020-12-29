@@ -489,7 +489,7 @@ See documentation for command
 meaning of `next'."
   (interactive)
   (emacspeak-speak-this-buffer-other-window-display 1))
-;;;###autoload
+
 (defun emacspeak-select-this-buffer-other-window-display (&optional arg)
   "Switch to this buffer as displayed in a different frame.
 Emacs allows you to display the same buffer in multiple windows
@@ -979,7 +979,7 @@ directory to where find is to be launched."
 
 ;;}}}
 ;;{{{  count slides in region: (LaTeX specific.
-;;;###autoload
+
 (defun emacspeak-wizards-count-slides-in-region (start end)
   "Count slides starting from point."
   (interactive "r")

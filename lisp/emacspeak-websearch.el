@@ -267,7 +267,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://digital.library.upenn.edu/webbin/book/search?"
 "URI for Gutenberg search")
 
-;;;###autoload
+
 (defun emacspeak-websearch-gutenberg (type query)
   "Perform an Gutenberg search"
   (interactive
@@ -382,7 +382,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   "https://www.google.com/search?num=25&lite=90586&q=%s"
   "Using experimental Google Lite.")
 
-;;;###autoload
+
 (defun emacspeak-websearch-accessible-google(query &optional options)
   "Use Google Lite (Experimental).
 Optional prefix arg prompts for toolbelt options."
@@ -409,7 +409,7 @@ Optional prefix arg prompts for toolbelt options."
        ems--websearch-google-filter
        (format emacspeak-websearch-accessible-google-url query))))))
 
-;;;###autoload
+
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "AGoogle: ")))
