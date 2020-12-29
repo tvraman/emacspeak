@@ -304,7 +304,7 @@ maths: emacspeak-maths.elc
 
 force:
 
-config: emacspeak-loaddefs.el   custom
+config: emacspeak-loaddefs.el   
 lint:
 	echo "." |\
 emacs -batch -q \
