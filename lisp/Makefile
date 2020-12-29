@@ -81,7 +81,6 @@ emacspeak-preamble.elc \
 emacspeak-loaddefs.elc \
 emacspeak-advice.elc\
 emacspeak-keymap.elc\
-emacspeak-fix-interactive.elc\
 emacspeak-re-builder.elc \
 emacspeak-rg.elc \
 emacspeak-racer.elc \
@@ -420,7 +419,6 @@ dom-addons.elc: dom-addons.el
 emacspeak-eww.elc: emacspeak-eww.el  dom-addons.elc dtk-speak.elc voice-setup.elc
 emacspeak-feeds.elc: emacspeak-feeds.el  dtk-speak.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
-emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-setup.elc
 emacspeak-flycheck.elc: emacspeak-flycheck.el dtk-speak.elc voice-setup.elc
 emacspeak-flymake.elc: emacspeak-flymake.el dtk-speak.elc voice-setup.elc
 emacspeak-flyspell.elc: emacspeak-flyspell.el dtk-speak.elc voice-setup.elc
