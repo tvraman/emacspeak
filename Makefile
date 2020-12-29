@@ -140,7 +140,7 @@ install:
 # {{{Worktree:
 # Usage make wk TAG=tag
 wk:
-	git worktree add ../${TAG} ${TAG}
+	git worktree add ../${TAG}-emacspeak ${TAG}
 
 # }}}
 # {{{ end of file
