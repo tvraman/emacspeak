@@ -1753,7 +1753,7 @@ No-op if  `dtk-quiet' is set to t. "
         (dtk-unicode-replace-chars mode)
         (dtk-quote mode)
         (goto-char (point-min))         ; text is ready to be spoken
-        (skip-syntax-forward "- ")      ;skip leading whitespace
+        (skip-syntax-forward "-")      ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk chunk-sep complement-sep))

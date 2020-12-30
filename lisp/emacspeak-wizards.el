@@ -1574,7 +1574,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   "Navigate to and speak previous `bullet'."
   (interactive)
   (search-backward-regexp
-   "\\(^ *[0-9]+\. \\)\\|\\(^O\s\\) *")
+   "\\(^ *[0-9]+\\. \\)\\|\\(^O\s\\) *")
   (emacspeak-auditory-icon 'item)
   (emacspeak-speak-line))
 

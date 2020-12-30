@@ -310,7 +310,7 @@ Optional argument 'no-auth says we dont need a user auth."
   (cl-declare (special emacspeak-bookshare-downloads-directory))
   (expand-file-name
    (replace-regexp-in-string
-    "[ _&\'\":()\;]+" "-"
+    "[ _&'\":();]+" "-"
     (format "%s-%s%s.zip"
             author title
             (if  fmt
@@ -322,7 +322,7 @@ Optional argument 'no-auth says we dont need a user auth."
   (cl-declare (special emacspeak-bookshare-directory))
   (expand-file-name
    (replace-regexp-in-string
-    "[ _&\'\":()\;]+" "-"
+    "[ _&'\":();]+" "-"
     (format "%s/%s" author title))
    emacspeak-bookshare-directory))
 

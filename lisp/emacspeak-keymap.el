@@ -223,7 +223,7 @@
            ("TAB" emacspeak-info-wizard)
            ("V" customize-variable)
            ("\"" emacspeak-wizards-list-voices)
-           ("\;" describe-font)
+           (";" describe-font)
            ("\\" emacspeak-wizards-color-diff-at-point)
            ("p" list-packages)
 (":" describe-help-keys)

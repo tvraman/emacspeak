@@ -338,7 +338,7 @@ set the current local value to the result.")
              (t (cl-second fields))))))
 
 (defvar emacspeak-erc-cricket-4-6-pattern
-  " [0-9]+x\[46]"
+  " [0-9]+x[46]"
   "Matches pattern used to  score number of fours and sixes in IRC #cricket.")
 
 (defun emacspeak-erc-cricket-convert-4-6-pattern (pattern)

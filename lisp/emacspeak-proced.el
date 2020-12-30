@@ -242,7 +242,7 @@
   (define-key proced-mode-map "." 'emacspeak-proced-speak-field)
   (define-key proced-mode-map "<" 'beginning-of-buffer)
   (define-key proced-mode-map ">" 'end-of-buffer)
-  (define-key proced-mode-map "\;" 'emacspeak-proced-speak-that-field)
+  (define-key proced-mode-map ";" 'emacspeak-proced-speak-that-field)
   (define-key proced-mode-map "," 'emacspeak-proced-speak-this-field))
 
 (add-hook 'proced-mode-hook #'emacspeak-proced-add-keys)

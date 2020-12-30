@@ -392,10 +392,10 @@ Also generates global keybindings if any."
       (cl-loop
        for m in muggles do
        (let ((key  (where-is-internal m nil 'first)))
-         (insert (format "(autoload \'%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
+         (insert (format "(autoload '%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
          (when key 
-           (insert (format "(global-set-key %s \'%s)\n" key m)))))
-      (insert "\n(provide \'emacspeak-muggles-autoloads)\n")
+           (insert (format "(global-set-key %s '%s)\n" key m)))))
+      (insert "\n(provide 'emacspeak-muggles-autoloads)\n")
       (save-buffer))
     (message "Generated autoloads for muggles.")))
 
