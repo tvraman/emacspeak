@@ -45,19 +45,19 @@
 ;;; Voice-lock-mode is a minor mode that causes your comments to be
 ;;; spoken in one personality, strings in another, reserved words in another,
 ;;; documentation strings in another, and so on.
-;;
+;;;
 ;;; Comments will be spoken in `voice-comment-personality'.
 ;;; Strings will be spoken in `voice-string-personality'.
-;;; Function and variable names (in their defining forms) will be
+;;; Function  (in their defining forms) will be
 ;;;  spoken in `voice-function-name-personality'.
 ;;; Reserved words will be spoken in `voice-keyword-personality'.
-;;
-;;; To make the text you type be voiceified, use M-x voice-lock-mode.
+;;;
+;;; To audio-format  text , use M-x voice-lock-mode.
 ;;; When this minor mode is on, the voices of the current line are
 ;;; updated with every insertion or deletion.
-;;
+;;;
 
-;;
+;;;
 ;;; Voice-Lock And Aural CSS:
 ;;; The CSS Speech Style Sheet specification defines a number of
 ;;; abstract device independent voice properties.
@@ -70,7 +70,7 @@
 ;;; packages    that wish to implement audio formatting 
 ;;; and Emacspeak's TTS module.  Emacspeak produces voice
 ;;; change effects by examining the value of text-property
-;;; 'personality.
+;;; 'personality', as well as the face/font at point.
 
 ;;; Think of a buffer of formatted text along with the text-property
 ;;; 'personality appropriately set as a "aural display list".
@@ -78,12 +78,12 @@
 ;;;  produce audio-formatted output by calling  function
 ;;; acss-personality-from-speech-style  with a  "speech-style"
 ;;; --a structure as defined in this module and get back a symbol that
-;;; they then assign to the value of property 'personality.
+;;; they  assign to the value of property 'personality.
 ;;;Emacspeak's rendering engine then does the needful at the time
 ;;;speech is produced.
 ;;; Function acss-personality-from-speech-style does the following:
 ;;; Takes as input a "speech style"
-;;;(1)  Computes a symbol that will be used henceforth to refer to this
+;;;(1)  Computes a symbol that will be used  to refer to this
 ;;; specific speech style.
 ;;; (2) Examines emacspeak's internal voice table to see if this
 ;;; speech style has a voice already defined.
@@ -93,25 +93,21 @@
 ;;; See its use in   this module to see how voices are defined
 ;;; independent of a given TTS engine.
 ;;; How faces map to voices: TTS engine specific modules e.g.,
-;;; dectalk-voices.el and outloud-voices.el define a standard set
-;;; of voice names.  This module maps standard "personality"
-;;; names to these pre-defined voices.  It does this via special
+;;; dectalk-voices.el and outloud-voices.el map ACSS dimensions to 
+;;; engine-specific codes. It does this via special
 ;;; form def-voice-font which takes a personality name, a voice
 ;;; name and a face name to set up the mapping between face and
 ;;; personality, and personality and voice.
-;;; Newer Emacspeak modules should use voice-setup-add-map when
+;;;  Emacspeak modules  use voice-setup-add-map when
 ;;; defining face->personality mappings.
-;;; Older code calls def-voice-font directly, but over time those
-;;; calls will be changed to the more succinct form provided by
-;;; voice-setup-add-map. For use from other modules, also see
+;;; For use from other modules, also see
 ;;; function voice-setup-map-face which is useful when mapping a
 ;;; single face.
 ;;; Both voice-setup-add-map and voice-setup-map-face call
 ;;; special form def-voice-font.
 
-;;; Special form def-voice-font sets up the personality name to
-;;; be available via custom.  new voices can be defined using CSS
-;;; style specifications see special form defvoice Voices defined
+;;;   new voices can be defined using CSS styles,
+;;;  see special form defvoice. Voices defined
 ;;; via defvoice can be customized via custom see the
 ;;; documentation for defvoice.
 ;;; Code:
