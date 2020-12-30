@@ -123,12 +123,7 @@ COMMAND-STRING to the TTS engine."
 ;;; Modified voices:
 
 ;;}}}
-;;{{{  the inaudible voice
-
-;;; Achieve this by setting volume to 0?
-(mac-define-voice 'inaudible " [[volm 0.1]] ")
-
-;;}}}
+;;{{{  the inau
 ;;{{{  Mapping css parameters to tts codes
 
 ;;{{{ voice family codes

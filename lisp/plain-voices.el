@@ -112,13 +112,7 @@ COMMAND-STRING to the TTS server."
 (plain-define-voice 'paul "")
 
 ;;}}}
-;;{{{  the inaudible voice
-
-;;; no special code needed --handled by Emacspeak engine.
-
-(plain-define-voice 'inaudible "")
-
-;;}}}
+;;{{{  the inau
 ;;{{{  Mapping css parameters to Plain codes
 
 ;;{{{ voice family codes

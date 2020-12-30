@@ -120,13 +120,6 @@
 (dectalk-define-voice 'paul "[:np ]")
 
 ;;}}}
-;;{{{  the inaudible voice
-
-;;; no special code needed --handled by Emacspeak engine.
-
-(dectalk-define-voice 'inaudible "")
-
-;;}}}
 ;;{{{  Mapping css parameters to Dectalk codes
 
 ;;{{{ voice family codes

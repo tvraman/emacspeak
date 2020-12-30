@@ -113,11 +113,6 @@
 (outloud-define-voice 'paul  " `v1 ")
 
 ;;}}}
-;;{{{  the inaudible voice
-
-(outloud-define-voice 'inaudible " `vv0 ")
-
-;;}}}
 ;;;  Mapping css parameters to tts codes
 ;;{{{  hash table for mapping families to their dimensions
 

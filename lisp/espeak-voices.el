@@ -109,12 +109,6 @@ COMMAND-STRING to the TTS engine."
 ;;; Modified voices:
 
 ;;}}}
-;;{{{  the inaudible voice
-;;; no special code needed --handled by Emacspeak engine.
-
-(espeak-define-voice 'inaudible "")
-
-;;}}}
 ;;{{{  Mapping css parameters to tts codes
 
 ;;{{{ voice family codes
