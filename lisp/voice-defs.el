@@ -52,8 +52,6 @@
 ;;}}}
 ;;{{{ Voice Definitions: bold and friends
 
-;;; these voices are device independent 
-
 (defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
   "Speaks some punctuations.")
 
@@ -152,7 +150,7 @@
    (bold-italic voice-bolden-and-animate)
    (button voice-bolden-medium)
    (error voice-brighten)
-   (file-name-shadow voice-monotone-medium)
+   (file-name-shadow voice-smoothen-medium)
    (fixed-pitch voice-monotone)
    (font-lock-builtin-face voice-bolden)
    (font-lock-comment-delimiter-face voice-smoothen-medium)
@@ -181,7 +179,7 @@
    (query-replace voice-bolden)
    (region voice-brighten)
    (secondary-selection voice-lighten-medium)
-   (shadow voice-monotone-medium)
+   (shadow voice-smoothen-medium)
    (shr-link voice-bolden)
    (success voice-brighten-extra)
    (underline voice-lighten-extra)
