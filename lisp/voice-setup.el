@@ -199,17 +199,6 @@ Define a voice for it if needed, then return the symbol."
     (cl-loop for k being the hash-keys of voice-table collect   k)))
 
 ;;}}}
-;;{{{  helper for voice custom items:
-
-(defun voice-setup-custom-menu ()
-  " Choice widget  to select  voices."
-  `(choice
-    (symbol :tag "Other")
-    ,@(mapcar 
-       #'(lambda (voice)(list 'const voice))
-       (tts-list-voices))))
-
-;;}}}
 ;;{{{ map faces to voices
 
 (defvar voice-setup-face-voice-table (make-hash-table :test #'eq)
@@ -243,26 +232,16 @@ Define a voice for it if needed, then return the symbol."
     `(progn
        (unless (boundp ',personality)
 ;;; New Personality
-         (defcustom  ,personality
+         (defvar  ,personality
            ,voice
            ,documentation
-           :type (voice-setup-custom-menu)
-           :group 'voice-fonts
-           :set '(lambda (sym val)
-                   (let ((observing  (get sym 'observing)))
-                     (when (and (symbolp sym)
-                                (symbolp observing))
-                       (cl-remprop observing sym))
-                     (set-default sym val)))
-           ,@args))
+           ))
 ;;; other actions performed at define time
        (voice-setup-set-voice-for-face ,face ',personality)
 ;;;record  personality as an
 ;;;observer of  voice and vice versa
        (when (symbolp ',personality)
-         (put  ',personality 'observing ',voice))
-       (when (symbolp ',voice)
-         (put  ',voice ',personality t)))))
+         (put  ',personality 'observing ',voice)))))
 
 (defun voice-setup-name-personality (face-name)
   "Get personality name to use."
