@@ -51,7 +51,7 @@ DEPS=-l $(SRC)/emacspeak-preamble.el -l $(SRC)/emacspeak-loaddefs.el
 
 COMPILE =  -f batch-byte-compile
 # How to compile
-%.elc:  %.el
+%.elc:  %.el dtk-speak.elc
 	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
 
 # }}}
@@ -59,23 +59,23 @@ COMPILE =  -f batch-byte-compile
 
 #The various modules:
 TTS_OBJECTS =  \
+emacspeak-preamble.elc \
+emacspeak-loaddefs.elc \
 dtk-interp.elc dtk-unicode.elc \
 dtk-speak.elc		dectalk-voices.elc\
 plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc
 
 SPEAK_OBJECTS =   \
-emacspeak-speak.elc  \
-emacspeak.elc \
-emacspeak-setup.elc \
-emacspeak-preamble.elc \
-emacspeak-loaddefs.elc \
-emacspeak-advice.elc\
-emacspeak-keymap.elc\
 voice-setup.elc \
 voice-defs.elc \
 emacspeak-pronounce.elc \
-emacspeak-sounds.elc
+emacspeak-speak.elc  \
+emacspeak-advice.elc\
+emacspeak-keymap.elc\
+emacspeak-sounds.elc \
+emacspeak.elc \
+emacspeak-setup.elc 
 
 CORE_OBJECTS =  \
 amixer.elc \
@@ -331,9 +331,7 @@ custom: force
 # }}}
 # {{{  Make rules for the various modules
 
-
 dtk-speak.elc: dtk-speak.el
-%.elc: %.el dtk-speak.elc
 # }}}
 # {{{Development  target: indent, tags, relint 
 indent:
