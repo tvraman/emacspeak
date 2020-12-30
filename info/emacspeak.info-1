@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 28, 2020.
+last updated on December 30, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1135 commands and 857 options.
+   This chapter documents a total of 1133 commands and 149 options.
 
 * Menu:
 
@@ -2874,9 +2874,9 @@ documentation, then read *Note emacspeak-eww::.
 * cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Define various device independent voices in terms of Dectalk codes.
 * dom-addons::dom.el addons.
-* dtk-interp::Language specific (e.g. TCL) interface to speech server.
+* dtk-interp::interface to speech server.
 * dtk-speak::Provides Emacs Lisp interface to speech server.
-* dtk-unicode::Pronounce Unicode characters correctly.
+* dtk-unicode::Pronounce Unicode characters.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC-MODE.
@@ -2945,7 +2945,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-extras::Speech-enable EXTRAS.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
 * emacspeak-filtertext::Utilities to filter text.
-* emacspeak-fix-interactive::Make  Emacs’ builtin prompts   speak.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.
 * emacspeak-flyspell::Speech enable flyspell.
@@ -3014,7 +3013,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
-* emacspeak-pronounce::Implements Emacspeak pronunciation dictionaries.
+* emacspeak-pronounce::Emacspeak pronunciation dictionaries.
 * emacspeak-py::Speech enable Python development environment.
 * emacspeak-pydoc::Speech-enable PYDOC.
 * emacspeak-python::Speech enable Python development environment.
@@ -3718,236 +3717,6 @@ the main emacspeak module.
  -- Variable: User Option emacspeak-play-emacspeak-startup-icon
      If set to T, emacspeak plays its icon as it launches.
 
- -- Variable: User Option voice-bold
-     Personality used for bold This personality uses voice-bolden whose
-     effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-bold-italic
-     Personality used for bold-italic This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-builtin-personality
-     Personality used for font-lock-builtin-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-button
-     Personality used for button This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-comment-delimiter-personality
-     Personality used for font-lock-comment-delimiter-face This
-     personality uses voice-smoothen-medium whose effect can be changed
-     globally by customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option voice-comment-personality
-     Personality used for font-lock-comment-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-constant-personality
-     Personality used for font-lock-constant-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-doc-personality
-     Personality used for font-lock-doc-face This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-error
-     Personality used for error This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-file-name-shadow
-     Personality used for file-name-shadow This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-fixed-pitch
-     Personality used for fixed-pitch This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-fringe
-     Personality used for fringe This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-function-name-personality
-     Personality used for font-lock-function-name-face This personality
-     uses voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-header-line
-     Personality used for header-line This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-help-argument-name
-     Personality used for help-argument-name This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-highlight
-     Personality used for highlight This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-isearch
-     Personality used for isearch This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-isearch-fail
-     Personality used for isearch-fail This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-italic
-     Personality used for italic This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-keyword-personality
-     Personality used for font-lock-keyword-face This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-link
-     Personality used for link This personality uses voice-bolden-medium
-     whose effect can be changed globally by customizing
-     voice-bolden-medium-settings.
-
- -- Variable: User Option voice-link-visited
-     Personality used for link-visited This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-match
-     Personality used for match This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-negation-char-personality
-     Personality used for font-lock-negation-char-face This personality
-     uses voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-outline-1
-     Personality used for outline-1 This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-outline-2
-     Personality used for outline-2 This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-outline-3
-     Personality used for outline-3 This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-outline-4
-     Personality used for outline-4 This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-outline-5
-     Personality used for outline-5 This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-outline-6
-     Personality used for outline-6 This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-preprocessor-personality
-     Personality used for font-lock-preprocessor-face This personality
-     uses voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-query-replace
-     Personality used for query-replace This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-regexp-grouping-backslash
-     Personality used for font-lock-regexp-grouping-backslash This
-     personality uses voice-smoothen-extra whose effect can be changed
-     globally by customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-regexp-grouping-construct
-     Personality used for font-lock-regexp-grouping-construct This
-     personality uses voice-smoothen whose effect can be changed
-     globally by customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-region
-     Personality used for region This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-secondary-selection
-     Personality used for secondary-selection This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-shadow
-     Personality used for shadow This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-shr-link
-     Personality used for shr-link This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-string-personality
-     Personality used for font-lock-string-face This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-success
-     Personality used for success This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-type-personality
-     Personality used for font-lock-type-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-underline
-     Personality used for underline This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-variable-name-personality
-     Personality used for font-lock-variable-name-face This personality
-     uses voice-animate whose effect can be changed globally by
-     customizing voice-animate-settings.
-
- -- Variable: User Option voice-variable-pitch
-     Personality used for variable-pitch This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-warning
-     Personality used for warning This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-warning-personality
-     Personality used for font-lock-warning-face This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-2048,  Next: emacspeak-abc-mode,  Prev: emacspeak,  Up: Emacspeak Commands And Options
 
@@ -4088,49 +3857,6 @@ File: emacspeak.info,  Node: emacspeak-add-log,  Next: emacspeak-advice,  Prev: 
 
 Speech-enable Changelog mode
 
-12.12.1 emacspeak-add-log Options
----------------------------------
-
- -- Variable: User Option voice-change-log-acknowledgment
-     Personality used for change-log-acknowledgment This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-change-log-conditionals
-     Personality used for change-log-conditionals This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-change-log-date
-     Personality used for change-log-date This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-change-log-email
-     Personality used for change-log-email This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-change-log-file
-     Personality used for change-log-file This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-change-log-function
-     Personality used for change-log-function This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-change-log-list
-     Personality used for change-log-list This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-change-log-name
-     Personality used for change-log-name This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-advice,  Next: emacspeak-amark,  Prev: emacspeak-add-log,  Up: Emacspeak Commands And Options
 
@@ -4167,46 +3893,6 @@ forms not needed in Emacs 22.
 
  -- Variable: User Option emacspeak-speak-tooltips
      Enable to get tooltips spoken.
-
- -- Variable: User Option voice-completions-annotations
-     Personality used for completions-annotations This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-completions-common-part
-     Personality used for completions-common-part This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-completions-first-difference
-     Personality used for completions-first-difference This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
- -- Variable: User Option voice-eldoc-highlight-function-argument
-     Personality used for eldoc-highlight-function-argument This
-     personality uses voice-bolden whose effect can be changed globally
-     by customizing voice-bolden-settings.
-
- -- Variable: User Option voice-log-edit-header
-     Personality used for log-edit-header This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-log-edit-summary
-     Personality used for log-edit-summary This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-log-edit-unknown-header
-     Personality used for log-edit-unknown-header This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-minibuffer-prompt
-     Personality used for minibuffer-prompt This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-amark,  Next: emacspeak-analog,  Prev: emacspeak-advice,  Up: Emacspeak Commands And Options
@@ -4395,64 +4081,6 @@ been my authoring environment of choice for writing LaTeX since 1991.
 
      (fn N)
 
-12.18.2 emacspeak-auctex Options
---------------------------------
-
- -- Variable: User Option voice-latex-bold-personality
-     Personality used for font-latex-bold-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-latex-doctex-documentation-personality
-     Personality used for font-latex-doctex-documentation-face This
-     personality uses voice-monotone-medium whose effect can be changed
-     globally by customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-latex-doctex-preprocessor-personality
-     Personality used for font-latex-doctex-preprocessor-face This
-     personality uses voice-brighten-medium whose effect can be changed
-     globally by customizing voice-brighten-medium-settings.
-
- -- Variable: User Option voice-latex-italic-personality
-     Personality used for font-latex-italic-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-latex-math-personality
-     Personality used for font-latex-math-face This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-latex-sedate-personality
-     Personality used for font-latex-sedate-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-latex-string-personality
-     Personality used for font-latex-string-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-latex-subscript-personality
-     Personality used for font-latex-subscript-face This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-latex-superscript-personality
-     Personality used for font-latex-superscript-face This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
- -- Variable: User Option voice-latex-verbatim-personality
-     Personality used for font-latex-verbatim-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-latex-warning-personality
-     Personality used for font-latex-warning-face This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-auctex,  Up: Emacspeak Commands And Options
 
@@ -4499,24 +4127,6 @@ File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: ema
 
 Speech-enables BBDB. I have used BBDB to manage email address and
 contact information since 1991.
-
-12.20.1 emacspeak-bbdb Options
-------------------------------
-
- -- Variable: User Option voice-bbdb-field-name
-     Personality used for bbdb-field-name This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-bbdb-name
-     Personality used for bbdb-name This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-bbdb-organization
-     Personality used for bbdb-organization This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
@@ -4864,9 +4474,9 @@ detailed usage instructions and key-bindings.
      M-n		emacspeak-bookshare-next-result
      M-p		emacspeak-bookshare-previous-result
 
-     In addition to any hooks its parent mode ‘special-mode’ might have run,
-     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
-     during initialization.
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the
+     final or penultimate step during initialization.
 
 12.23.4.29 emacspeak-bookshare-next-result
 ..........................................
@@ -5068,14 +4678,6 @@ Speech-enable buffer-menus.
 
      Speak the name of the buffer on this line
 
-12.26.2 emacspeak-buff-menu Options
------------------------------------
-
- -- Variable: User Option voice-buffer-menu-buffer
-     Personality used for buffer-menu-buffer This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calc,  Prev: emacspeak-buff-menu,  Up: Emacspeak Commands And Options
 
@@ -5156,24 +4758,6 @@ This module speech enables the Emacs Calendar.
      Display sunrise/sunset for specified address.
 
      (fn ADDRESS &optional ARG)
-
-12.30.2 emacspeak-calendar Options
-----------------------------------
-
- -- Variable: User Option voice-calendar-today
-     Personality used for calendar-today This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-diary
-     Personality used for diary This personality uses voice-bolden whose
-     effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-holiday
-     Personality used for holiday This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-chess,  Next: emacspeak-cider,  Prev: emacspeak-calendar,  Up: Emacspeak Commands And Options
@@ -5398,14 +4982,6 @@ File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emac
 
 Speech-Enable CIDER — Clojure IDE
 
-12.32.1 emacspeak-cider Options
--------------------------------
-
- -- Variable: User Option voice-cider-repl-stderr-facevoice-animate
-     Personality used for cider-repl-stderr-facevoice-animate This
-     personality uses nil whose effect can be changed globally by
-     customizing nil-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
 
@@ -5482,16 +5058,6 @@ comint == command interaction.  Advice comint and friends to speak.
      ‘emacspeak-toggle-comint-autospeak‘ bound to M-x
      emacspeak-toggle-comint-autospeak to toggle this setting.
 
- -- Variable: User Option voice-comint-highlight-input
-     Personality used for comint-highlight-input This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-comint-highlight-prompt
-     Personality used for comint-highlight-prompt This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-comint,  Up: Emacspeak Commands And Options
 
@@ -5508,39 +5074,6 @@ option and ends up getting saved by emacs along with other custom
 settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
 to generate their own feedback.
-
-12.37.1 emacspeak-company Options
----------------------------------
-
- -- Variable: User Option voice-company-echo
-     Personality used for company-echo This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-company-echo-common
-     Personality used for company-echo-common This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-company-preview
-     Personality used for company-preview This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-company-preview-common
-     Personality used for company-preview-common This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-company-preview-search
-     Personality used for company-preview-search This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-company-template-field
-     Personality used for company-template-field This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
@@ -5561,49 +5094,6 @@ better.
  -- Command: emacspeak-compilation-speak-error
 
      Speech feedback about the compilation error.
-
-12.38.2 emacspeak-compile Options
----------------------------------
-
- -- Variable: User Option voice-compilation-column-number
-     Personality used for compilation-column-number This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-compilation-error
-     Personality used for compilation-error This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-compilation-info
-     Personality used for compilation-info This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-compilation-line-number
-     Personality used for compilation-line-number This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-compilation-mode-line-exit
-     Personality used for compilation-mode-line-exit This personality
-     uses voice-animate whose effect can be changed globally by
-     customizing voice-animate-settings.
-
- -- Variable: User Option voice-compilation-mode-line-fail
-     Personality used for compilation-mode-line-fail This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
- -- Variable: User Option voice-compilation-mode-line-run
-     Personality used for compilation-mode-line-run This personality
-     uses voice-annotate whose effect can be changed globally by
-     customizing voice-annotate-settings.
-
- -- Variable: User Option voice-compilation-warning
-     Personality used for compilation-warning This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
@@ -5638,134 +5128,6 @@ emacspeak-widget.el which speech-enables the widget libraries.
  -- Command: emacspeak-custom-goto-toolbar
 
      Jump to custom toolbar when in a customization buffer.
-
-12.40.2 emacspeak-custom Options
---------------------------------
-
- -- Variable: User Option voice-custom-button
-     Personality used for custom-button This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-custom-button-mouse
-     Personality used for custom-button-mouse This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-custom-button-pressed
-     Personality used for custom-button-pressed This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-custom-button-pressed-unraised
-     Personality used for custom-button-pressed-unraised This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-custom-button-unraised
-     Personality used for custom-button-unraised This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-changed
-     Personality used for custom-changed This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-comment
-     Personality used for custom-comment This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-custom-comment-tag
-     Personality used for custom-comment-tag This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-custom-documentation
-     Personality used for custom-documentation This personality uses
-     voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
-
- -- Variable: User Option voice-custom-face-tag
-     Personality used for custom-face-tag This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-custom-group-subtitle
-     Personality used for custom-group-subtitle This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-group-tag
-     Personality used for custom-group-tag This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-custom-group-tag-1
-     Personality used for custom-group-tag-1 This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-custom-invalid
-     Personality used for custom-invalid This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-custom-link
-     Personality used for custom-link This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-custom-modified
-     Personality used for custom-modified This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-custom-rogue
-     Personality used for custom-rogue This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-custom-saved
-     Personality used for custom-saved This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-custom-set
-     Personality used for custom-set This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option voice-custom-state
-     Personality used for custom-state This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-themed
-     Personality used for custom-themed This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-custom-variable-button
-     Personality used for custom-variable-button This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-custom-variable-obsolete
-     Personality used for custom-variable-obsolete This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-custom-variable-tag
-     Personality used for custom-variable-tag This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-custom-visibility
-     Personality used for custom-visibility This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-deadgrep,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
@@ -5844,9 +5206,9 @@ after emacspeak has been started.
      This is a hidden buffer that is made current so we automatically
      switch to a screen-saver soundscape.
 
-     In addition to any hooks its parent mode ‘special-mode’ might have run,
-     this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as the final or penultimate step
-     during initialization.
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as the
+     final or penultimate step during initialization.
 
      key             binding
      —             ——-
@@ -5893,89 +5255,6 @@ File: emacspeak.info,  Node: emacspeak-diff-mode,  Next: emacspeak-dired,  Prev:
 =========================
 
 DIFF-MODE support.
-
-12.46.1 emacspeak-diff-mode Options
------------------------------------
-
- -- Variable: User Option voice-diff-added
-     Personality used for diff-added This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-diff-changed
-     Personality used for diff-changed This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-diff-context
-     Personality used for diff-context This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-diff-file-header
-     Personality used for diff-file-header This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-diff-function
-     Personality used for diff-function This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-diff-header
-     Personality used for diff-header This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-diff-hunk-header
-     Personality used for diff-hunk-header This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-diff-index
-     Personality used for diff-index This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-diff-indicator-added
-     Personality used for diff-indicator-added This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-diff-indicator-changed
-     Personality used for diff-indicator-changed This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-diff-indicator-removed
-     Personality used for diff-indicator-removed This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-diff-nonexistent
-     Personality used for diff-nonexistent This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-diff-refine-added
-     Personality used for diff-refine-added This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-diff-refine-changed
-     Personality used for diff-refine-changed This personality uses
-     voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
-
- -- Variable: User Option voice-diff-refine-removed
-     Personality used for diff-refine-removed This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-diff-removed
-     Personality used for diff-removed This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-diff-mode,  Up: Emacspeak Commands And Options
@@ -6128,69 +5407,6 @@ This module speech enables dired.
      Optional interactive prefix arg shuffles playlist.
 
      (fn &optional SHUFFLE)
-
-12.47.2 emacspeak-dired Options
--------------------------------
-
- -- Variable: User Option voice-dired-broken-symlink
-     Personality used for dired-broken-symlink This personality uses
-     ’voice-monotone whose effect can be changed globally by customizing
-     ’voice-monotone-settings.
-
- -- Variable: User Option voice-dired-directory
-     Personality used for dired-directory This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-dired-flagged
-     Personality used for dired-flagged This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-dired-header
-     Personality used for dired-header This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-dired-ignored
-     Personality used for dired-ignored This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-dired-mark
-     Personality used for dired-mark This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-dired-marked
-     Personality used for dired-marked This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-dired-perm-write
-     Personality used for dired-perm-write This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-dired-set-id
-     Personality used for dired-set-id This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-dired-special
-     Personality used for dired-special This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-dired-symlink
-     Personality used for dired-symlink This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-dired-warning
-     Personality used for dired-warning This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-dumb-jump,  Prev: emacspeak-dired,  Up: Emacspeak Commands And Options
@@ -6420,89 +5636,6 @@ always displays Ediff windows in a single frame.
 
      Speak the current difference
 
-12.52.2 emacspeak-ediff Options
--------------------------------
-
- -- Variable: User Option voice-ediff-current-diff-A
-     Personality used for ediff-current-diff-A This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-current-diff-Ancestor
-     Personality used for ediff-current-diff-Ancestor This personality
-     uses voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-ediff-current-diff-B
-     Personality used for ediff-current-diff-B This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-current-diff-C
-     Personality used for ediff-current-diff-C This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ediff-even-diff-A
-     Personality used for ediff-even-diff-A This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-even-diff-Ancestor
-     Personality used for ediff-even-diff-Ancestor This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ediff-even-diff-B
-     Personality used for ediff-even-diff-B This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-even-diff-C
-     Personality used for ediff-even-diff-C This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-A
-     Personality used for ediff-fine-diff-A This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-Ancestor
-     Personality used for ediff-fine-diff-Ancestor This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-B
-     Personality used for ediff-fine-diff-B This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-C
-     Personality used for ediff-fine-diff-C This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-A
-     Personality used for ediff-odd-diff-A This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-Ancestor
-     Personality used for ediff-odd-diff-Ancestor This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-B
-     Personality used for ediff-odd-diff-B This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-C
-     Personality used for ediff-odd-diff-C This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-eglot,  Next: emacspeak-ein,  Prev: emacspeak-ediff,  Up: Emacspeak Commands And Options
 
@@ -6510,14 +5643,6 @@ File: emacspeak.info,  Node: emacspeak-eglot,  Next: emacspeak-ein,  Prev: emacs
 =====================
 
 EGLOT == LSP Support for emacs
-
-12.53.1 emacspeak-eglot Options
--------------------------------
-
- -- Variable: User Option voice-eglot-mode-line
-     Personality used for eglot-mode-line This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-ein,  Next: emacspeak-elfeed,  Prev: emacspeak-eglot,  Up: Emacspeak Commands And Options
@@ -6537,79 +5662,6 @@ module speech-enables EIN
  -- Command: emacspeak-ein-speak-current-cell
 
      Speak current cell.
-
-12.54.2 emacspeak-ein Options
------------------------------
-
- -- Variable: User Option voice-ein:cell-input-area
-     Personality used for ein:cell-input-area This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ein:cell-input-prompt
-     Personality used for ein:cell-input-prompt This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-ein:cell-output-area
-     Personality used for ein:cell-output-area This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ein:cell-output-area-error
-     Personality used for ein:cell-output-area-error This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-ein:cell-output-prompt
-     Personality used for ein:cell-output-prompt This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ein:cell-output-stderr
-     Personality used for ein:cell-output-stderr This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ein:markdown-header-face-1
-     Personality used for ein:markdown-header-face-1 This personality
-     uses voice-lighten whose effect can be changed globally by
-     customizing voice-lighten-settings.
-
- -- Variable: User Option voice-ein:markdown-header-face-2
-     Personality used for ein:markdown-header-face-2 This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-ein:markdown-header-face-3
-     Personality used for ein:markdown-header-face-3 This personality
-     uses voice-annotate whose effect can be changed globally by
-     customizing voice-annotate-settings.
-
- -- Variable: User Option voice-ein:markdown-header-face-4
-     Personality used for ein:markdown-header-face-4 This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-ein:markdown-header-face-5
-     Personality used for ein:markdown-header-face-5 This personality
-     uses voice-monotone-light whose effect can be changed globally by
-     customizing voice-monotone-light-settings.
-
- -- Variable: User Option voice-ein:markdown-header-face-6
-     Personality used for ein:markdown-header-face-6 This personality
-     uses voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-ein:notification-tab-normal
-     Personality used for ein:notification-tab-normal This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-ein:notification-tab-selected
-     Personality used for ein:notification-tab-selected This personality
-     uses voice-animate whose effect can be changed globally by
-     customizing voice-animate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-elfeed,  Next: emacspeak-elisp-refs,  Prev: emacspeak-ein,  Up: Emacspeak Commands And Options
@@ -6750,24 +5802,6 @@ Auditory interface to misc games
 
      Speak statistics.
 
-12.61.2 emacspeak-entertain Options
------------------------------------
-
- -- Variable: User Option voice-mpuz-solved
-     Personality used for mpuz-solved This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-mpuz-trivial
-     Personality used for mpuz-trivial This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-mpuz-unsolved
-     Personality used for mpuz-unsolved This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-epa,  Next: emacspeak-eperiodic,  Prev: emacspeak-entertain,  Up: Emacspeak Commands And Options
 
@@ -6776,49 +5810,6 @@ File: emacspeak.info,  Node: emacspeak-epa,  Next: emacspeak-eperiodic,  Prev: e
 
 EPA == EasyPG Assistant Integrate GPG functionality into Emacs.
 Speech-enable all interactive commands.
-
-12.62.1 emacspeak-epa Options
------------------------------
-
- -- Variable: User Option voice-epa-field-body
-     Personality used for epa-field-body This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-epa-field-name
-     Personality used for epa-field-name This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-epa-mark
-     Personality used for epa-mark This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-epa-string
-     Personality used for epa-string This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-epa-validity-disabled
-     Personality used for epa-validity-disabled This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-epa-validity-high
-     Personality used for epa-validity-high This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-epa-validity-low
-     Personality used for epa-validity-low This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-epa-validity-medium
-     Personality used for epa-validity-medium This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-eperiodic,  Next: emacspeak-epub,  Prev: emacspeak-epa,  Up: Emacspeak Commands And Options
@@ -6920,9 +5911,9 @@ quick summary of commands for
 
      RET		emacspeak-epub-calibre-dired-at-point
 
-     In addition to any hooks its parent mode ‘special-mode’ might have run,
-     this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
-     during initialization.
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the
+     final or penultimate step during initialization.
 
 12.64.3.2 emacspeak-epub
 ........................
@@ -7193,9 +6184,9 @@ quick summary of commands for
      C-x C-q		emacspeak-epub-bookshelf-refresh
      C-x C-s		emacspeak-epub-bookshelf-save
 
-     In addition to any hooks its parent mode ‘special-mode’ might have run,
-     this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
-     during initialization.
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final
+     or penultimate step during initialization.
 
 12.64.3.28 emacspeak-epub-next
 ..............................
@@ -7348,69 +6339,6 @@ File: emacspeak.info,  Node: emacspeak-eshell,  Next: emacspeak-ess,  Prev: emac
 EShell is a shell implemented entirely in Emacs Lisp.  It is part of
 emacs 21 –and can also be used under Emacs 20.  This module
 speech-enables EShell
-
-12.66.1 emacspeak-eshell Options
---------------------------------
-
- -- Variable: User Option voice-eshell-ls-archive
-     Personality used for eshell-ls-archive This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-backup
-     Personality used for eshell-ls-backup This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-eshell-ls-clutter
-     Personality used for eshell-ls-clutter This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-directory
-     Personality used for eshell-ls-directory This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-eshell-ls-executable
-     Personality used for eshell-ls-executable This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-missing
-     Personality used for eshell-ls-missing This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-eshell-ls-product
-     Personality used for eshell-ls-product This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-eshell-ls-readonly
-     Personality used for eshell-ls-readonly This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-eshell-ls-special
-     Personality used for eshell-ls-special This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-symlink
-     Personality used for eshell-ls-symlink This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-eshell-ls-unreadable
-     Personality used for eshell-ls-unreadable This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-eshell-prompt
-     Personality used for eshell-prompt This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-ess,  Next: emacspeak-etable,  Prev: emacspeak-eshell,  Up: Emacspeak Commands And Options
@@ -7822,14 +6750,6 @@ move around the terminal and have different parts spoken.
        Interactive prefix arg means toggle  the global default value, and then set the
        current local  value to the result.
 
-12.69.2 emacspeak-eterm Options
--------------------------------
-
- -- Variable: User Option voice-term-underline
-     Personality used for term-underline This personality uses
-     voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-eudc,  Next: emacspeak-evil,  Prev: emacspeak-eterm,  Up: Emacspeak Commands And Options
 
@@ -7866,39 +6786,6 @@ EVIL == VIM In Emacs This is work-in-progress and is not complete.
  -- Command: emacspeak-evil-toggle-evil
 
      Interactively toggle evil-mode.
-
-12.71.2 emacspeak-evil Options
-------------------------------
-
- -- Variable: User Option voice-evil-ex-commands
-     Personality used for evil-ex-commands This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-evil-ex-info
-     Personality used for evil-ex-info This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-evil-ex-lazy-highlight
-     Personality used for evil-ex-lazy-highlight This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-evil-ex-search
-     Personality used for evil-ex-search This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-evil-ex-substitute-matches
-     Personality used for evil-ex-substitute-matches This personality
-     uses voice-lighten whose effect can be changed globally by
-     customizing voice-lighten-settings.
-
- -- Variable: User Option voice-evil-ex-substitute-replacement
-     Personality used for evil-ex-substitute-replacement This
-     personality uses voice-smoothen whose effect can be changed
-     globally by customizing voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-extras,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -8660,53 +7547,1321 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Variable: User Option emacspeak-eww-inhibit-images
      Turn this on to avoid rendering images.
 
- -- Variable: User Option voice-eww-form-checkbox
-     Personality used for eww-form-checkbox This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
+
+File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-feeds,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
 
- -- Variable: User Option voice-eww-form-file
-     Personality used for eww-form-file This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
+12.73 emacspeak-extras
+======================
 
- -- Variable: User Option voice-eww-form-select
-     Personality used for eww-form-select This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
+Infrequently used wizards archived for posterity.
 
- -- Variable: User Option voice-eww-form-submit
-     Personality used for eww-form-submit This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
+12.73.1 Emacspeak-Extras Commands
+---------------------------------
 
- -- Variable: User Option voice-eww-form-text
-     Personality used for eww-form-text This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
+12.73.1.1 emacspeak-annotate-add-annotation
+...........................................
 
- -- Variable: User Option voice-eww-form-textarea
-     Personality used for eww-form-textarea This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
+ -- Command: emacspeak-annotate-add-annotation (&optional reset)
 
- -- Variable: User Option voice-eww-invalid-certificate
-     Personality used for eww-invalid-certificate This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
+     Add annotation to the annotation working buffer.
+     Prompt for annotation buffer if not already set.
+     Interactive prefix arg ‘reset’ prompts for the annotation
+     buffer even if one is already set.
+     Annotation is entered in a temporary buffer and the
+     annotation is inserted into the working buffer when complete.
 
- -- Variable: User Option voice-eww-valid-certificate
-     Personality used for eww-valid-certificate This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
+12.73.1.2 emacspeak-clipboard-copy
+..................................
 
- -- Variable: User Option voice-shr-selected-link
-     Personality used for shr-selected-link This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
+ -- Command: emacspeak-clipboard-copy (start end &optional prompt)
+     ‘C-e C-c’
+     ‘<fn> C-c’
 
- -- Variable: User Option voice-shr-strike-through
-     Personality used for shr-strike-through This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
+     Use file-based Emacspeak Clipboard —
+     dis a convenient way of sharing information between independent
+     Emacspeak sessions running on  different machines.
+
+12.73.1.3 emacspeak-clipboard-paste
+...................................
+
+ -- Command: emacspeak-clipboard-paste (&optional paste-table)
+     ‘C-e C-y’
+     ‘<fn> C-y’
+
+     Yank contents of the Emacspeak clipboard at point.
+
+12.73.1.4 emacspeak-curl
+........................
+
+ -- Command: emacspeak-curl (url)
+
+     Grab URL using Curl, and preview it with a browser .
+
+12.73.1.5 emacspeak-wizards-add-autoload-cookies
+................................................
+
+ -- Command: emacspeak-wizards-add-autoload-cookies (&optional f)
+
+     Add autoload cookies to file f.
+     Default is to add autoload cookies to current file.
+
+12.73.1.6 emacspeak-wizards-bindings-from-org
+.............................................
+
+ -- Command: emacspeak-wizards-bindings-from-org (variable filename)
+
+     Load bindings from a specified file.
+
+12.73.1.7 emacspeak-wizards-bindings-to-org
+...........................................
+
+ -- Command: emacspeak-wizards-bindings-to-org (variable filename)
+
+     Persists mapping to org file.
+
+12.73.1.8 emacspeak-wizards-braille
+...................................
+
+ -- Command: emacspeak-wizards-braille (s)
+
+     Insert Braille string at point.
+
+12.73.1.9 emacspeak-wizards-display-pod-as-manpage
+..................................................
+
+ -- Command: emacspeak-wizards-display-pod-as-manpage (filename)
+
+     Create a virtual manpage in Emacs from the Perl Online Documentation.
+
+12.73.1.10 emacspeak-wizards-find-grep
+......................................
+
+ -- Command: emacspeak-wizards-find-grep (glob pattern)
+
+     Run compile using find and grep.
+     Interactive  arguments specify filename pattern and search pattern.
+
+12.73.1.11 emacspeak-wizards-fix-read-only-text
+...............................................
+
+ -- Command: emacspeak-wizards-fix-read-only-text (start end)
+
+     Nuke read-only property on text range.
+
+12.73.1.12 emacspeak-wizards-generate-voice-sampler
+...................................................
+
+ -- Command: emacspeak-wizards-generate-voice-sampler (step)
+
+     Generate a buffer that shows a sample line in all the ACSS settings
+     for the current voice family.
+
+12.73.1.13 emacspeak-wizards-list-voices
+........................................
+
+ -- Command: emacspeak-wizards-list-voices (pattern)
+     ‘C-h "’
+     ‘<f1> "’
+     ‘<help> "’
+
+     Show all defined voice-face mappings  in a help buffer.
+     Sample text to use comes from variable
+       ‘ems–wizards-sampler-text
+
+12.73.1.14 emacspeak-wizards-midi-using-m-score
+...............................................
+
+ -- Command: emacspeak-wizards-midi-using-m-score (midi-file)
+
+     Play midi file using mscore from musescore package.
+
+12.73.1.15 emacspeak-wizards-show-defined-voice-fonts
+.....................................................
+
+ -- Command: emacspeak-wizards-show-defined-voice-fonts
+
+     Display a buffer with sample text in the defined voice fonts.
+
+12.73.1.16 emacspeak-wizards-show-defined-voices
+................................................
+
+ -- Command: emacspeak-wizards-show-defined-voices
+
+     Display a buffer with sample text in the defined voices.
+
+12.73.1.17 emacspeak-wizards-tramp-open-location
+................................................
+
+ -- Command: emacspeak-wizards-tramp-open-location (name)
+
+     Open specified tramp location.
+     Location is specified by name.
+
+12.73.1.18 emacspeak-wizards-voice-sampler
+..........................................
+
+ -- Command: emacspeak-wizards-voice-sampler (personality)
+
+     Read a personality  and apply it to the current line.
+
+12.73.2 emacspeak-extras Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-clipboard-file
+     File used to save Emacspeak clipboard.  The emacspeak clipboard
+     provides a convenient mechanism for exchanging information between
+     different Emacs sessions.
+
+ -- Variable: User Option emacspeak-curl-cookie-store
+     Cookie store used by Curl.
+
+ -- Variable: User Option emacspeak-wizards-tramp-locations
+     Tramp locations used by Emacspeak tramp wizard.  Locations added
+     here via custom can be opened using command
+     emacspeak-wizards-tramp-open-location bound to M-x
+     emacspeak-wizards-tramp-open-location.
+
+
+File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-filtertext,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
+
+12.74 emacspeak-feeds
+=====================
+
+This module provides Feeds support for Emacspeak
+
+12.74.1 Emacspeak-Feeds Commands
+--------------------------------
+
+12.74.1.1 emacspeak-feeds-add-feed
+..................................
+
+ -- Command: emacspeak-feeds-add-feed (title url type)
+     ‘C-e M-u’
+     ‘<fn> M-u’
+
+     Add specified feed to our feed store.
+
+     (fn TITLE URL TYPE)
+
+12.74.1.2 emacspeak-feeds-archive-feeds
+.......................................
+
+ -- Command: emacspeak-feeds-archive-feeds
+
+     Archive list of subscribed fees to personal resource directory.
+     Archiving is useful when synchronizing feeds across multiple machines.
+
+12.74.1.3 emacspeak-feeds-atom-display
+......................................
+
+ -- Command: emacspeak-feeds-atom-display (feed-url)
+     ‘C-, a’
+     ‘C-x @ a a’
+
+     Display ATOM feed.
+
+     (fn FEED-URL)
+
+12.74.1.4 emacspeak-feeds-browse
+................................
+
+ -- Command: emacspeak-feeds-browse (feed)
+     ‘C-e C-u’
+     ‘<fn> C-u’
+
+     Browse   feed.
+
+     (fn FEED)
+
+12.74.1.5 emacspeak-feeds-fastload-feeds
+........................................
+
+ -- Command: emacspeak-feeds-fastload-feeds
+
+     Fast load list of feeds from archive.
+     This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds.
+
+12.74.1.6 emacspeak-feeds-opml-display
+......................................
+
+ -- Command: emacspeak-feeds-opml-display (feed-url)
+     ‘C-, o’
+     ‘C-x @ a o’
+
+     Display OPML feed.
+
+     (fn FEED-URL)
+
+12.74.1.7 emacspeak-feeds-restore-feeds
+.......................................
+
+ -- Command: emacspeak-feeds-restore-feeds
+
+     Restore list of subscribed fees from  personal resource directory.
+     Archiving is useful when synchronizing feeds across multiple machines.
+
+12.74.1.8 emacspeak-feeds-rss-display
+.....................................
+
+ -- Command: emacspeak-feeds-rss-display (feed-url)
+     ‘C-, r’
+     ‘C-x @ a r’
+
+     Display RSS feed.
+
+     (fn FEED-URL)
+
+12.74.2 emacspeak-feeds Options
+-------------------------------
+
+ -- Variable: User Option emacspeak-feeds
+     Table of RSS/Atom feeds.  The feed list is persisted to file
+     saved-feeds on exit.
+
+
+File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-flycheck,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
+
+12.75 emacspeak-filtertext
+==========================
+
+It is often useful to view the results of filtering large amounts of
+text.;;; Typically you do this with various combinations of grep and
+friends.  When doing so it requires explicit effort to not destroy the
+original text being filtered.
+
+12.75.1 Emacspeak-Filtertext Commands
+-------------------------------------
+
+12.75.1.1 emacspeak-filtertext
+..............................
+
+ -- Command: emacspeak-filtertext (start end)
+     ‘C-e ^’
+     ‘<fn> ^’
+
+     Copy over text in region to special filtertext buffer to  filter text.
+
+     (fn START END)
+
+12.75.1.2 emacspeak-filtertext-mode
+...................................
+
+ -- Command: emacspeak-filtertext-mode
+
+     Major mode for FilterText interaction.
+
+     key             binding
+     —             ——-
+
+     =		keep-lines
+     ^		flush-lines
+     r		emacspeak-filtertext-revert
+
+     In addition to any hooks its parent mode ‘text-mode’ might have run,
+     this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the
+     final or penultimate step during initialization.
+
+12.75.1.3 emacspeak-filtertext-revert
+.....................................
+
+ -- Command: emacspeak-filtertext-revert
+
+     Revert to original text.
+
+
+File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
+
+12.76 emacspeak-flycheck
+========================
+
+FLYCHECK == On-the-fly checking.
+
+
+File: emacspeak.info,  Node: emacspeak-flymake,  Next: emacspeak-flyspell,  Prev: emacspeak-flycheck,  Up: Emacspeak Commands And Options
+
+12.77 emacspeak-flymake
+=======================
+
+Speech-enable flymake
+
+
+File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev: emacspeak-flymake,  Up: Emacspeak Commands And Options
+
+12.78 emacspeak-flyspell
+========================
+
+This module speech enables flyspell.  it loads flyspell-correct if
+available, And when loading flyspell-correct sets up that module
+
+12.78.1 emacspeak-flyspell Options
+----------------------------------
+
+ -- Variable: User Option emacspeak-flyspell-correct
+     Correction style to use with flyspell.
+
+
+File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
+
+12.79 emacspeak-folding
+=======================
+
+Folding mode turns emacs into a folding editor.
+
+
+File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
+
+12.80 emacspeak-forge
+=====================
+
+FORGE == Work with Github, Gitlab etc from inside magit.  This module
+speech-enables magit/forge.
+
+
+File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-geiser,  Prev: emacspeak-forge,  Up: Emacspeak Commands And Options
+
+12.81 emacspeak-forms
+=====================
+
+Provide additional advice to forms-mode
+
+12.81.1 Emacspeak-Forms Commands
+--------------------------------
+
+12.81.1.1 emacspeak-forms-find-file
+...................................
+
+ -- Command: emacspeak-forms-find-file (filename)
+
+     Visit a forms file
+
+     (fn FILENAME)
+
+12.81.1.2 emacspeak-forms-flush-unwanted-records
+................................................
+
+ -- Command: emacspeak-forms-flush-unwanted-records
+
+     Prompt for pattern and flush matching lines
+
+12.81.1.3 emacspeak-forms-rerun-filter
+......................................
+
+ -- Command: emacspeak-forms-rerun-filter
+
+     Rerun  filter –allows us to nuke more matching records
+
+12.81.1.4 emacspeak-forms-speak-field
+.....................................
+
+ -- Command: emacspeak-forms-speak-field
+
+     Speak current form field name and value.
+     Assumes that point is at the front of a field value.
+
+12.81.1.5 emacspeak-forms-summarize-current-position
+....................................................
+
+ -- Command: emacspeak-forms-summarize-current-position
+
+     Summarize current position in list of records
+
+12.81.1.6 emacspeak-forms-summarize-current-record
+..................................................
+
+ -- Command: emacspeak-forms-summarize-current-record
+
+     Summarize current record
+
+
+File: emacspeak.info,  Node: emacspeak-geiser,  Next: emacspeak-gh-explorer,  Prev: emacspeak-forms,  Up: Emacspeak Commands And Options
+
+12.82 emacspeak-geiser
+======================
+
+geiser.el — GNU Emacs and Scheme talk to each other This module
+speech-enables all interactive aspects of geiser, including the
+geiser->scheme REPL. This is used by racket-mode for racket interaction,
+And also for interacting with Guile.
+
+
+File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  Prev: emacspeak-geiser,  Up: Emacspeak Commands And Options
+
+12.83 emacspeak-gh-explorer
+===========================
+
+GH-EXPLORER == GitHub Explorer This module speech-enables Github
+Explorer.
+
+12.83.1 Emacspeak-Gh-Explorer Commands
+--------------------------------------
+
+12.83.1.1 emacspeak-gh-explorer-next
+....................................
+
+ -- Command: emacspeak-gh-explorer-next
+
+     Move forward and speak current entry.
+
+12.83.1.2 emacspeak-gh-explorer-previous
+........................................
+
+ -- Command: emacspeak-gh-explorer-previous
+
+     Moveback and speak current entry.
+
+
+File: emacspeak.info,  Node: emacspeak-gnuplot,  Next: emacspeak-gnus,  Prev: emacspeak-gh-explorer,  Up: Emacspeak Commands And Options
+
+12.84 emacspeak-gnuplot
+=======================
+
+This module speech-enables gnuplot-mode an Emacs add-on that enables
+fluent interaction with gnuplot.  Use gnuplot to generate plots of
+mathematical functions for inclusion in documents.
+
+
+File: emacspeak.info,  Node: emacspeak-gnus,  Next: emacspeak-go-mode,  Prev: emacspeak-gnuplot,  Up: Emacspeak Commands And Options
+
+12.85 emacspeak-gnus
+====================
+
+This module advises gnus to speak.  Updating support in 2014 (Emacspeak
+is nearly 20 years old) Updating in 2018 as I switch to gnus as my
+primary mail interface.
+
+12.85.1 Emacspeak-Gnus Commands
+-------------------------------
+
+12.85.1.1 emacspeak-gnus-personal-gmail-last-week
+.................................................
+
+ -- Command: emacspeak-gnus-personal-gmail-last-week
+
+     Look for mail addressed personally in the last week.
+
+12.85.1.2 emacspeak-gnus-personal-gmail-recent
+..............................................
+
+ -- Command: emacspeak-gnus-personal-gmail-recent
+
+     Look for mail addressed personally in the last day.
+
+12.85.1.3 emacspeak-gnus-summary-catchup-quietly-and-exit
+.........................................................
+
+ -- Command: emacspeak-gnus-summary-catchup-quietly-and-exit
+
+     Catch up on all articles in current group.
+
+12.85.2 emacspeak-gnus Options
+------------------------------
+
+ -- Variable: User Option emacspeak-gnus-large-article
+     Articles having more than emacspeak-gnus-large-article lines will
+     be considered to be a large article.  A large article is not spoken
+     all at once; instead you hear only the first screenful.
+
+ -- Variable: User Option emacspeak-gnus-punctuation-mode
+     Pronunciation mode to use for gnus buffers.
+
+
+File: emacspeak.info,  Node: emacspeak-go-mode,  Next: emacspeak-gomoku,  Prev: emacspeak-gnus,  Up: Emacspeak Commands And Options
+
+12.86 emacspeak-go-mode
+=======================
+
+GO-MODE == Go Language support in emacs
+
+
+File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-google,  Prev: emacspeak-go-mode,  Up: Emacspeak Commands And Options
+
+12.87 emacspeak-gomoku
+======================
+
+Auditory interface to gomoku
+
+12.87.1 Emacspeak-Gomoku Commands
+---------------------------------
+
+12.87.1.1 emacspeak-gomoku-display-statistics
+.............................................
+
+ -- Command: emacspeak-gomoku-display-statistics
+
+     Display statistics from previous games
+
+12.87.1.2 emacspeak-gomoku-goto-x-y
+...................................
+
+ -- Command: emacspeak-gomoku-goto-x-y (x y)
+
+     Prompt for and go to that square.
+
+     (fn X Y)
+
+12.87.1.3 emacspeak-gomoku-show-current-column
+..............................................
+
+ -- Command: emacspeak-gomoku-show-current-column
+
+     Aurally display current column
+
+12.87.1.4 emacspeak-gomoku-show-current-negative-diagonal
+.........................................................
+
+ -- Command: emacspeak-gomoku-show-current-negative-diagonal
+
+     Aurally display current negative sloped diagonal
+
+12.87.1.5 emacspeak-gomoku-show-current-positive-diagonal
+.........................................................
+
+ -- Command: emacspeak-gomoku-show-current-positive-diagonal
+
+     Aurally display current positively sloped diagonal
+
+12.87.1.6 emacspeak-gomoku-show-current-row
+...........................................
+
+ -- Command: emacspeak-gomoku-show-current-row
+
+     Aurally display current row
+
+12.87.1.7 emacspeak-gomoku-speak-emacs-previous-move
+....................................................
+
+ -- Command: emacspeak-gomoku-speak-emacs-previous-move
+
+     Speak emacs’ previous move
+
+12.87.1.8 emacspeak-gomoku-speak-humans-previous-move
+.....................................................
+
+ -- Command: emacspeak-gomoku-speak-humans-previous-move
+
+     Speak human’ previous move
+
+12.87.1.9 emacspeak-gomoku-speak-number-of-moves
+................................................
+
+ -- Command: emacspeak-gomoku-speak-number-of-moves
+
+     Speak number of moves so far
+
+12.87.1.10 emacspeak-gomoku-speak-square
+........................................
+
+ -- Command: emacspeak-gomoku-speak-square
+
+     Speak coordinates and state of square at point
+
+
+File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
+
+12.88 emacspeak-google
+======================
+
+There are a number of search tools that can be implemented on the Google
+search page — in a JS-powered browser, these show up as the Google
+tool-belt.  This module implements a minor mode for use in Google result
+pages that enables these tools via single keyboard commands.  Originally
+all options were available as tbs=p:v Now, some specialized searches,
+e.g.  blog search are tbm=
+
+12.88.1 Emacspeak-Google Commands
+---------------------------------
+
+12.88.1.1 emacspeak-google-extract-from-cache
+.............................................
+
+ -- Command: emacspeak-google-extract-from-cache
+
+     Extract current  page from the Google cache.
+
+12.88.1.2 emacspeak-google-knowledge-search
+...........................................
+
+ -- Command: emacspeak-google-knowledge-search (query &optional limit)
+     ‘C-; k’
+     ‘C-x @ h k’
+
+     Perform a Google Knowledge Graph search.
+     Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
+
+     (fn QUERY &optional LIMIT)
+
+12.88.1.3 emacspeak-google-on-this-site
+.......................................
+
+ -- Command: emacspeak-google-on-this-site
+
+     Perform a google search restricted to the current WWW site.
+
+12.88.1.4 emacspeak-google-open-link
+....................................
+
+ -- Command: emacspeak-google-open-link
+
+     Open Google link under point.
+
+12.88.1.5 emacspeak-google-show-toolbelt
+........................................
+
+ -- Command: emacspeak-google-show-toolbelt
+
+     Reload search page with toolbelt showing.
+
+12.88.1.6 emacspeak-google-sign-in
+..................................
+
+ -- Command: emacspeak-google-sign-in
+
+     Sign in to Google.
+
+12.88.1.7 emacspeak-google-sign-out
+...................................
+
+ -- Command: emacspeak-google-sign-out
+
+     Sign out to Google.
+
+12.88.1.8 emacspeak-google-similar-to-this-page
+...............................................
+
+ -- Command: emacspeak-google-similar-to-this-page (url)
+
+     Ask Google to find documents similar to this one.
+
+     (fn URL)
+
+12.88.1.9 emacspeak-google-toolbelt-change
+..........................................
+
+ -- Command: emacspeak-google-toolbelt-change
+
+     Command to change values in the toolbelt and execute the query.
+
+12.88.1.10 emacspeak-google-toolbelt-change-Shopping
+....................................................
+
+ -- Command: emacspeak-google-toolbelt-change-Shopping
+
+     Change  Shopping in the currently active toolbelt.
+
+12.88.1.11 emacspeak-google-toolbelt-change-blog
+................................................
+
+ -- Command: emacspeak-google-toolbelt-change-blog
+
+     Change  blog in the currently active toolbelt.
+
+12.88.1.12 emacspeak-google-toolbelt-change-books
+.................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books
+
+     Change  books in the currently active toolbelt.
+
+12.88.1.13 emacspeak-google-toolbelt-change-books-format
+........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books-format
+
+     Change  books-format in the currently active toolbelt.
+
+12.88.1.14 emacspeak-google-toolbelt-change-books-type
+......................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books-type
+
+     Change  books-type in the currently active toolbelt.
+
+12.88.1.15 emacspeak-google-toolbelt-change-books-viewability
+.............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books-viewability
+
+     Change  books-viewability in the currently active toolbelt.
+
+12.88.1.16 emacspeak-google-toolbelt-change-commercial
+......................................................
+
+ -- Command: emacspeak-google-toolbelt-change-commercial
+
+     Change  commercial in the currently active toolbelt.
+
+12.88.1.17 emacspeak-google-toolbelt-change-commercial-prices
+.............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-commercial-prices
+
+     Change  commercial-prices in the currently active toolbelt.
+
+12.88.1.18 emacspeak-google-toolbelt-change-date-filter
+.......................................................
+
+ -- Command: emacspeak-google-toolbelt-change-date-filter
+
+     Change  date-filter in the currently active toolbelt.
+
+12.88.1.19 emacspeak-google-toolbelt-change-forums
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-forums
+
+     Change  forums in the currently active toolbelt.
+
+12.88.1.20 emacspeak-google-toolbelt-change-group-discussions
+.............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-group-discussions
+
+     Change  group-discussions in the currently active toolbelt.
+
+12.88.1.21 emacspeak-google-toolbelt-change-images
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-images
+
+     Change  images in the currently active toolbelt.
+
+12.88.1.22 emacspeak-google-toolbelt-change-in-depth
+....................................................
+
+ -- Command: emacspeak-google-toolbelt-change-in-depth
+
+     Change  in-depth in the currently active toolbelt.
+
+12.88.1.23 emacspeak-google-toolbelt-change-literal
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-literal
+
+     Change  literal in the currently active toolbelt.
+
+12.88.1.24 emacspeak-google-toolbelt-change-news
+................................................
+
+ -- Command: emacspeak-google-toolbelt-change-news
+
+     Change  news in the currently active toolbelt.
+
+12.88.1.25 emacspeak-google-toolbelt-change-non-commercial
+..........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-non-commercial
+
+     Change  non-commercial in the currently active toolbelt.
+
+12.88.1.26 emacspeak-google-toolbelt-change-patents
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-patents
+
+     Change  patents in the currently active toolbelt.
+
+12.88.1.27 emacspeak-google-toolbelt-change-places
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-places
+
+     Change  places in the currently active toolbelt.
+
+12.88.1.28 emacspeak-google-toolbelt-change-recent
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-recent
+
+     Change  recent in the currently active toolbelt.
+
+12.88.1.29 emacspeak-google-toolbelt-change-recipes
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-recipes
+
+     Change  recipes in the currently active toolbelt.
+
+12.88.1.30 emacspeak-google-toolbelt-change-reviews
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-reviews
+
+     Change  reviews in the currently active toolbelt.
+
+12.88.1.31 emacspeak-google-toolbelt-change-social
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-social
+
+     Change  social in the currently active toolbelt.
+
+12.88.1.32 emacspeak-google-toolbelt-change-sort-by-date
+........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-sort-by-date
+
+     Change  sort-by-date in the currently active toolbelt.
+
+12.88.1.33 emacspeak-google-toolbelt-change-structured-snippets
+...............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-structured-snippets
+
+     Change  structured-snippets in the currently active toolbelt.
+
+12.88.1.34 emacspeak-google-toolbelt-change-timeline
+....................................................
+
+ -- Command: emacspeak-google-toolbelt-change-timeline
+
+     Change  timeline in the currently active toolbelt.
+
+12.88.1.35 emacspeak-google-toolbelt-change-timeline-high
+.........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-timeline-high
+
+     Change  timeline-high in the currently active toolbelt.
+
+12.88.1.36 emacspeak-google-toolbelt-change-timeline-low
+........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-timeline-low
+
+     Change  timeline-low in the currently active toolbelt.
+
+12.88.1.37 emacspeak-google-toolbelt-change-video
+.................................................
+
+ -- Command: emacspeak-google-toolbelt-change-video
+
+     Change  video in the currently active toolbelt.
+
+12.88.1.38 emacspeak-google-toolbelt-change-video-duration
+..........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-video-duration
+
+     Change  video-duration in the currently active toolbelt.
+
+12.88.1.39 emacspeak-google-toolbelt-change-web-history-not-visited
+...................................................................
+
+ -- Command: emacspeak-google-toolbelt-change-web-history-not-visited
+
+     Change  web-history-not-visited in the currently active toolbelt.
+
+12.88.1.40 emacspeak-google-toolbelt-change-web-history-visited
+...............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-web-history-visited
+
+     Change  web-history-visited in the currently active toolbelt.
+
+12.88.1.41 emacspeak-google-tts
+...............................
+
+ -- Command: emacspeak-google-tts (text &optional lang)
+
+     Google Network TTS.
+     Optional interactive prefix arg ‘lang’ specifies  language identifier.
+
+     (fn TEXT &optional LANG)
+
+12.88.1.42 emacspeak-google-tts-region
+......................................
+
+ -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
+
+     Speak region using Google Network TTS.
+
+     (fn START END &optional ASK-LANG)
+
+12.88.1.43 emacspeak-google-what-is-my-ip
+.........................................
+
+ -- Command: emacspeak-google-what-is-my-ip
+
+     Show my public IP
+
+12.88.1.44 emacspeak-google-who-links-to-this-page
+..................................................
+
+ -- Command: emacspeak-google-who-links-to-this-page
+
+     Perform a google search to locate documents that link to the
+     current page.
+
+12.88.2 emacspeak-google Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-google-kg-key
+     API Key for Google Knowledge Graph.
+
+ -- Variable: User Option emacspeak-google-tts-default-language
+     Default language used for Google TTS.
+
+
+File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-gtags,  Prev: emacspeak-google,  Up: Emacspeak Commands And Options
+
+12.89 emacspeak-gridtext
+========================
+
+Emacspeak’s table browsing mode allows one to efficiently access content
+that is tabular in nature.  That module also provides functions for
+inferring table structure where possible.  Often, such structure is hard
+to infer automatically –but might be known to the user e.g.  treat
+columns 1 through 30 as one column of a table and so on.  This module
+allows the user to specify a conceptual grid that is "overlaid" on the
+region of text to turn it into a table for tabular browsing.  For now,
+elements of the grid are "one line" high –but that may change in the
+future if necessary.  This module is useful for browsing structured text
+files and the output from programs that tabulate their output.  It’s
+also useful for handling multicolumn text.  The "grid" is specified as a
+list of (start end) tuples..
+
+12.89.1 Emacspeak-Gridtext Commands
+-----------------------------------
+
+12.89.1.1 emacspeak-gridtext-apply
+..................................
+
+ -- Command: emacspeak-gridtext-apply (start end grid)
+
+     Apply grid to region.
+
+     (fn START END GRID)
+
+12.89.1.2 emacspeak-gridtext-load
+.................................
+
+ -- Command: emacspeak-gridtext-load (file)
+
+     Load saved grid settings.
+
+     (fn FILE)
+
+12.89.1.3 emacspeak-gridtext-save
+.................................
+
+ -- Command: emacspeak-gridtext-save (file)
+
+     Save out grid settings.
+
+     (fn FILE)
+
+
+File: emacspeak.info,  Node: emacspeak-gtags,  Next: emacspeak-gud,  Prev: emacspeak-gridtext,  Up: Emacspeak Commands And Options
+
+12.90 emacspeak-gtags
+=====================
+
+GTAGS == Emacs support for GNU global.  GNU global implements a modern
+tags solution Package gtags interfaces Emacs to this tool.
+
+
+File: emacspeak.info,  Node: emacspeak-gud,  Next: emacspeak-haskell,  Prev: emacspeak-gtags,  Up: Emacspeak Commands And Options
+
+12.91 emacspeak-gud
+===================
+
+Provide additional advice to ease debugger interaction with gud
+
+
+File: emacspeak.info,  Node: emacspeak-haskell,  Next: emacspeak-helm,  Prev: emacspeak-gud,  Up: Emacspeak Commands And Options
+
+12.92 emacspeak-haskell
+=======================
+
+Speech-enable package haskell-mode
+
+
+File: emacspeak.info,  Node: emacspeak-helm,  Next: emacspeak-hide,  Prev: emacspeak-haskell,  Up: Emacspeak Commands And Options
+
+12.93 emacspeak-helm
+====================
+
+HELM == Smart narrowing/selection in emacs This module speech-enables
+Helm interaction.  See tvr/helm-prepare.el in the GitHub repository for
+my helm setup.  that file provides convenient emacspeak-centric
+keybindings for Helm interaction.
+
+
+File: emacspeak.info,  Node: emacspeak-hide,  Next: emacspeak-hide-lines,  Prev: emacspeak-helm,  Up: Emacspeak Commands And Options
+
+12.94 emacspeak-hide
+====================
+
+Flexible hide and show for emacspeak.  This module allows one to easily
+hide or expose blocks of lines starting with a common prefix.  It is
+motivated by the need to flexibly hide quoted text in email but is
+designed to be more general.  the prefix parsing is inspired by
+filladapt.el
+
+12.94.1 Emacspeak-Hide Commands
+-------------------------------
+
+12.94.1.1 emacspeak-hide-or-expose-all-blocks
+.............................................
+
+ -- Command: emacspeak-hide-or-expose-all-blocks
+
+     Hide or expose all blocks.
+
+12.94.1.2 emacspeak-hide-or-expose-block
+........................................
+
+ -- Command: emacspeak-hide-or-expose-block (&optional prefix)
+     ‘C-e j’
+     ‘<fn> j’
+
+     Hide or expose a block of text.
+      Optional interactive prefix arg causes all blocks in current
+     buffer to be hidden or exposed.
+
+     (fn &optional PREFIX)
+
+12.94.1.3 emacspeak-hide-speak-block-sans-prefix
+................................................
+
+ -- Command: emacspeak-hide-speak-block-sans-prefix
+     ‘C-e C-j’
+     ‘<fn> C-j’
+
+     Speaks current block after stripping its prefix.
+
+
+File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
+
+12.95 emacspeak-hide-lines
+==========================
+
+HIDE-LINES == hide/show lines from melpa
+
+
+File: emacspeak.info,  Node: emacspeak-hideshow,  Next: emacspeak-hydra,  Prev: emacspeak-hide-lines,  Up: Emacspeak Commands And Options
+
+12.96 emacspeak-hideshow
+========================
+
+speech-enable hideshow.el
+
+
+File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: emacspeak-hideshow,  Up: Emacspeak Commands And Options
+
+12.97 emacspeak-hydra
+=====================
+
+12.97.1 Emacspeak-Hydra Commands
+--------------------------------
+
+12.97.1.1 emacspeak-hydra-toggle-talkative
+..........................................
+
+ -- Command: emacspeak-hydra-toggle-talkative
+
+     Toggle state of hydra-is-helpful
+
+
+File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
+
+12.98 emacspeak-ibuffer
+=======================
+
+speech-enable ibuffer.el this is an alternative to buffer-menu
+
+12.98.1 Emacspeak-Ibuffer Commands
+----------------------------------
+
+12.98.1.1 emacspeak-ibuffer-speak-buffer-line
+.............................................
+
+ -- Command: emacspeak-ibuffer-speak-buffer-line
+
+     Speak information about this buffer
+
+
+File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
+
+12.99 emacspeak-ido
+===================
+
+speech-enable ido.el This is an interesting task since most of the
+value-add provided by package ido.el is visual feedback.  Speech UI
+Challenge: What is the most efficient means of conveying a dynamically
+updating set of choices?  current strategy is to walk the list using c-s
+and c-r as provided by ido Set number matches shown (ido-max-prospects)
+to 3 using Custom so you dont hear the entire list.
+
+12.99.1 emacspeak-ido Options
+-----------------------------
+
+ -- Variable: User Option emacspeak-ido-typing-delay
+     How long we wait before speaking completions.
+
+
+File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
+
+12.100 emacspeak-iedit
+======================
+
+IEDIT == Edit multiple regions This module speech-enables iedit.
+
+
+File: emacspeak.info,  Node: emacspeak-indium,  Next: emacspeak-info,  Prev: emacspeak-iedit,  Up: Emacspeak Commands And Options
+
+12.101 emacspeak-indium
+=======================
+
+INDIUM == Javascript IDE This module speech-enables Indium.
+
+
+File: emacspeak.info,  Node: emacspeak-info,  Next: emacspeak-ispell,  Prev: emacspeak-indium,  Up: Emacspeak Commands And Options
+
+12.102 emacspeak-info
+=====================
+
+This module speech-enables the Emacs Info Reader.
+
+12.102.1 Emacspeak-Info Commands
+--------------------------------
+
+12.102.1.1 emacspeak-info-next-section
+......................................
+
+ -- Command: emacspeak-info-next-section
+
+     Move forward to next section in this node.
+
+12.102.1.2 emacspeak-info-previous-section
+..........................................
+
+ -- Command: emacspeak-info-previous-section
+
+     Move backward to previous section in this node.
+
+12.102.1.3 emacspeak-info-speak-header
+......................................
+
+ -- Command: emacspeak-info-speak-header
+
+     Speak info header line.
+
+12.102.1.4 emacspeak-info-wizard
+................................
+
+ -- Command: emacspeak-info-wizard (node-spec)
+     ‘C-h TAB’
+     ‘<f1> TAB’
+     ‘<help> TAB’
+
+     Read a node spec from the minibuffer and launch
+     Info-goto-node.
+     See documentation for command ‘Info-goto-node’ for details on
+     node-spec.
+
+     (fn NODE-SPEC)
+
+12.102.2 emacspeak-info Options
+-------------------------------
+
+ -- Variable: User Option emacspeak-info-select-node-speak-chunk
+     Specifies how much of the selected node gets spoken.  Possible
+     values are: screenfull – speak the displayed screen node – speak
+     the entire node.
+
+
+File: emacspeak.info,  Node: emacspeak-ispell,  Next: emacspeak-ivy,  Prev: emacspeak-info,  Up: Emacspeak Commands And Options
+
+12.103 emacspeak-ispell
+=======================
+
+This module speech enables ispell.  Implementation note: This is hard
+because of how ispell.el is written Namely, all of the work is done by
+one huge hairy function.  This makes advising it hard.  The ispell
+commands work well with Emacspeak as long as the list of correction
+choices are few.  For interactively moving through corrections, install
+package flyspell-correct from MELPA (package-install "flyspell-correct")
+Then use M-x flyspell-mode.  Package flyspell is speech-enabled by
+Emacspeak module emacspeak-flyspell And that module sets up
+flyspell-correct to use IDO-style completion, i.e.  you can move through
+corrections with C-r and C-s.
+
+12.103.1 emacspeak-ispell Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-ispell-max-choices
+     Emacspeak will not speak the choices if there are more than this
+     many available corrections.
+
+
+File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options
+
+12.104 emacspeak-ivy
+====================
+
+IVY == One More Smart Completion Technique Speech-enable ivy-style
+completion.  This is still experimental and preliminary.
+
+
+File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: emacspeak-ivy,  Up: Emacspeak Commands And Options
+
+12.105 emacspeak-jabber
+=======================
+
+emacs-jabber.el implements a jabber client for emacs emacs-jabber is
+hosted at sourceforge.  I use emacs-jabber with my gmail.com account
+
+12.105.1 Emacspeak-Jabber Commands
+----------------------------------
+
+12.105.1.1 emacspeak-jabber-chat-next-message
+.............................................
+
+ -- Command: emacspeak-jabber-chat-next-message
+
+     Move forward to and speak the next message in this chat session.
+
+12.105.1.2 emacspeak-jabber-chat-previous-message
+.................................................
+
+ -- Command: emacspeak-jabber-chat-previous-message
+
+     Move backward to and speak the previous message in this chat session.
+
+12.105.1.3 emacspeak-jabber-chat-speak-this-message
+...................................................
+
+ -- Command: emacspeak-jabber-chat-speak-this-message (&optional
+          copy-as-kill)
+
+     Speak chat message under point.
+     With optional interactive prefix arg ‘copy-as-kill’, copy it to
+     the kill ring as well.
+
+     (fn &optional COPY-AS-KILL)
+
+12.105.1.4 emacspeak-jabber-popup-roster
+........................................
+
+ -- Command: emacspeak-jabber-popup-roster
+     ‘C-e x j’
+     ‘<fn> x j’
+
+     Pop to Jabber roster.
+
+12.105.1.5 emacspeak-jabber-speak-recent-message
+................................................
+
+ -- Command: emacspeak-jabber-speak-recent-message
+     ‘C-e x SPC’
+     ‘<fn> x SPC’
+
+     Speak most recent message if one exists.
+
+12.105.2 emacspeak-jabber Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-jabber-speak-presence-alerts
+     Set to T if you want to hear presence alerts.
 
