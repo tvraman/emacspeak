@@ -71,6 +71,7 @@
 ;;; @item origami: C-, / Origami   bindings.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
+;;; @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
@@ -93,6 +94,7 @@
     (unless (locate-library "hydra") (package-install 'hydra)))
   (require 'emacspeak-hydra)
   (require 'emacspeak-outline)
+  (require 'vuiet nil 'no-error)
   (require 'smartparens "smartparens" 'no-error)
   (require 'hydra "hydra" 'no-error)
   (require 'view)
@@ -499,6 +501,40 @@ Also generates global keybindings if any."
    ("y" kill-ring-save)
    ("{" backward-paragraph)
    ("}" forward-paragraph)
+   ))
+
+;;}}}
+;;{{{Vuiet:
+
+(declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
+
+(global-set-key
+ (ems-kbd "C-; v")
+ (defhydra emacspeak-muggles-vuiet
+   (:body-pre
+    (progn
+      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+      (emacspeak-hydra-body-pre "Vuiet  Explorer"))
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+   (";" vuiet-playing-track-lyrics)
+   ("=" vuiet-player-volume-inc)
+   ("-" vuiet-player-volume-dec)
+   ("A" vuiet-play-artist-loved-tracks)
+   ("'" vuiet-play-loved-tracks)
+   ("," vuiet-seek-backward)
+   ("." vuiet-seek-forward)
+   ("C-s" vuiet-artist-info-search)
+   ("L" vuiet-playing-artist-lastfm-page)
+   ("SPC" vuiet-play-pause)
+   ("a" vuiet-artist-info)
+   ("i" emacspeak-vuiet-track-info)
+   ("l" vuiet-love-track)
+   ("n" vuiet-next)
+   ("p" vuiet-play-artist)
+   ("r" vuiet-replay)
+   ("s" vuiet-stop)
+   ("t" vuiet-play-track)
+   ("u" vuiet-unlove-track)
    ))
 
 ;;}}}

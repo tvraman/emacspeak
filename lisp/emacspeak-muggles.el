@@ -66,7 +66,6 @@
 ;;; @item hideshow: C-, h Provide HideShow bindings.
 ;;; @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
 ;;; @item Repeatable-Yank: @kbd{C-y} Smart yank
-;;; @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
 ;;; @item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and
 ;;; undo-redo on @kbd{\}
 ;;; @item emacspeak-maths @kbd{s-SPC} Speak and browse math.
@@ -102,7 +101,6 @@
   (require 'hydra "hydra" 'no-error)
   (require 'xbacklight)
   (require 'view)
-  (require 'vuiet nil 'no-error)
   (require 'emacspeak-m-player))
 (declare-function org-table-previous-row "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-current-element "emacspeak-org" nil)
@@ -384,40 +382,6 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("<down>" emacspeak-maths-down"down")
    ("<left>" emacspeak-maths-left "left")
    ("<right>" emacspeak-maths-right "right")))
-
-;;}}}
-;;{{{Vuiet:
-
-(declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
-
-(global-set-key
- (ems-kbd "C-; v")
- (defhydra emacspeak-muggles-vuiet
-   (:body-pre
-    (progn
-      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "Vuiet  Explorer"))
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   (";" vuiet-playing-track-lyrics)
-   ("=" vuiet-player-volume-inc)
-   ("-" vuiet-player-volume-dec)
-   ("A" vuiet-play-artist-loved-tracks)
-   ("'" vuiet-play-loved-tracks)
-   ("," vuiet-seek-backward)
-   ("." vuiet-seek-forward)
-   ("C-s" vuiet-artist-info-search)
-   ("L" vuiet-playing-artist-lastfm-page)
-   ("SPC" vuiet-play-pause)
-   ("a" vuiet-artist-info)
-   ("i" emacspeak-vuiet-track-info)
-   ("l" vuiet-love-track)
-   ("n" vuiet-next)
-   ("p" vuiet-play-artist)
-   ("r" vuiet-replay)
-   ("s" vuiet-stop)
-   ("t" vuiet-play-track)
-   ("u" vuiet-unlove-track)
-   ))
 
 ;;}}}
 (provide 'emacspeak-muggles)
