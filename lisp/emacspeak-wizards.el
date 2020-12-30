@@ -50,6 +50,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'cl-extra)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (eval-when-compile
   (require 'subr-x)

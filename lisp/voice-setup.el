@@ -217,7 +217,7 @@ Define a voice for it if needed, then return the symbol."
 ;;; observers with the voice they use this gets unregistered when
 ;;; the mapping is changed via custom.
 
-(defmacro  def-voice-font (personality voice face doc &rest args)
+(defmacro  def-voice-font (personality voice face doc)
   "Define personality and map it to face."
   (declare (indent 1) (debug t))
   (let ((documentation
@@ -230,14 +230,15 @@ Define a voice for it if needed, then return the symbol."
 ;;; New Personality
          (defvar  ,personality
            ,voice
-           ,documentation
-           ))
+           ,documentation))
 ;;; other actions performed at define time
        (voice-setup-set-voice-for-face ,face ',personality)
 ;;;record  personality as an
-;;;observer of  voice and vice versa
+;;;observer of  voice 
        (when (symbolp ',personality)
-         (put  ',personality 'observing ',voice)))))
+         (put  ',personality 'observing ',voice))
+       (when (symbolp ',voice)
+         (put  ',voice ',personality t)))))
 
 (defun voice-setup-name-personality (face-name)
   "Get personality name to use."
