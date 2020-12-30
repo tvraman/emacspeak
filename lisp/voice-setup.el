@@ -238,7 +238,7 @@ Define a voice for it if needed, then return the symbol."
   (let ((documentation
          (concat
           doc
-          (format "\nThis personality uses  %s whose  effect can be changed globally by customizing %s-settings."
+          (format "\nUses  %s  Customize via  %s-settings."
                   voice  voice))))
     `(progn
        (unless (boundp ',personality)

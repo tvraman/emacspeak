@@ -329,10 +329,6 @@ custom: force
 	rm -f cus-load.el
 
 # }}}
-# {{{  Make rules for the various modules
-
-dtk-speak.elc: dtk-speak.el
-# }}}
 # {{{Development  target: indent, tags, relint 
 indent:
 	$(EMACS) -batch -q -no-site-file -l ../utils/indent-files.el
