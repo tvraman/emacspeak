@@ -620,7 +620,7 @@ Argument COMPLEMENT  is the complement of separator."
      0))
 
 (defun dtk-speak-using-voice (voice text)
-  "Use voice VOICE to speak text TEXT."
+  "Use voice  to speak text."
   (cl-declare (special  tts-default-voice))
   (unless (or (eq 'inaudible voice) 
               (null text) (string-equal text "")
@@ -630,16 +630,10 @@ Argument COMPLEMENT  is the complement of separator."
     (dtk-interp-queue-code
      (cond
       ((symbolp voice)
-       (tts-get-voice-command
-        (if (boundp voice)
-            (symbol-value voice)
-          voice)))
+       (tts-get-voice-command voice))
       ((listp voice)
        (mapconcat #'(lambda (v)
-                      (tts-get-voice-command
-                       (if (boundp v)
-                           (symbol-value v)
-                         v)))
+                      (tts-get-voice-command v))
                   voice
                   " "))
       (t "")))

@@ -113,7 +113,7 @@
 ;;}}}
 ;;{{{ silence
 
-(defsubst dtk-interp-silence (duration force)
+(defsubst dtk-interp-silence (duration &optional force)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "sh %d%s\n"
