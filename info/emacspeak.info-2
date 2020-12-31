@@ -9049,18 +9049,10 @@ additional work of defining a -voice for future use.  See its use in
 this module to see how voices are defined independent of a given TTS
 engine.  How faces map to voices: TTS engine specific modules e.g.,
 dectalk-voices.el and outloud-voices.el map ACSS dimensions to
-engine-specific codes.  It does this via special form def-voice-font
-which takes a personality name, a voice name and a face name to set up
-the mapping between face and personality, and personality and voice.
-Emacspeak modules use voice-setup-add-map when defining
-face->personality mappings.  For use from other modules, also see
-function voice-setup-map-face which is useful when mapping a single
-face.  Both voice-setup-add-map and voice-setup-map-face call special
-form def-voice-font.
-
-   new voices can be defined using CSS styles, see special form
-defvoice.  Voices defined via defvoice can be customized via custom see
-the documentation for defvoice.
+engine-specific codes.  Emacspeak modules use voice-setup-add-map when
+defining face->personality mappings.  For use from other modules, also
+see function voice-setup-map-face which is useful when mapping a single
+face.  Both
 
 12.229.2 Voice-Setup Commands
 -----------------------------
