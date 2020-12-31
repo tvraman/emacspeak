@@ -215,25 +215,26 @@ command \\[customize-variable] on <personality>-settings. "
      (defcustom ,(intern (format "%s-settings"  personality))
        ,settings
        ,doc
-       :type  '(list
-                (const :tag "Unspecified" nil)
-                (choice :tag "Average Pitch"
-                        (const :tag "Unspecified" nil)
-                        (integer :tag "Number"))
-                (choice :tag "Pitch Range"
-                        (const :tag "Unspecified" nil)
-                        (integer :tag "Number"))
-                (choice :tag "Stress"
-                        (const :tag "Unspecified" nil)
-                        (integer :tag "Number"))
-                (choice :tag "Richness"
-                        (const :tag "Unspecified" nil)
-                        (integer :tag "Number"))
-                (choice :tag "Punctuation Mode "
-                        (const :tag "Unspecified" nil)
-                        (const :tag "All" all)
-                        (const :tag "Some" some)
-                        (const :tag "No" none)))
+       :type
+       '(list
+         (const :tag "Unspecified" nil)
+         (choice :tag "Average Pitch"
+                 (const :tag "Unspecified" nil)
+                 (integer :tag "Number"))
+         (choice :tag "Pitch Range"
+                 (const :tag "Unspecified" nil)
+                 (integer :tag "Number"))
+         (choice :tag "Stress"
+                 (const :tag "Unspecified" nil)
+                 (integer :tag "Number"))
+         (choice :tag "Richness"
+                 (const :tag "Unspecified" nil)
+                 (integer :tag "Number"))
+         (choice :tag "Punctuation Mode "
+                 (const :tag "Unspecified" nil)
+                 (const :tag "All" all)
+                 (const :tag "Some" some)
+                 (const :tag "No" none)))
        :group 'voice-fonts
        :set
        #'(lambda  (sym val)
