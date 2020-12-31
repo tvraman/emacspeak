@@ -56,7 +56,6 @@
 ;;; When this minor mode is on, the voices of the current line are
 ;;; updated with every insertion or deletion.
 ;;;
-
 ;;;
 ;;; Voice-Lock And Aural CSS:
 ;;; The CSS Speech Style Sheet specification defines a number of
@@ -110,6 +109,7 @@
 ;;;  see special form defvoice. Voices defined
 ;;; via defvoice can be customized via custom see the
 ;;; documentation for defvoice.
+
 ;;; Code:
 
 ;;}}}
