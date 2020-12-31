@@ -215,7 +215,7 @@ Define a voice for it if needed, then return the symbol."
   (let ((documentation
          (concat
           doc
-          (format "\nUses %s: Customize via %s-settings."
+          (format "\nUses %s: Customize: %s-settings."
                   voice  voice))))
     `(progn
        (unless (boundp ',personality)
