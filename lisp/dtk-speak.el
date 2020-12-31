@@ -732,8 +732,8 @@ Here,  change is any change in property personality, face or font-lock-face."
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
-  (when (get-text-property start 'pause)
-    (dtk-interp-silence (get-text-property start 'pause) nil))
+  (when-let ((pause  (get-text-property start 'pause))
+             (dtk-interp-silence pause)))
   (cond
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring-no-properties start end)))
    (t                                   ; voiceify as we go
