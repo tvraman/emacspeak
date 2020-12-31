@@ -278,12 +278,12 @@ Define a voice for it if needed, then return the symbol."
 ;;}}}
 ;;{{{  special form defvoice
 
-(defvar voice-setup-personality-table (make-hash-table :test #'eq)
-  "Maps personality names to ACSS  settings. ")
+(defvar voice-setup-style-table (make-hash-table :test #'eq)
+  "Maps ACSS names to ACSS  settings. ")
 
-(defun voice-setup-personality-from-style (style-list)
-  "Define a personality given a list of speech style settings."
-  (cl-declare (special voice-setup-personality-table))
+(defun voice-setup-acss-from-style (style-list)
+  "Define an ACSS-voice  given a list of speech style settings."
+  (cl-declare (special voice-setup-style-table))
   (let ((voice
          (acss-personality-from-speech-style
           (make-acss
@@ -293,7 +293,7 @@ Define a voice for it if needed, then return the symbol."
            :stress (nth 3 style-list)
            :richness (nth 4  style-list)
            :punctuations (nth 5  style-list)))))
-    (puthash  voice style-list voice-setup-personality-table)
+    (puthash  voice style-list voice-setup-style-table)
     voice))
 
 (defun voice-setup-observing-personalities  (voice-name)
@@ -304,14 +304,12 @@ Define a voice for it if needed, then return the symbol."
              collect (nth i plist))))
 
 (defun voice-setup-update-personalities (personality)
-  "Update  personalities  that use this voice to  new setting."
+  "Update  personalities  whose  setting just changed."
   (let ((value (symbol-value personality))
         (observers (voice-setup-observing-personalities personality)))
     (cl-loop for o in observers
              do                            ;o is already quoted
              (set o value))))
-
-;;; note that for now we dont use  gain settings
 
 (defmacro defvoice (personality settings doc)
   "Define voice using ACSS setting.  Setting is a list of the form
@@ -322,7 +320,7 @@ command \\[customize-variable] on <personality>-settings. "
   (declare (indent 1) (debug t))
   `(progn
      (defvar  ,personality
-       (voice-setup-personality-from-style ,settings)
+       (voice-setup-acss-from-style ,settings)
        ,(concat
          doc
          (format "\nCustomize  via %s-settings."
@@ -351,14 +349,14 @@ command \\[customize-variable] on <personality>-settings. "
                         (const :tag "No punctuations" none)))
        :group 'voice-fonts
        :set
-       '(lambda  (sym val)
-          (let ((voice-name (voice-setup-personality-from-style val)))
-            (setq ,personality voice-name)
+       #'(lambda  (sym val)
+          (let ((acss-name (voice-setup-acss-from-style val)))
+            (setq ,personality acss-name)
 ;;; update all observers
             (voice-setup-update-personalities ',personality)
             (set-default sym val))))))
 
-;;}}}                                   ; ; ; ;
+;;}}}
 ;;{{{ new light-weight voice lock
 
 ;;;###autoload
