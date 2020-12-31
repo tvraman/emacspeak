@@ -100,8 +100,6 @@
     (mapconcat #'outloud-get-voice-command name " "))
    (t (or  (gethash name outloud-voice-table) outloud-default-voice-string))))
 
-
-
 (defun outloud-voice-defined-p (name)
   "Check if voice `name' is  defined."
   (cl-declare (special outloud-voice-table))
@@ -143,6 +141,7 @@
 ;;; produce a more natural change on the TTS engine.
 
 ;;{{{  paul average pitch
+
 ;;; median: pitch: 65  head-size 50
 (let ((table (make-vector 10 "")))
   (mapc
@@ -166,8 +165,6 @@
   (outloud-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
-
-
 
 (defun outloud-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for  VALUE and  FAMILY."
@@ -222,28 +219,26 @@
 ;;{{{  stress
 
 ;;; On the outloud we map stress to roughness
-;;; we also use stress markers `00 .. `4  (disabled after experimentation)
 ;;{{{  paul stress
+
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
        (aset table (cl-first setting)
              (format " `vr%s  "
                      (cl-second setting))))
-;;; stress markers not used for now.
    '(
-     (0 0 "`00")
-     (1 5 "`00")
-     (2  10 "`0")
-     (3  15 "`0")
-     (4  20 "`1")
-     (5  25 "`1")
-     (6  30 "`v2")
-     (7  35 "`v2")
-     (8  40 "`v3")
-     (9  45 "`v4")))
+     (0 0 )
+     (1 5 )
+     (2  10 )
+     (3  15 )
+     (4  20 )
+     (5  25 )
+     (6  30 )
+     (7  35 )
+     (8  40 )
+     (9  45 )))
   (outloud-css-set-code-table 'paul 'stress table))
-
 
 ;;}}}
 (defun outloud-get-stress-code (value family)
