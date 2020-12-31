@@ -52,9 +52,6 @@
 ;;}}}
 ;;{{{ Voice Definitions: bold and friends
 
-(defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
-  "Speaks some punctuations.")
-
 (defvoice  voice-monotone (list nil nil 0 0 nil)
   "Add monotone.")
 

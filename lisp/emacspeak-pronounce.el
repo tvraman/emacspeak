@@ -699,10 +699,8 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
-  (cl-declare (special voice-punctuations-some))
   (save-match-data
     (let ((fields (mapcar #'read (split-string string "-"))))
-      (propertize
        (calendar-date-string
         (list (cl-second fields)
               (cl-first fields)
@@ -712,7 +710,7 @@ specified pronunciation dictionary key."
                ((< (cl-third fields) 100)
                 (+ 1900 (cl-third fields)))
                (t (cl-third fields)))))
-       'personality voice-punctuations-some))))
+        )))
 
 (defvar emacspeak-pronounce-date-yyyymmdd-pattern
   "[0-9]\\{8\\}"
@@ -720,16 +718,13 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-yyyymmdd-date (string)
   "Return pronunciation for yyyymmdd dates."
-  (cl-declare (special voice-punctuations-some))
   (save-match-data
-    (propertize
      (calendar-date-string
       (list
        (read (substring string 4 6))
        (read (substring string 6))
        (read (substring string 0 4)))
-      nil 'nodayname)
-     'personality voice-punctuations-some)))
+      nil 'nodayname)))
 
 ;;}}}
 ;;{{{ phone numbers
@@ -739,7 +734,6 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-us-phone-number (phone)
   "Return pronunciation for US phone number."
-  (cl-declare (special voice-punctuations-some))
   (when (= 14 (length phone))
     (setq phone (substring phone 2)))
   (let ((area-code (substring phone 0 3))
@@ -755,10 +749,9 @@ specified pronunciation dictionary key."
     (setq suffix-code
           (replace-regexp-in-string
            "[0-9]\\{2\\}" " \\&" suffix-code))
-    (propertize
-     (format "%s %s, %s. "
-             area-code prefix-code suffix-code)
-     'personality voice-punctuations-some)))
+    (format "%s %s, %s. "
+            area-code prefix-code suffix-code)
+    ))
 (defvar emacspeak-pronounce-sha-checksum-pattern
   "[0-9a-f]\\{40\\}"
   "Regexp pattern that matches 40-digit SHA check-sum.")
