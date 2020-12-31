@@ -54,7 +54,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'dtk-interp)
 (require 'dtk-unicode)
-
+(eval-when-compile (require 'subr-x))
 ;;}}}
 ;;{{{ Forward Declarations:
 
