@@ -9019,10 +9019,53 @@ words will be spoken in ‘voice-keyword-personality’.
 is on, the voices of the current line are updated with every insertion
 or deletion.
 
-12.229.1 Voice-Setup Commands
+12.229.1 Voice-Lock And Aural CSS
+---------------------------------
+
+The CSS Speech Style Sheet specification defines a number of abstract
+device independent voice properties.  A setting conforming to the CSS
+speech specification can be represented in elisp as a structure.
+
+   We will refer to this structure as a "speech style".  This structure
+needs to be mapped to device dependent codes to produce the desired
+effect.  This module forms a bridge between emacs packages that wish to
+implement audio formatting and Emacspeak’s TTS module.  Emacspeak
+produces voice change effects by examining the value of text-property
+’personality’, as well as the face/font at point.
+
+   Think of a buffer of formatted text along with the text-property
+’personality appropriately set as a "aural display list".  Module
+voice-setup.el help applications like EWW produce audio-formatted output
+by calling function acss-personality-from-speech-style with a
+"speech-style" –a structure as defined in this module and get back a
+symbol that they assign to the value of property ’personality.
+Emacspeak’s rendering engine then does the needful at the time speech is
+produced.  Function acss-personality-from-speech-style does the
+following: Takes as input a "speech style" (1) Computes a symbol that
+will be used to refer to this specific speech style.  (2) Examines
+emacspeak’s internal voice table to see if this speech style has a voice
+already defined.  If so it returns immediately.  Otherwise, it does the
+additional work of defining a -voice for future use.  See its use in
+this module to see how voices are defined independent of a given TTS
+engine.  How faces map to voices: TTS engine specific modules e.g.,
+dectalk-voices.el and outloud-voices.el map ACSS dimensions to
+engine-specific codes.  It does this via special form def-voice-font
+which takes a personality name, a voice name and a face name to set up
+the mapping between face and personality, and personality and voice.
+Emacspeak modules use voice-setup-add-map when defining
+face->personality mappings.  For use from other modules, also see
+function voice-setup-map-face which is useful when mapping a single
+face.  Both voice-setup-add-map and voice-setup-map-face call special
+form def-voice-font.
+
+   new voices can be defined using CSS styles, see special form
+defvoice.  Voices defined via defvoice can be customized via custom see
+the documentation for defvoice.
+
+12.229.2 Voice-Setup Commands
 -----------------------------
 
-12.229.1.1 voice-lock-mode
+12.229.2.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -9044,14 +9087,14 @@ or deletion.
 
      (fn &optional ARG)
 
-12.229.1.2 voice-lock-mode–turn-on
+12.229.2.2 voice-lock-mode–turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
 
      Turn on Voice Lock mode .
 
-12.229.1.3 voice-setup-toggle-silence-personality
+12.229.2.3 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
@@ -9060,7 +9103,7 @@ or deletion.
 
      Toggle audibility of personality under point  .
 
-12.229.2 voice-setup Options
+12.229.3 voice-setup Options
 ----------------------------
 
  -- Variable: User Option voice-lock-mode-hook
@@ -9861,60 +9904,4 @@ write-up on Polyhedral Geometry
 (http://emacspeak.sourceforge.net/raman/publications/polyhedra/) that I
 published in 2002; all of the content, including the drawings were
 created by me using Emacs.
-
-
-File: emacspeak.info,  Node: Emacspeak And The Early Days Of The Web,  Next: Audio Formatting --- Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Emacspeak At Twenty
-
-15.7 Emacspeak And The Early Days Of The Web
-============================================
-
-Right around the time that I was writing version 0.01 of emacspeak, a
-far more significant software movement was under way — the World Wide
-Web was moving from the realms of academia to the mainstream world with
-the launch of NCSA Mosaic — and in late 1994 by the first commercial Web
-browser in Netscape Navigator.  Emacs had always enabled integrated
-access to FTP archives via package _ange-ftp_; in late 1993, William
-Perry released Emacs-W3, a Web browser for Emacs written entirely in
-Emacs Lisp.  W3 was one of the first large packages to be speech-enabled
-by Emacspeak — later it was the browser on which I implemented the first
-draft of the Aural CSS specification
-(http://www.w3.org/TR/CSS2/aural.html).  Emacs-W3 enabled many early
-innovations in the context of providing non-visual access to Web
-content, including audio formatting and structured content navigation;
-in summer of 1995, Dave Raggett and I outlined a few extensions to HTML
-Forms, including the *label* element as a means of associating metadata
-with interactive form controls in HTML, and many of these ideas were
-prototyped in Emacs-W3 at the time.  Over the years, Emacs-W3 fell
-behind the times — especially as the Web moved away from cleanly
-structured HTML to a massive soup of unmatched tags.  This made parsing
-and error-correcting badly-formed HTML markup expensive to do in
-Emacs-Lisp — and performance suffered.  To add to this, mainstream users
-moved away because Emacs’ rendering engine at the time was not rich
-enough to provide the type of visual renderings that users had come to
-expect.  The advent of DHTML, and JavaScript based Web Applications
-finally killed off Emacs-W3 as far as most Emacs users were concerned.
-
-   But Emacs-W3 went through a revival on the emacspeak audio desktop in
-late 1999 with the arrival of XSLT, and Daniel Veillard’s excellent
-implementation via the *libxml2* and *libxslt* packages.  With these in
-hand, Emacspeak was able to hand-off the bulk of HTML error correction
-to the *xsltproc* tool.  The lack of visual fidelity didn’t matter much
-for an eyes-free environment; so Emacs-W3 continued to be a useful tool
-for consuming large amounts of Web content that did not require
-JavaScript support.
-
-   During the last 24 months, *libxml2* has been built into Emacs; this
-means that you can now parse arbitrary HTML as found in the wild without
-incurring a performance hit.  This functionality was leveraged first by
-package *shr* (Simple HTML Renderer) within the *gnus* package for
-rendering HTML email.  Later, the author of *gnus* and *shr* created a
-new light-weight HTML viewer called *eww* that is now part of Emacs 24.
-With improved support for variable pitch fonts and image embedding,
-Emacs is once again able to provide visual renderings for a large
-proportion of text-heavy Web content where it becomes useful for
-mainstream Emacs users to view at least some Web content within Emacs;
-during the last year, I have added support within emacspeak to extend
-package *eww*
-(http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html)
-with support for DOM filtering and quick content navigation.
 
