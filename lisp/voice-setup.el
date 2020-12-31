@@ -65,7 +65,7 @@
 ;;; We will refer to this structure as a "speech style".  This
 ;;; structure needs to be mapped to device dependent codes to produce
 ;;; the desired effect.  This module forms a bridge between emacs
-;;; packages    that wish to implement audio formatting 
+;;; packages    that wish to implement audio formatting
 ;;; and Emacspeak's TTS module.  Emacspeak produces voice
 ;;; change effects by examining the value of text-property
 ;;; 'personality', as well as the face/font at point.
@@ -117,23 +117,22 @@
 ;;; Whenever we switch engines, we load voice-definitions for that
 ;;; engine by reloading module voice-defs.
 
-
 (cond
-   ((string-match "outloud" dtk-program)
-    (require 'outloud-voices)
-    (outloud-configure-tts))
-   ((string-match "dtk" dtk-program)
-    (require 'dectalk-voices)
-    (dectalk-configure-tts))
-   ((string-match "mac$" dtk-program)
-    (require 'mac-voices)
-    (mac-configure-tts))
-   ((string-match "espeak$" dtk-program)
-    (require 'espeak-voices)
-    (espeak-configure-tts))
-   (t
-    (require 'plain-voices)
-    (plain-configure-tts)))
+ ((string-match "outloud" dtk-program)
+  (require 'outloud-voices)
+  (outloud-configure-tts))
+ ((string-match "dtk" dtk-program)
+  (require 'dectalk-voices)
+  (dectalk-configure-tts))
+ ((string-match "mac$" dtk-program)
+  (require 'mac-voices)
+  (mac-configure-tts))
+ ((string-match "espeak$" dtk-program)
+  (require 'espeak-voices)
+  (espeak-configure-tts))
+ (t
+  (require 'plain-voices)
+  (plain-configure-tts)))
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.
@@ -148,7 +147,7 @@ Define a voice for it if needed, then return the symbol."
           (r (acss-richness style))
           (m (acss-punctuations style))
           (name nil))
-      (setq name 
+      (setq name
             (intern
              (format "acss%s%s%s%s%s%s"
                      (if f (format "-%s" f) "")
@@ -187,12 +186,8 @@ Define a voice for it if needed, then return the symbol."
 ;;}}}
 ;;{{{  special form defvoice
 
-(defvar voice-setup-style-table (make-hash-table :test #'eq)
-  "Maps ACSS names to ACSS  settings. ")
-
 (defun voice-setup-acss-from-style (style-list)
   "Define an ACSS-voice  from   speech style."
-  (cl-declare (special voice-setup-style-table))
   (let ((voice
          (acss-personality-from-speech-style
           (make-acss
@@ -202,13 +197,12 @@ Define a voice for it if needed, then return the symbol."
            :stress (nth 3 style-list)
            :richness (nth 4  style-list)
            :punctuations (nth 5  style-list)))))
-    (puthash  voice style-list voice-setup-style-table)
     voice))
 
 (defmacro defvoice (personality settings doc)
   "Define voice using ACSS setting.  Setting is a list of the form
 (list paul 5 5 5 5 'all) which defines a standard male voice
-that speaks `all' punctuations.  
+that speaks `all' punctuations.
  This  personality can be customized by calling
 command \\[customize-variable] on <personality>-settings. "
   (declare (indent 1) (debug t))
@@ -256,7 +250,7 @@ command \\[customize-variable] on <personality>-settings. "
   t nil nil
   (when (called-interactively-p 'interactive)
     (let ((state (if voice-lock-mode 'on 'off)))
-        (emacspeak-auditory-icon state))))
+      (emacspeak-auditory-icon state))))
 
 (defun voice-lock-mode--turn-on ()
   "Turn on Voice Lock mode ."
@@ -270,7 +264,7 @@ command \\[customize-variable] on <personality>-settings. "
   :group 'voice-lock
   (when (called-interactively-p 'interactive)
     (let ((state (if global-voice-lock-mode 'on 'off)))
-        (emacspeak-auditory-icon state)))
+      (emacspeak-auditory-icon state)))
   )
 
 ;; Install ourselves:
@@ -282,7 +276,7 @@ command \\[customize-variable] on <personality>-settings. "
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
 
 ;;}}}
-;;{{{ interactively silence personalities 
+;;{{{ interactively silence personalities
 
 (defvar voice-setup-buffer-face-voice-table (make-hash-table :test #'eq)
   "Buffer local face->personality.")
@@ -307,7 +301,7 @@ command \\[customize-variable] on <personality>-settings. "
      ((eq personality  'inaudible)
       (voice-setup-set-voice-for-face face  orig)
       (message "Made personality %s audible." orig)
-      (emacspeak-auditory-icon 'open-object))    
+      (emacspeak-auditory-icon 'open-object))
      (t (voice-setup-set-voice-for-face face 'inaudible)
         (setf
          (gethash face voice-setup-buffer-face-voice-table)
