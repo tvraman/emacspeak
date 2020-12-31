@@ -55,14 +55,14 @@
 (defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
   "Speaks some punctuations.")
 
-(defvoice  voice-monotone (list nil nil 0 0 nil 'all)
-  "Add monotone and  all punctuations.")
+(defvoice  voice-monotone (list nil nil 0 0 nil)
+  "Add monotone.")
 
-(defvoice  voice-monotone-medium (list nil nil 2 2  nil 'all)
-  "Add medium monotone and  punctuations.")
+(defvoice  voice-monotone-medium (list nil nil 2 2  nil)
+  "Add medium monotone.")
 
-(defvoice  voice-monotone-light (list nil nil 4 4   nil 'all)
-  "Add light monotone and  punctuations.")
+(defvoice  voice-monotone-light (list nil nil 4 4   nil)
+  "Add light monotone.")
 
 (defvoice voice-animate-extra (list nil 8 8 6)
   "Adds extra animation.")
