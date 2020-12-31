@@ -1503,7 +1503,7 @@ which-func without turning that mode on.  "
            (if (= 1 (point-min))
                ""
              "with narrowing in effect. ")))
-(voice-setup-map-face 'header-line 'voice-bolden)
+(voice-setup-set-voice-for-face 'header-line 'voice-bolden)
 
 (defun emacspeak--sox-multiwindow (corners)
   "Takes `window-edges' and plays a sound cue based on position of current window with respect to

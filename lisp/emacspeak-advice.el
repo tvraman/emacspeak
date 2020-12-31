@@ -747,7 +747,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 ;;}}}
 ;;{{{ advice minibuffer to speak
 
-(voice-setup-map-face 'minibuffer-prompt 'voice-bolden)
+(voice-setup-set-voice-for-face 'minibuffer-prompt 'voice-bolden)
 
 (defadvice quoted-insert (after emacspeak pre act comp)
   "Speak the character that was inserted."
@@ -899,7 +899,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   (not (tts-multistream-p dtk-program))
   "Set to T if not using a separate TTS notification stream.")
 
-(voice-setup-map-face 'eldoc-highlight-function-argument 'voice-bolden)
+(voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
 
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."

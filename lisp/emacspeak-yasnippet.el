@@ -54,7 +54,7 @@
 ;;}}}
 ;;{{{ Map personalities:
 
-(voice-setup-map-face 'yas-field-highlight-face 'voice-animate)
+(voice-setup-set-voice-for-face 'yas-field-highlight-face 'voice-animate)
 
 ;;}}}
 ;;{{{ Advice interactive commands:

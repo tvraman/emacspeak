@@ -89,8 +89,7 @@
 ;;; specific modules e.g., dectalk-voices.el and outloud-voices.el map
 ;;; ACSS dimensions to engine-specific codes.  Emacspeak modules use
 ;;; voice-setup-add-map when defining face->personality mappings.  For
-;;; use from other modules, also see function voice-setup-map-face
-;;; which is useful when mapping a single face.  Both
+;;; use from other modules.
 
 ;;; Code:
 
@@ -193,18 +192,14 @@ Define a voice for it if needed, then return the symbol."
   (gethash face voice-setup-face-voice-table))
 
 ;;}}}
-;;{{{ special form def-voice-font
-
-(defsubst voice-setup-map-face (face voice)
-  "Invoke def-voice-font with  generated personality name."
-     (voice-setup-set-voice-for-face face voice))
+;;{{{ Set up mappings:
 
 (defun voice-setup-add-map (fv-alist)
   "Sets up face to voice mapping given in fv-alist."
   (cl-loop
    for fv in fv-alist
    do
-   (voice-setup-map-face (cl-first fv) (cl-second fv))))
+   (voice-setup-set-voice-for-face (cl-first fv) (cl-second fv))))
 
 ;;}}}
 ;;{{{  special form defvoice
