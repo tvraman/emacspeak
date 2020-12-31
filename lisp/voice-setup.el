@@ -145,17 +145,15 @@ Define a voice for it if needed, then return the symbol."
           (p (acss-pitch-range style))
           (s (acss-stress style))
           (r (acss-richness style))
-          (m (acss-punctuations style))
           (name nil))
       (setq name
             (intern
-             (format "acss%s%s%s%s%s%s"
+             (format "acss%s%s%s%s%s"
                      (if f (format "-%s" f) "")
                      (if a (format "-a%s" a) "")
                      (if p (format "-p%s" p) "")
                      (if s (format "-s%s" s) "")
-                     (if r (format "-r%s" r) "")
-                     (if m (format "-%s" m) ""))))
+                     (if r (format "-r%s" r) ""))))
       (unless (tts-voice-defined-p name)
         (tts-define-voice-from-speech-style name style))
       name))))
@@ -195,15 +193,13 @@ Define a voice for it if needed, then return the symbol."
            :average-pitch (nth 1 style-list)
            :pitch-range (nth 2 style-list)
            :stress (nth 3 style-list)
-           :richness (nth 4  style-list)
-           :punctuations (nth 5  style-list)))))
+           :richness (nth 4  style-list)))))
     voice))
 
 (defmacro defvoice (personality settings doc)
   "Define voice using ACSS setting.  Setting is a list of the form
-(list paul 5 5 5 5 'all) which defines a standard male voice
-that speaks `all' punctuations.
- This  personality can be customized by calling
+(list paul 5 5 5 5) which defines a standard male voice.
+ It can be customized by calling
 command \\[customize-variable] on <personality>-settings. "
   (declare (indent 1) (debug t))
   `(progn
@@ -229,12 +225,7 @@ command \\[customize-variable] on <personality>-settings. "
                  (integer :tag "Number"))
          (choice :tag "Richness"
                  (const :tag "Unspecified" nil)
-                 (integer :tag "Number"))
-         (choice :tag "Punctuation Mode "
-                 (const :tag "Unspecified" nil)
-                 (const :tag "All" all)
-                 (const :tag "Some" some)
-                 (const :tag "No" none)))
+                 (integer :tag "Number")))
        :group 'voice-fonts
        :set
        #'(lambda  (sym val)

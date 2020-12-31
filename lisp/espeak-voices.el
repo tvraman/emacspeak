@@ -109,8 +109,7 @@ COMMAND-STRING to the TTS engine."
 ;;; Modified voices:
 
 ;;}}}
-;;{{{  Mapping css parameters to tts codes
-
+;;;Mapping css parameters to tts codes
 ;;{{{ voice family codes
 
 (defun espeak-get-family-code (_name)
@@ -271,14 +270,6 @@ and TABLE gives the values along that dimension."
     ""))
 
 ;;}}}
-;;{{{  punctuations
-
-(defun espeak-get-punctuations-code (_value)
-  "Return string needed to set specified punctuations mode."
-  "")
-
-;;}}}
-;;}}}
 ;;{{{  espeak-define-voice-from-speech-style
 
 (defun espeak-define-voice-from-speech-style (name style)
@@ -289,7 +280,6 @@ and TABLE gives the values along that dimension."
           (concat
            (espeak-get-family-code family)
            " "
-           (espeak-get-punctuations-code (acss-punctuations style))
            (espeak-get-average-pitch-code (acss-average-pitch style) family)
            (espeak-get-pitch-range-code (acss-pitch-range style) family)
            (espeak-get-stress-code (acss-stress style) family)

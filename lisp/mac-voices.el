@@ -295,13 +295,6 @@ and TABLE gives the values along that dimension."
     ""))
 
 ;;}}}
-;;{{{  punctuations
-
-(defun mac-get-punctuations-code (_value)
-  "Return string needed to set specified punctuations mode."
-  "")
-
-;;}}}
 ;;}}}
 ;;{{{  mac-define-voice-from-speech-style
 
@@ -311,7 +304,6 @@ and TABLE gives the values along that dimension."
          (command
           (concat 
            (mac-get-family-code family)
-           (mac-get-punctuations-code (acss-punctuations style))
            (mac-get-average-pitch-code (acss-average-pitch style) family)
            (mac-get-pitch-range-code (acss-pitch-range style) family)
            (mac-get-stress-code (acss-stress style) family)

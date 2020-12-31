@@ -45,9 +45,8 @@
 
 (cl-defstruct  acss
   family
-  gain left-volume right-volume
-  average-pitch pitch-range stress richness
-  punctuations)
+  gain 
+  average-pitch pitch-range stress richness)
 
 (eval-when-compile (require 'subr-x))
 (require 'advice)

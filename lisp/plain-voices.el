@@ -335,16 +335,6 @@ and TABLE gives the values along that dimension."
     ""))
 
 ;;}}}
-;;{{{  punctuations
-
-(defun plain-get-punctuations-code (value)
-  "Return string needed to set specified punctuations mode."
-  (if value
-      (format "") ; no-op --- change to taste
-    ""))
-
-;;}}}
-
 ;;}}}
 ;;{{{  plain-define-voice-from-speech-style
 
@@ -354,7 +344,6 @@ and TABLE gives the values along that dimension."
          (command
           (concat 
            (plain-get-family-code family)
-           (plain-get-punctuations-code (acss-punctuations style))
            (when (or (acss-average-pitch style)
                      (acss-pitch-range style)
                      (acss-stress style)

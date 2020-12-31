@@ -350,15 +350,6 @@ and TABLE gives the values along that dimension."
     ""))
 
 ;;}}}
-;;{{{  punctuations
-
-(defun dectalk-get-punctuations-code (value)
-  "Return string needed to set  punctuations mode."
-  (if value
-      (format " :pu %s " value)
-    ""))
-
-;;}}}
 ;;{{{  dectalk-define-voice-from-speech-style
 
 (defun dectalk-define-voice-from-speech-style (name style)
@@ -367,7 +358,6 @@ and TABLE gives the values along that dimension."
          (command
           (concat "["
                   (dectalk-get-family-code family)
-                  (dectalk-get-punctuations-code (acss-punctuations style))
                   (when (or (acss-average-pitch style)
                             (acss-pitch-range style)
                             (acss-stress style)

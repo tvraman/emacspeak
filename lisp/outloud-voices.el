@@ -295,13 +295,6 @@
     ""))
 
 ;;}}}
-;;{{{  punctuations
-
-(defun outloud-get-punctuations-code (_value)
-  "Return string  to set  punctuations mode."
-  "")
-
-;;}}}
 ;;{{{  outloud-define-voice-from-speech-style
 
 (defun outloud-define-voice-from-speech-style (name style)
@@ -309,7 +302,6 @@
   (let* ((family(acss-family style))
          (command
           (concat
-           (outloud-get-punctuations-code (acss-punctuations style))
            (outloud-get-average-pitch-code (acss-average-pitch style) family)
            (outloud-get-pitch-range-code (acss-pitch-range style) family)
            (outloud-get-stress-code (acss-stress style) family)
