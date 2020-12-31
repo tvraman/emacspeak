@@ -209,42 +209,9 @@ Define a voice for it if needed, then return the symbol."
 ;;; observers with the voice they use this gets unregistered when
 ;;; the mapping is changed via custom.
 
-(defmacro  def-voice-font (voice face doc)
-  "Map voice     to face."
-  (declare (indent 1) (debug t))
-  (let ((documentation
-         (concat
-          doc
-          (format "\nUses %s: Customize: %s-settings."
-                  voice  voice))))
-    `(progn
-;;; other actions performed at define time
-       (voice-setup-set-voice-for-face ,face ',voice)
-;;;record  personality as an
-;;;observer of  voice 
-       )))
-
-(defun voice-setup-name-personality (face-name)
-  "Get personality name to use."
-  (with-temp-buffer 
-    (erase-buffer)
-    (insert face-name)
-    (let ((orig face-name))
-      (goto-char (point-min))
-      (while (search-forward "face" nil t) (replace-match "personality"))
-      (goto-char (point-min))
-      (while (search-forward "font-lock" nil t) (replace-match "voice"))
-      (when (string= orig (buffer-string))
-        (insert "voice-")))
-    (buffer-string)))
-
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with  generated personality name."
-  (let ((doc (format "Personality used for %s" face))
-        (personality
-         (intern (voice-setup-name-personality (symbol-name face)))))
-    (eval
-     `(def-voice-font  ,voice  ',face  ,doc))))
+     (voice-setup-set-voice-for-face face voice))
 
 (defun voice-setup-add-map (fv-alist)
   "Sets up face to voice mapping given in fv-alist."
