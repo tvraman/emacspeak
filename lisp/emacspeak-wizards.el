@@ -3011,17 +3011,16 @@ personality at point. "
       (read-from-minibuffer
        "Personality: "
        nil nil 'read nil  v))))
-  (let ((voice (get personality 'observing))
-        (settings nil)
+  (let ((settings nil)
         (n '(family average-pitch pitch-range stress richness punctuations))
         (values nil))
-    (when voice (setq settings (intern (format "%s-settings" voice))))
+    (when personality (setq settings (intern (format "%s-settings" personality))))
     (cond
      ((symbol-value settings) ;;; globally bound, display it
       (setq values (symbol-value settings))
       (with-help-window (help-buffer)
         (with-current-buffer standard-output
-          (insert (format "Personality: %s\tVoice:%s\n\n" personality voice))
+          (insert (format "Personality: %s\n\n" personality ))
           (put-text-property (point-min) (point)
                              'personality personality)
           (cl-loop
