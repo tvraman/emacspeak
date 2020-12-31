@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 30, 2020.
+last updated on December 31, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-js2,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -9050,9 +9050,7 @@ this module to see how voices are defined independent of a given TTS
 engine.  How faces map to voices: TTS engine specific modules e.g.,
 dectalk-voices.el and outloud-voices.el map ACSS dimensions to
 engine-specific codes.  Emacspeak modules use voice-setup-add-map when
-defining face->personality mappings.  For use from other modules, also
-see function voice-setup-map-face which is useful when mapping a single
-face.  Both
+defining face->personality mappings.  For use from other modules.
 
 12.229.2 Voice-Setup Commands
 -----------------------------

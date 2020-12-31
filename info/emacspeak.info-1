@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 30, 2020.
+last updated on December 31, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1133 commands and 149 options.
+   This chapter documents a total of 1132 commands and 149 options.
 
 * Menu:
 
@@ -7675,21 +7675,14 @@ Infrequently used wizards archived for posterity.
 
      Play midi file using mscore from musescore package.
 
-12.73.1.15 emacspeak-wizards-show-defined-voice-fonts
-.....................................................
+12.73.1.15 emacspeak-wizards-show-voice-fonts
+.............................................
 
- -- Command: emacspeak-wizards-show-defined-voice-fonts
+ -- Command: emacspeak-wizards-show-voice-fonts
 
      Display a buffer with sample text in the defined voice fonts.
 
-12.73.1.16 emacspeak-wizards-show-defined-voices
-................................................
-
- -- Command: emacspeak-wizards-show-defined-voices
-
-     Display a buffer with sample text in the defined voices.
-
-12.73.1.17 emacspeak-wizards-tramp-open-location
+12.73.1.16 emacspeak-wizards-tramp-open-location
 ................................................
 
  -- Command: emacspeak-wizards-tramp-open-location (name)
@@ -7697,7 +7690,7 @@ Infrequently used wizards archived for posterity.
      Open specified tramp location.
      Location is specified by name.
 
-12.73.1.18 emacspeak-wizards-voice-sampler
+12.73.1.17 emacspeak-wizards-voice-sampler
 ..........................................
 
  -- Command: emacspeak-wizards-voice-sampler (personality)

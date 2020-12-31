@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1133 commands and 149 options.
+This chapter documents a total of 1132 commands and 149 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -5644,21 +5644,12 @@ Play midi file using mscore from musescore package.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-show-defined-voice-fonts
-@deffn {Command} emacspeak-wizards-show-defined-voice-fonts   
-@findex emacspeak-wizards-show-defined-voice-fonts
+@subsubsection emacspeak-wizards-show-voice-fonts
+@deffn {Command} emacspeak-wizards-show-voice-fonts   
+@findex emacspeak-wizards-show-voice-fonts
 
 @format
 Display a buffer with sample text in the defined voice fonts.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-show-defined-voices
-@deffn {Command} emacspeak-wizards-show-defined-voices   
-@findex emacspeak-wizards-show-defined-voices
-
-@format
-Display a buffer with sample text in the defined voices.
 @end format
 @end deffn
 
@@ -18414,8 +18405,7 @@ of a given TTS engine.  How faces map to voices: TTS engine
 specific modules e.g., dectalk-voices.el and outloud-voices.el map
 ACSS dimensions to engine-specific codes.  Emacspeak modules use
 voice-setup-add-map when defining face->personality mappings.  For
-use from other modules, also see function voice-setup-map-face
-which is useful when mapping a single face.  Both
+use from other modules.
 
 @subsection Voice-Setup Commands
 
