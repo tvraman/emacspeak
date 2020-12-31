@@ -161,20 +161,6 @@ Define a voice for it if needed, then return the symbol."
         (tts-define-voice-from-speech-style name style))
       name))))
 
-(defun tts-list-voices ()
-  "List  voices."
-  (cl-declare (special dectalk-voice-table espeak-voice-table
-                       plain-voice-table mac-voice-table
-                       outloud-voice-table dtk-program))
-  (let ((voice-table
-          (cond
-           ((string-match "outloud" dtk-program) outloud-voice-table)
-           ((string-match "dtk" dtk-program) dectalk-voice-table)
-           ((string-match "mac$" dtk-program) mac-voice-table)
-           ((string-match "espeak$" dtk-program) espeak-voice-table)
-           (t plain-voice-table))))
-    (cl-loop for k being the hash-keys of voice-table collect   k)))
-
 ;;}}}
 ;;{{{ map faces to voices
 
@@ -191,9 +177,6 @@ Define a voice for it if needed, then return the symbol."
   (cl-declare (special  voice-setup-face-voice-table))
   (gethash face voice-setup-face-voice-table))
 
-;;}}}
-;;{{{ Set up mappings:
-
 (defun voice-setup-add-map (fv-alist)
   "Sets up face to voice mapping given in fv-alist."
   (cl-loop
@@ -208,7 +191,7 @@ Define a voice for it if needed, then return the symbol."
   "Maps ACSS names to ACSS  settings. ")
 
 (defun voice-setup-acss-from-style (style-list)
-  "Define an ACSS-voice  given a list of speech style settings."
+  "Define an ACSS-voice  from   speech style."
   (cl-declare (special voice-setup-style-table))
   (let ((voice
          (acss-personality-from-speech-style
@@ -222,26 +205,11 @@ Define a voice for it if needed, then return the symbol."
     (puthash  voice style-list voice-setup-style-table)
     voice))
 
-(defun voice-setup-observing-personalities  (voice-name)
-  "Return a list of personalities that are `observing' VOICE-NAME. "
-  (let* ((plist (symbol-plist voice-name))
-         (l (1- (length plist))))
-    (cl-loop for i from 0 to l by 2
-             collect (nth i plist))))
-
-(defun voice-setup-update-personalities (personality)
-  "Update  personalities  whose  setting just changed."
-  (let ((value (symbol-value personality))
-        (observers (voice-setup-observing-personalities personality)))
-    (cl-loop for o in observers
-             do                            ;o is already quoted
-             (set o value))))
-
 (defmacro defvoice (personality settings doc)
   "Define voice using ACSS setting.  Setting is a list of the form
 (list paul 5 5 5 5 'all) which defines a standard male voice
-that speaks `all' punctuations.  Once
-defined, the newly declared personality can be customized by calling
+that speaks `all' punctuations.  
+ This  personality can be customized by calling
 command \\[customize-variable] on <personality>-settings. "
   (declare (indent 1) (debug t))
   `(progn
@@ -249,13 +217,12 @@ command \\[customize-variable] on <personality>-settings. "
        (voice-setup-acss-from-style ,settings)
        ,(concat
          doc
-         (format "\nCustomize  via %s-settings."
-                 personality)))
+         (format "\nCustomize  via %s-settings." personality)))
      (defcustom ,(intern (format "%s-settings"  personality))
        ,settings
        ,doc
        :type  '(list
-                        (const :tag "Unspecified" nil)
+                (const :tag "Unspecified" nil)
                 (choice :tag "Average Pitch"
                         (const :tag "Unspecified" nil)
                         (integer :tag "Number"))
@@ -270,17 +237,15 @@ command \\[customize-variable] on <personality>-settings. "
                         (integer :tag "Number"))
                 (choice :tag "Punctuation Mode "
                         (const :tag "Unspecified" nil)
-                        (const :tag "All punctuations" all)
-                        (const :tag "Some punctuations" some)
-                        (const :tag "No punctuations" none)))
+                        (const :tag "All" all)
+                        (const :tag "Some" some)
+                        (const :tag "No" none)))
        :group 'voice-fonts
        :set
        #'(lambda  (sym val)
-          (let ((acss-name (voice-setup-acss-from-style val)))
-            (setq ,personality acss-name)
-;;; update all observers
-            (voice-setup-update-personalities ',personality)
-            (set-default sym val))))))
+           (let ((acss-name (voice-setup-acss-from-style val)))
+             (setq ,personality acss-name)
+             (set-default sym val))))))
 
 ;;}}}
 ;;{{{ new light-weight voice lock
