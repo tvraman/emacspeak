@@ -199,7 +199,7 @@ for the current voice family."
          for s from 0 to 9 by step do
          (cl-loop
           for r from 0 to 9 by step do
-          (setq voice (voice-setup-personality-from-style
+          (setq voice (voice-setup-acss-from-style
                        (list nil a p s r)))
           (insert
            (format
