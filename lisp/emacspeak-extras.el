@@ -168,6 +168,19 @@ Default is to add autoload cookies to current file."
 ;;}}}
 ;;{{{ voice sample
 
+(defun tts-list-voices ()
+  "List  voices."
+  (cl-declare (special dectalk-voice-table espeak-voice-table
+                       plain-voice-table mac-voice-table
+                       outloud-voice-table dtk-program))
+  (let ((voice-table
+          (cond
+           ((string-match "outloud" dtk-program) outloud-voice-table)
+           ((string-match "dtk" dtk-program) dectalk-voice-table)
+           ((string-match "mac$" dtk-program) mac-voice-table)
+           ((string-match "espeak$" dtk-program) espeak-voice-table)
+           (t plain-voice-table))))
+    (cl-loop for k being the hash-keys of voice-table collect   k)))
 
 (defsubst voice-setup-read-personality (&optional prompt)
   "Read name of a pre-defined personality using completion."
