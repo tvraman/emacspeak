@@ -234,23 +234,17 @@ Define a voice for it if needed, then return the symbol."
 
 (defun voice-setup-name-personality (face-name)
   "Get personality name to use."
-  (let ((name nil))
-    (setq name
-          (or
-           (replace-regexp-in-string "face$" "personality" face-name)
-           face-name))
-    (setq name
-          (or
-           (replace-regexp-in-string "font-lock" "voice" name
-                                     (replace-regexp-in-string "font" "voice" name))
-           name))
-    (setq name
-          (or
-           (replace-regexp-in-string "font" "voice" name)
-           name))
-    (when (string-equal name face-name)
-      (setq name (format "voice-%s" name)))
-    name))
+  (with-temp-buffer 
+    (erase-buffer)
+    (insert face-name)
+    (let ((orig face-name))
+      (goto-char (point-min))
+      (while (search-forward "face" nil t) (replace-match "personality"))
+      (goto-char (point-min))
+      (while (search-forward "font-lock" nil t) (replace-match "voice"))
+      (when (string= orig (buffer-string))
+        (insert "voice-")))
+    (buffer-string)))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with  generated personality name."
