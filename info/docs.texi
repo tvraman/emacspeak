@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1132 commands and 149 options.
+This chapter documents a total of 1132 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -18318,22 +18318,17 @@ Smoothness to 8.
 @end defvar
 
 @defvar {User Option} voice-monotone-light-settings
-Add light monotone and  punctuations.
+Add light monotone.
 
 @end defvar
 
 @defvar {User Option} voice-monotone-medium-settings
-Add medium monotone and  punctuations.
+Add medium monotone.
 
 @end defvar
 
 @defvar {User Option} voice-monotone-settings
-Add monotone and  all punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-punctuations-some-settings
-Speaks some punctuations.
+Add monotone.
 
 @end defvar
 

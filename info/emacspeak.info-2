@@ -8977,16 +8977,13 @@ facilities of module voice-setup.
      Smoothness to 8.
 
  -- Variable: User Option voice-monotone-light-settings
-     Add light monotone and punctuations.
+     Add light monotone.
 
  -- Variable: User Option voice-monotone-medium-settings
-     Add medium monotone and punctuations.
+     Add medium monotone.
 
  -- Variable: User Option voice-monotone-settings
-     Add monotone and all punctuations.
-
- -- Variable: User Option voice-punctuations-some-settings
-     Speaks some punctuations.
+     Add monotone.
 
  -- Variable: User Option voice-smoothen-extra-settings
      Extra smoothen.
