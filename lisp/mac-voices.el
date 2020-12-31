@@ -155,12 +155,6 @@ and TABLE gives the values along that dimension."
     (gethash key mac-css-code-tables)))
 
 ;;}}}
-;;{{{ volume
-
-(defvar mac-gain-table (make-vector  10 "")
-  "Maps CSS volume settings to actual synthesizer codes.")
-;; TODO
-;;}}}
 ;;{{{  average pitch
 
 ;;; Average pitch for standard male voice is 65 --this is mapped to

@@ -167,13 +167,6 @@ and TABLE gives the values along that dimension."
     (gethash key dectalk-css-code-tables)))
 
 ;;}}}
-;;{{{ volume
-
-;;; Note:volume settings not implemented for Dectalks.
-(defvar dectalk-gain-table (make-vector  10 "")
-  "Maps CSS volume settings to actual synthesizer codes.")
-
-;;}}}
 ;;{{{  average pitch
 
 ;;; Average pitch for standard male voice is 122hz --this is mapped to

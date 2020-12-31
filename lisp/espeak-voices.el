@@ -139,13 +139,6 @@ and TABLE gives the values along that dimension."
     (gethash key espeak-css-code-tables)))
 
 ;;}}}
-;;{{{ volume
-
-;;; Note: volume settings not implemented for Espeak.
-(defvar espeak-gain-table (make-vector  10 "")
-  "Maps CSS volume settings to actual synthesizer codes.")
-
-;;}}}
 ;;{{{  average pitch
 
 ;;; Average pitch of standard text is aurally mapped to 

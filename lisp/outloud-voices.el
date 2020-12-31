@@ -132,12 +132,6 @@
     (gethash key outloud-css-code-tables)))
 
 ;;}}}
-;;{{{ volume
-
-(defvar outloud-gain-table (make-vector  10 "")
-  "Maps CSS volume settings to actual synthesizer codes.")
-
-;;}}}
 ;;{{{  average pitch
 
 ;;; Average pitch for standard male voice is 65 --this is mapped to

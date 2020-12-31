@@ -44,9 +44,7 @@
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
 
 (cl-defstruct  acss
-  family
-  gain 
-  average-pitch pitch-range stress richness)
+  family average-pitch pitch-range stress richness)
 
 (eval-when-compile (require 'subr-x))
 (require 'advice)

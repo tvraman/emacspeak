@@ -135,11 +135,8 @@
   (plain-configure-tts)))
 
 (defun acss-personality-from-speech-style (style)
-  "First compute a symbol that will be name for this STYLE.
+  "Compute a  name for this STYLE.
 Define a voice for it if needed, then return the symbol."
-  (cond
-   ((and (acss-gain style) (= 0 (acss-gain style))) 'inaudible)
-   (t
     (let ((f (acss-family style))
           (a (acss-average-pitch style))
           (p (acss-pitch-range style))
@@ -156,7 +153,7 @@ Define a voice for it if needed, then return the symbol."
                      (if r (format "-r%s" r) ""))))
       (unless (tts-voice-defined-p name)
         (tts-define-voice-from-speech-style name style))
-      name))))
+      name))
 
 ;;}}}
 ;;{{{ map faces to voices
