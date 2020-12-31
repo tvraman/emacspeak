@@ -62,7 +62,7 @@
   </div>
   <hr />
   <span id="voice_002dsetup-1"></span>
-  <h3 class="section">12.230 voice-setup</h3>
+  <h3 class="section">12.229 voice-setup</h3>
   <p>A voice is to audio as a font is to a visual display. A
   personality is to audio as a face is to a visual display.</p>
   <p>Voice-lock-mode is a minor mode that causes your comments to
@@ -70,16 +70,49 @@
   in another, documentation strings in another, and so on.</p>
   <p>Comments will be spoken in ‘voice-comment-personality’.
   Strings will be spoken in ‘voice-string-personality’. Function
-  and variable names (in their defining forms) will be spoken in
+  (in their defining forms) will be spoken in
   ‘voice-function-name-personality’. Reserved words will be spoken
   in ‘voice-keyword-personality’.</p>
-  <p>To make the text you type be voiceified, use M-x
-  voice-lock-mode. When this minor mode is on, the voices of the
-  current line are updated with every insertion or
-  deletion.</p><span id="Voice_002dSetup-Commands"></span>
-  <h4 class="subsection">12.230.1 Voice-Setup
+  <p>To audio-format text , use M-x voice-lock-mode. When this
+  minor mode is on, the voices of the current line are updated with
+  every insertion or deletion.</p><span id=
+  "Voice_002dLock-And-Aural-CSS"></span>
+  <h4 class="subsection">12.229.1 Voice-Lock And Aural CSS</h4>
+  <p>The CSS Speech Style Sheet specification defines a number of
+  abstract device independent voice properties. A setting
+  conforming to the CSS speech specification can be represented in
+  elisp as a structure.</p>
+  <p>We will refer to this structure as a "speech style". This
+  structure needs to be mapped to device dependent codes to produce
+  the desired effect. This module forms a bridge between emacs
+  packages that wish to implement audio formatting and Emacspeak’s
+  TTS module. Emacspeak produces voice change effects by examining
+  the value of text-property ’personality’, as well as the
+  face/font at point.</p>
+  <p>Think of a buffer of formatted text along with the
+  text-property ’personality appropriately set as a "aural display
+  list". Module voice-setup.el help applications like EWW produce
+  audio-formatted output by calling function
+  acss-personality-from-speech-style with a "speech-style" –a
+  structure as defined in this module and get back a symbol that
+  they assign to the value of property ’personality. Emacspeak’s
+  rendering engine then does the needful at the time speech is
+  produced. Function acss-personality-from-speech-style does the
+  following: Takes as input a "speech style" (1) Computes a symbol
+  that will be used to refer to this specific speech style. (2)
+  Examines emacspeak’s internal voice table to see if this speech
+  style has a voice already defined. If so it returns immediately.
+  Otherwise, it does the additional work of defining a -voice for
+  future use. See its use in this module to see how voices are
+  defined independent of a given TTS engine. How faces map to
+  voices: TTS engine specific modules e.g., dectalk-voices.el and
+  outloud-voices.el map ACSS dimensions to engine-specific codes.
+  Emacspeak modules use voice-setup-add-map when defining
+  face-&gt;personality mappings. For use from other
+  modules.</p><span id="Voice_002dSetup-Commands"></span>
+  <h4 class="subsection">12.229.2 Voice-Setup
   Commands</h4><span id="voice_002dlock_002dmode"></span>
-  <h4 class="subsubsection">12.230.1.1 voice-lock-mode</h4>
+  <h4 class="subsubsection">12.229.2.1 voice-lock-mode</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode">Command:
     <strong>voice-lock-mode</strong> <em>(&amp;optional
@@ -111,7 +144,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dlock_002dmode_002d_002dturn_002don"></span>
-  <h4 class="subsubsection">12.230.1.2 voice-lock-mode–turn-on</h4>
+  <h4 class="subsubsection">12.229.2.2 voice-lock-mode–turn-on</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode_002d_002dturn_002don">
     Command: <strong>voice-lock-mode--turn-on</strong></dt>
@@ -125,7 +158,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dsetup_002dtoggle_002dsilence_002dpersonality"></span>
-  <h4 class="subsubsection">12.230.1.3
+  <h4 class="subsubsection">12.229.2.3
   voice-setup-toggle-silence-personality</h4>
   <dl>
     <dt id=
@@ -147,9 +180,9 @@ it is disabled.
       </div>
     </dd>
   </dl><span id="voice_002dsetup-Options"></span>
-  <h4 class="subsection">12.230.2 voice-setup Options</h4>
+  <h4 class="subsection">12.229.3 voice-setup Options</h4>
   <dl>
-    <dt id="index-User-Option-857">Variable: <strong>User
+    <dt id="index-User-Option-148">Variable: <strong>User
     Option</strong> <em>voice-lock-mode-hook</em></dt>
     <dd>
       <p>Hook run after entering or leaving ‘voice-lock-mode’. No
