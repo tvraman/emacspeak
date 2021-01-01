@@ -31,8 +31,9 @@ introducing-emacspeak.info: introducing-emacspeak.texi
 
 turning-twenty.info: turning-twenty.texi
 	$(MAKEINFO) turning-twenty.texi
+force:
 
-docs.texi: ../lisp/*.el
+docs.texi:force
 	$(EMACS) $(BATCH) -l ../utils/self-document.el -f self-document-all-modules
 
 emacspeak.pdf: emacspeak.texi $(INCLUDES)
