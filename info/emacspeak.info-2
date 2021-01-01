@@ -3488,7 +3488,6 @@ of emacspeak from becoming dependent on the speech server modules
      Speak a page.
      With prefix ARG, speaks rest of current page.
      Negative prefix arg will read from start of current page to point.
-     If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
 
      (fn &optional ARG)
 

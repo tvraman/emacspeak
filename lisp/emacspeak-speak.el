@@ -1250,8 +1250,7 @@ Negative prefix arg speaks from start of sexp to point. "
 (defun emacspeak-speak-page (&optional arg)
   "Speak a page.
 With prefix ARG, speaks rest of current page.
-Negative prefix arg will read from start of current page to point.
-If option  `voice-lock-mode' is on, then it will use any defined personality."
+Negative prefix arg will read from start of current page to point. "
   (interactive "P")
   (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))

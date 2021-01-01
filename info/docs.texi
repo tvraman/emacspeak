@@ -11131,8 +11131,7 @@ Speak display, before-string or after-string property if any.
 @format
 Speak a page.
 With prefix ARG, speaks rest of current page.
-Negative prefix arg will read from start of current page to point.
-If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
+Negative prefix arg will read from start of current page to point. 
 
 (fn &optional ARG)
 @end format
