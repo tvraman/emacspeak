@@ -302,8 +302,6 @@ muggles: emacspeak-muggles.elc
 extra-muggles: extra-muggles.elc
 maths: emacspeak-maths.elc
 
-force:
-
 config: emacspeak-loaddefs.el   
 lint:
 	echo "." |\
