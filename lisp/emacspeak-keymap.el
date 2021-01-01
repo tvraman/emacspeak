@@ -209,7 +209,7 @@
            ("C-m" man)
            ("C-r" info-display-manual)
            ("C-s" emacspeak-wizards-customize-saved)
-           ("C-v" emacspeak-wizards-describe-personality)
+           ("C-v" emacspeak-wizards-describe-voice)
            ("G" customize-group)
            ("M" emacspeak-speak-popup-messages)
            ("M-F" find-function-at-point)
