@@ -15541,8 +15541,8 @@ Cycles to previous buffer having same mode.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-describe-personality
-@deffn {Command} emacspeak-wizards-describe-personality  (personality)
+@subsubsection emacspeak-wizards-describe-voice
+@deffn {Command} emacspeak-wizards-describe-voice  (personality)
 @table @kbd
 @item C-h C-v
 @kindex C-h C-v
@@ -15552,7 +15552,7 @@ Cycles to previous buffer having same mode.
 @kindex <help> C-v
 @end table
 
-@findex emacspeak-wizards-describe-personality
+@findex emacspeak-wizards-describe-voice
 
 @format
 Describe  voice --- analogous to C-h /.

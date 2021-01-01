@@ -6760,10 +6760,10 @@ Contains various wizards for the Emacspeak desktop.
 
      Cycles to previous buffer having same mode.
 
-12.207.1.36 emacspeak-wizards-describe-personality
-..................................................
+12.207.1.36 emacspeak-wizards-describe-voice
+............................................
 
- -- Command: emacspeak-wizards-describe-personality (personality)
+ -- Command: emacspeak-wizards-describe-voice (personality)
      ‘C-h C-v’
      ‘<f1> C-v’
      ‘<help> C-v’
