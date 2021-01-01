@@ -1273,8 +1273,7 @@ If option  `voice-lock-mode' is on, then it will use any defined personality."
 (defun emacspeak-speak-paragraph (&optional arg)
   "Speak paragraph.
 With prefix arg, speaks rest of current paragraph.
-Negative prefix arg will read from start of current paragraph to point.
-If voice-lock-mode is on, then it will use any defined personality. "
+Negative prefix arg will read from start of current paragraph to point. "
   (interactive "P")
   (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
@@ -1300,9 +1299,7 @@ If voice-lock-mode is on, then it will use any defined personality. "
 (defun emacspeak-speak-buffer (&optional arg)
   "Speak current buffer  contents.
 With prefix ARG, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point.
- If voice lock mode is on, the paragraphs in the buffer are
-voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'."
+Negative prefix arg speaks from start of buffer to point. "
   (interactive "P")
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
   (let ((inhibit-point-motion-hooks t))
