@@ -320,12 +320,6 @@ emacspeak-loaddefs.el:
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
-custom: force
-	$(EMACS) $(BATCH) -l ./emacspeak-preamble.el  -l cus-dep -l ./emacspeak-autoload.el \
--f emacspeak-auto-custom-make-dependencies "."
-	cat cus-load.el  >> emacspeak-loaddefs.el
-	rm -f cus-load.el
-
 # }}}
 # {{{Development  target: indent, tags, relint 
 indent:
