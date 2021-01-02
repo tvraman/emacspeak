@@ -122,19 +122,19 @@
 ;;{{{ voice overlays
 
 ;;; these are suitable to use as "overlay voices".
-(defvoice voice-lock-overlay-0
+(defvoice voice-overlay-0
   (list nil 8 nil nil nil nil)
   "Pitch to 8.")
 
-(defvoice voice-lock-overlay-1
+(defvoice voice-overlay-1
   (list nil nil 8 nil nil nil)
   "Pitch-range to 8.")
 
-(defvoice voice-lock-overlay-2
+(defvoice voice-overlay-2
   (list nil nil nil 8 nil nil)
   " Richness to 8.")
 
-(defvoice voice-lock-overlay-3
+(defvoice voice-overlay-3
   (list nil  nil nil nil 8 nil)
   "Smoothness to 8.")
 

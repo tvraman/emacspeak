@@ -57,7 +57,7 @@
 
 (voice-setup-add-map
  '(
-   (iedit-occurrence voice-lock-overlay-1)
+   (iedit-occurrence voice-overlay-1)
    (iedit-read-only-occurrence voice-monotone)))
 
 ;;}}}

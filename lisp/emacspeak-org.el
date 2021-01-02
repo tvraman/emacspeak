@@ -98,7 +98,7 @@
    (org-beamer-tag voice-bolden)
    (org-block voice-monotone)
    (org-checkbox voice-animate)
-   (org-clock-overlay voice-animate)
+   (org-coverlay voice-animate)
    (org-code voice-monotone)
    (org-column voice-lighten)
    (org-column-title voice-lighten-extra)
