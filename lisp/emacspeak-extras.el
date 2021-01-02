@@ -168,20 +168,6 @@ Default is to add autoload cookies to current file."
 ;;}}}
 ;;{{{ voice sample
 
-(defun tts-list-voices ()
-  "List  voices."
-  (cl-declare (special dectalk-voice-table espeak-voice-table
-                       plain-voice-table mac-voice-table
-                       outloud-voice-table dtk-program))
-  (let ((voice-table
-          (cond
-           ((string-match "outloud" dtk-program) outloud-voice-table)
-           ((string-match "dtk" dtk-program) dectalk-voice-table)
-           ((string-match "mac$" dtk-program) mac-voice-table)
-           ((string-match "espeak$" dtk-program) espeak-voice-table)
-           (t plain-voice-table))))
-    (cl-loop for k being the hash-keys of voice-table collect   k)))
-
 (defsubst voice-setup-read-personality (&optional prompt)
   "Read name of a pre-defined personality using completion."
   (read (completing-read (or prompt "Personality: ")
@@ -226,11 +212,6 @@ for the current voice family."
     (switch-to-buffer buffer)
     (goto-char (point-min))))
 
-(defun voice-setup-defined-acss ()
-  "Return list of ACSS voices  defined via defvoice"
-  (cl-declare (special outloud-voice-table))
-  (cl-loop for k being the hash-keys of outloud-voice-table collect k))
-
 (defun voice-setup-defined-voices ()
   "Return list of voices defined via defvoice"
   (cl-loop
@@ -244,29 +225,6 @@ for the current voice family."
          (find-lisp-object-file-name v 'defvar)
          (expand-file-name "voice-defs.el" emacspeak-lisp-directory)))
    collect v))
-
-;;;###autoload
-(defun emacspeak-wizards-show-acss ()
-  "Display a buffer with sample text in the defined voice fonts."
-  (interactive)
-  (let ((buffer (get-buffer-create "*Voice Fonts Sampler*"))
-        (voices
-         (sort
-          (voice-setup-defined-fonts)
-          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
-    (save-current-buffer
-      (set-buffer buffer)
-      (erase-buffer)
-      (cl-loop
-       for v in voices do
-       (insert
-        (format "This is a sample of voice %s. " (symbol-name v)))
-       (put-text-property
-        (line-beginning-position) (line-end-position) 'personality v)
-       (end-of-line)
-       (insert "\n")))
-    (funcall-interactively #'pop-to-buffer buffer)
-    (goto-char (point-min))))
 
 ;;;###autoload
 (defun emacspeak-wizards-show-voices ()
