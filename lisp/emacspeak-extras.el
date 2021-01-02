@@ -227,9 +227,23 @@ for the current voice family."
     (goto-char (point-min))))
 
 (defun voice-setup-defined-fonts ()
-  "Return list of voices defined via def-voice-font."
+  "Return list of ACSS voices  defined via defvoice"
   (cl-declare (special outloud-voice-table))
   (cl-loop for k being the hash-keys of outloud-voice-table collect k))
+
+(defun voice-setup-defined-voices ()
+  "Return list of voices defined via defvoice"
+  (cl-loop
+   for v being the symbols of obarray 
+   when
+   (and
+    (symbolp v) (boundp v)
+    (string-match "^voice-" (symbol-name v))
+        (not (string-match "-settings$" (symbol-name v)))
+        (string=
+         (find-lisp-object-file-name v 'defvar)
+         (expand-file-name "voice-defs.el" emacspeak-lisp-directory)))
+   collect v))
 
 ;;;###autoload
 (defun emacspeak-wizards-show-voice-fonts ()
