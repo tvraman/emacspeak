@@ -377,7 +377,7 @@ Provide contextual feedback when closing blocks"
    (py-number-face voice-lighten)
    (py-XXX-tag-face voice-animate)
    (py-pseudo-keyword-face voice-bolden-medium)
-   (py-variable-name-face  voice-bolden)
+   (py-variable-name-face  voice-animate)
    (py-decorators-face voice-lighten)
    (py-builtins-face voice-bolden)
    (py-class-name-face voice-bolden-extra)
