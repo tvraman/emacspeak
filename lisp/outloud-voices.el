@@ -111,7 +111,7 @@
 (outloud-define-voice 'paul  " `v1 ")
 
 ;;}}}
-;;;  Mapping css parameters to tts codes
+;;;  Mapping css parameters to tts codes --- see../servers /linux-outloud/lib/voice-params.org
 ;;{{{  hash table for mapping families to their dimensions
 
 (defvar outloud-css-code-tables (make-hash-table)
