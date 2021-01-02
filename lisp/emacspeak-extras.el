@@ -171,7 +171,7 @@ Default is to add autoload cookies to current file."
 (defsubst voice-setup-read-personality (&optional prompt)
   "Read name of a pre-defined personality using completion."
   (read (completing-read (or prompt "Personality: ")
-                         (tts-list-voices))))
+                         (voice-setup-defined-voices))))
 ;;;###autoload
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
