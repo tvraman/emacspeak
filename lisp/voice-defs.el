@@ -64,10 +64,10 @@
 (defvoice voice-animate-extra (list nil 8 8 6)
   "Adds extra animation.")
 
-(defvoice voice-animate (list nil 7 7 4)
+(defvoice voice-animate-medium (list nil 7 7 4)
   "Animates current voice.")
 
-(defvoice voice-animate-medium (list nil 6 6  3)
+(defvoice voice-animate (list nil 6 6  3)
   "Adds medium animation.")
 
 (defvoice voice-smoothen-extra (list nil nil nil 4 5)
@@ -79,10 +79,10 @@
 (defvoice voice-smoothen (list nil nil  2 2)
   "Smoothen current voice.")
 
-(defvoice voice-brighten-medium (list nil nil nil 5 6)
+(defvoice voice-brighten (list nil nil nil 5 6)
   "Brighten  (medium).")
 
-(defvoice voice-brighten (list nil nil nil 6 7)
+(defvoice voice-brighten-medium (list nil nil nil 6 7)
   "Brighten.")
 
 (defvoice voice-brighten-extra (list nil nil nil 7 8)
@@ -97,13 +97,13 @@
 (defvoice voice-bolden-extra (list nil 1 6 7 8)
   "Extra bolden.")
 
-(defvoice voice-lighten (list nil 6 6 2   nil)
+(defvoice voice-lighten (list nil 6 6 2)
   "Lighten current voice.")
 
-(defvoice voice-lighten-medium (list nil 7 7 3  nil)
+(defvoice voice-lighten-medium (list nil 7 7 3)
   "Add medium lightness.")
 
-(defvoice voice-lighten-extra (list nil 9 8 7   nil)
+(defvoice voice-lighten-extra (list nil 9 8 7)
   "Add extra lightness.")
 
 (defvoice voice-bolden-and-animate (list nil 3 8 8 8)
