@@ -52,22 +52,22 @@
 ;;}}}
 ;;{{{ Voice Definitions: bold and friends
 
-(defvoice  voice-monotone (list nil nil 0 0 nil)
+(defvoice  voice-monotone (list nil nil 0 0)
   "Add monotone.")
 
-(defvoice  voice-monotone-medium (list nil nil 2 2  nil)
+(defvoice  voice-monotone-medium (list nil nil 2 2)
   "Add medium monotone.")
 
-(defvoice  voice-monotone-light (list nil nil 4 4   nil)
+(defvoice  voice-monotone-light (list nil nil 4 4)
   "Add light monotone.")
 
-(defvoice voice-animate-extra (list nil 8 8 6)
+(defvoice voice-animate-extra (list nil 8 8 )
   "Adds extra animation.")
 
-(defvoice voice-animate-medium (list nil 7 7 4)
+(defvoice voice-animate-medium (list nil 7 7)
   "Animates current voice.")
 
-(defvoice voice-animate (list nil 6 6  3)
+(defvoice voice-animate (list nil 6 6)
   "Adds medium animation.")
 
 (defvoice voice-smoothen-extra (list nil nil nil 4 5)
@@ -80,7 +80,7 @@
   "Smoothen current voice.")
 
 (defvoice voice-brighten (list nil nil nil 5 6)
-  "Brighten  (medium).")
+  "Brighten.")
 
 (defvoice voice-brighten-medium (list nil nil nil 6 7)
   "Brighten.")
@@ -116,7 +116,7 @@
   "Indent voice .")
 
 (defvoice voice-annotate (list nil nil 4 0 4)
-  "Annotation..")
+  "Annotation.")
 
 ;;}}}
 ;;{{{ voice overlays
