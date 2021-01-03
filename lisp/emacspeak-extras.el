@@ -241,11 +241,10 @@ for the current voice family."
       (cl-loop
        for v in voices do
        (insert
-        (format "This is a sample of voice %s. " (symbol-name v)))
-       (put-text-property
-        (line-beginning-position) (line-end-position) 'personality
-        (symbol-value v))
-       (end-of-line)
+        (propertize
+         (format "This is a sample of voice %s. It uses Aural CSS Style %s. "
+                 (symbol-name v) (symbol-value v))
+         'personality (symbol-value v)))
        (insert "\n")))
     (funcall-interactively #'pop-to-buffer buffer)
     (goto-char (point-min))))
