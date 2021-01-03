@@ -193,21 +193,19 @@ Define a voice for it if needed, then return the symbol."
            :richness (nth 4  style-list)))))
     voice))
 
-(defmacro defvoice (personality settings doc)
-  "Define voice using ACSS setting.  Setting is a list of the form
-(list paul 5 5 5 5) which defines a standard male voice.
- It can be customized by calling
-command \\[customize-variable] on <personality>-settings. "
+(defmacro defvoice (voice settings)
+  "Define voice using ACSS setting.  Setting is a list ---
+(list paul 5 5 5 5) for  the standard male voice.  It can
+ be customized by  \\[customize-variable] on
+ <voice>-settings. "
   (declare (indent 1) (debug t))
   `(progn
-     (defvar  ,personality
+     (defvar  ,voice
        (voice-setup-acss-from-style ,settings)
-       ,(concat
-         doc
-         (format "\nCustomize  via %s-settings." personality)))
-     (defcustom ,(intern (format "%s-settings"  personality))
+       ,(format "Customize  via %s-settings." voice))
+     (defcustom ,(intern (format "%s-settings"  voice))
        ,settings
-       ,doc
+       ,(format "Settings for %s" voice)
        :type
        '(list
          (const :tag "Unspecified" nil)
@@ -226,9 +224,8 @@ command \\[customize-variable] on <personality>-settings. "
        :group 'voice-fonts
        :set
        #'(lambda  (sym val)
-           (let ((acss-name (voice-setup-acss-from-style val)))
-             (setq ,personality acss-name)
-             (set-default sym val))))))
+           (setq ,voice (voice-setup-acss-from-style val))
+             (set-default sym val)))))
 
 ;;}}}
 ;;{{{ new light-weight voice lock

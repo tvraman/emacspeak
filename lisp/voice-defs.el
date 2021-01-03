@@ -50,93 +50,33 @@
 (require 'voice-setup)
 
 ;;}}}
-;;{{{ Voice Definitions: bold and friends
+;;{{{ Voice Definitions: 
 
-(defvoice  voice-monotone (list nil nil 0 0)
-  "Add monotone.")
-
-(defvoice  voice-monotone-medium (list nil nil 2 2)
-  "Add medium monotone.")
-
-(defvoice  voice-monotone-light (list nil nil 4 4)
-  "Add light monotone.")
-
-(defvoice voice-animate-extra (list nil 8 8 )
-  "Adds extra animation.")
-
-(defvoice voice-animate-medium (list nil 7 7)
-  "Animates current voice.")
-
-(defvoice voice-animate (list nil 6 6)
-  "Adds medium animation.")
-
-(defvoice voice-smoothen-extra (list nil nil nil 4 5)
-  "Extra smoothen.")
-
-(defvoice voice-smoothen-medium (list nil nil nil 3 4)
-  "Add medium smoothen.")
-
-(defvoice voice-smoothen (list nil nil  2 2)
-  "Smoothen current voice.")
-
-(defvoice voice-brighten (list nil nil nil 5 6)
-  "Brighten.")
-
-(defvoice voice-brighten-medium (list nil nil nil 6 7)
-  "Brighten.")
-
-(defvoice voice-brighten-extra (list nil nil nil 7 8)
-  "Extra brighten.")
-
-(defvoice voice-bolden (list nil 3 6 6  6)
-  "Bolden current voice.")
-
-(defvoice voice-bolden-medium (list nil 2 6 7  7)
-  "Add medium bolden.")
-
-(defvoice voice-bolden-extra (list nil 1 6 7 8)
-  "Extra bolden.")
-
-(defvoice voice-lighten (list nil 6 6 2)
-  "Lighten current voice.")
-
-(defvoice voice-lighten-medium (list nil 7 7 3)
-  "Add medium lightness.")
-
-(defvoice voice-lighten-extra (list nil 9 8 7)
-  "Add extra lightness.")
-
-(defvoice voice-bolden-and-animate (list nil 3 8 8 8)
-  "Bolden and animate.")
-
-;;}}}
-;;{{{  indentation and annotation
-
-(defvoice voice-indent (list nil nil 3 1 3)
-  "Indent voice .")
-
-(defvoice voice-annotate (list nil nil 4 0 4)
-  "Annotation.")
-
-;;}}}
-;;{{{ voice overlays
-
-;;; these are suitable to use as "overlay voices".
-(defvoice voice-overlay-0
-  (list nil 8 nil nil nil nil)
-  "Pitch to 8.")
-
-(defvoice voice-overlay-1
-  (list nil nil 8 nil nil nil)
-  "Pitch-range to 8.")
-
-(defvoice voice-overlay-2
-  (list nil nil nil 8 nil nil)
-  " Richness to 8.")
-
-(defvoice voice-overlay-3
-  (list nil  nil nil nil 8 nil)
-  "Smoothness to 8.")
+(defvoice voice-animate '( nil 6 6))
+(defvoice voice-animate-extra '( nil 8 8 ))
+(defvoice voice-animate-medium '( nil 7 7))
+(defvoice voice-annotate '( nil nil 4 0 4))
+(defvoice voice-bolden '( nil 3 6 6 6))
+(defvoice voice-bolden-and-animate '( nil 3 8 8 8))
+(defvoice voice-bolden-extra '( nil 1 6 7 8))
+(defvoice voice-bolden-medium '( nil 2 6 7 7))
+(defvoice voice-brighten '( nil nil nil 5 6))
+(defvoice voice-brighten-extra '( nil nil nil 7 8))
+(defvoice voice-brighten-medium '( nil nil nil 6 7))
+(defvoice voice-indent '( nil nil 3 1 3))
+(defvoice voice-lighten '( nil 6 6 2))
+(defvoice voice-lighten-extra '( nil 9 8 7))
+(defvoice voice-lighten-medium '( nil 7 7 3))
+(defvoice voice-monotone '( nil nil 0 0))
+(defvoice voice-monotone-light '( nil nil 4 4))
+(defvoice voice-monotone-medium '( nil nil 2 2))
+(defvoice voice-overlay-0 '( nil 8 nil nil nil nil))
+(defvoice voice-overlay-1 '( nil nil 8 nil nil nil))
+(defvoice voice-overlay-2 '( nil nil nil 8 nil nil))
+(defvoice voice-overlay-3 '( nil nil nil nil 8 nil))
+(defvoice voice-smoothen '( nil nil 2 2))
+(defvoice voice-smoothen-extra '( nil nil nil 4 5))
+(defvoice voice-smoothen-medium '( nil nil nil 3 4))
 
 ;;}}}
 ;;{{{  Map some voice personalities:
