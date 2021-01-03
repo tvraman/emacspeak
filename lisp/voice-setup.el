@@ -73,12 +73,12 @@
 ;;; Think of a buffer of formatted text along with the text-property
 ;;; 'personality appropriately set as a "aural display list".  Module
 ;;; voice-setup.el help applications like EWW produce audio-formatted
-;;; output by calling function acss-personality-from-speech-style with
+;;; output by calling function voice-acss-from-speech-style with
 ;;; a "speech-style" --a structure as defined in this module and get
 ;;; back a symbol that they assign to the value of property
 ;;; 'personality.  Emacspeak's rendering engine then does the needful
 ;;; at the time speech is produced.  Function
-;;; acss-personality-from-speech-style does the following: Takes as
+;;; voice-acss-from-speech-style does the following: Takes as
 ;;; input a "speech style" (1) Computes a symbol that will be used to
 ;;; refer to this specific speech style.  (2) Examines emacspeak's
 ;;; internal voice table to see if this speech style has a voice
@@ -134,7 +134,7 @@
   (require 'plain-voices)
   (plain-configure-tts)))
 
-(defun acss-personality-from-speech-style (style)
+(defun voice-acss-from-speech-style (style)
   "Compute a  name for this STYLE.
 Define a voice for it if needed, then return the symbol."
     (let ((f (acss-family style))
@@ -184,7 +184,7 @@ Define a voice for it if needed, then return the symbol."
 (defun voice-setup-acss-from-style (style-list)
   "Define an ACSS-voice  from   speech style."
   (let ((voice
-         (acss-personality-from-speech-style
+         (voice-acss-from-speech-style
           (make-acss
            :family (nth 0 style-list)
            :average-pitch (nth 1 style-list)
