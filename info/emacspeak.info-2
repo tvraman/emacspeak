@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 2, 2021.
+last updated on January 3, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-js2,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -9029,21 +9029,21 @@ produces voice change effects by examining the value of text-property
    Think of a buffer of formatted text along with the text-property
 ’personality appropriately set as a "aural display list".  Module
 voice-setup.el help applications like EWW produce audio-formatted output
-by calling function acss-personality-from-speech-style with a
-"speech-style" –a structure as defined in this module and get back a
-symbol that they assign to the value of property ’personality.
-Emacspeak’s rendering engine then does the needful at the time speech is
-produced.  Function acss-personality-from-speech-style does the
-following: Takes as input a "speech style" (1) Computes a symbol that
-will be used to refer to this specific speech style.  (2) Examines
-emacspeak’s internal voice table to see if this speech style has a voice
-already defined.  If so it returns immediately.  Otherwise, it does the
-additional work of defining a -voice for future use.  See its use in
-this module to see how voices are defined independent of a given TTS
-engine.  How faces map to voices: TTS engine specific modules e.g.,
-dectalk-voices.el and outloud-voices.el map ACSS dimensions to
-engine-specific codes.  Emacspeak modules use voice-setup-add-map when
-defining face->personality mappings.  For use from other modules.
+by calling function voice-acss-from-speech-style with a "speech-style"
+–a structure as defined in this module and get back a symbol that they
+assign to the value of property ’personality.  Emacspeak’s rendering
+engine then does the needful at the time speech is produced.  Function
+voice-acss-from-speech-style does the following: Takes as input a
+"speech style" (1) Computes a symbol that will be used to refer to this
+specific speech style.  (2) Examines emacspeak’s internal voice table to
+see if this speech style has a voice already defined.  If so it returns
+immediately.  Otherwise, it does the additional work of defining a
+-voice for future use.  See its use in this module to see how voices are
+defined independent of a given TTS engine.  How faces map to voices: TTS
+engine specific modules e.g., dectalk-voices.el and outloud-voices.el
+map ACSS dimensions to engine-specific codes.  Emacspeak modules use
+voice-setup-add-map when defining face->personality mappings.  For use
+from other modules.
 
 12.229.2 Voice-Setup Commands
 -----------------------------
