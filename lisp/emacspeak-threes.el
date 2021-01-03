@@ -87,6 +87,17 @@
 (require 'sox-gen)
 
 ;;}}}
+;;{{{ Map Faces:
+
+(voice-setup-add-map 
+'(
+(threes-face-0 voice-smoothen)
+(threes-face-1 voice-monotone)
+(threes-face-2 voice-brighten)
+(threes-face-3 voice-bolden)
+(threes-face-max voice-animate)))
+
+;;}}}
 ;;{{{ Variables:
 
 (defvar emacspeak-threes-rows-max '(0 0 0 0)
