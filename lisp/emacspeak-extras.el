@@ -231,6 +231,7 @@ for the current voice family."
   "Display a buffer with sample text in the defined voices."
   (interactive)
   (let ((buffer (get-buffer-create "*Voice  Sampler*"))
+        (inhibit-read-only  t)
         (voices
          (sort
           (voice-setup-defined-voices)
@@ -238,6 +239,7 @@ for the current voice family."
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
+      (special-mode)
       (cl-loop
        for v in voices do
        (insert
