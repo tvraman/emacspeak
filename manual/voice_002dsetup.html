@@ -93,23 +93,23 @@
   text-property ’personality appropriately set as a "aural display
   list". Module voice-setup.el help applications like EWW produce
   audio-formatted output by calling function
-  acss-personality-from-speech-style with a "speech-style" –a
-  structure as defined in this module and get back a symbol that
-  they assign to the value of property ’personality. Emacspeak’s
-  rendering engine then does the needful at the time speech is
-  produced. Function acss-personality-from-speech-style does the
-  following: Takes as input a "speech style" (1) Computes a symbol
-  that will be used to refer to this specific speech style. (2)
-  Examines emacspeak’s internal voice table to see if this speech
-  style has a voice already defined. If so it returns immediately.
-  Otherwise, it does the additional work of defining a -voice for
-  future use. See its use in this module to see how voices are
-  defined independent of a given TTS engine. How faces map to
-  voices: TTS engine specific modules e.g., dectalk-voices.el and
-  outloud-voices.el map ACSS dimensions to engine-specific codes.
-  Emacspeak modules use voice-setup-add-map when defining
-  face-&gt;personality mappings. For use from other
-  modules.</p><span id="Voice_002dSetup-Commands"></span>
+  voice-acss-from-speech-style with a "speech-style" –a structure
+  as defined in this module and get back a symbol that they assign
+  to the value of property ’personality. Emacspeak’s rendering
+  engine then does the needful at the time speech is produced.
+  Function voice-acss-from-speech-style does the following: Takes
+  as input a "speech style" (1) Computes a symbol that will be used
+  to refer to this specific speech style. (2) Examines emacspeak’s
+  internal voice table to see if this speech style has a voice
+  already defined. If so it returns immediately. Otherwise, it does
+  the additional work of defining a -voice for future use. See its
+  use in this module to see how voices are defined independent of a
+  given TTS engine. How faces map to voices: TTS engine specific
+  modules e.g., dectalk-voices.el and outloud-voices.el map ACSS
+  dimensions to engine-specific codes. Emacspeak modules use
+  voice-setup-add-map when defining face-&gt;personality mappings.
+  For use from other modules.</p><span id=
+  "Voice_002dSetup-Commands"></span>
   <h4 class="subsection">12.229.2 Voice-Setup
   Commands</h4><span id="voice_002dlock_002dmode"></span>
   <h4 class="subsubsection">12.229.2.1 voice-lock-mode</h4>
