@@ -5644,12 +5644,12 @@ Play midi file using mscore from musescore package.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-show-voice-fonts
-@deffn {Command} emacspeak-wizards-show-voice-fonts   
-@findex emacspeak-wizards-show-voice-fonts
+@subsubsection emacspeak-wizards-show-voices
+@deffn {Command} emacspeak-wizards-show-voices   
+@findex emacspeak-wizards-show-voices
 
 @format
-Display a buffer with sample text in the defined voice fonts.
+Display a buffer with sample text in the defined voices.
 @end format
 @end deffn
 
@@ -18219,127 +18219,127 @@ facilities of module voice-setup.
 @subsection voice-defs Options
 
 @defvar {User Option} voice-animate-extra-settings
-Adds extra animation.
+Settings for voice-animate-extra
 
 @end defvar
 
 @defvar {User Option} voice-animate-medium-settings
-Adds medium animation.
+Settings for voice-animate-medium
 
 @end defvar
 
 @defvar {User Option} voice-animate-settings
-Animates current voice.
+Settings for voice-animate
 
 @end defvar
 
 @defvar {User Option} voice-annotate-settings
-Annotation..
+Settings for voice-annotate
 
 @end defvar
 
 @defvar {User Option} voice-bolden-and-animate-settings
-Bolden and animate.
+Settings for voice-bolden-and-animate
 
 @end defvar
 
 @defvar {User Option} voice-bolden-extra-settings
-Extra bolden.
+Settings for voice-bolden-extra
 
 @end defvar
 
 @defvar {User Option} voice-bolden-medium-settings
-Add medium bolden.
+Settings for voice-bolden-medium
 
 @end defvar
 
 @defvar {User Option} voice-bolden-settings
-Bolden current voice.
+Settings for voice-bolden
 
 @end defvar
 
 @defvar {User Option} voice-brighten-extra-settings
-Extra brighten.
+Settings for voice-brighten-extra
 
 @end defvar
 
 @defvar {User Option} voice-brighten-medium-settings
-Brighten  (medium).
+Settings for voice-brighten-medium
 
 @end defvar
 
 @defvar {User Option} voice-brighten-settings
-Brighten.
+Settings for voice-brighten
 
 @end defvar
 
 @defvar {User Option} voice-indent-settings
-Indent voice .
+Settings for voice-indent
 
 @end defvar
 
 @defvar {User Option} voice-lighten-extra-settings
-Add extra lightness.
+Settings for voice-lighten-extra
 
 @end defvar
 
 @defvar {User Option} voice-lighten-medium-settings
-Add medium lightness.
+Settings for voice-lighten-medium
 
 @end defvar
 
 @defvar {User Option} voice-lighten-settings
-Lighten current voice.
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-0-settings
-Pitch to 8.
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-1-settings
-Pitch-range to 8.
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-2-settings
- Richness to 8.
-
-@end defvar
-
-@defvar {User Option} voice-lock-overlay-3-settings
-Smoothness to 8.
+Settings for voice-lighten
 
 @end defvar
 
 @defvar {User Option} voice-monotone-light-settings
-Add light monotone.
+Settings for voice-monotone-light
 
 @end defvar
 
 @defvar {User Option} voice-monotone-medium-settings
-Add medium monotone.
+Settings for voice-monotone-medium
 
 @end defvar
 
 @defvar {User Option} voice-monotone-settings
-Add monotone.
+Settings for voice-monotone
+
+@end defvar
+
+@defvar {User Option} voice-overlay-0-settings
+Settings for voice-overlay-0
+
+@end defvar
+
+@defvar {User Option} voice-overlay-1-settings
+Settings for voice-overlay-1
+
+@end defvar
+
+@defvar {User Option} voice-overlay-2-settings
+Settings for voice-overlay-2
+
+@end defvar
+
+@defvar {User Option} voice-overlay-3-settings
+Settings for voice-overlay-3
 
 @end defvar
 
 @defvar {User Option} voice-smoothen-extra-settings
-Extra smoothen.
+Settings for voice-smoothen-extra
 
 @end defvar
 
 @defvar {User Option} voice-smoothen-medium-settings
-Add medium smoothen.
+Settings for voice-smoothen-medium
 
 @end defvar
 
 @defvar {User Option} voice-smoothen-settings
-Smoothen current voice.
+Settings for voice-smoothen
 
 @end defvar
 

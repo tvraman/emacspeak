@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 31, 2020.
+last updated on January 2, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-js2,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -8916,79 +8916,79 @@ facilities of module voice-setup.
 ---------------------------
 
  -- Variable: User Option voice-animate-extra-settings
-     Adds extra animation.
+     Settings for voice-animate-extra
 
  -- Variable: User Option voice-animate-medium-settings
-     Adds medium animation.
+     Settings for voice-animate-medium
 
  -- Variable: User Option voice-animate-settings
-     Animates current voice.
+     Settings for voice-animate
 
  -- Variable: User Option voice-annotate-settings
-     Annotation..
+     Settings for voice-annotate
 
  -- Variable: User Option voice-bolden-and-animate-settings
-     Bolden and animate.
+     Settings for voice-bolden-and-animate
 
  -- Variable: User Option voice-bolden-extra-settings
-     Extra bolden.
+     Settings for voice-bolden-extra
 
  -- Variable: User Option voice-bolden-medium-settings
-     Add medium bolden.
+     Settings for voice-bolden-medium
 
  -- Variable: User Option voice-bolden-settings
-     Bolden current voice.
+     Settings for voice-bolden
 
  -- Variable: User Option voice-brighten-extra-settings
-     Extra brighten.
+     Settings for voice-brighten-extra
 
  -- Variable: User Option voice-brighten-medium-settings
-     Brighten (medium).
+     Settings for voice-brighten-medium
 
  -- Variable: User Option voice-brighten-settings
-     Brighten.
+     Settings for voice-brighten
 
  -- Variable: User Option voice-indent-settings
-     Indent voice .
+     Settings for voice-indent
 
  -- Variable: User Option voice-lighten-extra-settings
-     Add extra lightness.
+     Settings for voice-lighten-extra
 
  -- Variable: User Option voice-lighten-medium-settings
-     Add medium lightness.
+     Settings for voice-lighten-medium
 
  -- Variable: User Option voice-lighten-settings
-     Lighten current voice.
-
- -- Variable: User Option voice-lock-overlay-0-settings
-     Pitch to 8.
-
- -- Variable: User Option voice-lock-overlay-1-settings
-     Pitch-range to 8.
-
- -- Variable: User Option voice-lock-overlay-2-settings
-     Richness to 8.
-
- -- Variable: User Option voice-lock-overlay-3-settings
-     Smoothness to 8.
+     Settings for voice-lighten
 
  -- Variable: User Option voice-monotone-light-settings
-     Add light monotone.
+     Settings for voice-monotone-light
 
  -- Variable: User Option voice-monotone-medium-settings
-     Add medium monotone.
+     Settings for voice-monotone-medium
 
  -- Variable: User Option voice-monotone-settings
-     Add monotone.
+     Settings for voice-monotone
+
+ -- Variable: User Option voice-overlay-0-settings
+     Settings for voice-overlay-0
+
+ -- Variable: User Option voice-overlay-1-settings
+     Settings for voice-overlay-1
+
+ -- Variable: User Option voice-overlay-2-settings
+     Settings for voice-overlay-2
+
+ -- Variable: User Option voice-overlay-3-settings
+     Settings for voice-overlay-3
 
  -- Variable: User Option voice-smoothen-extra-settings
-     Extra smoothen.
+     Settings for voice-smoothen-extra
 
  -- Variable: User Option voice-smoothen-medium-settings
-     Add medium smoothen.
+     Settings for voice-smoothen-medium
 
  -- Variable: User Option voice-smoothen-settings
-     Smoothen current voice.
+     Settings for voice-smoothen
 
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
@@ -9887,60 +9887,4 @@ write-up on Polyhedral Geometry
 (http://emacspeak.sourceforge.net/raman/publications/polyhedra/) that I
 published in 2002; all of the content, including the drawings were
 created by me using Emacs.
-
-
-File: emacspeak.info,  Node: Emacspeak And The Early Days Of The Web,  Next: Audio Formatting --- Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Emacspeak At Twenty
-
-15.7 Emacspeak And The Early Days Of The Web
-============================================
-
-Right around the time that I was writing version 0.01 of emacspeak, a
-far more significant software movement was under way — the World Wide
-Web was moving from the realms of academia to the mainstream world with
-the launch of NCSA Mosaic — and in late 1994 by the first commercial Web
-browser in Netscape Navigator.  Emacs had always enabled integrated
-access to FTP archives via package _ange-ftp_; in late 1993, William
-Perry released Emacs-W3, a Web browser for Emacs written entirely in
-Emacs Lisp.  W3 was one of the first large packages to be speech-enabled
-by Emacspeak — later it was the browser on which I implemented the first
-draft of the Aural CSS specification
-(http://www.w3.org/TR/CSS2/aural.html).  Emacs-W3 enabled many early
-innovations in the context of providing non-visual access to Web
-content, including audio formatting and structured content navigation;
-in summer of 1995, Dave Raggett and I outlined a few extensions to HTML
-Forms, including the *label* element as a means of associating metadata
-with interactive form controls in HTML, and many of these ideas were
-prototyped in Emacs-W3 at the time.  Over the years, Emacs-W3 fell
-behind the times — especially as the Web moved away from cleanly
-structured HTML to a massive soup of unmatched tags.  This made parsing
-and error-correcting badly-formed HTML markup expensive to do in
-Emacs-Lisp — and performance suffered.  To add to this, mainstream users
-moved away because Emacs’ rendering engine at the time was not rich
-enough to provide the type of visual renderings that users had come to
-expect.  The advent of DHTML, and JavaScript based Web Applications
-finally killed off Emacs-W3 as far as most Emacs users were concerned.
-
-   But Emacs-W3 went through a revival on the emacspeak audio desktop in
-late 1999 with the arrival of XSLT, and Daniel Veillard’s excellent
-implementation via the *libxml2* and *libxslt* packages.  With these in
-hand, Emacspeak was able to hand-off the bulk of HTML error correction
-to the *xsltproc* tool.  The lack of visual fidelity didn’t matter much
-for an eyes-free environment; so Emacs-W3 continued to be a useful tool
-for consuming large amounts of Web content that did not require
-JavaScript support.
-
-   During the last 24 months, *libxml2* has been built into Emacs; this
-means that you can now parse arbitrary HTML as found in the wild without
-incurring a performance hit.  This functionality was leveraged first by
-package *shr* (Simple HTML Renderer) within the *gnus* package for
-rendering HTML email.  Later, the author of *gnus* and *shr* created a
-new light-weight HTML viewer called *eww* that is now part of Emacs 24.
-With improved support for variable pitch fonts and image embedding,
-Emacs is once again able to provide visual renderings for a large
-proportion of text-heavy Web content where it becomes useful for
-mainstream Emacs users to view at least some Web content within Emacs;
-during the last year, I have added support within emacspeak to extend
-package *eww*
-(http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html)
-with support for DOM filtering and quick content navigation.
 

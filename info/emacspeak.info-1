@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 31, 2020.
+last updated on January 2, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7675,12 +7675,12 @@ Infrequently used wizards archived for posterity.
 
      Play midi file using mscore from musescore package.
 
-12.73.1.15 emacspeak-wizards-show-voice-fonts
-.............................................
+12.73.1.15 emacspeak-wizards-show-voices
+........................................
 
- -- Command: emacspeak-wizards-show-voice-fonts
+ -- Command: emacspeak-wizards-show-voices
 
-     Display a buffer with sample text in the defined voice fonts.
+     Display a buffer with sample text in the defined voices.
 
 12.73.1.16 emacspeak-wizards-tramp-open-location
 ................................................

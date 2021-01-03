@@ -12,7 +12,63 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 31, 2020.
+last updated on January 2, 2021.
+
+
+File: emacspeak.info,  Node: Emacspeak And The Early Days Of The Web,  Next: Audio Formatting --- Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Emacspeak At Twenty
+
+15.7 Emacspeak And The Early Days Of The Web
+============================================
+
+Right around the time that I was writing version 0.01 of emacspeak, a
+far more significant software movement was under way — the World Wide
+Web was moving from the realms of academia to the mainstream world with
+the launch of NCSA Mosaic — and in late 1994 by the first commercial Web
+browser in Netscape Navigator.  Emacs had always enabled integrated
+access to FTP archives via package _ange-ftp_; in late 1993, William
+Perry released Emacs-W3, a Web browser for Emacs written entirely in
+Emacs Lisp.  W3 was one of the first large packages to be speech-enabled
+by Emacspeak — later it was the browser on which I implemented the first
+draft of the Aural CSS specification
+(http://www.w3.org/TR/CSS2/aural.html).  Emacs-W3 enabled many early
+innovations in the context of providing non-visual access to Web
+content, including audio formatting and structured content navigation;
+in summer of 1995, Dave Raggett and I outlined a few extensions to HTML
+Forms, including the *label* element as a means of associating metadata
+with interactive form controls in HTML, and many of these ideas were
+prototyped in Emacs-W3 at the time.  Over the years, Emacs-W3 fell
+behind the times — especially as the Web moved away from cleanly
+structured HTML to a massive soup of unmatched tags.  This made parsing
+and error-correcting badly-formed HTML markup expensive to do in
+Emacs-Lisp — and performance suffered.  To add to this, mainstream users
+moved away because Emacs’ rendering engine at the time was not rich
+enough to provide the type of visual renderings that users had come to
+expect.  The advent of DHTML, and JavaScript based Web Applications
+finally killed off Emacs-W3 as far as most Emacs users were concerned.
+
+   But Emacs-W3 went through a revival on the emacspeak audio desktop in
+late 1999 with the arrival of XSLT, and Daniel Veillard’s excellent
+implementation via the *libxml2* and *libxslt* packages.  With these in
+hand, Emacspeak was able to hand-off the bulk of HTML error correction
+to the *xsltproc* tool.  The lack of visual fidelity didn’t matter much
+for an eyes-free environment; so Emacs-W3 continued to be a useful tool
+for consuming large amounts of Web content that did not require
+JavaScript support.
+
+   During the last 24 months, *libxml2* has been built into Emacs; this
+means that you can now parse arbitrary HTML as found in the wild without
+incurring a performance hit.  This functionality was leveraged first by
+package *shr* (Simple HTML Renderer) within the *gnus* package for
+rendering HTML email.  Later, the author of *gnus* and *shr* created a
+new light-weight HTML viewer called *eww* that is now part of Emacs 24.
+With improved support for variable pitch fonts and image embedding,
+Emacs is once again able to provide visual renderings for a large
+proportion of text-heavy Web content where it becomes useful for
+mainstream Emacs users to view at least some Web content within Emacs;
+during the last year, I have added support within emacspeak to extend
+package *eww*
+(http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html)
+with support for DOM filtering and quick content navigation.
 
 
 File: emacspeak.info,  Node: Audio Formatting --- Generalizing Aural CSS,  Next: Conversational Gestures For The Audio Desktop,  Prev: Emacspeak And The Early Days Of The Web,  Up: Emacspeak At Twenty
