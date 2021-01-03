@@ -618,23 +618,13 @@ meaning of `next'."
           (concat
            (propertize
             (format "%s" (or style "No Style "))
-            'personality 'voice-bolden)
-           (if style " is "  "")
-           (propertize
-            (format "%s"
-                    (cond
-                     ((null style) "")
-                     ((listp style)
-                      (mapconcat
-                       #'(lambda (s)
-                           (format "%s" (if (boundp s) (symbol-value s) "")))
-                       style " "))
-                     ((boundp style) (symbol-value style))))
-            'personality 'voice-smoothen)
-           (if f " for " "")
-           (propertize
-            (format "%s" (or f ""))
-            'face f)))
+            'personality style )
+           (when f
+             (concat
+              " for "
+              (propertize
+               (format "%s" (or f ""))
+               'face f)))))
     (message msg)))
 
 ;;;###autoload
