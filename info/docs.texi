@@ -18230,13 +18230,13 @@ Along each dimension, a setting of 5 is mapped to the default
 setting for the voice as implemented by a given engine. Values on
 either side of  5 produce opposing effects.
 This module  defines the following effects, which can be
-conceptualized as opposites.
+conceptualized as pairs.
 @enumerate  A
 @item bolden , lighten
 @item animate, monotone
 @item brighten, smoothen
 @end enumerate
-In addition, we define @code{bold-and-animate} as an auditory
+In addition, we define @code{bolden-and-animate} as an auditory
 analog of @code{bold-italic}.
 The two additional voices @code{indent} and @code{annotate}
 predate the above and are retained  as two @emph{softer} voices.

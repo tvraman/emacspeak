@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 3, 2021.
+last updated on January 4, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-js2,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -8930,11 +8930,11 @@ generating the final device-specific codes.
 Along each dimension, a setting of 5 is mapped to the default setting
 for the voice as implemented by a given engine.  Values on either side
 of 5 produce opposing effects.  This module defines the following
-effects, which can be conceptualized as opposites.
+effects, which can be conceptualized as pairs.
   A. bolden , lighten
   B. animate, monotone
   C. brighten, smoothen
-   In addition, we define ‘bold-and-animate’ as an auditory analog of
+   In addition, we define ‘bolden-and-animate’ as an auditory analog of
 ‘bold-italic’.  The two additional voices ‘indent’ and ‘annotate’
 predate the above and are retained as two _softer_ voices.  Finally,
 there are 4 _overlay_ voices, corresponding to the 4 dimensions; these
