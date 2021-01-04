@@ -64,7 +64,7 @@
    (magit-branch-upstream voice-animate)
    (magit-diff-revision-summary voice-monotone)
    (magit-diff-revision-summary-highlight voice-brighten)
-   (magit-diff-whitespace-warning voice-monotone-light)
+   (magit-diff-whitespace-warning voice-monotone-medium)
    (magit-header-line-key voice-bolden-extra)
    (magit-header-line-log-select voice-highlight)
    (magit-keyword-squash voice-monotone)

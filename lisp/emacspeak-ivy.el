@@ -65,7 +65,7 @@
    (ivy-match-required-face voice-bolden-extra)
    (ivy-minibuffer-match-face-1 voice-monotone)
    (ivy-minibuffer-match-face-2 voice-monotone-medium)
-   (ivy-minibuffer-match-face-3 voice-monotone-light)
+   (ivy-minibuffer-match-face-3 voice-monotone-medium)
    (ivy-minibuffer-match-face-4 voice-monotone)
    (ivy-modified-buffer voice-bolden-and-animate)
    (ivy-remote voice-lighten)

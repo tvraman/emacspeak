@@ -384,7 +384,7 @@ Provide contextual feedback when closing blocks"
    (py-exception-name-face voice-smoothen)
    (py-def-class-face voice-lighten)
    (py-import-from-face voice-animate)
-   (py-object-reference-face voice-monotone-light)
+   (py-object-reference-face voice-monotone-medium)
    (py-try-if-face voice-lighten)
    ))
 
