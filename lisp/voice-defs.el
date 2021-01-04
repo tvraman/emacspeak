@@ -56,7 +56,7 @@
 ;;; either side of  5 produce opposing effects.
 ;;; This module  defines the following effects, which can be
 ;;; conceptualized as opposites.
-@enumerate A
+;;; @enumerate  A
 ;;; @item bolden , lighten
 ;;; @item animate, monotone
 ;;; @item brighten, smoothen
@@ -75,7 +75,7 @@
 ;;; @item Non-goal ---  to be able to identify each distinct voice in
 ;;; isolation.
 ;;; @item Audio-formatting is designed to set apart different types of
-;;; content so that when heard in context, one can easily pick-out
+;;; content so that when used in context, one can easily pick-out
 ;;; distinct parts of the utterance.
 ;;; @end itemize 
 ;;; Code:
