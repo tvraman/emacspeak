@@ -60,8 +60,7 @@
    (reb-match-0 voice-overlay-0)
    (reb-match-1 voice-overlay-1)
    (reb-match-2 voice-overlay-2)
-   (reb-match-3 voice-overlay-3)
-   ))
+   (reb-match-3 voice-overlay-3)))
 ;;}}}
 ;;{{{ Speech-enable interactive commands.
 
