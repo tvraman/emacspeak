@@ -59,7 +59,7 @@
  '(
    (elfeed-search-date-face  voice-smoothen)
    (elfeed-search-title-face voice-bolden)
-   (elfeed-search-unread-title-face voice-bolden-medium)
+   (elfeed-search-unread-title-face voice-bolden-extra)
    (elfeed-search-feed-face voice-animate)
    (elfeed-search-tag-face voice-lighten)))
 
