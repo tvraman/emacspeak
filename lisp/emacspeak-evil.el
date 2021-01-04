@@ -57,7 +57,7 @@
 (voice-setup-add-map
  '(
    (evil-ex-commands voice-bolden)
-   (evil-ex-info voice-monotone)
+   (evil-ex-info voice-monotone-extra)
    (evil-ex-lazy-highlight voice-animate)
    (evil-ex-search voice-bolden-and-animate)
    (evil-ex-substitute-matches voice-lighten)

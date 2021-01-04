@@ -60,7 +60,7 @@
 
 (voice-setup-add-map
  '(
-   (dired-broken-symlink 'voice-monotone)
+   (dired-broken-symlink 'voice-monotone-extra)
    (dired-set-id  voice-animate)
    (dired-special voice-lighten)
    (dired-header voice-smoothen)

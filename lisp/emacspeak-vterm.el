@@ -71,7 +71,7 @@
    (vterm-color-green voice-lighten)
    (vterm-color-inverse-video voice-bolden)
    (vterm-color-magenta voice-annotate)
-   (vterm-color-underline voice-monotone)
+   (vterm-color-underline voice-monotone-extra)
    (vterm-color-white 'paul)
    (vterm-color-yellow voice-animate)))
 

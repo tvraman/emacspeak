@@ -63,13 +63,13 @@
    (package-status-external voice-animate)
    (package-status-available voice-annotate)
    (package-status-new voice-brighten)
-   (package-status-held voice-monotone)
+   (package-status-held voice-monotone-extra)
    (package-status-disabled voice-smoothen)
    (package-status-installed voice-lighten-extra)
    (package-status-dependency voice-monotone-medium)
    (package-status-unsigned voice-animate-extra)
    (package-status-incompat voice-animate-extra)
-   (package-status-avail-obso voice-monotone)
+   (package-status-avail-obso voice-monotone-extra)
    ))
 ;;}}}
 ;;{{{ Additional Commands

@@ -67,7 +67,7 @@
    (muse-header-4 voice-bolden-extra)
    (muse-header-5 voice-bolden-extra)
    (muse-link-face voice-brighten)
-   (muse-verbatim-face voice-monotone)
+   (muse-verbatim-face voice-monotone-extra)
    ))
 
 ;;}}}

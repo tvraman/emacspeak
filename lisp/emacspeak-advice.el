@@ -1068,7 +1068,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 (voice-setup-add-map
  '(
    (completions-annotations voice-annotate)
-   (completions-common-part voice-monotone)
+   (completions-common-part voice-monotone-extra)
    (completions-first-difference voice-brighten)))
 (cl-loop
  for f in
@@ -1202,7 +1202,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  '(
    (log-edit-header voice-bolden)
    (log-edit-summary voice-lighten)
-   (log-edit-unknown-header voice-monotone)))
+   (log-edit-unknown-header voice-monotone-extra)))
 
 ;;; helper function: find out vc version:
 

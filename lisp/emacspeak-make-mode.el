@@ -146,7 +146,7 @@
 
 (voice-setup-add-map
  '(
-   (makefile-space voice-monotone)
+   (makefile-space voice-monotone-extra)
    (makefile-targets voice-bolden)
    (makefile-shell voice-animate)
    (makefile-makepp-perl voice-smoothen)

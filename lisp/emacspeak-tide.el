@@ -60,7 +60,7 @@
    (tide-file voice-lighten)
    (tide-hl-identifier-face voice-animate)
    (tide-imenu-type-face voice-annotate)
-   (tide-line-number voice-monotone)
+   (tide-line-number voice-monotone-extra)
    (tide-match voice-bolden)))
 
 ;;}}}

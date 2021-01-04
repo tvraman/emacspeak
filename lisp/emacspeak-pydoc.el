@@ -56,19 +56,19 @@
 
 (voice-setup-add-map
  '(
-   (pydoc-source-file-link-face voice-monotone)
+   (pydoc-source-file-link-face voice-monotone-extra)
    (pydoc-package-link-face  voice-animate)
    (pydoc-class-name-link-face voice-bolden)
    (pydoc-superclass-name-link-face voice-bolden-extra)
    (pydoc-callable-name-face voice-animate)
    (pydoc-callable-param-face voice-annotate)
-   (pydoc-envvars-face voice-monotone)
+   (pydoc-envvars-face voice-monotone-extra)
    (pydoc-data-face voice-lighten-extra)
    (pydoc-string-face voice-lighten)
    (pydoc-button-face voice-bolden)
-   (pydoc-sphinx-directive-face voice-monotone)
-   (pydoc-sphinx-param-name-face voice-monotone)
-   (pydoc-sphinx-param-type-face voice-monotone)))
+   (pydoc-sphinx-directive-face voice-monotone-extra)
+   (pydoc-sphinx-param-name-face voice-monotone-extra)
+   (pydoc-sphinx-param-type-face voice-monotone-extra)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:

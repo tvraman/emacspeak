@@ -61,7 +61,7 @@
    (indium-button-face  voice-bolden-medium)
    (indium-header-face voice-smoothen)
    (indium-repl-prompt-face  voice-annotate)
-   (indium-repl-stdout-face voice-monotone)
+   (indium-repl-stdout-face voice-monotone-extra)
    (indium-repl-error-face  voice-animate-extra)
    (indium-link-face voice-bolden)
    (indium-highlight-face voice-animate)

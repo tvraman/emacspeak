@@ -57,12 +57,12 @@
    (jdee-java-font-lock-operator-face voice-animate)
    (jdee-java-font-lock-constant-face voice-lighten)
    (jdee-java-font-lock-api-face voice-animate)
-   (jdee-java-font-lock-package-face voice-monotone)
+   (jdee-java-font-lock-package-face voice-monotone-extra)
    (jdee-java-font-lock-italic-face voice-animate)
    (jdee-java-font-lock-underline-face voice-brighten-medium)
    (jdee-java-font-lock-bold-face voice-bolden)
-   (jdee-java-font-lock-pre-face voice-monotone)
-   (jdee-java-font-lock-code-face voice-monotone)
+   (jdee-java-font-lock-pre-face voice-monotone-extra)
+   (jdee-java-font-lock-code-face voice-monotone-extra)
    ))
 
                                         ;jdee-java-font-lock-link-face

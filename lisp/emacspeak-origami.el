@@ -55,7 +55,7 @@
 
 (voice-setup-add-map
  '(
-   (origami-fold-fringe-face voice-monotone)
+   (origami-fold-fringe-face voice-monotone-extra)
    (origami-fold-header-face voice-bolden-medium)
    (origami-fold-replacement-face voice-smoothen)))
 

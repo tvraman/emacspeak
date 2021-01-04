@@ -577,9 +577,9 @@ Leave point at front of decoded attachment."
      (u-vm-color-header-face voice-bolden-medium)
      (u-vm-color-recipient-face voice-annotate)
      (u-vm-color-signature-face voice-smoothen)
-     (u-vm-color-spamassassin-face voice-monotone)
+     (u-vm-color-spamassassin-face voice-monotone-extra)
      (u-vm-color-subject-face voice-lighten)
-     (u-vm-color-time-face voice-monotone)
+     (u-vm-color-time-face voice-monotone-extra)
      (u-vm-color-user-face voice-animate)
 
      )

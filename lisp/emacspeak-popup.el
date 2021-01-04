@@ -58,8 +58,8 @@
  '(
    (popup-face voice-bolden)
    (popup-isearch-match voice-animate)
-   (popup-menu-face voice-monotone)
-   (popup-menu-mouse-face voice-monotone)
+   (popup-menu-face voice-monotone-extra)
+   (popup-menu-mouse-face voice-monotone-extra)
    (popup-menu-selection-face voice-lighten)
    (popup-menu-summary-face voice-smoothen)
    (popup-summary-face voice-smoothen)

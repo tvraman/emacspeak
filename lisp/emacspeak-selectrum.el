@@ -56,7 +56,7 @@
 (voice-setup-add-map
  '(
    (selectrum-completion-annotation voice-annotate)
-   (selectrum-completion-docsig voice-monotone)
+   (selectrum-completion-docsig voice-monotone-extra)
    (selectrum-current-candidate voice-bolden)
    (selectrum-primary-highlight voice-animate)
    (selectrum-secondary-highlight voice-lighten)))

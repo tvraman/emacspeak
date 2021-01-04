@@ -56,7 +56,7 @@
 (voice-setup-add-map
  '(
    (newsticker-new-item-face voice-brighten)
-   (newsticker-old-item-face voice-monotone)
+   (newsticker-old-item-face voice-monotone-extra)
    (newsticker-feed-face voice-animate)
    ))
 ;;}}}

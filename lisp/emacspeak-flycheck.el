@@ -58,12 +58,12 @@
  '(
    (flycheck-warning voice-animate)
    (flycheck-error voice-bolden)
-   (flycheck-info voice-monotone)
+   (flycheck-info voice-monotone-extra)
    (flycheck-error-list-highlight-at-point voice-bolden-extra)
    (flycheck-error-list-highlight voice-bolden-medium)
    (flycheck-error-list-highlightflycheck-error-list-column-number voice-lighten)
    (flycheck-error-list-line-number voice-lighten)
-   (flycheck-error-list-info voice-monotone)
+   (flycheck-error-list-info voice-monotone-extra)
    (flycheck-error-list-warning voice-animate)
    (flycheck-error-list-error voice-bolden)))
 

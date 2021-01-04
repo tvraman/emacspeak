@@ -768,7 +768,7 @@ Safari/537.36"
    (eww-invalid-certificate  voice-bolden-and-animate)
    (eww-valid-certificate voice-bolden)
    (eww-form-submit voice-animate)
-   (eww-form-checkbox voice-monotone)
+   (eww-form-checkbox voice-monotone-extra)
    (eww-form-select voice-annotate)
    (eww-form-text voice-lighten)
    (eww-form-file voice-lighten)

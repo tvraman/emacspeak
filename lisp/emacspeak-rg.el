@@ -61,7 +61,7 @@
    (rg-error-face voice-animate)
    (rg-file-tag-face voice-smoothen)
    (rg-filename-face voice-annotate)
-   (rg-info-face voice-monotone)
+   (rg-info-face voice-monotone-extra)
    (rg-match-face voice-lighten)
    (rg-warning-face voice-animate)))
 

@@ -61,7 +61,7 @@
    (font-latex-string-face voice-lighten)
    (font-latex-subscript-face voice-smoothen)
    (font-latex-superscript-face voice-brighten)
-   (font-latex-verbatim-face voice-monotone)
+   (font-latex-verbatim-face voice-monotone-extra)
    (font-latex-warning-face voice-bolden-and-animate)
    ))
 

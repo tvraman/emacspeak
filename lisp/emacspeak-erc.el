@@ -82,7 +82,7 @@ server."
    (erc-underline-face voice-brighten-medium)
    (erc-prompt-face voice-bolden)
    (erc-notice-face (quote inaudible))
-   (erc-action-face voice-monotone)
+   (erc-action-face voice-monotone-extra)
    (erc-error-face voice-bolden-and-animate)
    (erc-dangerous-host-face voice-brighten-extra)
    (erc-pal-face voice-animate-extra)

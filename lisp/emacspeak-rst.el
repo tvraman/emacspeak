@@ -60,7 +60,7 @@
    (rst-external   voice-animate)
    (rst-definition   voice-bolden-medium)
    (rst-directive voice-smoothen)
-   (rst-comment   voice-monotone)
+   (rst-comment   voice-monotone-extra)
    (rst-emphasis1   voice-animate)
    (rst-emphasis2   voice-animate-extra)
    (rst-literal   voice-monotone-medium)

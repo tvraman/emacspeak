@@ -64,7 +64,7 @@
    (sp-pair-overlay-face voice-lighten)
    (sp-show-pair-enclosing voice-bolden)
    (sp-show-pair-match-face voice-animate)
-   (sp-show-pair-mismatch-face voice-monotone)
+   (sp-show-pair-mismatch-face voice-monotone-extra)
    (sp-wrap-overlay-closing-pair voice-smoothen)
    (sp-wrap-overlay-face voice-smoothen)
    (sp-wrap-overlay-opening-pair voice-bolden)

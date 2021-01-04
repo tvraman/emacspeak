@@ -267,7 +267,7 @@ An automatically updating speedbar consumes resources.")
 (defvar emacspeak-speedbar-highlight-personality voice-animate
   "Personality used for for speedbar highlight.")
 
-(defvar emacspeak-speedbar-tag-personality voice-monotone
+(defvar emacspeak-speedbar-tag-personality voice-monotone-extra
   "Personality used for speedbar tags")
 
 (defvar emacspeak-speedbar-default-personality 'paul

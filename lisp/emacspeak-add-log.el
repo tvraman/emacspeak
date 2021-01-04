@@ -67,7 +67,7 @@
    (change-log-email voice-lighten)
    (change-log-list voice-lighten)
    (change-log-name voice-lighten-extra)
-   (change-log-date voice-monotone)
+   (change-log-date voice-monotone-extra)
    ))
 
 ;;}}}

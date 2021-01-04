@@ -60,7 +60,7 @@
    (epa-validity-high voice-animate)
    (epa-validity-medium voice-smoothen)
    (epa-validity-low voice-smoothen-extra)
-   (epa-validity-disabled voice-monotone)
+   (epa-validity-disabled voice-monotone-extra)
    (epa-string voice-lighten)
    (epa-mark voice-bolden)
    (epa-field-name voice-smoothen)

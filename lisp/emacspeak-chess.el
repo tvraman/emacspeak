@@ -180,7 +180,7 @@
     (unless white
       (setq piece (propertize  piece 'personality voice-bolden-extra)))
     (if light ;;; square color
-        (setq coord (propertize  coord 'personality voice-monotone))
+        (setq coord (propertize  coord 'personality voice-monotone-extra))
       (setq coord (propertize  coord 'personality voice-lighten-extra )))
     (if (zerop (length piece))
         (list coord  )
@@ -521,7 +521,7 @@
       (and (cl-evenp rank ) (cl-evenp file))
       (and (cl-oddp rank) (cl-oddp file))))
     (if light ;;; square color
-        (setq coord (propertize  coord 'personality voice-monotone))
+        (setq coord (propertize  coord 'personality voice-monotone-extra))
       (setq coord (propertize  coord 'personality voice-lighten-extra )))
     coord))
 

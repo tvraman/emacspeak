@@ -66,7 +66,7 @@
 ;;{{{ mpuz
 (voice-setup-add-map
  '(
-   (mpuz-trivial voice-monotone)
+   (mpuz-trivial voice-monotone-extra)
    (mpuz-unsolved voice-bolden)
    (mpuz-solved voice-animate)))
 ;;}}}

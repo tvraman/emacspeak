@@ -94,10 +94,10 @@
    (transient-inactive-argument voice-smoothen-extra)
    (transient-inactive-value voice-smoothen-extra)
    (transient-key voice-highlight)
-   (transient-mismatched-key voice-monotone)
-   (transient-nonstandard-key voice-monotone)
-   (transient-unreachable voice-monotone)
-   (transient-unreachable-key voice-monotone)
+   (transient-mismatched-key voice-monotone-extra)
+   (transient-nonstandard-key voice-monotone-extra)
+   (transient-unreachable voice-monotone-extra)
+   (transient-unreachable-key voice-monotone-extra)
    (transient-value voice-brighten)))
 ;;}}}
 ;;{{{ Advice Interactive Commands:

@@ -62,7 +62,7 @@
    (paradox-name-face voice-bolden)
    (paradox-download-face voice-smoothen)
    (paradox-description-face voice-lighten)
-   (paradox-description-face-multiline voice-monotone)
+   (paradox-description-face-multiline voice-monotone-extra)
    (paradox-comment-face voice-lighten)
    (paradox-star-face voice-animate)
    (paradox-starred-face voice-bolden-and-animate)

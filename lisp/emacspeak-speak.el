@@ -524,7 +524,7 @@ current local  value to the result.")
       ((= 0 percent) " top ")
       ((= 100 percent) " bottom ")
       (t (format " %d%% " percent)))
-     'personality voice-monotone)))
+     'personality voice-monotone-extra)))
 
 (defun emacspeak-goto-percent (percent)
   "Move to end  PERCENT of buffer like in View mode.

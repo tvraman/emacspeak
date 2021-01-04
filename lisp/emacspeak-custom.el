@@ -193,7 +193,7 @@
    (custom-button-unraised voice-smoothen)
    (custom-changed voice-smoothen)
    (custom-comment voice-monotone-medium)
-   (custom-comment-tag voice-monotone)
+   (custom-comment-tag voice-monotone-extra)
    (custom-documentation voice-brighten-medium)
    (custom-face-tag voice-lighten)
    (custom-group-tag voice-bolden)

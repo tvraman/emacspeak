@@ -68,7 +68,7 @@
    (eperiodic-group-number-face voice-lighten)
    (eperiodic-header-face voice-bolden)
    (eperiodic-liquid-face voice-smoothen)
-   (eperiodic-p-block-face voice-monotone)
+   (eperiodic-p-block-face voice-monotone-extra)
    (eperiodic-period-number-face voice-lighten)
    (eperiodic-s-block-face voice-smoothen-medium)
    (eperiodic-solid-face voice-bolden-extra)

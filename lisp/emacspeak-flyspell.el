@@ -78,7 +78,7 @@ fly spell checking."
 
 (voice-setup-add-map
  '((flyspell-incorrect voice-bolden)
-   (flyspell-duplicate voice-monotone)))
+   (flyspell-duplicate voice-monotone-extra)))
 
 ;;}}}
 ;;{{{ advice

@@ -61,7 +61,7 @@
 (syslog-error voice-bolden)
 (syslog-file voice-smoothen-extra)
 (syslog-hide voice-annotate)
-(syslog-hour voice-monotone)
+(syslog-hour voice-monotone-extra)
 (syslog-info voice-highlight)
 (syslog-ip voice-lighten)
 (syslog-su voice-bolden)

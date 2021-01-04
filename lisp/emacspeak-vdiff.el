@@ -74,7 +74,7 @@
    (vdiff-refine-changed voice-lighten)
    (vdiff-subtraction-face voice-smoothen)
    (vdiff-subtraction-fringe-face voice-smoothen-extra)
-   (vdiff-target-face voice-monotone)))
+   (vdiff-target-face voice-monotone-extra)))
 
 ;;}}}
 ;;{{{ Emacspeak VDiff Commands:

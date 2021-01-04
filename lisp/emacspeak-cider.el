@@ -57,9 +57,9 @@
 
 (voice-setup-add-map
  '(
-   (cider-debug-code-overlay-face voice-monotone)
+   (cider-debug-code-overlay-face voice-monotone-extra)
    (cider-debug-prompt-face voice-animate)
-   (cider-deprecated-face voice-monotone)
+   (cider-deprecated-face voice-monotone-extra)
    (cider-docview-emphasis-face voice-lighten)
    (cider-docview-literal-face voice-monotone-medium)
    (cider-docview-strong-face voice-monotone-medium)
