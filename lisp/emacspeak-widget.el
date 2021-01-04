@@ -65,8 +65,8 @@
    (widget-single-line-field voice-smoothen)
    (widget-button voice-bolden)
    (widget-button-pressed voice-bolden-extra)
-   (widget-documentation voice-smoothen-extra)
-   (widget-inactive voice-lighten)
+   (widget-documentation voice-monotone-extra)
+   (widget-inactive voice-smoothen)
    ))
 
 (cl-declaim (special widget-menu-minibuffer-flag))
