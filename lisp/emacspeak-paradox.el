@@ -63,12 +63,12 @@
    (paradox-download-face voice-smoothen)
    (paradox-description-face voice-lighten)
    (paradox-description-face-multiline voice-monotone-extra)
-   (paradox-comment-face voice-lighten)
+   (paradox-comment-face voice-monotone)
    (paradox-star-face voice-animate)
    (paradox-starred-face voice-bolden-and-animate)
    (paradox-archive-face voice-smoothen)
    (paradox-commit-tag-face voice-brighten)
-   (paradox-highlight-face voice-bolden)
+   (paradox-highlight-face voice-animate)
    (paradox-homepage-button-face voice-bolden-medium)))
 
 ;;}}}
