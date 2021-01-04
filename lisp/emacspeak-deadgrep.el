@@ -56,11 +56,11 @@
 
 (voice-setup-add-map
  '(
-   (deadgrep-filename-face voice-bolden)
+   (deadgrep-filename-face voice-smoothen)
    (deadgrep-match-face voice-animate)
    (deadgrep-meta-face voice-annotate)
    (deadgrep-regexp-metachar-face voice-lighten)
-   (deadgrep-search-term-face voice-animate)))
+   (deadgrep-search-term-face voice-bolden)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
