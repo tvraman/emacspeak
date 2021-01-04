@@ -59,7 +59,7 @@
  '(
    (indium-keyword-face voice-animate)
    (indium-button-face  voice-bolden-medium)
-   (indium-header-face voice-smoothen)
+   (indium-header-face voice-bolden)
    (indium-repl-prompt-face  voice-annotate)
    (indium-repl-stdout-face voice-monotone-extra)
    (indium-repl-error-face  voice-animate-extra)
