@@ -130,33 +130,24 @@ personalities.")
 ;;}}}
 ;;{{{ voices
 
-(voice-setup-add-map
- '(
-   (eshell-ls-archive-face voice-lighten-extra)
-   (eshell-ls-backup voice-monotone-medium)
-   (eshell-ls-backup-face voice-monotone-medium)
-   (eshell-ls-clutter voice-smoothen-extra)
-   (eshell-ls-clutter-face voice-smoothen-extra)
-   (eshell-ls-directory voice-bolden)
-   (eshell-ls-directory-face voice-bolden)
-   (eshell-ls-executable voice-animate-extra)
-   (eshell-ls-executable-face voice-animate-extra)
-   (eshell-ls-missing voice-brighten)
-   (eshell-ls-missing-face voice-brighten)
-   (eshell-ls-product voice-lighten-medium)
-   (eshell-ls-product-face voice-lighten-medium)
-   (eshell-ls-readonly voice-monotone-extra)
-   (eshell-ls-readonly-face voice-monotone-extra)
-   (eshell-ls-special voice-lighten-extra)
-   (eshell-ls-special-face voice-lighten-extra)
-   (eshell-ls-symlink voice-smoothen)
-   (eshell-ls-symlink-face voice-smoothen)
-   (eshell-ls-unreadable voice-monotone-medium)
-   (eshell-ls-unreadable-face voice-monotone-medium)
-   (eshell-prompt voice-animate)
-   (eshell-prompt-face voice-animate)
-   ))
 
+
+
+
+(voice-setup-add-map 
+ '(
+   (eshell-ls-archive voice-monotone)
+   (eshell-ls-backup voice-monotone-extra)
+   (eshell-ls-clutter voice-smoothen)
+   (eshell-ls-directory voice-bolden)
+   (eshell-ls-executable voice-animate)
+   (eshell-ls-missing voice-lighten)
+   (eshell-ls-product voice-animate)
+   (eshell-ls-readonly voice-monotone)
+   (eshell-ls-special voice-brighten)
+   (eshell-ls-symlink voice-smoothen)
+   (eshell-ls-unreadable voice-animate-extra)
+   (eshell-prompt voice-bolden-and-animate)))
 ;;}}}
 ;;{{{ Advice em-prompt
 
