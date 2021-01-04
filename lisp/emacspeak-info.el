@@ -55,14 +55,13 @@
 (voice-setup-add-map
  '(
    (Info-quoted voice-lighten)
-   (info-index-match 'voice-bolden-medium)
+   (info-index-match 'voice-animate)
    (info-title-1 voice-bolden-extra)
    (info-title-2 voice-bolden-medium)
    (info-title-3 voice-bolden)
    (info-title-4 voice-lighten)
    (info-header-node voice-smoothen)
    (info-header-xref voice-brighten)
-   (info-menu-header voice-bolden-medium)
    (info-node voice-monotone-extra)
    (info-xref voice-animate-extra)
    (info-menu-star voice-brighten)
