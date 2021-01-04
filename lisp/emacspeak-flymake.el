@@ -57,7 +57,7 @@
 
 (voice-setup-add-map 
 '(
-(flymake-error voice-animate)
+(flymake-error voice-monotone)
 (flymake-note voice-smoothen)
 (flymake-warning voice-animate)))
 
