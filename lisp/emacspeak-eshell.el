@@ -132,7 +132,6 @@ personalities.")
 
 (voice-setup-add-map
  '(
-   (eshell-ls-archive voice-lighten-extra)
    (eshell-ls-archive-face voice-lighten-extra)
    (eshell-ls-backup voice-monotone-medium)
    (eshell-ls-backup-face voice-monotone-medium)
