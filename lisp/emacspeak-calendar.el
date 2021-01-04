@@ -55,7 +55,7 @@
 ;;{{{  personalities
 (voice-setup-add-map
  '(
-   (calendar-today voice-lighten)
+   (calendar-today voice-bolden)
    (holiday voice-brighten-extra)
    (diary voice-bolden)
    ))
