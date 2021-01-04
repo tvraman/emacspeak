@@ -60,7 +60,7 @@
    (deadgrep-match-face voice-animate)
    (deadgrep-meta-face voice-annotate)
    (deadgrep-regexp-metachar-face voice-lighten)
-   (deadgrep-search-term-face voice-highlight)))
+   (deadgrep-search-term-face voice-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:

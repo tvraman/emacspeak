@@ -63,7 +63,7 @@
    (forge-topic-merged voice-monotone)
    (forge-topic-open voice-bolden)
    (forge-topic-unmerged voice-animate)
-   (forge-topic-unread voice-highlight)))
+   (forge-topic-unread voice-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:

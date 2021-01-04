@@ -63,7 +63,7 @@
 (voice-setup-add-map 
 '(
   (tab-bar voice-bolden)
-  (tab-bar-tab voice-highlight)
+  (tab-bar-tab voice-animate)
   (tab-bar-tab-inactive voice-smoothen)
   (tab-line voice-lighten)
   )

@@ -93,7 +93,7 @@
    (transient-heading voice-bolden)
    (transient-inactive-argument voice-smoothen-extra)
    (transient-inactive-value voice-smoothen-extra)
-   (transient-key voice-highlight)
+   (transient-key voice-animate)
    (transient-mismatched-key voice-monotone-extra)
    (transient-nonstandard-key voice-monotone-extra)
    (transient-unreachable voice-monotone-extra)
