@@ -60,7 +60,7 @@
 
 (voice-setup-add-map
  '(
-   (twittering-username-face voice-smoothen)
+   (twittering-username-face voice-bolden)
    (twittering-uri-face  voice-brighten)))
 
 ;;}}}
