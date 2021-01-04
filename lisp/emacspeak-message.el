@@ -67,18 +67,16 @@
 
 (voice-setup-add-map
  '(
-
-   (message-cited-text voice-bolden)
+   (message-cited-text voice-smoothen)
    (message-header-cc voice-bolden)
    (message-header-name voice-animate)
    (message-header-newsgroups voice-bolden)
-   (message-header-other voice-bolden)
-   (message-header-subject voice-bolden)
-   (message-header-to voice-bolden)
-   (message-header-xheader voice-bolden)
+   (message-header-other voice-monotone)
+   (message-header-subject voice-animate)
+   (message-header-to voice-brighten)
+   (message-header-xheader voice-monotone)
    (message-mml voice-brighten)
-   (message-separator voice-bolden-extra)
-   ))
+   (message-separator voice-bolden-extra)))
 
 ;;}}}
 ;;{{{  advice interactive commands
