@@ -1069,7 +1069,8 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  '(
    (completions-annotations voice-annotate)
    (completions-common-part voice-monotone-extra)
-   (completions-first-difference voice-brighten)))
+   (completions-first-difference voice-bolden)))
+
 (cl-loop
  for f in
  '(minibuffer-complete-word minibuffer-complete
@@ -1082,14 +1083,14 @@ see option emacspeak-untabify-fixes-non-breaking-space."
      (cond
       ((ems-interactive-p)
        (ems-with-messages-silenced
-        (let ((prior (point)))
-          (emacspeak-kill-buffer-carefully "*Completions*")
-          ad-do-it
-          (if (> (point) prior)
-              (tts-with-punctuations
-               'all
-               (dtk-speak (buffer-substring (point) prior)))
-            (emacspeak-speak-completions-if-available)))))
+           (let ((prior (point)))
+             (emacspeak-kill-buffer-carefully "*Completions*")
+             ad-do-it
+             (if (> (point) prior)
+                 (tts-with-punctuations
+                     'all
+                   (dtk-speak (buffer-substring (point) prior)))
+               (emacspeak-speak-completions-if-available)))))
       (t ad-do-it))
      ad-return-value)))
 
