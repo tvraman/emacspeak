@@ -8909,13 +8909,49 @@ File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: toy-braille,
 12.228 voice-defs
 =================
 
-Contains just the voice definitions.  Voices are defined using the
-facilities of module voice-setup.
+Contains just the voice definitions.  Voices are defined using the macro
+‘defvoice’ from module voice-setup.
 
 12.228.1 An Overview Of Voice Design
 ------------------------------------
 
-12.228.2 voice-defs Options
+Aural CSS defines 4 primary device-independent dimensions.
+Average-Pitch, Pitch-Range, Stress, and Richness.  There are ten
+possible values along each dimension (0..9), giving a total of 10,000
+possible settings.
+
+   Engine-specific modules such as dectalk-voices and outloud-voices map
+these dimensions to device-specific parameters and are responsible for
+generating the final device-specific codes.
+
+12.228.2 Creating Distinct Voices Via Aural CSS
+-----------------------------------------------
+
+Along each dimension, a setting of 5 is mapped to the default setting
+for the voice as implemented by a given engine.  Values on either side
+of 5 produce opposing effects.  This module defines the following
+effects, which can be conceptualized as opposites.
+  A. bolden , lighten
+  B. animate, monotone
+  C. brighten, smoothen
+   In addition, we define ‘bold-and-animate’ as an auditory analog of
+‘bold-italic’.  The two additional voices ‘indent’ and ‘annotate’
+predate the above and are retained as two _softer_ voices.  Finally,
+there are 4 _overlay_ voices, corresponding to the 4 dimensions; these
+each set one of the dimensions to ‘8’.  Thus, we have a total of 25
+unique voices defined in this module.
+
+12.228.3 Things to note
+-----------------------
+
+   • These voices are designed to be distinctive when used in a given
+     utterance.
+   • Non-goal — to be able to identify each distinct voice in isolation.
+   • Audio-formatting is designed to set apart different types of
+     content so that when used in context, one can easily pick-out
+     distinct parts of the utterance.
+
+12.228.4 voice-defs Options
 ---------------------------
 
  -- Variable: User Option voice-animate-extra-settings
@@ -9860,34 +9896,4 @@ other key features of the Emacspeak code-base:
      accessed through that single keymap.  This helps embedding
      Emacspeak functionality into a large variety of third party modules
      without any loss of functionality.
-
-
-File: emacspeak.info,  Node: Emacspeak And Authoring Documents,  Next: Emacspeak And The Early Days Of The Web,  Prev: Emacspeak And Software Development,  Up: Emacspeak At Twenty
-
-15.6 Emacspeak And Authoring Documents
-======================================
-
-In 1994, my preferred environment for authoring *all* documents was
-*LaTeX* using the Auctex package.  Later I started writing either LaTeX
-or HTML using the appropriate support modes; today I use *org-mode* to
-do most of my content authoring.  Personally, I have never been a fan of
-What You See Is What You Get (WYSIWYG) authoring tools — in my
-experience that places an undue burden on the author by drawing
-attention away from the content to focus on the final appearance.  An
-added benefit of creating content in Emacs in the form of light-weight
-markup is that the content is long-lived — I can still usefully process
-and re-use things I have written 25 years ago.
-
-   Emacs, with Emacspeak providing audio formatting and context-specific
-feedback remains my environment of choice for writing all forms of
-content ranging from simple email messages to polished documents for
-print publishing.  And it is worth repeating that I *never* need to
-focus on what the content is going to look like — that job is best left
-to the computer.
-
-   As an example of producing high-fidelity visual content, see this
-write-up on Polyhedral Geometry
-(http://emacspeak.sourceforge.net/raman/publications/polyhedra/) that I
-published in 2002; all of the content, including the drawings were
-created by me using Emacs.
 

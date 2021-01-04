@@ -15,6 +15,36 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on January 3, 2021.
 
 
+File: emacspeak.info,  Node: Emacspeak And Authoring Documents,  Next: Emacspeak And The Early Days Of The Web,  Prev: Emacspeak And Software Development,  Up: Emacspeak At Twenty
+
+15.6 Emacspeak And Authoring Documents
+======================================
+
+In 1994, my preferred environment for authoring *all* documents was
+*LaTeX* using the Auctex package.  Later I started writing either LaTeX
+or HTML using the appropriate support modes; today I use *org-mode* to
+do most of my content authoring.  Personally, I have never been a fan of
+What You See Is What You Get (WYSIWYG) authoring tools — in my
+experience that places an undue burden on the author by drawing
+attention away from the content to focus on the final appearance.  An
+added benefit of creating content in Emacs in the form of light-weight
+markup is that the content is long-lived — I can still usefully process
+and re-use things I have written 25 years ago.
+
+   Emacs, with Emacspeak providing audio formatting and context-specific
+feedback remains my environment of choice for writing all forms of
+content ranging from simple email messages to polished documents for
+print publishing.  And it is worth repeating that I *never* need to
+focus on what the content is going to look like — that job is best left
+to the computer.
+
+   As an example of producing high-fidelity visual content, see this
+write-up on Polyhedral Geometry
+(http://emacspeak.sourceforge.net/raman/publications/polyhedra/) that I
+published in 2002; all of the content, including the drawings were
+created by me using Emacs.
+
+
 File: emacspeak.info,  Node: Emacspeak And The Early Days Of The Web,  Next: Audio Formatting --- Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Emacspeak At Twenty
 
 15.7 Emacspeak And The Early Days Of The Web
