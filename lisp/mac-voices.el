@@ -278,7 +278,8 @@ and TABLE gives the values along that dimension."
 ;;{{{  richness
 
 ;;{{{  paul richness TODO
-
+(let ((table (make-vector 10 "")))
+  (mac-css-set-code-table 'paul 'richness table))
 ;;}}}
 
 (defun mac-get-richness-code (value family)
