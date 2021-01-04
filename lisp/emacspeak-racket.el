@@ -59,7 +59,7 @@
    (racket-check-syntax-def-face voice-bolden)
    (racket-check-syntax-use-face  voice-annotate)
    (racket-here-string-face voice-lighten)
-   (racket-keyword-argument-face voice-animate)
+   (racket-keyword-argument-face voice-animate-extra)
    (racket-paren-face voice-smoothen)
    (racket-selfeval-face voice-bolden-and-animate)))
 
