@@ -765,13 +765,13 @@ Safari/537.36"
 
 (voice-setup-add-map
  '(
-   (eww-invalid-certificate  voice-bolden-and-animate)
+   (eww-invalid-certificate  voice-lighten-extra)
    (eww-valid-certificate voice-bolden)
    (eww-form-submit voice-animate)
    (eww-form-checkbox voice-monotone-extra)
-   (eww-form-select voice-annotate)
+   (eww-form-select voice-animate)
    (eww-form-text voice-lighten)
-   (eww-form-file voice-lighten)
+   (eww-form-file voice-smoothen)
    (eww-form-textarea voice-brighten)
    (shr-selected-link  voice-animate)
    (shr-strike-through voice-annotate)))
