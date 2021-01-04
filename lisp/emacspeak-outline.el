@@ -293,7 +293,7 @@ except that the outline section is  spoken"
    (outline-3 voice-bolden)
    (outline-4 voice-lighten)
    (outline-5 voice-lighten-medium)
-   (outline-6 voice-lighten)
+   (outline-6 voice-lighten-extra)
    ))
 
 ;;}}}
