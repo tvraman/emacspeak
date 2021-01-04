@@ -58,9 +58,9 @@
 (voice-setup-add-map 
  '(
    (forge-post-author voice-lighten)
-   (forge-post-date voice-monotone-extra)
-   (forge-topic-closed voice-smoothen)
-   (forge-topic-merged voice-brighten)
+   (forge-post-date voice-animate)
+   (forge-topic-closed voice-lighten)
+   (forge-topic-merged voice-monotone)
    (forge-topic-open voice-bolden)
    (forge-topic-unmerged voice-animate)
    (forge-topic-unread voice-highlight)))
