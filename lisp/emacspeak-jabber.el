@@ -58,18 +58,18 @@
 
 (voice-setup-add-map
  '(
-   (jabber-activity-face        voice-animate)
-   (jabber-chat-error           voice-bolden-and-animate)
+   (jabber-activity-face        voice-animate-extra)
+   (jabber-chat-error           voice-monotone)
    (jabber-chat-prompt-foreign  voice-brighten-medium)
    (jabber-chat-prompt-local    voice-smoothen-medium)
    (jabber-chat-prompt-system   voice-brighten-extra)
-   ;;;(jabber-chat-text-foreign    voice-lighten) we use default here 
+   (jabber-chat-text-foreign    voice-lighten) 
    (jabber-chat-text-local      voice-smoothen)
    (jabber-rare-time-face       voice-animate-extra)
    (jabber-roster-user-away     voice-smoothen-extra)
    (jabber-roster-user-chatty   voice-brighten)
    (jabber-roster-user-dnd      voice-lighten-medium)
-   (jabber-roster-user-error    voice-bolden-and-animate)
+   (jabber-roster-user-error    voice-monotone)
    (jabber-roster-user-offline  voice-smoothen-extra)
    (jabber-roster-user-online   voice-bolden)
    (jabber-roster-user-xa       voice-lighten)
