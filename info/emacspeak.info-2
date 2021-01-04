@@ -8912,7 +8912,10 @@ File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: toy-braille,
 Contains just the voice definitions.  Voices are defined using the
 facilities of module voice-setup.
 
-12.228.1 voice-defs Options
+12.228.1 An Overview Of Voice Design
+------------------------------------
+
+12.228.2 voice-defs Options
 ---------------------------
 
  -- Variable: User Option voice-animate-extra-settings

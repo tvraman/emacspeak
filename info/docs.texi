@@ -18215,6 +18215,7 @@ http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
 Contains just the voice definitions. Voices are defined using the
 facilities of module voice-setup.
+@subsection An Overview Of Voice Design
 
 @subsection voice-defs Options
 

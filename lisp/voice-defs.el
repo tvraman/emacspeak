@@ -40,6 +40,42 @@
 ;;; Commentary:
 ;;; Contains just the voice definitions. Voices are defined using the
 ;;; facilities of module voice-setup.
+;;; @subsection An Overview Of Voice Design
+;;; Aural CSS defines 4 primary device-independent dimensions:
+;;; Average-Pitch, Pitch-Range, Stress, and Richness. There are ten
+;;; possible values along each dimension (0..9), giving a total of
+;;; 10,000 possible settings.
+;;; Engine-specific modules such as dectalk-voices and outloud-voices
+;;; map these dimensions to device-specific parameters and are
+;;; responsible for generating the final device-specific codes.
+;;; @subsection Creating  Distinct Voices  Via Aural CSS
+;;; Along each dimension, a setting of 5 is mapped to the default
+;;; setting for the voice as implemented by a given engine. Values on
+;;; either side of  5 produce opposing effects.
+;;; This module  defines the following effects, which can be
+;;; conceptualized as opposites:
+@enumerate A
+;;; @item bolden , lighten
+;;; @item animate, monotone
+;;; @item brighten, smoothen
+;;; @end enumerate
+;;; In addition, we define @code{bold-and-animate} as an auditory
+;;; analog of @code{bold-italic}.
+;;; The two additional voices @code{indent} and @code{annotate}
+;;; predate the above and are retained  as two @emph{softer} voices. 
+;;; Finally, there are 4 @emph{overlay} voices, corresponding  to the
+;;; 4 dimensions; these each set one of the dimensions to @code{8}.
+;;; Thus, we have a total of 25 unique voices defined in this module.
+;;; Things to note:
+;;; @itemize
+;;; @item These voices are designed to be distinctive when used in  a given
+;;; utterance.
+;;; @item Non-goal: to be able to identify each distinct voice in
+;;; isolation.
+;;; @item Audio-formatting is designed to set apart different types of
+;;; content so that when heard in context, one can easily pick-out
+;;; distinct parts of the utterance.
+;;; @end itemize 
 ;;; Code:
 
 ;;}}}
