@@ -197,12 +197,12 @@ The default value of 12 is too high for using ido effectively with speech. "
 (voice-setup-add-map
  '(
    (ido-virtual voice-smoothen)
-   (ido-first-match voice-brighten)
-   (ido-only-match voice-bolden)
+   (ido-first-match voice-bolden)
+   (ido-only-match voice-bolden-extra)
    (ido-subdir voice-lighten)
    (ido-indicator voice-brighten)
    (ido-incomplete-regexp voice-monotone-extra)
-   (flx-highlight-face voice-bolden)))
+   (flx-highlight-face voice-animate)))
 
 ;;}}}
 ;;{{{ Additional keybindings 
