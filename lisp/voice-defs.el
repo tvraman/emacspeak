@@ -90,9 +90,9 @@
 ;;}}}
 ;;{{{ Voice Definitions: 
 
-(defvoice voice-animate '( nil 6 6))
-(defvoice voice-animate-extra '( nil 8 8 ))
-(defvoice voice-animate-medium '( nil 7 7))
+(defvoice voice-animate '( nil nil 6 6))
+(defvoice voice-animate-extra '( nil nil 8 8 ))
+(defvoice voice-animate-medium '( nil nil 7 7))
 (defvoice voice-annotate '( nil nil 4 0 4))
 (defvoice voice-bolden '( nil 3 6 6 6))
 (defvoice voice-bolden-and-animate '( nil 3 8 8 8))
@@ -112,8 +112,8 @@
 (defvoice voice-overlay-1 '( nil nil 8 nil nil nil))
 (defvoice voice-overlay-2 '( nil nil nil 8 nil nil))
 (defvoice voice-overlay-3 '( nil nil nil nil 8 nil))
-(defvoice voice-smoothen '( nil nil nil 2 2))
-(defvoice voice-smoothen-extra '( nil nil nil 4 5))
+(defvoice voice-smoothen '( nil nil nil 4 5))
+(defvoice voice-smoothen-extra '( nil nil nil 2 2))
 (defvoice voice-smoothen-medium '( nil nil nil 3 4))
 
 ;;}}}
