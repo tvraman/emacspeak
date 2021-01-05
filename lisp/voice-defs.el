@@ -107,7 +107,7 @@
 (defvoice voice-lighten-medium '( nil 7 7 3))
 (defvoice voice-monotone-extra '( nil nil 0 0))
 (defvoice voice-monotone-medium '( nil nil 2 2))
-(defvoice voice-monotone-extra '( nil nil 4 4))
+(defvoice voice-monotone '( nil nil 4 4))
 (defvoice voice-overlay-0 '( nil 8 nil nil nil nil))
 (defvoice voice-overlay-1 '( nil nil 8 nil nil nil))
 (defvoice voice-overlay-2 '( nil nil nil 8 nil nil))
