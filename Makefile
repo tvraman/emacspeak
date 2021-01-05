@@ -44,6 +44,7 @@ README = README
 # {{{  User level targets emacspeak info  outloud espeak 
 
 emacspeak:
+	@cd lisp && $(MAKE)  --no-print-directory config 
 	@cd lisp && $(MAKE)  --no-print-directory
 	@make   $(README)
 	@chmod 644 $(README)
