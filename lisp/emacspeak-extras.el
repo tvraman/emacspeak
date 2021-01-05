@@ -211,7 +211,7 @@ for the current voice family."
           (insert "\n"))))))
     (switch-to-buffer buffer)
     (goto-char (point-min))))
-
+;;;###autoload
 (defun voice-setup-defined-voices ()
   "Return list of voices defined via defvoice"
   (cl-loop
@@ -243,11 +243,13 @@ for the current voice family."
       (cl-loop
        for v in voices do
        (insert
-        (propertize
-         (format "This is a sample of voice %s. It uses Aural CSS Style %s. "
-                 (symbol-name v) (symbol-value v))
-         'personality (symbol-value v)))
-       (insert "\n")))
+        (concat
+         "This is a sample of "
+         (propertize (symbol-name v) 'personality (symbol-value v))
+         " --- It uses "
+         (propertize
+          (symbol-name (symbol-value v)) 'personality (symbol-value v))))
+       (insert ".\n")))
     (funcall-interactively #'pop-to-buffer buffer)
     (goto-char (point-min))))
 
