@@ -103,7 +103,7 @@
 (defvoice voice-brighten-medium '( nil nil nil 4 7))
 (defvoice voice-indent '( nil nil 3 1 3))
 (defvoice voice-lighten '( nil 6 nil 2))
-(defvoice voice-lighten-extra '( nil 9 nil 7))
+(defvoice voice-lighten-extra '( nil 9 nil 4))
 (defvoice voice-lighten-medium '( nil 7 nil 3))
 (defvoice voice-monotone-extra '( nil nil 0 0))
 (defvoice voice-monotone-medium '( nil nil 2 2))
