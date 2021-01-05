@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 4, 2021.
+last updated on January 5, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-js2,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -8999,14 +8999,11 @@ unique voices defined in this module.
  -- Variable: User Option voice-lighten-settings
      Settings for voice-lighten
 
- -- Variable: User Option voice-monotone-light-settings
-     Settings for voice-monotone-light
+ -- Variable: User Option voice-monotone-extra-settings
+     Settings for voice-monotone-extra
 
  -- Variable: User Option voice-monotone-medium-settings
      Settings for voice-monotone-medium
-
- -- Variable: User Option voice-monotone-settings
-     Settings for voice-monotone
 
  -- Variable: User Option voice-overlay-0-settings
      Settings for voice-overlay-0

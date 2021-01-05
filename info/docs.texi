@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1132 commands and 148 options.
+This chapter documents a total of 1132 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -18331,18 +18331,13 @@ Settings for voice-lighten
 
 @end defvar
 
-@defvar {User Option} voice-monotone-light-settings
-Settings for voice-monotone-light
+@defvar {User Option} voice-monotone-extra-settings
+Settings for voice-monotone-extra
 
 @end defvar
 
 @defvar {User Option} voice-monotone-medium-settings
 Settings for voice-monotone-medium
-
-@end defvar
-
-@defvar {User Option} voice-monotone-settings
-Settings for voice-monotone
 
 @end defvar
 
