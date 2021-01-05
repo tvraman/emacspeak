@@ -51,8 +51,6 @@ DEPS=-l $(SRC)/emacspeak-preamble.el -l $(SRC)/emacspeak-loaddefs.el
 
 COMPILE =  -f batch-byte-compile
 # How to compile
-
-emacspeak-loaddefs.el: config 
 %.elc:  %.el 
 	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
 
