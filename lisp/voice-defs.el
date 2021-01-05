@@ -112,7 +112,7 @@
 (defvoice voice-overlay-1 '( nil nil 8 nil nil nil))
 (defvoice voice-overlay-2 '( nil nil nil 8 nil nil))
 (defvoice voice-overlay-3 '( nil nil nil nil 8 nil))
-(defvoice voice-smoothen '( nil nil 2 2))
+(defvoice voice-smoothen '( nil nil nil 2 2))
 (defvoice voice-smoothen-extra '( nil nil nil 4 5))
 (defvoice voice-smoothen-medium '( nil nil nil 3 4))
 
