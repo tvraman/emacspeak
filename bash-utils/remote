@@ -39,7 +39,7 @@ function rtts () {
     $SDIR/$SERVER  2222 $SDIR/$ENGINE  &
 #notification stream listens on 3333
     (export ALSA_DEFAULT="tts_mono_left"; $SDIR/$SERVER 3333 $SDIR/$ENGINE &)
-    play -q -n \
+    play -q -n -t alsa  \
     synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 sin %-14 sin %-21 \
     fade h .01 2 1.5 \
     delay 1.3 1 .76 .54 .27 \
