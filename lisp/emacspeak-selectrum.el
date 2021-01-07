@@ -73,11 +73,19 @@
   selectrum-prescient-toggle-prefix
   selectrum-prescient-toggle-regexp
   selectrum-repeat
-  selectrum-select-current-candidate
+  
   selectrum-select-from-history
   
   )
 
+
+
+(defadvice selectrum-select-current-candidate (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (when (and ad-return-value (stringp ad-return-value))
+      (dtk-speak ad-return-value))
+    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice selectrum-submit-exact-input (after emacspeak pre act comp)
   "Provide auditory feedback."
