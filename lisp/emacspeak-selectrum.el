@@ -56,34 +56,33 @@
 (voice-setup-add-map
  '(
    (selectrum-completion-annotation voice-annotate)
-   (selectrum-completion-docsig voice-monotone-extra)
+   (selectrum-completion-docsig voice-monotone)
    (selectrum-current-candidate voice-bolden)
    (selectrum-primary-highlight voice-animate)
    (selectrum-secondary-highlight voice-lighten)))
 
 ;;}}}
-;;{{{ Interactive Commands:
+;;{{{Fix interactive commands:
 
 '(
-  selectrum-goto-beginning
-  selectrum-goto-end
-  
   selectrum-kill-ring-save
-  selectrum-next-candidate
-  selectrum-next-page
   selectrum-prescient-toggle-anchored
   selectrum-prescient-toggle-fuzzy
   selectrum-prescient-toggle-initialism
   selectrum-prescient-toggle-literal
   selectrum-prescient-toggle-prefix
   selectrum-prescient-toggle-regexp
-  selectrum-previous-candidate
-  selectrum-previous-page
   selectrum-repeat
   selectrum-select-current-candidate
   selectrum-select-from-history
-  selectrum-submit-exact-input
+  
   )
+
+
+(defadvice selectrum-submit-exact-input (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice selectrum-insert-current-candidate (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -91,6 +90,29 @@
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak (emacspeak-get-minibuffer-contents))))
 
+(cl-loop
+ for f in 
+ '(
+   selectrum-next-page selectrum-previous-page
+   selectrum-goto-beginning selectrum-goto-end)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
+(cl-loop
+ for f in 
+ '(selectrum-previous-candidate selectrum-next-candidate)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
 
 
 ;;}}}
