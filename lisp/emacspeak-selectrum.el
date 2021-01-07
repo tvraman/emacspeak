@@ -84,11 +84,16 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-(defadvice selectrum-insert-current-candidate (after emacspeak pre act comp)
+(defadvice selectrum-insert-current-candidate (around emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (dtk-speak (emacspeak-get-minibuffer-contents))))
+  (cond
+   ((ems-interactive-p)
+    (let ((orig (point)))
+      ad-do-it
+      (emacspeak-auditory-icon 'complete)
+      (emacspeak-speak-region orig (point))))
+   (t ad-do-it))
+  ad-return-value)
 
 (cl-loop
  for f in 
