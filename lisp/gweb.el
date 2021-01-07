@@ -145,7 +145,7 @@ Uses corpus found in gweb-completion-corpus"
         (completion-ignore-case t)
         (word (thing-at-point 'word))
         (query nil))
-    (define-key map " " 'self-insert-command)
+    (define-key minibuffer-local-completion-map " " 'self-insert-command)
     (setq gweb-history (cl-remove-duplicates gweb-history :test #'string-equal))
     (setq query
           (completing-read
