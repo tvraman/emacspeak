@@ -138,7 +138,7 @@ n == News.")
 (defun gweb--autocomplete-helper (&optional prompt)
   "Helper: Read user input using Google Suggest for auto-completion.
 Uses corpus found in gweb-completion-corpus"
-  (declare (special minibuffer-local-completion-map))
+  (cl-declare (special minibuffer-local-completion-map))
   (let ((flx-ido-mode  nil)
         (ido-max-prospects 5)
         (gweb-completion-flag t)
