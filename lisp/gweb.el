@@ -80,7 +80,6 @@
 (defvar gweb-completion-flag nil
   "Flag that records  Google Suggest in progress.")
 ;;; This is dynamically scoped:
-(defvar flx-ido-mode)
 (defvar gweb-completion-corpus ""
   "Corpus to use for completion. Let-bind this for using a different
   corpus.
@@ -133,13 +132,10 @@ n == News.")
                               (gweb-suggest string gweb-completion-corpus)
                               string predicate))))))
 
-(defvar ido-max-prospects)
-
 (defun gweb--autocomplete-helper (&optional prompt)
   "Helper: Read user input using Google Suggest for auto-completion.
 Uses corpus found in gweb-completion-corpus"
-  (let ((flx-ido-mode  nil)
-        (ido-max-prospects 5)
+  (let (
         (gweb-completion-flag t)
         (completion-ignore-case t)
         (word (thing-at-point 'word))
