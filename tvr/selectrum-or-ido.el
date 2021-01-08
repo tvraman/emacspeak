@@ -6,6 +6,7 @@
 
 (defun toggle-selectrum-or-ido ()
   "Toggle between using ido and selectrum."
+  (interactive)
   (cl-declare (special selectrum-or-ido))
   (cond
    ((eq selectrum-or-ido 'ido)
@@ -13,7 +14,8 @@
    ((eq selectrum-or-ido 'selectrum)
     (setq selectrum-or-ido 'ido))
    (t (error "Strange state. selectrum-or-ido is %s" selectrum-or-ido)))
-  (selectrum-or-ido-configure selectrum-or-ido))
+  (selectrum-or-ido-configure selectrum-or-ido)
+  (message "Using %s" selectrum-or-ido))
 
 
 (defun selectrum-or-ido-configure (backend)
