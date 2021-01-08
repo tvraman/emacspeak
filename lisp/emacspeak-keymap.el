@@ -554,7 +554,7 @@
     ("p" proced)
     ("q" emacspeak-wizards-iex-show-quote)
     ("r" soundscape-restart)
-    ("s" emacspeak-wizards-shell)
+    ("s" selectrum-repeat)
     ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
     ("w" define-word))
