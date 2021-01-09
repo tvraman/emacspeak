@@ -197,7 +197,8 @@
 
 (cl-loop for binding in
          '(
-                      ("'" describe-text-properties)
+           ("'" describe-text-properties)
+           ("C-k" 'describe-keymap)
            ("," emacspeak-wizards-color-at-point)
            ("/" describe-face)
            ("=" emacspeak-wizards-swap-fg-and-bg)
@@ -226,7 +227,7 @@
            (";" describe-font)
            ("\\" emacspeak-wizards-color-diff-at-point)
            ("p" list-packages)
-(":" describe-help-keys)
+           (":" describe-help-keys)
            )
          do
          (emacspeak-keymap-update help-map binding))
