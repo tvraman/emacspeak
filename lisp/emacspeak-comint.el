@@ -266,8 +266,6 @@ set the current local value to the result.")
   (ems-with-messages-silenced
    ad-do-it))
 
-(add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
-
 (defadvice comint-delchar-or-maybe-eof (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
