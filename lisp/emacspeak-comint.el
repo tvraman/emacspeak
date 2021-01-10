@@ -145,6 +145,8 @@ set the current local value to the result.")
   "Speech setup for comint buffers."
   (cl-declare (special comint-mode-map
                        header-line-format emacspeak-use-header-line))
+;;; Experimental: discard undo info in comint:
+  (setq buffer-undo-list t)
   (when emacspeak-use-header-line
     (setq
      header-line-format
