@@ -676,7 +676,6 @@
 
 (defcustom emacspeak-hyper-keys 
   '(
-    ("SPC" embark-act)
     ("'" emacspeak-m-player-using-hrtf)
     ("," previous-buffer)
     ("." next-buffer)
