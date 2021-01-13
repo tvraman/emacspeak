@@ -1166,10 +1166,6 @@ Each URL template carries out the following steps:
 ;;}}}
 ;;{{{ Search NLS Bard:
 
-(defvar emacspeak-url-template-nls-authenticated nil
-  "Record if we have authenticated in this Emacs session.")
-(declare-function mml-compute-boundary "mml" (cont))
-
 (defun emacspeak-url-template-nls-add-to-wishlist  (book)
   "Add book under point to wishlist."
   (interactive (list  (emacspeak-eww-read-url)))
@@ -1190,6 +1186,19 @@ Each URL template carries out the following steps:
      (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
      (emacspeak-speak-mode-line))
  "Search NLS Bard Catalog. Login once before using this template."
+ #'(lambda (url)
+     (eww-browse-url url)))
+
+(emacspeak-url-template-define
+ "NLS Bard Bookshelf"
+ "https://nlsbard.loc.gov/nlsbardprod/wishlist/collection/page/1/sort/rch"
+ nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
+     (emacspeak-speak-mode-line))
+ "NLS Bard Catalog: Most Popular. Login once before using this
+template."
  #'(lambda (url)
      (eww-browse-url url)))
 
