@@ -1,3 +1,4 @@
+#remote --- Functions For Remote -*- mode: sh; -*-
 # Start a remote ssh session with reverse port forwarding
 # usage: remote hostname server-script $DTK_PROGRAM  
 # starts a local server, then ssh to remote-host,
@@ -16,12 +17,12 @@ SDIR=$DIR/../servers
 
 #helper: chime
 function chime () {
-play -q -n -t alsa  \
+    play -q -n -t alsa  \
     synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 sin %-14 sin %-21 \
     fade h .01 2 1.5 \
     delay 1.3 1 .76 .54 .27 \
     remix  - \
-    fade h 0 2.7 2.5 norm -1 2>&1 > /dev/null &
+    fade h 0 2.7 2.5 norm -1 &
 }
 
 function remote () {
