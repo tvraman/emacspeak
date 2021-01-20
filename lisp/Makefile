@@ -101,6 +101,7 @@ emacspeak-c.elc \
 emacspeak-calc.elc \
 emacspeak-calculator.elc \
 emacspeak-calendar.elc \
+emacspeak-crossword.elc \
 emacspeak-chess.elc \
 emacspeak-cider.elc \
 emacspeak-ciel.elc \
