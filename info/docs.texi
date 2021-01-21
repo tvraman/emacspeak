@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1132 commands and 147 options.
+This chapter documents a total of 1132 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -46,6 +46,7 @@ This chapter documents a total of 1132 commands and 147 options.
 * emacspeak-company::Speech-enable COMPANY-mode.
 * emacspeak-compile::Speech enable  navigation of  compile errors, grep matches.
 * emacspeak-cperl::Speech enable CPerl Mode.
+* emacspeak-crossword::Speech-enable CROSSWORD.
 * emacspeak-custom::Speech enable interactive Emacs customization.
 * emacspeak-dbus::DBus On Emacspeak Desktop.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
@@ -2642,6 +2643,11 @@ Speech feedback about the compilation error.
 @section emacspeak-cperl
 
 Provide additional advice to CPerl mode
+
+@node emacspeak-crossword
+@section emacspeak-crossword
+
+CROSSWORD == Solve crosswords in Emacs
 
 @node emacspeak-custom
 @section emacspeak-custom
@@ -10375,15 +10381,15 @@ Also set the mark at the position where point was.
 @subsubsection emacspeak-mark-backward-mark
 @deffn {Command} emacspeak-mark-backward-mark   
 @table @kbd
-@item <C-up>
-@kindex <C-up>
+@item C-<up>
+@kindex C-<up>
 @end table
 
 @findex emacspeak-mark-backward-mark
 
 @format
 Cycle backward through the mark ring.
-To cycle forward, use pop-to-mark-command bound to <C-down> 
+To cycle forward, use pop-to-mark-command bound to C-<down> 
 @end format
 @end deffn
 
@@ -10746,9 +10752,9 @@ Speak current field.
 
 @format
 Speak the current kill.
-This is what will be yanked by the next <S-insertchar>. Prefix numeric
+This is what will be yanked by the next S-<insertchar>. Prefix numeric
 arg, COUNT, specifies that the text that will be yanked as a
-result of a <S-insertchar> followed by count-1 M-x yank-pop be
+result of a S-<insertchar> followed by count-1 M-x yank-pop be
 spoken. The kill number that is spoken says what numeric prefix
 arg to give to command yank.
 
@@ -12577,7 +12583,7 @@ s		emacspeak-table-search
 v		emacspeak-table-view-csv-buffer
 w		emacspeak-table-copy-current-element-to-kill-ring
 x		emacspeak-table-copy-current-element-to-register
-<S-tab>		emacspeak-table-previous-column
+S-<tab>		emacspeak-table-previous-column
 <down>		emacspeak-table-next-row
 <left>		emacspeak-table-previous-column
 <right>		emacspeak-table-next-column
@@ -12664,14 +12670,14 @@ markup to use.
 @kindex C-e C-t C-b
 @item C-e C-t <left>
 @kindex C-e C-t <left>
-@item C-e C-t <S-tab>
-@kindex C-e C-t <S-tab>
+@item C-e C-t S-<tab>
+@kindex C-e C-t S-<tab>
 @item <fn> C-t C-b
 @kindex <fn> C-t C-b
 @item <fn> C-t <left>
 @kindex <fn> C-t <left>
-@item <fn> C-t <S-tab>
-@kindex <fn> C-t <S-tab>
+@item <fn> C-t S-<tab>
+@kindex <fn> C-t S-<tab>
 @end table
 
 @findex emacspeak-table-previous-column
@@ -15018,8 +15024,8 @@ Prompts for the new location and preserves modification time
 @subsubsection emacspeak-next-frame-or-buffer
 @deffn {Command} emacspeak-next-frame-or-buffer  (&optional frame)
 @table @kbd
-@item <C-right>
-@kindex <C-right>
+@item C-<right>
+@kindex C-<right>
 @end table
 
 @findex emacspeak-next-frame-or-buffer
@@ -15035,8 +15041,8 @@ With optional interactive prefix arg ‘frame’, move to next frame instead.
 @subsubsection emacspeak-previous-frame-or-buffer
 @deffn {Command} emacspeak-previous-frame-or-buffer  (&optional frame)
 @table @kbd
-@item <C-left>
-@kindex <C-left>
+@item C-<left>
+@kindex C-<left>
 @end table
 
 @findex emacspeak-previous-frame-or-buffer
@@ -15052,10 +15058,10 @@ With optional interactive prefix arg ‘frame’, move to previous frame instead
 @subsubsection emacspeak-select-this-buffer-next-display
 @deffn {Command} emacspeak-select-this-buffer-next-display   
 @table @kbd
-@item C-e <C-right>
-@kindex C-e <C-right>
-@item <fn> <C-right>
-@kindex <fn> <C-right>
+@item C-e C-<right>
+@kindex C-e C-<right>
+@item <fn> C-<right>
+@kindex <fn> C-<right>
 @end table
 
 @findex emacspeak-select-this-buffer-next-display
@@ -15086,10 +15092,10 @@ open at multiple places at once.
 @subsubsection emacspeak-select-this-buffer-previous-display
 @deffn {Command} emacspeak-select-this-buffer-previous-display   
 @table @kbd
-@item C-e <C-left>
-@kindex C-e <C-left>
-@item <fn> <C-left>
-@kindex <fn> <C-left>
+@item C-e C-<left>
+@kindex C-e C-<left>
+@item <fn> C-<left>
+@kindex <fn> C-<left>
 @end table
 
 @findex emacspeak-select-this-buffer-previous-display
@@ -15140,8 +15146,8 @@ Show value of property personality (and possibly face) at point.
 @subsubsection emacspeak-skip-blank-lines-backward
 @deffn {Command} emacspeak-skip-blank-lines-backward   
 @table @kbd
-@item <S-up>
-@kindex <S-up>
+@item S-<up>
+@kindex S-<up>
 @end table
 
 @findex emacspeak-skip-blank-lines-backward
@@ -15154,8 +15160,8 @@ Move backward  across blank lines, then speak line.
 @subsubsection emacspeak-skip-blank-lines-forward
 @deffn {Command} emacspeak-skip-blank-lines-forward   
 @table @kbd
-@item <S-down>
-@kindex <S-down>
+@item S-<down>
+@kindex S-<down>
 @end table
 
 @findex emacspeak-skip-blank-lines-forward
@@ -16204,15 +16210,6 @@ Prompt for foreground and background colors.
 
 @subsubsection emacspeak-wizards-shell
 @deffn {Command} emacspeak-wizards-shell  (&optional prefix)
-@table @kbd
-@item C-. s
-@kindex C-. s
-@item C-' s
-@kindex C-' s
-@item C-x @@ s s
-@kindex C-x @@ s s
-@end table
-
 @findex emacspeak-wizards-shell
 
 @format
@@ -18341,6 +18338,11 @@ Settings for voice-monotone-medium
 
 @end defvar
 
+@defvar {User Option} voice-monotone-settings
+Settings for voice-monotone
+
+@end defvar
+
 @defvar {User Option} voice-overlay-0-settings
 Settings for voice-overlay-0
 
@@ -18565,7 +18567,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 76 URL Templates.
+This section documents a total of 77 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -18670,7 +18672,10 @@ Display MLB standings.@item @b{Money Headlines From CNN}
 
 Money Headlines From CNN@item @b{NBA  standings}
 
-Display NBA standings.@item @b{NLS Bard Popular}
+Display NBA standings.@item @b{NLS Bard Bookshelf}
+
+NLS Bard Catalog: Most Popular. Login once before using this
+template.@item @b{NLS Bard Popular}
 
 NLS Bard Catalog: Most Popular. Login once before using this
 template.@item @b{NLS Bard Recent}
