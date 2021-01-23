@@ -40,6 +40,8 @@
 
 ;;; Commentary:
 ;;; CROSSWORD == Solve crosswords in Emacs
+;;; Use fork at https://github.com/ieure/emacs-crossword
+;;; Rather than the one on melpa.
 
 ;;; Code:
 
