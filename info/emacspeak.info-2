@@ -12,7 +12,69 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 21, 2021.
+last updated on January 23, 2021.
+
+
+File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: emacspeak-ivy,  Up: Emacspeak Commands And Options
+
+12.106 emacspeak-jabber
+=======================
+
+emacs-jabber.el implements a jabber client for emacs emacs-jabber is
+hosted at sourceforge.  I use emacs-jabber with my gmail.com account
+
+12.106.1 Emacspeak-Jabber Commands
+----------------------------------
+
+12.106.1.1 emacspeak-jabber-chat-next-message
+.............................................
+
+ -- Command: emacspeak-jabber-chat-next-message
+
+     Move forward to and speak the next message in this chat session.
+
+12.106.1.2 emacspeak-jabber-chat-previous-message
+.................................................
+
+ -- Command: emacspeak-jabber-chat-previous-message
+
+     Move backward to and speak the previous message in this chat session.
+
+12.106.1.3 emacspeak-jabber-chat-speak-this-message
+...................................................
+
+ -- Command: emacspeak-jabber-chat-speak-this-message (&optional
+          copy-as-kill)
+
+     Speak chat message under point.
+     With optional interactive prefix arg ‘copy-as-kill’, copy it to
+     the kill ring as well.
+
+     (fn &optional COPY-AS-KILL)
+
+12.106.1.4 emacspeak-jabber-popup-roster
+........................................
+
+ -- Command: emacspeak-jabber-popup-roster
+     ‘C-e x j’
+     ‘<fn> x j’
+
+     Pop to Jabber roster.
+
+12.106.1.5 emacspeak-jabber-speak-recent-message
+................................................
+
+ -- Command: emacspeak-jabber-speak-recent-message
+     ‘C-e x SPC’
+     ‘<fn> x SPC’
+
+     Speak most recent message if one exists.
+
+12.106.2 emacspeak-jabber Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-jabber-speak-presence-alerts
+     Set to T if you want to hear presence alerts.
 
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-js2,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options

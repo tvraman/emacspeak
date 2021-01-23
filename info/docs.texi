@@ -2648,6 +2648,8 @@ Provide additional advice to CPerl mode
 @section emacspeak-crossword
 
 CROSSWORD == Solve crosswords in Emacs
+Use fork at https://github.com/ieure/emacs-crossword
+Rather than the one on melpa.
 
 @node emacspeak-custom
 @section emacspeak-custom
