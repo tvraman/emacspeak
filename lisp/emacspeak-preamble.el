@@ -176,8 +176,8 @@ Return T if set and we are called from the advice for the current
     (let ((result (eq (cl-second (backtrace-frame 1)) ; containing function name
                       (ad-get-advice-info-field ems-called-interactively-p  'advicefunname)))) ; advice wrapper of containing function
       (when result
-        (setq ems-called-interactively-p nil)
-        result)))) ; turn off now that we used  it
+        (setq ems-called-interactively-p nil) ; turn off now that we used  it
+        result))))
 
 ;;}}}
 ;;{{{defsubst: ems--fastload:
