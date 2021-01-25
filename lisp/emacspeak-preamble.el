@@ -173,15 +173,11 @@
 Return T if set and we are called from the advice for the current
  command. Turn off the flag once used."
   (when ems-called-interactively-p      ; interactive call
-    (let ((caller (cl-second (backtrace-frame 1))) ; containing function name
-          (caller-advice ; advice wrapper of containing function
-           (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
-          (result nil))
-                                        ; T if called from our advice
-      (setq result (eq caller caller-advice))
+    (let ((result (eq (cl-second (backtrace-frame 1)) ; containing function name
+                      (ad-get-advice-info-field ems-called-interactively-p  'advicefunname)))) ; advice wrapper of containing function
       (when result
-        (setq ems-called-interactively-p nil) ; turn off now that we used  it
-        result))))
+        (setq ems-called-interactively-p nil)
+        result)))) ; turn off now that we used  it
 
 ;;}}}
 ;;{{{defsubst: ems--fastload:
