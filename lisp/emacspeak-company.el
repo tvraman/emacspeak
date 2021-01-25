@@ -121,6 +121,7 @@
 
 ;;}}}
 ;;{{{ Company Setup For Emacspeak:
+
 (defun emacspeak-company-setup ()
   "Set front-end to our  front-end action."
   (cl-declare (special company-frontends))
@@ -132,12 +133,6 @@
   (add-hook
    'company-completion-finished-hook
    #'(lambda (&rest _ignore) (emacspeak-play-auditory-icon 'close-object))))
-
-;;}}}
-;;{{{ Silence YCMD Chatter:
-(defadvice ycmd--request (around emacspeak pre act comp)
-  "Silence chatter."
-  (ems-with-messages-silenced ad-do-it))
 
 ;;}}}
 (eval-after-load "company" #'emacspeak-company-setup)
