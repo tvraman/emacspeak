@@ -290,8 +290,9 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
 (sox-define-binaural-effect
  "focus" ; gamma
  (make-sox--binaural
-  :beats '((75 40) (150 40) (225 40) (300 40.0))
-  :gain -10))
+  :beats '((75 40.0) (150 40.0) (225 40.0) (300 40.0))
+  :gain -20))
+
 ;; }}}
 
 (defun sox--format-seconds (secs)
