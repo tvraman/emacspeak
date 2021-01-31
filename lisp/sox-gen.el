@@ -447,29 +447,25 @@ binaural beat to another."
          (setq start (+ start slider-len)))))))
 
 (defun sox-rev-up (length)
-  "Play rev-up set of  binaural beats.
-Param `length' specifies total duration."
+  "Play rev-up set of  binaural beats for `length' seconds. "
   (interactive "sDuration: ")
   (cl-declare (special sox-rev-up-beats))
   (sox--theme-play sox-rev-up-beats length))
 
 (defun sox-turn-down (length)
-  "Play turn-down set of  binaural beats.
-Param `length' specifies total duration."
+  "Play turn-down set of  binaural beats for `length' seconds. "
   (interactive "sDuration: ")
   (cl-declare (special sox-turn-down-beats))
   (sox--theme-play sox-turn-down-beats length))
 
 (defun sox-wind-down (length)
-  "Play wind-down set of  binaural beats.
-Param `length' specifies total duration."
+  "Play wind-down set of  binaural beats for `length' seconds."
   (interactive "sDuration: ")
   (cl-declare (special sox-wind-down-beats))
   (sox--theme-play sox-wind-down-beats length))
 
 (defun sox-relax (length)
-  "Play relax set of  binaural beats.
-Param `length' specifies total duration."
+  "Play relax set of  binaural beats for `length' seconds."
   (interactive "sDuration: ")
   (cl-declare (special sox-relax-beats))
   (sox--theme-play sox-relax-beats length))
