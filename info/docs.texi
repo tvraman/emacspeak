@@ -18085,8 +18085,7 @@ Parameter ‘theme’ specifies variant.
 @findex sox-relax
 
 @format
-Play relax set of  binaural beats.
-Param ‘length’ specifies total duration.
+Play relax set of  binaural beats for ‘length’ seconds.
 
 (fn LENGTH)
 @end format
@@ -18097,8 +18096,7 @@ Param ‘length’ specifies total duration.
 @findex sox-rev-up
 
 @format
-Play rev-up set of  binaural beats.
-Param ‘length’ specifies total duration.
+Play rev-up set of  binaural beats for ‘length’ seconds. 
 
 (fn LENGTH)
 @end format
@@ -18144,8 +18142,7 @@ Play binaural audio with carrier frequency ‘freq’, beat
 @findex sox-turn-down
 
 @format
-Play turn-down set of  binaural beats.
-Param ‘length’ specifies total duration.
+Play turn-down set of  binaural beats for ‘length’ seconds. 
 
 (fn LENGTH)
 @end format
@@ -18156,8 +18153,7 @@ Param ‘length’ specifies total duration.
 @findex sox-wind-down
 
 @format
-Play wind-down set of  binaural beats.
-Param ‘length’ specifies total duration.
+Play wind-down set of  binaural beats for ‘length’ seconds.
 
 (fn LENGTH)
 @end format

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 23, 2021.
+last updated on January 31, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: emacspeak-ivy,  Up: Emacspeak Commands And Options
@@ -8847,8 +8847,7 @@ binaural beats.
 
  -- Command: sox-relax (length)
 
-     Play relax set of  binaural beats.
-     Param ‘length’ specifies total duration.
+     Play relax set of  binaural beats for ‘length’ seconds.
 
      (fn LENGTH)
 
@@ -8857,8 +8856,7 @@ binaural beats.
 
  -- Command: sox-rev-up (length)
 
-     Play rev-up set of  binaural beats.
-     Param ‘length’ specifies total duration.
+     Play rev-up set of  binaural beats for ‘length’ seconds.
 
      (fn LENGTH)
 
@@ -8897,8 +8895,7 @@ binaural beats.
 
  -- Command: sox-turn-down (length)
 
-     Play turn-down set of  binaural beats.
-     Param ‘length’ specifies total duration.
+     Play turn-down set of  binaural beats for ‘length’ seconds.
 
      (fn LENGTH)
 
@@ -8907,8 +8904,7 @@ binaural beats.
 
  -- Command: sox-wind-down (length)
 
-     Play wind-down set of  binaural beats.
-     Param ‘length’ specifies total duration.
+     Play wind-down set of  binaural beats for ‘length’ seconds.
 
      (fn LENGTH)
 
