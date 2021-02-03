@@ -209,7 +209,10 @@ Use Custom to customize where possible. "
   "TVR:text-mode"
   (auto-fill-mode)
   (abbrev-mode)
-  (unless (eq major-mode 'org-mode) (orgalist-mode)))
+  (unless (eq major-mode 'org-mode) (orgalist-mode))
+  (setq-local company-backends '(company-wordfreq))
+  (setq-local company-transformers nil)
+  (company-mode ))
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
