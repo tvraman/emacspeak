@@ -135,7 +135,9 @@
   "Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.
  note: nnimap-address etc are available as local vars if needed in these functions."
-  (interactive "sGMail Query: ")  
+  (interactive "sGMail Query: ")
+  (cl-declare (special nnir-imap-default-search-key
+                       gnus-group-group-name))
   (let ((nnir-imap-default-search-key "imap")
         (q (format "X-GM-RAW \"%s\"" query)))
     (cond
