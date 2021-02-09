@@ -234,7 +234,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (bury-buffer pianobar-buffer)
     (delete-windows-on pianobar-buffer)
     (emacspeak-auditory-icon 'close-object))
-   (t (switch-to-buffer pianobar-buffer)
+   (t (pop-to-buffer pianobar-buffer)
       (emacspeak-auditory-icon 'open-object))))
 
 (defun emacspeak-pianobar-command (key)
@@ -243,9 +243,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (cl-declare (special pianobar-key-map))
   (cond
    ((and (stringp key)
-         (or
-          (string= "\"" key)
-          (string= "'" key)))
+          (string= "'" key))
     (emacspeak-pianobar-hide-or-show)
     (emacspeak-speak-mode-line))
    ((lookup-key pianobar-key-map key)
