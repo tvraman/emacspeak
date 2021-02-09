@@ -378,7 +378,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
           (cond
            ( (and emacspeak-comint-autospeak (not prompt-p))
              (dtk-speak output))
-           ( prompt-p (emacspeak-auditory-icon 'item)))))
+           ( prompt-p (when emacspeak-comint-autospeak (emacspeak-auditory-icon 'item))))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
