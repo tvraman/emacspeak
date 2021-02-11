@@ -1995,13 +1995,22 @@ location of the mark is indicated by an aural highlight. "
 ;;}}}
 ;;{{{  Execute command repeatedly:
 
+
+(defvar emacspeak-execute-repeatedly-key 32
+  "Key to use to repeat command.")
+
 (defun emacspeak-execute-repeatedly (command)
   "Execute COMMAND repeatedly."
   (interactive (list (read-command "Command to execute repeatedly:")))
+  (cl-declare (special emacspeak-execute-repeatedly-key))
   (let ((key "")
         (pos (point))
         (continue t)
-        (message (format "Press space to execute %s again" command)))
+        (message (format "Press %s to execute %s again"
+                         (if (= 32 emacspeak-execute-repeatedly-key)
+                             "space"
+                           (char-to-string emacspeak-execute-repeatedly-key))
+                         command)))
     (while continue
       (call-interactively command)
       (cond
@@ -2009,10 +2018,11 @@ location of the mark is indicated by an aural highlight. "
        (t (setq pos (point))
           (setq key (read-key-sequence message))
           (when (and (stringp key)
-                     (not (= 32 (string-to-char key))))
+                     (not (= emacspeak-execute-repeatedly-key (string-to-char key))))
             (dtk-stop)
             (setq continue nil)))))
     (dtk-speak "Exited continuous mode ")))
+
 
 (defun emacspeak-speak-continuously ()
   "Speak a buffer continuously.
