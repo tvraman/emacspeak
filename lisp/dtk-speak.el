@@ -656,11 +656,14 @@ Argument COMPLEMENT  is the complement of separator."
     (dtk-interp-queue-code
      (cond
       ((symbolp voice)
-       (tts-get-voice-command voice))
+       (tts-get-voice-command
+        (if (boundp voice) (symbol-value voice) voice)))
       ((listp voice)
-       (mapconcat #'(lambda (v)
-                      (tts-get-voice-command v))
-                  voice " "))
+       (mapconcat
+        #'(lambda (v)
+            (tts-get-voice-command
+             (if (boundp v) (symbol-value v) v)))
+        voice " "))
       (t "")))
     (dtk-interp-letter letter)
     (dtk-interp-queue-code (tts-voice-reset-code))))
