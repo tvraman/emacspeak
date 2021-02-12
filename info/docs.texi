@@ -18182,7 +18182,7 @@ binaural beat to another.
 This is a bit of toy code to write in braille.
 To try this, load this file (`M-x load-file path/to/toy-braille.el'), then do:
 
-M-: (get-toy-braille-string "just a test")
+  M-: (get-toy-braille-string "just a test")
 
 That's just a toy, meant as an excuse and maybe a tool to learn a
 bit of braille, nothing more.
@@ -18191,19 +18191,19 @@ Unicode fonts are needed.
 
 You can try:
 
-M-: (set-default-font "-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*")
+  M-: (set-default-font "-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*")
 
 or
 
-M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
+  M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
 
 (it will only work if the relative font is installed and properly configured).
 
 References:
 
-http://www.nbp.org/ic/nbp/braille/index.html
+  http://www.nbp.org/ic/nbp/braille/index.html
 
-http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
+  http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
 @node voice-defs
 @section voice-defs
