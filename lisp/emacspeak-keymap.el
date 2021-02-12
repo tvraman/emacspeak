@@ -547,7 +547,6 @@
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
     ("f" flyspell-mode)
-    ("g" magit-file-dispatch)
     ("h" emacspeak-m-player-from-media-history)
     ("l" emacspeak-m-player-locate-media)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
