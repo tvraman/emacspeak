@@ -111,7 +111,7 @@
 ;;}}}
 ;;{{{  Emacspeak News and Documentation
 
-
+;;;###autoload
 (defun emacspeak-view-emacspeak-news ()
   "Display emacspeak News for a given version."
   (interactive)
