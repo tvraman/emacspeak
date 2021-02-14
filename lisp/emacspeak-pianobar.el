@@ -84,8 +84,9 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'ansi-color)
 
+(require 'ansi-color)
+(require 'emacspeak-comint)
 ;;}}}
 ;;{{{ Pianobar Fixups:
 
@@ -213,7 +214,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defun emacspeak-pianobar  ()
   "Start or control Emacspeak Pianobar player."
   (interactive)
-  (cl-declare (special pianobar-buffer))
+  (cl-declare (special pianobar-buffer emacspeak-comint-autospeak))
   (condition-case nil
       (unless (featurep 'pianobar) (require 'pianobar))
     (error "Pianobar not installed."))
