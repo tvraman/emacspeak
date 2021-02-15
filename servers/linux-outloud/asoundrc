@@ -14,7 +14,7 @@ pcm.media  {
         period_size 1024
         buffer_size 8192
         format S32_LE 
-#        rate 96000 
+        rate 96000 
     }
 }
 
