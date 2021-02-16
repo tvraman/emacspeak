@@ -118,6 +118,8 @@
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
   (with-current-buffer pianobar-buffer
+    (define-key pianobar-key-map "l"
+      'pianobar-love-current-song)
     (define-key pianobar-key-map "t"
       'emacspeak-pianobar-electric-mode-toggle)
     (define-key pianobar-key-map (ems-kbd "RET") 'emacspeak-pianobar-send-raw)
