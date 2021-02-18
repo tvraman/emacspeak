@@ -405,6 +405,7 @@ Optional prefix arg prompts for toolbelt options."
       (add-hook
        'emacspeak-eww-post-process-hook
        #'(lambda ()
+           (emacspeak-eww-next-h1)
            (emacspeak-eww-next-h1  'speak)))
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
