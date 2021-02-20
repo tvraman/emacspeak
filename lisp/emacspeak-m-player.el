@@ -217,6 +217,14 @@ This is set to nil when playing Internet  streams.")
   (copy-sequence emacspeak-m-player-default-options)
   "Options passed to mplayer.")
 
+(defcustom emacspeak-m-player-custom-filters
+  nil
+  "Additional filters to apply to streams."
+  :type
+  '(repeat
+    (string :tag "filter"))
+  :group 'emacspeak-m-player)
+
 ;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
   "Map  keys  to launch MPlayer on a  directory."
@@ -427,7 +435,8 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
                emacspeak-m-player-file-list emacspeak-m-player-current-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
-               emacspeak-m-player-program emacspeak-m-player-options))
+               emacspeak-m-player-program emacspeak-m-player-options
+               emacspeak-m-player-custom-filters))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
@@ -441,6 +450,11 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
              (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
+    (when emacspeak-m-player-custom-filters
+      (push
+       (mapconcat #'identity emacspeak-m-player-custom-filters ",")
+       options)
+      (push "-af" options))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
       (setq emacspeak-m-player-url-p
