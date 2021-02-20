@@ -25,3 +25,7 @@ letter, and _ac_ for a word in all-caps.
 Those options have been replaced with a single _dtk-caps_ option that
  is now on by default in all programming modes.
 
+ ** Faster Startup
+
+ Emacspeak startup has been speeded up by loading larger modules on a
+ separate thread using ~make-thread~.
