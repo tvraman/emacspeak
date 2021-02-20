@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1132 commands and 148 options.
+This chapter documents a total of 1132 commands and 149 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -8221,6 +8221,11 @@ M-l		emacspeak-m-player-load-playlist
 @end deffn
 
 @subsection emacspeak-m-player Options
+
+@defvar {User Option} emacspeak-m-player-custom-filters
+Additional filters to apply to streams.
+
+@end defvar
 
 @defvar {User Option} emacspeak-m-player-program
 Media player program.

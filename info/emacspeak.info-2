@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 14, 2021.
+last updated on February 19, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: emacspeak-ivy,  Up: Emacspeak Commands And Options
@@ -1078,6 +1078,9 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
 12.114.3 emacspeak-m-player Options
 -----------------------------------
+
+ -- Variable: User Option emacspeak-m-player-custom-filters
+     Additional filters to apply to streams.
 
  -- Variable: User Option emacspeak-m-player-program
      Media player program.
