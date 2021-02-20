@@ -1674,7 +1674,7 @@ Displays name of current buffer.")
    (header-line-format
     (let ((window-count (length (window-list))))
       (emacspeak-auditory-icon 'item)
-      (when (> window-count 1) (sox-multiwindow))
+      (when (> window-count 1) (emacspeak--sox-multiwindow (window-edges)))
       (dtk-speak (format-mode-line header-line-format))))
    (t (dtk-speak "No header line."))))
 
