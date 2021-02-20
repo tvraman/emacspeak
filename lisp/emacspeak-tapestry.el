@@ -84,8 +84,8 @@ displayed buffers."
            0 (length w)
            'personality voice-animate w)
           (setq
-           tl (format  " %d %d " (cl-first corners) (cl-second corners))
-           br  (format " %d %d " (cl-third corners) (cl-fourth corners)))
+           tl (format  " %d %d " (cl-second corners) (cl-first corners))
+           br  (format " %d %d " (cl-fourth corners) (cl-third corners)))
           (put-text-property 0 (length tl) 'personality voice-bolden tl)
           (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))
