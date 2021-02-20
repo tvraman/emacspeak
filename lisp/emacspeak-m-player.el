@@ -957,7 +957,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "ladspa=amp:amp_stereo:2"
     "ladspa=amp:amp_stereo:0.5"
     "ladspa=tap_autopan:tap_autopan:.0016:100:1.5, ladspa=tap_autopan:tap_autopan:.06:33:2"
-    "bs2b=cmoy" "bs2b=jmeier" "bs2b")
+    "bs2b profile=cmoy" "bs2b profile=jmeier" "bs2b")
   "Table of MPlayer filters.")
 
 (defun emacspeak-m-player-add-autopan ()
