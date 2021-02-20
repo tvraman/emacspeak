@@ -1187,7 +1187,9 @@ Each URL template carries out the following steps:
      (emacspeak-speak-mode-line))
  "Search NLS Bard Catalog. Login once before using this template."
  #'(lambda (url)
-     (eww-browse-url url)))
+     (let ((url-privacy-level
+            'high))
+       (eww-browse-url url))))
 
 (emacspeak-url-template-define
  "NLS Bard Bookshelf"
@@ -1200,7 +1202,9 @@ Each URL template carries out the following steps:
  "NLS Bard Catalog: Most Popular. Login once before using this
 template."
  #'(lambda (url)
-     (eww-browse-url url)))
+     (let ((url-privacy-level
+            'high))
+       (eww-browse-url url))))
 
 (emacspeak-url-template-define
  "NLS Bard Popular"
@@ -1213,7 +1217,9 @@ template."
  "NLS Bard Catalog: Most Popular. Login once before using this
 template."
  #'(lambda (url)
-     (eww-browse-url url)))
+     (let ((url-privacy-level
+            'high))
+       (eww-browse-url url))))
 
 (emacspeak-url-template-define
  "NLS Bard Recent"
@@ -1226,7 +1232,9 @@ template."
  "NLS Bard Catalog: Recently Added. Login once before using this
 template."
  #'(lambda (url)
-     (eww-browse-url url)))
+     (let ((url-privacy-level
+            'high))
+       (eww-browse-url url))))
 
 ;;}}}
 ;;{{{ Bloomberg:
