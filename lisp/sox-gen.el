@@ -612,7 +612,7 @@ sin %-5 sin %-2 \
 fade h 0.2 0.7 0.5 \
 delay 0.1 0.5 \
 echo .9 .5 40 0.5 60 0.3 5 0.2 \
-channels 2 tempo 1.3   gain -4"
+channels 2 tempo 1.3   gain -8"
   "Chime used to indicate multiple windows.")
 
 (defun sox-multiwindow (&optional swap  speed)
