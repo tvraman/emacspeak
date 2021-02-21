@@ -1473,6 +1473,7 @@ Produce an auditory icon if possible."
 (cl-loop
  for f in
  '(other-frame other-window
+               next-window-any-frame previous-window-any-frame
                switch-to-prev-buffer switch-to-next-buffer pop-to-buffer
                switch-to-buffer switch-to-buffer-other-window
                switch-to-buffer-other-frame)
