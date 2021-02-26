@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1132 commands and 149 options.
+This chapter documents a total of 1133 commands and 149 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -1654,6 +1654,7 @@ Optional interactive prefix arg prompts for a category to use as a filter.
 @format
 Do nothing and return nil.
 This function accepts any number of ARGUMENTS, but ignores them.
+Also see ‘always’.
 
 (fn &rest ARGUMENTS)
 @end format
@@ -2053,6 +2054,7 @@ Custom URL executor for use in Bookshare TOC.
 @format
 Do nothing and return nil.
 This function accepts any number of ARGUMENTS, but ignores them.
+Also see ‘always’.
 
 (fn &rest ARGUMENTS)
 @end format
@@ -7739,6 +7741,7 @@ DEL		emacspeak-m-player-reset-speed
 
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
+M-e		emacspeak-m-player-toggle-extrastereo
 M-l		emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have
@@ -8004,6 +8007,15 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-toggle-extrastereo
+@deffn {Command} emacspeak-m-player-toggle-extrastereo   
+@findex emacspeak-m-player-toggle-extrastereo
+
+@format
+Toggle application of extrastereo filter to all streams.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-url
 @deffn {Command} emacspeak-m-player-url  (url &optional playlist-p)
 @table @kbd
@@ -8214,6 +8226,7 @@ DEL		emacspeak-m-player-reset-speed
 
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
+M-e		emacspeak-m-player-toggle-extrastereo
 M-l		emacspeak-m-player-load-playlist
 
 .
@@ -8810,6 +8823,7 @@ The heads for the associated hydra are:
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
 "f":    ‘(call-interactively #’auto-fill-mode)’,
+"e":    ‘(call-interactively #’emacspeak-m-player-toggle-extrastereo)’,
 "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
 "i":    ‘(call-interactively #’ido-everywhere)’,

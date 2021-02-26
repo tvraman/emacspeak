@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 19, 2021.
+last updated on February 26, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: emacspeak-ivy,  Up: Emacspeak Commands And Options
@@ -696,6 +696,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
+     M-e		emacspeak-m-player-toggle-extrastereo
      M-l		emacspeak-m-player-load-playlist
 
      In addition to any hooks its parent mode ‘comint-mode’ might have
@@ -904,7 +905,14 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional TOGGLE-CUE)
 
-12.114.2.69 emacspeak-m-player-url
+12.114.2.69 emacspeak-m-player-toggle-extrastereo
+.................................................
+
+ -- Command: emacspeak-m-player-toggle-extrastereo
+
+     Toggle application of extrastereo filter to all streams.
+
+12.114.2.70 emacspeak-m-player-url
 ..................................
 
  -- Command: emacspeak-m-player-url (url &optional playlist-p)
@@ -915,7 +923,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PLAYLIST-P)
 
-12.114.2.70 emacspeak-m-player-using-hrtf
+12.114.2.71 emacspeak-m-player-using-hrtf
 .........................................
 
  -- Command: emacspeak-m-player-using-hrtf
@@ -925,7 +933,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Add af resample=48000,hrtf to startup options.
      This will work if the soundcard is set to 48000.
 
-12.114.2.71 emacspeak-m-player-using-openal
+12.114.2.72 emacspeak-m-player-using-openal
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal (resource &optional
@@ -937,7 +945,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn RESOURCE &optional PLAY-LIST)
 
-12.114.2.72 emacspeak-m-player-volume-change
+12.114.2.73 emacspeak-m-player-volume-change
 ............................................
 
  -- Command: emacspeak-m-player-volume-change (value)
@@ -946,14 +954,14 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn VALUE)
 
-12.114.2.73 emacspeak-m-player-volume-down
+12.114.2.74 emacspeak-m-player-volume-down
 ..........................................
 
  -- Command: emacspeak-m-player-volume-down
 
      Volume down.
 
-12.114.2.74 emacspeak-m-player-volume-set
+12.114.2.75 emacspeak-m-player-volume-set
 .........................................
 
  -- Command: emacspeak-m-player-volume-set (&optional arg)
@@ -962,21 +970,21 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional ARG)
 
-12.114.2.75 emacspeak-m-player-volume-up
+12.114.2.76 emacspeak-m-player-volume-up
 ........................................
 
  -- Command: emacspeak-m-player-volume-up
 
      Volume up.
 
-12.114.2.76 emacspeak-m-player-write-clip
+12.114.2.77 emacspeak-m-player-write-clip
 .........................................
 
  -- Command: emacspeak-m-player-write-clip
 
      Invoke mp3splt to clip selected range in current file.
 
-12.114.2.77 emacspeak-m-player-youtube-player
+12.114.2.78 emacspeak-m-player-youtube-player
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url &optional best)
@@ -989,7 +997,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional BEST)
 
-12.114.2.78 emacspeak-multimedia
+12.114.2.79 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia
@@ -1072,6 +1080,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
+     M-e		emacspeak-m-player-toggle-extrastereo
      M-l		emacspeak-m-player-load-playlist
 
      .
@@ -1601,6 +1610,7 @@ Emacspeak functionality.
      "a":    ‘(call-interactively #’abbrev-mode)’,
      "d":    ‘(call-interactively #’toggle-debug-on-error)’,
      "f":    ‘(call-interactively #’auto-fill-mode)’,
+     "e":    ‘(call-interactively #’emacspeak-m-player-toggle-extrastereo)’,
      "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
      "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
      "i":    ‘(call-interactively #’ido-everywhere)’,
