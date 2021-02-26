@@ -607,6 +607,24 @@ necessary."
 ;;}}}
 ;;{{{ commands
 
+
+(defun emacspeak-m-player-toggle-extrastereo ()
+  "Toggle application of extrastereo filter to all streams."
+  (interactive )
+  (cl-declare (special emacspeak-m-player-custom-filters))
+  (cond
+   ((member "extrastereo" emacspeak-m-player-custom-filters)
+    (setq
+     emacspeak-m-player-custom-filters
+     (remove "extrastereo" emacspeak-m-player-custom-filters))
+    (message "Effect extrastereo no longer applied to all streams")
+    (emacspeak-auditory-icon 'off))
+   (t
+    (cl-pushnew "extrastereo" emacspeak-m-player-custom-filters
+                :test #'string-equal)
+    (message "Effect extrastereo  applied to all streams")
+    (emacspeak-auditory-icon 'on))))
+
 (defun emacspeak-m-player-get-position ()
   "Return list (position filename length)  to use as an amark. "
   (cl-declare (special emacspeak-m-player-process))
@@ -1204,6 +1222,7 @@ flat classical club dance full-bass full-bass-and-treble
   '(
     ("M-," emacspeak-m-player-set-clip-start)
     ("M-." emacspeak-m-player-set-clip-end)
+    ("M-e" emacspeak-m-player-toggle-extrastereo)
     (";" emacspeak-m-player-pop-to-player)
     ("%" emacspeak-m-player-display-percent)
     ("(" emacspeak-m-player-left-channel)
