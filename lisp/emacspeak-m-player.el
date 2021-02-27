@@ -526,7 +526,7 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
       (funcall-interactively #'emacspeak-m-player resource play-list))))
 
 (defvar emacspeak-m-player-hrtf-options
-  '("-af" "hrtf" "-af" "resample=48000")
+  '("-af" "hrtf=s" "-af" "resample=48000")
   "Additional options to use built-in HRTF.")
 
 (defun emacspeak-m-player-using-hrtf ()
