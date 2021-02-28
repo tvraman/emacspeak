@@ -92,7 +92,6 @@
   
   (require 'emacspeak-hydra)
   (require 'org)
-  (require 'flycheck)
   (require 'hideshow)
   (require 'ido)
   (require 'emacspeak-maths nil 'no-error)
@@ -103,6 +102,7 @@
   (require 'xbacklight)
   (require 'view)
   (require 'emacspeak-m-player))
+(require 'flycheck)
 (declare-function org-table-previous-row "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-current-element "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-coordinates "emacspeak-org" nil)
