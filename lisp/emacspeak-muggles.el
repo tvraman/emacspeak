@@ -92,6 +92,7 @@
   
   (require 'emacspeak-hydra)
   (require 'org)
+  (require 'flycheck)
   (require 'hideshow)
   (require 'ido)
   (require 'emacspeak-maths nil 'no-error)
@@ -233,9 +234,9 @@
              (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
            :post emacspeak-hydra-post)
    "
-_C-f_ turn-on-folding-mmode       %`folding-mode
-_C_flycheck-mode:
-_e_emacspeak-m-player-toggle-extrastereo
+_C-f_ turn-on-folding-mmode:       %`folding-mode
+_C_flycheck-mode:%`flycheck-mode
+_e_emacspeak-m-player-toggle-extrastereo: %(member \"extrastereo\" emacspeak-m-player-custom-filters)
 _F_ flyspell-mode:       %`flyspell-mode
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
