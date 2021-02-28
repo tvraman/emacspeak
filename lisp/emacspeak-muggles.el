@@ -235,7 +235,7 @@
            :post emacspeak-hydra-post)
    "
 _C-f_ turn-on-folding-mmode:       %`folding-mode
-_C_flycheck-mode:%`flycheck-mode
+_C_flycheck-mode: %`flycheck-mode
 _e_emacspeak-m-player-toggle-extrastereo: %(member \"extrastereo\" emacspeak-m-player-custom-filters)
 _F_ flyspell-mode:       %`flyspell-mode
 _a_ abbrev-mode:       %`abbrev-mode
