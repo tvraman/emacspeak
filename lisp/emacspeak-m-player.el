@@ -1222,7 +1222,6 @@ flat classical club dance full-bass full-bass-and-treble
   '(
     ("M-," emacspeak-m-player-set-clip-start)
     ("M-." emacspeak-m-player-set-clip-end)
-    ("M-e" emacspeak-m-player-toggle-extrastereo)
     (";" emacspeak-m-player-pop-to-player)
     ("%" emacspeak-m-player-display-percent)
     ("(" emacspeak-m-player-left-channel)
