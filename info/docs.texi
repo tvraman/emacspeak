@@ -7741,7 +7741,6 @@ DEL		emacspeak-m-player-reset-speed
 
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
-M-e		emacspeak-m-player-toggle-extrastereo
 M-l		emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have
@@ -8226,7 +8225,6 @@ DEL		emacspeak-m-player-reset-speed
 
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
-M-e		emacspeak-m-player-toggle-extrastereo
 M-l		emacspeak-m-player-load-playlist
 
 .

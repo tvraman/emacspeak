@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 26, 2021.
+last updated on February 28, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: emacspeak-ivy,  Up: Emacspeak Commands And Options
@@ -696,7 +696,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
-     M-e		emacspeak-m-player-toggle-extrastereo
      M-l		emacspeak-m-player-load-playlist
 
      In addition to any hooks its parent mode ‘comint-mode’ might have
@@ -1080,7 +1079,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
-     M-e		emacspeak-m-player-toggle-extrastereo
      M-l		emacspeak-m-player-load-playlist
 
      .
