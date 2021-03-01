@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 28, 2021.
+last updated on March 1, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -4468,7 +4468,8 @@ detailed usage instructions and key-bindings.
      j		next-line
      k		previous-line
      l .. m		emacspeak-bookshare-action
-     p		emacspeak-bookshare-action
+     n		emacspeak-bookshare-next-result
+     p		emacspeak-bookshare-previous-result
      q		bury-buffer
      s .. t		emacspeak-bookshare-action
      v		emacspeak-bookshare-view
