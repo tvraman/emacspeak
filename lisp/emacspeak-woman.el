@@ -51,7 +51,8 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'woman)
+(require 'dired)
+(require 'woman nil 'no-error)
 
 ;;}}}
 ;;{{{ Map faces to voices
