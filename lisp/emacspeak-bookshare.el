@@ -869,6 +869,8 @@ b Browse
              ("c" emacspeak-bookshare-toc-at-point)
              ("\C-m" emacspeak-bookshare-toc-at-point)
              ("M-n" emacspeak-bookshare-next-result)
+             ("n" emacspeak-bookshare-next-result)
+             ("p" emacspeak-bookshare-previous-result)
              ("M-p" emacspeak-bookshare-previous-result)
              ("["  backward-page)
              ("]" forward-page)
