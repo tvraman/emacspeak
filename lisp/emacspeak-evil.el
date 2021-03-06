@@ -73,7 +73,6 @@
  for f in
  '(
    evil-beginning-of-line evil-end-of-line
-   evil-next-line evil-previous-line
    evil-ret evil-window-top)
  do
  (eval
@@ -81,6 +80,20 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
+
+;; we want the next set to be a little less noisy and not play
+;; auditory icons when they execute
+(cl-loop
+ for f in
+ '(
+   evil-next-line evil-previous-line
+   evil-next-visual-line evil-previous-visual-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -105,6 +118,17 @@
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
+
+(cl-loop
+ for f in
+ '(evil-scroll-down evil-scroll-up)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-current-window)))))
 
 ;;}}}
 ;;{{{ Word Motion
@@ -237,7 +261,8 @@
 (cl-declaim (special
              evil-normal-state-map evil-insert-state-map
              evil-visual-state-map evil-replace-state-map
-             evil-operator-state-map evil-motion-state-map))
+             evil-operator-state-map evil-motion-state-map
+             evil-evilified-state-map))
 
 (eval-after-load
     "evil-maps"
@@ -251,14 +276,12 @@
      (emacspeak-keymap-recover-eol)))
 
 (eval-after-load
-    "evil-maps"
+    "evil-evilified-state"
   `(progn
      (mapc
       #'emacspeak-evil-fix-emacspeak-prefix
       (list
-       evil-normal-state-map evil-insert-state-map
-       evil-visual-state-map evil-replace-state-map
-       evil-operator-state-map evil-motion-state-map))
+       evil-evilified-state-map))
      (emacspeak-keymap-recover-eol)))
 
 ;;}}}
