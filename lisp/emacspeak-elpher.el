@@ -95,7 +95,6 @@ elpher-go-current
 elpher-info-current
 elpher-info-link
 elpher-jump
-elpher-mode
 elpher-next-link
 elpher-prev-link
 elpher-redraw
