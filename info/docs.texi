@@ -64,6 +64,7 @@ This chapter documents a total of 1133 commands and 149 options.
 * emacspeak-ein::Speech-enable EIN For IPython Notebooks.
 * emacspeak-elfeed::Speech-enable ELFEED, A Feed Reader.
 * emacspeak-elisp-refs::Speech-enable ELISP-REFS.
+* emacspeak-elpher::Speech-enable ELPHER.
 * emacspeak-elpy::Speech-enable ELPY, A Python IDE.
 * emacspeak-elscreen::Speech-enable ELSCREEN.
 * emacspeak-emms::Speech-enable EMMS Multimedia UI.
@@ -3328,6 +3329,12 @@ Speak entry at point.
 
 Speech-enable package elisp-refs.
 ELISP-REFS ==
+
+@node emacspeak-elpher
+@section emacspeak-elpher
+
+ELPHER ==  gopher/gemini client
+Let's see if we can rescue the Content-Oriented Web
 
 @node emacspeak-elpy
 @section emacspeak-elpy
