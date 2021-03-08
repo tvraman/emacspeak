@@ -101,6 +101,14 @@ This moves them into the Spam folder."
         #'(lambda ()
             (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam")
             (emacspeak-auditory-icon 'task-done))))
+     (defun gmail-unspam ()
+       "Move incorrectly marked spam to inbox"
+       (interactive)
+       (make-thread
+        #'(lambda ()
+            (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/inbox")
+            (emacspeak-auditory-icon 'task-done))))
+     
      
      (define-key gnus-summary-mode-map "$" 'gmail-report-spam)
      ;;}}}
