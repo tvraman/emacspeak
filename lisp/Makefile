@@ -128,6 +128,7 @@ emacspeak-eglot.elc \
 emacspeak-ein.elc \
 emacspeak-elfeed.elc \
 emacspeak-elisp-refs.elc \
+emacspeak-elpher.elc \
 emacspeak-elpy.elc \
 emacspeak-elscreen.elc \
 emacspeak-emms.elc \
