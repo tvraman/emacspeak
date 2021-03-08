@@ -76,36 +76,49 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-
 '(
-  elpher
-elpher-back
-elpher-back-to-start
-elpher-bookmark-current
-elpher-bookmark-link
-elpher-bookmarks
-elpher-copy-current-url
-elpher-copy-link-url
+elpher-bookmark-current elpher-bookmark-link elpher-bookmarks
+elpher-copy-current-url elpher-copy-link-url
 elpher-download
 elpher-download-current
-elpher-follow-current-link
-elpher-forget-current-certificate
-elpher-go
-elpher-go-current
 elpher-info-current
 elpher-info-link
-elpher-jump
-elpher-next-link
-elpher-prev-link
-elpher-redraw
-elpher-reload
-elpher-root-dir
+
 elpher-set-gopher-coding-system
 elpher-toggle-tls
 elpher-unbookmark-current
 elpher-unbookmark-link
 elpher-view-raw
 )
+
+(cl-loop
+ for f in 
+ '(
+   elpher-back elpher-back-to-start elpher elpher-root-dir
+               elpher-follow-current-link  elpher-jump
+   elpher-go elpher-go-current elpher-reload)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-mode-line)
+       (emacspeak-auditory-icon 'open-object)))))
+
+
+(cl-loop
+ for f in 
+ '(elpher-prev-link elpher-next-link)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (dtk-speak
+        (car (get-text-property (point) 'elpher-page)))))))
+
+
 
 
 ;;}}}
