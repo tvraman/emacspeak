@@ -1513,10 +1513,10 @@ the overall window layout."
        (rc (frame-width)))
     (cond
      ((equal corners `(,lc ,tr ,mc ,br))
-      (sox-multiwindow)
+      (sox-multiwindow 1 2 "pluck")
       'left-half)
      ((equal corners `(,mc ,tr ,rc ,br))
-      (sox-multiwindow 'swap)
+      (sox-multiwindow 1 2  "pluck")
       'right-half)
      ((equal corners `(,lc ,tr ,rc ,mr))
       (sox-multiwindow nil 2)
