@@ -608,19 +608,21 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 
 (defconst sox-multiwindow-cmd
   "-q -n synth -j 3 \
-sin %-5 sin %-2 \
+%s %%-5 %s %%-2 \
 fade h 0.2 0.7 0.5 \
 delay 0.1 0.5 \
 echo .9 .5 40 0.5 60 0.3 5 0.2 \
 channels 2 tempo 1.3   gain -10"
-  "Chime used to indicate multiple windows.")
+  "Chime used to indicate multiple windows.
+%s is an op --- either sin or pluck.")
 
-(defun sox-multiwindow (&optional swap  speed)
+(defun sox-multiwindow (&optional swap  speed op)
   "Produce a short note used to cue multiwindow."
   (cl-declare (special sox-multiwindow-cmd))
+  (or op (setq op "sin"))
   (sox-gen-cmd
    (concat
-    sox-multiwindow-cmd
+    (format  sox-multiwindow-cmd op op )
     (when swap " swap ")
     (when speed (format " speed %s" speed)))))
 
