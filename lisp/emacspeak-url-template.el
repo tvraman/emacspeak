@@ -1430,10 +1430,10 @@ Builds up alist of codes if needed the first time."
 
 (emacspeak-url-template-define
  "CIA World Fact Book"
- "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/print_%s.html"
- (list #'(lambda nil (ems--read-wfb-cc-code)))
-     #'emacspeak-speak-buffer
-     "Open CIA World Fact Book For Specified Country.")
+ "https://www.cia.gov/the-world-factbook/countries/%s"
+ (list "Country:")
+ #'emacspeak-speak-buffer
+ "Open CIA World Fact Book For Specified Country.")
 
 (emacspeak-url-template-define
  "CIA Leaders Of The World"
