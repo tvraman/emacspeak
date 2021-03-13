@@ -1396,56 +1396,12 @@ codes."
 ;;}}}
 ;;{{{CIA World Fact Book:
 
-(defvar ems--wfb-cc-codes nil
-  "Association list  ofWorld Fact Book Country Codes.")
-
-(defun ems--xsl-wfb-cc ()
-  "Get WFB CC Codes using XSLT."
-  (cl-declare (special ems--wfb-cc-codes))
-  (let ((u "https://www.cia.gov/library/publications/the-world-factbook/"))
-    (setq
-     ems--wfb-cc-codes
-     (read (emacspeak-xslt-url (emacspeak-xslt-get "wfb-cc.xsl") u)))))
-
-(declare-function dom-from-url "dom-addons" (url))
-
-(defun ems--el-wfb-cc ()
-  "Get WFB CC Codes using Elisp."
-  (cl-declare (special ems--wfb-cc-codes))
-  (let ((u "https://www.cia.gov/the-world-factbook/"))
-    (setq
-     ems--wfb-cc-codes
-     (cl-loop
-      for  o in (dom-by-tag (dom-from-url u) 'option)
-      when (dom-attr o 'data-place-code )
-      collect
-      (cons (string-trim (dom-text o)) (dom-attr o 'data-place-code ))))))
-
-(defun ems--read-wfb-cc-code ()
-  "Return 2-letter country code using completing-read.
-Builds up alist of codes if needed the first time."
-  (cl-declare (special ems--wfb-cc-codes))
-  (unless ems--wfb-cc-codes (ems--el-wfb-cc))
-  (cdr (assoc (completing-read "Country:"ems--wfb-cc-codes) ems--wfb-cc-codes)))
-
 (emacspeak-url-template-define
  "CIA World Fact Book"
  "https://www.cia.gov/the-world-factbook/countries/%s"
  (list "Country:")
  #'emacspeak-speak-buffer
  "Open CIA World Fact Book For Specified Country.")
-
-(emacspeak-url-template-define
- "CIA Leaders Of The World"
- "https://www.cia.gov/library/publications/resources/world-leaders-1/%s.html"
- (list #'(lambda nil
-           (upcase (ems--read-wfb-cc-code))))
- #'(lambda nil
-     (search-forward "Last Update")
-     (goto-char (line-end-position))
-     (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
-     "Open CIA World Leaders  For Specified Country.")
 
 ;;}}}
 ;;{{{Air Quality From Wunderground
