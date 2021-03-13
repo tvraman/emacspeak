@@ -1412,7 +1412,7 @@ codes."
 (defun ems--el-wfb-cc ()
   "Get WFB CC Codes using Elisp."
   (cl-declare (special ems--wfb-cc-codes))
-  (let ((u "https://www.cia.gov/library/publications/the-world-factbook/"))
+  (let ((u "https://www.cia.gov/the-world-factbook/"))
     (setq
      ems--wfb-cc-codes
      (cl-loop
