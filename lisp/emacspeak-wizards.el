@@ -346,17 +346,13 @@ This is just a text file, and we use grep to search it."
 With prefix arg, opens the phone book for editing."
   (interactive "P")
   (cond
-   (edit
-    (find-file emacspeak-speak-telephone-directory)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object))
+   (edit (funcall-interactively #'find-file emacspeak-speak-telephone-directory))
    ((file-exists-p emacspeak-speak-telephone-directory)
     (emacspeak-shell-command
      (format "%s %s %s"
              emacspeak-speak-telephone-directory-command
              (read-from-minibuffer "Lookup number for: ")
-             emacspeak-speak-telephone-directory))
-    (emacspeak-speak-message-again))
+             emacspeak-speak-telephone-directory)))
    (t (error "First create your phone directory in %s"
              emacspeak-speak-telephone-directory))))
 
