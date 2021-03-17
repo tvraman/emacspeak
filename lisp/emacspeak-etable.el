@@ -130,16 +130,13 @@ Otherwise cue user to the line just created."
   (cond
    ((ems-interactive-p)
     (cond
-     (emacspeak-line-echo
-      (emacspeak-speak-line)
-      ad-do-it)
-     (t ad-do-it
-        (dtk-speak-using-voice voice-annotate
+     (emacspeak-line-echo (emacspeak-speak-line))
+     (t (dtk-speak-using-voice voice-annotate
                                (format
                                 "indent %s"
                                 (current-column)))
-        (dtk-force))))
-   (t ad-do-it))
+        (dtk-force)))))
+  ad-do-it
   ad-return-value)
 
 (defadvice *table--cell-open-line (after emacspeak pre act)

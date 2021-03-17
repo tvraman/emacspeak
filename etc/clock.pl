@@ -24,5 +24,5 @@ if ($min == 0 ) {
 }
 # If ladspa not available, use next line.
 #qx(mplayer -af bs2b $chime  2>&1  >/dev/null);
-qx(mplayer -af bs2b -af ladspa=tap_reverb:tap_reverb:5000:-4:-18:1:1:1:1:6 $chime  2>&1  >/dev/null);
+qx(mplayer -af bs2b,ladspa=tap_reverb:tap_reverb:5000:-4:-18:1:1:1:1:6 $chime  2>&1  >/dev/null);
 
