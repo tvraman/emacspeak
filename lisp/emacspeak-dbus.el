@@ -227,9 +227,9 @@ already disabled."
   "Emacspeak  hook for -sleep signal from Login1."
   (ems-with-messages-silenced
       (save-some-buffers t)
-    (async-shell-command
-     "fuser -k /dev/snd/* 2>&1 > /dev/null"
-     nil nil)))
+    (start-process
+     "fuser" nil
+     "fuser" "-k" "/dev/snd/*")))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 
@@ -237,7 +237,9 @@ already disabled."
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
   (ems-with-messages-silenced
-      (shell-command "fuser -k /dev/snd/*")
+      (start-process
+       "fuser" nil
+       "fuser" "-k" "/dev/snd/*")
       (emacspeak-prompt "waking-up")
     (when (featurep 'xbacklight) (xbacklight-black))
     (amixer-restore amixer-alsactl-config-file)
