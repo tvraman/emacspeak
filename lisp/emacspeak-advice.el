@@ -1603,11 +1603,8 @@ the newly created  line."
       ((ems-interactive-p)
        (cond
         (emacspeak-line-echo (emacspeak-speak-line))
-        (t
-         ad-do-it
-         (dtk-tone 225 75 'force)
-         (emacspeak-speak-line))))
-      (t ad-do-it))
+        (t (dtk-tone 225 75 'force)))))
+     ad-do-it
      ad-return-value)))
 
 (cl-loop
