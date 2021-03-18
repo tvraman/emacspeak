@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 8, 2021.
+last updated on March 18, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options
@@ -9271,7 +9271,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.233 URL Templates
 ====================
 
-This section documents a total of 77 URL Templates.
+This section documents a total of 76 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -9331,193 +9331,190 @@ out the following steps:
 
      Lookup Stock Quote information on Bloomberg.  Ticker is of the form
      goog:us
-  17. CIA Leaders Of The World
-
-     Open CIA World Leaders For Specified Country.
-  18. CIA World Fact Book
+  17. CIA World Fact Book
 
      Open CIA World Fact Book For Specified Country.
-  19. CNN Content
+  18. CNN Content
 
      Filter down to CNN content area.
-  20. CNN Headlines
+  19. CNN Headlines
 
      News Headlines From CNN
-  21. CNN Market Data
+  20. CNN Market Data
 
      Market data filtered from CNN Money
-  22. CNN PodCasts
+  21. CNN PodCasts
 
      List CNN Podcast media links.
-  23. Currency Converter
+  22. Currency Converter
 
      Currency Converter.  Currencies can be a comma-separated list of
      codes.
-  24. Dictionary Lookup
+  23. Dictionary Lookup
 
      Dictionary Lookup
-  25. Finance Google
+  24. Finance Google
 
      Lookup ticker on Google Finance.
-  26. Finance Summary From Google
+  25. Finance Summary From Google
 
      Display top stocks from Google Finance.
-  27. FreeSound
+  26. FreeSound
 
      Search FreeSound.
-  28. GitHub Search
+  27. GitHub Search
 
      Perform a GitHub Search.
-  29. GoLang Browse
+  28. GoLang Browse
 
      Browse GoLang package documentation.
-  30. GoLang Lookup
+  29. GoLang Lookup
 
      Lookup GoLang package documentation.
-  31. GoLang Search
+  30. GoLang Search
 
      Search GoLang package documentation.
-  32. Google Basic
+  31. Google Basic
 
      Light-weight Google search.
-  33. Google News Search
+  32. Google News Search
 
      Search Google news.
-  34. Google Scholar
+  33. Google Scholar
 
      Google Scholar Search
-  35. Google Trends
+  34. Google Trends
 
      Google Trends
-  36. Google Weather
+  35. Google Weather
 
      Light-weight Google search.
-  37. Guardian RSS Feeds Directory
+  36. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  38. Hacker News Frontpage
+  37. Hacker News Frontpage
 
      Display Hacker News Front Page
-  39. Hacker News Search
+  38. Hacker News Search
 
      Display Hacker News Front Page
-  40. Hoogle Haskell API Search
+  39. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  41. MLB Scorecard
+  40. MLB Scorecard
 
      Show MLB Scorecard.
-  42. MLB standings
+  41. MLB standings
 
      Display MLB standings.
-  43. Money Headlines From CNN
+  42. Money Headlines From CNN
 
      Money Headlines From CNN
-  44. NBA standings
+  43. NBA standings
 
      Display NBA standings.
-  45. NLS Bard Bookshelf
+  44. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  46. NLS Bard Popular
+  45. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  47. NLS Bard Recent
+  46. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  48. NLS Bard Search
+  47. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  49. NY Times Mobile
+  48. NY Times Mobile
 
      NYTimes Mobile Site
-  50. Old Time Radio
+  49. Old Time Radio
 
      This months Old Time Radio Programming
-  51. OpenLibrary
+  50. OpenLibrary
 
      Open Library Search
-  52. Patent Search From Google
+  51. Patent Search From Google
 
      Perform patent search via Google
-  53. RadioTime Browser
+  52. RadioTime Browser
 
      RadioTime Entry point.
-  54. RadioTime Categories
+  53. RadioTime Categories
 
      RadioTime Categories .
-  55. RadioTime Search
+  54. RadioTime Search
 
      RadioTime Search.
-  56. Reddit At Point.
+  55. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  57. Reddit By Topic.
+  56. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  58. Reddit Front Page.
+  57. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  59. Reddit Search.
+  58. Reddit Search.
 
      Reddit Search Results Feed.
-  60. Seeking Alpha Stock Search
+  59. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  61. Sign in to Google
+  60. Sign in to Google
 
      Login to Google.
-  62. StreamWorld Radio
+  61. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  63. Tech News From CNet
+  62. Tech News From CNet
 
      Display tech news from CNET
-  64. TuneIn Radio
+  63. TuneIn Radio
 
      Translate StreamId to playable stream.
-  65. UPS Packages
+  64. UPS Packages
 
      Display package tracking information from UPS.
-  66. Washington Post
+  65. Washington Post
 
      Washington Post Contents
-  67. Wiki Data Search
+  66. Wiki Data Search
 
      Search WikiData.
-  68. WordNet Search
+  67. WordNet Search
 
      Look up term in WordNet.
-  69. Yahoo RSSNews
+  68. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  70. fedex packages
+  69. fedex packages
 
      Display package tracking information from Fedex.
-  71. html Google News Search
+  70. html Google News Search
 
      Search Google news.
-  72. sourceforge Download
+  71. sourceforge Download
 
      Download specified file.
-  73. sourceforge browse mirrors
+  72. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  74. sourceforge project
+  73. sourceforge project
 
      Open specified project page at SourceForge.
-  75. w3c IRC Logs
+  74. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  76. w3c Lists
+  75. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  77. world CNN Content
+  76. world CNN Content
 
      Filter down to CNN content area.
 
