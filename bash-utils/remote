@@ -1,6 +1,6 @@
 #remote --- Functions For Remote -*- mode: sh; -*-
 # Start a remote ssh session with reverse port forwarding
-# usage: remote hostname server-script $DTK_PROGRAM  
+# usage: remote hostname speech-server $DTK_PROGRAM  
 # starts a local server, then ssh to remote-host,
 # and set up reverse port forwarding.
 # See https://hackertarget.com/ssh-examples-tunnels/ for ssh tunnel tips
@@ -39,7 +39,7 @@ function remote () {
 
 #setup tts, but dont ssh.
 #use when we need  to restart server
-# hard-wire speech-server and outloud $remote not used 
+# hard-wire speech-server and outloud; $remote not used 
 function rtts () {
     SERVER=speech-server
     ENGINE=outloud 
