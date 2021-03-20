@@ -1782,13 +1782,22 @@ our pre-defined filters if appropriate."
   (cl-assert (eq major-mode 'emacspeak-m-player-mode) nil "Not in an MPlayer buffer.")
   (cl-assert (numberp emacspeak-m-player-clip-start) nil "Set start of clip with M-[")
   (cl-assert (numberp emacspeak-m-player-clip-end) nil "Set end of clip with M-]")
-  (let ((file (cl-second (emacspeak-m-player-get-position))))
+  (let ((file (cl-second (emacspeak-m-player-get-position)))
+        (tmp
+         (concat
+          (make-temp-name (expand-file-name  "clip-" temporary-file-directory))
+          ".wav")))
     (shell-command
-     (format "%s '%s' 'clip-%s'  trim %s %s"
-             emacspeak-sox file file
+     (format "%s '%s' %s  trim %s %s"
+             emacspeak-sox file tmp
              emacspeak-m-player-clip-start
-              emacspeak-m-player-clip-end))
-    (message "Wrote clip to clip-%s" file)))
+             emacspeak-m-player-clip-end))
+    (shell-command
+     (format
+      "%s '%s' 'clip-%s';"
+      emacspeak-sox tmp file))
+    (delete-file tmp)
+    (message "Clip saved to 'clip-%s' in current directory." file)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
