@@ -1787,7 +1787,7 @@ our pre-defined filters if appropriate."
      (format "%s '%s' 'clip-%s'  trim %s %s"
              emacspeak-sox file file
              emacspeak-m-player-clip-start
-             (- emacspeak-m-player-clip-end emacspeak-m-player-clip-start)))
+              emacspeak-m-player-clip-end))
     (message "Wrote clip to clip-%s" file)))
 
 ;;}}}
