@@ -946,13 +946,6 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
         (dtk-speak-and-echo (apply #'concat result))))
      (t (dtk-speak-and-echo "Waiting")))))
 
-(defun emacspeak-m-player-load-file(f)
-  "Load file."
-  (interactive "fMedia File:")
-  (emacspeak-m-player-dispatch
-   (format "loadfile %s"
-           (expand-file-name f))))
-
 (defun emacspeak-m-player-load-playlist(f)
   "Load playlist."
   (interactive "fPlaylist File:")
