@@ -1741,40 +1741,40 @@ our pre-defined filters if appropriate."
 
 ;;; Functionality restored from emacspeak-alsaplayer.el:
 
-(defvar-local emacspeak-m-player-clip-start nil
+(defvar-local clip-start nil
   "Start position of clip.")
 
-(defvar-local emacspeak-m-player-clip-end nil
+(defvar-local clip-end nil
   "End position of clip.")
 
 (defun emacspeak-m-player-set-clip-start    ()
   "Set start of clip marker."
   (interactive)
-  (setq emacspeak-m-player-clip-start
+  (setq clip-start
         (read (cl-first (emacspeak-m-player-get-position))))
   (when  (called-interactively-p 'interactive)
-    (message "mark set at %s" emacspeak-m-player-clip-start)
+    (message "mark set at %s" clip-start)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defun emacspeak-m-player-set-clip-end    ()
   "Set end of clip marker."
   (interactive)
-  (cl-declare (special emacspeak-m-player-clip-end))
-  (setq emacspeak-m-player-clip-end
+  (cl-declare (special clip-end))
+  (setq clip-end
         (read (cl-first (emacspeak-m-player-get-position))))
   (when  (called-interactively-p 'interactive)
-    (message "mark set at %s" emacspeak-m-player-clip-end)
+    (message "mark set at %s" clip-end)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defun emacspeak-m-player-write-clip ()
   "Invoke mp3splt to clip selected range in current file."
   (interactive)
   (cl-declare (special emacspeak-sox
-                       emacspeak-m-player-clip-end emacspeak-m-player-clip-start))
+                       clip-end clip-start))
   (cl-assert emacspeak-sox  nil "SoX needs to be installed to use this command.")
   (cl-assert (eq major-mode 'emacspeak-m-player-mode) nil "Not in an MPlayer buffer.")
-  (cl-assert (numberp emacspeak-m-player-clip-start) nil "Set start of clip with M-[")
-  (cl-assert (numberp emacspeak-m-player-clip-end) nil "Set end of clip with M-]")
+  (cl-assert (numberp clip-start) nil "Set start of clip with M-[")
+  (cl-assert (numberp clip-end) nil "Set end of clip with M-]")
   (let ((file (cl-second (emacspeak-m-player-get-position)))
         (tmp
          (concat
@@ -1783,14 +1783,16 @@ our pre-defined filters if appropriate."
     (shell-command
      (format "%s '%s' %s  trim %s %s"
              emacspeak-sox file tmp
-             emacspeak-m-player-clip-start
-             (- emacspeak-m-player-clip-end emacspeak-m-player-clip-start)))
+             clip-start
+             (- clip-end clip-start)))
     (shell-command
      (format
-      "%s '%s' 'clip-%s';"
+      "%s '%s' 'clip-%s'"
       emacspeak-sox tmp file))
     (delete-file tmp)
-    (message "Clip saved to 'clip-%s' in current directory." file)))
+    (message
+     "Clip saved to 'clip-%s' in current directory."
+     file)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
