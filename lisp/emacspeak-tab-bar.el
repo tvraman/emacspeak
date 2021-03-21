@@ -76,7 +76,9 @@
   "Speak name of current tab."
   (emacspeak-auditory-icon 'tick-tick)
   (dtk-notify-speak
-   (format "%s" (cdr (assoc 'name (tab-bar--current-tab))))))
+   (format "%s"
+           (cdr
+             (assoc 'name (assoc 'current-tab (tab-bar-tabs)))))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
