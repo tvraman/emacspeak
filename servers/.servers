@@ -9,6 +9,7 @@ log-dtk
 log-espeak
 log-mac
 log-outloud
+log-plain
 mac
 outloud
 ssh-dtk-exp
