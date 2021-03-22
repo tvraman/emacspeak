@@ -99,6 +99,7 @@ nightingales = [
 ]
 
 ia_birds = [
+    birds.cardinal_01,
     birds.lark_01,
     birds.lark_02,
     birds.wren_01,
