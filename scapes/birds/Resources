@@ -682,3 +682,10 @@ boodler.filename: lark-02.aiff
 boodler.use: sound
  
  
+
+
+:cardinal_01
+boodler.filename: cardinal-01.aiff
+boodler.use: sound
+ 
+ 
