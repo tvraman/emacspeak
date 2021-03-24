@@ -190,25 +190,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;; template resources
-;;{{{ fedex, UPS
-
-(emacspeak-url-template-define
- "fedex packages"
- "http://www.fedex.com/cgi-bin/tracking?link=6&pv=ja&action=track&ftc_3=null&template_type=ftc&language=english&last_action=track&ascend_header=1&cntry_code=us&initial=x&mps=y&ascend_header=1&cntry_code=us&initial=x&tracknumber_list=%s"
- (list "Tracking Number: ")
- nil
- "Display package tracking information from Fedex.")
-
-(emacspeak-url-template-define
- "UPS Packages"
- "http://wwwapps.ups.com/WebTracking/processInputRequest?HTMLVersion=5.0&sort_by=status&tracknums_displayed=5&TypeOfInquiryNumber=T&loc=en_US&InquiryNumber1=%s&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&track.x=0&track.y=0&AgreeToTermsAndConditions=yes"
- (list "Tracking Number: ")
- nil
- "Display package tracking information from UPS."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "dataTable" url 'speak)))
-
-;;}}}
 ;;{{{ amazon
 
 (emacspeak-url-template-define
