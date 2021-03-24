@@ -77,8 +77,7 @@
   (emacspeak-auditory-icon 'tick-tick)
   (dtk-notify-speak
    (format "%s"
-           (cdr
-             (assoc 'name (assoc 'current-tab (tab-bar-tabs)))))))
+             (alist-get 'name (alist-get 'current-tab (tab-bar-tabs))))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
