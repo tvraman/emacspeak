@@ -7938,20 +7938,26 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS.
 @end deffn
 
 @subsubsection emacspeak-m-player-set-clip-end
-@deffn {Command} emacspeak-m-player-set-clip-end   
+@deffn {Command} emacspeak-m-player-set-clip-end  (&optional prompt)
 @findex emacspeak-m-player-set-clip-end
 
 @format
 Set end of clip marker.
+ Optional interactive prefix arg prompts for the timestamp.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
 @subsubsection emacspeak-m-player-set-clip-start
-@deffn {Command} emacspeak-m-player-set-clip-start   
+@deffn {Command} emacspeak-m-player-set-clip-start  (&optional prompt)
 @findex emacspeak-m-player-set-clip-start
 
 @format
 Set start of clip marker.
+Interactive prefix arg prompts for the timestamp.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
