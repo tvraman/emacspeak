@@ -1739,6 +1739,12 @@ our pre-defined filters if appropriate."
 ;;}}}
 ;;{{{ Clipping:
 
+(defcustom emacspeak-m-player-clips
+  (expand-file-name "~/mp3/clips")
+  "Directory where we store clips."
+  :type 'directory
+  :group 'emacspeak-m-player)
+
 ;;; Functionality restored from emacspeak-alsaplayer.el:
 
 (defvar-local clip-start nil
@@ -1775,7 +1781,7 @@ Interactive prefix arg prompts for the timestamp."
 (defun emacspeak-m-player-write-clip ()
   "Invoke mp3splt to clip selected range in current file."
   (interactive)
-  (cl-declare (special emacspeak-sox
+  (cl-declare (special emacspeak-sox emacspeak-m-player-clips
                        clip-end clip-start))
   (cl-assert emacspeak-sox  nil "SoX needs to be installed to use this command.")
   (cl-assert (eq major-mode 'emacspeak-m-player-mode) nil "Not in an MPlayer buffer.")
@@ -1793,12 +1799,15 @@ Interactive prefix arg prompts for the timestamp."
              (- clip-end clip-start)))
     (shell-command
      (format
-      "%s '%s' 'clip-%s'"
-      emacspeak-sox tmp file))
+      "%s '%s' '%s/clip-%s-%s-%s'"
+      emacspeak-sox tmp
+      emacspeak-m-player-clips
+      clip-start clip-end file))
     (delete-file tmp)
     (message
-     "Clip saved to 'clip-%s' in current directory."
-     file)))
+     "Clip saved to '%s/clip-%s-%s-%s'."
+     emacspeak-m-player-clips
+     clip-start clip-end file)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
