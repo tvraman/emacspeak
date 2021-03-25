@@ -607,7 +607,6 @@ necessary."
 ;;}}}
 ;;{{{ commands
 
-
 (defun emacspeak-m-player-toggle-extrastereo ()
   "Toggle application of extrastereo filter to all streams."
   (interactive )
@@ -1423,7 +1422,7 @@ As the default, use current position."
 (defvar emacspeak-m-player-reverb-filter
   '("ladspa=tap_reverb:tap_reverb" 10000 -2 -10 1 1 1 1 6)
   "Tap Reverb Settings."
-)
+  )
 
 (defun emacspeak-m-player-edit-reverb ()
   "Edit ladspa reverb filter.
@@ -1760,7 +1759,7 @@ Interactive prefix arg prompts for the timestamp."
   (setq clip-start
         (if prompt
             (read-number "Timestamp: ")
-            (read (cl-first (emacspeak-m-player-get-position)))))
+          (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
     (message "mark set at %s" clip-start)
     (emacspeak-auditory-icon 'mark-object)))
@@ -1773,7 +1772,7 @@ Interactive prefix arg prompts for the timestamp."
   (setq clip-end
         (if prompt
             (read-number "Timestamp: ")
-            (read (cl-first (emacspeak-m-player-get-position)))))
+          (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
     (message "mark set at %s" clip-end)
     (emacspeak-auditory-icon 'mark-object)))
