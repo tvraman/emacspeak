@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1132 commands and 149 options.
+This chapter documents a total of 1132 commands and 150 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -8235,6 +8235,11 @@ M-l		emacspeak-m-player-load-playlist
 @end deffn
 
 @subsection emacspeak-m-player Options
+
+@defvar {User Option} emacspeak-m-player-clips
+Directory where we store clips.
+
+@end defvar
 
 @defvar {User Option} emacspeak-m-player-custom-filters
 Additional filters to apply to streams.
@@ -18585,7 +18590,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 76 URL Templates.
+This section documents a total of 74 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -18733,9 +18738,7 @@ Format is stationid+AM/FM.@item @b{Tech News From CNet}
 
 Display tech news from CNET@item @b{TuneIn Radio}
 
-Translate StreamId to playable stream.@item @b{UPS Packages}
-
-Display package tracking information from UPS.@item @b{Washington Post}
+Translate StreamId to playable stream.@item @b{Washington Post}
 
 Washington Post Contents@item @b{Wiki Data Search}
 
@@ -18743,9 +18746,7 @@ Search WikiData.@item @b{WordNet Search}
 
 Look up term in WordNet.@item @b{Yahoo RSSNews}
 
-News  From Yahoo As RSS.@item @b{fedex packages}
-
-Display package tracking information from Fedex.@item @b{html Google News Search}
+News  From Yahoo As RSS.@item @b{html Google News Search}
 
 Search Google news.@item @b{sourceforge Download}
 

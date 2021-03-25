@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 23, 2021.
+last updated on March 25, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options
@@ -1091,6 +1091,9 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
 12.115.3 emacspeak-m-player Options
 -----------------------------------
+
+ -- Variable: User Option emacspeak-m-player-clips
+     Directory where we store clips.
 
  -- Variable: User Option emacspeak-m-player-custom-filters
      Additional filters to apply to streams.
@@ -9268,7 +9271,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.233 URL Templates
 ====================
 
-This section documents a total of 76 URL Templates.
+This section documents a total of 74 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -9473,45 +9476,39 @@ out the following steps:
   63. TuneIn Radio
 
      Translate StreamId to playable stream.
-  64. UPS Packages
-
-     Display package tracking information from UPS.
-  65. Washington Post
+  64. Washington Post
 
      Washington Post Contents
-  66. Wiki Data Search
+  65. Wiki Data Search
 
      Search WikiData.
-  67. WordNet Search
+  66. WordNet Search
 
      Look up term in WordNet.
-  68. Yahoo RSSNews
+  67. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  69. fedex packages
-
-     Display package tracking information from Fedex.
-  70. html Google News Search
+  68. html Google News Search
 
      Search Google news.
-  71. sourceforge Download
+  69. sourceforge Download
 
      Download specified file.
-  72. sourceforge browse mirrors
+  70. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  73. sourceforge project
+  71. sourceforge project
 
      Open specified project page at SourceForge.
-  74. w3c IRC Logs
+  72. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  75. w3c Lists
+  73. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  76. world CNN Content
+  74. world CNN Content
 
      Filter down to CNN content area.
 
