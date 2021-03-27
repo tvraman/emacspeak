@@ -6,7 +6,21 @@
 # buffer_size has to be period_size*4 to avoid clicks
 #defaults.pcm.rate_converter "speexrate_best"
 
+pcm.plt  {
+    hint.description "Plantronics BlueTooth"
+    type dmix
+    ipc_key 1024
+    slave {
+        pcm "hw:1,0"
+format S32_LE 
+rate 48000
+        period_size 1024
+        buffer_size 8192
+    }
+}
+
 pcm.media  {
+hint.description "Primary Sound Card"
     type dmix
     ipc_key 1024
     slave {
@@ -230,7 +244,7 @@ pcm.tts_mono_right {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media" 
+        slave.pcm "default" 
         ttable {
             0.0 =  0.03
             0.1 = 1
@@ -244,7 +258,7 @@ pcm.tts_mono_left {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "default"
         ttable {
             0.0 =  1
             0.1 = 0.03
@@ -258,7 +272,7 @@ pcm.tts_mono_mid_left {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "default"
         ttable {
             0.0 =  0.66
             0.1 = 0.33
@@ -273,7 +287,7 @@ pcm.tts_mono_quarter_left {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "default"
         ttable {
             0.0 =  0.75
             0.1 = 0.25
@@ -287,7 +301,7 @@ pcm.tts_mono_quarter_right {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "default"
         ttable {
             0.0 =  0.25
             0.1 = 0.75
