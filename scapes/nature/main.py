@@ -373,7 +373,7 @@ class Nightingales(agent.Agent):
     def init(self,
              minDelay=4.0,
              maxDelay=12.0,
-             minVol=0.1,
+             minVol=0.7,
              maxVol=1.0,
              pan=1.0):
         self.minDelay = minDelay
@@ -414,7 +414,7 @@ class SongBirds(agent.Agent):
     def init(self,
              minDelay=4.0,
              maxDelay=12.0,
-             minVol=0.1,
+             minVol=0.5,
              maxVol=1.0,
              pan=1.0):
         self.minDelay = minDelay
