@@ -689,3 +689,20 @@ boodler.filename: cardinal-01.aiff
 boodler.use: sound
  
  
+
+
+:morning_dove
+boodler.filename: morning-dove.aiff
+boodler.use: sound
+
+:mt_quail
+boodler.filename: mt-quail.aiff
+boodler.use: sound
+
+:osprey
+boodler.filename: osprey.aiff
+boodler.use: sound
+
+:screech_owl
+boodler.filename: screech-owl.aiff
+boodler.use: sound

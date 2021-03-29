@@ -100,6 +100,10 @@ nightingales = [
 
 ia_birds = [
     birds.cardinal_01,
+    birds.screech_owl,
+    birds.mt_quail,
+    birds.morning_dove,
+    birds.osprey,
     birds.lark_01,
     birds.lark_02,
     birds.wren_01,
