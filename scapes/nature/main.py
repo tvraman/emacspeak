@@ -444,7 +444,7 @@ class IABirds(agent.Agent):
     def init(self,
              minDelay=4.0,
              maxDelay=12.0,
-             minVol=0.1,
+             minVol=0.3,
              maxVol=1.0,
              pan=1.0):
         self.minDelay = minDelay
@@ -626,8 +626,8 @@ class BirdChorus(agent.Agent):
                 ag = self.agents[i](
                     start,
                     90 + start,  # duration
-                    0.25,
-                    0.75,  # volume
+                    0.35,
+                    0.85,  # volume
                     1 + 0.05 * j  # pan
                 )
                 self.sched_agent(ag, k * 5, bc)
