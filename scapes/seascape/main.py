@@ -24,8 +24,8 @@ class SurfWaves(agent.Agent):
         ag = nature.Nightingales(
             0,
             30,  # Duration
-            0.1,
-            1.0,  # volume
+            0.25,
+            0.75,  # volume
             1)
         self.sched_agent(ag, 0, bc)
 
@@ -34,7 +34,7 @@ class SurfWaves(agent.Agent):
         ag = nature.Cuckoos(
             0,
             60,  # Duration
-            0.05,
+            0.15,
             0.75,  # volume
             1)
 
@@ -42,7 +42,7 @@ class SurfWaves(agent.Agent):
         ag = nature.FlMockingBirds(
             0,
             1200,  # Duration
-            0.05,
+            0.25,
             0.75,  # volume
             1)
 
