@@ -609,13 +609,13 @@ class Nightscape(agent.Agent):
 class BirdChorus(agent.Agent):
     def init(self):
         self.agents = [
-            CaMockingBirds, SongBirds, IABirds, Nightingales, Cuckoos,
+            CaMockingBirds, SongBirds, IABirds, Cuckoos, Nightingales, 
             TropicalBirds,  FlMockingBirds
         ]
 
     def run(self):
         doNature(self)
-        y = [-1.4, -1.25, -1.125, 0, 1.125, 1.25, 1.4]
+        y = [-1.3, -1.2, -1.1, 1, 1.1, 1.2, 1.34]
         for i in xrange(len(self.agents)):
             for j in xrange(len(self.agents)):
                 k = (i + j) % len(self.agents)
@@ -627,8 +627,8 @@ class BirdChorus(agent.Agent):
                     start,
                     90 + start,  # duration
                     0.5,
-                    0.9,  # volume
-                    1 + 0.05 * j  # pan
+                    1.0,  # volume
+                    1 + 0.05 * k  # pan
                 )
                 self.sched_agent(ag, k * 5, bc)
 
