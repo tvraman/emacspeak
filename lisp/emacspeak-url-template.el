@@ -1014,7 +1014,8 @@ Format is stationid+AM/FM."
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
   (cl-declare (special emacspeak-eww-post-process-hook))
-  (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
+  (let ((read-process-output-max (* 1024 1024))
+        (fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
         (action (emacspeak-url-template-post-action ut)))
     (when action (add-hook 'emacspeak-eww-post-process-hook action))
