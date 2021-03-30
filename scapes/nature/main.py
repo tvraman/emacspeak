@@ -130,9 +130,6 @@ song_birds = [
     birds.songbird_010
 ]
 
-# for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos, ia_birds, nightingales]:
-# song_birds.extend(b)
-
 showers = [
     rain.rain_thin, rain.rain_splatter, rain.rain_splashy_low,
     rain.rain_on_leaves, rain.rain_med, soft.soft_sprinkle, soft.soft_gentle,
@@ -609,8 +606,8 @@ class Nightscape(agent.Agent):
 class BirdChorus(agent.Agent):
     def init(self):
         self.agents = [
-            CaMockingBirds, SongBirds, IABirds, Cuckoos,
-            Nightingales, TropicalBirds,  FlMockingBirds]
+            CaMockingBirds, SongBirds, IABirds, 
+            Nightingales, TropicalBirds,  Cuckoos,FlMockingBirds]
 
     def run(self):
         doNature(self)
