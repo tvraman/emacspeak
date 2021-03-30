@@ -609,8 +609,8 @@ class Nightscape(agent.Agent):
 class BirdChorus(agent.Agent):
     def init(self):
         self.agents = [
-            CaMockingBirds, SongBirds, IABirds, FlMockingBirds, Cuckoos,
-            TropicalBirds, Nightingales
+            CaMockingBirds, SongBirds, IABirds, Nightingales, Cuckoos,
+            TropicalBirds,  FlMockingBirds
         ]
 
     def run(self):
