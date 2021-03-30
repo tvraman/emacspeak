@@ -494,7 +494,7 @@ binaural beat to another."
   (cl-first s)
   (make-sox--binaural
    :beats `(,(cdr s))
-   :gain -10)))
+   :gain -30)))
 
 ;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
 ;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
@@ -517,7 +517,7 @@ binaural beat to another."
   (cl-first s)
   (make-sox--binaural
    :beats `(,(cdr s))
-   :gain -10)))
+   :gain -30)))
 
 (defun sox-chakras (theme duration)
   "Play each chakra for specified duration.
@@ -527,7 +527,8 @@ Parameter `theme' specifies variant."
     (intern
      (completing-read  "Chakra Theme Variant: "
                        '("sox--chakra-settings-0" "sox--chakra-settings-1")
-                       nil 'must-match))
+                       nil 'must-match
+                       "sox--chakra-settings-"))
     (timer-duration (read-from-minibuffer "Chakra Duration: "))))
   (let ((names  (mapcar #'car (symbol-value theme)))
         (start 0))
