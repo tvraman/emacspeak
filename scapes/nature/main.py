@@ -611,7 +611,7 @@ class BirdChorus(agent.Agent):
 
     def run(self):
         doNature(self)
-        y = [-0.8, -0.6, -0.2, 0,0.2, 0.6, 0.8]
+        y = [-0.8, -0.5, -0.2, 0,0.2, 0.5, 0.8]
         for i in xrange(len(self.agents)):
             for j in xrange(len(self.agents)):
                 k = (i + j) % len(self.agents)
@@ -621,7 +621,7 @@ class BirdChorus(agent.Agent):
                     start,
                     90 + start,  # duration
                     0.5, 1.0,  # volume
-                     -1.0 + 0.28 * k  # pan  (-1,1)
+                     -0.99 + 0.285714 * k  # pan  (-1,1)
                 )
                 self.sched_agent(ag, k * 5, bc)
 
