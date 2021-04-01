@@ -580,22 +580,32 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     "tts_a45_em45" "tts_a135_em45" "tts_a225_em45" "tts_am45_em45")
   "Available virtual ALSA devices for filtering soundscapes.")
 
-(defun soundscape-restart (&optional device)
+(defun soundscape-restart (&optional prompt)
   "Restart Soundscape  environment.
-With prefix arg `device', prompt for a alsa/ladspa device.
-This is then saved to soundscape-device for future use."
+With prefix arg `prompt', prompt for a alsa/ladspa device and volume.
+The  is then saved to soundscape-device for future use."
   (interactive "P")
   (cl-declare (special soundscape--last-mode  soundscape--scapes
                        soundscape--filters soundscape--auto
+                       soundscape-volume soundscape-manager-options
                        soundscape-manager-options soundscape-device))
   (setq soundscape--scapes nil soundscape--last-mode nil)
-  (when  device
+  (when  prompt
+    (setq soundscape-volume (read-number  "Soundscape Volume:"
+                                          soundscape-volume))
+    (cl-assert (< 0 soundscape-volume) t "Volume must be positive."
+               soundscape-volume)
+    (cl-assert (< soundscape-volume 1) t "Volume must be positive."
+               soundscape- less than 1.0)
     (setq soundscape-device
           (if (called-interactively-p 'interactive)
               (completing-read
-               "Filter: "
+               "Soundscape Filter: "
                soundscape--filters)
-            device)))
+            "default"))
+    (setq soundscape-manager-options
+          `("-o" "alsa"
+    "-m" ,(format "%s" soundscape-volume))))
   (when soundscape--auto
     (soundscape-toggle)
     (soundscape-listener-shutdown))
