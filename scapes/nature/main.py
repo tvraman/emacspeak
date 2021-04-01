@@ -618,9 +618,8 @@ class BirdChorus(agent.Agent):
                 bc = self.new_channel_pan(y[k])
                 start = 10 * k
                 ag = self.agents[i](
-                    start,
-                    90 + start,  # duration
-                    0.5, 1.0,  # volume
+                    start, 90 + start,  # duration
+                    0.75, 1.0,  # volume
                      -0.99 + 0.285714 * k  # pan  (-1,1)
                 )
                 self.sched_agent(ag, (i+j) * 5, bc)
