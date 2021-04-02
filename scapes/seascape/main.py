@@ -22,28 +22,25 @@ class SurfWaves(agent.Agent):
         bc = self.new_channel_pan()
         ag = nature.Nightingales(
             0, 30,  # Duration
-            0.5,
-            0.75,  # volume
+            0.5, 0.75,  # volume
             1)
         self.sched_agent(ag, 0, bc)
 
         bc = self.new_channel_pan()
         ag = nature.Cuckoos(
             0, 60,  # Duration
-            0.1,
-            0.5,  # volume
+            0.1, 0.5,  # volume
             1)
 
         self.sched_agent(ag, 0, bc)
         ag = nature.FlMockingBirds(
             0, 120,  # Duration
-            0.5,
-            0.75,  # volume
+            0.5, 0.95,  # volume
             1)
 
         self.sched_agent(ag, 0, bc)
         for i in range(8):
-            y = -1 + i * 0.25
+            y = -1 + (i * 0.25) # -1, 1
             sc = self.new_channel_pan(y)
             ag = SurfBackgroundWaves()
             self.sched_agent(ag, i * 5, sc)
