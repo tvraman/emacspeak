@@ -19,42 +19,35 @@ class SurfWaves(agent.Agent):
     """Orchestrate wave agents SurfWaveSounds and SurfBackgroundWaves"""
     def run(self):
 
-        bc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.1), stereo.shiftxy(0, 1.25)))
+        bc = self.new_channel_pan()
         ag = nature.Nightingales(
-            0,
-            30,  # Duration
-            0.25,
+            0, 30,  # Duration
+            0.5,
             0.75,  # volume
             1)
         self.sched_agent(ag, 0, bc)
 
-        bc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.3), stereo.shiftxy(0, -1.25)))
+        bc = self.new_channel_pan()
         ag = nature.Cuckoos(
-            0,
-            60,  # Duration
-            0.15,
-            0.75,  # volume
+            0, 60,  # Duration
+            0.1,
+            0.5,  # volume
             1)
 
         self.sched_agent(ag, 0, bc)
         ag = nature.FlMockingBirds(
-            0,
-            1200,  # Duration
-            0.25,
+            0, 120,  # Duration
+            0.5,
             0.75,  # volume
             1)
 
         self.sched_agent(ag, 0, bc)
         for i in range(8):
-            y = 1 + i * 0.05
-            sc = self.new_channel_pan(
-                stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
+            y = -1 + i * 0.25
+            sc = self.new_channel_pan(y)
             ag = SurfBackgroundWaves()
             self.sched_agent(ag, i * 5, sc)
-            sc = self.new_channel_pan(
-                stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, -y)))
+            sc = self.new_channel_pan()
             ag = SurfWaveSounds()
             self.sched_agent(ag, i * 10, sc)
 
