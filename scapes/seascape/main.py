@@ -43,6 +43,7 @@ class SurfWaves(agent.Agent):
             y = -1 + (i * 0.25) # -1, 1
             sc = self.new_channel_pan(y)
             ag = SurfBackgroundWaves()
+            sc.set_pan(1 , 5)
             self.sched_agent(ag, i * 5, sc)
             sc = self.new_channel_pan()
             ag = SurfWaveSounds()
