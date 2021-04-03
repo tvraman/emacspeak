@@ -622,7 +622,7 @@ class BirdChorus(agent.Agent):
                     0.75, 1.0,  # volume
                      -0.99 + 0.285714 * k  # pan  (-1,1)
                 )
-bc.set_pan (1,2)
+                bc.set_pan (1,2)
                 self.sched_agent(ag, (i+j) * 5, bc)
 
 
