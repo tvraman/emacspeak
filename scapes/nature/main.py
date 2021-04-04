@@ -576,8 +576,8 @@ class BirdChorus(agent.Agent):
                     0.75, 1.0,  # volume
                      -0.99 + 0.285714 * k  # pan  (-1,1)
                 )
-                bc.set_pan (target,(random.uniform(0.1, 3)))
-                target = (target * -1)
+                bc.set_pan (target,(random.uniform(1, 3)))
+                target = (target * -1) # flip direction of pan
                 self.sched_agent(ag, (i+j) * 5, bc)
 
 
