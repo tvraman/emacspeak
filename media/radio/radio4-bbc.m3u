@@ -1,2 +1,5 @@
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p
-;https://www.bbc.co.uk/sounds/play/live:bbc_radio_fourfm
+[playlist]
+NumberOfEntries=1
+File1=http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm?s=1617539971&e=1617554371&h=daff2383ad603f0cf71a1f42b3fee46b
+Title1=No Title
+Length1=-1
