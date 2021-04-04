@@ -1,1 +1,5 @@
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p
+[playlist]
+NumberOfEntries=1
+File1=http://stream.live.vc.bbcmedia.co.uk/bbc_radio_two?s=1617540616&e=1617555016&h=76dd18c01b653b853678998f742b9bbd
+Title1=No Title
+Length1=-1
