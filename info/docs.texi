@@ -17739,7 +17739,7 @@ Activate scapes named ‘names’ --- a list of strings.
 @end deffn
 
 @subsubsection soundscape-restart
-@deffn {Command} soundscape-restart  (&optional device)
+@deffn {Command} soundscape-restart  (&optional prompt)
 @table @kbd
 @item C-. r
 @kindex C-. r
@@ -17753,10 +17753,10 @@ Activate scapes named ‘names’ --- a list of strings.
 
 @format
 Restart Soundscape  environment.
-With prefix arg ‘device’, prompt for a alsa/ladspa device.
-This is then saved to soundscape-device for future use.
+With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+The  is then saved to soundscape-device for future use.
 
-(fn &optional DEVICE)
+(fn &optional PROMPT)
 @end format
 @end deffn
 

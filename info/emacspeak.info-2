@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 25, 2021.
+last updated on April 3, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options
@@ -8561,16 +8561,16 @@ for use with Emacspeak.
 12.225.1.6 soundscape-restart
 .............................
 
- -- Command: soundscape-restart (&optional device)
+ -- Command: soundscape-restart (&optional prompt)
      ‘C-. r’
      ‘C-' r’
      ‘C-x @ s r’
 
      Restart Soundscape  environment.
-     With prefix arg ‘device’, prompt for a alsa/ladspa device.
-     This is then saved to soundscape-device for future use.
+     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+     The  is then saved to soundscape-device for future use.
 
-     (fn &optional DEVICE)
+     (fn &optional PROMPT)
 
 12.225.1.7 soundscape-stop
 ..........................
