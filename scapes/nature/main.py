@@ -21,14 +21,6 @@ ca_mocks = [
     birds.mocking_5, birds.mocking_6, birds.mocker_01, birds.mocker_02,
     birds.mocker_03, birds.mocker_04, birds.mocker_05, birds.mocker_06,
     birds.mocker_07, birds.mocker_08, birds.mocker_09, birds.mocker_10,
-    birds.mocker_11, birds.mocker_12, birds.mocker_13, birds.mocker_14,
-    birds.mocker_15, birds.mocker_16, birds.mocker_17, birds.mocker_18,
-    birds.mocker_19, birds.mocker_20, birds.mocker_21, birds.mocker_22,
-    birds.mocker_23, birds.mocker_24, birds.mocker_25, birds.mocker_26,
-    birds.mocker_27, birds.mocker_28, birds.mocker_29, birds.mocker_30,
-    birds.mocker_31, birds.mocker_32, birds.mocker_33, birds.mocker_34,
-    birds.mocker_35, birds.mocker_36, birds.mocker_37, birds.mocker_38,
-    birds.mocker_39, birds.mocker_40
 ]
 
 fl_mocks = [
@@ -40,16 +32,19 @@ fl_mocks = [
     birds.mocker_49, birds.mocker_50, birds.mocker_51, birds.mocker_52,
     birds.mocker_53, birds.mocker_54, birds.mocker_55, birds.mocker_56,
     birds.mocker_57, birds.mocker_58, birds.mocker_59, birds.mocker_60,
-    birds.mocker_61, birds.mocker_62, birds.mocker_63, birds.mocker_64,
-    birds.mocker_65, birds.mocker_66, birds.mocker_67, birds.mocker_68,
-    birds.mocker_69, birds.mocker_70, birds.mocker_71, birds.mocker_72,
-    birds.mocker_73, birds.mocker_74, birds.mocker_75, birds.mocker_76,
-    birds.mocker_77, birds.mocker_78, birds.mocker_79, birds.mocker_80,
 ]
 
 cuckoos = [
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
-    birds.cuckoo_05, birds.cuckoo_06, birds.cuckoo_07, birds.cuckoo_08
+    birds.cuckoo_05, birds.cuckoo_06, birds.cuckoo_07, birds.cuckoo_08,
+    birds.mocker_11, birds.mocker_12, birds.mocker_13, birds.mocker_14,
+    birds.mocker_15, birds.mocker_16, birds.mocker_17, birds.mocker_18,
+    birds.mocker_19, birds.mocker_20, birds.mocker_21, birds.mocker_22,
+    birds.mocker_23, birds.mocker_24, birds.mocker_25, birds.mocker_26,
+    birds.mocker_27, birds.mocker_28, birds.mocker_29, birds.mocker_30,
+    birds.mocker_31, birds.mocker_32, birds.mocker_33, birds.mocker_34,
+    birds.mocker_35, birds.mocker_36, birds.mocker_37, birds.mocker_38,
+    birds.mocker_39, birds.mocker_40
 ]
 
 nightingales = [
@@ -64,23 +59,16 @@ nightingales = [
 ]
 
 ia_birds = [
-    birds.cardinal_01,
-    birds.screech_owl,
-    birds.mt_quail,
-    birds.morning_dove,
-    birds.osprey,
-    birds.lark_01,
-    birds.lark_02,
-    birds.wren_01,
-    birds.ia_bird_1,
-    birds.ia_bird_2,
-    birds.ia_bird_3,
-    birds.ia_bird_4,
-    birds.ia_bird_5,
-    birds.ia_bird_6,
-    birds.ia_bird_7,
-    birds.ia_bird_8,
-    birds.ia_bird_9,
+    birds.cardinal_01, birds.screech_owl,
+    birds.mt_quail, birds.morning_dove, birds.osprey,
+    birds.lark_01, birds.lark_02, birds.wren_01, birds.ia_bird_1,
+    birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
+    birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9,
+    birds.mocker_61, birds.mocker_62, birds.mocker_63, birds.mocker_64,
+    birds.mocker_65, birds.mocker_66, birds.mocker_67, birds.mocker_68,
+    birds.mocker_69, birds.mocker_70, birds.mocker_71, birds.mocker_72,
+    birds.mocker_73, birds.mocker_74, birds.mocker_75, birds.mocker_76,
+    birds.mocker_77, birds.mocker_78, birds.mocker_79, birds.mocker_80,
 ]
 
 tropical_birds = [
