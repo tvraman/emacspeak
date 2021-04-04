@@ -1,8 +1,5 @@
 [playlist]
-numberofentries=2
-File1=http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk
-Title1=BBC World Service Online
+NumberOfEntries=1
+File1=http://stream.live.vc.bbcmedia.co.uk/bbc_world_service?s=1617539661&e=1617554061&h=ed7e64f84ee95b420f0a3ad173ca63b7
+Title1=No Title
 Length1=-1
-File2=http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk_backup
-Title2=BBC World Service Online
-Length2=-1
