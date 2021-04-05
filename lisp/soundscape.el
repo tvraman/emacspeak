@@ -131,10 +131,10 @@
 (defvar soundscape--scapes nil
   "Cache of currently running scapes.")
 
-(defcustom soundscape-device nil
+(defcustom soundscape-device "default"
   "Alsa sound device to use for soundscapes."
   :type  '(choice  :tag "Device"
-                   (const :tag "None" nil)
+                   (const :tag "None" "default")
                    (string :tag "Alsa Device Name"))
   :group 'soundscape)
 
@@ -588,15 +588,15 @@ The  is then saved to soundscape-device for future use."
   (cl-declare (special soundscape--last-mode  soundscape--scapes
                        soundscape--filters soundscape--auto
                        soundscape-volume soundscape-manager-options
-                       soundscape-manager-options soundscape-device))
+                        soundscape-device))
   (setq soundscape--scapes nil soundscape--last-mode nil)
   (when  prompt
-    (setq soundscape-volume (read-number  "Soundscape Volume:"
-                                          soundscape-volume))
+    (setq soundscape-volume
+          (read-number  "Soundscape Volume:" soundscape-volume))
     (cl-assert (< 0 soundscape-volume) t "Volume must be positive."
                soundscape-volume)
     (cl-assert (< soundscape-volume 1) t "Volume must be positive."
-               soundscape- less than 1.0)
+               soundscape-volume)
     (setq soundscape-device
           (if (called-interactively-p 'interactive)
               (completing-read
