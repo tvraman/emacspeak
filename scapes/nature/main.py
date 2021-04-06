@@ -564,19 +564,19 @@ class BirdChorus(agent.Agent):
 
     def run(self):
         doNature(self)
-        y = [-1, -0.666, -0.333, 0, 0.333, 0.666, 1]
+        x = [-1, -0.666, -0.333, 0, 0.333, 0.666, 1]
         for i in xrange(len(self.agents)):
             for j in xrange(len(self.agents)):
                 k = (i + j) % len(self.agents)
-                if (y[k] < 0):
+                if (x[k] < 0):
                     target = 1
                 else:
                     target = -1
-                bc = self.new_channel_pan(y[k])
+                bc = self.new_channel_pan(x[k])
                 start =  5 * k
                 ag = self.agents[i](
                     start, 30 + start,  # duration
-                    0.75, 1.0,  # volume
+                    0.95, 1.0,  # volume
                      -0.99 + 0.285714 * k  # pan  (-1,1)
                 )
                 bc.set_pan (target,(random.uniform(1, 3)))
