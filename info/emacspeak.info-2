@@ -12,7 +12,31 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 3, 2021.
+last updated on April 6, 2021.
+
+
+File: emacspeak.info,  Node: emacspeak-ispell,  Next: emacspeak-ivy,  Prev: emacspeak-info,  Up: Emacspeak Commands And Options
+
+12.105 emacspeak-ispell
+=======================
+
+This module speech enables ispell.  Implementation note: This is hard
+because of how ispell.el is written Namely, all of the work is done by
+one huge hairy function.  This makes advising it hard.  The ispell
+commands work well with Emacspeak as long as the list of correction
+choices are few.  For interactively moving through corrections, install
+package flyspell-correct from MELPA (package-install "flyspell-correct")
+Then use M-x flyspell-mode.  Package flyspell is speech-enabled by
+Emacspeak module emacspeak-flyspell And that module sets up
+flyspell-correct to use IDO-style completion, i.e.  you can move through
+corrections with C-r and C-s.
+
+12.105.1 emacspeak-ispell Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-ispell-max-choices
+     Emacspeak will not speak the choices if there are more than this
+     many available corrections.
 
 
 File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options

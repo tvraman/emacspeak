@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 3, 2021.
+last updated on April 6, 2021.
 
 
 File: emacspeak.info,  Node: Programming Defensively,  Up: Emacspeak And Software Development
@@ -834,7 +834,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> M:                                emacspeak-speak.    (line  503)
 * <fn> m:                                emacspeak-speak.    (line  516)
 * <fn> M-%:                              emacspeak-speak.    (line   62)
-* <fn> M-;:                              emacspeak-eww.      (line  436)
+* <fn> M-;:                              emacspeak-eww.      (line  451)
 * <fn> M-b:                              emacspeak-speak.    (line  547)
 * <fn> M-c:                              emacspeak-wizards.  (line   17)
 * <fn> M-d:                              emacspeak-pronounce.
@@ -976,7 +976,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, q:                                 emacspeak-wizards.  (line  705)
 * C-, r:                                 emacspeak-feeds.    (line   84)
 * C-, s:                                 emacspeak-wizards.  (line 1101)
-* C-, SPC:                               emacspeak-eww.      (line  635)
+* C-, SPC:                               emacspeak-eww.      (line  650)
 * C-, t:                                 emacspeak-wizards.  (line 1089)
 * C-, u:                                 emacspeak-m-player. (line  681)
 * C-, y:                                 emacspeak-m-player. (line  753)
@@ -1264,7 +1264,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M:                                 emacspeak-speak.    (line  502)
 * C-e m <1>:                             emacspeak-speak.    (line  515)
 * C-e M-%:                               emacspeak-speak.    (line   61)
-* C-e M-;:                               emacspeak-eww.      (line  435)
+* C-e M-;:                               emacspeak-eww.      (line  450)
 * C-e M-b:                               emacspeak-speak.    (line  546)
 * C-e M-c:                               emacspeak-wizards.  (line   16)
 * C-e M-d:                               emacspeak-pronounce.
@@ -1401,7 +1401,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a q:                             emacspeak-wizards.  (line  706)
 * C-x @ a r:                             emacspeak-feeds.    (line   85)
 * C-x @ a s:                             emacspeak-wizards.  (line 1102)
-* C-x @ a SPC:                           emacspeak-eww.      (line  636)
+* C-x @ a SPC:                           emacspeak-eww.      (line  651)
 * C-x @ a t:                             emacspeak-wizards.  (line 1090)
 * C-x @ a u:                             emacspeak-m-player. (line  682)
 * C-x @ a y:                             emacspeak-m-player. (line  754)
@@ -1434,7 +1434,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s t:                             soundscape.         (line  106)
 * C-x @ s u:                             soundscape.         (line  117)
 * C-x @ s v:                             extra-muggles.      (line  233)
-* C-x r e:                               emacspeak-eww.      (line  424)
+* C-x r e:                               emacspeak-eww.      (line  439)
 * C-z b:                                 emacspeak-wizards.  (line 1169)
 * C-z e:                                 emacspeak-wizards.  (line  509)
 * C-z n:                                 emacspeak-wizards.  (line  401)
