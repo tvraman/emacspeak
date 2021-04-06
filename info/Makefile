@@ -42,7 +42,7 @@ emacspeak.pdf: emacspeak.texi $(INCLUDES)
 emacspeak.fns emacspeak.ky emacspeak.kys emacspeak.log \
 emacspeak.toc  emacspeak.vr emacspeak.vrs
 
-man: emacspeak.texi $(INCLUDES)
+man:
 	makeinfo -o ${GH_PAGES}  --html  ${CSS} emacspeak.texi
 	tidy -q -utf8 -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
 	@echo "Commit and push updated HTML files from gh-pages!"
