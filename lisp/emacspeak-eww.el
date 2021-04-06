@@ -1779,6 +1779,12 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-region start (point)))))
 ;;; Generate next and previous structural navigators:
+(defcustom emacspeak-eww-autospeak t
+  "Turn this on to make section navigation autospeak.
+This also reverses the meaning of the prefix-arg to section nav
+  commands."
+  :type 'boolean
+  :group 'emacspeak-eww)
 
 (cl-loop
  for  f in
@@ -1788,6 +1794,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) (&optional speak)
      ,(format "Move forward to the next %s.
 Optional interactive prefix arg speaks the %s.
+See user option `emacspeak-eww-autospeak' on how to reverse this behavior.
 The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
@@ -1797,6 +1804,7 @@ The %s is automatically spoken if there is no user activity."
        (funcall-interactively #'emacspeak-eww-next-element s)
        (when
            (or speak
+               emacspeak-eww-autospeak
                (and (called-interactively-p 'interactive) (sit-for 4.0)))
          (emacspeak-auditory-icon 'item)
          (forward-line 1)
