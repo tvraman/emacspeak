@@ -1798,6 +1798,7 @@ See user option `emacspeak-eww-autospeak' on how to reverse this behavior.
 The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
+     (cl-declare (special emacspeak-eww-autospeak))
      (let ((s (intern ,(format "%s" f))))
        (when (memq s '(h1 h2 h3 h4))
          (emacspeak-auditory-icon 'section))
@@ -1818,14 +1819,18 @@ The %s is automatically spoken if there is no user activity."
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
 Optional interactive prefix arg speaks the %s.
+See user option `emacspeak-eww-autospeak' on how to reverse this behavior.
 The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
+     (cl-declare (special emacspeak-eww-autospeak))
      (let ((s (intern ,(format "%s" f))))
        (when (memq s '(h1 h2 h3 h4))
          (emacspeak-auditory-icon 'section))
        (funcall-interactively #'emacspeak-eww-previous-element s)
-       (when (or speak (sit-for 3.0))
+       (when (or speak
+                 emacspeak-eww-autospeak
+                 (sit-for 3.0))
          (emacspeak-auditory-icon 'item)
          (forward-line 1)
          (let ((start  (point)))
