@@ -1792,23 +1792,27 @@ This also reverses the meaning of the prefix-arg to section nav
  do
  (eval
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) (&optional speak)
-     ,(format "Move forward to the next %s.
-Optional interactive prefix arg speaks the %s.
-See user option `emacspeak-eww-autospeak' on how to reverse this behavior.
+     ,(format
+       "Move forward to the next %s.
+Optional interactive prefix arg speaks the %s.  Second
+interactive prefix toggles this flag.  See user option
+`emacspeak-eww-autospeak' on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The %s is automatically spoken if there is no user activity."
-              f f f)
+       f f f)
      (interactive "P")
      (cl-declare (special emacspeak-eww-autospeak))
      (let ((s (intern ,(format "%s" f))))
        (when (memq s '(h1 h2 h3 h4))
          (emacspeak-auditory-icon 'section))
        (funcall-interactively #'emacspeak-eww-next-element s)
+       (when (and speak (= 16 (car speak)))
+         (setq emacspeak-eww-autospeak (not emacspeak-eww-autospeak)))
        (when
            (or speak
                emacspeak-eww-autospeak
                (and (called-interactively-p 'interactive) (sit-for 4.0)))
          (emacspeak-auditory-icon 'item)
-         (forward-line 1)
          (let ((start  (point)))
            (condition-case nil
                (save-excursion
@@ -1819,6 +1823,7 @@ The %s is automatically spoken if there is no user activity."
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
 Optional interactive prefix arg speaks the %s.
+Second interactive prefix toggles this flag.
 See user option `emacspeak-eww-autospeak' on how to reverse this behavior.
 The %s is automatically spoken if there is no user activity."
               f f f)
@@ -1828,11 +1833,12 @@ The %s is automatically spoken if there is no user activity."
        (when (memq s '(h1 h2 h3 h4))
          (emacspeak-auditory-icon 'section))
        (funcall-interactively #'emacspeak-eww-previous-element s)
+       (when (and speak (= 16 (car speak)))
+         (setq emacspeak-eww-autospeak (not emacspeak-eww-autospeak)))
        (when (or speak
                  emacspeak-eww-autospeak
                  (sit-for 3.0))
          (emacspeak-auditory-icon 'item)
-         (forward-line 1)
          (let ((start  (point)))
            (condition-case nil
                (save-excursion
