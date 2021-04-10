@@ -337,6 +337,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
   ("y" (funcall-interactively #'yank-pop 1) "next")
   ("Y" (funcall-interactively #'yank-pop -1) "prev")
   ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
+  ("s" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
   ("l" browse-kill-ring "list" :color blue))
 
 (global-set-key (ems-kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
