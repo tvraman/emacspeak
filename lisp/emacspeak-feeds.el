@@ -224,7 +224,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
         (data-buffer (current-buffer))
         (coding-system-for-read 'utf-8)
         (coding-system-for-write 'utf-8)
-        (emacspeak-xslt-options "--html --nonet --novalid"))
+        (emacspeak-xslt-options "--nonet --novalid"))
     (with-current-buffer data-buffer
       (when speak (emacspeak-eww-autospeak))
       (add-hook
