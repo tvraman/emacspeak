@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 6, 2021.
+last updated on April 10, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7074,8 +7074,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-dd (&optional speak)
 
      Move forward to the next dd.
-     Optional interactive prefix arg speaks the dd.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the dd.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The dd is automatically spoken if there is no user activity.
 
 12.74.6.12 emacspeak-eww-next-dl
@@ -7084,8 +7086,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-dl (&optional speak)
 
      Move forward to the next dl.
-     Optional interactive prefix arg speaks the dl.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the dl.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The dl is automatically spoken if there is no user activity.
 
 12.74.6.13 emacspeak-eww-next-dt
@@ -7094,8 +7098,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-dt (&optional speak)
 
      Move forward to the next dt.
-     Optional interactive prefix arg speaks the dt.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the dt.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The dt is automatically spoken if there is no user activity.
 
 12.74.6.14 emacspeak-eww-next-element
@@ -7130,8 +7136,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-h (&optional speak)
 
      Move forward to the next h.
-     Optional interactive prefix arg speaks the h.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the h.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The h is automatically spoken if there is no user activity.
 
 12.74.6.18 emacspeak-eww-next-h1
@@ -7140,8 +7148,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-h1 (&optional speak)
 
      Move forward to the next h1.
-     Optional interactive prefix arg speaks the h1.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the h1.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The h1 is automatically spoken if there is no user activity.
 
 12.74.6.19 emacspeak-eww-next-h2
@@ -7150,8 +7160,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-h2 (&optional speak)
 
      Move forward to the next h2.
-     Optional interactive prefix arg speaks the h2.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the h2.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The h2 is automatically spoken if there is no user activity.
 
 12.74.6.20 emacspeak-eww-next-h3
@@ -7160,8 +7172,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-h3 (&optional speak)
 
      Move forward to the next h3.
-     Optional interactive prefix arg speaks the h3.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the h3.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The h3 is automatically spoken if there is no user activity.
 
 12.74.6.21 emacspeak-eww-next-h4
@@ -7170,8 +7184,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-h4 (&optional speak)
 
      Move forward to the next h4.
-     Optional interactive prefix arg speaks the h4.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the h4.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The h4 is automatically spoken if there is no user activity.
 
 12.74.6.22 emacspeak-eww-next-h5
@@ -7180,8 +7196,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-h5 (&optional speak)
 
      Move forward to the next h5.
-     Optional interactive prefix arg speaks the h5.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the h5.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The h5 is automatically spoken if there is no user activity.
 
 12.74.6.23 emacspeak-eww-next-h6
@@ -7190,8 +7208,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-h6 (&optional speak)
 
      Move forward to the next h6.
-     Optional interactive prefix arg speaks the h6.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the h6.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The h6 is automatically spoken if there is no user activity.
 
 12.74.6.24 emacspeak-eww-next-li
@@ -7200,8 +7220,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-li (&optional speak)
 
      Move forward to the next li.
-     Optional interactive prefix arg speaks the li.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the li.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The li is automatically spoken if there is no user activity.
 
 12.74.6.25 emacspeak-eww-next-ol
@@ -7210,8 +7232,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-ol (&optional speak)
 
      Move forward to the next ol.
-     Optional interactive prefix arg speaks the ol.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the ol.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The ol is automatically spoken if there is no user activity.
 
 12.74.6.26 emacspeak-eww-next-p
@@ -7220,8 +7244,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-p (&optional speak)
 
      Move forward to the next p.
-     Optional interactive prefix arg speaks the p.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the p.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The p is automatically spoken if there is no user activity.
 
 12.74.6.27 emacspeak-eww-next-table
@@ -7230,8 +7256,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-table (&optional speak)
 
      Move forward to the next table.
-     Optional interactive prefix arg speaks the table.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the table.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The table is automatically spoken if there is no user activity.
 
 12.74.6.28 emacspeak-eww-next-ul
@@ -7240,8 +7268,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-next-ul (&optional speak)
 
      Move forward to the next ul.
-     Optional interactive prefix arg speaks the ul.
-     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Optional interactive prefix arg speaks the ul.  Second
+     interactive prefix toggles this flag.  See user option
+     ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+     Second interactive prefix arg toggles default value of this flag.
      The ul is automatically spoken if there is no user activity.
 
 12.74.6.29 emacspeak-eww-open-mark
@@ -7276,6 +7306,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next dd.
      Optional interactive prefix arg speaks the dd.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The dd is automatically spoken if there is no user activity.
 
 12.74.6.32 emacspeak-eww-previous-dl
@@ -7285,6 +7317,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next dl.
      Optional interactive prefix arg speaks the dl.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The dl is automatically spoken if there is no user activity.
 
 12.74.6.33 emacspeak-eww-previous-dt
@@ -7294,6 +7328,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next dt.
      Optional interactive prefix arg speaks the dt.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The dt is automatically spoken if there is no user activity.
 
 12.74.6.34 emacspeak-eww-previous-element
@@ -7329,6 +7365,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next h.
      Optional interactive prefix arg speaks the h.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The h is automatically spoken if there is no user activity.
 
 12.74.6.38 emacspeak-eww-previous-h1
@@ -7338,6 +7376,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next h1.
      Optional interactive prefix arg speaks the h1.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The h1 is automatically spoken if there is no user activity.
 
 12.74.6.39 emacspeak-eww-previous-h2
@@ -7347,6 +7387,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next h2.
      Optional interactive prefix arg speaks the h2.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The h2 is automatically spoken if there is no user activity.
 
 12.74.6.40 emacspeak-eww-previous-h3
@@ -7356,6 +7398,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next h3.
      Optional interactive prefix arg speaks the h3.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The h3 is automatically spoken if there is no user activity.
 
 12.74.6.41 emacspeak-eww-previous-h4
@@ -7365,6 +7409,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next h4.
      Optional interactive prefix arg speaks the h4.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The h4 is automatically spoken if there is no user activity.
 
 12.74.6.42 emacspeak-eww-previous-h5
@@ -7374,6 +7420,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next h5.
      Optional interactive prefix arg speaks the h5.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The h5 is automatically spoken if there is no user activity.
 
 12.74.6.43 emacspeak-eww-previous-h6
@@ -7383,6 +7431,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next h6.
      Optional interactive prefix arg speaks the h6.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The h6 is automatically spoken if there is no user activity.
 
 12.74.6.44 emacspeak-eww-previous-li
@@ -7392,6 +7442,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next li.
      Optional interactive prefix arg speaks the li.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The li is automatically spoken if there is no user activity.
 
 12.74.6.45 emacspeak-eww-previous-ol
@@ -7401,6 +7453,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next ol.
      Optional interactive prefix arg speaks the ol.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The ol is automatically spoken if there is no user activity.
 
 12.74.6.46 emacspeak-eww-previous-p
@@ -7410,6 +7464,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next p.
      Optional interactive prefix arg speaks the p.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The p is automatically spoken if there is no user activity.
 
 12.74.6.47 emacspeak-eww-previous-table
@@ -7419,6 +7475,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next table.
      Optional interactive prefix arg speaks the table.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The table is automatically spoken if there is no user activity.
 
 12.74.6.48 emacspeak-eww-previous-ul
@@ -7428,6 +7486,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 
      Move backward to the next ul.
      Optional interactive prefix arg speaks the ul.
+     Second interactive prefix toggles this flag.
+     See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The ul is automatically spoken if there is no user activity.
 
 12.74.6.49 emacspeak-eww-reading-settings
@@ -8664,144 +8724,4 @@ filladapt.el
      ‘<fn> C-j’
 
      Speaks current block after stripping its prefix.
-
-
-File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
-
-12.97 emacspeak-hide-lines
-==========================
-
-HIDE-LINES == hide/show lines from melpa
-
-
-File: emacspeak.info,  Node: emacspeak-hideshow,  Next: emacspeak-hydra,  Prev: emacspeak-hide-lines,  Up: Emacspeak Commands And Options
-
-12.98 emacspeak-hideshow
-========================
-
-speech-enable hideshow.el
-
-
-File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: emacspeak-hideshow,  Up: Emacspeak Commands And Options
-
-12.99 emacspeak-hydra
-=====================
-
-12.99.1 Emacspeak-Hydra Commands
---------------------------------
-
-12.99.1.1 emacspeak-hydra-toggle-talkative
-..........................................
-
- -- Command: emacspeak-hydra-toggle-talkative
-
-     Toggle state of hydra-is-helpful
-
-
-File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
-
-12.100 emacspeak-ibuffer
-========================
-
-speech-enable ibuffer.el this is an alternative to buffer-menu
-
-12.100.1 Emacspeak-Ibuffer Commands
------------------------------------
-
-12.100.1.1 emacspeak-ibuffer-speak-buffer-line
-..............................................
-
- -- Command: emacspeak-ibuffer-speak-buffer-line
-
-     Speak information about this buffer
-
-
-File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
-
-12.101 emacspeak-ido
-====================
-
-speech-enable ido.el This is an interesting task since most of the
-value-add provided by package ido.el is visual feedback.  Speech UI
-Challenge: What is the most efficient means of conveying a dynamically
-updating set of choices?  current strategy is to walk the list using c-s
-and c-r as provided by ido Set number matches shown (ido-max-prospects)
-to 3 using Custom so you dont hear the entire list.
-
-12.101.1 emacspeak-ido Options
-------------------------------
-
- -- Variable: User Option emacspeak-ido-typing-delay
-     How long we wait before speaking completions.
-
-
-File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
-
-12.102 emacspeak-iedit
-======================
-
-IEDIT == Edit multiple regions This module speech-enables iedit.
-
-
-File: emacspeak.info,  Node: emacspeak-indium,  Next: emacspeak-info,  Prev: emacspeak-iedit,  Up: Emacspeak Commands And Options
-
-12.103 emacspeak-indium
-=======================
-
-INDIUM == Javascript IDE This module speech-enables Indium.
-
-
-File: emacspeak.info,  Node: emacspeak-info,  Next: emacspeak-ispell,  Prev: emacspeak-indium,  Up: Emacspeak Commands And Options
-
-12.104 emacspeak-info
-=====================
-
-This module speech-enables the Emacs Info Reader.
-
-12.104.1 Emacspeak-Info Commands
---------------------------------
-
-12.104.1.1 emacspeak-info-next-section
-......................................
-
- -- Command: emacspeak-info-next-section
-
-     Move forward to next section in this node.
-
-12.104.1.2 emacspeak-info-previous-section
-..........................................
-
- -- Command: emacspeak-info-previous-section
-
-     Move backward to previous section in this node.
-
-12.104.1.3 emacspeak-info-speak-header
-......................................
-
- -- Command: emacspeak-info-speak-header
-
-     Speak info header line.
-
-12.104.1.4 emacspeak-info-wizard
-................................
-
- -- Command: emacspeak-info-wizard (node-spec)
-     ‘C-h TAB’
-     ‘<f1> TAB’
-     ‘<help> TAB’
-
-     Read a node spec from the minibuffer and launch
-     Info-goto-node.
-     See documentation for command ‘Info-goto-node’ for details on
-     node-spec.
-
-     (fn NODE-SPEC)
-
-12.104.2 emacspeak-info Options
--------------------------------
-
- -- Variable: User Option emacspeak-info-select-node-speak-chunk
-     Specifies how much of the selected node gets spoken.  Possible
-     values are: screenfull – speak the displayed screen node – speak
-     the entire node.
 

@@ -12,7 +12,147 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 6, 2021.
+last updated on April 10, 2021.
+
+
+File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
+
+12.97 emacspeak-hide-lines
+==========================
+
+HIDE-LINES == hide/show lines from melpa
+
+
+File: emacspeak.info,  Node: emacspeak-hideshow,  Next: emacspeak-hydra,  Prev: emacspeak-hide-lines,  Up: Emacspeak Commands And Options
+
+12.98 emacspeak-hideshow
+========================
+
+speech-enable hideshow.el
+
+
+File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: emacspeak-hideshow,  Up: Emacspeak Commands And Options
+
+12.99 emacspeak-hydra
+=====================
+
+12.99.1 Emacspeak-Hydra Commands
+--------------------------------
+
+12.99.1.1 emacspeak-hydra-toggle-talkative
+..........................................
+
+ -- Command: emacspeak-hydra-toggle-talkative
+
+     Toggle state of hydra-is-helpful
+
+
+File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
+
+12.100 emacspeak-ibuffer
+========================
+
+speech-enable ibuffer.el this is an alternative to buffer-menu
+
+12.100.1 Emacspeak-Ibuffer Commands
+-----------------------------------
+
+12.100.1.1 emacspeak-ibuffer-speak-buffer-line
+..............................................
+
+ -- Command: emacspeak-ibuffer-speak-buffer-line
+
+     Speak information about this buffer
+
+
+File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
+
+12.101 emacspeak-ido
+====================
+
+speech-enable ido.el This is an interesting task since most of the
+value-add provided by package ido.el is visual feedback.  Speech UI
+Challenge: What is the most efficient means of conveying a dynamically
+updating set of choices?  current strategy is to walk the list using c-s
+and c-r as provided by ido Set number matches shown (ido-max-prospects)
+to 3 using Custom so you dont hear the entire list.
+
+12.101.1 emacspeak-ido Options
+------------------------------
+
+ -- Variable: User Option emacspeak-ido-typing-delay
+     How long we wait before speaking completions.
+
+
+File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
+
+12.102 emacspeak-iedit
+======================
+
+IEDIT == Edit multiple regions This module speech-enables iedit.
+
+
+File: emacspeak.info,  Node: emacspeak-indium,  Next: emacspeak-info,  Prev: emacspeak-iedit,  Up: Emacspeak Commands And Options
+
+12.103 emacspeak-indium
+=======================
+
+INDIUM == Javascript IDE This module speech-enables Indium.
+
+
+File: emacspeak.info,  Node: emacspeak-info,  Next: emacspeak-ispell,  Prev: emacspeak-indium,  Up: Emacspeak Commands And Options
+
+12.104 emacspeak-info
+=====================
+
+This module speech-enables the Emacs Info Reader.
+
+12.104.1 Emacspeak-Info Commands
+--------------------------------
+
+12.104.1.1 emacspeak-info-next-section
+......................................
+
+ -- Command: emacspeak-info-next-section
+
+     Move forward to next section in this node.
+
+12.104.1.2 emacspeak-info-previous-section
+..........................................
+
+ -- Command: emacspeak-info-previous-section
+
+     Move backward to previous section in this node.
+
+12.104.1.3 emacspeak-info-speak-header
+......................................
+
+ -- Command: emacspeak-info-speak-header
+
+     Speak info header line.
+
+12.104.1.4 emacspeak-info-wizard
+................................
+
+ -- Command: emacspeak-info-wizard (node-spec)
+     ‘C-h TAB’
+     ‘<f1> TAB’
+     ‘<help> TAB’
+
+     Read a node spec from the minibuffer and launch
+     Info-goto-node.
+     See documentation for command ‘Info-goto-node’ for details on
+     node-spec.
+
+     (fn NODE-SPEC)
+
+12.104.2 emacspeak-info Options
+-------------------------------
+
+ -- Variable: User Option emacspeak-info-select-node-speak-chunk
+     Specifies how much of the selected node gets spoken.  Possible
+     values are: screenfull – speak the displayed screen node – speak
+     the entire node.
 
 
 File: emacspeak.info,  Node: emacspeak-ispell,  Next: emacspeak-ivy,  Prev: emacspeak-info,  Up: Emacspeak Commands And Options
@@ -1684,6 +1824,7 @@ Emacspeak functionality.
      "y":    ‘(funcall-interactively #’yank-pop 1)’,
      "Y":    ‘(funcall-interactively #’yank-pop -1)’,
      "i":    ‘emacspeak-muggles-ido-yank’,
+     "s":    ‘emacspeak-muggles-ido-yank’,
      "l":    ‘browse-kill-ring’
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
@@ -8652,7 +8793,7 @@ for use with Emacspeak.
 
  -- Variable: User Option soundscape-manager-options
      User customizable options list passed to boodler.  Defaults specify
-     alsa as the output and set master volume to 0.5
+     alsa as the output and set master volume
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -9868,100 +10009,4 @@ the architecture of Emacspeak, see the chapter on Emacspeak
 in the book Beautiful Code
 (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
 from O’Reilly.
-
-
-File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
-
-15.4 Key Component — Text To Speech (TTS)
-=========================================
-
-Emacspeak is a speech-subsystem for Emacs; it depends on an external
-Text-To-Speech (TTS) engine to produce speech.  In 1994, Digital
-Equipment released what would turn out to be the last in the line of
-hardware DECTalk synthesizers, the DECTalk Express.  This was
-essentially an Intel 386with 1mb of flash memory that ran a version of
-the DECTalk TTS software — to date, it still remains my favorite
-Text-To-Speech engine.  At the time, I also had a software version of
-the same engine running on my DEC-Alpha workstation; the desire to use
-either a software or hardware solution to produce speech output defined
-the Emacspeak speech-server architecture.
-
-   I went to IBM Research in 1999; this coincided with IBM releasing a
-version of the Eloquennce TTS engine on Linux under the name _ViaVoice
-Outloud_.  My colleague Jeffrey Sorenson implemented an early version of
-the Emacspeak speech-server for this engine using the OSS API; I later
-updated it to use the ALSA library while on a flight back to SFO from
-Boston in 2001.  That is still the TTS engine that is speaking as I type
-this article on my laptop.
-
-   20 years on, TTS continues to be the weakest link on Linux; the best
-available solution in terms of quality continues to be the Linux port of
-Eloquence TTS available from Voxin in Europe for a small price.  Looking
-back across 20 years, the state of TTS on Linux in particular and across
-all platforms in general continues to be a disappointment; most of
-today’s newer TTS engines are geared toward mainstream use-cases where
-_naturalness_ of the voice tends to supersede intelligibility at higher
-speech-rates.  Ironically, modern TTS engines also give applications far
-less control over the generated output — as a case in point, I
-implemented Audio System For Technical Readings (AsTeR)
-(http://www.cs.cornell.edu/home/raman/aster/demo.html) in 1994 using the
-DECTalk; 20 years later, we implemented MathML support
-(http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/)
-in ChromeVox (http://www.chromevox.com/) using Google TTS. In 2013, it
-turned out to be difficult or impossible to implement the type of audio
-renderings that were possible with the admittedly less-natural sounding
-DECTalk!
-
-
-File: emacspeak.info,  Node: Emacspeak And Software Development,  Next: Emacspeak And Authoring Documents,  Prev: Key Component --- Text To Speech (TTS),  Up: Emacspeak At Twenty
-
-15.5 Emacspeak And Software Development
-=======================================
-
-Version 0.01 of Emacspeak was written using IBM Screen-Reader on a PC
-with a terminal emulator accessing a UNIX workstation.  But in about 2
-weeks, Emacspeak was already a better environment for developing
-Emacspeak in particular and software development in general.  Here are a
-few highlights in 1994 that made Emacspeak a good software development
-environment, present-day users of Emacspeak will see that that was just
-scratching the surface.
-
-   • Audio formatting using voice-lock to provide aural syntax
-     highlighting.
-   • Succinct auditory icons to provide efficient feedback.
-   • Emacs’ ability to navigate code structurally —
-   as opposed to moving around by plain-text units such as characters,
-lines and words.  S-Expressions are a major win!
-   • Emacs’ ability to specialize behavior based on major and minor
-     modes.
-   • Ability to browse program code using tags, and getting fluent
-     spoken feedback.
-   • Completion *everywhere*.
-   • Everything is searchable — this is a huge win when you cannot see
-     the screen.
-   • Interactive spell-checking using ISpell with continuous spoken
-     feedback augmented by aural highlights.
-   • Running code compilation and being able to jump to errors with
-     spoken feedback.
-   • Ability to move through diff chunks when working with source code
-     and source control systems; refined diffs as provided by the
-     *ediff* package when speech-enabled is a major productivity win.
-   • Ability to easily move between email, document authoring and
-     programming — though this may appear trivial, it continues to be
-     one of Emacs’ biggest wins.
-
-   Long-term Emacs users will recognize all of the above as being among
-the reasons why they do most things inside Emacs — there is little that
-is Emacspeak specific in the above list — except that Emacspeak was able
-to provide fluent, well-integrated contextual feedback for all of these
-tasks.  And that was a game-changer given what I had had before
-Emacspeak.  As a case in point, I did not dare program in Python before
-I speech-enabled Emacs’ Python-Mode; the fact that white space is
-significant in Python made it difficult to program using a plain
-screen-reader that was unaware of the semantics of the underlying
-content being accessed.
-
-* Menu:
-
-* Programming Defensively::
 

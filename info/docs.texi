@@ -4874,8 +4874,10 @@ Toggle masquerade state.
 
 @format
 Move forward to the next dd.
-Optional interactive prefix arg speaks the dd.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the dd.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The dd is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -4886,8 +4888,10 @@ The dd is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next dl.
-Optional interactive prefix arg speaks the dl.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the dl.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The dl is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -4898,8 +4902,10 @@ The dl is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next dt.
-Optional interactive prefix arg speaks the dt.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the dt.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The dt is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -4942,8 +4948,10 @@ Prompts if content at point is enclosed by multiple elements.
 
 @format
 Move forward to the next h.
-Optional interactive prefix arg speaks the h.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the h.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The h is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -4954,8 +4962,10 @@ The h is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next h1.
-Optional interactive prefix arg speaks the h1.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the h1.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The h1 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -4966,8 +4976,10 @@ The h1 is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next h2.
-Optional interactive prefix arg speaks the h2.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the h2.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The h2 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -4978,8 +4990,10 @@ The h2 is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next h3.
-Optional interactive prefix arg speaks the h3.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the h3.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The h3 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -4990,8 +5004,10 @@ The h3 is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next h4.
-Optional interactive prefix arg speaks the h4.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the h4.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The h4 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5002,8 +5018,10 @@ The h4 is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next h5.
-Optional interactive prefix arg speaks the h5.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the h5.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The h5 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5014,8 +5032,10 @@ The h5 is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next h6.
-Optional interactive prefix arg speaks the h6.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the h6.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The h6 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5026,8 +5046,10 @@ The h6 is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next li.
-Optional interactive prefix arg speaks the li.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the li.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The li is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5038,8 +5060,10 @@ The li is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next ol.
-Optional interactive prefix arg speaks the ol.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the ol.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The ol is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5050,8 +5074,10 @@ The ol is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next p.
-Optional interactive prefix arg speaks the p.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the p.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The p is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5062,8 +5088,10 @@ The p is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next table.
-Optional interactive prefix arg speaks the table.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the table.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The table is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5074,8 +5102,10 @@ The table is automatically spoken if there is no user activity.
 
 @format
 Move forward to the next ul.
-Optional interactive prefix arg speaks the ul.
-See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Optional interactive prefix arg speaks the ul.  Second
+interactive prefix toggles this flag.  See user option
+‘emacspeak-eww-autospeak’ on how to reverse this behavior.
+Second interactive prefix arg toggles default value of this flag.
 The ul is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5125,6 +5155,8 @@ Optional interactive prefix arg ‘playlist-p’ says to treat the
 @format
 Move backward to the next dd.
 Optional interactive prefix arg speaks the dd.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The dd is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5136,6 +5168,8 @@ The dd is automatically spoken if there is no user activity.
 @format
 Move backward to the next dl.
 Optional interactive prefix arg speaks the dl.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The dl is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5147,6 +5181,8 @@ The dl is automatically spoken if there is no user activity.
 @format
 Move backward to the next dt.
 Optional interactive prefix arg speaks the dt.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The dt is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5190,6 +5226,8 @@ Prompts if content at point is enclosed by multiple elements.
 @format
 Move backward to the next h.
 Optional interactive prefix arg speaks the h.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The h is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5201,6 +5239,8 @@ The h is automatically spoken if there is no user activity.
 @format
 Move backward to the next h1.
 Optional interactive prefix arg speaks the h1.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The h1 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5212,6 +5252,8 @@ The h1 is automatically spoken if there is no user activity.
 @format
 Move backward to the next h2.
 Optional interactive prefix arg speaks the h2.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The h2 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5223,6 +5265,8 @@ The h2 is automatically spoken if there is no user activity.
 @format
 Move backward to the next h3.
 Optional interactive prefix arg speaks the h3.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The h3 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5234,6 +5278,8 @@ The h3 is automatically spoken if there is no user activity.
 @format
 Move backward to the next h4.
 Optional interactive prefix arg speaks the h4.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The h4 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5245,6 +5291,8 @@ The h4 is automatically spoken if there is no user activity.
 @format
 Move backward to the next h5.
 Optional interactive prefix arg speaks the h5.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The h5 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5256,6 +5304,8 @@ The h5 is automatically spoken if there is no user activity.
 @format
 Move backward to the next h6.
 Optional interactive prefix arg speaks the h6.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The h6 is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5267,6 +5317,8 @@ The h6 is automatically spoken if there is no user activity.
 @format
 Move backward to the next li.
 Optional interactive prefix arg speaks the li.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The li is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5278,6 +5330,8 @@ The li is automatically spoken if there is no user activity.
 @format
 Move backward to the next ol.
 Optional interactive prefix arg speaks the ol.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The ol is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5289,6 +5343,8 @@ The ol is automatically spoken if there is no user activity.
 @format
 Move backward to the next p.
 Optional interactive prefix arg speaks the p.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The p is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5300,6 +5356,8 @@ The p is automatically spoken if there is no user activity.
 @format
 Move backward to the next table.
 Optional interactive prefix arg speaks the table.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The table is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -5311,6 +5369,8 @@ The table is automatically spoken if there is no user activity.
 @format
 Move backward to the next ul.
 Optional interactive prefix arg speaks the ul.
+Second interactive prefix toggles this flag.
+See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The ul is automatically spoken if there is no user activity.
 @end format
 @end deffn
@@ -8902,6 +8962,7 @@ The heads for the associated hydra are:
 "y":    ‘(funcall-interactively #’yank-pop 1)’,
 "Y":    ‘(funcall-interactively #’yank-pop -1)’,
 "i":    ‘emacspeak-muggles-ido-yank’,
+"s":    ‘emacspeak-muggles-ido-yank’,
 "l":    ‘browse-kill-ring’
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
@@ -17863,7 +17924,7 @@ before soundscapes are synchronized with current mode.
 
 @defvar {User Option} soundscape-manager-options
 User customizable options list passed to boodler.
-Defaults specify alsa as the output and set master volume to 0.5
+Defaults specify alsa as the output and set master volume
 
 @end defvar
 
