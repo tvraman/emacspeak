@@ -414,7 +414,7 @@ Optional prefix arg prompts for toolbelt options."
 
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
-  (interactive (list (gweb-google-autocomplete "AGoogle: ")))
+  (interactive (list (gweb-google-autocomplete "IGoogle: ")))
   (emacspeak-websearch-accessible-google query 'use-toolbelt))
 
 
