@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 10, 2021.
+last updated on April 11, 2021.
 
 
 File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
@@ -1055,10 +1055,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' o:                                 extra-muggles.      (line  150)
 * C-' q:                                 emacspeak-wizards.  (line  717)
 * C-' R:                                 emacspeak-webspace. (line   17)
-* C-' r:                                 soundscape.         (line   75)
+* C-' r:                                 soundscape.         (line   78)
+* C-' s:                                 soundscape.         (line   32)
 * C-' SPC:                               emacspeak-wizards.  (line  894)
-* C-' t:                                 soundscape.         (line  105)
-* C-' u:                                 soundscape.         (line  116)
+* C-' t:                                 soundscape.         (line  108)
+* C-' u:                                 soundscape.         (line  119)
 * C-' v:                                 extra-muggles.      (line  232)
 * C-, ,:                                 emacspeak-advice.   (line   21)
 * C-, /:                                 extra-muggles.      (line  325)
@@ -1087,13 +1088,16 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. o:                                 extra-muggles.      (line  149)
 * C-. q:                                 emacspeak-wizards.  (line  716)
 * C-. R:                                 emacspeak-webspace. (line   16)
-* C-. r:                                 soundscape.         (line   74)
+* C-. r:                                 soundscape.         (line   77)
+* C-. s:                                 soundscape.         (line   31)
 * C-. SPC:                               emacspeak-wizards.  (line  893)
-* C-. t:                                 soundscape.         (line  104)
-* C-. u:                                 soundscape.         (line  115)
+* C-. t:                                 soundscape.         (line  107)
+* C-. u:                                 soundscape.         (line  118)
 * C-. v:                                 extra-muggles.      (line  231)
 * C-/:                                   emacspeak-muggles.  (line  201)
 * C-; ':                                 emacspeak-m-player. (line  692)
+* C-; /:                                 emacspeak-websearch.
+                                                             (line  115)
 * C-; ::                                 emacspeak-wizards.  (line 1160)
 * C-; ;:                                 emacspeak-m-player. (line  703)
 * C-; C-a:                               emacspeak-wizards.  (line 1061)
@@ -1502,6 +1506,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a u:                             emacspeak-m-player. (line  682)
 * C-x @ a y:                             emacspeak-m-player. (line  754)
 * C-x @ h ':                             emacspeak-m-player. (line  693)
+* C-x @ h /:                             emacspeak-websearch.
+                                                             (line  116)
 * C-x @ h ::                             emacspeak-wizards.  (line 1161)
 * C-x @ h ;:                             emacspeak-m-player. (line  704)
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1062)
@@ -1525,10 +1531,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s o:                             extra-muggles.      (line  151)
 * C-x @ s q:                             emacspeak-wizards.  (line  718)
 * C-x @ s R:                             emacspeak-webspace. (line   18)
-* C-x @ s r:                             soundscape.         (line   76)
+* C-x @ s r:                             soundscape.         (line   79)
+* C-x @ s s:                             soundscape.         (line   33)
 * C-x @ s SPC:                           emacspeak-wizards.  (line  895)
-* C-x @ s t:                             soundscape.         (line  106)
-* C-x @ s u:                             soundscape.         (line  117)
+* C-x @ s t:                             soundscape.         (line  109)
+* C-x @ s u:                             soundscape.         (line  120)
 * C-x @ s v:                             extra-muggles.      (line  233)
 * C-x r e:                               emacspeak-eww.      (line  469)
 * C-z b:                                 emacspeak-wizards.  (line 1169)

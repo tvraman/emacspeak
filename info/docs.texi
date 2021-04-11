@@ -14747,6 +14747,13 @@ Use this from inside the calendar to do Google date-range searches.
 
 @subsubsection emacspeak-websearch-google-with-toolbelt
 @deffn {Command} emacspeak-websearch-google-with-toolbelt  (query)
+@table @kbd
+@item C-; /
+@kindex C-; /
+@item C-x @@ h /
+@kindex C-x @@ h /
+@end table
+
 @findex emacspeak-websearch-google-with-toolbelt
 
 @format
@@ -17770,6 +17777,15 @@ I have created for use with Emacspeak.
 
 @subsubsection soundscape
 @deffn {Command} soundscape  (scape)
+@table @kbd
+@item C-. s
+@kindex C-. s
+@item C-' s
+@kindex C-' s
+@item C-x @@ s s
+@kindex C-x @@ s s
+@end table
+
 @findex soundscape
 
 @format
