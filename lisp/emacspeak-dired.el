@@ -534,7 +534,7 @@ Optional interactive prefix arg shuffles playlist."
      ((and (not (file-directory-p f))
            (string-match "\\.mp3$" f))
       (message "%s %s"
-               (shell-command-to-string (format "soxi -d %s" f))
+               (shell-command-to-string (format "soxi -d '%s'" f))
                (file-name-base f)))
      ((file-directory-p f)
       (message "%s in %s"
