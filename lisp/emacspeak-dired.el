@@ -359,7 +359,7 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key dired-mode-map [C-return] 'emacspeak-dired-open-this-file)
   (define-key dired-mode-map "'" 'emacspeak-dired-show-file-type)
   (define-key  dired-mode-map "/" 'emacspeak-dired-speak-file-permissions)
-  (define-key  dired-mode-map ";" 'emacspeak-dired-speak-header-line)
+  (define-key  dired-mode-map ";" 'emacspeak-dired-play-duration)
   (define-key  dired-mode-map "a" 'emacspeak-dired-speak-file-access-time)
   (define-key dired-mode-map "c" 'emacspeak-dired-speak-file-modification-time)
   (define-key dired-mode-map "z" 'emacspeak-dired-speak-file-size)
@@ -511,6 +511,32 @@ Optional interactive prefix arg shuffles playlist."
                  (append emacspeak-m-player-options (list "-shuffle"))
                emacspeak-m-player-options)))
         (emacspeak-m-player  m3u 'play-list)))))
+
+;;}}}
+;;{{{ Play Duration Using Soxi:
+
+(defun emacspeak-dired-play-duration ()
+  "speak duration of mp3 files on current line or in current directory."
+  (interactive)
+  (cl-assert (executable-find "soxi")
+             t "This command needs soxi installed.")
+  (cl-assert (eq major-mode 'dired-mode)
+             t "This command is only available in dired buffers.")
+  (let* ((f (shell-quote-argument  (dired-get-filename)))
+       (files
+        (directory-files
+         (if (file-directory-p f) f default-directory)
+         'full "\\.mp3$" )))
+    (cl-assert files t "No mp3 files here. ")
+    (setq files (mapconcat #'shell-quote-argument files " "))
+    (cond
+     ((string-match "\\.mp3$" f)
+      (message "Duration: %s"
+               (shell-command-to-string (format "soxi -d %s"  f))))
+     (t
+      (message "Duration: %s"
+               (shell-command-to-string
+                (format "soxi -dT %s" files)))))))
 
 ;;}}}
 ;;{{{ Open Downloads:
