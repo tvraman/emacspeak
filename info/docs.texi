@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1132 commands and 151 options.
+This chapter documents a total of 1133 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -2901,6 +2901,15 @@ Smart dired opener. Invokes appropriate Emacspeak handler on  current file in Di
 
 @format
 Open PDF file on current dired line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dired-play-duration
+@deffn {Command} emacspeak-dired-play-duration   
+@findex emacspeak-dired-play-duration
+
+@format
+speak duration of mp3 files on current line or in current directory.
 @end format
 @end deffn
 
