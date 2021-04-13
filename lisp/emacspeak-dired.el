@@ -533,7 +533,7 @@ Optional interactive prefix arg shuffles playlist."
       (message "%s in %s"
                (shell-command-to-string
                 (format
-                 "find %s -name '*.mp3' -print0 | xargs -0 soxi -Td "
+                 "find %s -name '*.mp3' -print0 | xargs -0 soxi -Td 2>/dev/null"
                  (shell-quote-argument f)))
                (file-name-base f)))
      (t (message "No mp3 files on current line.")))))
