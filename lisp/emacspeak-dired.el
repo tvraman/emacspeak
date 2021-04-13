@@ -522,14 +522,7 @@ Optional interactive prefix arg shuffles playlist."
              t "This command needs soxi installed.")
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")
-  (let* ((f   (dired-get-filename))
-         (files
-          (directory-files
-           (if (file-directory-p f) f default-directory)
-           'full "\\.mp3$" )))
-    (cl-assert files t "No mp3 files here. ")
-    (when files
-      (setq files (mapconcat #'shell-quote-argument files " ")))
+  (let* ((f   (dired-get-filename)))
     (cond
      ((and (not (file-directory-p f))
            (string-match "\\.mp3$" f))
@@ -539,7 +532,9 @@ Optional interactive prefix arg shuffles playlist."
      ((file-directory-p f)
       (message "%s in %s"
                (shell-command-to-string
-                (format "soxi -dT %s" files))
+                (format
+                 "find %s -name '*.mp3' -print0 | xargs -0 soxi -Td "
+                 (shell-quote-argument f)))
                (file-name-base f)))
      (t (message "No mp3 files on current line.")))))
 
