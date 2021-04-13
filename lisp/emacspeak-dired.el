@@ -531,12 +531,12 @@ Optional interactive prefix arg shuffles playlist."
     (setq files (mapconcat #'shell-quote-argument files " "))
     (cond
      ((string-match "\\.mp3$" f)
-      (message "Duration: %s"
-               (shell-command-to-string (format "soxi -d %s"  f))))
+      (message "%s %s"
+               (shell-command-to-string (format "soxi -d %s"  f)) f))
      (t
-      (message "Duration: %s"
+      (message "%s in %s"
                (shell-command-to-string
-                (format "soxi -dT %s" files)))))))
+                (format "soxi -dT %s" files)) f)))))
 
 ;;}}}
 ;;{{{ Open Downloads:
