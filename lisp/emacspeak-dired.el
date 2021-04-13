@@ -523,20 +523,25 @@ Optional interactive prefix arg shuffles playlist."
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")
   (let* ((f (shell-quote-argument  (dired-get-filename)))
-       (files
-        (directory-files
-         (if (file-directory-p f) f default-directory)
-         'full "\\.mp3$" )))
+         (files
+          (directory-files
+           (if (file-directory-p f) f default-directory)
+           'full "\\.mp3$" )))
     (cl-assert files t "No mp3 files here. ")
-    (setq files (mapconcat #'shell-quote-argument files " "))
+    (when files
+      (setq files (mapconcat #'shell-quote-argument files " ")))
     (cond
-     ((string-match "\\.mp3$" f)
+     ((and (not (file-directory-p f))
+           (string-match "\\.mp3$" f))
       (message "%s %s"
-               (shell-command-to-string (format "soxi -d %s"  f)) f))
-     (t
+               (shell-command-to-string (format "soxi -d %s" f))
+               (file-name-base f)))
+     ((file-directory-p f)
       (message "%s in %s"
                (shell-command-to-string
-                (format "soxi -dT %s" files)) f)))))
+                (format "soxi -dT %s" files))
+               (file-name-base f)))
+     (t (message "No mp3 files on current line.")))))
 
 ;;}}}
 ;;{{{ Open Downloads:
