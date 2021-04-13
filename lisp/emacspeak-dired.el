@@ -522,7 +522,7 @@ Optional interactive prefix arg shuffles playlist."
              t "This command needs soxi installed.")
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")
-  (let* ((f (shell-quote-argument  (dired-get-filename)))
+  (let* ((f   (dired-get-filename))
          (files
           (directory-files
            (if (file-directory-p f) f default-directory)
