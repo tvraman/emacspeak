@@ -516,7 +516,10 @@ Optional interactive prefix arg shuffles playlist."
 ;;{{{ Play Duration Using Soxi:
 
 (defun emacspeak-dired-play-duration ()
-  "speak duration of mp3 files on current line or in current directory."
+  "Speak duration of MP3 files.
+If on a file, speak its duration.
+If on a directory, speak the total duration of all mp3 files under
+  that directory."
   (interactive)
   (cl-assert (executable-find "soxi")
              t "This command needs soxi installed.")
@@ -536,7 +539,7 @@ Optional interactive prefix arg shuffles playlist."
                  "find %s -name '*.mp3' -print0 | xargs -0 soxi -Td 2>/dev/null"
                  (shell-quote-argument f)))
                (file-name-base f)))
-     (t (message "No mp3 files on current line.")))))
+     (t (message "No mp3  on current line.")))))
 
 ;;}}}
 ;;{{{ Open Downloads:
