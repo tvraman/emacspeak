@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 13, 2021.
+last updated on April 15, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -5354,7 +5354,10 @@ This module speech enables dired.
 
  -- Command: emacspeak-dired-play-duration
 
-     speak duration of mp3 files on current line or in current directory.
+     Speak duration of MP3 files.
+     If on a file, speak its duration.
+     If on a directory, speak the total duration of all mp3 files under
+       that directory.
 
 12.48.1.11 emacspeak-dired-rpm-query-in-dired
 .............................................

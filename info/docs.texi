@@ -2909,7 +2909,10 @@ Open PDF file on current dired line.
 @findex emacspeak-dired-play-duration
 
 @format
-speak duration of mp3 files on current line or in current directory.
+Speak duration of MP3 files.
+If on a file, speak its duration.
+If on a directory, speak the total duration of all mp3 files under
+  that directory.
 @end format
 @end deffn
 
