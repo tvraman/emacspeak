@@ -614,15 +614,15 @@ class BirdCalls(agent.Agent):
         ]
 
     def run(self):
-        y = [-1.5, -1.2, -1.1, 0, 1.1, 1.2, 1.5]
+        x = [-1.5, -1.2, -1.1, 0, 1.1, 1.2, 1.5]
         for i in xrange(len(self.agents)):
-            for j in xrange(len(y)):
-                k = (i + j) % len(y)
-                bc = self.new_channel_pan(y[k])
+            for j in xrange(len(x)):
+                k = (i + j) % len(x)
+                bc = self.new_channel_pan(x[k])
                 ag = self.agents[i](
                     0, 60,
-                    0.1, 0.75,  # volume
-                    1 + k * 0.1  # pan
+                    0.4, 0.75,  # volume
+                    -1 + k * 0.285714  # pan
                 )
                 self.sched_agent(ag, 0, bc)
 
