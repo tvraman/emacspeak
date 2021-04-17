@@ -614,7 +614,7 @@ class BirdCalls(agent.Agent):
         ]
 
     def run(self):
-        x = [-1.5, -1.2, -1.1, 0, 1.1, 1.2, 1.5]
+        x = [-1.3, -1.2, -1.1, 0, 1.1, 1.2, 1.3]
         for i in xrange(len(self.agents)):
             for j in xrange(len(x)):
                 k = (i + j) % len(x)
