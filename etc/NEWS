@@ -30,7 +30,11 @@ Those options have been replaced with a single _dtk-caps_ option that
  Emacspeak startup has been speeded up by loading larger modules on a
  separate thread using ~make-thread~.
 
+** MP3 Files In Dired
 
+   Command ~emacspeak-dired-play-duration~ bound to _;_ in
+   ~dired-mode~ speaks the play duration of MP3 files using ~soxi~.
+   
 ** Gopher And Gemini
 
    Module ~emacspeak-elpher~ speech-enables package ~elpher~, a
