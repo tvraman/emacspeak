@@ -411,7 +411,7 @@ Optional prefix arg prompts for toolbelt options."
        ems--websearch-google-filter
        (format emacspeak-websearch-accessible-google-url query))))))
 
-
+;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "IGoogle: ")))
