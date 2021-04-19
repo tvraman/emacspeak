@@ -210,7 +210,6 @@ Use Custom to customize where possible. "
   (auto-fill-mode)
   (abbrev-mode)
   (unless (eq major-mode 'org-mode) (orgalist-mode))
-  (setq-local company-backends '(company-wordfreq))
   (setq-local company-transformers nil)
   (company-mode ))
 
