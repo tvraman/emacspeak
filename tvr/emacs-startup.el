@@ -208,6 +208,9 @@ Use Custom to customize where possible. "
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (auto-fill-mode)
+;;; company-wordfreq setup:
+  (setq-local company-backends '(company-wordfreq))
+  (setq-local company-transformers nil)
   (abbrev-mode)
   (unless (eq major-mode 'org-mode) (orgalist-mode)))
 
