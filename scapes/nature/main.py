@@ -574,10 +574,10 @@ class BirdChorus(agent.Agent):
                 else:
                     target = -1
                 bc = self.new_channel_pan(x[k])
-                start =  5 * k
+                start = k
                 ag = self.agents[i](
                     start, 30 + start,  # duration
-                    0.95, 1.0,  # volume
+                    0.75, 1.0,  # volume
                      -0.99 + 0.285714 * k  # pan  (-1,1)
                 )
                 bc.set_pan (target,(random.uniform(1, 3)))
