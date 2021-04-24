@@ -783,7 +783,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
       emacspeak-wizards-pdf-to-text-program
       emacspeak-wizards-pdf-to-text-options
       (if passwd
-          (format "-upw %s" passwd)
+          (format "-opw %s -upw %s" passwd passwd)
         "")
       (shell-quote-argument
        (expand-file-name filename)))
@@ -3016,6 +3016,16 @@ personality at point. "
       (when (called-interactively-p 'interactive)
         (emacspeak-speak-help)))
      (t (message "%s doesn't look like a valid personality." personality)))))
+
+;;}}}
+;;{{{end-of-word:
+;;;###autoload
+(defun emacspeak-wizards-end-of-word (arg)
+  "move to end of word"
+  (interactive "P")
+  (if arg
+      (forward-word arg)
+    (forward-word 1)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
