@@ -215,9 +215,19 @@ boodler.filename: wren-01.aiff
 boodler.use: sound
 # Thrush Nightingale
 
-:thrush_nightingale
-boodler.filename: thrush-nightingale.aiff
+:thrush_nightingale_1
+boodler.filename: thrush-nightingale-1.aiff
 boodler.use: sound
+
+:thrush_nightingale_2
+boodler.filename: thrush-nightingale-2.aiff
+boodler.use: sound
+
+:thrush_nightingale_3
+boodler.filename: thrush-nightingale-3.aiff
+boodler.use: sound
+
+
 
 # Nightingale: nightingale-song.mp3 from freesound.org
 # Split into 10 equal segments
