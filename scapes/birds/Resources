@@ -25,38 +25,31 @@ boodler.use: sound
 :mocking_6
 boodler.filename: mocking-6.aiff
 
-
- #Florida Mocking Bird (freesound.org)
+#Florida Mocking Bird (freesound.org)
 
 :fl_mocking_1
 boodler.filename: fl-mocking-1.aiff
 boodler.use: sound
 
-
 :fl_mocking_2
 boodler.filename: fl-mocking-2.aiff
 boodler.use: sound
-
 
 :fl_mocking_3
 boodler.filename: fl-mocking-3.aiff
 boodler.use: sound
 
-
 :fl_mocking_4
 boodler.filename: fl-mocking-4.aiff
 boodler.use: sound
-
 
 :fl_mocking_5
 boodler.filename: fl-mocking-5.aiff
 boodler.use: sound
 
-
 :fl_mocking_6
 boodler.filename: fl-mocking-6.aiff
 boodler.use: sound
-
 
 # Song Birds extracted from
 #http://archive.org/download/Sounds_of_Nature_Collection/26_Songbirds.mp3
@@ -92,12 +85,11 @@ boodler.use: sound
 boodler.filename: song-bird-010.aiff
 boodler.use: sound
 
-# these next 3 sounds are from freesound.org 
+# these next 3 sounds are from freesound.org
 
 :cuckoo_01
 boodler.filename: indian-cuckoo-01.aiff
 boodler.use: sound
-
 
 :cuckoo_02
 boodler.filename: indian-cuckoo-02.aiff
@@ -107,13 +99,11 @@ boodler.use: sound
 boodler.filename: indian-cuckoo-03.aiff
 boodler.use: sound
 
-
 :cuckoo_04
 boodler.filename: indian-cuckoo-04.aiff
 boodler.use: sound
 
-
-#Asian Koel from BBC Tweet Of The Day: 
+#Asian Koel from BBC Tweet Of The Day:
 # clipped from http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download/proto/http/vpid/p02qg16q.mp3'
 :cuckoo_05
 boodler.filename: indian-cuckoo-05.aiff
@@ -123,11 +113,11 @@ boodler.use: sound
 #http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download/proto/http/vpid/p02qjk25.mp3
 :thrasher_01
 boodler.filename: brown-thrasher-01.aiff
-boodler.use: sound 
+boodler.use: sound
 
 :thrasher_02
 boodler.filename: brown-thrasher-02.aiff
-boodler.use: sound 
+boodler.use: sound
 
 :cuckoo_06
 boodler.filename: indian-cuckoo-06.aiff
@@ -138,28 +128,26 @@ boodler.use: sound
 boodler.filename: indian-cuckoo-07.aiff
 boodler.use: sound
 
-# Asian koel 
+# Asian koel
 
 :cuckoo_08
 boodler.filename: indian-cuckoo-08.aiff
 boodler.use: sound
 
-
 :chirp_01
 boodler.filename: chirp-01.aiff
 boodler.use: sound
-
 
 :chirp_02
 boodler.filename: chirp-02.aiff
 boodler.use: sound
 
-# Carolina Wren 
+# Carolina Wren
 :chirp_03
 boodler.filename: chirp-03.aiff
 boodler.use: sound
 
-# Tropical Orchard from freesound.org 
+# Tropical Orchard from freesound.org
 :tropical_01
 boodler.filename: tropical-01.aiff
 boodler.use: sound
@@ -188,11 +176,10 @@ boodler.use: sound
 boodler.filename: tropical-07.aiff
 boodler.use: sound
 
-
 # From Internet Archive
 # https://archive.org/download/bird-sound/bird-sound.ogg
 # Split using sox
-# sox -V3 input.aiff output.aiff silence 1 0.50 0.1% 1 0.3 0.1% : newfile : restart  
+# sox -V3 input.aiff output.aiff silence 1 0.50 0.1% 1 0.3 0.1% : newfile : restart
 
 :ia_bird_1
 boodler.filename: ia-bird-01.aiff
@@ -233,8 +220,7 @@ boodler.filename: thrush-nightingale.aiff
 boodler.use: sound
 
 # Nightingale: nightingale-song.mp3 from freesound.org
-# Split into 10 equal segments 
-
+# Split into 10 equal segments
 
 :nightingale_001
 boodler.filename: nightingale-001.aiff
@@ -280,66 +266,45 @@ boodler.use: sound
 boodler.filename: nightingale-011.aiff
 boodler.use: sound
 
-
-
 :nightingale_012
 boodler.filename: nightingale-012.aiff
 boodler.use: sound
-
-
 
 :nightingale_013
 boodler.filename: nightingale-013.aiff
 boodler.use: sound
 
-
-
 :nightingale_014
 boodler.filename: nightingale-014.aiff
 boodler.use: sound
-
-
 
 :nightingale_015
 boodler.filename: nightingale-015.aiff
 boodler.use: sound
 
-
-
 :nightingale_016
 boodler.filename: nightingale-016.aiff
 boodler.use: sound
-
-
 
 :nightingale_017
 boodler.filename: nightingale-017.aiff
 boodler.use: sound
 
-
-
 :nightingale_018
 boodler.filename: nightingale-018.aiff
 boodler.use: sound
-
-
 
 :nightingale_019
 boodler.filename: nightingale-019.aiff
 boodler.use: sound
 
-
-
 :nightingale_020
 boodler.filename: nightingale-020.aiff
 boodler.use: sound
 
-
-
 :nightingale_021
 boodler.filename: nightingale-021.aiff
 boodler.use: sound
-
 
 # More mocking birds:
 
@@ -666,34 +631,32 @@ boodler.use: sound
 :blackbird_01
 boodler.filename: blackbird-01.aiff
 boodler.use: sound
- 
+
 
 :blackbird_02
 boodler.filename: blackbird-02.aiff
 boodler.use: sound
- 
+
 :blackbird_03
 boodler.filename: blackbird-03.aiff
 boodler.use: sound
- 
+
 
 :lark_01
 boodler.filename: lark-01.aiff
 boodler.use: sound
- 
- 
+
+
 :lark_02
 boodler.filename: lark-02.aiff
 boodler.use: sound
- 
- 
+
 
 
 :cardinal_01
 boodler.filename: cardinal-01.aiff
 boodler.use: sound
- 
- 
+
 
 
 :morning_dove
