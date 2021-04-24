@@ -48,7 +48,8 @@ cuckoos = [
 ]
 
 nightingales = [
-    birds.thrush_nightingale_1, birds.thrush_nightingale_2, birds.thrush_nightingale_3,
+    birds.thrush_nightingale_1, birds.thrush_nightingale_2,
+    birds.thrush_nightingale_3, birds.thrush_nightingale_4,
     birds.blackbird_01, birds.blackbird_02, birds.blackbird_03,
     birds.nightingale_001, birds.nightingale_002, birds.nightingale_003,
     birds.nightingale_004, birds.nightingale_005, birds.nightingale_006,
