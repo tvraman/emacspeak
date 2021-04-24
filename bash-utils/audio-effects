@@ -56,6 +56,27 @@ function swapchan () {
 }
 
 # }}}
+# {{{Gain:
+
+# Usage: setAiffGain  filename gain
+
+function setAiffGain () {
+  mv $1 tmp.aiff
+sox tmp.aiff $1 gain $2
+\rm tmp.aiff
+}
+
+
+# Usage: setWavGain  filename gain
+
+function setWavGain () {
+  mv $1 tmp.wav
+sox tmp.wav $1 gain $2
+\rm tmp.wav
+}
+
+
+# }}}
 # {{{End Of File 
 
 # local variables:
