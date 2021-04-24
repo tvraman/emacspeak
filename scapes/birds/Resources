@@ -226,6 +226,11 @@ boodler.use: sound
 :thrush_nightingale_3
 boodler.filename: thrush-nightingale-3.aiff
 boodler.use: sound
+# thrush-nightingale-1 panned
+
+:thrush_nightingale_4
+boodler.filename: thrush-nightingale-4.aiff
+boodler.use: sound
 
 
 
