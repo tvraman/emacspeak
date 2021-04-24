@@ -40,3 +40,7 @@ Those options have been replaced with a single _dtk-caps_ option that
    Module ~emacspeak-elpher~ speech-enables package ~elpher~, a
    gopher/gemini client for accessing content on the Internet using
    Gopher and Gemini protocols.
+
+** Emacs 28 (Development Version) And Native Compilation
+
+   Tested under native compilation in emacs 28.
