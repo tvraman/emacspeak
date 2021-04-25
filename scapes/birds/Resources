@@ -39,10 +39,6 @@ boodler.use: sound
 boodler.filename: fl-mocking-3.aiff
 boodler.use: sound
 
-:fl_mocking_4
-boodler.filename: fl-mocking-4.aiff
-boodler.use: sound
-
 :fl_mocking_5
 boodler.filename: fl-mocking-5.aiff
 boodler.use: sound
