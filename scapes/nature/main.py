@@ -25,7 +25,7 @@ ca_mocks = [
 
 fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
-    birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6,
+     birds.fl_mocking_5, birds.fl_mocking_6,
     birds.thrasher_01, birds.thrasher_02,
     birds.mocker_41, birds.mocker_42, birds.mocker_43, birds.mocker_44,
     birds.mocker_45, birds.mocker_46, birds.mocker_47, birds.mocker_48,
