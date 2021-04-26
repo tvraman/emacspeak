@@ -37,6 +37,7 @@ fl_mocks = [
 cuckoos = [
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
     birds.cuckoo_05, birds.cuckoo_06, birds.cuckoo_07, birds.cuckoo_08,
+    birds.cuckoo_09, birds.cuckoo_10,
     birds.mocker_11, birds.mocker_12, birds.mocker_13, birds.mocker_14,
     birds.mocker_15, birds.mocker_16, birds.mocker_17, birds.mocker_18,
     birds.mocker_19, birds.mocker_20, birds.mocker_21, birds.mocker_22,
