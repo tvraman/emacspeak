@@ -129,6 +129,16 @@ boodler.use: sound
 :cuckoo_08
 boodler.filename: indian-cuckoo-08.aiff
 boodler.use: sound
+# Panned cuckoo
+
+:cuckoo_09
+boodler.filename: indian-cuckoo-09.aiff
+boodler.use: sound
+
+:cuckoo_10
+boodler.filename: indian-cuckoo-10.aiff
+boodler.use: sound
+
 
 :chirp_01
 boodler.filename: chirp-01.aiff
