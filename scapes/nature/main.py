@@ -558,6 +558,17 @@ class Nightscape(agent.Agent):
             ag = Crickets(0.0, 10.0, 0.1, 0.7, 1.4)
             self.sched_agent(ag, 0, nc)
 
+def birdLengths ():
+    print "Cuckoos: ", len(cuckoos)
+    print "CA Mocks: ", len(ca_mocks)
+    print "FL Mocks: ", len(fl_mocks)
+    print "IA Birds: ", len(ia_birds)
+    print "Nightingales: ", len(nightingales)
+    print "SongBirds: ", len(song_birds)
+    print "TropicalBirds: ", len(tropical_birds)
+
+#birdLengths() #for debugging
+    
 
 class BirdChorus(agent.Agent):
     def init(self):
