@@ -5,4 +5,4 @@ set -x
 
 pidof Xvfb ||  nice -n 15 Xvfb -ac :5 -screen 0 800x200x16 &
 export DISPLAY=:5
-nice -n 15 google-chrome-unstable --alsa-output-device=soft_left --remote-debugging-port=9222 "$@"  2>&1 > /dev/null &
+nice -n 19 google-chrome-unstable --alsa-output-device=soft_left --remote-debugging-port=9222 "$@"  2>&1 > /dev/null &
