@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1133 commands and 151 options.
+This chapter documents a total of 1137 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -15604,6 +15604,15 @@ under point as either the foreground or background color.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-comma-at-end-of-word
+@deffn {Command} emacspeak-wizards-comma-at-end-of-word   
+@findex emacspeak-wizards-comma-at-end-of-word
+
+@format
+Move to the end of current word and add a comma.
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-count-slides-in-region
 @deffn {Command} emacspeak-wizards-count-slides-in-region  (start end)
 @findex emacspeak-wizards-count-slides-in-region
@@ -15691,6 +15700,17 @@ When called interactively, ‘personality’ defaults to first
 personality at point. 
 
 (fn PERSONALITY)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-end-of-word
+@deffn {Command} emacspeak-wizards-end-of-word  (arg)
+@findex emacspeak-wizards-end-of-word
+
+@format
+move to end of word
+
+(fn ARG)
 @end format
 @end deffn
 
@@ -16129,6 +16149,15 @@ Show news for symbol in current row
 
 @format
 Show price for symbol in current row
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-lacheck-buffer-file
+@deffn {Command} emacspeak-wizards-lacheck-buffer-file   
+@findex emacspeak-wizards-lacheck-buffer-file
+
+@format
+Run Lacheck on current buffer.
 @end format
 @end deffn
 
@@ -16593,6 +16622,17 @@ Otherwise cycles through existing terminals, creating the first
 term if needed.
 
 (fn CREATE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-tex-tie-current-word
+@deffn {Command} emacspeak-wizards-tex-tie-current-word  (n)
+@findex emacspeak-wizards-tex-tie-current-word
+
+@format
+Tie the next n  words.
+
+(fn N)
 @end format
 @end deffn
 
