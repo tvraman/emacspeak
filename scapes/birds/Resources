@@ -681,6 +681,11 @@ boodler.use: sound
 boodler.filename: morning-dove.aiff
 boodler.use: sound
 
+
+:dove_morning
+boodler.filename: dove-morning.aiff
+boodler.use: sound
+
 :mt_quail
 boodler.filename: mt-quail.aiff
 boodler.use: sound
