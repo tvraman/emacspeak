@@ -1602,6 +1602,7 @@ tap-reverb already installed."
 
 (defvar emacspeak-locate-media-map
   (let ((map (make-sparse-keymap)))
+    (define-key map ";" 'emacspeak-dired-play-duration)
     (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
     map)
   "Keymap used to play locate results.")
