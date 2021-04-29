@@ -2135,7 +2135,7 @@ The message is also placed in the kill ring for convenient yanking "
 ;;Return current window contents
 (defsubst emacspeak-get-window-contents ()
   "Return window contents."
-    (save-excursion (buffer-substring (window-start) (window-en 'updated))))
+    (save-excursion (buffer-substring (window-start) (window-end 'update 'updated))))
 
 (defun emacspeak-speak-window-information ()
   "Speaks information about current window."
