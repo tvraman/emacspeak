@@ -1626,7 +1626,7 @@ to play  tracks."
     (goto-char (point-min))
     (message "Buffer: %s" (current-buffer))
     (put-text-property
-     (line-beginning-position) (line-end-position)
+     (point-min) (point-max)
      'keymap  emacspeak-locate-media-map)
     (emacspeak-auditory-icon 'open-object)
     (rename-buffer (format "Media  matching %s" pattern))
