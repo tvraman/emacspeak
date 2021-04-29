@@ -465,7 +465,7 @@ listen to the places where you have left the book open.  "
       (save-window-excursion
         (emacspeak-speak-region
          (window-point win)
-         (window-end win))))))
+         (window-end win 'update))))))
 
 ;;;###autoload
 (defun emacspeak-speak-this-buffer-previous-display ()

@@ -2154,7 +2154,9 @@ top left %s %s "
   "Speak contents of current window.
 Speaks entire window irrespective of point."
   (interactive)
-  (emacspeak-speak-region (window-start) (window-end)))
+  (emacspeak-speak-region
+   (window-start (selected-window))
+   (window-end (selected-window) 'update)))
 
 (defun emacspeak-owindow-scroll-up ()
   "Scroll up the window that command `other-window' would move to.
@@ -2232,7 +2234,9 @@ is the same as for the Emacs builtin `other-window'."
         (setq window  (read-number "Window   between 1 and 9:" 1)))
       (save-window-excursion
         (other-window window)
-        (emacspeak-speak-region (window-start) (window-end)))))
+        (emacspeak-speak-region
+         (window-start (selected-window))
+         (window-end  (selected-window) 'update)))))
 
 ;;}}}
 ;;{{{  Intelligent interactive commands for reading:
