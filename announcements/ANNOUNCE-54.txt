@@ -23,7 +23,7 @@ efficiently and effectively from anywhere!
 With several prominent tweeters expanding coverage of _#emacspeak_,
 NASDOG: ESPK has now been consistently trading over the social net at
 levels close to that once attained by DogCom high-fliers—and as of
-Nov  2020 is trading at levels close to that achieved by once
+May  2021 is trading at levels close to that achieved by once
 better known stocks in the tech sector.
 
 * What Is It?
@@ -40,19 +40,8 @@ access to the evolving assistant-oriented social Internet cloud.
 
 * Major Enhancements:
 
-This version *requires* emacs-26.1 or later. 
+This version *requires* emacs-27.1 or later. 
 
-
-1. Speech-Enabled Haskell Mode ⁡
-2. Speech-Enable VTerm  🖳
-3. Speech-Enable Package Syslog  
-4. Speech-enable Package hide-lines  𐇪
-5. Speech-Enable Racer 🖹
-6. Speech-Enable Eglot 󠀁
-7. speech-Enable project.el 📽
-8. Speech-Enable rust-mode 🦊
-9. Emacspeak-sdcv --- speech-Enable Stardict Interaction 🤩
-10. Add CTL-Z As A New Prefix Keymap ⌨
 
 — And a lot more than will fit this margin. … 🗞
 
@@ -114,14 +103,16 @@ video demonstrating such complete user failure.
 Emacspeak can be downloaded from GitHub --- see
 https://github.com/tvraman/emacspeak you can visit Emacspeak on the
 WWW at http://emacspeak.sf.net. You can subscribe to the emacspeak
-mailing list — emacspeak@cs.vassar.edu — by sending mail to the
-list request address emacspeak-request@cs.vassar.edu. The [[http://emacspeak.blogspot.com][Emacspeak Blog]] is a good source for news about recent enhancements and how to
-use them.
+mailing list — [[http://mail.emacspeak.org][emacspeak@emacspeak.org]].  The [[http://emacspeak.blogspot.com][Emacspeak Blog]] is a good
+source for news about recent enhancements and how to use them.
 
 The latest development snapshot of Emacspeak is always available at
 [[https://github.com/tvraman/emacspeak][GitHub]].
 
 * History:
+
+  - Emacspeak 54.0 (EZDog) learns from Tilden by taking it easy most
+    of the time.
   - Emacspeak 53.0 (EfficientDog)  focuses on  efficiency.
   - Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a pleasurable experience.
   - Bigger and more powerful than any smart assistAnt, AssistDog provides
