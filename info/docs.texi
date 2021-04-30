@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1137 commands and 151 options.
+This chapter documents a total of 1138 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -7316,9 +7316,11 @@ buffer  to list  @code{m-player} keybindings.
 @findex emacspeak-m-player
 
 @format
-Play  resource.  Optional prefix argument
+Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
-prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. 
+prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
+See command M-x emacspeak-m-player-add-to-dynamic for adding to the
+dynamic playlist. 
 
 (fn RESOURCE &optional PLAY-LIST)
 @end format
@@ -7375,6 +7377,17 @@ Adds  filter with completion.
 Apply plugin to running MPlayer.
 Copies  invocation string to kill-ring so it can be added easily to
 our pre-defined filters if appropriate.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-add-to-dynamic
+@deffn {Command} emacspeak-m-player-add-to-dynamic  (file)
+@findex emacspeak-m-player-add-to-dynamic
+
+@format
+Add file to the current  dynamic playlist.
+
+(fn FILE)
 @end format
 @end deffn
 

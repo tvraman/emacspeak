@@ -453,9 +453,11 @@ If a dynamic playlist exists, just use it."
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
-  "Play  resource.  Optional prefix argument
+  "Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
-prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
+prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
+See command \\[emacspeak-m-player-add-to-dynamic] for adding to the
+dynamic playlist. "
   (interactive
    (list
     (emacspeak-media-read-resource)
