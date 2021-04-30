@@ -201,7 +201,10 @@ Reset immediately after being used.")
   (cl-declare (special emacspeak-m-player-dynamic-playlist))
   (cl-assert  (string-match "\\.mp3$" file) t "Must be an mp3 file.")
   (cl-pushnew file emacspeak-m-player-dynamic-playlist)
-  (message "Added %s to dynamic playlist." file))
+  (message
+   "Added %s with duration %s to dynamic playlist."
+   (file-name-base file)
+   (shell-command-to-string (format "soxi -d '%s'" file))))
 
 
 ;;}}}
