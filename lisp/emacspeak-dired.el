@@ -360,7 +360,7 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key dired-mode-map "'" 'emacspeak-dired-show-file-type)
   (define-key  dired-mode-map "/" 'emacspeak-dired-speak-file-permissions)
   (define-key  dired-mode-map ";" 'emacspeak-dired-play-duration)
-  (define-key  dired-mode-map "M-;" 'emacspeak-m-player-add-to-dynamic)
+  (define-key  dired-mode-map (ems-kbd "M-;") 'emacspeak-m-player-add-to-dynamic)
   (define-key  dired-mode-map "a" 'emacspeak-dired-speak-file-access-time)
   (define-key dired-mode-map "c" 'emacspeak-dired-speak-file-modification-time)
   (define-key dired-mode-map "z" 'emacspeak-dired-speak-file-size)
