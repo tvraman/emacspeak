@@ -464,8 +464,7 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
               (string-match emacspeak-media-shortcuts-directory resource )
               (string-match "^http" resource))))
       (unless emacspeak-m-player-url-p  ; not a URL
-        (setq
-         resource (expand-file-name resource))
+        (setq resource (expand-file-name resource))
         (setq emacspeak-m-player-current-directory (file-name-directory resource)))
       (if (file-directory-p resource)
           (setq file-list (emacspeak-m-player-directory-files resource))
