@@ -451,7 +451,7 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
     (when emacspeak-m-player-custom-filters
-      (push
+      (cl-pushnew
        (mapconcat #'identity emacspeak-m-player-custom-filters ",")
        options)
       (push "-af" options))
