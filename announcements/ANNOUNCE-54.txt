@@ -39,9 +39,17 @@ rich suite of task-oriented tools provides efficient speech-enabled
 access to the evolving assistant-oriented social Internet cloud.
 
 * Major Enhancements:
-
+  
+  - Faster Startup  🛱
+  - Capitalization And AllCaps   💼
+  - MP3 Files In Dired 🎹
+  - Gopher And Gemini ♊
+  - Emacs 28 with native compilation   🚅
+  - Updated Soundscapes  🕬
+  - Updated wizards🧙
+  - Updated URL templates  🕷
+  
 This version *requires* emacs-27.1 or later. 
-
 
 — And a lot more than will fit this margin. … 🗞
 
