@@ -442,8 +442,11 @@ If a dynamic playlist exists, just use it."
 (defun emacspeak-m-player-amark-save ()
   "Save amarks."
   (interactive)
-  (cl-declare (special emacspeak-m-player-process))
-  (when (process-live-p emacspeak-m-player-process)
+  (cl-declare (special emacspeak-m-player-process
+                       emacspeak-m-player-current-directory))
+  (when
+      (and  emacspeak-m-player-current-directory
+            (process-live-p emacspeak-m-player-process))
     (with-current-buffer
         (process-buffer emacspeak-m-player-process)
       (emacspeak-amark-save))))
@@ -523,9 +526,10 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
              emacspeak-m-player-program options))
       (set-process-filter  emacspeak-m-player-process
                            #'emacspeak-m-player-process-filter)
-      (when (and
-             emacspeak-m-player-current-directory
-             (file-exists-p emacspeak-m-player-current-directory))
+      (when
+          (and
+           emacspeak-m-player-current-directory
+           (file-exists-p emacspeak-m-player-current-directory))
         (cd emacspeak-m-player-current-directory)
         (emacspeak-amark-load))
       (setq  emacspeak-m-player-file-list file-list)
@@ -1637,6 +1641,7 @@ tap-reverb already installed."
 (defvar emacspeak-locate-media-map
   (let ((map (make-sparse-keymap)))
     (define-key map ";" 'emacspeak-dired-play-duration)
+    (define-key  map (ems-kbd "M-;") 'emacspeak-m-player-add-to-dynamic)
     (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
     map)
   "Keymap used to play locate results.")
