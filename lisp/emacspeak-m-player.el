@@ -182,6 +182,29 @@ This is set to nil when playing Internet  streams.")
     (setq buffer-undo-list t)))
 
 ;;}}}
+;;{{{Dynamic playlist:
+
+;;; Dynamic playlists are one-shot, and managed directly by emacspeak,
+;;; ie no playlist file.
+
+(defvar emacspeak-m-player-dynamic-playlist  nil
+  "Dynamic plist --- lists files in the playlist.
+Reset immediately after being used.")
+
+(defun emacspeak-m-player-add-to-dynamic (file)
+  "Add file to the current  dynamic playlist."
+  (interactive
+   (list
+    (or
+     (dired-get-filename  nil t)
+     (read-file-name "MP3 File:"))))
+  (cl-declare (special emacspeak-m-player-dynamic-playlist))
+  (cl-assert  (string-match "\\.mp3$" file) t "Must be an mp3 file.")
+  (cl-pushnew file emacspeak-m-player-dynamic-playlist)
+  (message "Added %s to dynamic playlist." file))
+
+
+;;}}}
 ;;{{{ emacspeak-m-player
 
 (defgroup emacspeak-m-player nil
