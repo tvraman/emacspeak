@@ -374,25 +374,28 @@ Controls media playback when already playing.
   "Records if  playing a URL")
 
 (defun emacspeak-media-read-resource ()
-  "Read resource from minibuffer."
-  (let ((completion-ignore-case t)
-        (read-file-name-function
-         (if (eq major-mode 'locate-mode)
-             #'read-file-name-default
-           #'ido-read-file-name))
-        (read-file-name-completion-ignore-case t)
-        (default-filename
-          (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
-            (dired-get-filename nil 'no-error)))
-        (dir (emacspeak-media-guess-directory))
-        (result nil))
-    (setq result
-          (expand-file-name
-           (funcall read-file-name-function
-                    "Media Resource: "
-                    dir
-                    default-filename 'must-match)))
-    result))
+  "Read resource from minibuffer.
+If a dynamic playlist exists, just use it."
+  (cl-declare (special emacspeak-m-player-dynamic-playlist))
+  (unless emacspeak-m-player-dynamic-playlist
+    (let ((completion-ignore-case t)
+          (read-file-name-function
+           (if (eq major-mode 'locate-mode)
+               #'read-file-name-default
+             #'ido-read-file-name))
+          (read-file-name-completion-ignore-case t)
+          (default-filename
+            (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
+              (dired-get-filename nil 'no-error)))
+          (dir (emacspeak-media-guess-directory))
+          (result nil))
+      (setq result
+            (expand-file-name
+             (funcall read-file-name-function
+                      "Media Resource: "
+                      dir
+                      default-filename 'must-match)))
+      result)))
 
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from current  stream."
@@ -455,6 +458,7 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
     (emacspeak-media-read-resource)
     current-prefix-arg))
   (cl-declare (special
+               emacspeak-m-player-dynamic-playlist
                emacspeak-m-player-file-list emacspeak-m-player-current-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
@@ -469,10 +473,10 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
         (alsa-device (getenv "ALSA_DEFAULT"))
         (process-connection-type nil)
         (playlist-p
-         (or play-list
-             (emacspeak-m-player-playlist-p resource)))
+         (when resource
+           (or play-list (emacspeak-m-player-playlist-p resource))))
         (options (copy-sequence emacspeak-m-player-options))
-        (file-list nil))
+        (file-list  emacspeak-m-player-dynamic-playlist))
     (when emacspeak-m-player-custom-filters
       (cl-pushnew
        (mapconcat #'identity emacspeak-m-player-custom-filters ",")
@@ -481,17 +485,22 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
       (setq emacspeak-m-player-url-p
-            (and
+            (and 
+             (not emacspeak-m-player-dynamic-playlist) ;  resource is nil
              (not emacspeak-m-player-accelerator-p)
              (or
               (string-match emacspeak-media-shortcuts-directory resource )
               (string-match "^http" resource))))
       (unless emacspeak-m-player-url-p  ; not a URL
-        (setq resource (expand-file-name resource))
-        (setq emacspeak-m-player-current-directory (file-name-directory resource)))
-      (if (file-directory-p resource)
-          (setq file-list (emacspeak-m-player-directory-files resource))
-        (setq file-list (list resource)))
+        (when resource
+          (setq resource (expand-file-name resource))
+          (setq emacspeak-m-player-current-directory
+                (file-name-directory resource)))
+        (unless emacspeak-m-player-dynamic-playlist
+          (if   (file-directory-p resource)
+              (setq file-list (emacspeak-m-player-directory-files resource))
+            (setq file-list (list resource)))))
+      (setq emacspeak-m-player-dynamic-playlist nil) ; consume it
       (when (and alsa-device (not (string= alsa-device "default")))
         (setq options
               (nconc options
@@ -520,12 +529,15 @@ prefix arg adds option -allow-dangerous-playlist-parsing to mplayer. "
         (cd emacspeak-m-player-current-directory)
         (emacspeak-amark-load))
       (setq  emacspeak-m-player-file-list file-list)
-      (emacspeak-auditory-icon 'progress)
       (when (called-interactively-p 'interactive)
-        (message "MPlayer opened  %s"
-                 (if (file-directory-p resource)
-                     (car (last (split-string resource "/" t)))
-                   (file-name-nondirectory resource)))))))
+        (message
+         "MPlayer opened  %s"
+         (cond
+          ((null resource)
+           (format "Dynamic playlist with %s tracks." (length file-list)))
+          ((file-directory-p resource)
+           (car (last (split-string resource "/" t))))
+          (t (file-name-nondirectory resource))))))))
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
