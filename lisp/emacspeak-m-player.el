@@ -199,13 +199,19 @@ Reset immediately after being used.")
      (dired-get-filename  nil t)
      (read-file-name "MP3 File:"))))
   (cl-declare (special emacspeak-m-player-dynamic-playlist))
-  (cl-assert  (string-match "\\.mp3$" file) t "Must be an mp3 file.")
-  (cl-pushnew file emacspeak-m-player-dynamic-playlist)
-  (message
-   "Added %s with duration %s to dynamic playlist."
-   (file-name-base file)
-   (shell-command-to-string (format "soxi -d '%s'" file))))
-
+  (cond
+   ((file-directory-p file)
+    (cl-loop
+     for f in (directory-files file 'full "\\.mp3$") do
+     (cl-pushnew f emacspeak-m-player-dynamic-playlist))
+    (message "Added files from directory %s" (file-name-base file)))
+   ((string-match "\\.mp3$" file)
+    (cl-pushnew file emacspeak-m-player-dynamic-playlist)
+    (message
+     "Added %s with duration %s to dynamic playlist."
+     (file-name-base file)
+     (shell-command-to-string (format "soxi -d '%s'" file))))
+   (t (message "No MP3 here."))))
 
 ;;}}}
 ;;{{{ emacspeak-m-player
