@@ -8,7 +8,7 @@
 #  Prerequisites: espeak, libespeak libespeak-dev
 # libespeak-ng-libespeak-dev libespeak-ng-dev espeak-ng-espeak
 # Downloads,  builds and runs specified version.
-latest=53.0
+latest=54.0
 v=$1
 
 if [ ! -n "$1" ]
