@@ -650,6 +650,10 @@ boodler.use: sound
 boodler.filename: black-sparrow.aiff
 boodler.use: sound
 
+:sparrow_black
+boodler.filename: sparrow-black.aiff
+boodler.use: sound
+
 
 :blackbird_01
 boodler.filename: blackbird-01.aiff
