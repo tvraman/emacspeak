@@ -48,6 +48,7 @@ access to the evolving assistant-oriented social Internet cloud.
   6. Updated wizards🧙
   7. Updated URL templates  🕷
   8. Capitalization And AllCaps   💼
+  9. Updated keymaps and keybindings ⌨
 
      — And a lot more than will fit this margin. … 🗞
      
