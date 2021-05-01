@@ -202,7 +202,8 @@ Reset immediately after being used.")
   (cond
    ((file-directory-p file)
     (cl-loop
-     for f in (directory-files file 'full "\\.mp3$") do
+     for f in
+     (directory-files-recursively file  "\\.mp3$") do
      (cl-pushnew f emacspeak-m-player-dynamic-playlist))
     (message "Added files from directory %s" (file-name-base file)))
    ((string-match "\\.mp3$" file)
