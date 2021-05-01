@@ -646,6 +646,11 @@ boodler.use: sound
 boodler.filename: 10-mocking-bird-035.aiff
 boodler.use: sound
 
+:black_sparrow
+boodler.filename: black-sparrow.aiff
+boodler.use: sound
+
+
 :blackbird_01
 boodler.filename: blackbird-01.aiff
 boodler.use: sound
