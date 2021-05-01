@@ -6,17 +6,17 @@ The enjoyment of one's tools is an essential ingredient of successful work. -- D
 
 San Jose, CA, (May 3, 2021)
 
-** Emacspeak 54.0 (EZDog) 🦮 Unleashed! 
-       --- Making Computing EZ Again!
+** Emacspeak 54.0 (EZDog)  Unleashed!  🦮
+       --- Making Accessible Computing EZ Again!
 
 Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
 cost of Ownership makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
-navig--- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/54.0/emacspeak-53.0.tar.bz2][Emacspeak 54.0]]
-(EZDog) 🦮  --- a powerful audio desktop that leverages today's evolving
-Data, Social and Assistant-Oriented Internet cloud   to enable working
-efficiently and effectively from anywhere!
+announces  immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/54.0/emacspeak-53.0.tar.bz2][Emacspeak 54.0]]
+(EZDog) 🦮 --- a powerful audio desktop that leverages today's
+evolving Data, Social and Assistant-Oriented Internet cloud to enable
+working efficiently and effectively from anywhere!
 
 * Investors Note:
 
@@ -294,7 +294,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Announcing Emacspeak 53.0—EfficientDog!
+#+TITLE:     Announcing Emacspeak 54.0—EZDog!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
