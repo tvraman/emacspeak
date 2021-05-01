@@ -1,0 +1,50 @@
+#    -*- mode: org -*-
+The enjoyment of one's tools is an essential ingredient of successful work.
+ -- Donald E. Knuth
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+
+* Emacspeak 54 --- Emacspeak 54 User Visible Changes
+
+This version requires Emacs-27.1 or later.
+
+
+** Capitalization And AllCaps
+
+Emacspeak used to convey capitalization and all-caps via beeps when
+options _dtk-capitalize_ and/or _dtk-allcaps_ were turned on. 
+This
+worked wlel with the Dectalk that could splice in tones, but doesn't
+work well with other engines.  As of this version, Emacspeak replaces
+thos beeps with short utterances --- _cap_ for an initial capital
+letter, and _ac_ for a word in all-caps. 
+
+Those options have been replaced with a single _dtk-caps_ option that
+ is now on by default in all programming modes.
+
+** Faster Startup
+
+ Emacspeak startup has been speeded up by loading larger modules on a
+ separate thread using ~make-thread~.
+
+** MP3 Files In Dired
+
+   Command ~emacspeak-dired-play-duration~ bound to _;_ in
+   ~dired-mode~ speaks the play duration of MP3 files using ~soxi~.
+   
+** Gopher And Gemini
+
+   Module ~emacspeak-elpher~ speech-enables package ~elpher~, a
+   gopher/gemini client for accessing content on the Internet using
+   Gopher and Gemini protocols.
+
+** Emacs 28 (Development Version) And Native Compilation
+
+   Tested under native compilation in emacs 28.
+
+**  Updated Soundscapes
+
+   The Nature and SurfWaves scapes have been updated.
