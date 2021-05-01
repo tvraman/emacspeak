@@ -310,7 +310,9 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun mac-configure-tts ()
   "Configure TTS  to use mac."
-  (cl-declare (special tts-default-speech-rate mac-default-speech-rate))
+  (cl-declare (special tts-default-speech-rate
+                       tts-default-voice mac-default-speech-rate))
+  (setq tts-default-voice 'alex)
   (fset 'tts-voice-defined-p 'mac-voice-defined-p)
   (fset 'tts-get-voice-command 'mac-get-voice-command)
   (fset 'tts-define-voice-from-speech-style 'mac-define-voice-from-speech-style)
