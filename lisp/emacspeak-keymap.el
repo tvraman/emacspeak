@@ -637,6 +637,7 @@
 
 (defcustom emacspeak-ctl-z-keys 
   '(
+    ("SPC" flyspell-mode)
     ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("d" magit-dispatch)
     ("e" emacspeak-wizards-eww-buffer-list)
