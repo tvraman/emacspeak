@@ -40,18 +40,19 @@ access to the evolving assistant-oriented social Internet cloud.
 
 * Major Enhancements:
   
-  - Faster Startup  🛱
-  - Capitalization And AllCaps   💼
-  - MP3 Files In Dired 🎹
-  - Gopher And Gemini ♊
-  - Emacs 28 with native compilation   🚅
-  - Updated Soundscapes  🕬
-  - Updated wizards🧙
-  - Updated URL templates  🕷
-  
-This version *requires* emacs-27.1 or later. 
+  1. Faster Startup  🛱
+  2. MP3 Files In Dired 🎹
+  3. Gopher And Gemini ♊
+  4. Emacs 28 with native compilation   🚅
+  5. Updated Soundscapes  🕬
+  6. Updated wizards🧙
+  7. Updated URL templates  🕷
+  8. Capitalization And AllCaps   💼
 
-— And a lot more than will fit this margin. … 🗞
+     — And a lot more than will fit this margin. … 🗞
+     
+  
+Note: This version *requires* emacs-27.1 or later. 
 
 * Establishing Liberty, Equality And Freedom:
 
@@ -119,8 +120,7 @@ The latest development snapshot of Emacspeak is always available at
 
 * History:
 
-  - Emacspeak 54.0 (EZDog) learns from Tilden by taking it easy most
-    of the time.
+  - Emacspeak 54.0 (EZDog) learns to take it easy from Tilden 
   - Emacspeak 53.0 (EfficientDog)  focuses on  efficiency.
   - Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a pleasurable experience.
   - Bigger and more powerful than any smart assistAnt, AssistDog provides
