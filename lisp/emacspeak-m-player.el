@@ -72,6 +72,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-dired)
 (require 'ladspa)
 (require 'emacspeak-amark)
 (declare-function dired-get-filename "dired" (&optional localp
@@ -219,20 +220,20 @@ Reset immediately after being used.")
   (emacspeak-dired-speak-line))
 
 
-(defsubst ems--dynamic-playlist-duration ()
+(defun ems--dynamic-playlist-duration ()
   "Return duration of dynamic playlist."
   (cl-declare (special emacspeak-m-player-dynamic-playlist))
-  (cl-assert emacspeak-m-player-dynamic-playlist t "No dynamic
-playlist")
-  (let ((buff  " *soxi*"))
-    (apply
-     #'start-process
-     "soxi" buff
-     "soxi" "-Td"
-     emacspeak-m-player-dynamic-playlist)
-    (accept-process-output)
-    (with-current-buffer buff
-      (buffer-string))))
+  (cl-assert emacspeak-m-player-dynamic-playlist t "No dynamic playlist")
+  (ems-with-messages-silenced
+      (let ((buff  " *soxi*"))
+        (apply
+         #'start-process
+         "soxi" buff
+         "soxi" "-Td"
+         emacspeak-m-player-dynamic-playlist)
+        (accept-process-output)
+        (with-current-buffer buff
+          (buffer-string)))))
 
 ;;}}}
 ;;{{{ emacspeak-m-player
@@ -511,7 +512,10 @@ dynamic playlist. "
          (when resource
            (or play-list (emacspeak-m-player-playlist-p resource))))
         (options (copy-sequence emacspeak-m-player-options))
-        (file-list  (nreverse emacspeak-m-player-dynamic-playlist)))
+        (file-list  (reverse emacspeak-m-player-dynamic-playlist))
+        (duration
+         (when emacspeak-m-player-dynamic-playlist
+           (ems--dynamic-playlist-duration))))
     (when emacspeak-m-player-custom-filters
       (cl-pushnew
        (mapconcat #'identity emacspeak-m-player-custom-filters ",")
@@ -570,7 +574,9 @@ dynamic playlist. "
          "MPlayer opened  %s"
          (cond
           ((null resource)
-           (format "Dynamic playlist with %s tracks." (length file-list)))
+           (format
+            "Dynamic playlist with %s tracks and duration %s"
+            (length file-list) duration))
           ((file-directory-p resource)
            (car (last (split-string resource "/" t))))
           (t (file-name-nondirectory resource))))))))
