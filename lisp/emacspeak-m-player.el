@@ -491,7 +491,7 @@ dynamic playlist. "
          (when resource
            (or play-list (emacspeak-m-player-playlist-p resource))))
         (options (copy-sequence emacspeak-m-player-options))
-        (file-list  emacspeak-m-player-dynamic-playlist))
+        (file-list  (nreverse emacspeak-m-player-dynamic-playlist)))
     (when emacspeak-m-player-custom-filters
       (cl-pushnew
        (mapconcat #'identity emacspeak-m-player-custom-filters ",")
