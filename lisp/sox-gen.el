@@ -494,7 +494,7 @@ binaural beat to another."
   (cl-first s)
   (make-sox--binaural
    :beats `(,(cdr s))
-   :gain -25)))
+   :gain -20)))
 
 ;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
 ;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
@@ -517,7 +517,7 @@ binaural beat to another."
   (cl-first s)
   (make-sox--binaural
    :beats `(,(cdr s))
-   :gain -25)))
+   :gain -20)))
 
 (defun sox-chakras (theme duration)
   "Play each chakra for specified duration.
