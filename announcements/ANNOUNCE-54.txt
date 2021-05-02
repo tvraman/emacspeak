@@ -122,7 +122,7 @@ The latest development snapshot of Emacspeak is always available at
 
 * History:
 
-  - Emacspeak 54.0 (EZDog) learns to take it easy from Tilden 
+  - Emacspeak 54.0 (EZDog) learns to take it easy from Tilden.
   - Emacspeak 53.0 (EfficientDog)  focuses on  efficiency.
   - Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a pleasurable experience.
   - Bigger and more powerful than any smart assistAnt, AssistDog provides
