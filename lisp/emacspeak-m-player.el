@@ -225,15 +225,21 @@ Reset immediately after being used.")
   (cl-declare (special emacspeak-m-player-dynamic-playlist))
   (cl-assert emacspeak-m-player-dynamic-playlist t "No dynamic playlist")
   (ems-with-messages-silenced
-      (let ((buff  " *soxi*"))
-        (apply
-         #'start-process
-         "soxi" buff
-         "soxi" "-Td"
-         emacspeak-m-player-dynamic-playlist)
-        (accept-process-output)
+      (let* ((result nil)
+             (buff  " *soxi*")
+             (proc
+              (apply
+               #'start-process
+               "soxi" buff
+               "soxi" "-Td"
+               emacspeak-m-player-dynamic-playlist)))
+        (accept-process-output proc 0 100)
         (with-current-buffer buff
-          (buffer-string)))))
+          (goto-char (point-min))
+          (setq result (buffer-substring-no-properties
+                        (line-beginning-position)
+                        (line-end-position))))
+        result)))
 
 ;;}}}
 ;;{{{ emacspeak-m-player
