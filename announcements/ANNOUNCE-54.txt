@@ -42,15 +42,16 @@ access to the evolving assistant-oriented social Internet cloud.
   
   1. Faster Startup  🛱
   2. MP3 Files In Dired 🎹
-  3. Gopher And Gemini ♊
-  4. Emacs 28 with native compilation   🚅
-  5. Updated Soundscapes  🕬
-  6. Updated wizards🧙
-  7. Updated URL templates  🕷
-  8. Capitalization And AllCaps   💼
-  9. Updated keymaps and keybindings ⌨
+  3. Dynamic playlist support with m-player  🎶
+  4. Gopher And Gemini ♊
+  5. Emacs 28 with native compilation   🚅
+  6. Updated Soundscapes  🐦
+  7. Updated wizards🧙
+  8. Updated URL templates  🕷
+  9. Capitalization And AllCaps   💼
+  10. Updated keymaps and keybindings ⌨
 
-     — And a lot more than will fit this margin. … 🗞
+      — And a lot more than will fit this margin. … 🗞
      
   
 Note: This version *requires* emacs-27.1 or later. 
