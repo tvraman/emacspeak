@@ -218,6 +218,22 @@ Reset immediately after being used.")
   (forward-line 1)
   (emacspeak-dired-speak-line))
 
+
+(defsubst ems--dynamic-playlist-duration ()
+  "Return duration of dynamic playlist."
+  (cl-declare (special emacspeak-m-player-dynamic-playlist))
+  (cl-assert emacspeak-m-player-dynamic-playlist t "No dynamic
+playlist")
+  (let ((buff  " *soxi*"))
+    (apply
+     #'start-process
+     "soxi" buff
+     "soxi" "-Td"
+     emacspeak-m-player-dynamic-playlist)
+    (accept-process-output)
+    (with-current-buffer buff
+      (buffer-string))))
+
 ;;}}}
 ;;{{{ emacspeak-m-player
 
