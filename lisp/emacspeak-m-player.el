@@ -212,7 +212,8 @@ Reset immediately after being used.")
      "Added %s with duration %s to dynamic playlist."
      (file-name-base file)
      (shell-command-to-string (format "soxi -d '%s'" file))))
-   (t (message "No MP3 here."))))
+   (t (message "No MP3 here.")))
+  (forward-line 1))
 
 ;;}}}
 ;;{{{ emacspeak-m-player
