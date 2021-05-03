@@ -191,7 +191,7 @@ This is set to nil when playing Internet  streams.")
 (defvar emacspeak-m-player-dynamic-playlist  nil
   "Dynamic plist --- lists files in the playlist.
 Reset immediately after being used.")
-
+;;;###autoload
 (defun emacspeak-m-player-add-to-dynamic (file)
   "Add file to the current  dynamic playlist."
   (interactive
