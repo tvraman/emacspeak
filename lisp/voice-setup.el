@@ -229,6 +229,7 @@ Define a voice for it if needed, then return the symbol."
 
 ;;}}}
 ;;{{{ new light-weight voice lock
+(declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
 
 ;;;###autoload
 (define-minor-mode voice-lock-mode

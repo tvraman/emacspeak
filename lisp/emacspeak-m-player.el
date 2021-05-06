@@ -1689,7 +1689,8 @@ tap-reverb already installed."
     (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
     map)
   "Keymap used to play locate results.")
-
+(add-hook 'locate-mode-hook
+          #'emacspeak-pronounce-refresh-pronunciations)
 ;;;###autoload
 (defun emacspeak-m-player-locate-media (pattern)
   "Locate media matching  pattern.  The results can be
