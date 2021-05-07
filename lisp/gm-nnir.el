@@ -58,8 +58,7 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-
-(require 'nnir)
+(with-no-warnings (require 'nnir))
 (require 'gnus-group)
 ;;}}}
 ;;{{{ IMap Search Operators:
