@@ -71,10 +71,7 @@
 ;;; Smarter sppol-size compute functions.
 ;;; These show the number of messages in a spool.
 
-(defun mspools-compute-size (file)
-  (let ((message-log-max nil)
-        (inhibit-message t)
-        (emacspeak-speak-messages nil)))
+(defsubst mspools-compute-size (file)
   (read (shell-command-to-string (format "grep '^From ' %s | wc -l" file))))
 
 (defun mspools-size-folder (spool)
