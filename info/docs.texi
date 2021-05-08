@@ -57,6 +57,7 @@ This chapter documents a total of 1138 commands and 151 options.
 * emacspeak-dired::Speech enable Dired Mode -- A powerful File Manager.
 * emacspeak-dismal::Speech enable Dismal -- An Emacs Spreadsheet program.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
+* emacspeak-eaf::Speech-enable EAF.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
 * emacspeak-ediff::Speech enable Emacs interface to diff and merge.
@@ -3160,6 +3161,13 @@ emacspeak-dismal-sheet-summarizer-list
 
 DUMB-JUMP ==  Jump to imputed cross-references  in source code.
 This module speech-enables dumb-jump
+
+@node emacspeak-eaf
+@section emacspeak-eaf
+
+EAF ==  Emacs Application Framework
+https://github.com/manateelazycat/emacs-application-framework.git
+This module speech-enables the elisp side of EAF.
 
 @node emacspeak-ecb
 @section emacspeak-ecb
