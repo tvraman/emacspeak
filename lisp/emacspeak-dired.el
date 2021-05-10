@@ -369,6 +369,12 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key dired-mode-map  "," 'emacspeak-dired-speak-header-line))
 ;;}}}
 ;;{{{ Advice locate:
+(defun emacspeak-dired-open-this-directory ()
+  "Open directory corresponding to file on current line."
+  (interactive)
+  (cl-assert (dired-get-filename) t "No file here.")
+  (funcall-interactively #'dired (file-name-directory    (dired-get-filename))))
+
 (cl-loop
  for f in
  '(locate locate-with-filter)
@@ -382,6 +388,7 @@ On a directory line, run du -s on the directory to speak its size."
 (load "locate" t t)
 
 (cl-declaim (special locate-mode-map))
+(define-key locate-mode-map  "j" 'emacspeak-dired-open-this-directory)
 (define-key locate-mode-map  [C-return] 'emacspeak-dired-open-this-file)
 ;;}}}
 ;;{{{ Context-sensitive openers:
