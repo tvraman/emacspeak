@@ -636,7 +636,7 @@ class BirdCalls(agent.Agent):
                 bc = self.new_channel_pan(x[k])
                 ag = self.agents[i](
                     0, 60,
-                    0.4, 0.75,  # volume
+                    0.7, 1.0,  # volume
                     -1 + k * 0.285714  # pan
                 )
                 self.sched_agent(ag, 0, bc)
