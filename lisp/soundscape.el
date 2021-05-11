@@ -338,7 +338,7 @@ See  \\{soundscape-default-theme} for details."
     ("MockingBirds" nil)
     ("MockingCuckoos" nil)
     ("Nightscape" (emacspeak-screen-saver-mode))
-    ("NoStormYet"  (fundamental-mode))
+    ("BirdCalls"  (fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
     ("Still" (text-mode view-mode))
