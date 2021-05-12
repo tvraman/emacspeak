@@ -183,18 +183,18 @@ instead you hear only the first screenful."
 
 (cl-loop
  for f in
- '(gnus-group-select-group gnus-group-first-unread-group
-                           gnus-group-read-group
-                           gnus-group-prev-group gnus-group-next-group
-                           gnus-group-prev-unread-group  gnus-group-next-unread-group
-                           gnus-group-get-new-news-this-group
-                           )
+ '(
+   gnus-group-select-group gnus-group-first-unread-group
+   gnus-group-read-group
+   gnus-group-prev-group gnus-group-next-group
+   gnus-group-prev-unread-group  gnus-group-next-unread-group
+   gnus-group-get-new-news-this-group)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (defadvice gnus-group-unsubscribe-current-group (after emacspeak pre act)
