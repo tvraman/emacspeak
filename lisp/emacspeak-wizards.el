@@ -1501,7 +1501,7 @@ of the source buffer."
   (cl-declare (special emacspeak-wizards--project-shell-directory))
   (ems--shell-pushd-if-needed
    emacspeak-wizards--project-shell-directory (current-buffer))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-auditory-icon 'item)
   (message (abbreviate-file-name default-directory)))
 
 (defun emacspeak-wizards-shell-re-key (key buffer)
