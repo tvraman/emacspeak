@@ -67,6 +67,15 @@ sox tmp.aiff $1 gain $2
 }
 
 
+# Usage: setAiffNormal  filename 
+
+function setAiffNormal () {
+  mv $1 tmp.aiff
+sox tmp.aiff $1 gain -n
+\rm tmp.aiff
+}
+
+
 # Usage: setWavNormal  filename 
 function setWavNormal () {
   mv $1 tmp.wav
