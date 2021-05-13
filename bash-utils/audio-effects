@@ -67,8 +67,14 @@ sox tmp.aiff $1 gain $2
 }
 
 
-# Usage: setWavGain  filename gain
+# Usage: setWavNormal  filename 
+function setWavNormal () {
+  mv $1 tmp.wav
+sox tmp.wav $1 gain -n
+\rm tmp.wav
+}
 
+# Usage: setWavGain  filename gain
 function setWavGain () {
   mv $1 tmp.wav
 sox tmp.wav $1 gain $2
