@@ -595,7 +595,7 @@ class BirdChorus(agent.Agent):
                      -0.99 + 0.285714 * k  # pan  (-1,1)
                 )
                 bc.set_pan (target,(random.uniform(1, 3)))
-                self.sched_agent(ag, (i+j) * 5, bc)
+                self.sched_agent(ag, k * 5, bc)
 
 
 class MockingCuckoos(agent.Agent):
