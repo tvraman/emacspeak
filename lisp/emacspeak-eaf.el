@@ -213,7 +213,7 @@ eaf-toggle-fullscreen
   "Speak resulting buffer."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (message "Exported web page as text.")))
+    (message "Exporting web page as text.")))
 
 
 ;;}}}
