@@ -14,3 +14,11 @@ This version requires Emacs-27.1 or later.
 ** emacspeak-eaf.el
 
 Speech-enable the elisp side of Emacs Application Framework
+
+** Updated Soundscapes
+
+   Soundscapes updated and tuned for better headphone listening.
+   
+**  Updated Auditory Icons
+
+   Theme ~pan-chimes~ updated for better headphone listening.
