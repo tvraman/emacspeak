@@ -55,6 +55,7 @@
 (require 'gweb)
 (declare-function word-at-point "thingatpt" (&optional no-properties))
 (declare-function calendar-cursor-to-date "calendar" (&optional error event))
+(declare-function emacspeak-eww-autospeak "emacspeak-eww" nil)
 
 ;;}}}
 ;;{{{ Forward Declarations:
