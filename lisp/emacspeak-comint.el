@@ -578,7 +578,9 @@ process PID's current working directory.
 
 Turning on Dirtrack-Procfs mode automatically turns off
 Shell-Dirtrack mode; turning it off does not re-enable it."
-  nil "" nil
+  :init-value nil
+  :lighter ""
+  :keymap nil
   (if (not dirtrack-procfs-mode)
       (remove-hook 'comint-preoutput-filter-functions
                    #'emacspeak-shell-dirtrack-procfs t)

@@ -234,7 +234,8 @@ Define a voice for it if needed, then return the symbol."
 ;;;###autoload
 (define-minor-mode voice-lock-mode
   "Toggle voice lock mode."
-  t nil nil
+  :init-value t
+  :keymap nil
   (when (called-interactively-p 'interactive)
     (let ((state (if voice-lock-mode 'on 'off)))
       (emacspeak-auditory-icon state))))
