@@ -62,6 +62,7 @@
   :group 'tts
   :type 'integer
   :set #'(lambda(sym val)
+           (cl-declare (special dtk-program))
            (set-default sym val)
            (when (string-match "outloud" dtk-program)
              (setq-default dtk-speech-rate val))))
@@ -304,7 +305,7 @@
 (defun outloud-configure-tts ()
   "Configure TTS  to use Outloud."
   (cl-declare (special tts-default-speech-rate tts-default-voice
-                       outloud-default-speech-rate
+                       outloud-default-speech-rate dtk-speech-rate
                        dtk-speech-rate-step dtk-speech-rate-base))
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-get-voice-command 'outloud-get-voice-command)

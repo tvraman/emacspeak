@@ -116,7 +116,7 @@
 ;;; outloud, dectalk, espeak.
 ;;; Whenever we switch engines, we load voice-definitions for that
 ;;; engine by reloading module voice-defs.
-
+(cl-declaim (special dtk-program))
 (cond
  ((string-match "outloud" dtk-program)
   (require 'outloud-voices)
