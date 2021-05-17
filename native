@@ -1,5 +1,5 @@
 #!/bin/sh
-EMACS=/home/raman/sourceforge/emacs/src/emacs
+EMACS=/home/raman/sourceforge/native-emacs/src/emacs
 
 make clean
 make config EMACS=$EMACS
