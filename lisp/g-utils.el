@@ -68,7 +68,9 @@
   "Name of CURL executable.")
 
 (defcustom g-atom-view-xsl
-  (eval-when-compile (emacspeak-xslt-get "atom-view.xsl"))
+  (eval-when-compile
+    (require 'emacspeak-xslt)
+    (emacspeak-xslt-get "atom-view.xsl"))
   "XSLT transform to convert Atom feed to HTML."
   :type 'string
   :group 'g)
