@@ -4,6 +4,5 @@ EMACS=/home/raman/sourceforge/emacs/src/emacs
 make clean
 make config EMACS=$EMACS
 make EMACS=$EMACS COMPILE="-f batch-native-compile"
-@cd lisp && make EMACS=$EMACS COMPILE="-f batch-native-compile"
-muggles --no-print-directory
-@cd lisp && make EMACS=$EMACS COMPILE="-f batch-native-compile" extra-muggles --no-print-directory
+cd lisp && make EMACS=$EMACS COMPILE="-f batch-native-compile" muggles --no-print-directory
+cd lisp && make EMACS=$EMACS COMPILE="-f batch-native-compile" extra-muggles --no-print-directory
