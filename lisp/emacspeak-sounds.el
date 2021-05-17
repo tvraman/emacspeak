@@ -144,6 +144,7 @@ Do not set this by hand;
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
+  (cl-declare (special emacspeak-sounds-directory))
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
 
