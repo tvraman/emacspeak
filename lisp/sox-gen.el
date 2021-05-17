@@ -501,13 +501,13 @@ binaural beat to another."
 
 (defconst sox--chakra-settings-1
   '(
-    ("root-0" 256 7.83)
-    ("navel-0" 288 7.83)
-    ("solar-plexus-0" 320 7.83)
-    ("heart-0" 341.3 7.83)
-    ("throat-0" 384 7.83)
-    ("3rd-eye-0" 426.7 7.83)
-    ("crown-0" 480 7.83)
+    ("root" 256 7.83)
+    ("navel" 288 7.83)
+    ("solar-plexus" 320 7.83)
+    ("heart" 341.3 7.83)
+    ("throat" 384 7.83)
+    ("3rd-eye" 426.7 7.83)
+    ("crown" 480 7.83)
     )
   "Frequency settings.")
 
