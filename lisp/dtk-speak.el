@@ -1522,6 +1522,7 @@ ALSA_DEFAULT."
     (dtk-initialize)))
 (defsubst tts-multistream-p (tts-engine)
   "Checks if this tts-engine can support multiple streams."
+  (cl-declare (special tts-notification-device))
   (and
    (member tts-engine '("outloud"  "cloud-outloud"))
    (not (string= tts-notification-device "default"))))
