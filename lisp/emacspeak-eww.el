@@ -457,6 +457,7 @@
 (require 'emacspeak-google)
 (declare-function emacspeak-epub-eww
                   "emacspeak-epub" (epub-file &optional broken-ncx))
+(declare-function emacspeak-m-player "emacspeak-m-player" (resource &optional play-list))
 
 ;;}}}
 ;;{{{ Helpers:
