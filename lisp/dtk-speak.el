@@ -55,6 +55,8 @@
 (require 'dtk-interp)
 (require 'dtk-unicode)
 (eval-when-compile (require 'subr-x))
+(declare-function ems--fastload "emacspeak-preamble" (file))
+
 ;;}}}
 ;;{{{ Forward Declarations:
 
@@ -750,7 +752,7 @@ Here,  change is any change in property personality, face or font-lock-face."
           (dtk-interp-silence (get-text-property start 'pause) nil)))))))
 
 ;;;Force the speech.
-(cl--defalias 'dtk-force 'dtk-interp-speak)
+(defalias 'dtk-force 'dtk-interp-speak)
 
 ;;;Write out the string to the tts via TCL.
 ;;; No quoting is done,
@@ -1518,6 +1520,11 @@ ALSA_DEFAULT."
   (when (called-interactively-p 'interactive)
     (ems--fastload "voice-setup")
     (dtk-initialize)))
+(defsubst tts-multistream-p (tts-engine)
+  "Checks if this tts-engine can support multiple streams."
+  (and
+   (member tts-engine '("outloud"  "cloud-outloud"))
+   (not (string= tts-notification-device "default"))))
 
 (defun dtk-cloud ()
   "Select  Cloud TTS server."
@@ -1583,11 +1590,7 @@ program. Port defaults to dtk-local-server-port"
   :type 'string
   :group 'tts)
 
-(defsubst tts-multistream-p (tts-engine)
-  "Checks if this tts-engine can support multiple streams."
-  (and
-   (member tts-engine '("outloud"  "cloud-outloud"))
-   (not (string= tts-notification-device "default"))))
+
 
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
