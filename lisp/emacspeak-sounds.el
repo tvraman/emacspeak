@@ -89,7 +89,7 @@ Use `emacspeak-toggle-auditory-icons' bound to
 
 ;;}}}
 ;;{{{  Setup sound themes
-
+(cl-declaim (special emacspeak-sounds-directory))
 (defvar emacspeak-default-sound
   (expand-file-name
    "classic/button.wav"
