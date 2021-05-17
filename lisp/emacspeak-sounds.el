@@ -77,6 +77,7 @@ Use `emacspeak-toggle-auditory-icons' bound to
 
 ;;}}}
 ;;{{{ Setup Audio 
+(declare-function amixer "amixer" (&optional refresh))
 
 (defun emacspeak-audio-setup (&optional prefix)
   "Call amixer  command."
@@ -155,7 +156,9 @@ Do not set this by hand;
    (list
     (expand-file-name
      (read-directory-name "Theme: " emacspeak-sounds-directory))))
-  (cl-declare (special emacspeak-sounds-current-theme emacspeak-sounds-themes-table))
+  (cl-declare (special emacspeak-sounds-current-theme
+                       emacspeak-sounds-themes-table
+                       emacspeak-sounds-directory))
   (setq theme (expand-file-name theme emacspeak-sounds-directory))
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
