@@ -1,7 +1,7 @@
 #!/bin/sh
 EMACS=/home/raman/sourceforge/native-emacs/src/emacs
 git rebase master
-make clean
+#make clean
 make config EMACS=$EMACS
 make EMACS=$EMACS COMPILE="-f batch-native-compile"
 cd lisp && make EMACS=$EMACS COMPILE="-f batch-native-compile" muggles --no-print-directory
