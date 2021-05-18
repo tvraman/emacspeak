@@ -458,6 +458,7 @@
     ("9" emacspeak-wizards-shell-by-key) 
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("C" emacspeak-wizards-colors)
+    (";" emacspeak-m-player-loop)
     ("SPC" emacspeak-jabber-speak-recent-message)
     ("a" emacspeak-wizards-alpha-vantage-quotes)
     ("b" battery)
