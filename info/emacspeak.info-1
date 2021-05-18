@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 8, 2021.
+last updated on May 18, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1138 commands and 151 options.
+   This chapter documents a total of 1140 commands and 151 options.
 
 * Menu:
 
@@ -5336,21 +5336,28 @@ This module speech enables dired.
 
      Play midi  file on current dired line.
 
-12.48.1.8 emacspeak-dired-open-this-file
+12.48.1.8 emacspeak-dired-open-this-directory
+.............................................
+
+ -- Command: emacspeak-dired-open-this-directory
+
+     Open directory corresponding to file on current line.
+
+12.48.1.9 emacspeak-dired-open-this-file
 ........................................
 
  -- Command: emacspeak-dired-open-this-file
 
      Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd.
 
-12.48.1.9 emacspeak-dired-pdf-open
-..................................
+12.48.1.10 emacspeak-dired-pdf-open
+...................................
 
  -- Command: emacspeak-dired-pdf-open
 
      Open PDF file on current dired line.
 
-12.48.1.10 emacspeak-dired-play-duration
+12.48.1.11 emacspeak-dired-play-duration
 ........................................
 
  -- Command: emacspeak-dired-play-duration
@@ -5360,14 +5367,14 @@ This module speech enables dired.
      If on a directory, speak the total duration of all mp3 files under
        that directory.
 
-12.48.1.11 emacspeak-dired-rpm-query-in-dired
+12.48.1.12 emacspeak-dired-rpm-query-in-dired
 .............................................
 
  -- Command: emacspeak-dired-rpm-query-in-dired
 
      Run rpm -qi on current dired entry.
 
-12.48.1.12 emacspeak-dired-show-file-type
+12.48.1.13 emacspeak-dired-show-file-type
 .........................................
 
  -- Command: emacspeak-dired-show-file-type (&optional file
@@ -5379,28 +5386,28 @@ This module speech enables dired.
 
      (fn &optional FILE DEREF-SYMLINKS)
 
-12.48.1.13 emacspeak-dired-speak-file-access-time
+12.48.1.14 emacspeak-dired-speak-file-access-time
 .................................................
 
  -- Command: emacspeak-dired-speak-file-access-time
 
      Speak access time  of the current file.
 
-12.48.1.14 emacspeak-dired-speak-file-modification-time
+12.48.1.15 emacspeak-dired-speak-file-modification-time
 .......................................................
 
  -- Command: emacspeak-dired-speak-file-modification-time
 
      Speak modification time  of the current file.
 
-12.48.1.15 emacspeak-dired-speak-file-permissions
+12.48.1.16 emacspeak-dired-speak-file-permissions
 .................................................
 
  -- Command: emacspeak-dired-speak-file-permissions
 
      Speak the permissions of the current file.
 
-12.48.1.16 emacspeak-dired-speak-file-size
+12.48.1.17 emacspeak-dired-speak-file-size
 ..........................................
 
  -- Command: emacspeak-dired-speak-file-size
@@ -5408,21 +5415,21 @@ This module speech enables dired.
      Speak the size of the current file.
      On a directory line, run du -s on the directory to speak its size.
 
-12.48.1.17 emacspeak-dired-speak-header-line
+12.48.1.18 emacspeak-dired-speak-header-line
 ............................................
 
  -- Command: emacspeak-dired-speak-header-line
 
      Speak the header line of the dired buffer.
 
-12.48.1.18 emacspeak-dired-speak-symlink-target
+12.48.1.19 emacspeak-dired-speak-symlink-target
 ...............................................
 
  -- Command: emacspeak-dired-speak-symlink-target
 
      Speaks the target of the symlink on the current line.
 
-12.48.1.19 emacspeak-locate-play-results-as-playlist
+12.48.1.20 emacspeak-locate-play-results-as-playlist
 ....................................................
 
  -- Command: emacspeak-locate-play-results-as-playlist (&optional

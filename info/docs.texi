@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1138 commands and 151 options.
+This chapter documents a total of 1140 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -2884,6 +2884,15 @@ Preview markdown  file on current dired line.
 
 @format
 Play midi  file on current dired line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dired-open-this-directory
+@deffn {Command} emacspeak-dired-open-this-directory   
+@findex emacspeak-dired-open-this-directory
+
+@format
+Open directory corresponding to file on current line.
 @end format
 @end deffn
 
@@ -7770,6 +7779,15 @@ played as a play-list by pressing [RET] on the first line, see
 to play  tracks.
 
 (fn PATTERN)
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-loop
+@deffn {Command} emacspeak-m-player-loop   
+@findex emacspeak-m-player-loop
+
+@format
+M-Player with repeat indefinitely  turned on.
 @end format
 @end deffn
 
