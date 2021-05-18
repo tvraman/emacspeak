@@ -636,6 +636,16 @@ This will work if the soundcard is set to 48000."
          (append emacspeak-m-player-options (list "-shuffle"))))
     (call-interactively #'emacspeak-m-player)))
 
+
+;;;###autoload
+(defun emacspeak-m-player-loop ()
+  "M-Player with repeat indefinitely  turned on."
+  (interactive)
+  (cl-declare (special emacspeak-m-player-options))
+  (let ((emacspeak-m-player-options
+         (append emacspeak-m-player-options (list "-loop" "0"))))
+    (call-interactively #'emacspeak-m-player)))
+
 (defun emacspeak-m-player-load (resource  &optional append)
   "Load specified resource into a running  m-player.
 Interactive prefix arg appends the new resource to what is playing."
