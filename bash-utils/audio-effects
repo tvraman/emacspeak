@@ -25,7 +25,7 @@ function bs2b () {
 
 # Usage: pan filename frequency 
 # For generating one full sweep,
-# use pan frequency of 1/duration-of-icon.
+# use pan frequency of 2/duration-of-icon.
 
 function pan () {
   mplayer -af ladspa=tap_autopan:tap_autopan:$2:100:0  -ao pcm:file=tmp.wav $1
