@@ -446,8 +446,7 @@ On a directory line, run du -s on the directory to speak its size."
             :test #'(lambda (e pattern) (string-match  pattern e)))))
     (cond
      ((and handler (fboundp handler))
-      (emacspeak-auditory-icon 'task-done)
-      (funcall handler))
+      (funcall-interactively handler))
      (t (call-interactively #'dired-find-file)))))
 
 (defun emacspeak-dired-eww-open ()
