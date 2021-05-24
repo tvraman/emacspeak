@@ -237,9 +237,6 @@ already disabled."
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
   (ems-with-messages-silenced
-      (start-process
-       "fuser" nil
-       "fuser" "-k" "/dev/snd/*")
       (emacspeak-prompt "waking-up")
     (when (featurep 'xbacklight) (xbacklight-black))
     (amixer-restore amixer-alsactl-config-file)
