@@ -149,7 +149,8 @@ instead you hear only the first screenful."
   (message "Gnus is ready "))
 (cl-loop
  for f in
- '(gnus-group-suspend gnus-group-quit gnus-group-exit)
+ '(gnus-group-suspend gnus-group-quit
+                      gnus-group-exit gnus-server-exit)
  do
  (eval
   `(defadvice ,f(after emacspeak pre act com)
