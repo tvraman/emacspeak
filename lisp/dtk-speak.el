@@ -1715,6 +1715,7 @@ No-op if  `dtk-quiet' is set to t. "
           (syntax-table (syntax-table))
           (inherit-speaker-process dtk-speaker-process)
           (pron-table emacspeak-pronounce-pronunciation-table)
+          (pron-personality emacspeak-pronounce-pronunciation-personality)
           (use-auditory-icons emacspeak-use-auditory-icons)
           (chunk-sep dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
@@ -1734,6 +1735,7 @@ No-op if  `dtk-quiet' is set to t. "
 ;;; inherit environment
         (setq
          yank-excluded-properties dtk-yank-excluded-properties
+         emacspeak-pronounce-pronunciation-personality pron-personality
          buffer-invisibility-spec invisibility-spec
          dtk-chunk-separator-syntax chunk-sep
          dtk-speaker-process inherit-speaker-process
