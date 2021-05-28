@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1141 commands and 151 options.
+This chapter documents a total of 1142 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -11129,6 +11129,27 @@ Option emacspeak-speak-line-invert-filter determines
 the sense of the filter. 
 
 (fn FILTER)
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-load-directory-settings
+@deffn {Command} emacspeak-speak-load-directory-settings  (&optional dir)
+@table @kbd
+@item C-e x d
+@kindex C-e x d
+@item <fn> x d
+@kindex <fn> x d
+@end table
+
+@findex emacspeak-speak-load-directory-settings
+
+@format
+Load a directory specific Emacspeak settings file.
+This is typically used to load up settings that are specific to
+an electronic book consisting of many files in the same
+directory.
+
+(fn &optional DIR)
 @end format
 @end deffn
 

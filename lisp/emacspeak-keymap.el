@@ -463,7 +463,7 @@
     ("a" emacspeak-wizards-alpha-vantage-quotes)
     ("b" battery)
     ("c" emacspeak-wizards-color-wheel)
-    ("d" deadgrep)
+    ("d" emacspeak-speak-load-directory-settings)
     ("e" emacspeak-we-xsl-map)
     ("f" emacspeak-wizards-remote-frame)
     ("h" emacspeak-wizards-how-many-matches)
