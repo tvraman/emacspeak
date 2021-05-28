@@ -237,6 +237,17 @@ the match  being passed to the func which returns  the new pronunciation."
 This is the personality used when speaking things that have a pronunciation
 applied.")
 
+(defun emacspeak-pronounce-toggle-voice ()
+  "Toggle use of pronunciation personality."
+  (interactive )
+  (cl-declare (special emacspeak-pronounce-pronunciation-personality))
+  (setq emacspeak-pronounce-pronunciation-personality (not
+                                                       emacspeak-pronounce-pronunciation-personality))
+  (emacspeak-auditory-icon
+   (if emacspeak-pronounce-pronunciation-personality 'on 'off))
+  (message "Turned %s pronunciation personality"
+           (if emacspeak-pronounce-pronunciation-personality 'on 'off)))
+
 ;;}}}
 ;;{{{ loading, clearing and saving dictionaries
 
@@ -680,7 +691,9 @@ specified pronunciation dictionary key."
       (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
       (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
       (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
-      (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
+      (?t (call-interactively
+           'emacspeak-pronounce-toggle-use-of-dictionaries))
+      (?v (call-interactively 'emacspeak-pronounce-toggle-voice))
       (otherwise (message emacspeak-pronounce-help)))
     (emacspeak-auditory-icon 'close-object)))
 
