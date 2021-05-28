@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1140 commands and 151 options.
+This chapter documents a total of 1141 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -10040,6 +10040,15 @@ spoken.  Optional argument state can be used from Lisp programs
 to explicitly turn pronunciations on or off.
 
 (fn &optional STATE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-pronounce-toggle-voice
+@deffn {Command} emacspeak-pronounce-toggle-voice   
+@findex emacspeak-pronounce-toggle-voice
+
+@format
+Toggle use of pronunciation personality.
 @end format
 @end deffn
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 27, 2021.
+last updated on May 28, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -2746,6 +2746,13 @@ given file.
      to explicitly turn pronunciations on or off.
 
      (fn &optional STATE)
+
+12.147.1.11 emacspeak-pronounce-toggle-voice
+............................................
+
+ -- Command: emacspeak-pronounce-toggle-voice
+
+     Toggle use of pronunciation personality.
 
 12.147.2 emacspeak-pronounce Options
 ------------------------------------
