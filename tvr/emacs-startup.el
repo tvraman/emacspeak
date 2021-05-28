@@ -209,6 +209,7 @@ Use Custom to customize where possible. "
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (auto-fill-mode)
+  (emacspeak-pronounce-toggle-use-of-dictionaries t)
 ;;; company-wordfreq setup:
   (setq-local company-backends '(company-wordfreq))
   (setq-local company-transformers nil)
