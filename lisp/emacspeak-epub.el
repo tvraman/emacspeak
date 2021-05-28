@@ -379,7 +379,7 @@
          (cl-declare (special emacspeak-we-url-executor
                               emacspeak-epub-this-epub
                               emacspeak-speak-directory-settings))
-         (ems--fastload emacspeak-speak-directory-settings)
+         (emacspeak-speak-load-directory-settings)
          (setq emacspeak-epub-this-epub epub
                emacspeak-we-url-executor 'emacspeak-epub-url-executor)
          (emacspeak-speak-rest-of-buffer))
