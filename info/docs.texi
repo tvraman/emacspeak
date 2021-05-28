@@ -7784,6 +7784,13 @@ to play  tracks.
 
 @subsubsection emacspeak-m-player-loop
 @deffn {Command} emacspeak-m-player-loop   
+@table @kbd
+@item C-e x ;
+@kindex C-e x ;
+@item <fn> x ;
+@kindex <fn> x ;
+@end table
+
 @findex emacspeak-m-player-loop
 
 @format

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 18, 2021.
+last updated on May 27, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -795,6 +795,8 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ...................................
 
  -- Command: emacspeak-m-player-loop
+     ‘C-e x ;’
+     ‘<fn> x ;’
 
      M-Player with repeat indefinitely  turned on.
 
