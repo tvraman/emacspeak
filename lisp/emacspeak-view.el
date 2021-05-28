@@ -87,6 +87,8 @@
                  (key-description
                   (where-is-internal 'View-exit view-mode-map 'firstonly)))
       (message "Exited view mode"))))
+
+
 (cl-loop
  for f in
  '(
@@ -99,6 +101,23 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
+
+
+(cl-loop
+ for f in
+ '(
+   view-buffer view-buffer-other-frame view-buffer-other-window
+   view-emacs-FAQ
+   view-emacs-debugging ^ view-emacs-problems
+   view-emacs-todo view-external-packages
+   view-file-other-frame view-file-other-window
+   view-hello-file view-lossage ) do
+   (eval
+    `(defadvice ,f (after emacspeak pre act comp)
+       "Speech-enabled by Emacspeak."
+       (when (ems-interactive-p)
+         (emacspeak-auditory-icon 'open-object)
+         (emacspeak-speak-mode-line)))))
 
 (defadvice View-exit (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -329,21 +348,18 @@ keybindings for view mode")
              (format "%s" i)
              'emacspeak-speak-predefined-window))
 ;;;convenience keys
-  (define-key view-mode-map "\C-j"
-    'emacspeak-hide-speak-block-sans-prefix)
+  (define-key view-mode-map "\C-j" 'emacspeak-hide-speak-block-sans-prefix)
   (define-key view-mode-map "\M- " 'emacspeak-outline-speak-this-heading)
-  (define-key view-mode-map "\M-n"
-    'outline-next-visible-heading)
+  (define-key view-mode-map "\M-n" 'outline-next-visible-heading)
   (define-key view-mode-map "\M-p" 'outline-previous-visible-heading)
   (define-key view-mode-map " " 'scroll-up)
   (define-key view-mode-map "\d" 'scroll-down)
-  (define-key view-mode-map "R" 'dtk-resume)
+  (define-key view-mode-map "[" 'backward-page)
+  (define-key view-mode-map "]" 'forward-page)
   (define-key view-mode-map "S" 'dtk-stop)
   (define-key view-mode-map "t" 'emacspeak-view-line-to-top)
-  (define-key view-mode-map ","
-    'emacspeak-speak-current-window)
-  (define-key view-mode-map "\M-d"
-    'emacspeak-pronounce-dispatch)
+  (define-key view-mode-map "," 'emacspeak-speak-current-window)
+  (define-key view-mode-map "\M-d" 'emacspeak-pronounce-dispatch)
   (define-key view-mode-map "c" 'emacspeak-speak-char)
   (define-key view-mode-map "w" 'emacspeak-speak-word)
   (emacspeak-view-optimize-view-keys))
