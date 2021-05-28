@@ -2657,13 +2657,16 @@ See documentation for command run-at-time for details on time-spec."
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
 directory."
+  (interactive "DDirectory")
   (cl-declare (special emacspeak-speak-directory-settings default-directory))
   (unless dir (setq dir default-directory))
   (let ((res (locate-dominating-file dir emacspeak-speak-directory-settings)))
     (when
         (and res
              (file-exists-p (expand-file-name emacspeak-speak-directory-settings res)))
-      (ems--fastload (expand-file-name emacspeak-speak-directory-settings res))
+      (ems--fastload (expand-file-name
+                      emacspeak-speak-directory-settings res))
+      (message "loaded %s" (expand-file-name emacspeak-speak-directory-settings res))
       (emacspeak-auditory-icon 'task-done))))
 
 ;;}}}
