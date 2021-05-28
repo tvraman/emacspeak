@@ -2266,9 +2266,6 @@ with an interactive prefix arg. "
      (expand-file-name "smart-eww-tabs" emacspeak-user-directory))))
 
 ;;}}}
-;;{{{Pronunciations:
-
-;;}}}
 ;;{{{Form filling:
 
 (defun emacspeak-eww-fillin-form-field ()
