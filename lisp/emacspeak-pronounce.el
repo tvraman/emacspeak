@@ -232,7 +232,7 @@ the match  being passed to the func which returns  the new pronunciation."
 
 ;;}}}
 
-(defvar emacspeak-pronounce-pronunciation-personality voice-lighten
+(defvar-local emacspeak-pronounce-pronunciation-personality voice-lighten
   "Pronunciation personality.
 This is the personality used when speaking things that have a pronunciation
 applied.")
