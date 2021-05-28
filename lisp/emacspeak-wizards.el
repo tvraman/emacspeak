@@ -791,6 +791,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
     (switch-to-buffer output-buffer)
     (set-buffer-modified-p nil)
     (text-mode)
+    (view-mode)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
