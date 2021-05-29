@@ -341,7 +341,7 @@ See  \\{soundscape-default-theme} for details."
     ("BirdCalls"  (fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
-    ("Still" (text-mode view-mode))
+    ("BirdCalls" (text-mode view-mode))
     ("BuddhaLoop" (org-mode))
     ("SurfWaves"  (eww-mode))
     
