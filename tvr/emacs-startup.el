@@ -242,7 +242,7 @@ This function loads Emacspeak.
 Emacs customization and library configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory
                        outloud-default-speech-rate dectalk-default-speech-rate))
-  (setq outloud-default-speech-rate 125 ; because we load custom at the end
+  (setq outloud-default-speech-rate 80 ; because we load custom at the end
         dectalk-default-speech-rate 485)
   (unless (featurep 'emacspeak)
     (tvr-time-load ;;; load emacspeak:
