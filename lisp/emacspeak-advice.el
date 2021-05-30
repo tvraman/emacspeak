@@ -2218,11 +2218,7 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{ set up clause boundaries for specific modes:
-
-(defun emacspeak-speak-adjust-clause-boundaries ()
-  "Adjust clause boundaries so that newlines dont delimit clauses."
-  (cl-declare (special dtk-chunk-separator-syntax))
-  (setq dtk-chunk-separator-syntax ".)$\""))
+;;;###autoload
 
 (add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
 (add-hook 'text-mode-hook 'emacspeak-speak-adjust-clause-boundaries)

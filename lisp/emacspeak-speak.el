@@ -79,6 +79,14 @@
 (cl--defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
 
 ;;}}}
+;;{{{Clause Boundary Helper:
+
+(defun emacspeak-speak-adjust-clause-boundaries ()
+  "Adjust clause boundaries so that newlines dont delimit clauses."
+  (cl-declare (special dtk-chunk-separator-syntax))
+  (setq dtk-chunk-separator-syntax ".)$\""))
+
+;;}}}
 ;;{{{Helper: Log Message Quietly
 
 (defun ems--log-message (m)
