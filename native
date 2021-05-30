@@ -3,6 +3,6 @@ EMACS=/home/raman/sourceforge/native-emacs/src/emacs
 git rebase master
 #make clean
 make config EMACS=$EMACS
-make EMACS=$EMACS COMPILE="-f batch-native-compile"
+make EMACS=$EMACS COMPILE="-f batch-byte-native-compile-for-bootstrap"
 cd lisp && make EMACS=$EMACS COMPILE="-f batch-native-compile" muggles --no-print-directory
 make EMACS=$EMACS COMPILE="-f batch-native-compile" extra-muggles --no-print-directory
