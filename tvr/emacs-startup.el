@@ -193,15 +193,19 @@ Use Custom to customize where possible. "
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
+(defvar tvr-yas-loaded nil)
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
-  (cl-declare (special  tvr-libs))
-  (tvr-time-load
-      (load tvr-libs)) ;;; load  settings   not  customizable via custom.
+  (cl-declare (special  tvr-libs tvr-yas-loaded))
+  (tvr-time-load (load tvr-libs)) ;;; load  settings   not  customizable via custom.
   (tvr-customize)      ;;; customizations
-  (with-eval-after-load 'yasnippet (yas-reload-all))
+  (with-eval-after-load
+      'yasnippet
+    (unless tvr-yas-loaded
+      (yas-reload-all)
+      (setq tvr-yas-loaded t)))
   (tvr-time-load (load "emacspeak-muggles"))
   (soundscape-toggle)
   (emacspeak-wizards-project-shells-initialize))
