@@ -93,21 +93,22 @@
 
 (advice-add 'vertico--exhibit :after #'emacspeak-vertico--exhibit)
 
-(cl-loop for (func icon) in
-         '((vertico-scroll-up scroll)
-           (vertico-scroll-down scroll)
-           (vertico-first large-movement)
-           (vertico-last large-movement)
-           (vertico-next select-object)
-           (vertico-previous select-object)
-           (vertico-exit close-object)
-           (vertico-kill delete-object))
-         do
-         (advice-add
-          func :after
-          (lambda (&rest _args)
-            (emacspeak-auditory-icon icon))
-          '((name . "emacspeak"))))
+(cl-loop
+ for (func icon) in
+ '((vertico-scroll-up scroll)
+   (vertico-scroll-down scroll)
+   (vertico-first large-movement)
+   (vertico-last large-movement)
+   (vertico-next select-object)
+   (vertico-previous select-object)
+   (vertico-exit close-object)
+   (vertico-kill delete-object))
+ do
+ (advice-add
+  func :after
+  (lambda (&rest _args)
+    (emacspeak-auditory-icon icon))
+  '((name . "emacspeak"))))
 
 ;;}}}
 (provide 'emacspeak-vertico)
