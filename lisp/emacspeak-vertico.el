@@ -106,7 +106,7 @@
  do
  (advice-add
   func :after
-  (lambda (&rest _args)
+  #'(lambda (&rest _args)
     (emacspeak-auditory-icon icon))
   '((name . "emacspeak"))))
 
