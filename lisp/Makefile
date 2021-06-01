@@ -265,6 +265,7 @@ emacspeak-twittering.elc \
 emacspeak-typo.elc \
 emacspeak-url-template.elc \
 emacspeak-vdiff.elc \
+emacspeak-vertico.elc \
 emacspeak-view.elc \
 emacspeak-vm.elc \
 emacspeak-vterm.elc \

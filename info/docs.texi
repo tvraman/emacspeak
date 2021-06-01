@@ -205,6 +205,7 @@ This chapter documents a total of 1142 commands and 151 options.
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
+* emacspeak-vertico::Speech-enable Vertico.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-vterm::Speech-enable VTERM.
@@ -13874,6 +13875,12 @@ Speak corresponding line from other buffer.
 Speak VDiff hunk under point.
 @end format
 @end deffn
+
+@node emacspeak-vertico
+@section emacspeak-vertico
+
+Vertico is a modern completion UI that uses Emacs's native completion engine
+This module speech-enables Vertico's UI
 
 @node emacspeak-view
 @section emacspeak-view
