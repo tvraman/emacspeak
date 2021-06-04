@@ -1,7 +1,10 @@
 #!/bin/sh
 EMACS=/home/raman/sourceforge/native-emacs/src/emacs
+git rebase master
+
+
 make config EMACS=$EMACS
-make EMACS=$EMACS COMPILE='-f batch-byte-native-compile-for-bootstrap'
+make EMACS=$EMACS COMPILE='-f batch-byte+native-compile'
 cd lisp
-make EMACS=$EMACS COMPILE='-f batch-byte-native-compile-for-bootstrap' muggles --no-print-directory
-make EMACS=$EMACS COMPILE='-f batch-byte-native-compile-for-bootstrap' extra-muggles --no-print-directory
+make EMACS=$EMACS COMPILE='-f batch-byte+native-compile' muggles --no-print-directory
+make EMACS=$EMACS COMPILE='-f batch-byte+native-compile' extra-muggles --no-print-directory
