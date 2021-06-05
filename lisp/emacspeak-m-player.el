@@ -638,13 +638,16 @@ This will work if the soundcard is set to 48000."
 
 
 ;;;###autoload
-(defun emacspeak-m-player-loop ()
-  "M-Player with repeat indefinitely  turned on."
-  (interactive)
+(defun emacspeak-m-player-loop (&optional raw)
+  "M-Player with repeat indefinitely  turned on.
+Interactive prefix `raw' reads a raw URL."
+  (interactive "P")
   (cl-declare (special emacspeak-m-player-options))
   (let ((emacspeak-m-player-options
          (append emacspeak-m-player-options (list "-loop" "0"))))
-    (call-interactively #'emacspeak-m-player)))
+    (cond
+     (raw (emacspeak-m-player (read-from-minibuffer "URL: ")))
+     (t (call-interactively #'emacspeak-m-player)))))
 
 (defun emacspeak-m-player-load (resource  &optional append)
   "Load specified resource into a running  m-player.
