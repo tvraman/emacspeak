@@ -68,18 +68,27 @@
     (emacspeak-speak-region orig-point (point))
     ret))
 
-(advice-add 'vertico-insert :around
-            #'emacspeak-vertico--insert-advice)
+(defadvice vertico-insert (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    ad-do-it
+    (let* ((orig-point (point)))
+      (emacspeak-auditory-icon 'complete)
+      (emacspeak-speak-region orig-point (point))))
+   (t ad-do-it))
+  ad-return-value)
+
 
 (defun emacspeak-vertico--exhibit ()
-  "Provide audio display of current compeltion."
-  (cl-declare (special vertico--index vertico--base))
+  "Provide audio display of current completion."
+  (cl-declare (special emacspeak-vertico--index vertico--base))
   (let ((new-cand (substring (vertico--candidate)
                              (if (>= vertico--index 0) vertico--base 0)))
         (to-speak nil))
     (unless (equal emacspeak-vertico--prev-candidate new-cand)
       (push new-cand to-speak)
-      (when (or (equal vertico--index emacspeak-vertico--prev-index)
+      (when (or (equal emacspeak-vertico--index emacspeak-vertico--prev-index)
                 (and (not (equal vertico--index -1))
                      (equal emacspeak-vertico--prev-index -1)))
         (push "candidate" to-speak)))
@@ -91,7 +100,29 @@
     (setq-local emacspeak-vertico--prev-candidate new-cand
                 emacspeak-vertico--prev-index vertico--index)))
 
-(advice-add 'vertico--exhibit :after #'emacspeak-vertico--exhibit)
+(defadvice vertico--exhibit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cl-declare (special vertico--index vertico--base))
+  (when (ems-interactive-p)
+    (let ((new-cand
+           (substring (vertico--candidate)
+                      (if (>= vertico--index 0) vertico--base 0)))
+          (to-speak nil))
+      (unless (equal emacspeak-vertico--prev-candidate new-cand)
+        (push new-cand to-speak)
+        (when (or (equal emacspeak-vertico--index emacspeak-vertico--prev-index)
+                  (and (not (equal vertico--index -1))
+                       (equal emacspeak-vertico--prev-index -1)))
+          (push "candidate" to-speak)))
+      (when (and (not (vertico--allow-prompt-selection-p))
+                 (equal emacspeak-vertico--prev-candidate nil))
+        (push "first candidate" to-speak))
+      (when to-speak
+        (dtk-speak (mapconcat 'identity to-speak " ")))
+      (setq-local
+       vertico--prev-candidate new-cand
+       vertico--prev-index vertico--index))))
+
 
 (cl-loop
  for (func icon) in
