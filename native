@@ -1,7 +1,5 @@
 #!/bin/sh
 EMACS=/home/raman/sourceforge/native-emacs/src/emacs
-git rebase master
-
 
 make config EMACS=$EMACS
 make EMACS=$EMACS COMPILE='-f batch-byte+native-compile'
