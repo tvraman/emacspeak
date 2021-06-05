@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1142 commands and 151 options.
+This chapter documents a total of 1143 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -8261,6 +8261,17 @@ Volume up.
 
 @format
 Invoke mp3splt to clip selected range in current file.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-youtube-live
+@deffn {Command} emacspeak-m-player-youtube-live  (url &optional best)
+@findex emacspeak-m-player-youtube-live
+
+@format
+Use youtube-dl and mplayer to live-stream   from Youtube. 
+
+(fn URL &optional BEST)
 @end format
 @end deffn
 

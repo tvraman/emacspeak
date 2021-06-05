@@ -1176,7 +1176,16 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Invoke mp3splt to clip selected range in current file.
 
-12.116.2.79 emacspeak-m-player-youtube-player
+12.116.2.79 emacspeak-m-player-youtube-live
+...........................................
+
+ -- Command: emacspeak-m-player-youtube-live (url &optional best)
+
+     Use youtube-dl and mplayer to live-stream   from Youtube.
+
+     (fn URL &optional BEST)
+
+12.116.2.80 emacspeak-m-player-youtube-player
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url &optional best)
@@ -1189,7 +1198,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional BEST)
 
-12.116.2.80 emacspeak-multimedia
+12.116.2.81 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia
