@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 31, 2021.
+last updated on June 5, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -794,11 +794,14 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 12.116.2.43 emacspeak-m-player-loop
 ...................................
 
- -- Command: emacspeak-m-player-loop
+ -- Command: emacspeak-m-player-loop (&optional raw)
      ‘C-e x ;’
      ‘<fn> x ;’
 
      M-Player with repeat indefinitely  turned on.
+     Interactive prefix ‘raw’ reads a raw URL.
+
+     (fn &optional RAW)
 
 12.116.2.44 emacspeak-m-player-mode
 ...................................
@@ -10027,19 +10030,4 @@ emacspeak distribution.
 * Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
 * Conclusion --- Turning Twenty::
 * References::
-
-
-File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
-
-15.1 Turning Twenty
-===================
-
-One afternoon in the third week of September 1994, I started writing
-myself a small Emacs extension using Lisp Advice to make Emacs speak to
-me so I could use a Linux laptop.  As Emacspeak turns twenty, this
-article is both a quick look back over the twenty years of lessons
-learned, as well as a glimpse into what might be possible as we evolve
-to a world of connected, ubiquitous computing.  This article draws on
-Learning To Program In 10 Years (http://norvig.com/21-days.html) by
-Peter Norvig for some of its inspiration.
 

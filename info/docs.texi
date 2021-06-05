@@ -7784,7 +7784,7 @@ to play  tracks.
 @end deffn
 
 @subsubsection emacspeak-m-player-loop
-@deffn {Command} emacspeak-m-player-loop   
+@deffn {Command} emacspeak-m-player-loop  (&optional raw)
 @table @kbd
 @item C-e x ;
 @kindex C-e x ;
@@ -7796,6 +7796,9 @@ to play  tracks.
 
 @format
 M-Player with repeat indefinitely  turned on.
+Interactive prefix ‘raw’ reads a raw URL.
+
+(fn &optional RAW)
 @end format
 @end deffn
 
