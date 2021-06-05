@@ -123,9 +123,8 @@
        vertico--prev-candidate new-cand
        vertico--prev-index vertico--index))))
 
-
 (cl-loop
- for (func icon) in
+ for (f icon) in
  '((vertico-scroll-up scroll)
    (vertico-scroll-down scroll)
    (vertico-first large-movement)
@@ -135,11 +134,11 @@
    (vertico-exit close-object)
    (vertico-kill delete-object))
  do
- (advice-add
-  func :after
-  #'(lambda (&rest _args)
-    (emacspeak-auditory-icon icon))
-  '((name . "emacspeak"))))
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon ,icon)))))
 
 ;;}}}
 (provide 'emacspeak-vertico)
