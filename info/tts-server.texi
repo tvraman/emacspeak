@@ -120,21 +120,6 @@ lines.  The effect of calling this command is for the @acronym{TTS} server to
 start processing items that have been queued via earlier requests.
 
 @example
-tts_pause
-@end example
-
-This pauses speech @emph{immediately}.  It does not affect queued
-requests; when command @emph{tts_resume} is called, the output resumes
-at the point where it was paused. Not all @acronym{TTS} engines provide this
-capability.
-
-@example
-tts_resume
-@end example
-
-Resume spoken output if it has been paused earlier.
-
-@example
 s
 @end example
 
