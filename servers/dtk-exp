@@ -192,13 +192,6 @@ proc tts_capitalize {flag} {
     return ""
 }
 
-proc tts_allcaps_beep {flag} {
-    global tts
-    set tts(allcaps_beep) $flag
-    return ""
-}
-
-
 proc tts_get_acknowledgement {} {
     global tts
     set input $tts(input)

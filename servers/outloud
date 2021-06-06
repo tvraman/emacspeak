@@ -160,13 +160,6 @@ proc tts_capitalize {flag} {
     return ""
 }
 
-proc tts_allcaps_beep {flag} {
-    global tts 
-    set tts(allcaps_beep) $flag
-    service
-    return ""
-}
-
 proc tts_reset {} {
     global tts 
     queue_clear

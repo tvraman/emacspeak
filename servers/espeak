@@ -332,24 +332,6 @@ proc tts_capitalize {flag} {
     return ""
 }
 
-proc tts_allcaps_beep {flag} {
-    global tts 
-
-    set tts(allcaps_beep) $flag
-
-    if { $flag == 1 } {
-	set tts(split_caps) 0
-	set tts(capitalize) 0
-	caps "tone"
-    } else {
-	if { ( $tts(split_caps) == 0 ) && ( $tts(capitalize) == 0 ) } {
-	    caps "none"
-	}
-    }
-    service
-    return ""
-}
-
 proc tts_reset {} {
     global tts
     #synth  -reset
