@@ -302,15 +302,10 @@ proc sh  {{duration 50}} {
 #
 proc tts_split_caps {flag} {
     global tts 
-# always turn this off.
-    #ESpeak handles mixed-case notation correctly.
-    set tts(split_caps) 0 #$flag
     if { $flag == 1 } {
-	set tts(allcaps_beep) 0
-	set tts(capitalize) 0
 	caps "spelling"
     } else {
-	if { ( $tts(capitalize) == 0 ) && ( $tts(allcaps_beep) == 0 ) } {
+	if {$tts(capitalize) == 0    } {
 	    caps "none"
 	}
     }
