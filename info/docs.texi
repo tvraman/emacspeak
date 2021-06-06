@@ -8266,6 +8266,13 @@ Invoke mp3splt to clip selected range in current file.
 
 @subsubsection emacspeak-m-player-youtube-live
 @deffn {Command} emacspeak-m-player-youtube-live  (url)
+@table @kbd
+@item C-e x l
+@kindex C-e x l
+@item <fn> x l
+@kindex <fn> x l
+@end table
+
 @findex emacspeak-m-player-youtube-live
 
 @format

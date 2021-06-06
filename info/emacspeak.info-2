@@ -1180,6 +1180,8 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ...........................................
 
  -- Command: emacspeak-m-player-youtube-live (url)
+     ‘C-e x l’
+     ‘<fn> x l’
 
      Use youtube-dl and mplayer to live-stream   from Youtube.
 
