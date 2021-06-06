@@ -313,21 +313,6 @@ proc tts_split_caps {flag} {
     return ""
 }
 
-proc tts_capitalize {flag} {
-    global tts 
-
-    set tts(capitalize) $flag
-
-    if { $flag == 1 } {
-	set tts(split_caps) 0
-	set tts(allcaps_beep) 0
-	caps "pitch"
-    } else {
-	if { ( $tts(split_caps) == 0 ) && ( $tts(allcaps_beep) == 0 ) } {
-	    caps "none"
-	}
-    }
-
     service
     return ""
 }

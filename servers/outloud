@@ -153,13 +153,6 @@ proc tts_split_caps {flag} {
     return ""
 }
 
-proc tts_capitalize {flag} {
-    global tts 
-    set tts(capitalize) $flag
-    service
-    return ""
-}
-
 proc tts_reset {} {
     global tts 
     queue_clear

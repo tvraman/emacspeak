@@ -186,12 +186,6 @@ proc tts_split_caps {flag} {
     return ""
 }
 
-proc tts_capitalize {flag} {
-    global tts
-    set tts(capitalize) $flag
-    return ""
-}
-
 proc tts_get_acknowledgement {} {
     global tts
     set input $tts(input)
