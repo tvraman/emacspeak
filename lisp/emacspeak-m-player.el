@@ -1455,12 +1455,11 @@ Optional prefix arg `best' chooses highest."
     (emacspeak-m-player u)))
 
 ;;;###autoload
-(defun emacspeak-m-player-youtube-live (url  &optional best)
+(defun emacspeak-m-player-youtube-live (url)
   "Use youtube-dl and mplayer to live-stream   from Youtube. "
   (interactive
    (list
-    (emacspeak-eww-read-url)
-    current-prefix-arg))
+    (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-m-player-youtube-dl
                        emacspeak-m-player-options))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
@@ -1472,12 +1471,8 @@ Optional prefix arg `best' chooses highest."
         (u
          (string-trim
           (shell-command-to-string
-           (format "%s -f %s -g '%s' 2> /dev/null"
-                   emacspeak-m-player-youtube-dl
-                   (if best
-                       (ems--m-p-get-yt-audio-last-fmt url)
-                     (ems--m-p-get-yt-audio-first-fmt url))
-                   url)))))
+           (format "%s -g '%s' 2> /dev/null"
+                   emacspeak-m-player-youtube-dl url)))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (kill-new u)
     (emacspeak-m-player u)))
