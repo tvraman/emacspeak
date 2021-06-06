@@ -8265,13 +8265,13 @@ Invoke mp3splt to clip selected range in current file.
 @end deffn
 
 @subsubsection emacspeak-m-player-youtube-live
-@deffn {Command} emacspeak-m-player-youtube-live  (url &optional best)
+@deffn {Command} emacspeak-m-player-youtube-live  (url)
 @findex emacspeak-m-player-youtube-live
 
 @format
 Use youtube-dl and mplayer to live-stream   from Youtube. 
 
-(fn URL &optional BEST)
+(fn URL)
 @end format
 @end deffn
 

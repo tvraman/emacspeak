@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 5, 2021.
+last updated on June 6, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -1179,11 +1179,11 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 12.116.2.79 emacspeak-m-player-youtube-live
 ...........................................
 
- -- Command: emacspeak-m-player-youtube-live (url &optional best)
+ -- Command: emacspeak-m-player-youtube-live (url)
 
      Use youtube-dl and mplayer to live-stream   from Youtube.
 
-     (fn URL &optional BEST)
+     (fn URL)
 
 12.116.2.80 emacspeak-m-player-youtube-player
 .............................................
@@ -9931,16 +9931,6 @@ renamed to a single character command (like many of the commonly used
 TTS server commands) to work more effectively over slow (9600) dialup
 lines.  The effect of calling this command is for the TTS server to
 start processing items that have been queued via earlier requests.
-
-     tts_pause
-
-   This pauses speech _immediately_.  It does not affect queued
-requests; when command _tts_resume_ is called, the output resumes at the
-point where it was paused.  Not all TTS engines provide this capability.
-
-     tts_resume
-
-   Resume spoken output if it has been paused earlier.
 
      s
 
