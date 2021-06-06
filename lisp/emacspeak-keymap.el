@@ -469,6 +469,7 @@
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
     ("j" emacspeak-jabber-popup-roster)
+    ("l" emacspeak-m-player-youtube-live)
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)
