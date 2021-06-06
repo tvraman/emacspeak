@@ -37,10 +37,8 @@
 
 #}}}
 #{{{ sync state 
-proc tts_sync_state {punct  splitcaps rate {capitalize 0} {allcaps 0}} {
+proc tts_sync_state {punct  splitcaps rate } {
     tts_set_punctuations  $punct
-    tts_capitalize  $capitalize
-    tts_allcaps_beep  $allcaps
     tts_split_caps   $splitcaps
     tts_set_speech_rate  $rate
 } 
