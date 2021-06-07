@@ -37,6 +37,7 @@ This chapter documents a total of 1143 commands and 151 options.
 * emacspeak-calc::Speech enable the Emacs Calculator -- a powerful symbolic algebra system.
 * emacspeak-calculator::Speech enable  desktop calculator.
 * emacspeak-calendar::Speech enable Emacs Calendar -- maintain a diary and appointments.
+* emacspeak-calibredb::Speech-enable CALIBREDB.
 * emacspeak-chess::Speech-enable CHESS.
 * emacspeak-cider::Speech-enable CIDER, A Clojure IDE.
 * emacspeak-ciel::Speech-enable CIEL.
@@ -2263,6 +2264,11 @@ Display sunrise/sunset for specified address.
 (fn ADDRESS &optional ARG)
 @end format
 @end deffn
+
+@node emacspeak-calibredb
+@section emacspeak-calibredb
+
+CALIBREDB == Browse And Search Local Calibre Library
 
 @node emacspeak-chess
 @section emacspeak-chess
