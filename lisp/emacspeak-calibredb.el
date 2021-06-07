@@ -54,9 +54,7 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-
-
-(voice-setup-add-map 
+(voice-setup-add-map
  '(
    (calibredb-archive-face voice-smoothen)
    (calibredb-author-face voice-animate)
@@ -84,122 +82,136 @@
 ;;{{{ Advice Interactive Commands:
 
 '(
-  calibredb
-calibredb-add
-calibredb-add-dir
-calibredb-add-format
-calibredb-annotation-quit
-calibredb-author-mouse-1
-calibredb-auto-detect-isbn
-calibredb-capture-at-point
-calibredb-catalog
-calibredb-catalog-bib--transient
-calibredb-catalog-bib-dispatch
-calibredb-clone
-calibredb-convert
-calibredb-convert-to-epub-dispatch
-calibredb-copy-as-org-link
-calibredb-counsel-add-file-action
-calibredb-date-mouse-1
-calibredb-dispatch
-calibredb-edit-annotation
-calibredb-edit-annotation-mode
-calibredb-entry-dispatch
-calibredb-entry-quit
-calibredb-export
-calibredb-export-dispatch
-calibredb-favorite-mouse-1
-calibredb-fetch-and-set-metadata-by-author-and-title
-calibredb-fetch-and-set-metadata-by-id
-calibredb-fetch-and-set-metadata-by-isbn
-calibredb-file-mouse-1
-calibredb-file-mouse-3
-calibredb-filter-by-author-sort
-calibredb-filter-by-book-format
-calibredb-filter-by-last_modified
-calibredb-filter-by-tag
-calibredb-filter-dispatch
-calibredb-find-bib
-calibredb-find-candidate-at-point
-calibredb-find-counsel
-calibredb-find-file
-calibredb-find-file-other-frame
-calibredb-find-helm
-calibredb-find-marked-candidates
-calibredb-format-mouse-1
-calibredb-library-list
-calibredb-library-next
-calibredb-library-previous
-calibredb-list
-calibredb-mark-and-forward
-calibredb-mark-at-point
-calibredb-next-entry
-calibredb-open-dired
-calibredb-open-file-with-default-tool
-calibredb-org-link-copy
-calibredb-previous-entry
-calibredb-query
-calibredb-quick-look
-calibredb-remove
-calibredb-remove-format
-calibredb-remove-marked-items
-calibredb-rga
-calibredb-search-clear-filter
-calibredb-search-live-filter
-calibredb-search-mode
-calibredb-search-mouse
-calibredb-search-quit
-calibredb-search-refresh
-calibredb-search-refresh-and-clear-filter
-calibredb-search-refresh-or-resume
-calibredb-search-ret
-calibredb-search-toggle-view-refresh
-calibredb-search-update
-calibredb-send-edited-annotation
-calibredb-set-metadata--author_sort
-calibredb-set-metadata--authors
-calibredb-set-metadata--comments
-calibredb-set-metadata--comments-1
-calibredb-set-metadata--list-fields
-calibredb-set-metadata--tags
-calibredb-set-metadata--tags-1
-calibredb-set-metadata--title
-calibredb-set-metadata--transient
-calibredb-set-metadata-dispatch
-calibredb-show-metadata
-calibredb-show-mode
-calibredb-show-next-entry
-calibredb-show-previous-entry
-calibredb-show-refresh
-calibredb-sort-by-author
-calibredb-sort-by-date
-calibredb-sort-by-format
-calibredb-sort-by-id
-calibredb-sort-by-language
-calibredb-sort-by-pubdate
-calibredb-sort-by-size
-calibredb-sort-by-tag
-calibredb-sort-by-title
-calibredb-sort-dispatch
-calibredb-switch-library
-calibredb-tag-mouse-1
-calibredb-toggle-archive-at-point
-calibredb-toggle-favorite-at-point
-calibredb-toggle-highlight-at-point
-calibredb-toggle-order
-calibredb-toggle-view
-calibredb-toggle-view-at-point
-calibredb-unmark-and-backward
-calibredb-unmark-and-forward
-calibredb-unmark-at-point
-calibredb-view
-calibredb-view--helm
-calibredb-virtual-library-list
-calibredb-virtual-library-next
-calibredb-virtual-library-previous
-calibredb-yank-dispatch
-)
+  calibredb-add
+  calibredb-add-dir
+  calibredb-add-format
+  calibredb-annotation-quit
+  calibredb-auto-detect-isbn
+  calibredb-capture-at-point
+  calibredb-catalog
+  calibredb-catalog-bib--transient
+  calibredb-catalog-bib-dispatch
+  calibredb-clone
+  calibredb-convert
+  calibredb-convert-to-epub-dispatch
+  calibredb-copy-as-org-link
+  calibredb-edit-annotation
+  calibredb-entry-dispatch
+  calibredb-entry-quit
+  calibredb-export
+  calibredb-fetch-and-set-metadata-by-author-and-title
+  calibredb-fetch-and-set-metadata-by-id
+  calibredb-fetch-and-set-metadata-by-isbn
+  calibredb-filter-by-author-sort
+  calibredb-filter-by-book-format
+  calibredb-filter-by-last_modified
+  calibredb-filter-by-tag
+  calibredb-filter-dispatch
+  calibredb-find-bib
+  calibredb-find-candidate-at-point
+  calibredb-library-list
+  calibredb-library-next
+  calibredb-library-previous
+  calibredb-mark-and-forward
+  calibredb-mark-at-point
+  calibredb-open-dired
+  calibredb-org-link-copy
+  calibredb-remove
+  calibredb-remove-format
+  calibredb-remove-marked-items
+  calibredb-rga
+  calibredb-search-clear-filter
+  calibredb-search-live-filter
+  calibredb-search-ret
+  calibredb-search-toggle-view-refresh
+  calibredb-search-update
+  calibredb-send-edited-annotation
+  calibredb-set-metadata--author_sort
+  calibredb-set-metadata--authors
+  calibredb-set-metadata--comments
+  calibredb-set-metadata--comments-1
+  calibredb-set-metadata--list-fields
+  calibredb-set-metadata--tags
+  calibredb-set-metadata--tags-1
+  calibredb-set-metadata--title
+  calibredb-set-metadata--transient
+  calibredb-set-metadata-dispatch
+  calibredb-show-metadata
+  calibredb-show-mode
+  calibredb-show-next-entry
+  calibredb-show-previous-entry
+  calibredb-show-refresh
+  calibredb-sort-by-author
+  calibredb-sort-by-date
+  calibredb-sort-by-format
+  calibredb-sort-by-id
+  calibredb-sort-by-language
+  calibredb-sort-by-pubdate
+  calibredb-sort-by-size
+  calibredb-sort-by-tag
+  calibredb-sort-by-title
+  calibredb-sort-dispatch
+  calibredb-switch-library
+  calibredb-tag-mouse-1
+  calibredb-toggle-archive-at-point
+  calibredb-toggle-favorite-at-point
+  calibredb-toggle-highlight-at-point
+  calibredb-toggle-order
 
+  calibredb-unmark-and-backward
+  calibredb-unmark-and-forward
+  calibredb-unmark-at-point
+  calibredb-virtual-library-list
+  calibredb-virtual-library-next
+  calibredb-virtual-library-previous
+  calibredb-yank-dispatch
+  )
+
+(defadvice calibredb-toggle-view-at-point (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+(cl-loop
+ for f in
+ '(calibredb-view calibredb-show-next-entry calibredb-show-previous-entry)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-predefined-window 1)))))
+
+(defadvice calibredb-search-refresh-and-clear-filter (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+(defadvice calibredb-search-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+(cl-loop
+ for f in
+ '(calibredb-previous-entry calibredb-next-entry)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
+
+(defadvice calibredb (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{Emacspeak Commands:
@@ -214,7 +226,7 @@ with broken NCX files."
    (shell-quote-argument
     (calibredb-getattr (car (calibredb-find-candidate-at-point))
                        :file-path))
-    broken-ncx))
+   broken-ncx))
 
 ;;}}}
 ;;{{{setup:
