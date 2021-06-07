@@ -49,7 +49,8 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'calibredb nil 'no-error)
+(require 'emacspeak-epub)
 ;;}}}
 ;;{{{ Map Faces:
 
@@ -80,7 +81,7 @@
    (calibredb-title-face voice-bolden)))
 
 ;;}}}
-;;{{{ Interactive Commands:
+;;{{{ Advice Interactive Commands:
 
 '(
   calibredb
@@ -199,6 +200,31 @@ calibredb-virtual-library-previous
 calibredb-yank-dispatch
 )
 
+
+;;}}}
+;;{{{Emacspeak Commands:
+
+(defun emacspeak-calibredb-epub-eww (&optional broken-ncx)
+  "Open EPub at point in EWW.
+Optional prefix arg uses alternative renderer that handles epubs
+with broken NCX files."
+  (interactive "P" )
+  (funcall-interactively
+   #'emacspeak-epub-eww
+   (shell-quote-argument
+    (calibredb-getattr (car (calibredb-find-candidate-at-point))
+                       :file-path))
+    broken-ncx))
+
+;;}}}
+;;{{{setup:
+
+(defun emacspeak-calibredb-setup ()
+  "Setup Emacspeak for Calibredb."
+  (cl-declare (special calibredb-search-mode-map))
+  (define-key calibredb-search-mode-map "E" 'emacspeak-calibredb-epub-eww))
+
+(add-hook 'calibredb-search-mode-hook 'emacspeak-calibredb-setup)
 
 ;;}}}
 (provide 'emacspeak-calibredb)
