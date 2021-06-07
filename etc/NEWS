@@ -22,3 +22,8 @@ Speech-enable the elisp side of Emacs Application Framework
 **  Updated Auditory Icons
 
    Theme ~pan-chimes~ updated for better headphone listening.
+
+** Speech-Enabled CalibreDB Mode
+
+   Module ~emacspeak-calibredb~ speech-enables ~calibredb~, a
+   full-fledged mode for Calibre Library Interaction 
