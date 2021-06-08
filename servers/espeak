@@ -312,11 +312,6 @@ proc tts_split_caps {flag} {
     service
     return ""
 }
-
-    service
-    return ""
-}
-
 proc tts_reset {} {
     global tts
     #synth  -reset
