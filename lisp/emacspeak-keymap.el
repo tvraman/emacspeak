@@ -690,6 +690,7 @@
     ("C-j" emacspeak-wizards-shell-toggle)
     ("TAB" hippie-expand)
     ("b" eww-list-buffers)
+    ("c" calibredb)
     ("d" magit-dispatch)
     ("e" gmaps)
     ("f" magit-file-dispatch)
