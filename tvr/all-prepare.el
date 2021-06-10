@@ -160,11 +160,6 @@ This moves them into the Spam folder."
       (:network-server . "talk.google.com")
       (:port . 5223)
       (:connection-type . ssl)))))
-(push (expand-file-name "eaf/" tvr-site-lib) load-path)
-(load-library "eaf")
-(eaf-setq eaf-browser-enable-adblocker "true")
-;;; We'll handle pdf, epub etc via Emacspeak as usual --- no EAF
-(setq eaf-pdf-extension-list nil)
 (with-eval-after-load "smartparens"
   (require 'smartparens-config)
   (sp-use-smartparens-bindings)
