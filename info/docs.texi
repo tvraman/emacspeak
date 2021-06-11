@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 151 options.
+This chapter documents a total of 1144 commands and 151 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -2269,6 +2269,21 @@ Display sunrise/sunset for specified address.
 @section emacspeak-calibredb
 
 CALIBREDB == Browse And Search Local Calibre Library
+
+@subsection Emacspeak-Calibredb Commands
+
+@subsubsection emacspeak-calibredb-epub-eww
+@deffn {Command} emacspeak-calibredb-epub-eww  (&optional broken-ncx)
+@findex emacspeak-calibredb-epub-eww
+
+@format
+Open EPub at point in EWW.
+Optional prefix arg uses alternative renderer that handles epubs
+with broken NCX files.
+
+(fn &optional BROKEN-NCX)
+@end format
+@end deffn
 
 @node emacspeak-chess
 @section emacspeak-chess

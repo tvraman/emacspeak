@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 6, 2021.
+last updated on June 11, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1143 commands and 151 options.
+   This chapter documents a total of 1144 commands and 151 options.
 
 * Menu:
 
@@ -4774,6 +4774,20 @@ File: emacspeak.info,  Node: emacspeak-calibredb,  Next: emacspeak-chess,  Prev:
 =========================
 
 CALIBREDB == Browse And Search Local Calibre Library
+
+12.31.1 Emacspeak-Calibredb Commands
+------------------------------------
+
+12.31.1.1 emacspeak-calibredb-epub-eww
+......................................
+
+ -- Command: emacspeak-calibredb-epub-eww (&optional broken-ncx)
+
+     Open EPub at point in EWW.
+     Optional prefix arg uses alternative renderer that handles epubs
+     with broken NCX files.
+
+     (fn &optional BROKEN-NCX)
 
 
 File: emacspeak.info,  Node: emacspeak-chess,  Next: emacspeak-cider,  Prev: emacspeak-calibredb,  Up: Emacspeak Commands And Options
@@ -8707,15 +8721,4 @@ File: emacspeak.info,  Node: emacspeak-haskell,  Next: emacspeak-helm,  Prev: em
 =======================
 
 Speech-enable package haskell-mode
-
-
-File: emacspeak.info,  Node: emacspeak-helm,  Next: emacspeak-hide,  Prev: emacspeak-haskell,  Up: Emacspeak Commands And Options
-
-12.97 emacspeak-helm
-====================
-
-HELM == Smart narrowing/selection in emacs This module speech-enables
-Helm interaction.  See tvr/helm-prepare.el in the GitHub repository for
-my helm setup.  that file provides convenient emacspeak-centric
-keybindings for Helm interaction.
 
