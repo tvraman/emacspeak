@@ -195,7 +195,7 @@ instead you hear only the first screenful."
   `(defadvice ,f (after emacspeak pre act)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (defadvice gnus-group-unsubscribe-current-group (after emacspeak pre act)
