@@ -222,9 +222,10 @@ bound to \\[dtk-toggle-caps].")
      (cond
       ((stringp pronunciation)
        (while (search-forward w nil t)
-         (setq face (get-text-property (point) 'face))
-         (when (and (not face) emacspeak-pronounce-use-personality)
-           (setq face 'match))
+         (setq face
+               (or 
+                (get-text-property (point) 'face)
+                (and emacspeak-pronounce-use-personality 'match)))
          (replace-match pronunciation t t)
          (put-text-property
           (match-beginning 0)
@@ -236,14 +237,14 @@ bound to \\[dtk-toggle-caps].")
              (pronunciation ""))
          (while (funcall matcher w nil t)
            (setq
-            face (get-text-property (point) 'face)
+            face (or 
+                (get-text-property (point) 'face)
+                (and emacspeak-pronounce-use-personality 'match))
             pronunciation
             (save-match-data
               (funcall
                pronouncer
                (buffer-substring (match-beginning 0) (match-end 0)))))
-           (when (and (not face) emacspeak-pronounce-use-personality)
-             (setq face 'match))
            (replace-match pronunciation t t)
            (put-text-property
             (match-beginning 0)
