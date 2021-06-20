@@ -231,12 +231,7 @@ bound to \\[dtk-toggle-caps].")
               (match-beginning 0)
               (+ (match-beginning 0) (length pronunciation))
               'personality
-              (cond
-               ((and emacspeak-pronounce-pronunciation-personality
-                     (listp pp))
-                (nconc pp
-                       (list emacspeak-pronounce-pronunciation-personality)))
-               (t pp))))))
+              (or pp emacspeak-pronounce-pronunciation-personality)))))
         ((consp pronunciation)
          (let ((matcher (car pronunciation))
                (pronouncer (cdr pronunciation))
