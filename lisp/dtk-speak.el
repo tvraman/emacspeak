@@ -242,18 +242,24 @@ bound to \\[dtk-toggle-caps].")
                (pronouncer (cdr pronunciation))
                (pronunciation ""))
            (while (funcall matcher w nil t)
+             (setq face (get-text-property (point) 'face))
              (setq pronunciation
                    (save-match-data
                      (funcall
                       pronouncer
                       (buffer-substring (match-beginning 0) (match-end 0)))))
              (replace-match pronunciation t t)
-             (when (or face emacspeak-pronounce-pronunciation-personality)
-               (put-text-property
-                (match-beginning 0)
-                (+ (match-beginning 0) (length pronunciation))
-                'face face)))))
-        (t nil))))))
+             (cond ; same as previous, refactor?
+            (face
+             (put-text-property
+              (match-beginning 0)
+              (+ (match-beginning 0) (length pronunciation))
+              'face face))
+            (emacspeak-pronounce-pronunciation-personality
+             (put-text-property
+              (match-beginning 0)
+              (+ (match-beginning 0) (length pronunciation))
+              'personality emacspeak-pronounce-pronunciation-personality)))))))))))
 
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
