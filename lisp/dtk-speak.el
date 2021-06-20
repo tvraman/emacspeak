@@ -242,8 +242,7 @@ bound to \\[dtk-toggle-caps].")
               (funcall
                pronouncer
                (buffer-substring (match-beginning 0) (match-end 0)))))
-           (when (and (not face)
-                      emacspeak-pronounce-use-personality)
+           (when (and (not face) emacspeak-pronounce-use-personality)
              (setq face 'match))
            (replace-match pronunciation t t)
            (put-text-property
