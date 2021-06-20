@@ -242,12 +242,13 @@ bound to \\[dtk-toggle-caps].")
                (pronouncer (cdr pronunciation))
                (pronunciation ""))
            (while (funcall matcher w nil t)
-             (setq face (get-text-property (point) 'face))
-             (setq pronunciation
-                   (save-match-data
-                     (funcall
-                      pronouncer
-                      (buffer-substring (match-beginning 0) (match-end 0)))))
+             (setq
+              face (get-text-property (point) 'face)
+              pronunciation
+              (save-match-data
+                (funcall
+                 pronouncer
+                 (buffer-substring (match-beginning 0) (match-end 0)))))
              (replace-match pronunciation t t)
              (cond ; same as previous, refactor?
             (face
