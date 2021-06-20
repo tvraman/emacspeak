@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 11, 2021.
+last updated on June 20, 2021.
 
 
 File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
@@ -1174,6 +1174,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; ;:                                 emacspeak-m-player. (line  726)
 * C-; C-a:                               emacspeak-wizards.  (line 1084)
 * C-; C-j:                               emacspeak-wizards.  (line 1017)
+* C-; C-t:                               emacspeak-extras.   (line  140)
 * C-; e:                                 gmaps.              (line   16)
 * C-; h:                                 emacspeak-org.      (line   18)
 * C-; k:                                 emacspeak-google.   (line   28)
@@ -1587,6 +1588,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h ;:                             emacspeak-m-player. (line  727)
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1085)
 * C-x @ h C-j:                           emacspeak-wizards.  (line 1019)
+* C-x @ h C-t:                           emacspeak-extras.   (line  141)
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h h:                             emacspeak-org.      (line   19)
 * C-x @ h k:                             emacspeak-google.   (line   29)

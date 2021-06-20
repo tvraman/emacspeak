@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 11, 2021.
+last updated on June 20, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7840,6 +7840,8 @@ Infrequently used wizards archived for posterity.
 ................................................
 
  -- Command: emacspeak-wizards-tramp-open-location (name)
+     ‘C-; C-t’
+     ‘C-x @ h C-t’
 
      Open specified tramp location.
      Location is specified by name.
@@ -7865,8 +7867,7 @@ Infrequently used wizards archived for posterity.
  -- Variable: User Option emacspeak-wizards-tramp-locations
      Tramp locations used by Emacspeak tramp wizard.  Locations added
      here via custom can be opened using command
-     emacspeak-wizards-tramp-open-location bound to M-x
-     emacspeak-wizards-tramp-open-location.
+     emacspeak-wizards-tramp-open-location bound to C-x @ h C-t.
 
 
 File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-filtertext,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options

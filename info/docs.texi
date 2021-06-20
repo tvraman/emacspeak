@@ -5806,6 +5806,13 @@ Display a buffer with sample text in the defined voices.
 
 @subsubsection emacspeak-wizards-tramp-open-location
 @deffn {Command} emacspeak-wizards-tramp-open-location  (name)
+@table @kbd
+@item C-; C-t
+@kindex C-; C-t
+@item C-x @@ h C-t
+@kindex C-x @@ h C-t
+@end table
+
 @findex emacspeak-wizards-tramp-open-location
 
 @format
@@ -5841,7 +5848,7 @@ Cookie store used by Curl.
 Tramp locations used by Emacspeak tramp wizard.
 Locations added here via custom can be opened using command
 emacspeak-wizards-tramp-open-location
-bound to M-x emacspeak-wizards-tramp-open-location.
+bound to C-x @@ h C-t.
 
 @end defvar
 
