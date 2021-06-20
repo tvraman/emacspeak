@@ -232,23 +232,19 @@ the match  being passed to the func which returns  the new pronunciation."
 
 ;;}}}
 
-(defvar-local emacspeak-pronounce-pronunciation-personality voice-lighten
-  "Pronunciation personality.
-This is the personality used when speaking things that have a pronunciation
-applied.")
+(defvar-local emacspeak-pronounce-use-personality t
+  "Boolean that specifies if  pronunciations get a personality applied.")
 
 (defun emacspeak-pronounce-toggle-voice ()
   "Toggle use of pronunciation personality."
   (interactive )
-  (cl-declare (special emacspeak-pronounce-pronunciation-personality))
-  (setq emacspeak-pronounce-pronunciation-personality (not
-                                                       emacspeak-pronounce-pronunciation-personality))
-  (when emacspeak-pronounce-pronunciation-personality
-    (setq emacspeak-pronounce-pronunciation-personality voice-lighten))
+  (cl-declare (special emacspeak-pronounce-use-personality))
+  (setq emacspeak-pronounce-use-personality (not
+                                                       emacspeak-pronounce-use-personality))
   (emacspeak-auditory-icon
-   (if emacspeak-pronounce-pronunciation-personality 'on 'off))
+   (if emacspeak-pronounce-use-personality 'on 'off))
   (message "Turned %s pronunciation personality"
-           (if emacspeak-pronounce-pronunciation-personality 'on 'off)))
+           (if emacspeak-pronounce-use-personality 'on 'off)))
 
 ;;}}}
 ;;{{{ loading, clearing and saving dictionaries

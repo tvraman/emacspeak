@@ -83,7 +83,7 @@ mac for MAC TTS (default on Mac)")
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server)
 (defvar emacspeak-use-auditory-icons)
-(defvar emacspeak-pronounce-pronunciation-personality)
+(defvar emacspeak-pronounce-use-personality)
 
 ;;}}}
 ;;{{{  user customizations:
@@ -210,55 +210,47 @@ bound to \\[dtk-toggle-caps].")
 ;;; moved here from the emacspeak-pronounce module for efficient
 ;;compilation
 
+
 (defun tts-apply-pronunciations (pronunciation-table)
   "Applies pronunciations per pronunciation table to current buffer. "
-  (cl-declare (special emacspeak-pronounce-pronunciation-personality))
+  (cl-declare (special emacspeak-pronounce-use-personality))
   (cl-loop
    for w being the hash-keys of pronunciation-table do
-   (when w
-     (let ((pronunciation (gethash w pronunciation-table))
-           (face nil))
-       (goto-char (point-min))
-       (cond
-        ((stringp pronunciation)
-         (while (search-forward w nil t)
-           (setq face (get-text-property (point) 'face))
+   (let ((pronunciation (gethash w pronunciation-table))
+         (face nil))
+     (goto-char (point-min))
+     (cond
+      ((stringp pronunciation)
+       (while (search-forward w nil t)
+         (setq face (get-text-property (point) 'face))
+         (when (and (not face)
+                    emacspeak-pronounce-use-personality)
+           (setq face 'match))
+         (replace-match pronunciation t t)
+         (put-text-property
+          (match-beginning 0)
+          (+ (match-beginning 0) (length pronunciation))
+          'face face)))
+      ((consp pronunciation)
+       (let ((matcher (car pronunciation))
+             (pronouncer (cdr pronunciation))
+             (pronunciation ""))
+         (while (funcall matcher w nil t)
+           (setq
+            face (get-text-property (point) 'face)
+            pronunciation
+            (save-match-data
+              (funcall
+               pronouncer
+               (buffer-substring (match-beginning 0) (match-end 0)))))
+           (when (and (not face)
+                      emacspeak-pronounce-use-personality)
+             (setq face 'match))
            (replace-match pronunciation t t)
-           (cond
-            (face
-             (put-text-property
-              (match-beginning 0)
-              (+ (match-beginning 0) (length pronunciation))
-              'face face))
-            (emacspeak-pronounce-pronunciation-personality
-             (put-text-property
-              (match-beginning 0)
-              (+ (match-beginning 0) (length pronunciation))
-              'personality emacspeak-pronounce-pronunciation-personality)))))
-        ((consp pronunciation)
-         (let ((matcher (car pronunciation))
-               (pronouncer (cdr pronunciation))
-               (pronunciation ""))
-           (while (funcall matcher w nil t)
-             (setq
-              face (get-text-property (point) 'face)
-              pronunciation
-              (save-match-data
-                (funcall
-                 pronouncer
-                 (buffer-substring (match-beginning 0) (match-end 0)))))
-             (replace-match pronunciation t t)
-             (cond ; same as previous, refactor?
-            (face
-             (put-text-property
-              (match-beginning 0)
-              (+ (match-beginning 0) (length pronunciation))
-              'face face))
-            (emacspeak-pronounce-pronunciation-personality
-             (put-text-property
-              (match-beginning 0)
-              (+ (match-beginning 0) (length pronunciation))
-              'personality emacspeak-pronounce-pronunciation-personality)))))))))))
+           (put-text-property
+            (match-beginning 0)
+            (+ (match-beginning 0) (length pronunciation))
+            'face face))))))))
 
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
@@ -1713,7 +1705,7 @@ No-op if  `dtk-quiet' is set to t. "
           (syntax-table (syntax-table))
           (inherit-speaker-process dtk-speaker-process)
           (pron-table emacspeak-pronounce-pronunciation-table)
-          (pron-personality emacspeak-pronounce-pronunciation-personality)
+          (pron-personality emacspeak-pronounce-use-personality)
           (use-auditory-icons emacspeak-use-auditory-icons)
           (chunk-sep dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
@@ -1733,7 +1725,7 @@ No-op if  `dtk-quiet' is set to t. "
 ;;; inherit environment
         (setq
          yank-excluded-properties dtk-yank-excluded-properties
-         emacspeak-pronounce-pronunciation-personality pron-personality
+         emacspeak-pronounce-use-personality pron-personality
          buffer-invisibility-spec invisibility-spec
          dtk-chunk-separator-syntax chunk-sep
          dtk-speaker-process inherit-speaker-process
