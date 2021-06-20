@@ -219,42 +219,40 @@ bound to \\[dtk-toggle-caps].")
    do
    (when w
      (let ((pronunciation (gethash w pronunciation-table))
-           (pp nil))
+           (face nil))
        (goto-char (point-min))
        (cond
         ((stringp pronunciation)
          (while (search-forward w nil t)
-           (setq pp (dtk-get-style))
+           (setq face (get-text-property (point) 'face))
            (replace-match pronunciation t t)
-           (when (or pp emacspeak-pronounce-pronunciation-personality)
+           (cond
+            (face
              (put-text-property
               (match-beginning 0)
               (+ (match-beginning 0) (length pronunciation))
-              'personality
-              (or pp emacspeak-pronounce-pronunciation-personality)))))
+              'face face))
+            (emacspeak-pronounce-pronunciation-personality
+             (put-text-property
+              (match-beginning 0)
+              (+ (match-beginning 0) (length pronunciation))
+              'personality emacspeak-pronounce-pronunciation-personality)))))
         ((consp pronunciation)
          (let ((matcher (car pronunciation))
                (pronouncer (cdr pronunciation))
                (pronunciation ""))
            (while (funcall matcher w nil t)
-             (setq pp (dtk-get-style))
              (setq pronunciation
                    (save-match-data
                      (funcall
                       pronouncer
                       (buffer-substring (match-beginning 0) (match-end 0)))))
              (replace-match pronunciation t t)
-             (when (or pp emacspeak-pronounce-pronunciation-personality)
+             (when (or face emacspeak-pronounce-pronunciation-personality)
                (put-text-property
                 (match-beginning 0)
                 (+ (match-beginning 0) (length pronunciation))
-                'personality
-                (cond
-                 ((and emacspeak-pronounce-pronunciation-personality
-                       (listp pp))
-                  (nconc pp
-                         (list emacspeak-pronounce-pronunciation-personality)))
-                 (t pp)))))))
+                'face face)))))
         (t nil))))))
 
 ;;}}}
