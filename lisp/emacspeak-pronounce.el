@@ -243,6 +243,8 @@ applied.")
   (cl-declare (special emacspeak-pronounce-pronunciation-personality))
   (setq emacspeak-pronounce-pronunciation-personality (not
                                                        emacspeak-pronounce-pronunciation-personality))
+  (when emacspeak-pronounce-pronunciation-personality
+    (setq emacspeak-pronounce-pronunciation-personality voice-lighten))
   (emacspeak-auditory-icon
    (if emacspeak-pronounce-pronunciation-personality 'on 'off))
   (message "Turned %s pronunciation personality"
