@@ -214,9 +214,7 @@ bound to \\[dtk-toggle-caps].")
   "Applies pronunciations per pronunciation table to current buffer. "
   (cl-declare (special emacspeak-pronounce-pronunciation-personality))
   (cl-loop
-   for w in
-   (cl-loop for k being the hash-keys of pronunciation-table collect k)
-   do
+   for w being the hash-keys of pronunciation-table do
    (when w
      (let ((pronunciation (gethash w pronunciation-table))
            (face nil))
