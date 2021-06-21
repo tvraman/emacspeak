@@ -211,45 +211,41 @@ bound to \\[dtk-toggle-caps].")
 ;;compilation
 
 
+;;; Helper: like replace-match but preserves existing face or apply
+;;; 'match for pronunciation
+
+(defun tts-replace-match (replace) 
+  "Helper"
+  (cl-declare (special emacspeak-pronounce-use-personality))
+  (let ((face
+         (or (get-text-property (point) 'face)
+             (when emacspeak-pronounce-use-personality 'match))))
+    (replace-match replace t t)
+    (put-text-property
+     (match-beginning 0) (+ (match-beginning 0) (length replace))
+     'face face)))
+
 (defun tts-apply-pronunciations (pronunciation-table)
   "Applies pronunciations per pronunciation table to current buffer. "
-  (cl-declare (special emacspeak-pronounce-use-personality))
   (cl-loop
    for w being the hash-keys of pronunciation-table do
-   (let ((pronunciation (gethash w pronunciation-table))
-         (face nil))
+   (let ((pronunciation (gethash w pronunciation-table)))
      (goto-char (point-min))
      (cond
       ((stringp pronunciation)
        (while (search-forward w nil t)
-         (setq face
-               (or 
-                (get-text-property (point) 'face)
-                (and emacspeak-pronounce-use-personality 'match)))
-         (replace-match pronunciation t t)
-         (put-text-property
-          (match-beginning 0)
-          (+ (match-beginning 0) (length pronunciation))
-          'face face)))
+         (tts-replace-match pronunciation)))
       ((consp pronunciation)
        (let ((matcher (car pronunciation))
              (pronouncer (cdr pronunciation))
              (pronunciation ""))
          (while (funcall matcher w nil t)
            (setq
-            face (or 
-                (get-text-property (point) 'face)
-                (and emacspeak-pronounce-use-personality 'match))
             pronunciation
             (save-match-data
-              (funcall
-               pronouncer
-               (buffer-substring (match-beginning 0) (match-end 0)))))
-           (replace-match pronunciation t t)
-           (put-text-property
-            (match-beginning 0)
-            (+ (match-beginning 0) (length pronunciation))
-            'face face))))))))
+              (funcall pronouncer
+                       (buffer-substring (match-beginning 0) (match-end 0)))))
+           (tts-replace-match pronunciation))))))))
 
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
