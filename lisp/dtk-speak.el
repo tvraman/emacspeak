@@ -217,10 +217,11 @@ bound to \\[dtk-toggle-caps].")
 (defun tts-replace-match (replace) 
   "Helper"
   (cl-declare (special emacspeak-pronounce-use-personality))
-  (let ((face (get-text-property (point) 'face)))
+  (let ((face (get-text-property (point) 'face))
+        (start (match-beginning 0)))
     (replace-match replace t t)
     (put-text-property
-     (match-beginning 0) (+ (match-beginning 0) (length replace))
+     start (+ start (length replace))
      'face
      (or
       (when (and face emacspeak-pronounce-use-personality) (list face 'match))
