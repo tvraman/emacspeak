@@ -110,9 +110,6 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  )
-
 (cl-loop
  for f in
  '(
