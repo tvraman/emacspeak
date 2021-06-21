@@ -96,16 +96,18 @@
 (defun emacspeak-vdiff-speak-other-hunk ()
   "Speak corresponding hunk from other buffer."
   (interactive)
-  (save-excursion
-    (vdiff-switch-buffer (line-number-at-pos))
-    (emacspeak-vdiff-speak-this-hunk)))
+  (save-window-excursion
+    (save-excursion
+      (vdiff-switch-buffer (line-number-at-pos))
+      (emacspeak-vdiff-speak-this-hunk))))
 
 (defun emacspeak-vdiff-speak-other-line ()
   "Speak corresponding line from other buffer."
   (interactive)
-  (save-excursion
-    (vdiff-switch-buffer (line-number-at-pos))
-    (emacspeak-speak-line)))
+  (save-window-excursion
+    (save-excursion
+      (vdiff-switch-buffer (line-number-at-pos))
+      (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -146,7 +148,6 @@
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
-
 ;;{{{ open/close Folds:
 (cl-loop
  for f in
@@ -172,6 +173,7 @@
 
 ;;}}}
 ;;{{{ Navigation:
+
 ;; (defadvice vdiff--scroll-function (around emacspeak pre act comp)
 ;;   "Silence messages."
 ;;   (ems-with-messages-silenced ad-do-it))
@@ -189,10 +191,13 @@
 
 ;;}}}
 ;;{{{ Setup:
+
 (eval-after-load
     "vdiff"
   `(progn
-     (cl-declare (special vdiff-mode-prefix-map))
+     (cl-declare (special vdiff-mode-prefix-map vdiff-mode-map))
+     (define-key vdiff-mode-prefix-map "h" 'vdiff-hydra/body)
+     (define-key vdiff-mode-map (ems-kbd "C-c") vdiff-mode-prefix-map)
      (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk)
      (define-key vdiff-mode-prefix-map   (ems-kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)
      (define-key vdiff-mode-prefix-map   (ems-kbd "l") 'emacspeak-vdiff-speak-other-line)))
