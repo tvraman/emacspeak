@@ -155,7 +155,7 @@ the match  being passed to the func which returns  the new pronunciation."
     orig))
 
 (defun emacspeak-pronounce-compose-pronunciation-table (&optional buffer)
-  "Composes a pronunciation table for BUFFER. "
+  "Compose  pronunciation table for BUFFER. "
   (setq buffer (or buffer (current-buffer)))
   (let* ((table (make-hash-table :test #'equal))
          (filename (buffer-file-name buffer))
