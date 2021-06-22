@@ -61,7 +61,7 @@
 ;;{{{ comint
 
 (defun emacspeak-completion-pick-completion ()
-  "Pick completion and return safely where we came from."
+  "Pick completion."
   (interactive)
   (cl-declare (special completion-reference-buffer))
   (let ((completion-ignore-case t))
@@ -80,22 +80,15 @@
   (emacspeak-speak-line))
 
 (defcustom emacspeak-comint-autospeak t
-  "Says if comint output is automatically spoken.
-You can use
-  `emacspeak-toggle-comint-autospeak` bound to
-  \\[emacspeak-toggle-comint-autospeak] to toggle this
-setting."
+  "Speak comint output.
+Use \\[emacspeak-toggle-comint-autospeak] to toggle this setting."
   :group 'emacspeak-speak
   :type 'boolean)
 
 (make-variable-buffer-local 'emacspeak-comint-autospeak)
-
 (defun emacspeak-toggle-comint-autospeak (&optional prefix)
-  "Toggle state of Emacspeak comint autospeak.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result."
+  "Toggle comint autospeak.
+Interactive PREFIX arg means toggle  global default value. "
   (interactive "P")
   (cl-declare (special emacspeak-comint-autospeak ))
   (cond
@@ -116,8 +109,8 @@ set the current local value to the result."
 ;;;###autoload
 (defun emacspeak-toggle-inaudible-or-comint-autospeak ()
   "Toggle comint-autospeak when in a comint or vterm buffer.
-Otherwise call voice-setup-toggle-silence-personality which toggles the
-personality under point."
+Otherwise call voice-setup-toggle-silence-personality which
+toggles personality under point."
   (interactive)
   (cond
    ((or (derived-mode-p 'comint-mode)
@@ -126,8 +119,8 @@ personality under point."
    (t (funcall-interactively #'voice-setup-toggle-silence-personality))))
 
 (defvar emacspeak-comint-output-monitor nil
-  "Switch to monitor comint output.
-When turned on,  comint output will be spoken even when the
+  " Monitor comint output.
+When  on,  comint output is spoken even when the
 buffer is not current or its window live.")
 
 (make-variable-buffer-local 'emacspeak-comint-output-monitor)
@@ -135,14 +128,12 @@ buffer is not current or its window live.")
 ;;;###autoload
 (ems-generate-switcher 'emacspeak-toggle-comint-output-monitor
                        'emacspeak-comint-output-monitor
-                       "Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.")
+                       "Toggle  Emacspeak comint monitor.
+Interactive PREFIX arg means toggle the global default value. ")
+
 ;;;###autoload
 (defun emacspeak-comint-speech-setup ()
-  "Speech setup for comint buffers."
+  "Speech setup."
   (cl-declare (special comint-mode-map
                        header-line-format emacspeak-use-header-line))
 ;;; Experimental: discard undo info in comint:
@@ -166,6 +157,7 @@ set the current local value to the result.")
 
 ;;}}}
 ;;{{{ Advice comint:
+
 (defadvice comint-delete-output (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -211,8 +203,7 @@ set the current local value to the result.")
    (t ad-do-it))
   ad-return-value)
 
-(defadvice comint-insert-previous-argument (around emacspeak pre
-                                                   act comp)
+(defadvice comint-insert-previous-argument (around emacspeak pre act comp)
   "Provide auditory feedback."
   (cond
    ((ems-interactive-p)
@@ -287,7 +278,7 @@ set the current local value to the result.")
     (message "Sending EOF to subprocess")))
 
 (defadvice comint-accumulate (before emacspeak pre act comp)
-  "Speak the line we are accumulating."
+  "Speak the accumulateed line."
   (when (ems-interactive-p)
     (save-excursion
       (comint-bol)
@@ -302,54 +293,49 @@ set the current local value to the result.")
  (eval
   `(defadvice ,f (after
                   emacspeak pre act comp)
-     "Speak the matched input."
+     "Speak matched input."
      (when (ems-interactive-p)
        (save-excursion
          (goto-char (comint-line-beginning-position))
          (emacspeak-speak-line 1))
        (emacspeak-auditory-icon 'select-object)))))
 
-(defadvice shell-forward-command (after emacspeak pre act
-                                        comp)
-  "Speak the line showing where point is."
+(defadvice shell-forward-command (after emacspeak pre act comp)
+  "Speak  line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'item))))
 
-(defadvice shell-backward-command (after emacspeak pre act
-                                         comp)
-  "Speak the line showing where point is."
+(defadvice shell-backward-command (after emacspeak pre act comp)
+  "Speak  line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'item))))
 
 (defadvice comint-show-output (after emacspeak pre act comp)
-  "Speak the line showing where point is."
+  "Speak  line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) (mark)))))
 
-(defadvice comint-show-maximum-output (after emacspeak pre act
-                                             comp)
-  "Speak the line showing where point is."
+(defadvice comint-show-maximum-output (after emacspeak pre act comp)
+  "Speak line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'scroll))))
 
-(defadvice comint-bol-or-process-mark (after emacspeak pre act
-                                             comp)
-  "Speak the line showing where point is."
+(defadvice comint-bol-or-process-mark (after emacspeak pre act comp)
+  "Speak line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
-(defadvice comint-copy-old-input (after emacspeak pre act
-                                        comp)
+(defadvice comint-copy-old-input (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
@@ -382,7 +368,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
-  "Replacing mouse oriented completer with keyboard friendly equivalent"
+  "Replacing default with keyboard friendly completer"
   (let ((completions (sort (ad-get-arg 0) 'string-lessp))
         (_common (ad-get-arg 1)))
     (with-output-to-temp-buffer "*Completions*"
@@ -412,7 +398,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
   ad-return-value)
 
 (defadvice comint-next-input (after emacspeak pre act comp)
-  "Speak the line."
+  "Speak line."
   (when (ems-interactive-p)
     (tts-with-punctuations
      'all
@@ -422,7 +408,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-next-matching-input (after emacspeak pre act comp)
-  "Speak the line."
+  "Speak line."
   (when (ems-interactive-p)
     (tts-with-punctuations
      'all
@@ -432,7 +418,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-previous-input (after emacspeak pre act comp)
-  "Speak the line."
+  "Speak line."
   (when (ems-interactive-p)
     (tts-with-punctuations
      'all
@@ -442,7 +428,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-previous-matching-input (after emacspeak pre act comp)
-  "Speak the line."
+  "Speak line."
   (when (ems-interactive-p)
     (tts-with-punctuations
      'all
@@ -482,7 +468,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
       (emacspeak-speak-line 1))))
 
 (defadvice comint-dynamic-list-input-ring (around emacspeak pre act comp)
-  "List in help buffer the buffer's input history."
+  "List  the buffer's input history."
   (cond
    ((ems-interactive-p)
     (if (or (not (ring-p comint-input-ring))
@@ -546,6 +532,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
 
 ;;}}}
 ;;{{{dirtrack-procfs:
+
 (declare-function shell-dirtrack-mode "shell" (&optional arg))
 ;;; Directory tracking for shell buffers on  systems that have  /proc
 ;;; Adapted from Emacs Wiki:
@@ -590,7 +577,6 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
     (shell-dirtrack-mode 0)))
 (when (file-exists-p "/proc")
   (add-hook 'shell-mode-hook 'dirtrack-procfs-mode))
-
 
 ;;}}}
 (provide 'emacspeak-comint)
