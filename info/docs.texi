@@ -1088,11 +1088,8 @@ This is the main emacspeak module.
 @findex emacspeak-toggle-comint-output-monitor
 
 @format
-Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
+Toggle  Emacspeak comint monitor.
+Interactive PREFIX arg means toggle the global default value. 
 @end format
 @end deffn
 
@@ -2586,7 +2583,7 @@ Advice comint and friends to speak.
 @findex emacspeak-completion-pick-completion
 
 @format
-Pick completion and return safely where we came from.
+Pick completion.
 @end format
 @end deffn
 
@@ -2595,11 +2592,8 @@ Pick completion and return safely where we came from.
 @findex emacspeak-toggle-comint-autospeak
 
 @format
-Toggle state of Emacspeak comint autospeak.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
+Toggle comint autospeak.
+Interactive PREFIX arg means toggle  global default value. 
 
 (fn &optional PREFIX)
 @end format
@@ -2618,19 +2612,16 @@ set the current local value to the result.
 
 @format
 Toggle comint-autospeak when in a comint or vterm buffer.
-Otherwise call voice-setup-toggle-silence-personality which toggles the
-personality under point.
+Otherwise call voice-setup-toggle-silence-personality which
+toggles personality under point.
 @end format
 @end deffn
 
 @subsection emacspeak-comint Options
 
 @defvar {User Option} emacspeak-comint-autospeak
-Says if comint output is automatically spoken.
-You can use
-  ‘emacspeak-toggle-comint-autospeak‘ bound to
-  M-x emacspeak-toggle-comint-autospeak to toggle this
-setting.
+Speak comint output.
+Use M-x emacspeak-toggle-comint-autospeak to toggle this setting.
 
 @end defvar
 

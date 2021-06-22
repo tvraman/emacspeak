@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 21, 2021.
+last updated on June 22, 2021.
 
 
 File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
@@ -898,7 +898,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-n:                              emacspeak-speak.    (line  552)
 * <fn> C-o:                              emacspeak-ocr.      (line   19)
 * <fn> C-p:                              emacspeak-speak.    (line  679)
-* <fn> C-q:                              emacspeak-comint.   (line   37)
+* <fn> C-q:                              emacspeak-comint.   (line   34)
 * <fn> C-s:                              dtk-speak.          (line  348)
 * <fn> C-SPC:                            emacspeak-speak.    (line  324)
 * <fn> C-t #:                            emacspeak-table-ui. (line  403)
@@ -1298,7 +1298,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-o:                               emacspeak-ocr.      (line   18)
 * C-e C-p:                               Reading.            (line  143)
 * C-e C-p <1>:                           emacspeak-speak.    (line  678)
-* C-e C-q:                               emacspeak-comint.   (line   36)
+* C-e C-q:                               emacspeak-comint.   (line   33)
 * C-e C-s:                               Miscellaneous.      (line   26)
 * C-e C-s <1>:                           dtk-speak.          (line  347)
 * C-e C-SPC:                             emacspeak-speak.    (line  322)
