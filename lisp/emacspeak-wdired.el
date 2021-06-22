@@ -87,14 +87,14 @@
     (dtk-speak "Toggled permission bit.")))
 
 (defadvice wdired-abort-changes (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (tts-with-punctuations 'some
                            (dtk-speak "Cancelling  changes. "))))
 
 (defadvice wdired-finish-edit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)
     (tts-with-punctuations 'some
@@ -102,7 +102,7 @@
 
 (defadvice wdired-change-to-wdired-mode (after emacspeak pre act
                                                comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (tts-with-punctuations 'some

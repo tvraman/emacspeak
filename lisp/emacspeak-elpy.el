@@ -69,31 +69,31 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
 (defadvice elpy-enable (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'on)
     (message "Enabled elpy")))
 
 (defadvice elpy-disable (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'off)
     (message "Disabled elpy")))
 
 (defadvice elpy-doc (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (message "Displayed help in other window.")))
 
 (defadvice elpy-find-file (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -104,7 +104,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
@@ -122,7 +122,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))

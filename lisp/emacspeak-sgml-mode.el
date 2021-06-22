@@ -51,24 +51,24 @@
 ;;{{{ advice interactive commands 
 
 (defadvice sgml-skip-tag-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice sgml-skip-tag-backward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice sgml-slash (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice sgml-delete-tag (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
@@ -84,7 +84,7 @@
   ad-return-value)
 
 (defadvice sgml-tags-invisible (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (dtk-speak  "Toggled display of tags")))

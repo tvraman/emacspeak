@@ -72,25 +72,25 @@ Provide an auditory icon if possible."
     (dtk-stop)))
 
 (defadvice shx-send-input-or-copy-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice shx--turn-on (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'on)
     (message "Turned on shx")))
 (defadvice shx-send-input-or-open-thing (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (unless (eq major-mode 'shell-mode)
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'open-object))))
 
 (defadvice shx-global-mode (after emacspeak  pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Turned %s shx globally"
              (if shx-global-mode "on" "off"))

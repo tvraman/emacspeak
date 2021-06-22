@@ -66,7 +66,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-this-char (preceding-char))))))
 

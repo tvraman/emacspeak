@@ -55,19 +55,19 @@
 ;;{{{ Interactive Commands:
 
 (defadvice vuiet-stop (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 
 (defadvice vuiet-love-track (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-notify-say "loved strack")))
 
 
 (defadvice vuiet-unlove-track (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-notify-say "UnLoved strack")))
 
@@ -82,7 +82,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
@@ -93,7 +93,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon
         (if vuiet-scrobble-enabled 'on 'off))
@@ -106,7 +106,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (dtk-notify-say
         (format "Volume %s" (vuiet-player-volume)))))))

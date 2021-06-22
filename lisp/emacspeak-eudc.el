@@ -61,14 +61,14 @@
 ;;{{{ speech enable interactive commands 
 
 (defadvice eudc-move-to-next-record (after emacspeak pre act comp)
-  "Provide auditory feedback. "
+  "speak. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice eudc-move-to-previous-record (after emacspeak pre act
                                                comp)
-  "Provide auditory feedback. "
+  "speak. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))

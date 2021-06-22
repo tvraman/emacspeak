@@ -84,24 +84,24 @@
 ;;{{{  buffer selection
 
 (defadvice rmail-quit(after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice rmail-bury(after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 (defadvice rmail (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-current-message)))
 
 (defadvice rmail-expunge-and-save (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
@@ -109,7 +109,7 @@
 ;;{{{  message navigation
 
 (defadvice rmail-beginning-of-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
@@ -118,47 +118,47 @@
 ;;{{{  folder navigation
 
 (defadvice rmail-first-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-first-unseen-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-last-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-next-undeleted-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-next-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-previous-undeleted-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 (defadvice rmail-previous-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 (defadvice rmail-next-labeled-message (around emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cond
    ((ems-interactive-p)
     (let ((original rmail-current-message))
@@ -172,7 +172,7 @@
   ad-return-value)
 
 (defadvice rmail-previous-labeled-message (around emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cond
    ((ems-interactive-p)
     (let ((original rmail-current-message))
@@ -186,7 +186,7 @@
   ad-return-value)
 
 (defadvice rmail-show-message (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))  
@@ -196,12 +196,12 @@
 
 (defadvice rmail-undelete-previous-message (after emacspeak pre act
                                                   comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-current-message)))
 (defadvice rmail-delete-message (after emacspeak pre act)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Message discarded.")))

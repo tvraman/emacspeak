@@ -69,13 +69,13 @@
 ;;{{{ Advice interactive functions
 
 (defadvice WoMan-next-manpage(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice WoMan-previous-manpage(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))

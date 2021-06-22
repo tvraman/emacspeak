@@ -63,22 +63,22 @@
   )
 
 (defadvice yaml-indent-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice yaml-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (unless emacspeak-audio-indentation
     (emacspeak-toggle-audio-indentation)))
 
 (defadvice yaml-fill-paragraph (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
 (defadvice yaml-electric-backspace (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (dtk-tone-deletion)
@@ -88,12 +88,12 @@
   ad-return-value)
 
 (defadvice yaml-electric-bar-and-angle (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice yaml-electric-dash-and-dot (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 

@@ -120,19 +120,19 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-vdiff-speak-this-hunk)))))
 
 (defadvice vdiff-switch-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice vdiff-refine-all-hunks (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 (cl-loop
@@ -142,7 +142,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
@@ -155,7 +155,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
@@ -166,7 +166,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-line)))))
@@ -184,7 +184,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-vdiff-speak-this-hunk)
        (emacspeak-auditory-icon 'large-movement)))))

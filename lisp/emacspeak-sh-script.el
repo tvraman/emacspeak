@@ -62,7 +62,7 @@
   (emacspeak-speak-mode-line))
 
 (defadvice sh-indent-line (after emacspeak pre act comp)
-  "Provide auditory feedback to indicate indentation."
+  "speak to indicate indentation."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-current-column)))
@@ -87,7 +87,7 @@
    (t ad-do-it))
   ad-return-value)
 (defadvice sh-newline-and-indent (after emacspeak pre act comp)
-  "Provide auditory feedback to indicate indentation."
+  "speak to indicate indentation."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 (defadvice sh-beginning-of-command(after emacspeak pre act

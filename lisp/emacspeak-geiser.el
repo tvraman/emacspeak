@@ -85,7 +85,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'open-object)))))
@@ -104,7 +104,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'task-done)))))
@@ -122,7 +122,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
@@ -133,7 +133,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
@@ -147,19 +147,19 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice geiser-repl-exit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice geiser-repl-import-module(around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((start (point)))
@@ -170,7 +170,7 @@
   ad-return-value)
 
 (defadvice geiser-repl--maybe-send(around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((start (point)))
@@ -181,7 +181,7 @@
   ad-return-value)
 
 (defadvice geiser-repl--doc-module (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-auditory-icon 'open-object)
@@ -195,7 +195,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))

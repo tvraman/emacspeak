@@ -104,24 +104,24 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act com)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 (defadvice slime-info (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))
 
 (defadvice slime-selector (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice slime-scratch (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -145,7 +145,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
@@ -157,7 +157,7 @@
  do
  (eval
   `(defadvice  ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (save-excursion
          (goto-char
@@ -192,7 +192,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'delete-object)))))
 
@@ -205,7 +205,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)))))
 
@@ -230,12 +230,12 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
 (defadvice slime-repl-inspect (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 (cl-loop
@@ -247,12 +247,12 @@
   `(defadvice ,f (after emacspeak pre act comp)
 
      (defadvice slime-cheat-sheet (after emacspeak pre act comp)
-       "Provide auditory feedback."
+       "speak."
        (when (ems-interactive-p)
          (emacspeak-auditory-icon 'help)
          (dtk-speak "Displaying  help in new frame.")))
 
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'help)
        (dtk-speak "Displayed help in other window.")))))
@@ -271,7 +271,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 ;;}}}
@@ -290,7 +290,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'help)))))
 
@@ -298,24 +298,24 @@
 ;;{{{ Inspector:
 
 (defadvice slime-inspector-pop (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice slime-inspector-pprint (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-speak "Pretty printed description in other window.")
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice slime-inspector-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice slime-inspector-toggle-verbose (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
@@ -326,7 +326,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     Provide auditory feedback.
+     speak.
      (when (ems-interactive-p)
        (emacspeak-speak-this-personality-chunk)
        (emacspeak-auditory-icon 'large-movement)))))
@@ -345,7 +345,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     Provide auditory feedback.
+     speak.
      (when (ems-interactive-p)
        (with-current-buffer (get-buffer *slime-inspector*)
          (emacspeak-speak-line)
@@ -357,7 +357,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     Provide auditory feedback.
+     speak.
      (when (ems-interactive-p)
        (with-current-buffer (get-buffer*slime-description*)
          (emacspeak-speak-buffer)

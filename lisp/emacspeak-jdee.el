@@ -72,24 +72,24 @@
 ;;}}}
 ;;{{{ Advice interactive commands:
 (defadvice jdee-open-class-source (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice jdee-open-source-for-symbol (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice jdee-open-base-class-source (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 (defadvice jdee-complete-popup-message (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (message "%s" (ad-get-arg 0))
   (emacspeak-auditory-icon 'help))
 
@@ -102,13 +102,13 @@
     ad-return-value))
 
 (defadvice jdee-compile (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak "Compiling current java project")))
 
 (defadvice bsh (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cl-declare (special emacspeak-comint-autospeak))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -116,7 +116,7 @@
     (emacspeak-speak-mode-line)))
 
 (defadvice jdee-run (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cl-declare (special emacspeak-comint-autospeak))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -124,7 +124,7 @@
     (emacspeak-speak-mode-line)))
 
 (defadvice jdee-db (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
@@ -174,7 +174,7 @@
 
 (defadvice jdee-bug-toggle-breakpoint (after emacspeak pre
                                              act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "toggled breakpoint.")))
 
@@ -240,39 +240,39 @@
          do
          (eval
           `(defadvice ,command (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice jdee-db-run (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice jdee-debug-cont (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (message "Continuing execution.")))
 (defadvice jdee-debug-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Quit debugger.")))
 (defadvice jdee-debug-set-breakpoint (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice jdee-debug-toggle-breakpoint (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
 (defadvice jdee-debug-clear-breakpoints (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Cleared all break points.")))

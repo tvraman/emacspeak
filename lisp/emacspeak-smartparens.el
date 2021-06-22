@@ -74,11 +74,11 @@
 ;;{{{ Advice low-level helpers:
 
 (defadvice sp--pair-overlay-create (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'item))
 
 (defadvice sp-wrap--initialize (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'select-object))
 
 ;;}}}
@@ -145,7 +145,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-current-kill)
        (emacspeak-auditory-icon 'delete-object)))))
@@ -180,7 +180,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)

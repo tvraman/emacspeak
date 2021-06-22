@@ -83,7 +83,7 @@
 ;;{{{ Interactive Commands:
 
 (defadvice tab-bar-switch-to-tab (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-tab-bar-speak-tab-name)))
 
@@ -97,7 +97,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-tab-bar-speak-tab-name)))))
@@ -111,7 +111,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-tab-bar-speak-tab-name)))))
@@ -122,13 +122,13 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-tab-bar-speak-tab-name)))))
 
 (defadvice tab-bar-close-tab-by-name (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-speak (message "Closed tab %s" (ad-get-arg  0)))
     (emacspeak-auditory-icon 'close-object)))
@@ -142,12 +142,12 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)))))
 
 (defadvice tab-bar-list-execute (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
@@ -157,13 +157,13 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice tab-bar-list-unmark (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'unmark-object)
     (emacspeak-speak-line)))
@@ -175,13 +175,13 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'delete-object)
        (emacspeak-speak-line)))))
 
 (defadvice tab-bar-list-select (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))

@@ -67,7 +67,7 @@
 ;;{{{ Advice
 
 (defadvice archive-mark (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-archive-speak-line)))
@@ -83,36 +83,36 @@
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-flag-deleted (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-unflag (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-archive-speak-line)))
 (defadvice archive-unflag-backwards (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-extract (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice archive-extract-other-window (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice archive-view (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))

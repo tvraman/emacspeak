@@ -3,7 +3,7 @@
 # key: er
 # --
 (defadvice ${1:fun} (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     $0

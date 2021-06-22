@@ -171,19 +171,19 @@ is a Tcl expression, and the last argument is Tcl commands.")
 ;;{{{  Program structure:
 
 (defadvice tcl-mark-defun (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Marked procedure")))
 
 (defadvice tcl-beginning-of-defun (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)
     (emacspeak-speak-line)))
 
 (defadvice tcl-end-of-defun (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)))
 

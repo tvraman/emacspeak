@@ -65,19 +65,19 @@
 ;;{{{  advice interactive commands
 
 (defadvice ecb-activate (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ecb-cancel-dialog (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ecb-show-help (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-mode-line)))
@@ -97,13 +97,13 @@
  do
  (eval 
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice ecb-select-ecb-frame (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
@@ -182,7 +182,7 @@ available."
   ad-return-value)
 
 (defadvice tree-buffer-select (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
@@ -193,7 +193,7 @@ available."
 
 (defadvice tree-node-toggle-expanded (after emacspeak pre
                                             act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((node (ad-get-arg 0))) ;; note that logic is reversed
       (cond
@@ -212,19 +212,19 @@ available."
   (dtk-speak ad-return-value))
 
 (defadvice tree-buffer-arrow-pressed (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-tab-pressed (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-return-pressed (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))

@@ -75,37 +75,37 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice flycheck-list-errors (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Displayed error listing in other window.")))
 
 (defadvice flycheck-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Checking buffer.")))
 
 (defadvice flycheck-clear (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Cleared errors")))
 
 (defadvice flycheck-compile (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Compiling buffer")))
 
 (defadvice flycheck-error-list-refresh (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Refreshed errors")))

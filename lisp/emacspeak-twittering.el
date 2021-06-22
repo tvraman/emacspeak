@@ -67,20 +67,20 @@
 ;;{{{ Advice interactive commands: twittering-mode
 
 (defadvice twittering-toggle-activate-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if twittering-active-mode 'on 'off))
     (message "Turned %s twittering-active-mode"
              (if twittering-active-mode 'on 'off))))
 
 (defadvice twittering-scroll-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if twittering-scroll-mode 'on 'off))
     (message "Turned %s twittering-scroll-mode"
              (if twittering-scroll-mode 'on 'off))))
 (defadvice twit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
@@ -133,7 +133,7 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice twittering-update-status-interactive (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
@@ -159,7 +159,7 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
                (emacspeak-auditory-icon 'news)
                (emacspeak-speak-mode-line)))))
 (defadvice twittering-kill-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))

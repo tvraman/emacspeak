@@ -484,17 +484,17 @@ and return a suitable effect structure." name)
 (require 'emacspeak-preamble)
 
 (defadvice sox-open-file(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sox-refresh (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice sox-delete-effect-at-point (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 (provide 'emacspeak-sox)

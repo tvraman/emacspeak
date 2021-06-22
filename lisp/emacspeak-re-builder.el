@@ -71,7 +71,7 @@
     (emacspeak-speak-line)))
 
 (defadvice reb-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
@@ -101,17 +101,17 @@
       (emacspeak-auditory-icon (if case-fold-search 'on 'off)))))
 
 (defadvice reb-copy (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice reb-enter-subexp-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice reb-quit-subexp-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 

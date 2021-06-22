@@ -54,7 +54,7 @@
 ;;}}}
 ;;{{{ Advice
 (defadvice sc-cite-region (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Cited region containing %s lines"
@@ -62,7 +62,7 @@
                           (ad-get-arg 1)))))
 
 (defadvice sc-recite-region (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Re-cited region containing %s lines"
@@ -70,7 +70,7 @@
                           (ad-get-arg 1)))))
 
 (defadvice sc-uncite-region (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Uncited region containing %s lines"
@@ -96,7 +96,7 @@
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice sc-open-line (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Opened a blank line")))

@@ -69,20 +69,20 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done))))) 
 
 
 
 (defadvice rust-dbg-wrap-or-unwrap (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice rust-format-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((buffer-live-p (get-buffer rust-rustfmt-buffername))
     (emacspeak-auditory-icon 'open-object))
@@ -90,20 +90,20 @@
    (t (emacspeak-auditory-icon 'task-done))))
 
 (defadvice rust-goto-format-problem (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
 
 (defadvice rust-enable-format-on-save (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'on)
     (message "Enabled format on save")))
 
 (defadvice rust-disable-format-on-save (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'off)
     (message "Disabled format on save")))
@@ -114,7 +114,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
@@ -142,7 +142,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)

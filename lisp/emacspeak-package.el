@@ -145,7 +145,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act com)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'mark-object)))))

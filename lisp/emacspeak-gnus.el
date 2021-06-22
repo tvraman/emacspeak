@@ -163,7 +163,7 @@ instead you hear only the first screenful."
 ;;{{{  starting up:
 
 (defadvice gnus-group-post-news (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
@@ -193,7 +193,7 @@ instead you hear only the first screenful."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
@@ -206,77 +206,77 @@ this group is being deselected."
     (emacspeak-speak-line)))
 
 (defadvice gnus-group-catchup-current (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice gnus-group-yank-group (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
 
 (defadvice gnus-group-list-groups (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Listing groups... done")))
 
 (defadvice gnus-topic-mode (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "toggled topic mode")))
 
 (defadvice gnus-article-fill-long-lines (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'modified-object)
     (dtk-speak "wrapped long lines")))
 
 (defadvice gnus-group-list-all-groups (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Listing all groups... done")))
 
 (defadvice gnus-group-list-all-matching (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Listing all matching groups... done")))
 
 (defadvice gnus-group-list-killed (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Listing killed groups... done")))
 
 (defadvice gnus-group-list-matching (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-notify-speak "listing matching groups with unread articles... done")))
 
 (defadvice gnus-group-list-zombies (after emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Listing zombie groups... done")))
 
 (defadvice gnus-group-customize (before emacspeak pre act)
-  "Provide auditory feedback.
+  "speak.
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -540,7 +540,7 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gnus-summary-speak-subject)))
 (defadvice gnus-summary-hide-all-threads (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
@@ -665,7 +665,7 @@ Indicate change of selection with
     (emacspeak-speak-current-window)))
 
 (defadvice gnus-article-next-button (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((end (next-single-property-change
                 (point) 'gnus-callback)))
@@ -674,19 +674,19 @@ Indicate change of selection with
                 (point)end)))))
 
 (defadvice gnus-article-press-button (before emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
 
 (defadvice gnus-article-goto-prev-page (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (sit-for 1)
     (emacspeak-speak-current-window)))
 
 (defadvice gnus-article-goto-next-page (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (sit-for 1)
@@ -830,7 +830,7 @@ Helps to prevent words from being spelled instead of spoken."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)))))
 

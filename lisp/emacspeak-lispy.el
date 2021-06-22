@@ -111,7 +111,7 @@
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Provide auditory feedback.
+     "speak.
 Speak sexp when at the beginning of a sexp.
 Speak line if at end of sexp.
 Indicate  no movement if we did not move."
@@ -136,13 +136,13 @@ Indicate  no movement if we did not move."
 ;;{{{Advice Insertions:
 
 (defadvice lispy-clone (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-sexp)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice lispy-comment (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (cond
@@ -150,13 +150,13 @@ Indicate  no movement if we did not move."
      (t (emacspeak-speak-line)))))
 
 (defadvice lispy-backtick (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
 
 (defadvice lispy-tick (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (cond
      ((region-active-p)
@@ -169,7 +169,7 @@ Indicate  no movement if we did not move."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-this-char (preceding-char))))))
 
@@ -179,7 +179,7 @@ Indicate  no movement if we did not move."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'item)
        (save-excursion
@@ -213,13 +213,13 @@ Indicate  no movement if we did not move."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'mark-object)
        (emacspeak-speak-region (region-beginning) (region-end))))))
 
 (defadvice lispy-mark-symbol (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-region  (region-beginning) (region-end))))
@@ -227,7 +227,7 @@ Indicate  no movement if we did not move."
 ;;}}}
 ;;{{{Advice WhiteSpace Manipulation:
 (defadvice lispy-fill (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (emacspeak-speak-line)))
@@ -238,13 +238,13 @@ Indicate  no movement if we did not move."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
 
 (defadvice lispy-tab (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (when (buffer-modified-p) (emacspeak-auditory-icon 'modified-object))
@@ -253,7 +253,7 @@ Indicate  no movement if we did not move."
 ;;}}}
 ;;{{{Advice Kill/Yank:
 (defadvice lispy-new-copy (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "region containing %s chars copied to kill ring "
@@ -266,19 +266,19 @@ Indicate  no movement if we did not move."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'delete-object)
        (dtk-speak (current-kill 0 nil))))))
 
 (defadvice lispy-yank (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-region (region-beginning) (region-end))))
 
 (defadvice lispy-delete-backward(around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
@@ -287,7 +287,7 @@ Indicate  no movement if we did not move."
    (t ad-do-it)))
 
 (defadvice lispy-delete (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (dtk-tone-deletion)
@@ -299,7 +299,7 @@ Indicate  no movement if we did not move."
 ;;{{{Advice Help:
 
 (defadvice lispy-describe-inline (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when
       (and
        (ems-interactive-p)
@@ -310,7 +310,7 @@ Indicate  no movement if we did not move."
       (emacspeak-speak-buffer))))
 
 (defadvice lispy--show (before emacspeak   pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'help)
   (dtk-speak (ad-get-arg 0)))
 
@@ -318,7 +318,7 @@ Indicate  no movement if we did not move."
 ;;{{{Advice Outliner:
 
 (defadvice lispy-narrow (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Narrowed editing region to %s lines"
@@ -337,7 +337,7 @@ Indicate  no movement if we did not move."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))

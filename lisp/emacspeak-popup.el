@@ -74,7 +74,7 @@
     (message msg)))
 
 (defadvice popup-menu-event-loop (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-popup-speak-item (ad-get-arg 0))
   ad-do-it

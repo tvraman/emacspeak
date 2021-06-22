@@ -60,19 +60,19 @@
 ;;{{{  Program structure:
 
 (defadvice mark-perl-function (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Marked procedure")))
 
 (defadvice perl-beginning-of-function (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice perl-end-of-function (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)))
 

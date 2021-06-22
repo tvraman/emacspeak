@@ -66,7 +66,7 @@
 ;;}}}
 
 (defadvice xkcd-kill-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))

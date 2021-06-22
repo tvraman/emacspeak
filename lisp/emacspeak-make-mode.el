@@ -104,7 +104,7 @@
 
 (defadvice makefile-browser-quit (after emacspeak pre act
                                         comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))

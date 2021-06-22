@@ -134,7 +134,7 @@
     (emacspeak-speak-line)))
 
 (defadvice reftex-toc-toggle-follow (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-toc-follow-mode
                                  'on
@@ -142,7 +142,7 @@
     (message "Turned %s follow mode. "
              (if reftex-toc-follow-mode 'on 'off))))
 (defadvice reftex-toc-toggle-labels (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-toc-include-labels
                                  'on
@@ -151,7 +151,7 @@
              (if reftex-toc-include-labels 'on 'off))))
 
 (defadvice reftex-toc-toggle-file-boundary (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-toc-include-file-boundaries
                                  'on
@@ -160,7 +160,7 @@
              (if reftex-toc-include-file-boundaries 'on 'off))))
 
 (defadvice reftex-toc-toggle-context (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-toc-include-context
                                  'on
@@ -208,7 +208,7 @@
     (emacspeak-speak-predefined-window 2)))
 
 (defadvice reftex-index-toggle-follow (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-index-follow-mode
                                  'on
@@ -217,7 +217,7 @@
              (if reftex-index-follow-mode 'on 'off))))
 
 (defadvice reftex-index-toggle-labels (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-index-include-labels
                                  'on
@@ -226,7 +226,7 @@
              (if reftex-index-include-labels 'on 'off))))
 
 (defadvice reftex-index-toggle-file-boundary (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-index-include-file-boundaries
                                  'on
@@ -235,7 +235,7 @@
              (if reftex-index-include-file-boundaries 'on 'off))))
 
 (defadvice reftex-index-toggle-context (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if reftex-index-include-context
                                  'on
@@ -250,13 +250,13 @@
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice reftex-index-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice reftex-index-quit-and-kill (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))

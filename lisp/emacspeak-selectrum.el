@@ -81,19 +81,19 @@
 
 
 (defadvice selectrum-select-current-candidate (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (when (and ad-return-value (stringp ad-return-value))
       (dtk-speak ad-return-value))
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice selectrum-submit-exact-input (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice selectrum-insert-current-candidate (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((orig (point)))
@@ -111,7 +111,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
@@ -122,7 +122,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))

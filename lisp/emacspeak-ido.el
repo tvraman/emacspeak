@@ -99,7 +99,7 @@
 ;;{{{ speech-enable interactive commands:
 
 (defadvice ido-mode (after emacspeak pre act comp)
-  "Provide auditory feedback.
+  "speak.
 Tip: Use M-x customize to set ido-max-prospects to a small value
   when using Emacspeak --- I set it to 3.
 The default value of 12 is too high for using ido effectively with speech. "
@@ -108,14 +108,14 @@ The default value of 12 is too high for using ido effectively with speech. "
     (dtk-speak (format "IDo set to %s" ido-mode))))
 
 (defadvice ido-everywhere (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-everywhere 'on 'off))
     (dtk-speak
      (format "Turned %s IDo everywhere." (if ido-everywhere " on " " off ")))))
 
 (defadvice ido-toggle-case (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-case-fold 'on 'off))
     (dtk-speak
@@ -123,7 +123,7 @@ The default value of 12 is too high for using ido effectively with speech. "
              (if ido-case-fold 'on 'off)))))
 
 (defadvice ido-toggle-regexp (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-enable-regexp 'on 'off))
     (dtk-speak
@@ -131,7 +131,7 @@ The default value of 12 is too high for using ido effectively with speech. "
              (if ido-enable-regexp 'on 'off)))))
 
 (defadvice ido-toggle-prefix (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-enable-prefix 'on 'off))
     (dtk-speak
@@ -139,7 +139,7 @@ The default value of 12 is too high for using ido effectively with speech. "
              (if ido-enable-prefix 'on 'off)))))
 
 (defadvice ido-toggle-ignore (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cl-declare (special ido-ignore-files))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-ignore-files 'on 'off))
@@ -164,7 +164,7 @@ The default value of 12 is too high for using ido effectively with speech. "
  do
  (eval
   `(defadvice   ,f(after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))

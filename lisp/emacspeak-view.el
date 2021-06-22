@@ -97,7 +97,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
@@ -120,76 +120,76 @@
          (emacspeak-speak-mode-line)))))
 
 (defadvice View-exit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice View-leave (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
 (defadvice View-search-regexp-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice View-search-regexp-backward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice View-search-last-regexp-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice View-search-last-regexp-backward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice view-exit (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice View-scroll-one-more-line (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (emacspeak-speak-line)))
 
 (defadvice View-scroll-line-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (emacspeak-speak-line)))
 
 (defadvice View-scroll-line-backward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (emacspeak-speak-line)))
 (defadvice View-scroll-page-forward-set-page-size (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
       (emacspeak-auditory-icon 'scroll)
       (dtk-speak (emacspeak-get-window-contents)))))
 
 (defadvice View-scroll-page-backward-set-page-size (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
       (emacspeak-auditory-icon 'scroll)
@@ -225,7 +225,7 @@
   ad-return-value)
 
 (defadvice View-scroll-lines-forward-set-scroll-size (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
       (emacspeak-auditory-icon 'scroll)
@@ -234,7 +234,7 @@
         (emacspeak-speak-region start (point))))))
 
 (defadvice View-scroll-lines-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
@@ -255,7 +255,7 @@
   ad-return-value)
 
 (defadvice View-back-to-mark (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (let ((emacspeak-show-point t))
@@ -273,31 +273,31 @@
       (dtk-speak
        (concat line-number (ems--this-line))))))
 (defadvice View-scroll-to-buffer-end (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice View-goto-percent (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-revert-buffer-scroll-page-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-scroll-page-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-scroll-page-backward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))

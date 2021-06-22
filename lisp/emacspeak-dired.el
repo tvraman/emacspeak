@@ -91,7 +91,7 @@
 ;;{{{  advice:
 
 (defadvice dired-sort-toggle-or-edit (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
@@ -105,7 +105,7 @@
   (emacspeak-auditory-icon 'ask-short-question))
 
 (defadvice dired-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
@@ -381,7 +381,7 @@ On a directory line, run du -s on the directory to speak its size."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))

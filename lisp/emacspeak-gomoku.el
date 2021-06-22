@@ -245,7 +245,7 @@
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
-     "Provide auditory feedback"
+     "speak"
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-gomoku-speak-square)))))
@@ -258,7 +258,7 @@
   (emacspeak-gomoku-speak-square))
 
 (defadvice gomoku-terminate-game (around emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cl-declare (special emacspeak-last-message
                        gomoku-number-of-moves))
   (let((result (ad-get-arg 0)))

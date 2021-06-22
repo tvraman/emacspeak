@@ -306,18 +306,18 @@ Then speak the screenful. "
 ;;{{{  deleting and killing
 
 (defadvice vm-delete-message (after emacspeak pre act)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Message discarded.")))
 
 (defadvice vm-undelete-message (after emacspeak pre act)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Message recovered.")))
 
 (defadvice vm-kill-subject (after emacspeak pre act)
-  "Provide auditory feedback. "
+  "speak. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (call-interactively 'vm-next-message)))
@@ -429,7 +429,7 @@ Then speak the screenful. "
 ;;}}}
 ;;{{{ advise searching:
 (defadvice vm-isearch-forward (around emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cl-declare (special vm-message-pointer))
   (cond
    ((ems-interactive-p)
@@ -444,7 +444,7 @@ Then speak the screenful. "
   ad-return-value)
 
 (defadvice vm-isearch-backward (around emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cl-declare (special vm-message-pointer))
   (cond
    ((ems-interactive-p)
@@ -470,7 +470,7 @@ Then speak the screenful. "
    ad-do-it))
 
 (defadvice vm-mime-run-display-function-at-point (around emacspeak pre act comp)
-  "Provide auditory feedback.
+  "speak.
 Leave point at front of decoded attachment."
   (cond
    ((ems-interactive-p)

@@ -224,7 +224,7 @@ to beginning of board before searching."
 ;;}}}
 ;;{{{ Advice Interactive Commands
 (defadvice mines (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-speak "New Minesweeper game")
     (emacspeak-auditory-icon 'open-object)))
@@ -238,18 +238,18 @@ to beginning of board before searching."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-mines-speak-cell)))))
 
 (defadvice mines-dig (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (unless mines-game-over (emacspeak-mines-speak-cell))))
 
 (defadvice mines-flag-cell (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
 
     (if (eq t (aref mines-grid (mines-current-pos)))
@@ -258,7 +258,7 @@ to beginning of board before searching."
     (emacspeak-mines-speak-cell)))
 
 (defadvice mines-game-over (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'shutdown)))
 

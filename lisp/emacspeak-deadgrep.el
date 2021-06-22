@@ -66,14 +66,14 @@
 ;;{{{ Interactive Commands:
 
 (defadvice deadgrep-toggle-file-results (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon
      (if (get-text-property (1+ (line-end-position)) 'invisible) 'off 'on))))
 
 (defadvice deadgrep (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
@@ -83,7 +83,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)
@@ -97,7 +97,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)

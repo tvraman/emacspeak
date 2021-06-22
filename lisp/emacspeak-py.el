@@ -89,23 +89,23 @@ Provide contextual feedback when closing blocks"
 ;;{{{ interactive programming
 
 (defadvice py-shell (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice py-clear-queue (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice py-execute-region (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice py-execute-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
@@ -136,7 +136,7 @@ Provide contextual feedback when closing blocks"
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'fill-object)))))
 
@@ -327,7 +327,7 @@ Provide contextual feedback when closing blocks"
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (message "Narrowed  %s lines"
                 (count-lines (point-min) (point-max)))))))
@@ -391,13 +391,13 @@ Provide contextual feedback when closing blocks"
 ;;}}}
 ;;{{{ pydoc advice:
 (defadvice pydoc (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-rest-of-buffer)))
 
 (defadvice py-help-at-point (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (dtk-stop)

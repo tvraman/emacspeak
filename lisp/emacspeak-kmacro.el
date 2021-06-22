@@ -72,7 +72,7 @@
     (message "Defining new kbd macro.")))
 
 (defadvice kmacro-end-or-call-macro (before emacspeak pre act comp)
-  "Provide auditory feedback about we are about to do."
+  "speak about we are about to do."
   (cond
    ((and (ems-interactive-p)
          defining-kbd-macro)
@@ -82,7 +82,7 @@
      (message "Calling macro."))))
 
 (defadvice kmacro-end-or-call-macro-repeat (before emacspeak pre act comp)
-  "Provide auditory feedback about we are about to do."
+  "speak about we are about to do."
   (cond
    ((and (ems-interactive-p)
          defining-kbd-macro)
@@ -92,13 +92,13 @@
 
 (defadvice kmacro-edit-macro-repeat (after emacspeak pre act
                                            comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice kmacro-call-ring-2nd-repeat (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Calling  second macro from ring.")))
 

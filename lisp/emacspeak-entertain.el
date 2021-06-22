@@ -76,7 +76,7 @@
  '(dun-parse dun-unix-parse) do 
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Provide auditory feedback"
+     "speak"
      (cond
       ((ems-interactive-p)
        (let ((orig (point)))

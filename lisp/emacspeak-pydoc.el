@@ -74,7 +74,7 @@
 ;;{{{ Advice Interactive Commands:
 
 (defadvice pydoc (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))

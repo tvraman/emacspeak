@@ -510,7 +510,7 @@ Returns a string with appropriate personality."
    ad-do-it
    ad-return-value))
 (defadvice widget-beginning-of-line (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cond
    ((ems-interactive-p)
     (let ((widget (widget-at (point))))
@@ -524,7 +524,7 @@ Returns a string with appropriate personality."
   ad-return-value)
 
 (defadvice widget-end-of-line (around emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (cond
    ((ems-interactive-p)
     (let ((widget (widget-at (point))))
@@ -538,19 +538,19 @@ Returns a string with appropriate personality."
   ad-return-value)
 
 (defadvice widget-forward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-widget-summarize (widget-at  (point)))))
 
 (defadvice widget-backward (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-widget-summarize (widget-at (point)))))
 
 (defadvice widget-kill-line (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-current-kill 0)
@@ -561,7 +561,7 @@ Returns a string with appropriate personality."
 ;;; forward declaration:
 
 (defadvice widget-button-press (around emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (let ((inhibit-read-only t)
         (widget (widget-at (ad-get-arg 0))))
     (cond

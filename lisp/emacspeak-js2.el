@@ -78,7 +78,7 @@
 ;;}}}
 ;;{{{ Advice new interactive commands:
 (defadvice js2-jump-to-definition (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point  t))
       (emacspeak-auditory-icon 'large-movement)
@@ -87,7 +87,7 @@
 
 
 (defadvice js2-mark-defun  (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
@@ -97,7 +97,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (let ((emacspeak-show-point t))
                  (emacspeak-auditory-icon 'large-movement)
@@ -116,7 +116,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)))))
 
@@ -126,7 +126,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'close-object)
                (message "Hid %s"
@@ -139,7 +139,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'open-object)
                (message "Showed %s"
@@ -153,20 +153,20 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'button)
                (message "Toggled %s"
                         ,(substring (symbol-name f)
                                     (length "js2-mode-toggle-")))))))
 (defadvice js2-narrow-to-defun (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Narrowed to current function.")))
 
 (defadvice js2-next-error (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))

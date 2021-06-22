@@ -153,19 +153,19 @@
 ;;{{{ advice interactive commands
 
 (defadvice eperiodic-find-element (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when  (ems-interactive-p)
     (emacspeak-eperiodic-speak-current-element)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eperiodic-previous-element (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eperiodic-next-element (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
@@ -175,7 +175,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice eperiodic-move (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -190,13 +190,13 @@
         (emacspeak-speak-buffer)))))
 
 (defadvice eperiodic-bury-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice eperiodic-cycle-view (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "View %s"

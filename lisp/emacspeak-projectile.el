@@ -57,14 +57,14 @@
 ;;{{{ Emacspeak Helpers:
 
 (defun emacspeak-projectile-file-action ()
-  "Provide auditory feedback for file open actions."
+  "speak for file open actions."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
 ;;}}}
 ;;{{{ Speech-enable Interactive Commands:
 (defadvice projectile-vc (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -86,13 +86,13 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 (add-hook 'projectile-find-file-hook 'emacspeak-projectile-file-action)
 (defadvice projectile-edit-dir-locals(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
@@ -103,7 +103,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'open-object)))))

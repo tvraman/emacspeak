@@ -71,7 +71,7 @@
 ;;{{{ Interactive Commands:
 
 (defadvice syslog-whois-reverse-lookup (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-audit 'task-done)
     (message "Displayed WhoIs data in other window.")
@@ -79,7 +79,7 @@
 
 
 (defadvice syslog-filter-dates (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (forward-line -2)
     (what-line)
@@ -88,13 +88,13 @@
 
 
 (defadvice syslog-filter-lines (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'ellipses)))
 
 (defadvice syslog-boot-start (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
@@ -108,7 +108,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'open-object)))))

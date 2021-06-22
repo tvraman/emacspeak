@@ -88,7 +88,7 @@ Otherwise cue user to the line just created. "
   ad-return-value)
 
 (defadvice cperl-indent-exp  (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current s expression ")))
@@ -144,21 +144,21 @@ Otherwise cue user to the line just created. "
 
 (defadvice cperl-indent-command (after emacspeak pre act
                                        comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice cperl-indent-region (after emacspeak pre act
                                       comp)
-  "Provide auditory feedback when done"
+  "speak when done"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
 (defadvice cperl-fill-paragraph (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
@@ -167,14 +167,14 @@ Otherwise cue user to the line just created. "
 
 (defadvice cperl-switch-to-doc-buffer (after emacspeak pre
                                              act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice cperl-find-bad-style (after emacspeak pre act
                                        comp)
-  "Provide auditory feedback when done."
+  "speak when done."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'task-done)))

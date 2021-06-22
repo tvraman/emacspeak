@@ -140,7 +140,7 @@ Otherwise cue user to the line just created."
   ad-return-value)
 
 (defadvice *table--cell-open-line (after emacspeak pre act)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((count (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
@@ -168,7 +168,7 @@ Otherwise cue user to the line just created."
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback by speaking current cell
+             "speak by speaking current cell
       contents."
              (when (ems-interactive-p)
                (table--finish-delayed-tasks)

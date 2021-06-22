@@ -166,7 +166,7 @@
 
 ;;; Advice navigators:
 (defadvice magit-mark-item (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
@@ -185,7 +185,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback"
+     "speak"
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
@@ -205,12 +205,12 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
 (defadvice magit-section-cycle-global (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-speak "Cycling global visibility of sections")))
 
@@ -221,7 +221,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon
@@ -231,13 +231,13 @@
 ;;{{{ Additional commands to advice:
 
 (defadvice magit-refresh (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice magit-status (after emacspeak pre act  comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
@@ -248,20 +248,20 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act  comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (with-current-buffer (window-buffer (selected-window))
          (emacspeak-auditory-icon 'close-object)
          (emacspeak-speak-mode-line))))))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice magit-display-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
@@ -294,30 +294,30 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-magit-blame-speak)
        (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice magit-blame-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice magit-blame-toggle-headings (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if magit-blame-show-headings 'on 'off))
     (message "Toggled blame headings.")))
 
 (defadvice magit-blame (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Entering Magit Blame")
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice magit-diff-show-or-scroll-up (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((orig (point)))

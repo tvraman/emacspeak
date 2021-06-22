@@ -150,7 +150,7 @@ emacspeak-info-select-node-speak-chunk"
      (when (ems-interactive-p) (emacspeak-info-visit-node)))))
 
 (defadvice Info-search (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'search-hit)
     (emacspeak-speak-line)))

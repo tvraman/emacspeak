@@ -66,7 +66,7 @@
          do
          (eval
           `(defadvice ,command (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'paragraph)))))
@@ -75,7 +75,7 @@
 ;;{{{ Advice insertion and electric:
 
 (defadvice ruby-insert-end (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (save-excursion
@@ -83,17 +83,17 @@
       (emacspeak-speak-line))))
 
 (defadvice ruby-reindent-then-newline-and-indent (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice ruby-indent-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice ruby-indent-exp (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'fill-object)))
@@ -121,7 +121,7 @@ Cue electric insertion with a tone.")
          do
          (eval
           `(defadvice ,command (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-speak-line)))))

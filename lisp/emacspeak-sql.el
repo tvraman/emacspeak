@@ -59,7 +59,7 @@
 ;;{{{ advice
 
 (defadvice sqlplus-execute-command (after emacspeak pre act comp)
-  "Provide auditory feedback and place point at the start of the output."
+  "speak and place point at the start of the output."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (sqlplus-back-command 2)
@@ -94,7 +94,7 @@
     (emacspeak-speak-line)))
 
 (defadvice sql-send-region (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -104,7 +104,7 @@
   ad-return-value)
 
 (defadvice sql-send-buffer (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)

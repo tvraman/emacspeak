@@ -69,7 +69,7 @@
 ;;{{{  Marking structured objects:
 
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
@@ -88,13 +88,13 @@ Also provide an auditory icon. "
     (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice LaTeX-format-paragraph (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
 (defadvice LaTeX-format-region (around emacspeak pre act)
   "Ask for confirmation.
-Provide auditory feedback after formatting region"
+speak after formatting region"
   (cond
    ((and (ems-interactive-p)
          (y-or-n-p "Really format region? "))
@@ -108,12 +108,12 @@ Provide auditory feedback after formatting region"
 ;;{{{  delimiter matching:
 
 (defadvice LaTeX-find-matching-begin (after emacspeak pre act)
-  "Provide auditory feedback. "
+  "speak. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice LaTeX-find-matching-end (after emacspeak pre act)
-  "Provide auditory feedback. "
+  "speak. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
@@ -143,17 +143,17 @@ Provide auditory feedback after formatting region"
 ;;{{{  Inserting structures
 
 (defadvice TeX-newline (after emacspeak pre act comp)
-  "Provide auditory feedback to indicate indentation."
+  "speak to indicate indentation."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice LaTeX-insert-item (after emacspeak pre act)
-  "Provide auditory feedback. "
+  "speak. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice LaTeX-environment (after emacspeak pre act)
-  "Provide auditory feedback, by speaking
+  "speak, by speaking
 the opening line of the newly inserted environment. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)

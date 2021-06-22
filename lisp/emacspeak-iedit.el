@@ -78,13 +78,13 @@
   )
 
 (defadvice iedit-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cl-declare (special iedit-mode))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if iedit-mode 'on 'off))))
 
 (defadvice iedit-done (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'close-object)
   (message "IEdit done"))
 
@@ -97,7 +97,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
@@ -107,7 +107,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'help)))))
 
@@ -119,13 +119,13 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (message "%s"  ,(symbol-name f))))))
 
 (defadvice iedit-show/hide-unmatched-lines (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon

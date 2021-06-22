@@ -54,42 +54,42 @@
 ;;{{{ speech enable interactive commands 
 
 (defadvice hs-hide-all (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid all blocks.")))
 (defadvice hs-show-all (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed all blocks.")))
 
 (defadvice hs-hide-block (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid current block.")))
 
 (defadvice hs-show-block (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed current  block.")))
 
 (defadvice hs-show-region (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed region.")))
 
 (defadvice hs-hide-level (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid all blocks below specified level.")))
 
 (defadvice hs-toggle-hiding (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (cond
      ((hs-already-hidden-p)
@@ -100,7 +100,7 @@
       (message "Exposed block")))))
 
 (defadvice hs-hide-initial-comment-block (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid initial comment block.")))

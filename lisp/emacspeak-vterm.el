@@ -79,21 +79,21 @@
 ;;{{{ Interactive Commands:
 
 (defadvice vterm-clear (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-vterm-snapshot)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Cleared screen")))
 
 (defadvice vterm-clear-scrollback (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-vterm-snapshot)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Cleared scrollback")))
 
 (defadvice vterm-copy-mode-done (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
@@ -105,7 +105,7 @@
   (define-key vterm-copy-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command))
 
 (defadvice vterm (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
 
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -117,20 +117,20 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice vterm-reset-cursor-point (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 
 (defadvice vterm-send-return (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-vterm-snapshot))
 
 
@@ -141,7 +141,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))

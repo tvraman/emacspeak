@@ -704,7 +704,7 @@ specifies index of move, default is final index."
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (cond
       ((ems-interactive-p)
        (let ((orig chess-display-index))
@@ -731,13 +731,13 @@ specifies index of move, default is final index."
       (emacspeak-chess-describe-move chess-module-game chess-display-index)))))
 
 (defadvice chess-display-undo  (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'progress)
     (dtk-speak (emacspeak-chess-describe-move chess-module-game))))
 
 (defadvice chess-display-move-first (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
@@ -747,7 +747,7 @@ specifies index of move, default is final index."
   ad-return-value)
 
 (defadvice chess-display-move-backward (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced  ad-do-it)
@@ -757,7 +757,7 @@ specifies index of move, default is final index."
   ad-return-value)
 
 (defadvice chess-display-move-forward (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
@@ -767,7 +767,7 @@ specifies index of move, default is final index."
   ad-return-value)
 
 (defadvice chess-display-move-last (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
@@ -777,7 +777,7 @@ specifies index of move, default is final index."
   ad-return-value)
 
 (defadvice chess-display-select-piece (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((square (get-text-property (point) 'chess-coord)))

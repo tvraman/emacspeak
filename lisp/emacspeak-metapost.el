@@ -71,12 +71,12 @@
 ;;{{{ indentation
 
 (defadvice meta-indent-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice meta-fill-paragraph (after emacspeak pre act)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
@@ -154,7 +154,7 @@
                           (mark 'force)))))
 
 (defadvice meta-indent-defun (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current defun. ")))

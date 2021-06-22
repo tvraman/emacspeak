@@ -283,25 +283,25 @@
 ;;{{{ Advice interactive commands:
 
 (defadvice proced-mark (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-proced-speak-this-field)))
 
 (defadvice proced-unmark (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-proced-speak-this-field)))
 
 (defadvice proced-mark-all (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Marked all processes. ")
     (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice proced-unmark-all (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Removed all marks. ")
     (emacspeak-auditory-icon 'deselect-object)))

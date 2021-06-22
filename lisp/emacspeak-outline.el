@@ -82,19 +82,19 @@
     (emacspeak-speak-line)))
 
 (defadvice outline-up-heading (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice outline-forward-same-level (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
 (defadvice outline-backward-same-level (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
@@ -314,7 +314,7 @@ except that the outline section is  spoken"
 
 (with-eval-after-load "foldout"
   (defadvice foldout-zoom-subtree (after emacspeak pre act comp)
-    "Provide auditory feedback about the child we zoomed into"
+    "speak about the child we zoomed into"
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'open-object)
       (message
@@ -322,7 +322,7 @@ except that the outline section is  spoken"
        (ems--this-line) (count-lines (point-min) (point-max)))))
 
   (defadvice foldout-exit-fold (after emacspeak pre act comp)
-    "Provide auditory feedback when exiting a fold"
+    "speak when exiting a fold"
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'close-object)
       (emacspeak-speak-line))))

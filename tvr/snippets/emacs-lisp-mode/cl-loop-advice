@@ -8,6 +8,6 @@ for f in
 do
 (eval
 `(defadvice ,f (${2:type} emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
   $0))))

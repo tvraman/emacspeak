@@ -788,7 +788,7 @@ Safari/537.36"
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback"
+     "speak"
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (dtk-speak (emacspeak-eww-current-title))))))
@@ -855,7 +855,7 @@ Retain previously set punctuations  mode."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback"
+     "speak"
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)))))
 
@@ -879,32 +879,32 @@ Retain previously set punctuations  mode."
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice eww-beginning-of-text (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eww-end-of-text(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice eww-bookmark-browse (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
 
 (defadvice eww-bookmark-kill (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice eww-bookmark-yank(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice eww-list-bookmarks(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop
@@ -913,12 +913,12 @@ Retain previously set punctuations  mode."
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
      (emacspeak-speak-line))))
 
 (defadvice eww-quit(after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
 
 (cl-loop
@@ -929,7 +929,7 @@ Retain previously set punctuations  mode."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)))))
 
@@ -939,7 +939,7 @@ Retain previously set punctuations  mode."
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (ems-with-messages-silenced ad-do-it)
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)
@@ -1913,19 +1913,19 @@ Warning, this is fragile, and depends on a stable id/class for the
       (message "Cant find an EWW buffer for this line. "))))
 
 (defadvice eww-list-buffers (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-eww-speak-buffer-line)))
 
 (defadvice eww-buffer-kill (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-eww-speak-buffer-line)))
 
 (defadvice eww-buffer-select (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)
@@ -1937,7 +1937,7 @@ Warning, this is fragile, and depends on a stable id/class for the
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-eww-speak-buffer-line)))))

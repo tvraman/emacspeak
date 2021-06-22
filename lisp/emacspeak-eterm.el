@@ -1237,27 +1237,27 @@ there is terminal activity.")
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
 (defadvice term-dynamic-list-input-ring (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (message  "Switch to the other window to browse the input history "))
 
 (defadvice term-kill-output (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Nuked output of last command ")))
 
 (defadvice term-quit-subjob (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (message "Sent quit signal to subjob ")))
 
 (defadvice term-stop-subjob (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (message "Stopped the subjob")))
 
 (defadvice term-interrupt-subjob (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (message "Interrupted  the subjob")))
 
@@ -1270,7 +1270,7 @@ there is terminal activity.")
         (emacspeak-speak-region  pmark (point))))))
 
 (defadvice term-dynamic-list-filename-completions (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (message "Switch to the completions window to browse the possible
 completions for filename at point")))

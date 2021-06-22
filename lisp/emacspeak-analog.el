@@ -60,19 +60,19 @@
 
 ;;{{{ advice interactive commands
 (defadvice analog (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-analog-update-edit-keys)
     (emacspeak-speak-mode-line)))
 
 (defadvice analog-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice analog-bury-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
@@ -87,7 +87,7 @@
          do
          (eval
           `(defadvice ,command (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'select-object)))))

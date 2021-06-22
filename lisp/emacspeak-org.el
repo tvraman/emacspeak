@@ -190,7 +190,7 @@
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (cond
       ((org-at-table-p 'any)
        (funcall emacspeak-org-table-after-movement-function))
@@ -200,12 +200,12 @@
            (emacspeak-speak-line))))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Showing top-level overview.")))
 
 (defadvice org-content (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Showing table of contents.")))
 
@@ -301,7 +301,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
@@ -311,7 +311,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'select-object)
                (dtk-speak org-last-changed-timestamp)))))
@@ -336,7 +336,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
@@ -347,7 +347,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
@@ -358,7 +358,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
@@ -376,7 +376,7 @@
 ;;{{{ table minor mode:
 
 (defadvice orgtbl-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cl-declare (special orgtbl-mode))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if orgtbl-mode 'on 'off))
@@ -407,7 +407,7 @@
   ad-return-value)
 
 (defadvice org-return (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (cond
      ((org-at-table-p 'any)
@@ -476,7 +476,7 @@
     (org-end-of-line)))
 
 (defadvice org-toggle-checkbox (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
@@ -492,7 +492,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p) (emacspeak-speak-line)
            (emacspeak-auditory-icon 'select-object)))))
 
@@ -509,22 +509,22 @@
 ;;{{{ org capture
 
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice org-capture-goto-target (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
 
 (defadvice org-capture-finalize (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'save-object))
 
 (defadvice org-capture-kill (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'close-object))
 
 
@@ -596,7 +596,7 @@
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (funcall emacspeak-org-table-after-movement-function))))
 
 ;;}}}
@@ -675,7 +675,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-line)))))
@@ -685,7 +685,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
  '(org-edit-src-code org-edit-special org-switchb) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
@@ -694,13 +694,13 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 ;;{{{ Fillers:
 
 (defadvice org-fill-paragraph (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
 
 (defadvice org-todo (after emacspeak pre act comp)
-  "Provide auditory feedback when changing the state of a TODO item."
+  "speak when changing the state of a TODO item."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (let ((state (org-get-todo-state)))

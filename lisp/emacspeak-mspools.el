@@ -52,18 +52,18 @@
 ;;{{{ advice
 
 (defadvice mspools-show (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice mspools-quit (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice mspools-revert-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
 ;;}}}

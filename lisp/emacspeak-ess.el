@@ -93,14 +93,14 @@ Cue electric insertion with a tone."
                (emacspeak-speak-line)))))
 
 (defadvice ess-mark-function (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Marked function containing %s lines."
              (count-lines (point) (mark)))))
 
 (defadvice ess-indent-exp  (after emacspeak pre act)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current s expression ")))
@@ -122,7 +122,7 @@ Cue electric insertion with a tone."
          (eval
           `
           (defadvice ,f (after emacspeak pre act comp)
-            "Provide auditory feedback."
+            "speak."
             (when (ems-interactive-p)
               (emacspeak-auditory-icon 'select-object)))))
 
@@ -140,7 +140,7 @@ Cue electric insertion with a tone."
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-speak-mode-line)))))

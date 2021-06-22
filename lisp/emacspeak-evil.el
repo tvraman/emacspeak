@@ -77,7 +77,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
@@ -92,7 +92,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)))))
 
@@ -113,7 +113,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
@@ -125,7 +125,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-current-window)))))
@@ -143,7 +143,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-word)))))
 
@@ -176,13 +176,13 @@
     (dtk-tone-deletion)))
 
 (defadvice evil-delete-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-speak "Deleted to end of line.")
     (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice evil-delete (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-region (ad-get-arg 0) (ad-get-arg 1))))
@@ -238,7 +238,7 @@
 ;;}}}
 ;;{{{ Marks:
 (defadvice evil-set-marker (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (let ((emacspeak-show-point t))
@@ -306,7 +306,7 @@
  do
  (add-hook hook #'emacspeak-evil-state-change-hook))
 (defadvice evil-exit-emacs-state (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-notify-speak "Leaving Emacs state.")))

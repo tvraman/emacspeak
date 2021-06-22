@@ -216,7 +216,7 @@
 ;;}}}
 ;;{{{ Advice:
 (defadvice ediff-toggle-help (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)))
 
@@ -240,19 +240,19 @@
       (emacspeak-speak-buffer))))
 
 (defadvice ediff-scroll-up (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled up buffers A and B")))
 
 (defadvice ediff-scroll-down (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled down buffers A and B")))
 
 (defadvice ediff-toggle-split (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (if (eq ediff-split-window-function 'split-window-vertically)
         (message "Split ediff windows vertically")
@@ -271,37 +271,37 @@
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-jump-to-difference-at-point (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 ;;; advice meta panel
 (defadvice ediff-previous-meta-item (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 (defadvice ediff-next-meta-item (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice ediff-registry-action (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice ediff-show-registry (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Welcome to the Ediff registry")))
 
 (defadvice ediff-toggle-filename-truncation (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "turned %s file name truncation in Ediff registry"
              ediff-meta-truncate-filenames)))

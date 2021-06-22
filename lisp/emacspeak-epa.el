@@ -87,7 +87,7 @@
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Provide auditory feedback. "
+     "speak. "
      (ems-with-messages-silenced
          ad-do-it
          (when (ems-interactive-p)
@@ -101,12 +101,12 @@
        (emacspeak-speak-line))))
 
 (defadvice epa-delete-keys (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice epa-exit-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
@@ -119,7 +119,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback. "
+     "speak. "
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'button)))))
@@ -130,7 +130,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback. "
+     "speak. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))

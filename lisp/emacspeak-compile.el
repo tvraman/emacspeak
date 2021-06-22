@@ -114,7 +114,7 @@
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice  compilation-sentinel (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (emacspeak-auditory-icon 'task-done)
   (message "process %s %s"
            (process-name  (ad-get-arg 0))

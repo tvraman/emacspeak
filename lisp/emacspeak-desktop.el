@@ -55,11 +55,11 @@
 ;;{{{  desktop
 
 (defadvice desktop-clear (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 (defadvice desktop-save (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 

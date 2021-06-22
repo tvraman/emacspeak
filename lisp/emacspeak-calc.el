@@ -53,7 +53,7 @@
 ;;}}}
 ;;{{{  advice calc interaction 
 (defadvice calc-dispatch (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 

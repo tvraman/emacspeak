@@ -191,7 +191,7 @@
   (define-key threes-mode-map "b" 'threes-left))
 
 (defadvice threes (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (setq threes-game-over-p nil)
   (random t)
   (when (ems-interactive-p)
@@ -212,7 +212,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback"
+     "speak"
      (when (ems-interactive-p)
        (emacspeak-threes-speak-board)))))
 

@@ -92,7 +92,7 @@ that is being replaced.")
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))))
 
 (defadvice perform-replace (around emacspeak pre act comp)
@@ -370,7 +370,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-mode-line)))))
@@ -395,7 +395,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'fill-object)
        (emacspeak-speak-current-column)))))
@@ -462,7 +462,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'scroll)
        (emacspeak-speak-page)))))
@@ -662,7 +662,7 @@ the words that were capitalized."
       (emacspeak-speak-line 1))))
 
 (defadvice delete-blank-lines (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let (thisblank singleblank)
       (save-match-data
@@ -705,7 +705,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 ;;{{{ Advice PComplete
 
 (defadvice pcomplete-list (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (emacspeak-auditory-icon 'complete)))
@@ -765,7 +765,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
                            (dtk-speak (ad-get-arg 0)))))
 
 (defadvice read-multiple-choice (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (let ((dtk-stop-immediately  nil)
         (msg (ad-get-arg 0))
         (choices 
@@ -847,7 +847,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 
 
 (defadvice progress-reporter-done (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-auditory-icon 'time))
 
 (defvar inhibit-message)
@@ -886,7 +886,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
        ad-return-value))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (let ((buffer-name (ad-get-arg 1)))
     (when (bufferp ad-return-value)
       (dtk-speak (format "Displayed message in buffer  %s" buffer-name)))))
@@ -1015,7 +1015,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 ;;{{{ advice various input functions to speak:
 
 (defadvice read-passwd (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (emacspeak-prompt "pwd"))
 
 (defvar emacspeak-read-char-prompt-cache nil
@@ -1118,14 +1118,14 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   (dtk-speak (emacspeak-get-current-completion)))
 
 (defadvice next-completion (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (tts-with-punctuations 'all
                            (dtk-speak (emacspeak-get-current-completion)))))
 
 (defadvice previous-completion (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (tts-with-punctuations 'all
@@ -1133,7 +1133,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
                             (emacspeak-get-current-completion)))))
 
 (defadvice choose-completion (before emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
 
@@ -1159,20 +1159,20 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 ;;{{{ Advice centering and filling commands:
 
 (defadvice center-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'center)
     (message "Centered current line")))
 
 (defadvice center-region (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'center)
     (message "Centered current region containing %s lines"
              (count-lines (region-beginning) (region-end)))))
 
 (defadvice center-paragraph (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'center)
     (message "Centered current paragraph")))
@@ -1183,13 +1183,13 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'fill-object)
        (message "Filled current paragraph")))))
 
 (defadvice fill-region (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current region containing %s lines"
@@ -1219,7 +1219,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
      (t " "))))
 
 (defadvice vc-toggle-read-only (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((message (format "Checking %s version %s "
@@ -1234,7 +1234,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   ad-return-value)
 
 (defadvice vc-next-action (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((message (format "Checking %s version %s "
@@ -1249,12 +1249,12 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   ad-return-value)
 
 (defadvice vc-revert-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice vc-finish-logentry (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Checked in version %s "
@@ -1267,19 +1267,19 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  do
  (eval
   `(defadvice ,f (after emacspeak-pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice vc-dir-mark-file (after emacspeak-pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice vc-dir-mark (after emacspeak-pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
@@ -1291,13 +1291,13 @@ see option emacspeak-untabify-fixes-non-breaking-space."
     (emacspeak-speak-line)))
 
 (defadvice vc-dir-hide-up-to-date (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice vc-dir-kill-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
@@ -1348,7 +1348,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
     (emacspeak-speak-line 1)))
 
 (defadvice describe-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Displayed mode help in help window")
     (emacspeak-auditory-icon 'help)))
@@ -1360,19 +1360,19 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (message "Displayed key bindings in help window")
        (emacspeak-auditory-icon 'help)))))
 
 (defadvice line-number-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-mode-line)))
 
 (defadvice column-number-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-mode-line)))
@@ -1385,7 +1385,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
       (emacspeak-auditory-icon 'unmodified-object))))
 
 (defadvice comment-dwim (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (cond
      ((use-region-p)
@@ -1410,7 +1410,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'save-object)))))
 
@@ -1501,7 +1501,7 @@ Indicate change of selection with an auditory icon
     (emacspeak-speak-mode-line)))
 
 (defadvice move-to-window-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
@@ -1573,7 +1573,7 @@ Indicate change of selection with an auditory icon
        (emacspeak-speak-help)))))
 
 (defadvice help-with-tutorial (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-set-punctuations 'all)
     (emacspeak-auditory-icon 'open-object)
@@ -1736,25 +1736,25 @@ Provide an auditory icon if possible."
     (emacspeak-speak-mode-line)))
 
 (defadvice delete-window (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice shrink-window (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Current window has %s lines and %s columns"
              (window-height) (window-width))))
 
 (defadvice shrink-window-if-larger-than-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Current window has %s lines and %s columns"
              (window-height) (window-width))))
 
 (defadvice balance-windows (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Current window has %s lines and %s columns"
              (window-height) (window-width))))
@@ -1767,31 +1767,31 @@ Provide an auditory icon if possible."
     (emacspeak-speak-mode-line)))
 
 (defadvice transpose-chars (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-char t)))
 
 (defadvice transpose-lines (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
 
 (defadvice transpose-words (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-word)))
 
 (defadvice transpose-sexps (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-sexp)))
 
 (defadvice open-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((count (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
@@ -1800,7 +1800,7 @@ Provide an auditory icon if possible."
                (if (= count 1) "" "s")))))
 
 (defadvice abort-recursive-edit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Aborting recursive edit")))
 (cl-loop
@@ -1809,7 +1809,7 @@ Provide an auditory icon if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))
@@ -1839,7 +1839,7 @@ Provide an auditory icon if possible."
   :group 'emacspeak)
 
 (defadvice tooltip-show-help (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when emacspeak-speak-tooltips
     (let ((msg (ad-get-arg 0)))
       (if msg
@@ -1876,7 +1876,7 @@ Provide an auditory icon if possible."
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice server-edit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
@@ -1884,7 +1884,7 @@ Provide an auditory icon if possible."
 ;;{{{ view echo area
 
 (defadvice view-echo-area-messages (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed messages in other window.")))
@@ -2026,7 +2026,7 @@ Produce auditory icons if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (dtk-speak (propertize  isearch-string 'personality voice-bolden))
        (emacspeak-auditory-icon 'yank-object)))))
@@ -2038,7 +2038,7 @@ Produce auditory icons if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-string isearch-string voice-bolden)
        (emacspeak-auditory-icon 'item)))))
@@ -2062,7 +2062,7 @@ Produce auditory icons if possible."
    (if isearch-regexp "Regexp search" "text search")))
 
 (defadvice isearch-occur (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Opened occur results")))
@@ -2203,7 +2203,7 @@ Produce auditory icons if possible."
       (emacspeak-speak-line))))
 
 (defadvice window-configuration-to-register (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Copied window configuration to register %c" (ad-get-arg 0))))
 (cl-loop
@@ -2212,7 +2212,7 @@ Produce auditory icons if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (message "Copied frame  configuration to register %c" (ad-get-arg 0))))))
 
@@ -2265,7 +2265,7 @@ Produce auditory icons if possible."
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 (defadvice occur-mode-display-occurrence (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed occurrence in other window")))
@@ -2274,25 +2274,25 @@ Produce auditory icons if possible."
 ;;{{{ abbrev mode advice
 
 (defadvice abbrev-edit-save-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)
     (dtk-speak "Saved Abbrevs")))
 
 (defadvice edit-abbrevs-redefine (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Redefined abbrevs")))
 
 (defadvice list-abbrevs (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed abbrevs in other window.")))
 
 (defadvice edit-abbrevs (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -2309,7 +2309,7 @@ Produce auditory icons if possible."
   ad-return-value)
 
 (defadvice abbrev-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (message "Turned %s abbrev mode"
@@ -2462,7 +2462,7 @@ Produce auditory icons if possible."
 ;;{{{ transient mark mode
 
 (defadvice transient-mark-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if transient-mark-mode 'on 'off))
     (message "Turned %s transient mark." (if transient-mark-mode "on" "off"))))
@@ -2474,7 +2474,7 @@ Produce auditory icons if possible."
 ;;{{{ mail aliases
 
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((end (point))
           (start (re-search-backward " " nil t)))
@@ -2541,13 +2541,13 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ advice Finder:
 (defadvice finder-commentary (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-buffer)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice finder-mode (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (and (boundp 'finder-known-keywords)
              (not (eq 'emacspeak (caar finder-known-keywords))))
     (push (cons 'emacspeak "Audio Desktop")
@@ -2556,7 +2556,7 @@ Produce auditory icons if possible."
   (emacspeak-speak-mode-line))
 
 (defadvice finder-exit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (with-current-buffer (window-buffer (selected-window))
@@ -2594,7 +2594,7 @@ Produce auditory icons if possible."
 ;;{{{ Cue input method changes
 
 (defadvice toggle-input-method (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if current-input-method 'on 'off))
     (dtk-speak
@@ -2615,14 +2615,14 @@ Produce auditory icons if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (with-current-buffer (window-buffer (selected-window))
          (emacspeak-speak-buffer))))))
 
 (defadvice exit-splash-screen (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
@@ -2636,13 +2636,13 @@ Produce auditory icons if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 
 (defadvice copyright-update-directory (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
@@ -2687,19 +2687,19 @@ Produce auditory icons if possible."
 ;;{{{ Advice process-menu
 
 (defadvice process-menu-delete-process (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice list-processes (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed process list in other window.")))
 
 (defadvice timer-list (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -2708,7 +2708,7 @@ Produce auditory icons if possible."
 ;;{{{list-timers:
 
 (defadvice list-timers (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
@@ -2717,7 +2717,7 @@ Produce auditory icons if possible."
 ;;{{{find-library:
 
 (defadvice find-library (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -2726,7 +2726,7 @@ Produce auditory icons if possible."
 ;;{{{log-edit-done
 
 (defadvice log-edit-done (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
@@ -2752,7 +2752,7 @@ Produce auditory icons if possible."
 ;;{{{Advice Semantic:
 
 (defadvice semantic-complete-symbol (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (let ((prior (point))
         (dtk-stop-immediately t))
     (emacspeak-kill-buffer-carefully "*Completions*")
@@ -2776,7 +2776,7 @@ Produce auditory icons if possible."
 ;;{{{ advice
 
 (defadvice imenu (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))

@@ -146,7 +146,7 @@
 "T means rows and columns are toned as we move")
 
 (defadvice solitaire-left (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
@@ -154,7 +154,7 @@
       (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-right (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
@@ -162,7 +162,7 @@
       (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-up (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
@@ -170,7 +170,7 @@
       (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-down (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
@@ -178,13 +178,13 @@
       (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-center-point (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-solitaire-speak-coordinates)))
 
 (defadvice solitaire-move (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (emacspeak-auditory-icon 'item)
   (emacspeak-solitaire-speak-coordinates))
 
@@ -211,7 +211,7 @@ Emacspeak specific commands:
  'solitaire-mode-hook
  #'emacspeak-solitaire-setup)
 (defadvice solitaire-quit (after emacspeak pre act comp)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))

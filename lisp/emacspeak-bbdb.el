@@ -76,7 +76,7 @@
 ;;{{{ Advice:
 
 (defadvice              bbdb-delete-current-field-or-record (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (save-excursion
@@ -85,12 +85,12 @@
       (emacspeak-speak-line))))
 
 (defadvice bbdb-edit-current-field (before emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice bbdb-send-mail (before emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (let ((to (if (consp (ad-get-arg 0))
                   (bbdb-dwim-net-address
@@ -106,7 +106,7 @@
                    " and others " " ")))))
 
 (defadvice bbdb-next-record (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (save-excursion
@@ -115,7 +115,7 @@
       (emacspeak-speak-line))))
 
 (defadvice bbdb-prev-record (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (save-excursion
@@ -124,24 +124,24 @@
       (emacspeak-speak-line))))
 
 (defadvice bbdb-omit-record (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice bbdb-bury-buffer (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice bbdb-elide-record (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (message "Toggled  record display")))
 
 (defadvice bbdb-transpose-fields (after emacspeak pre act)
-  "Provide auditory feedback"
+  "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))

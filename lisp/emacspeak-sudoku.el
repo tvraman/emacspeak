@@ -378,7 +378,7 @@ See
   (setq emacspeak-sudoku-history-stack nil))
 
 (defadvice sudoku-restart (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))

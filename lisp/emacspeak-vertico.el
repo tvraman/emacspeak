@@ -69,7 +69,7 @@
     ret))
 
 (defadvice vertico-insert (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     ad-do-it
@@ -101,7 +101,7 @@
                 emacspeak-vertico--prev-index vertico--index)))
 
 (defadvice vertico--exhibit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cl-declare (special vertico--index vertico--base))
   (when (ems-interactive-p)
     (let ((new-cand
@@ -136,7 +136,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon ,icon)))))
 

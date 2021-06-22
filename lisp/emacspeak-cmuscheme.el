@@ -59,20 +59,20 @@
 
 (defadvice inferior-scheme-mode (after emacspeak pre act
                                        comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (message "Welcome to inferior scheme mode.")))
 
 (defadvice run-scheme (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (message "Launched scheme %s"
              (ad-get-arg 0))))
 
 (defadvice scheme-send-region (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Sent %s lines to scheme. "
@@ -80,19 +80,19 @@
                           (region-end)))))
 
 (defadvice scheme-send-definition (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Sent definition   to scheme. ")))
 
 (defadvice scheme-send-last-sexp (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Sent last sexp  to scheme. ")))
 
 (defadvice scheme-compile-region (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Compiling  %s lines to scheme. "
@@ -100,36 +100,36 @@
                           (region-end)))))
 
 (defadvice scheme-compile-definition (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Compiled definition  to scheme. ")))
 
 (defadvice switch-to-scheme  (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice scheme-send-region-and-go (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice scheme-send-definition-and-go (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 (defadvice scheme-load-file (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "loaded scheme file %s"
              (ad-get-arg 0))))
 (defadvice scheme-compile-file (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Compiled scheme file %s"

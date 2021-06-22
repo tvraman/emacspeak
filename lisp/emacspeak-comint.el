@@ -159,7 +159,7 @@ Interactive PREFIX arg means toggle the global default value. ")
 ;;{{{ Advice comint:
 
 (defadvice comint-delete-output (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
@@ -169,7 +169,7 @@ Interactive PREFIX arg means toggle the global default value. ")
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (save-excursion
          (comint-bol-or-process-mark)
@@ -177,7 +177,7 @@ Interactive PREFIX arg means toggle the global default value. ")
          (emacspeak-speak-line 1))))))
 
 (defadvice comint-clear-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
@@ -204,7 +204,7 @@ Interactive PREFIX arg means toggle the global default value. ")
   ad-return-value)
 
 (defadvice comint-insert-previous-argument (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     (let ((orig (point)))
@@ -336,7 +336,7 @@ Interactive PREFIX arg means toggle the global default value. ")
       (emacspeak-auditory-icon 'select-object))))
 
 (defadvice comint-copy-old-input (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
@@ -460,7 +460,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
       (emacspeak-speak-line 1))))
 
 (defadvice comint-get-next-from-history (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (save-excursion
@@ -496,23 +496,23 @@ instead, always play an auditory icon when the shell prompt is displayed."
   ad-return-value)
 
 (defadvice comint-kill-output (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Nuked output of last command ")))
 
 (defadvice comint-quit-subjob (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Sent quit signal to subjob ")))
 
 (defadvice comint-stop-subjob (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Stopped the subjob")))
 
 (defadvice comint-interrupt-subjob (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Interrupted the subjob")))
 
@@ -526,7 +526,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
 
 (defadvice comint-dynamic-list-filename-completions
     (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-completions-if-available)))
 

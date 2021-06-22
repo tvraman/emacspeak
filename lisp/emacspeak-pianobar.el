@@ -116,7 +116,7 @@
   (interactive)
   (pianobar-send-string ")\n"))
 (defadvice pianobar (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (with-current-buffer pianobar-buffer
     (define-key pianobar-key-map "l"
       'pianobar-love-current-song)
@@ -170,7 +170,7 @@
        (emacspeak-auditory-icon 'item)))))
 
 (defadvice pianobar-window-toggle (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (let ((state (get-buffer-window pianobar-buffer)))
       (cond
@@ -182,7 +182,7 @@
         (dtk-speak "Hid Pianobar "))))))
 
 (defadvice pianobar-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 

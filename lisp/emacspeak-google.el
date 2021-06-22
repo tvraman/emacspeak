@@ -641,23 +641,23 @@ current page."
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'task-done)
                (emacspeak-speak-rest-of-buffer)))))
 
 (defadvice gmaps-set-current-location (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-header-line)))
 
 (defadvice gmaps-set-current-radius (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (message "Radius set to %s. " gmaps-current-radius)))
 
 (defadvice gmaps-place-details (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     ad-do-it

@@ -112,7 +112,7 @@ Also turn on hydra-is-helpful if it was turned off."
 (voice-setup-set-voice-for-face 'lv-separator  'inaudible)
 
 (defadvice lv-message (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cl-declare (special ems--lv-cache))
   (emacspeak-auditory-icon 'help)
   (with-current-buffer (window-buffer (lv-window))
@@ -120,7 +120,7 @@ Also turn on hydra-is-helpful if it was turned off."
     (emacspeak-speak-buffer)))
 
 (defadvice lv-delete-window (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (dtk-stop)
   (emacspeak-auditory-icon 'delete-object))
 

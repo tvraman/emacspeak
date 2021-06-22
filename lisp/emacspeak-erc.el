@@ -105,7 +105,7 @@ server."
   (setq voice-lock-mode t))
 
 (defadvice erc-select (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))

@@ -73,7 +73,7 @@
 ;;{{{ Advice indium-backend.el:
 
 (defadvice indium-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
@@ -84,7 +84,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
@@ -92,7 +92,7 @@
 ;;{{{ Advice indium-chrome.el
 
 (defadvice indium-connect-to-chrome (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
@@ -128,7 +128,7 @@
 ;;{{{ Advice indium-repl.el
 
 (defadvice indium-repl-return (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (save-excursion
       (forward-line -1)
@@ -141,7 +141,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))

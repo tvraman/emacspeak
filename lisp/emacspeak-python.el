@@ -57,7 +57,7 @@
 ;;{{{ interactive programming
 
 (defadvice python-check (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 (cl-loop
@@ -69,14 +69,14 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback"
+     "speak"
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{  whitespace management and indentation
 (defadvice python-indent-dedent-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'right)))
@@ -94,7 +94,7 @@
   ad-return-value)
 
 (defadvice python-fill-paragraph (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
@@ -138,7 +138,7 @@
  do
  (eval
   `(defadvice  ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'paragraph)))))

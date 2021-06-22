@@ -55,19 +55,19 @@
 (defadvice browse-kill-ring-undo-other-window (after
                                                emacspeak pre
                                                act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'unmodified-object)))
 
 (defadvice browse-kill-ring-insert (after
                                     emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice browse-kill-ring-insert-and-quit (after
                                              emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)
@@ -75,13 +75,13 @@
 
 (defadvice browse-kill-ring-delete (after
                                     emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 (defadvice browse-kill-ring-forward (after
                                      emacspeak pre
                                      act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
@@ -89,14 +89,14 @@
 (defadvice browse-kill-ring-previous (after
                                       emacspeak pre
                                       act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice browse-kill-ring-quit (after
                                   emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
@@ -104,33 +104,33 @@
 (defadvice browse-kill-ring-edit (after
                                   emacspeak pre
                                   act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 (defadvice browse-kill-ring-edit-finish (after
                                          emacspeak pre
                                          act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice browse-kill-ring-occur (after
                                    emacspeak pre
                                    act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice browse-kill-ring-update (after
                                     emacspeak pre
                                     act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 (defadvice browse-kill-ring (after
                              emacspeak pre
                              act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -150,7 +150,7 @@
 (defadvice browse-kill-ring-search-forward (after
                                             emacspeak pre
                                             act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
@@ -158,7 +158,7 @@
 (defadvice browse-kill-ring-search-backward (after
                                              emacspeak pre
                                              act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))

@@ -506,7 +506,7 @@ To use, configure variable gmaps-my-address via M-x customize-variable."
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (with-current-buffer lunar-phases-buffer
                  (emacspeak-auditory-icon 'open-object)
@@ -517,7 +517,7 @@ To use, configure variable gmaps-my-address via M-x customize-variable."
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (with-current-buffer holiday-buffer
                  (emacspeak-auditory-icon 'open-object)

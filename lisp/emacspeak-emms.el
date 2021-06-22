@@ -94,7 +94,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-speak-line)))))
@@ -104,13 +104,13 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-mode-line)
                (emacspeak-auditory-icon 'open-object)))))
 
 (defadvice emms-browser-bury-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
@@ -125,13 +125,13 @@
 
 (defadvice emms-stream-delete-bookmark (after emacspeak pre act
                                               comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice emms-stream-save-bookmarks-file (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)
     (message "Saved stream bookmarks.")))
@@ -144,7 +144,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-mode-line)))))
 
@@ -153,7 +153,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
+             "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)))))
 (defadvice emms-playlist-mode-bury-buffer (after emacspeak pre act)

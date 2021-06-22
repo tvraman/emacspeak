@@ -111,7 +111,7 @@
 ;;}}}
 ;;{{{ Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (with-current-buffer (window-buffer (selected-window))
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))
@@ -124,7 +124,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'help)
        (emacspeak-speak-buffer)))))
@@ -155,7 +155,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
@@ -165,7 +165,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done))
      (sit-for 0.1)
@@ -180,7 +180,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
@@ -188,7 +188,7 @@
 ;;}}}
 ;;{{{ sage comint interaction:
 (defadvice sage-shell:list-outputs (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-auditory-icon 'open-object)
@@ -208,7 +208,7 @@
   ad-return-value)
 
 (defadvice sage-shell:delete-output (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
@@ -219,20 +219,20 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
 (defadvice sage-shell:copy-previous-output-to-kill-ring
     (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (call-interactively #'emacspeak-speak-current-kill)))
 
 (defadvice sage-shell:send-input (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (sit-for .01)
     (accept-process-output)
@@ -255,7 +255,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))

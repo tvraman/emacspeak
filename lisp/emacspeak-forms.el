@@ -110,7 +110,7 @@ Assumes that point is at the front of a field value."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'search-hit)
        (emacspeak-speak-line)))))
@@ -119,7 +119,7 @@ Assumes that point is at the front of a field value."
 
 
 (defadvice forms-next-record (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (goto-char (next-single-property-change 
@@ -130,7 +130,7 @@ Assumes that point is at the front of a field value."
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-prev-record (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (goto-char (next-single-property-change 
@@ -141,37 +141,37 @@ Assumes that point is at the front of a field value."
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-first-record (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-last-record (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-jump-record (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-search (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'search-hit)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-exit (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice forms-next-field (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cond
    ((ems-interactive-p)
     ad-do-it
@@ -181,26 +181,26 @@ Assumes that point is at the front of a field value."
   ad-return-value)
 
 (defadvice forms-prev-field (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-forms-speak-field)))   
 
 (defadvice forms-kill-record (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     ))
 
 (defadvice forms-insert-record (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     ))
 
 (defadvice forms-save-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when  (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 

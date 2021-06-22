@@ -103,7 +103,7 @@
 ;;{{{ Advice Interactive Commands:
 
 (defadvice transient-toggle-common (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (cl-declare (special transient-show-common-commands))
   (when (ems-interactive-p)
     (dtk-stop)
@@ -111,7 +111,7 @@
      (if transient-show-common-commands 'on 'off))))
 
 (defadvice transient-resume (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (ems-interactive-p)
     (dtk-stop)
     (emacspeak-auditory-icon 'open-object)))
@@ -122,7 +122,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (dtk-stop)
        (emacspeak-auditory-icon 'close-object)
@@ -135,7 +135,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'save-object)
        (dtk-stop)))))
@@ -147,7 +147,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     "speak."
      (when (ems-interactive-p)
        (dtk-stop)
        (emacspeak-auditory-icon 'select-object)))))
@@ -164,7 +164,7 @@
   "Cache of the last Transient buffer contents.")
 
 (defadvice transient--show (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "speak."
   (when (window-live-p transient--window)
     (with-current-buffer (window-buffer transient--window)
       (setq emacspeak-transient-cache
