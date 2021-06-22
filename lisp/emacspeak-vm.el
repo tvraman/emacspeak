@@ -375,7 +375,7 @@ Then speak the screenful. "
  do
  (eval
   `(defadvice ,f (after emacspeak pre act)
-     "Provide auditory  feedback."
+     "Speak."
      (when (ems-interactive-p)
        (let ((dtk-stop-immediately nil))
          (message "Composing a message")
