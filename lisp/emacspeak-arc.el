@@ -73,12 +73,12 @@
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-next-line (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-previous-line (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-archive-speak-line)))
 

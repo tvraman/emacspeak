@@ -147,7 +147,7 @@
     (emacspeak-speak-line)))
 
 (defadvice bbdb-complete-name (around emacspeak pre act)
-  "Provide spoken feedback"
+  "Speak"
   (cl-declare (special completion-reference-buffer))
   (cond
    ((ems-interactive-p)
@@ -173,17 +173,17 @@
 ;;{{{  Advice mail-ua  specific hooks
 
 (defadvice bbdb/vm-show-sender (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-speak-other-window 1)))
 
 (defadvice bbdb/rmail-show-sender (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-speak-other-window 1)))
 
 (defadvice bbdb/mh-show-sender (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-speak-other-window 1)))
 

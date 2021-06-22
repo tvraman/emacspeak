@@ -97,7 +97,7 @@
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
-             "Provide spoken feedback."
+             "Speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-newsticker-summarize-item)))))

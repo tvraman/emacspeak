@@ -160,14 +160,14 @@ action"
 
 (defadvice speedbar-restricted-next (after emacspeak pre act
                                            comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))
 
 (defadvice speedbar-restricted-prev (after emacspeak pre act
                                            comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))

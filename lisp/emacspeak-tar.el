@@ -71,12 +71,12 @@
     (emacspeak-speak-mode-line)))
 
 (defadvice tar-next-line (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-tar-speak-line)))
 
 (defadvice tar-previous-line (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-tar-speak-line)))
 

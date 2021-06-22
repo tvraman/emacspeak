@@ -58,30 +58,30 @@
          do
          (eval
           `(defadvice ,c (after emacspeak pre act comp)
-             "Provide spoken feedback."
+             "Speak."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-dired-speak-line)))))
 
 (defadvice wdired-upcase-word (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (tts-with-punctuations 'some
                            (dtk-speak "upper cased file name. "))))
 (defadvice wdired-capitalize-word (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (tts-with-punctuations 'some
                            (dtk-speak "Capitalized file name. "))))
 (defadvice wdired-downcase-word (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (tts-with-punctuations 'some
                            (dtk-speak "Down cased file
   name. "))))
 
 (defadvice wdired-toggle-bit (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (dtk-speak "Toggled permission bit.")))

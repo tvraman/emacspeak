@@ -121,7 +121,7 @@ Otherwise cue user to the line just created. "
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice cperl-comment-region (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s region containing %s lines"
@@ -132,7 +132,7 @@ Otherwise cue user to the line just created. "
                (count-lines (point) (mark))))))
 
 (defadvice cperl-uncomment-region (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s region containing %s lines"

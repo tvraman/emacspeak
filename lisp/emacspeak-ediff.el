@@ -259,7 +259,7 @@
       (message "Split ediff windows horizontally"))))
 
 (defadvice ediff-recenter (after emacspeak pre act)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Refreshed the ediff display")))

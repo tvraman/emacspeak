@@ -444,7 +444,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
     (emacspeak-auditory-icon 'progress)))
 
 (defadvice comint-previous-prompt (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (if (eolp)
@@ -452,7 +452,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
       (emacspeak-speak-line 1))))
 
 (defadvice comint-next-prompt (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (if (eolp)
@@ -517,7 +517,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
     (message "Interrupted the subjob")))
 
 (defadvice comint-kill-input (before emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (let ((pmark (process-mark (get-buffer-process (current-buffer)))))
       (when (> (point) (marker-position pmark))

@@ -67,7 +67,7 @@
 ;;{{{  speak output 
 
 (defadvice calc-call-last-kbd-macro (around emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)

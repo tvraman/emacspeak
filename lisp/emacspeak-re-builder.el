@@ -94,7 +94,7 @@
         (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice reb-toggle-case (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (save-excursion
       (set-buffer reb-target-buffer)
@@ -116,7 +116,7 @@
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice reb-auto-update (after emacspeak pre act comp)
-  "Provide spoken feedback after update is done."
+  "Speak after update is done."
   (when (buffer-live-p reb-target-buffer)
     (with-current-buffer reb-target-buffer
       (with-silent-modifications

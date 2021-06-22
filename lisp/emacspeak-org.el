@@ -155,13 +155,13 @@
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
-     "Provide spoken feedback."
+     "Speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'paragraph)))))
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
@@ -210,7 +210,7 @@
     (message "Showing table of contents.")))
 
 (defadvice org-tree-to-indirect-buffer(after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Cloned %s"
              (with-current-buffer org-last-indirect-buffer
@@ -235,7 +235,7 @@
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
-     "Provide spoken feedback."
+     "Speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
@@ -252,7 +252,7 @@
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
-     "Provide spoken feedback."
+     "Speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'yank-object)))))
@@ -284,7 +284,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide spoken feedback."
+     "Speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)
        (emacspeak-speak-line)))))
@@ -364,7 +364,7 @@
        (emacspeak-speak-line)))))
 
 (defadvice org-agenda (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))

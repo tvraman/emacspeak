@@ -262,7 +262,7 @@
       (emacspeak-speak-line))))
 
 (defadvice View-goto-line (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (let ((line-number
            (format "line %s"

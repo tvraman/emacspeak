@@ -99,7 +99,7 @@
 ;;{{{  commenting etc
 
 (defadvice meta-comment-region (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s region containing %s lines"
@@ -110,7 +110,7 @@
                (count-lines (point) (mark 'force))))))
 
 (defadvice meta-comment-defun (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s environment containing %s lines"
@@ -120,26 +120,26 @@
                (count-lines (point) (mark 'force))))))
 
 (defadvice meta-uncomment-defun (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Uncommented environment containing %s lines"
              (count-lines (point) (mark 'force)))))
 
 (defadvice meta-uncomment-region (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Uncommented  region containing %s lines"
              (count-lines (point) (mark 'force)))))
 
 (defadvice meta-indent-region (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  region containing %s lines"
              (count-lines (point) (mark 'force)))))
 
 (defadvice meta-indent-buffer (after emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  buffer containing %s lines"

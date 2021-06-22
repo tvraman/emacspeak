@@ -112,7 +112,7 @@
     (emacspeak-speak-line)))
 
 (defadvice company-show-doc-buffer (before emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (let* ((selected (nth company-selection company-candidates))
          (doc-buffer (or (company-call-backend 'doc-buffer selected)
                          (error "No documentation available"))))

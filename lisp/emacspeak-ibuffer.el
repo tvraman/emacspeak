@@ -187,7 +187,7 @@
 
 (defadvice ibuffer-diff-with-file (after emacspeak pre act
                                          comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Displayed differences in other window.")
     (emacspeak-auditory-icon 'task-done)))

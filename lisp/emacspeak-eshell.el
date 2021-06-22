@@ -232,7 +232,7 @@ personalities.")
     (message "Flushed output")))
 
 (defadvice eshell-kill-input (before emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))

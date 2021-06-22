@@ -823,7 +823,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 
 
 (defadvice momentary-string-display (around emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (ems-with-messages-silenced
       (let ((msg (ad-get-arg 0))
             (exit (ad-get-arg 2)))
@@ -968,7 +968,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 
 (unless (boundp 'command-error-function)
   (defadvice signal (before emacspeak pre act comp)
-    "Provide spoken feedback for signals."
+    "Speak for signals."
     (let ((error-symbol (ad-get-arg 0))
           (data (ad-get-arg 1)))
       (tts-with-punctuations
@@ -1113,7 +1113,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 
 (define-key minibuffer-local-completion-map "\C-o" 'switch-to-completions)
 (defadvice switch-to-completions (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
 
@@ -1394,7 +1394,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice comment-region (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s region containing %s lines"
@@ -1507,7 +1507,7 @@ Indicate change of selection with an auditory icon
     (emacspeak-speak-line)))
 
 (defadvice rename-buffer (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
@@ -1639,7 +1639,7 @@ Provide an auditory icon if possible."
        (emacspeak-speak-line)))))
 
 (defadvice call-last-kbd-macro (around emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (cl-declare (special emacspeak-use-auditory-icons))
   (cond
    ((ems-interactive-p)
@@ -1722,14 +1722,14 @@ Provide an auditory icon if possible."
     (message "You can now edit the entire buffer ")))
 
 (defadvice delete-other-windows (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Deleted all other windows")
     (emacspeak-auditory-icon 'window-resize)
     (emacspeak-speak-mode-line)))
 
 (defadvice split-window-vertically (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Split window vertically, current window has %s lines "
              (window-height))
@@ -1760,7 +1760,7 @@ Provide an auditory icon if possible."
              (window-height) (window-width))))
 
 (defadvice split-window-horizontally (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Split window horizontally current window has %s columns "
              (window-width))
@@ -1893,7 +1893,7 @@ Provide an auditory icon if possible."
 ;;{{{ selective display
 
 (defadvice set-selective-display (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (message "Set selective display to %s"
              (ad-get-arg 0))
@@ -2260,7 +2260,7 @@ Produce auditory icons if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide spoken feedback."
+     "Speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
@@ -2387,7 +2387,7 @@ Produce auditory icons if possible."
      (ems-canonicalize-key-description desc))))
 
 (defadvice where-is (after emacspeak pre act comp)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (dtk-speak (ems--get-where-is (ad-get-arg 0)))))
 

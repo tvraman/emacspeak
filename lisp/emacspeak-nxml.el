@@ -144,7 +144,7 @@
 ;;{{{ Advice interactive commands
 
 (defadvice nxml-electric-slash (around emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (cond
    ((ems-interactive-p)
     (let ((start (point)))
@@ -156,7 +156,7 @@
   ad-return-value)
 
 (defadvice nxml-complete (around emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (cond
    ((ems-interactive-p)
     (let ((start (point)))
@@ -166,7 +166,7 @@
   ad-return-value)
 (defadvice nxml-insert-xml-declaration (after emacspeak pre act
                                               comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 (cl-loop for f in 

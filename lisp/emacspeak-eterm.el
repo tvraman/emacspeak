@@ -1222,7 +1222,7 @@ there is terminal activity.")
     (dtk-stop)))
 
 (defadvice term-previous-prompt (after emacspeak pre act)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (if (eolp)
@@ -1230,7 +1230,7 @@ there is terminal activity.")
       (emacspeak-speak-line 1))))
 
 (defadvice term-next-prompt (after emacspeak pre act)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (if (eolp)
@@ -1262,7 +1262,7 @@ there is terminal activity.")
     (message "Interrupted  the subjob")))
 
 (defadvice term-kill-input (before emacspeak pre act)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (let ((pmark (process-mark (get-buffer-process (current-buffer)))))
       (when  (> (point) (marker-position pmark))

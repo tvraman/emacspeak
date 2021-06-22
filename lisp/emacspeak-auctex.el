@@ -160,7 +160,7 @@ the opening line of the newly inserted environment. "
     (emacspeak-read-previous-line)))
 
 (defadvice TeX-insert-macro (around  emacspeak pre act)
-  "Provide spoken feedback."
+  "Speak."
   (let ((opoint (point)))
     ad-do-it
     (emacspeak-speak-region opoint (point))))

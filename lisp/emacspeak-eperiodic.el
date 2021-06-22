@@ -170,7 +170,7 @@
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 (defadvice eperiodic (after emacspeak pre act comp)
-  "Provide spoken feedback."
+  "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))

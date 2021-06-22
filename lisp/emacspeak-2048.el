@@ -259,7 +259,7 @@ Optional interactive prefix arg prompts for a filename."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide spoken feedback"
+     "Speak"
      (when (ems-interactive-p)
        (cond
         ((cl-some #'identity *2048-combines-this-move*)

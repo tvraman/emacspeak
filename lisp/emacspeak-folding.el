@@ -72,7 +72,7 @@
     (emacspeak-speak-line)))
 
 (defadvice folding-mode (after emacspeak pre act)
-  "Provide spoken feedback"
+  "Speak"
   (when (ems-interactive-p)
     (message "turned %s folding mode"
              (if folding-mode " on " " off"))))
