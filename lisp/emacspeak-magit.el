@@ -233,7 +233,7 @@
 (defadvice magit-kill-this-buffer (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-font)
+    (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice magit-blob-visit-file (after emacspeak pre act comp)
