@@ -228,6 +228,28 @@
         (if   (oref (ad-get-arg 0) hidden) 'close-object 'open-object))))))
 
 ;;}}}
+;;{{{blob mode:
+(defadvice magit-blob-visit-file (after emacspeak pre act comp)
+  "Speak"
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+(cl-loop
+ for f in 
+ '(magit-blob-previous magit-blob-next)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
+
+
+;;}}}
+
 ;;{{{ Additional commands to advice:
 
 (defadvice magit-refresh (after emacspeak pre act comp)
