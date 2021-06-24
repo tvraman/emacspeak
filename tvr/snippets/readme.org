@@ -1,0 +1,1 @@
+Symlink subdirs here into ~/.emacs.d/snippets as needed.
