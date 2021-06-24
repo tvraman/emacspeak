@@ -229,6 +229,13 @@
 
 ;;}}}
 ;;{{{blob mode:
+
+(defadvice magit-kill-this-buffer (after emacspeak pre act comp)
+  "Speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-font)
+    (emacspeak-speak-mode-line)))
+
 (defadvice magit-blob-visit-file (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
@@ -243,8 +250,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
-       (emacspeak-speak-line)))))
+       (emacspeak-auditory-icon 'large-movement)))))
 
 
 
