@@ -226,7 +226,7 @@ bound to \\[dtk-toggle-caps].")
      (or
       (and  face emacspeak-pronounce-personality (list face 'match))
       face
-      'match))))
+      emacspeak-pronounce-personality))))
 
 (defun tts-apply-pronunciations (pronunciation-table)
   "Applies pronunciations per pronunciation table to current buffer. "
