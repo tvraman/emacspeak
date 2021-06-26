@@ -224,7 +224,8 @@ bound to \\[dtk-toggle-caps].")
      start (+ start (length replace))
      'face
      (or
-      (and  face emacspeak-pronounce-personality (list face 'match))
+      (and  face emacspeak-pronounce-personality
+            (list face emacspeak-pronounce-personality))
       face
       emacspeak-pronounce-personality))))
 
