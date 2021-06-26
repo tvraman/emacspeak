@@ -83,7 +83,7 @@ mac for MAC TTS (default on Mac)")
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server)
 (defvar emacspeak-use-auditory-icons)
-(defvar emacspeak-pronounce-use-personality)
+(defvar emacspeak-pronounce-personality)
 
 ;;}}}
 ;;{{{  user customizations:
@@ -216,7 +216,7 @@ bound to \\[dtk-toggle-caps].")
 
 (defun tts-replace-match (replace) 
   "Helper"
-  (cl-declare (special emacspeak-pronounce-use-personality))
+  (cl-declare (special emacspeak-pronounce-personality))
   (let ((face (get-text-property (point) 'face))
         (start (match-beginning 0)))
     (replace-match replace t t)
@@ -224,9 +224,9 @@ bound to \\[dtk-toggle-caps].")
      start (+ start (length replace))
      'face
      (or
-      (and  face emacspeak-pronounce-use-personality (list face 'match))
+      (and  face emacspeak-pronounce-personality (list face 'match))
       face
-      (and emacspeak-pronounce-use-personality 'match)))))
+      'match))))
 
 (defun tts-apply-pronunciations (pronunciation-table)
   "Applies pronunciations per pronunciation table to current buffer. "
@@ -1703,7 +1703,7 @@ No-op if  `dtk-quiet' is set to t. "
           (syntax-table (syntax-table))
           (inherit-speaker-process dtk-speaker-process)
           (pron-table emacspeak-pronounce-pronunciation-table)
-          (pron-personality emacspeak-pronounce-use-personality)
+          (pron-personality emacspeak-pronounce-personality)
           (use-auditory-icons emacspeak-use-auditory-icons)
           (chunk-sep dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
@@ -1723,7 +1723,7 @@ No-op if  `dtk-quiet' is set to t. "
 ;;; inherit environment
         (setq
          yank-excluded-properties dtk-yank-excluded-properties
-         emacspeak-pronounce-use-personality pron-personality
+         emacspeak-pronounce-personality pron-personality
          buffer-invisibility-spec invisibility-spec
          dtk-chunk-separator-syntax chunk-sep
          dtk-speaker-process inherit-speaker-process

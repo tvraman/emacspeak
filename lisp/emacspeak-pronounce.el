@@ -231,19 +231,20 @@ the match  being passed to the func which returns  the new pronunciation."
 
 ;;}}}
 
-(defvar-local emacspeak-pronounce-use-personality nil
-  "Boolean that specifies if  pronunciations get a personality applied.")
+(defvar-local emacspeak-pronounce-personality 'match
+  "Face used for pronunciations")
 
 (defun emacspeak-pronounce-toggle-voice ()
   "Toggle use of pronunciation personality."
   (interactive )
-  (cl-declare (special emacspeak-pronounce-use-personality))
-  (setq emacspeak-pronounce-use-personality (not
-                                                       emacspeak-pronounce-use-personality))
+  (cl-declare (special emacspeak-pronounce-personality))
+  (cond
+   (emacspeak-pronounce-personality (setq emacspeak-pronounce-personality nil))
+   (t (setq emacspeak-pronounce-personality 'match)))
   (emacspeak-auditory-icon
-   (if emacspeak-pronounce-use-personality 'on 'off))
+   (if emacspeak-pronounce-personality 'on 'off))
   (message "Turned %s pronunciation personality"
-           (if emacspeak-pronounce-use-personality 'on 'off)))
+           (if emacspeak-pronounce-personality 'on 'off)))
 
 ;;}}}
 ;;{{{ loading, clearing and saving dictionaries
