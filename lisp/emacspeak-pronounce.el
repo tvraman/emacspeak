@@ -231,8 +231,8 @@ the match  being passed to the func which returns  the new pronunciation."
 
 ;;}}}
 
-(defvar-local emacspeak-pronounce-personality 'match
-  "Face used for pronunciations")
+(defvar-local emacspeak-pronounce-personality nil
+  "Personality used for pronunciations")
 
 (defun emacspeak-pronounce-toggle-voice ()
   "Toggle use of pronunciation personality."
