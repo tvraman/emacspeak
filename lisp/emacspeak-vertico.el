@@ -58,37 +58,30 @@
   "Index of previously spoken candidate")
 
 ;;}}}
+;;{{{
+(declare-function 'vertico--candidate "vertico.el" (&optional hl))
+(declare-function 'vertico--allow-prompt-selection-p "vertico.el" ())
+;;}}}
 ;;{{{ Advice interactive commands
-
-(defun emacspeak-vertico--insert-advice (orig-func &rest args)
-  "Read inserted text after tab completion."
-  (let* ((orig-point (point))
-         (ret (apply orig-func args)))
-    (emacspeak-auditory-icon 'complete)
-    (emacspeak-speak-region orig-point (point))
-    ret))
 
 (defadvice vertico-insert (around emacspeak pre act comp)
   "speak."
-  (cond
-   ((ems-interactive-p)
+  (let* ((orig-point (point)))
     ad-do-it
-    (let* ((orig-point (point)))
-      (emacspeak-auditory-icon 'complete)
-      (emacspeak-speak-region orig-point (point))))
-   (t ad-do-it))
+    (emacspeak-auditory-icon 'complete)
+    (emacspeak-speak-region orig-point (point)))
   ad-return-value)
 
-
-(defun emacspeak-vertico--exhibit ()
-  "Provide audio display of current completion."
-  (cl-declare (special emacspeak-vertico--index vertico--base))
-  (let ((new-cand (substring (vertico--candidate)
-                             (if (>= vertico--index 0) vertico--base 0)))
+(defadvice vertico--exhibit (after emacspeak pre act comp)
+  "speak."
+  (cl-declare (special vertico--index vertico--base))
+  (let ((new-cand
+         (substring (vertico--candidate)
+                    (if (>= vertico--index 0) vertico--base 0)))
         (to-speak nil))
     (unless (equal emacspeak-vertico--prev-candidate new-cand)
       (push new-cand to-speak)
-      (when (or (equal emacspeak-vertico--index emacspeak-vertico--prev-index)
+      (when (or (equal vertico--index emacspeak-vertico--prev-index)
                 (and (not (equal vertico--index -1))
                      (equal emacspeak-vertico--prev-index -1)))
         (push "candidate" to-speak)))
@@ -97,31 +90,9 @@
       (push "first candidate" to-speak))
     (when to-speak
       (dtk-speak (mapconcat 'identity to-speak " ")))
-    (setq-local emacspeak-vertico--prev-candidate new-cand
-                emacspeak-vertico--prev-index vertico--index)))
-
-(defadvice vertico--exhibit (after emacspeak pre act comp)
-  "speak."
-  (cl-declare (special vertico--index vertico--base))
-  (when (ems-interactive-p)
-    (let ((new-cand
-           (substring (vertico--candidate)
-                      (if (>= vertico--index 0) vertico--base 0)))
-          (to-speak nil))
-      (unless (equal emacspeak-vertico--prev-candidate new-cand)
-        (push new-cand to-speak)
-        (when (or (equal emacspeak-vertico--index emacspeak-vertico--prev-index)
-                  (and (not (equal vertico--index -1))
-                       (equal emacspeak-vertico--prev-index -1)))
-          (push "candidate" to-speak)))
-      (when (and (not (vertico--allow-prompt-selection-p))
-                 (equal emacspeak-vertico--prev-candidate nil))
-        (push "first candidate" to-speak))
-      (when to-speak
-        (dtk-speak (mapconcat 'identity to-speak " ")))
-      (setq-local
-       vertico--prev-candidate new-cand
-       vertico--prev-index vertico--index))))
+    (setq-local
+     emacspeak-vertico--prev-candidate new-cand
+     emacspeak-vertico--prev-index vertico--index)))
 
 (cl-loop
  for (f icon) in
@@ -138,7 +109,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon ,icon)))))
+       (emacspeak-auditory-icon ',icon)))))
 
 ;;}}}
 (provide 'emacspeak-vertico)
