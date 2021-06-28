@@ -1672,17 +1672,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (next-single-property-change (point) el))
          (point)))
        (next (next-single-property-change start  el)))
-    (cond
-     (next
+     (when next
       (goto-char next)
-      (setq emacspeak-eww-element-navigation-history
-            (delq el emacspeak-eww-element-navigation-history))
-      (push  el emacspeak-eww-element-navigation-history)
+      (cl-pushnew el  emacspeak-eww-element-navigation-history)
       (when (called-interactively-p 'interactive)
         (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
         (emacspeak-speak-region
-         next (next-single-property-change next el nil  (point-max)))))
-     (t (message "No next %s" el)))))
+         next
+         (next-single-property-change next el nil  (point-max)))))))
 
 (defun emacspeak-eww-previous-element (el)
   "Move backward  to the previous  specified element."
@@ -1701,15 +1698,11 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
              (previous-single-property-change (1+ (point)) el))
            (point)))
          (previous (previous-single-property-change  start  el)))
-    (cond
-     (previous
+     (when previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
-      (setq emacspeak-eww-element-navigation-history
-            (delq el emacspeak-eww-element-navigation-history))
-      (push  el emacspeak-eww-element-navigation-history)
+      (cl-pushnew  el emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-      (emacspeak-speak-region (point) previous))
-     (t (message "No previous  %s" el)))))
+      (emacspeak-speak-region (point) previous))))
 
 (defun emacspeak-eww-next-element-from-history ()
   "Uses element navigation history to decide where we jump."
