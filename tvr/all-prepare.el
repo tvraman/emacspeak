@@ -211,7 +211,8 @@ This moves them into the Spam folder."
   (setq slime-use-autodoc-mode nil)
   (setq
    slime-lisp-implementations
-   `((sbcl ("sbcl" "--core" ,user-emacs-directory)))))
+   `((sbcl ("sbcl" "--core"
+            ,(expand-file-name "sbcl-core-for-slime" user-emacs-directory))))))
 ;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: nil; -*-
 
 (with-eval-after-load "org"
