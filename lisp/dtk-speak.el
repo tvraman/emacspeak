@@ -154,9 +154,8 @@ bound to \\[dtk-toggle-caps].")
 
 ;;}}}
 ;;{{{Style Helper:
-
+;;; helper: Identify (a . b).
 (defsubst dtk-plain-cons-p (value)
-  "Identify (a . b)."
   (and (consp value) (not (proper-list-p value))))
 
 ;;; Helper: Get face->voice mapping
