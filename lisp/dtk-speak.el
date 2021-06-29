@@ -143,13 +143,13 @@ bound to \\[dtk-toggle-caps].")
 
 (defconst dtk-punctuation-mode-alist
   '("some" "all" "none")
-  "Table of valid punctuation modes.")
+  "List of  punctuation modes.")
 
 (defvar-local dtk-speech-rate
   (if (string-match "dtk" dtk-program)
       225 100)
-  "Rate at which tts talks.
- Use command  `dtk-set-rate'
+  "Speech rate.
+ Use `dtk-set-rate'
  bound to \\[dtk-set-rate].")
 
 ;;}}}
