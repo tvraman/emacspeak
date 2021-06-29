@@ -86,46 +86,43 @@ mac for MAC TTS (default on Mac)")
 ;;{{{  user customizations:
 
 (defgroup tts nil
-  "TTS customizations."
+  "TTS."
   :group 'emacspeak
   :prefix "dtk-")
 
 (defvar-local tts-strip-octals nil
-  "Strip all octal chars before speaking. ")
+  "Strip all octal chars. ")
 
 (defcustom dtk-speech-rate-base
   (if (string-match "dtk" dtk-program) 180 50)
-  "Value of lowest tolerable speech rate."
+  "Value of lowest speech rate."
   :type 'integer
   :group 'tts)
 
 (defcustom dtk-speech-rate-step
   (if (string-match "dtk" dtk-program) 50 8)
-  "Value of speech rate increment used by command
-`dtk-set-predefined-speech-rate'."
+  "Speech rate step used by `dtk-set-predefined-speech-rate'."
   :type 'integer
   :group 'tts)
 
 (defvar-local dtk-quiet nil
-  "Silence speech via
- command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
+  "Silence speech ")
 
 (defvar-local  dtk-split-caps t
-  "Flag indicating whether to use split caps when speaking.
- Use command  `dtk-toggle-split-caps'
- bound to \\[dtk-toggle-split-caps].")
+  "Flag indicating whether to use split caps.
+ Use   `dtk-toggle-split-caps'bound to \\[dtk-toggle-split-caps].")
 
 (defcustom dtk-cleanup-repeats
   (list
    ". " "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
    "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>" "^")
   "List of repeating patterns to clean up.
-Use  command  `dtk-add-cleanup-pattern'
- bound to \\[dtk-add-cleanup-pattern]  to add more patterns.
+Use `dtk-add-cleanup-pattern'
+ bound to \\[dtk-add-cleanup-pattern]  to add  patterns.
 
-If more than 3 consecutive occurrences
-of a specified pattern is found, emacspeak replaces it
-with a repeat count. "
+More than 3 consecutive occurrences
+of a  pattern   is
+replaced with a repeat count. "
   :type '(repeat (string :tag "pattern"))
   :group 'tts)
 
@@ -133,15 +130,15 @@ with a repeat count. "
 ;;{{{  internal variables
 
 (defvar dtk-character-scale 1.1
-  "Factor by which speech rate is scaled when speaking letters.
-  Use command `dtk-set-character-scale' bound to
+  "Factor used to  scale speech rate  when speaking letters.
+  Use `dtk-set-character-scale' bound to
 \\[dtk-set-character-scale].")
 
 (defvar-local dtk-caps nil
   "Non-nil means  indicate  capitalization.
 Capitalized words are preceded by `cap', and upper-case words are
   preceded by `ac' spoken in a lower voice.
-Use command dtk-toggle-caps
+Use dtk-toggle-caps
 bound to \\[dtk-toggle-caps].")
 
 (defconst dtk-punctuation-mode-alist
