@@ -534,7 +534,7 @@ Each term-mode buffer has a buffer local value of this variable. ")
   "T if eterm is in review mode.
 In review mode, you can move around the terminal and listen to parts of it.
 Do not set this variable by hand.
-Use command \\[emacspeak-eterm-toggle-review].")
+Use \\[emacspeak-eterm-toggle-review].")
 
 (defun emacspeak-eterm-toggle-review ()
   "Toggle state of eterm review.
@@ -1038,7 +1038,7 @@ available with the prefix emacspeak-eterm-prefix and are listed below:
 
 (defvar emacspeak-eterm-autospeak t
   "Tells if eterm output is automatically spoken when in line mode.
-Use command emacspeak-toggle-eterm-autospeak bound to
+Use emacspeak-toggle-eterm-autospeak bound to
 \\[emacspeak-toggle-eterm-autospeak] to set this.")
 
 (make-variable-buffer-local 'emacspeak-eterm-autospeak)
@@ -1060,7 +1060,7 @@ all output to the terminal is automatically spoken.
 (defvar emacspeak-eterm-pointer-mode t
   "If T then the emacspeak pointer will not track the terminal cursor.
 Do not set this by hand.
-Use command emacspeak-eterm-toggle-pointer-mode bound to
+Use emacspeak-eterm-toggle-pointer-mode bound to
 \\[emacspeak-eterm-toggle-pointer-mode].")
 
 (defun emacspeak-eterm-activity-in-window (window)

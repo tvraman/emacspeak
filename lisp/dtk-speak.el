@@ -1011,7 +1011,7 @@ important to be interrupted.")
   "Current setting of punctuation state.
 Possible values are some, all or none.
 You should not modify this variable;
-Use command  `dtk-set-punctuations' bound to
+Use  `dtk-set-punctuations' bound to
 \\[dtk-set-punctuations].  .")
 
 (defun tts-setup-servers-alist ()
