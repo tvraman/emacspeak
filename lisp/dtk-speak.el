@@ -185,16 +185,14 @@ bound to \\[dtk-toggle-caps].")
 ;;}}}
 ;;{{{ Tone Helpers:
 
+;;; Deletion Tone.
 (defsubst dtk-tone-deletion ()
-  "Deletion Tone."
   (dtk-tone 500 75 'force))
-
+;;; Upcase Tone.
 (defsubst dtk-tone-upcase ()
-  "Upcase Tone."
   (dtk-tone 800 100 'force))
-
+;;;Downcase tone.
 (defsubst dtk-tone-downcase ()
-  "Downcase tone."
   (dtk-tone 600 100 'force))
 
 ;;}}}
