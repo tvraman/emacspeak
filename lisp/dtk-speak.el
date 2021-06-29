@@ -154,6 +154,7 @@ bound to \\[dtk-toggle-caps].")
 
 ;;}}}
 ;;{{{Style Helper:
+
 ;;; helper: Identify (a . b).
 (defsubst dtk-plain-cons-p (value)
   (and (consp value) (not (proper-list-p value))))
@@ -161,7 +162,7 @@ bound to \\[dtk-toggle-caps].")
 ;;; Helper: Get face->voice mapping
 
 (defun dtk-get-voice-for-face (value)
-  "Compute face->voice mapping."
+  "Face->voice map"
   (when value
     (let ((voice nil))
       (cond
@@ -175,8 +176,7 @@ bound to \\[dtk-toggle-caps].")
       voice)))
 
 (defsubst dtk-get-style (&optional pos)
-  " Return  style that is applied
- to  content  based on personality or face at `POS'.   "
+  " Return  style based on personality or face at `POS'.   "
   (or pos (setq pos (point)))
   (or
    (get-text-property pos 'personality)
