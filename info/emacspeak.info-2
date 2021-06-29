@@ -12,51 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 28, 2021.
-
-
-File: emacspeak.info,  Node: emacspeak-hide,  Next: emacspeak-hide-lines,  Prev: emacspeak-helm,  Up: Emacspeak Commands And Options
-
-12.98 emacspeak-hide
-====================
-
-Flexible hide and show for emacspeak.  This module allows one to easily
-hide or expose blocks of lines starting with a common prefix.  It is
-motivated by the need to flexibly hide quoted text in email but is
-designed to be more general.  the prefix parsing is inspired by
-filladapt.el
-
-12.98.1 Emacspeak-Hide Commands
--------------------------------
-
-12.98.1.1 emacspeak-hide-or-expose-all-blocks
-.............................................
-
- -- Command: emacspeak-hide-or-expose-all-blocks
-
-     Hide or expose all blocks.
-
-12.98.1.2 emacspeak-hide-or-expose-block
-........................................
-
- -- Command: emacspeak-hide-or-expose-block (&optional prefix)
-     ‘C-e j’
-     ‘<fn> j’
-
-     Hide or expose a block of text.
-      Optional interactive prefix arg causes all blocks in current
-     buffer to be hidden or exposed.
-
-     (fn &optional PREFIX)
-
-12.98.1.3 emacspeak-hide-speak-block-sans-prefix
-................................................
-
- -- Command: emacspeak-hide-speak-block-sans-prefix
-     ‘C-e C-j’
-     ‘<fn> C-j’
-
-     Speaks current block after stripping its prefix.
+last updated on June 29, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -9488,6 +9444,9 @@ from other modules.
      If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
      the mode if ARG is nil, omitted, or is a positive number.
      Disable the mode if ARG is a negative number.
+
+     To check whether the minor mode is enabled in the current buffer,
+     evaluate ‘voice-lock-mode’.
 
      The mode’s hook is called both when the mode is enabled and when
      it is disabled.

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 28, 2021.
+last updated on June 29, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3279,7 +3279,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Command: dtk-list-languages
 
-     Say the available languages.
+     List  available languages.
 
 12.6.1.4 dtk-local-server
 .........................
@@ -3339,8 +3339,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘<fn> d d’
 
      Select  speech server ‘program’.
-      Optional arg device sets up environment variable
-     ALSA_DEFAULT.
+      Optional arg device sets  env-var ALSA_DEFAULT.
 
      (fn PROGRAM &optional DEVICE)
 
@@ -3377,7 +3376,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d S’
      ‘<fn> d S’
 
-     Set language  to  lang.
+     Set language.
 
      (fn LANG)
 
@@ -3427,11 +3426,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Command: dtk-set-preferred-language (alias lang)
 
-     Set the alias of the preferred language:
-     For example if alias="en" lang="en_GB",
-     then the following call:
-      dtk-set-language("en")
-     will set "en_GB".
+     Set language by alias.
 
      (fn ALIAS LANG)
 
@@ -3611,11 +3606,11 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Prefix used to indicate capitalization
 
  -- Variable: User Option dtk-cleanup-repeats
-     List of repeating patterns to clean up.  Use command
-     ‘dtk-add-cleanup-pattern’ bound to C-e d a to add more patterns.
+     List of repeating patterns to clean up.  Use
+     ‘dtk-add-cleanup-pattern’ bound to C-e d a to add patterns.
 
-     If more than 3 consecutive occurrences of a specified pattern is
-     found, emacspeak replaces it with a repeat count.
+     More than 3 consecutive occurrences of a pattern is replaced with a
+     repeat count.
 
  -- Variable: User Option dtk-cloud-server
      Set this to your preferred cloud TTS server.
@@ -3630,11 +3625,10 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      box die if it seems some accented characters in certain contexts.
 
  -- Variable: User Option dtk-speech-rate-base
-     Value of lowest tolerable speech rate.
+     Value of lowest speech rate.
 
  -- Variable: User Option dtk-speech-rate-step
-     Value of speech rate increment used by command
-     ‘dtk-set-predefined-speech-rate’.
+     Speech rate step used by ‘dtk-set-predefined-speech-rate’.
 
  -- Variable: User Option dtk-use-tones
      Toggle tones.
@@ -8726,4 +8720,48 @@ HELM == Smart narrowing/selection in emacs This module speech-enables
 Helm interaction.  See tvr/helm-prepare.el in the GitHub repository for
 my helm setup.  that file provides convenient emacspeak-centric
 keybindings for Helm interaction.
+
+
+File: emacspeak.info,  Node: emacspeak-hide,  Next: emacspeak-hide-lines,  Prev: emacspeak-helm,  Up: Emacspeak Commands And Options
+
+12.98 emacspeak-hide
+====================
+
+Flexible hide and show for emacspeak.  This module allows one to easily
+hide or expose blocks of lines starting with a common prefix.  It is
+motivated by the need to flexibly hide quoted text in email but is
+designed to be more general.  the prefix parsing is inspired by
+filladapt.el
+
+12.98.1 Emacspeak-Hide Commands
+-------------------------------
+
+12.98.1.1 emacspeak-hide-or-expose-all-blocks
+.............................................
+
+ -- Command: emacspeak-hide-or-expose-all-blocks
+
+     Hide or expose all blocks.
+
+12.98.1.2 emacspeak-hide-or-expose-block
+........................................
+
+ -- Command: emacspeak-hide-or-expose-block (&optional prefix)
+     ‘C-e j’
+     ‘<fn> j’
+
+     Hide or expose a block of text.
+      Optional interactive prefix arg causes all blocks in current
+     buffer to be hidden or exposed.
+
+     (fn &optional PREFIX)
+
+12.98.1.3 emacspeak-hide-speak-block-sans-prefix
+................................................
+
+ -- Command: emacspeak-hide-speak-block-sans-prefix
+     ‘C-e C-j’
+     ‘<fn> C-j’
+
+     Speaks current block after stripping its prefix.
 

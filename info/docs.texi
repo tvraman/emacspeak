@@ -438,7 +438,7 @@ Select  Cloud TTS server.
 @findex dtk-list-languages
 
 @format
-Say the available languages.
+List  available languages.
 @end format
 @end deffn
 
@@ -540,8 +540,7 @@ Reset TTS engine.
 
 @format
 Select  speech server ‘program’.
- Optional arg device sets up environment variable
-ALSA_DEFAULT.
+ Optional arg device sets  env-var ALSA_DEFAULT.
 
 (fn PROGRAM &optional DEVICE)
 @end format
@@ -599,7 +598,7 @@ Argument S specifies the syntax class.
 @findex dtk-set-language
 
 @format
-Set language  to  lang.
+Set language.
 
 (fn LANG)
 @end format
@@ -683,11 +682,7 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 @findex dtk-set-preferred-language
 
 @format
-Set the alias of the preferred language:
-For example if alias="en" lang="en_GB",
-then the following call:
- dtk-set-language("en")
-will set "en_GB". 
+Set language by alias.
 
 (fn ALIAS LANG)
 @end format
@@ -963,12 +958,12 @@ Prefix used to indicate capitalization
 
 @defvar {User Option} dtk-cleanup-repeats
 List of repeating patterns to clean up.
-Use  command  ‘dtk-add-cleanup-pattern’
- bound to C-e d a  to add more patterns.
+Use ‘dtk-add-cleanup-pattern’
+ bound to C-e d a  to add  patterns.
 
-If more than 3 consecutive occurrences
-of a specified pattern is found, emacspeak replaces it
-with a repeat count. 
+More than 3 consecutive occurrences
+of a  pattern   is
+replaced with a repeat count. 
 
 @end defvar
 
@@ -992,13 +987,12 @@ it seems some accented characters in certain contexts.
 @end defvar
 
 @defvar {User Option} dtk-speech-rate-base
-Value of lowest tolerable speech rate.
+Value of lowest speech rate.
 
 @end defvar
 
 @defvar {User Option} dtk-speech-rate-step
-Value of speech rate increment used by command
-‘dtk-set-predefined-speech-rate’.
+Speech rate step used by ‘dtk-set-predefined-speech-rate’.
 
 @end defvar
 
@@ -18753,6 +18747,9 @@ negative, disable the mode.
 If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
 the mode if ARG is nil, omitted, or is a positive number.
 Disable the mode if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate ‘voice-lock-mode’.
 
 The mode’s hook is called both when the mode is enabled and when
 it is disabled.
