@@ -287,8 +287,8 @@ bound to \\[dtk-toggle-caps].")
 
 (defun dtk-tone (pitch duration &optional force)
   "Produce a tone.
-Argument PITCH   is specified in hertz.
-Argument DURATION  is specified in milliseconds.
+ Pitch   is  in hertz.
+ Duration  is  in milliseconds.
 Uses a 5ms fade-in and fade-out. "
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-use-tones dtk-speak-server-initialized))
@@ -299,10 +299,9 @@ Uses a 5ms fade-in and fade-out. "
     (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
-  "Set language  to  lang."
-  (interactive "sEnter new language: \n")
-  (cl-declare (special dtk-quiet dtk-speaker-process
-                       dtk-speak-server-initialized))
+  "Set language."
+  (interactive "sEnter language: \n")
+  (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-language lang (called-interactively-p 'interactive))))
 
@@ -316,36 +315,25 @@ Uses a 5ms fade-in and fade-out. "
 (defun dtk-set-previous-language ()
   "Switch to  previous  language"
   (interactive)
-  (cl-declare (special dtk-quiet dtk-speaker-process
-                       dtk-speak-server-initialized))
-  ;;  (unless dtk-quiet
+  (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-previous-language (called-interactively-p 'interactive))))
 
 (defun dtk-set-preferred-language (alias lang)
-  "Set the alias of the preferred language:
-For example if alias=\"en\" lang=\"en_GB\",
-then the following call:
- dtk-set-language(\"en\")
-will set \"en_GB\". "
+  "Set language by alias."
   (interactive "s")
-  (cl-declare (special dtk-quiet dtk-speaker-process
-                       dtk-speak-server-initialized))
-  ;;  (unless dtk-quiet
+  (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-preferred-language alias lang)))
 
 (defun dtk-list-languages ()
-  "Say the available languages."
+  "List  available languages."
   (interactive)
-  (cl-declare (special dtk-quiet dtk-speaker-process
-                       dtk-speak-server-initialized))
-  (unless dtk-quiet
-    (when dtk-speak-server-initialized
-      (dtk-interp-list-language))))
+  (cl-declare (special dtk-speak-server-initialized))
+  (when dtk-speak-server-initialized
+      (dtk-interp-list-language)))
 
 ;;; helper function:
-
 ;;; Quote the string in current buffer so tcl does not barf.
 ;;; Fix brackets by changing to text.
 ;;; This is necessary because
