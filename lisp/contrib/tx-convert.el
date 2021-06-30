@@ -51,7 +51,7 @@
 ;;;
 ;;; You should have received a copy of the GNU General Public License
 ;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA..
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 ;;;
 ;;; Commenta
 ;;; The simple idea wiht this very basic bits of code bits was to make
