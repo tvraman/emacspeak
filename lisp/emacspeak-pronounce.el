@@ -665,12 +665,12 @@ specified pronunciation dictionary key."
 ;;{{{ top level dispatch routine
 
 (defvar emacspeak-pronounce-help
-  "Dictionary: Clear Define Edit Load Refresh Save Toggle"
-  "Help message listing emacspeak commands.")
+  "Dictionary: Clear Define Edit Load Refresh Save Toggle voicify"
+  "Dictionary Help")
 
 
 (defun emacspeak-pronounce-dispatch ()
-  "Provides the user interface front-end to Emacspeak's pronunciation dictionaries."
+  "Pronounce Frontend"
   (interactive)
   (cl-declare (special emacspeak-pronounce-help))
   (message emacspeak-pronounce-help)
