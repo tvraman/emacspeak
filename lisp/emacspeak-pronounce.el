@@ -47,7 +47,7 @@
 ;;;sessions. This module implements the user interface to the custom
 ;;;dictionary as well as providing the internal API used by the rest
 ;;;of emacspeak in using the dictionary.
-;;;Algorithm:
+;;; @subsection Algorithm:
 
 ;;;The persistent dictionary is a hash table where the hash keys are
 ;;;filenames, directory names, or major-mode names. The hash values

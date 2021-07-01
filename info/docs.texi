@@ -9945,13 +9945,6 @@ user dictionary upon request and loads these in new emacspeak
 sessions. This module implements the user interface to the custom
 dictionary as well as providing the internal API used by the rest
 of emacspeak in using the dictionary.
-Algorithm:
-
-The persistent dictionary is a hash table where the hash keys are
-filenames, directory names, or major-mode names. The hash values
-are association lists defining the dictionary. Users of this module
-can retrieve a dictionary made up of all applicable association
-lists for a given file.
 
 @subsection Emacspeak-Pronounce Commands
 

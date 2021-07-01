@@ -12,22 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 29, 2021.
-
-
-File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
-
-15.1 Turning Twenty
-===================
-
-One afternoon in the third week of September 1994, I started writing
-myself a small Emacs extension using Lisp Advice to make Emacs speak to
-me so I could use a Linux laptop.  As Emacspeak turns twenty, this
-article is both a quick look back over the twenty years of lessons
-learned, as well as a glimpse into what might be possible as we evolve
-to a world of connected, ubiquitous computing.  This article draws on
-Learning To Program In 10 Years (http://norvig.com/21-days.html) by
-Peter Norvig for some of its inspiration.
+last updated on June 30, 2021.
 
 
 File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
@@ -1003,7 +988,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> M-b:                              emacspeak-speak.    (line  561)
 * <fn> M-c:                              emacspeak-wizards.  (line   17)
 * <fn> M-d:                              emacspeak-pronounce.
-                                                             (line   65)
+                                                             (line   59)
 * <fn> M-h:                              emacspeak-wizards.  (line  185)
 * <fn> M-i:                              emacspeak-table-ui. (line   47)
 * <fn> M-l:                              emacspeak-wizards.  (line   73)
@@ -1441,7 +1426,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M-b:                               emacspeak-speak.    (line  560)
 * C-e M-c:                               emacspeak-wizards.  (line   16)
 * C-e M-d:                               emacspeak-pronounce.
-                                                             (line   64)
+                                                             (line   58)
 * C-e M-h:                               emacspeak-wizards.  (line  184)
 * C-e M-i:                               emacspeak-table-ui. (line   46)
 * C-e M-l:                               emacspeak-wizards.  (line   72)

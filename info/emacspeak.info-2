@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 29, 2021.
+last updated on June 30, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -2651,13 +2651,7 @@ and/or per major mode.  Emacspeak maintains a persistent user dictionary
 upon request and loads these in new emacspeak sessions.  This module
 implements the user interface to the custom dictionary as well as
 providing the internal API used by the rest of emacspeak in using the
-dictionary.  Algorithm:
-
-   The persistent dictionary is a hash table where the hash keys are
-filenames, directory names, or major-mode names.  The hash values are
-association lists defining the dictionary.  Users of this module can
-retrieve a dictionary made up of all applicable association lists for a
-given file.
+dictionary.
 
 12.148.1 Emacspeak-Pronounce Commands
 -------------------------------------
@@ -10034,4 +10028,19 @@ emacspeak distribution.
 * Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
 * Conclusion --- Turning Twenty::
 * References::
+
+
+File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
+
+15.1 Turning Twenty
+===================
+
+One afternoon in the third week of September 1994, I started writing
+myself a small Emacs extension using Lisp Advice to make Emacs speak to
+me so I could use a Linux laptop.  As Emacspeak turns twenty, this
+article is both a quick look back over the twenty years of lessons
+learned, as well as a glimpse into what might be possible as we evolve
+to a world of connected, ubiquitous computing.  This article draws on
+Learning To Program In 10 Years (http://norvig.com/21-days.html) by
+Peter Norvig for some of its inspiration.
 
