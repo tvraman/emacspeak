@@ -757,8 +757,8 @@ specified pronunciation dictionary key."
           (replace-regexp-in-string
            "[0-9]\\{2\\}" " \\&" suffix-code))
     (format "%s %s, %s. "
-            area-code prefix-code suffix-code)
-    ))
+            area-code prefix-code suffix-code)))
+
 (defvar emacspeak-pronounce-sha-checksum-pattern
   "[0-9a-f]\\{40\\}"
   "Regexp pattern that matches 40-digit SHA check-sum.")
