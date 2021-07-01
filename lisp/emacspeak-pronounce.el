@@ -708,7 +708,6 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
-  (save-match-data
     (let ((fields (mapcar #'read (split-string string "-"))))
        (calendar-date-string
         (list (cl-second fields)
@@ -719,7 +718,7 @@ specified pronunciation dictionary key."
                ((< (cl-third fields) 100)
                 (+ 1900 (cl-third fields)))
                (t (cl-third fields)))))
-        )))
+        ))
 
 (defvar emacspeak-pronounce-date-yyyymmdd-pattern
   "[0-9]\\{8\\}"
