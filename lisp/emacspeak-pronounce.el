@@ -78,10 +78,8 @@ Values are alists containing string.pronunciation pairs.")
   (setf (gethash key emacspeak-pronounce-dictionaries) pr-alist))
 
 (defun emacspeak-pronounce-get-dictionary (key)
-  (cl-declare (special emacspeak-pronounce-dictionaries
-                       minibuffer-history))
-  (when (stringp key)
-    (setq key (intern key)))
+  (cl-declare (special emacspeak-pronounce-dictionaries))
+  (when (stringp key) (setq key (intern key)))
   (gethash key emacspeak-pronounce-dictionaries))
 
 (defun emacspeak-pronounce-add-dictionary-entry (key string pronunciation)
