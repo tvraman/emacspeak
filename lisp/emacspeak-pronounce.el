@@ -697,6 +697,7 @@ specified pronunciation dictionary key."
 ;;{{{ Helpers: pronouncers
 
 ;;{{{ dates and numbers
+
 (defvar emacspeak-pronounce-number-pattern
   "[0-9]+\\.?[0-9]+%?"
   "Pattern that matches  nnnn.nnnn")
@@ -717,8 +718,7 @@ specified pronunciation dictionary key."
                 (+ 2000 (cl-third fields)))
                ((< (cl-third fields) 100)
                 (+ 1900 (cl-third fields)))
-               (t (cl-third fields)))))
-        ))
+               (t (cl-third fields)))))))
 
 (defvar emacspeak-pronounce-date-yyyymmdd-pattern
   "[0-9]\\{8\\}"
@@ -726,13 +726,12 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-yyyymmdd-date (string)
   "Return pronunciation for yyyymmdd dates."
-  (save-match-data
-     (calendar-date-string
-      (list
-       (read (substring string 4 6))
-       (read (substring string 6))
-       (read (substring string 0 4)))
-      nil 'nodayname)))
+  (calendar-date-string
+   (list
+    (read (substring string 4 6))
+    (read (substring string 6))
+    (read (substring string 0 4)))
+   nil 'nodayname))
 
 ;;}}}
 ;;{{{ phone numbers
