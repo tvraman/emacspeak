@@ -1760,13 +1760,12 @@ Prompts if content at point is enclosed by multiple elements."
   (funcall-interactively #'emacspeak-eww-previous-element  element))
 
 (defun emacspeak-eww-speak-this-element (element)
-  "Speaks  to next element like current.
-Uses most recently navigated structural unit.
-Otherwise, prompts if content at point is enclosed by multiple elements."
+  "Speaks  to next element like current. "
   (interactive
    (list
-    (or (car emacspeak-eww-element-navigation-history)
-        (emacspeak-eww-read-tags-like-this "Read: "))))
+    (or
+     (cl-first (emacspeak-eww-here-tags))
+     (car emacspeak-eww-element-navigation-history))))
   (let ((start (point)))
     (save-excursion
       (emacspeak-eww-next-element  element)
