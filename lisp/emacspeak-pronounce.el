@@ -99,15 +99,15 @@ the match  being passed to the func which returns  the new pronunciation."
       (setf dict (cons (cons string pronunciation) dict))
       (emacspeak-pronounce-set-dictionary key dict))
      (t
-      (emacspeak-pronounce-set-dictionary key
-                                          (list (cons string pronunciation)))))))
+      (emacspeak-pronounce-set-dictionary
+       key
+       (list (cons string pronunciation)))))))
 
 (defun emacspeak-pronounce-remove-buffer-local-dictionary-entry (string)
-  "Remove pronunciation entry."
+  "Remove buffer-specificpronunciation."
   (when (and (boundp 'emacspeak-pronounce-pronunciation-table)
              emacspeak-pronounce-pronunciation-table)
-    (remhash string
-             emacspeak-pronounce-pronunciation-table)))
+    (remhash string emacspeak-pronounce-pronunciation-table)))
 
 (defun emacspeak-pronounce-add-buffer-local-dictionary-entry (string pronunciation)
   "Add  pronunciation for current buffer. "
