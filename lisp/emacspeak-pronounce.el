@@ -449,28 +449,17 @@ First loads any persistent dictionaries if not already loaded."
 
 ;;}}}
 ;;{{{ Turning dictionaries on and off on a per buffer basis
+
 (defvar-local  emacspeak-pronounce-pronunciation-table nil
-  "Variable holding association list of pronunciations for a buffer.
-Becomes automatically buffer local.")
-
-(setq-default emacspeak-pronounce-pronunciation-table nil)
-
+  "AList for buffer pronunciations")
 
 (defun  emacspeak-pronounce-pronunciation-table ()
-  "Closure that returns the pronunciation table."
+  "Return the pronunciation table."
   emacspeak-pronounce-pronunciation-table)
 
 ;;;###autoload
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
-  "Toggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be defined on a per file, per directory and/or
-per mode basis.  Pronunciations are activated on a per buffer
-basis.  Turning on the use of pronunciation dictionaries results
-in emacspeak composing a pronunciation table based on the
-currently defined pronunciation dictionaries.  After this, the
-pronunciations will be applied whenever text in the buffer is
-spoken.  Optional argument state can be used from Lisp programs
-to explicitly turn pronunciations on or off."
+  "Toggle  pronunciation dictionaries. "
   (interactive "P")
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (unless state (setq state (not emacspeak-pronounce-pronunciation-table)))
@@ -485,13 +474,12 @@ to explicitly turn pronunciations on or off."
     (emacspeak-auditory-icon
      (if emacspeak-pronounce-pronunciation-table 'on 'off))
     (message
-     "Turned  pronunciations %s."
+     "Pronunciations %s."
      (if emacspeak-pronounce-pronunciation-table " on " " off "))))
 
 
 (defun emacspeak-pronounce-refresh-pronunciations ()
-  "Refresh pronunciation table for current buffer.
-Activates pronunciation dictionaries if not already active."
+  "Refresh pronunciation table for current buffer. "
   (interactive)
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond
