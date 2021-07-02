@@ -73,12 +73,7 @@
   these in new emacspeak sessions. This module implements the user
   interface to the custom dictionary as well as providing the
   internal API used by the rest of emacspeak in using the
-  dictionary. Algorithm:</p>
-  <p>The persistent dictionary is a hash table where the hash keys
-  are filenames, directory names, or major-mode names. The hash
-  values are association lists defining the dictionary. Users of
-  this module can retrieve a dictionary made up of all applicable
-  association lists for a given file.</p><span id=
+  dictionary.</p><span id=
   "Emacspeak_002dPronounce-Commands"></span>
   <h4 class="subsection">12.148.1 Emacspeak-Pronounce
   Commands</h4><span id=
@@ -179,8 +174,7 @@ First loads any persistent dictionaries if not already loaded.
       </dl><span id=
       "index-emacspeak_002dpronounce_002ddispatch-1"></span>
       <div class="format">
-        <pre class=
-        "format">Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
+        <pre class="format">Pronounce Frontend
 </pre>
       </div>
     </dd>
@@ -243,8 +237,7 @@ Default is emacspeak-pronounce-dictionaries-file.
       </span>
       <div class="format">
         <pre class=
-        "format">Refresh pronunciation table for current buffer.
-Activates pronunciation dictionaries if not already active.
+        "format">Refresh pronunciation table for current buffer. 
 </pre>
       </div>
     </dd>
@@ -280,16 +273,7 @@ Activates pronunciation dictionaries if not already active.
       "index-emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries-1">
       </span>
       <div class="format">
-        <pre class=
-        "format">Toggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be defined on a per file, per directory and/or
-per mode basis.  Pronunciations are activated on a per buffer
-basis.  Turning on the use of pronunciation dictionaries results
-in emacspeak composing a pronunciation table based on the
-currently defined pronunciation dictionaries.  After this, the
-pronunciations will be applied whenever text in the buffer is
-spoken.  Optional argument state can be used from Lisp programs
-to explicitly turn pronunciations on or off.
+        <pre class="format">Toggle  pronunciation dictionaries. 
 
 (fn &amp;optional STATE)
 </pre>
@@ -318,7 +302,7 @@ to explicitly turn pronunciations on or off.
     Option</strong>
     <em>emacspeak-pronounce-common-xml-namespace-uri-pronunciations</em></dt>
     <dd>
-      <p>Pronunciations for well known namespace URIs.</p>
+      <p>Namespace URIs.</p>
     </dd>
   </dl>
   <dl>
@@ -334,9 +318,7 @@ to explicitly turn pronunciations on or off.
     Option</strong>
     <em>emacspeak-pronounce-internet-smileys-pronunciations</em></dt>
     <dd>
-      <p>Pronunciation dictionary used in all instant messenger and
-      IRC chat modes. See
-      http://www.charm.net/~kmarsh/smiley.html.</p>
+      <p>Smileys</p>
     </dd>
   </dl>
   <hr />
