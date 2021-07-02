@@ -590,33 +590,26 @@ for the specified mode."
     (emacspeak-pronounce-toggle-use-of-dictionaries))
   (let ((value (gethash key emacspeak-pronounce-dictionaries))
         (notify (emacspeak-pronounce-edit-generate-callback key))
-        (buffer-name (format "*Dict: %s" key))
-        (buffer nil)
+        (buffer (get-buffer-create (format "*Dict: %s" key)))
         (inhibit-read-only t))
-    (setq buffer (get-buffer-create buffer-name))
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
-      (widget-insert
-       (format "\nEditing dictionary for %s\n\n" key))
+      (widget-insert (format "Dict: %s\n" key))
       (widget-create
        'repeat
-       :help-echo "Edit"
-       :tag "Pronounce"
-       :value value
-       :notify notify
+       :help-echo "Edit" :tag "Edit"
+       :value value :notify notify
        '(cons :tag "Entry"
               (string :tag "Phrase")
               (choice :tag "Pronounce"
                       (string :tag "Phrase")
-                      (cons :tag "Pronouncer"
+                      (cons :tag "Pair"
                             (symbol :tag "Matcher")
                             (symbol :tag "Pronouncer")))))
-      (widget-insert "\n")
-      (widget-create 'push-button
-                     :tag "Save"
-                     :notify #'emacspeak-pronounce-save-dictionaries)
-      (insert "\n\n")
+      (widget-create
+       'push-button
+       :tag "Save" :notify #'emacspeak-pronounce-save-dictionaries)
       (use-local-map widget-keymap)
       (widget-setup)
       (goto-char (point-min)))
