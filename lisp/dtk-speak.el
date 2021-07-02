@@ -398,16 +398,8 @@ specifies the current pronunciation mode --- See
       (while (re-search-forward dtk-bracket-regexp nil t)
         (replace-match " " nil t))))))
 
-(defcustom dtk-speak-nonprinting-chars nil
-  "Option that specifies handling of non-printing chars.
-Non nil value means non printing characters  should be
-spoken as their octal value.
-Set this to t to avoid a dectalk bug that makes the speech box die if
-it seems some accented characters in certain contexts."
-  :type 'boolean
-  :group 'dtk)
-
-(make-variable-buffer-local 'dtk-speak-nonprinting-chars)
+(defvar-local dtk-speak-nonprinting-chars nil
+  "Speak non-printing chars.")
 
 (defvar dtk-octal-chars
   "[\000-\010\013\014\016-\037\177-\377]"
