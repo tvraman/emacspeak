@@ -584,42 +584,39 @@ for the specified mode."
 ;;{{{ dictionary editor
 
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor (key)
-  "Generate a widget-enabled edit buffer for editing the
-pronunciation dictionary for the specified key."
+  "Edit dictionary for given key"
   (cl-declare (special emacspeak-pronounce-dictionaries))
   (unless emacspeak-pronounce-pronunciation-table
     (emacspeak-pronounce-toggle-use-of-dictionaries))
   (let ((value (gethash key emacspeak-pronounce-dictionaries))
         (notify (emacspeak-pronounce-edit-generate-callback key))
-        (buffer-name (format "*Dictionary: %s" key))
+        (buffer-name (format "*Dict: %s" key))
         (buffer nil)
         (inhibit-read-only t))
-    (when (get-buffer buffer-name) (kill-buffer buffer-name))
     (setq buffer (get-buffer-create buffer-name))
     (save-current-buffer
       (set-buffer buffer)
-      (widget-insert "\n")
+      (erase-buffer)
       (widget-insert
-       (format "Editing pronunciation dictionary for %s\n\n" key))
-      (widget-create 'repeat
-                     :help-echo "Edit Pronunciations"
-                     :tag "Pronunciations"
-                     :value value
-                     :notify notify
-                     '(cons :tag "Dictionary Entry"
-                            (string :tag "Phrase")
-                            (choice :tag "Pronunciation"
-                                    (string :tag "Pronounce as")
-                                    (cons :tag "Pronouncer"
-                                          (symbol :tag "Matcher")
-                                          (symbol :tag "Pronouncer")))))
+       (format "\nEditing dictionary for %s\n\n" key))
+      (widget-create
+       'repeat
+       :help-echo "Edit"
+       :tag "Pronounce"
+       :value value
+       :notify notify
+       '(cons :tag "Entry"
+              (string :tag "Phrase")
+              (choice :tag "Pronounce"
+                      (string :tag "Phrase")
+                      (cons :tag "Pronouncer"
+                            (symbol :tag "Matcher")
+                            (symbol :tag "Pronouncer")))))
       (widget-insert "\n")
       (widget-create 'push-button
-                     :tag "Save Dictionary"
-                     :notify
-                     #'(lambda (&rest _ignore)
-                         (call-interactively 'emacspeak-pronounce-save-dictionaries)))
-      (widget-insert "\n\n")
+                     :tag "Save"
+                     :notify #'emacspeak-pronounce-save-dictionaries)
+      (insert "\n\n")
       (use-local-map widget-keymap)
       (widget-setup)
       (goto-char (point-min)))
