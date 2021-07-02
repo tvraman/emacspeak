@@ -569,15 +569,14 @@ See http://www.charm.net/~kmarsh/smiley.html. "
 
 ;;}}}
 ;;{{{ adding predefined dictionaries to a mode:
+
 (defun emacspeak-pronounce-augment-pronunciations (mode dictionary)
-  "Pushes pronunciations in specified dictionary on to the dictionary
-for the specified mode."
+  "Augment pronunciations."
   (let ((mode-alist (emacspeak-pronounce-get-dictionary mode)))
-    (cl-loop for e in dictionary
-             do
-             (unless (assoc (car e)
-                            mode-alist)
-               (push e mode-alist)))
+    (cl-loop
+     for e in dictionary do
+     (unless (assoc (car e) mode-alist)
+       (push e mode-alist)))
     (emacspeak-pronounce-set-dictionary mode mode-alist)))
 
 ;;}}}
