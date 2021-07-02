@@ -539,31 +539,24 @@ See http://www.charm.net/~kmarsh/smiley.html. "
 
 (defcustom emacspeak-pronounce-common-xml-namespace-uri-pronunciations
   '(
-    ("http://schemas.google.com/g/2005" . " gd ")
     ("http://www.w3.org/2005/Atom" . " atom ")
     ("http://www.w3.org/1999/02/22-rdf-syntax-ns#" . "RDF Syntax")
     ("http://www.w3.org/2002/06/xhtml2" . " xhtml2 ")
-    ("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-     . "XUL")
-    ("http://www.mozilla.org/xbl" . " xbl ")
-    ("http://www.w3.org/2003/XInclude" . "xinclude")
+    ("http://www.w3.org/2003/XInclude" . "XInclude")
     ("http://www.w3.org/1999/XSL/Transform" . " XSLT ")
     ("http://www.w3.org/2002/xforms" . " XForms ")
     ("http://www.w3.org/2001/xml-events" . " XEvents ")
     ("http://www.w3.org/2001/vxml" . " vxml ")
-    ("http://www.w3.org/2001/XMLSchema-instance". " XSchema Instance ")
-    ("http://www.w3.org/2001/XMLSchema". " XSchema ")
+    ("http://www.w3.org/2001/XMLSchema-instance". " XSI ")
+    ("http://www.w3.org/2001/XMLSchema". " XSD ")
     ("http://www.w3.org/1999/xhtml" . " xhtml ")
-    ("http://schemas.xmlsoap.org/wsdl/" . " WSDL ")
-    ("http://www.w3.org/2001/06/soap-envelope" . " SOAP ENV ")
-    ("http://schemas.xmlsoap.org/wsdl/soap/" . " SOAP ")
-    ("http://purl.org/dc/elements/1.1/" . "Dublin Core")
+    ("http://purl.org/dc/elements/1.1/" . "DC")
     ("http://search.yahoo.com/mrss/" . "media")
     )
-  "Pronunciations for well known namespace URIs."
+  "Namespace URIs."
   :type '(repeat
-          (cons :tag "Dictionary Entry"
-                (string :tag "Namespace URI")
+          (cons :tag "Entry"
+                (string :tag "URI")
                 (string :tag "Pronunciation")))
   :group 'emacspeak)
 
