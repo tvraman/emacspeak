@@ -67,11 +67,10 @@
 ;;}}}
 ;;{{{ AMark List:
 
-(defvar emacspeak-amark-list nil
-  "List of AMarks. 
-Automatically becomes buffer-local when set.")
+(defvar-local emacspeak-amark-list nil
+  "List of buffer-local AMarks. ")
 
-(make-variable-buffer-local 'emacspeak-amark-list)
+
 
 ;;}}}
 ;;{{{ AMark Functions:
