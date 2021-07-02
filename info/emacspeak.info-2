@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 30, 2021.
+last updated on July 1, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -2699,7 +2699,7 @@ dictionary.
      ‘C-e M-d’
      ‘<fn> M-d’
 
-     Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
+     Pronounce Frontend
 
 12.148.1.6 emacspeak-pronounce-edit-pronunciations
 ..................................................
@@ -2728,7 +2728,6 @@ dictionary.
  -- Command: emacspeak-pronounce-refresh-pronunciations
 
      Refresh pronunciation table for current buffer.
-     Activates pronunciation dictionaries if not already active.
 
 12.148.1.9 emacspeak-pronounce-save-dictionaries
 ................................................
@@ -2743,15 +2742,7 @@ dictionary.
  -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
           state)
 
-     Toggle use of pronunciation dictionaries in current buffer.
-     Pronunciations can be defined on a per file, per directory and/or
-     per mode basis.  Pronunciations are activated on a per buffer
-     basis.  Turning on the use of pronunciation dictionaries results
-     in emacspeak composing a pronunciation table based on the
-     currently defined pronunciation dictionaries.  After this, the
-     pronunciations will be applied whenever text in the buffer is
-     spoken.  Optional argument state can be used from Lisp programs
-     to explicitly turn pronunciations on or off.
+     Toggle  pronunciation dictionaries.
 
      (fn &optional STATE)
 
@@ -2767,15 +2758,14 @@ dictionary.
 
  -- Variable: User Option
           emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-     Pronunciations for well known namespace URIs.
+     Namespace URIs.
 
  -- Variable: User Option emacspeak-pronounce-dictionaries-file
      File that holds emacspeak pronunciations.
 
  -- Variable: User Option
           emacspeak-pronounce-internet-smileys-pronunciations
-     Pronunciation dictionary used in all instant messenger and IRC chat
-     modes.  See http://www.charm.net/~kmarsh/smiley.html.
+     Smileys
 
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
@@ -10043,4 +10033,39 @@ learned, as well as a glimpse into what might be possible as we evolve
 to a world of connected, ubiquitous computing.  This article draws on
 Learning To Program In 10 Years (http://norvig.com/21-days.html) by
 Peter Norvig for some of its inspiration.
+
+
+File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
+
+15.2 Using UNIX With Speech Output — 1994
+=========================================
+
+As a graduate student at Cornell
+(http://www.cs.cornell.edu/info/people/raman/raman.html), I accessed my
+Unix workstation (SunOS) from an Intel 486 PC running IBM Screen-Reader.
+There was no means of directly using a UNIX box at the time; after
+graduating, I continued doing the same for about six months at Digital
+Research in Cambridge — the only difference being that my desktop
+workstation was now a DEC-Alpha.  Throughout this time, Emacs was my
+environment of choice for everything from software development and
+Internet access to writing documents.
+
+   In fall of 1994, I wanted to start using a laptop running Linux; a
+colleague (Dave Wecker) was retiring his 386mhz laptop that already had
+Linux on it and I decided to inherit it.  But there was only one problem
+— until then I had always accessed a UNIX machine from a secondary PC
+running a screen-reader — something that would clearly make no sense
+with a laptop!
+
+   Another colleague, Win Treese, had pointed out the interesting
+possibilities presented by package *advice* in Emacs 19.23 — a few weeks
+earlier, he had sent around a small snippet of code that magically
+modified Emacs’ version-control primitive to first create an _RCS_
+directory if none existed before adding a file to version control.  When
+I speculated about using the Linux laptop, Dave remarked — you live in
+Emacs anyway — why dont you just make it talk!
+
+   Connecting the dots, I decided to write myself a tool that augmented
+Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
+of Emacspeak was up and running.
 

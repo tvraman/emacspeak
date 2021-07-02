@@ -12,42 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 30, 2021.
-
-
-File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
-
-15.2 Using UNIX With Speech Output — 1994
-=========================================
-
-As a graduate student at Cornell
-(http://www.cs.cornell.edu/info/people/raman/raman.html), I accessed my
-Unix workstation (SunOS) from an Intel 486 PC running IBM Screen-Reader.
-There was no means of directly using a UNIX box at the time; after
-graduating, I continued doing the same for about six months at Digital
-Research in Cambridge — the only difference being that my desktop
-workstation was now a DEC-Alpha.  Throughout this time, Emacs was my
-environment of choice for everything from software development and
-Internet access to writing documents.
-
-   In fall of 1994, I wanted to start using a laptop running Linux; a
-colleague (Dave Wecker) was retiring his 386mhz laptop that already had
-Linux on it and I decided to inherit it.  But there was only one problem
-— until then I had always accessed a UNIX machine from a secondary PC
-running a screen-reader — something that would clearly make no sense
-with a laptop!
-
-   Another colleague, Win Treese, had pointed out the interesting
-possibilities presented by package *advice* in Emacs 19.23 — a few weeks
-earlier, he had sent around a small snippet of code that magically
-modified Emacs’ version-control primitive to first create an _RCS_
-directory if none existed before adding a file to version control.  When
-I speculated about using the Linux laptop, Dave remarked — you live in
-Emacs anyway — why dont you just make it talk!
-
-   Connecting the dots, I decided to write myself a tool that augmented
-Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
-of Emacspeak was up and running.
+last updated on July 1, 2021.
 
 
 File: emacspeak.info,  Node: Key Enabler --- Emacs And Lisp Advice,  Next: Key Component --- Text To Speech (TTS),  Prev: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty

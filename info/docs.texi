@@ -5495,9 +5495,7 @@ Save our smart tabs to a file for reloading.
 @findex emacspeak-eww-speak-this-element
 
 @format
-Speaks  to next element like current.
-Uses most recently navigated structural unit.
-Otherwise, prompts if content at point is enclosed by multiple elements.
+Speaks  to next element like current. 
 
 (fn ELEMENT)
 @end format
@@ -10004,7 +10002,7 @@ First loads any persistent dictionaries if not already loaded.
 @findex emacspeak-pronounce-dispatch
 
 @format
-Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
+Pronounce Frontend
 @end format
 @end deffn
 
@@ -10038,8 +10036,7 @@ Default is emacspeak-pronounce-dictionaries-file.
 @findex emacspeak-pronounce-refresh-pronunciations
 
 @format
-Refresh pronunciation table for current buffer.
-Activates pronunciation dictionaries if not already active.
+Refresh pronunciation table for current buffer. 
 @end format
 @end deffn
 
@@ -10057,15 +10054,7 @@ Saves  pronunciation dictionaries.
 @findex emacspeak-pronounce-toggle-use-of-dictionaries
 
 @format
-Toggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be defined on a per file, per directory and/or
-per mode basis.  Pronunciations are activated on a per buffer
-basis.  Turning on the use of pronunciation dictionaries results
-in emacspeak composing a pronunciation table based on the
-currently defined pronunciation dictionaries.  After this, the
-pronunciations will be applied whenever text in the buffer is
-spoken.  Optional argument state can be used from Lisp programs
-to explicitly turn pronunciations on or off.
+Toggle  pronunciation dictionaries. 
 
 (fn &optional STATE)
 @end format
@@ -10083,7 +10072,7 @@ Toggle use of pronunciation personality.
 @subsection emacspeak-pronounce Options
 
 @defvar {User Option} emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-Pronunciations for well known namespace URIs.
+Namespace URIs.
 
 @end defvar
 
@@ -10093,9 +10082,7 @@ File that holds  emacspeak pronunciations.
 @end defvar
 
 @defvar {User Option} emacspeak-pronounce-internet-smileys-pronunciations
-Pronunciation dictionary used in all instant messenger and IRC chat
-modes.
-See http://www.charm.net/~kmarsh/smiley.html. 
+Smileys
 
 @end defvar
 

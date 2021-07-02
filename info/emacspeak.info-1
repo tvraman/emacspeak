@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 30, 2021.
+last updated on July 1, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7596,8 +7596,6 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
  -- Command: emacspeak-eww-speak-this-element (element)
 
      Speaks  to next element like current.
-     Uses most recently navigated structural unit.
-     Otherwise, prompts if content at point is enclosed by multiple elements.
 
      (fn ELEMENT)
 
