@@ -771,6 +771,37 @@ specified pronunciation dictionary key."
             (substring number 1)))))
 
 ;;}}}
+;;{{{Merge  Dictionaries:
+
+;;; Over time, you can end up with dictionary entries in  a child-mode
+;;; e.g. eww-mode that better belong in the parent, e.g. text-mode.
+;;; Merging dictionaries results in entries from the source
+;;; dictionaries moving into the target dictionary. Once merged, these
+;;; entries  are removed from the source dictionary.
+;;; The same can happen when pronunciations are initially  defined for
+;;; a file,, then later merged into the  dictionary for  the
+;;; containing directory.
+
+(defun emacspeak-pronounce-merge-dictionaries (from into)
+  "Merge dic `from' into dict `into'"
+  (interactive
+   (let ((keys
+          (cl-loop
+           for k being  the hash-keys of
+           emacspeak-pronounce-dictionaries collect k)))
+     (list
+      (read (completing-read "From:" keys))
+      (read (completing-read "To:" keys)))))
+  (cl-assert (not (eq from into)) t  "Same from and to dicts!")
+  (let ((src (gethash from emacspeak-pronounce-dictionaries))
+        (dst (gethash into emacspeak-pronounce-dictionaries)))
+    (cl-loop
+     for e in src do
+     (cl-pushnew e dst :test #'equal))
+    (puthash into dst emacspeak-pronounce-dictionaries )
+    (puthash from nil emacspeak-pronounce-dictionaries )))
+
+;;}}}
 (provide 'emacspeak-pronounce)
 ;;{{{ emacs local variables
 
