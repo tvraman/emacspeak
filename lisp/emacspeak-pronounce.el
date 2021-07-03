@@ -585,9 +585,11 @@ First loads any persistent dictionaries if not already loaded."
                       (cons :tag "Pair"
                             (symbol :tag "Matcher")
                             (symbol :tag "Pronouncer")))))
-      (widget-create
-       'push-button
-       :tag "Save" :notify #'emacspeak-pronounce-save-dictionaries)
+      (widget-create 'push-button
+                     :tag "Save"
+                     :notify
+                     #'(lambda (&rest _ignore)
+                         (call-interactively #'emacspeak-pronounce-save-dictionaries)))
       (use-local-map widget-keymap)
       (widget-setup)
       (goto-char (point-min)))
