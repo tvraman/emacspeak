@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1144 commands and 151 options.
+This chapter documents a total of 1145 commands and 150 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -974,15 +974,6 @@ Set this to your preferred cloud TTS server.
 
 @defvar {User Option} dtk-local-engine
 Engine we use  for our local TTS  server.
-
-@end defvar
-
-@defvar {User Option} dtk-speak-nonprinting-chars
-Option that specifies handling of non-printing chars.
-Non nil value means non printing characters  should be
-spoken as their octal value.
-Set this to t to avoid a dectalk bug that makes the speech box die if
-it seems some accented characters in certain contexts.
 
 @end defvar
 
@@ -10028,6 +10019,17 @@ Optional argument FILENAME specifies the dictionary file,
 Default is emacspeak-pronounce-dictionaries-file.
 
 (fn &optional FILENAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-pronounce-merge-dictionaries
+@deffn {Command} emacspeak-pronounce-merge-dictionaries  (from into)
+@findex emacspeak-pronounce-merge-dictionaries
+
+@format
+Merge dic ‘from’ into dict ‘into’
+
+(fn FROM INTO)
 @end format
 @end deffn
 

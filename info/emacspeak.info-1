@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 1, 2021.
+last updated on July 2, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1144 commands and 151 options.
+   This chapter documents a total of 1145 commands and 150 options.
 
 * Menu:
 
@@ -3617,12 +3617,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Variable: User Option dtk-local-engine
      Engine we use for our local TTS server.
-
- -- Variable: User Option dtk-speak-nonprinting-chars
-     Option that specifies handling of non-printing chars.  Non nil
-     value means non printing characters should be spoken as their octal
-     value.  Set this to t to avoid a dectalk bug that makes the speech
-     box die if it seems some accented characters in certain contexts.
 
  -- Variable: User Option dtk-speech-rate-base
      Value of lowest speech rate.

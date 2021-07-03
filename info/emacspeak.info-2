@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 1, 2021.
+last updated on July 2, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -2722,21 +2722,30 @@ dictionary.
 
      (fn &optional FILENAME)
 
-12.148.1.8 emacspeak-pronounce-refresh-pronunciations
+12.148.1.8 emacspeak-pronounce-merge-dictionaries
+.................................................
+
+ -- Command: emacspeak-pronounce-merge-dictionaries (from into)
+
+     Merge dic ‘from’ into dict ‘into’
+
+     (fn FROM INTO)
+
+12.148.1.9 emacspeak-pronounce-refresh-pronunciations
 .....................................................
 
  -- Command: emacspeak-pronounce-refresh-pronunciations
 
      Refresh pronunciation table for current buffer.
 
-12.148.1.9 emacspeak-pronounce-save-dictionaries
-................................................
+12.148.1.10 emacspeak-pronounce-save-dictionaries
+.................................................
 
  -- Command: emacspeak-pronounce-save-dictionaries
 
      Saves  pronunciation dictionaries.
 
-12.148.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
+12.148.1.11 emacspeak-pronounce-toggle-use-of-dictionaries
 ..........................................................
 
  -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
@@ -2746,7 +2755,7 @@ dictionary.
 
      (fn &optional STATE)
 
-12.148.1.11 emacspeak-pronounce-toggle-voice
+12.148.1.12 emacspeak-pronounce-toggle-voice
 ............................................
 
  -- Command: emacspeak-pronounce-toggle-voice
