@@ -616,7 +616,6 @@ are available are cued by an auditory icon on the header line."
 (add-hook
  'eww-mode-hook
  #'(lambda ()
-     (setq isearch-case-fold-search t)
      (outline-minor-mode)
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
 
