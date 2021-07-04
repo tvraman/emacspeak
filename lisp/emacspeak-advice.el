@@ -1979,13 +1979,13 @@ Produce an auditory icon if possible."
 
 ;;; Produce auditory icon
 (defun emacspeak-isearch-setup ()
-  "Setup emacspeak environment for isearch."
+  "Setup emacspeak isearch."
   (emacspeak-auditory-icon 'open-object)
   (setq emacspeak-speak-messages nil)
   (dtk-speak (isearch-message-prefix)))
 
 (defun emacspeak-isearch-teardown ()
-  "Teardown emacspeak environment for isearch."
+  "Teardown emacspeak isearch."
   (setq emacspeak-speak-messages t)
   (emacspeak-auditory-icon 'close-object))
 
@@ -1995,12 +1995,12 @@ Produce an auditory icon if possible."
 
 ;;; Advice isearch-search to speak
 (defadvice isearch-search (after emacspeak pre act comp)
-  "Speak the search hit."
+  "Speak the hit."
   (cond
    ((null isearch-success) (emacspeak-auditory-icon 'search-miss))
    (t
     (emacspeak-auditory-icon 'search-hit)
-    (when (sit-for 0.2)
+    (when (sit-for 0.1)
       (save-excursion
         (ems-set-personality-temporarily
          (point) isearch-other-end voice-bolden
@@ -2008,10 +2008,9 @@ Produce an auditory icon if possible."
           (buffer-substring (line-beginning-position) (line-end-position)))))))))
 
 (defadvice isearch-delete-char (after emacspeak pre act comp)
-  "Speak the search hit.
-Produce auditory icons if possible."
+  "Speak search hit. "
   (dtk-speak (propertize isearch-string 'personality  voice-bolden))
-  (when (sit-for 0.5)
+  (when (sit-for 0.1)
     (emacspeak-auditory-icon 'search-hit)
     (ems-set-personality-temporarily
      (point)
@@ -2020,10 +2019,10 @@ Produce auditory icons if possible."
        (+ (point) (length isearch-string)))
      voice-bolden
      (emacspeak-speak-line))))
+
 (cl-loop
  for f in
- '(isearch-yank-word isearch-yank-kill isearch-yank-line)
- do
+ '(isearch-yank-word isearch-yank-kill isearch-yank-line) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
@@ -2033,14 +2032,14 @@ Produce auditory icons if possible."
 
 (cl-loop
  for f in
- '(isearch-ring-advance isearch-ring-retreat
-                        isearch-ring-advance-edit isearch-ring-retreat-edit)
- do
+ '(
+   isearch-ring-advance isearch-ring-retreat
+   isearch-ring-advance-edit isearch-ring-retreat-edit) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-speak-string isearch-string voice-bolden)
+       (dtk-speak isearch-string voice-bolden)
        (emacspeak-auditory-icon 'item)))))
 
 ;;; Note the advice on the next two toggle commands
@@ -2049,14 +2048,14 @@ Produce auditory icons if possible."
 ;;; the newly toggled state.
 
 (defadvice isearch-toggle-case-fold (after emacspeak pre act comp)
-  "Provide auditory confirmation"
+  "Speak"
   (emacspeak-auditory-icon (if isearch-case-fold-search 'off 'on))
   (dtk-speak
    (format " Case is %s significant in search"
            (if isearch-case-fold-search " not" " "))))
 
 (defadvice isearch-toggle-regexp (after emacspeak pre act comp)
-  "Provide auditory confirmation"
+  "Speak"
   (emacspeak-auditory-icon (if isearch-regexp 'on 'off))
   (dtk-speak
    (if isearch-regexp "Regexp search" "text search")))
