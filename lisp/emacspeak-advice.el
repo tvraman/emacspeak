@@ -65,14 +65,12 @@
 (eval-when-compile (require 'advice))
 (require 'emacspeak-preamble)
 
-
 ;;}}}
 ;;{{{  Replace: define personalities
 
 (defvar emacspeak-replace-personality
   voice-animate
-  "Personality used in search and replace to indicate word
-that is being replaced.")
+  "Personality that cues string being replaced")
 
 ;;}}}
 ;;{{{  Advice Replace
@@ -101,7 +99,6 @@ that is being replaced.")
 
 (defadvice replace-highlight (before emacspeak pre act)
   "Voicify and speak the line containing the replacement. "
-  (save-match-data
     (let ((from (ad-get-arg 0))
           (to (ad-get-arg 1)))
       (condition-case nil
@@ -121,12 +118,10 @@ that is being replaced.")
                                     emacspeak-replace-personality))
             (dtk-stop)
             (emacspeak-speak-line))
-        (error nil)))))
+        (error nil))))
 
 (defadvice replace-dehighlight (after emacspeak pre act)
   "Turn off the replacement highlight. "
-  
-  (save-match-data
     (condition-case nil
         (let ((inhibit-read-only t))
           (and emacspeak-replace-highlight-on
@@ -139,7 +134,7 @@ that is being replaced.")
                (setq emacspeak-replace-start nil
                      emacspeak-replace-end nil
                      emacspeak-replace-highlight-on nil)))
-      (error nil))))
+      (error nil)))
 
 ;;}}}
 ;;{{{ advice overlays
