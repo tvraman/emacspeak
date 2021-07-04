@@ -147,6 +147,8 @@
    (highlight voice-animate)
    (isearch voice-bolden)
    (isearch-fail voice-monotone-extra)
+   (isearch-group-1 voice-lighten)
+   (isearch-group-2 voice-smoothen)
    (italic voice-animate)
    (link voice-bolden-medium)
    (link-visited voice-bolden-extra)
