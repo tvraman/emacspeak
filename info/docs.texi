@@ -12,7 +12,6 @@ This chapter documents a total of 1145 commands and 149 options.
 * dectalk-voices::Define various device independent voices in terms of Dectalk codes.
 * dom-addons::dom.el addons.
 * dtk-speak::Provides Emacs Lisp interface to speech server.
-* dtk-unicode::Pronounce Unicode characters.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC-MODE.
@@ -900,6 +899,32 @@ value to the result.
 @end format
 @end deffn
 
+@subsubsection dtk-unicode-customize-char
+@deffn {Command} dtk-unicode-customize-char  (char replacement)
+@findex dtk-unicode-customize-char
+
+@format
+Add a custom replacement string for CHAR.
+
+When called interactively, CHAR defaults to the character after point.
+
+(fn CHAR REPLACEMENT)
+@end format
+@end deffn
+
+@subsubsection dtk-unicode-uncustomize-char
+@deffn {Command} dtk-unicode-uncustomize-char  (char)
+@findex dtk-unicode-uncustomize-char
+
+@format
+Delete custom replacement for CHAR.
+
+When called interactively, CHAR defaults to the character after point.
+
+(fn CHAR)
+@end format
+@end deffn
+
 @subsubsection tts-restart
 @deffn {Command} tts-restart   
 @table @kbd
@@ -975,51 +1000,6 @@ Speech rate step used by ‘dtk-set-predefined-speech-rate’.
 
 @end defvar
 
-@defvar {User Option} dtk-use-tones
-Toggle tones. 
-
-@end defvar
-
-@defvar {User Option} tts-notification-device
-Virtual ALSA device to use for notifications stream.
-
-@end defvar
-
-@node dtk-unicode
-@section dtk-unicode
-
-This  Provides Unicode support to the speech layer.
-
-@subsection Dtk-Unicode Commands
-
-@subsubsection dtk-unicode-customize-char
-@deffn {Command} dtk-unicode-customize-char  (char replacement)
-@findex dtk-unicode-customize-char
-
-@format
-Add a custom replacement string for CHAR.
-
-When called interactively, CHAR defaults to the character after point.
-
-(fn CHAR REPLACEMENT)
-@end format
-@end deffn
-
-@subsubsection dtk-unicode-uncustomize-char
-@deffn {Command} dtk-unicode-uncustomize-char  (char)
-@findex dtk-unicode-uncustomize-char
-
-@format
-Delete custom replacement for CHAR.
-
-When called interactively, CHAR defaults to the character after point.
-
-(fn CHAR)
-@end format
-@end deffn
-
-@subsection dtk-unicode Options
-
 @defvar {User Option} dtk-unicode-character-replacement-alist
 Replacements for  characters.
 
@@ -1038,6 +1018,16 @@ Turn this off when working with TTS  engines that handle UTF8.
 @defvar {User Option} dtk-unicode-untouched-charsets
 Characters of these charsets are  ignored by
   dtk-unicode-replace-chars.
+
+@end defvar
+
+@defvar {User Option} dtk-use-tones
+Toggle tones. 
+
+@end defvar
+
+@defvar {User Option} tts-notification-device
+Virtual ALSA device to use for notifications stream.
 
 @end defvar
 
