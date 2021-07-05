@@ -70,32 +70,7 @@
 
 ;;}}}
 ;;{{{ macros
-
-(defmacro tts-with-voice (voice &rest body)
-  "Set voice within  execute body."
-  (declare (indent 1) (debug t))
-  `(progn
-     (dtk-interp-queue-code (tts-voice-reset-code))
-     (dtk-interp-queue-code
-      (cond
-       ((symbolp ,voice)
-        (tts-get-voice-command
-         (if (boundp ,voice)
-             (symbol-value ,voice)
-           ,voice)))
-       ((listp ,voice)
-        (mapconcat
-         #'(lambda (v)
-             (tts-get-voice-command
-              (if (boundp v)
-                  (symbol-value v)
-                v)))
-         ,voice
-         " "))
-       (t "")))
-     ,@body
-     (dtk-interp-queue-code (tts-voice-reset-code))))  
-
+  
 (defmacro tts-with-punctuations (setting &rest body)
   "Set punctuation mode in  body form."
   (declare (indent 1) (debug t))
