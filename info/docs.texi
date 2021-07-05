@@ -11,7 +11,6 @@ This chapter documents a total of 1145 commands and 149 options.
 * cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Define various device independent voices in terms of Dectalk codes.
 * dom-addons::dom.el addons.
-* dtk-interp::interface to speech server.
 * dtk-speak::Provides Emacs Lisp interface to speech server.
 * dtk-unicode::Pronounce Unicode characters.
 * emacspeak::The Complete Audio Desktop.
@@ -377,17 +376,6 @@ Default speech rate .
 @section dom-addons
 
 Useful additional functions for dom.el
-
-@node dtk-interp
-@section dtk-interp
-
-All requests to the speech server are factored out into
-this module.
-These calls are declared here as defun so they are
-inlined by the byte compiler.
-This  keeps the code efficient,
-but gives us the flexibility to call out to different
-speech servers.
 
 @node dtk-speak
 @section dtk-speak
