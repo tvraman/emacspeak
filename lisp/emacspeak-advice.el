@@ -602,21 +602,16 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;;}}}
 ;;{{{ advice tabify:
 
-(defvar emacspeak-untabify-fixes-non-breaking-space t
-  "Advice untabify to change non-breaking space chars to space.")
-
 (defadvice untabify (after emacspeak-fix-nbspc pre act comp)
-  "Fix NBSP chars if asked to ---
-see option emacspeak-untabify-fixes-non-breaking-space."
-  (when emacspeak-untabify-fixes-non-breaking-space
-    (let ((start (ad-get-arg 0))
+  "Fix NBSP chars."
+  (let ((start (ad-get-arg 0))
           (end (ad-get-arg 1)))
       (save-excursion
         (save-restriction
           (narrow-to-region start end)
           (goto-char start)
           (while (re-search-forward (format "[%c]+" 160) end 'no-error)
-            (replace-match " ")))))))
+            (replace-match " "))))))
 
 ;;}}}
 ;;{{{ Advice PComplete
