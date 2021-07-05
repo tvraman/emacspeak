@@ -626,7 +626,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (ems-with-messages-silenced ad-do-it))
 
 (defadvice pcomplete (around emacspeak pre act comp)
-  "Say what you completed."
+  "Speak completion."
   (let ((orig (save-excursion (skip-syntax-backward "^ >") (point))))
     ad-do-it
     (when (ems-interactive-p)
@@ -854,8 +854,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 ;;}}}
 ;;{{{ Advice completion-at-point:
+
 (defadvice completion-at-point (around emacspeak pre act comp)
-  "Say what you completed."
+  "Speak completion."
   (let ((orig (save-excursion (skip-syntax-backward "^ >_") (point))))
     ad-do-it
     (when (ems-interactive-p)
@@ -871,7 +872,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (emacspeak-prompt "pwd"))
 
 (defvar emacspeak-read-char-prompt-cache nil
-  "Cache prompt from read-char and friends here for later introspection.")
+  "Cache prompt from read-char etc.")
 
 (cl-loop
  for f in
@@ -880,7 +881,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
-     "Speak the prompt"
+     "Speak prompt"
      (let ((prompt (ad-get-arg 0))
            (dtk-stop-immediately nil))
        (emacspeak-auditory-icon 'item)
@@ -912,10 +913,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Say what you completed."
+     "Speak completion."
      (when (ems-interactive-p)
-       (tts-with-punctuations 'all
-                              (dtk-speak dabbrev--last-expansion))))))
+       (tts-with-punctuations 'all (dtk-speak dabbrev--last-expansion))))))
 
 (voice-setup-add-map
  '(
@@ -925,13 +925,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (cl-loop
  for f in
- '(minibuffer-complete-word minibuffer-complete
-                            crm-complete-word crm-complete crm-complete-and-exit
-                            crm-minibuffer-complete crm-minibuffer-complete-and-exit)
+ '(
+   minibuffer-complete-word minibuffer-complete
+   crm-complete-word crm-complete crm-complete-and-exit
+   crm-minibuffer-complete crm-minibuffer-complete-and-exit)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Say what you completed."
+     "Speak completion."
      (cond
       ((ems-interactive-p)
        (ems-with-messages-silenced
@@ -952,7 +953,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Say what you completed."
+     "Speak completion."
      (ems-with-messages-silenced
       (let ((prior (save-excursion (skip-syntax-backward "^ >") (point))))
         ad-do-it
