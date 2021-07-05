@@ -907,6 +907,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 ;;}}}
 ;;{{{ advice completion functions to speak:
+
 (cl-loop
  for f in
  '(dabbrev-expand dabbrev-completion)
@@ -1000,12 +1001,11 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (dtk-speak (emacspeak-get-current-completion))))
 
 (defadvice tmm-menubar (before emacspeak pre act comp)
-  "Provide an auditory icon."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+  "Icon"
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
 
 (defadvice tmm-shortcut (after emacspeak pre act comp)
-  "Provide contextual feedback when exitting minibuffer."
+  "Icon"
   (emacspeak-auditory-icon 'button))
 
 ;;}}}
@@ -2167,6 +2167,7 @@ Produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{ advice where-is and friends
+
 (defun ems-canonicalize-key-description (desc)
   "Change key description to a speech-friendly form."
   (let ((shift-regexp "S-\\(.\\)")
