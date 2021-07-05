@@ -55,12 +55,12 @@
 ;;;###autoload
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
-  "emacspeak installation directory")
+  "emacspeak directory")
 
 ;;;###autoload
 (defvar emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
-  "Emacspeak lisp directory.")
+  "Lisp directory.")
 
 ;;;###autoload
 (defvar emacspeak-sounds-directory
@@ -70,35 +70,35 @@
 ;;;###autoload
 (defvar emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
-  "XSL transformations.")
+  "XSLT.")
 
 ;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
-  "Misc directory.")
+  "Misc.")
 
 ;;;###autoload
 (defvar emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
-  "Speech servers directory.")
+  "Speech servers.")
 
 ;;;###autoload
 (defvar emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
-  "Emacspeak reference.")
+  "Info")
 
 ;;;###autoload
 (defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
-  "Emacspeak resources, e.g. pronunciation dicts.")
+  "Resources.")
 
 
 (defvar emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
-  "README file with  Git  revision number.")
+  "README.")
 
 ;;;###autoload
 (defvar emacspeak-curl-program (executable-find "curl")
-  "Curl location.")
+  "Curl.")
 
 ;;;###autoload
 (defvar emacspeak-media-extensions
@@ -113,7 +113,7 @@
         (nconc ext (mapcar #'upcase ext))
         'parens)
        "$")))
-  "Media file Extensions.")
+  "Media Extensions.")
 
 ;;;###autoload
 (defvar  emacspeak-m-player-playlist-pattern
