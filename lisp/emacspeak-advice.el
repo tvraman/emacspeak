@@ -499,14 +499,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;;}}}
 ;;{{{ Advice insert-char:
 
-(cl-loop
- for f in
- '(ucs-insert insert-char)
- do
- (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Speak char we inserted."
-     (when (ems-interactive-p) (emacspeak-speak-char-name (ad-get-arg 0))))))
+(defadvice insert-char (after emacspeak pre act comp)
+     "Speak char."
+     (when (ems-interactive-p) (emacspeak-speak-char-name (ad-get-arg 0))))
 
 ;;}}}
 ;;{{{ Advice deletion commands:
