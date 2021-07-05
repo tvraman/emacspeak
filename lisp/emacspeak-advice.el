@@ -67,6 +67,7 @@
 
 ;;}}}
 ;;{{{  Advice Replace
+
 (voice-setup-set-voice-for-face 'query-replace 'voice-animate)
 
 (cl-loop
@@ -82,7 +83,7 @@
   (ems-with-messages-silenced ad-do-it))
 
 (defadvice replace-highlight (after emacspeak pre act comp)
-  "Speak line with   replacement. "
+  "Speak line. "
   (emacspeak-speak-line))
 
 ;;}}}
