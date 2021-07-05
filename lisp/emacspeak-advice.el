@@ -662,19 +662,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (voice-setup-set-voice-for-face 'minibuffer-prompt 'voice-bolden)
 
 (defadvice quoted-insert (after emacspeak pre act comp)
-  "Speak the character that was inserted."
+  "Speak inserted  character."
   (when (ems-interactive-p)
     (emacspeak-speak-this-char (preceding-char))))
 
-(defvar emacspeak-speak-read-events t
-  "Set to nil to silence read-event.")
-
 (defadvice read-event (before emacspeak pre act comp)
-  "Speak the prompt."
-  (when (and emacspeak-speak-read-events (ad-get-arg 0))
-    (ems-with-messages-silenced (message (ad-get-arg 0)))
-    (tts-with-punctuations 'all
-                           (dtk-speak (ad-get-arg 0)))))
+  "Speak prompt."
+  (when  (ad-get-arg 0)
+    (message (ad-get-arg 0))))
 
 (defadvice read-multiple-choice (before emacspeak pre act comp)
   "speak."
@@ -700,7 +695,6 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (dtk-speak msg)
     (sox-tones 2 2)
     (dtk-speak-list choices)))
-
 
 (cl-loop
  for f in
