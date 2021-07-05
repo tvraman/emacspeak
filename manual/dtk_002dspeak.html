@@ -22,8 +22,7 @@
   "Table of Contents" />
   <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
   "Emacspeak Commands And Options" />
-  <link href="dtk_002dunicode.html" rel="next" title=
-  "dtk-unicode" />
+  <link href="emacspeak.html" rel="next" title="emacspeak" />
   <link href="dom_002daddons.html" rel="prev" title="dom-addons" />
   <style type="text/css">
   /*<![CDATA[*/
@@ -51,8 +50,8 @@
 <body lang="en" xml:lang="en">
   <span id="dtk_002dspeak"></span>
   <div class="header">
-    <p>Next: <a href="dtk_002dunicode.html" accesskey="n" rel=
-    "next">dtk-unicode</a>, Previous: <a href="dom_002daddons.html"
+    <p>Next: <a href="emacspeak.html" accesskey="n" rel=
+    "next">emacspeak</a>, Previous: <a href="dom_002daddons.html"
     accesskey="p" rel="prev">dom-addons</a>, Up: <a href=
     "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
     "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
@@ -677,8 +676,47 @@ value to the result.
 </pre>
       </div>
     </dd>
+  </dl><span id="dtk_002dunicode_002dcustomize_002dchar"></span>
+  <h4 class="subsubsection">12.5.1.29
+  dtk-unicode-customize-char</h4>
+  <dl>
+    <dt id="index-dtk_002dunicode_002dcustomize_002dchar">Command:
+    <strong>dtk-unicode-customize-char</strong> <em>(char
+    replacement)</em></dt>
+    <dd>
+      <span id=
+      "index-dtk_002dunicode_002dcustomize_002dchar-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Add a custom replacement string for CHAR.
+
+When called interactively, CHAR defaults to the character after point.
+
+(fn CHAR REPLACEMENT)
+</pre>
+      </div>
+    </dd>
+  </dl><span id="dtk_002dunicode_002duncustomize_002dchar"></span>
+  <h4 class="subsubsection">12.5.1.30
+  dtk-unicode-uncustomize-char</h4>
+  <dl>
+    <dt id="index-dtk_002dunicode_002duncustomize_002dchar">
+    Command: <strong>dtk-unicode-uncustomize-char</strong>
+    <em>(char)</em></dt>
+    <dd>
+      <span id=
+      "index-dtk_002dunicode_002duncustomize_002dchar-1"></span>
+      <div class="format">
+        <pre class="format">Delete custom replacement for CHAR.
+
+When called interactively, CHAR defaults to the character after point.
+
+(fn CHAR)
+</pre>
+      </div>
+    </dd>
   </dl><span id="tts_002drestart"></span>
-  <h4 class="subsubsection">12.5.1.29 tts-restart</h4>
+  <h4 class="subsubsection">12.5.1.31 tts-restart</h4>
   <dl>
     <dt id="index-tts_002drestart">Command:
     <strong>tts-restart</strong></dt>
@@ -695,7 +733,7 @@ value to the result.
       </div>
     </dd>
   </dl><span id="tts_002dspeak_002dversion"></span>
-  <h4 class="subsubsection">12.5.1.30 tts-speak-version</h4>
+  <h4 class="subsubsection">12.5.1.32 tts-speak-version</h4>
   <dl>
     <dt id="index-tts_002dspeak_002dversion-1">Command:
     <strong>tts-speak-version</strong></dt>
@@ -769,13 +807,45 @@ value to the result.
   </dl>
   <dl>
     <dt id="index-User-Option-10">Variable: <strong>User
+    Option</strong>
+    <em>dtk-unicode-character-replacement-alist</em></dt>
+    <dd>
+      <p>Replacements for characters.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-11">Variable: <strong>User
+    Option</strong>
+    <em>dtk-unicode-name-transformation-rules-alist</em></dt>
+    <dd>
+      <p>Alist of character name transformation rules.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-12">Variable: <strong>User
+    Option</strong> <em>dtk-unicode-process-utf8</em></dt>
+    <dd>
+      <p>Turn this off when working with TTS engines that handle
+      UTF8.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-13">Variable: <strong>User
+    Option</strong> <em>dtk-unicode-untouched-charsets</em></dt>
+    <dd>
+      <p>Characters of these charsets are ignored by
+      dtk-unicode-replace-chars.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-14">Variable: <strong>User
     Option</strong> <em>dtk-use-tones</em></dt>
     <dd>
       <p>Toggle tones.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-11">Variable: <strong>User
+    <dt id="index-User-Option-15">Variable: <strong>User
     Option</strong> <em>tts-notification-device</em></dt>
     <dd>
       <p>Virtual ALSA device to use for notifications stream.</p>
@@ -783,8 +853,8 @@ value to the result.
   </dl>
   <hr />
   <div class="header">
-    <p>Next: <a href="dtk_002dunicode.html" accesskey="n" rel=
-    "next">dtk-unicode</a>, Previous: <a href="dom_002daddons.html"
+    <p>Next: <a href="emacspeak.html" accesskey="n" rel=
+    "next">emacspeak</a>, Previous: <a href="dom_002daddons.html"
     accesskey="p" rel="prev">dom-addons</a>, Up: <a href=
     "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
     "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
