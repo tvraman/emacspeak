@@ -2227,13 +2227,13 @@ dtk-unicode-untouched-charsets."
   (setq dtk-unicode-untouched-charsets charsets)
   (setq dtk-unicode-charset-filter-regexp
         (dtk-unicode-build-skip-regexp dtk-unicode-untouched-charsets)))
+;;; Execute BODY like `progn' with CHARSETS at the front of priority list.
+;;; CHARSETS is a list of charsets.  See
+;;; `set-charset-priority'.  This affects the implicit sorting of lists of
+;;; charsets returned by operations such as `find-charset-region'.
 
-(eval-and-compile
-  (defmacro dtk--with-charset-priority (charsets &rest body)
-    "Execute BODY like `progn' with CHARSETS at the front of priority list.
-CHARSETS is a list of charsets.  See
-`set-charset-priority'.  This affects the implicit sorting of lists of
-charsets returned by operations such as `find-charset-region'."
+
+(defmacro dtk--with-charset-priority (charsets &rest body)
     (declare (indent 1) (debug t))
     (let ((current (make-symbol "current")))
       `(let ((,current (charset-priority-list)))
@@ -2242,9 +2242,10 @@ charsets returned by operations such as `find-charset-region'."
              (progn ,@body)
            (apply #'set-charset-priority ,current)))))
 ;;; Now use it:
-  (defun dtk-unicode-char-in-charsets-p (char charsets)
-    "Return t if CHAR is a member of one in the charsets in CHARSETS."
-    (dtk--with-charset-priority charsets (memq (char-charset char) charsets))))
+
+(defun dtk-unicode-char-in-charsets-p (char charsets)
+  "Return t if CHAR is a member of one in the charsets in CHARSETS."
+  (dtk--with-charset-priority charsets (memq (char-charset char) charsets)))
 
 (defun dtk-unicode-char-untouched-p (char)
   "Return t if char is a member of one of the charsets in
