@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1145 commands and 150 options.
+   This chapter documents a total of 1145 commands and 149 options.
 
 * Menu:
 
@@ -3874,9 +3874,6 @@ forms not needed in Emacs 22.
 
 12.13.2 emacspeak-advice Options
 --------------------------------
-
- -- Variable: User Option emacspeak-speak-errors
-     Specifies if error messages are cued.
 
  -- Variable: User Option emacspeak-speak-messages-filter
      List of strings used to filter spoken messages.

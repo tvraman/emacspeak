@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1145 commands and 150 options.
+This chapter documents a total of 1145 commands and 149 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -1269,11 +1269,6 @@ Speak Eldoc documentation if available.
 @end deffn
 
 @subsection emacspeak-advice Options
-
-@defvar {User Option} emacspeak-speak-errors
-Specifies if error messages are cued.
-
-@end defvar
 
 @defvar {User Option} emacspeak-speak-messages-filter
 List of strings used to filter spoken messages.

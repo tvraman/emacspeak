@@ -74,11 +74,6 @@
   (buffer-substring (line-beginning-position) (line-end-position)))
 
 ;;}}}
-;;{{{  sync emacspeak and TTS:
-
-(cl--defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
-
-;;}}}
 ;;{{{Clause Boundary Helper:
 
 (defun emacspeak-speak-adjust-clause-boundaries ()
