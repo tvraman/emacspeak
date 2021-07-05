@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 4, 2021.
+last updated on July 5, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
@@ -9430,9 +9430,9 @@ from other modules.
 
      Toggle voice lock mode.
 
-     If called interactively, toggle ‘Voice-Lock mode’.  If the prefix
-     argument is positive, enable the mode, and if it is zero or
-     negative, disable the mode.
+     This is a minor mode.  If called interactively, toggle the
+     ‘Voice-Lock mode’ mode.  If the prefix argument is positive,
+     enable the mode, and if it is zero or negative, disable the mode.
 
      If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
      the mode if ARG is nil, omitted, or is a positive number.

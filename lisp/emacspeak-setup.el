@@ -58,14 +58,16 @@
  (expand-file-name "../lisp" (file-name-directory load-file-name))
  load-path)
 (require 'emacspeak-preamble)
+
+;;; load and start emacspeak if interactive 
 (unless noninteractive
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
-    (load  "emacspeak-loaddefs")))
+    (load  "emacspeak-loaddefs")
+    (emacspeak)))
 
 ;;}}}
-;;; Start emacspeak if emacs   is interactive:
-(unless noninteractive (emacspeak))
+
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables
 
