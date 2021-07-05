@@ -66,75 +66,24 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{  Replace: define personalities
-
-(defvar emacspeak-replace-personality
-  voice-animate
-  "Personality that cues string being replaced")
-
-;;}}}
 ;;{{{  Advice Replace
-
-(defvar emacspeak-replace-highlight-on nil
-  "Flag that says if replace highlight is on.")
-
-(defvar emacspeak-replace-saved-personality nil
-  "Value saved before replace-highlight changed the personality. ")
-
-(defvar emacspeak-replace-start nil)
-(defvar emacspeak-replace-end nil)
+(voice-setup-set-voice-for-face 'query-replace 'voice-animate)
 
 (cl-loop
  for f in
- '(query-replace query-replace-regexp)
- do
+ '(query-replace query-replace-regexp) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "speak."
+     "Icon"
      (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))))
 
 (defadvice perform-replace (around emacspeak pre act comp)
-  "Silence help message."
+  "Silence help."
   (ems-with-messages-silenced ad-do-it))
 
-(defadvice replace-highlight (before emacspeak pre act)
-  "Voicify and speak the line containing the replacement. "
-    (let ((from (ad-get-arg 0))
-          (to (ad-get-arg 1)))
-      (condition-case nil
-          (let ((inhibit-read-only t))
-            (and emacspeak-replace-highlight-on
-                 (put-text-property
-                  (max from (point-min))
-                  (min to (point-max))
-                  'personality emacspeak-replace-saved-personality))
-            (setq emacspeak-replace-highlight-on t
-                  emacspeak-replace-start from
-                  emacspeak-replace-end to
-                  emacspeak-replace-saved-personality
-                  (dtk-get-style from))
-            (and from to
-                 (put-text-property from to 'personality
-                                    emacspeak-replace-personality))
-            (dtk-stop)
-            (emacspeak-speak-line))
-        (error nil))))
-
-(defadvice replace-dehighlight (after emacspeak pre act)
-  "Turn off the replacement highlight. "
-    (condition-case nil
-        (let ((inhibit-read-only t))
-          (and emacspeak-replace-highlight-on
-               emacspeak-replace-start
-               emacspeak-replace-end
-               (put-text-property
-                (max emacspeak-replace-start (point-min))
-                (min emacspeak-replace-end (point-max))
-                'personality emacspeak-replace-saved-personality)
-               (setq emacspeak-replace-start nil
-                     emacspeak-replace-end nil
-                     emacspeak-replace-highlight-on nil)))
-      (error nil)))
+(defadvice replace-highlight (after emacspeak pre act comp)
+  "Speak line with   replacement. "
+  (emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ advice overlays
