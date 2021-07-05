@@ -88,10 +88,11 @@
 
 ;;}}}
 ;;{{{ advice overlays
+
 ;;; Helpers:
 
 (defun ems--add-personality (start end voice &optional object)
-  "Apply personality VOICE to  region in object."
+  "Apply personality VOICE."
   (when
       (and
        (integerp start) (integerp end)
@@ -102,7 +103,7 @@
         (put-text-property start end 'personality voice object)))))
 
 (defun ems--remove-personality  (start end voice &optional object)
-  "Remove  personality VOICE from region in object. "
+  "Remove  personality. "
   (when
       (and
        voice
@@ -115,7 +116,7 @@
           (put-text-property start end 'personality nil object)))))
 
 (defvar ems--voiceify-overlays t
-  "Determines how and if we voiceify overlays. ")
+  "Voicify overlays")
 
 ;;; Needed for  outline support:
 (defadvice remove-overlays (around emacspeak pre act comp)
@@ -130,7 +131,7 @@
     ad-do-it))
 
 (defadvice delete-overlay (before voice-setup  pre act)
-  "Used by emacspeak to augment voice lock."
+  "Augment voice lock."
   (when ems--voiceify-overlays
     (let* ((o (ad-get-arg 0))
            (buffer (overlay-buffer o))
@@ -148,7 +149,7 @@
           (put-text-property start end 'invisible nil))))))
 
 (defadvice overlay-put (after voice-setup pre act)
-  "Used by emacspeak to augment voice lock."
+  "Augment voice lock."
   (when (and (overlay-buffer (ad-get-arg 0)) ems--voiceify-overlays)
     (let* ((overlay (ad-get-arg 0))
            (prop (ad-get-arg 1))
@@ -158,8 +159,8 @@
            (voice nil))
       (cond
        ((and
-         (or (eq prop 'face)
-             (eq prop 'font-lock-face)
+         (or
+          (memq prop '(font-lock-face face))
              (and (eq prop 'category) (get value 'face)))
          (integerp start) (integerp end))
         (when (eq prop 'category) (setq value (get value 'face)))
