@@ -210,17 +210,17 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak line that you just moved to. Speak on-screen (visual) line when
-`visual-line-mode' is turned on. When `visual-line-mode' is on,
-position of point is indicated via an aural highlight. Landing on the
-beginning or end of a physical line produces an appropriate auditory icon."
+     "Speak line. Speak  (visual) line if
+`visual-line-mode' is  on, and 
+indicate  point  by an aural highlight. Moving to 
+beginning or end of a physical line produces an  auditory icon."
      (when (ems-interactive-p)
        (cond
         ((or line-move-visual visual-line-mode) (emacspeak-speak-visual-line))
         (t (emacspeak-speak-line)))))))
 
 (defadvice kill-visual-line (before emacspeak pre act comp)
-  "Speak line we're about to delete."
+  "Speak line we're  to kill."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-visual-line)))
@@ -244,7 +244,7 @@ beginning or end of a physical line produces an appropriate auditory icon."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak line that you just moved to."
+     "Speak line."
      (when (ems-interactive-p)
        (emacspeak-speak-line)))))
 
@@ -254,7 +254,7 @@ beginning or end of a physical line produces an appropriate auditory icon."
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak the button. Silence messages to reduce chatter."
+     "Speak button with messages Silenced."
      (cond
       ((ems-interactive-p)
        (ems-with-messages-silenced
@@ -277,7 +277,7 @@ beginning or end of a physical line produces an appropriate auditory icon."
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak char under point.
-When on a close delimiter, speaking matching open delimiter after a small delay. "
+When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (and dtk-stop-immediately (dtk-stop))
        (emacspeak-speak-char t)
@@ -296,7 +296,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak the word you just moved to."
+     "Speak  word."
      (when (ems-interactive-p)
        (skip-syntax-forward " ")
        (emacspeak-speak-word)))))
@@ -307,7 +307,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak the word you just moved to."
+     "Speak word."
      (when (ems-interactive-p) (emacspeak-speak-word)))))
 
 (cl-loop
@@ -352,7 +352,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak sentence after moving."
+     "Speak sentence."
      (when (ems-interactive-p) (emacspeak-speak-sentence)))))
 
 (cl-loop
@@ -362,7 +362,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak sexp after moving."
+     "Speak sexp."
      (if (ems-interactive-p)
          (let ((start (point))
                (end (line-end-position))
@@ -382,7 +382,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak the paragraph."
+     "Speak paragraph."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'paragraph)
        (emacspeak-speak-paragraph)))))
@@ -391,8 +391,9 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
 
 (cl-loop
  for f in
- '(forward-list backward-list
-                up-list backward-up-list down-list)
+ '(
+   forward-list backward-list
+   up-list backward-up-list down-list)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -415,12 +416,13 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
 
 (cl-loop
  for f in
- '(scroll-up scroll-down
-             scroll-up-command scroll-down-command)
+ '(
+   scroll-up scroll-down
+   scroll-up-command scroll-down-command)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak the next screenful."
+     "Speak next screenful."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'scroll)
        (dtk-speak (emacspeak-get-window-contents))))))
