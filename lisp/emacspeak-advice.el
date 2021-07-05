@@ -2693,14 +2693,7 @@ Produce an auditory icon if possible."
 
 ;;}}}
 (provide 'emacspeak-cedet)
-;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
-
-;;}}
-;;}}}
 ;;{{{ advice
 
 (defadvice imenu (after emacspeak pre act comp)
