@@ -512,10 +512,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak character you're deleting."
+     "Speak deleted character."
      (cond
       ((ems-interactive-p)
-       (emacspeak-auditory-icon 'delete-object)
+       (dtk-tone-deletion)
        (emacspeak-speak-this-char (preceding-char))
        ad-do-it)
       (t ad-do-it))
@@ -523,11 +523,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (cl-loop
  for f in
- '(delete-forward-char delete-char)
- do
+ '(delete-forward-char delete-char) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak character you're deleting."
+     "Speak deleted character."
      (cond
       ((ems-interactive-p)
        (dtk-tone-deletion)
@@ -537,27 +536,21 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      ad-return-value)))
 
 (defadvice kill-word (before emacspeak pre act comp)
-  "Speak word before killing it."
+  "Speak word beingkilled."
   (when (ems-interactive-p)
     (save-excursion
       (skip-syntax-forward " ")
-      (when dtk-stop-immediately (dtk-stop))
-      (let ((dtk-stop-immediately nil))
         (dtk-tone-deletion)
-        (emacspeak-speak-word 1)))))
+        (emacspeak-speak-word 1))))
 
 (defadvice backward-kill-word (before emacspeak pre act comp)
-  "Speak word before killing it."
+  "Speak word beingkilled."
   (when (ems-interactive-p)
-    (when dtk-stop-immediately (dtk-stop))
-    (let ((start (point))
-          (dtk-stop-immediately nil))
       (save-excursion
-        (forward-word -1)
-        (dtk-tone-deletion)
-        (emacspeak-speak-region (point) start)))))
-
-;;; Large deletions also produce auditory icons if possible
+        (let ((start (point)))
+          (forward-word -1)
+          (dtk-tone-deletion)
+          (emacspeak-speak-region (point) start)))))
 
 (cl-loop
  for f in 
@@ -565,38 +558,31 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
-     "Speak line before killing it. "
+     "Speak line being killed. "
      (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
-    (when dtk-stop-immediately (dtk-stop))
-    (let ((dtk-stop-immediately nil))
       (dtk-tone-deletion)
-      (emacspeak-speak-line 1))))))
+      (emacspeak-speak-line 1)))))
 
 
 (defadvice kill-sexp (before emacspeak pre act comp)
-  "Speak the sexp you killed."
+  "Speak the killed  sexp."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
-    (when dtk-stop-immediately (dtk-stop))
-    (let ((dtk-stop-immediately nil))
       (dtk-tone-deletion)
-      (emacspeak-speak-sexp 1))))
+      (emacspeak-speak-sexp 1)))
 
 (defadvice kill-sentence (before emacspeak pre act comp)
-  "Speak the line you killed."
+  "Speak the kill."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
-    (when dtk-stop-immediately (dtk-stop))
-    (let ((dtk-stop-immediately nil))
       (dtk-tone-deletion)
-      (emacspeak-speak-line 1))))
+      (emacspeak-speak-line 1)))
 
 (defadvice delete-blank-lines (before emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (let (thisblank singleblank)
-      (save-match-data
         (save-excursion
           (forward-line 0)
           (setq thisblank (looking-at "[ \t]*$"))
@@ -606,7 +592,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                      (not (looking-at "[ \t]*\n[ \t]*$"))
                      (or (bobp)
                          (progn (forward-line -1)
-                                (not (looking-at "[ \t]*$"))))))))
+                                (not (looking-at "[ \t]*$")))))))
       (cond
        ((and thisblank singleblank)
         (message "Deleting current blank line"))
