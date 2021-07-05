@@ -835,7 +835,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (dtk-speak
       (format " %s percent" ange-ftp-last-percent))))
 
-;;{{{ advising signal
+
 
 (cl-declaim (special command-error-function))
 (setq command-error-function 'emacspeak-error-handler)
@@ -851,8 +851,6 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defadvice timer-event-handler (around emacspeak pre act comp)
   "Silence messages from by timer events."
   (ems-with-messages-silenced ad-do-it))
-
-;;}}}
 
 ;;}}}
 ;;{{{ Advice completion-at-point:
