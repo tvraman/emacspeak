@@ -431,17 +431,13 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;;{{{ Advise modify case commands to speak
 
 (defadvice upcase-word (around emacspeak pre act comp)
-  "Provide a tone to indicate that we upper cased the current word.
-Speak the word that point lands on after the action
-is done. If `upcase-word' is called with a negative argument,
-then point does not move. In this case, we speak the words
-that were upper cased."
+  "Provide a tone, then Speak the word at point. "
   (cond
    ((ems-interactive-p)
     (dtk-tone-upcase)
     (cond
      ((and (numberp current-prefix-arg)
-           (cl-minusp current-prefix-arg))
+           (< current-prefix-arg 0))
       ad-do-it
       (let ((start (point)))
         (save-excursion
@@ -457,17 +453,13 @@ that were upper cased."
   ad-return-value)
 
 (defadvice downcase-word (around emacspeak pre act comp)
-  "Provide a tone to indicate that we down cased the current word.
-Speak the word that point lands on after the action
-is done. If `downcase-word' is called with a negative
-argument, then point does not move. In this case, we speak
-the words that were down cased."
+  "Provide a tone and Speak  word at point. "
   (cond
    ((ems-interactive-p)
     (dtk-tone-downcase)
     (cond
      ((and (numberp current-prefix-arg)
-           (cl-minusp current-prefix-arg))
+           (< current-prefix-arg 0))
       ad-do-it
       (let ((start (point)))
         (save-excursion
@@ -483,17 +475,13 @@ the words that were down cased."
   ad-return-value)
 
 (defadvice capitalize-word (around emacspeak pre act comp)
-  "Provide a tone to indicate that we capitalized the current word.
-Speak the word that point lands on after the action
-is done. If `capitalize-word' is called with a negative
-argument, then point does not move. In this case, we speak
-the words that were capitalized."
+  "Provide a tone  and Speak  word at point. "
   (cond
    ((ems-interactive-p)
     (dtk-tone-upcase)
     (cond
      ((and (numberp current-prefix-arg)
-           (cl-minusp current-prefix-arg))
+           (< current-prefix-arg 0))
       ad-do-it
       (let ((start (point)))
         (save-excursion
