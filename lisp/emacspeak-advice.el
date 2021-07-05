@@ -623,8 +623,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (emacspeak-auditory-icon 'complete)))
 
 (defadvice pcomplete-show-completions (around emacspeak pre act comp)
-  (ems-with-messages-silenced
-   ad-do-it))
+  (ems-with-messages-silenced ad-do-it))
 
 (defadvice pcomplete (around emacspeak pre act comp)
   "Say what you completed."
@@ -637,13 +636,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 ;;}}}
 ;;{{{ Advice hippie expand:
+
 (cl-loop
  for f in
  '(hippie-expand complete)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak what was completed."
+     "Speak completion."
      (cond
       ((ems-interactive-p)
        (let ((orig (save-excursion (skip-syntax-backward "^ >") (point))))
