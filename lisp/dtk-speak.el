@@ -1957,11 +1957,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (process-send-string dtk-speaker-process
                        (format "c {%s }\n" code)))
 
-(defsubst dtk-interp-queue-set-rate (rate)
-  (cl-declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "r {%s}\n" rate)))
-
 ;;}}}
 ;;{{{  speak
 
@@ -2033,10 +2028,9 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
                        (format "list_lang\n")))
 
 ;;}}}
-;;{{{  rate
+;;{{{  Version, rate
 
 (defsubst dtk-interp-say-version ()
-  "Speak version."
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "version\n"))
 
