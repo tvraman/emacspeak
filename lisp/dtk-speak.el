@@ -1559,14 +1559,6 @@ program. Port defaults to dtk-local-server-port"
       (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
       (when (tts-multistream-p dtk-program) (dtk-notify-initialize))))))
 
-(defun tts-shutdown ()
-  "Shutdown TTS servers."
-  (cl-declare (special dtk-speaker-process dtk-notify-process))
-  (when (processp dtk-speaker-process)
-    (delete-process dtk-speaker-process))
-  (when (processp dtk-notify-process)
-    (delete-process dtk-notify-process)))
-
 (defun tts-restart ()
   "Restart TTS server."
   (interactive)
