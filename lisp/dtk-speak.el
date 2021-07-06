@@ -159,19 +159,14 @@ bound to \\[dtk-toggle-caps].")
 
 ;;; Helper: Get face->voice mapping
 
-(defun dtk-get-voice-for-face (value)
-  "Face->voice map"
-  (when value
-    (let ((voice nil))
+(defun dtk-get-voice-for-face  (value)
+    "Face->voice map"
+    (when value
       (cond
-       ((symbolp value)
-        (setq voice (voice-setup-get-voice-for-face value)))
+       ((symbolp value) (voice-setup-get-voice-for-face value))
        ((dtk-plain-cons-p value)) ;;pass on plain cons
        ((listp value)
-        (setq voice
-              (delq nil
-                    (mapcar   #'voice-setup-get-voice-for-face value)))))
-      voice)))
+        (delq nil (mapcar   #'voice-setup-get-voice-for-face value))))))
 
 (defsubst dtk-get-style (&optional pos)
   " Return  style based on personality or face at `POS'.   "
@@ -329,7 +324,7 @@ Uses a 5ms fade-in and fade-out. "
   (interactive)
   (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
-      (dtk-interp-list-language)))
+    (dtk-interp-list-language)))
 
 ;;; helper function:
 ;;; Quote the string in current buffer so tcl does not barf.
@@ -454,11 +449,11 @@ specifies the current pronunciation mode --- See
       (while
           (re-search-forward dtk-caps-regexp nil t)
         (save-excursion
-            (goto-char (match-beginning 0))
-            (cond
-             ((= 1  (- (match-end 0) (match-beginning 0)))
-              (insert dtk-caps-prefix))
-             (t (insert dtk-allcaps-prefix))))))))
+          (goto-char (match-beginning 0))
+          (cond
+           ((= 1  (- (match-end 0) (match-beginning 0)))
+            (insert dtk-caps-prefix))
+           (t (insert dtk-allcaps-prefix))))))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
@@ -1877,7 +1872,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 ;;; Importing dtk-interp by inclusion:
 
 ;;{{{ macros
-  
+
 (defmacro tts-with-punctuations (setting &rest body)
   "Set punctuation  and exec   body."
   (declare (indent 1) (debug t))
@@ -2042,7 +2037,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 ;;}}}
 ;;; Include dtk-unicode.el
 
-;;; dtk-unicode.el --- Pronounce Unicode characters 
+;;; dtk-unicode.el --- Pronounce Unicode characters
 ;;{{{ Header: Lukas
 
 ;; Copyright 2007, 2011 Lukas Loehrer
@@ -2105,7 +2100,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
                                                            (match-string 2 s)))
     ("^DEVANAGARI \\(sign\\|vowel sign\\|letter\\)? \\(.*\\)$"
      . (lambda (s) (match-string 2 s)))
-                                        
+
     )
   "Alist of character name transformation rules."
   :group 'dtk
@@ -2120,7 +2115,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 
 (defcustom dtk-unicode-untouched-charsets
   '(ascii latin-iso8859-1)
-"Characters of these charsets are  ignored by
+  "Characters of these charsets are  ignored by
   dtk-unicode-replace-chars."
   :group 'dtk
   :type '(repeat symbol))
@@ -2177,15 +2172,14 @@ dtk-unicode-untouched-charsets."
 ;;; `set-charset-priority'.  This affects the implicit sorting of lists of
 ;;; charsets returned by operations such as `find-charset-region'.
 
-
 (defmacro dtk--with-charset-priority (charsets &rest body)
-    (declare (indent 1) (debug t))
-    (let ((current (make-symbol "current")))
-      `(let ((,current (charset-priority-list)))
-         (apply #'set-charset-priority ,charsets)
-         (unwind-protect
-             (progn ,@body)
-           (apply #'set-charset-priority ,current)))))
+  (declare (indent 1) (debug t))
+  (let ((current (make-symbol "current")))
+    `(let ((,current (charset-priority-list)))
+       (apply #'set-charset-priority ,charsets)
+       (unwind-protect
+           (progn ,@body)
+         (apply #'set-charset-priority ,current)))))
 ;;; Now use it:
 
 (defun dtk-unicode-char-in-charsets-p (char charsets)
@@ -2237,7 +2231,7 @@ dtk-unicode-name-transformation-rules-alist to NAME."
     (assoc-default
      name
      dtk-unicode-name-transformation-rules-alist 'string-match)
-       'identity)
+    'identity)
    name))
 
 (defun dtk-unicode-uncustomize-char (char)
@@ -2290,24 +2284,24 @@ When called interactively, CHAR defaults to the character after point."
 
 (defun dtk-unicode-replace-chars (mode)
   "Replace unicode characters with something  TTS friendly. "
-    (let ((inhibit-read-only t))
-      (save-excursion
-        (goto-char (point-min))
-        (while (re-search-forward dtk-unicode-charset-filter-regexp nil t)
-          (let* ((pos (match-beginning 0))
-                 (char (char-after pos))
-                 (props (text-properties-at pos))
-                 (replacement
-                  (save-match-data
-                    (if (and
-                         (memq mode '(some none))
-                         (dtk-unicode-char-punctuation-p char))
-                        " "
-                      (run-hook-with-args-until-success
-                       'dtk-unicode-handlers char)))))
-            (replace-match replacement t t nil)
-            (when props
-              (set-text-properties pos (point) props)))))))
+  (let ((inhibit-read-only t))
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward dtk-unicode-charset-filter-regexp nil t)
+        (let* ((pos (match-beginning 0))
+               (char (char-after pos))
+               (props (text-properties-at pos))
+               (replacement
+                (save-match-data
+                  (if (and
+                       (memq mode '(some none))
+                       (dtk-unicode-char-punctuation-p char))
+                      " "
+                    (run-hook-with-args-until-success
+                     'dtk-unicode-handlers char)))))
+          (replace-match replacement t t nil)
+          (when props
+            (set-text-properties pos (point) props)))))))
 
 ;;}}}
 ;;; dtk-unicode.el ends here
