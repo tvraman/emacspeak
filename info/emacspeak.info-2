@@ -12,31 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 5, 2021.
-
-
-File: emacspeak.info,  Node: emacspeak-hideshow,  Next: emacspeak-hydra,  Prev: emacspeak-hide-lines,  Up: Emacspeak Commands And Options
-
-12.98 emacspeak-hideshow
-========================
-
-speech-enable hideshow.el
-
-
-File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: emacspeak-hideshow,  Up: Emacspeak Commands And Options
-
-12.99 emacspeak-hydra
-=====================
-
-12.99.1 Emacspeak-Hydra Commands
---------------------------------
-
-12.99.1.1 emacspeak-hydra-toggle-talkative
-..........................................
-
- -- Command: emacspeak-hydra-toggle-talkative
-
-     Toggle state of hydra-is-helpful
+last updated on July 6, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options

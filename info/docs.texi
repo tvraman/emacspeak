@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1145 commands and 149 options.
+This chapter documents a total of 1144 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -463,22 +463,6 @@ program. Port defaults to dtk-local-server-port
 
 @format
 Initialize notification TTS stream.
-@end format
-@end deffn
-
-@subsubsection dtk-notify-shutdown
-@deffn {Command} dtk-notify-shutdown   
-@table @kbd
-@item C-e d C-s
-@kindex C-e d C-s
-@item <fn> d C-s
-@kindex <fn> d C-s
-@end table
-
-@findex dtk-notify-shutdown
-
-@format
-Shutdown notification TTS stream.
 @end format
 @end deffn
 
@@ -1007,11 +991,6 @@ Replacements for  characters.
 
 @defvar {User Option} dtk-unicode-name-transformation-rules-alist
 Alist of character name transformation rules.
-
-@end defvar
-
-@defvar {User Option} dtk-unicode-process-utf8
-Turn this off when working with TTS  engines that handle UTF8. 
 
 @end defvar
 

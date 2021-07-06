@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 5, 2021.
+last updated on July 6, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1145 commands and 149 options.
+   This chapter documents a total of 1144 commands and 148 options.
 
 * Menu:
 
@@ -3291,16 +3291,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Initialize notification TTS stream.
 
-12.5.1.6 dtk-notify-shutdown
-............................
-
- -- Command: dtk-notify-shutdown
-     ‘C-e d C-s’
-     ‘<fn> d C-s’
-
-     Shutdown notification TTS stream.
-
-12.5.1.7 dtk-notify-stop
+12.5.1.6 dtk-notify-stop
 ........................
 
  -- Command: dtk-notify-stop
@@ -3309,7 +3300,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Stop  speech on notification stream.
 
-12.5.1.8 dtk-reset-state
+12.5.1.7 dtk-reset-state
 ........................
 
  -- Command: dtk-reset-state
@@ -3318,7 +3309,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Reset TTS engine.
 
-12.5.1.9 dtk-select-server
+12.5.1.8 dtk-select-server
 ..........................
 
  -- Command: dtk-select-server (program &optional device)
@@ -3330,8 +3321,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn PROGRAM &optional DEVICE)
 
-12.5.1.10 dtk-set-character-scale
-.................................
+12.5.1.9 dtk-set-character-scale
+................................
 
  -- Command: dtk-set-character-scale (factor &optional prefix)
      ‘C-e d f’
@@ -3344,7 +3335,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn FACTOR &optional PREFIX)
 
-12.5.1.11 dtk-set-chunk-separator-syntax
+12.5.1.10 dtk-set-chunk-separator-syntax
 ........................................
 
  -- Command: dtk-set-chunk-separator-syntax (s)
@@ -3356,7 +3347,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn S)
 
-12.5.1.12 dtk-set-language
+12.5.1.11 dtk-set-language
 ..........................
 
  -- Command: dtk-set-language (lang)
@@ -3367,7 +3358,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn LANG)
 
-12.5.1.13 dtk-set-next-language
+12.5.1.12 dtk-set-next-language
 ...............................
 
  -- Command: dtk-set-next-language
@@ -3376,7 +3367,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Switch to  next  language
 
-12.5.1.14 dtk-set-predefined-speech-rate
+12.5.1.13 dtk-set-predefined-speech-rate
 ........................................
 
  -- Command: dtk-set-predefined-speech-rate (&optional prefix)
@@ -3408,7 +3399,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn &optional PREFIX)
 
-12.5.1.15 dtk-set-preferred-language
+12.5.1.14 dtk-set-preferred-language
 ....................................
 
  -- Command: dtk-set-preferred-language (alias lang)
@@ -3417,7 +3408,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn ALIAS LANG)
 
-12.5.1.16 dtk-set-previous-language
+12.5.1.15 dtk-set-previous-language
 ...................................
 
  -- Command: dtk-set-previous-language
@@ -3426,7 +3417,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Switch to  previous  language
 
-12.5.1.17 dtk-set-punctuations
+12.5.1.16 dtk-set-punctuations
 ..............................
 
  -- Command: dtk-set-punctuations (mode &optional prefix)
@@ -3440,7 +3431,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn MODE &optional PREFIX)
 
-12.5.1.18 dtk-set-punctuations-to-all
+12.5.1.17 dtk-set-punctuations-to-all
 .....................................
 
  -- Command: dtk-set-punctuations-to-all (&optional prefix)
@@ -3450,7 +3441,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn &optional PREFIX)
 
-12.5.1.19 dtk-set-punctuations-to-some
+12.5.1.18 dtk-set-punctuations-to-some
 ......................................
 
  -- Command: dtk-set-punctuations-to-some (&optional prefix)
@@ -3460,7 +3451,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn &optional PREFIX)
 
-12.5.1.20 dtk-set-rate
+12.5.1.19 dtk-set-rate
 ......................
 
  -- Command: dtk-set-rate (rate &optional prefix)
@@ -3473,7 +3464,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn RATE &optional PREFIX)
 
-12.5.1.21 dtk-stop
+12.5.1.20 dtk-stop
 ..................
 
  -- Command: dtk-stop (&optional all)
@@ -3485,7 +3476,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn &optional ALL)
 
-12.5.1.22 dtk-toggle-caps
+12.5.1.21 dtk-toggle-caps
 .........................
 
  -- Command: dtk-toggle-caps (&optional prefix)
@@ -3498,7 +3489,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Interactive PREFIX arg means toggle the global default value, and
      then set the current local value to the result.
 
-12.5.1.23 dtk-toggle-punctuation-mode
+12.5.1.22 dtk-toggle-punctuation-mode
 .....................................
 
  -- Command: dtk-toggle-punctuation-mode (&optional prefix)
@@ -3510,7 +3501,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn &optional PREFIX)
 
-12.5.1.24 dtk-toggle-quiet
+12.5.1.23 dtk-toggle-quiet
 ..........................
 
  -- Command: dtk-toggle-quiet (&optional prefix)
@@ -3519,7 +3510,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Turning on this switch silences speech.  Optional interactive
      prefix arg causes this setting to become global.
 
-12.5.1.25 dtk-toggle-speak-nonprinting-chars
+12.5.1.24 dtk-toggle-speak-nonprinting-chars
 ............................................
 
  -- Command: dtk-toggle-speak-nonprinting-chars (&optional prefix)
@@ -3530,7 +3521,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Interactive PREFIX arg means toggle the global default
      value, and then set the current local value to the result.
 
-12.5.1.26 dtk-toggle-split-caps
+12.5.1.25 dtk-toggle-split-caps
 ...............................
 
  -- Command: dtk-toggle-split-caps (&optional prefix)
@@ -3543,7 +3534,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      global default value, and then set the current local value to the
      result.
 
-12.5.1.27 dtk-toggle-splitting-on-white-space
+12.5.1.26 dtk-toggle-splitting-on-white-space
 .............................................
 
  -- Command: dtk-toggle-splitting-on-white-space
@@ -3553,7 +3544,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Toggle splitting of speech on white space.
      Split text  by clause boundaries, or also split on  whitespace.
 
-12.5.1.28 dtk-toggle-strip-octals
+12.5.1.27 dtk-toggle-strip-octals
 .................................
 
  -- Command: dtk-toggle-strip-octals (&optional prefix)
@@ -3565,7 +3556,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
       toggle the global default value, and then set the current local
      value to the result.
 
-12.5.1.29 dtk-unicode-customize-char
+12.5.1.28 dtk-unicode-customize-char
 ....................................
 
  -- Command: dtk-unicode-customize-char (char replacement)
@@ -3576,7 +3567,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn CHAR REPLACEMENT)
 
-12.5.1.30 dtk-unicode-uncustomize-char
+12.5.1.29 dtk-unicode-uncustomize-char
 ......................................
 
  -- Command: dtk-unicode-uncustomize-char (char)
@@ -3587,7 +3578,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn CHAR)
 
-12.5.1.31 tts-restart
+12.5.1.30 tts-restart
 .....................
 
  -- Command: tts-restart
@@ -3596,7 +3587,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Restart TTS server.
 
-12.5.1.32 tts-speak-version
+12.5.1.31 tts-speak-version
 ...........................
 
  -- Command: tts-speak-version
@@ -3638,9 +3629,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Variable: User Option dtk-unicode-name-transformation-rules-alist
      Alist of character name transformation rules.
-
- -- Variable: User Option dtk-unicode-process-utf8
-     Turn this off when working with TTS engines that handle UTF8.
 
  -- Variable: User Option dtk-unicode-untouched-charsets
      Characters of these charsets are ignored by
@@ -8734,4 +8722,28 @@ File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  P
 ==========================
 
 HIDE-LINES == hide/show lines from melpa
+
+
+File: emacspeak.info,  Node: emacspeak-hideshow,  Next: emacspeak-hydra,  Prev: emacspeak-hide-lines,  Up: Emacspeak Commands And Options
+
+12.98 emacspeak-hideshow
+========================
+
+speech-enable hideshow.el
+
+
+File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: emacspeak-hideshow,  Up: Emacspeak Commands And Options
+
+12.99 emacspeak-hydra
+=====================
+
+12.99.1 Emacspeak-Hydra Commands
+--------------------------------
+
+12.99.1.1 emacspeak-hydra-toggle-talkative
+..........................................
+
+ -- Command: emacspeak-hydra-toggle-talkative
+
+     Toggle state of hydra-is-helpful
 
