@@ -503,17 +503,6 @@ specifies the current pronunciation mode --- See
        (dtk-replace-duplicates str mode))
    dtk-cleanup-repeats))
 
-(defvar dtk-null-char (format "%c" 0)
-  "Null char.")
-(defun dtk-fix-null-char (mode)
-  "Remove null-char C-@."
-  (cl-declare (special dtk-null-char))
-  (goto-char (point-min))
-  (cond
-   ((eq mode 'all)
-    (while (search-forward dtk-null-char nil t) (replace-match " control at " nil t)))
-   (t (while (search-forward dtk-null-char nil t) (replace-match "")))))
-
 (defun dtk-quote (mode)
   "Clean-up text."
   (let ((inhibit-read-only t))
