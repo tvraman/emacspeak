@@ -768,11 +768,9 @@ this pattern if previously added.    "
        (t (make-local-variable ',switch)
           (setq ,switch (not ,switch))))
       (dtk-interp-sync)
-      (when
-          (if (fboundp 'called-interactively-p)
-              (called-interactively-p 'interactive))
+      (when (called-interactively-p 'interactive)
         (emacspeak-auditory-icon (if ,switch "on" "off"))
-        (dtk-speak-and-echo
+        (message
          (format "Turned %s %s  %s."
                  (if ,switch "on" "off")
                  ',switch
