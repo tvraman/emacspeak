@@ -2539,12 +2539,10 @@ Argument O specifies overlay."
     (with-silent-modifications
       (save-excursion
         (goto-char (point-min))
-        (save-match-data
-          (with-silent-modifications
             (while (search-forward string nil t)
               (put-text-property
                (match-beginning 0) (match-end 0)
-               'personality 'inaudible))))))))
+               'personality 'inaudible))))))
 
 
 (defun emacspeak-switch-to-reference-buffer ()
