@@ -1949,7 +1949,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 
 (defsubst dtk-interp-queue (text)
   (cl-declare (special dtk-speaker-process))
-  (unless (string-match "^[\s]+$" text)
+  (unless (string-match "^[[:space:]]+$" text)
     (process-send-string dtk-speaker-process (format "q {%s }\n" text))))
 
 (defsubst dtk-interp-queue-code (code)
