@@ -2183,7 +2183,6 @@ Produce an auditory icon if possible."
           (erase-buffer)
           (insert desc)
           (goto-char (point-min))
-          (save-match-data
             (while (search-forward "SPC" nil t)
               (replace-match "space"))
             (goto-char (point-min))
@@ -2213,7 +2212,7 @@ Produce an auditory icon if possible."
             (goto-char (point-min))
             (goto-char (point-min))
             (while (re-search-forward caps-regexp nil t)
-              (replace-match " cap \\& " t)))
+              (replace-match " cap \\& " t))
           (buffer-string))))
 
 
