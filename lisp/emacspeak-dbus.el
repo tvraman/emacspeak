@@ -84,15 +84,11 @@
 
 ;;}}}
 ;;{{{ Forward Declarations:
-
-(declare-function soundscape-restart "soundscape" (&optional device))
-(declare-function soundscape-tickle "soundscape" nil)
-(declare-function soundscape-listener-shutdown "soundscape" nil)
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
 (declare-function twittering-start "ext:twittering-mode" nil)
 (declare-function twittering-stop "twittering-mode" nil)
-
+(declare-function soundscape-restart "soundscape" (&optional device))
 ;;}}}
 ;;{{{ ScreenSaver Mode:
 
@@ -225,8 +221,9 @@ already disabled."
 
 (defun emacspeak-dbus-sleep ()
   "Emacspeak  hook for -sleep signal from Login1."
-  (ems-with-messages-silenced
-      (save-some-buffers t)
+  (cl-declare (special dtk-quiet))
+  (let ((dtk-quiet t))
+    (save-some-buffers t)
     (shell-command "fuser -k /dev/snd/*")))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
