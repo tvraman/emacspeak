@@ -454,12 +454,11 @@ specifies the current pronunciation mode --- See
       (while
           (re-search-forward dtk-caps-regexp nil t)
         (save-excursion
-          (save-match-data
             (goto-char (match-beginning 0))
             (cond
              ((= 1  (- (match-end 0) (match-beginning 0)))
               (insert dtk-caps-prefix))
-             (t (insert dtk-allcaps-prefix)))))))))
+             (t (insert dtk-allcaps-prefix))))))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
@@ -2131,11 +2130,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
           :key-type (character :tag "character")
           :value-type (string :tag "replacement")))
 
-(defcustom dtk-unicode-process-utf8 t
-  "Turn this off when working with TTS  engines that handle UTF8. "
-  :type 'boolean
-  :group 'dtk)
-
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
     ("BOX DRAWING" . (lambda (s) "."))
@@ -2329,9 +2323,7 @@ When called interactively, CHAR defaults to the character after point."
     (dtk-unicode-name-for-char char)))
 
 (defun dtk-unicode-replace-chars (mode)
-  "Replace unicode characters in current buffer with something  TTS friendly. "
-  (cl-declare (special dtk-unicode-process-utf8))
-  (when dtk-unicode-process-utf8
+  "Replace unicode characters with something  TTS friendly. "
     (let ((inhibit-read-only t))
       (save-excursion
         (goto-char (point-min))
@@ -2349,7 +2341,7 @@ When called interactively, CHAR defaults to the character after point."
                        'dtk-unicode-handlers char)))))
             (replace-match replacement t t nil)
             (when props
-              (set-text-properties pos (point) props))))))))
+              (set-text-properties pos (point) props)))))))
 
 ;;}}}
 ;;; dtk-unicode.el ends here
