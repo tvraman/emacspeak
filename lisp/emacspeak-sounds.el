@@ -261,7 +261,7 @@ Queue : Add auditory icon to speech queue.
 Use Serve when working with remote speech servers."
   )
 
-(defun emacspeak-auditory-icon (icon)
+(defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (cl-declare (special emacspeak-auditory-icon-function
                        emacspeak-use-auditory-icons))
