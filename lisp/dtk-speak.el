@@ -631,15 +631,6 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; Similarly, property pause at the start of a clause specifies
 ;;; amount of pause to insert.
 
-(defun tts-get-overlay-auditory-icon (pos)
-  "Return auditory icon  at the front of the overlay list at pos."
-  (car
-   (delete nil
-           (mapcar
-            #'(lambda (o)
-                (overlay-get o 'auditory-icon))
-            (overlays-at pos)))))
-
 (defun dtk-next-single-property-change (start prop object limit)
   "Similar to next-single-property-change, but compares property values
  with equal if they are not atoms."
