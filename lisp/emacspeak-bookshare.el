@@ -85,7 +85,8 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile (require 'derived))
+(eval-when-compile (require 'derived)
+                   (require 'g-utils))
 (require 'dom)
 (require 'xml)
 (declare-function auth-source-search "auth-source" (&rest rest))
@@ -246,25 +247,10 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
           (format "for/%s" emacspeak-bookshare-user-id)
           emacspeak-bookshare-api-key))
 
-(defvar emacspeak-bookshare-scratch-buffer " *Bookshare Scratch* "
-  "Scratch buffer for Bookshare operations.")
-
-(defmacro emacspeak-bookshare-using-scratch(&rest body)
-  "Evaluate forms in a  ready to use temporary buffer."
-  (declare (indent 1) (debug t))
-  `(let ((buffer (get-buffer-create emacspeak-bookshare-scratch-buffer))
-         (default-process-coding-system (cons 'utf-8 'utf-8))
-         (buffer-undo-list t))
-     (save-current-buffer
-       (set-buffer buffer)
-       (kill-all-local-variables)
-       (erase-buffer)
-       (progn ,@body))))
-
 (defun emacspeak-bookshare-get-result (command)
   "Run command and return its output."
   (cl-declare (special shell-file-name shell-command-switch))
-  (emacspeak-bookshare-using-scratch
+  (g-using-scratch
    (call-process shell-file-name nil t
                  nil shell-command-switch
                  command)

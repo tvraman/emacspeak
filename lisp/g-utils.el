@@ -286,7 +286,7 @@ references, poor-man's xpath."
      (with-current-buffer buffer 
        (kill-all-local-variables)
        (erase-buffer)
-       (progn ,@body))))
+       ,@body)))
 
 (defun g-get-result (command)
   "Run command and return its output."
