@@ -2083,13 +2083,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (process-send-string dtk-speaker-process "tts_reset \n"))
 
 ;;}}}
-;;{{{  local variables
-
-;;; local variables:
-;;; folded-file: t
-;;; end:
-
-;;}}}
 ;;; Include dtk-unicode.el
 
 ;;; dtk-unicode.el --- Pronounce Unicode characters 
