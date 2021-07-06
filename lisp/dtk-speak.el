@@ -1872,12 +1872,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
       (dtk-speak-using-voice voice text)
       (dtk-force))))
 
-(defun dtk-notify-shutdown ()
-  "Shutdown notification TTS stream."
-  (interactive)
-  (cl-declare (special dtk-notify-process))
-  (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process)))
-
 ;;}}}
 
 ;;; Importing dtk-interp by inclusion:

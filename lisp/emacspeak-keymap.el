@@ -364,7 +364,6 @@
    ("C-m" dtk-set-chunk-separator-syntax)
    ("C-n" dtk-notify-initialize)
    ("C-o" outloud)
-   ("C-s" dtk-notify-shutdown)
    ("C-v" global-voice-lock-mode)
    ("d" dtk-select-server)
    ("L" dtk-local-server)
