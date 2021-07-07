@@ -1678,7 +1678,6 @@ No-op if  `dtk-quiet' is set to t. "
     (dtk-force)))
 
 ;;; forward Declaration:
-(defvar emacspeak-speak-messages)
 
 (defmacro ems-with-messages-silenced (&rest body)
   "Evaluate body  after temporarily silencing messages."
