@@ -75,11 +75,6 @@ dtk-exp     For the Dectalk Express.
 outloud     For IBM ViaVoice Outloud
 espeak      For eSpeak (default on Linux)
 mac for MAC TTS (default on Mac)")
-
-(defvar emacspeak-pronounce-pronunciation-table)
-(defvar emacspeak-use-auditory-icons)
-(defvar emacspeak-pronounce-personality)
-
 ;;}}}
 ;;{{{  user customizations:
 
