@@ -1167,38 +1167,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (dtk-speak (dtk-unicode-name-for-char char)))
 
 ;;}}}
-;;{{{ emacspeak-speak-set-display-table
-
-(defvar emacspeak-speak-display-table-list
-  '(("iso ascii" . "iso ascii")
-    ("default" . "default"))
-  "Available speech display tables.")
-
-
-(defun emacspeak-speak-set-display-table (&optional prefix)
-  "Sets up buffer specific speech display table that controls how
-special characters are spoken. Interactive prefix argument causes
-setting to be global."
-  (interactive "P")
-  (cl-declare (special dtk-display-table
-                       dtk-iso-ascii-character-to-speech-table
-                       emacspeak-speak-display-table-list))
-  (let ((type (completing-read
-               "Select speech display table: "
-               emacspeak-speak-display-table-list
-               nil t))
-        (table nil))
-    (cond
-     ((string-equal "iso ascii" type)
-      (setq table dtk-iso-ascii-character-to-speech-table))
-     (t (setq table nil)))
-    (cond
-     (prefix
-      (setq-default dtk-display-table table)
-      (setq dtk-display-table table))
-     (t (setq dtk-display-table table)))))
-
-;;}}}
 (defun emacspeak-speak-sentence (&optional arg)
   "Speak current sentence.
 With prefix ARG, speaks the rest of the sentence  from point.
