@@ -74,8 +74,8 @@
 (defadvice folding-mode (after emacspeak pre act)
   "Speak"
   (when (ems-interactive-p)
-    (message "turned %s folding mode"
-             (if folding-mode " on " " off"))))
+    (emacspeak-auditory-icon 'button)
+    (emacspeak-speak-mode-line)))
 
 (cl-loop
  for f in
