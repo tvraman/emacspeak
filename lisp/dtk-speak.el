@@ -1412,8 +1412,7 @@ program. Port defaults to dtk-local-server-port"
 ;;{{{  interactively select how text is split:
 
 (defun dtk-toggle-splitting-on-white-space ()
-  "Toggle splitting of speech on white space.
-Split text  by clause boundaries, or also split on  whitespace.  "
+  "Toggle splitting of speech on white space. "
   (interactive)
   (cl-declare (special dtk-chunk-separator-syntax))
   (cond
@@ -1428,7 +1427,6 @@ Split text  by clause boundaries, or also split on  whitespace.  "
 (defun dtk-set-chunk-separator-syntax (s)
   "Interactively set how text is split in chunks.
 Argument S specifies the syntax class."
-
   (interactive
    (list
     (read-from-minibuffer "Specify separator syntax string: ")))
@@ -1448,8 +1446,8 @@ Argument S specifies the syntax class."
 This is so text marked invisible is silenced.")
 
 (defun dtk-speak (text)
-  "Speak the TEXT string on the  tts.
-No-op if  `dtk-quiet' is set to t. "
+  "Speak the TEXT string
+unless   `dtk-quiet' is set to t. "
   (cl-declare (special dtk-yank-excluded-properties
                        dtk-speaker-process dtk-stop-immediately
                        tts-strip-octals inhibit-point-motion-hooks
@@ -1545,8 +1543,6 @@ No-op if  `dtk-quiet' is set to t. "
           (unless (eobp) (dtk-audio-format (point) (point-max))))))
     (dtk-force)))
 
-;;; forward Declaration:
-
 (defmacro ems-with-messages-silenced (&rest body)
   "Evaluate body  after temporarily silencing messages."
   (declare (indent 1) (debug t))
@@ -1562,10 +1558,10 @@ No-op if  `dtk-quiet' is set to t. "
 
 (defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.
-Argument TEXT is the list of strings to speak.  Optional argument
-group specifies grouping for intonation.  If `group' is a list,
-it should specify split points where clause boundaries are
-inserted.  Otherwise it is a number that specifies grouping"
+ Optional argument group specifies grouping for intonation.  If
+`group' is a list, it should specify split points where clause
+boundaries are inserted.  Otherwise it is a number that specifies
+grouping"
   (cl-declare (special dtk-speaker-process))
   (unless group (setq group 3))
   (when (numberp group)
