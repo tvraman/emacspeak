@@ -951,26 +951,20 @@ important to be interrupted.")
   "Notify speaker  process handle.")
 
 (defvar-local dtk-punctuation-mode 'all
-  "Current setting of punctuation state.
-Possible values are some, all or none.
-You should not modify this variable;
-Use  `dtk-set-punctuations' bound to
-\\[dtk-set-punctuations].  .")
+  "Punctuation state (some, all or none).
+Set by \\[dtk-set-punctuations].")
+
+(defvar dtk-servers-alist nil
+  "Speech servers.")
 
 (defun tts-setup-servers-alist ()
-  "Sets up tts servers alist from file servers/.servers.
-File .servers is expected to contain name of one server per
- line --with no white space."
+  "Read servers/.servers"
   (cl-declare (special emacspeak-servers-directory dtk-servers-alist))
   (let ((result nil)
-        (scratch (get-buffer-create " *servers*"))
-        (this nil)
-        (servers (expand-file-name ".servers" emacspeak-servers-directory)))
-    (save-current-buffer
-      (set-buffer scratch)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (insert-file-contents servers)
+        (servers
+         (find-file-noselect (expand-file-name ".servers" emacspeak-servers-directory)))
+        (this nil))
+    (with-current-buffer servers
       (goto-char (point-min))
       (while (not (eobp))
         (unless
@@ -981,11 +975,6 @@ File .servers is expected to contain name of one server per
           (push this result))
         (forward-line 1)))
     (setq dtk-servers-alist result)))
-
-(defvar dtk-servers-alist nil
-  "Used for completion when prompting for TTS server.
-This variable is automatically setup to reflect the
-available TTS servers.")
 
 ;;}}}
 ;;{{{  Mapping characters to speech:
