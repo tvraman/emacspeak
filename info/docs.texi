@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1144 commands and 148 options.
+This chapter documents a total of 1143 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -11567,19 +11567,6 @@ With prefix ARG, speaks the rest of the sentence  from point.
 Negative prefix arg speaks from start of sentence to point.
 
 (fn &optional ARG)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-set-display-table
-@deffn {Command} emacspeak-speak-set-display-table  (&optional prefix)
-@findex emacspeak-speak-set-display-table
-
-@format
-Sets up buffer specific speech display table that controls how
-special characters are spoken. Interactive prefix argument causes
-setting to be global.
-
-(fn &optional PREFIX)
 @end format
 @end deffn
 
