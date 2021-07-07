@@ -978,12 +978,10 @@ Set by \\[dtk-set-punctuations].")
 
 ;;}}}
 ;;{{{  Mapping characters to speech:
-;;{{{  default speech table
 
 (defvar dtk-character-to-speech-table
   (make-vector 256 "")
   "Maps characters to pronunciation strings.")
-(cl-declaim (special dtk-character-to-speech-table))
 
 ;;;  Assign entries in the table:
 (defun dtk-speak-setup-character-table ()
@@ -1248,10 +1246,7 @@ Set by \\[dtk-set-punctuations].")
     (aset table 255 " octal 377 ")))
 
 (dtk-speak-setup-character-table)
-;;}}}
-;;{{{  iso ascii table:
 
-;;}}}
 (defun dtk-char-to-speech (char)
   "Translate CHAR to speech string."
   (cl-declare (special dtk-character-to-speech-table))
