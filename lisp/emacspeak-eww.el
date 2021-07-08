@@ -709,7 +709,7 @@ Useful in handling double-redirect from TuneIn."
 ;;{{{ Inline Helpers:
 
 (defun emacspeak-eww-prepare-eww ()
-  "Ensure that we are in an EWW buffer that is  set up."
+  "Ensure that we are in an EWW buffer."
   (cl-declare (special major-mode  emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (emacspeak-eww-current-dom) (error "No DOM!"))
@@ -717,7 +717,7 @@ Useful in handling double-redirect from TuneIn."
     (eww-update-cache (emacspeak-eww-current-dom))))
 
 (defun emacspeak-eww-post-render-actions ()
-  "Post-render actions for setting up emacspeak."
+  "Post-render actions."
   (emacspeak-eww-prepare-eww))
 
 ;;}}}
@@ -757,6 +757,13 @@ are available are cued by an auditory icon on the header line."
 
 (voice-setup-add-map
  '(
+    (shr-abbreviation  voice-bolden-extra)
+(shr-h1  voice-bolden)
+(shr-h2  voice-bolden-medium)
+(shr-h3 voice-lighten)
+(shr-h4 voice-lighten-medium)
+(shr-h5 voice-lighten-extra)
+(shr-h6  voice-smoothen)
    (eww-invalid-certificate  voice-lighten-extra)
    (eww-valid-certificate voice-bolden)
    (eww-form-submit voice-animate)
