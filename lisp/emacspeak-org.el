@@ -633,7 +633,7 @@ To use this command, first do `customize-variable'
 `org-capture-template' and assign letter `h' to a template that
 creates the hyperlink on capture.  Optional interactive prefix
 arg just opens the file"
-  (interactive "p")
+  (interactive "P")
   (require 'org)
   (require 'ol-eww)
   (cond
