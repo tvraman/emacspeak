@@ -770,7 +770,7 @@ specified pronunciation dictionary key."
        #'(lambda (number)
            (concat
             " minus "
-            (substring number 1)))))
+            (substring number 2)))))
 
 ;;}}}
 ;;{{{Merge  Dictionaries:
