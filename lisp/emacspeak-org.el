@@ -627,15 +627,22 @@ Before doing so, re-align the table if necessary."
 ;;}}}
 ;;{{{ Capture
 ;;;###autoload
-(defun emacspeak-org-capture-link ()
+(defun emacspeak-org-capture-link (&optional open)
   "Capture hyperlink to current context.
-To use this command, first  do `customize-variable' `org-capture-template'
-and assign  letter `h' to a template that creates the hyperlink on capture."
-  (interactive)
+To use this command, first do `customize-variable'
+`org-capture-template' and assign letter `h' to a template that
+creates the hyperlink on capture.  Optional interactive prefix
+arg just opens the file"
+  (interactive "p")
   (require 'org)
   (require 'ol-eww)
-  (org-store-link nil)
-  (org-capture nil "h"))
+  (cond
+   (open
+    (funcall-interactively #'find-file (expand-file-name "~/.org/hotlist.org")))
+   (t
+    (org-store-link nil)
+    (org-capture nil "h"))))
+
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 
 ;;}}}
