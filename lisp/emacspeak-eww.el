@@ -1844,32 +1844,6 @@ The %s is automatically spoken if there is no user activity."
         (kill-new  (emacspeak-google-canonicalize-result-url u))))))
 
 ;;}}}
-;;{{{  Google Knowledge Card:
-
-(defun emacspeak-eww-google-knowledge-card ()
-  "Show just the knowledge card.
-Warning, this is fragile, and depends on a stable id/class for the
-  knowledge card."
-  (interactive)
-  (cl-declare (special
-               emacspeak-google-toolbelt emacspeak-google-keymap
-               emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
-  (unless emacspeak-eww-masquerade
-    (error "Turn on  masquerade mode for knowledge cards."))
-  (unless (eq major-mode 'eww-mode)
-    (error "This command is only available in EWW"))
-  (unless  emacspeak-google-toolbelt
-    (error "This doesn't look like a Google results page."))
-  (let  ((dom (emacspeak-eww-current-dom)))
-    (emacspeak-eww-view-helper
-     (dom-html-from-nodes
-      (dom-by-class dom "kCrYT" )
-      (eww-current-url)))))
-
-(define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
-(define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
-
-;;}}}
 ;;{{{ Speech-enable EWW buffer list:
 
 (defun emacspeak-eww-speak-buffer-line ()
