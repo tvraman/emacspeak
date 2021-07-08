@@ -211,7 +211,7 @@
 ;;; These elements often appear many times on a page, and can be
 ;;; deeply nested, making it difficult to focus on the relevant
 ;;; content on the page, e.g. news sites.
-;;; Commands @code{emacspeak-eww-dive-into-div} 
+;;; Commands @code{emacspeak-eww-dive-into-div}
 ;;; help  in such cases, @kbd{C-d} renders the @code{div} containing
 ;;; point in a separate buffer
 ;;;  As with the filtering commands, @kbd{l} returns to the
@@ -264,7 +264,7 @@
 ;;; @item @kbd{M-<up>} emacspeak-eww-table-previous-row @MDash{}
 ;;; Speak cell above.
 ;;; @item @kbd{M-<down>} emacspeak-eww-table-next-row @MDash{}
-;;; Speak  cell below. 
+;;; Speak  cell below.
 ;;; @item @kbd{M-.} emacspeak-eww-table-speak-cell @MDash{}
 ;;; Speak current cell.
 ;;; @item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
@@ -471,10 +471,9 @@
 ;;; Return URL under point or URL read from minibuffer.
 ;;;###autoload
 (defsubst emacspeak-eww-read-url ()
-  (let ((url ))
-    (or 
-        (shr-url-at-point nil)
-      (read-string "URL:" (browse-url-url-at-point)))))
+  (or
+   (shr-url-at-point nil)
+   (read-string "URL:" (browse-url-url-at-point))))
 
 ;;; Generate functions emacspeak-eww-current-title and friends:
 
@@ -508,90 +507,6 @@
 (declare-function emacspeak-eww-set-title "emacspeak-eww" (title))
 
 ;;}}}
-;;{{{play media:
-
-(defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
-  "Play media url under point.
-Optional interactive prefix arg `playlist-p' says to treat the
- link as a playlist.  A second interactive prefix arg adds
- mplayer option -allow-dangerous-playlist-parsing"
-  (interactive "P")
-  (cl-declare (special emacspeak-m-player-media-history
-                       emacspeak-eww-url-at-point))
-  (let ((url
-         (or (funcall emacspeak-eww-url-at-point)
-             (browse-url-url-at-point))))
-    (cl-assert (stringp url) t "No URL under point." )
-    (message "Playing media  URL under point")
-    (kill-new url)
-    (push (list url (if playlist-p t nil)) emacspeak-m-player-media-history)
-    (emacspeak-m-player  url  playlist-p)))
-
-(defun emacspeak-eww-curl-play-media-at-point ()
-  "Use Curl to pull a URL, then pass
-the first line to MPlayer as a playlist.
-Useful in handling double-redirect from TuneIn."
-  (interactive)
-  (let ((url
-         (if emacspeak-eww-url-at-point
-             (funcall emacspeak-eww-url-at-point)
-           (browse-url-url-at-point))))
-    (setq url
-          (cl-first
-           (split-string
-            (shell-command-to-string (format "curl --silent '%s'" url))
-            "\n")))
-    (message "Playing redirected media  URL under point: %s" url)
-    (emacspeak-m-player url t)))
-
-;;}}}
-;;{{{ Inline Helpers:
-
-(defun emacspeak-eww-prepare-eww ()
-  "Ensure that we are in an EWW buffer that is  set up."
-  (cl-declare (special major-mode  emacspeak-eww-cache-updated))
-  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
-  (unless (emacspeak-eww-current-dom) (error "No DOM!"))
-  (unless emacspeak-eww-cache-updated
-    (eww-update-cache (emacspeak-eww-current-dom))))
-
-(defun emacspeak-eww-post-render-actions ()
-  "Post-render actions for setting up emacspeak."
-  (emacspeak-eww-prepare-eww))
-
-;;}}}
-;;{{{ Viewing Page metadata: meta, links
-
-(defun emacspeak-eww-links-rel ()
-  "Display Link tags of type rel.  Web pages for which alternate links
-are available are cued by an auditory icon on the header line."
-  (interactive)
-  (emacspeak-eww-prepare-eww)
-  (let ((alt (dom-alternate-links (emacspeak-eww-current-dom)))
-        (base (eww-current-url)))
-    (cond
-     ((null alt) (message "No alternate links."))
-     (t
-      (with-temp-buffer
-        (insert "<table><th>Type</th><th>URL</th></tr>\n")
-        (cl-loop
-         for a in alt do
-         (insert "<tr>")
-         (insert
-          (format "<td>%s</td>\n"
-                  (or (dom-attr a 'title)
-                      (dom-attr a 'type)
-                      (dom-attr a 'media)
-                      "")))
-         (insert
-          (format "<td><a href='%s'>%s</td>\n"
-                  (shr-expand-url (dom-attr a 'href) base)
-                  (shr-expand-url (dom-attr a 'href) base)))
-         (insert "</tr>\n"))
-        (insert "</table>\n")
-        (browse-url-of-buffer))))))
-
-;;}}}
 ;;{{{ Setup EWW Initialization:
 
 (defvar emacspeak-eww-url-at-point
@@ -613,10 +528,10 @@ are available are cued by an auditory icon on the header line."
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
 
 (defvar emacspeak-eww-masquerade t
-  "Says if we masquerade as a mainstream browser.")
+  "Masquerade flag")
 
 (defun emacspeak-eww-masquerade ()
-  "Toggle masquerade state."
+  "Toggle masquerade."
   (interactive)
   (cl-declare (special emacspeak-eww-masquerade))
   (setq emacspeak-eww-masquerade (not emacspeak-eww-masquerade))
@@ -631,13 +546,13 @@ AppleWebKit/537.36 (KHTML, like Gecko) \
 Chrome/86.0.4240.75 \
 Safari/537.36"
           )
-  "User Agent string that is  sent when masquerading is on.")
+  "User Agent string sent when masquerading.")
 
 ;;; Advice note: Setting ad-return-value in one arm of the cond
 ;;; appears to perculate to both arms.
 
 (defadvice url-http-user-agent-string (around emacspeak pre act comp)
-  "Respond to user  asking us to masquerade."
+  "Masquerade response"
   ad-do-it
   (cond
    (emacspeak-eww-masquerade
@@ -751,8 +666,91 @@ Safari/537.36"
    do
    (emacspeak-keymap-update eww-mode-map binding)))
 
-
 (emacspeak-eww-setup)
+
+;;}}}
+;;{{{play media:
+
+(defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
+  "Play media url under point.
+Optional interactive prefix arg `playlist-p' treats
+ link as a playlist.  A second interactive prefix arg adds
+ mplayer option -allow-dangerous-playlist-parsing"
+  (interactive "P")
+  (cl-declare (special emacspeak-m-player-media-history
+                       emacspeak-eww-url-at-point))
+  (let ((url
+         (or (funcall emacspeak-eww-url-at-point)
+             (browse-url-url-at-point))))
+    (cl-assert (stringp url) t "No URL under point." )
+    (message "Playing media  URL under point")
+    (kill-new url)
+    (push (list url (if playlist-p t nil)) emacspeak-m-player-media-history)
+    (emacspeak-m-player  url  playlist-p)))
+
+(defun emacspeak-eww-curl-play-media-at-point ()
+  "Use Curl to pull a URL, then pass
+the first line to MPlayer as a playlist.
+Useful in handling double-redirect from TuneIn."
+  (interactive)
+  (let ((url
+         (if emacspeak-eww-url-at-point
+             (funcall emacspeak-eww-url-at-point)
+           (browse-url-url-at-point))))
+    (setq url
+          (cl-first
+           (split-string
+            (shell-command-to-string (format "curl --silent '%s'" url))
+            "\n")))
+    (message "Playing redirected media  URL under point: %s" url)
+    (emacspeak-m-player url t)))
+
+;;}}}
+;;{{{ Inline Helpers:
+
+(defun emacspeak-eww-prepare-eww ()
+  "Ensure that we are in an EWW buffer that is  set up."
+  (cl-declare (special major-mode  emacspeak-eww-cache-updated))
+  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
+  (unless (emacspeak-eww-current-dom) (error "No DOM!"))
+  (unless emacspeak-eww-cache-updated
+    (eww-update-cache (emacspeak-eww-current-dom))))
+
+(defun emacspeak-eww-post-render-actions ()
+  "Post-render actions for setting up emacspeak."
+  (emacspeak-eww-prepare-eww))
+
+;;}}}
+;;{{{ Viewing Page metadata: meta, links
+
+(defun emacspeak-eww-links-rel ()
+  "Display Link tags of type rel.  Web pages for which alternate links
+are available are cued by an auditory icon on the header line."
+  (interactive)
+  (emacspeak-eww-prepare-eww)
+  (let ((alt (dom-alternate-links (emacspeak-eww-current-dom)))
+        (base (eww-current-url)))
+    (cond
+     ((null alt) (message "No alternate links."))
+     (t
+      (with-temp-buffer
+        (insert "<table><th>Type</th><th>URL</th></tr>\n")
+        (cl-loop
+         for a in alt do
+         (insert "<tr>")
+         (insert
+          (format "<td>%s</td>\n"
+                  (or (dom-attr a 'title)
+                      (dom-attr a 'type)
+                      (dom-attr a 'media)
+                      "")))
+         (insert
+          (format "<td><a href='%s'>%s</td>\n"
+                  (shr-expand-url (dom-attr a 'href) base)
+                  (shr-expand-url (dom-attr a 'href) base)))
+         (insert "</tr>\n"))
+        (insert "</table>\n")
+        (browse-url-of-buffer))))))
 
 ;;}}}
 ;;{{{ Map Faces To Voices:
@@ -789,17 +787,11 @@ Safari/537.36"
 (defvar-local emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
 
-
-
 (defvar-local emacspeak-eww-feed nil
   "Record if this eww buffer is displaying a feed.")
 
-
-
 (defvar-local emacspeak-eww-url-template nil
   "Record if this eww buffer is displaying a url-template.")
-
-
 
 ;;;Check cache if URL already open, otherwise cache.
 
@@ -1081,8 +1073,6 @@ Note that the Web browser should reset this hook after using it.")
 (defvar-local emacspeak-eww-cache-updated nil
   "Records if caches are updated.")
 
-
-
 ;;; Mark cache to be dirty if we restore history:
 
 (defadvice eww-restore-history (after emacspeak pre act comp)
@@ -1093,34 +1083,22 @@ Note that the Web browser should reset this hook after using it.")
 (defvar-local eww-id-cache nil
   "Cache of id values. Is buffer-local.")
 
-
-
 (defvar-local eww-class-cache nil
   "Cache of class values. Is buffer-local.")
-
-
 
 (defvar-local eww-role-cache nil
   "Cache of role values. Is buffer-local.")
 
-
-
 (defvar-local eww-itemprop-cache nil
   "Cache of itemprop values. Is buffer-local.")
 
-
-
 (defvar-local eww-property-cache nil
   "Cache of property values. Is buffer-local.")
-
-
 
 ;;; Holds element names as strings.
 
 (defvar-local eww-element-cache nil
   "Cache of element names. Is buffer-local.")
-
-
 
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
@@ -1665,7 +1643,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (next-single-property-change (point) el))
          (point)))
        (next (next-single-property-change start  el)))
-     (when next
+    (when next
       (goto-char next)
       (cl-pushnew el  emacspeak-eww-element-navigation-history)
       (when (called-interactively-p 'interactive)
@@ -1691,7 +1669,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
              (previous-single-property-change (1+ (point)) el))
            (point)))
          (previous (previous-single-property-change  start  el)))
-     (when previous
+    (when previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
       (cl-pushnew  el emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
@@ -2079,7 +2057,6 @@ Warning, this is fragile, and depends on a stable id/class for the
   (emacspeak-auditory-icon 'delete-object)
   (message "Removed Emacspeak EWW mark %s" name))
 
-
 (declare-function emacspeak-bookshare-eww "emacspeak-bookshare" (directory))
 
 ;;;###autoload
@@ -2326,9 +2303,9 @@ Value is specified as a position in the list of table cells.")
   "Returns  table cells as a list."
   (let* ((table (get-text-property (point) 'table-dom))
          (head (dom-by-tag table 'th)))
-       (cond
-        (head (cdr (append head (dom-by-tag table 'td))))
-        (t (dom-by-tag table 'td)))))
+    (cond
+     (head (cdr (append head (dom-by-tag table 'td))))
+     (t (dom-by-tag table 'td)))))
 
 (defsubst emacspeak-eww-table-row-count ()
   "Returns number of table rows."
@@ -2438,8 +2415,6 @@ With interactive prefix arg, move to the start of the table."
   (emacspeak-auditory-icon 'right)
   (emacspeak-eww-table-speak-cell))
 
-
-
 (defun emacspeak-eww-table-data ()
   "View  table at point as a data table using Emacspeak Table UI."
   (interactive)
@@ -2450,7 +2425,7 @@ With interactive prefix arg, move to the start of the table."
          (get-buffer-create
           (format  "Table: %s" (emacspeak-eww-current-title)))))
     (setq data-table (emacspeak-table-make-table data))
-      (emacspeak-table-prepare-table-buffer data-table buffer)))
+    (emacspeak-table-prepare-table-buffer data-table buffer)))
 
 ;;}}}
 ;;{{{Dive Into DOM: div
