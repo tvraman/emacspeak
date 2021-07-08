@@ -464,25 +464,23 @@
 
 ;;;###autoload
 (defsubst emacspeak-eww-browser-check ()
-  "Check  if  called from a EWW buffer"
-  (cl-declare (special major-mode))
+  "Browser check"
   (unless (eq major-mode 'eww-mode)
-    (error "This command cannot be used outside browser buffers.")))
+    (error "Not in EWW")))
 
+;;; Return URL under point or URL read from minibuffer.
 ;;;###autoload
-(defun emacspeak-eww-read-url ()
-  "Return URL under point
-or URL read from minibuffer."
-  (let ((url (shr-url-at-point nil)))
-    (if url
-        url
-      (car (browse-url-interactive-arg "URL: ")))))
+(defsubst emacspeak-eww-read-url ()
+  (let ((url ))
+    (or 
+        (shr-url-at-point nil)
+      (read-string "URL:" (browse-url-url-at-point)))))
 
 ;;; Generate functions emacspeak-eww-current-title and friends:
 
 (cl-loop
  for name in
- '(title  source dom)
+ '(title  source url dom)
  do
  (eval
   `(defun
@@ -490,12 +488,7 @@ or URL read from minibuffer."
      , (format "Return eww-current-%s." name)
      (cl-declare (special eww-data))
      (plist-get eww-data
-                ,(intern (format ":%s" name))))))
-
-(cl-loop
- for name in
- '(title url source dom)
- do
+                ,(intern (format ":%s" name)))))
  (eval
   `(defun
        ,(intern (format "emacspeak-eww-set-%s" name)) (value)
