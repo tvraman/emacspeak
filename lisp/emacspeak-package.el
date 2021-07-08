@@ -119,7 +119,7 @@
   (define-key package-menu-mode-map "p" 'emacspeak-package-previous-line)
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
    emacspeak-pronounce-date-yyyymmdd-pattern
-   (cons 're-search-forward 'emacspeak-pronounce-yyyymmdd-date)))
+   (cons #'re-search-forward 'emacspeak-pronounce-yyyymmdd-date)))
 
 (add-hook 'package-menu-mode-hook 'emacspeak-package-mode-hook)
 
