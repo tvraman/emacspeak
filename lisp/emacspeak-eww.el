@@ -660,7 +660,6 @@ Safari/537.36"
      ("p" emacspeak-eww-previous-element)
      ("s" eww-readable)
      ("t" emacspeak-eww-next-table)
-     ("M-t" emacspeak-eww-update-title)
      ("m" emacspeak-eww-add-mark)
      )
    do
@@ -1071,7 +1070,7 @@ Note that the Web browser should reset this hook after using it.")
 ;;{{{  Customize image loading:
 
 (defadvice eww-display-image (around emacspeak pre act comp)
-  "Dont load images if asked to inhibit them."
+  "Image inhibition"
   (unless emacspeak-eww-inhibit-images ad-do-it))
 
 ;;}}}
@@ -1944,15 +1943,6 @@ Warning, this is fragile, and depends on a stable id/class for the
 
 ;;}}}
 ;;{{{ Set title:
-
-(defun  emacspeak-eww-update-title  (title)
-  "Interactively set title --- renames buffer, and sets header-line."
-  (interactive "sTitle:")
-  (cl-declare (special header-line-format))
-  (rename-buffer title  'unique)
-  (setq header-line-format title)
-  (plist-put eww-data :title title)
-  (emacspeak-speak-header-line))
 
 ;;}}}
 ;;{{{ eww-marks:
