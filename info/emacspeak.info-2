@@ -12,25 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 6, 2021.
-
-
-File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
-
-12.100 emacspeak-ibuffer
-========================
-
-speech-enable ibuffer.el this is an alternative to buffer-menu
-
-12.100.1 Emacspeak-Ibuffer Commands
------------------------------------
-
-12.100.1.1 emacspeak-ibuffer-speak-buffer-line
-..............................................
-
- -- Command: emacspeak-ibuffer-speak-buffer-line
-
-     Speak information about this buffer
+last updated on July 7, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options

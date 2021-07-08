@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 148 options.
+This chapter documents a total of 1141 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -859,8 +859,7 @@ result.
 @findex dtk-toggle-splitting-on-white-space
 
 @format
-Toggle splitting of speech on white space.
-Split text  by clause boundaries, or also split on  whitespace.  
+Toggle splitting of speech on white space. 
 @end format
 @end deffn
 
@@ -4799,17 +4798,6 @@ Fill in user or passwd field using auth-source backend.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eww-google-knowledge-card
-@deffn {Command} emacspeak-eww-google-knowledge-card   
-@findex emacspeak-eww-google-knowledge-card
-
-@format
-Show just the knowledge card.
-Warning, this is fragile, and depends on a stable id/class for the
-  knowledge card.
-@end format
-@end deffn
-
 @subsubsection emacspeak-eww-links-rel
 @deffn {Command} emacspeak-eww-links-rel   
 @findex emacspeak-eww-links-rel
@@ -4843,7 +4831,7 @@ Save Emacspeak EWW marks.
 @findex emacspeak-eww-masquerade
 
 @format
-Toggle masquerade state.
+Toggle masquerade.
 @end format
 @end deffn
 
@@ -5119,7 +5107,7 @@ arg ‘delete’, delete that mark instead.
 
 @format
 Play media url under point.
-Optional interactive prefix arg ‘playlist-p’ says to treat the
+Optional interactive prefix arg ‘playlist-p’ treats
  link as a playlist.  A second interactive prefix arg adds
  mplayer option -allow-dangerous-playlist-parsing
 
@@ -5525,17 +5513,6 @@ Speak number of rows and cells.
 
 @format
 Display tags at point.
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-update-title
-@deffn {Command} emacspeak-eww-update-title  (title)
-@findex emacspeak-eww-update-title
-
-@format
-Interactively set title --- renames buffer, and sets header-line.
-
-(fn TITLE)
 @end format
 @end deffn
 
