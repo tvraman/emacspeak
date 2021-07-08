@@ -1916,9 +1916,6 @@ The %s is automatically spoken if there is no user activity."
      (t ad-do-it))))
 
 ;;}}}
-;;{{{ Set title:
-
-;;}}}
 ;;{{{ eww-marks:
 
 ;;; Bookmarks for use in reading ebooks with EWW:
