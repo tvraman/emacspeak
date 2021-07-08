@@ -1303,7 +1303,7 @@ dates.")
    (t (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce t)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry
        emacspeak-pronounce-date-mm-dd-yyyy-pattern
-       (cons 're-search-forward
+       (cons #'re-search-forward
              'emacspeak-pronounce-mm-dd-yyyy-date))))
   (message "Will %s pronounce mm-dd-yyyy date strings in
   English."
