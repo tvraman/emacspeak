@@ -77,7 +77,7 @@
 
 (defun emacspeak-calendar-entry-marked-p()
   "Check if diary entry is marked. "
-  (member 'diary
+  (memq 'diary
           (delq nil
                 (mapcar
                  #'(lambda (overlay)
