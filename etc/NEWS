@@ -23,6 +23,11 @@ Speech-enable the elisp side of Emacs Application Framework
 
    Theme ~pan-chimes~ updated for better headphone listening.
 
+** Updated Transient Support
+
+   Transient support has been updated to avoid chatter.
+   
+   
 ** Speech-Enabled CalibreDB Mode
 
    Module ~emacspeak-calibredb~ speech-enables ~calibredb~, a
