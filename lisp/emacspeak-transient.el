@@ -216,11 +216,13 @@ Press `C-c' to resume the suspended transient."
      "speak selected button"
      (cond
       ((ems-interactive-p)
-       (let ((dtk-quiet t))
-         ad-do-it)
-       (with-current-buffer  (window-buffer  transient--window)
-         (emacspeak-speak-line)
-         (emacspeak-auditory-icon 'large-movement)))
+       ad-do-it
+       (with-current-buffer (window-buffer transient--window)
+         (when-let ((button (button-at (point)))
+                    (start (button-start button))
+                    (end (button-end button)))
+           (dtk-speak (buffer-substring start end))
+           (emacspeak-auditory-icon 'button))))
       (t ad-do-it))
      ad-return-value)))
 
