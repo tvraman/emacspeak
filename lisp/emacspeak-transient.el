@@ -142,14 +142,13 @@
 
 (cl-loop
  for f in
- '(transient-history-next
-   transient-history-prev)
+ '(transient-history-next transient-history-prev)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (dtk-stop)
+       (dtk-speak-list (minibuffer-contents))
        (emacspeak-auditory-icon 'select-object)))))
 
 (define-derived-mode emacspeak-transient-mode special-mode
