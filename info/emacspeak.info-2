@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 7, 2021.
+last updated on July 10, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -2194,13 +2194,17 @@ http://orgmode.org/
 12.134.1.1 emacspeak-org-capture-link
 .....................................
 
- -- Command: emacspeak-org-capture-link
+ -- Command: emacspeak-org-capture-link (&optional open)
      ‘C-; h’
      ‘C-x @ h h’
 
      Capture hyperlink to current context.
-     To use this command, first  do ‘customize-variable’ ‘org-capture-template’
-     and assign  letter ‘h’ to a template that creates the hyperlink on capture.
+     To use this command, first do ‘customize-variable’
+     ‘org-capture-template’ and assign letter ‘h’ to a template that
+     creates the hyperlink on capture.  Optional interactive prefix
+     arg just opens the file
+
+     (fn &optional OPEN)
 
 12.134.1.2 emacspeak-org-popup-input
 ....................................
@@ -5428,16 +5432,27 @@ invoked via a sequence of keys.  It is used by Magit for dispatching to
 the various Git commands.  Speech-enabling package Transient results in
 the various interactive commands producing auditory feedback.  Transient
 shows an ephemeral window with the currently available commands,
-Emacspeak speech-enables transient–show to speak that content.
+Emacspeak speech-enables transient–show to cache that content so it can
+be browsed if desired.
 
    Finally, this module defines a new minor mode called
 transient-emacspeak that enables interactive browsing of the contents
 displayed temporarily.  Note that without this functionality, learning
 complex packages like Magit would be difficult because the list of
-available commands (potentially very long) gets spoken in its entirety
-by the advice on transient–show.
+available commands can be very long.
 
-12.193.2 Browsing Contents Of transient–show
+12.193.2 Recommended Customizations
+-----------------------------------
+
+I use the following customizations via .custom, adjust to taste, but use
+these only after reading the transient info documentations.
+   • transient-show-popup: 1
+   • transient-enable-popup-navigation t
+
+   this pops up the transient buffer after a short delay and lets you
+move through the buttons with the up/down arrows.
+
+12.193.3 Browsing Contents Of transient–show
 --------------------------------------------
 
 When executing a command defined via Transient — e.g.  command
@@ -5447,10 +5462,10 @@ displays a *transient-emacspeak* buffer that displays the contents of
 the most recently displayed transient choices.  Pressing ‘C-c’ resumes
 the transient; Pressing ‘C-q’ quits the transient.
 
-12.193.3 Emacspeak-Transient Commands
+12.193.4 Emacspeak-Transient Commands
 -------------------------------------
 
-12.193.3.1 emacspeak-transient-mode
+12.193.4.1 emacspeak-transient-mode
 ...................................
 
  -- Command: emacspeak-transient-mode

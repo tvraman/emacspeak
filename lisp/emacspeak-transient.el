@@ -45,32 +45,41 @@
 ;;; This module speech-enables transient.
 
 ;;; @subsection Introduction
-;;; 
-;;; Package Transient is similar to package Hydra in the sense that it can
-;;; be used to create a sequence of chained/hierarchical commands that are
-;;; invoked via a sequence of keys. It is used by Magit for dispatching to
-;;; the various Git commands.
-;;; Speech-enabling package Transient results in the various interactive
-;;; commands producing auditory feedback. Transient
-;;;shows an ephemeral window with the currently available commands,
-;;; Emacspeak speech-enables transient--show to speak that content.
-;;; 
+;;;
+;;; Package Transient is similar to package Hydra in the sense that it
+;;; can be used to create a sequence of chained/hierarchical commands
+;;; that are invoked via a sequence of keys. It is used by Magit for
+;;; dispatching to the various Git commands.  Speech-enabling package
+;;; Transient results in the various interactive commands producing
+;;; auditory feedback. Transient shows an ephemeral window with the
+;;; currently available commands, Emacspeak speech-enables
+;;; transient--show to cache that content so it can be browsed if
+;;; desired.
+;;;
 ;;; Finally, this module defines a new minor mode called
 ;;; transient-emacspeak  that  enables  interactive browsing of the
 ;;; contents displayed temporarily. Note that without this
 ;;; functionality, learning complex packages like Magit would be difficult
-;;; because  the list of available commands (potentially very long) gets
-;;; spoken in its entirety by the advice on transient--show.
-;;; 
+;;; because  the list of available commands can be very long.
+;;; @subsection Recommended Customizations
+;;; I use the following customizations via .custom, adjust to taste,
+;;;but use these only after reading the transient info documentations.
+;;; @itemize
+;;; @item  transient-show-popup:  1
+;;; @item transient-enable-popup-navigation t
+;;;@end itemize
+;;;
+;;; this pops up the transient buffer after a short delay  and lets
+;;;you move through the buttons with the    up/down arrows. 
 ;;; @subsection Browsing Contents Of transient--show
-;;; 
+;;;
 ;;; When executing a command defined via Transient --- e.g. command
 ;;; Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
 ;;; temporarily suspend   the currently active transient. Emacspeak now
 ;;; displays a  *transient-emacspeak* buffer that displays the contents of the
 ;;; most recently displayed transient choices. Pressing @kbd {C-c} resumes
 ;;; the transient; Pressing @kbd{C-q} quits the transient.
-;;; 
+;;;
 ;;; Code:
 
 ;;}}}
@@ -83,10 +92,9 @@
 ;;}}}
 ;;{{{Map Faces:
 
-(voice-setup-set-voice-for-face 'transient-separator  'inaudible)
-
-(voice-setup-add-map 
+(voice-setup-add-map
  '(
+   (transient-separator  'inaudible)
    (transient-argument voice-animate)
    (transient-disabled-suffix inaudible)
    (transient-enabled-suffix voice-brighten)
@@ -163,7 +171,7 @@
   "Cache of the last Transient buffer contents.")
 
 (defadvice transient--show (after emacspeak pre act comp)
-  "speak."
+  "Setq up cache."
   (when (window-live-p transient--window)
     (with-current-buffer (window-buffer transient--window)
       (setq emacspeak-transient-cache
@@ -208,7 +216,7 @@ Press `C-c' to resume the suspended transient."
 ;;}}}
 ;;{{{Advice transient navigation:
 (cl-loop
- for f in 
+ for f in
  '(transient-backward-button transient-forward-button)
  do
  (eval
@@ -225,8 +233,6 @@ Press `C-c' to resume the suspended transient."
            (emacspeak-auditory-icon 'button))))
       (t ad-do-it))
      ad-return-value)))
-
-
 
 ;;}}}
 (provide 'emacspeak-transient)
