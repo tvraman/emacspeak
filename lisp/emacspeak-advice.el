@@ -709,7 +709,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (tts-with-punctuations 'all
-         (emacspeak-speak-current-field))))))
+         (dtk-speak (minibuffer-contents)))))))
 
 (defvar emacspeak-last-message nil
   "Last output from `message'.")
