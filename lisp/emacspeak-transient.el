@@ -106,7 +106,13 @@
    (transient-nonstandard-key voice-monotone-extra)
    (transient-unreachable voice-monotone-extra)
    (transient-unreachable-key voice-monotone-extra)
-   (transient-value voice-brighten)))
+   (transient-value voice-brighten)
+   (transient-red voice-bolden)
+   (transient-blue voice-lighten)
+   (transient-amaranth voice-animate)
+   (transient-pink voice-bolden-medium)
+   (transient-teal voice-lighten-medium)))
+
 ;;}}}
 ;;{{{ Advice Interactive Commands:
 
