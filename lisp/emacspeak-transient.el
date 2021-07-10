@@ -88,11 +88,11 @@
 (voice-setup-add-map 
  '(
    (transient-argument voice-animate)
-   (transient-disabled-suffix voice-smoothen)
+   (transient-disabled-suffix inaudible)
    (transient-enabled-suffix voice-brighten)
    (transient-heading voice-bolden)
-   (transient-inactive-argument voice-smoothen-extra)
-   (transient-inactive-value voice-smoothen-extra)
+   (transient-inactive-argument inaudible)
+   (transient-inactive-value inaudible)
    (transient-key voice-animate)
    (transient-mismatched-key voice-monotone-extra)
    (transient-nonstandard-key voice-monotone-extra)
@@ -168,8 +168,7 @@
     (with-current-buffer (window-buffer transient--window)
       (setq emacspeak-transient-cache
             (buffer-substring (point-min)  (point-max)))
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-buffer))))
+      (emacspeak-auditory-icon 'open-object))))
 
 (defadvice transient-suspend (around emacspeak pre act comp)
   "Pop to *Transient-emacspeak* buffer where the message emitted by
@@ -205,6 +204,27 @@ Press `C-c' to resume the suspended transient."
     (emacspeak-speak-mode-line)))
 
 (add-hook 'post-transient-hook 'emacspeak-transient-post-hook)
+
+;;}}}
+;;{{{Advice transient navigation:
+(cl-loop
+ for f in 
+ '(transient-backward-button transient-forward-button)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "speak selected button"
+     (cond
+      ((ems-interactive-p)
+       (let ((dtk-quiet t))
+         ad-do-it)
+       (with-current-buffer  (window-buffer  transient--window)
+         (emacspeak-speak-line)
+         (emacspeak-auditory-icon 'large-movement)))
+      (t ad-do-it))
+     ad-return-value)))
+
+
 
 ;;}}}
 (provide 'emacspeak-transient)
