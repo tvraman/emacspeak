@@ -196,6 +196,7 @@
 (cl-loop
  for f in
  '(
+   magit-section-show-children magit-section-show-headings
    magit-show-commit
    magit-section-show-level-1  magit-section-show-level-2
    magit-section-show-level-3 magit-section-show-level-4
@@ -206,13 +207,17 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
-     (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-auditory-icon 'open-object))))
+
+(defadvice magit-section-hide (after emacspeak pre act comp)
+  "Icon."
+    (emacspeak-auditory-icon 'close-object))
+
 (defadvice magit-section-cycle-global (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-speak "Cycling global visibility of sections")))
+    (dtk-notify "Cycling global visibility of sections")))
 
 (cl-loop
  for f in
