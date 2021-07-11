@@ -12,13 +12,13 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 10, 2021.
+last updated on July 11, 2021.
 
 
 Indirect:
 emacspeak.info-1: 429
 emacspeak.info-2: 300714
-emacspeak.info-3: 601105
+emacspeak.info-3: 600539
 
 Tag Table:
 (Indirect)
@@ -260,91 +260,91 @@ Node: emacspeak-smartparens390065
 Node: emacspeak-solitaire390579
 Node: emacspeak-sounds391735
 Node: emacspeak-speak393162
-Node: emacspeak-speedbar425776
-Node: emacspeak-sql426773
-Node: emacspeak-sudoku427167
-Node: emacspeak-supercite432474
-Node: emacspeak-syslog432694
-Node: emacspeak-tab-bar432972
-Node: emacspeak-table433403
-Node: emacspeak-table-ui433672
-Node: emacspeak-tabulate450533
-Node: emacspeak-tapestry450839
-Node: emacspeak-tar452345
-Node: emacspeak-tcl453143
-Node: emacspeak-tempo453354
-Node: emacspeak-tetris453730
-Node: emacspeak-texinfo455972
-Node: emacspeak-threes456205
-Node: emacspeak-tide459667
-Node: emacspeak-todo-mode459943
-Node: emacspeak-transient460274
-Node: emacspeak-twittering462887
-Node: emacspeak-typo464279
-Node: emacspeak-url-template464623
-Node: emacspeak-vdiff466896
-Node: emacspeak-vertico468260
-Node: emacspeak-view468567
-Node: emacspeak-vm469010
-Node: emacspeak-vterm471643
-Node: emacspeak-vuiet472165
-Node: emacspeak-wdired472669
-Node: emacspeak-we472919
-Node: emacspeak-websearch486474
-Node: emacspeak-webspace490725
-Node: emacspeak-widget493552
-Node: emacspeak-windmove495046
-Node: emacspeak-winring495352
-Node: emacspeak-wizards495782
-Node: emacspeak-woman532112
-Node: emacspeak-xkcd532339
-Node: emacspeak-xref532935
-Node: emacspeak-xslt533211
-Node: emacspeak-yaml534543
-Node: emacspeak-yasnippet534798
-Node: espeak-voices535040
-Node: extra-muggles535646
-Node: g-utils548267
-Node: gm-nnir549112
-Node: gmaps549747
-Node: ladspa554937
-Node: mac-voices556653
-Node: outloud-voices557026
-Node: plain-voices557657
-Node: soundscape558012
-Node: sox561882
-Node: sox-gen564587
-Node: tetris570835
-Node: toy-braille570976
-Node: voice-defs571817
-Node: voice-setup576092
-Node: xbacklight580456
-Node: URL Templates581550
-Node: Emacspeak Keyboard Commands587113
-Node: TTS Servers589171
-Node: Emacspeak At Twenty595399
-Node: Turning Twenty597102
-Node: Using UNIX With Speech Output --- 1994597790
-Node: Key Enabler --- Emacs And Lisp Advice599631
-Node: Key Component --- Text To Speech (TTS)601105
-Node: Emacspeak And Software Development603649
-Node: Programming Defensively606265
-Node: Emacspeak And Authoring Documents607524
-Node: Emacspeak And The Early Days Of The Web609099
-Node: Audio Formatting --- Generalizing Aural CSS612547
-Node: Conversational Gestures For The Audio Desktop615615
-Node: Speech-Enabling Interactive Games618970
-Node: Accessing Media Streams620747
-Node: EBooks --- Ubiquitous Access To Books622854
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks625402
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols627268
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access630750
-Node: Mashing It Up --- Leveraging Evolving Web APIs634294
-Node: Conclusion --- Turning Twenty636799
-Node: References638181
-Node: Acknowledgments639111
-Node: Concept Index639267
-Node: Key Index642910
+Node: emacspeak-speedbar425792
+Node: emacspeak-sql426789
+Node: emacspeak-sudoku427183
+Node: emacspeak-supercite432490
+Node: emacspeak-syslog432710
+Node: emacspeak-tab-bar432988
+Node: emacspeak-table433419
+Node: emacspeak-table-ui433688
+Node: emacspeak-tabulate450549
+Node: emacspeak-tapestry450855
+Node: emacspeak-tar452361
+Node: emacspeak-tcl453159
+Node: emacspeak-tempo453370
+Node: emacspeak-tetris453746
+Node: emacspeak-texinfo455988
+Node: emacspeak-threes456221
+Node: emacspeak-tide459683
+Node: emacspeak-todo-mode459959
+Node: emacspeak-transient460290
+Node: emacspeak-twittering463366
+Node: emacspeak-typo464758
+Node: emacspeak-url-template465102
+Node: emacspeak-vdiff467375
+Node: emacspeak-vertico468739
+Node: emacspeak-view469046
+Node: emacspeak-vm469489
+Node: emacspeak-vterm472122
+Node: emacspeak-vuiet472644
+Node: emacspeak-wdired473148
+Node: emacspeak-we473398
+Node: emacspeak-websearch486953
+Node: emacspeak-webspace491204
+Node: emacspeak-widget494031
+Node: emacspeak-windmove495525
+Node: emacspeak-winring495831
+Node: emacspeak-wizards496261
+Node: emacspeak-woman532591
+Node: emacspeak-xkcd532818
+Node: emacspeak-xref533414
+Node: emacspeak-xslt533690
+Node: emacspeak-yaml535022
+Node: emacspeak-yasnippet535277
+Node: espeak-voices535519
+Node: extra-muggles536125
+Node: g-utils548746
+Node: gm-nnir549591
+Node: gmaps550226
+Node: ladspa555416
+Node: mac-voices557132
+Node: outloud-voices557505
+Node: plain-voices558136
+Node: soundscape558491
+Node: sox562361
+Node: sox-gen565066
+Node: tetris571314
+Node: toy-braille571455
+Node: voice-defs572296
+Node: voice-setup576571
+Node: xbacklight580935
+Node: URL Templates582029
+Node: Emacspeak Keyboard Commands587592
+Node: TTS Servers589650
+Node: Emacspeak At Twenty595878
+Node: Turning Twenty597581
+Node: Using UNIX With Speech Output --- 1994598269
+Node: Key Enabler --- Emacs And Lisp Advice600539
+Node: Key Component --- Text To Speech (TTS)601584
+Node: Emacspeak And Software Development604128
+Node: Programming Defensively606744
+Node: Emacspeak And Authoring Documents608003
+Node: Emacspeak And The Early Days Of The Web609578
+Node: Audio Formatting --- Generalizing Aural CSS613026
+Node: Conversational Gestures For The Audio Desktop616094
+Node: Speech-Enabling Interactive Games619449
+Node: Accessing Media Streams621226
+Node: EBooks --- Ubiquitous Access To Books623333
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks625881
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols627747
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access631229
+Node: Mashing It Up --- Leveraging Evolving Web APIs634773
+Node: Conclusion --- Turning Twenty637278
+Node: References638660
+Node: Acknowledgments639590
+Node: Concept Index639746
+Node: Key Index643389
 
 End Tag Table
 

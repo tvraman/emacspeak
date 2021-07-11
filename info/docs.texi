@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1141 commands and 148 options.
+This chapter documents a total of 1143 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -11232,7 +11232,7 @@ Move to and speak next field.
 @findex emacspeak-speak-next-personality-chunk
 
 @format
-Moves to the front of next personality change and speak it. 
+Moves to the front of next personality or face change and speak it. 
 @end format
 @end deffn
 
@@ -11640,7 +11640,7 @@ Spell word at  point.
 @findex emacspeak-speak-this-personality-chunk
 
 @format
-Speak chunk of text having personality at  point.
+Speak chunk of text having personality or face at  point.
 @end format
 @end deffn
 
@@ -13598,7 +13598,7 @@ I use the following customizations via .custom, adjust to taste,
 but use these only after reading the transient info documentations.
 @itemize
 @item transient-force-single-column: t
-@item  transient-show-popup:  nil
+@item  transient-show-popup:  1
 @item transient-enable-popup-navigation:  t
 @end itemize
 
@@ -13629,6 +13629,29 @@ final or penultimate step during initialization.
 key             binding
 ---             -------
 
+ESC		Prefix Command
+
+M-n		emacspeak-transient-next-section
+M-p		emacspeak-transient-previous-section
+
+@end format
+@end deffn
+
+@subsubsection emacspeak-transient-next-section
+@deffn {Command} emacspeak-transient-next-section   
+@findex emacspeak-transient-next-section
+
+@format
+Next transient section.
+@end format
+@end deffn
+
+@subsubsection emacspeak-transient-previous-section
+@deffn {Command} emacspeak-transient-previous-section   
+@findex emacspeak-transient-previous-section
+
+@format
+Previous transient section.
 @end format
 @end deffn
 

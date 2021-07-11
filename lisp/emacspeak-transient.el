@@ -173,7 +173,6 @@
   (use-local-map transient-sticky-map)
   (local-set-key "q" 'bury-buffer)
   (local-set-key (ems-kbd "C-c") 'transient-resume))
-
 (defvar emacspeak-transient-cache nil
   "Cache of the last Transient buffer contents.")
 
@@ -252,27 +251,28 @@ Press `C-c' to resume the suspended transient."
   "Previous transient section."
   (interactive)
   (emacspeak-speak-previous-block 'transient-heading))
+(defun emacspeak-transient-setup ()
+  "Emacspeak Transient Customizations"
+  (cl-declare (special transient-enable-popup-navigation emacspeak-transient-mode-map
+                       transient-popup-navigation-map
+                       transient-predicate-map))
+  (when (keymapp emacspeak-transient-mode-map)
+    (define-key emacspeak-transient-mode-map (ems-kbd "M-n") 'emacspeak-transient-next-section)
+    (define-key emacspeak-transient-mode-map (ems-kbd "M-p") 'emacspeak-transient-previous-section))
+  (setq transient-enable-popup-navigation t)
+  (when (keymapp transient-predicate-map)
+    (define-key transient-predicate-map
+      [emacspeak-transient-next-section]  'transient--do-move)
+    (define-key transient-predicate-map
+      [emacspeak-transient-previous-section]    'transient--do-move))
+  (when  (keymapp transient-popup-navigation-map)
+    (define-key transient-popup-navigation-map (ems-kbd "<LEFT>")
+      'emacspeak-transient-previous-section)
+    (define-key transient-popup-navigation-map (ems-kbd "<RIGHT>")
+      'emacspeak-transient-next-section)))
+(emacspeak-transient-setup)
 
-(cl-declaim (special transient-enable-popup-navigation))
-(setq transient-enable-popup-navigation t)
-(cl-declaim (special transient-predicate-map))
-(when (keymapp transient-predicate-map)
-  (define-key transient-predicate-map [emacspeak-transient-next-section]  'transient--do-move)
-  
-  (define-key transient-predicate-map [emacspeak-transient-previous-section]    'transient--do-move)
-  (define-key transient-predicate-map
-    [emacspeak-transient-previous-section]  'transient--do-move))
-
-(cl-declaim (special transient-popup-navigation-map))
-
-(when (keymapp transient-popup-navigation-map)
-  (define-key transient-popup-navigation-map (ems-kbd "<LEFT>")
-    'emacspeak-transient-previous-section)
-  (define-key transient-popup-navigation-map (ems-kbd "<RIGHT>")
-  'emacspeak-transient-next-section))
-
-
-;;}}}
+;;}}})
 (provide 'emacspeak-transient)
 ;;{{{ end of file
 
