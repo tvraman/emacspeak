@@ -171,8 +171,11 @@
   "emacspeak integration with Transient."
   (cl-declare (special transient-sticky-map))
   (use-local-map transient-sticky-map)
+  (local-set-key (ems-kbd "M-n") 'emacspeak-transient-next-section)
+  (local-set-key (ems-kbd "M-p") 'emacspeak-transient-previous-section)
   (local-set-key "q" 'bury-buffer)
   (local-set-key (ems-kbd "C-c") 'transient-resume))
+
 (defvar emacspeak-transient-cache nil
   "Cache of the last Transient buffer contents.")
 
@@ -253,12 +256,9 @@ Press `C-c' to resume the suspended transient."
   (emacspeak-speak-previous-block 'transient-heading))
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
-  (cl-declare (special transient-enable-popup-navigation emacspeak-transient-mode-map
+  (cl-declare (special transient-enable-popup-navigation 
                        transient-popup-navigation-map
                        transient-predicate-map))
-  (when (keymapp emacspeak-transient-mode-map)
-    (define-key emacspeak-transient-mode-map (ems-kbd "M-n") 'emacspeak-transient-next-section)
-    (define-key emacspeak-transient-mode-map (ems-kbd "M-p") 'emacspeak-transient-previous-section))
   (setq transient-enable-popup-navigation t)
   (when (keymapp transient-predicate-map)
     (define-key transient-predicate-map
