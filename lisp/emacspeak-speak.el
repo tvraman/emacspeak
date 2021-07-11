@@ -1932,7 +1932,7 @@ location of the mark is indicated by an aural highlight. "
 ;;{{{ speaking personality chunks
 
 (defun emacspeak-speak-this-personality-chunk ()
-  "Speak chunk of text having personality at  point."
+  "Speak chunk of text having personality or face at  point."
   (interactive)
   (let ((start (dtk-previous-style-change (point)))
         (end (dtk-next-style-change (point))))
@@ -1941,8 +1941,8 @@ location of the mark is indicated by an aural highlight. "
      (or  end  (point-max)))))
 
 (defun emacspeak-speak-next-personality-chunk ()
-  "Moves to the front of next personality change and speak it. "
-  (interactive)
+  "Moves to the front of next personality or face change and speak it. "
+  (interactive )
   (let ((this-end (dtk-next-style-change (point) (point-max)))
         (next-start nil))
     (cond
@@ -1962,6 +1962,40 @@ location of the mark is indicated by an aural highlight. "
            (goto-char (dtk-previous-style-change (1- this-start))))
       (emacspeak-speak-this-personality-chunk))
      (t (error "did not move")))))
+
+;;; Block navigation
+(defun emacspeak-speak-next-block (this-face)
+  "Move to  front of next block having face `face'."
+  (let (this-end next-start)
+    (when (or
+           (null (get-text-property (point) 'face))
+           (eq this-face (get-text-property (point) 'face))) 
+      (setq this-end (next-single-property-change (point) 'face))
+      (cl-assert  this-end  t "Last block"))
+    (goto-char this-end)
+    (while (not (eq this-face (get-text-property (point) 'face)))
+      (setq next-start (next-single-property-change (point) 'face))
+      (cl-assert  next-start  t "Last block")
+      (goto-char next-start))
+    (forward-char 1)
+    (emacspeak-speak-this-personality-chunk)))
+
+(defun emacspeak-speak-previous-block (this-face)
+  "Move to  front of previous block having face `face'."
+  (let ((this-end nil)
+        (next-start nil))
+    (when
+        (or
+         (null (get-text-property (point) 'face))
+         (eq this-face (get-text-property (point) 'face))) 
+      (setq this-end (previous-single-property-change (point) 'face))
+      (cl-assert  this-end  t "First block"))
+    (goto-char this-end)
+    (while (not (eq this-face (get-text-property (point) 'face)))
+      (setq next-start (previous-single-property-change (point) 'face))
+      (cl-assert  next-start  t "First block")
+      (goto-char next-start))
+    (emacspeak-speak-this-personality-chunk)))
 
 ;;}}}
 ;;{{{  Execute command repeatedly:
