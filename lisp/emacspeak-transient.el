@@ -242,6 +242,37 @@ Press `C-c' to resume the suspended transient."
      ad-return-value)))
 
 ;;}}}
+;;{{{Enable And Customize Transient Navigation:
+(defun emacspeak-transient-next-section ()
+  "Next transient section."
+  (interactive)
+  (emacspeak-speak-next-block 'transient-heading))
+
+(defun emacspeak-transient-previous-section ()
+  "Previous transient section."
+  (interactive)
+  (emacspeak-speak-previous-block 'transient-heading))
+
+(cl-declaim (special transient-enable-popup-navigation))
+(setq transient-enable-popup-navigation t)
+(cl-declaim (special transient-predicate-map))
+(when (keymapp transient-predicate-map)
+  (define-key transient-predicate-map [emacspeak-transient-next-section]  'transient--do-move)
+  
+  (define-key transient-predicate-map [emacspeak-transient-previous-section]    'transient--do-move)
+  (define-key transient-predicate-map
+    [emacspeak-transient-previous-section]  'transient--do-move))
+
+(cl-declaim (special transient-popup-navigation-map))
+
+(when (keymapp transient-popup-navigation-map)
+  (define-key transient-popup-navigation-map (ems-kbd "<LEFT>")
+    'emacspeak-transient-previous-section)
+  (define-key transient-popup-navigation-map (ems-kbd "<RIGHT>")
+  'emacspeak-transient-next-section))
+
+
+;;}}}
 (provide 'emacspeak-transient)
 ;;{{{ end of file
 
