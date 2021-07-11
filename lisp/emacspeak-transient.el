@@ -65,9 +65,9 @@
 ;;; I use the following customizations via .custom, adjust to taste,
 ;;;but use these only after reading the transient info documentations.
 ;;; @itemize
-;;;@item transient-force-single-column t
-;;; @item  transient-show-popup:  1
-;;; @item transient-enable-popup-navigation t
+;;;@item transient-force-single-column: t
+;;; @item  transient-show-popup:  nil
+;;; @item transient-enable-popup-navigation:  t
 ;;;@end itemize
 ;;;
 ;;; this pops up the transient buffer after a short delay  and lets

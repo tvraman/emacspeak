@@ -5446,8 +5446,9 @@ available commands can be very long.
 
 I use the following customizations via .custom, adjust to taste, but use
 these only after reading the transient info documentations.
-   • transient-show-popup: 1
-   • transient-enable-popup-navigation t
+   • transient-force-single-column: t
+   • transient-show-popup: nil
+   • transient-enable-popup-navigation: t
 
    this pops up the transient buffer after a short delay and lets you
 move through the buttons with the up/down arrows.
