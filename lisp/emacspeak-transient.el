@@ -65,6 +65,7 @@
 ;;; I use the following customizations via .custom, adjust to taste,
 ;;;but use these only after reading the transient info documentations.
 ;;; @itemize
+;;;@item transient-force-single-column t
 ;;; @item  transient-show-popup:  1
 ;;; @item transient-enable-popup-navigation t
 ;;;@end itemize
