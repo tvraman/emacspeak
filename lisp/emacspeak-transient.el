@@ -221,8 +221,7 @@ Press `C-c' to resume the suspended transient."
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
-(add-hook 'post-transient-hook 'emacspeak-transient-post-hook)
-
+(add-hook 'transient-exit-hook 'emacspeak-transient-post-hook)
 ;;}}}
 ;;{{{Advice transient navigation:
 (cl-loop
@@ -246,41 +245,18 @@ Press `C-c' to resume the suspended transient."
 
 ;;}}}
 ;;{{{Enable And Customize Transient Navigation:
-(defun emacspeak-transient-next-section ()
-  "Next transient section."
-  (interactive)
-  (with-current-buffer (window-buffer  transient--window)
-    (emacspeak-speak-next-block 'transient-heading)
-    (point)))
-
-(defun emacspeak-transient-previous-section ()
-  "Previous transient section."
-  (interactive)
-  (with-current-buffer (window-buffer transient--window)
-    (emacspeak-speak-previous-block 'transient-heading)
-    (point)))
 
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
-  (cl-declare (special transient-enable-popup-navigation 
-                       transient-popup-navigation-map
-                       transient-predicate-map))
+  (cl-declare (special transient-enable-popup-navigation
+                       emacspeak-prefix 
+                       transient-popup-navigation-map transient-predicate-map))
   (setq transient-enable-popup-navigation t)
   (when (keymapp transient-predicate-map)
-    (define-key transient-predicate-map
-      [right-char]  'transient--do-move)
-    (define-key transient-predicate-map
-      [left-char]    'transient--do-move)
-    (define-key transient-predicate-map
-      [emacspeak-transient-next-section]  'transient--do-move)
-    (define-key transient-predicate-map
-      [emacspeak-transient-previous-section]    'transient--do-move)
-    )
+    (define-key transient-predicate-map emacspeak-prefix  'transient--do-stay))
   (when  (keymapp transient-popup-navigation-map)
-    (define-key transient-popup-navigation-map (ems-kbd "<left>")
-      'emacspeak-transient-previous-section)
-    (define-key transient-popup-navigation-map (ems-kbd "<right>")
-      'emacspeak-transient-next-section)))
+    (define-key transient-popup-navigation-map
+      emacspeak-prefix 'emacspeak-prefix-command)))
 
 (emacspeak-transient-setup)
 
