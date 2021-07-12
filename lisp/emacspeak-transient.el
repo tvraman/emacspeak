@@ -90,6 +90,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'derived)
+(eval-when-compile (require 'transient nil 'noerror))
 ;;}}}
 ;;{{{Map Faces:
 
