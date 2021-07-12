@@ -250,13 +250,15 @@ Press `C-c' to resume the suspended transient."
   "Next transient section."
   (interactive)
   (with-selected-window transient--window
-      (emacspeak-speak-next-block 'transient-heading)))
+    (emacspeak-speak-next-block 'transient-heading)
+    (point)))
 
 (defun emacspeak-transient-previous-section ()
   "Previous transient section."
   (interactive)
   (with-selected-window transient--window
-    (emacspeak-speak-previous-block 'transient-heading)))
+    (emacspeak-speak-previous-block 'transient-heading)
+    (point)))
 
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
