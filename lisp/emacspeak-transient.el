@@ -265,14 +265,20 @@ Press `C-c' to resume the suspended transient."
     (define-key transient-predicate-map
       [right-char]  'transient--do-move)
     (define-key transient-predicate-map
-      [right-char]    'transient--do-move))
+      [left-char]    'transient--do-move)
+    (define-key transient-predicate-map
+      [emacspeak-transient-next-section]  'transient--do-move)
+    (define-key transient-predicate-map
+      [emacspeak-transient-previous-section]    'transient--do-move)
+    )
   (when  (keymapp transient-popup-navigation-map)
-    (define-key transient-popup-navigation-map (ems-kbd "<LEFT>")
+    (define-key transient-popup-navigation-map (ems-kbd "<left>")
       'emacspeak-transient-previous-section)
-    (define-key transient-popup-navigation-map (ems-kbd "<RIGHT>")
+    (define-key transient-popup-navigation-map (ems-kbd "<right>")
       'emacspeak-transient-next-section)))
 
 (emacspeak-transient-setup)
+
 
 ;;}}})
 (provide 'emacspeak-transient)
