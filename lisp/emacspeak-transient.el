@@ -249,12 +249,16 @@ Press `C-c' to resume the suspended transient."
 (defun emacspeak-transient-next-section ()
   "Next transient section."
   (interactive)
-  (emacspeak-speak-next-block 'transient-heading))
+  (with-current-buffer
+      (window-buffer transient--window)
+      (emacspeak-speak-next-block 'transient-heading)))
 
 (defun emacspeak-transient-previous-section ()
   "Previous transient section."
   (interactive)
-  (emacspeak-speak-previous-block 'transient-heading))
+  (with-current-buffer (window-buffer transient--window)
+    (emacspeak-speak-previous-block 'transient-heading)))
+
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
   (cl-declare (special transient-enable-popup-navigation 
