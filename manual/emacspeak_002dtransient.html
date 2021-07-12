@@ -77,17 +77,27 @@
   Speech-enabling package Transient results in the various
   interactive commands producing auditory feedback. Transient shows
   an ephemeral window with the currently available commands,
-  Emacspeak speech-enables transient–show to speak that
-  content.</p>
+  Emacspeak speech-enables transient–show to cache that content so
+  it can be browsed if desired.</p>
   <p>Finally, this module defines a new minor mode called
   transient-emacspeak that enables interactive browsing of the
   contents displayed temporarily. Note that without this
   functionality, learning complex packages like Magit would be
-  difficult because the list of available commands (potentially
-  very long) gets spoken in its entirety by the advice on
-  transient–show.</p><span id=
-  "Browsing-Contents-Of-transient_002d_002dshow"></span>
-  <h4 class="subsection">12.193.2 Browsing Contents Of
+  difficult because the list of available commands can be very
+  long.</p><span id="Recommended-Customizations"></span>
+  <h4 class="subsection">12.193.2 Recommended Customizations</h4>
+  <p>I use the following customizations via .custom, adjust to
+  taste, but use these only after reading the transient info
+  documentations.</p>
+  <ul>
+    <li>transient-force-single-column: t</li>
+    <li>transient-show-popup: 1</li>
+    <li>transient-enable-popup-navigation: t</li>
+  </ul>
+  <p>this pops up the transient buffer after a short delay and lets
+  you move through the buttons with the up/down
+  arrows.</p><span id="Browsing-Contents-Of-transient_002d_002dshow"></span>
+  <h4 class="subsection">12.193.3 Browsing Contents Of
   transient–show</h4>
   <p>When executing a command defined via Transient — e.g. command
   Magit-dispatch and friends, press <kbd>C-z</kbd>
@@ -97,9 +107,9 @@
   transient choices. Pressing <kbd>C-c</kbd> resumes the transient;
   Pressing <kbd>C-q</kbd> quits the transient.</p><span id=
   "Emacspeak_002dTransient-Commands"></span>
-  <h4 class="subsection">12.193.3 Emacspeak-Transient
+  <h4 class="subsection">12.193.4 Emacspeak-Transient
   Commands</h4><span id="emacspeak_002dtransient_002dmode"></span>
-  <h4 class="subsubsection">12.193.3.1
+  <h4 class="subsubsection">12.193.4.1
   emacspeak-transient-mode</h4>
   <dl>
     <dt id="index-emacspeak_002dtransient_002dmode">Command:
@@ -120,5 +130,17 @@ key             binding
       </div>
     </dd>
   </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dtwittering.html" accesskey="n"
+    rel="next">emacspeak-twittering</a>, Previous: <a href=
+    "emacspeak_002dtodo_002dmode.html" accesskey="p" rel=
+    "prev">emacspeak-todo-mode</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>
