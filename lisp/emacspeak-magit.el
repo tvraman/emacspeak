@@ -217,7 +217,7 @@
 (defadvice magit-section-cycle-global (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-notify-say "Cycling global visibility of sections")))
+    (dtk-notify-speak "Cycling global visibility of sections")))
 
 (cl-loop
  for f in
