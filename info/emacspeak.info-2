@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 11, 2021.
+last updated on July 12, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -5480,25 +5480,6 @@ the transient; Pressing ‘C-q’ quits the transient.
      key             binding
      —             ——-
 
-     ESC		Prefix Command
-
-     M-n		emacspeak-transient-next-section
-     M-p		emacspeak-transient-previous-section
-
-
-12.193.4.2 emacspeak-transient-next-section
-...........................................
-
- -- Command: emacspeak-transient-next-section
-
-     Next transient section.
-
-12.193.4.3 emacspeak-transient-previous-section
-...............................................
-
- -- Command: emacspeak-transient-previous-section
-
-     Previous transient section.
 
 
 File: emacspeak.info,  Node: emacspeak-twittering,  Next: emacspeak-typo,  Prev: emacspeak-transient,  Up: Emacspeak Commands And Options
@@ -10051,4 +10032,23 @@ Emacs anyway — why dont you just make it talk!
    Connecting the dots, I decided to write myself a tool that augmented
 Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
 of Emacspeak was up and running.
+
+
+File: emacspeak.info,  Node: Key Enabler --- Emacs And Lisp Advice,  Next: Key Component --- Text To Speech (TTS),  Prev: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
+
+15.3 Key Enabler — Emacs And Lisp Advice
+========================================
+
+It took me a couple of weeks to fully recognize the potential of what I
+had built with Emacs Lisp Advice.  Until then, I had used screen-readers
+to listen to the contents of the visual display — but Lisp Advice let me
+do a lot more — it enabled Emacspeak to generate highly context-specific
+spoken feedback, augmented by a set of auditory icons.  I later
+formalized this design under the name speech-enabled applications
+(http://en.wikipedia.org/wiki/Self-voicing).  For a detailed overview of
+the architecture of Emacspeak, see the chapter on Emacspeak
+(http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html)
+in the book Beautiful Code
+(http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
+from O’Reilly.
 

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 148 options.
+This chapter documents a total of 1141 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -13629,29 +13629,6 @@ final or penultimate step during initialization.
 key             binding
 ---             -------
 
-ESC		Prefix Command
-
-M-n		emacspeak-transient-next-section
-M-p		emacspeak-transient-previous-section
-
-@end format
-@end deffn
-
-@subsubsection emacspeak-transient-next-section
-@deffn {Command} emacspeak-transient-next-section   
-@findex emacspeak-transient-next-section
-
-@format
-Next transient section.
-@end format
-@end deffn
-
-@subsubsection emacspeak-transient-previous-section
-@deffn {Command} emacspeak-transient-previous-section   
-@findex emacspeak-transient-previous-section
-
-@format
-Previous transient section.
 @end format
 @end deffn
 
