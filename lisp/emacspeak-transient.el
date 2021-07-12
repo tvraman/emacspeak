@@ -211,6 +211,22 @@ Press `C-c' to resume the suspended transient."
   ad-return-value)
 
 ;;}}}
+;;{{{section nav:
+
+(defun emacspeak-transient-next-section ()
+  "Next transient section."
+  (interactive)
+  (emacspeak-speak-next-block 'transient-heading)
+  (emacspeak-auditory-icon 'large-movement))
+
+(defun emacspeak-transient-previous-section ()
+  "Previous transient section."
+  (interactive)
+  (emacspeak-speak-previous-block 'transient-heading)
+  (emacspeak-auditory-icon 'large-movement))
+
+;;}}}
+
 ;;{{{Hooks:
 
 (defun emacspeak-transient-post-hook ()
