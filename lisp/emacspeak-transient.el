@@ -248,15 +248,8 @@ Press `C-c' to resume the suspended transient."
 
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
-  (cl-declare (special transient-enable-popup-navigation
-                       emacspeak-prefix 
-                       transient-popup-navigation-map transient-predicate-map))
-  (setq transient-enable-popup-navigation t)
-  (when (keymapp transient-predicate-map)
-    (define-key transient-predicate-map emacspeak-prefix  'transient--do-stay))
-  (when  (keymapp transient-popup-navigation-map)
-    (define-key transient-popup-navigation-map
-      emacspeak-prefix 'emacspeak-prefix-command)))
+  (cl-declare (special transient-enable-popup-navigation))
+  (setq transient-enable-popup-navigation t))
 
 (emacspeak-transient-setup)
 
