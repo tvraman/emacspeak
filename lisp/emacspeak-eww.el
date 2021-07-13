@@ -574,6 +574,7 @@ Safari/537.36"
                shr-inhibit-images emacspeak-eww-inhibit-images
                emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                emacspeak-eww-masquerade))
+  (load-library "emacspeak-pronounce")
   (emacspeak-pronounce-augment-pronunciations
    'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
   (emacspeak-pronounce-add-dictionary-entry
