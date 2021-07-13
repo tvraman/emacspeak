@@ -488,8 +488,7 @@ set tclTTS $servers/native-espeak
 load $tclTTS/tclespeak[info sharedlibextension]
 if {[file exists /proc/asound]} {
     set tts(play) /usr/bin/aplay
-} elseif {[info exists ::env(PULSE_SERVER)] && [file exists
-                                                /usr/bin/paplay]} {
+} elseif {[info exists ::env(PULSE_SERVER)] && [file exists /usr/bin/paplay]} {
 # WSLg and other systems with remote sound
     set tts(play) /usr/bin/paplay
 }
