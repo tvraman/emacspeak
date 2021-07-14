@@ -121,6 +121,11 @@ This moves them into the Spam folder."
 (when (keymapp emacspeak-ctl-z-keymap )
   
   (define-key emacspeak-ctl-z-keymap "u" 'tvr-unlock-xoauth))
+(setq mm-file-name-rewrite-functions
+                '(mm-file-name-trim-whitespace
+                  mm-file-name-collapse-whitespace
+                  mm-file-name-replace-whitespace))
+
 ;;{{{ Utils:
 
 (defun google-py-oauth2-cli (user app-secret)
