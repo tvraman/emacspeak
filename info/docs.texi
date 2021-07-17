@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1141 commands and 148 options.
+This chapter documents a total of 1143 commands and 148 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -3728,16 +3728,16 @@ Delete EPub under point.
 @end deffn
 
 @subsubsection emacspeak-epub-eww
-@deffn {Command} emacspeak-epub-eww  (epub-file &optional broken-ncx)
+@deffn {Command} emacspeak-epub-eww  (epub-file &optional use-ncx)
 @findex emacspeak-epub-eww
 
 @format
 Display entire book  using EWW from EPub.
-Uses content listed in toc.ncx or  equivalent by default.
-Interactive prefix arg broken-ncx asks to use the sorted list of html files
-in the epub file instead.
+Use content listed in toc.ncx  if prefix-arg use-ncx is true.
+Default is to  use   the sorted list of html files
+in the epub file.
 
-(fn EPUB-FILE &optional BROKEN-NCX)
+(fn EPUB-FILE &optional USE-NCX)
 @end format
 @end deffn
 
@@ -13629,6 +13629,24 @@ final or penultimate step during initialization.
 key             binding
 ---             -------
 
+@end format
+@end deffn
+
+@subsubsection emacspeak-transient-next-section
+@deffn {Command} emacspeak-transient-next-section   
+@findex emacspeak-transient-next-section
+
+@format
+Next transient section.
+@end format
+@end deffn
+
+@subsubsection emacspeak-transient-previous-section
+@deffn {Command} emacspeak-transient-previous-section   
+@findex emacspeak-transient-previous-section
+
+@format
+Previous transient section.
 @end format
 @end deffn
 

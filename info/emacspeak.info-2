@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 12, 2021.
+last updated on July 17, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -5480,6 +5480,20 @@ the transient; Pressing ‘C-q’ quits the transient.
      key             binding
      —             ——-
 
+
+12.193.4.2 emacspeak-transient-next-section
+...........................................
+
+ -- Command: emacspeak-transient-next-section
+
+     Next transient section.
+
+12.193.4.3 emacspeak-transient-previous-section
+...............................................
+
+ -- Command: emacspeak-transient-previous-section
+
+     Previous transient section.
 
 
 File: emacspeak.info,  Node: emacspeak-twittering,  Next: emacspeak-typo,  Prev: emacspeak-transient,  Up: Emacspeak Commands And Options

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 12, 2021.
+last updated on July 17, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1141 commands and 148 options.
+   This chapter documents a total of 1143 commands and 148 options.
 
 * Menu:
 
@@ -6106,14 +6106,14 @@ quick summary of commands for
 12.66.3.22 emacspeak-epub-eww
 .............................
 
- -- Command: emacspeak-epub-eww (epub-file &optional broken-ncx)
+ -- Command: emacspeak-epub-eww (epub-file &optional use-ncx)
 
      Display entire book  using EWW from EPub.
-     Uses content listed in toc.ncx or  equivalent by default.
-     Interactive prefix arg broken-ncx asks to use the sorted list of html files
-     in the epub file instead.
+     Use content listed in toc.ncx  if prefix-arg use-ncx is true.
+     Default is to  use   the sorted list of html files
+     in the epub file.
 
-     (fn EPUB-FILE &optional BROKEN-NCX)
+     (fn EPUB-FILE &optional USE-NCX)
 
 12.66.3.23 emacspeak-epub-google
 ................................
