@@ -859,11 +859,11 @@ Filename may need to  be shell-quoted when called from Lisp."
 (declare-function eww-update-header-line-format "eww" nil)
 
 
-(defun emacspeak-epub-eww (epub-file &optional broken-ncx)
+(defun emacspeak-epub-eww (epub-file &optional use-ncx)
   "Display entire book  using EWW from EPub.
-Uses content listed in toc.ncx or  equivalent by default.
-Interactive prefix arg broken-ncx asks to use the sorted list of html files
-in the epub file instead."
+Use content listed in toc.ncx  if prefix-arg use-ncx is true.
+Default is to  use   the sorted list of html files
+in the epub file."
   (interactive
    (list
     (or
@@ -886,7 +886,7 @@ in the epub file instead."
          (inhibit-read-only t))
     (cl-loop
      for f in
-     (if broken-ncx html navs)
+     (if use-ncx navs html)
      do
      (setq dom (emacspeak-epub-dom-from-archive epub-file f))
      (with-current-buffer eww-epub
