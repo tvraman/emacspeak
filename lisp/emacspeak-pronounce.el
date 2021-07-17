@@ -768,9 +768,7 @@ specified pronunciation dictionary key."
  (cons
   #'re-search-forward
   #'(lambda (number)
-      (concat
-       " minus "
-       (substring number 2)))))
+      (concat " minus " (substring number 2)))))
 
 ;;}}}
 ;;{{{Merge  Dictionaries:
