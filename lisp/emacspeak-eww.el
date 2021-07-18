@@ -449,7 +449,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile(require 'subr-x))
-(require 'shr)
 (require 'emacspeak-preamble)
 (require 'eww  )
 (require 'dom)
@@ -466,12 +465,11 @@
 ;;;###autoload
 (defsubst emacspeak-eww-browser-check ()
   "Browser check"
-  (unless (eq major-mode 'eww-mode)
-    (error "Not in EWW")))
+  (cl-assert  (eq major-mode 'eww-mode) t (error "Not in EWW")))
 
 ;;; Return URL under point or URL read from minibuffer.
 ;;;###autoload
-(defsubst emacspeak-eww-read-url ()
+(defun emacspeak-eww-read-url ()
   (or
    (shr-url-at-point nil)
    (read-string "URL:" (browse-url-url-at-point))))
