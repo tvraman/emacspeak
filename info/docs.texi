@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 148 options.
+This chapter documents a total of 1143 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -17442,11 +17442,6 @@ Common options to pass to all Curl invocations.
 
 @defvar {User Option} g-curl-debug
 Set to T to see Curl stderr output.
-
-@end defvar
-
-@defvar {User Option} g-url-under-point
-Function used to get URL from current context.
 
 @end defvar
 

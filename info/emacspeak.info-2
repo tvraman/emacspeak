@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 17, 2021.
+last updated on July 18, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -8351,9 +8351,6 @@ gblogger etc.
 
  -- Variable: User Option g-curl-debug
      Set to T to see Curl stderr output.
-
- -- Variable: User Option g-url-under-point
-     Function used to get URL from current context.
 
  -- Variable: User Option g-xslt-program
      XSLT Processor.
