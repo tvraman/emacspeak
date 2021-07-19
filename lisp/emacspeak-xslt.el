@@ -421,7 +421,7 @@ and return the results in a newly created buffer. "
    (list
     (expand-file-name
      (read-file-name "XSL Transformation: "))
-    (read-string "URL: " (browse-url-url-at-point))))
+    (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-xslt-options))
   (add-hook
    'emacspeak-eww-pre-process-hook
