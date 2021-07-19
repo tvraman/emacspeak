@@ -85,13 +85,6 @@
   "Function that processes HTML.
 Receives buffer containing HTML as its argument.")
 
-(defcustom g-url-under-point 'browse-url-url-at-point
-  "Function used to get URL from current context."
-  :type '(choice
-          (function-item browse-url-url-at-point)
-          (function :format "%t %v" :tag "Custom:"))
-  :group 'g)
-
 (defcustom g-xslt-program "xsltproc"
   "XSLT Processor."
   :type 'string
