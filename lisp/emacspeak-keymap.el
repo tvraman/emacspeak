@@ -194,42 +194,43 @@
 
 ;;; help map additions:
 
-(cl-loop for binding in
-         '(
-           ("'" describe-text-properties)
-           ("C-k" describe-keymap)
-           ("," emacspeak-wizards-color-at-point)
-           ("/" describe-face)
-           ("=" emacspeak-wizards-swap-fg-and-bg)
-           ("B" customize-browse)
-           ("C-<tab>" emacs-index-search)
-           ("C-e"   emacspeak-describe-emacspeak)
-           ("C-j" finder-commentary)
-           ("C-l" emacspeak-learn-emacs-mode)
-           ("C-m" man)
-           ("C-r" info-display-manual)
-           ("C-s" emacspeak-wizards-customize-saved)
-           ("C-v" emacspeak-wizards-describe-voice)
-           ("G" customize-group)
-           ("M" emacspeak-speak-popup-messages)
-           ("M-F" find-function-at-point)
-           ("M-V" find-variable-at-point)
-           ("M-f" find-function)
-           ("M-k" find-function-on-key)
-           ("M-m" describe-minor-mode-from-indicator)
-           ("M-v" find-variable)
-           ("N" emacspeak-view-notifications)
-           ("SPC" customize-group)
-           ("TAB" emacspeak-info-wizard)
-           ("V" customize-variable)
-           ("\"" emacspeak-wizards-list-voices)
-           (";" describe-font)
-           ("\\" emacspeak-wizards-color-diff-at-point)
-           ("p" list-packages)
-           (":" describe-help-keys)
-           )
-         do
-         (emacspeak-keymap-update help-map binding))
+(cl-loop
+ for binding in
+ '(
+   ("'" describe-text-properties)
+   ("C-k" describe-keymap)
+   ("," emacspeak-wizards-color-at-point)
+   ("/" describe-face)
+   ("=" emacspeak-wizards-swap-fg-and-bg)
+   ("B" customize-browse)
+   ("C-<tab>" emacs-index-search)
+   ("C-e"   emacspeak-describe-emacspeak)
+   ("C-j" finder-commentary)
+   ("C-l" emacspeak-learn-emacs-mode)
+   ("C-m" man)
+   ("C-r" info-display-manual)
+   ("C-s" emacspeak-wizards-customize-saved)
+   ("C-v" emacspeak-wizards-describe-voice)
+   ("G" customize-group)
+   ("M" emacspeak-speak-popup-messages)
+   ("M-F" find-function-at-point)
+   ("M-V" find-variable-at-point)
+   ("M-f" find-function)
+   ("M-k" find-function-on-key)
+   ("M-m" describe-minor-mode-from-indicator)
+   ("M-v" find-variable)
+   ("N" emacspeak-view-notifications)
+   ("SPC" customize-group)
+   ("TAB" emacspeak-info-wizard)
+   ("V" customize-variable)
+   ("\"" emacspeak-wizards-list-voices)
+   (";" describe-font)
+   ("\\" emacspeak-wizards-color-diff-at-point)
+   ("p" list-packages)
+   (":" describe-help-keys)
+   )
+ do
+ (emacspeak-keymap-update help-map binding))
 
 ;;; emacspeak-keymap bindings:
 (cl-loop
@@ -417,7 +418,6 @@
 (global-set-key  [27 down]  'emacspeak-owindow-next-line)
 (global-set-key  [27 prior]  'emacspeak-owindow-scroll-down)
 (global-set-key  [27 next]  'emacspeak-owindow-scroll-up)
-(global-set-key  [27 select]  'emacspeak-owindow-speak-line)
 (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
 
 ;;}}}
@@ -730,11 +730,12 @@
 ;;{{{ Helper: recover end-of-line
 
 (defun emacspeak-keymap-recover-eol ()
-  "Recover end-of-line."
+  "Recover EOL ."
   (cl-declare (special emacspeak-prefix))
   (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
   (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
 (add-hook 'after-change-major-mode-hook  'emacspeak-keymap-recover-eol)
+
 ;;}}}
 ;;{{{ Global Bindings From Other Modules:
 
