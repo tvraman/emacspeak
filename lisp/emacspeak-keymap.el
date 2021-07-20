@@ -122,7 +122,6 @@
        (when key (cl-callf vconcat res key))))
     res))
 
-
 ;;}}}
 ;;{{{ Custom Widget Types:
 
@@ -131,11 +130,11 @@
   (or (commandp s) (keymapp s)))
 
 
-(defun emacspeak-keymap-update (keymap binding)
+(defsubst emacspeak-keymap-update (keymap binding)
   "Update keymap with  binding."
   (define-key keymap  (ems-kbd (cl-first binding)) (cl-second binding)))
 
-(defun emacspeak-keymap-bindings-update (keymap bindings)
+(defsubst emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with  list of bindings."
   (cl-loop
    for binding in bindings
