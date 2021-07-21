@@ -96,7 +96,7 @@
 (defadvice ediff-setup-control-buffer (after emacspeak pre act)
   (setq emacspeak-ediff-control-buffer (ad-get-arg 0)))
 
-(defun emacspeak-ediff-control-panel ()
+(defsubst emacspeak-ediff-control-panel ()
   (cl-declare (special emacspeak-ediff-control-buffer))
   emacspeak-ediff-control-buffer)
 
@@ -169,7 +169,8 @@
  'ediff-startup-hook
  #'(lambda ()
      (cl-declare (special ediff-mode-map voice-lock-mode))
-     (setq voice-lock-mode t)
+     (setq voice-lock-mode t
+           ediff-window-setup-function 'ediff-setup-windows-plain)
      (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)))
 
 ;;}}}
