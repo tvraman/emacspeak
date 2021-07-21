@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{ Copyright:
+
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1995 by .
 ;;; All Rights Reserved.
@@ -216,6 +217,7 @@
 
 ;;}}}
 ;;{{{ Advice:
+
 (defadvice ediff-toggle-help (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
