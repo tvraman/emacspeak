@@ -1965,7 +1965,7 @@ location of the mark is indicated by an aural highlight. "
 
 ;;; Block navigation
 (defun emacspeak-speak-next-block (this-face)
-  "Move to  front of next block having face `face'."
+  "Move to  front of next block having face `this-face'."
   (let (this-end next-start)
     (when (or
            (null (get-text-property (point) 'face))
@@ -1981,7 +1981,7 @@ location of the mark is indicated by an aural highlight. "
     (emacspeak-speak-this-personality-chunk)))
 
 (defun emacspeak-speak-previous-block (this-face)
-  "Move to  front of previous block having face `face'."
+  "Move to  front of previous block having face `this-face'."
   (let ((this-end nil)
         (next-start nil))
     (when
