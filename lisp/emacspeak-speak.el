@@ -1978,6 +1978,7 @@ location of the mark is indicated by an aural highlight. "
       (cl-assert  next-start  t "Last block")
       (goto-char next-start))
     (forward-char 1)
+    (forward-char 1)
     (emacspeak-speak-this-personality-chunk)))
 
 (defun emacspeak-speak-previous-block (this-face)
