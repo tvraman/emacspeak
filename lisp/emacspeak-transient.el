@@ -216,17 +216,24 @@ Press `C-c' to resume the suspended transient."
 (defun emacspeak-transient-next-section ()
   "Next transient section."
   (interactive)
-  (emacspeak-speak-next-block 'transient-heading)
-  (emacspeak-auditory-icon 'large-movement))
+  (with-selected-window
+      (if (window-live-p transient--window)
+          transient--window
+          (selected-window))
+    (emacspeak-speak-next-block 'transient-heading)
+    (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-transient-previous-section ()
   "Previous transient section."
   (interactive)
-  (emacspeak-speak-previous-block 'transient-heading)
-  (emacspeak-auditory-icon 'large-movement))
+  (with-selected-window
+      (if (window-live-p transient--window)
+          transient--window
+        (selected-window))
+    (emacspeak-speak-previous-block 'transient-heading)
+    (emacspeak-auditory-icon 'large-movement)))
 
 ;;}}}
-
 ;;{{{Hooks:
 
 (defun emacspeak-transient-post-hook ()
@@ -264,13 +271,25 @@ Press `C-c' to resume the suspended transient."
 
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
-  (cl-declare (special transient-enable-popup-navigation))
-  (setq transient-enable-popup-navigation t))
+  (cl-declare (special transient-enable-popup-navigation
+                       transient-popup-navigation-map transient-predicate-map))
+  (define-key transient-predicate-map
+    [emacspeak-transient-previous-section] 'transient--do-move)
+  (define-key transient-predicate-map
+    [emacspeak-transient-next-section] 'transient--do-move)
+  
+  (define-key transient-popup-navigation-map
+    [left] 'emacspeak-transient-previous-section)
+  (define-key transient-popup-navigation-map
+    [right] 'emacspeak-transient-next-section)
 
+  (setq transient-enable-popup-navigation t
+        transient-force-single-column t
+        transient-semantic-coloring t
+        transient-show-popup 1))
 (emacspeak-transient-setup)
 
-
-;;}}})
+;;}}}
 (provide 'emacspeak-transient)
 ;;{{{ end of file
 
