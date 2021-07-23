@@ -25,7 +25,9 @@ Speech-enable the elisp side of Emacs Application Framework
 
 ** Updated Transient Support
 
-   Transient support has been updated to avoid chatter.
+   Transient support has been updated to avoid chatter. With the
+   newest version of transient, emacspeak users can navigate
+   transients by sections.
    
    
 ** Speech-Enabled CalibreDB Mode
