@@ -222,9 +222,10 @@ Press `C-c' to resume the suspended transient."
             (if (window-live-p transient--window)
                 transient--window
               (selected-window))
-          (emacspeak-speak-next-block 'transient-heading)
+          (emacspeak-next-block 'transient-heading)
           (emacspeak-auditory-icon 'large-movement))
-      (error (goto-char orig)))))
+      (error (goto-char orig)))
+    (emacspeak-speak-line)))
 
 (defun emacspeak-transient-previous-section ()
   "Previous transient section."
@@ -235,9 +236,10 @@ Press `C-c' to resume the suspended transient."
             (if (window-live-p transient--window)
                 transient--window
               (selected-window))
-          (emacspeak-speak-previous-block 'transient-heading)
+          (emacspeak-previous-block 'transient-heading)
           (emacspeak-auditory-icon 'large-movement))
-      (error (goto-char orig)))))
+      (error (goto-char orig)))
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{Hooks:

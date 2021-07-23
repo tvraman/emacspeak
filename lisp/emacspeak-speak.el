@@ -1935,10 +1935,8 @@ location of the mark is indicated by an aural highlight. "
   "Speak chunk of text having personality or face at  point."
   (interactive)
   (let ((start (dtk-previous-style-change (point)))
-       (end (dtk-next-style-change (point))))
-    (emacspeak-speak-region
-     (or start (point-min))
-     (or end (point-max)))))
+        (end (dtk-next-style-change (point))))
+    (emacspeak-speak-region start end)))
 
 (defun emacspeak-speak-next-personality-chunk ()
   "Moves to the front of next personality or face change and speak it. "
@@ -1964,7 +1962,7 @@ location of the mark is indicated by an aural highlight. "
      (t (error "did not move")))))
 
 ;;; Block navigation
-(defun emacspeak-speak-next-block (this-face)
+(defun emacspeak-next-block (this-face)
   "Move to  front of next block having face `this-face'."
   (let (this next)
     (when (or
@@ -1978,10 +1976,9 @@ location of the mark is indicated by an aural highlight. "
       (cl-assert  next  t "Last block")
       (goto-char next))
     (forward-char 1)
-    (forward-char 1)
-    (emacspeak-speak-this-personality-chunk)))
+    (forward-char 1)))
 
-(defun emacspeak-speak-previous-block (this-face)
+(defun emacspeak-previous-block (this-face)
   "Move to  front of previous block having face `this-face'."
   (let ((this nil)
         (prev nil))
@@ -1995,8 +1992,7 @@ location of the mark is indicated by an aural highlight. "
     (while (not (eq this-face (get-text-property (point) 'face)))
       (setq prev (previous-single-property-change (point) 'face))
       (cl-assert  prev  t "First block")
-      (goto-char prev))
-    (emacspeak-speak-this-personality-chunk)))
+      (goto-char prev))))
 
 ;;}}}
 ;;{{{  Execute command repeatedly:
