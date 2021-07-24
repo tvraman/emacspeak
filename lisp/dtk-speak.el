@@ -610,9 +610,7 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; Similarly, property pause at the start of a clause specifies
 ;;; amount of pause to insert.
 
-(defun dtk-next-single-property-change (start prop object limit)
-  "Similar to next-single-property-change, but compares property values
- with equal if they are not atoms."
+(defsubst dtk-next-single-property-change (start prop object limit)
   (let ((initial-value (get-text-property start prop object)))
     (cond
      ((atom initial-value)
@@ -624,18 +622,19 @@ Argument COMPLEMENT  is the complement of separator."
           (setq pos (next-single-property-change pos prop object limit)))
         pos)))))
 
-(defun dtk-previous-style-change (start &optional end)
-  "Get position of previous style change from start to end. Here, style
-change is any change in property personality, face or font-lock-face."
+;;; Get position of previous style change from start to end. Here, style
+;;; change is any change in property personality, face or font-lock-face.
+
+(defsubst dtk-previous-style-change (start &optional end)
   (or end (setq end (point-min)))
   (max
    (previous-single-property-change start 'personality (current-buffer) end)
    (previous-single-property-change start 'face (current-buffer) end)
    (previous-single-property-change start 'font-lock-face (current-buffer) end)))
 
-(defun dtk-next-style-change (start &optional end)
-  "Get position of next style change from start   to end.
-Here,  change is any change in property personality, face or font-lock-face."
+;;; Get position of next style change from start   to end.
+;;; Here,  change is any change in property personality, face or font-lock-face.
+(defsubst dtk-next-style-change (start &optional end)
   (or end (setq end (point-max)))
   (min
    (dtk-next-single-property-change start 'personality (current-buffer) end)
