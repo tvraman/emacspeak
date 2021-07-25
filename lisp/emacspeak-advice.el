@@ -2638,11 +2638,13 @@ Produce an auditory icon if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak range."
      (when (ems-interactive-p)
+       (unless ad-return-value
+         (emacspeak-auditory-icon 'warn-user)
+         (dtk-speak "did not move"))
        (when-let ((m ad-return-value))
          (emacspeak-speak-region
           (prop-match-beginning m) (prop-match-end m))
-         (emacspeak-auditory-icon 'large-movement))
-       (unless ad-return-value (dtk-speak "did not move"))))))
+         (emacspeak-auditory-icon 'large-movement))))))
 
 
 ;;}}}
