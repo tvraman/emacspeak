@@ -69,8 +69,8 @@ source $wd/tts-lib.tcl
 set langsynth(current) 0
 set langsynth(top) 0
 set voicename "default"
-set langcode(0) "en-uk"
-set langcode(current) "en-uk"
+set langcode(0) "en-us"
+set langcode(current) "en-us"
 set mswindows [expr { $tcl_platform(platform) == "windows" } ]
 
 # select the next synth language
