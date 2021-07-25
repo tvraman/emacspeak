@@ -1829,9 +1829,6 @@ Produce an auditory icon if possible."
 ;;; face navigators 
 (define-key isearch-mode-map (ems-kbd "C-b") 'emacspeak-speak-face-backward )
 (define-key isearch-mode-map (ems-kbd "C-f") 'emacspeak-speak-face-forward )
-;(define-key isearch-mode-map (ems-kbd "C-n" ) 'emacspeak-speak-unface-forward )
-;(define-key isearch-mode-map (ems-kbd "C-p") 'emacspeak-speak-unface-backward )
-
 ;;; ISearch setup/teardown
 
 ;;; Produce auditory icon
@@ -2644,7 +2641,8 @@ Produce an auditory icon if possible."
        (when-let ((m ad-return-value))
          (emacspeak-speak-region
           (prop-match-beginning m) (prop-match-end m))
-         (emacspeak-auditory-icon 'large-movement))))))
+         (emacspeak-auditory-icon 'large-movement))
+       (unless ad-return-value (dtk-speak "did not move"))))))
 
 
 ;;}}}
