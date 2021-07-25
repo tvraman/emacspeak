@@ -10629,11 +10629,6 @@ Speak the window contents after scrolling.
 
 @subsubsection emacspeak-owindow-speak-line
 @deffn {Command} emacspeak-owindow-speak-line   
-@table @kbd
-@item ESC <select>
-@kindex ESC <select>
-@end table
-
 @findex emacspeak-owindow-speak-line
 
 @format

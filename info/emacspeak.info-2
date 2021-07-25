@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 18, 2021.
+last updated on July 24, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -3303,7 +3303,6 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-owindow-speak-line
-     ‘ESC <select>’
 
      Speak the current line in the other window.
 
