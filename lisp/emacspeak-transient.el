@@ -216,30 +216,28 @@ Press `C-c' to resume the suspended transient."
 (defun emacspeak-transient-next-section ()
   "Next transient section."
   (interactive)
-  (let ((orig (point)))
-    (condition-case nil
-        (with-selected-window
-            (if (window-live-p transient--window)
-                transient--window
-              (selected-window))
-          (emacspeak-next-block 'transient-heading)
-          (emacspeak-speak-line)
-          (emacspeak-auditory-icon 'large-movement))
-      (error (goto-char orig)))))
+  (with-selected-window
+      (if (window-live-p transient--window)
+          transient--window (selected-window))
+    (when-let
+        ((match
+          (funcall-interactively
+           #'text-property-search-forward
+           'face 'transient-heading t t)))
+      (goto-char (prop-match-beginning match)))))
 
 (defun emacspeak-transient-previous-section ()
   "Previous transient section."
   (interactive)
-  (let ((orig (point)))
-    (condition-case nil
-        (with-selected-window
-            (if (window-live-p transient--window)
-                transient--window
-              (selected-window))
-          (emacspeak-previous-block 'transient-heading)
-          (emacspeak-speak-line)
-          (emacspeak-auditory-icon 'large-movement))
-      (error (goto-char orig)))))
+  (with-selected-window
+      (if (window-live-p transient--window)
+          transient--window (selected-window))
+    (when-let
+        ((match
+          (funcall-interactively
+           #'text-property-search-backward
+           'face 'transient-heading t t)))
+      (goto-char (prop-match-beginning match)))))
 
 ;;}}}
 ;;{{{Hooks:
