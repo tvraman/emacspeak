@@ -1962,35 +1962,6 @@ location of the mark is indicated by an aural highlight. "
      (t (error "did not move")))))
 
 ;;; Block navigation
-(defun emacspeak-next-block (this-face)
-  "Move to  front of next block having face `this-face'."
-  (let (this next)
-    (when (or
-           (null (get-text-property (point) 'face))
-           (eq this-face (get-text-property (point) 'face))) 
-      (setq this (next-single-property-change (point) 'face))
-      (cl-assert  this  t "Last block"))
-    (goto-char this)
-    (while (not (eq this-face (get-text-property (point) 'face)))
-      (setq next (next-single-property-change (point) 'face))
-      (cl-assert  next  t "Last block")
-      (goto-char next))))
-
-(defun emacspeak-previous-block (this-face)
-  "Move to  front of previous block having face `this-face'."
-  (let ((this nil)
-        (prev nil))
-    (when
-        (or
-         (null (get-text-property (point) 'face))
-         (eq this-face (get-text-property (point) 'face))) 
-      (setq this (previous-single-property-change (point) 'face))
-      (cl-assert  this  t "First block"))
-    (goto-char this)
-    (while (not (eq this-face (get-text-property (point) 'face)))
-      (setq prev (previous-single-property-change (point) 'face))
-      (cl-assert  prev  t "First block")
-      (goto-char prev))))
 
 ;;}}}
 ;;{{{Face Ranges:
