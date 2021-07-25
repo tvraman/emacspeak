@@ -65,7 +65,7 @@
 (declare-function which-function "which-func" nil)
 (declare-function calendar-cursor-to-nearest-date "cal-move" [Arg list not available until function definition is loaded.])
 (declare-function word-at-point "thingatpt" (&optional no-properties))
-
+(require 'text-property-search)
 ;;}}}
 ;;{{{ This line:
 
@@ -1994,8 +1994,6 @@ location of the mark is indicated by an aural highlight. "
 
 ;;}}}
 ;;{{{Face Ranges:
-(declare-function text-property-search-forward "text-property-search" (property &optional value predicate not-current))
-(declare-function text-property-search-backward "text-property-search" (property &optional value predicate not-current))
 
 (defun emacspeak-speak-unface-forward ()
   "Property search for face at point --- see \\[text-property-search-forward]"
@@ -2012,20 +2010,23 @@ location of the mark is indicated by an aural highlight. "
 (defun emacspeak-speak-face-forward ()
   "Property search for face --- see \\[text-property-search-forward]"
   (interactive)
-  (when-let ((match
-          (funcall-interactively #'text-property-search-forward
-                                 'face (get-text-property (point) 'face) t t))
-         (goto-char (prop-match-beginning match)))))
-
+  (when-let
+      ((match
+        (funcall-interactively
+         #'text-property-search-forward
+         'face (get-text-property (point) 'face)
+         t t)))
+    (goto-char (prop-match-beginning match))))
 
 (defun emacspeak-speak-face-backward ()
   "Property search for face at point  --- see \\[text-property-search-backward]"
   (interactive)
-  (when-let ((match
-          (funcall-interactively
-           #'text-property-search-backward
-           'face (get-text-property (point) 'face) t t))
-         (goto-char (prop-match-beginning match)))))
+  (when-let
+      ((match
+        (funcall-interactively
+         #'text-property-search-backward
+         'face (get-text-property (point) 'face) t t)))
+    (goto-char (prop-match-beginning match))))
 
 ;;}}}
 ;;{{{  Execute command repeatedly:
