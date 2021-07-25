@@ -1994,17 +1994,35 @@ location of the mark is indicated by an aural highlight. "
 
 ;;}}}
 ;;{{{Face Ranges:
+(declare-function text-property-search-forward "text-property-search" (property &optional value predicate not-current))
+(declare-function text-property-search-backward "text-property-search" (property &optional value predicate not-current))
 
-(defun emacspeak-speak-face-forward ()
+(defun emacspeak-speak-unface-forward ()
   "Property search for face --- see \\[text-property-search-forward]"
   (interactive)
   (funcall-interactively #'text-property-search-forward 'face))
 
 
-(defun emacspeak-speak-face-backward ()
+(defun emacspeak-speak-unface-backward ()
   "Property search for face --- see \\[text-property-search-backward]"
   (interactive)
   (funcall-interactively #'text-property-search-backward 'face))
+
+
+(defun emacspeak-speak-face-forward ()
+  "Property search for face --- see \\[text-property-search-forward]"
+  (interactive)
+  (funcall-interactively
+   #'text-property-search-forward 'face ;;; t predicate below
+   (get-text-property (point) 'face) t ))
+
+
+(defun emacspeak-speak-face-backward ()
+  "Property search for face --- see \\[text-property-search-backward]"
+  (interactive)
+  (funcall-interactively
+   #'text-property-search-backward 'face ;;; t predicate below
+   (get-text-property (point) 'face) t ))
 
 ;;}}}
 ;;{{{  Execute command repeatedly:
