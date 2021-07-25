@@ -98,6 +98,7 @@ proc set_next_lang {say_it} {
     set langcode(current) $langcode($index)
 
     setLanguage $langsynth(current)
+puts stderr "Language: $langsynth(current) Voice: $voicename"
     if { [info exists say_it]} {
 	tts_say "$voicename"
     }
@@ -127,6 +128,7 @@ proc set_previous_lang {say_it} {
     set langsynth(current) $index
     set langcode(current) $langcode($index)
     setLanguage $langsynth(current)
+puts stderr "Language: $langsynth(current) Voice: $voicename"
     if { [info exists say_it]} {
 	tts_say "$voicename "
     }
