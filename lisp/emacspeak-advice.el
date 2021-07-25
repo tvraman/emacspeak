@@ -1829,8 +1829,8 @@ Produce an auditory icon if possible."
 ;;; face navigators 
 (define-key isearch-mode-map (ems-kbd "C-b") 'emacspeak-speak-face-backward )
 (define-key isearch-mode-map (ems-kbd "C-f") 'emacspeak-speak-face-forward )
-(define-key isearch-mode-map (ems-kbd "C-n" ) 'emacspeak-speak-unface-forward )
-(define-key isearch-mode-map (ems-kbd "C-p") 'emacspeak-speak-unface-backward )
+;(define-key isearch-mode-map (ems-kbd "C-n" ) 'emacspeak-speak-unface-forward )
+;(define-key isearch-mode-map (ems-kbd "C-p") 'emacspeak-speak-unface-backward )
 
 ;;; ISearch setup/teardown
 
