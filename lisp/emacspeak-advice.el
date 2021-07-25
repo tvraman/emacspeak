@@ -2640,7 +2640,7 @@ Produce an auditory icon if possible."
      (when (ems-interactive-p)
        (unless ad-return-value
          (emacspeak-auditory-icon 'warn-user)
-         (dtk-speak "did not move"))
+         (emacspeak-speak-line))
        (when-let ((m ad-return-value))
          (emacspeak-speak-region
           (prop-match-beginning m) (prop-match-end m))
