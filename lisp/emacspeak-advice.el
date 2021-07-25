@@ -1825,7 +1825,13 @@ Produce an auditory icon if possible."
 (define-key minibuffer-local-isearch-map
   emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
-(define-key isearch-mode-map "\M-m" 'isearch-exit)
+
+;;; face navigators 
+(define-key isearch-mode-map (ems-kbd "C-b") 'emacspeak-speak-face-backward )
+(define-key isearch-mode-map (ems-kbd "C-f") 'emacspeak-speak-face-forward )
+(define-key isearch-mode-map (ems-kbd "C-n" ) 'emacspeak-speak-unface-forward )
+(define-key isearch-mode-map (ems-kbd "C-p") 'emacspeak-speak-unface-backward )
+
 ;;; ISearch setup/teardown
 
 ;;; Produce auditory icon
