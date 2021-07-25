@@ -2616,13 +2616,30 @@ Produce an auditory icon if possible."
 ;;}}}
 (provide 'emacspeak-cedet)
 
-;;{{{ advice
+;;{{{ advice Imenu
 
 (defadvice imenu (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
+
+;;}}}
+;;{{{Advice property search
+
+(cl-loop
+ for f in 
+ '(text-property-search-backward text-property-search-forward)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak range."
+     (when (ems-interactive-p)
+       (when-let ((m ad-return-value))
+         (emacspeak-speak-region
+          (prop-match-beginning m) (prop-match-end m))
+         (emacspeak-auditory-icon 'large-movement))))))
+
 
 ;;}}}
 (provide 'emacspeak-advice)
