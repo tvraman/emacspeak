@@ -1998,31 +1998,34 @@ location of the mark is indicated by an aural highlight. "
 (declare-function text-property-search-backward "text-property-search" (property &optional value predicate not-current))
 
 (defun emacspeak-speak-unface-forward ()
-  "Property search for face --- see \\[text-property-search-forward]"
+  "Property search for face at point --- see \\[text-property-search-forward]"
   (interactive)
-  (funcall-interactively #'text-property-search-forward 'face))
-
+  (let ((f (get-text-property (point) 'face)))
+    (funcall-interactively #'text-property-search-forward 'face f)))
 
 (defun emacspeak-speak-unface-backward ()
   "Property search for face --- see \\[text-property-search-backward]"
   (interactive)
-  (funcall-interactively #'text-property-search-backward 'face))
-
+  (let ((f (get-text-property (point) 'face)))
+   (funcall-interactively #'text-property-search-backward 'face f)))
 
 (defun emacspeak-speak-face-forward ()
   "Property search for face --- see \\[text-property-search-forward]"
   (interactive)
-  (funcall-interactively
-   #'text-property-search-forward 'face ;;; t predicate below
-   (get-text-property (point) 'face) t ))
+  (when-let ((match
+          (funcall-interactively #'text-property-search-forward
+                                 'face (get-text-property (point) 'face) t t))
+         (goto-char (prop-match-beginning match)))))
 
 
 (defun emacspeak-speak-face-backward ()
-  "Property search for face --- see \\[text-property-search-backward]"
+  "Property search for face at point  --- see \\[text-property-search-backward]"
   (interactive)
-  (funcall-interactively
-   #'text-property-search-backward 'face ;;; t predicate below
-   (get-text-property (point) 'face) t ))
+  (when-let ((match
+          (funcall-interactively
+           #'text-property-search-backward
+           'face (get-text-property (point) 'face) t t))
+         (goto-char (prop-match-beginning match)))))
 
 ;;}}}
 ;;{{{  Execute command repeatedly:
