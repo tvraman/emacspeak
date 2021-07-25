@@ -497,17 +497,17 @@ Useful if table of contents in toc.ncx is empty.
   <dl>
     <dt id="index-emacspeak_002depub_002deww">Command:
     <strong>emacspeak-epub-eww</strong> <em>(epub-file
-    &amp;optional broken-ncx)</em></dt>
+    &amp;optional use-ncx)</em></dt>
     <dd>
       <span id="index-emacspeak_002depub_002deww-1"></span>
       <div class="format">
         <pre class=
         "format">Display entire book  using EWW from EPub.
-Uses content listed in toc.ncx or  equivalent by default.
-Interactive prefix arg broken-ncx asks to use the sorted list of html files
-in the epub file instead.
+Use content listed in toc.ncx  if prefix-arg use-ncx is true.
+Default is to  use   the sorted list of html files
+in the epub file.
 
-(fn EPUB-FILE &amp;optional BROKEN-NCX)
+(fn EPUB-FILE &amp;optional USE-NCX)
 </pre>
       </div>
     </dd>
