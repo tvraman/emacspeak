@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 147 options.
+This chapter documents a total of 1147 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -10950,6 +10950,34 @@ Seconds value is also placed in the kill-ring.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-face-backward
+@deffn {Command} emacspeak-speak-face-backward   
+@table @kbd
+@item C-z ,
+@kindex C-z ,
+@end table
+
+@findex emacspeak-speak-face-backward
+
+@format
+Property search for face at point  --- see M-x text-property-search-backward
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-face-forward
+@deffn {Command} emacspeak-speak-face-forward   
+@table @kbd
+@item C-z .
+@kindex C-z .
+@end table
+
+@findex emacspeak-speak-face-forward
+
+@format
+Property search for face --- see M-x text-property-search-forward
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-header-line
 @deffn {Command} emacspeak-speak-header-line   
 @table @kbd
@@ -11658,6 +11686,24 @@ Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
 
 (fn &optional WORLD)
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-unface-backward
+@deffn {Command} emacspeak-speak-unface-backward   
+@findex emacspeak-speak-unface-backward
+
+@format
+Property search for face --- see M-x text-property-search-backward
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-unface-forward
+@deffn {Command} emacspeak-speak-unface-forward   
+@findex emacspeak-speak-unface-forward
+
+@format
+Property search for face at point --- see M-x text-property-search-forward
 @end format
 @end deffn
 
