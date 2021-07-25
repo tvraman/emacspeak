@@ -1993,6 +1993,20 @@ location of the mark is indicated by an aural highlight. "
       (goto-char prev))))
 
 ;;}}}
+;;{{{Face Ranges:
+
+(defun emacspeak-speak-face-forward ()
+  "Property search for face --- see \\[text-property-search-forward]"
+  (interactive)
+  (funcall-interactively #'text-property-search-forward 'face))
+
+
+(defun emacspeak-speak-face-backward ()
+  "Property search for face --- see \\[text-property-search-backward]"
+  (interactive)
+  (funcall-interactively #'text-property-search-backward 'face))
+
+;;}}}
 ;;{{{  Execute command repeatedly:
 
 
