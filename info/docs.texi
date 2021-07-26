@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1147 commands and 147 options.
+This chapter documents a total of 1148 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -10978,6 +10978,22 @@ Property search for face --- see M-x text-property-search-forward
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-face-range
+@deffn {Command} emacspeak-speak-face-range   
+@table @kbd
+@item C-e C-.
+@kindex C-e C-.
+@item <fn> C-.
+@kindex <fn> C-.
+@end table
+
+@findex emacspeak-speak-face-range
+
+@format
+Speak face range at point
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-header-line
 @deffn {Command} emacspeak-speak-header-line   
 @table @kbd
@@ -11245,13 +11261,6 @@ Move to and speak next field.
 
 @subsubsection emacspeak-speak-next-personality-chunk
 @deffn {Command} emacspeak-speak-next-personality-chunk   
-@table @kbd
-@item C-e C-n
-@kindex C-e C-n
-@item <fn> C-n
-@kindex <fn> C-n
-@end table
-
 @findex emacspeak-speak-next-personality-chunk
 
 @format
@@ -11455,13 +11464,6 @@ Move to previous field and speak it.
 
 @subsubsection emacspeak-speak-previous-personality-chunk
 @deffn {Command} emacspeak-speak-previous-personality-chunk   
-@table @kbd
-@item C-e C-p
-@kindex C-e C-p
-@item <fn> C-p
-@kindex <fn> C-p
-@end table
-
 @findex emacspeak-speak-previous-personality-chunk
 
 @format
@@ -11653,13 +11655,6 @@ Spell word at  point.
 
 @subsubsection emacspeak-speak-this-personality-chunk
 @deffn {Command} emacspeak-speak-this-personality-chunk   
-@table @kbd
-@item C-e C-.
-@kindex C-e C-.
-@item <fn> C-.
-@kindex <fn> C-.
-@end table
-
 @findex emacspeak-speak-this-personality-chunk
 
 @format
