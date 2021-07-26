@@ -1978,6 +1978,14 @@ location of the mark is indicated by an aural highlight. "
   (let ((f (get-text-property (point) 'face)))
    (funcall-interactively #'text-property-search-backward 'face f)))
 
+(defun emacspeak-speak-face-range ()
+  "Speak face range at point"
+  (interactive )
+  (when-let
+      ((start (previous-single-property-change (point) 'face))
+       (end (next-single-property-change (point) 'face)))
+    (emacspeak-speak-region start end)))
+
 (defun emacspeak-speak-face-forward ()
   "Property search for face --- see \\[text-property-search-forward]"
   (interactive)
