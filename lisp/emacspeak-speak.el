@@ -1981,12 +1981,13 @@ location of the mark is indicated by an aural highlight. "
 (defun emacspeak-speak-face-range ()
   "Speak face range at point"
   (interactive )
-  (let
+  (let*
       ((start (previous-single-property-change (1+ (point)) 'face))
        (pre-start (previous-single-property-change (point) 'face))
-       (end (next-single-property-change (point) 'face)))
-    (when (and start end)
-      (emacspeak-speak-region start end))))
+       (end (next-single-property-change (point) 'face))
+       (beg (or start pre-start)))
+    (when (and  beg end)
+      (emacspeak-speak-region beg end))))
 
 (defun emacspeak-speak-face-forward ()
   "Property search for face --- see \\[text-property-search-forward]"
