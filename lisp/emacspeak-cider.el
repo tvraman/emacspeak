@@ -194,7 +194,7 @@
        (save-excursion
          (goto-char
           (previous-single-property-change (point)   'face nil (point-min)))
-         (emacspeak-speak-this-personality-chunk))
+         (emacspeak-speak-face-range))
        (emacspeak-auditory-icon 'close-object)))))
 
 (cl-loop
