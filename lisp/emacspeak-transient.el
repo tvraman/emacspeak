@@ -186,7 +186,8 @@
     (with-current-buffer (window-buffer transient--window)
       (setq emacspeak-transient-cache
             (buffer-substring (point-min)  (point-max)))
-      (emacspeak-auditory-icon 'open-object))))
+      (when (sit-for 0.75)
+        (emacspeak-auditory-icon 'open-object)))))
 
 (defadvice transient-suspend (around emacspeak pre act comp)
   "Pop to *Transient-emacspeak* buffer where the message emitted by
