@@ -261,7 +261,7 @@
    ("A" emacspeak-appt-repeat-announcement)
    ("B" emacspeak-speak-buffer-interactively)
    ("C" emacspeak-customize)
-   ("C-." emacspeak-speak-face-range)
+   ("C-." emacspeak-speak-face-browse)
    ("C-<left>" emacspeak-select-this-buffer-previous-display)
    ("C-<right>" emacspeak-select-this-buffer-next-display)
    ("C-@" emacspeak-speak-current-mark)

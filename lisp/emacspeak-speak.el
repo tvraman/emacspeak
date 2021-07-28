@@ -5,7 +5,6 @@
 ;;; Keywords: Emacspeak,  Spoken Output
 ;;{{{  LCD Archive entry:
 
-
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;;; A speech interface to Emacs |
@@ -1936,17 +1935,18 @@ location of the mark is indicated by an aural highlight. "
 ;;}}}
 ;;{{{Face Ranges:
 
-(defun emacspeak-speak-unface-forward ()
-  "Property search for face at point --- see \\[text-property-search-forward]"
-  (interactive)
-  (let ((f (get-text-property (point) 'face)))
-    (funcall-interactively #'text-property-search-forward 'face f)))
-
-(defun emacspeak-speak-unface-backward ()
-  "Property search for face --- see \\[text-property-search-backward]"
-  (interactive)
-  (let ((f (get-text-property (point) 'face)))
-   (funcall-interactively #'text-property-search-backward 'face f)))
+(defun emacspeak-speak-face-browse ()
+  "Use C-f and C-b to browse by current face."
+  (interactive )
+  (call-interactively #'emacspeak-speak-face-range)
+  (while t
+    (let ((key (read-key-sequence "")))
+      (cond
+       ((string= key "\C-f")
+        (funcall-interactively #'emacspeak-speak-face-forward))
+       ((string= key "\C-b")
+        (funcall-interactively #'emacspeak-speak-face-backward))
+       (t (keyboard-quit))))))
 
 (defun emacspeak-speak-face-range ()
   "Speak face range at point"
