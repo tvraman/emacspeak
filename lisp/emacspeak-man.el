@@ -177,8 +177,8 @@ Also provide an auditory icon"
 (define-key Man-mode-map "." 'emacspeak-man-browse-man-page)
 (define-key Man-mode-map "t" 'emacspeak-view-line-to-top)
 (define-key Man-mode-map "'" 'emacspeak-speak-rest-of-buffer)
-(define-key Man-mode-map "N" 'emacspeak-speak-next-personality-chunk)
-(define-key Man-mode-map "P" 'emacspeak-speak-previous-personality-chunk)
+(define-key Man-mode-map "N" 'emacspeak-speak-face-forward)
+(define-key Man-mode-map "P" 'emacspeak-speak-face-backward)
 (define-key Man-mode-map "[" 'backward-paragraph)
 (define-key Man-mode-map "]" 'forward-paragraph)
 

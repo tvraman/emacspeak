@@ -1931,36 +1931,6 @@ location of the mark is indicated by an aural highlight. "
 ;;}}}
 ;;{{{ speaking personality chunks
 
-(defun emacspeak-speak-this-personality-chunk ()
-  "Speak chunk of text having personality or face at  point."
-  (interactive)
-  (let ((start (dtk-previous-style-change (point)))
-        (end (dtk-next-style-change (point))))
-    (emacspeak-speak-region start end)))
-
-(defun emacspeak-speak-next-personality-chunk ()
-  "Moves to the front of next personality or face change and speak it. "
-  (interactive )
-  (let ((this-end (dtk-next-style-change (point) (point-max)))
-        (next-start nil))
-    (cond
-     ((and (< this-end (point-max))
-           (setq next-start (dtk-next-style-change this-end (point-max))))
-      (goto-char next-start)
-      (emacspeak-speak-this-personality-chunk))
-     (t (error "Did not move")))))
-
-(defun emacspeak-speak-previous-personality-chunk ()
-  "Moves to the front of previous personality change  and
-  speak it. "
-  (interactive)
-  (let ((this-start (dtk-previous-style-change (point))))
-    (cond
-     ((and (> this-start (point-min))
-           (goto-char (dtk-previous-style-change (1- this-start))))
-      (emacspeak-speak-this-personality-chunk))
-     (t (error "did not move")))))
-
 ;;; Block navigation
 
 ;;}}}
