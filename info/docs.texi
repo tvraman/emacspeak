@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1148 commands and 147 options.
+This chapter documents a total of 1145 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -11259,15 +11259,6 @@ Move to and speak next field.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-next-personality-chunk
-@deffn {Command} emacspeak-speak-next-personality-chunk   
-@findex emacspeak-speak-next-personality-chunk
-
-@format
-Moves to the front of next personality or face change and speak it. 
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-other-buffer
 @deffn {Command} emacspeak-speak-other-buffer  (buffer)
 @table @kbd
@@ -11462,16 +11453,6 @@ Move to previous field and speak it.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-previous-personality-chunk
-@deffn {Command} emacspeak-speak-previous-personality-chunk   
-@findex emacspeak-speak-previous-personality-chunk
-
-@format
-Moves to the front of previous personality change  and
-  speak it. 
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-rectangle
 @deffn {Command} emacspeak-speak-rectangle  (start end)
 @table @kbd
@@ -11650,15 +11631,6 @@ Speak the white space at point.
 
 @format
 Spell word at  point.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-this-personality-chunk
-@deffn {Command} emacspeak-speak-this-personality-chunk   
-@findex emacspeak-speak-this-personality-chunk
-
-@format
-Speak chunk of text having personality or face at  point.
 @end format
 @end deffn
 
