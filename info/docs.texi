@@ -10731,10 +10731,10 @@ Negative prefix arg speaks from start of buffer to point.
 @subsubsection emacspeak-speak-buffer-filename
 @deffn {Command} emacspeak-speak-buffer-filename  (&optional filename)
 @table @kbd
-@item C-e C-f
-@kindex C-e C-f
-@item <fn> C-f
-@kindex <fn> C-f
+@item C-e f
+@kindex C-e f
+@item <fn> f
+@kindex <fn> f
 @end table
 
 @findex emacspeak-speak-buffer-filename
@@ -10842,22 +10842,6 @@ was spoken.  Any other key continues to speak the buffer.
 
 @format
 Speak the current column.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-current-field
-@deffn {Command} emacspeak-speak-current-field   
-@table @kbd
-@item C-e f
-@kindex C-e f
-@item <fn> f
-@kindex <fn> f
-@end table
-
-@findex emacspeak-speak-current-field
-
-@format
-Speak current field.
 @end format
 @end deffn
 
@@ -10991,6 +10975,15 @@ Property search for face --- see M-x text-property-search-forward
 
 @format
 Speak face range at point
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-field
+@deffn {Command} emacspeak-speak-field   
+@findex emacspeak-speak-field
+
+@format
+Speak current field.
 @end format
 @end deffn
 
@@ -11245,13 +11238,6 @@ Interactive prefix arg speaks buffer info.
 
 @subsubsection emacspeak-speak-next-field
 @deffn {Command} emacspeak-speak-next-field   
-@table @kbd
-@item C-e >
-@kindex C-e >
-@item <fn> >
-@kindex <fn> >
-@end table
-
 @findex emacspeak-speak-next-field
 
 @format
@@ -11439,13 +11425,6 @@ is the same as for the Emacs builtin ‘other-window’.
 
 @subsubsection emacspeak-speak-previous-field
 @deffn {Command} emacspeak-speak-previous-field   
-@table @kbd
-@item C-e <
-@kindex C-e <
-@item <fn> <
-@kindex <fn> <
-@end table
-
 @findex emacspeak-speak-previous-field
 
 @format

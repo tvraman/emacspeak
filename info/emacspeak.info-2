@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 27, 2021.
+last updated on July 28, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -3368,8 +3368,8 @@ of emacspeak from becoming dependent on the speech server modules
 ...........................................
 
  -- Command: emacspeak-speak-buffer-filename (&optional filename)
-     ‘C-e C-f’
-     ‘<fn> C-f’
+     ‘C-e f’
+     ‘<fn> f’
 
      Speak name of file being visited in current buffer.
      Speak default directory if invoked in a dired buffer, or when the
@@ -3442,16 +3442,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the current column.
 
-12.174.1.29 emacspeak-speak-current-field
-.........................................
-
- -- Command: emacspeak-speak-current-field
-     ‘C-e f’
-     ‘<fn> f’
-
-     Speak current field.
-
-12.174.1.30 emacspeak-speak-current-kill
+12.174.1.29 emacspeak-speak-current-kill
 ........................................
 
  -- Command: emacspeak-speak-current-kill (&optional count)
@@ -3467,7 +3458,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional COUNT)
 
-12.174.1.31 emacspeak-speak-current-mark
+12.174.1.30 emacspeak-speak-current-mark
 ........................................
 
  -- Command: emacspeak-speak-current-mark (count)
@@ -3486,7 +3477,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn COUNT)
 
-12.174.1.32 emacspeak-speak-current-percentage
+12.174.1.31 emacspeak-speak-current-percentage
 ..............................................
 
  -- Command: emacspeak-speak-current-percentage
@@ -3495,7 +3486,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Announce the percentage into the current buffer.
 
-12.174.1.33 emacspeak-speak-current-window
+12.174.1.32 emacspeak-speak-current-window
 ..........................................
 
  -- Command: emacspeak-speak-current-window
@@ -3503,7 +3494,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speak contents of current window.
      Speaks entire window irrespective of point.
 
-12.174.1.34 emacspeak-speak-date-as-seconds
+12.174.1.33 emacspeak-speak-date-as-seconds
 ...........................................
 
  -- Command: emacspeak-speak-date-as-seconds (time)
@@ -3513,7 +3504,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn TIME)
 
-12.174.1.35 emacspeak-speak-face-backward
+12.174.1.34 emacspeak-speak-face-backward
 .........................................
 
  -- Command: emacspeak-speak-face-backward
@@ -3521,7 +3512,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Property search for face at point  — see M-x text-property-search-backward
 
-12.174.1.36 emacspeak-speak-face-forward
+12.174.1.35 emacspeak-speak-face-forward
 ........................................
 
  -- Command: emacspeak-speak-face-forward
@@ -3529,7 +3520,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Property search for face — see M-x text-property-search-forward
 
-12.174.1.37 emacspeak-speak-face-range
+12.174.1.36 emacspeak-speak-face-range
 ......................................
 
  -- Command: emacspeak-speak-face-range
@@ -3537,6 +3528,13 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> C-.’
 
      Speak face range at point
+
+12.174.1.37 emacspeak-speak-field
+.................................
+
+ -- Command: emacspeak-speak-field
+
+     Speak current field.
 
 12.174.1.38 emacspeak-speak-header-line
 .......................................
@@ -3716,8 +3714,6 @@ of emacspeak from becoming dependent on the speech server modules
 ......................................
 
  -- Command: emacspeak-speak-next-field
-     ‘C-e >’
-     ‘<fn> >’
 
      Move to and speak next field.
 
@@ -3834,8 +3830,6 @@ of emacspeak from becoming dependent on the speech server modules
 ..........................................
 
  -- Command: emacspeak-speak-previous-field
-     ‘C-e <’
-     ‘<fn> <’
 
      Move to previous field and speak it.
 
@@ -10053,4 +10047,23 @@ Emacs anyway — why dont you just make it talk!
    Connecting the dots, I decided to write myself a tool that augmented
 Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
 of Emacspeak was up and running.
+
+
+File: emacspeak.info,  Node: Key Enabler --- Emacs And Lisp Advice,  Next: Key Component --- Text To Speech (TTS),  Prev: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
+
+15.3 Key Enabler — Emacs And Lisp Advice
+========================================
+
+It took me a couple of weeks to fully recognize the potential of what I
+had built with Emacs Lisp Advice.  Until then, I had used screen-readers
+to listen to the contents of the visual display — but Lisp Advice let me
+do a lot more — it enabled Emacspeak to generate highly context-specific
+spoken feedback, augmented by a set of auditory icons.  I later
+formalized this design under the name speech-enabled applications
+(http://en.wikipedia.org/wiki/Self-voicing).  For a detailed overview of
+the architecture of Emacspeak, see the chapter on Emacspeak
+(http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html)
+in the book Beautiful Code
+(http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
+from O’Reilly.
 
