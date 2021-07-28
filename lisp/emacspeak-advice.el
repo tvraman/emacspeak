@@ -2644,7 +2644,7 @@ Produce an auditory icon if possible."
        (when-let ((m ad-return-value))
          (emacspeak-speak-region
           (prop-match-beginning m) (prop-match-end m))
-         (emacspeak-auditory-icon 'large-movement))))))
+         (emacspeak-auditory-icon 'select-object))))))
 
 
 ;;}}}
