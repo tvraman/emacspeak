@@ -100,7 +100,7 @@
    (transient-argument voice-animate)
    (transient-disabled-suffix inaudible)
    (transient-enabled-suffix voice-brighten)
-   (transient-heading voice-bolden)
+   (transient-heading voice-lighten)
    (transient-inactive-argument inaudible)
    (transient-inactive-value inaudible)
    (transient-key voice-animate)
