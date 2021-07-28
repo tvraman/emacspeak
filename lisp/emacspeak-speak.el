@@ -2046,42 +2046,30 @@ was spoken.  Any other key continues to speak the buffer."
 ;;; Fields are defined by property 'field
 
 ;;; helper function: speak a field
-(defun emacspeak-speak-field (start end)
-  "Speaks field delimited by arguments START and END."
-  (cl-declare (special voice-annotate))
-  (let ((header  (get-text-property start 'field-name)))
-    (when header
-       (propertize  header 'personality voice-annotate))
-     (dtk-speak (concat header " " (buffer-substring start end)))))
 
-(defun emacspeak-speak-current-field ()
+
+(defun emacspeak-speak-field ()
   "Speak current field."
   (interactive)
-  (emacspeak-speak-region (field-beginning) (field-end)))
+  (dtk-speak (field-string (or pos (point)))))
 
 (defun emacspeak-speak-next-field ()
   "Move to and speak next field."
   (interactive)
   (cl-declare (special inhibit-field-text-motion))
-  (let ((inhibit-field-text-motion t)
-        (start nil))
-    (skip-syntax-forward "^ ")
-    (skip-syntax-forward " ")
-    (setq start (point))
-    (save-excursion
-      (skip-syntax-forward "^ ")
-      (emacspeak-speak-field start (point)))))
+  (let ((inhibit-field-text-motion t))
+    (when 
+        (goto-char (next-single-property-change (point) 'field))
+      (emacspeak-speak-field))))
 
 (defun emacspeak-speak-previous-field ()
   "Move to previous field and speak it."
   (interactive)
   (cl-declare (special inhibit-field-text-motion))
-  (let ((inhibit-field-text-motion t)
-        (start nil))
-    (skip-syntax-backward " ")
-    (setq start (point))
-    (skip-syntax-backward "^ ")
-    (emacspeak-speak-field (point) start)))
+  (let ((inhibit-field-text-motion t))
+    (when 
+        (goto-char (previous-single-property-change (point) 'field))
+      (emacspeak-speak-field))))
 
 (defun emacspeak-speak-current-column ()
   "Speak the current column."
