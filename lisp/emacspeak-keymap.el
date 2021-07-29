@@ -283,7 +283,6 @@
    ("C-v" view-mode)
    ("C-w" emacspeak-speak-window-information)
    ("C-y" emacspeak-clipboard-paste)
-   ("DEL" cd-tool)
    ("I"  emacspeak-speak-show-active-network-interfaces)
    ("L" emacspeak-speak-line-interactively)
    ("M" emacspeak-speak-minor-mode-line)
