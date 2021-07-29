@@ -245,7 +245,6 @@
    ("(" emacspeak-audio-setup)
    (")" emacspeak-sounds-select-theme)
    ("," emacspeak-speak-skim-buffer)
-   ("." dtk-notify-stop)
    ("/" emacspeak-speak-this-buffer-other-window-display)
    (":" emacspeak-m-player-shuffle)
    (";" emacspeak-multimedia)
@@ -353,6 +352,7 @@
  for binding in
  '(
    ("," dtk-toggle-punctuation-mode)
+   ("." dtk-notify-stop)
    ("C-c" dtk-cloud)
    ("C-d" dectalk)
    ("C-e" espeak)
