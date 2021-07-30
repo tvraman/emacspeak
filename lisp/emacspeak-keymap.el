@@ -244,7 +244,7 @@
    ("'" emacspeak-pianobar)
    ("(" emacspeak-audio-setup)
    (")" emacspeak-sounds-select-theme)
-   ("," emacspeak-speak-skim-buffer)
+   ("C-<return>" emacspeak-speak-skim-buffer)
    ("/" emacspeak-speak-this-buffer-other-window-display)
    (":" emacspeak-m-player-shuffle)
    (";" emacspeak-multimedia)
