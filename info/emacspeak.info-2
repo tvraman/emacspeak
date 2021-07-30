@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 29, 2021.
+last updated on July 30, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -3942,8 +3942,8 @@ of emacspeak from becoming dependent on the speech server modules
 .......................................
 
  -- Command: emacspeak-speak-skim-buffer
-     ‘C-e ,’
-     ‘<fn> ,’
+     ‘C-e C-<return>’
+     ‘<fn> C-<return>’
 
      Skim the current buffer  a paragraph at a time.
 

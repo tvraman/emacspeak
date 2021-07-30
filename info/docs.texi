@@ -11575,10 +11575,10 @@ any other key to speak entire sexp.
 @subsubsection emacspeak-speak-skim-buffer
 @deffn {Command} emacspeak-speak-skim-buffer   
 @table @kbd
-@item C-e ,
-@kindex C-e ,
-@item <fn> ,
-@kindex <fn> ,
+@item C-e C-<return>
+@kindex C-e C-<return>
+@item <fn> C-<return>
+@kindex <fn> C-<return>
 @end table
 
 @findex emacspeak-speak-skim-buffer

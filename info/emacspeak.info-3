@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 29, 2021.
+last updated on July 30, 2021.
 
 
 File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
@@ -779,7 +779,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> ':                                emacspeak-pianobar. (line   18)
 * <fn> (:                                emacspeak-sounds.   (line   18)
 * <fn> ):                                emacspeak-sounds.   (line   29)
-* <fn> ,:                                emacspeak-speak.    (line  793)
 * <fn> /:                                emacspeak-wizards.  (line  243)
 * <fn> 0:                                emacspeak-speak.    (line  668)
 * <fn> 1:                                emacspeak-speak.    (line  667)
@@ -811,6 +810,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C:                                emacspeak-wizards.  (line   32)
 * <fn> C-.:                              emacspeak-speak.    (line  367)
 * <fn> C-<left>:                         emacspeak-wizards.  (line  135)
+* <fn> C-<return>:                       emacspeak-speak.    (line  793)
 * <fn> C-<right>:                        emacspeak-wizards.  (line  109)
 * <fn> C-@:                              emacspeak-speak.    (line  315)
 * <fn> C-a:                              emacspeak-sounds.   (line   40)
@@ -1163,7 +1163,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e ':                                 emacspeak-pianobar. (line   17)
 * C-e (:                                 emacspeak-sounds.   (line   17)
 * C-e ):                                 emacspeak-sounds.   (line   28)
-* C-e ,:                                 emacspeak-speak.    (line  792)
 * C-e /:                                 Reading.            (line   91)
 * C-e / <1>:                             emacspeak-wizards.  (line  242)
 * C-e 0:                                 emacspeak-speak.    (line  658)
@@ -1200,6 +1199,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C:                                 emacspeak-wizards.  (line   31)
 * C-e C-.:                               emacspeak-speak.    (line  366)
 * C-e C-<left>:                          emacspeak-wizards.  (line  134)
+* C-e C-<return>:                        emacspeak-speak.    (line  792)
 * C-e C-<right>:                         emacspeak-wizards.  (line  108)
 * C-e C-@:                               Status Information. (line   71)
 * C-e C-@ <1>:                           emacspeak-speak.    (line  313)
