@@ -97,13 +97,13 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-text-range 'link-function)))
+    (emacspeak-speak-range 'link-function)))
 
 (defadvice dictionary-next-link (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-text-range 'link-function)))
+    (emacspeak-speak-range 'link-function)))
 
 ;;}}}
 (provide 'emacspeak-dictionary)

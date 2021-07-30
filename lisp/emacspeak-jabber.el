@@ -231,7 +231,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 With optional interactive prefix arg `copy-as-kill', copy it to
 the kill ring as well."
   (interactive "P")
-  (let ((range (emacspeak-speak-get-text-range 'face)))
+  (let ((range (emacspeak-speak-range)))
     (when copy-as-kill (kill-new range))
     (dtk-speak range)))
 
@@ -250,7 +250,7 @@ the kill ring as well."
     (message "On last message")
     (emacspeak-auditory-icon 'warn-user))
    (t(emacspeak-auditory-icon 'select-object)
-     (emacspeak-speak-text-range 'face))))
+     (emacspeak-speak-range))))
 
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat session."
@@ -267,7 +267,7 @@ the kill ring as well."
     (message "On first message")
     (emacspeak-auditory-icon 'warn-user))
    (t(emacspeak-auditory-icon 'select-object)
-     (emacspeak-speak-text-range 'face))))
+     (emacspeak-speak-range))))
 
 (when (boundp 'jabber-chat-mode-map)
   (cl-loop

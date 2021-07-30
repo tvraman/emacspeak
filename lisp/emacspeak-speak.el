@@ -352,19 +352,6 @@ Argument BODY specifies forms to execute."
      ,@body))
 
 ;;}}}
-;;{{{ getting and speaking text ranges
-
-(defun emacspeak-speak-get-text-range (prop)
-  "Return text range  around   point  as determined by property `prop'."
-  (let* ((end (next-single-property-change (point) prop nil (point-max)))
-         (start (previous-single-property-change end prop nil (point-min))))
-    (buffer-substring start end)))
-
-(defun emacspeak-speak-text-range (property)
-  "Speak text range identified by this PROPERTY."
-  (dtk-speak (emacspeak-speak-get-text-range property)))
-
-;;}}}
 ;;{{{  Apply audio annotations
 
 (defun emacspeak-audio-annotate-paragraphs ()
@@ -1938,7 +1925,7 @@ location of the mark is indicated by an aural highlight. "
 (defun emacspeak-speak-face-browse ()
   "Use C-f and C-b to browse by current face."
   (interactive )
-  (call-interactively #'emacspeak-speak-face-range)
+  (call-interactively #'emacspeak-speak-range)
   (while t
     (let ((key (read-key-sequence "")))
       (cond
@@ -1948,16 +1935,17 @@ location of the mark is indicated by an aural highlight. "
         (funcall-interactively #'emacspeak-speak-face-backward))
        (t (keyboard-quit))))))
 
-(defun emacspeak-speak-face-range ()
-  "Speak face range at point"
+(defun emacspeak-speak-range (&optional prop)
+  "Speak and return  range at point"
   (interactive )
   (let*
-      ((start (previous-single-property-change (1+ (point)) 'face))
-       (pre-start (previous-single-property-change (point) 'face))
-       (end (next-single-property-change (point) 'face))
+      ((start (previous-single-property-change (1+ (point)) prop))
+       (pre-start (previous-single-property-change (point) prop))
+       (end (next-single-property-change (point) prop))
        (beg (or start pre-start)))
     (when (and  beg end)
-      (emacspeak-speak-region beg end))))
+      (emacspeak-speak-region beg end)
+      (buffer-substring beg end))))
 
 (defun emacspeak-speak-face-forward ()
   "Property search for face --- see \\[text-property-search-forward]"
@@ -2051,7 +2039,7 @@ was spoken.  Any other key continues to speak the buffer."
 (defun emacspeak-speak-field ()
   "Speak current field."
   (interactive)
-  (dtk-speak (field-string (or pos (point)))))
+  (dtk-speak (field-string (point))))
 
 (defun emacspeak-speak-next-field ()
   "Move to and speak next field."
