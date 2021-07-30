@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 28, 2021.
+last updated on July 29, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1145 commands and 147 options.
+   This chapter documents a total of 1144 commands and 147 options.
 
 * Menu:
 
@@ -3167,8 +3167,6 @@ is a cd to wav converter.
 ................
 
  -- Command: cd-tool
-     ‘C-e DEL’
-     ‘<fn> DEL’
 
      Front-end to CDTool.
      Key     Action
@@ -3295,8 +3293,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 ........................
 
  -- Command: dtk-notify-stop
-     ‘C-e .’
-     ‘<fn> .’
+     ‘C-e d .’
+     ‘<fn> d .’
 
      Stop  speech on notification stream.
 

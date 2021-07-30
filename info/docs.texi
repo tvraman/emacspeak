@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1145 commands and 147 options.
+This chapter documents a total of 1144 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -304,13 +304,6 @@ cdda2wav is a cd to wav converter.
 
 @subsubsection cd-tool
 @deffn {Command} cd-tool   
-@table @kbd
-@item C-e DEL
-@kindex C-e DEL
-@item <fn> DEL
-@kindex <fn> DEL
-@end table
-
 @findex cd-tool
 
 @format
@@ -469,10 +462,10 @@ Initialize notification TTS stream.
 @subsubsection dtk-notify-stop
 @deffn {Command} dtk-notify-stop   
 @table @kbd
-@item C-e .
-@kindex C-e .
-@item <fn> .
-@kindex <fn> .
+@item C-e d .
+@kindex C-e d .
+@item <fn> d .
+@kindex <fn> d .
 @end table
 
 @findex dtk-notify-stop
@@ -10948,6 +10941,22 @@ Property search for face at point  --- see M-x text-property-search-backward
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-face-browse
+@deffn {Command} emacspeak-speak-face-browse   
+@table @kbd
+@item C-e C-.
+@kindex C-e C-.
+@item <fn> C-.
+@kindex <fn> C-.
+@end table
+
+@findex emacspeak-speak-face-browse
+
+@format
+Use C-f and C-b to browse by current face.
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-face-forward
 @deffn {Command} emacspeak-speak-face-forward   
 @table @kbd
@@ -10959,22 +10968,6 @@ Property search for face at point  --- see M-x text-property-search-backward
 
 @format
 Property search for face --- see M-x text-property-search-forward
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-face-range
-@deffn {Command} emacspeak-speak-face-range   
-@table @kbd
-@item C-e C-.
-@kindex C-e C-.
-@item <fn> C-.
-@kindex <fn> C-.
-@end table
-
-@findex emacspeak-speak-face-range
-
-@format
-Speak face range at point
 @end format
 @end deffn
 
@@ -11432,6 +11425,17 @@ Move to previous field and speak it.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-range
+@deffn {Command} emacspeak-speak-range  (&optional prop)
+@findex emacspeak-speak-range
+
+@format
+Speak and return  range at point
+
+(fn &optional PROP)
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-rectangle
 @deffn {Command} emacspeak-speak-rectangle  (start end)
 @table @kbd
@@ -11632,24 +11636,6 @@ Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
 
 (fn &optional WORLD)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-unface-backward
-@deffn {Command} emacspeak-speak-unface-backward   
-@findex emacspeak-speak-unface-backward
-
-@format
-Property search for face --- see M-x text-property-search-backward
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-unface-forward
-@deffn {Command} emacspeak-speak-unface-forward   
-@findex emacspeak-speak-unface-forward
-
-@format
-Property search for face at point --- see M-x text-property-search-forward
 @end format
 @end deffn
 
