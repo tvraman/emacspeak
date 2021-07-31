@@ -7614,18 +7614,16 @@ Move forward by 1 minute.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-from-media-history
-@deffn {Command} emacspeak-m-player-from-media-history  (posn)
+@subsubsection emacspeak-m-player-from-history
+@deffn {Command} emacspeak-m-player-from-history  (posn)
 @table @kbd
-@item C-. h
-@kindex C-. h
-@item C-' h
-@kindex C-' h
-@item C-x @@ s h
-@kindex C-x @@ s h
+@item C-; h
+@kindex C-; h
+@item C-x @@ h h
+@kindex C-x @@ h h
 @end table
 
-@findex emacspeak-m-player-from-media-history
+@findex emacspeak-m-player-from-history
 
 @format
 Play media from position ‘posn’media-history. 
@@ -9403,10 +9401,12 @@ or http://orgmode.org/
 @subsubsection emacspeak-org-capture-link
 @deffn {Command} emacspeak-org-capture-link  (&optional open)
 @table @kbd
-@item C-; h
-@kindex C-; h
-@item C-x @@ h h
-@kindex C-x @@ h h
+@item C-. h
+@kindex C-. h
+@item C-' h
+@kindex C-' h
+@item C-x @@ s h
+@kindex C-x @@ s h
 @end table
 
 @findex emacspeak-org-capture-link

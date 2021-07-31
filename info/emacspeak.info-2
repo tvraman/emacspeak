@@ -674,13 +674,12 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Move forward by 1 minute.
 
-12.115.2.36 emacspeak-m-player-from-media-history
-.................................................
+12.115.2.36 emacspeak-m-player-from-history
+...........................................
 
- -- Command: emacspeak-m-player-from-media-history (posn)
-     ‘C-. h’
-     ‘C-' h’
-     ‘C-x @ s h’
+ -- Command: emacspeak-m-player-from-history (posn)
+     ‘C-; h’
+     ‘C-x @ h h’
 
      Play media from position ‘posn’media-history.
 
@@ -2195,8 +2194,9 @@ http://orgmode.org/
 .....................................
 
  -- Command: emacspeak-org-capture-link (&optional open)
-     ‘C-; h’
-     ‘C-x @ h h’
+     ‘C-. h’
+     ‘C-' h’
+     ‘C-x @ s h’
 
      Capture hyperlink to current context.
      To use this command, first do ‘customize-variable’
