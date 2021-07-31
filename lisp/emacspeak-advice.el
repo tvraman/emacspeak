@@ -734,12 +734,12 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (let ((msg (ad-get-arg 0))
             (exit (ad-get-arg 2)))
         (dtk-speak
-         (format "%s %s"
-                 msg
-                 (format "Press %s to exit "
-                         (if exit
-                             (format "%c" exit)
-                           "space"))))
+         (format
+          "%s Press %s to exit"
+          msg
+          (if exit
+              (format "%c" exit)
+            "space")))
         ad-do-it)))
 
 (defadvice progress-reporter-do-update (around emacspeak pre act comp)
@@ -832,8 +832,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (ems-with-messages-silenced
    ad-do-it
      (emacspeak-auditory-icon 'progress)
-     (dtk-speak
-      (format " %s percent" ange-ftp-last-percent))))
+     (dtk-speak (format " %s percent" ange-ftp-last-percent))))
 
 
 
@@ -983,8 +982,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (tts-with-punctuations 'all
-                           (dtk-speak
-                            (emacspeak-get-current-completion)))))
+                           (dtk-speak (emacspeak-get-current-completion)))))
 
 (defadvice choose-completion (before emacspeak pre act comp)
   "speak."
@@ -1470,8 +1468,7 @@ the newly created  line."
      (when (ems-interactive-p)
        (let ((dtk-chunk-separator-syntax " .<>()$\"'"))
          (tts-with-punctuations 'all
-                                (dtk-speak
-                                 (format "%s" ad-return-value))))))))
+           (dtk-speak (format "%s" ad-return-value))))))))
 
 (defadvice shell (after emacspeak pre act comp)
   "Announce switching to shell mode.
@@ -1893,7 +1890,7 @@ Produce an auditory icon if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (dtk-speak isearch-string voice-bolden)
+       (dtk-speak (propertize  isearch-string 'personality voice-bolden))
        (emacspeak-auditory-icon 'item)))))
 
 ;;; Note the advice on the next two toggle commands
@@ -1911,8 +1908,7 @@ Produce an auditory icon if possible."
 (defadvice isearch-toggle-regexp (after emacspeak pre act comp)
   "Speak"
   (emacspeak-auditory-icon (if isearch-regexp 'on 'off))
-  (dtk-speak
-   (if isearch-regexp "Regexp search" "text search")))
+  (dtk-speak (if isearch-regexp "Regexp search" "text search")))
 
 (defadvice isearch-occur (after emacspeak pre act comp)
   "speak."
