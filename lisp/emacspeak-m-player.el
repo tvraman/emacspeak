@@ -1136,7 +1136,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defvar emacspeak-m-player-media-history nil
   "Record media urls we played.")
 
-(defun emacspeak-m-player-from-media-history (posn)
+(defun emacspeak-m-player-from-history (posn)
   "Play media from position `posn'media-history. "
   (interactive "p")
   (cl-declare (special emacspeak-m-player-media-history))
