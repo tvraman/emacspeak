@@ -1140,6 +1140,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   "Play media from position `posn'media-history. "
   (interactive "p")
   (cl-declare (special emacspeak-m-player-media-history))
+  (cl-assert emacspeak-m-player-media-history t "No media history")
   (setq posn (1- posn))
   (cl-assert (and emacspeak-m-player-media-history (> (length emacspeak-m-player-media-history)  posn)) t "Not that many elements in media history")
   (apply #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
