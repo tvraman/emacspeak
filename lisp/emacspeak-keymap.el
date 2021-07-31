@@ -639,7 +639,6 @@
     ("d" magit-dispatch)
     ("e" emacspeak-wizards-eww-buffer-list)
     ("f" magit-file-dispatch)
-    ("m" pop-global-mark)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
     ("s" magit-status)
