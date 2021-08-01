@@ -1,13 +1,14 @@
 * Executive Summary
 
   Context switching in an Emacs workflow comes down to switching
-  buffers --- and consequently, Emacs provides a large number of
+  buffers --- and  Emacs provides a large number of
   built-ins and extensions packages for /switching buffers/. One can
   put together numerous workflows by picking among these to make
   context switching /contextual/ --- using the most appropriate
   workflow can lead to  being able to focus much better on the core
   task of creating, editing, reviewing and publishing all forms of
-  content.
+  content ranging from research papers and presentations to Open
+  Source Software.
 
   This article summarizes my present workflow --- it's entirely
   keyboard driven and optimized for
@@ -18,17 +19,64 @@
 Context as used in this article can be traced back to the current task at
 hand --- here are some illustrative examples:
 
-  1. Editing a set of related files.
-  2. Switching among a collection of chat buffers.
-  3. Switching among a collection of mail folders.
-  4. Switching among a collection of open Web pages.
-  5. Switching among a /small/ number of recently used buffers.
+  1. Editing a set of related files. (.c, .h)
+  2. Switching among a collection of chat buffers. (major-mode)
+  3. Switching among a collection of mail folders. (major-mode)
+  4. Switching among a collection of open Web pages. (major-mode)
+  5. Switching among a /small/ number of recently used buffers. (recency)
+  6. Switching among buffers in the same project (project)
+  7. Switching between project-specific shells and buffers. (project)
      
+     
+* Building Blocks For Context Switching
+Here are some of the building blocks I use to construct workflows that
+meet the use-cases enumerated in the previous section. Many of these
+are built into Emacs; some come from extra packages and a few are
+implemented in Emacspeak to fill the gaps.  See the related article
+[[https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html][Search, Input, Filter, Target (SIFT)]] interaction described in a
+previous article for a more detailed explanation or properties that
+characterize effective eyes-free interaction.
+ 
+  1. Built-in Command ~next-buffer~ and ~previous-buffer~ bound to
+     ~hyper-,~ and ~hyper-.~.
+  2. Builtin Command ~ ~other-window~ bound to ~C-x o~.
+  3. [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L1621][Emacspeak Commands]]   ~emacspeak-wizards-cycle-to-next-buffer~ and
+    ~emacspeak-wizards-cycle-to-previous-buffer~
+    bound to  ~Alt-n~ and ~Alt-p~.
+  4. [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L729][Emacspeak Command]] ~emacspeak-wizards-shell-toggle~ bound to ~Super-,~.
+  5. [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L1457][Emacspeak Command]] ~emacspeak-wizards-shell-by-key~ bound to ~C-c [1-9]~.
+** Things To Note
+
+  1. Notice that many of these commands come in pairs and use
+   key-bindings that also pair-up with respect to muscle memory; over
+   time I have found this type of pairing to be essential for them to
+   become part of one's daily habit.
+  2. And when these task-specific commands dont get you the buffer
+    you want with one or two keystrokes, one can always fallback to ~switch-to-buffer~.
+  3. Built-in Command ~switch-to-buffer~ bound to  ~C-x b~ which in my
+     environment maps to  ~ido-switch-buffer~ with fuzzy completion.
 
 
+** Related Packages 
 
+  There are of course many alternatives to the building blocks above,
+  here is a non-exhaustive list:
 
-  3. Current Task
+  - Package ~helm~ with ~ivy~, ~counsel~ and friends.
+  - Package ~selectrum~.
+  - Additionally organizing  one's workspace using ~Emacs Frames~ with
+    each frame dedicated to tasks like email --- visual workspaces.
+
+    In general, I've not found any of the above adding much in the
+     context of eyes-free interaction.
+
+*  Conclusion
+
+  Emacs has a large number of facilities that lend themselves to
+  multiple workflows. Investing some time in putting together
+  workflows that suit one's needs has a large pay-back over time.
+  
+  
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t

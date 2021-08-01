@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-08-01 Sun 06:54 -->
+<!-- 2021-08-01 Sun 09:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contextual Context Switching For An Efficient Workflow</title>
@@ -219,18 +219,19 @@
 <body>
 <div id="content">
 <h1 class="title">Contextual Context Switching For An Efficient Workflow</h1>
-<div id="outline-container-orgcae542f" class="outline-2">
-<h2 id="orgcae542f"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-org8f9276d" class="outline-2">
+<h2 id="org8f9276d"><span class="section-number-2">1</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Context switching in an Emacs workflow comes down to switching
-buffers &#x2014; and consequently, Emacs provides a large number of
+buffers &#x2014; and  Emacs provides a large number of
 built-ins and extensions packages for <i>switching buffers</i>. One can
 put together numerous workflows by picking among these to make
 context switching <i>contextual</i> &#x2014; using the most appropriate
 workflow can lead to  being able to focus much better on the core
 task of creating, editing, reviewing and publishing all forms of
-content.
+content ranging from research papers and presentations to Open
+Source Software.
 </p>
 
 <p>
@@ -241,8 +242,8 @@ an eyes-free workflow.
 </div>
 </div>
 
-<div id="outline-container-org441e00e" class="outline-2">
-<h2 id="org441e00e"><span class="section-number-2">2</span> Where Does <i>Context</i> Come From?</h2>
+<div id="outline-container-orga0534fb" class="outline-2">
+<h2 id="orga0534fb"><span class="section-number-2">2</span> Where Does <i>Context</i> Come From?</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Context as used in this article can be traced back to the current task at
@@ -250,27 +251,99 @@ hand &#x2014; here are some illustrative examples:
 </p>
 
 <ol class="org-ol">
-<li>Editing a set of related files.</li>
-<li>Switching among a collection of chat buffers.</li>
-<li>Switching among a collection of mail folders.</li>
-<li>Switching among a collection of open Web pages.</li>
-<li>Switching among a <i>small</i> number of recently used buffers.</li>
+<li>Editing a set of related files. (.c, .h)</li>
+<li>Switching among a collection of chat buffers. (major-mode)</li>
+<li>Switching among a collection of mail folders. (major-mode)</li>
+<li>Switching among a collection of open Web pages. (major-mode)</li>
+<li>Switching among a <i>small</i> number of recently used buffers. (recency)</li>
+<li>Switching among buffers in the same project (project)</li>
+<li>Switching between project-specific shells and buffers. (project)</li>
 </ol>
+</div>
+</div>
 
 
-
-
+<div id="outline-container-orgdd9e202" class="outline-2">
+<h2 id="orgdd9e202"><span class="section-number-2">3</span> Building Blocks For Context Switching</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Here are some of the building blocks I use to construct workflows that
+meet the use-cases enumerated in the previous section. Many of these
+are built into Emacs; some come from extra packages and a few are
+implemented in Emacspeak to fill the gaps.  See the related article
+<a href="https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html">Search, Input, Filter, Target (SIFT)</a> interaction described in a
+previous article for a more detailed explanation or properties that
+characterize effective eyes-free interaction.
+</p>
 
 <ol class="org-ol">
-<li>Current Task</li>
+<li>Built-in Command <code>next-buffer</code> and <code>previous-buffer</code> bound to
+<code>hyper-,</code> and <code>hyper-.</code>.</li>
+<li>Builtin Command ~ <code>other-window</code> bound to <code>C-x o</code>.</li>
+<li><a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L1621">Emacspeak Commands</a>   <code>emacspeak-wizards-cycle-to-next-buffer</code> and
+<code>emacspeak-wizards-cycle-to-previous-buffer</code>
+bound to  <code>Alt-n</code> and <code>Alt-p</code>.</li>
+<li><a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L729">Emacspeak Command</a> <code>emacspeak-wizards-shell-toggle</code> bound to <code>Super-,</code>.</li>
+<li><a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L1457">Emacspeak Command</a> <code>emacspeak-wizards-shell-by-key</code> bound to <code>C-c [1-9]</code>.</li>
 </ol>
+</div>
+<div id="outline-container-org903a098" class="outline-3">
+<h3 id="org903a098"><span class="section-number-3">3.1</span> Things To Note</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>Notice that many of these commands come in pairs and use
+key-bindings that also pair-up with respect to muscle memory; over
+time I have found this type of pairing to be essential for them to
+become part of one's daily habit.</li>
+<li>And when these task-specific commands dont get you the buffer
+you want with one or two keystrokes, one can always fallback to <code>switch-to-buffer</code>.</li>
+<li>Built-in Command <code>switch-to-buffer</code> bound to  <code>C-x b</code> which in my
+environment maps to  <code>ido-switch-buffer</code> with fuzzy completion.</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org6e43053" class="outline-3">
+<h3 id="org6e43053"><span class="section-number-3">3.2</span> Related Packages</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+There are of course many alternatives to the building blocks above,
+here is a non-exhaustive list:
+</p>
+
+<ul class="org-ul">
+<li>Package <code>helm</code> with <code>ivy</code>, <code>counsel</code> and friends.</li>
+<li>Package <code>selectrum</code>.</li>
+<li><p>
+Additionally organizing  one's workspace using <code>Emacs Frames</code> with
+each frame dedicated to tasks like email &#x2014; visual workspaces.
+</p>
+
+<p>
+In general, I've not found any of the above adding much in the
+ context of eyes-free interaction.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e4aab2" class="outline-2">
+<h2 id="org7e4aab2"><span class="section-number-2">4</span> Conclusion</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Emacs has a large number of facilities that lend themselves to
+multiple workflows. Investing some time in putting together
+workflows that suit one's needs has a large pay-back over time.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-08-01 Sun 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2021-08-01 Sun 06:54</p>
+<p class="date">Created: 2021-08-01 Sun 09:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
