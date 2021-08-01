@@ -2,16 +2,33 @@
 
   Context switching in an Emacs workflow comes down to switching
   buffers --- and consequently, Emacs provides a large number of
-  built-ins as well as extensions for /switching buffers/. One can put
-  together numerous workflows by picking among these to make context
-  switching /contextual/ --- using the most appropriate workflow can
-  lead to one being able to focus much better on the core task of
-  creating, editting, reviewing and publishing all forms of content.
+  built-ins and extensions packages for /switching buffers/. One can
+  put together numerous workflows by picking among these to make
+  context switching /contextual/ --- using the most appropriate
+  workflow can lead to  being able to focus much better on the core
+  task of creating, editing, reviewing and publishing all forms of
+  content.
 
-  This article summarizes my present workflow --- it's optimized for
-  an eyes-free workflow, and entirely keyboard driven.
+  This article summarizes my present workflow --- it's entirely
+  keyboard driven and optimized for
+  an eyes-free workflow.
   
+* Where Does /Context/ Come From?
 
+Context as used in this article can be traced back to the current task at
+hand --- here are some illustrative examples:
+
+  1. Editing a set of related files.
+  2. Switching among a collection of chat buffers.
+  3. Switching among a collection of mail folders.
+  4. Switching among a collection of open Web pages.
+  5. Switching among a /small/ number of recently used buffers.
+     
+
+
+
+
+  3. Current Task
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
