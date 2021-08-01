@@ -1,0 +1,44 @@
+* Executive Summary
+
+  Context switching in an Emacs workflow comes down to switching
+  buffers --- and consequently, Emacs provides a large number of
+  built-ins as well as extensions for /switching buffers/. One can put
+  together numerous workflows by picking among these to make context
+  switching /contextual/ --- using the most appropriate workflow can
+  lead to one being able to focus much better on the core task of
+  creating, editting, reviewing and publishing all forms of content.
+
+  This article summarizes my present workflow --- it's optimized for
+  an eyes-free workflow, and entirely keyboard driven.
+  
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+options: html-link-use-abs-url:nil html-postamble:auto
+#+options: html-preamble:t html-scripts:t html-style:t
+#+options: html5-fancy:nil tex:t
+#+html_doctype: xhtml-strict
+#+html_container: div
+#+description:
+#+keywords:
+#+html_link_home:
+#+html_link_up:
+#+html_mathjax:
+#+html_equation_reference_format: \eqref{%s}
+#+html_head:
+#+html_head_extra:
+#+subtitle:
+#+infojs_opt:
+#+creator: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.0.50 (<a href="https://orgmode.org">Org</a> mode 9.4.4)
+#+latex_header:
+#+title: Contextual Context Switching For An Efficient Workflow
+#+date: <2021-08-01 Sun>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.4.4)
