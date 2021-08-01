@@ -735,10 +735,7 @@ If optional arg property is not supplied, read it interactively. "
     (shell)
     (unless (string-equal (expand-file-name dir)
                           (expand-file-name default-directory))
-      (goto-char (point-max))
-      (insert (format "pushd %s" dir))
-      (comint-send-input)
-      (shell-process-cd dir))
+      (shell-cd dir))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
