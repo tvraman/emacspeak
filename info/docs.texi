@@ -15670,10 +15670,10 @@ updating custom settings for a specific package or group of packages.
 @table @kbd
 @item C-z n
 @kindex C-z n
-@item C-, n
-@kindex C-, n
-@item C-x @@ a n
-@kindex C-x @@ a n
+@item C-; n
+@kindex C-; n
+@item C-x @@ h n
+@kindex C-x @@ h n
 @end table
 
 @findex emacspeak-wizards-cycle-to-next-buffer
@@ -15688,10 +15688,10 @@ Cycles to next buffer having same mode.
 @table @kbd
 @item C-z p
 @kindex C-z p
-@item C-, p
-@kindex C-, p
-@item C-x @@ a p
-@kindex C-x @@ a p
+@item C-; p
+@kindex C-; p
+@item C-x @@ h p
+@kindex C-x @@ h p
 @end table
 
 @findex emacspeak-wizards-cycle-to-previous-buffer
@@ -16291,10 +16291,10 @@ prompts for and sets value of the file local pattern.
 @subsubsection emacspeak-wizards-pdf-open
 @deffn {Command} emacspeak-wizards-pdf-open  (filename &optional ask-pwd)
 @table @kbd
-@item C-; p
-@kindex C-; p
-@item C-x @@ h p
-@kindex C-x @@ h p
+@item C-, p
+@kindex C-, p
+@item C-x @@ a p
+@kindex C-x @@ a p
 @end table
 
 @findex emacspeak-wizards-pdf-open

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 31, 2021.
+last updated on August 1, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -7022,8 +7022,8 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-cycle-to-next-buffer
      ‘C-z n’
-     ‘C-, n’
-     ‘C-x @ a n’
+     ‘C-; n’
+     ‘C-x @ h n’
 
      Cycles to next buffer having same mode.
 
@@ -7032,8 +7032,8 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-cycle-to-previous-buffer
      ‘C-z p’
-     ‘C-, p’
-     ‘C-x @ a p’
+     ‘C-; p’
+     ‘C-x @ h p’
 
      Cycles to previous buffer having same mode.
 
@@ -7481,8 +7481,8 @@ Contains various wizards for the Emacspeak desktop.
 ......................................
 
  -- Command: emacspeak-wizards-pdf-open (filename &optional ask-pwd)
-     ‘C-; p’
-     ‘C-x @ h p’
+     ‘C-, p’
+     ‘C-x @ a p’
 
      Open pdf file as text.
      Optional interactive prefix arg ask-pwd prompts for password.

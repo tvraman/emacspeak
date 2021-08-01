@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 31, 2021.
+last updated on August 1, 2021.
 
 
 File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
@@ -1064,9 +1064,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, b:                                 sox-gen.            (line   90)
 * C-, c:                                 emacspeak-wizards.  (line 1207)
 * C-, h:                                 emacspeak-muggles.  (line   42)
-* C-, n:                                 emacspeak-wizards.  (line  409)
 * C-, o:                                 emacspeak-feeds.    (line   65)
-* C-, p:                                 emacspeak-wizards.  (line  419)
+* C-, p:                                 emacspeak-wizards.  (line  868)
 * C-, q:                                 emacspeak-wizards.  (line  721)
 * C-, r:                                 emacspeak-feeds.    (line   84)
 * C-, s:                                 emacspeak-wizards.  (line 1136)
@@ -1105,7 +1104,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; h:                                 emacspeak-m-player. (line  324)
 * C-; k:                                 emacspeak-google.   (line   28)
 * C-; l:                                 emacspeak-librivox. (line   23)
-* C-; p:                                 emacspeak-wizards.  (line  868)
+* C-; n:                                 emacspeak-wizards.  (line  409)
+* C-; p:                                 emacspeak-wizards.  (line  419)
 * C-; r:                                 emacspeak-wizards.  (line  552)
 * C-; v:                                 extra-muggles.      (line  292)
 * C-; w:                                 emacspeak-wizards.  (line  835)
@@ -1490,9 +1490,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a b:                             sox-gen.            (line   91)
 * C-x @ a c:                             emacspeak-wizards.  (line 1208)
 * C-x @ a h:                             emacspeak-muggles.  (line   43)
-* C-x @ a n:                             emacspeak-wizards.  (line  410)
 * C-x @ a o:                             emacspeak-feeds.    (line   66)
-* C-x @ a p:                             emacspeak-wizards.  (line  420)
+* C-x @ a p:                             emacspeak-wizards.  (line  869)
 * C-x @ a q:                             emacspeak-wizards.  (line  722)
 * C-x @ a r:                             emacspeak-feeds.    (line   85)
 * C-x @ a s:                             emacspeak-wizards.  (line 1137)
@@ -1512,7 +1511,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h h:                             emacspeak-m-player. (line  325)
 * C-x @ h k:                             emacspeak-google.   (line   29)
 * C-x @ h l:                             emacspeak-librivox. (line   24)
-* C-x @ h p:                             emacspeak-wizards.  (line  869)
+* C-x @ h n:                             emacspeak-wizards.  (line  410)
+* C-x @ h p:                             emacspeak-wizards.  (line  420)
 * C-x @ h r:                             emacspeak-wizards.  (line  553)
 * C-x @ h v:                             extra-muggles.      (line  293)
 * C-x @ h w:                             emacspeak-wizards.  (line  838)
