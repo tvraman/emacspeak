@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 30, 2021.
+last updated on July 31, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -7620,8 +7620,6 @@ Contains various wizards for the Emacspeak desktop.
 .................................................
 
  -- Command: emacspeak-wizards-shell-directory-set
-     ‘C-e x ,’
-     ‘<fn> x ,’
 
      Define current directory as this shell’s project directory.
 
@@ -7631,8 +7629,13 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-shell-toggle
      ‘C-e <f11>’
      ‘C-; C-j’
+     ‘C-. ,’
+     ‘C-' ,’
      ‘<fn> <f11>’
+     ‘C-e x ,’
+     ‘<fn> x ,’
      ‘C-x @ h C-j’
+     ‘C-x @ s ,’
 
      Switch to  shell  and cd to
        directory of the previously current buffer.

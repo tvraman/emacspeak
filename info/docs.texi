@@ -16506,13 +16506,6 @@ Set current directory to this shell’s initial directory if one was defined.
 
 @subsubsection emacspeak-wizards-shell-directory-set
 @deffn {Command} emacspeak-wizards-shell-directory-set   
-@table @kbd
-@item C-e x ,
-@kindex C-e x ,
-@item <fn> x ,
-@kindex <fn> x ,
-@end table
-
 @findex emacspeak-wizards-shell-directory-set
 
 @format
@@ -16527,10 +16520,20 @@ Define current directory as this shell’s project directory.
 @kindex C-e <f11>
 @item C-; C-j
 @kindex C-; C-j
+@item C-. ,
+@kindex C-. ,
+@item C-' ,
+@kindex C-' ,
 @item <fn> <f11>
 @kindex <fn> <f11>
+@item C-e x ,
+@kindex C-e x ,
+@item <fn> x ,
+@kindex <fn> x ,
 @item C-x @@ h C-j
 @kindex C-x @@ h C-j
+@item C-x @@ s ,
+@kindex C-x @@ s ,
 @end table
 
 @findex emacspeak-wizards-shell-toggle
