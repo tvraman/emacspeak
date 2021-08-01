@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
 <feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'>
   <id>tag:blogger.com,1999:blog-20280042</id><updated>
-    2020-11-21T09:28:45.238-08:00
+    2021-08-01T09:40:43.441-07:00
   </updated>
   <title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>
     Here is where I plan to Blog Emacspeak tricks and introduce new
     features as I implement them.
   </subtitle>
   <link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/>
-  <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1'/>
+  <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=10'/>
   <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/>
   <link rel='hub' href='http://pubsubhubbub.appspot.com/'/>
-  <link rel='next' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?start-index=2&amp;max-results=1'/>
+  <link rel='next' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?start-index=11&amp;max-results=10'/>
   <author>
     <name>T. V. Raman</name><uri>
       http://www.blogger.com/profile/03589687652590194428
@@ -19,11 +19,732 @@
     <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
   </author>
   <generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>
-    173
+    175
   </openSearch:totalResults>
   <openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>
-    1
+    10
   </openSearch:itemsPerPage>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-6307300043551934554</id><published>
+      2021-08-01T09:39:00.002-07:00
+    </published>
+    <updated>2021-08-01T09:39:57.679-07:00</updated><title type='text'>
+      Contextual Context Switching For An Efficient Workflow
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Contextual Context Switching For
+      An Efficient Workflow&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org8f9276d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org8f9276d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Context switching in an Emacs workflow comes down to switching
+      buffers &amp;#x2014; and  Emacs provides a large number of
+      built-ins and extensions packages for &lt;i&gt;switching
+      buffers&lt;/i&gt;. One can
+      put together numerous workflows by picking among these to make
+      context switching &lt;i&gt;contextual&lt;/i&gt; &amp;#x2014; using
+      the most appropriate
+      workflow can lead to  being able to focus much better on the core
+      task of creating, editing, reviewing and publishing all forms of
+      content ranging from research papers and presentations to Open
+      Source Software.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      This article summarizes my present workflow &amp;#x2014; it&#39;s
+      entirely
+      keyboard driven and optimized for
+      an eyes-free workflow.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orga0534fb&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orga0534fb&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Where Does
+      &lt;i&gt;Context&lt;/i&gt; Come From?&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      Context as used in this article can be traced back to the current
+      task at
+      hand &amp;#x2014; here are some illustrative examples:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Editing a set of related files. (.c, .h)&lt;/li&gt;
+      &lt;li&gt;Switching among a collection of chat buffers.
+      (major-mode)&lt;/li&gt;
+      &lt;li&gt;Switching among a collection of mail folders.
+      (major-mode)&lt;/li&gt;
+      &lt;li&gt;Switching among a collection of open Web pages.
+      (major-mode)&lt;/li&gt;
+      &lt;li&gt;Switching among a &lt;i&gt;small&lt;/i&gt; number of
+      recently used buffers. (recency)&lt;/li&gt;
+      &lt;li&gt;Switching among buffers in the same project
+      (project)&lt;/li&gt;
+      &lt;li&gt;Switching between project-specific shells and buffers.
+      (project)&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-orgdd9e202&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgdd9e202&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Building Blocks
+      For Context Switching&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      Here are some of the building blocks I use to construct workflows
+      that
+      meet the use-cases enumerated in the previous section. Many of these
+      are built into Emacs; some come from extra packages and a few are
+      implemented in Emacspeak to fill the gaps.  See the related article
+      &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html&quot;&gt;Search, Input, Filter, Target (SIFT)&lt;/a&gt; interaction described in a
+      previous article for a more detailed explanation or properties that
+      characterize effective eyes-free interaction.
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Built-in Command &lt;code&gt;next-buffer&lt;/code&gt; and
+      &lt;code&gt;previous-buffer&lt;/code&gt; bound to
+      &lt;code&gt;hyper-,&lt;/code&gt; and
+      &lt;code&gt;hyper-.&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Builtin Command ~ &lt;code&gt;other-window&lt;/code&gt;
+      bound to &lt;code&gt;C-x o&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L1621&quot;&gt;Emacspeak Commands&lt;/a&gt;   &lt;code&gt;emacspeak-wizards-cycle-to-next-buffer&lt;/code&gt; and
+      &lt;code&gt;emacspeak-wizards-cycle-to-previous-buffer&lt;/code&gt;
+      bound to  &lt;code&gt;Alt-n&lt;/code&gt; and
+      &lt;code&gt;Alt-p&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L729&quot;&gt;Emacspeak Command&lt;/a&gt; &lt;code&gt;emacspeak-wizards-shell-toggle&lt;/code&gt; bound to &lt;code&gt;Super-,&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L1457&quot;&gt;Emacspeak Command&lt;/a&gt; &lt;code&gt;emacspeak-wizards-shell-by-key&lt;/code&gt; bound to &lt;code&gt;C-c [1-9]&lt;/code&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org903a098&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org903a098&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; Things To
+      Note&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Notice that many of these commands come in pairs and use
+      key-bindings that also pair-up with respect to muscle memory; over
+      time I have found this type of pairing to be essential for them to
+      become part of one&#39;s daily habit.&lt;/li&gt;
+      &lt;li&gt;And when these task-specific commands dont get you the
+      buffer
+      you want with one or two keystrokes, one can always fallback to
+      &lt;code&gt;switch-to-buffer&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Built-in Command &lt;code&gt;switch-to-buffer&lt;/code&gt;
+      bound to  &lt;code&gt;C-x b&lt;/code&gt; which in my
+      environment maps to  &lt;code&gt;ido-switch-buffer&lt;/code&gt; with
+      fuzzy completion.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org6e43053&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org6e43053&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.2&lt;/span&gt; Related
+      Packages&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-2&quot;&gt;
+      &lt;p&gt;
+      There are of course many alternatives to the building blocks above,
+      here is a non-exhaustive list:
+      &lt;/p&gt;
+      
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Package &lt;code&gt;helm&lt;/code&gt; with
+      &lt;code&gt;ivy&lt;/code&gt;, &lt;code&gt;counsel&lt;/code&gt; and
+      friends.&lt;/li&gt;
+      &lt;li&gt;Package &lt;code&gt;selectrum&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;
+      Additionally organizing  one&#39;s workspace using &lt;code&gt;Emacs
+      Frames&lt;/code&gt; with
+      each frame dedicated to tasks like email &amp;#x2014; visual
+      workspaces.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      In general, I&#39;ve not found any of the above adding much in the
+      context of eyes-free interaction.
+      &lt;/p&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org7e4aab2&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org7e4aab2&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt;
+      Conclusion&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;p&gt;
+      Emacs has a large number of facilities that lend themselves to
+      multiple workflows. Investing some time in putting together
+      workflows that suit one&#39;s needs has a large pay-back over time.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;			
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6307300043551934554'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6307300043551934554'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/08/contextual-context-switching-for.html' title='Contextual Context Switching For An Efficient Workflow'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-3408061818965563521</id><published>
+      2021-05-02T11:29:00.000-07:00
+    </published>
+    <updated>2021-05-02T11:29:12.692-07:00</updated><title type='text'>
+      Announcing Emacspeak 54.0 (EZDog)
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Announcing Emacspeak
+      54.0—EZDog!&lt;/h1&gt;
+      &lt;p&gt;
+      The enjoyment of one&#39;s tools is an essential ingredient of
+      successful work. &amp;#x2013; Donald E. Knuth
+      &lt;/p&gt;
+      
+      &lt;div id=&quot;outline-container-org3888897&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3888897&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; For Immediate
+      Release:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      San Jose, CA, (May 3, 2021)
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orga80b37f&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orga80b37f&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Emacspeak
+      54.0 (EZDog)  Unleashed!  🦮&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+      &lt;p&gt;
+      &amp;#x2014; Making Accessible Computing EZ Again!
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Advancing Accessibility In The Age Of User-Aware Interfaces
+      &amp;#x2014; Zero
+      cost of Ownership makes priceless software Universally affordable!
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Emacspeak Inc (NASDOG: ESPK) &amp;#x2014; &lt;a
+      
+      href=&quot;http://github.com/tvraman/emacspeak&quot;&gt;http://github.com/tvraman/emacspeak&lt;/a&gt;
+      announces  immediate world-wide availability of &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/releases/download/54.0/emacspeak-53.0.tar.bz2&quot;&gt;Emacspeak 54.0&lt;/a&gt;
+      (EZDog) 🦮 &amp;#x2014; a powerful audio desktop that leverages
+      today&#39;s
+      evolving Data, Social and Assistant-Oriented Internet cloud to
+      enableworking efficiently and effectively from anywhere!
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org04cd7a8&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org04cd7a8&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Investors
+      Note:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      With several prominent tweeters expanding coverage of &lt;span
+      class=&quot;underline&quot;&gt;#emacspeak&lt;/span&gt;,
+      NASDOG: ESPK has now been consistently trading over the social net
+      atlevels close to that once attained by DogCom high-fliers—and as
+      of
+      May  2021 is trading at levels close to that achieved by once
+      better known stocks in the tech sector.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org3115cb5&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3115cb5&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; What Is
+      It?&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      Emacspeak is a fully functional audio desktop that provides complete
+      eyes-free access to all major 32 and 64 bit operating environments.
+      By
+      seamlessly blending live access to all aspects of the Internet such
+      as
+      ubiquitous assistance, Web-surfing, blogging, remote software
+      development, social computing and electronic messaging into the
+      audiodesktop, Emacspeak enables speech access to local and remote
+      information with a consistent and well-integrated user interface. A
+      rich suite of task-oriented tools provides efficient speech-enabled
+      access to the evolving assistant-oriented social Internet cloud.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orged75ec3&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orged75ec3&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Major
+      Enhancements:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Faster Startup  🛱&lt;/li&gt;
+      &lt;li&gt;MP3 Files In Dired 🎹&lt;/li&gt;
+      &lt;li&gt;Dynamic playlist support with m-player  🎶&lt;/li&gt;
+      &lt;li&gt;Gopher And Gemini ♊&lt;/li&gt;
+      &lt;li&gt;Emacs 28 with native compilation   🚅&lt;/li&gt;
+      &lt;li&gt;Updated Soundscapes  🐦&lt;/li&gt;
+      &lt;li&gt;Updated wizards🧙&lt;/li&gt;
+      &lt;li&gt;Updated URL templates  🕷&lt;/li&gt;
+      &lt;li&gt;Capitalization And AllCaps   💼&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;
+      Updated keymaps and keybindings ⌨
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      — And a lot more than will fit this margin. … 🗞
+      &lt;/p&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      
+      &lt;p&gt;
+      Note: This version &lt;b&gt;requires&lt;/b&gt; emacs-27.1 or later. 
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgd0c7f10&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd0c7f10&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; Establishing
+      Liberty, Equality And Freedom:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;p&gt;
+      Never a toy system, Emacspeak is voluntarily bundled with all
+      major Linux distributions. Though designed to be modular,
+      distributors have freely chosen to bundle the fully integrated
+      system without any undue pressure—a documented success for
+      the integrated innovation embodied by Emacspeak. As the system
+      evolves, both upgrades and downgrades continue to be available at
+      the same zero-cost to all users. The integrity of the Emacspeak
+      codebase is ensured by the reliable and secure Linux platform
+      and the underlying GIT versioning software used to develop and
+      distribute the system.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Extensive studies have shown that thanks to these features, users
+      consider Emacspeak to be absolutely priceless. Thanks to this
+      wide-spread user demand, the present version remains   priceless
+      as ever—it is being made available at the same zero-cost as
+      previous releases.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      At the same time, Emacspeak continues to innovate in the area of
+      eyes-free Assistance and social interaction and carries forward the
+      well-established Open Source tradition of introducing user interface
+      features that eventually show up in luser environments.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      On this theme, when once challenged by a proponent of a crash-prone
+      but well-marketed mousetrap with the assertion &quot;Emacs is a
+      system from
+      the 70&#39;s&quot;, the creator of Emacspeak evinced surprise at the
+      unusual
+      candor manifest in the assertion that it would take popular
+      idiot-proven interfaces until the year 2070 to catch up to where the
+      Emacspeak audio desktop is today. Industry experts welcomed this
+      refreshing breath of Courage Certainty and Clarity (CCC) at a time
+      when users are reeling from the Fear Uncertainty and Doubt (FUD)
+      unleashed by complex software systems backed by even more convoluted
+      press releases.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org21dc866&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org21dc866&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;6&lt;/span&gt; Independent
+      Test Results:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
+      &lt;p&gt;
+      Independent test results have proven that unlike some modern (and
+      not so modern) software, Emacspeak can be safely uninstalled without
+      adversely affecting the continued performance of the computer. These
+      same tests also revealed that once uninstalled, the user stopped
+      functioning altogether. Speaking with Aster Labrador, the creator of
+      Emacspeak once pointed out that these results re-emphasize the
+      user-centric design of Emacspeak; “It is the user &amp;#x2014; and
+      not the
+      computer&amp;#x2013; that stops functioning when Emacspeak is
+      uninstalled!”.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org40be5bf&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org40be5bf&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;6.1&lt;/span&gt; Note from
+      Aster,Bubbles and Tilden:&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-6-1&quot;&gt;
+      &lt;p&gt;
+      UnDoctored Videos Inc. is looking for volunteers to star in a
+      video demonstrating such complete user failure.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org945eccf&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org945eccf&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;7&lt;/span&gt; Obtaining
+      Emacspeak:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
+      &lt;p&gt;
+      Emacspeak can be downloaded from GitHub &amp;#x2014; see
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt; you can visit Emacspeak on the
+      WWW at &lt;a
+      
+      href=&quot;http://emacspeak.sf.net&quot;&gt;http://emacspeak.sf.net&lt;/a&gt;. You can subscribe to the emacspeak
+      mailing list — &lt;a
+      
+      href=&quot;http://mail.emacspeak.org&quot;&gt;emacspeak@emacspeak.org&lt;/a&gt;.  The &lt;a href=&quot;http://emacspeak.blogspot.com&quot;&gt;Emacspeak Blog&lt;/a&gt; is a good
+      source for news about recent enhancements and how to use them.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      The latest development snapshot of Emacspeak is always available at
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;GitHub&lt;/a&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgd258e48&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd258e48&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;8&lt;/span&gt;
+      History:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-8&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak 54.0 (EZDog) learns to take it easy from
+      Tilden.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 53.0 (EfficientDog)  focuses on 
+      efficiency.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a
+      pleasurable experience.&lt;/li&gt;
+      &lt;li&gt;Bigger and more powerful than any smart assistAnt,
+      AssistDog provides&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      instant access to the most relevant information at all times.
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak 50.0 (SageDog) embraces the wisdom of stability
+      as
+      opposed to rapid change and the concomitant  creation of bugs.🚭: 
+      Naturally Intelligent (NI)™ at how information is spoken,
+      Emacspeak&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      is entirely free of Artificial Ingredients (AI)™.
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak 49.0 (WiseDog) leverages the wisdom gleaned from
+      earlier releases to provide an enhanced  auditory
+      experience.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 48.0  (ServiceDog) builds on earlier releases to
+      provide
+      continued end-user value.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 47.0 (GentleDog) goes the next step in being
+      helpful
+      while letting users learn and grow.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 46.0 (HelpfulDog) heralds the  coming of Smart
+      Assistants.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 45.0 (IdealDog) is named in recognition of
+      Emacs&#39;
+      excellent integration with various programming language
+      environments &amp;#x2014; thanks to this, Emacspeak is the IDE of
+      choice
+      for eyes-free software engineering.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 44.0 continues the steady pace of innovation on
+      the
+      audio desktop.&lt;/li&gt;
+      &lt;li&gt;Emacspeak  43.0 brings even more end-user efficiency by
+      leveraging the
+      ability to spatially place multiple audio streams to provide timely
+      auditory feedback.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 42.0 while moving to GitHub from Google Code
+      continues to
+      innovate in the areas of auditory user interfaces and efficient,
+      light-weight Internet access.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 41.0 continues to improve 
+      on  the desire to provide not just equal, but superior access —
+      technology when correctly implemented can significantly enhance the
+      human ability.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 40.0 goes back to Web basics by enabling
+      &lt;a
+      
+      href=&quot;http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html&quot;&gt;efficient access&lt;/a&gt; to large amounts of readable Web content.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 39.0 continues the Emacspeak tradition of
+      increasing the breadth of
+      user tasks that are covered without introducing unnecessary
+      bloatware.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 38.0 is the latest in a series of award-winning
+      releases from Emacspeak Inc.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 37.0 continues the tradition of
+      delivering robust software as reflected by its code-name.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 36.0 enhances the audio desktop with many new
+      tools including full
+      EPub support — hence the name EPubDog.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 35.0 is all about
+      teaching a new dog old tricks — and is aptly code-named HeadDog in
+      on  of our new Press/Analyst contact. emacspeak-34.0 (AKA Bubbles)
+      established a new beach-head with respect to rapid task completion
+      inan eyes-free environment.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-33.0 AKA StarDog brings
+      unparalleled cloud access to the audio desktop.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 32.0 AKA
+      LuckyDog continues to innovate via open technologies for better
+      access.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 31.0 AKA TweetDog — adds tweeting to the
+      Emacspeak
+      desktop.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to the
+      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
+      resilliance and innovation
+      embodied by Open Source software—it would not exist without the
+      thriving Emacs community that continues to ensure that Emacs remains
+      one of the premier user environments despite perhaps also being one
+      of
+      the oldest.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 28.0—AKA PuppyDog—exemplifies the rapid pace
+      of
+      development evinced by Open Source software.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 27.0—AKA
+      FastDog—is the latest in a sequence of upgrades that make previous
+      releases obsolete and downgrades unnecessary.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 26—AKA
+      LeadDog—continues the tradition of introducing innovative access
+      solutions that are unfettered by the constraints inherent in
+      traditional adaptive technologies.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 25 —AKA ActiveDog
+      —re-activates open, unfettered access to online
+      information.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-Alive —AKA LiveDog —enlivens open,
+      unfetteredinformation access with a series of live updates that once
+      again
+      demonstrate the power and agility of open source software
+      development.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 23.0 &amp;#x2014; AKA Retriever—went the extra
+      mile in
+      fetching full access.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 22.0 —AKA GuideDog —helps users
+      navigate the Web more effectively than ever before.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 21.0
+      —AKA PlayDog —continued the 
+      Emacspeak tradition of relying on enhanced
+      productivity to liberate users.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-20.0 —AKA LeapDog —continues
+      the long established GNU/Emacs tradition of integrated innovation to
+      create a pleasurable computing environment for eyes-free
+      interaction.&lt;/li&gt;
+      &lt;li&gt;emacspeak-19.0 &amp;#x2013;AKA WorkDog&amp;#x2013; is
+      designed to enhance
+      user productivity at work and leisure.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-18.0 &amp;#x2013;code named
+      GoodDog&amp;#x2013; continued the Emacspeak tradition of enhancing
+      user
+      productivity and thereby reducing total cost of
+      ownership.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-17.0 &amp;#x2013;code named HappyDog&amp;#x2013;
+      enhances user
+      productivity by exploiting today&#39;s evolving WWW
+      standards.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-16.0 &amp;#x2013;code named
+      CleverDog&amp;#x2013; the follow-up to
+      SmartDog&amp;#x2013; continued the tradition of working better,
+      faster,
+      smarter.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-15.0 &amp;#x2013;code named
+      SmartDog&amp;#x2013;followed up on TopDog
+      as the next in a continuing  series of award-winning audio desktop
+      releases from  Emacspeak Inc.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-14.0 &amp;#x2013;code named
+      TopDog&amp;#x2013;was&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      the first release of this millennium. 
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak-13.0 &amp;#x2013;codenamed
+      YellowLab&amp;#x2013; was the closing release of the
+      20th. century.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-12.0 &amp;#x2013;code named
+      GoldenDog&amp;#x2013; began
+      leveraging the evolving semantic WWW to provide task-oriented speech
+      access to Webformation.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-11.0 &amp;#x2013;code named Aster&amp;#x2013;
+      went the
+      final step in making Linux a zero-cost Internet access solution for
+      blind and visually impaired users.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-10.0 &amp;#x2013;(AKA
+      Emacspeak-2000) code named WonderDog&amp;#x2013; continued the
+      tradition of
+      award-winning software releases designed to make eyes-free computing
+      a
+      productive and pleasurable experience.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-9.0 &amp;#x2013;(AKA
+      Emacspeak 99) code named BlackLab&amp;#x2013; continued to innovate
+      in the areas
+      of speech interaction and interactive accessibility.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-8.0 &amp;#x2013;(AKA Emacspeak-98++) code named
+      BlackDog&amp;#x2013; was a major upgrade to
+      the speech output extension to Emacs.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-95 (code named Illinois) was released as
+      OpenSource on
+      the Internet in May 1995 as the first complete speech interface
+      to UNIX workstations. The subsequent release, Emacspeak-96 (code
+      named Egypt) made available in May 1996 provided significant
+      enhancements to the interface. Emacspeak-97 (Tennessee) went
+      further in providing a true audio desktop. Emacspeak-98
+      integrated Internetworking into all aspects of the audio desktop
+      to provide the first fully interactive speech-enabled
+      WebTop.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org9306ff5&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org9306ff5&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;9&lt;/span&gt; About
+      Emacspeak:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-9&quot;&gt;
+      &lt;p&gt;
+      Originally based at Cornell (NY) —
+      &lt;a
+      
+      href=&quot;http://www.cs.cornell.edu/home/raman&quot;&gt;http://www.cs.cornell.edu/home/raman&lt;/a&gt; —home to Auditory User
+      Interfaces (AUI) on the WWW,  Emacspeak is now maintained on GitHub
+      —&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt;. The system is mirrored
+      world-wide by an international network of software archives and
+      bundled voluntarily with all major Linux distributions. On Monday,
+      April 12, 1999, Emacspeak became part of the &lt;a
+      
+      href=&quot;http://tvraman.github.io/emacspeak/blog/smithsonian-study.html&quot;&gt;Smithsonian&#39;s Permanent
+      Research Collection&lt;/a&gt; on Information Technology at the
+      Smithsonian&#39;s
+      National Museum of American History.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      The Emacspeak mailing list is archived at Vassar &amp;#x2013;the
+      home of the
+      Emacspeak mailing list&amp;#x2013; thanks to Greg Priest-Dorman, and
+      provides a
+      valuable knowledge base for new users. Note that we are currently
+      looking for a new home for the mailing list &amp;#x2014; stay tuned;
+      in the
+      meantime, the list is available via
+      &lt;b&gt;nntp+news.gmane.io:gmane.emacs.emacspeak.general&lt;/b&gt;
+      from within Gnus.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org80bc5fa&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org80bc5fa&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;10&lt;/span&gt; Press/Analyst
+      Contact: Tilden Labrador&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-10&quot;&gt;
+      &lt;p&gt;
+      Going forward, Tilden acknowledges his exclusive monopoly on
+      setting the direction of the Emacspeak Audio Desktop (🦮) and
+      promises to exercise this freedom to innovate and her resulting
+      power responsibly (as before) in the interest of all dogs.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      *About This Release:
+      &lt;/p&gt;
+      &lt;hr /&gt;
+      
+      &lt;p&gt;
+      Windows-Free (WF) is a favorite battle-cry of The League Against
+      Forced Fenestration (LAFF).  &amp;#x2013;see
+      &lt;a
+      
+      href=&quot;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&quot;&gt;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&lt;/a&gt; for details on
+      the ill-effects of Forced Fenestration.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      CopyWrite )C( Aster, Hubbell and Tilden Labrador. All Writes
+      Reserved.
+      HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are
+      Registered
+      Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs
+      belong to
+      their respective owners.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;			
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3408061818965563521'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3408061818965563521'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/05/announcing-emacspeak-540-ezdog.html' title='Announcing Emacspeak 54.0 (EZDog)'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-4870921173520661381</id><published>
       2020-11-21T09:28:00.004-08:00
@@ -548,6 +1269,1555 @@
     <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4870921173520661381'/>
     <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4870921173520661381'/>
     <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/11/emacspeak-530-efficientdog-unleashed.html' title='Emacspeak 53.0 EfficientDog Unleashed!'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-1034175706000724531</id><published>
+      2020-11-02T10:54:00.001-08:00
+    </published>
+    <updated>2020-11-02T10:54:26.262-08:00</updated><title type='text'>
+      Web: Data Tables Can Be More Than Screen-Deep
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Web: Data Tables Can Be More Than
+      Screen-Deep&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org64a9abd&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org64a9abd&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      A few years ago, layout tables made speaking Web content difficult;
+      that phase has now morphed into an even more horrifying soup of
+      &lt;code&gt;div&lt;/code&gt;
+      and &lt;code&gt;span&lt;/code&gt; tags styled by CSS. This also
+      means that now, if you
+      encounter a &lt;code&gt;table&lt;/code&gt; element, it likely
+      contains some useful data;
+      also, deeply nested tables are beginning to feel like a thing of the
+      past.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Sadly, this has not made getting data out of HTML tables any easier.
+      A
+      combination of badly created markup, many redundant DOM nodes that
+      exist purely for enabling DOM scripting, and heavy-weight DOM
+      structures that   result from  code-generation have mostly created
+      a different, but equally appalling situation .
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      One of the primary reasons to do everything in a rich end-user
+      environment like Emacs is the ability to share data across tasks and
+      being able to manipulate data as &lt;i&gt;data&lt;/i&gt;, rather
+      than working with that
+      data&#39;s underlying visual representation. Emacs can now render
+      Webdocuments that are content focused, so the next immediate desire
+      is to
+      be able to extract data in a useful form from EWW rendered pages.
+      This
+      article describes one simple approach that lets me turn HTML tables
+      found in the wild into a coherent tabular data structure  that I can
+      access meaningfully via emacspeak to obtain multiple &lt;i&gt;spoken
+      views&lt;/i&gt; of
+      the data.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgdcbe2b4&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgdcbe2b4&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Initial
+      Approach That Failed&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      I first tried to see if I could make EWW annotate the rendered
+      &lt;i&gt;table
+      data&lt;/i&gt; with text properties &amp;#x2014; sadly that proved
+      impossible to do in
+      the current implementation. Note however that Emacspeak does use
+      textproperties to provide access to other aspects of HTML document
+      structure such as section headers, and moving through the rendered
+      tables in an EWW buffer.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org5e26cc4&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org5e26cc4&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Ensuring That
+      EWW Rendered Tables Are More than Screen-Deep&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      I implemented the approach described below a couple of weeks ago and
+      it appears to work well barring a few known limitations.
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;I  &lt;a href=&quot;#orgf4ac815&quot;&gt;advice&lt;/a&gt;
+      EWW to store a pointer to the &lt;i&gt;Table DOM&lt;/i&gt; in the
+      EWW buffer.&lt;/li&gt;
+      &lt;li&gt;I defined a &lt;a
+      href=&quot;#org5da504b&quot;&gt;function&lt;/a&gt; that converts the
+      DOM nodes from the
+      &lt;i&gt;table-dom&lt;/i&gt; into a two-dimensional
+      vector.&lt;/li&gt;
+      &lt;li&gt;I then &lt;a
+      href=&quot;#org1814a73&quot;&gt;pass&lt;/a&gt; this structure to
+      Emacspeak&#39;s &lt;i&gt;Table-UI&lt;/i&gt; module to
+      obtain a browsable two-dimensional structure.&lt;/li&gt;
+      &lt;li&gt;Module &lt;a
+      href=&quot;#org67024ea&quot;&gt;emacspeak-table-ui&lt;/a&gt; enables
+      the user to obtain multiple
+      &lt;i&gt;spoken views&lt;/i&gt;  of the  tabular data.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      See the following sections for details on each of these steps.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgfcef362&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgfcef362&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; Storing A
+      Pointer To The Table-DOM &lt;a
+      id=&quot;orgf4ac815&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defadvice&lt;/span&gt; &lt;span
+      style=&quot;color: #feacd0;&quot;&gt;shr-tag-table-1&lt;/span&gt;
+      (around emacspeak pre act comp) 
+      &lt;span style=&quot;color: #c6eaff;&quot;&gt;&quot;Cache pointer to
+      table dom as a text property&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((table-dom (ad-get-arg 0))
+      (start (point)))
+      ad-do-it
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;unless&lt;/span&gt;
+      (get-text-property start &#39;table-dom)
+      (put-text-property start (point)
+      &#39;table-dom table-dom))
+      ad-return-value))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      This advice stores a pointer to the &lt;i&gt;DOM&lt;/i&gt; of the
+      table being rendered
+      over the region  containing the rendering.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgf92b80e&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgf92b80e&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.2&lt;/span&gt; Generate A
+      Tabular Structure From The Dom &lt;a
+      id=&quot;org5da504b&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-2&quot;&gt;
+      &lt;p&gt;
+      Function &lt;code&gt;emacspeak-eww-table-table&lt;/code&gt;
+      generates a two-dimensional
+      vector that encaspulates the tabular data.
+      &lt;/p&gt;
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color:
+      #feacd0;&quot;&gt;emacspeak-eww-table-table&lt;/span&gt; ()
+      &lt;span style=&quot;color: #c6eaff;&quot;&gt;&quot;Return table
+      cells as a table, a 2d structure.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let*&lt;/span&gt;
+      ((data nil)
+      (table (get-text-property (point) &#39;table-dom))
+      (head (dom-by-tag table &#39;th)))
+      (&lt;span style=&quot;color:
+      #dbbe5f;&quot;&gt;cl-assert&lt;/span&gt; table t &lt;span
+      style=&quot;color: #79a8ff;&quot;&gt;&quot;No table
+      here.&quot;&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      data          (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;cl-loop&lt;/span&gt;
+      for r in (dom-by-tag table &#39;tr) collect
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cl-loop&lt;/span&gt;
+      for c in
+      (append
+      (dom-by-tag r &#39;th)
+      (dom-by-tag r &#39;td))
+      collect
+      (string-trim (dom-node-as-text c)))))
+      &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;handle
+      head case differently:&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;if&lt;/span&gt; head
+      (apply #&#39;vector (mapcar #&#39;vconcat  (cdr data)))
+      (apply #&#39;vector (mapcar #&#39;vconcat  data)))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;p&gt;
+      The above code handles the case where there are header (i.e.,
+      &lt;span class=&quot;underline&quot;&gt;th&lt;/span&gt;)
+      cells specially to avoid a bug where we get two copies of the data.
+      The nested loops  generates a list of lists, and the final call
+      turns this into a two-dimensional vector.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgc296d95&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgc296d95&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.3&lt;/span&gt; Browsing
+      Tables As Data  &lt;a
+      id=&quot;org1814a73&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-3&quot;&gt;
+      &lt;p&gt;
+      Interactive command
+      &lt;code&gt;emacspeak-eww-table-data&lt;/code&gt; (bound to &lt;span
+      class=&quot;underline&quot;&gt;C-t&lt;/span&gt;) takes the
+      &lt;i&gt;table&lt;/i&gt; at
+      point, i.e. when point is anywhere within a table rendering, and
+      creates a browsable table buffer as implemented by module 
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-table-ui.el#L483&quot;&gt;emacspeak-table-ui&lt;/a&gt;.
+      &lt;/p&gt;
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color:
+      #feacd0;&quot;&gt;emacspeak-eww-table-data&lt;/span&gt; ()
+      &lt;span style=&quot;color: #c6eaff;&quot;&gt;&quot;View  table at
+      point as a data table using Emacspeak Table UI.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;interactive&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((data (emacspeak-eww-table-table))
+      (data-table nil)
+      (inhibit-read-only  t)
+      (buffer
+      (get-buffer-create
+      (format  &lt;span style=&quot;color: #79a8ff;&quot;&gt;&quot;Table:
+      %s&quot;&lt;/span&gt; (emacspeak-eww-current-title)))))
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      data-table (emacspeak-table-make-table data))
+      (emacspeak-table-prepare-table-buffer data-table buffer)))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      The two-dimensional vector described earlier is now converted to a
+      tabular structure as expected  by module
+      &lt;code&gt;emacspeak-table-ui&lt;/code&gt;, the
+      primary difference being that this structure explicitly captures row
+      and column headers.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org42c5fab&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org42c5fab&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.4&lt;/span&gt; Browsing The
+      Tabular Data &lt;a
+      id=&quot;org67024ea&quot;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div
+      class=&quot;outline-text-3&quot; id=&quot;text-3-4&quot;&gt;
+      &lt;p&gt;
+      Emacspeak&#39;s &lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002dtable.html#emacspeak_002dtable&quot;&gt;Table UI&lt;/a&gt; allows one to:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Move through table cells, either by row or
+      column.&lt;/li&gt;
+      &lt;li&gt;Determine what is spoken  during such
+      navigation,&lt;/li&gt;
+      &lt;li&gt;Spoken views can include cell value, row header and column
+      header.&lt;/li&gt;
+      &lt;li&gt;For more advanced use-cases, one can define a &lt;i&gt;row
+      filter&lt;/i&gt; or
+      &lt;i&gt;column filter&lt;/i&gt;, think of these as specialized
+      &lt;i&gt;formatters&lt;/i&gt; that
+      can format  selected cells and their headers into a
+      natural-sounding sentence.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/1034175706000724531'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/1034175706000724531'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/11/web-data-tables-can-be-more-than-screen.html' title='Web: Data Tables Can Be More Than Screen-Deep'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-2853057356022218696</id><published>
+      2020-10-10T07:52:00.000-07:00
+    </published>
+    <updated>2020-10-10T07:52:23.442-07:00</updated><title type='text'>
+      Extracted A Light-Weight Key-Reader By Progressive Simplification
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Extracting A Light-Weight
+      Key-Sequence Reader By Progressive Simplification&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-orgac4008b&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgac4008b&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
+      Background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      In the previous article entitled &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html&quot;&gt;On Defining Keys In Emacs&lt;/a&gt; I covered
+      the issue of declaring key-sequences when defining keyboard
+      short-cuts.  During the last week, I took the underlying Emacs Lisp
+      function &lt;code&gt;edmacro-parse-key&lt;/code&gt; and via a
+      process of progressive
+      simplification derived a new &lt;code&gt;new-kbd&lt;/code&gt;
+      function that is much simpler
+      and consequently easier to understand.  You can see the step-by-step
+      simplification via the Git history for file &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1&quot;&gt;new-kbd.el&lt;/a&gt; (note: used to
+      be called &lt;code&gt;ems-kbd.el&lt;/code&gt;).  That file contains
+      the final version of the
+      simplified function, along with a test-suite that verifies that
+      it&#39;s
+      behavior is convenient with the solution built into Emacs. The
+      updated
+      function is now part of Emacspeak and is named
+      &lt;code&gt;ems-kbd&lt;/code&gt; in that
+      package.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      The next section gives a high-level overview of the steps that led
+      tothe final version.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgc5fe474&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgc5fe474&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Steps Toward
+      Simplification&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgaaa6d11&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgaaa6d11&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.1&lt;/span&gt; Separate
+      Tokenization From Processing&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
+      &lt;p&gt;
+      Function &lt;code&gt;edmacro-parse-keys&lt;/code&gt; 
+      interweaves  the process of tokenizing its input string  and how
+      various parts of that string are processed in a single
+      &lt;code&gt;while&lt;/code&gt; loop.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      The first  step in simplification was to separate these steps, by 
+      using function &lt;code&gt;split-string&lt;/code&gt; to split the
+      input string on
+      &lt;span class=&quot;underline&quot;&gt;whitespace&lt;/span&gt; to
+      generate a list of words.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      A simple &lt;code&gt;cl-loop&lt;/code&gt; is then used to turn each
+      &lt;code&gt;word&lt;/code&gt; into a &lt;code&gt;key&lt;/code&gt;
+      that
+      is accumulated into a result vector.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orge871f14&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orge871f14&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.2&lt;/span&gt; Refactoring
+      Case Analysis&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
+      &lt;p&gt;
+      Once tokenization is factored out, 
+      the remainder of function
+      &lt;code&gt;edmacro-parse-keys&lt;/code&gt; 
+      converts each key-specification into either the corresponding string
+      or vector representation.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      The original requirement of parsing  the serialization of
+      keyboard-macros brought along additional logic that I first
+      eliminated, since my goal was to create a function to be used in
+      defining keyboard-shortcuts.
+      &lt;/p&gt;
+      
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;I eliminated code that handled invocation of
+      &lt;code&gt;M-x
+      execute-extended-command&lt;/code&gt; during a
+      keyboard-macro.&lt;/li&gt;
+      &lt;li&gt;I eliminated processing of comments within the
+      keyboard-macro serialization.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org349e909&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org349e909&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.3&lt;/span&gt; Rearranging
+      Conditionals&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-3&quot;&gt;
+      &lt;p&gt;
+      Next, I rearranged conditionals and in that process eliminated
+      &lt;code&gt;cond&lt;/code&gt;
+      clauses that were now effectively dead-code.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      In the process, I also eliminated   test-predicates that had
+      side-effects  to hopefully result in less fragile code.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org7af7bb1&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org7af7bb1&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.4&lt;/span&gt; Lexically
+      Bind Regex Patterns&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-4&quot;&gt;
+      &lt;p&gt;
+      To improve readability, I created let-bindings to some of the regex
+      patterns used to identify key-sequence patterns.
+      In the process, I also made these more readable by using &lt;span
+      class=&quot;underline&quot;&gt;[:space:]&lt;/span&gt;
+      for white-space tests.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      
+      &lt;div id=&quot;outline-container-org139056e&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org139056e&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.5&lt;/span&gt; Always Return
+      A Vector&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-5&quot;&gt;
+      &lt;p&gt;
+      Finally, I setup the new function to always return a vector;
+      function&lt;code&gt;edmacro-parse-keys&lt;/code&gt; returns either a
+      string or a vector  based on how
+      it is called. 
+      Since Emacs now takes a vector in every context  where a
+      key-sequenceis expected, this simplification does not break  when
+      using our
+      simplified function for  defining keys.
+      &lt;/p&gt;
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-list&quot;&gt;   (defun new-kbd
+      (string )
+      &quot;Simplified and hopefully more robust kbd function.
+      Always returns a vector i.e. like passing need-vector to
+      edmacro-parse-keys. &quot;
+      (let ((res [])
+      (special-char-reg
+      &quot;^\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$&quot;)
+      (modifier+angle-reg
+      &quot;^\\(\\([ACHMsS]-\\)*\\)&amp;lt;\\(.+\\)&amp;gt;$&quot;))
+      (cl-loop
+      for word in (split-string string)
+      do
+      (let* ((key nil))
+      (cond 
+      ((and ;;; modifier+-&amp;lt;key&amp;gt; without DEL etc
+      (not (string-match special-char-reg word))
+      (string-match modifier+angle-reg word))
+      (setq key
+      (list
+      (intern 
+      (concat ;;; strip &amp;lt; and &amp;gt;
+      (substring word (match-beginning 1) (match-end 1))
+      (substring word (match-beginning 3) (match-end 3)))))))
+      (t
+      (let ((prefix 0)
+      (bits 0))
+      (while ;;; calculate modifier bits
+      (string-match &quot;^[ACHMsS]-.&quot; word)
+      (cl-incf bits
+      (cdr
+      (assq (aref word 0)
+      &#39;((?A . ?\A-\^@)
+      (?C . ?\C-\^@)
+      (?H . ?\H-\^@)
+      (?M . ?\M-\^@)
+      (?s . ?\s-\^@)
+      (?S . ?\S-\^@)))))
+      (cl-incf prefix 2)
+      (cl-callf substring word 2))
+      (when (string-match &quot;^\\^.$&quot; word)
+      (cl-incf bits ?\C-\^@)
+      (cl-incf prefix)
+      (cl-callf substring word 1))
+      (when-let
+      (found
+      (assoc word
+      &#39;((&quot;NUL&quot; . &quot;\0&quot;)
+      (&quot;RET&quot; . &quot;\r&quot;)
+      (&quot;LFD&quot; . &quot;\n&quot;)
+      (&quot;TAB&quot; . &quot;\t&quot;)
+      (&quot;ESC&quot; . &quot;\e&quot;)
+      (&quot;SPC&quot; . &quot; &quot;)
+      (&quot;DEL&quot; . &quot;\177&quot;))))
+      (setq word (cdr found)))
+      (cond ;;; apply modifiers 
+      ((= bits 0) (setq key word))
+      ((/= (length word) 1)
+      (error &quot;%s: Prefix  must precede a single character, not
+      %s&quot;
+      string word))
+      ((and
+      (/= (logand bits ?\C-\^@) 0)
+      (string-match &quot;[@-_a-z]&quot; word))
+      (setq key
+      (list (+ bits (- ?\C-\^@)
+      (logand (aref word 0) 31)))))
+      (t (setq key (list (+ bits (aref word 0)))))))))
+      ;;; push key on to the result vector 
+      (when key (cl-callf vconcat res key))))
+      res))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;p&gt;
+      You can verify the code above by running the tests found at the end
+      of
+      file  &lt;code&gt;new-kbd.el&lt;/code&gt; &amp;#x2014; the tests
+      were extracted from the various
+      patterns described in the Elisp Reference, as well as  by reading
+      thecode in &lt;code&gt;edmacro-parse-keys&lt;/code&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org0923351&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org0923351&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.6&lt;/span&gt; Closing
+      Thoughts&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-6&quot;&gt;
+      &lt;p&gt;
+      The above simplification exercise was done by:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Starting with the original
+      &lt;code&gt;edmacro-parse-keys&lt;/code&gt; copied over to a
+      new file and renamed to function
+      &lt;code&gt;new-kbd&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Adding a set of tests at the end of file, essentially this
+      is a
+      &lt;code&gt;let&lt;/code&gt; that binds a set of tests, then
+      compares the result of
+      calling our new function on each value with that returned by the
+      original.&lt;/li&gt;
+      &lt;li&gt;Modifying and simplifying our new function and running
+      &lt;code&gt;eval-buffer&lt;/code&gt; after each step.&lt;/li&gt;
+      &lt;li&gt;It was a fun exercise to see order emerge from chaos at
+      each step!&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2853057356022218696'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2853057356022218696'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/10/extracted-light-weight-key-reader-by.html' title='Extracted A Light-Weight Key-Reader By Progressive Simplification'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-2451348598884750312</id><published>
+      2020-10-05T17:32:00.000-07:00
+    </published>
+    <updated>2020-10-05T17:32:08.430-07:00</updated><title type='text'>On
+      Defining Keys In Emacs
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;On Defining Keys In
+      Emacs&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org540a36d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org540a36d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
+      Overview&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Emacs is extremely flexible with respect to letting you bind keys to
+      commands.
+      Interestingly, and perhaps because of its history tracing back to
+      &lt;i&gt;keyboard macros&lt;/i&gt;,  &lt;b&gt;naming&lt;/b&gt; the
+      key you wish to bind is not so
+      straight-forward as it appears on the surface. Here are things
+      I&#39;ve
+      used and learnt over the last 30 years of Emacs hackery:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;The most basic way of naming a key is via a string of the
+      form
+      &lt;i&gt;\C-a&lt;/i&gt; or &lt;i&gt;\M-\C-a&lt;/i&gt; where
+      &lt;i&gt;\C&lt;/i&gt; denotes the &lt;i&gt;Control
+      Modifier&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;This notation gets unwieldy fast when using multiple
+      modifiers as
+      in the &lt;i&gt;\M-\C-a&lt;/i&gt; example.&lt;/li&gt;
+      &lt;li&gt;It gets worse, under X, you can bind &lt;i&gt;\C- / for
+      /Control Space&lt;/i&gt;
+      &amp;#x2014; notice that the space character here which is easy to
+      miss as
+      white-space is significant.&lt;/li&gt;
+      &lt;li&gt;The &lt;i&gt;\&amp;lt;modifier&amp;gt;-char&lt;/i&gt;
+      notation mostly appears to date back to
+      the age of the terminal emulator (tty), so for example, it cannot
+      denote &lt;i&gt;Control+Right&lt;/i&gt; for example.&lt;/li&gt;
+      &lt;li&gt;The Emacs and Elisp info manuals recommend using function
+      &lt;i&gt;kbd&lt;/i&gt;
+      for this reason, this function on the surface provides a unified
+      interface for naming keys.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      If you look no further, you remain happy, but &amp;#x2026;
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org44745fc&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org44745fc&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Function
+      &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      But if you do peel the onion, here is what you  find:
+      &lt;/p&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Function &lt;code&gt;kbd&lt;/code&gt;  does nothing more
+      than calling function
+      &lt;code&gt;read-kbd-macro&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Function &lt;code&gt;read-kbd-macro&lt;/code&gt; documents
+      itself as &lt;i&gt;reading the region&lt;/i&gt;
+      as a  &lt;i&gt;keyboard macro&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;The above overloading is  achieved  by the call to
+      function &lt;code&gt;edmacro-parse-keys&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;And finally we reach the scary core of the onion that is
+      sufficient to make your eyes water!&lt;/li&gt;
+      &lt;li&gt;Function &lt;code&gt;edmacro-parse-keys&lt;/code&gt; is an
+      inscrutable piece of code
+      that  both looks extremely clever and magical and like all clever
+      code, feels fragile.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org7a9ba62&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org7a9ba62&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Understanding
+      And (Hopefully) Simplifying  Function
+      &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      A simplified &lt;code&gt;ems-kbd&lt;/code&gt; function that is free
+      from the complexity
+      resulting from reading in a saved keyboard macro feels like a
+      worthwhile goal.
+      I started down this road both to understand function
+      &lt;code&gt;edmacro-parse-keys&lt;/code&gt; &amp;#x2014; sadly, I
+      haven&#39;t yet found a specification
+      for naming all available keys outside of the implementation of that
+      function.
+      So I started  &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/ems-kbd.el#L1&quot;&gt;ems-kbd.el&lt;/a&gt;
+      along with a simple test-suite to see how far I could get toward the
+      goal of creating an equivalent &lt;code&gt;kbd&lt;/code&gt;
+      function.&lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org4416bb1&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org4416bb1&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; Steps So
+      Far&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Documented the implementation.&lt;/li&gt;
+      &lt;li&gt;Added a simple set of tests in the file.&lt;/li&gt;
+      &lt;li&gt;Changed &lt;span
+      class=&quot;underline&quot;&gt;if&lt;/span&gt; to &lt;span
+      class=&quot;underline&quot;&gt;cond&lt;/span&gt; or &lt;span
+      class=&quot;underline&quot;&gt;when&lt;/span&gt; as
+      appropriate.&lt;/li&gt;
+      &lt;li&gt;Eliminated the logic  that handled  the keyboard macro
+      serialization for repeated keys.&lt;/li&gt;
+      &lt;li&gt;Removed the logic for handling invocations of
+      &lt;code&gt;execute-extended-command&lt;/code&gt; &amp;#x2014;
+      otherwise known as &lt;span
+      class=&quot;underline&quot;&gt;M-x&lt;/span&gt;.&lt;/li&gt;
+      &lt;li&gt;A lot more remains, e.g., 
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;simplifying how modifier bits are handled,&lt;/li&gt;
+      &lt;li&gt;Simplifying how special patterns like &lt;span
+      class=&quot;underline&quot;&gt;SPC&lt;/span&gt; or &lt;span
+      class=&quot;underline&quot;&gt;TAB&lt;/span&gt; are
+      handled.&lt;/li&gt;
+      &lt;li&gt;And likely a lot more.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      An alternative approach might be to rewrite it from scratch, but
+      thatfeels intractable unless I can track down a specification for
+      naming
+      keys that is  exhaustive with respect to the various conventions
+      thathave been used over the years.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html' title='On Defining Keys In Emacs'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-5376248580919833370</id><published>
+      2020-09-16T10:29:00.001-07:00
+    </published>
+    <updated>2020-09-16T10:29:30.285-07:00</updated><title type='text'>
+      Emacs: Paired Commands --- Efficient Keyboard Interaction Using
+      Hydra
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Emacs: paired Commands —
+      Efficient Keyboard Interaction Using Hydra&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-orgf8040fa&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgf8040fa&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Emacs commands such as &lt;code&gt;yank&lt;/code&gt; and
+      &lt;code&gt;yank-pop&lt;/code&gt; or
+      &lt;code&gt;undo-only&lt;/code&gt; and
+      &lt;code&gt;undo-redo&lt;/code&gt; come in logical pairs.  Such
+      logical pairs (or command
+      tuples in general) are characterized by the fact that one often
+      invokes a sequence of these commands repeatedly until the desired
+      result is attained.  Package &lt;a
+      href=&quot;https://github.com/abo-abo/hydra&quot;&gt;Hydra&lt;/a&gt;
+      defines an elegant means of
+      combining such command pairs into a single higher-level command that
+      can be invoked more efficiently from the keyboard.
+      To my knowledge, the only built-in Emacs command that exhibits a
+      similar behavior is Emacs&#39;
+      &lt;code&gt;text-scale-adjust&lt;/code&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgf39356f&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgf39356f&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Example:
+      &lt;code&gt;undo-oanly&lt;/code&gt; And
+      &lt;code&gt;undo-redo&lt;/code&gt;&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+      &lt;p&gt;
+      Command &lt;code&gt;undo-only&lt;/code&gt; allows one to  move back
+      through a sequence of
+      changes.Command &lt;code&gt;undo-redo&lt;/code&gt; in contrast
+      &lt;i&gt;undoes&lt;/i&gt; previous undo
+      commands.
+      In practice, one often moves back through a sequence of operations,
+      with a few &lt;code&gt;undo-redo&lt;/code&gt; invocations mixed in
+      if one moves back too far.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Emacs convention would suggest that one bind these commands to
+      separate keys, but this has a few disadvantages:
+      &lt;/p&gt;
+      
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Binding separate keys to the two commands feels wasteful,
+      especially as unbound keys in Emacs become increasingly
+      precious.&lt;/li&gt;
+      &lt;li&gt;It&#39;s not ergonomic  to jump between the two commands
+      in this pair
+      unless one chooses the key-bindings &lt;i&gt;carefully&lt;/i&gt;
+      &amp;#x2014; as an example,
+      I used &lt;span class=&quot;underline&quot;&gt;C-x u&lt;/span&gt;
+      for &lt;code&gt;undo-only and _C-x C-u&lt;/code&gt; for
+      &lt;code&gt;undo-redo&lt;/code&gt; for
+      many years. But now, a continuous sequence of undo operations
+      requires too much chording.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orga592e5d&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orga592e5d&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;1.2&lt;/span&gt; A Hydra
+      Inspired Solution&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Combine the two commands into a higher-level
+      command.&lt;/li&gt;
+      &lt;li&gt;Bind that command to a single key, in my case &lt;span
+      class=&quot;underline&quot;&gt;C-/&lt;/span&gt;
+      (&lt;i&gt;C-_&lt;/i&gt; on a tty).&lt;/li&gt;
+      &lt;li&gt;When invoked, the Hydra-defined command does one of the
+      following:
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Invokes &lt;code&gt;undo-only&lt;/code&gt;  on being
+      called, then continues to read keys.&lt;/li&gt;
+      &lt;li&gt;Subsequent presses of &lt;span
+      class=&quot;underline&quot;&gt;/&lt;/span&gt; invoke command
+      &lt;code&gt;undo-only&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Pressing &lt;span
+      class=&quot;underline&quot;&gt;\&lt;/span&gt; invokes
+      &lt;code&gt;undo-redo&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Any other key quits the Hydra-generated higher-level
+      command.&lt;/li&gt;
+      &lt;/ol&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      This is defined as part of Emacspeak&#39;s collection of &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-muggles.el#L1&quot;&gt;Muggles&lt;/a&gt;, as is evident, this is much nicer to  your wrists.
+      &lt;/p&gt;
+      
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(global-set-key
+      (kbd &lt;span style=&quot;color:
+      #8b2252;&quot;&gt;&quot;C-/&quot;&lt;/span&gt;) 
+      (&lt;span style=&quot;color: #a020f0;&quot;&gt;defhydra&lt;/span&gt;
+      emacspeak-muggles-undo-only/undo-redo
+      (&lt;span style=&quot;color:
+      #483d8b;&quot;&gt;:body-pre&lt;/span&gt; (emacspeak-hydra-body-pre
+      &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Undo
+      Smartly&quot;&lt;/span&gt;)
+      &lt;span style=&quot;color: #483d8b;&quot;&gt;:pre&lt;/span&gt;
+      (&lt;span style=&quot;color: #a020f0;&quot;&gt;progn&lt;/span&gt;
+      (&lt;span style=&quot;color: #a020f0;&quot;&gt;when&lt;/span&gt;
+      hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+      (emacspeak-hydra-pre))
+      &lt;span style=&quot;color: #483d8b;&quot;&gt;:post&lt;/span&gt;
+      emacspeak-hydra-post)
+      &lt;span style=&quot;color:
+      #8b2252;&quot;&gt;&quot;Undo&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #8b2252;&quot;&gt;&quot;?&quot;&lt;/span&gt;
+      (emacspeak-hydra-self-help &lt;span style=&quot;color:
+      
+      #8b2252;&quot;&gt;&quot;emacspeak-muggles-undo-only/undo-redo&quot;&lt;/span&gt;))
+      (&lt;span style=&quot;color:
+      #8b2252;&quot;&gt;&quot;/&quot;&lt;/span&gt; undo-only nil)
+      (&lt;span style=&quot;color:
+      #8b2252;&quot;&gt;&quot;\\&quot;&lt;/span&gt; undo-redo nil)))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      Note that the above can be simplified by dropping the
+      emacspeak-specific clauses when not using Emacspeak.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org6e9b5d6&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org6e9b5d6&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;1.3&lt;/span&gt; Repeatable
+      Yank/Pop From The Hydra Wiki&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
+      &lt;p&gt;
+      I originally discovered the metaphor of repeatable paired commands a
+      few years ago from the &lt;a
+      href=&quot;https://github.com/abo-abo/hydra.wiki.git&quot;&gt;Hydra
+      Wiki&lt;/a&gt;  which demonstrates a &lt;a
+      
+      href=&quot;https://github.com/abo-abo/hydra/wiki/Emacs&quot;&gt;repeatable
+      yank/pop&lt;/a&gt;.  To summarize its effects:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;underline&quot;&gt;C-y&lt;/span&gt;
+      invokes the hydra-generated higher-level command.&lt;/li&gt;
+      &lt;li&gt;Subsequent presses of &lt;span
+      class=&quot;underline&quot;&gt;y&lt;/span&gt; is  the same of
+      &lt;code&gt;yank-pop&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Pressing &lt;span
+      class=&quot;underline&quot;&gt;Y&lt;/span&gt; invokes
+      &lt;code&gt;yank-pop&lt;/code&gt; with a negative
+      argument.&lt;/li&gt;
+      &lt;li&gt;Consequence of above, you can grab the last entry on the
+      &lt;code&gt;kill-ring&lt;/code&gt; by pressing &lt;span
+      class=&quot;underline&quot;&gt;Y&lt;/span&gt; after invoking the
+      command &amp;#x2014; would
+      take a lot more keystrokes in vanilla Emacs.&lt;/li&gt;
+      &lt;li&gt;You can also add smart affordances such as searching the
+      &lt;code&gt;kill-ring&lt;/code&gt; via interfaces such as
+      &lt;code&gt;ido&lt;/code&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org7cceb4f&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org7cceb4f&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;1.4&lt;/span&gt;
+      Conclusion&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-4&quot;&gt;
+      &lt;p&gt;
+      As Emacs gains in functionality, grouping commands into higher-level
+      abstractions, generating a single higher-level command that is bound
+      to a key, and using that invocation context to implement the  result
+      of subsequent keypresses is an abstraction that generalizes well.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/emacs-paired-commands-efficient.html' title='Emacs: Paired Commands --- Efficient Keyboard Interaction Using Hydra'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-8563131593972762432</id><published>
+      2020-09-08T16:26:00.000-07:00
+    </published>
+    <updated>2020-09-08T16:26:13.245-07:00</updated><title type='text'>
+      Searching GMail From GNUS
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Using GMail Search Operators In
+      GNUS&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org551bed2&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org551bed2&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      I have been using the following to search GMail from GNUS for over 8
+      years now. The recent announcement of the &lt;span
+      class=&quot;underline&quot;&gt;nnselect&lt;/span&gt; back-end
+      reminded
+      me that I had never gotten to writing this up formally, So here
+      goes. With the described solution in place, you can search your
+      GMailfrom within  GNUS using the same GMail Search operators  that
+      you&#39;re
+      familiar with from within  your Web Browser, e.g. searches of the
+      form
+      &lt;i&gt;from: foo&lt;/i&gt;,  &lt;i&gt;subject:bar&lt;/i&gt;,
+      &lt;i&gt;after:date&lt;/i&gt; and combinations of the
+      above.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org77c15d3&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org77c15d3&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt;
+      Background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      You can read email with GNUS, and many people read GMail with GNUS,
+      however, the details of GMail setup with GNUS wont fit this margin. 
+      For my own
+      GMail setup using Ceasar&#39;s excellent &lt;span
+      class=&quot;underline&quot;&gt;auth-xoauth2&lt;/span&gt; package,
+      see file
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el&quot;&gt;gnus-gmail-prepare.el&lt;/a&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org742fc31&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org742fc31&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Leveraging GNUS
+      Back-end NNIR To Search GMail&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      GMail is accessed from GNUS using the imap protocol.  The &lt;span
+      class=&quot;underline&quot;&gt;imap&lt;/span&gt;
+      specification defines a set of standard search operators; GMail
+      itself
+      defines a slightly different and arguably easier to use set of
+      searchoperators. Module
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el&quot;&gt;gm-nnir&lt;/a&gt;
+      himplements both the standard IMap search operator as well as
+      GMail&#39;s
+      search operators; in practice, I have mostly only used the GMail
+      Search operators in the last 8 years since implementing this module.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Without further ado, here is the  code to enable GMail Search:
+      &lt;/p&gt;
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(defun
+      gm-nnir-group-make-gmail-group (query)
+      &quot;Use GMail search syntax.
+      See https://support.google.com/mail/answer/7190?hl=en for syntax.
+      &quot;
+      (interactive &quot;sGMail Query: &quot;)  
+      (let ((nnir-imap-default-search-key &quot;imap&quot;)
+      (q (format &quot;X-GM-RAW \&quot;%s\&quot;&quot; query)))
+      (cond
+      ((gnus-group-group-name)           ; Search current group
+      (gnus-group-make-nnir-group
+      nil                              ; no extra params needed
+      `(nnir-specs (nnir-query-spec (query ,q)))))
+      (t (error &quot;Not on a group.&quot;)))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      I bind the above to &lt;span
+      class=&quot;underline&quot;&gt;/&lt;/span&gt; by using
+      &lt;/p&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(define-key
+      gnus-group-mode-map &quot;/&quot;
+      &#39;gm-nnir-group-make-gmail-group)
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      
+      
+      &lt;div id=&quot;outline-container-org3464a1f&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3464a1f&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Example Of
+      Use&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;p&gt;
+      I am subscribed to list &lt;span
+      class=&quot;underline&quot;&gt;emacs-devel@gnu.org&lt;/span&gt; and
+      email sent to that
+      list gets GMail Label &lt;code&gt;emacs-devel&lt;/code&gt;. In Gnus,
+      I open that label as
+      group &lt;code&gt;emacs-devel@gnu.org&lt;/code&gt;. Typing &lt;span
+      class=&quot;underline&quot;&gt;/&lt;/span&gt; on the group line and
+      entering
+      &lt;/p&gt;
+      &lt;pre class=&quot;example&quot;&gt;
+      from:rms after:2020/09/01
+      &lt;/pre&gt;
+      
+      &lt;p&gt;
+      in the minibuffer results in the following:
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      1.1 Re: Good first issues to contribute Richard Stallman 05-Sep
+      [5.3k]
+      2.1 Lars Ingebrigtsen is now one of the Emacs maintainers Richard
+      Stallman 06-Sep [4.9k]
+      3.1 Re: A new user perspective about &quot;Changes for emacs
+      28&quot; Richard Stallman 07-Sep [5.5k]
+      4.5 Re: Changes for emacs 28 Richard Stallman 07-Sep [5.3k]
+      5.1  Richard Stallman 07-Sep &amp;lt;6.2k&amp;gt;
+      6.1  Richard Stallman 07-Sep &amp;lt;6.0k&amp;gt;
+      7.1  Richard Stallman 07-Sep &amp;lt;5.5k&amp;gt;
+      8.1  Richard Stallman 07-Sep &amp;lt;5.7k&amp;gt;
+      
+      &lt;/pre&gt;
+      
+      
+      
+      
+      &lt;p&gt;
+      The search above creates an ephemeral group with matching messages
+      appearing as shown above, you can read messages, reply to them and
+      doanything else that you might ordinarily do within the GNUS
+      interface.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;					
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/searching-gmail-from-gnus.html' title='Searching GMail From GNUS'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-8905782418233033405</id><published>
+      2020-08-16T12:18:00.001-07:00
+    </published>
+    <updated>2020-08-16T12:18:46.360-07:00</updated><title type='text'>
+      Start Emacs In A Defun
+    </title>
+    <content type='html'>
+      &lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Start Emacs In A Defun&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org3fba985&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3fba985&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      This is a follow-up to my earlier article titled &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2017/08/emacs-start-up-speeding-it-up.html&quot;&gt;Speeding Up Emacs
+      Startup&lt;/a&gt; from August 2017. Three years later, I once again
+      spent time
+      cleaning up and refactoring the results as described below. The
+      end-result is to once again speed up Emacs startup, (about 25%
+      fasteron my laptop)while making the setup cleaner and easier to
+      maintain
+      than before.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgc30cbf6&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgc30cbf6&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Start Emacs In
+      A Defun&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      This &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#start-of-content&quot;&gt;startup file&lt;/a&gt; is set up with the following goals:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Speed up emacs startup &amp;#x2014; setting environment
+      variable
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L247-L311&quot;&gt;&lt;code&gt;TVR_TIME_EMS&lt;/code&gt;&lt;/a&gt; before starting emacs produces detailed timing
+      information in the &lt;b&gt;Messages&lt;/b&gt; buffer.&lt;/li&gt;
+      &lt;li&gt;Customize packages via Custom  as far as
+      possible.&lt;/li&gt;
+      &lt;li&gt;Keep the  &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;custom settings&lt;/a&gt;  in a separate file, with a later goal of
+      turning that into a  theme.&lt;/li&gt;
+      &lt;li&gt;After converting to a theme, Move machine-specific custom
+      settings
+      into a separate host-specific custom file, thus making the earlier
+      theme host-independent.  Place host-specific non-customizable bits
+      in default.el (not done yet).&lt;/li&gt;
+      &lt;li&gt;Define package-specific settings not available via Custom
+      in a package-specific &amp;lt;package&amp;gt;-prepare.el
+      file.&lt;/li&gt;
+      &lt;li&gt;Install everything from elpa/melpa as far as possible. (vm
+      is an
+      exception at present) &amp;#x2014; I have nearly 200 packages
+      activated.&lt;/li&gt;
+      &lt;li&gt;The startup file is a collection of functions with
+      entry-point &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-emacs&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;The only top-level call is &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;(tvr-emacs)&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Function tvr-emacs starts up Emacspeak, and sets up two
+      hooks:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;after-init-hook to do the bulk of the work.&lt;/li&gt;
+      &lt;li&gt;emacs-startup-hook to set up  initial window
+      configuration.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      &lt;li&gt;Function &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-after-init-hook&lt;/a&gt; on after-init-hook does the following:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Load package-specific prepare.el files.&lt;/li&gt;
+      &lt;li&gt;Load the custom settings file.&lt;/li&gt;
+      &lt;li&gt;Starts up things like the emacs server.&lt;/li&gt;
+      &lt;li&gt;Some of these tasks are done on a separate thread using
+      make-thread.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      &lt;li&gt;The work of loading files etc., is done within macro &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-fastload&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;p&gt;
+      which sets up an efficient environment for loading files.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org650b226&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org650b226&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt;
+      Conclusion&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      With this setup, &lt;code&gt;M-x emacs-init-time&lt;/code&gt; shows 
+      init-time as
+      &lt;/p&gt;
+      &lt;pre class=&quot;example&quot;&gt;
+      1.288381225 seconds
+      &lt;/pre&gt;
+      
+      &lt;p&gt;
+      on my laptop with an SSD.  Setting
+      &lt;code&gt;package-quickstart&lt;/code&gt; to
+      &lt;code&gt;T&lt;/code&gt; is a
+      major win when running with a spinning-disk instead of an SSD. But
+      the
+      biggest win is that I no longer have to go hunting to find out where
+      something in emacs got configured a given way &amp;#x2014; AKA,
+      there are a
+      limited number of places I need to look.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org403baf9&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org403baf9&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt;
+      Wish-List&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Remembering  the name of a custom-setting  you set up a
+      while ago
+      is still  a challenge, You cant find it unless you remember its
+      approximate name.&lt;/li&gt;
+      &lt;li&gt;Command
+      &lt;code&gt;emacspeak-wizards-customize-saved&lt;/code&gt; bound to
+      &lt;code&gt;C-h C-s&lt;/code&gt;
+      helps some in this regard but is a stop-gap solution.&lt;/li&gt;
+      &lt;li&gt;Custom themes are  not  easy to use.&lt;/li&gt;
+      &lt;li&gt;I keep my &lt;code&gt;custom-file&lt;/code&gt; checked
+      into a local Git repository and
+      is the only part of my setup that I cannot publish &amp;#x2014;
+      since that
+      file tends to hoover up information that you shouldn&#39;t publish,
+      e.g., aPI keys and other private/personal bits.&lt;/li&gt;
+      &lt;li&gt;Perhaps Emacs needs at least two custom-files, a public
+      and a
+      private custom-file.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8905782418233033405'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8905782418233033405'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/08/start-emacs-in-defun.html' title='Start Emacs In A Defun'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-4916053591627777743</id><published>
+      2020-06-16T10:13:00.001-07:00
+    </published>
+    <updated>2020-06-16T10:13:34.161-07:00</updated><title type='text'>
+      Learning Rust: Programming The Pick-Up Sticks Game
+    </title>
+    <content type='html'>&lt;div dir=&quot;ltr&quot;
+      style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div
+      id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Learning
+      Rust: The Pick-Up Sticks Game&lt;/h1&gt;&lt;div
+      id=&quot;outline-container-org0a67b1f&quot;
+      class=&quot;outline-2&quot;&gt;&lt;h2
+      id=&quot;org0a67b1f&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
+      Overview&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-1&quot;&gt;&lt;p&gt;This &lt;a
+      
+      href=&quot;https://github.com/tvraman/pick-sticks&quot;&gt;directory&lt;/a&gt; contains an implementation of the &lt;i&gt;Pick Up Sticks&lt;/i&gt; game&lt;br /&gt;
+      described in my paper &lt;a
+      
+      href=&quot;http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html&quot;&gt;Thinking Of Mathematics (Section 5)&lt;/a&gt;.&lt;br /&gt;
+      &lt;/p&gt;&lt;br /&gt;
+      &lt;p&gt;It&#39;s an interesting experience writing it in Rust as I
+      learn the&lt;br /&gt;
+      language. The original implementation described in my paper
+      was&lt;br /&gt;
+      written in 1987 in Fortran-77, and consisted of one single&lt;br
+      /&gt;
+      function. Though that style of programming would be frowned upon
+      today&lt;br /&gt;
+      and is clearly not advisable for programming in the large,
+      it&#39;s&lt;br /&gt;
+      interesting to observe that a more structured implementation as
+      seen&lt;br /&gt;
+      in this Rust implementation qrequires a lot more fore-thought
+      with&lt;br /&gt;
+      respect to code organization.&lt;br /&gt;
+      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+      &lt;div id=&quot;outline-container-org8a0d2da&quot;
+      class=&quot;outline-2&quot;&gt;&lt;h2
+      id=&quot;org8a0d2da&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Programming
+      Environment&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-2&quot;&gt;&lt;p&gt;here is a short overview of  the
+      programming environment  used:&lt;br /&gt;
+      &lt;/p&gt;&lt;br /&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Emacs 28.0.50 with
+      emacspeak 52.0.&lt;/li&gt;
+      &lt;li&gt;Package  &lt;code&gt;eglot&lt;/code&gt; for managing the
+      project with an  LSP server.&lt;/li&gt;
+      &lt;li&gt;Rust Language Server &lt;a
+      
+      href=&quot;https://github.com/rust-lang-nursery/rls&quot;&gt;(RLS)&lt;/a&gt; as the LSP server.&lt;/li&gt;
+      &lt;li&gt;Package &lt;code&gt;company&lt;/code&gt; for
+      completion.&lt;/li&gt;
+      &lt;li&gt;Package &lt;code&gt;yasnippet&lt;/code&gt; for code
+      templates.&lt;/li&gt;
+      &lt;li&gt;Package &lt;code&gt;rust-mode&lt;/code&gt; for Rust
+      editing smarts.&lt;/li&gt;
+      &lt;li&gt;Package &lt;code&gt;racer&lt;/code&gt; for additional
+      cross-referencing and&lt;br /&gt;
+      documentation support.&lt;/li&gt;
+      &lt;li&gt;Package &lt;code&gt;cargo&lt;/code&gt; for cargo
+      integration from inside Emacs.&lt;/li&gt;
+      &lt;/ol&gt;&lt;br /&gt;
+      &lt;p&gt;In the process of setting up my Rust environment, I
+      also&lt;br /&gt;
+      speech-enabled Emacs packages &lt;code&gt;rust-mode&lt;/code&gt;,
+      &lt;code&gt;racer&lt;/code&gt; and &lt;code&gt;cargo&lt;/code&gt;
+      for Emacspeak.&lt;br /&gt;
+      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+      &lt;br /&gt;
+      &lt;div id=&quot;outline-container-org6572a3a&quot;
+      class=&quot;outline-2&quot;&gt;&lt;h2
+      id=&quot;org6572a3a&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt;
+      Books&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-3&quot;&gt;&lt;p&gt;I  downloaded  &lt;i&gt;The Rust
+      Programming Language (2018)&lt;/i&gt; from Bookshare&lt;br /&gt;
+      and it&#39;s what I am still using as I write this. Note that this
+      book is&lt;br /&gt;
+      also available in the Rust distribution. The version in the
+      Rust&lt;br /&gt;
+      distribution is a little less usable since it&#39;s split into
+      multiple&lt;br /&gt;
+      smaller HTML files with each file repeating a lot of
+      navigational&lt;br /&gt;
+      boiler-plate at the top.&lt;br /&gt;
+      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+      &lt;div id=&quot;outline-container-org2e40623&quot;
+      class=&quot;outline-2&quot;&gt;&lt;h2
+      id=&quot;org2e40623&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Experience
+      Learning Rust&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-4&quot;&gt;&lt;p&gt;I usually find that I learn a
+      language better if I write some code as&lt;br /&gt;
+      I learn the language.&lt;br /&gt;
+      In this instance, I decided to program the pick-up-sticks game
+      &amp;#x2014; a&lt;br /&gt;
+      simple game that I programmed in 1987 for the final class project
+      for&lt;br /&gt;
+      CS-101 at IIT-Bombay. Here are the rules of the game:&lt;br /&gt;
+      &lt;/p&gt;&lt;br /&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;This is a two-player
+      game  and the game starts with \(n\) sticks.&lt;/li&gt;
+      &lt;li&gt;The first player can pick at most \(n-1\) 
+      sticks.&lt;/li&gt;
+      &lt;li&gt;Assume a player picks \(k\) sticks. At the  subsequent
+      turn, opponent&lt;br /&gt;
+      can pick at most  \(2 * k\) sticks.&lt;/li&gt;
+      &lt;li&gt;The player who is able to &lt;i&gt;clean-up&lt;/i&gt; the
+      remaining sticks while&lt;br /&gt;
+      adhering to the rules is the winner.&lt;/li&gt;
+      &lt;/ol&gt;&lt;br /&gt;
+      &lt;p&gt;Read  &lt;a
+      
+      href=&quot;http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html&quot;&gt;Thinking Of Mathematics (Section 5)&lt;/a&gt; for a description of an&lt;br /&gt;
+      algorithm that is guaranteed to win.&lt;br /&gt;
+      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+      &lt;div id=&quot;outline-container-orge266a0f&quot;
+      class=&quot;outline-2&quot;&gt;&lt;h2
+      id=&quot;orge266a0f&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; The
+      Implementation&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-5&quot;&gt;&lt;p&gt;Learning Rust&#39;s ownership
+      rules for memory management, and learning to&lt;br /&gt;
+      use references  the Rust way were some of the things that were
+      unique&lt;br /&gt;
+      to this learning experience.&lt;br /&gt;
+      Rust has some unique features including declaring lifetimes that
+      are&lt;br /&gt;
+      typically needed in more advanced cases; however in my initial&lt;br
+      /&gt;
+      attempts, not doing things the Rust way caused compile-time
+      errors&lt;br /&gt;
+      that initially guided me toward using and declaring&lt;br /&gt;
+      lifetimes. Eventually, all of those declarations became
+      unnecessary.&lt;br /&gt;
+      More generally, the Rust compiler turns out to be a very good
+      Rust&lt;br /&gt;
+      teacher.&lt;br /&gt;
+      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+      &lt;div id=&quot;outline-container-orgda356e2&quot;
+      class=&quot;outline-2&quot;&gt;&lt;h2
+      id=&quot;orgda356e2&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;6&lt;/span&gt; Crux Of The
+      Implementation&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-6&quot;&gt;&lt;p&gt;See module
+      &lt;code&gt;game.rs&lt;/code&gt; for the implementation. The core of
+      the&lt;br /&gt;
+      implementation is still a handful of lines to implement the
+      winning&lt;br /&gt;
+      strategy of:&lt;br /&gt;
+      &lt;/p&gt;&lt;br /&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;If the number of sticks
+      at the start is a Fibonacci number, ask&lt;br /&gt;
+      the opponent to play first.&lt;/li&gt;
+      &lt;li&gt;At each turn, force the opponent toward the closest
+      Fibonacci number.&lt;/li&gt;
+      &lt;li&gt;Do above while respecting the limit rule, i.e. if you pick
+      \(k\)&lt;br /&gt;
+      sticks, the opponent can pick up to \(2k\) sticks, so never pick 
+      \(k\)&lt;br /&gt;
+      where \(3k &gt;= n\).&lt;/li&gt;
+      &lt;li&gt;The result of (3) is to subdivide the game into smaller
+      games&lt;br /&gt;
+      when playing with larger values of \(n\) &amp;#x2014; see the
+      &lt;span class=&quot;underline&quot;&gt;while&lt;/span&gt; loop
+      in&lt;br /&gt;
+      method    &lt;code&gt;my_move&lt;/code&gt;.&lt;/li&gt;
+      &lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;div
+      id=&quot;outline-container-org66df065&quot;
+      class=&quot;outline-2&quot;&gt;&lt;h2
+      id=&quot;org66df065&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;7&lt;/span&gt; Closing
+      Thoughts&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-7&quot;&gt;&lt;ol
+      class=&quot;org-ol&quot;&gt;&lt;li&gt;The computing environment I
+      now have is far more sophisticated&lt;br /&gt;
+      than what I had in 1987.&lt;/li&gt;
+      &lt;li&gt;Today, I have interactive completion, source-code&lt;br
+      /&gt;
+      cross-references, on-the-fly access to documentation, and a
+      fully&lt;br /&gt;
+      accessible book where I can look up things whenever I
+      want.&lt;/li&gt;
+      &lt;li&gt;In 1987, I did most of my thinking and problem-solving in
+      my&lt;br /&gt;
+      dorm-room with no computer to hand. When ready with the
+      solution,&lt;br /&gt;
+      I made a few notes in Braille using a &lt;a
+      
+      href=&quot;https://www.google.com/search?num=25&amp;amp;lite=90586&amp;amp;q=braille+pocket+slate&quot;&gt;pocket-slate and stylus&lt;/a&gt;,&lt;br /&gt;
+      then went to the computer room with a volunteer reader and
+      typed&lt;br /&gt;
+      up the program, with the student volunteer providing
+      high-quality&lt;br /&gt;
+      interactive spoken feedback.&lt;/li&gt;
+      &lt;li&gt;Interestingly, I think it took me less time  from memory
+      to&lt;br /&gt;
+      implement the solution in 1987 &amp;#x2014; perhaps this is time
+      shrinking&lt;br /&gt;
+      with number of years passed.&lt;/li&gt;
+      &lt;li&gt;Either way, the primary take-away is that it pays to
+      analyse a&lt;br /&gt;
+      problem before one actually starts writing code. Writing code
+      is&lt;br /&gt;
+      always fun, and today, even more so given the excellent array
+      of&lt;br /&gt;
+      tools &amp;#x2014; but unless one focuses on the problem at hand,
+      one can&lt;br /&gt;
+      spend a lot of time &lt;i&gt;sharpening one&#39;s pencils&lt;/i&gt;
+      as opposed to&lt;br /&gt;
+      writing something useful.&lt;/li&gt;
+      &lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4916053591627777743'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4916053591627777743'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/06/learning-rust-programming-pick-up.html' title='Learning Rust: Programming The Pick-Up Sticks Game'/>
     <author>
       <name>T. V. Raman</name><uri>
         http://www.blogger.com/profile/03589687652590194428
