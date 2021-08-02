@@ -681,6 +681,7 @@
     ("/" emacspeak-websearch-google-with-toolbelt)
     ("C-a" emacspeak-wizards-term)
     ("C-b" eww-list-bookmarks)
+    ("C-d" dictionary-search)
     ("C-e" eshell)
     ("C-j" emacspeak-wizards-shell-toggle)
     ("TAB" hippie-expand)
