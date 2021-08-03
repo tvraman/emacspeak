@@ -88,7 +88,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'emacspeak-dired)
 (eval-when-compile
   (when (locate-library "package")
     (unless (locate-library "hydra") (package-install 'hydra)))
@@ -174,7 +174,6 @@ Argument `k-map' is a symbol  that names a keymap."
    ("C" emacspeak-m-player-clear-filters)
    ("C-m" emacspeak-m-player-load)
    ("DEL" emacspeak-m-player-reset-speed)
-   ("L" emacspeak-m-player-load-file)
    ("M-l" emacspeak-m-player-load-playlist)
    ("O" emacspeak-m-player-reset-options)
    ("P" emacspeak-m-player-apply-reverb-preset)
@@ -507,35 +506,35 @@ Also generates global keybindings if any."
 ;;{{{Vuiet:
 
 (declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
-
-(global-set-key
- (ems-kbd "C-; v")
- (defhydra emacspeak-muggles-vuiet
-   (:body-pre
-    (progn
-      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "Vuiet  Explorer"))
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   (";" vuiet-playing-track-lyrics)
-   ("=" vuiet-player-volume-inc)
-   ("-" vuiet-player-volume-dec)
-   ("A" vuiet-play-artist-loved-tracks)
-   ("'" vuiet-play-loved-tracks)
-   ("," vuiet-seek-backward)
-   ("." vuiet-seek-forward)
-   ("C-s" vuiet-artist-info-search)
-   ("L" vuiet-playing-artist-lastfm-page)
-   ("SPC" vuiet-play-pause)
-   ("a" vuiet-artist-info)
-   ("i" emacspeak-vuiet-track-info)
-   ("l" vuiet-love-track)
-   ("n" vuiet-next)
-   ("p" vuiet-play-artist)
-   ("r" vuiet-replay)
-   ("s" vuiet-stop)
-   ("t" vuiet-play-track)
-   ("u" vuiet-unlove-track)
-   ))
+(when (locate-library "vuiet")
+  (with-no-warnings
+    (global-set-key
+     (ems-kbd "C-; v")
+     (defhydra emacspeak-muggles-vuiet
+       (:body-pre
+        (progn
+          (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+          (emacspeak-hydra-body-pre "Vuiet  Explorer"))
+        :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+       (";" vuiet-playing-track-lyrics)
+       ("=" vuiet-player-volume-inc)
+       ("-" vuiet-player-volume-dec)
+       ("A" vuiet-play-artist-loved-tracks)
+       ("'" vuiet-play-loved-tracks)
+       ("," vuiet-seek-backward)
+       ("." vuiet-seek-forward)
+       ("C-s" vuiet-artist-info-search)
+       ("L" vuiet-playing-artist-lastfm-page)
+       ("SPC" vuiet-play-pause)
+       ("a" vuiet-artist-info)
+       ("i" emacspeak-vuiet-track-info)
+       ("l" vuiet-love-track)
+       ("n" vuiet-next)
+       ("p" vuiet-play-artist)
+       ("r" vuiet-replay)
+       ("s" vuiet-stop)
+       ("t" vuiet-play-track)
+       ("u" vuiet-unlove-track)))))
 
 ;;}}}
 (provide 'extra-muggles)
