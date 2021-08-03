@@ -673,6 +673,8 @@
 
 (defcustom emacspeak-hyper-keys 
   '(
+    ("C-," emacspeak-wizards-cycle-to-previous-buffer)
+    ("C-." emacspeak-wizards-cycle-to-next-buffer)
     ("'" emacspeak-m-player-using-hrtf)
     ("," previous-buffer)
     ("." next-buffer)
