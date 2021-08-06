@@ -191,6 +191,8 @@ Return T if set and we are called from the advice for the current
 (defsubst ems--fastload (file)
   "Load file efficiently."
   (let ((file-name-handler-alist nil)
+        (coding-system-for-write 'emacs-internal)
+        (coding-system-for-read 'emacs-internal)
         (load-source-file-function nil))
     (load file)))
 
