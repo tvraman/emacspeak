@@ -59,8 +59,7 @@
    (t(save-excursion
        (end-of-line)
        (skip-syntax-backward "^ ")
-       (emacspeak-speak-field
-        (point) (line-end-position))))))
+       (emacspeak-speak-field)))))
 
 ;;}}}
 ;;{{{ Advice
