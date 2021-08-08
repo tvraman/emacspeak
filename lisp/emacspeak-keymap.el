@@ -687,6 +687,7 @@
     ("C-e" eshell)
     ("C-j" emacspeak-wizards-shell-toggle)
     ("TAB" hippie-expand)
+    ("C-o" eaf-open-browser)
     ("C-t" emacspeak-wizards-tramp-open-location)
     ("b" eww-list-buffers)
     ("c" calibredb)
