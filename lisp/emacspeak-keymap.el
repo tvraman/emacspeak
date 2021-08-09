@@ -539,7 +539,6 @@
     ("C-n" emacspeak-wizards-google-headlines)
     ("R" emacspeak-webspace-feed-reader)
     ("a" emacspeak-wizards-execute-asynchronously)
-    ("b" eaf-open-browser)
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
