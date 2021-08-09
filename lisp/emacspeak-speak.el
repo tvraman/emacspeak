@@ -1938,6 +1938,7 @@ location of the mark is indicated by an aural highlight. "
 (defun emacspeak-speak-range (&optional prop)
   "Speak and return  range at point"
   (interactive )
+  (setq prop (or prop 'face))
   (let*
       ((start (previous-single-property-change (1+ (point)) prop))
        (pre-start (previous-single-property-change (point) prop))
