@@ -711,10 +711,15 @@ necessary."
     (setq
      emacspeak-m-player-custom-filters
      (remove "extrastereo" emacspeak-m-player-custom-filters))
+    (setq
+     emacspeak-m-player-custom-filters
+     (remove "ladspa=ZamHeadX2-ladspa.so:ZamHeadX2:0:60:2.5" emacspeak-m-player-custom-filters))
     (message "Effect extrastereo no longer applied to all streams")
     (emacspeak-auditory-icon 'off))
    (t
     (cl-pushnew "extrastereo" emacspeak-m-player-custom-filters
+                (cl-pushnew "ladspa=ZamHeadX2-ladspa.so:ZamHeadX2:0:60:2.5" emacspeak-m-player-custom-filters
+                :test #'string-equal)
                 :test #'string-equal)
     (message "Effect extrastereo  applied to all streams")
     (emacspeak-auditory-icon 'on))))
