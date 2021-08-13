@@ -1325,57 +1325,6 @@ template."
 
 
 ;;}}}
-;;{{{Currency Conversion:
-
-(defcustom emacspeak-url-template-currency-base
-  "USD"
-  "Currency to use as the base when doing currency conversion."
-  :type 'string
-  :group 'emacspeak-url-template)
-
-(defcustom emacspeak-url-template-currency-list
-  "EUR,INR,GBP,USD,CAD"
-  "List of currencies for which we request rates by default."
-  :type 'string
-  :group 'emacspeak-url-template)
-
-(defun ems--exchange-rates-to-org (url)
-  "Display retrieved rates as an org buffer."
-  (let-alist (g-json-from-url url)
-    (let ((buffer
-           (get-buffer-create
-            (format "* Currency Rates In  %s On %s" .base .date)))
-          (inhibit-read-only  t))
-      (with-current-buffer buffer
-        (erase-buffer)
-        (cl-loop
-         for r in .rates do
-         (insert
-          (format "%s %.2f\n" (car r) (cdr r))))
-        (goto-char (point-min))
-        (setq buffer-read-only t))
-      (pop-to-buffer buffer)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-buffer))))
-
-(emacspeak-url-template-define
- "Currency Converter"
- "https://api.exchangeratesapi.io/latest?base=%s&symbols=%s"
- (list
-  #'(lambda nil
-      (cl-declare (special emacspeak-url-template-currency-base))
-      (upcase
-       (read-from-minibuffer "Base:" emacspeak-url-template-currency-base)))
-  #'(lambda nil
-      (cl-declare (special emacspeak-url-template-currency-list))
-      (upcase
-       (read-from-minibuffer "Currencies:" emacspeak-url-template-currency-list))))
- nil
- "Currency Converter. Currencies can be a comma-separated list of
-codes."
- #'ems--exchange-rates-to-org)
-
-;;}}}
 ;;{{{CIA World Fact Book:
 
 (emacspeak-url-template-define
