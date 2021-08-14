@@ -2,12 +2,19 @@
 (load-library "eaf")
 (require 'eaf-browser)
 (eaf-setq eaf-browser-enable-adblocker "true")
-;;; We'll handle pdf, epub etc via Emacspeak as usual --- no EAF
 (setq eaf-pdf-extension-list nil)
-(global-set-key (ems-kbd "C-; C-w") 'eaf-open-browser-with-history)
+(defun emacspeak-eaf-web (url)
+  "Launch async web browser."
+  (interactive (list (emacspeak-eww-read-url)))
+  (make-thread #'(lambda () (eaf-open-browser url))))
+
+(global-set-key (ems-kbd "C-; C-w") 'emacspeak-eaf-web)
+
+                                        ;(require
 
 
-                                        ;(require 'eaf-js-video-player)
+                                        ;'eaf-js-video-player)
+
                                         ;(require 'eaf-org-previewer)
                                         ;(require 'eaf-image-viewer)
                                         ;(require 'eaf-music-player)
