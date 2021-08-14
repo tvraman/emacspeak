@@ -6,7 +6,7 @@
 (defun emacspeak-eaf-web (url)
   "Launch async web browser."
   (interactive (list (emacspeak-eww-read-url)))
-  (make-thread #'(lambda () (eaf-open-browser url))))
+     (eaf-open-browser url))
 
 (global-set-key (ems-kbd "C-; C-w") 'emacspeak-eaf-web)
 
