@@ -2644,6 +2644,23 @@ Produce an auditory icon if possible."
 
 
 ;;}}}
+;;{{{ielm: header-line
+
+(add-hook
+ 'ielm-mode-hook
+ #'(lambda ()
+     (cl-declare (special mode-line-process))
+     (setq
+      header-line-format
+      '((:eval
+         (concat
+          (format-mode-line mode-line-process)
+          " "
+          (propertize (buffer-name) 'personality voice-annotate)
+          (when (> (length (window-list)) 1)
+            (format "%s" (length (window-list))))))))))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
