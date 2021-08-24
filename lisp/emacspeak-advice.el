@@ -2649,16 +2649,13 @@ Produce an auditory icon if possible."
 (add-hook
  'ielm-mode-hook
  #'(lambda ()
-     (cl-declare (special mode-line-process))
+     (cl-declare (special ielm-working-buffer))
      (setq
       header-line-format
       '((:eval
          (concat
-          (format-mode-line mode-line-process)
-          " "
-          (propertize (buffer-name) 'personality voice-annotate)
-          (when (> (length (window-list)) 1)
-            (format "%s" (length (window-list))))))))))
+          (propertize "Interactive Elisp" 'personality voice-annotate)
+          (format "On %s" (buffer-name ielm-working-buffer) )))))))
 
 ;;}}}
 (provide 'emacspeak-advice)
