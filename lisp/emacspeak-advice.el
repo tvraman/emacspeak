@@ -2655,7 +2655,8 @@ Produce an auditory icon if possible."
       '((:eval
          (concat
           (propertize "Interactive Elisp" 'personality voice-annotate)
-          (format "On %s" (buffer-name ielm-working-buffer) )))))))
+          (format "On %s" (buffer-name ielm-working-buffer) )))))
+     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 (provide 'emacspeak-advice)
