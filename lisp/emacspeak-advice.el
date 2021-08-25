@@ -2646,17 +2646,18 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ielm: header-line
 
-(add-hook
- 'ielm-mode-hook
- #'(lambda ()
-     (cl-declare (special ielm-working-buffer))
+(defadvice ielm (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (cl-declare (special ielm-working-buffer))
      (setq
       header-line-format
       '((:eval
          (concat
           (propertize "Interactive Elisp" 'personality voice-annotate)
           (format "On %s" (buffer-name ielm-working-buffer) )))))
-     (emacspeak-auditory-icon 'open-object)))
+     (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-header-line)))
 
 ;;}}}
 (provide 'emacspeak-advice)
