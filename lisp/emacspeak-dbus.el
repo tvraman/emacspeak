@@ -223,8 +223,9 @@ already disabled."
   "Emacspeak  hook for -sleep signal from Login1."
   (cl-declare (special dtk-quiet))
   (let ((dtk-quiet t))
-    (save-some-buffers t)
-    (shell-command "fuser -k /dev/snd/*")))
+    (ems-with-messages-silenced
+        (save-some-buffers t)
+      (shell-command "fuser -k /dev/snd/*"))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 
