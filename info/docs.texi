@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1144 commands and 147 options.
+This chapter documents a total of 1143 commands and 145 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -13756,18 +13756,6 @@ Save out url templates.
 @end format
 @end deffn
 
-@subsection emacspeak-url-template Options
-
-@defvar {User Option} emacspeak-url-template-currency-base
-Currency to use as the base when doing currency conversion.
-
-@end defvar
-
-@defvar {User Option} emacspeak-url-template-currency-list
-List of currencies for which we request rates by default.
-
-@end defvar
-
 @node emacspeak-vdiff
 @section emacspeak-vdiff
 
@@ -14489,6 +14477,13 @@ Applies buffer-specific URL expander/executor function.
 
 @subsubsection emacspeak-we-url-rewrite-and-follow
 @deffn {Command} emacspeak-we-url-rewrite-and-follow  (&optional prompt)
+@table @kbd
+@item C-e x e ]
+@kindex C-e x e ]
+@item <fn> x e ]
+@kindex <fn> x e ]
+@end table
+
 @findex emacspeak-we-url-rewrite-and-follow
 
 @format
@@ -15672,8 +15667,12 @@ updating custom settings for a specific package or group of packages.
 @kindex C-z n
 @item C-; n
 @kindex C-; n
+@item C-; C-.
+@kindex C-; C-.
 @item C-x @@ h n
 @kindex C-x @@ h n
+@item C-x @@ h C-.
+@kindex C-x @@ h C-.
 @end table
 
 @findex emacspeak-wizards-cycle-to-next-buffer
@@ -15690,8 +15689,12 @@ Cycles to next buffer having same mode.
 @kindex C-z p
 @item C-; p
 @kindex C-; p
+@item C-; C-,
+@kindex C-; C-,
 @item C-x @@ h p
 @kindex C-x @@ h p
+@item C-x @@ h C-,
+@kindex C-x @@ h C-,
 @end table
 
 @findex emacspeak-wizards-cycle-to-previous-buffer
@@ -17116,7 +17119,6 @@ The heads for the associated hydra are:
 "C":    ‘emacspeak-m-player-clear-filters’,
 "C-m":    ‘emacspeak-m-player-load’,
 "DEL":    ‘emacspeak-m-player-reset-speed’,
-"L":    ‘emacspeak-m-player-load-file’,
 "M-l":    ‘emacspeak-m-player-load-playlist’,
 "O":    ‘emacspeak-m-player-reset-options’,
 "P":    ‘emacspeak-m-player-apply-reverb-preset’,
@@ -17322,46 +17324,6 @@ The heads for the associated hydra are:
 "@}":    ‘forward-paragraph’
 
 The body can be accessed via ‘emacspeak-muggles-view/body’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-muggles-vuiet/body
-@deffn {Command} emacspeak-muggles-vuiet/body   
-@table @kbd
-@item C-; v
-@kindex C-; v
-@item C-x @@ h v
-@kindex C-x @@ h v
-@end table
-
-@findex emacspeak-muggles-vuiet/body
-
-@format
-Call the body in the "emacspeak-muggles-vuiet" hydra.
-
-The heads for the associated hydra are:
-
-";":    ‘vuiet-playing-track-lyrics’,
-"=":    ‘vuiet-player-volume-inc’,
-"-":    ‘vuiet-player-volume-dec’,
-"A":    ‘vuiet-play-artist-loved-tracks’,
-"’":    ‘vuiet-play-loved-tracks’,
-",":    ‘vuiet-seek-backward’,
-".":    ‘vuiet-seek-forward’,
-"C-s":    ‘vuiet-artist-info-search’,
-"L":    ‘vuiet-playing-artist-lastfm-page’,
-"SPC":    ‘vuiet-play-pause’,
-"a":    ‘vuiet-artist-info’,
-"i":    ‘emacspeak-vuiet-track-info’,
-"l":    ‘vuiet-love-track’,
-"n":    ‘vuiet-next’,
-"p":    ‘vuiet-play-artist’,
-"r":    ‘vuiet-replay’,
-"s":    ‘vuiet-stop’,
-"t":    ‘vuiet-play-track’,
-"u":    ‘vuiet-unlove-track’
-
-The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
 @end format
 @end deffn
 
@@ -18762,7 +18724,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 74 URL Templates.
+This section documents a total of 73 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -18818,12 +18780,9 @@ Filter down to CNN content area.@item @b{CNN Headlines}
 
 News Headlines From CNN@item @b{CNN Market Data }
 
-Market data filtered from CNN Money@item @b{CNN PodCasts}
+Market data filtered from CNN Money@item @b{Cricinfo Print}
 
-List CNN Podcast media links.@item @b{Currency Converter}
-
-Currency Converter. Currencies can be a comma-separated list of
-codes.@item @b{Dictionary Lookup}
+Fetch printer friendly  version for link under point on Cricinfo@item @b{Dictionary Lookup}
 
 Dictionary Lookup@item @b{Finance  Google}
 

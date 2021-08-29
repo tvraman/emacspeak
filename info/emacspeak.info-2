@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 1, 2021.
+last updated on August 29, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -5615,15 +5615,6 @@ presently defined.
 
      (fn FILE)
 
-12.196.2 emacspeak-url-template Options
----------------------------------------
-
- -- Variable: User Option emacspeak-url-template-currency-base
-     Currency to use as the base when doing currency conversion.
-
- -- Variable: User Option emacspeak-url-template-currency-list
-     List of currencies for which we request rates by default.
-
 
 File: emacspeak.info,  Node: emacspeak-vdiff,  Next: emacspeak-vertico,  Prev: emacspeak-url-template,  Up: Emacspeak Commands And Options
 
@@ -6169,6 +6160,8 @@ browse-url to handle Web pages.
 ...............................................
 
  -- Command: emacspeak-we-url-rewrite-and-follow (&optional prompt)
+     ‘C-e x e ]’
+     ‘<fn> x e ]’
 
      Apply a url rewrite rule as specified in the current buffer
      before following link under point.  If no rewrite rule is
@@ -7023,7 +7016,9 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-cycle-to-next-buffer
      ‘C-z n’
      ‘C-; n’
+     ‘C-; C-.’
      ‘C-x @ h n’
+     ‘C-x @ h C-.’
 
      Cycles to next buffer having same mode.
 
@@ -7033,7 +7028,9 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-cycle-to-previous-buffer
      ‘C-z p’
      ‘C-; p’
+     ‘C-; C-,’
      ‘C-x @ h p’
+     ‘C-x @ h C-,’
 
      Cycles to previous buffer having same mode.
 
@@ -8097,7 +8094,6 @@ convenience key-bindings that access existing Emacspeak functionality.
      "C":    ‘emacspeak-m-player-clear-filters’,
      "C-m":    ‘emacspeak-m-player-load’,
      "DEL":    ‘emacspeak-m-player-reset-speed’,
-     "L":    ‘emacspeak-m-player-load-file’,
      "M-l":    ‘emacspeak-m-player-load-playlist’,
      "O":    ‘emacspeak-m-player-reset-options’,
      "P":    ‘emacspeak-m-player-apply-reverb-preset’,
@@ -8276,40 +8272,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.218.1.8 emacspeak-muggles-vuiet/body
-.......................................
-
- -- Command: emacspeak-muggles-vuiet/body
-     ‘C-; v’
-     ‘C-x @ h v’
-
-     Call the body in the "emacspeak-muggles-vuiet" hydra.
-
-     The heads for the associated hydra are:
-
-     ";":    ‘vuiet-playing-track-lyrics’,
-     "=":    ‘vuiet-player-volume-inc’,
-     "-":    ‘vuiet-player-volume-dec’,
-     "A":    ‘vuiet-play-artist-loved-tracks’,
-     "’":    ‘vuiet-play-loved-tracks’,
-     ",":    ‘vuiet-seek-backward’,
-     ".":    ‘vuiet-seek-forward’,
-     "C-s":    ‘vuiet-artist-info-search’,
-     "L":    ‘vuiet-playing-artist-lastfm-page’,
-     "SPC":    ‘vuiet-play-pause’,
-     "a":    ‘vuiet-artist-info’,
-     "i":    ‘emacspeak-vuiet-track-info’,
-     "l":    ‘vuiet-love-track’,
-     "n":    ‘vuiet-next’,
-     "p":    ‘vuiet-play-artist’,
-     "r":    ‘vuiet-replay’,
-     "s":    ‘vuiet-stop’,
-     "t":    ‘vuiet-play-track’,
-     "u":    ‘vuiet-unlove-track’
-
-     The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
-
-12.218.1.9 emacspeak-origami/body
+12.218.1.8 emacspeak-origami/body
 .................................
 
  -- Command: emacspeak-origami/body
@@ -9501,7 +9464,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.234 URL Templates
 ====================
 
-This section documents a total of 74 URL Templates.
+This section documents a total of 73 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -9573,172 +9536,168 @@ out the following steps:
   20. CNN Market Data
 
      Market data filtered from CNN Money
-  21. CNN PodCasts
+  21. Cricinfo Print
 
-     List CNN Podcast media links.
-  22. Currency Converter
-
-     Currency Converter.  Currencies can be a comma-separated list of
-     codes.
-  23. Dictionary Lookup
+     Fetch printer friendly version for link under point on Cricinfo
+  22. Dictionary Lookup
 
      Dictionary Lookup
-  24. Finance Google
+  23. Finance Google
 
      Lookup ticker on Google Finance.
-  25. Finance Summary From Google
+  24. Finance Summary From Google
 
      Display top stocks from Google Finance.
-  26. FreeSound
+  25. FreeSound
 
      Search FreeSound.
-  27. GitHub Search
+  26. GitHub Search
 
      Perform a GitHub Search.
-  28. GoLang Browse
+  27. GoLang Browse
 
      Browse GoLang package documentation.
-  29. GoLang Lookup
+  28. GoLang Lookup
 
      Lookup GoLang package documentation.
-  30. GoLang Search
+  29. GoLang Search
 
      Search GoLang package documentation.
-  31. Google Basic
+  30. Google Basic
 
      Light-weight Google search.
-  32. Google News Search
+  31. Google News Search
 
      Search Google news.
-  33. Google Scholar
+  32. Google Scholar
 
      Google Scholar Search
-  34. Google Trends
+  33. Google Trends
 
      Google Trends
-  35. Google Weather
+  34. Google Weather
 
      Light-weight Google search.
-  36. Guardian RSS Feeds Directory
+  35. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  37. Hacker News Frontpage
+  36. Hacker News Frontpage
 
      Display Hacker News Front Page
-  38. Hacker News Search
+  37. Hacker News Search
 
      Display Hacker News Front Page
-  39. Hoogle Haskell API Search
+  38. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  40. MLB Scorecard
+  39. MLB Scorecard
 
      Show MLB Scorecard.
-  41. MLB standings
+  40. MLB standings
 
      Display MLB standings.
-  42. Money Headlines From CNN
+  41. Money Headlines From CNN
 
      Money Headlines From CNN
-  43. NBA standings
+  42. NBA standings
 
      Display NBA standings.
-  44. NLS Bard Bookshelf
+  43. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  45. NLS Bard Popular
+  44. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  46. NLS Bard Recent
+  45. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  47. NLS Bard Search
+  46. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  48. NY Times Mobile
+  47. NY Times Mobile
 
      NYTimes Mobile Site
-  49. Old Time Radio
+  48. Old Time Radio
 
      This months Old Time Radio Programming
-  50. OpenLibrary
+  49. OpenLibrary
 
      Open Library Search
-  51. Patent Search From Google
+  50. Patent Search From Google
 
      Perform patent search via Google
-  52. RadioTime Browser
+  51. RadioTime Browser
 
      RadioTime Entry point.
-  53. RadioTime Categories
+  52. RadioTime Categories
 
      RadioTime Categories .
-  54. RadioTime Search
+  53. RadioTime Search
 
      RadioTime Search.
-  55. Reddit At Point.
+  54. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  56. Reddit By Topic.
+  55. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  57. Reddit Front Page.
+  56. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  58. Reddit Search.
+  57. Reddit Search.
 
      Reddit Search Results Feed.
-  59. Seeking Alpha Stock Search
+  58. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  60. Sign in to Google
+  59. Sign in to Google
 
      Login to Google.
-  61. StreamWorld Radio
+  60. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  62. Tech News From CNet
+  61. Tech News From CNet
 
      Display tech news from CNET
-  63. TuneIn Radio
+  62. TuneIn Radio
 
      Translate StreamId to playable stream.
-  64. Washington Post
+  63. Washington Post
 
      Washington Post Contents
-  65. Wiki Data Search
+  64. Wiki Data Search
 
      Search WikiData.
-  66. WordNet Search
+  65. WordNet Search
 
      Look up term in WordNet.
-  67. Yahoo RSSNews
+  66. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  68. html Google News Search
+  67. html Google News Search
 
      Search Google news.
-  69. sourceforge Download
+  68. sourceforge Download
 
      Download specified file.
-  70. sourceforge browse mirrors
+  69. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  71. sourceforge project
+  70. sourceforge project
 
      Open specified project page at SourceForge.
-  72. w3c IRC Logs
+  71. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  73. w3c Lists
+  72. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  74. world CNN Content
+  73. world CNN Content
 
      Filter down to CNN content area.
 
@@ -10064,4 +10023,47 @@ the architecture of Emacspeak, see the chapter on Emacspeak
 in the book Beautiful Code
 (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
 from O’Reilly.
+
+
+File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
+
+15.4 Key Component — Text To Speech (TTS)
+=========================================
+
+Emacspeak is a speech-subsystem for Emacs; it depends on an external
+Text-To-Speech (TTS) engine to produce speech.  In 1994, Digital
+Equipment released what would turn out to be the last in the line of
+hardware DECTalk synthesizers, the DECTalk Express.  This was
+essentially an Intel 386with 1mb of flash memory that ran a version of
+the DECTalk TTS software — to date, it still remains my favorite
+Text-To-Speech engine.  At the time, I also had a software version of
+the same engine running on my DEC-Alpha workstation; the desire to use
+either a software or hardware solution to produce speech output defined
+the Emacspeak speech-server architecture.
+
+   I went to IBM Research in 1999; this coincided with IBM releasing a
+version of the Eloquennce TTS engine on Linux under the name _ViaVoice
+Outloud_.  My colleague Jeffrey Sorenson implemented an early version of
+the Emacspeak speech-server for this engine using the OSS API; I later
+updated it to use the ALSA library while on a flight back to SFO from
+Boston in 2001.  That is still the TTS engine that is speaking as I type
+this article on my laptop.
+
+   20 years on, TTS continues to be the weakest link on Linux; the best
+available solution in terms of quality continues to be the Linux port of
+Eloquence TTS available from Voxin in Europe for a small price.  Looking
+back across 20 years, the state of TTS on Linux in particular and across
+all platforms in general continues to be a disappointment; most of
+today’s newer TTS engines are geared toward mainstream use-cases where
+_naturalness_ of the voice tends to supersede intelligibility at higher
+speech-rates.  Ironically, modern TTS engines also give applications far
+less control over the generated output — as a case in point, I
+implemented Audio System For Technical Readings (AsTeR)
+(http://www.cs.cornell.edu/home/raman/aster/demo.html) in 1994 using the
+DECTalk; 20 years later, we implemented MathML support
+(http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/)
+in ChromeVox (http://www.chromevox.com/) using Google TTS. In 2013, it
+turned out to be difficult or impossible to implement the type of audio
+renderings that were possible with the admittedly less-natural sounding
+DECTalk!
 
