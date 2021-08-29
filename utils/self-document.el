@@ -49,6 +49,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'advice)
 (require 'lisp-mnt)
 (require 'subr-x)
 (require 'texnfo-upd)

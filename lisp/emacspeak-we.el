@@ -1005,6 +1005,7 @@ used as well."
            ("S" emacspeak-we-style-filter)
            ("T" emacspeak-we-extract-tables-by-position-list)
            ("X" emacspeak-we-extract-nested-table-list)
+           ("]" emacspeak-we-url-rewrite-and-follow)
            ("a" emacspeak-we-xslt-apply)
            ("b" emacspeak-we-follow-and-filter-by-id)
            ("c" emacspeak-we-extract-by-class)
