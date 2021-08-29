@@ -1355,7 +1355,8 @@ template."
 (emacspeak-url-template-define
  "Cricinfo Print"
  "http://www.espncricinfo.com"          ; place holder
-  nil nil nil
+  nil nil 
+ "Fetch printer friendly  version for link under point on Cricinfo"
  #'(lambda (_u)
      (cl-declare (special ems--cricinfo-print-pattern))
      (emacspeak-eww-autospeak)
@@ -1363,8 +1364,7 @@ template."
       (replace-regexp-in-string
        ems--cricinfo-print-pattern
        "print/\\1"
-       (shr-url-at-point nil)u)))
- "Fetch printer friendly  version for link under point on Cricinfo")
+       (shr-url-at-point nil)u))))
 
 ;;}}}
 (provide 'emacspeak-url-template)
