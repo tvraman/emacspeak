@@ -756,8 +756,12 @@ used as well."
    (list
     (cond
      ((and (not current-prefix-arg)emacspeak-we-class-filter) emacspeak-we-class-filter)
-     (t (setq emacspeak-we-class-filter
-              (read-from-minibuffer "Class: "))))
+     (t
+      (setq emacspeak-we-class-filter
+            (read-from-minibuffer
+             "Class: "
+             nil nil nil nil
+             "article"))))
     (emacspeak-eww-read-url)
     current-prefix-arg))
   (cl-declare (special emacspeak-we-class-filter emacspeak-we-url-rewrite-rule))
