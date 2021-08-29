@@ -502,12 +502,6 @@ name of the list.")
 ;;}}}
 ;;{{{ cnn
 
-(emacspeak-url-template-define
- "CNN PodCasts"
- "http://www.cnn.com/services/podcasting/"
- nil
- nil
- "List CNN Podcast media links.")
 (defun emacspeak-url-template-cnn-content (url)
   "Extract CNN content."
   (emacspeak-we-extract-by-class
@@ -1353,7 +1347,26 @@ template."
 ;;}}}
 
 
+;;{{{cricinfo print rule
 
+(defvar ems--cricinfo-print-pattern  "ci/content/\\(.*\\)\\.html*"
+  "Regexp pattern used to extract printable URL from Cricinfo.")
+
+(emacspeak-url-template-define
+ "Cricinfo Print"
+ "http://www.espncricinfo.com"          ; place holder
+  nil nil nil
+ #'(lambda (_u)
+     (cl-declare (special ems--cricinfo-print-pattern))
+     (emacspeak-eww-autospeak)
+     (browse-url
+      (replace-regexp-in-string
+       ems--cricinfo-print-pattern
+       "print/\\1"
+       (shr-url-at-point nil)u)))
+ "Fetch printer friendly  version for link under point on Cricinfo")
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
