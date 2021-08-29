@@ -1364,7 +1364,7 @@ template."
       (replace-regexp-in-string
        ems--cricinfo-print-pattern
        "print/\\1"
-       (shr-url-at-point nil)u))))
+       (shr-url-at-point nil)))))
 
 ;;}}}
 (provide 'emacspeak-url-template)
