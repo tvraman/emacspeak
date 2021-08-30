@@ -18782,7 +18782,7 @@ News Headlines From CNN@item @b{CNN Market Data }
 
 Market data filtered from CNN Money@item @b{Cricinfo Print}
 
-Fetch printer friendly  version for link under point on Cricinfo@item @b{Dictionary Lookup}
+Printer friendly   link on Cricinfo@item @b{Dictionary Lookup}
 
 Dictionary Lookup@item @b{Finance  Google}
 
