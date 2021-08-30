@@ -1349,20 +1349,16 @@ template."
 
 ;;{{{cricinfo print rule
 
-(defvar ems--cricinfo-print-pattern  "ci/content/\\(.*\\)\\.html*"
-  "Regexp pattern used to extract printable URL from Cricinfo.")
-
 (emacspeak-url-template-define
  "Cricinfo Print"
- "http://www.espncricinfo.com"          ; place holder
+ "_" ; place holder
   nil nil 
- "Fetch printer friendly  version for link under point on Cricinfo"
+ "Printer friendly   link on Cricinfo"
  #'(lambda (_u)
-     (cl-declare (special ems--cricinfo-print-pattern))
      (emacspeak-eww-autospeak)
      (browse-url
       (replace-regexp-in-string
-       ems--cricinfo-print-pattern
+       "ci/content/\\(.*\\)\\.html*"
        "print/\\1"
        (shr-url-at-point nil)))))
 
