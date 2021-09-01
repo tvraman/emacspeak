@@ -80,7 +80,7 @@
 (require 'amixer)
 (require 'derived)
 (require 'dbus)
-(require 'nm "nm" 'no-error)
+(require 'emacspeak-nm "emacspeak-nm" 'no-error)
 
 ;;}}}
 ;;{{{ Forward Declarations:

@@ -1,4 +1,4 @@
-;;; nm.el --- Simple NetworkManager integration through D-Bus.  -*- lexical-binding: t; -*-
+;;; emacspeak-nm.el --- Simple NetworkManager integration through D-Bus.  -*- lexical-binding: t; -*-
 ;; -*- coding: utf-8 -*-
 
 ;; Author: Øyvind Stegard <oyvind.stegard@ifi.uio.no>
@@ -95,4 +95,4 @@ already enabled or service is not available."
    ((= 70 nmstate)
     (run-hooks 'nm-connected-hook))))
 
-(provide 'nm)
+(provide 'emacspeak-nm)
