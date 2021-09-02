@@ -2797,6 +2797,19 @@ Arranges for `VAR' to be restored when `file' is loaded."
 
 
 ;;; Eventually make independent of tapestry:
+;;; helper:
+
+(defsubst ems--tapestry-buffer-map ()
+  (let ((w-list (window-list))
+	(b nil)
+        (list nil))
+    (while w-list
+      (setq b (window-buffer (car w-list))
+	    list (cons (list (buffer-file-name b)
+			     (buffer-name b))
+		       list)
+	    w-list (cdr w-list)))
+    (nreverse list)))
 
 (defun emacspeak-describe-tapestry (&optional details)
   "Describe the current layout of visible buffers in current frame.
