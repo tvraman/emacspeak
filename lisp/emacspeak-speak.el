@@ -54,7 +54,6 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
-(require 'tapestry)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'voice-setup)
 (require 'dtk-speak)
@@ -2817,7 +2816,7 @@ Use interactive prefix arg to get coordinate positions of the
 displayed buffers."
   (interactive "P")
   (cl-declare (special voice-animate voice-bolden))
-  (let* ((buffer-map (tapestry-buffer-map))
+  (let* ((buffer-map (ems--tapestry-buffer-map))
          (count (length buffer-map))
          (windows nil)
          (description

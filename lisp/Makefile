@@ -289,7 +289,7 @@ sox-gen.elc \
 sox.elc 
 
 ADDON_OBJECTS = \
-emacspeak-nm.elc tapestry.elc dom-addons.elc  \
+emacspeak-nm.elc  dom-addons.elc  \
 xbacklight.elc  toy-braille.elc tetris.elc cd-tool.elc  \
 g-utils.elc gweb.elc gmaps.elc gm-nnir.elc 
 
