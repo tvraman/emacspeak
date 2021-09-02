@@ -2806,7 +2806,6 @@ displayed buffers."
   (cl-declare (special voice-animate voice-bolden))
   (let* ((buffer-map (tapestry-buffer-map))
          (count (length buffer-map))
-         (window-list  (tapestry-window-list))
          (windows nil)
          (description
           (format
@@ -2821,7 +2820,7 @@ displayed buffers."
       (details 
        (cl-loop
         for buffer in buffer-map
-        and window in window-list
+        and window in (window-list)
         collect
         (let ((w (format "%s "  (cl-second buffer)))
               (corners  (window-edges window))
