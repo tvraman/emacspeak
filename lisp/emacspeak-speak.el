@@ -2798,18 +2798,6 @@ Arranges for `VAR' to be restored when `file' is loaded."
 ;;; Eventually make independent of tapestry:
 ;;; helper:
 
-(defsubst ems--tapestry-buffer-map ()
-  (let ((w-list (window-list))
-	(b nil)
-        (list nil))
-    (while w-list
-      (setq b (window-buffer (car w-list))
-	    list (cons (list (buffer-file-name b)
-			     (buffer-name b))
-		       list)
-	    w-list (cdr w-list)))
-    (nreverse list)))
-
 (defun emacspeak-describe-tapestry (&optional details)
   "Describe the current layout of visible buffers in current frame.
 Use interactive prefix arg to get coordinate positions of the
@@ -2831,11 +2819,10 @@ displayed buffers."
      (cond
       (details 
        (cl-loop
-        for buffer in buffer-map
-        and window in (window-list)
+        for window in (window-list)
         collect
-        (let ((w (format "%s "  (cl-second buffer)))
-              (corners  (window-edges window))
+        (let ((w (format "%s "  (window-buffer w)))
+        w      (corners  (window-edges window))
               (tl nil)
               (br nil))
           (put-text-property
@@ -2847,7 +2834,7 @@ displayed buffers."
           (put-text-property 0 (length tl) 'personality voice-bolden tl)
           (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))
-      (t (mapcar #'cl-second buffer-map))))
+      (t (mapcar #'window-buffer (window-list)))))
     (emacspeak--sox-multiwindow (window-edges))
     (tts-with-punctuations
         'all
