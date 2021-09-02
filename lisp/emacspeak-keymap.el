@@ -302,7 +302,7 @@
    ("M-p" emacspeak-show-property-at-point)
    ("M-q" voice-setup-toggle-silence-personality)
    ("M-s" emacspeak-symlink-current-file)
-   ("M-t" emacspeak-tapestry-describe-tapestry)
+   ("M-t" emacspeak-describe-tapestry)
    ("M-u" emacspeak-feeds-add-feed)
    ("M-v" emacspeak-show-style-at-point)
    ("M-w" emacspeak-speak-which-function)

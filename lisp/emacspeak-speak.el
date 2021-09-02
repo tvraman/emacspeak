@@ -54,6 +54,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'tapestry)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'voice-setup)
 (require 'dtk-speak)
@@ -2792,7 +2793,54 @@ Arranges for `VAR' to be restored when `file' is loaded."
         (save-buffer)))))
 
 ;;}}}
-;;{{{Jump to window by name:
+;;{{{Tapestry --Jump to window by name:
+
+
+;;; Eventually make independent of tapestry:
+
+(defun emacspeak-describe-tapestry (&optional details)
+  "Describe the current layout of visible buffers in current frame.
+Use interactive prefix arg to get coordinate positions of the
+displayed buffers."
+  (interactive "P")
+  (cl-declare (special voice-animate voice-bolden))
+  (let* ((buffer-map (tapestry-buffer-map))
+         (count (length buffer-map))
+         (window-list  (tapestry-window-list))
+         (windows nil)
+         (description
+          (format
+           "Displaying %s window%s "
+           count 
+           (if (> count 1) "s" ""))))
+    (put-text-property
+     0 (length description) 'personality  voice-annotate description)
+    (setq
+     windows 
+     (cond
+      (details 
+       (cl-loop
+        for buffer in buffer-map
+        and window in window-list
+        collect
+        (let ((w (format "%s "  (cl-second buffer)))
+              (corners  (window-edges window))
+              (tl nil)
+              (br nil))
+          (put-text-property
+           0 (length w)
+           'personality voice-animate w)
+          (setq
+           tl (format  " %d %d " (cl-second corners) (cl-first corners))
+           br  (format " %d %d " (cl-fourth corners) (cl-third corners)))
+          (put-text-property 0 (length tl) 'personality voice-bolden tl)
+          (put-text-property 0 (length br) 'personality voice-bolden br)
+          (concat w " with top left " tl " and bottom right " br))))
+      (t (mapcar #'cl-second buffer-map))))
+    (emacspeak--sox-multiwindow (window-edges))
+    (tts-with-punctuations
+        'all
+      (dtk-speak (concat description (mapconcat #'identity windows " "))))))
 
 (defun emacspeak-select-window-by-name (buffer-name)
   "Select window by the name of the buffer it displays.
