@@ -57,9 +57,8 @@ Use interactive prefix arg to get coordinate positions of the
 displayed buffers."
   (interactive "P")
   (cl-declare (special voice-animate voice-bolden))
-  (let* ((buffer-map (tapestry-buffer-map))
-         (count (length buffer-map))
-         (window-list  (tapestry-window-list))
+  (let* ((window-list  (window-list))
+         (count (length window-list))
          (windows nil)
          (description
           (format
@@ -73,10 +72,10 @@ displayed buffers."
      (cond
       (details 
        (cl-loop
-        for buffer in buffer-map
-        and window in window-list
+        for window in window-list
+        for buffer-name = (buffer-name (window-buffer window))
         collect
-        (let ((w (format "%s "  (cl-second buffer)))
+        (let ((w (format "%s "  buffer-name))
               (corners  (window-edges window))
               (tl nil)
               (br nil))
@@ -109,7 +108,7 @@ but quickly switch to a window by name."
      (mapcar 
       #'(lambda (w)
           (list (buffer-name (window-buffer w))))
-      (tapestry-window-list))
+      (window-list))
      nil 'must-match)))
   (pop-to-buffer buffer-name)
   (emacspeak-speak-line))
