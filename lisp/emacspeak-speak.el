@@ -2792,6 +2792,26 @@ Arranges for `VAR' to be restored when `file' is loaded."
         (save-buffer)))))
 
 ;;}}}
+;;{{{Jump to window by name:
+
+(defun emacspeak-select-window-by-name (buffer-name)
+  "Select window by the name of the buffer it displays.
+This is useful when using modes like ECB or the new GDB UI where
+  you want to preserve the window layout 
+but quickly switch to a window by name."
+  (interactive
+   (list
+    (completing-read 
+     "Select window: "
+     (mapcar 
+      #'(lambda (w)
+          (list (buffer-name (window-buffer w))))
+      (window-list))
+     nil 'must-match)))
+  (pop-to-buffer buffer-name)
+  (emacspeak-speak-line))
+
+;;}}}
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 

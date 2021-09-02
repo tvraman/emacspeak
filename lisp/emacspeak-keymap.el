@@ -312,7 +312,7 @@
    ("SPC" emacspeak-speak-header-line)
    ("T" emacspeak-view-emacspeak-tips)
    ("V" emacspeak-speak-version)
-   ("W" emacspeak-tapestry-select-window-by-name)
+   ("W" emacspeak-select-window-by-name)
    ("[" emacspeak-speak-page)
    ("\"" emacspeak-speak-sexp)
    ("\\" emacspeak-toggle-speak-line-invert-filter)

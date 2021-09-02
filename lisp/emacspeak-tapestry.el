@@ -109,7 +109,7 @@ but quickly switch to a window by name."
      (mapcar 
       #'(lambda (w)
           (list (buffer-name (window-buffer w))))
-      (tapestry-window-list))
+      (window-list))
      nil 'must-match)))
   (pop-to-buffer buffer-name)
   (emacspeak-speak-line))
