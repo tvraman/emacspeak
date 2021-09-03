@@ -2808,12 +2808,12 @@ displayed buffers."
          (count (length window-list))
          (windows nil)
          (description
-          (format
-           "Displaying %s window%s "
-           count 
-           (if (> count 1) "s" ""))))
-    (put-text-property
-     0 (length description) 'personality  voice-annotate description)
+          (propertize 
+           (format
+            "Displaying %s window%s "
+            count 
+            (if (> count 1) "s" ""))
+           'personality voice-annotate)))
     (setq
      windows 
      (cond
@@ -2821,26 +2821,21 @@ displayed buffers."
        (cl-loop
         for window in window-list
         collect
-        (let ((w (format "%s "  (window-buffer window)))
-              (corners  (window-edges window))
-              (tl nil)
-              (br nil))
-          (put-text-property
-           0 (length w)
-           'personality voice-animate w)
-          (setq
-           tl (format  " %d %d " (cl-second corners) (cl-first corners))
+        (let ((w
+               (propertize
+               (format "%s "  (window-buffer window))
+               'personality voice-animate))
+             (corners  (window-edges window))
+             (tl nil)
+             (br nil))
+          (setq tl (format  " %d %d " (cl-second corners) (cl-first corners))
            br  (format " %d %d " (cl-fourth corners) (cl-third corners)))
           (put-text-property 0 (length tl) 'personality voice-bolden tl)
           (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))
-      (t
-       (mapcar #'buffer-name 
-               (mapcar #'window-buffer window-list)))))
+      (t (mapcar #'buffer-name (mapcar #'window-buffer window-list)))))
     (emacspeak--sox-multiwindow (window-edges))
-    (tts-with-punctuations
-        'all
-      (dtk-speak (concat description (mapconcat #'identity windows " "))))))
+    (dtk-speak (concat description (mapconcat #'identity windows " ")))))
 
 (defun emacspeak-select-window-by-name (buffer-name)
   "Select window by the name of the buffer it displays.
