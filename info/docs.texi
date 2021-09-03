@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 145 options.
+This chapter documents a total of 1142 commands and 145 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -190,7 +190,6 @@ This chapter documents a total of 1143 commands and 145 options.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Interpret tabulated information as a table.
-* emacspeak-tapestry::Speak information about current layout of windows.
 * emacspeak-tar::Speech enable Tar Mode -- Manipulate tar archives from Emacs.
 * emacspeak-tcl::Speech enable TCL development environment.
 * emacspeak-tempo::Speech enable tempo -- template library used for Java and HTML authoring.
@@ -10467,6 +10466,26 @@ char, or dont move.
 @end format
 @end deffn
 
+@subsubsection emacspeak-describe-tapestry
+@deffn {Command} emacspeak-describe-tapestry  (&optional details)
+@table @kbd
+@item C-e M-t
+@kindex C-e M-t
+@item <fn> M-t
+@kindex <fn> M-t
+@end table
+
+@findex emacspeak-describe-tapestry
+
+@format
+Describe the current layout of visible buffers in current frame.
+Use interactive prefix arg to get coordinate positions of the
+displayed buffers.
+
+(fn &optional DETAILS)
+@end format
+@end deffn
+
 @subsubsection emacspeak-execute-repeatedly
 @deffn {Command} emacspeak-execute-repeatedly  (command)
 @findex emacspeak-execute-repeatedly
@@ -10664,6 +10683,27 @@ Read previous line, specified by an offset, without moving.
 Default is to read the previous line. 
 
 (fn &optional ARG)
+@end format
+@end deffn
+
+@subsubsection emacspeak-select-window-by-name
+@deffn {Command} emacspeak-select-window-by-name  (buffer-name)
+@table @kbd
+@item C-e W
+@kindex C-e W
+@item <fn> W
+@kindex <fn> W
+@end table
+
+@findex emacspeak-select-window-by-name
+
+@format
+Select window by the name of the buffer it displays.
+This is useful when using modes like ECB or the new GDB UI where
+  you want to preserve the window layout 
+but quickly switch to a window by name.
+
+(fn BUFFER-NAME)
 @end format
 @end deffn
 
@@ -13133,67 +13173,6 @@ The processed  data is  presented using emacspeak table navigation.
 
 This module is a simple table recognizer.
 Can recognize the columns in tabulated output, e.g. ps, ls output
-
-@node emacspeak-tapestry
-@section emacspeak-tapestry
-
-emacspeak extensions to speak window widnow layouts
-
-@subsection Emacspeak-Tapestry Commands
-
-@subsubsection emacspeak-speak-window-layout
-@deffn {Command} emacspeak-speak-window-layout  (&optional details)
-@findex emacspeak-speak-window-layout
-
-@format
-Describe the current layout of visible buffers in current frame.
-Use interactive prefix arg to get coordinate positions of the
-displayed buffers.
-
-(fn &optional DETAILS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-tapestry-describe-tapestry
-@deffn {Command} emacspeak-tapestry-describe-tapestry  (&optional details)
-@table @kbd
-@item C-e M-t
-@kindex C-e M-t
-@item <fn> M-t
-@kindex <fn> M-t
-@end table
-
-@findex emacspeak-tapestry-describe-tapestry
-
-@format
-Describe the current layout of visible buffers in current frame.
-Use interactive prefix arg to get coordinate positions of the
-displayed buffers.
-
-(fn &optional DETAILS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-tapestry-select-window-by-name
-@deffn {Command} emacspeak-tapestry-select-window-by-name  (buffer-name)
-@table @kbd
-@item C-e W
-@kindex C-e W
-@item <fn> W
-@kindex <fn> W
-@end table
-
-@findex emacspeak-tapestry-select-window-by-name
-
-@format
-Select window by the name of the buffer it displays.
-This is useful when using modes like ECB or the new GDB UI where
-  you want to preserve the window layout 
-but quickly switch to a window by name.
-
-(fn BUFFER-NAME)
-@end format
-@end deffn
 
 @node emacspeak-tar
 @section emacspeak-tar
@@ -17428,9 +17407,9 @@ Implements the Google Maps API
 @findex gmaps
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps’.
-
 Google Maps Interaction.
+
+This function has :around advice: ‘ad-Advice-gmaps’.
 
 (fn)
 @end format
@@ -17441,9 +17420,9 @@ Google Maps Interaction.
 @findex gmaps-bicycling-directions
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
-
 Biking directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
 
 (fn ORIGIN DESTINATION)
 @end format
@@ -17465,9 +17444,9 @@ Display  directions obtained from Google Maps.
 @findex gmaps-driving-directions
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
-
 Driving directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
 
 (fn ORIGIN DESTINATION)
 @end format
@@ -17530,10 +17509,10 @@ M-i		backward-button
 @findex gmaps-place-details
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-place-details’.
-
 Display details for place at point.
 Insert reviews if already displaying details.
+
+This function has :around advice: ‘ad-Advice-gmaps-place-details’.
 
 (fn)
 @end format
@@ -17554,10 +17533,10 @@ Place details need to have been expanded first.
 @findex gmaps-places-nearby
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
-
 Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters.
+
+This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
 
 (fn &optional CLEAR-FILTER)
 @end format
@@ -17568,11 +17547,11 @@ Uses default radius. optional interactive prefix arg clears any active filters.
 @findex gmaps-places-search
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-places-search’.
-
 Perform a places search.
 Use this only if you dont know the locality  of the place you’re looking for.
 Optional  prefix arg clears any active filters.
+
+This function has :around advice: ‘ad-Advice-gmaps-places-search’.
 
 (fn QUERY &optional CLEAR-FILTER)
 @end format
@@ -17595,9 +17574,9 @@ Optional interactive prefix arg prompts for all filter fields.
 @findex gmaps-set-current-location
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
-
  Set current location.
+
+This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
 
 (fn ADDRESS)
 @end format
@@ -17608,9 +17587,9 @@ This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
 @findex gmaps-set-current-radius
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
-
 Set current radius
+
+This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
 
 (fn RADIUS)
 @end format
@@ -17621,9 +17600,9 @@ Set current radius
 @findex gmaps-transit-directions
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
-
 Transit directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
 
 (fn ORIGIN DESTINATION)
 @end format
@@ -17634,9 +17613,9 @@ Transit directions from Google Maps.
 @findex gmaps-walking-directions
 
 @format
-This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
-
 Walking directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
 
 (fn ORIGIN DESTINATION)
 @end format
@@ -18012,9 +17991,9 @@ Adds  effect at the end of the effect list
 @findex sox-delete-effect-at-point
 
 @format
-This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
-
 Delete effect at point.
+
+This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
 
 (fn)
 @end format
@@ -18051,9 +18030,9 @@ key             binding
 @findex sox-open-file
 
 @format
-This function has :around advice: ‘ad-Advice-sox-open-file’.
-
 Open specified snd-file on the Audio Workbench.
+
+This function has :around advice: ‘ad-Advice-sox-open-file’.
 
 (fn SND-FILE)
 @end format
@@ -18073,9 +18052,9 @@ Play sound .
 @findex sox-refresh
 
 @format
-This function has :around advice: ‘ad-Advice-sox-refresh’.
-
 Redraw Audio Workbench.
+
+This function has :around advice: ‘ad-Advice-sox-refresh’.
 
 (fn)
 @end format
