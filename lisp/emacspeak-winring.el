@@ -59,21 +59,21 @@
   "provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-tapestry-describe-tapestry winring-name)))
+    (emacspeak-describe-tapestry winring-name)))
 
 (defadvice winring-next-configuration(after emacspeak pre
                                             act comp)
   "provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-tapestry-describe-tapestry winring-name)))
+    (emacspeak-describe-tapestry winring-name)))
 
 (defadvice winring-prev-configuration(after emacspeak pre
                                             act comp)
   "provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-tapestry-describe-tapestry winring-name)))
+    (emacspeak-describe-tapestry winring-name)))
 
 (defadvice winring-new-configuration(after emacspeak pre
                                            act comp)

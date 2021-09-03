@@ -66,7 +66,7 @@
        (let ((dtk-stop-immediately nil))
          (sox-multiwindow 1 2)
          (dtk-speak (buffer-name (current-buffer)))
-         (emacspeak-tapestry-describe-tapestry 'full))))))
+         (emacspeak-describe-tapestry 'full))))))
 
 ;;}}}
 (provide 'emacspeak-smart-window)
