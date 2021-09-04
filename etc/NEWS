@@ -34,3 +34,9 @@ Speech-enable the elisp side of Emacs Application Framework
 
    Module ~emacspeak-calibredb~ speech-enables ~calibredb~, a
    full-fledged mode for Calibre Library Interaction 
+
+** Removed Tapestry Dependency
+
+Emacspeak no longer depends on tapestry.el  which was cloned from the
+~vm~ package over 20+ years ago.
+Key _C-e M-t_ now runs an equivalent command that does not depend on tapestry.
