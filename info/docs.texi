@@ -8181,7 +8181,7 @@ Volume up.
 @findex emacspeak-m-player-write-clip
 
 @format
-Invoke mp3splt to clip selected range in current file.
+Split selected range using SoX
 @end format
 @end deffn
 

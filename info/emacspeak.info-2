@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 2, 2021.
+last updated on September 4, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -1123,7 +1123,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-write-clip
 
-     Invoke mp3splt to clip selected range in current file.
+     Split selected range using SoX
 
 12.115.2.79 emacspeak-m-player-youtube-live
 ...........................................
