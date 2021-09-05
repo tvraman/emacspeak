@@ -1903,7 +1903,7 @@ Interactive prefix arg prompts for the timestamp."
     (emacspeak-auditory-icon 'mark-object)))
 
 (defun emacspeak-m-player-write-clip ()
-  "Invoke mp3splt to clip selected range in current file."
+  "Split selected range using SoX"
   (interactive)
   (cl-declare (special emacspeak-sox emacspeak-m-player-clips
                        clip-end clip-start))
