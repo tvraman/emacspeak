@@ -965,7 +965,9 @@ Retain previously set punctuations  mode."
    'emacspeak-eww-post-process-hook
    #'(lambda nil
        (cl-declare (special emacspeak-we-xpath-filter))
-       (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
+       (setq emacspeak-we-xpath-filter
+             emacspeak-we-paragraphs-xpath-filter)
+       (dtk-set-punctuations-to-some)
        (emacspeak-speak-buffer))
    'at-end))
 
