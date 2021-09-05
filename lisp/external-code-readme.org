@@ -1,7 +1,2 @@
 * Emacs 23:
 Older implementation of tetris.el 
-
-
-* tapestry.el
-
-Includes tapestry.el from emacs/vm.
