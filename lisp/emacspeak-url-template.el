@@ -1355,7 +1355,13 @@ template."
   nil nil 
  "Printer friendly   link on Cricinfo"
  #'(lambda (_u)
-     (emacspeak-eww-autospeak)
+     (add-hook
+   'emacspeak-eww-post-process-hook
+   #'(lambda nil
+       (search-forward "\n\n")
+       (dtk-set-punctuations-to-some)
+       (emacspeak-speak-rest-of-buffer))
+   'at-end)
      (browse-url
       (replace-regexp-in-string
        "ci/content/\\(.*\\)\\.html*"
