@@ -389,7 +389,7 @@ and return the results in a newly created buffer. "
 ;;}}}
 ;;{{{ interactive commands:
 
-
+;;;###autoload
 (defun emacspeak-xslt-view-file(style file)
   "Transform `file' using `style' and preview via browse-url."
   (interactive
@@ -414,7 +414,7 @@ and return the results in a newly created buffer. "
       (set-buffer-multibyte t)
       (browse-url-of-buffer))))
 
-
+;;;###autoload
 (defun emacspeak-xslt-view (style url)
   "Browse URL with specified XSL style."
   (interactive
