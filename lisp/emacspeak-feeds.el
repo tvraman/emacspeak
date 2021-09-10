@@ -334,20 +334,18 @@ Argument `feed' is a feed structure (label url type)."
   :type 'directory
   :group 'emacspeak-feeds)
 
-
-(defun emacspeak-feeds-auto-rss ()
+(defun emacspeak-feeds-awesome-rss ()
   "Display OPML file read with completion."
   (interactive)
   (cl-declare (special emacspeak-feeds-awesome-rss
                        emacspeak-opml-view-xsl))
+  (let ((opml (completing-read
+               "OPML: "
+               (directory-files-recursively
+                emacspeak-feeds-awesome-rss
+                "\\.opml$"))))
     (emacspeak-eww-autospeak)
-    (emacspeak-xslt-view-file
-     emacspeak-opml-view-xsl
-     (completing-read
-      "OPML: "
-      (directory-files-recursively
-       emacspeak-feeds-awesome-rss
-       "\\.opml$"))))
+    (emacspeak-xslt-view-file emacspeak-opml-view-xsl opml)))
 
 ;;}}}
 (provide 'emacspeak-feeds)
