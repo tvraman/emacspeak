@@ -335,7 +335,8 @@ Argument `feed' is a feed structure (label url type)."
   :group 'emacspeak-feeds)
 
 (defun emacspeak-feeds-awesome-rss ()
-  "Display OPML file read with completion."
+  "Display Awesome RSS OPML file read with completion.
+See etc/fixup-awesome-rss  for first-time  for instructions."
   (interactive)
   (cl-declare (special emacspeak-feeds-awesome-rss
                        emacspeak-opml-view-xsl))
