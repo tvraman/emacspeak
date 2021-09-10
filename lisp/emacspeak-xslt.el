@@ -394,9 +394,8 @@ and return the results in a newly created buffer. "
   "Transform `file' using `style' and preview via browse-url."
   (interactive
    (list
-    (read-file-name "Style File: "
-                    emacspeak-xslt-directory)
-    (read-file-name "File:" default-directory)))
+    (read-file-name "Style File: " emacspeak-xslt-directory)
+    (read-file-name "File:")))
   (cl-declare (special emacspeak-xslt-directory))
   (with-temp-buffer
     (let ((browse-url-browser-function  'eww-browse-url)
@@ -410,7 +409,6 @@ and return the results in a newly created buffer. "
                (format "\"'file://%s'\"" file)
                style file)
        (current-buffer) 'replace)
-      (set-buffer-multibyte t)
       (browse-url-of-buffer))))
 
 ;;;###autoload
