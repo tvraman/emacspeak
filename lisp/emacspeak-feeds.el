@@ -333,7 +333,7 @@ Argument `feed' is a feed structure (label url type)."
   "Location of Awesome RSS"
   :type 'directory
   :group 'emacspeak-feeds)
-
+;;;###autoload
 (defun emacspeak-feeds-awesome-rss ()
   "Display Awesome RSS OPML file read with completion.
 See etc/fixup-awesome-rss  for first-time  for instructions."
