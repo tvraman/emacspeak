@@ -340,15 +340,17 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
   (interactive)
   (cl-declare (special emacspeak-feeds-awesome-rss
                        emacspeak-opml-view-xsl))
-  (let ((opml
+  (let ((feed
          (completing-read
           "OPML: "
           (cl-loop
            for f in
            (directory-files-recursively emacspeak-feeds-awesome-rss "\\.opml$")
-           collect (cons f (file-name-nondirectory f))))))
+           collect (cons f (file-name-nondirectory f)))
+          nil 'must-match)))
+    (message "Opml: %s" feed)
     (emacspeak-eww-autospeak)
-    (emacspeak-xslt-view-file emacspeak-opml-view-xsl opml)))
+    (emacspeak-xslt-view-file emacspeak-opml-view-xsl feed)))
 
 ;;}}}
 (provide 'emacspeak-feeds)
