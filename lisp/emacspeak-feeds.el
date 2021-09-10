@@ -343,10 +343,7 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
   (let ((feed
          (completing-read
           "OPML: "
-          (cl-loop
-           for f in
            (directory-files-recursively emacspeak-feeds-awesome-rss "\\.opml$")
-           collect (cons f (file-name-nondirectory f)))
           nil 'must-match)))
     (message "Opml: %s" feed)
     (emacspeak-eww-autospeak)
