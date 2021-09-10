@@ -326,6 +326,30 @@ Argument `feed' is a feed structure (label url type)."
      (t (emacspeak-feeds-rss-display url)))))
 
 ;;}}}
+;;{{{Awesome RSS
+
+(defcustom emacspeak-feeds-awesome-rss
+  (expand-file-name "~/sourceforge/awesome-rss-feeds/")
+  "Location of Awesome RSS"
+  :type 'directory
+  :group 'emacspeak-feeds)
+
+
+(defun emacspeak-feeds-auto-rss ()
+  "Display OPML file read with completion."
+  (interactive)
+  (cl-declare (special emacspeak-feeds-awesome-rss
+                       emacspeak-opml-view-xsl))
+    (emacspeak-eww-autospeak)
+    (emacspeak-xslt-view-file
+     emacspeak-opml-view-xsl
+     (completing-read
+      "OPML: "
+      (directory-files-recursively
+       emacspeak-feeds-awesome-rss
+       "\\.opml$"))))
+
+;;}}}
 (provide 'emacspeak-feeds)
 ;;{{{ end of file
 

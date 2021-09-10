@@ -407,9 +407,8 @@ and return the results in a newly created buffer. "
       (shell-command
        (format "%s   --novalid --nonet --param base %s  %s  \"%s\"  2>/dev/null"
                emacspeak-xslt-program 
-               (format "\"'file://%s'\"" (expand-file-name file))
-               (expand-file-name style)
-               (expand-file-name file))
+               (format "\"'file://%s'\"" file)
+               style file)
        (current-buffer) 'replace)
       (set-buffer-multibyte t)
       (browse-url-of-buffer))))
