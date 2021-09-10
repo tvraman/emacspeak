@@ -345,7 +345,6 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
           "OPML: "
            (directory-files-recursively emacspeak-feeds-awesome-rss "\\.opml$")
           nil 'must-match)))
-    (message "Opml: %s" feed)
     (emacspeak-eww-autospeak)
     (emacspeak-xslt-view-file emacspeak-opml-view-xsl feed)))
 
