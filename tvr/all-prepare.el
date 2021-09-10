@@ -225,6 +225,8 @@ This moves them into the Spam folder."
 (with-eval-after-load "org"
   (require 'org-tempo)
   (require 'ol-eww)
+  (require 'ox-md)
+  (define-key org-mode-map (ems-kbd "C-c m") 'org-md-export-as-markdown)
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-cb" 'org-switchb)
   (define-key global-map  "\C-cc" 'org-capture)
