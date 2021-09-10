@@ -340,11 +340,13 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
   (interactive)
   (cl-declare (special emacspeak-feeds-awesome-rss
                        emacspeak-opml-view-xsl))
-  (let ((opml (completing-read
-               "OPML: "
-               (directory-files-recursively
-                emacspeak-feeds-awesome-rss
-                "\\.opml$"))))
+  (let ((opml
+         (completing-read
+          "OPML: "
+          (cl-loop
+           for f in
+           (directory-files-recursively emacspeak-feeds-awesome-rss "\\.opml$")
+           collect (cons f (file-name-nondirectory f))))))
     (emacspeak-eww-autospeak)
     (emacspeak-xslt-view-file emacspeak-opml-view-xsl opml)))
 
