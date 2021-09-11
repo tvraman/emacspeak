@@ -343,7 +343,12 @@ Argument `feed' is a feed structure (label url type)."
 See etc/fixup-awesome-rss  for first-time  for instructions."
   (interactive)
   (cl-declare (special emacspeak-feeds-awesome-rss-map
-                       emacspeak-feeds-awesome-rss emacspeak-opml-view-xsl))
+                       emacspeak-feeds-awesome-rss
+                       emacspeak-opml-view-xsl))
+  (unless (file-exists-p emacspeak-feeds-awesome-rss) 
+    (error "Download awesome-rss from Github, and run the awesome-rss-fixup.sh
+script found  in %s"
+           emacspeak-etc-directory))
   (unless emacspeak-feeds-awesome-rss-map ;;; first time
     (setq emacspeak-feeds-awesome-rss-map (make-hash-table :test #'equal))
     (cl-loop
