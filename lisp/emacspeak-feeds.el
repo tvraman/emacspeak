@@ -333,18 +333,36 @@ Argument `feed' is a feed structure (label url type)."
   "Location of Awesome RSS"
   :type 'directory
   :group 'emacspeak-feeds)
+
+(defvar emacspeak-feeds-awesome-rss-map nil
+  "Hash table that holds OPML Names->Files map.")
+
 ;;;###autoload
 (defun emacspeak-feeds-awesome-rss ()
   "Display Awesome RSS OPML file read with completion.
 See etc/fixup-awesome-rss  for first-time  for instructions."
   (interactive)
-  (cl-declare (special emacspeak-feeds-awesome-rss
-                       emacspeak-opml-view-xsl))
+  (cl-declare (special emacspeak-feeds-awesome-rss-map
+                       emacspeak-feeds-awesome-rss emacspeak-opml-view-xsl))
+  (unless emacspeak-feeds-awesome-rss-map ;;; first time
+    (setq emacspeak-feeds-awesome-rss-map (make-hash-table :test #'equal))
+    (cl-loop
+     for f in (directory-files-recursively emacspeak-feeds-awesome-rss
+                                           "\\.opml$")
+     do
+     (puthash
+      (substring
+       (file-name-nondirectory f)
+       0 -5)
+      f
+      emacspeak-feeds-awesome-rss-map)))
   (let ((feed
-         (completing-read
-          "OPML: "
-           (directory-files-recursively emacspeak-feeds-awesome-rss "\\.opml$")
-          nil 'must-match)))
+         (gethash 
+          (completing-read
+           "OPML: "
+           emacspeak-feeds-awesome-rss-map
+           nil 'must-match)
+          emacspeak-feeds-awesome-rss-map)))
     (emacspeak-eww-autospeak)
     (emacspeak-xslt-view-file emacspeak-opml-view-xsl feed)))
 
