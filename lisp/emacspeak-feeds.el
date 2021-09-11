@@ -346,27 +346,21 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
                        emacspeak-feeds-awesome-rss
                        emacspeak-opml-view-xsl))
   (unless (file-exists-p emacspeak-feeds-awesome-rss) 
-    (error "Download awesome-rss from Github, and run the awesome-rss-fixup.sh
-script found  in %s"
-           emacspeak-etc-directory))
+    (error
+     "Download awesome-rss from Github, and run the awesome-rss-fixup.sh script found  in %s"
+     emacspeak-etc-directory))
   (unless emacspeak-feeds-awesome-rss-map ;;; first time
     (setq emacspeak-feeds-awesome-rss-map (make-hash-table :test #'equal))
     (cl-loop
-     for f in (directory-files-recursively emacspeak-feeds-awesome-rss
-                                           "\\.opml$")
+     for f in
+     (directory-files-recursively emacspeak-feeds-awesome-rss "\\.opml$")
      do
      (puthash
-      (substring
-       (file-name-nondirectory f)
-       0 -5)
-      f
-      emacspeak-feeds-awesome-rss-map)))
+      (substring (file-name-nondirectory f) 0 -5)
+      f emacspeak-feeds-awesome-rss-map)))
   (let ((feed
          (gethash 
-          (completing-read
-           "OPML: "
-           emacspeak-feeds-awesome-rss-map
-           nil 'must-match)
+          (completing-read "OPML: " emacspeak-feeds-awesome-rss-map nil t)
           emacspeak-feeds-awesome-rss-map)))
     (emacspeak-eww-autospeak)
     (emacspeak-xslt-view-file emacspeak-opml-view-xsl feed)))
