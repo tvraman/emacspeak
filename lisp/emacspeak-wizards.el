@@ -3083,6 +3083,41 @@ personality at point. "
   (forward-word 1))
 
 ;;}}}
+;;{{{Snarf contents of a delimiter
+
+;;;###autoload
+(defun emacspeak-wizards-snarf-sexp ()
+  "Snarf the contents between delimiters at point."
+  (interactive)
+  (let ((pair nil)
+        (pairs
+         '((?\< ?\>)
+           (?\[ ?\])
+           (?\( ?\))
+           (?\{ ?\})
+           (?\" ?\")
+           (?\' ?\')
+           (?\` ?\')
+           (?\| ?\|)))
+        (char (char-after))
+        (stab nil))
+    (unless (setq pair (assoc char pairs))
+      (error "Point is not on a supported delimiter"))
+    (setq stab (copy-syntax-table))
+    (with-syntax-table stab
+      (cond
+       ((= (cl-first pair) (cl-second pair))
+        (modify-syntax-entry (cl-first pair) "\"" ) 
+        (modify-syntax-entry (cl-second pair) "\"" ))
+       (t
+        (modify-syntax-entry (cl-first pair) "(")
+        (modify-syntax-entry (cl-second pair) ")")))
+      (mark-sexp)
+      (kill-ring-save (1+ (point)) (1- (mark)))
+      (emacspeak-auditory-icon 'delete-object)
+      (emacspeak-speak-current-kill))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
