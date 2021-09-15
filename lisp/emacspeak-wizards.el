@@ -3086,19 +3086,22 @@ personality at point. "
 ;;{{{Snarf contents of a delimiter
 
 ;;;###autoload
-(defun emacspeak-wizards-snarf-sexp ()
-  "Snarf the contents between delimiters at point."
-  (interactive)
+(defun emacspeak-wizards-snarf-sexp (&optional delete)
+  "Snarf the contents between delimiters at point.
+Optional interactive prefix arg deletes it."
+  (interactive "P")
   (let ((pair nil)
         (pairs
-         '((?\< ?\>)
+         '((?< ?>)
            (?\[ ?\])
            (?\( ?\))
-           (?\{ ?\})
+           (?{ ?})
            (?\" ?\")
-           (?\' ?\')
-           (?\` ?\')
-           (?\| ?\|)))
+           (?' ?')
+           (?` ?')
+           (?| ?|)
+           (?* ?*)
+           (?/ ?/)))
         (char (char-after))
         (stab nil))
     (unless (setq pair (assoc char pairs))
@@ -3113,9 +3116,13 @@ personality at point. "
         (modify-syntax-entry (cl-first pair) "(")
         (modify-syntax-entry (cl-second pair) ")")))
       (mark-sexp)
-      (kill-ring-save (1+ (point)) (1- (mark)))
-      (emacspeak-auditory-icon 'delete-object)
-      (emacspeak-speak-current-kill))))
+      (cond
+       (delete
+        (kill-region (1+ (point)) (1- (mark)))
+        (emacspeak-auditory-icon 'delete-object))
+       (t (kill-ring-save (1+ (point)) (1- (mark)))
+          (emacspeak-auditory-icon 'mark-object)
+          (emacspeak-speak-current-kill))))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
