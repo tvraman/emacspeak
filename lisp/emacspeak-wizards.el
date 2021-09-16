@@ -3090,7 +3090,8 @@ personality at point. "
   "Snarf the contents between delimiters at point.
 Optional interactive prefix arg deletes it."
   (interactive "P")
-  (let ((pair nil)
+  (let ((orig (point))
+        (pair nil)
         (pairs
          '((?< ?>)
            (?\[ ?\])
@@ -3115,14 +3116,15 @@ Optional interactive prefix arg deletes it."
        (t
         (modify-syntax-entry (cl-first pair) "(")
         (modify-syntax-entry (cl-second pair) ")")))
-      (mark-sexp)
-      (cond
-       (delete
-        (kill-region (1+ (point)) (1- (mark)))
-        (emacspeak-auditory-icon 'delete-object))
-       (t (kill-ring-save (1+ (point)) (1- (mark)))
-          (emacspeak-auditory-icon 'mark-object)
-          (emacspeak-speak-current-kill))))))
+      (save-excursion
+        (forward-sexp)
+        (cond
+         (delete
+          (kill-region (1+ orig) (1- (point)))
+          (emacspeak-auditory-icon 'delete-object))
+         (t (kill-ring-save (1+ orig) (1- (point)))
+            (emacspeak-auditory-icon 'mark-object)))
+        (dtk-speak (car kill-ring))))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
