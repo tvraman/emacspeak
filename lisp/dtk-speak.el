@@ -1367,7 +1367,8 @@ program. Port defaults to dtk-local-server-port"
   (eval-when-compile
     (or (getenv "ALSA_NOTIFY")
         (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
-  "Virtual ALSA device to use for notifications stream."
+  "Virtual ALSA device to use for notifications stream. Set to nil to
+  disable a separate Notification TTS stream."
   :type 'string
   :group 'tts)
 
