@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1142 commands and 145 options.
+This chapter documents a total of 1144 commands and 146 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -998,6 +998,7 @@ Toggle tones.
 
 @defvar {User Option} tts-notification-device
 Virtual ALSA device to use for notifications stream.
+Set to nil to disable a separate Notification stream.
 
 @end defvar
 
@@ -5800,6 +5801,16 @@ Display ATOM feed.
 @end format
 @end deffn
 
+@subsubsection emacspeak-feeds-awesome-rss
+@deffn {Command} emacspeak-feeds-awesome-rss   
+@findex emacspeak-feeds-awesome-rss
+
+@format
+Display Awesome RSS OPML file read with completion.
+See etc/fixup-awesome-rss  for first-time  for instructions.
+@end format
+@end deffn
+
 @subsubsection emacspeak-feeds-browse
 @deffn {Command} emacspeak-feeds-browse  (feed)
 @table @kbd
@@ -5879,6 +5890,11 @@ Display RSS feed.
 @defvar {User Option} emacspeak-feeds
 Table of RSS/Atom feeds.
 The feed list is persisted to file saved-feeds on exit.
+
+@end defvar
+
+@defvar {User Option} emacspeak-feeds-awesome-rss
+Location of Awesome RSS
 
 @end defvar
 
@@ -16559,6 +16575,25 @@ Show  properties of  face.
 
 @format
 Convenience command to view state of memory used in this session so far.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-snarf-sexp
+@deffn {Command} emacspeak-wizards-snarf-sexp  (&optional delete)
+@table @kbd
+@item C-; DEL
+@kindex C-; DEL
+@item C-x @@ h DEL
+@kindex C-x @@ h DEL
+@end table
+
+@findex emacspeak-wizards-snarf-sexp
+
+@format
+Snarf the contents between delimiters at point.
+Optional interactive prefix arg deletes it.
+
+(fn &optional DELETE)
 @end format
 @end deffn
 

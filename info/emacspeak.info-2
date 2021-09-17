@@ -12,7 +12,25 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 4, 2021.
+last updated on September 17, 2021.
+
+
+File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
+
+12.100 emacspeak-ibuffer
+========================
+
+speech-enable ibuffer.el this is an alternative to buffer-menu
+
+12.100.1 Emacspeak-Ibuffer Commands
+-----------------------------------
+
+12.100.1.1 emacspeak-ibuffer-speak-buffer-line
+..............................................
+
+ -- Command: emacspeak-ibuffer-speak-buffer-line
+
+     Speak information about this buffer
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -7641,7 +7659,19 @@ Contains various wizards for the Emacspeak desktop.
 
      Convenience command to view state of memory used in this session so far.
 
-12.209.1.95 emacspeak-wizards-speak-iso-datetime
+12.209.1.95 emacspeak-wizards-snarf-sexp
+........................................
+
+ -- Command: emacspeak-wizards-snarf-sexp (&optional delete)
+     ‘C-; DEL’
+     ‘C-x @ h DEL’
+
+     Snarf the contents between delimiters at point.
+     Optional interactive prefix arg deletes it.
+
+     (fn &optional DELETE)
+
+12.209.1.96 emacspeak-wizards-speak-iso-datetime
 ................................................
 
  -- Command: emacspeak-wizards-speak-iso-datetime (iso)
@@ -7650,7 +7680,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ISO)
 
-12.209.1.96 emacspeak-wizards-squeeze-blanks
+12.209.1.97 emacspeak-wizards-squeeze-blanks
 ............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
@@ -7661,7 +7691,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.209.1.97 emacspeak-wizards-swap-fg-and-bg
+12.209.1.98 emacspeak-wizards-swap-fg-and-bg
 ............................................
 
  -- Command: emacspeak-wizards-swap-fg-and-bg
@@ -7671,7 +7701,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Swap foreground and background.
 
-12.209.1.98 emacspeak-wizards-term
+12.209.1.99 emacspeak-wizards-term
 ..................................
 
  -- Command: emacspeak-wizards-term (create)
@@ -7685,8 +7715,8 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CREATE)
 
-12.209.1.99 emacspeak-wizards-tex-tie-current-word
-..................................................
+12.209.1.100 emacspeak-wizards-tex-tie-current-word
+...................................................
 
  -- Command: emacspeak-wizards-tex-tie-current-word (n)
 
@@ -7694,21 +7724,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn N)
 
-12.209.1.100 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.209.1.101 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.209.1.101 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.209.1.102 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.209.1.102 emacspeak-wizards-tune-in-radio-browse
+12.209.1.103 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -7720,7 +7750,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.209.1.103 emacspeak-wizards-tune-in-radio-search
+12.209.1.104 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -7729,7 +7759,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.209.1.104 emacspeak-wizards-units
+12.209.1.105 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -7738,14 +7768,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units.
 
-12.209.1.105 emacspeak-wizards-vc-n
+12.209.1.106 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.209.1.106 emacspeak-wizards-vc-view-mode
+12.209.1.107 emacspeak-wizards-vc-view-mode
 ...........................................
 
  -- Command: emacspeak-wizards-vc-view-mode
@@ -7761,7 +7791,7 @@ Contains various wizards for the Emacspeak desktop.
      run, this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as
      the final or penultimate step during initialization.
 
-12.209.1.107 emacspeak-wizards-vc-viewer
+12.209.1.108 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -7772,14 +7802,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.209.1.108 emacspeak-wizards-vc-viewer-refresh
+12.209.1.109 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.209.1.109 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.209.1.110 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
@@ -7788,7 +7818,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  m-player mode.
 
-12.209.1.110 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.209.1.111 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
