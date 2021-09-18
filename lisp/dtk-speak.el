@@ -1369,7 +1369,9 @@ program. Port defaults to dtk-local-server-port"
         (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
   "Virtual ALSA device to use for notifications stream.
 Set to nil to disable a separate Notification stream."
-  :type 'string
+  :type '(choice
+          (const :tag "None" nil)
+          (string :value ""))
   :group 'tts)
 
 (defvar dtk-speak-server-initialized nil
