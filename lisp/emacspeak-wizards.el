@@ -3108,8 +3108,9 @@ Optional interactive prefix arg deletes it."
            (?~ ?~)))
         (char (char-after))
         (stab nil))
-    (unless (setq pair (assoc char pairs))
-      (error "Point is not on a supported delimiter"))
+    (setq pair
+          (or (assq char pairs)
+              (list char (read-char "Close Delimiter: "))))
     (setq stab (copy-syntax-table))
     (with-syntax-table stab
       (cond
