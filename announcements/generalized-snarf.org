@@ -1,0 +1,86 @@
+* Executive Summary
+
+  The
+  [[https://emacspeak.blogspot.com/2021/09/snarfing-string-within-delimiters-with.html][previous article]] detailed the implementation of a simple function
+  that lets you snarf the contents within a pair of delimiters. That
+  version handled a set of generic delimiters, and errored out if
+  point was not on one of the pre-defined delimiters.
+
+  This article shows how that solution can be generalized
+  to cases where point is not on a pre-defined delimiter; in the
+  process, it weighs the pros and cons of usability vs over-generality
+  and shows an implementation that attempts to strike a good balance.
+
+
+* The Updated Implementation
+
+  #+begin_src  emacs-lisp
+(defun snarf-sexp (&optional delete)
+  "Snarf the contents between delimiters at point.
+Optional interactive prefix arg deletes it."
+  (interactive "P")
+  (let ((orig (point))
+        (pair nil)
+        (pairs ;;; We keep predefined pairs for usability:
+         '((?< ?>)
+           (?\[ ?\])
+           (?\( ?\))
+           (?{ ?})
+           (?\" ?\")
+           (?' ?')
+           (?` ?')
+           (?| ?|)
+           (?* ?*)
+           (?/ ?/)
+           (?- ?-)
+           (?_ ?_)
+           (?~ ?~)))
+        (char (char-after))
+        (stab nil))
+    (setq pair ;;; But we read a close delimiter  for the general case
+          (or (assq char pairs) ;;; Predefined delimiter
+              (list char (read-char "Close Delimiter: ")))) ;;; Generality!
+    (setq stab (copy-syntax-table))
+    (with-syntax-table stab
+      (cond
+       ((= (cl-first pair) (cl-second pair))
+        (modify-syntax-entry (cl-first pair) "\"" ) 
+        (modify-syntax-entry (cl-second pair) "\"" ))
+       (t
+        (modify-syntax-entry (cl-first pair) "(")
+        (modify-syntax-entry (cl-second pair) ")")))
+      (save-excursion
+        (forward-sexp)
+        (cond
+         (delete
+          (kill-region (1+ orig) (1- (point))))
+         (t (kill-ring-save (1+ orig) (1- (point)))))))))
+  #+end_src
+
+* Key Takeaways
+
+  1. The generalized implementation no longer throws an error if point
+     is not on a pre-defined delimiter.
+  2. Instead, it generalizes the implementation to read the close
+     delimiter from the keyboard if char at point is not in the
+     pre-defined list.
+  3. We could generalize further by entirely dropping the pre-defined
+     delimiters, but that would hurt usability in the common case where the user would always  have to specify the close delimiter.
+  4. Note that usability here is not merely to reduce a keystroke;
+     it's more to reduce the cognitive load on the user with respect
+     to having to /think/ about the close delimiter in the common
+     case.
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Generalize Snarf Tool: How The General Can Be Simpler Than The Specific
+#+date: <2021-09-19 Sun>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.4.4)
