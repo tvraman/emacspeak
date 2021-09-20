@@ -36,6 +36,163 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
   <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-6263923850603207795</id><published>
+      2021-09-19T10:49:00.001-07:00
+    </published>
+    <updated>2021-09-19T10:49:21.997-07:00</updated><title type='text'>
+      Generalize Snarf Tool: How The General Can Be Simpler Than The
+      Specific
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Generalize Snarf Tool: How The
+      General Can Be Simpler Than The Specific&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org4d4e143&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org4d4e143&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      The
+      &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2021/09/snarfing-string-within-delimiters-with.html&quot;&gt;previous article&lt;/a&gt; detailed the implementation of a simple function
+      that lets you snarf the contents within a pair of delimiters. That
+      version handled a set of generic delimiters, and errored out if
+      point was not on one of the pre-defined delimiters.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      This article shows how that solution can be generalized
+      to cases where point is not on a pre-defined delimiter; in the
+      process, it weighs the pros and cons of usability vs over-generality
+      and shows an implementation that attempts to strike a good balance.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org11a0752&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org11a0752&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; The Updated
+      Implementation&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color: #feacd0;&quot;&gt;snarf-sexp&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #6ae4b9;&quot;&gt;&amp;amp;optional&lt;/span&gt; delete)
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;&quot;Snarf the
+      contents between delimiters at point.&lt;/span&gt;
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;Optional interactive
+      prefix arg deletes it.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;interactive&lt;/span&gt; &lt;span
+      style=&quot;color: #79a8ff;&quot;&gt;&quot;P&quot;&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((orig (point))
+      (pair nil)
+      (pairs &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;We keep
+      predefined pairs for usability:&lt;/span&gt;
+      &#39;((?&amp;lt; ?&amp;gt;)
+      (?\[ ?\])
+      (?\( ?\))
+      (?{ ?})
+      (?\&quot; ?\&quot;)
+      (?&#39; ?&#39;)
+      (?` ?&#39;)
+      (?| ?|)
+      (?* ?*)
+      (?/ ?/)
+      (?- ?-)
+      (?_ ?_)
+      (?~ ?~)))
+      (char (char-after))
+      (stab nil))
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      pair &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;But we
+      read a close delimiter  for the general case&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;or&lt;/span&gt; (assq
+      char pairs) &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Predefined delimiter&lt;/span&gt;
+      (list char (read-char &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;Close Delimiter: &quot;&lt;/span&gt;))))
+      &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Generality!&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      stab (copy-syntax-table))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;with-syntax-table&lt;/span&gt; stab
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      ((= (cl-first pair) (cl-second pair))
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ) 
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ))
+      (t
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;(&quot;&lt;/span&gt;)
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;)&quot;&lt;/span&gt;)))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;save-excursion&lt;/span&gt;
+      (forward-sexp)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      (delete
+      (kill-region (1+ orig) (1- (point))))
+      (t (kill-ring-save (1+ orig) (1- (point)))))))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org467ac84&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org467ac84&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Key
+      Takeaways&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;The generalized implementation no longer throws an error
+      if point
+      is not on a pre-defined delimiter.&lt;/li&gt;
+      &lt;li&gt;Instead, it generalizes the implementation to read the
+      close
+      delimiter from the keyboard if char at point is not in the
+      pre-defined list.&lt;/li&gt;
+      &lt;li&gt;We could generalize further by entirely dropping the
+      pre-defined
+      delimiters, but that would hurt usability in the common case where
+      the user would always  have to specify the close
+      delimiter.&lt;/li&gt;
+      &lt;li&gt;Note that usability here is not merely to reduce a
+      keystroke;
+      it&#39;s more to reduce the cognitive load on the user with respect
+      to having to &lt;i&gt;think&lt;/i&gt; about the close delimiter in
+      the common
+      case.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6263923850603207795'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6263923850603207795'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/09/generalize-snarf-tool-how-general-can.html' title='Generalize Snarf Tool: How The General Can Be Simpler Than The Specific'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-3089333105276688605</id><published>
       2021-09-18T09:46:00.001-07:00
     </published>
