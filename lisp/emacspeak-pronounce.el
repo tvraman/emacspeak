@@ -205,10 +205,10 @@ the match  being passed to the func which returns  the new pronunciation."
 ;;;xsl inherits from xml
 (emacspeak-pronounce-add-super 'xml-mode 'xsl-mode)
 
-;;; VM,  EWW
+;;; VM,  EWW, org
 (emacspeak-pronounce-add-super 'text-mode 'eww-mode)
 (emacspeak-pronounce-add-super 'text-mode 'vm-presentation-mode)
-
+(emacspeak-pronounce-add-super 'text-mode 'org-mode)
 ;;}}}
 ;;{{{ Composing and applying dictionaries:
 
