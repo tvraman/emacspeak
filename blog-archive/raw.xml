@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
 <feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'>
   <id>tag:blogger.com,1999:blog-20280042</id><updated>
-    2021-08-01T09:40:43.441-07:00
+    2021-09-19T10:50:14.708-07:00
   </updated>
   <title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>
     Here is where I plan to Blog Emacspeak tricks and introduce new
@@ -19,11 +19,337 @@
     <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
   </author>
   <generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>
-    175
+    177
   </openSearch:totalResults>
   <openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>
     10
   </openSearch:itemsPerPage>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-6263923850603207795</id><published>
+      2021-09-19T10:49:00.001-07:00
+    </published>
+    <updated>2021-09-19T10:49:21.997-07:00</updated><title type='text'>
+      Generalize Snarf Tool: How The General Can Be Simpler Than The
+      Specific
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Generalize Snarf Tool: How The
+      General Can Be Simpler Than The Specific&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org4d4e143&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org4d4e143&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      The
+      &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2021/09/snarfing-string-within-delimiters-with.html&quot;&gt;previous article&lt;/a&gt; detailed the implementation of a simple function
+      that lets you snarf the contents within a pair of delimiters. That
+      version handled a set of generic delimiters, and errored out if
+      point was not on one of the pre-defined delimiters.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      This article shows how that solution can be generalized
+      to cases where point is not on a pre-defined delimiter; in the
+      process, it weighs the pros and cons of usability vs over-generality
+      and shows an implementation that attempts to strike a good balance.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org11a0752&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org11a0752&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; The Updated
+      Implementation&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color: #feacd0;&quot;&gt;snarf-sexp&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #6ae4b9;&quot;&gt;&amp;amp;optional&lt;/span&gt; delete)
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;&quot;Snarf the
+      contents between delimiters at point.&lt;/span&gt;
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;Optional interactive
+      prefix arg deletes it.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;interactive&lt;/span&gt; &lt;span
+      style=&quot;color: #79a8ff;&quot;&gt;&quot;P&quot;&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((orig (point))
+      (pair nil)
+      (pairs &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;We keep
+      predefined pairs for usability:&lt;/span&gt;
+      &#39;((?&amp;lt; ?&amp;gt;)
+      (?\[ ?\])
+      (?\( ?\))
+      (?{ ?})
+      (?\&quot; ?\&quot;)
+      (?&#39; ?&#39;)
+      (?` ?&#39;)
+      (?| ?|)
+      (?* ?*)
+      (?/ ?/)
+      (?- ?-)
+      (?_ ?_)
+      (?~ ?~)))
+      (char (char-after))
+      (stab nil))
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      pair &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;But we
+      read a close delimiter  for the general case&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;or&lt;/span&gt; (assq
+      char pairs) &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Predefined delimiter&lt;/span&gt;
+      (list char (read-char &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;Close Delimiter: &quot;&lt;/span&gt;))))
+      &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Generality!&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      stab (copy-syntax-table))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;with-syntax-table&lt;/span&gt; stab
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      ((= (cl-first pair) (cl-second pair))
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ) 
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ))
+      (t
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;(&quot;&lt;/span&gt;)
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;)&quot;&lt;/span&gt;)))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;save-excursion&lt;/span&gt;
+      (forward-sexp)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      (delete
+      (kill-region (1+ orig) (1- (point))))
+      (t (kill-ring-save (1+ orig) (1- (point)))))))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org467ac84&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org467ac84&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Key
+      Takeaways&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;The generalized implementation no longer throws an error
+      if point
+      is not on a pre-defined delimiter.&lt;/li&gt;
+      &lt;li&gt;Instead, it generalizes the implementation to read the
+      close
+      delimiter from the keyboard if char at point is not in the
+      pre-defined list.&lt;/li&gt;
+      &lt;li&gt;We could generalize further by entirely dropping the
+      pre-defined
+      delimiters, but that would hurt usability in the common case where
+      the user would always  have to specify the close
+      delimiter.&lt;/li&gt;
+      &lt;li&gt;Note that usability here is not merely to reduce a
+      keystroke;
+      it&#39;s more to reduce the cognitive load on the user with respect
+      to having to &lt;i&gt;think&lt;/i&gt; about the close delimiter in
+      the common
+      case.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6263923850603207795'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6263923850603207795'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/09/generalize-snarf-tool-how-general-can.html' title='Generalize Snarf Tool: How The General Can Be Simpler Than The Specific'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-3089333105276688605</id><published>
+      2021-09-18T09:46:00.001-07:00
+    </published>
+    <updated>2021-09-18T09:46:30.411-07:00</updated><title type='text'>
+      Snarfing String Within Delimiters  With One Defun
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Snarfing String Within Delimiters 
+      With One Defun&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org86e644c&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org86e644c&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      I found that  I frequently needed to snarf a string enclosed within
+      delimiters, e.g., URLs in email messages &lt;span
+      class=&quot;underline&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;,
+      bolded, italics and other styled text in org-mode etc. I first tried
+      package &lt;span class=&quot;underline&quot;&gt;ciel&lt;/span&gt;
+      but found that it did not handle all the delimiters I
+      wanted. However looking into it further revealed that emacs had all
+      the tools needed to reduce the task to a single
+      &lt;b&gt;defun&lt;/b&gt;!
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org56f5525&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org56f5525&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; The
+      Solution&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      Here is the solution I implemented  at
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L3089&quot;&gt;emacspeak-wizards-snarf-sexp&lt;/a&gt;. invoking this command with  point on
+      the opening delimiter  snarfs the enclosed string into the
+      kill-ring; an optional prefix arg clears it as well.
+      The code below is the same as in the Emacspeak project, but with
+      emacspeak-specific calls removed:
+      &lt;/p&gt;
+      
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color:
+      #feacd0;&quot;&gt;snarf-sexp-contents&lt;/span&gt; (&lt;span
+      style=&quot;color: #6ae4b9;&quot;&gt;&amp;amp;optional&lt;/span&gt;
+      delete)
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;&quot;Snarf the
+      contents between delimiters at point.&lt;/span&gt;
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;Optional interactive
+      prefix arg deletes it.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;interactive&lt;/span&gt; &lt;span
+      style=&quot;color: #79a8ff;&quot;&gt;&quot;P&quot;&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((orig (point))
+      (pair nil)
+      (pairs &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;The
+      delimiter pairs:&lt;/span&gt;
+      &#39;((?&amp;lt; ?&amp;gt;)
+      (?\[ ?\])
+      (?\( ?\))
+      (?{ ?})
+      (?\&quot; ?\&quot;)
+      (?&#39; ?&#39;)
+      (?` ?&#39;)
+      (?| ?|)
+      (?* ?*)
+      (?/ ?/)
+      (?- ?-)
+      (?_ ?_)
+      (?~ ?~)))
+      (char (char-after))
+      (stab nil)) &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Syntax
+      table we  use&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;unless&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      pair (assoc char pairs)) &lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Not on a delimiter &lt;/span&gt;
+      (&lt;span style=&quot;color: #dbbe5f;&quot;&gt;error&lt;/span&gt;
+      &lt;span style=&quot;color: #79a8ff;&quot;&gt;&quot;Point is not on
+      a supported delimiter&quot;&lt;/span&gt;))
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      stab (copy-syntax-table))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;with-syntax-table&lt;/span&gt; stab
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      ((= (cl-first pair) (cl-second pair)) &lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;;;;&lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Like quotes&lt;/span&gt;
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ) 
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ))
+      (t&lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Like
+      parens &lt;/span&gt;
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;(&quot;&lt;/span&gt;)
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;)&quot;&lt;/span&gt;)))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;save-excursion&lt;/span&gt;&lt;span
+      style=&quot;color: #a8a8a8;&quot;&gt;;;; &lt;/span&gt;&lt;span
+      style=&quot;color: #a8a8a8;&quot;&gt;We have our sexp &lt;/span&gt;
+      (forward-sexp) &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Will
+      error out if delims dont match&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      (delete &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Clear
+      sexp contents &lt;/span&gt;
+      (kill-region (1+ orig) (1- (point))))
+      (t &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Copy sexp
+      contents&lt;/span&gt;
+      (kill-ring-save (1+ orig) (1- (point)))))))))
+      
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org828c705&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org828c705&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.1&lt;/span&gt; Key
+      Take-Aways&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;S-expressions are a key Emacs concept with extensive
+      built-in support.&lt;/li&gt;
+      &lt;li&gt;S-expressions are determined by matching
+      delimiters.&lt;/li&gt;
+      &lt;li&gt;Delimiters are defined by the syntax-table in
+      effect.&lt;/li&gt;
+      &lt;li&gt;Emacs-lisp primitives let us define and manipulate
+      temporary syntax-tables.&lt;/li&gt;
+      &lt;li&gt;Putting it all together, the underlying task of snarfing
+      the
+      contents within a pair of delimiters reduces to a few calls to
+      the underlying primitives.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3089333105276688605'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3089333105276688605'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/09/snarfing-string-within-delimiters-with.html' title='Snarfing String Within Delimiters  With One Defun'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-6307300043551934554</id><published>
       2021-08-01T09:39:00.002-07:00
@@ -2420,404 +2746,6 @@
     <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/>
     <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/>
     <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/searching-gmail-from-gnus.html' title='Searching GMail From GNUS'/>
-    <author>
-      <name>T. V. Raman</name><uri>
-        http://www.blogger.com/profile/03589687652590194428
-      </uri>
-      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
-    </author>
-  </entry>
-  <entry>
-    <id>tag:blogger.com,1999:blog-20280042.post-8905782418233033405</id><published>
-      2020-08-16T12:18:00.001-07:00
-    </published>
-    <updated>2020-08-16T12:18:46.360-07:00</updated><title type='text'>
-      Start Emacs In A Defun
-    </title>
-    <content type='html'>
-      &lt;div id=&quot;content&quot;&gt;
-      &lt;h1 class=&quot;title&quot;&gt;Start Emacs In A Defun&lt;/h1&gt;
-      &lt;div id=&quot;outline-container-org3fba985&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org3fba985&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
-      Summary&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-      &lt;p&gt;
-      This is a follow-up to my earlier article titled &lt;a
-      
-      href=&quot;https://emacspeak.blogspot.com/2017/08/emacs-start-up-speeding-it-up.html&quot;&gt;Speeding Up Emacs
-      Startup&lt;/a&gt; from August 2017. Three years later, I once again
-      spent time
-      cleaning up and refactoring the results as described below. The
-      end-result is to once again speed up Emacs startup, (about 25%
-      fasteron my laptop)while making the setup cleaner and easier to
-      maintain
-      than before.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-orgc30cbf6&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;orgc30cbf6&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Start Emacs In
-      A Defun&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-      &lt;p&gt;
-      This &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#start-of-content&quot;&gt;startup file&lt;/a&gt; is set up with the following goals:
-      &lt;/p&gt;
-      
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;Speed up emacs startup &amp;#x2014; setting environment
-      variable
-      &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L247-L311&quot;&gt;&lt;code&gt;TVR_TIME_EMS&lt;/code&gt;&lt;/a&gt; before starting emacs produces detailed timing
-      information in the &lt;b&gt;Messages&lt;/b&gt; buffer.&lt;/li&gt;
-      &lt;li&gt;Customize packages via Custom  as far as
-      possible.&lt;/li&gt;
-      &lt;li&gt;Keep the  &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;custom settings&lt;/a&gt;  in a separate file, with a later goal of
-      turning that into a  theme.&lt;/li&gt;
-      &lt;li&gt;After converting to a theme, Move machine-specific custom
-      settings
-      into a separate host-specific custom file, thus making the earlier
-      theme host-independent.  Place host-specific non-customizable bits
-      in default.el (not done yet).&lt;/li&gt;
-      &lt;li&gt;Define package-specific settings not available via Custom
-      in a package-specific &amp;lt;package&amp;gt;-prepare.el
-      file.&lt;/li&gt;
-      &lt;li&gt;Install everything from elpa/melpa as far as possible. (vm
-      is an
-      exception at present) &amp;#x2014; I have nearly 200 packages
-      activated.&lt;/li&gt;
-      &lt;li&gt;The startup file is a collection of functions with
-      entry-point &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-emacs&lt;/a&gt;.&lt;/li&gt;
-      &lt;li&gt;The only top-level call is &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;(tvr-emacs)&lt;/a&gt;.&lt;/li&gt;
-      &lt;li&gt;Function tvr-emacs starts up Emacspeak, and sets up two
-      hooks:
-      &lt;ul class=&quot;org-ul&quot;&gt;
-      &lt;li&gt;after-init-hook to do the bulk of the work.&lt;/li&gt;
-      &lt;li&gt;emacs-startup-hook to set up  initial window
-      configuration.&lt;/li&gt;
-      &lt;/ul&gt;&lt;/li&gt;
-      &lt;li&gt;Function &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-after-init-hook&lt;/a&gt; on after-init-hook does the following:
-      &lt;ul class=&quot;org-ul&quot;&gt;
-      &lt;li&gt;Load package-specific prepare.el files.&lt;/li&gt;
-      &lt;li&gt;Load the custom settings file.&lt;/li&gt;
-      &lt;li&gt;Starts up things like the emacs server.&lt;/li&gt;
-      &lt;li&gt;Some of these tasks are done on a separate thread using
-      make-thread.&lt;/li&gt;
-      &lt;/ul&gt;&lt;/li&gt;
-      &lt;li&gt;The work of loading files etc., is done within macro &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-fastload&lt;/a&gt;&lt;/li&gt;
-      &lt;/ol&gt;
-      &lt;p&gt;
-      which sets up an efficient environment for loading files.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org650b226&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org650b226&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt;
-      Conclusion&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-      &lt;p&gt;
-      With this setup, &lt;code&gt;M-x emacs-init-time&lt;/code&gt; shows 
-      init-time as
-      &lt;/p&gt;
-      &lt;pre class=&quot;example&quot;&gt;
-      1.288381225 seconds
-      &lt;/pre&gt;
-      
-      &lt;p&gt;
-      on my laptop with an SSD.  Setting
-      &lt;code&gt;package-quickstart&lt;/code&gt; to
-      &lt;code&gt;T&lt;/code&gt; is a
-      major win when running with a spinning-disk instead of an SSD. But
-      the
-      biggest win is that I no longer have to go hunting to find out where
-      something in emacs got configured a given way &amp;#x2014; AKA,
-      there are a
-      limited number of places I need to look.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org403baf9&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org403baf9&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt;
-      Wish-List&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;Remembering  the name of a custom-setting  you set up a
-      while ago
-      is still  a challenge, You cant find it unless you remember its
-      approximate name.&lt;/li&gt;
-      &lt;li&gt;Command
-      &lt;code&gt;emacspeak-wizards-customize-saved&lt;/code&gt; bound to
-      &lt;code&gt;C-h C-s&lt;/code&gt;
-      helps some in this regard but is a stop-gap solution.&lt;/li&gt;
-      &lt;li&gt;Custom themes are  not  easy to use.&lt;/li&gt;
-      &lt;li&gt;I keep my &lt;code&gt;custom-file&lt;/code&gt; checked
-      into a local Git repository and
-      is the only part of my setup that I cannot publish &amp;#x2014;
-      since that
-      file tends to hoover up information that you shouldn&#39;t publish,
-      e.g., aPI keys and other private/personal bits.&lt;/li&gt;
-      &lt;li&gt;Perhaps Emacs needs at least two custom-files, a public
-      and a
-      private custom-file.&lt;/li&gt;
-      &lt;/ol&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-    </content>
-    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8905782418233033405'/>
-    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8905782418233033405'/>
-    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/08/start-emacs-in-defun.html' title='Start Emacs In A Defun'/>
-    <author>
-      <name>T. V. Raman</name><uri>
-        http://www.blogger.com/profile/03589687652590194428
-      </uri>
-      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
-    </author>
-  </entry>
-  <entry>
-    <id>tag:blogger.com,1999:blog-20280042.post-4916053591627777743</id><published>
-      2020-06-16T10:13:00.001-07:00
-    </published>
-    <updated>2020-06-16T10:13:34.161-07:00</updated><title type='text'>
-      Learning Rust: Programming The Pick-Up Sticks Game
-    </title>
-    <content type='html'>&lt;div dir=&quot;ltr&quot;
-      style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div
-      id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Learning
-      Rust: The Pick-Up Sticks Game&lt;/h1&gt;&lt;div
-      id=&quot;outline-container-org0a67b1f&quot;
-      class=&quot;outline-2&quot;&gt;&lt;h2
-      id=&quot;org0a67b1f&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
-      Overview&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-1&quot;&gt;&lt;p&gt;This &lt;a
-      
-      href=&quot;https://github.com/tvraman/pick-sticks&quot;&gt;directory&lt;/a&gt; contains an implementation of the &lt;i&gt;Pick Up Sticks&lt;/i&gt; game&lt;br /&gt;
-      described in my paper &lt;a
-      
-      href=&quot;http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html&quot;&gt;Thinking Of Mathematics (Section 5)&lt;/a&gt;.&lt;br /&gt;
-      &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;It&#39;s an interesting experience writing it in Rust as I
-      learn the&lt;br /&gt;
-      language. The original implementation described in my paper
-      was&lt;br /&gt;
-      written in 1987 in Fortran-77, and consisted of one single&lt;br
-      /&gt;
-      function. Though that style of programming would be frowned upon
-      today&lt;br /&gt;
-      and is clearly not advisable for programming in the large,
-      it&#39;s&lt;br /&gt;
-      interesting to observe that a more structured implementation as
-      seen&lt;br /&gt;
-      in this Rust implementation qrequires a lot more fore-thought
-      with&lt;br /&gt;
-      respect to code organization.&lt;br /&gt;
-      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
-      &lt;div id=&quot;outline-container-org8a0d2da&quot;
-      class=&quot;outline-2&quot;&gt;&lt;h2
-      id=&quot;org8a0d2da&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Programming
-      Environment&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-2&quot;&gt;&lt;p&gt;here is a short overview of  the
-      programming environment  used:&lt;br /&gt;
-      &lt;/p&gt;&lt;br /&gt;
-      &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Emacs 28.0.50 with
-      emacspeak 52.0.&lt;/li&gt;
-      &lt;li&gt;Package  &lt;code&gt;eglot&lt;/code&gt; for managing the
-      project with an  LSP server.&lt;/li&gt;
-      &lt;li&gt;Rust Language Server &lt;a
-      
-      href=&quot;https://github.com/rust-lang-nursery/rls&quot;&gt;(RLS)&lt;/a&gt; as the LSP server.&lt;/li&gt;
-      &lt;li&gt;Package &lt;code&gt;company&lt;/code&gt; for
-      completion.&lt;/li&gt;
-      &lt;li&gt;Package &lt;code&gt;yasnippet&lt;/code&gt; for code
-      templates.&lt;/li&gt;
-      &lt;li&gt;Package &lt;code&gt;rust-mode&lt;/code&gt; for Rust
-      editing smarts.&lt;/li&gt;
-      &lt;li&gt;Package &lt;code&gt;racer&lt;/code&gt; for additional
-      cross-referencing and&lt;br /&gt;
-      documentation support.&lt;/li&gt;
-      &lt;li&gt;Package &lt;code&gt;cargo&lt;/code&gt; for cargo
-      integration from inside Emacs.&lt;/li&gt;
-      &lt;/ol&gt;&lt;br /&gt;
-      &lt;p&gt;In the process of setting up my Rust environment, I
-      also&lt;br /&gt;
-      speech-enabled Emacs packages &lt;code&gt;rust-mode&lt;/code&gt;,
-      &lt;code&gt;racer&lt;/code&gt; and &lt;code&gt;cargo&lt;/code&gt;
-      for Emacspeak.&lt;br /&gt;
-      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
-      &lt;br /&gt;
-      &lt;div id=&quot;outline-container-org6572a3a&quot;
-      class=&quot;outline-2&quot;&gt;&lt;h2
-      id=&quot;org6572a3a&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt;
-      Books&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-3&quot;&gt;&lt;p&gt;I  downloaded  &lt;i&gt;The Rust
-      Programming Language (2018)&lt;/i&gt; from Bookshare&lt;br /&gt;
-      and it&#39;s what I am still using as I write this. Note that this
-      book is&lt;br /&gt;
-      also available in the Rust distribution. The version in the
-      Rust&lt;br /&gt;
-      distribution is a little less usable since it&#39;s split into
-      multiple&lt;br /&gt;
-      smaller HTML files with each file repeating a lot of
-      navigational&lt;br /&gt;
-      boiler-plate at the top.&lt;br /&gt;
-      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
-      &lt;div id=&quot;outline-container-org2e40623&quot;
-      class=&quot;outline-2&quot;&gt;&lt;h2
-      id=&quot;org2e40623&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Experience
-      Learning Rust&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-4&quot;&gt;&lt;p&gt;I usually find that I learn a
-      language better if I write some code as&lt;br /&gt;
-      I learn the language.&lt;br /&gt;
-      In this instance, I decided to program the pick-up-sticks game
-      &amp;#x2014; a&lt;br /&gt;
-      simple game that I programmed in 1987 for the final class project
-      for&lt;br /&gt;
-      CS-101 at IIT-Bombay. Here are the rules of the game:&lt;br /&gt;
-      &lt;/p&gt;&lt;br /&gt;
-      &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;This is a two-player
-      game  and the game starts with \(n\) sticks.&lt;/li&gt;
-      &lt;li&gt;The first player can pick at most \(n-1\) 
-      sticks.&lt;/li&gt;
-      &lt;li&gt;Assume a player picks \(k\) sticks. At the  subsequent
-      turn, opponent&lt;br /&gt;
-      can pick at most  \(2 * k\) sticks.&lt;/li&gt;
-      &lt;li&gt;The player who is able to &lt;i&gt;clean-up&lt;/i&gt; the
-      remaining sticks while&lt;br /&gt;
-      adhering to the rules is the winner.&lt;/li&gt;
-      &lt;/ol&gt;&lt;br /&gt;
-      &lt;p&gt;Read  &lt;a
-      
-      href=&quot;http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html&quot;&gt;Thinking Of Mathematics (Section 5)&lt;/a&gt; for a description of an&lt;br /&gt;
-      algorithm that is guaranteed to win.&lt;br /&gt;
-      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
-      &lt;div id=&quot;outline-container-orge266a0f&quot;
-      class=&quot;outline-2&quot;&gt;&lt;h2
-      id=&quot;orge266a0f&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; The
-      Implementation&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-5&quot;&gt;&lt;p&gt;Learning Rust&#39;s ownership
-      rules for memory management, and learning to&lt;br /&gt;
-      use references  the Rust way were some of the things that were
-      unique&lt;br /&gt;
-      to this learning experience.&lt;br /&gt;
-      Rust has some unique features including declaring lifetimes that
-      are&lt;br /&gt;
-      typically needed in more advanced cases; however in my initial&lt;br
-      /&gt;
-      attempts, not doing things the Rust way caused compile-time
-      errors&lt;br /&gt;
-      that initially guided me toward using and declaring&lt;br /&gt;
-      lifetimes. Eventually, all of those declarations became
-      unnecessary.&lt;br /&gt;
-      More generally, the Rust compiler turns out to be a very good
-      Rust&lt;br /&gt;
-      teacher.&lt;br /&gt;
-      &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
-      &lt;div id=&quot;outline-container-orgda356e2&quot;
-      class=&quot;outline-2&quot;&gt;&lt;h2
-      id=&quot;orgda356e2&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;6&lt;/span&gt; Crux Of The
-      Implementation&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-6&quot;&gt;&lt;p&gt;See module
-      &lt;code&gt;game.rs&lt;/code&gt; for the implementation. The core of
-      the&lt;br /&gt;
-      implementation is still a handful of lines to implement the
-      winning&lt;br /&gt;
-      strategy of:&lt;br /&gt;
-      &lt;/p&gt;&lt;br /&gt;
-      &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;If the number of sticks
-      at the start is a Fibonacci number, ask&lt;br /&gt;
-      the opponent to play first.&lt;/li&gt;
-      &lt;li&gt;At each turn, force the opponent toward the closest
-      Fibonacci number.&lt;/li&gt;
-      &lt;li&gt;Do above while respecting the limit rule, i.e. if you pick
-      \(k\)&lt;br /&gt;
-      sticks, the opponent can pick up to \(2k\) sticks, so never pick 
-      \(k\)&lt;br /&gt;
-      where \(3k &gt;= n\).&lt;/li&gt;
-      &lt;li&gt;The result of (3) is to subdivide the game into smaller
-      games&lt;br /&gt;
-      when playing with larger values of \(n\) &amp;#x2014; see the
-      &lt;span class=&quot;underline&quot;&gt;while&lt;/span&gt; loop
-      in&lt;br /&gt;
-      method    &lt;code&gt;my_move&lt;/code&gt;.&lt;/li&gt;
-      &lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;div
-      id=&quot;outline-container-org66df065&quot;
-      class=&quot;outline-2&quot;&gt;&lt;h2
-      id=&quot;org66df065&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;7&lt;/span&gt; Closing
-      Thoughts&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-7&quot;&gt;&lt;ol
-      class=&quot;org-ol&quot;&gt;&lt;li&gt;The computing environment I
-      now have is far more sophisticated&lt;br /&gt;
-      than what I had in 1987.&lt;/li&gt;
-      &lt;li&gt;Today, I have interactive completion, source-code&lt;br
-      /&gt;
-      cross-references, on-the-fly access to documentation, and a
-      fully&lt;br /&gt;
-      accessible book where I can look up things whenever I
-      want.&lt;/li&gt;
-      &lt;li&gt;In 1987, I did most of my thinking and problem-solving in
-      my&lt;br /&gt;
-      dorm-room with no computer to hand. When ready with the
-      solution,&lt;br /&gt;
-      I made a few notes in Braille using a &lt;a
-      
-      href=&quot;https://www.google.com/search?num=25&amp;amp;lite=90586&amp;amp;q=braille+pocket+slate&quot;&gt;pocket-slate and stylus&lt;/a&gt;,&lt;br /&gt;
-      then went to the computer room with a volunteer reader and
-      typed&lt;br /&gt;
-      up the program, with the student volunteer providing
-      high-quality&lt;br /&gt;
-      interactive spoken feedback.&lt;/li&gt;
-      &lt;li&gt;Interestingly, I think it took me less time  from memory
-      to&lt;br /&gt;
-      implement the solution in 1987 &amp;#x2014; perhaps this is time
-      shrinking&lt;br /&gt;
-      with number of years passed.&lt;/li&gt;
-      &lt;li&gt;Either way, the primary take-away is that it pays to
-      analyse a&lt;br /&gt;
-      problem before one actually starts writing code. Writing code
-      is&lt;br /&gt;
-      always fun, and today, even more so given the excellent array
-      of&lt;br /&gt;
-      tools &amp;#x2014; but unless one focuses on the problem at hand,
-      one can&lt;br /&gt;
-      spend a lot of time &lt;i&gt;sharpening one&#39;s pencils&lt;/i&gt;
-      as opposed to&lt;br /&gt;
-      writing something useful.&lt;/li&gt;
-      &lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
-      &lt;/div&gt;
-    </content>
-    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4916053591627777743'/>
-    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4916053591627777743'/>
-    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/06/learning-rust-programming-pick-up.html' title='Learning Rust: Programming The Pick-Up Sticks Game'/>
     <author>
       <name>T. V. Raman</name><uri>
         http://www.blogger.com/profile/03589687652590194428

@@ -36,6 +36,175 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
   <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-3089333105276688605</id><published>
+      2021-09-18T09:46:00.001-07:00
+    </published>
+    <updated>2021-09-18T09:46:30.411-07:00</updated><title type='text'>
+      Snarfing String Within Delimiters  With One Defun
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Snarfing String Within Delimiters 
+      With One Defun&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org86e644c&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org86e644c&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      I found that  I frequently needed to snarf a string enclosed within
+      delimiters, e.g., URLs in email messages &lt;span
+      class=&quot;underline&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;,
+      bolded, italics and other styled text in org-mode etc. I first tried
+      package &lt;span class=&quot;underline&quot;&gt;ciel&lt;/span&gt;
+      but found that it did not handle all the delimiters I
+      wanted. However looking into it further revealed that emacs had all
+      the tools needed to reduce the task to a single
+      &lt;b&gt;defun&lt;/b&gt;!
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org56f5525&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org56f5525&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; The
+      Solution&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      Here is the solution I implemented  at
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L3089&quot;&gt;emacspeak-wizards-snarf-sexp&lt;/a&gt;. invoking this command with  point on
+      the opening delimiter  snarfs the enclosed string into the
+      kill-ring; an optional prefix arg clears it as well.
+      The code below is the same as in the Emacspeak project, but with
+      emacspeak-specific calls removed:
+      &lt;/p&gt;
+      
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color:
+      #feacd0;&quot;&gt;snarf-sexp-contents&lt;/span&gt; (&lt;span
+      style=&quot;color: #6ae4b9;&quot;&gt;&amp;amp;optional&lt;/span&gt;
+      delete)
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;&quot;Snarf the
+      contents between delimiters at point.&lt;/span&gt;
+      &lt;span style=&quot;color: #b0d6f5;&quot;&gt;Optional interactive
+      prefix arg deletes it.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;interactive&lt;/span&gt; &lt;span
+      style=&quot;color: #79a8ff;&quot;&gt;&quot;P&quot;&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((orig (point))
+      (pair nil)
+      (pairs &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;The
+      delimiter pairs:&lt;/span&gt;
+      &#39;((?&amp;lt; ?&amp;gt;)
+      (?\[ ?\])
+      (?\( ?\))
+      (?{ ?})
+      (?\&quot; ?\&quot;)
+      (?&#39; ?&#39;)
+      (?` ?&#39;)
+      (?| ?|)
+      (?* ?*)
+      (?/ ?/)
+      (?- ?-)
+      (?_ ?_)
+      (?~ ?~)))
+      (char (char-after))
+      (stab nil)) &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Syntax
+      table we  use&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;unless&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      pair (assoc char pairs)) &lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Not on a delimiter &lt;/span&gt;
+      (&lt;span style=&quot;color: #dbbe5f;&quot;&gt;error&lt;/span&gt;
+      &lt;span style=&quot;color: #79a8ff;&quot;&gt;&quot;Point is not on
+      a supported delimiter&quot;&lt;/span&gt;))
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      stab (copy-syntax-table))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;with-syntax-table&lt;/span&gt; stab
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      ((= (cl-first pair) (cl-second pair)) &lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;;;;&lt;/span&gt;&lt;span style=&quot;color:
+      #a8a8a8;&quot;&gt;Like quotes&lt;/span&gt;
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ) 
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; ))
+      (t&lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Like
+      parens &lt;/span&gt;
+      (modify-syntax-entry (cl-first pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;(&quot;&lt;/span&gt;)
+      (modify-syntax-entry (cl-second pair) &lt;span style=&quot;color:
+      #79a8ff;&quot;&gt;&quot;)&quot;&lt;/span&gt;)))
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;save-excursion&lt;/span&gt;&lt;span
+      style=&quot;color: #a8a8a8;&quot;&gt;;;; &lt;/span&gt;&lt;span
+      style=&quot;color: #a8a8a8;&quot;&gt;We have our sexp &lt;/span&gt;
+      (forward-sexp) &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Will
+      error out if delims dont match&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cond&lt;/span&gt;
+      (delete &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Clear
+      sexp contents &lt;/span&gt;
+      (kill-region (1+ orig) (1- (point))))
+      (t &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;Copy sexp
+      contents&lt;/span&gt;
+      (kill-ring-save (1+ orig) (1- (point)))))))))
+      
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org828c705&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org828c705&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.1&lt;/span&gt; Key
+      Take-Aways&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;S-expressions are a key Emacs concept with extensive
+      built-in support.&lt;/li&gt;
+      &lt;li&gt;S-expressions are determined by matching
+      delimiters.&lt;/li&gt;
+      &lt;li&gt;Delimiters are defined by the syntax-table in
+      effect.&lt;/li&gt;
+      &lt;li&gt;Emacs-lisp primitives let us define and manipulate
+      temporary syntax-tables.&lt;/li&gt;
+      &lt;li&gt;Putting it all together, the underlying task of snarfing
+      the
+      contents within a pair of delimiters reduces to a few calls to
+      the underlying primitives.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3089333105276688605'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3089333105276688605'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/09/snarfing-string-within-delimiters-with.html' title='Snarfing String Within Delimiters  With One Defun'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-6307300043551934554</id><published>
       2021-08-01T09:39:00.002-07:00
     </published>
