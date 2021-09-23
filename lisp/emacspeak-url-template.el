@@ -349,7 +349,10 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Finance Summary From Google"
  "https://finance.google.com"
  nil
- #'emacspeak-speak-buffer
+ #'(lambda ()
+     (emacspeak-eww-next-h)
+     (emacspeak-eww-next-h)
+     (emacspeak-speak-rest-of-buffer))
  "Display top stocks  from Google Finance.")
 
 ;;}}}
