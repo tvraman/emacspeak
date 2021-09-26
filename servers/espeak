@@ -56,6 +56,10 @@ source $wd/tts-lib.tcl
 # For example, if there are three available languages: 
 # langsynth(top)=2
 
+# langsynth(variant): name (or ID) of the language variant in use
+# If unset, the server defaults to an autoselected male variant
+# Set by the application
+
 # voicename: name of the current voice for announcements
 # This variable is set by tclespeak
 
@@ -128,7 +132,7 @@ proc set_previous_lang {say_it} {
     set langsynth(current) $index
     set langcode(current) $langcode($index)
     setLanguage $langsynth(current)
-puts stderr "Language: $langsynth(current) Voice: $voicename"
+    puts stderr "Language: $langsynth(current) Voice: $voicename"
     if { [info exists say_it]} {
 	tts_say "$voicename "
     }
@@ -140,15 +144,15 @@ proc set_lang {{name "en"} {say_it "nil"}} {
     global langsynth
     global langalias
     global langcode
-global voicename 
-     if { ![info exists langalias($name)]} {
-	return
-     }
+    global voicename
+    if { ![info exists langalias($name)]} {
+        return
+    }
 
-     if { $langalias($name) == $langsynth(current) } {
+    if { $langalias($name) == $langsynth(current) } {
 	return
-     }
-    
+    }
+
     set langsynth(current) $langalias($name)
     set langcode(current) $langcode($langalias($name))
     setLanguage $langsynth(current)
@@ -167,6 +171,26 @@ proc set_preferred_lang {alias lang} {
 	return
     }
     set langalias($alias) $langalias($lang)
+}
+
+# tts_set_variant - clears the variant
+# tts_set_variant "victor" - sets the variant
+# tts_set_variant 1 - sets the variant by index
+proc tts_set_variant {{new_variant ""} {say_it "nil"}} {
+    global langsynth
+    global voicename
+    set new_variant [string trim $new_variant]
+    if { $new_variant == "" || $new_variant == "nil" } {
+        unset langsynth(variant)
+    } else {
+        set langsynth(variant) $new_variant
+    }
+    # Re-set the current voice, having updated the variant
+    setLanguage $langsynth(current)
+    if { $say_it != "nil" } {
+	tts_say "$voicename "
+    }
+
 }
 
 #debug
@@ -198,7 +222,7 @@ proc tts_set_punctuations {mode} {
 proc tts_set_speech_rate {rate} {
     global tts
 
-    set factor $tts(char_factor) 
+    set factor $tts(char_factor)
     set tts(speech_rate) $rate
     setRate 0 $rate
     service

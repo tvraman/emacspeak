@@ -732,6 +732,29 @@ current local  value to the result.
 @end format
 @end deffn
 
+@subsection dtk-set-variant
+@deffn {Command} dtk-set-variant  (&optional variant)
+
+@table @kbd
+@item C-e d M-v
+@kindex C-e d M-v
+@item <fn> d M-v
+@kindex <fn> d M-v
+@end table
+
+@findex dtk-set-variant
+@format
+Set voice variant used by the speech engine to VARIANT.
+
+VARIANT may be any value supported by the speech engine.
+In the case of espeak, it may be a string name or an integer ID.
+
+Omitting VARIANT or setting it to NIL resetss this value to default.
+
+(fn &optional VARIANT)
+@end format
+@end deffn
+
 @subsubsection dtk-stop
 @deffn {Command} dtk-stop  (&optional all)
 @table @kbd

@@ -130,6 +130,15 @@ Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
 europe, spell', all of which can be turned on or off.  Argument STATE
 specifies new state.
 
+@findex dtk-set-variant
+@kindex C-e d M-v
+@item C-e d M-v
+@code{dtk-set-variant}
+
+Set the voice variant used by the speech engine, if the engine has
+a concept of variants, to VARIANT. If VARIANT is blank or nil, resets
+the variant setting to its default value.
+
 @findex dtk-toggle-split-caps
 @kindex C-e d s
 @item C-e d s

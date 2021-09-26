@@ -359,6 +359,7 @@
    ("C-n" dtk-notify-initialize)
    ("C-o" outloud)
    ("C-v" global-voice-lock-mode)
+   ("M-v" dtk-set-variant)
    ("d" dtk-select-server)
    ("L" dtk-local-server)
    ("N" dtk-set-next-language)

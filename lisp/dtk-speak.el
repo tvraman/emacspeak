@@ -828,6 +828,16 @@ then set the current local value to the result."
                dtk-character-scale
                (if prefix "" "locally")))))
 
+(defun dtk-set-variant (&optional variant)
+  "Set voice variant used by the speech engine to VARIANT.
+
+VARIANT may be any value supported by the speech engine.
+In the case of espeak, it may be a string name or an integer ID.
+
+Omitting VARIANT or setting it to NIL resetss this value to default."
+  (interactive "sVariant name (blank selects default): ")
+  (dtk-interp-set-variant variant (called-interactively-p 'interactive)))
+
 (ems-generate-switcher
  'dtk-toggle-quiet
  'dtk-quiet
@@ -1898,6 +1908,14 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (process-send-string
    dtk-speaker-process
    (format "tts_set_punctuations %s\nd\n" mode)))
+
+;;}}}
+;;{{{ variant
+(defsubst dtk-interp-set-variant (variant say-it)
+  (cl-declare (special dtk-speaker-process))
+  (process-send-string
+   dtk-speaker-process
+   (format "tts_set_variant %S %S" variant say-it)))
 
 ;;}}}
 ;;{{{ reset
