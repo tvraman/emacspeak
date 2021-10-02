@@ -680,7 +680,7 @@ Interactive prefix arg searches recursively in directory."
   "Add epub file to current bookshelf."
   (interactive "fAdd Book: ")
   (cl-declare (special  emacspeak-epub-db))
-  (let* ((filename (shell-quote-argument epub-file))
+  (let* ((filename (shell-quote-argument (expand-file-name epub-file)))
          
          (epub (emacspeak-epub-make-epub filename))
          (title (emacspeak-epub-title epub))
