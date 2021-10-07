@@ -2772,7 +2772,7 @@ This function is sensitive to calendar mode when prompting."
       (emacspeak--choose-completion))))
 
 (define-key 
-  minibuffer-local-completion-mapj
+  minibuffer-local-completion-map
   "\C-n" 'emacspeak-minibuffer-next-completion)
 (define-key 
   minibuffer-local-completion-map
