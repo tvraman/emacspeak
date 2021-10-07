@@ -1,4 +1,4 @@
-;;; emacspeak-speak.el --- Implements Emacspeak's core speech services  -*- lexical-binding: t; -*-
+;;; emacspeak-speak.el --- Implements core services -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Contains the functions for speaking various chunks of text
@@ -62,7 +62,8 @@
 (declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
 (declare-function which-function "which-func" nil)
-(declare-function calendar-cursor-to-nearest-date "cal-move" [Arg list not available until function definition is loaded.])
+(declare-function calendar-cursor-to-nearest-date "cal-move" nil)
+
 (declare-function word-at-point "thingatpt" (&optional no-properties))
 (require 'text-property-search)
 ;;}}}
@@ -177,9 +178,9 @@ message area.  You can use command
   :group 'emacspeak
   :type 'boolean)
 
-;;; Emacspeak silences messages from shell-command when called non-interactively.
-;;; This replacement is used within Emacspeak to invoke commands
-;;; whose output we want to hear.
+;;; Emacspeak silences messages from shell-command when called
+;;; non-interactively.  This replacement is used within Emacspeak to
+;;; invoke commands whose output we want to hear.
 
 (defun emacspeak-shell-command (command)
   "Run shell command COMMANDAND speak its output."
@@ -257,7 +258,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
 
 (defun emacspeak-notifications-truncate ()
   "Trim notifications cache."
-  (cl-declare (special emacspeak-notifications-buffer emacspeak-notifications-max))
+  (cl-declare (special emacspeak-notifications-buffer 
+                       emacspeak-notifications-max))
   (with-current-buffer emacspeak-notifications-buffer
     (let ((lines (count-lines (point-min) (point-max)))
           (inhibit-read-only t))
@@ -437,7 +439,11 @@ Useful to do this before you listen to an entire buffer."
 ;;{{{ helper function --decode rfc 3339 date-time
 
 (defvar emacspeak-speak-rfc-3339-datetime-pattern
-  "[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}T[0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\}\\(\\.[0-9]\\{3\\}\\)?\\([zZ]\\|\\([+-][0-9]\\{2\\}:[0-9]\\{2\\}\\)\\)"
+  (eval-when-compile
+    (concat
+     "[0-9]\\{4\\}-[0-9]\\{2\\}"
+"-[0-9]\\{2\\}T[0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\}\\(\\.[0-9]"
+"\\{3\\}\\)?\\([zZ]\\|\\([+-][0-9]\\{2\\}:[0-9]\\{2\\}\\)\\)"))
   "Regexp pattern that matches RFC 3339 date-time.")
 
 (defun ems-speak-rfc-3339-tz-offset (rfc-3339)
@@ -662,7 +668,8 @@ the sense of the filter. "
           "filter out"))
        (format "%s"
                (if (buffer-file-name)
-                   (emacspeak-speak-lookup-persistent-filter (buffer-file-name))
+                   (emacspeak-speak-lookup-persistent-filter 
+                    (buffer-file-name))
                  ""))))))
   (cond
    ((and (listp filter)
@@ -803,7 +810,8 @@ before-string, or after-string) is indicated with auditory icon
   (cl-declare (special
                voice-animate voice-indent linum-mode
                ked rdtk-punctuation-mode dtk-cleanup-repeats
-               emacspeak-speak-line-invert-filter emacspeak-speak-blank-line-regexp
+               emacspeak-speak-line-invert-filter
+               emacspeak-speak-blank-line-regexp
                ems--speak-max-line emacspeak-show-point
                emacspeak-decoration-rule emacspeak-horizontal-rule
                emacspeak-unspeakable-rule
@@ -1369,14 +1377,15 @@ arrived mail."
                        emacspeak-mail-alert-interval))
   (let* ((mod-time (emacspeak-mail-get-last-mail-arrival-time f))
          (size (emacspeak-get-file-size f))
-         (result (and (> size 0)
-                      (or
-                       (null emacspeak-mail-last-alerted-time)
-                       (time-less-p emacspeak-mail-last-alerted-time mod-time) ; new mail
-                       (time-less-p     ;unattended mail
-                        (time-add emacspeak-mail-last-alerted-time
-                                  (list 0 emacspeak-mail-alert-interval))
-                        (current-time))))))
+         (result 
+          (and (> size 0)
+               (or
+                (null emacspeak-mail-last-alerted-time)
+                (time-less-p emacspeak-mail-last-alerted-time mod-time)
+                (time-less-p            ;unattended mail
+                 (time-add emacspeak-mail-last-alerted-time
+                           (list 0 emacspeak-mail-alert-interval))
+                 (current-time))))))
     (when result
       (setq emacspeak-mail-last-alerted-time (current-time)))
     result))
@@ -1459,8 +1468,7 @@ which-func without turning that mode on.  "
 (voice-setup-set-voice-for-face 'header-line 'voice-bolden)
 
 (defun emacspeak--sox-multiwindow (corners)
-  "Takes `window-edges' and plays a sound cue based on position of current window with respect to
-the overall window layout."
+  "Takes `window-edges' and plays a sound cuew."
   (let
       ((tr 0)
        (mr (/ (frame-height) 2))
@@ -1537,9 +1545,12 @@ Interactive prefix arg speaks buffer info."
      (t                                 ; main branch
       (let ((global-info (downcase (format-mode-line global-mode-string)))
             (window-count (length (window-list)))
-            (vc-state (when (and vc-mode (buffer-file-name)) (vc-state (buffer-file-name))))
+            (vc-state 
+             (when (and vc-mode (buffer-file-name))
+               (vc-state (buffer-file-name))))
             (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
-            (recursion-info (emacspeak-get-voicefied-recursion-info (recursion-depth)))
+            (recursion-info 
+             (emacspeak-get-voicefied-recursion-info (recursion-depth)))
             (dir-info
              (when (or (eq major-mode 'shell-mode)
                        (eq major-mode 'comint-mode))
@@ -1558,14 +1569,17 @@ Interactive prefix arg speaks buffer info."
           (unless (and buffer-read-only (buffer-modified-p)) 
             (when (and buffer-file-name (buffer-modified-p))
               (emacspeak-auditory-icon 'modified-object))
-            (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
+            (when buffer-read-only
+              (emacspeak-auditory-icon 'unmodified-object)))
           (tts-with-punctuations 'all
             (dtk-speak
              (concat
               dir-info
               (propertize (buffer-name) 'personality voice-lighten-medium)
-              (when window-count (propertize window-count 'personality voice-smoothen))
-              (when vc-mode (propertize (downcase vc-mode) 'personality voice-smoothen))
+              (when window-count 
+                (propertize window-count 'personality voice-smoothen))
+              (when vc-mode 
+                (propertize (downcase vc-mode) 'personality voice-smoothen))
               (when vc-state (format " %s " vc-state))
               (when line-number-mode
                 (format "line %d" (emacspeak-get-current-line-number)))
@@ -1725,11 +1739,13 @@ Optional second arg `set' sets the TZ environment variable as well."
            (concat emacspeak-speak-time-format-string
                    (format
                     " in %s, %%Z, %%z "
-                    (substring zone (length emacspeak-speak-zoneinfo-directory)))))))
+                    (substring 
+                     zone 
+                     (length emacspeak-speak-zoneinfo-directory)))))))
 
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
-Spoken time  is available in the *notifications* buffer via \\[emacspeak-view-notifications].
+Spoken time  is available via \\[emacspeak-view-notifications].
 Optional interactive prefix arg `C-u'invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone."
@@ -1745,7 +1761,7 @@ Second interactive prefix sets clock to new timezone."
       (tts-with-punctuations 'some (dtk-notify-speak time-string))))))
 
 (defun emacspeak-speak-seconds-since-epoch (seconds)
-  "Speaks time value specified as seconds  since epoch, e.g. as from float-time."
+  "Speaks time value specified as seconds  since epoch."
   (interactive
    (list (read-minibuffer "Seconds: " (word-at-point))))
   (cl-declare (special emacspeak-speak-time-format-string))
@@ -1754,14 +1770,14 @@ Second interactive prefix sets clock to new timezone."
     emacspeak-speak-time-format-string (seconds-to-time seconds))))
 
 (defun emacspeak-speak-microseconds-since-epoch (ms)
-  "Speaks time value specified as microseconds  since epoch, e.g. as from float-time."
+  "Speaks time value specified as microseconds  since epoch."
   (interactive
    (list (read-minibuffer "MicroSeconds: " (word-at-point))))
   (let ((seconds (/ ms 1000000)))
     (emacspeak-speak-seconds-since-epoch seconds)))
 
 (defun emacspeak-speak-milliseconds-since-epoch (ms)
-  "Speaks time value specified as milliseconds  since epoch, e.g. as from float-time."
+  "Speaks time value specified as milliseconds  since epoch.."
   (interactive
    (list (read-minibuffer "MilliSeconds: " (word-at-point))))
   (let ((seconds (/ ms 1000)))
@@ -1798,10 +1814,11 @@ Seconds value is also placed in the kill-ring."
 
 (defun emacspeak-speak-version (&optional speak-rev)
   "Announce version information for running emacspeak.
-Optional interactive prefix arg `speak-rev' speaks only the Git revision number."
+Optional interactive prefix arg `speak-rev' speaks only the Git revision."
   (interactive "P")
   (cl-declare (special emacspeak-version emacspeak-sounds-directory
-                       emacspeak-m-player-program emacspeak-use-auditory-icons))
+                       emacspeak-m-player-program
+ emacspeak-use-auditory-icons))
   (let ((signature "Emacspeak "))
     (when
         (and (null speak-rev) emacspeak-use-auditory-icons
@@ -1960,7 +1977,7 @@ location of the mark is indicated by an aural highlight. "
     (goto-char (prop-match-beginning match))))
 
 (defun emacspeak-speak-face-backward ()
-  "Property search for face at point  --- see \\[text-property-search-backward]"
+  "Property search for face at point see \\[text-property-search-backward]"
   (interactive)
   (when-let
       ((match
@@ -1995,7 +2012,9 @@ location of the mark is indicated by an aural highlight. "
        (t (setq pos (point))
           (setq key (read-key-sequence message))
           (when (and (stringp key)
-                     (not (= emacspeak-execute-repeatedly-key (string-to-char key))))
+                     (not 
+                      (= emacspeak-execute-repeatedly-key
+                         (string-to-char key))))
             (dtk-stop)
             (setq continue nil)))))
     (dtk-speak "Exited continuous mode ")))
@@ -2027,7 +2046,7 @@ was spoken.  Any other key continues to speak the buffer."
 
 (ems-generate-switcher 'emacspeak-toggle-speak-messages
                        'emacspeak-speak-messages
-                       "Toggle the state of whether emacspeak echoes messages.")
+                       "Toggle  state of whether emacspeak echoes messages.")
 
 ;;}}}
 ;;{{{  Moving across fields:
@@ -2092,7 +2111,8 @@ The message is also placed in the kill ring for convenient yanking "
       (goto-char (point-max))
       (skip-syntax-backward " >")
       (emacspeak-speak-line)
-      (when  (called-interactively-p 'interactive) (kill-new (ems--this-line)))))))
+      (when  (called-interactively-p 'interactive)
+        (kill-new (ems--this-line)))))))
 
 ;;}}}
 ;;{{{  Using emacs's windows usefully:
@@ -2438,7 +2458,7 @@ Also display match context in minibuffer."
                                              (progn (end-of-line)
                                                     (skip-chars-backward " \t")
                                                     (point)))
-                           ;; Replace the newline and other whitespace with `...'.
+;;; Replace the newline and other whitespace with `...'.
                            "..."
                            (buffer-substring blinkpos (1+ blinkpos)))
                         ;; There is nothing to show except the char itself.
@@ -2549,10 +2569,12 @@ char, or dont move. "
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
 
 (cl-declaim (special completion-list-mode-map))
-(define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
+(define-key completion-list-mode-map
+  "\C-o" 'emacspeak-switch-to-reference-buffer)
 (define-key completion-list-mode-map " " 'next-completion)
 (define-key completion-list-mode-map "\C-m" 'choose-completion)
-(define-key completion-list-mode-map "\M-\C-m" 'emacspeak-completion-pick-completion)
+(define-key completion-list-mode-map
+  "\M-\C-m" 'emacspeak-completion-pick-completion)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (cl-loop for char across chars
@@ -2602,7 +2624,8 @@ See documentation for command run-at-time for details on time-spec."
    time nil
    #'(lambda (m)
        (dtk-notify-speak m)
-       (when emacspeak-use-auditory-icons (emacspeak-play-auditory-icon 'alarm))
+       (when emacspeak-use-auditory-icons
+ (emacspeak-play-auditory-icon 'alarm))
        (sox-tones))
    message)
   (message "Set alarm for %s" time)
@@ -2626,10 +2649,12 @@ directory."
   (let ((res (locate-dominating-file dir emacspeak-speak-directory-settings)))
     (when
         (and res
-             (file-exists-p (expand-file-name emacspeak-speak-directory-settings res)))
+             (file-exists-p 
+              (expand-file-name emacspeak-speak-directory-settings res)))
       (ems--fastload (expand-file-name
                       emacspeak-speak-directory-settings res))
-      (message "loaded %s" (expand-file-name emacspeak-speak-directory-settings res))
+      (message "loaded %s"
+               (expand-file-name emacspeak-speak-directory-settings res))
       (emacspeak-auditory-icon 'task-done))))
 
 ;;}}}
@@ -2746,9 +2771,16 @@ This function is sensitive to calendar mode when prompting."
       (message "%s" (thing-at-point 'symbol))
       (emacspeak--choose-completion))))
 
-(define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
-(define-key minibuffer-local-completion-map "\C-p" 'emacspeak-minibuffer-previous-completion)
-(define-key minibuffer-local-completion-map (ems-kbd "C-@") 'emacspeak-minibuffer-choose-completion)
+(define-key 
+  minibuffer-local-completion-mapj
+  "\C-n" 'emacspeak-minibuffer-next-completion)
+(define-key 
+  minibuffer-local-completion-map
+  "\C-p" 'emacspeak-minibuffer-previous-completion)
+(define-key 
+minibuffer-local-completion-map
+ (ems-kbd "C-@")
+ 'emacspeak-minibuffer-choose-completion)
 (define-key minibuffer-local-completion-map
   (ems-kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
 
@@ -2759,7 +2791,10 @@ This function is sensitive to calendar mode when prompting."
   "Open Emacspeak Info Manual."
   (interactive)
   (cl-declare (special emacspeak-info-directory))
-  (funcall-interactively #'info (expand-file-name "emacspeak.info" emacspeak-info-directory) "*Emacspeak Info*"))
+  (funcall-interactively 
+   #'info 
+   (expand-file-name "emacspeak.info" emacspeak-info-directory)
+   "*Emacspeak Info*"))
 
 ;;}}}
 ;;{{{ Describe help map:
