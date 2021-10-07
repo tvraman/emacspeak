@@ -633,8 +633,8 @@
 (defcustom emacspeak-ctl-z-keys 
   '(
     ("SPC" flyspell-mode)
-    ("," emacspeak-speak-face-backward)
-    ("." emacspeak-speak-face-forward)
+    ("," embark-act)
+    ("." embark-dwim)
     ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("d" magit-dispatch)
     ("e" emacspeak-wizards-eww-buffer-list)
