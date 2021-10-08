@@ -142,9 +142,6 @@ Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        outline-mode-prefix-map outline-minor-mode-prefix))
   (setq outline-minor-mode-prefix "\C-co")
-;;; temporary ido fixup for embark:
-  (define-key  ido-common-completion-map
-    (ems-kbd "C-z") 'emacspeak-ctl-z-keymap)
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
