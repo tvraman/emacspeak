@@ -209,8 +209,9 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 (defun emacspeak-ido-keys ()
   "Setup additional  keybindings within ido."
-  (cl-declare (special ido-completion-map))
-  (when (boundp 'ido-completion-map)
+  (cl-declare (special ido-common-completion-map))
+  (when (boundp 'ido-common-completion-map)
+    (define-key  ido-common-completion-map  (ems-kbd "C-z") 'emacspeak-ctl-z-keymap)
     (define-key ido-common-completion-map "\C-f" 'ido-enter-find-file)
     (define-key ido-common-completion-map "^" 'ido-up-directory)
     (define-key ido-common-completion-map emacspeak-prefix 'emacspeak-prefix-command)
