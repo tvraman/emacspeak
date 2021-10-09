@@ -130,7 +130,8 @@ This is useful when handling bad HTML.")
 ;;{{{XSLT Transformer functions:
 
 (defun emacspeak-xslt-make-xsl-transformer  (xsl &optional params)
-  "Return a function that can be attached to emacspeak-eww-pre-process-hook to apply required xslt transform."
+  "Return a function that can be attached to
+emacspeak-eww-pre-process-hook to apply required xslt transform."
   (cond
    ((null params)
     (eval

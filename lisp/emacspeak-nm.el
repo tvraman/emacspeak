@@ -27,7 +27,8 @@
   (member "org.freedesktop.NetworkManager" (dbus-list-known-names :system)))
 
 (defun nm-connected-p()
-  "Returns nil if NetworkManager service indicates that network is down, t otherwise. "
+  "Returns nil if NetworkManager service indicates that network is
+down, t otherwise. "
   (and
    (nm-service-p)
    (equal 70

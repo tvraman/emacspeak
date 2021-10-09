@@ -229,10 +229,9 @@ Assumes that point is at the front of a field value."
                                nil))))
   (let (ro)
     (setq forms--total-records
-          (save-excursion
+          (with-current-buffer forms--file-buffer
             (prog1
                 (progn
-                  (set-buffer forms--file-buffer)
                   (bury-buffer (current-buffer))
                   (setq ro buffer-read-only)
                   (count-lines (point-min) (point-max))))))
