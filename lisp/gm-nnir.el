@@ -20,27 +20,32 @@
 ;;; Copyright (c) 2006 and later, Google Inc.
 ;;; All rights reserved.
 
-;;; Redistribution and use in source and binary forms, with or without modification,
-;;; are permitted provided that the following conditions are met:
+;;; Redistribution and use in source and binary forms, with or without
+;;; modification, are permitted provided that the following conditions
+;;; are met:
 
-;;;     * Redistributions of source code must retain the above copyright notice,
-;;;       this list of conditions and the following disclaimer.
-;;;     * Redistributions in binary form must reproduce the above copyright notice,
-;;;       this list of conditions and the following disclaimer in the documentation
-;;;       and/or other materials provided with the distribution.
-;;;     * The name of the author may not be used to endorse or promote products
-;;;       derived from this software without specific prior written permission.
+;;;     * Redistributions of source code must retain the above
+;;;       copyright notice, this list of conditions and the following
+;;;       disclaimer.  * Redistributions in binary form must reproduce
+;;;       the above copyright notice, this list of conditions and the
+;;;       following disclaimer in the documentation and/or other
+;;;       materials provided with the distribution.  * The name of the
+;;;       author may not be used to endorse or promote products
+;;;       derived from this software without specific prior written
+;;;       permission.
 
-;;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-;;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-;;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-;;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-;;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-;;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-;;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-;;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
-;;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+;;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+;;; CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+;;; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+;;; MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+;;; DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+;;; BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;;; EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+;;; TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+;;; DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+;;; ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+;;; TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+;;; THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 ;;; SUCH DAMAGE.
 
 ;;}}}
@@ -65,7 +70,9 @@
 
 ;;; this list is extracted from the IMap RFC 3501
 ;;; And adds X-GM_RAW  for GMail specific search extensions.
-;;; (mapcar 'split-string (split-string (buffer-substring-no-properties  (point-min) (point-max)) "\n"))
+;;; (mapcar 'split-string (split-string
+;;; (buffer-substring-no-properties  (point-min)
+;;; (point-max)) "\n"))
 ;;; with imap-search as the current buffer.
 
 (defvar gm-nnir-search-criteria
@@ -107,8 +114,9 @@
        (key (upcase (completing-read "Search Clause" gm-nnir-search-criteria)))
        (args
         (when (cdr (assoc key gm-nnir-search-criteria))
-          (read-from-minibuffer (mapconcat #'identity (cdr (assoc key gm-nnir-search-criteria))
-                                           " ")))))
+          (read-from-minibuffer
+           (mapconcat #'identity (cdr (assoc key gm-nnir-search-criteria))
+                      " ")))))
     (if (> (length key) 0)
         (format
          "%s %s" key
@@ -133,7 +141,8 @@
 (defun gm-nnir-group-make-gmail-group (query)
   "Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.
- note: nnimap-address etc are available as local vars if needed in these functions."
+ note: nnimap-address etc are available as local vars if needed
+ in these functions."
   (interactive "sGMail Query: ")
   (cl-declare (special nnir-imap-default-search-key))
   (let ((nnir-imap-default-search-key "imap")

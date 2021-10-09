@@ -293,7 +293,8 @@ Default is emacspeak-pronounce-dictionaries-file."
     (read-file-name
      "Load pronunciation dictionaries from file: "
      emacspeak-user-directory emacspeak-pronounce-dictionaries-file)))
-  (cl-declare (special emacspeak-pronounce-dictionaries-file emacspeak-pronounce-dictionaries-loaded))
+  (cl-declare (special emacspeak-pronounce-dictionaries-file
+                       emacspeak-pronounce-dictionaries-loaded))
   (setq filename (or  filename  emacspeak-pronounce-dictionaries-file))
   (when (file-exists-p filename)
     (condition-case nil
@@ -704,7 +705,8 @@ specified pronunciation dictionary key."
 ;;}}}
 ;;{{{ phone numbers
 
-(defvar emacspeak-pronounce-us-phone-number-pattern "1?-?[0-9]\\{3\\}-[0-9]\\{3\\}-[0-9]\\{4\\}"
+(defvar emacspeak-pronounce-us-phone-number-pattern
+  "1?-?[0-9]\\{3\\}-[0-9]\\{3\\}-[0-9]\\{4\\}"
   "Pattern that matches US phone numbers.")
 
 (defun emacspeak-pronounce-us-phone-number (phone)
@@ -732,7 +734,8 @@ specified pronunciation dictionary key."
   "Regexp pattern that matches 40-digit SHA check-sum.")
 
 (defun emacspeak-pronounce-sha-checksum (sha)
-  "Return pronunciation for 40 digit SHA hash. Useful for working with Git among other things."
+  "Return pronunciation for 40 digit SHA hash. Useful for working
+with Git among other things."
   (when
       (and
        (= 40 (length sha))

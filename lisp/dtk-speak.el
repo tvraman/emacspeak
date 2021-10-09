@@ -1,4 +1,4 @@
-;;; dtk-speak.el --- Provides Emacs Lisp interface to speech server  -*- lexical-binding: t; -*-
+;;; dtk-speak.el --- Interface to speech server -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacs interface to TTS
@@ -652,7 +652,8 @@ Argument COMPLEMENT  is the complement of separator."
   (when-let ((pause  (get-text-property start 'pause))
              (dtk-interp-silence pause)))
   (cond
-   ((not voice-lock-mode) (dtk-interp-queue (buffer-substring-no-properties start end)))
+   ((not voice-lock-mode)
+    (dtk-interp-queue (buffer-substring-no-properties start end)))
    (t                                   ; voiceify as we go
     (let ((last nil)
           (personality (dtk-get-style start)))
@@ -661,7 +662,8 @@ Argument COMPLEMENT  is the complement of separator."
            (< start end)
            (setq last (dtk-next-style-change start end)))
         (if personality
-            (dtk-speak-using-voice personality (buffer-substring-no-properties start last))
+            (dtk-speak-using-voice
+             personality (buffer-substring-no-properties start last))
           (dtk-interp-queue (buffer-substring-no-properties start last)))
         (setq
          start last
@@ -961,7 +963,8 @@ Set by \\[dtk-set-punctuations].")
   (cl-declare (special emacspeak-servers-directory dtk-servers-alist))
   (let ((result nil)
         (servers
-         (find-file-noselect (expand-file-name ".servers" emacspeak-servers-directory)))
+         (find-file-noselect
+          (expand-file-name ".servers" emacspeak-servers-directory)))
         (this nil))
     (with-current-buffer servers
       (goto-char (point-min))
@@ -1291,9 +1294,10 @@ Set by \\[dtk-set-punctuations].")
                        tts-device emacspeak-servers-directory))
   (when  device
     (setq tts-device
-          (completing-read "Device: "
-                           (split-string (shell-command-to-string "aplay -L | grep tts"))
-                           nil nil nil nil "default"))
+          (completing-read
+           "Device: "
+           (split-string (shell-command-to-string "aplay -L | grep tts"))
+           nil nil nil nil "default"))
     (setenv "ALSA_DEFAULT" tts-device))
   (setq dtk-program program)
   (when (called-interactively-p 'interactive)
@@ -1366,7 +1370,9 @@ program. Port defaults to dtk-local-server-port"
 (defcustom tts-notification-device
   (eval-when-compile
     (or (getenv "ALSA_NOTIFY")
-        (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
+        (cl-first
+         (split-string
+          (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
   "Virtual ALSA device to use for notifications stream.
 Set to nil to disable a separate Notification stream."
   :type '(choice
@@ -1576,7 +1582,8 @@ grouping"
             (if (zerop r)
                 splits
               `(,@splits ,r)))))
-  (cl-assert (= (length text) (apply #'+ group)) group "Argument mismatch:" text group)
+  (cl-assert
+   (= (length text) (apply #'+ group)) group "Argument mismatch:" text group)
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
         (count 1)
@@ -1656,7 +1663,7 @@ grouping"
     (when dtk-speaker-process (dtk-stop))))
 
 (defun dtk-notify-apply (func text)
-  " Applies func to text with dtk-speaker-process bound to the  notification stream."
+  " Applies func to text with dtk-speaker-process bound to notification stream."
   (let ((dtk-speaker-process (dtk-notify-process)))
     (funcall func text)))
 (declare-function emacspeak-log-notification "emacspeak-speak" (text))
