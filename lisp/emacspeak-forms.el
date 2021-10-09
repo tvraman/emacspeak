@@ -217,12 +217,11 @@ Assumes that point is at the front of a field value."
        pattern))))
 
 (defun emacspeak-forms-rerun-filter ()
-  "Rerun  filter --allows us to nuke more matching records"
+  "Rerun filter --allows us to nuke more matching records"
   (interactive)
   (cl-declare (special forms--file-buffer
                        forms--total-records forms-read-only))
-  (save-current-buffer
-    (set-buffer forms--file-buffer)
+  (with-current-buffer forms--file-buffer
     (let ((inhibit-read-only t)
           (file-modified (buffer-modified-p)))
       (emacspeak-forms-flush-unwanted-records)

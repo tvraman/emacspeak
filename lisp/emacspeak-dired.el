@@ -1,4 +1,4 @@
-;;; emacspeak-dired.el --- Speech enable Dired Mode -- A powerful File Manager  -*- lexical-binding: t; -*-
+;;; emacspeak-dired.el --- Speech enable Dired Mode -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enable dired
@@ -430,7 +430,8 @@ On a directory line, run du -s on the directory to speak its size."
   "Association of filename extension patterns to Emacspeak handlers.")
 
 (defun emacspeak-dired-open-this-file  ()
-  "Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd."
+  "Smart dired opener. Invokes appropriate Emacspeak handler on
+current file in DirEd."
   (interactive)
   (let* ((f (dired-get-filename nil t))
          (ext (file-name-extension f))
@@ -461,7 +462,8 @@ On a directory line, run du -s on the directory to speak its size."
     (with-current-buffer buffer
       (markdown-preview))))
 
-(declare-function emacspeak-wizards-pdf-open "emacspeak-wizards" (filename &optional ask-pwd))
+(declare-function emacspeak-wizards-pdf-open
+                  "emacspeak-wizards" (filename &optional ask-pwd))
 
 
 (defun emacspeak-dired-pdf-open ()
@@ -472,7 +474,8 @@ On a directory line, run du -s on the directory to speak its size."
 (defun emacspeak-dired-midi-play ()
   "Play midi  file on current dired line."
   (interactive)
-  (emacspeak-wizards-midi-using-m-score (dired-get-filename current-prefix-arg)))
+  (emacspeak-wizards-midi-using-m-score
+   (dired-get-filename current-prefix-arg)))
 
 (defun emacspeak-dired-epub-eww ()
   "Open epub on current line  in EWW"

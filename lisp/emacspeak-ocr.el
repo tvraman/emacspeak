@@ -558,10 +558,11 @@ Prompts for image file if file corresponding to the expected
 
 (defun emacspeak-ocr-flipflop-and-recognize-image ()
   "Run OCR engine on current image after flip-flopping it.
-Useful if you've scanned a page upside down and are using an engine that does not automatically flip the image for you.
-You need the imagemagik family of tools --- we use mogrify to transform the image.
-Prompts for image file if file corresponding to the expected
-`current page' is not found."
+Useful if you've scanned a page upside down and are using an
+engine that does not automatically flip the image for you.  You
+need the imagemagik family of tools --- we use mogrify to
+transform the image.  Prompts for image file if file
+corresponding to the expected `current page' is not found."
   (interactive)
   (cl-declare (special emacspeak-ocr-engine
                        emacspeak-ocr-image-flipflop

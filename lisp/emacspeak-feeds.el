@@ -82,7 +82,9 @@
   '(
     ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
     ("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
-    ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"  rss)
+    ("BBC News"
+     "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"
+     rss)
     ("CNet Tech News"  "http://feeds.feedburner.com/cnet/tcoc"  rss)
     )
   "Table of RSS/Atom feeds.
@@ -191,7 +193,9 @@ Archiving is useful when synchronizing feeds across multiple machines."
 
 (defun emacspeak-feeds-fastload-feeds ()
   "Fast load list of feeds from archive.
-This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds."
+This directly updates emacspeak-feeds from the archive, rather
+than adding those entries to the current set of subscribed
+feeds."
   (interactive)
   (cl-declare (special emacspeak-feeds-archive-file emacspeak-feeds))
   (unless (file-exists-p emacspeak-feeds-archive-file)

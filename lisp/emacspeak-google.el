@@ -784,7 +784,8 @@ Optional interactive prefix arg `lang' specifies  language identifier."
 
 (defun emacspeak-google-knowledge-search (query &optional limit)
   "Perform a Google Knowledge Graph search.
-Optional interactive prefix arg `limit' prompts for number of results, default is 1."
+Optional interactive prefix arg `limit' prompts for number of
+results, default is 1."
   (interactive "sQuery:\nP")
   (setq limit
         (cond
