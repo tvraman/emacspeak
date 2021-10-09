@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 17, 2021.
+last updated on October 9, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
@@ -852,9 +852,9 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      M-.		emacspeak-m-player-set-clip-end
      M-l		emacspeak-m-player-load-playlist
 
-     In addition to any hooks its parent mode ‘comint-mode’ might have
-     run, this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the
-     final or penultimate step during initialization.
+     In addition to any hooks its parent mode ‘comint-mode’ might have run,
+     this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final
+     or penultimate step during initialization.
 
 12.115.2.45 emacspeak-m-player-mode-line
 ........................................
@@ -1448,8 +1448,8 @@ engines.
      l		emacspeak-maths-right
 
      In addition to any hooks its parent mode ‘special-mode’ might have
-     run, this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as the
-     final or penultimate step during initialization.
+     run, this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as
+     the final or penultimate step during initialization.
 
 12.120.3.13 emacspeak-maths-start
 .................................
@@ -3553,9 +3553,8 @@ of emacspeak from becoming dependent on the speech server modules
 .........................................
 
  -- Command: emacspeak-speak-face-backward
-     ‘C-z ,’
 
-     Property search for face at point  — see M-x text-property-search-backward
+     Property search for face at point see M-x text-property-search-backward
 
 12.174.1.37 emacspeak-speak-face-browse
 .......................................
@@ -3570,7 +3569,6 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-speak-face-forward
-     ‘C-z .’
 
      Property search for face — see M-x text-property-search-forward
 
@@ -3716,7 +3714,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-microseconds-since-epoch (ms)
 
-     Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
+     Speaks time value specified as microseconds  since epoch.
 
      (fn MS)
 
@@ -3725,7 +3723,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-milliseconds-since-epoch (ms)
 
-     Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
+     Speaks time value specified as milliseconds  since epoch..
 
      (fn MS)
 
@@ -3945,7 +3943,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-seconds-since-epoch (seconds)
 
-     Speaks time value specified as seconds  since epoch, e.g. as from float-time.
+     Speaks time value specified as seconds  since epoch.
 
      (fn SECONDS)
 
@@ -4018,7 +4016,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> t’
 
      Speak the time.
-     Spoken time  is available in the *notifications* buffer via C-h N.
+     Spoken time  is available via C-h N.
      Optional interactive prefix arg ‘C-u’invokes world clock.
      Timezone is specified using minibuffer completion.
      Second interactive prefix sets clock to new timezone.
@@ -4033,7 +4031,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> V’
 
      Announce version information for running emacspeak.
-     Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision number.
+     Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision.
 
      (fn &optional SPEAK-REV)
 
@@ -4211,7 +4209,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e q’
      ‘<fn> q’
 
-     Toggle the state of whether emacspeak echoes messages.
+     Toggle  state of whether emacspeak echoes messages.
 
 12.174.1.94 emacspeak-toggle-word-echo
 ......................................

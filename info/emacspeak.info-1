@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 17, 2021.
+last updated on October 9, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3043,7 +3043,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-smartparens::Speech-enable SMARTPARENS.
 * emacspeak-solitaire::Speech enable Solitaire game.
 * emacspeak-sounds::Defines Emacspeak auditory icons.
-* emacspeak-speak::Implements Emacspeak’s core speech services.
+* emacspeak-speak::Implements core services.
 * emacspeak-speedbar::Speech enable speedbar – Tool for context-sensitive navigation.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
@@ -5182,8 +5182,8 @@ after emacspeak has been started.
      switch to a screen-saver soundscape.
 
      In addition to any hooks its parent mode ‘special-mode’ might have
-     run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as the
-     final or penultimate step during initialization.
+     run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as
+     the final or penultimate step during initialization.
 
      key             binding
      —             ——-
@@ -7933,8 +7933,8 @@ original text being filtered.
      r		emacspeak-filtertext-revert
 
      In addition to any hooks its parent mode ‘text-mode’ might have run,
-     this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the
-     final or penultimate step during initialization.
+     this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final
+     or penultimate step during initialization.
 
 12.77.1.3 emacspeak-filtertext-revert
 .....................................

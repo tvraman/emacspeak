@@ -180,7 +180,7 @@ This chapter documents a total of 1144 commands and 146 options.
 * emacspeak-smartparens::Speech-enable SMARTPARENS.
 * emacspeak-solitaire::Speech enable Solitaire game.
 * emacspeak-sounds::Defines Emacspeak auditory icons.
-* emacspeak-speak::Implements Emacspeak's core speech services.
+* emacspeak-speak::Implements core services.
 * emacspeak-speedbar::Speech enable speedbar -- Tool for context-sensitive navigation.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
@@ -2712,8 +2712,8 @@ This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape.
 
 In addition to any hooks its parent mode ‘special-mode’ might have
-run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as the
-final or penultimate step during initialization.
+run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as
+the final or penultimate step during initialization.
 
 key             binding
 ---             -------
@@ -5942,8 +5942,8 @@ key             binding
 r		emacspeak-filtertext-revert
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the
-final or penultimate step during initialization.
+this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final
+or penultimate step during initialization.
 @end format
 @end deffn
 
@@ -7821,9 +7821,9 @@ M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
 M-l		emacspeak-m-player-load-playlist
 
-In addition to any hooks its parent mode ‘comint-mode’ might have
-run, this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the
-final or penultimate step during initialization.
+In addition to any hooks its parent mode ‘comint-mode’ might have run,
+this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final
+or penultimate step during initialization.
 @end format
 @end deffn
 
@@ -8539,8 +8539,8 @@ k		emacspeak-maths-up
 l		emacspeak-maths-right
 
 In addition to any hooks its parent mode ‘special-mode’ might have
-run, this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as the
-final or penultimate step during initialization.
+run, this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as
+the final or penultimate step during initialization.
 @end format
 @end deffn
 
@@ -10985,15 +10985,10 @@ Seconds value is also placed in the kill-ring.
 
 @subsubsection emacspeak-speak-face-backward
 @deffn {Command} emacspeak-speak-face-backward   
-@table @kbd
-@item C-z ,
-@kindex C-z ,
-@end table
-
 @findex emacspeak-speak-face-backward
 
 @format
-Property search for face at point  --- see M-x text-property-search-backward
+Property search for face at point see M-x text-property-search-backward
 @end format
 @end deffn
 
@@ -11015,11 +11010,6 @@ Use C-f and C-b to browse by current face.
 
 @subsubsection emacspeak-speak-face-forward
 @deffn {Command} emacspeak-speak-face-forward   
-@table @kbd
-@item C-z .
-@kindex C-z .
-@end table
-
 @findex emacspeak-speak-face-forward
 
 @format
@@ -11228,7 +11218,7 @@ See documentation for command run-at-time for details on time-spec.
 @findex emacspeak-speak-microseconds-since-epoch
 
 @format
-Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
+Speaks time value specified as microseconds  since epoch.
 
 (fn MS)
 @end format
@@ -11239,7 +11229,7 @@ Speaks time value specified as microseconds  since epoch, e.g. as from float-tim
 @findex emacspeak-speak-milliseconds-since-epoch
 
 @format
-Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
+Speaks time value specified as milliseconds  since epoch..
 
 (fn MS)
 @end format
@@ -11577,7 +11567,7 @@ normally bound to C-e M-i.
 @findex emacspeak-speak-seconds-since-epoch
 
 @format
-Speaks time value specified as seconds  since epoch, e.g. as from float-time.
+Speaks time value specified as seconds  since epoch.
 
 (fn SECONDS)
 @end format
@@ -11686,7 +11676,7 @@ Spell word at  point.
 
 @format
 Speak the time.
-Spoken time  is available in the *notifications* buffer via C-h N.
+Spoken time  is available via C-h N.
 Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
@@ -11708,7 +11698,7 @@ Second interactive prefix sets clock to new timezone.
 
 @format
 Announce version information for running emacspeak.
-Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision number.
+Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision.
 
 (fn &optional SPEAK-REV)
 @end format
@@ -11969,7 +11959,7 @@ current local  value to the result.
 @findex emacspeak-toggle-speak-messages
 
 @format
-Toggle the state of whether emacspeak echoes messages.
+Toggle  state of whether emacspeak echoes messages.
 @end format
 @end deffn
 
