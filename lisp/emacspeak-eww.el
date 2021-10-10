@@ -627,7 +627,8 @@ Safari/537.36"
      ("M-," emacspeak-eww-table-speak-dimensions)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
-     ("c" eww-browse-chrome)
+     ("c" emacspeak-eww-browse-chrome)
+     ("j" emacspeak-eww-browse-eaf)
      ("I" eww-view-dom-having-id)
      ("J" emacspeak-eww-next-element-like-this)
      ("K" emacspeak-eww-previous-element-like-this)
@@ -2420,13 +2421,22 @@ With interactive prefix arg, move to the start of the table."
      (dom-html-from-nodes (list dom) (eww-current-url)))))
 
 ;;}}}
-;;{{{Open With Chrome:
+;;{{{Open With External Browser: EAF, Chrome
 
-(defun eww-browse-chrome (url)
+
+
+(declare-function eaf-open-browser "eaf-browser" (url &optional args))
+
+(defun emacspeak-eww-browse-eaf  (url)
+  "Launch async EAF browser."
+  (interactive (list (emacspeak-eww-read-url)))
+  (require 'eaf)
+  (unless (featurep  'eaf) (error "Install Emacs Application Framework"))
+  (eaf-open-browser url))
+
+(defun emacspeak-eww-browse-chrome (url)
   "Open with Chrome."
-  (interactive
-   (list
-    (emacspeak-eww-read-url)))
+  (interactive (list (emacspeak-eww-read-url)))
   (browse-url-chrome url))
 
 ;;}}}

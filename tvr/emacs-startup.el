@@ -54,6 +54,7 @@
 (when (file-exists-p tvr-site-lib)
   (push tvr-site-lib load-path)
   (push (expand-file-name "vm/lisp/" tvr-site-lib) load-path))
+(push (expand-file-name "eaf/" tvr-site-lib) load-path)
 
 (defvar tvr-libs
   "all-prepare"
@@ -210,6 +211,7 @@ Use Custom to customize where possible. "
   (tvr-time-load (load "emacspeak-muggles"))
   (soundscape-toggle)
   (emacspeak-wizards-project-shells-initialize))
+(declare-function emacspeak-pronounce-toggle-use-of-dictionaries "emacspeak-pronounce" (&optional state))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
