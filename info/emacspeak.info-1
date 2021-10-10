@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 9, 2021.
+last updated on October 10, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2874,7 +2874,7 @@ documentation, then read *Note emacspeak-eww::.
 * cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Define various device independent voices in terms of Dectalk codes.
 * dom-addons::dom.el addons.
-* dtk-speak::Provides Emacs Lisp interface to speech server.
+* dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC-MODE.
@@ -2916,7 +2916,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
-* emacspeak-dired::Speech enable Dired Mode – A powerful File Manager.
+* emacspeak-dired::Speech enable Dired Mode.
 * emacspeak-dismal::Speech enable Dismal – An Emacs Spreadsheet program.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-eaf::Speech-enable EAF.
@@ -5308,7 +5308,8 @@ This module speech enables dired.
 
  -- Command: emacspeak-dired-open-this-file
 
-     Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd.
+     Smart dired opener. Invokes appropriate Emacspeak handler on
+     current file in DirEd.
 
 12.47.1.10 emacspeak-dired-pdf-open
 ...................................
@@ -7851,7 +7852,9 @@ This module provides Feeds support for Emacspeak
  -- Command: emacspeak-feeds-fastload-feeds
 
      Fast load list of feeds from archive.
-     This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds.
+     This directly updates emacspeak-feeds from the archive, rather
+     than adding those entries to the current set of subscribed
+     feeds.
 
 12.76.1.7 emacspeak-feeds-opml-display
 ......................................
@@ -8023,7 +8026,7 @@ Provide additional advice to forms-mode
 
  -- Command: emacspeak-forms-rerun-filter
 
-     Rerun  filter –allows us to nuke more matching records
+     Rerun filter –allows us to nuke more matching records
 
 12.83.1.4 emacspeak-forms-speak-field
 .....................................
@@ -8261,7 +8264,8 @@ e.g.  blog search are tbm=
      ‘C-x @ h k’
 
      Perform a Google Knowledge Graph search.
-     Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
+     Optional interactive prefix arg ‘limit’ prompts for number of
+     results, default is 1.
 
      (fn QUERY &optional LIMIT)
 
@@ -8736,4 +8740,22 @@ File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: e
  -- Command: emacspeak-hydra-toggle-talkative
 
      Toggle state of hydra-is-helpful
+
+
+File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
+
+12.100 emacspeak-ibuffer
+========================
+
+speech-enable ibuffer.el this is an alternative to buffer-menu
+
+12.100.1 Emacspeak-Ibuffer Commands
+-----------------------------------
+
+12.100.1.1 emacspeak-ibuffer-speak-buffer-line
+..............................................
+
+ -- Command: emacspeak-ibuffer-speak-buffer-line
+
+     Speak information about this buffer
 

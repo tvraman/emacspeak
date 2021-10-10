@@ -12,25 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 9, 2021.
-
-
-File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
-
-12.100 emacspeak-ibuffer
-========================
-
-speech-enable ibuffer.el this is an alternative to buffer-menu
-
-12.100.1 Emacspeak-Ibuffer Commands
------------------------------------
-
-12.100.1.1 emacspeak-ibuffer-speak-buffer-line
-..............................................
-
- -- Command: emacspeak-ibuffer-speak-buffer-line
-
-     Speak information about this buffer
+last updated on October 10, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -1948,10 +1930,11 @@ an OCR engine that can take acquired images and produce text.
  -- Command: emacspeak-ocr-flipflop-and-recognize-image
 
      Run OCR engine on current image after flip-flopping it.
-     Useful if you’ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
-     You need the imagemagik family of tools — we use mogrify to transform the image.
-     Prompts for image file if file corresponding to the expected
-     ‘current page’ is not found.
+     Useful if you’ve scanned a page upside down and are using an
+     engine that does not automatically flip the image for you.  You
+     need the imagemagik family of tools — we use mogrify to
+     transform the image.  Prompts for image file if file
+     corresponding to the expected ‘current page’ is not found.
 
 12.133.1.5 emacspeak-ocr-forward-page
 .....................................
@@ -8345,7 +8328,8 @@ extensions.
 
      Use GMail search syntax exclusively.
      See https://support.google.com/mail/answer/7190?hl=en for syntax.
-      note: nnimap-address etc are available as local vars if needed in these functions.
+      note: nnimap-address etc are available as local vars if needed
+      in these functions.
 
      (fn QUERY)
 

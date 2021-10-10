@@ -11,7 +11,7 @@ This chapter documents a total of 1144 commands and 146 options.
 * cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Define various device independent voices in terms of Dectalk codes.
 * dom-addons::dom.el addons.
-* dtk-speak::Provides Emacs Lisp interface to speech server.
+* dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC-MODE.
@@ -53,7 +53,7 @@ This chapter documents a total of 1144 commands and 146 options.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
-* emacspeak-dired::Speech enable Dired Mode -- A powerful File Manager.
+* emacspeak-dired::Speech enable Dired Mode.
 * emacspeak-dismal::Speech enable Dismal -- An Emacs Spreadsheet program.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-eaf::Speech-enable EAF.
@@ -2843,7 +2843,8 @@ Open directory corresponding to file on current line.
 @findex emacspeak-dired-open-this-file
 
 @format
-Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd.
+Smart dired opener. Invokes appropriate Emacspeak handler on
+current file in DirEd.
 @end format
 @end deffn
 
@@ -5835,7 +5836,9 @@ Browse   feed.
 
 @format
 Fast load list of feeds from archive.
-This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds.
+This directly updates emacspeak-feeds from the archive, rather
+than adding those entries to the current set of subscribed
+feeds.
 @end format
 @end deffn
 
@@ -6023,7 +6026,7 @@ Prompt for pattern and flush matching lines
 @findex emacspeak-forms-rerun-filter
 
 @format
-Rerun  filter --allows us to nuke more matching records
+Rerun filter --allows us to nuke more matching records
 @end format
 @end deffn
 
@@ -6289,7 +6292,8 @@ Extract current  page from the Google cache.
 
 @format
 Perform a Google Knowledge Graph search.
-Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
+Optional interactive prefix arg ‘limit’ prompts for number of
+results, default is 1.
 
 (fn QUERY &optional LIMIT)
 @end format
@@ -9100,10 +9104,11 @@ Customize OCR settings.
 
 @format
 Run OCR engine on current image after flip-flopping it.
-Useful if you’ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
-You need the imagemagik family of tools --- we use mogrify to transform the image.
-Prompts for image file if file corresponding to the expected
-‘current page’ is not found.
+Useful if you’ve scanned a page upside down and are using an
+engine that does not automatically flip the image for you.  You
+need the imagemagik family of tools --- we use mogrify to
+transform the image.  Prompts for image file if file
+corresponding to the expected ‘current page’ is not found.
 @end format
 @end deffn
 
@@ -17407,7 +17412,8 @@ IMap search operators, GMail search extensions.
 @format
 Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.
- note: nnimap-address etc are available as local vars if needed in these functions.
+ note: nnimap-address etc are available as local vars if needed
+ in these functions.
 
 (fn QUERY)
 @end format

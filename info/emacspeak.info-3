@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 9, 2021.
+last updated on October 10, 2021.
 
 
 File: emacspeak.info,  Node: Emacspeak And Software Development,  Next: Emacspeak And Authoring Documents,  Prev: Key Component --- Text To Speech (TTS),  Up: Emacspeak At Twenty
@@ -1022,10 +1022,10 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, b:                                 sox-gen.            (line   90)
 * C-, c:                                 emacspeak-wizards.  (line 1223)
 * C-, h:                                 emacspeak-muggles.  (line   42)
-* C-, o:                                 emacspeak-feeds.    (line   73)
+* C-, o:                                 emacspeak-feeds.    (line   75)
 * C-, p:                                 emacspeak-wizards.  (line  872)
 * C-, q:                                 emacspeak-wizards.  (line  725)
-* C-, r:                                 emacspeak-feeds.    (line   92)
+* C-, r:                                 emacspeak-feeds.    (line   94)
 * C-, s:                                 emacspeak-wizards.  (line 1152)
 * C-, SPC:                               emacspeak-eww.      (line  701)
 * C-, t:                                 emacspeak-wizards.  (line 1140)
@@ -1451,10 +1451,10 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a b:                             sox-gen.            (line   91)
 * C-x @ a c:                             emacspeak-wizards.  (line 1224)
 * C-x @ a h:                             emacspeak-muggles.  (line   43)
-* C-x @ a o:                             emacspeak-feeds.    (line   74)
+* C-x @ a o:                             emacspeak-feeds.    (line   76)
 * C-x @ a p:                             emacspeak-wizards.  (line  873)
 * C-x @ a q:                             emacspeak-wizards.  (line  726)
-* C-x @ a r:                             emacspeak-feeds.    (line   93)
+* C-x @ a r:                             emacspeak-feeds.    (line   95)
 * C-x @ a s:                             emacspeak-wizards.  (line 1153)
 * C-x @ a SPC:                           emacspeak-eww.      (line  702)
 * C-x @ a t:                             emacspeak-wizards.  (line 1141)
