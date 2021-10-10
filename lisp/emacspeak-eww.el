@@ -2430,8 +2430,9 @@ With interactive prefix arg, move to the start of the table."
 (defun emacspeak-eww-browse-eaf  (url)
   "Launch async EAF browser."
   (interactive (list (emacspeak-eww-read-url)))
-  (require 'eaf)
-  (unless (featurep  'eaf) (error "Install Emacs Application Framework"))
+  (unless(require 'eaf)   (error "Install Emacs Application
+Framework"))
+  (require 'eaf-browser)
   (eaf-open-browser url))
 
 (defun emacspeak-eww-browse-chrome (url)
