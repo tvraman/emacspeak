@@ -627,6 +627,7 @@ Safari/537.36"
      ("M-," emacspeak-eww-table-speak-dimensions)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
+     ("c" eww-browse-chrome)
      ("I" eww-view-dom-having-id)
      ("J" emacspeak-eww-next-element-like-this)
      ("K" emacspeak-eww-previous-element-like-this)
@@ -2417,6 +2418,16 @@ With interactive prefix arg, move to the start of the table."
     (cl-assert (memq 'div (emacspeak-eww-here-tags) ) t "No div here.")
     (emacspeak-eww-view-helper
      (dom-html-from-nodes (list dom) (eww-current-url)))))
+
+;;}}}
+;;{{{Open With Chrome:
+
+(defun eww-browse-chrome (url)
+  "Open with Chrome."
+  (interactive
+   (list
+    (emacspeak-eww-read-url)))
+  (browse-url-chrome url))
 
 ;;}}}
 (provide 'emacspeak-eww)
