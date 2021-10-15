@@ -184,7 +184,7 @@ This moves them into the Spam folder."
   (define-key smartparens-mode-map "\M-k" 'sp-kill-sexp)
   (define-key smartparens-mode-map "\C-\M-f" 'forward-sexp)
   (define-key smartparens-mode-map "\C-\M-b" 'backward-sexp))
-(define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand)
+(define-key emacs-lisp-mode-map (ems-kbd "C-c e") 'macrostep-expand)
 (defun conditionally-enable-lispy ()
   (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
     (lispy-mode 1)))

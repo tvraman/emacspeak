@@ -7,7 +7,7 @@
   :init (define-prefix-command 'emms-prefix-command  'emms-prefix-map "EMMS")
   :commands  (emms-browser)
   :config
-  (global-set-key (kbd "C-; .") 'emms-prefix-command)
+  (global-set-key (ems-kbd "C-; .") 'emms-prefix-command)
   (require 'emms-setup)
   (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
   (emms-all)

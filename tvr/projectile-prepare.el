@@ -5,8 +5,8 @@
 ;(projectile-global-mode)
 (eval-after-load 'projectile
   `(progn 
-(global-set-key (kbd "C-c '") 'projectile-commander)
-(global-set-key (kbd "C-c ;") 'projectile-command-map)
+(global-set-key (ems-kbd "C-c '") 'projectile-commander)
+(global-set-key (ems-kbd "C-c ;") 'projectile-command-map)
 (setq 
  projectile-mode-line
  '(:eval 

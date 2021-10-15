@@ -1,4 +1,4 @@
-(define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand)
+(define-key emacs-lisp-mode-map (ems-kbd "C-c e") 'macrostep-expand)
 (defun conditionally-enable-lispy ()
   (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
     (lispy-mode 1)))

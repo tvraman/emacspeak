@@ -1,6 +1,6 @@
 ;;; Setup iedit keybinding without sacrificing hyper == C-;
 
-(defvar tvr-iedit-prefix (kbd "C-z")
+(defvar tvr-iedit-prefix (ems-kbd "C-z")
   "Personal iedit prefix key.")
 
 (define-key global-map tvr-iedit-prefix 'iedit-mode)
