@@ -65,7 +65,7 @@
 ;;{{{ Toggle Talkative:
 
 (defun emacspeak-hydra-toggle-talkative ()
-  "Toggle state of hydra-is-helpful"
+  "Toggle hydra-is-helpful"
   (interactive)
   (cl-declare (special hydra-is-helpful))
   (setq hydra-is-helpful (not hydra-is-helpful))
