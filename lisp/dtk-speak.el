@@ -197,8 +197,8 @@ bound to \\[dtk-toggle-caps].")
   (let* ((start (match-beginning 0))
          (face (get-text-property start 'face)))
     (replace-match replace t t)
-    (when-let ((f (delq nil (list face emacspeak-pronounce-personality))))
-      (put-text-property start (point) 'face f))))
+    (when face
+      (put-text-property start (point) 'face face))))
 
 (defun tts-apply-pronunciations (pronunciation-table)
   "Applies pronunciations per pronunciation table to current buffer. "
