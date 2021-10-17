@@ -1049,6 +1049,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 
 (defconst emacspeak-m-player-filters
   '("extrastereo" "volnorm" "surround"
+    "channels=2:2:1:0:0:1"
     "channels=1:0:0:0:1"
     "channels=1:1:0:1:1"
     "channels=1:2"
