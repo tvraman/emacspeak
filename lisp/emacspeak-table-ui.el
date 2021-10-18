@@ -57,9 +57,9 @@
 (define-derived-mode  emacspeak-table-mode  special-mode
   "Table Navigation On The Emacspeak Audio Desktop"
   "Major mode for browsing tables.
-Table mode is designed to allow speech users to browse tabular data
-with full contextual feedback while retaining all the power of the
-two-dimensional spatial layout of tables.
+Table mode is designed to allow speech users to browse tabular
+data with full contextual feedback while retaining all the power
+of the two-dimensional spatial layout of tables.
 
 In table mode, the arrow keys move between cells of the table.
 Emacspeak speaks the cell contents in a user-customizable way.  The
