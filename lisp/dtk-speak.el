@@ -192,7 +192,7 @@ bound to \\[dtk-toggle-caps].")
 ;;; Helper: like replace-match but preserves existing face or apply
 ;;; 'match for pronunciation
 
-(defun tts-replace-match (replace)
+(defsubst tts-replace-match (replace)
   (cl-declare (special emacspeak-pronounce-personality))
   (let* ((start (match-beginning 0))
          (face
