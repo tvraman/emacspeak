@@ -1,8 +1,7 @@
 #!/bin/sh
-EMACS=/home/raman/sourceforge/native-emacs/src/emacs
 make clean
-make config EMACS=$EMACS
-make EMACS=$EMACS COMPILE='-f batch-byte+native-compile'
+make config emacs=$emacs
+make emacs=$emacs COMPILE='-f batch-byte+native-compile'
 cd lisp
-make EMACS=$EMACS COMPILE='-f batch-byte+native-compile' muggles --no-print-directory
-make EMACS=$EMACS COMPILE='-f batch-byte+native-compile' extra-muggles --no-print-directory
+make emacs=$emacs COMPILE='-f batch-byte+native-compile' muggles --no-print-directory
+make emacs=$emacs COMPILE='-f batch-byte+native-compile' extra-muggles --no-print-directory
