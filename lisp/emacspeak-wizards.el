@@ -2813,6 +2813,17 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
    "https://api.weather.gov/points/%.4f,%.4f/forecast"
    (g-json-get 'lat geo) (g-json-get 'lng geo)))
 
+(defvar  ems--noaa-grid-endpoint
+  "https://api.weather.gov/points/")
+
+(defun ems--noaa-get-gridpoint (geo)
+  "Return NOAA gridpoint from geo-coordinates."
+  (cl-declare (special ems--noaa-grid-endpoint))
+  (format "%s%.4f,%.4f"
+          ems--noaa-grid-endpoint
+          (cdr (assq 'lat geo))
+          (cdr (assq 'lng geo))))
+
 (defun ems--noaa-get-data (ask)
   "Internal function that gets NOAA data and returns a results buffer."
   (cl-declare (special gmaps-my-address))
@@ -2843,7 +2854,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
          (let-alist p
            (insert
             (format
-"* Forecast For %s: %s\n\n%s\n\n"
+             "* Forecast For %s: %s\n\n%s\n\n"
              .name .shortForecast .detailedForecast)))
          (fill-region start (point)))
         )
