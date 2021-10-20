@@ -2803,15 +2803,16 @@ updating custom settings for a specific package or group of packages."
     (setq iso (concat (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
 
+
 (defun ems--noaa-url (&optional geo)
   "Return NOAA Weather API REST end-point for specified lat/long.
 Location is a Lat/Lng pair retrieved from Google Maps API."
   (cl-declare (special gmaps-my-address))
   (cl-assert (or geo gmaps-my-address) nil "Location not specified.")
   (unless geo (setq geo (gmaps-address-geocode gmaps-my-address)))
-  (format
-   "https://api.weather.gov/points/%.4f,%.4f/forecast"
-   (g-json-get 'lat geo) (g-json-get 'lng geo)))
+  (let-alist
+      (g-json-from-url (ems--noaa-get-gridpoint geo))
+    .properties.forecast))
 
 (defvar  ems--noaa-grid-endpoint
   "https://api.weather.gov/points/")
