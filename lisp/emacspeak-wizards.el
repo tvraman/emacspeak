@@ -2775,10 +2775,9 @@ updating custom settings for a specific package or group of packages."
 (defsubst ems--noaa-get-gridpoint (geo)
   "Return NOAA gridpoint from geo-coordinates."
   (cl-declare (special ems--noaa-grid-endpoint))
-  (format "%s%.4f,%.4f"
-          ems--noaa-grid-endpoint
-          (cdr (assq 'lat geo))
-          (cdr (assq 'lng geo))))
+  (let-alist geo
+    (format "%s%.4f,%.4f"
+            ems--noaa-grid-endpoint .lat .lng)))
 
 ;;; NOAA: format time
 ;;; NOAA data has a ":" in tz
