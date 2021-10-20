@@ -2769,6 +2769,9 @@ updating custom settings for a specific package or group of packages."
 ;;}}}
 ;;{{{ NOAA Weather API:
 
+(defvar  ems--noaa-grid-endpoint
+  "https://api.weather.gov/points/")
+
 (defsubst ems--noaa-get-gridpoint (geo)
   "Return NOAA gridpoint from geo-coordinates."
   (cl-declare (special ems--noaa-grid-endpoint))
@@ -2796,9 +2799,6 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
   (let-alist
       (g-json-from-url (ems--noaa-get-gridpoint geo))
     .properties.forecast))
-
-(defvar  ems--noaa-grid-endpoint
-  "https://api.weather.gov/points/")
 
 (defun ems--noaa-get-data (ask)
   "Internal function that gets NOAA data and returns a results buffer."
@@ -2929,6 +2929,7 @@ external package."
 
 ;;}}}
 ;;{{{ Use Threads To Call Command Asynchronously:
+
 ;;;Experimental: Handle with care.
 
 ;;;###autoload
