@@ -126,15 +126,14 @@
   (org-next-visible-heading 1)
   (emacspeak-speak-line))
 
-
 (defun emacspeak-view-emacspeak-tips ()
   "Browse  Emacspeak productivity tips."
   (interactive)
   (cl-declare (special emacspeak-etc-directory))
   (emacspeak-xslt-without-xsl
-   (browse-url
-    (format "file:///%stips.html"
-            emacspeak-etc-directory)))
+      (browse-url
+       (format "file:///%stips.html"
+               emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
 
@@ -257,9 +256,6 @@ Prompts for the new location and preserves modification time
 ;;}}}
 ;;{{{ pop up messages buffer
 
-
-
-
 ;;;###autoload
 (defun emacspeak-speak-popup-messages ()
   "Pop up Messages  and switch to it."
@@ -274,7 +270,7 @@ Prompts for the new location and preserves modification time
 (defun ems-get-active-network-interfaces ()
   "Return  names of active network interfaces."
   (when (fboundp 'network-interface-list)
-     (seq-uniq (mapcar #'car (network-interface-list)))))
+    (seq-uniq (mapcar #'car (network-interface-list)))))
 
 (defvar emacspeak-speak-network-interfaces-list
   (ems-get-active-network-interfaces)
@@ -294,12 +290,10 @@ Prompts for the new location and preserves modification time
 ;;}}}
 ;;{{{ Show active network interfaces
 
-
 (defun emacspeak-speak-hostname ()
   "Speak host name."
   (interactive)
   (message (system-name)))
-
 
 (defun emacspeak-speak-show-active-network-interfaces (&optional address)
   "Shows all active network interfaces in the echo area.
@@ -311,7 +305,7 @@ also copied to the kill ring for convenient yanking."
    (message
     (if address
         (ems-get-ip-address nil)
-      (mapconcat #'identity 
+      (mapconcat #'identity
                  (ems-get-active-network-interfaces)
                  " ")))))
 
@@ -565,7 +559,6 @@ meaning of `next'."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-
 (defun emacspeak-wizards-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
   (interactive)
@@ -753,7 +746,6 @@ If optional arg property is not supplied, read it interactively. "
           (const :tag "None" nil)
           (string :tag "Options" "-layout"))
   :group 'emacspeak-wizards)
-
 
 (defun emacspeak-wizards-pdf-open (filename &optional ask-pwd)
   "Open pdf file as text.
@@ -1011,7 +1003,7 @@ emacspeak-wizards-occur-header-lines.")
 (defun emacspeak-wizards-how-many-matches (start end &optional prefix)
   "If you define a file local variable
 called `emacspeak-occur-pattern' that holds a regular expression
-that matches  lines of interest, you can use this command to 
+that matches  lines of interest, you can use this command to
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern."
   (interactive
@@ -1034,7 +1026,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
 (defun emacspeak-wizards-occur-header-lines (&optional prefix)
   "If you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
-matches header lines, you can use this command to 
+matches header lines, you can use this command to
 run `occur' to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern."
   (interactive "P")
@@ -1089,27 +1081,26 @@ Ubuntu and Debian this is group `tty'.")
                        emacspeak-wizards-vc-console
                        temporary-file-directory))
   (ems-with-messages-silenced
-   (let ((command
-          (format emacspeak-wizards-vc-viewer-command
-                  console
-                  (expand-file-name
-                   (format "vc-%s.dump" console)
-                   temporary-file-directory)))
-         (buffer (get-buffer-create
-                  (format "*vc-%s*" console))))
-     (shell-command command buffer)
-     (switch-to-buffer buffer)
-     (kill-all-local-variables)
-     (insert-file-contents
-      (expand-file-name
-       (format "vc-%s.dump" console)
-       temporary-file-directory))
-     (set-buffer-modified-p nil)
-     (emacspeak-wizards-vc-view-mode)
-     (setq emacspeak-wizards-vc-console console)
-     (goto-char (point-min))
-     (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
-
+      (let ((command
+             (format emacspeak-wizards-vc-viewer-command
+                     console
+                     (expand-file-name
+                      (format "vc-%s.dump" console)
+                      temporary-file-directory)))
+            (buffer (get-buffer-create
+                     (format "*vc-%s*" console))))
+        (shell-command command buffer)
+        (switch-to-buffer buffer)
+        (kill-all-local-variables)
+        (insert-file-contents
+         (expand-file-name
+          (format "vc-%s.dump" console)
+          temporary-file-directory))
+        (set-buffer-modified-p nil)
+        (emacspeak-wizards-vc-view-mode)
+        (setq emacspeak-wizards-vc-console console)
+        (goto-char (point-min))
+        (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
 
 (defun emacspeak-wizards-vc-viewer-refresh ()
   "Refresh view of VC we're viewing."
@@ -1142,7 +1133,6 @@ Ubuntu and Debian this is group `tty'.")
     (setq emacspeak-wizards-vc-console console)
     (when (called-interactively-p 'interactive)
       (emacspeak-speak-line))))
-
 
 (defun emacspeak-wizards-vc-n ()
   "Accelerator for VC viewer."
@@ -1276,9 +1266,9 @@ Moves to the shortest line when called interactively."
     (read-from-minibuffer "ISO DateTime:"
                           (word-at-point))))
   (ems-with-messages-silenced
-   (let ((time (emacspeak-speak-decode-iso-datetime iso)))
-     (tts-with-punctuations 'some (dtk-speak time))
-     (message time))))
+      (let ((time (emacspeak-speak-decode-iso-datetime iso)))
+        (tts-with-punctuations 'some (dtk-speak time))
+        (message time))))
 
 ;;}}}
 ;;{{{ date pronouncer wizard
@@ -1351,7 +1341,6 @@ dates.")
 
 ;;}}}
 ;;{{{ shell history:
-
 
 (defun emacspeak-wizards-shell-bind-keys ()
   "Set up additional shell mode keys."
@@ -1510,8 +1499,7 @@ of the source buffer."
           (default-directory dir))
      (with-current-buffer (shell name)
        (setq emacspeak-wizards--project-shell-directory dir))))
-     (emacspeak-wizards--build-shells-table))
-
+  (emacspeak-wizards--build-shells-table))
 
 (defun emacspeak-wizards-shell-directory-set ()
   "Define current directory as this shell's project directory."
@@ -1574,7 +1562,6 @@ buffer keyed by `key'gets the key of buffer `buffer'."
 
 ;;}}}
 ;;{{{ Bullet navigation
-
 
 (defun emacspeak-wizards-next-bullet ()
   "Navigate to and speak next `bullet'."
@@ -1717,12 +1704,11 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Speak line using espeak polyglot wizard."
   (interactive)
   (ems-with-messages-silenced
-   (emacspeak-wizards-espeak-region
-    (line-beginning-position) (line-end-position))))
+      (emacspeak-wizards-espeak-region
+       (line-beginning-position) (line-end-position))))
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
-
 
 (defun emacspeak-wizards-enumerate-matching-commands (pattern)
   "Return list of commands whose names match pattern."
@@ -1777,7 +1763,6 @@ filters out commands that dont have an active key-binding."
     (sort result
           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
 
-
 (defun emacspeak-wizards-enumerate-obsolete-faces ()
   "utility function to enumerate old, obsolete maps that we have still
 mapped to voices."
@@ -1810,11 +1795,9 @@ mapped to voices."
            '("amixer" "cd-tool"
              "dectalk" "dtk" "espeak" "mac-"
              "emacspeak" "xbacklight"
-                 "gm-" "gmap"  "gweb"
+             "gm-" "gmap"  "gweb"
              "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match Emacspeak command names.")
-
-
 
 ;;}}}
 ;;{{{ Shell Helper: Path Cleanup
@@ -1866,7 +1849,6 @@ mapped to voices."
         (list-buffers--refresh buffer-list)
         (tabulated-list-print))
       buffer)))
-
 
 (defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)
   "Display list of buffers filtered by specified mode."
@@ -1953,7 +1935,6 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
    emacspeak-wizards-alpha-vantage-base
    func ticker emacspeak-wizards-alpha-vantage-api-key))
 
-
 (defconst ems--alpha-vantage-funcs
   '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
     "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED")
@@ -1975,7 +1956,6 @@ sorted in lexical order with duplicates removed when saving."
         (cl-remove-duplicates
          (sort (split-string val) #'string-lessp) :test #'string=)
         "\n"))))
-
 
 (defun emacspeak-wizards-alpha-vantage-quotes (ticker &optional custom)
   "Retrieve stock quote data from Alpha Vantage. Prompts for `ticker'
@@ -2061,7 +2041,7 @@ Parameter `action' specifies relative URL. '"
 Uses symbols set in `emacspeak-wizards-personal-portfolio '.
 Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (cl-declare (special emacspeak-wizards-iex-portfolio-file g-curl-program
-               emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
+                       emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((symbols
           (mapconcat
            #'identity
@@ -2080,7 +2060,6 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (message "%s"
            (g-json-from-url
             (format "%s/account/metadata?token=%s" emacspeak-wizards-iex-base emacspeak-iex-api-key))))
-
 
 (defun emacspeak-wizards-iex-show-price (symbol)
   "Quick Quote: Just stock price from IEXCloud."
@@ -2108,7 +2087,6 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
     map)
   "Local keymap used in quotes view.")
 
-
 (defun emacspeak-wizards-iex-show-quote (&optional refresh)
   "Show portfolio  data from cache.
 Optional interactive prefix arg forces cache refresh.
@@ -2134,7 +2112,7 @@ P: Show live price for current stock."
     (aset table 0
           ["CompanyName" "Symbol"
            "lastTrade" "Open" "Low" "High" "Close"
-           "52WeekLow" "52WeekHigh" 
+           "52WeekLow" "52WeekHigh"
            "MarketCap" "PERatio"
            "Previous Close" "Change" "Change %"])
     (cl-loop
@@ -2204,7 +2182,6 @@ P: Show live price for current stock."
      'keymap ems--wizards-iex-quotes-keymap)
     (funcall-interactively #'emacspeak-table-goto 1 1)))
 
-
 (defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
   "Show news for specified ticker.
 Checks cache, then makes API call if needed.
@@ -2248,7 +2225,6 @@ Optional interactive prefix arg refreshes cache."
       (setq header-line-format title))
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))))
-
 
 (defun emacspeak-wizards-iex-show-financials (symbol &optional refresh)
   "Show financials for specified ticker.
@@ -2315,11 +2291,11 @@ Optional interactive prefix arg refreshes cache."
 
 Key : Action
 f   :  Financials
-m   :  Account metadata 
+m   :  Account metadata
 n   :  News
 p   :  Price
 q   :  Quotes
-t   :  tops/last 
+t   :  tops/last
 "
   (interactive "P")
   (cl-case
@@ -2327,7 +2303,7 @@ t   :  tops/last
     (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
     (?p (call-interactively #'emacspeak-wizards-iex-show-price))
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
-    (?m (call-interactively #'emacspeak-wizards-iex-show-metadata)) 
+    (?m (call-interactively #'emacspeak-wizards-iex-show-metadata))
     (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote
                                refresh))
     (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
@@ -2369,7 +2345,7 @@ where `sport' is either mlb or nba."
   "Format  MLB standing."
   (let-alist s
     (format
-"* %s %s  are %s in the %s %s.
+     "* %s %s  are %s in the %s %s.
 They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
@@ -2497,7 +2473,7 @@ Otherwise just return  `color'."
       (cond
        ((string= name shade) name)
        (t
-        (concat 
+        (concat
          (propertize name 'personality voice-bolden)
          " shaded"
          (propertize shade 'personality voice-annotate))
@@ -2824,8 +2800,6 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
 (defvar  ems--noaa-grid-endpoint
   "https://api.weather.gov/points/")
 
-
-
 (defun ems--noaa-get-data (ask)
   "Internal function that gets NOAA data and returns a results buffer."
   (cl-declare (special gmaps-my-address))
@@ -2965,11 +2939,11 @@ external package."
         (g (global-key-binding key))
         (k
          (when-let (map (get-text-property (point) 'keymap))
-                   (lookup-key map key))))
+           (lookup-key map key))))
     (cl-flet
         ((do-it (command)
-                (make-thread command)
-                (message "Running %s on a new thread." command)))
+           (make-thread command)
+           (message "Running %s on a new thread." command)))
       (cond
        ((commandp k) (do-it k))
        ((commandp l) (do-it l))
@@ -3000,16 +2974,16 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
   :group 'emacspeak-wizards)
 
 (defun emacspeak-wizards-remote-frame ()
-  "Open a frame on a remote Emacs.  
+  "Open a frame on a remote Emacs.
 Remote workstation is  `emacspeak-wizards-remote-workstation'."
   (interactive )
   (cl-declare (special emacspeak-wizards-remote-workstation))
-  (cl-assert 
-   (> (length emacspeak-wizards-remote-workstation) 0) t 
+  (cl-assert
+   (> (length emacspeak-wizards-remote-workstation) 0) t
    "Set emacspeak-wizards-remote-workstation first.")
   (let((process-environment '("TERM=xterm" ))
-       (title 
-        `((name . 
+       (title
+        `((name .
                 ,(format "%s:Emacs"
                          (cl-first (split-string emacspeak-wizards-remote-workstation "\\.")))))))
     (start-process
@@ -3129,7 +3103,7 @@ Optional interactive prefix arg deletes it."
     (with-syntax-table stab
       (cond
        ((= (cl-first pair) (cl-second pair))
-        (modify-syntax-entry (cl-first pair) "\"" ) 
+        (modify-syntax-entry (cl-first pair) "\"" )
         (modify-syntax-entry (cl-second pair) "\"" ))
        (t
         (modify-syntax-entry (cl-first pair) "(")
