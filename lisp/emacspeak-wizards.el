@@ -2793,18 +2793,25 @@ updating custom settings for a specific package or group of packages."
 ;;}}}
 ;;{{{ NOAA Weather API:
 
+(defsubst ems--noaa-get-gridpoint (geo)
+  "Return NOAA gridpoint from geo-coordinates."
+  (cl-declare (special ems--noaa-grid-endpoint))
+  (format "%s%.4f,%.4f"
+          ems--noaa-grid-endpoint
+          (cdr (assq 'lat geo))
+          (cdr (assq 'lng geo))))
+
 ;;; NOAA: format time
 ;;; NOAA data has a ":" in tz
 
-(defun ems--noaa-time (fmt iso)
+(defsubst ems--noaa-time (fmt iso)
   "Utility function to correctly format ISO date-time strings from NOAA."
 ;;; first strip offending ":" in tz
   (when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
     (setq iso (concat (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
 
-
-(defun ems--noaa-url (&optional geo)
+(defsubst ems--noaa-url (&optional geo)
   "Return NOAA Weather API REST end-point for specified lat/long.
 Location is a Lat/Lng pair retrieved from Google Maps API."
   (cl-declare (special gmaps-my-address))
@@ -2817,13 +2824,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
 (defvar  ems--noaa-grid-endpoint
   "https://api.weather.gov/points/")
 
-(defun ems--noaa-get-gridpoint (geo)
-  "Return NOAA gridpoint from geo-coordinates."
-  (cl-declare (special ems--noaa-grid-endpoint))
-  (format "%s%.4f,%.4f"
-          ems--noaa-grid-endpoint
-          (cdr (assq 'lat geo))
-          (cdr (assq 'lng geo))))
+
 
 (defun ems--noaa-get-data (ask)
   "Internal function that gets NOAA data and returns a results buffer."
@@ -2839,13 +2840,14 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
             gmaps-my-address))
          (geo (if (and ask (= 16 (car ask)))
                   (gmaps-address-geocode address)
-                (gmaps-address-geocode gmaps-my-address))))
+                (gmaps-address-geocode gmaps-my-address)))
+         (url (ems--noaa-url geo)))
     (with-current-buffer buffer
       (erase-buffer)
       (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
 ;;; produce Daily forecast
-      (let-alist (g-json-from-url (ems--noaa-url geo))
+      (let-alist (g-json-from-url url)
         (insert
          (format "* Forecast At %s For %s\n\n"
                  (ems--noaa-time fmt .properties.updated)
@@ -2860,7 +2862,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
          (fill-region start (point)))
         )
       (let-alist ;;; Now produce hourly forecast
-          (g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
+          (g-json-from-url (concat url "/hourly"))
         (insert
          (format "\n* Hourly Forecast:Updated At %s \n"
                  (ems--noaa-time fmt .properties.updated)))
