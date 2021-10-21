@@ -2794,7 +2794,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
   (cl-declare (special gmaps-my-address))
   (cl-assert (or geo gmaps-my-address) nil "Location not specified.")
   (unless geo (setq geo (gmaps-address-geocode gmaps-my-address)))
-  (let-alist
+  (let-alist ;;; return forecast url 
       (g-json-from-url (ems--noaa-get-gridpoint geo))
     .properties.forecast))
 
