@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 6.7 from
+This is emacspeak.info, produced by makeinfo version 6.8 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -12,7 +12,25 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 10, 2021.
+last updated on October 22, 2021.
+
+
+File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
+
+12.100 emacspeak-ibuffer
+========================
+
+speech-enable ibuffer.el this is an alternative to buffer-menu
+
+12.100.1 Emacspeak-Ibuffer Commands
+-----------------------------------
+
+12.100.1.1 emacspeak-ibuffer-speak-buffer-line
+..............................................
+
+ -- Command: emacspeak-ibuffer-speak-buffer-line
+
+     Speak information about this buffer
 
 
 File: emacspeak.info,  Node: emacspeak-ido,  Next: emacspeak-iedit,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands And Options
@@ -4687,9 +4705,9 @@ User interface to tables
  -- Command: emacspeak-table-mode
 
      Major mode for browsing tables.
-     Table mode is designed to allow speech users to browse tabular data
-     with full contextual feedback while retaining all the power of the
-     two-dimensional spatial layout of tables.
+     Table mode is designed to allow speech users to browse tabular
+     data with full contextual feedback while retaining all the power
+     of the two-dimensional spatial layout of tables.
 
      In table mode, the arrow keys move between cells of the table.
      Emacspeak speaks the cell contents in a user-customizable way.  The

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1144 commands and 146 options.
+This chapter documents a total of 1146 commands and 146 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -4752,6 +4752,28 @@ Interactively add a mark with name title+‘name’ at current position.
 @end format
 @end deffn
 
+@subsubsection emacspeak-eww-browse-chrome
+@deffn {Command} emacspeak-eww-browse-chrome  (url)
+@findex emacspeak-eww-browse-chrome
+
+@format
+Open with Chrome.
+
+(fn URL)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-browse-eaf
+@deffn {Command} emacspeak-eww-browse-eaf  (url)
+@findex emacspeak-eww-browse-eaf
+
+@format
+Launch async EAF browser.
+
+(fn URL)
+@end format
+@end deffn
+
 @subsubsection emacspeak-eww-curl-play-media-at-point
 @deffn {Command} emacspeak-eww-curl-play-media-at-point   
 @findex emacspeak-eww-curl-play-media-at-point
@@ -6855,7 +6877,7 @@ speech-enable hideshow.el
 @findex emacspeak-hydra-toggle-talkative
 
 @format
-Toggle state of hydra-is-helpful
+Toggle hydra-is-helpful
 @end format
 @end deffn
 
@@ -12631,9 +12653,9 @@ Goes to the top of the current column.
 
 @format
 Major mode for browsing tables.
-Table mode is designed to allow speech users to browse tabular data
-with full contextual feedback while retaining all the power of the
-two-dimensional spatial layout of tables.
+Table mode is designed to allow speech users to browse tabular
+data with full contextual feedback while retaining all the power
+of the two-dimensional spatial layout of tables.
 
 In table mode, the arrow keys move between cells of the table.
 Emacspeak speaks the cell contents in a user-customizable way.  The
@@ -16040,7 +16062,7 @@ Clean up news.google.com.
 @format
 If you define a file local variable
 called ‘emacspeak-occur-pattern’ that holds a regular expression
-that matches  lines of interest, you can use this command to 
+that matches  lines of interest, you can use this command to
 run ‘how-many’ to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 
@@ -16273,7 +16295,7 @@ weather for ‘gmaps-my-address’.
 @format
 If you define a file local variable called
 ‘emacspeak-occur-pattern’ that holds a regular expression that
-matches header lines, you can use this command to 
+matches header lines, you can use this command to
 run ‘occur’ to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern.
 
@@ -16325,11 +16347,11 @@ Top-level dispatch for  Stock Market information.
 
 Key : Action
 f   :  Financials
-m   :  Account metadata 
+m   :  Account metadata
 n   :  News
 p   :  Price
 q   :  Quotes
-t   :  tops/last 
+t   :  tops/last
 
 (fn &optional REFRESH)
 @end format
@@ -16347,7 +16369,7 @@ t   :  tops/last
 @findex emacspeak-wizards-remote-frame
 
 @format
-Open a frame on a remote Emacs.  
+Open a frame on a remote Emacs.
 Remote workstation is  ‘emacspeak-wizards-remote-workstation’.
 @end format
 @end deffn
