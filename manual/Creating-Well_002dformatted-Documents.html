@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -25,16 +27,14 @@
   "Document Authoring" />
   <link href="Search-replace-and-spell-check.html" rel="next"
   title="Search replace and spell check" />
-  <link href="Document-Authoring.html" rel="prev" title=
-  "Document Authoring" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +43,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,88 +52,90 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Creating-Well_002dformatted-Documents"></span>
-  <div class="header">
-    <p>Next: <a href="Search-replace-and-spell-check.html"
-    accesskey="n" rel="next">Search replace and spell check</a>,
-    Up: <a href="Document-Authoring.html" accesskey="u" rel=
-    "up">Document Authoring</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+  <div class="subsection" id=
+  "Creating-Well_002dformatted-Documents">
+    <div class="header">
+      <p>Next: <a href="Search-replace-and-spell-check.html"
+      accesskey="n" rel="next">Searching, Replacing, And Spell
+      Checking</a>, Up: <a href="Document-Authoring.html"
+      accesskey="u" rel="up">Document Authoring</a> &nbsp;
+      [<a href="index.html#SEC_Contents" title="Table of contents"
+      rel="contents">Contents</a>][<a href="Concept-Index.html"
+      title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Creating-Well_002dformatted-Documents-1"></span>
+    <h4 class="subsection">10.1.1 Creating Well-formatted
+    Documents</h4><span id="index-Document-Creation"></span>
+    <p>Before authoring a document, decide its primary audience. If
+    the document contains relatively simple content, e.g., no
+    mathematical equations etc. and is primarily targeted at the
+    web, you are probably better off using HTML. You can create
+    well-structured HTML documents with the help of package
+    <code>nxml-mode</code> for editing XML documents. Another
+    option is to use <code>org-mode</code> to create a Wiki-like
+    text document that can be easily published to multiple output
+    formats including HTML.</p>
+    <p>Packages <code>org-mode</code> and <code>nxml-mode</code>
+    are speech-enabled by Emacspeak to provide auditory icons,
+    structured navigation and outlines, as well as voice locking
+    for audio formatted feedback as you work.</p>
+    <p>If the document being authored is more complex, you are
+    usually better off creating it in LaTeX. Note that LaTeX
+    documents can be converted to HTML either via package
+    <code>tex4ht</code> — available on the WWW.</p>
+    <p>The TeX family of typesetting languages is suitable for
+    producing well-formatted documents in an eyes-free environment.
+    Unlike WYSIWYG environments, the author of a TeX or LaTeX
+    document works with the content of the document, leaving it to
+    the formatting system (TeX) to format the document for good
+    visual presentation.</p>
+    <p>The <code>AUCTeX</code> package is an Emacs extension that
+    facilitates authoring and maintaining structured documents in
+    TeX and LaTeX. Package <code>bibtex</code> facilitates
+    maintenance and use of <code>bibtex</code> bibliography
+    databases. The Texinfo package allows creation of software
+    documentation that is suitable for both printing as well as
+    online viewing as hypertext. Emacspeak speech-enables packages
+    <code>AUCTeX</code>, <code>bibtex</code> and
+    <code>texinfo</code> to provide convenient spoken feedback as
+    you create documents. For details on using these packages, see
+    their accompanying online info documentation.</p>
+    <p>As the document preparation system of choice, Emacspeak
+    supports a fluent speech-enabled interface to editing and
+    formatting LaTeX documents. This interface is provided by
+    speech-enabling <em>AUCTeX</em> mode.</p><span id=
+    "index-AUCTeX"></span>
+    <p>Mode <em>AUCTeX</em> provides efficient keyboard shortcuts
+    for inserting and maintaining LaTeX markup as a document is
+    being authored. All of these editing commands provide succinct
+    auditory feedback when used with Emacspeak. The syntax coloring
+    provided by this mode is extended to provide <em>voice
+    locking</em> — consequently, Emacspeak uses different voices to
+    speak the embedded markup to set it apart from the content.</p>
+    <p>Mode <em>AUCTeX</em> can be used to create empty document
+    templates and to insert document content at the appropriate
+    places in the template. The mode also enables structured
+    navigation of the document as it is being edited. Emacspeak
+    speech-enables these template creation and structured
+    navigation commands to produce auditory icons and succinct
+    spoken feedback. For example, while editing, the user can
+    quickly browse through the sections of the document and have
+    each section title spoken. Document elements such as paragraphs
+    and bulleted lists can be manipulated as logical units. These
+    features are especially relevant in an eyes-free environment
+    where the user needs to select logical parts of the document
+    without having to point at portions of a visual display.</p>
   </div>
   <hr />
-  <span id="Creating-Well_002dformatted-Documents-1"></span>
-  <h4 class="subsection">10.1.1 Creating Well-formatted
-  Documents</h4><span id="index-Document-Creation"></span>
-  <p>Before authoring a document, decide its primary audience. If
-  the document contains relatively simple content, e.g., no
-  mathematical equations etc. and is primarily targeted at the web,
-  you are probably better off using HTML. You can create
-  well-structured HTML documents with the help of package
-  <code>nxml-mode</code> for editing XML documents. Another option
-  is to use <code>org-mode</code> to create a Wiki-like text
-  document that can be easily published to multiple output formats
-  including HTML.</p>
-  <p>Packages <code>org-mode</code> and <code>nxml-mode</code> are
-  speech-enabled by Emacspeak to provide auditory icons, structured
-  navigation and outlines, as well as voice locking for audio
-  formatted feedback as you work.</p>
-  <p>If the document being authored is more complex, you are
-  usually better off creating it in LaTeX. Note that LaTeX
-  documents can be converted to HTML either via package
-  <code>tex4ht</code> — available on the WWW.</p>
-  <p>The TeX family of typesetting languages is suitable for
-  producing well-formatted documents in an eyes-free environment.
-  Unlike WYSIWYG environments, the author of a TeX or LaTeX
-  document works with the content of the document, leaving it to
-  the formatting system (TeX) to format the document for good
-  visual presentation.</p>
-  <p>The <code>AUCTeX</code> package is an Emacs extension that
-  facilitates authoring and maintaining structured documents in TeX
-  and LaTeX. Package <code>bibtex</code> facilitates maintenance
-  and use of <code>bibtex</code> bibliography databases. The
-  Texinfo package allows creation of software documentation that is
-  suitable for both printing as well as online viewing as
-  hypertext. Emacspeak speech-enables packages <code>AUCTeX</code>,
-  <code>bibtex</code> and <code>texinfo</code> to provide
-  convenient spoken feedback as you create documents. For details
-  on using these packages, see their accompanying online info
-  documentation.</p>
-  <p>As the document preparation system of choice, Emacspeak
-  supports a fluent speech-enabled interface to editing and
-  formatting LaTeX documents. This interface is provided by
-  speech-enabling <em>AUCTeX</em> mode.</p><span id=
-  "index-AUCTeX"></span>
-  <p>Mode <em>AUCTeX</em> provides efficient keyboard shortcuts for
-  inserting and maintaining LaTeX markup as a document is being
-  authored. All of these editing commands provide succinct auditory
-  feedback when used with Emacspeak. The syntax coloring provided
-  by this mode is extended to provide <em>voice locking</em> —
-  consequently, Emacspeak uses different voices to speak the
-  embedded markup to set it apart from the content.</p>
-  <p>Mode <em>AUCTeX</em> can be used to create empty document
-  templates and to insert document content at the appropriate
-  places in the template. The mode also enables structured
-  navigation of the document as it is being edited. Emacspeak
-  speech-enables these template creation and structured navigation
-  commands to produce auditory icons and succinct spoken feedback.
-  For example, while editing, the user can quickly browse through
-  the sections of the document and have each section title spoken.
-  Document elements such as paragraphs and bulleted lists can be
-  manipulated as logical units. These features are especially
-  relevant in an eyes-free environment where the user needs to
-  select logical parts of the document without having to point at
-  portions of a visual display.</p>
-  <hr />
   <div class="header">
-    <p>Next: <a href="Search-replace-and-spell-check.html"
-    accesskey="n" rel="next">Search replace and spell check</a>,
-    Up: <a href="Document-Authoring.html" accesskey="u" rel=
-    "up">Document Authoring</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+    <p>Next: <a href=
+    "Search-replace-and-spell-check.html">Searching, Replacing, And
+    Spell Checking</a>, Up: <a href=
+    "Document-Authoring.html">Document Authoring</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href="Concept-Index.html"
+    title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

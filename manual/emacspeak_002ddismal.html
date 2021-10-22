@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,307 +54,434 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002ddismal"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002ddumb_002djump.html" accesskey=
-    "n" rel="next">emacspeak-dumb-jump</a>, Previous: <a href=
-    "emacspeak_002ddired.html" accesskey="p" rel=
-    "prev">emacspeak-dired</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002ddismal-1"></span>
-  <h3 class="section">12.48 emacspeak-dismal</h3>
-  <p>### emacspeak-dismal: No Commentary</p><span id=
-  "Emacspeak_002dDismal-Commands"></span>
-  <h4 class="subsection">12.48.1 Emacspeak-Dismal
-  Commands</h4><span id=
-  "emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize"></span>
-  <h4 class="subsubsection">12.48.1.1
-  emacspeak-dismal-backward-col-and-summarize</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize">
-    Command:
-    <strong>emacspeak-dismal-backward-col-and-summarize</strong>
-    <em>(cols)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move backward by arg columns
+  <div class="section" id="emacspeak_002ddismal">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002ddumb_002djump.html"
+      accesskey="n" rel="next">emacspeak-dumb-jump</a>, Previous:
+      <a href="emacspeak_002ddired.html" accesskey="p" rel=
+      "prev">emacspeak-dired</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002ddismal-1"></span>
+    <h3 class="section">12.48 emacspeak-dismal</h3>
+    <p>### emacspeak-dismal: No Commentary</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dDismal-Commands" accesskey=
+      "1">Emacspeak-Dismal Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dDismal-Commands">
+      <h4 class="subsection">12.48.1 Emacspeak-Dismal Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize"
+        accesskey=
+        "1">emacspeak-dismal-backward-col-and-summarize</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize"
+        accesskey=
+        "2">emacspeak-dismal-backward-row-and-summarize</a></li>
+        <li><a href="#emacspeak_002ddismal_002dcol_002dsummarize"
+        accesskey="3">emacspeak-dismal-col-summarize</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002ddisplay_002dcell_002dexpression"
+        accesskey=
+        "4">emacspeak-dismal-display-cell-expression</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002ddisplay_002dcell_002dvalue"
+        accesskey="5">emacspeak-dismal-display-cell-value</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader"
+        accesskey=
+        "6">emacspeak-dismal-display-cell-with-col-header</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader"
+        accesskey=
+        "7">emacspeak-dismal-display-cell-with-row-header</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize"
+        accesskey=
+        "8">emacspeak-dismal-forward-col-and-summarize</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize"
+        accesskey=
+        "9">emacspeak-dismal-forward-row-and-summarize</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002drow_002dsummarize">emacspeak-dismal-row-summarize</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist">
+        emacspeak-dismal-set-col-summarizer-list</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist">
+        emacspeak-dismal-set-row-summarizer-list</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist">
+        emacspeak-dismal-set-sheet-summarizer-list</a></li>
+        <li><a href=
+        "#emacspeak_002ddismal_002dsheet_002dsummarize">emacspeak-dismal-sheet-summarize</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize">
+        <h4 class="subsubsection">12.48.1.1
+        emacspeak-dismal-backward-col-and-summarize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-backward-col-and-summarize</strong>
+          <em>(cols)</em> <a href=
+          '#index-emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dbackward_002dcol_002dand_002dsummarize-1">
+            </span>
+            <div class="format">
+              <pre class="format">Move backward by arg columns
  (the previous column by default)and summarize it.
 
 (fn COLS)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize"></span>
-  <h4 class="subsubsection">12.48.1.2
-  emacspeak-dismal-backward-row-and-summarize</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize">
-    Command:
-    <strong>emacspeak-dismal-backward-row-and-summarize</strong>
-    <em>(rows)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move backward by arg rows
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize">
+        <h4 class="subsubsection">12.48.1.2
+        emacspeak-dismal-backward-row-and-summarize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-backward-row-and-summarize</strong>
+          <em>(rows)</em> <a href=
+          '#index-emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dbackward_002drow_002dand_002dsummarize-1">
+            </span>
+            <div class="format">
+              <pre class="format">Move backward by arg rows
  (the previous row by default)and summarize it.
 
 (fn ROWS)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dcol_002dsummarize"></span>
-  <h4 class="subsubsection">12.48.1.3
-  emacspeak-dismal-col-summarize</h4>
-  <dl>
-    <dt id="index-emacspeak_002ddismal_002dcol_002dsummarize">
-    Command: <strong>emacspeak-dismal-col-summarize</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dcol_002dsummarize-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Summarizes a col using the specification in list
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dcol_002dsummarize">
+        <h4 class="subsubsection">12.48.1.3
+        emacspeak-dismal-col-summarize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dcol_002dsummarize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-col-summarize</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002dcol_002dsummarize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dcol_002dsummarize-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Summarizes a col using the specification in list
 emacspeak-dismal-col-summarizer-list
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002ddisplay_002dcell_002dexpression"></span>
-  <h4 class="subsubsection">12.48.1.4
-  emacspeak-dismal-display-cell-expression</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002ddisplay_002dcell_002dexpression">
-    Command:
-    <strong>emacspeak-dismal-display-cell-expression</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002ddisplay_002dcell_002dexpression-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Display the expression in the message area
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002ddisplay_002dcell_002dexpression">
+        <h4 class="subsubsection">12.48.1.4
+        emacspeak-dismal-display-cell-expression</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002ddisplay_002dcell_002dexpression">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-display-cell-expression</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002ddisplay_002dcell_002dexpression'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002ddisplay_002dcell_002dexpression-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Display the expression in the message area
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002ddisplay_002dcell_002dvalue"></span>
-  <h4 class="subsubsection">12.48.1.5
-  emacspeak-dismal-display-cell-value</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002ddisplay_002dcell_002dvalue">
-    Command:
-    <strong>emacspeak-dismal-display-cell-value</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002ddisplay_002dcell_002dvalue-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Display the cell value in the message area
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002ddisplay_002dcell_002dvalue">
+        <h4 class="subsubsection">12.48.1.5
+        emacspeak-dismal-display-cell-value</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002ddisplay_002dcell_002dvalue">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-display-cell-value</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002ddisplay_002dcell_002dvalue'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002ddisplay_002dcell_002dvalue-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Display the cell value in the message area
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader"></span>
-  <h4 class="subsubsection">12.48.1.6
-  emacspeak-dismal-display-cell-with-col-header</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader">
-    Command:
-    <strong>emacspeak-dismal-display-cell-with-col-header</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Display current cell along with its column header.
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader">
+        <h4 class="subsubsection">12.48.1.6
+        emacspeak-dismal-display-cell-with-col-header</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-display-cell-with-col-header</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002dcol_002dheader-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Display current cell along with its column header.
 The ‘column header’ is the entry in row 0.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader"></span>
-  <h4 class="subsubsection">12.48.1.7
-  emacspeak-dismal-display-cell-with-row-header</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader">
-    Command:
-    <strong>emacspeak-dismal-display-cell-with-row-header</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Displays current cell along with its row header.
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader">
+        <h4 class="subsubsection">12.48.1.7
+        emacspeak-dismal-display-cell-with-row-header</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-display-cell-with-row-header</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002ddisplay_002dcell_002dwith_002drow_002dheader-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Displays current cell along with its row header.
 The ‘row header’ is the entry in column 0.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize"></span>
-  <h4 class="subsubsection">12.48.1.8
-  emacspeak-dismal-forward-col-and-summarize</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize">
-    Command:
-    <strong>emacspeak-dismal-forward-col-and-summarize</strong>
-    <em>(cols)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move forward by arg columns
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize">
+        <h4 class="subsubsection">12.48.1.8
+        emacspeak-dismal-forward-col-and-summarize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-forward-col-and-summarize</strong>
+          <em>(cols)</em> <a href=
+          '#index-emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dforward_002dcol_002dand_002dsummarize-1">
+            </span>
+            <div class="format">
+              <pre class="format">Move forward by arg columns
  (the next column by default)and summarize it.
 
 (fn COLS)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize"></span>
-  <h4 class="subsubsection">12.48.1.9
-  emacspeak-dismal-forward-row-and-summarize</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize">
-    Command:
-    <strong>emacspeak-dismal-forward-row-and-summarize</strong>
-    <em>(rows)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move forward by arg rows
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize">
+        <h4 class="subsubsection">12.48.1.9
+        emacspeak-dismal-forward-row-and-summarize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-forward-row-and-summarize</strong>
+          <em>(rows)</em> <a href=
+          '#index-emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dforward_002drow_002dand_002dsummarize-1">
+            </span>
+            <div class="format">
+              <pre class="format">Move forward by arg rows
  (the next row by default)and summarize it.
 
 (fn ROWS)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002drow_002dsummarize"></span>
-  <h4 class="subsubsection">12.48.1.10
-  emacspeak-dismal-row-summarize</h4>
-  <dl>
-    <dt id="index-emacspeak_002ddismal_002drow_002dsummarize">
-    Command: <strong>emacspeak-dismal-row-summarize</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002drow_002dsummarize-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Summarizes a row using the specification in list
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002drow_002dsummarize">
+        <h4 class="subsubsection">12.48.1.10
+        emacspeak-dismal-row-summarize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002drow_002dsummarize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-row-summarize</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002drow_002dsummarize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002drow_002dsummarize-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Summarizes a row using the specification in list
 emacspeak-dismal-row-summarizer-list
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist"></span>
-  <h4 class="subsubsection">12.48.1.11
-  emacspeak-dismal-set-col-summarizer-list</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist">
-    Command:
-    <strong>emacspeak-dismal-set-col-summarizer-list</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist-1">
-      </span>
-      <div class="format">
-        <pre class="format">Specify or reset col summarizer list.
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist">
+        <h4 class="subsubsection">12.48.1.11
+        emacspeak-dismal-set-col-summarizer-list</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-set-col-summarizer-list</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dset_002dcol_002dsummarizer_002dlist-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Specify or reset col summarizer list.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist"></span>
-  <h4 class="subsubsection">12.48.1.12
-  emacspeak-dismal-set-row-summarizer-list</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist">
-    Command:
-    <strong>emacspeak-dismal-set-row-summarizer-list</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist-1">
-      </span>
-      <div class="format">
-        <pre class="format">Specify or reset row summarizer list.
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist">
+        <h4 class="subsubsection">12.48.1.12
+        emacspeak-dismal-set-row-summarizer-list</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-set-row-summarizer-list</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dset_002drow_002dsummarizer_002dlist-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Specify or reset row summarizer list.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist"></span>
-  <h4 class="subsubsection">12.48.1.13
-  emacspeak-dismal-set-sheet-summarizer-list</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist">
-    Command:
-    <strong>emacspeak-dismal-set-sheet-summarizer-list</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist-1">
-      </span>
-      <div class="format">
-        <pre class="format">Specify or reset sheet summarizer list.
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist">
+        <h4 class="subsubsection">12.48.1.13
+        emacspeak-dismal-set-sheet-summarizer-list</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-set-sheet-summarizer-list</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dset_002dsheet_002dsummarizer_002dlist-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Specify or reset sheet summarizer list.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002ddismal_002dsheet_002dsummarize"></span>
-  <h4 class="subsubsection">12.48.1.14
-  emacspeak-dismal-sheet-summarize</h4>
-  <dl>
-    <dt id="index-emacspeak_002ddismal_002dsheet_002dsummarize">
-    Command: <strong>emacspeak-dismal-sheet-summarize</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002ddismal_002dsheet_002dsummarize-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Summarizes a sheet using the specification in list
+      <div class="subsubsection" id=
+      "emacspeak_002ddismal_002dsheet_002dsummarize">
+        <h4 class="subsubsection">12.48.1.14
+        emacspeak-dismal-sheet-summarize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002ddismal_002dsheet_002dsummarize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dismal-sheet-summarize</strong>
+          <a href=
+          '#index-emacspeak_002ddismal_002dsheet_002dsummarize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddismal_002dsheet_002dsummarize-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002ddumb_002djump.html" accesskey=
-    "n" rel="next">emacspeak-dumb-jump</a>, Previous: <a href=
-    "emacspeak_002ddired.html" accesskey="p" rel=
-    "prev">emacspeak-dired</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+    <p>Next: <a href=
+    "emacspeak_002ddumb_002djump.html">emacspeak-dumb-jump</a>,
+    Previous: <a href=
+    "emacspeak_002ddired.html">emacspeak-dired</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html">Emacspeak Commands And
+    Options</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

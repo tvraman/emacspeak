@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -35,11 +37,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -48,6 +50,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -56,104 +59,106 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id=
+  <div class="section" id=
   "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access">
-  </span>
-  <div class="header">
-    <p>Next: <a href=
-    "Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs.html"
-    accesskey="n" rel="next">Mashing It Up --- Leveraging Evolving
-    Web APIs</a>, Previous: <a href=
-    "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html"
-    accesskey="p" rel="prev">Social Web --- EMail Instant Messaging
-    Blogging And Tweeting Using Open Protocols</a>, Up: <a href=
-    "Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At
-    Twenty</a> &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    <div class="header">
+      <p>Next: <a href=
+      "Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs.html"
+      accesskey="n" rel="next">Mashing It Up — Leveraging Evolving
+      Web APIs</a>, Previous: <a href=
+      "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html"
+      accesskey="p" rel="prev">Social Web — EMail, Instant
+      Messaging, Blogging And Tweeting Using Open Protocols</a>,
+      Up: <a href="Emacspeak-At-Twenty.html" accesskey="u" rel=
+      "up">Emacspeak At Twenty.</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id=
+    "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access-1"></span>
+    <h3 class="section">15.14 The RESTful Web — Web Wizards And URL
+    Templates For Faster Access</h3>
+    <p>Today, the Web, based on URLs and HTTP-style protocols is
+    widely recognized as a platform in its own right. This platform
+    emerged over time — to me, Web APIs arrived in the late 90’s
+    when I observed the following with respect to my own behavior
+    on many popular sites:</p>
+    <ol>
+      <li>I opened a Web page that took a while to load (remember,
+      I was still using Emacs-W3),</li>
+      <li>I then searched through the page to find a form-field
+      that I filled out, e.g., start and end destinations on Yahoo
+      Maps,</li>
+      <li>I hit <strong>submit</strong>, and once again waited for
+      a heavy-weight HTML page to load,</li>
+      <li>And finally, I hunted through the rendered content to
+      find what I was looking for.</li>
+    </ol>
+    <p>This pattern repeated across a wide-range of interactive Web
+    sites ranging from AltaVista for search (this was pre-Google),
+    Yahoo Maps for directions, and Amazon for product searches to
+    name but a few. So I decided to automate away the pain by
+    creating Emacspeak module <strong>emacspeak-websearch</strong>
+    that did the following:</p>
+    <ol>
+      <li>Prompt via the minibuffer for the requisite fields,</li>
+      <li>Consed up an HTTP GET URL,</li>
+      <li>Retrieved this URL,</li>
+      <li>And filtered out the specific portion of the HTML DOM
+      that held the generated response.</li>
+    </ol>
+    <p>Notice that the above implementation hard-wires the CGI
+    parameter names used by a given Web application into the code
+    implemented in module <strong>emacspeak-websearch</strong>.
+    REST as a design pattern had not yet been recognized, leave
+    alone formalized, and module
+    <strong>emacspeak-websearch</strong> was initially criticized
+    as being fragile.</p>
+    <p>However, over time, the CGI parameter names remained fixed —
+    the only things that have required updating in the Emacspeak
+    code-base are the content filtering rules that extract the
+    response — for popular services, this has averaged about one to
+    two times a year.</p>
+    <p>I later codified these filtering rules in terms of XPath,
+    and also integrated XSLT-based pre-processing of incoming HTML
+    content before it got handed off to Emacs-W3 — and yes,
+    Emacs/Advice once again came in handy with respect to injecting
+    XSLT pre-processing into Emacs-W3!</p>
+    <p>Later, in early 2000, I created companion module
+    <strong>emacspeak-url-templates</strong> — partially inspired
+    by Emacs’ <strong>webjump</strong> module. URL templates in
+    Emacspeak leveraged the recognized REST interaction pattern to
+    provide a large collection of Web widgets that could be quickly
+    invoked to provide rapid access to the right pieces of
+    information on the Web.</p>
+    <p>The final icing on the cake was the arrival of RSS and Atom
+    feeds and the consequent deep-linking into content-rich sites —
+    this meant that Emacspeak could provide audio renderings of
+    useful content without having to deal with complex visual
+    navigation! While Google Reader existed, Emacspeak provided a
+    light-weight <strong>greader</strong> client for managing ones
+    feed subscriptions; with the demise of Google Reader, I
+    implemented module <strong>emacspeak-feeds</strong> for
+    organizing feeds on the Emacspeak desktop. A companion package
+    <strong>emacspeak-webspace</strong> implements additional
+    goodies including a continuously updating ticker of headlines
+    taken from the user’s collection of subscribed feeds.</p>
   </div>
   <hr />
-  <span id=
-  "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access-1"></span>
-  <h3 class="section">15.14 The RESTful Web — Web Wizards And URL
-  Templates For Faster Access</h3>
-  <p>Today, the Web, based on URLs and HTTP-style protocols is
-  widely recognized as a platform in its own right. This platform
-  emerged over time — to me, Web APIs arrived in the late 90’s when
-  I observed the following with respect to my own behavior on many
-  popular sites:</p>
-  <ol>
-    <li>I opened a Web page that took a while to load (remember, I
-    was still using Emacs-W3),</li>
-    <li>I then searched through the page to find a form-field that
-    I filled out, e.g., start and end destinations on Yahoo
-    Maps,</li>
-    <li>I hit <strong>submit</strong>, and once again waited for a
-    heavy-weight HTML page to load,</li>
-    <li>And finally, I hunted through the rendered content to find
-    what I was looking for.</li>
-  </ol>
-  <p>This pattern repeated across a wide-range of interactive Web
-  sites ranging from AltaVista for search (this was pre-Google),
-  Yahoo Maps for directions, and Amazon for product searches to
-  name but a few. So I decided to automate away the pain by
-  creating Emacspeak module <strong>emacspeak-websearch</strong>
-  that did the following:</p>
-  <ol>
-    <li>Prompt via the minibuffer for the requisite fields,</li>
-    <li>Consed up an HTTP GET URL,</li>
-    <li>Retrieved this URL,</li>
-    <li>And filtered out the specific portion of the HTML DOM that
-    held the generated response.</li>
-  </ol>
-  <p>Notice that the above implementation hard-wires the CGI
-  parameter names used by a given Web application into the code
-  implemented in module <strong>emacspeak-websearch</strong>. REST
-  as a design pattern had not yet been recognized, leave alone
-  formalized, and module <strong>emacspeak-websearch</strong> was
-  initially criticized as being fragile.</p>
-  <p>However, over time, the CGI parameter names remained fixed —
-  the only things that have required updating in the Emacspeak
-  code-base are the content filtering rules that extract the
-  response — for popular services, this has averaged about one to
-  two times a year.</p>
-  <p>I later codified these filtering rules in terms of XPath, and
-  also integrated XSLT-based pre-processing of incoming HTML
-  content before it got handed off to Emacs-W3 — and yes,
-  Emacs/Advice once again came in handy with respect to injecting
-  XSLT pre-processing into Emacs-W3!</p>
-  <p>Later, in early 2000, I created companion module
-  <strong>emacspeak-url-templates</strong> — partially inspired by
-  Emacs’ <strong>webjump</strong> module. URL templates in
-  Emacspeak leveraged the recognized REST interaction pattern to
-  provide a large collection of Web widgets that could be quickly
-  invoked to provide rapid access to the right pieces of
-  information on the Web.</p>
-  <p>The final icing on the cake was the arrival of RSS and Atom
-  feeds and the consequent deep-linking into content-rich sites —
-  this meant that Emacspeak could provide audio renderings of
-  useful content without having to deal with complex visual
-  navigation! While Google Reader existed, Emacspeak provided a
-  light-weight <strong>greader</strong> client for managing ones
-  feed subscriptions; with the demise of Google Reader, I
-  implemented module <strong>emacspeak-feeds</strong> for
-  organizing feeds on the Emacspeak desktop. A companion package
-  <strong>emacspeak-webspace</strong> implements additional goodies
-  including a continuously updating ticker of headlines taken from
-  the user’s collection of subscribed feeds.</p>
-  <hr />
   <div class="header">
     <p>Next: <a href=
-    "Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs.html"
-    accesskey="n" rel="next">Mashing It Up --- Leveraging Evolving
-    Web APIs</a>, Previous: <a href=
-    "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html"
-    accesskey="p" rel="prev">Social Web --- EMail Instant Messaging
-    Blogging And Tweeting Using Open Protocols</a>, Up: <a href=
-    "Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At
-    Twenty</a> &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    "Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs.html">
+    Mashing It Up — Leveraging Evolving Web APIs</a>, Previous:
+    <a href=
+    "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html">
+    Social Web — EMail, Instant Messaging, Blogging And Tweeting
+    Using Open Protocols</a>, Up: <a href=
+    "Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href="Concept-Index.html"
+    title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

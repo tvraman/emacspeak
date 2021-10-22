@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,118 +54,237 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dtable_002dui"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dtabulate.html" accesskey="n"
-    rel="next">emacspeak-tabulate</a>, Previous: <a href=
-    "emacspeak_002dtable.html" accesskey="p" rel=
-    "prev">emacspeak-table</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dtable_002dui-1"></span>
-  <h3 class="section">12.182 emacspeak-table-ui</h3>
-  <p>User interface to tables</p><span id=
-  "Emacspeak_002dTable_002dUi-Commands"></span>
-  <h4 class="subsection">12.182.1 Emacspeak-Table-Ui
-  Commands</h4><span id=
-  "emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring"></span>
-  <h4 class="subsubsection">12.182.1.1
-  emacspeak-table-copy-current-element-to-kill-ring</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring">
-    Command:
-    <strong>emacspeak-table-copy-current-element-to-kill-ring</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t w</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-w"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t w</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-w"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Copy current table element to kill ring.
+  <div class="section" id="emacspeak_002dtable_002dui">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dtabulate.html" accesskey="n"
+      rel="next">emacspeak-tabulate</a>, Previous: <a href=
+      "emacspeak_002dtable.html" accesskey="p" rel=
+      "prev">emacspeak-table</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dtable_002dui-1"></span>
+    <h3 class="section">12.182 emacspeak-table-ui</h3>
+    <p>User interface to tables</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dTable_002dUi-Commands" accesskey=
+      "1">Emacspeak-Table-Ui Commands</a></li>
+    </ul>
+    <div class="subsection" id=
+    "Emacspeak_002dTable_002dUi-Commands">
+      <h4 class="subsection">12.182.1 Emacspeak-Table-Ui
+      Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring"
+        accesskey=
+        "1">emacspeak-table-copy-current-element-to-kill-ring</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister"
+        accesskey=
+        "2">emacspeak-table-copy-current-element-to-register</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dcopy_002dto_002dclipboard"
+        accesskey="3">emacspeak-table-copy-to-clipboard</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion"
+        accesskey=
+        "4">emacspeak-table-display-table-in-region</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dfind_002dcsv_002dfile" accesskey=
+        "5">emacspeak-table-find-csv-file</a></li>
+        <li><a href="#emacspeak_002dtable_002dfind_002dfile"
+        accesskey="6">emacspeak-table-find-file</a></li>
+        <li><a href="#emacspeak_002dtable_002dgoto" accesskey=
+        "7">emacspeak-table-goto</a></li>
+        <li><a href="#emacspeak_002dtable_002dgoto_002dbottom"
+        accesskey="8">emacspeak-table-goto-bottom</a></li>
+        <li><a href="#emacspeak_002dtable_002dgoto_002dleft"
+        accesskey="9">emacspeak-table-goto-left</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dgoto_002dright">emacspeak-table-goto-right</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dgoto_002dtop">emacspeak-table-goto-top</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dmode">emacspeak-table-mode</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dnext_002dcolumn">emacspeak-table-next-column</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dnext_002drow">emacspeak-table-next-row</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dpaste_002dfrom_002dclipboard">emacspeak-table-paste-from-clipboard</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dprevious_002dcolumn">emacspeak-table-previous-column</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dprevious_002drow">emacspeak-table-previous-row</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dsearch">emacspeak-table-search</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dsearch_002dcolumn">emacspeak-table-search-column</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dsearch_002dheaders">emacspeak-table-search-headers</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dsearch_002drow">emacspeak-table-search-row</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod">
+        emacspeak-table-select-automatic-speaking-method</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn">
+        emacspeak-table-sort-on-current-column</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
+        emacspeak-table-speak-both-headers-and-element</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered">emacspeak-table-speak-column-filtered</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
+        emacspeak-table-speak-column-header-and-element</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002dcoordinates">emacspeak-table-speak-coordinates</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002dcurrent_002delement">emacspeak-table-speak-current-element</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002ddimensions">emacspeak-table-speak-dimensions</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002drow_002dfiltered">emacspeak-table-speak-row-filtered</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
+        emacspeak-table-speak-row-header-and-element</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dui_002dfilter_002dload">emacspeak-table-ui-filter-load</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dui_002dfilter_002dsave">emacspeak-table-ui-filter-save</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dview_002dcsv_002dbuffer">emacspeak-table-view-csv-buffer</a></li>
+        <li><a href=
+        "#emacspeak_002dtable_002dview_002dcsv_002durl">emacspeak-table-view-csv-url</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring">
+        <h4 class="subsubsection">12.182.1.1
+        emacspeak-table-copy-current-element-to-kill-ring</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-copy-current-element-to-kill-ring</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-w'><span><kbd>C-e C-t
+              w</kbd> <a href='#index-C_002de-C_002dt-w' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-w'>
+              <span><kbd>&lt;fn&gt; C-t w</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-w' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Copy current table element to kill ring.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister"></span>
-  <h4 class="subsubsection">12.182.1.2
-  emacspeak-table-copy-current-element-to-register</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister">
-    Command:
-    <strong>emacspeak-table-copy-current-element-to-register</strong>
-    <em>(register)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t x</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-x"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t x</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-x"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Copy current table element to specified register.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister">
+        <h4 class="subsubsection">12.182.1.2
+        emacspeak-table-copy-current-element-to-register</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-copy-current-element-to-register</strong>
+          <em>(register)</em> <a href=
+          '#index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-x'><span><kbd>C-e C-t
+              x</kbd> <a href='#index-C_002de-C_002dt-x' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-x'>
+              <span><kbd>&lt;fn&gt; C-t x</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-x' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Copy current table element to specified register.
 
 (fn REGISTER)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dcopy_002dto_002dclipboard"></span>
-  <h4 class="subsubsection">12.182.1.3
-  emacspeak-table-copy-to-clipboard</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard">
-    Command:
-    <strong>emacspeak-table-copy-to-clipboard</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t k</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-k"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t k</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-k"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Copy table in current buffer to the table clipboard.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dcopy_002dto_002dclipboard">
+        <h4 class="subsubsection">12.182.1.3
+        emacspeak-table-copy-to-clipboard</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-copy-to-clipboard</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dcopy_002dto_002dclipboard'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-k'><span><kbd>C-e C-t
+              k</kbd> <a href='#index-C_002de-C_002dt-k' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-k'>
+              <span><kbd>&lt;fn&gt; C-t k</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-k' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Copy table in current buffer to the table clipboard.
 Current buffer must be in emacspeak-table mode.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion"></span>
-  <h4 class="subsubsection">12.182.1.4
-  emacspeak-table-display-table-in-region</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion">
-    Command:
-    <strong>emacspeak-table-display-table-in-region</strong>
-    <em>(start end)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e M-i</kbd></dt>
-        <dd><span id="index-C_002de-M_002di"></span></dd>
-        <dt><kbd>&lt;fn&gt; M-i</kbd></dt>
-        <dd><span id="index-_003cfn_003e-M_002di"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Recognize tabular data in current region and display it in table
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion">
+        <h4 class="subsubsection">12.182.1.4
+        emacspeak-table-display-table-in-region</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-display-table-in-region</strong>
+          <em>(start end)</em> <a href=
+          '#index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-M_002di'><span><kbd>C-e
+              M-i</kbd> <a href='#index-C_002de-M_002di' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-M_002di'>
+              <span><kbd>&lt;fn&gt; M-i</kbd> <a href=
+              '#index-_003cfn_003e-M_002di' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Recognize tabular data in current region and display it in table
 browsing mode in a a separate buffer.
 emacspeak table mode is designed to let you browse tabular data using
 all the power of the two-dimensional spatial layout while giving you
@@ -174,47 +296,61 @@ the documentation on the table browser.
 
 (fn START END)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dfind_002dcsv_002dfile"></span>
-  <h4 class="subsubsection">12.182.1.5
-  emacspeak-table-find-csv-file</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dfind_002dcsv_002dfile">
-    Command: <strong>emacspeak-table-find-csv-file</strong>
-    <em>(filename)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t ,</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-_002c"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t ,</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_002c"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dfind_002dcsv_002dfile-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Process a csv (comma separated values) file.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dfind_002dcsv_002dfile">
+        <h4 class="subsubsection">12.182.1.5
+        emacspeak-table-find-csv-file</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dfind_002dcsv_002dfile">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-find-csv-file</strong>
+          <em>(filename)</em> <a href=
+          '#index-emacspeak_002dtable_002dfind_002dcsv_002dfile'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-_002c'><span><kbd>C-e
+              C-t ,</kbd> <a href='#index-C_002de-C_002dt-_002c'
+              class='copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_002c'>
+              <span><kbd>&lt;fn&gt; C-t ,</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_002c' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dfind_002dcsv_002dfile-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Process a csv (comma separated values) file.
 The processed  data is presented using emacspeak table navigation. 
 
 (fn FILENAME)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dfind_002dfile"></span>
-  <h4 class="subsubsection">12.182.1.6
-  emacspeak-table-find-file</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dfind_002dfile">Command:
-    <strong>emacspeak-table-find-file</strong>
-    <em>(filename)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dtable_002dfind_002dfile-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Open a file containing table data and display it in table mode.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dfind_002dfile">
+        <h4 class="subsubsection">12.182.1.6
+        emacspeak-table-find-file</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dfind_002dfile">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-find-file</strong>
+          <em>(filename)</em> <a href=
+          '#index-emacspeak_002dtable_002dfind_002dfile' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dtable_002dfind_002dfile-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
 all the power of the two-dimensional spatial layout while giving you
 sufficient contextual information.  The etc/tables subdirectory of the
@@ -225,140 +361,203 @@ the documentation on the table browser.
 
 (fn FILENAME)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dgoto"></span>
-  <h4 class="subsubsection">12.182.1.7 emacspeak-table-goto</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dgoto">Command:
-    <strong>emacspeak-table-goto</strong> <em>(row
-    column)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t j</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-j"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t j</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-j"></span></dd>
-      </dl><span id="index-emacspeak_002dtable_002dgoto-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Prompt for a table cell coordinates and jump to it.
+      <div class="subsubsection" id="emacspeak_002dtable_002dgoto">
+        <h4 class="subsubsection">12.182.1.7
+        emacspeak-table-goto</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dgoto"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-table-goto</strong> <em>(row
+          column)</em> <a href=
+          '#index-emacspeak_002dtable_002dgoto' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-j'><span><kbd>C-e C-t
+              j</kbd> <a href='#index-C_002de-C_002dt-j' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-j'>
+              <span><kbd>&lt;fn&gt; C-t j</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-j' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dgoto-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Prompt for a table cell coordinates and jump to it.
 
 (fn ROW COLUMN)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dgoto_002dbottom"></span>
-  <h4 class="subsubsection">12.182.1.8
-  emacspeak-table-goto-bottom</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dgoto_002dbottom">Command:
-    <strong>emacspeak-table-goto-bottom</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t B</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-B"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t B</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-B"></span></dd>
-        <dt><kbd>C-e C-t M-&gt;</kbd></dt>
-        <dd><span id=
-        "index-C_002de-C_002dt-M_002d_003e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t M-&gt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-M_002d_003e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dgoto_002dbottom-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Goes to the bottom of the current column.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dgoto_002dbottom">
+        <h4 class="subsubsection">12.182.1.8
+        emacspeak-table-goto-bottom</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dgoto_002dbottom">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-goto-bottom</strong>
+          <a href='#index-emacspeak_002dtable_002dgoto_002dbottom'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-B'><span><kbd>C-e C-t
+              B</kbd> <a href='#index-C_002de-C_002dt-B' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-B'>
+              <span><kbd>&lt;fn&gt; C-t B</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-B' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-M_002d_003e'>
+              <span><kbd>C-e C-t M-&gt;</kbd> <a href=
+              '#index-C_002de-C_002dt-M_002d_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-M_002d_003e'>
+              <span><kbd>&lt;fn&gt; C-t M-&gt;</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-M_002d_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dgoto_002dbottom-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Goes to the bottom of the current column.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dgoto_002dleft"></span>
-  <h4 class="subsubsection">12.182.1.9
-  emacspeak-table-goto-left</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dgoto_002dleft">Command:
-    <strong>emacspeak-table-goto-left</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t A</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-A"></span></dd>
-        <dt><kbd>C-e C-t &lt;</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-_003c"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t A</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-A"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t &lt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_003c"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dgoto_002dleft-1"></span>
-      <div class="format">
-        <pre class="format">Goes to the left of the current row.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dgoto_002dleft">
+        <h4 class="subsubsection">12.182.1.9
+        emacspeak-table-goto-left</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dgoto_002dleft">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-goto-left</strong> <a href=
+          '#index-emacspeak_002dtable_002dgoto_002dleft' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-A'><span><kbd>C-e C-t
+              A</kbd> <a href='#index-C_002de-C_002dt-A' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-_003c'><span><kbd>C-e
+              C-t &lt;</kbd> <a href='#index-C_002de-C_002dt-_003c'
+              class='copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-A'>
+              <span><kbd>&lt;fn&gt; C-t A</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-A' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_003c'>
+              <span><kbd>&lt;fn&gt; C-t &lt;</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_003c' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dgoto_002dleft-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Goes to the left of the current row.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dgoto_002dright"></span>
-  <h4 class="subsubsection">12.182.1.10
-  emacspeak-table-goto-right</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dgoto_002dright">Command:
-    <strong>emacspeak-table-goto-right</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t E</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-E"></span></dd>
-        <dt><kbd>C-e C-t &gt;</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-_003e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t E</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-E"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t &gt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_003e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dgoto_002dright-1"></span>
-      <div class="format">
-        <pre class="format">Goes to the right of the current row.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dgoto_002dright">
+        <h4 class="subsubsection">12.182.1.10
+        emacspeak-table-goto-right</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dgoto_002dright">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-goto-right</strong>
+          <a href='#index-emacspeak_002dtable_002dgoto_002dright'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-E'><span><kbd>C-e C-t
+              E</kbd> <a href='#index-C_002de-C_002dt-E' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-_003e'><span><kbd>C-e
+              C-t &gt;</kbd> <a href='#index-C_002de-C_002dt-_003e'
+              class='copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-E'>
+              <span><kbd>&lt;fn&gt; C-t E</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-E' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_003e'>
+              <span><kbd>&lt;fn&gt; C-t &gt;</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dgoto_002dright-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Goes to the right of the current row.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dgoto_002dtop"></span>
-  <h4 class="subsubsection">12.182.1.11
-  emacspeak-table-goto-top</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dgoto_002dtop">Command:
-    <strong>emacspeak-table-goto-top</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t T</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-T"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t T</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-T"></span></dd>
-        <dt><kbd>C-e C-t M-&lt;</kbd></dt>
-        <dd><span id=
-        "index-C_002de-C_002dt-M_002d_003c"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t M-&lt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-M_002d_003c"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dgoto_002dtop-1"></span>
-      <div class="format">
-        <pre class="format">Goes to the top of the current column.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dgoto_002dtop">
+        <h4 class="subsubsection">12.182.1.11
+        emacspeak-table-goto-top</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dgoto_002dtop">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-goto-top</strong> <a href=
+          '#index-emacspeak_002dtable_002dgoto_002dtop' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-T'><span><kbd>C-e C-t
+              T</kbd> <a href='#index-C_002de-C_002dt-T' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-T'>
+              <span><kbd>&lt;fn&gt; C-t T</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-T' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-M_002d_003c'>
+              <span><kbd>C-e C-t M-&lt;</kbd> <a href=
+              '#index-C_002de-C_002dt-M_002d_003c' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-M_002d_003c'>
+              <span><kbd>&lt;fn&gt; C-t M-&lt;</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-M_002d_003c' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dgoto_002dtop-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Goes to the top of the current column.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dmode"></span>
-  <h4 class="subsubsection">12.182.1.12 emacspeak-table-mode</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dmode">Command:
-    <strong>emacspeak-table-mode</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dtable_002dmode-1"></span>
-      <div class="format">
-        <pre class="format">Major mode for browsing tables.
-Table mode is designed to allow speech users to browse tabular data
-with full contextual feedback while retaining all the power of the
-two-dimensional spatial layout of tables.
+      <div class="subsubsection" id="emacspeak_002dtable_002dmode">
+        <h4 class="subsubsection">12.182.1.12
+        emacspeak-table-mode</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dmode"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-table-mode</strong> <a href=
+          '#index-emacspeak_002dtable_002dmode' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002dtable_002dmode-1"></span>
+            <div class="format">
+              <pre class="format">Major mode for browsing tables.
+Table mode is designed to allow speech users to browse tabular
+data with full contextual feedback while retaining all the power
+of the two-dimensional spatial layout of tables.
 
 In table mode, the arrow keys move between cells of the table.
 Emacspeak speaks the cell contents in a user-customizable way.  The
@@ -482,584 +681,803 @@ In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-table-mode-hook’, as the final
 or penultimate step during initialization.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dnext_002dcolumn"></span>
-  <h4 class="subsubsection">12.182.1.13
-  emacspeak-table-next-column</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dnext_002dcolumn">Command:
-    <strong>emacspeak-table-next-column</strong> <em>(&amp;optional
-    count)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t TAB</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-TAB"></span></dd>
-        <dt><kbd>C-e C-t C-f</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-C_002df"></span></dd>
-        <dt><kbd>C-e C-t &lt;right&gt;</kbd></dt>
-        <dd><span id=
-        "index-C_002de-C_002dt-_003cright_003e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t TAB</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-TAB"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t C-f</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-C_002df"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t &lt;right&gt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_003cright_003e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dnext_002dcolumn-1"></span>
-      <div class="format">
-        <pre class="format">Move to the next column if possible
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dnext_002dcolumn">
+        <h4 class="subsubsection">12.182.1.13
+        emacspeak-table-next-column</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dnext_002dcolumn">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-next-column</strong>
+          <em>(&amp;optional count)</em> <a href=
+          '#index-emacspeak_002dtable_002dnext_002dcolumn' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-TAB'><span><kbd>C-e C-t
+              TAB</kbd> <a href='#index-C_002de-C_002dt-TAB' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-C_002df'><span><kbd>C-e
+              C-t C-f</kbd> <a href=
+              '#index-C_002de-C_002dt-C_002df' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-_003cright_003e'>
+              <span><kbd>C-e C-t &lt;right&gt;</kbd> <a href=
+              '#index-C_002de-C_002dt-_003cright_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-TAB'>
+              <span><kbd>&lt;fn&gt; C-t TAB</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-TAB' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-C_002df'>
+              <span><kbd>&lt;fn&gt; C-t C-f</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-C_002df' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_003cright_003e'>
+              <span><kbd>&lt;fn&gt; C-t &lt;right&gt;</kbd>
+              <a href='#index-_003cfn_003e-C_002dt-_003cright_003e'
+              class='copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dnext_002dcolumn-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Move to the next column if possible
 
 (fn &amp;optional COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dnext_002drow"></span>
-  <h4 class="subsubsection">12.182.1.14
-  emacspeak-table-next-row</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dnext_002drow">Command:
-    <strong>emacspeak-table-next-row</strong> <em>(&amp;optional
-    count)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t n</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-n"></span></dd>
-        <dt><kbd>C-e C-t C-n</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-C_002dn"></span></dd>
-        <dt><kbd>C-e C-t &lt;down&gt;</kbd></dt>
-        <dd><span id=
-        "index-C_002de-C_002dt-_003cdown_003e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t n</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-n"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t C-n</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-C_002dn"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t &lt;down&gt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_003cdown_003e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dnext_002drow-1"></span>
-      <div class="format">
-        <pre class="format">Move to the next row if possible
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dnext_002drow">
+        <h4 class="subsubsection">12.182.1.14
+        emacspeak-table-next-row</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dnext_002drow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-next-row</strong>
+          <em>(&amp;optional count)</em> <a href=
+          '#index-emacspeak_002dtable_002dnext_002drow' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-n'><span><kbd>C-e C-t
+              n</kbd> <a href='#index-C_002de-C_002dt-n' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-C_002dn'><span><kbd>C-e
+              C-t C-n</kbd> <a href=
+              '#index-C_002de-C_002dt-C_002dn' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-_003cdown_003e'>
+              <span><kbd>C-e C-t &lt;down&gt;</kbd> <a href=
+              '#index-C_002de-C_002dt-_003cdown_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-n'>
+              <span><kbd>&lt;fn&gt; C-t n</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-n' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-C_002dn'>
+              <span><kbd>&lt;fn&gt; C-t C-n</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-C_002dn' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_003cdown_003e'>
+              <span><kbd>&lt;fn&gt; C-t &lt;down&gt;</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_003cdown_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dnext_002drow-1"></span>
+            <div class="format">
+              <pre class="format">Move to the next row if possible
 
 (fn &amp;optional COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dpaste_002dfrom_002dclipboard"></span>
-  <h4 class="subsubsection">12.182.1.15
-  emacspeak-table-paste-from-clipboard</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard">
-    Command:
-    <strong>emacspeak-table-paste-from-clipboard</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Paste the emacspeak table clipboard into the current buffer.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dpaste_002dfrom_002dclipboard">
+        <h4 class="subsubsection">12.182.1.15
+        emacspeak-table-paste-from-clipboard</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-paste-from-clipboard</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Paste the emacspeak table clipboard into the current buffer.
 Use the major  mode of this buffer to  decide what kind of table
 markup to use.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dprevious_002dcolumn"></span>
-  <h4 class="subsubsection">12.182.1.16
-  emacspeak-table-previous-column</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dprevious_002dcolumn">
-    Command: <strong>emacspeak-table-previous-column</strong>
-    <em>(&amp;optional count)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t C-b</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-C_002db"></span></dd>
-        <dt><kbd>C-e C-t &lt;left&gt;</kbd></dt>
-        <dd><span id=
-        "index-C_002de-C_002dt-_003cleft_003e"></span></dd>
-        <dt><kbd>C-e C-t S-&lt;tab&gt;</kbd></dt>
-        <dd><span id=
-        "index-C_002de-C_002dt-S_002d_003ctab_003e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t C-b</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-C_002db"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t &lt;left&gt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_003cleft_003e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t S-&lt;tab&gt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-S_002d_003ctab_003e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dprevious_002dcolumn-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Move to the previous column  if possible
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dprevious_002dcolumn">
+        <h4 class="subsubsection">12.182.1.16
+        emacspeak-table-previous-column</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dprevious_002dcolumn">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-previous-column</strong>
+          <em>(&amp;optional count)</em> <a href=
+          '#index-emacspeak_002dtable_002dprevious_002dcolumn'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-C_002db'><span><kbd>C-e
+              C-t C-b</kbd> <a href=
+              '#index-C_002de-C_002dt-C_002db' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-_003cleft_003e'>
+              <span><kbd>C-e C-t &lt;left&gt;</kbd> <a href=
+              '#index-C_002de-C_002dt-_003cleft_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-S_002d_003ctab_003e'>
+              <span><kbd>C-e C-t S-&lt;tab&gt;</kbd> <a href=
+              '#index-C_002de-C_002dt-S_002d_003ctab_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-C_002db'>
+              <span><kbd>&lt;fn&gt; C-t C-b</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-C_002db' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_003cleft_003e'>
+              <span><kbd>&lt;fn&gt; C-t &lt;left&gt;</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_003cleft_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id=
+              'index-_003cfn_003e-C_002dt-S_002d_003ctab_003e'>
+              <span><kbd>&lt;fn&gt; C-t S-&lt;tab&gt;</kbd>
+              <a href='#index-_003cfn_003e-C_002dt-S_002d_003ctab_003e'
+              class='copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dprevious_002dcolumn-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Move to the previous column  if possible
 
 (fn &amp;optional COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dprevious_002drow"></span>
-  <h4 class="subsubsection">12.182.1.17
-  emacspeak-table-previous-row</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dprevious_002drow">
-    Command: <strong>emacspeak-table-previous-row</strong>
-    <em>(&amp;optional count)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t p</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-p"></span></dd>
-        <dt><kbd>C-e C-t C-p</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-C_002dp"></span></dd>
-        <dt><kbd>C-e C-t &lt;up&gt;</kbd></dt>
-        <dd><span id=
-        "index-C_002de-C_002dt-_003cup_003e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t p</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-p"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t C-p</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-C_002dp"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t &lt;up&gt;</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_003cup_003e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dprevious_002drow-1"></span>
-      <div class="format">
-        <pre class="format">Move to the previous row if possible
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dprevious_002drow">
+        <h4 class="subsubsection">12.182.1.17
+        emacspeak-table-previous-row</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dprevious_002drow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-previous-row</strong>
+          <em>(&amp;optional count)</em> <a href=
+          '#index-emacspeak_002dtable_002dprevious_002drow' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-p'><span><kbd>C-e C-t
+              p</kbd> <a href='#index-C_002de-C_002dt-p' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-C_002dp'><span><kbd>C-e
+              C-t C-p</kbd> <a href=
+              '#index-C_002de-C_002dt-C_002dp' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002de-C_002dt-_003cup_003e'>
+              <span><kbd>C-e C-t &lt;up&gt;</kbd> <a href=
+              '#index-C_002de-C_002dt-_003cup_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-p'>
+              <span><kbd>&lt;fn&gt; C-t p</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-p' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-C_002dp'>
+              <span><kbd>&lt;fn&gt; C-t C-p</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-C_002dp' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_003cup_003e'>
+              <span><kbd>&lt;fn&gt; C-t &lt;up&gt;</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_003cup_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dprevious_002drow-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Move to the previous row if possible
 
 (fn &amp;optional COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dsearch"></span>
-  <h4 class="subsubsection">12.182.1.18 emacspeak-table-search</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dsearch">Command:
-    <strong>emacspeak-table-search</strong> <em>(&amp;optional
-    what)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t s</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-s"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t s</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-s"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dsearch-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Search the table for matching elements.  Interactively prompts for
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dsearch">
+        <h4 class="subsubsection">12.182.1.18
+        emacspeak-table-search</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dsearch">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-search</strong>
+          <em>(&amp;optional what)</em> <a href=
+          '#index-emacspeak_002dtable_002dsearch' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-s'><span><kbd>C-e C-t
+              s</kbd> <a href='#index-C_002de-C_002dt-s' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-s'>
+              <span><kbd>&lt;fn&gt; C-t s</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-s' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dsearch-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
 the matching cell current. When called from a program, ‘what’ can
   be either ‘row’ or ‘column’.
 
 (fn &amp;optional WHAT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dsearch_002dcolumn"></span>
-  <h4 class="subsubsection">12.182.1.19
-  emacspeak-table-search-column</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dsearch_002dcolumn">
-    Command: <strong>emacspeak-table-search-column</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t C</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-C"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t C</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-C"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dsearch_002dcolumn-1"></span>
-      <div class="format">
-        <pre class="format">Search in current table column.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dsearch_002dcolumn">
+        <h4 class="subsubsection">12.182.1.19
+        emacspeak-table-search-column</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dsearch_002dcolumn">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-search-column</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dsearch_002dcolumn' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-C'><span><kbd>C-e C-t
+              C</kbd> <a href='#index-C_002de-C_002dt-C' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-C'>
+              <span><kbd>&lt;fn&gt; C-t C</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-C' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dsearch_002dcolumn-1"></span>
+            <div class="format">
+              <pre class="format">Search in current table column.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dsearch_002dheaders"></span>
-  <h4 class="subsubsection">12.182.1.20
-  emacspeak-table-search-headers</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dsearch_002dheaders">
-    Command: <strong>emacspeak-table-search-headers</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t h</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-h"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t h</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-h"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dsearch_002dheaders-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Search the table row or column headers.  Interactively prompts for
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dsearch_002dheaders">
+        <h4 class="subsubsection">12.182.1.20
+        emacspeak-table-search-headers</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dsearch_002dheaders">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-search-headers</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dsearch_002dheaders'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-h'><span><kbd>C-e C-t
+              h</kbd> <a href='#index-C_002de-C_002dt-h' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-h'>
+              <span><kbd>&lt;fn&gt; C-t h</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-h' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dsearch_002dheaders-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Search the table row or column headers.  Interactively prompts for
 row or column to search and pattern to look for.  If there is a
 match, makes the matching row or column current.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dtable_002dsearch_002drow"></span>
-  <h4 class="subsubsection">12.182.1.21
-  emacspeak-table-search-row</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dsearch_002drow">Command:
-    <strong>emacspeak-table-search-row</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t R</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-R"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t R</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-R"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dsearch_002drow-1"></span>
-      <div class="format">
-        <pre class="format">Search in current table row.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dsearch_002drow">
+        <h4 class="subsubsection">12.182.1.21
+        emacspeak-table-search-row</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtable_002dsearch_002drow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-search-row</strong>
+          <a href='#index-emacspeak_002dtable_002dsearch_002drow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-R'><span><kbd>C-e C-t
+              R</kbd> <a href='#index-C_002de-C_002dt-R' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-R'>
+              <span><kbd>&lt;fn&gt; C-t R</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-R' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dsearch_002drow-1"></span>
+            <div class="format">
+              <pre class="format">Search in current table row.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod"></span>
-  <h4 class="subsubsection">12.182.1.22
-  emacspeak-table-select-automatic-speaking-method</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod">
-    Command:
-    <strong>emacspeak-table-select-automatic-speaking-method</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t a</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-a"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t a</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-a"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Interactively select the kind of automatic speech to produce when
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod">
+        <h4 class="subsubsection">12.182.1.22
+        emacspeak-table-select-automatic-speaking-method</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-select-automatic-speaking-method</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-a'><span><kbd>C-e C-t
+              a</kbd> <a href='#index-C_002de-C_002dt-a' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-a'>
+              <span><kbd>&lt;fn&gt; C-t a</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-a' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Interactively select the kind of automatic speech to produce when
 browsing table elements
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn"></span>
-  <h4 class="subsubsection">12.182.1.23
-  emacspeak-table-sort-on-current-column</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn">
-    Command:
-    <strong>emacspeak-table-sort-on-current-column</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t #</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-_0023"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t #</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_0023"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn-1"></span>
-      <div class="format">
-        <pre class="format">Sort table on current column. 
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn">
+        <h4 class="subsubsection">12.182.1.23
+        emacspeak-table-sort-on-current-column</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-sort-on-current-column</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-_0023'><span><kbd>C-e
+              C-t #</kbd> <a href='#index-C_002de-C_002dt-_0023'
+              class='copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_0023'>
+              <span><kbd>&lt;fn&gt; C-t #</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_0023' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn-1"></span>
+            <div class="format">
+              <pre class="format">Sort table on current column. 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"></span>
-  <h4 class="subsubsection">12.182.1.24
-  emacspeak-table-speak-both-headers-and-element</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
-    Command:
-    <strong>emacspeak-table-speak-both-headers-and-element</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t b</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-b"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t b</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-b"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speak  both row and column header and table element
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
+        <h4 class="subsubsection">12.182.1.24
+        emacspeak-table-speak-both-headers-and-element</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-both-headers-and-element</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-b'><span><kbd>C-e C-t
+              b</kbd> <a href='#index-C_002de-C_002dt-b' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-b'>
+              <span><kbd>&lt;fn&gt; C-t b</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-b' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speak  both row and column header and table element
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered"></span>
-  <h4 class="subsubsection">12.182.1.25
-  emacspeak-table-speak-column-filtered</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered">
-    Command: <strong>emacspeak-table-speak-column-filtered</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t g</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-g"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t g</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-g"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speaks a table column after applying a specified column filter.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered">
+        <h4 class="subsubsection">12.182.1.25
+        emacspeak-table-speak-column-filtered</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-column-filtered</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-g'><span><kbd>C-e C-t
+              g</kbd> <a href='#index-C_002de-C_002dt-g' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-g'>
+              <span><kbd>&lt;fn&gt; C-t g</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-g' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
 
 (fn &amp;optional PREFIX)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"></span>
-  <h4 class="subsubsection">12.182.1.26
-  emacspeak-table-speak-column-header-and-element</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
-    Command:
-    <strong>emacspeak-table-speak-column-header-and-element</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t c</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-c"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t c</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-c"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-1"></span>
-      <div class="format">
-        <pre class="format">Speak  column header and table element
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
+        <h4 class="subsubsection">12.182.1.26
+        emacspeak-table-speak-column-header-and-element</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-column-header-and-element</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-c'><span><kbd>C-e C-t
+              c</kbd> <a href='#index-C_002de-C_002dt-c' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-c'>
+              <span><kbd>&lt;fn&gt; C-t c</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-c' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speak  column header and table element
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002dcoordinates"></span>
-  <h4 class="subsubsection">12.182.1.27
-  emacspeak-table-speak-coordinates</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dspeak_002dcoordinates">
-    Command:
-    <strong>emacspeak-table-speak-coordinates</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t .</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-_002e"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t .</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_002e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002dcoordinates-1"></span>
-      <div class="format">
-        <pre class="format">Speak current table coordinates.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002dcoordinates">
+        <h4 class="subsubsection">12.182.1.27
+        emacspeak-table-speak-coordinates</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002dcoordinates">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-coordinates</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dspeak_002dcoordinates'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-_002e'><span><kbd>C-e
+              C-t .</kbd> <a href='#index-C_002de-C_002dt-_002e'
+              class='copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_002e'>
+              <span><kbd>&lt;fn&gt; C-t .</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_002e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002dcoordinates-1"></span>
+            <div class="format">
+              <pre class="format">Speak current table coordinates.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002dcurrent_002delement"></span>
-  <h4 class="subsubsection">12.182.1.28
-  emacspeak-table-speak-current-element</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement">
-    Command:
-    <strong>emacspeak-table-speak-current-element</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t SPC</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-SPC"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t SPC</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-SPC"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement-1"></span>
-      <div class="format">
-        <pre class="format">Speak current table element
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002dcurrent_002delement">
+        <h4 class="subsubsection">12.182.1.28
+        emacspeak-table-speak-current-element</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-current-element</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dspeak_002dcurrent_002delement'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-SPC'><span><kbd>C-e C-t
+              SPC</kbd> <a href='#index-C_002de-C_002dt-SPC' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-SPC'>
+              <span><kbd>&lt;fn&gt; C-t SPC</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-SPC' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement-1"></span>
+            <div class="format">
+              <pre class="format">Speak current table element
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002ddimensions"></span>
-  <h4 class="subsubsection">12.182.1.29
-  emacspeak-table-speak-dimensions</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dspeak_002ddimensions">
-    Command: <strong>emacspeak-table-speak-dimensions</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t =</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-_003d"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t =</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-_003d"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002ddimensions-1"></span>
-      <div class="format">
-        <pre class="format">Speak current table dimensions.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002ddimensions">
+        <h4 class="subsubsection">12.182.1.29
+        emacspeak-table-speak-dimensions</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002ddimensions">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-dimensions</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dspeak_002ddimensions'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-_003d'><span><kbd>C-e
+              C-t =</kbd> <a href='#index-C_002de-C_002dt-_003d'
+              class='copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-_003d'>
+              <span><kbd>&lt;fn&gt; C-t =</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-_003d' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002ddimensions-1"></span>
+            <div class="format">
+              <pre class="format">Speak current table dimensions.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002drow_002dfiltered"></span>
-  <h4 class="subsubsection">12.182.1.30
-  emacspeak-table-speak-row-filtered</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered">
-    Command: <strong>emacspeak-table-speak-row-filtered</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t f</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-f"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t f</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-f"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speaks a table row after applying a specified row filter.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002drow_002dfiltered">
+        <h4 class="subsubsection">12.182.1.30
+        emacspeak-table-speak-row-filtered</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-row-filtered</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002dtable_002dspeak_002drow_002dfiltered'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-f'><span><kbd>C-e C-t
+              f</kbd> <a href='#index-C_002de-C_002dt-f' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-f'>
+              <span><kbd>&lt;fn&gt; C-t f</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-f' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
 
 (fn &amp;optional PREFIX)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement"></span>
-  <h4 class="subsubsection">12.182.1.31
-  emacspeak-table-speak-row-header-and-element</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
-    Command:
-    <strong>emacspeak-table-speak-row-header-and-element</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t r</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-r"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t r</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-r"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement-1"></span>
-      <div class="format">
-        <pre class="format">Speak  row header and table element
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
+        <h4 class="subsubsection">12.182.1.31
+        emacspeak-table-speak-row-header-and-element</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-speak-row-header-and-element</strong>
+          <a href=
+          '#index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-r'><span><kbd>C-e C-t
+              r</kbd> <a href='#index-C_002de-C_002dt-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-r'>
+              <span><kbd>&lt;fn&gt; C-t r</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speak  row header and table element
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dui_002dfilter_002dload"></span>
-  <h4 class="subsubsection">12.182.1.32
-  emacspeak-table-ui-filter-load</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dui_002dfilter_002dload">
-    Command: <strong>emacspeak-table-ui-filter-load</strong>
-    <em>(file)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t M-l</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-M_002dl"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t M-l</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-M_002dl"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dui_002dfilter_002dload-1"></span>
-      <div class="format">
-        <pre class="format">Load saved filter settings.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dui_002dfilter_002dload">
+        <h4 class="subsubsection">12.182.1.32
+        emacspeak-table-ui-filter-load</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dui_002dfilter_002dload">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-ui-filter-load</strong>
+          <em>(file)</em> <a href=
+          '#index-emacspeak_002dtable_002dui_002dfilter_002dload'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-M_002dl'><span><kbd>C-e
+              C-t M-l</kbd> <a href=
+              '#index-C_002de-C_002dt-M_002dl' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-M_002dl'>
+              <span><kbd>&lt;fn&gt; C-t M-l</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-M_002dl' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dui_002dfilter_002dload-1"></span>
+            <div class="format">
+              <pre class="format">Load saved filter settings.
 
 (fn FILE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dui_002dfilter_002dsave"></span>
-  <h4 class="subsubsection">12.182.1.33
-  emacspeak-table-ui-filter-save</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dui_002dfilter_002dsave">
-    Command: <strong>emacspeak-table-ui-filter-save</strong>
-    <em>(file)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t M-s</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-M_002ds"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t M-s</kbd></dt>
-        <dd><span id=
-        "index-_003cfn_003e-C_002dt-M_002ds"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dui_002dfilter_002dsave-1"></span>
-      <div class="format">
-        <pre class="format">Save out filter settings.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dui_002dfilter_002dsave">
+        <h4 class="subsubsection">12.182.1.33
+        emacspeak-table-ui-filter-save</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dui_002dfilter_002dsave">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-ui-filter-save</strong>
+          <em>(file)</em> <a href=
+          '#index-emacspeak_002dtable_002dui_002dfilter_002dsave'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-M_002ds'><span><kbd>C-e
+              C-t M-s</kbd> <a href=
+              '#index-C_002de-C_002dt-M_002ds' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-M_002ds'>
+              <span><kbd>&lt;fn&gt; C-t M-s</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-M_002ds' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dui_002dfilter_002dsave-1"></span>
+            <div class="format">
+              <pre class="format">Save out filter settings.
 
 (fn FILE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dview_002dcsv_002dbuffer"></span>
-  <h4 class="subsubsection">12.182.1.34
-  emacspeak-table-view-csv-buffer</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dview_002dcsv_002dbuffer">
-    Command: <strong>emacspeak-table-view-csv-buffer</strong>
-    <em>(&amp;optional buffer-name)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-t v</kbd></dt>
-        <dd><span id="index-C_002de-C_002dt-v"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-t v</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dt-v"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtable_002dview_002dcsv_002dbuffer-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Process a csv (comma separated values) data.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dview_002dcsv_002dbuffer">
+        <h4 class="subsubsection">12.182.1.34
+        emacspeak-table-view-csv-buffer</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dview_002dcsv_002dbuffer">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-view-csv-buffer</strong>
+          <em>(&amp;optional buffer-name)</em> <a href=
+          '#index-emacspeak_002dtable_002dview_002dcsv_002dbuffer'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dt-v'><span><kbd>C-e C-t
+              v</kbd> <a href='#index-C_002de-C_002dt-v' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dt-v'>
+              <span><kbd>&lt;fn&gt; C-t v</kbd> <a href=
+              '#index-_003cfn_003e-C_002dt-v' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtable_002dview_002dcsv_002dbuffer-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Process a csv (comma separated values) data.
 The processed  data is  presented using emacspeak table navigation. 
 
 (fn &amp;optional BUFFER-NAME)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtable_002dview_002dcsv_002durl"></span>
-  <h4 class="subsubsection">12.182.1.35
-  emacspeak-table-view-csv-url</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtable_002dview_002dcsv_002durl">
-    Command: <strong>emacspeak-table-view-csv-url</strong> <em>(url
-    &amp;optional buffer-name)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dtable_002dview_002dcsv_002durl-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Process a csv (comma separated values) data at  ‘URL’.
+      <div class="subsubsection" id=
+      "emacspeak_002dtable_002dview_002dcsv_002durl">
+        <h4 class="subsubsection">12.182.1.35
+        emacspeak-table-view-csv-url</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtable_002dview_002dcsv_002durl">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-table-view-csv-url</strong>
+          <em>(url &amp;optional buffer-name)</em> <a href=
+          '#index-emacspeak_002dtable_002dview_002dcsv_002durl'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dtable_002dview_002dcsv_002durl-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Process a csv (comma separated values) data at  ‘URL’.
 The processed  data is  presented using emacspeak table navigation. 
 
 (fn URL &amp;optional BUFFER-NAME)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002dtabulate.html" accesskey="n"
-    rel="next">emacspeak-tabulate</a>, Previous: <a href=
-    "emacspeak_002dtable.html" accesskey="p" rel=
-    "prev">emacspeak-table</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    <p>Next: <a href=
+    "emacspeak_002dtabulate.html">emacspeak-tabulate</a>, Previous:
+    <a href="emacspeak_002dtable.html">emacspeak-table</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

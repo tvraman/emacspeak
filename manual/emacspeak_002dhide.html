@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,94 +54,132 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dhide"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dhide_002dlines.html" accesskey=
-    "n" rel="next">emacspeak-hide-lines</a>, Previous: <a href=
-    "emacspeak_002dhelm.html" accesskey="p" rel=
-    "prev">emacspeak-helm</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dhide-1"></span>
-  <h3 class="section">12.96 emacspeak-hide</h3>
-  <p>Flexible hide and show for emacspeak. This module allows one
-  to easily hide or expose blocks of lines starting with a common
-  prefix. It is motivated by the need to flexibly hide quoted text
-  in email but is designed to be more general. the prefix parsing
-  is inspired by filladapt.el</p><span id=
-  "Emacspeak_002dHide-Commands"></span>
-  <h4 class="subsection">12.96.1 Emacspeak-Hide
-  Commands</h4><span id=
-  "emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks"></span>
-  <h4 class="subsubsection">12.96.1.1
-  emacspeak-hide-or-expose-all-blocks</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks">
-    Command:
-    <strong>emacspeak-hide-or-expose-all-blocks</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks-1">
-      </span>
-      <div class="format">
-        <pre class="format">Hide or expose all blocks.
+  <div class="section" id="emacspeak_002dhide">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dhide_002dlines.html"
+      accesskey="n" rel="next">emacspeak-hide-lines</a>, Previous:
+      <a href="emacspeak_002dhelm.html" accesskey="p" rel=
+      "prev">emacspeak-helm</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dhide-1"></span>
+    <h3 class="section">12.96 emacspeak-hide</h3>
+    <p>Flexible hide and show for emacspeak. This module allows one
+    to easily hide or expose blocks of lines starting with a common
+    prefix. It is motivated by the need to flexibly hide quoted
+    text in email but is designed to be more general. the prefix
+    parsing is inspired by filladapt.el</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dHide-Commands" accesskey=
+      "1">Emacspeak-Hide Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dHide-Commands">
+      <h4 class="subsection">12.96.1 Emacspeak-Hide Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks"
+        accesskey="1">emacspeak-hide-or-expose-all-blocks</a></li>
+        <li><a href=
+        "#emacspeak_002dhide_002dor_002dexpose_002dblock"
+        accesskey="2">emacspeak-hide-or-expose-block</a></li>
+        <li><a href=
+        "#emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix"
+        accesskey=
+        "3">emacspeak-hide-speak-block-sans-prefix</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks">
+        <h4 class="subsubsection">12.96.1.1
+        emacspeak-hide-or-expose-all-blocks</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-hide-or-expose-all-blocks</strong>
+          <a href=
+          '#index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks-1">
+            </span>
+            <div class="format">
+              <pre class="format">Hide or expose all blocks.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dhide_002dor_002dexpose_002dblock"></span>
-  <h4 class="subsubsection">12.96.1.2
-  emacspeak-hide-or-expose-block</h4>
-  <dl>
-    <dt id="index-emacspeak_002dhide_002dor_002dexpose_002dblock">
-    Command: <strong>emacspeak-hide-or-expose-block</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e j</kbd></dt>
-        <dd><span id="index-C_002de-j"></span></dd>
-        <dt><kbd>&lt;fn&gt; j</kbd></dt>
-        <dd><span id="index-_003cfn_003e-j"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dhide_002dor_002dexpose_002dblock-1"></span>
-      <div class="format">
-        <pre class="format">Hide or expose a block of text.
+      <div class="subsubsection" id=
+      "emacspeak_002dhide_002dor_002dexpose_002dblock">
+        <h4 class="subsubsection">12.96.1.2
+        emacspeak-hide-or-expose-block</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dhide_002dor_002dexpose_002dblock">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-hide-or-expose-block</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002dhide_002dor_002dexpose_002dblock'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-j'><span><kbd>C-e j</kbd>
+              <a href='#index-C_002de-j' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-j'><span><kbd>&lt;fn&gt;
+              j</kbd> <a href='#index-_003cfn_003e-j' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dhide_002dor_002dexpose_002dblock-1"></span>
+            <div class="format">
+              <pre class="format">Hide or expose a block of text.
  Optional interactive prefix arg causes all blocks in current
 buffer to be hidden or exposed.
 
 (fn &amp;optional PREFIX)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix"></span>
-  <h4 class="subsubsection">12.96.1.3
-  emacspeak-hide-speak-block-sans-prefix</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix">
-    Command:
-    <strong>emacspeak-hide-speak-block-sans-prefix</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-j</kbd></dt>
-        <dd><span id="index-C_002de-C_002dj"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-j</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dj"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speaks current block after stripping its prefix. 
+      <div class="subsubsection" id=
+      "emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix">
+        <h4 class="subsubsection">12.96.1.3
+        emacspeak-hide-speak-block-sans-prefix</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-hide-speak-block-sans-prefix</strong>
+          <a href=
+          '#index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002dj'><span><kbd>C-e
+              C-j</kbd> <a href='#index-C_002de-C_002dj' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dj'>
+              <span><kbd>&lt;fn&gt; C-j</kbd> <a href=
+              '#index-_003cfn_003e-C_002dj' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speaks current block after stripping its prefix. 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
 </body>
 </html>

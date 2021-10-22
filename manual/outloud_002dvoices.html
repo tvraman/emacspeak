@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -29,11 +31,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -42,6 +44,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -50,51 +53,74 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="outloud_002dvoices"></span>
-  <div class="header">
-    <p>Next: <a href="plain_002dvoices.html" accesskey="n" rel=
-    "next">plain-voices</a>, Previous: <a href=
-    "mac_002dvoices.html" accesskey="p" rel="prev">mac-voices</a>,
-    Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u"
-    rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="outloud_002dvoices-1"></span>
-  <h3 class="section">12.223 outloud-voices</h3>
-  <p>Interface to outloud server. This module is IBM ViaVoice
-  Outloud specific.</p><span id=
-  "Outloud_002dVoices-Commands"></span>
-  <h4 class="subsection">12.223.1 Outloud-Voices
-  Commands</h4><span id="outloud"></span>
-  <h4 class="subsubsection">12.223.1.1 outloud</h4>
-  <dl>
-    <dt id="index-outloud">Command: <strong>outloud</strong>
-    <em>(&amp;optional device)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e d C-o</kbd></dt>
-        <dd><span id="index-C_002de-d-C_002do"></span></dd>
-        <dt><kbd>&lt;fn&gt; d C-o</kbd></dt>
-        <dd><span id="index-_003cfn_003e-d-C_002do"></span></dd>
-      </dl><span id="index-outloud-1"></span>
-      <div class="format">
-        <pre class="format">Start Outloud.
+  <div class="section" id="outloud_002dvoices">
+    <div class="header">
+      <p>Next: <a href="plain_002dvoices.html" accesskey="n" rel=
+      "next">plain-voices</a>, Previous: <a href=
+      "mac_002dvoices.html" accesskey="p" rel=
+      "prev">mac-voices</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="outloud_002dvoices-1"></span>
+    <h3 class="section">12.223 outloud-voices</h3>
+    <p>Interface to outloud server. This module is IBM ViaVoice
+    Outloud specific.</p>
+    <ul class="section-toc">
+      <li><a href="#Outloud_002dVoices-Commands" accesskey=
+      "1">Outloud-Voices Commands</a></li>
+      <li><a href="#outloud_002dvoices-Options" accesskey=
+      "2">outloud-voices Options</a></li>
+    </ul>
+    <div class="subsection" id="Outloud_002dVoices-Commands">
+      <h4 class="subsection">12.223.1 Outloud-Voices Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#outloud" accesskey="1">outloud</a></li>
+      </ul>
+      <div class="subsubsection" id="outloud">
+        <h4 class="subsubsection">12.223.1.1 outloud</h4>
+        <dl class="def">
+          <dt id="index-outloud"><span class=
+          "category">Command:</span> <span><strong>outloud</strong>
+          <em>(&amp;optional device)</em> <a href='#index-outloud'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-d-C_002do'><span><kbd>C-e d
+              C-o</kbd> <a href='#index-C_002de-d-C_002do' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-C_002do'>
+              <span><kbd>&lt;fn&gt; d C-o</kbd> <a href=
+              '#index-_003cfn_003e-d-C_002do' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-outloud-1"></span>
+            <div class="format">
+              <pre class="format">Start Outloud.
 
 (fn &amp;optional DEVICE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="outloud_002dvoices-Options"></span>
-  <h4 class="subsection">12.223.2 outloud-voices Options</h4>
-  <dl>
-    <dt id="index-User-Option-113">Variable: <strong>User
-    Option</strong> <em>outloud-default-speech-rate</em></dt>
-    <dd>
-      <p>Default speech rate.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="outloud_002dvoices-Options">
+      <h4 class="subsection">12.223.2 outloud-voices Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-113"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>outloud-default-speech-rate</em>
+        <a href='#index-User-Option-113' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Default speech rate.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
 </body>
 </html>

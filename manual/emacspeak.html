@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -15,6 +15,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -28,11 +30,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -41,6 +43,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -49,56 +52,82 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002d2048.html" accesskey="n" rel=
-    "next">emacspeak-2048</a>, Previous: <a href=
-    "dtk_002dspeak.html" accesskey="p" rel="prev">dtk-speak</a>,
-    Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u"
-    rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak-1"></span>
-  <h3 class="section">12.6 emacspeak</h3>
-  <p>Emacspeak extends Emacs to be a fully functional audio
-  desktop. This is the main emacspeak module.</p><span id=
-  "Emacspeak-Commands"></span>
-  <h4 class="subsection">12.6.1 Emacspeak Commands</h4><span id=
-  "emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"></span>
-  <h4 class="subsubsection">12.6.1.1
-  emacspeak-toggle-comint-output-monitor</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor">
-    Command:
-    <strong>emacspeak-toggle-comint-output-monitor</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e o</kbd></dt>
-        <dd><span id="index-C_002de-o"></span></dd>
-        <dt><kbd>&lt;fn&gt; o</kbd></dt>
-        <dd><span id="index-_003cfn_003e-o"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor-1"></span>
-      <div class="format">
-        <pre class="format">Toggle  Emacspeak comint monitor.
+  <div class="section" id="emacspeak">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002d2048.html" accesskey="n" rel=
+      "next">emacspeak-2048</a>, Previous: <a href=
+      "dtk_002dspeak.html" accesskey="p" rel="prev">dtk-speak</a>,
+      Up: <a href="Emacspeak-Commands-And-Options.html" accesskey=
+      "u" rel="up">Emacspeak Commands And Options</a> &nbsp;
+      [<a href="index.html#SEC_Contents" title="Table of contents"
+      rel="contents">Contents</a>][<a href="Concept-Index.html"
+      title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak-1"></span>
+    <h3 class="section">12.6 emacspeak</h3>
+    <p>Emacspeak extends Emacs to be a fully functional audio
+    desktop. This is the main emacspeak module.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak-Commands" accesskey="1">Emacspeak
+      Commands</a></li>
+      <li><a href="#emacspeak-Options" accesskey="2">emacspeak
+      Options</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak-Commands">
+      <h4 class="subsection">12.6.1 Emacspeak Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"
+        accesskey=
+        "1">emacspeak-toggle-comint-output-monitor</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor">
+        <h4 class="subsubsection">12.6.1.1
+        emacspeak-toggle-comint-output-monitor</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-toggle-comint-output-monitor</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-o'><span><kbd>C-e o</kbd>
+              <a href='#index-C_002de-o' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-o'><span><kbd>&lt;fn&gt;
+              o</kbd> <a href='#index-_003cfn_003e-o' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor-1"></span>
+            <div class="format">
+              <pre class="format">Toggle  Emacspeak comint monitor.
 Interactive PREFIX arg means toggle the global default value. 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak-Options"></span>
-  <h4 class="subsection">12.6.2 emacspeak Options</h4>
-  <dl>
-    <dt id="index-User-Option-15">Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-play-emacspeak-startup-icon</em></dt>
-    <dd>
-      <p>If set to T, emacspeak plays its icon as it launches.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="emacspeak-Options">
+      <h4 class="subsection">12.6.2 emacspeak Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-15"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong>
+        <em>emacspeak-play-emacspeak-startup-icon</em> <a href=
+        '#index-User-Option-15' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>If set to T, emacspeak plays its icon as it
+          launches.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
 </body>
 </html>

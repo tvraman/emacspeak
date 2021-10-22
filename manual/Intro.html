@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -15,6 +15,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -22,15 +24,14 @@
   "Table of Contents" />
   <link href="Web-Browsing.html" rel="up" title="Web Browsing" />
   <link href="emacs_002dw3.html" rel="next" title="emacs-w3" />
-  <link href="Web-Browsing.html" rel="prev" title="Web Browsing" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -39,6 +40,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -47,71 +49,72 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Intro"></span>
-  <div class="header">
-    <p>Next: <a href="emacs_002dw3.html" accesskey="n" rel=
-    "next">emacs-w3</a>, Up: <a href="Web-Browsing.html" accesskey=
-    "u" rel="up">Web Browsing</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+  <div class="subsection" id="Intro">
+    <div class="header">
+      <p>Next: <a href="emacs_002dw3.html" accesskey="n" rel=
+      "next">emacs-w3</a>, Up: <a href="Web-Browsing.html"
+      accesskey="u" rel="up">Web Browsing</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Intro-1"></span>
+    <h4 class="subsection">10.4.1 Intro</h4>
+    <p>Web browsing in emacspeak can be made as simple or as
+    complicated as you wish to make it. On the one hand, all that
+    need be done is to open a web browser and fetch a particular
+    url. This works fine in many cases with exceptions being things
+    like html tables. On the other hand, if you spend a little time
+    learning a particular browser and its functionality, web
+    browsing can be made more efficient and the web more
+    navigable.</p>
+    <p>This document is intended to be an introduction to the 2
+    primary browsers that run under emacs: emacs/w3 and EWW. I also
+    intend to introduce a couple of add-on packages intended to
+    make life easier and to address specific shortcomings.</p>
+    <p>The primary reason for this documentation is the fact that a
+    lot of the documentation of the various functions tells exactly
+    what it does, but not why or in what circumstance one might use
+    it. Hopefully I can remedy that here.</p><span id=
+    "Who-this-document-is-intended-for"></span>
+    <h3 class="heading">Who this document is intended for</h3>
+    <p>While this document is geared toward emacspeak users, it
+    might be helpful for other users as well. I have tried to note
+    where functions are specific to emacspeak.</p><span id=
+    "Assumptions"></span>
+    <h3 class="heading">Assumptions</h3>
+    <p>This document assumes emacs is installed. If reading the
+    section on a particular browser and trying out the associated
+    functions, it, of course, assumes that the browser is installed
+    and working. For features specific to emacspeak, a working
+    install of emacspeak is necessary. It is far beyond the scope
+    of this document to help with the installation of these
+    programs.</p>
+    <p>For help with installing any of the above bits of software,
+    the following mailing lists and / or newsgroups are
+    available:</p>
+    <ul>
+      <li>emacs - <code>gnu.emacs.help</code></li>
+      <li>emacs/w3 - the mailing list for w3 is pretty dead. Sorry.
+      The documentation is, however, not terrible.</li>
+      <li>emacspeak - see <a href=
+      "http://emacspeak.sf.net">http://emacspeak.sf.net</a></li>
+    </ul>
+    <p>It is highly suggested that the mailing list archives,
+    google, and the relevant documentation be consulted before
+    posting messages to any mailing list. Nothing is more
+    irritating than answering the same questions over and over.
+    Those of you with kids know what I am talking about.</p>
+    <p>It is also assumed that the reader is comfortable with using
+    emacs itself. Understanding the convention for communicating
+    keystrokes to run commands, navigating documents, and the like
+    are not covered.</p>
   </div>
   <hr />
-  <span id="Intro-1"></span>
-  <h4 class="subsection">10.4.1 Intro</h4>
-  <p>Web browsing in emacspeak can be made as simple or as
-  complicated as you wish to make it. On the one hand, all that
-  need be done is to open a web browser and fetch a particular url.
-  This works fine in many cases with exceptions being things like
-  html tables. On the other hand, if you spend a little time
-  learning a particular browser and its functionality, web browsing
-  can be made more efficient and the web more navigable.</p>
-  <p>This document is intended to be an introduction to the 2
-  primary browsers that run under emacs: emacs/w3 and EWW. I also
-  intend to introduce a couple of add-on packages intended to make
-  life easier and to address specific shortcomings.</p>
-  <p>The primary reason for this documentation is the fact that a
-  lot of the documentation of the various functions tells exactly
-  what it does, but not why or in what circumstance one might use
-  it. Hopefully I can remedy that here.</p><span id=
-  "Who-this-document-is-intended-for"></span>
-  <h3 class="heading">Who this document is intended for</h3>
-  <p>While this document is geared toward emacspeak users, it might
-  be helpful for other users as well. I have tried to note where
-  functions are specific to emacspeak.</p><span id=
-  "Assumptions"></span>
-  <h3 class="heading">Assumptions</h3>
-  <p>This document assumes emacs is installed. If reading the
-  section on a particular browser and trying out the associated
-  functions, it, of course, assumes that the browser is installed
-  and working. For features specific to emacspeak, a working
-  install of emacspeak is necessary. It is far beyond the scope of
-  this document to help with the installation of these
-  programs.</p>
-  <p>For help with installing any of the above bits of software,
-  the following mailing lists and / or newsgroups are
-  available:</p>
-  <ul>
-    <li>emacs - <code>gnu.emacs.help</code></li>
-    <li>emacs/w3 - the mailing list for w3 is pretty dead. Sorry.
-    The documentation is, however, not terrible.</li>
-    <li>emacspeak - see <a href=
-    "http://emacspeak.sf.net">http://emacspeak.sf.net</a></li>
-  </ul>
-  <p>It is highly suggested that the mailing list archives, google,
-  and the relevant documentation be consulted before posting
-  messages to any mailing list. Nothing is more irritating than
-  answering the same questions over and over. Those of you with
-  kids know what I am talking about.</p>
-  <p>It is also assumed that the reader is comfortable with using
-  emacs itself. Understanding the convention for communicating
-  keystrokes to run commands, navigating documents, and the like
-  are not covered.</p>
-  <hr />
   <div class="header">
-    <p>Next: <a href="emacs_002dw3.html" accesskey="n" rel=
-    "next">emacs-w3</a>, Up: <a href="Web-Browsing.html" accesskey=
-    "u" rel="up">Web Browsing</a> &nbsp; [<a href=
+    <p>Next: <a href="emacs_002dw3.html">emacs-w3</a>, Up: <a href=
+    "Web-Browsing.html">Web Browsing</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

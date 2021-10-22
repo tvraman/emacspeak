@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -23,15 +25,15 @@
   "Table of Contents" />
   <link href="index.html" rel="up" title="Top" />
   <link href="Installation.html" rel="next" title="Installation" />
-  <link href="Summary.html" rel="prev" title="Summary" />
+  <link href="Background.html" rel="prev" title="Background" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -40,6 +42,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -48,64 +51,66 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Introduction"></span>
-  <div class="header">
-    <p>Next: <a href="Installation.html" accesskey="n" rel=
-    "next">Installation</a>, Previous: <a href="Background.html"
-    accesskey="p" rel="prev">Background</a>, Up: <a href=
-    "index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+  <div class="chapter" id="Introduction">
+    <div class="header">
+      <p>Next: <a href="Installation.html" accesskey="n" rel=
+      "next">Installation Instructions</a>, Previous: <a href=
+      "Background.html" accesskey="p" rel="prev">Background</a>,
+      Up: <a href="index.html" accesskey="u" rel="up">Emacspeak</a>
+      &nbsp; [<a href="index.html#SEC_Contents" title=
+      "Table of contents" rel="contents">Contents</a>][<a href=
+      "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Introduction-1"></span>
+    <h2 class="chapter">4 Introduction</h2><span id=
+    "index-Introduction"></span>
+    <p>Emacspeak provides a complete audio desktop by
+    speech-enabling all of Emacs.</p>
+    <p>In the past, screen reading programs have allowed visually
+    impaired users to get feedback using synthesized speech. Such
+    programs have been commercially available for a long time. Most
+    of them originally ran on PC’s under <acronym>DOS</acronym>,
+    and have moved over to the Windows environment. However,
+    screen-readers for the UNIX environment have been conspicuous
+    in their absence. Note that this is now changing with the
+    availability of console-level Linux screenreaders such as
+    <code>speakup</code>. Such Linux screenreaders provide the same
+    level of UNIX accessibility provided in the late 80’s by PC
+    terminal emulators running a <acronym>DOS</acronym>
+    screenreader. This means that most visually impaired computer
+    users face the additional handicap of being
+    <acronym>DOS</acronym>-impaired — a far more serious
+    problem:-)</p>
+    <p>Emacspeak is an emacs subsystem that provides complete
+    speech access. It is <em>not</em> a screen-reader — rather, it
+    is a complete user environment with built-in speech feedback.
+    Emacspeak has a significant advantage; since it runs inside
+    Emacs, a structure-sensitive, fully customizable environment,
+    Emacspeak has more context-specific information about what it
+    is speaking than its screenreader counterparts. This is why
+    Emacspeak is not a “screenreader”, it is a system that produces
+    speech output.</p>
+    <p>A Traditional screen-reader speaks the content of the
+    screen, leaving it to the user to interpret the visual layout.
+    Emacspeak, on the other hand, treats speech as a first-class
+    output modality; it speaks the information in a manner that is
+    easy to comprehend when listening.</p>
+    <p>The basic concepts used by Emacspeak are simple; all
+    interactive Emacs commands have been adapted to provide speech
+    feedback. Hence, you use Emacs as normal; Emacspeak works
+    behind the scene to give audio feedback in addition to updating
+    the screen.</p>
+    <p>Emacspeak consists of a core speech system that provides
+    speech and audio services to the rest of the Emacspeak desktop;
+    application-specific extensions provide context-specific spoken
+    feedback using these services. Emacspeak currently comes with
+    speech extensions for several popular Emacs subsystems and
+    editing modes. I would like to thank their respective authors
+    for their wonderful work which makes Emacs more than a text
+    editor<a id="DOCF1" href="#FOOT1" name=
+    "DOCF1"><sup>1</sup></a>.</p>
   </div>
-  <hr />
-  <span id="Introduction-1"></span>
-  <h2 class="chapter">4 Introduction</h2><span id=
-  "index-Introduction"></span>
-  <p>Emacspeak provides a complete audio desktop by speech-enabling
-  all of Emacs.</p>
-  <p>In the past, screen reading programs have allowed visually
-  impaired users to get feedback using synthesized speech. Such
-  programs have been commercially available for a long time. Most
-  of them originally ran on PC’s under <acronym>DOS</acronym>, and
-  have moved over to the Windows environment. However,
-  screen-readers for the UNIX environment have been conspicuous in
-  their absence. Note that this is now changing with the
-  availability of console-level Linux screenreaders such as
-  <code>speakup</code>. Such Linux screenreaders provide the same
-  level of UNIX accessibility provided in the late 80’s by PC
-  terminal emulators running a <acronym>DOS</acronym> screenreader.
-  This means that most visually impaired computer users face the
-  additional handicap of being <acronym>DOS</acronym>-impaired — a
-  far more serious problem:-)</p>
-  <p>Emacspeak is an emacs subsystem that provides complete speech
-  access. It is <em>not</em> a screen-reader — rather, it is a
-  complete user environment with built-in speech feedback.
-  Emacspeak has a significant advantage; since it runs inside
-  Emacs, a structure-sensitive, fully customizable environment,
-  Emacspeak has more context-specific information about what it is
-  speaking than its screenreader counterparts. This is why
-  Emacspeak is not a “screenreader”, it is a system that produces
-  speech output.</p>
-  <p>A Traditional screen-reader speaks the content of the screen,
-  leaving it to the user to interpret the visual layout. Emacspeak,
-  on the other hand, treats speech as a first-class output
-  modality; it speaks the information in a manner that is easy to
-  comprehend when listening.</p>
-  <p>The basic concepts used by Emacspeak are simple; all
-  interactive Emacs commands have been adapted to provide speech
-  feedback. Hence, you use Emacs as normal; Emacspeak works behind
-  the scene to give audio feedback in addition to updating the
-  screen.</p>
-  <p>Emacspeak consists of a core speech system that provides
-  speech and audio services to the rest of the Emacspeak desktop;
-  application-specific extensions provide context-specific spoken
-  feedback using these services. Emacspeak currently comes with
-  speech extensions for several popular Emacs subsystems and
-  editing modes. I would like to thank their respective authors for
-  their wonderful work which makes Emacs more than a text
-  editor<a id="DOCF1" href="#FOOT1" name=
-  "DOCF1"><sup>1</sup></a>.</p>
   <div class="footnote">
     <hr />
     <h4 class="footnotes-heading">Footnotes</h4>
@@ -115,10 +120,10 @@
   </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="Installation.html" accesskey="n" rel=
-    "next">Installation</a>, Previous: <a href="Background.html"
-    accesskey="p" rel="prev">Background</a>, Up: <a href=
-    "index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href=
+    <p>Next: <a href="Installation.html">Installation
+    Instructions</a>, Previous: <a href=
+    "Background.html">Background</a>, Up: <a href=
+    "index.html">Emacspeak</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -25,16 +27,14 @@
   "Structured Editing" />
   <link href="Template_002dbased-Authoring.html" rel="next" title=
   "Template-based Authoring" />
-  <link href="Structured-Editing.html" rel="prev" title=
-  "Structured Editing" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +43,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,87 +52,93 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Outline-Editing"></span>
-  <div class="header">
-    <p>Next: <a href="Template_002dbased-Authoring.html" accesskey=
-    "n" rel="next">Template-based Authoring</a>, Up: <a href=
-    "Structured-Editing.html" accesskey="u" rel="up">Structured
-    Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  <div class="subsection" id="Outline-Editing">
+    <div class="header">
+      <p>Next: <a href="Template_002dbased-Authoring.html"
+      accesskey="n" rel="next">Template-based Authoring</a>, Up:
+      <a href="Structured-Editing.html" accesskey="u" rel=
+      "up">Structured Editing And Templates</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Outline-Editing-1"></span>
+    <h4 class="subsection">10.2.1 Outline Editing</h4>
+    <p>All of the various outline editing interfaces on the Emacs
+    desktop allow the user to <em>hide</em> or <em>show</em> the
+    contents at the different levels of a possibly nested tree
+    structure. Components of this tree structure can be manipulated
+    as a unit, e.g., entire subtrees can be deleted or copied.
+    Outline editing thus provides an efficient means of obtaining
+    quick overviews of a document.</p>
+    <p>The visual interface displays such hidden content as a
+    series of ellipses following the visible outline heading.
+    Emacspeak produces auditory icon <em>ellipses</em> when
+    speaking such outline headings.</p>
+    <p>The basic <em>outline mode</em> allows the user to specify
+    the syntax and level of outline header lines as a regular
+    expression. This simple technique can be used to advantage in
+    the structured navigation of large electronic texts such as
+    those available on the Internet from online book projects such
+    as project Gutenberg and the Internet Wiretap. For example,
+    when this feature is activated while reading the electronic
+    text of a Shakespearean play, the different acts can be
+    recognized as separate nodes in the logical structure of the
+    document. The user can then hide the document body with a
+    single keystroke, navigate the outline headings to find a
+    particular act, and have that portion rendered either visually
+    or aurally. Hiding an outline level produces auditory icon
+    <em>close-object</em>; exposing a hidden level produces
+    auditory icon <em>open-object</em>. For details on using mode
+    <code>outline</code>, see the relevant section of the online
+    Emacs info manual.</p>
+    <p>The basic outline facility described above is applicable to
+    all content being edited or browsed on the Emacspeak desktop.
+    In addition, Emacspeak has other specialized outline editing
+    modes such as <em>folding mode</em> that provide extended
+    outlining facilities. In mode <em>folding</em>, the user can
+    create (possibly nested) <em>folds</em> — logical containers of
+    content that are delimited by a special <em>fold mark</em>. The
+    fold mark is typically a text string that is chosen based on
+    the type of content that is being manipulated. Thus, when
+    <em>folding</em> a C~program source file, fold marks are
+    created from C~comments. The user can <em>open</em> or
+    <em>close</em> any or all folds in a document, and these
+    actions are accompanied by auditory icons <em>open-object</em>
+    and <em>close-object</em>. By entering a fold, all editing
+    actions are restricted to the contents of that fold; this
+    proves a simple yet convenient way of constraining editing
+    actions such as search and replace to specific portions of
+    large documents. Folds can be manipulated as a unit and can be
+    deleted, copied or moved.</p>
+    <p>Mode <em>folding</em> proves especially effective in
+    maintaining large software modules. The technique can be used
+    to advantage by creating folds for different sections in a
+    module and by further placing each function appearing in a
+    particular section in a fold of its own. Complex functions can
+    themselves be folded into sections where each section reflects
+    a different stage in the algorithm implemented by that
+    function. Thus, the technique of folding can be used as an
+    effective aid in <em>literate</em> programming. I typically
+    write software modules by first creating an outline structure
+    using folds that reflect the various components of that module.
+    Next, I populate each fold with the function signatures and
+    documentation for the functions in each section. When I am
+    satisfied with the overall architecture of the module, I fill
+    in the function skeletons with actual program code. This
+    technique is used extensively in maintaining the Emacspeak code
+    base.</p>
   </div>
   <hr />
-  <span id="Outline-Editing-1"></span>
-  <h4 class="subsection">10.2.1 Outline Editing</h4>
-  <p>All of the various outline editing interfaces on the Emacs
-  desktop allow the user to <em>hide</em> or <em>show</em> the
-  contents at the different levels of a possibly nested tree
-  structure. Components of this tree structure can be manipulated
-  as a unit, e.g., entire subtrees can be deleted or copied.
-  Outline editing thus provides an efficient means of obtaining
-  quick overviews of a document.</p>
-  <p>The visual interface displays such hidden content as a series
-  of ellipses following the visible outline heading. Emacspeak
-  produces auditory icon <em>ellipses</em> when speaking such
-  outline headings.</p>
-  <p>The basic <em>outline mode</em> allows the user to specify the
-  syntax and level of outline header lines as a regular expression.
-  This simple technique can be used to advantage in the structured
-  navigation of large electronic texts such as those available on
-  the Internet from online book projects such as project Gutenberg
-  and the Internet Wiretap. For example, when this feature is
-  activated while reading the electronic text of a Shakespearean
-  play, the different acts can be recognized as separate nodes in
-  the logical structure of the document. The user can then hide the
-  document body with a single keystroke, navigate the outline
-  headings to find a particular act, and have that portion rendered
-  either visually or aurally. Hiding an outline level produces
-  auditory icon <em>close-object</em>; exposing a hidden level
-  produces auditory icon <em>open-object</em>. For details on using
-  mode <code>outline</code>, see the relevant section of the online
-  Emacs info manual.</p>
-  <p>The basic outline facility described above is applicable to
-  all content being edited or browsed on the Emacspeak desktop. In
-  addition, Emacspeak has other specialized outline editing modes
-  such as <em>folding mode</em> that provide extended outlining
-  facilities. In mode <em>folding</em>, the user can create
-  (possibly nested) <em>folds</em> — logical containers of content
-  that are delimited by a special <em>fold mark</em>. The fold mark
-  is typically a text string that is chosen based on the type of
-  content that is being manipulated. Thus, when <em>folding</em> a
-  C~program source file, fold marks are created from C~comments.
-  The user can <em>open</em> or <em>close</em> any or all folds in
-  a document, and these actions are accompanied by auditory icons
-  <em>open-object</em> and <em>close-object</em>. By entering a
-  fold, all editing actions are restricted to the contents of that
-  fold; this proves a simple yet convenient way of constraining
-  editing actions such as search and replace to specific portions
-  of large documents. Folds can be manipulated as a unit and can be
-  deleted, copied or moved.</p>
-  <p>Mode <em>folding</em> proves especially effective in
-  maintaining large software modules. The technique can be used to
-  advantage by creating folds for different sections in a module
-  and by further placing each function appearing in a particular
-  section in a fold of its own. Complex functions can themselves be
-  folded into sections where each section reflects a different
-  stage in the algorithm implemented by that function. Thus, the
-  technique of folding can be used as an effective aid in
-  <em>literate</em> programming. I typically write software modules
-  by first creating an outline structure using folds that reflect
-  the various components of that module. Next, I populate each fold
-  with the function signatures and documentation for the functions
-  in each section. When I am satisfied with the overall
-  architecture of the module, I fill in the function skeletons with
-  actual program code. This technique is used extensively in
-  maintaining the Emacspeak code base.</p>
-  <hr />
   <div class="header">
-    <p>Next: <a href="Template_002dbased-Authoring.html" accesskey=
-    "n" rel="next">Template-based Authoring</a>, Up: <a href=
-    "Structured-Editing.html" accesskey="u" rel="up">Structured
-    Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    <p>Next: <a href=
+    "Template_002dbased-Authoring.html">Template-based
+    Authoring</a>, Up: <a href="Structured-Editing.html">Structured
+    Editing And Templates</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

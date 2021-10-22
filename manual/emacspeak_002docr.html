@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,41 +54,97 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002docr"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dorg.html" accesskey="n" rel=
-    "next">emacspeak-org</a>, Previous: <a href=
-    "emacspeak_002dnxml.html" accesskey="p" rel=
-    "prev">emacspeak-nxml</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002docr-1"></span>
-  <h3 class="section">12.133 emacspeak-ocr</h3>
-  <p>This module defines Emacspeak front-end to OCR. This module
-  assumes that sane is installed and working for image acquisition,
-  and that there is an OCR engine that can take acquired images and
-  produce text.</p><span id="Emacspeak_002dOcr-Commands"></span>
-  <h4 class="subsection">12.133.1 Emacspeak-Ocr
-  Commands</h4><span id="emacspeak_002docr-2"></span>
-  <h4 class="subsubsection">12.133.1.1 emacspeak-ocr</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr">Command:
-    <strong>emacspeak-ocr</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-o</kbd></dt>
-        <dd><span id="index-C_002de-C_002do"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-o</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002do"></span></dd>
-      </dl><span id="index-emacspeak_002docr-1"></span>
-      <div class="format">
-        <pre class=
-        "format">An OCR front-end for the Emacspeak desktop.  
+  <div class="section" id="emacspeak_002docr">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dorg.html" accesskey="n" rel=
+      "next">emacspeak-org</a>, Previous: <a href=
+      "emacspeak_002dnxml.html" accesskey="p" rel=
+      "prev">emacspeak-nxml</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002docr-1"></span>
+    <h3 class="section">12.133 emacspeak-ocr</h3>
+    <p>This module defines Emacspeak front-end to OCR. This module
+    assumes that sane is installed and working for image
+    acquisition, and that there is an OCR engine that can take
+    acquired images and produce text.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dOcr-Commands" accesskey=
+      "1">Emacspeak-Ocr Commands</a></li>
+      <li><a href="#emacspeak_002docr-Options" accesskey=
+      "2">emacspeak-ocr Options</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dOcr-Commands">
+      <h4 class="subsection">12.133.1 Emacspeak-Ocr Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002docr-2" accesskey=
+        "1">emacspeak-ocr</a></li>
+        <li><a href="#emacspeak_002docr_002dbackward_002dpage"
+        accesskey="2">emacspeak-ocr-backward-page</a></li>
+        <li><a href="#emacspeak_002docr_002dcustomize" accesskey=
+        "3">emacspeak-ocr-customize</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage"
+        accesskey=
+        "4">emacspeak-ocr-flipflop-and-recognize-image</a></li>
+        <li><a href="#emacspeak_002docr_002dforward_002dpage"
+        accesskey="5">emacspeak-ocr-forward-page</a></li>
+        <li><a href="#emacspeak_002docr_002dmode" accesskey=
+        "6">emacspeak-ocr-mode</a></li>
+        <li><a href="#emacspeak_002docr_002dname_002ddocument"
+        accesskey="7">emacspeak-ocr-name-document</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dopen_002dworking_002ddirectory"
+        accesskey="8">emacspeak-ocr-open-working-directory</a></li>
+        <li><a href="#emacspeak_002docr_002dpage" accesskey=
+        "9">emacspeak-ocr-page</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dread_002dcurrent_002dpage">emacspeak-ocr-read-current-page</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002drecognize_002dimage">emacspeak-ocr-recognize-image</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dsave_002dcurrent_002dpage">emacspeak-ocr-save-current-page</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dscan_002dand_002drecognize">emacspeak-ocr-scan-and-recognize</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dscan_002dimage">emacspeak-ocr-scan-image</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dscan_002dphoto">emacspeak-ocr-scan-photo</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dset_002dcompress_002dimage_002doptions">
+        emacspeak-ocr-set-compress-image-options</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dset_002dscan_002dimage_002doptions">
+        emacspeak-ocr-set-scan-image-options</a></li>
+        <li><a href=
+        "#emacspeak_002docr_002dwrite_002ddocument">emacspeak-ocr-write-document</a></li>
+      </ul>
+      <div class="subsubsection" id="emacspeak_002docr-2">
+        <h4 class="subsubsection">12.133.1.1 emacspeak-ocr</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-ocr</strong> <a href=
+          '#index-emacspeak_002docr' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002do'><span><kbd>C-e
+              C-o</kbd> <a href='#index-C_002de-C_002do' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002do'>
+              <span><kbd>&lt;fn&gt; C-o</kbd> <a href=
+              '#index-_003cfn_003e-C_002do' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-emacspeak_002docr-1"></span>
+            <div class="format">
+              <pre class=
+              "format">An OCR front-end for the Emacspeak desktop.  
 
 Page image is acquired using tools from the SANE package.
 The acquired image is run through the OCR engine if one is
@@ -96,90 +155,121 @@ For detailed help, invoke command emacspeak-ocr bound to
 C-e C-o to launch emacspeak-ocr-mode, and press
 ‘?’ to display mode-specific help for emacspeak-ocr-mode.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dbackward_002dpage"></span>
-  <h4 class="subsubsection">12.133.1.2
-  emacspeak-ocr-backward-page</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dbackward_002dpage">Command:
-    <strong>emacspeak-ocr-backward-page</strong> <em>(&amp;optional
-    count-ignored)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dbackward_002dpage-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Like backward page, but tracks page number of current document.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dbackward_002dpage">
+        <h4 class="subsubsection">12.133.1.2
+        emacspeak-ocr-backward-page</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dbackward_002dpage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-backward-page</strong>
+          <em>(&amp;optional count-ignored)</em> <a href=
+          '#index-emacspeak_002docr_002dbackward_002dpage' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dbackward_002dpage-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Like backward page, but tracks page number of current document.
 
 (fn &amp;optional COUNT-IGNORED)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dcustomize"></span>
-  <h4 class="subsubsection">12.133.1.3 emacspeak-ocr-customize</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dcustomize">Command:
-    <strong>emacspeak-ocr-customize</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002docr_002dcustomize-1"></span>
-      <div class="format">
-        <pre class="format">Customize OCR settings.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dcustomize">
+        <h4 class="subsubsection">12.133.1.3
+        emacspeak-ocr-customize</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dcustomize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-customize</strong> <a href=
+          '#index-emacspeak_002docr_002dcustomize' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dcustomize-1"></span>
+            <div class="format">
+              <pre class="format">Customize OCR settings.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage"></span>
-  <h4 class="subsubsection">12.133.1.4
-  emacspeak-ocr-flipflop-and-recognize-image</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage">
-    Command:
-    <strong>emacspeak-ocr-flipflop-and-recognize-image</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Run OCR engine on current image after flip-flopping it.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage">
+        <h4 class="subsubsection">12.133.1.4
+        emacspeak-ocr-flipflop-and-recognize-image</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-flipflop-and-recognize-image</strong>
+          <a href=
+          '#index-emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Run OCR engine on current image after flip-flopping it.
 Useful if you’ve scanned a page upside down and are using an
 engine that does not automatically flip the image for you.  You
 need the imagemagik family of tools — we use mogrify to
 transform the image.  Prompts for image file if file
 corresponding to the expected ‘current page’ is not found.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dforward_002dpage"></span>
-  <h4 class="subsubsection">12.133.1.5
-  emacspeak-ocr-forward-page</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dforward_002dpage">Command:
-    <strong>emacspeak-ocr-forward-page</strong> <em>(&amp;optional
-    count-ignored)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dforward_002dpage-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Like forward page, but tracks page number of current document.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dforward_002dpage">
+        <h4 class="subsubsection">12.133.1.5
+        emacspeak-ocr-forward-page</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dforward_002dpage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-forward-page</strong>
+          <em>(&amp;optional count-ignored)</em> <a href=
+          '#index-emacspeak_002docr_002dforward_002dpage' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dforward_002dpage-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Like forward page, but tracks page number of current document.
 
 (fn &amp;optional COUNT-IGNORED)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dmode"></span>
-  <h4 class="subsubsection">12.133.1.6 emacspeak-ocr-mode</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dmode">Command:
-    <strong>emacspeak-ocr-mode</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002docr_002dmode-1"></span>
-      <div class="format">
-        <pre class=
-        "format"> An OCR front-end for the Emacspeak desktop.
+      <div class="subsubsection" id="emacspeak_002docr_002dmode">
+        <h4 class="subsubsection">12.133.1.6
+        emacspeak-ocr-mode</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dmode"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-ocr-mode</strong> <a href=
+          '#index-emacspeak_002docr_002dmode' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002docr_002dmode-1"></span>
+            <div class="format">
+              <pre class=
+              "format"> An OCR front-end for the Emacspeak desktop.
 
 Pre-requisites:
 
@@ -261,326 +351,443 @@ In addition to any hooks its parent mode ‘text-mode’ might have run,
 this mode runs the hook ‘emacspeak-ocr-mode-hook’, as the final or
 penultimate step during initialization.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dname_002ddocument"></span>
-  <h4 class="subsubsection">12.133.1.7
-  emacspeak-ocr-name-document</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dname_002ddocument">Command:
-    <strong>emacspeak-ocr-name-document</strong>
-    <em>(name)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dname_002ddocument-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Name document being scanned in the current OCR buffer.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dname_002ddocument">
+        <h4 class="subsubsection">12.133.1.7
+        emacspeak-ocr-name-document</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dname_002ddocument">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-name-document</strong>
+          <em>(name)</em> <a href=
+          '#index-emacspeak_002docr_002dname_002ddocument' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dname_002ddocument-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Name document being scanned in the current OCR buffer.
 Pick a short but meaningful name.
 
 (fn NAME)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002docr_002dopen_002dworking_002ddirectory"></span>
-  <h4 class="subsubsection">12.133.1.8
-  emacspeak-ocr-open-working-directory</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002docr_002dopen_002dworking_002ddirectory">
-    Command:
-    <strong>emacspeak-ocr-open-working-directory</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dopen_002dworking_002ddirectory-1">
-      </span>
-      <div class="format">
-        <pre class="format">Launch dired on OCR working directory.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dopen_002dworking_002ddirectory">
+        <h4 class="subsubsection">12.133.1.8
+        emacspeak-ocr-open-working-directory</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002docr_002dopen_002dworking_002ddirectory">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-open-working-directory</strong>
+          <a href=
+          '#index-emacspeak_002docr_002dopen_002dworking_002ddirectory'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dopen_002dworking_002ddirectory-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Launch dired on OCR working directory.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dpage"></span>
-  <h4 class="subsubsection">12.133.1.9 emacspeak-ocr-page</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dpage">Command:
-    <strong>emacspeak-ocr-page</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002docr_002dpage-1"></span>
-      <div class="format">
-        <pre class="format">Move to specified page.
+      <div class="subsubsection" id="emacspeak_002docr_002dpage">
+        <h4 class="subsubsection">12.133.1.9
+        emacspeak-ocr-page</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dpage"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-ocr-page</strong> <a href=
+          '#index-emacspeak_002docr_002dpage' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002docr_002dpage-1"></span>
+            <div class="format">
+              <pre class="format">Move to specified page.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002docr_002dread_002dcurrent_002dpage"></span>
-  <h4 class="subsubsection">12.133.1.10
-  emacspeak-ocr-read-current-page</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dread_002dcurrent_002dpage">
-    Command: <strong>emacspeak-ocr-read-current-page</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dread_002dcurrent_002dpage-1"></span>
-      <div class="format">
-        <pre class="format">Speaks current page.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dread_002dcurrent_002dpage">
+        <h4 class="subsubsection">12.133.1.10
+        emacspeak-ocr-read-current-page</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002docr_002dread_002dcurrent_002dpage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-read-current-page</strong>
+          <a href=
+          '#index-emacspeak_002docr_002dread_002dcurrent_002dpage'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dread_002dcurrent_002dpage-1">
+            </span>
+            <div class="format">
+              <pre class="format">Speaks current page.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002drecognize_002dimage"></span>
-  <h4 class="subsubsection">12.133.1.11
-  emacspeak-ocr-recognize-image</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002drecognize_002dimage">
-    Command: <strong>emacspeak-ocr-recognize-image</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002drecognize_002dimage-1"></span>
-      <div class="format">
-        <pre class="format">Run OCR engine on current image.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002drecognize_002dimage">
+        <h4 class="subsubsection">12.133.1.11
+        emacspeak-ocr-recognize-image</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002drecognize_002dimage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-recognize-image</strong>
+          <a href=
+          '#index-emacspeak_002docr_002drecognize_002dimage' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002drecognize_002dimage-1"></span>
+            <div class="format">
+              <pre class="format">Run OCR engine on current image.
 Prompts for image file if file corresponding to the expected
 ‘current page’ is not found.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002docr_002dsave_002dcurrent_002dpage"></span>
-  <h4 class="subsubsection">12.133.1.12
-  emacspeak-ocr-save-current-page</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dsave_002dcurrent_002dpage">
-    Command: <strong>emacspeak-ocr-save-current-page</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dsave_002dcurrent_002dpage-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Writes out recognized text from current page
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dsave_002dcurrent_002dpage">
+        <h4 class="subsubsection">12.133.1.12
+        emacspeak-ocr-save-current-page</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002docr_002dsave_002dcurrent_002dpage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-save-current-page</strong>
+          <a href=
+          '#index-emacspeak_002docr_002dsave_002dcurrent_002dpage'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dsave_002dcurrent_002dpage-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Writes out recognized text from current page
 to an appropriately named file.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002docr_002dscan_002dand_002drecognize"></span>
-  <h4 class="subsubsection">12.133.1.13
-  emacspeak-ocr-scan-and-recognize</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002docr_002dscan_002dand_002drecognize">
-    Command: <strong>emacspeak-ocr-scan-and-recognize</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dscan_002dand_002drecognize-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Scan in a page and run OCR engine on it.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dscan_002dand_002drecognize">
+        <h4 class="subsubsection">12.133.1.13
+        emacspeak-ocr-scan-and-recognize</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002docr_002dscan_002dand_002drecognize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-scan-and-recognize</strong>
+          <a href=
+          '#index-emacspeak_002docr_002dscan_002dand_002drecognize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dscan_002dand_002drecognize-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Scan in a page and run OCR engine on it.
 Use this command once you’ve verified that the separate
 steps of acquiring an image and running the OCR engine work
 correctly by themselves.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dscan_002dimage"></span>
-  <h4 class="subsubsection">12.133.1.14
-  emacspeak-ocr-scan-image</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dscan_002dimage">Command:
-    <strong>emacspeak-ocr-scan-image</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dscan_002dimage-1"></span>
-      <div class="format">
-        <pre class="format">Acquire page image.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dscan_002dimage">
+        <h4 class="subsubsection">12.133.1.14
+        emacspeak-ocr-scan-image</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dscan_002dimage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-scan-image</strong> <a href=
+          '#index-emacspeak_002docr_002dscan_002dimage' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dscan_002dimage-1"></span>
+            <div class="format">
+              <pre class="format">Acquire page image.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dscan_002dphoto"></span>
-  <h4 class="subsubsection">12.133.1.15
-  emacspeak-ocr-scan-photo</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dscan_002dphoto">Command:
-    <strong>emacspeak-ocr-scan-photo</strong> <em>(&amp;optional
-    metadata)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dscan_002dphoto-1"></span>
-      <div class="format">
-        <pre class="format">Scan in a photograph.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dscan_002dphoto">
+        <h4 class="subsubsection">12.133.1.15
+        emacspeak-ocr-scan-photo</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dscan_002dphoto">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-scan-photo</strong>
+          <em>(&amp;optional metadata)</em> <a href=
+          '#index-emacspeak_002docr_002dscan_002dphoto' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dscan_002dphoto-1"></span>
+            <div class="format">
+              <pre class="format">Scan in a photograph.
 The scanned image is converted to JPEG.
 
 (fn &amp;optional METADATA)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002docr_002dset_002dcompress_002dimage_002doptions"></span>
-  <h4 class="subsubsection">12.133.1.16
-  emacspeak-ocr-set-compress-image-options</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002docr_002dset_002dcompress_002dimage_002doptions">
-    Command:
-    <strong>emacspeak-ocr-set-compress-image-options</strong>
-    <em>(setting)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dset_002dcompress_002dimage_002doptions-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Interactively update  image compression options.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dset_002dcompress_002dimage_002doptions">
+        <h4 class="subsubsection">12.133.1.16
+        emacspeak-ocr-set-compress-image-options</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002docr_002dset_002dcompress_002dimage_002doptions">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-set-compress-image-options</strong>
+          <em>(setting)</em> <a href=
+          '#index-emacspeak_002docr_002dset_002dcompress_002dimage_002doptions'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dset_002dcompress_002dimage_002doptions-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Interactively update  image compression options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 
 (fn SETTING)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002docr_002dset_002dscan_002dimage_002doptions"></span>
-  <h4 class="subsubsection">12.133.1.17
-  emacspeak-ocr-set-scan-image-options</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002docr_002dset_002dscan_002dimage_002doptions">
-    Command: <strong>emacspeak-ocr-set-scan-image-options</strong>
-    <em>(setting)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dset_002dscan_002dimage_002doptions-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Interactively update scan image options.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dset_002dscan_002dimage_002doptions">
+        <h4 class="subsubsection">12.133.1.17
+        emacspeak-ocr-set-scan-image-options</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002docr_002dset_002dscan_002dimage_002doptions">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-set-scan-image-options</strong>
+          <em>(setting)</em> <a href=
+          '#index-emacspeak_002docr_002dset_002dscan_002dimage_002doptions'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dset_002dscan_002dimage_002doptions-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Interactively update scan image options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 
 (fn SETTING)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr_002dwrite_002ddocument"></span>
-  <h4 class="subsubsection">12.133.1.18
-  emacspeak-ocr-write-document</h4>
-  <dl>
-    <dt id="index-emacspeak_002docr_002dwrite_002ddocument">
-    Command: <strong>emacspeak-ocr-write-document</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002docr_002dwrite_002ddocument-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Writes out recognized text from all pages in current document.
+      <div class="subsubsection" id=
+      "emacspeak_002docr_002dwrite_002ddocument">
+        <h4 class="subsubsection">12.133.1.18
+        emacspeak-ocr-write-document</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002docr_002dwrite_002ddocument">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ocr-write-document</strong>
+          <a href='#index-emacspeak_002docr_002dwrite_002ddocument'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002docr_002dwrite_002ddocument-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Writes out recognized text from all pages in current document.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002docr-Options"></span>
-  <h4 class="subsection">12.133.2 emacspeak-ocr Options</h4>
-  <dl>
-    <dt id="index-User-Option-57">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-compress-image</em></dt>
-    <dd>
-      <p>Command used to compress the scanned tiff file.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-58">Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-ocr-compress-image-options</em></dt>
-    <dd>
-      <p>Options used for compressing tiff image.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-59">Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-ocr-compress-photo-options</em></dt>
-    <dd>
-      <p>Options used when created JPEG from scanned
-      photographs.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-60">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-engine</em></dt>
-    <dd>
-      <p>OCR engine to process acquired image.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-61">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-engine-options</em></dt>
-    <dd>
-      <p>Command line options to pass to OCR engine.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-62">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-image-extension</em></dt>
-    <dd>
-      <p>Filename extension used for acquired image.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-63">Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-ocr-jpeg-metadata-writer</em></dt>
-    <dd>
-      <p>Program to add metadata to JPEG files.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-64">Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-ocr-keep-uncompressed-image</em></dt>
-    <dd>
-      <p>If set to T, uncompressed image is not removed.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-65">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-photo-compress</em></dt>
-    <dd>
-      <p>Program to create JPEG compressed images.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-66">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-scan-image</em></dt>
-    <dd>
-      <p>Name of image acquisition program.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-67">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-scan-image-options</em></dt>
-    <dd>
-      <p>Command line options to pass to image acquisition
-      program.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-68">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-scan-photo-options</em></dt>
-    <dd>
-      <p>Options used when scanning in photographs.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-69">Variable: <strong>User
-    Option</strong> <em>emacspeak-ocr-working-directory</em></dt>
-    <dd>
-      <p>Directory where images and OCR results will be placed.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="emacspeak_002docr-Options">
+      <h4 class="subsection">12.133.2 emacspeak-ocr Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-57"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-compress-image</em>
+        <a href='#index-User-Option-57' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Command used to compress the scanned tiff file.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-58"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong>
+        <em>emacspeak-ocr-compress-image-options</em> <a href=
+        '#index-User-Option-58' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Options used for compressing tiff image.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-59"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong>
+        <em>emacspeak-ocr-compress-photo-options</em> <a href=
+        '#index-User-Option-59' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Options used when created JPEG from scanned
+          photographs.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-60"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-engine</em> <a href=
+        '#index-User-Option-60' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>OCR engine to process acquired image.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-61"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-engine-options</em>
+        <a href='#index-User-Option-61' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Command line options to pass to OCR engine.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-62"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-image-extension</em>
+        <a href='#index-User-Option-62' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Filename extension used for acquired image.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-63"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-jpeg-metadata-writer</em>
+        <a href='#index-User-Option-63' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Program to add metadata to JPEG files.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-64"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong>
+        <em>emacspeak-ocr-keep-uncompressed-image</em> <a href=
+        '#index-User-Option-64' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>If set to T, uncompressed image is not removed.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-65"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-photo-compress</em>
+        <a href='#index-User-Option-65' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Program to create JPEG compressed images.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-66"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-scan-image</em> <a href=
+        '#index-User-Option-66' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Name of image acquisition program.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-67"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-scan-image-options</em>
+        <a href='#index-User-Option-67' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Command line options to pass to image acquisition
+          program.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-68"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-scan-photo-options</em>
+        <a href='#index-User-Option-68' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Options used when scanning in photographs.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-69"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-working-directory</em>
+        <a href='#index-User-Option-69' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Directory where images and OCR results will be
+          placed.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002dorg.html" accesskey="n" rel=
-    "next">emacspeak-org</a>, Previous: <a href=
-    "emacspeak_002dnxml.html" accesskey="p" rel=
-    "prev">emacspeak-nxml</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    <p>Next: <a href="emacspeak_002dorg.html">emacspeak-org</a>,
+    Previous: <a href="emacspeak_002dnxml.html">emacspeak-nxml</a>,
+    Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

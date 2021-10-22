@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,49 +54,72 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="espeak_002dvoices"></span>
-  <div class="header">
-    <p>Next: <a href="extra_002dmuggles.html" accesskey="n" rel=
-    "next">extra-muggles</a>, Previous: <a href=
-    "emacspeak_002dyasnippet.html" accesskey="p" rel=
-    "prev">emacspeak-yasnippet</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="espeak_002dvoices-1"></span>
-  <h3 class="section">12.216 espeak-voices</h3>
-  <p>This module defines the various voices used in voice-lock mode
-  by the ESpeak TTS engine.</p><span id=
-  "Espeak_002dVoices-Commands"></span>
-  <h4 class="subsection">12.216.1 Espeak-Voices
-  Commands</h4><span id="espeak"></span>
-  <h4 class="subsubsection">12.216.1.1 espeak</h4>
-  <dl>
-    <dt id="index-espeak">Command: <strong>espeak</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e d C-e</kbd></dt>
-        <dd><span id="index-C_002de-d-C_002de"></span></dd>
-        <dt><kbd>&lt;fn&gt; d C-e</kbd></dt>
-        <dd><span id="index-_003cfn_003e-d-C_002de"></span></dd>
-      </dl><span id="index-espeak-1"></span>
-      <div class="format">
-        <pre class="format">Start ESpeak.
+  <div class="section" id="espeak_002dvoices">
+    <div class="header">
+      <p>Next: <a href="extra_002dmuggles.html" accesskey="n" rel=
+      "next">extra-muggles</a>, Previous: <a href=
+      "emacspeak_002dyasnippet.html" accesskey="p" rel=
+      "prev">emacspeak-yasnippet</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="espeak_002dvoices-1"></span>
+    <h3 class="section">12.216 espeak-voices</h3>
+    <p>This module defines the various voices used in voice-lock
+    mode by the ESpeak TTS engine.</p>
+    <ul class="section-toc">
+      <li><a href="#Espeak_002dVoices-Commands" accesskey=
+      "1">Espeak-Voices Commands</a></li>
+      <li><a href="#espeak_002dvoices-Options" accesskey=
+      "2">espeak-voices Options</a></li>
+    </ul>
+    <div class="subsection" id="Espeak_002dVoices-Commands">
+      <h4 class="subsection">12.216.1 Espeak-Voices Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#espeak" accesskey="1">espeak</a></li>
+      </ul>
+      <div class="subsubsection" id="espeak">
+        <h4 class="subsubsection">12.216.1.1 espeak</h4>
+        <dl class="def">
+          <dt id="index-espeak"><span class=
+          "category">Command:</span> <span><strong>espeak</strong>
+          <a href='#index-espeak' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-d-C_002de'><span><kbd>C-e d
+              C-e</kbd> <a href='#index-C_002de-d-C_002de' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-C_002de'>
+              <span><kbd>&lt;fn&gt; d C-e</kbd> <a href=
+              '#index-_003cfn_003e-d-C_002de' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-espeak-1"></span>
+            <div class="format">
+              <pre class="format">Start ESpeak.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="espeak_002dvoices-Options"></span>
-  <h4 class="subsection">12.216.2 espeak-voices Options</h4>
-  <dl>
-    <dt id="index-User-Option-104">Variable: <strong>User
-    Option</strong> <em>espeak-default-speech-rate</em></dt>
-    <dd>
-      <p>Default speech rate for eSpeak.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="espeak_002dvoices-Options">
+      <h4 class="subsection">12.216.2 espeak-voices Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-104"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>espeak-default-speech-rate</em>
+        <a href='#index-User-Option-104' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Default speech rate for eSpeak.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
 </body>
 </html>

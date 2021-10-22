@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -29,11 +31,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -42,6 +44,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -50,257 +53,368 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="soundscape"></span>
-  <div class="header">
-    <p>Next: <a href="sox.html" accesskey="n" rel="next">sox</a>,
-    Previous: <a href="plain_002dvoices.html" accesskey="p" rel=
-    "prev">plain-voices</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="soundscape-1"></span>
-  <h3 class="section">12.225 soundscape</h3>
-  <p>Soundscapes <a href=
-  "https://en.wikipedia.org/wiki/Soundscape">https://en.wikipedia.org/wiki/Soundscape</a>
-  define an acoustic environment. Boodler at <a href=
-  "http://boodler.org">http://boodler.org</a> is a Python-based
-  SoundScape generator. To use this module, first install boodler.
-  Then install the soundscape packages (*.boop) files available at
-  <a href="http://boodler.org/lib">http://boodler.org/lib</a>. Make
-  sure boodler works and produces audio in your environment.
-  finally install the Boodler packages from emacspeak/scapes from
-  the Emacspeak GitHub repository by running <code>cd
-  emacspeak/scapes; make</code></p>
-  <p>When boodler is set up and all packages installed, copy file
-  emacspeak/scapes/soundscapes to ~/.boodler/Collection. The above
-  file lists all installed SoundScapes. Directory emacspeak/scapes
-  also contains additional Boodler Agents and SoundScapes that I
-  have created for use with Emacspeak.</p>
-  <p>Module soundscape.el defines Emacs conveniences for
-  running</p><span id="Soundscape-Commands"></span>
-  <h4 class="subsection">12.225.1 Soundscape Commands</h4><span id=
-  "soundscape-2"></span>
-  <h4 class="subsubsection">12.225.1.1 soundscape</h4>
-  <dl>
-    <dt id="index-soundscape">Command: <strong>soundscape</strong>
-    <em>(scape)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-. s</kbd></dt>
-        <dd><span id="index-C_002d_002e-s"></span></dd>
-        <dt><kbd>C-' s</kbd></dt>
-        <dd><span id="index-C_002d_0027-s"></span></dd>
-        <dt><kbd>C-x @ s s</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-s-s"></span></dd>
-      </dl><span id="index-soundscape-1"></span>
-      <div class="format">
-        <pre class="format">Play soundscape.
+  <div class="section" id="soundscape">
+    <div class="header">
+      <p>Next: <a href="sox.html" accesskey="n" rel="next">sox</a>,
+      Previous: <a href="plain_002dvoices.html" accesskey="p" rel=
+      "prev">plain-voices</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="soundscape-1"></span>
+    <h3 class="section">12.225 soundscape</h3>
+    <p>Soundscapes <a href=
+    "https://en.wikipedia.org/wiki/Soundscape">https://en.wikipedia.org/wiki/Soundscape</a>
+    define an acoustic environment. Boodler at <a href=
+    "http://boodler.org">http://boodler.org</a> is a Python-based
+    SoundScape generator. To use this module, first install
+    boodler. Then install the soundscape packages (*.boop) files
+    available at <a href=
+    "http://boodler.org/lib">http://boodler.org/lib</a>. Make sure
+    boodler works and produces audio in your environment. finally
+    install the Boodler packages from emacspeak/scapes from the
+    Emacspeak GitHub repository by running <code>cd
+    emacspeak/scapes; make</code></p>
+    <p>When boodler is set up and all packages installed, copy file
+    emacspeak/scapes/soundscapes to ~/.boodler/Collection. The
+    above file lists all installed SoundScapes. Directory
+    emacspeak/scapes also contains additional Boodler Agents and
+    SoundScapes that I have created for use with Emacspeak.</p>
+    <p>Module soundscape.el defines Emacs conveniences for
+    running</p>
+    <ul class="section-toc">
+      <li><a href="#Soundscape-Commands" accesskey="1">Soundscape
+      Commands</a></li>
+      <li><a href="#soundscape-Options" accesskey="2">soundscape
+      Options</a></li>
+    </ul>
+    <div class="subsection" id="Soundscape-Commands">
+      <h4 class="subsection">12.225.1 Soundscape Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#soundscape-2" accesskey=
+        "1">soundscape</a></li>
+        <li><a href="#soundscape_002dkill" accesskey=
+        "2">soundscape-kill</a></li>
+        <li><a href="#soundscape_002dlistener" accesskey=
+        "3">soundscape-listener</a></li>
+        <li><a href="#soundscape_002dlistener_002dshutdown"
+        accesskey="4">soundscape-listener-shutdown</a></li>
+        <li><a href="#soundscape_002dremote" accesskey=
+        "5">soundscape-remote</a></li>
+        <li><a href="#soundscape_002drestart" accesskey=
+        "6">soundscape-restart</a></li>
+        <li><a href="#soundscape_002dstop" accesskey=
+        "7">soundscape-stop</a></li>
+        <li><a href="#soundscape_002dtheme" accesskey=
+        "8">soundscape-theme</a></li>
+        <li><a href="#soundscape_002dtoggle" accesskey=
+        "9">soundscape-toggle</a></li>
+        <li><a href=
+        "#soundscape_002dupdate_002dmood">soundscape-update-mood</a></li>
+      </ul>
+      <div class="subsubsection" id="soundscape-2">
+        <h4 class="subsubsection">12.225.1.1 soundscape</h4>
+        <dl class="def">
+          <dt id="index-soundscape"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape</strong> <em>(scape)</em>
+          <a href='#index-soundscape' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002e-s'><span><kbd>C-. s</kbd>
+              <a href='#index-C_002d_002e-s' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002d_0027-s'><span><kbd>C-' s</kbd>
+              <a href='#index-C_002d_0027-s' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-s-s'><span><kbd>C-x @ s
+              s</kbd> <a href='#index-C_002dx-_0040-s-s' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-soundscape-1"></span>
+            <div class="format">
+              <pre class="format">Play soundscape.
 
 (fn SCAPE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dkill"></span>
-  <h4 class="subsubsection">12.225.1.2 soundscape-kill</h4>
-  <dl>
-    <dt id="index-soundscape_002dkill">Command:
-    <strong>soundscape-kill</strong></dt>
-    <dd>
-      <span id="index-soundscape_002dkill-1"></span>
-      <div class="format">
-        <pre class="format">Stop all running soundscapes.
+      <div class="subsubsection" id="soundscape_002dkill">
+        <h4 class="subsubsection">12.225.1.2 soundscape-kill</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dkill"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape-kill</strong> <a href=
+          '#index-soundscape_002dkill' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-soundscape_002dkill-1"></span>
+            <div class="format">
+              <pre class="format">Stop all running soundscapes.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dlistener"></span>
-  <h4 class="subsubsection">12.225.1.3 soundscape-listener</h4>
-  <dl>
-    <dt id="index-soundscape_002dlistener">Command:
-    <strong>soundscape-listener</strong> <em>(&amp;optional
-    restart)</em></dt>
-    <dd>
-      <span id="index-soundscape_002dlistener-1"></span>
-      <div class="format">
-        <pre class="format">Start  a Soundscape listener.
+      <div class="subsubsection" id="soundscape_002dlistener">
+        <h4 class="subsubsection">12.225.1.3
+        soundscape-listener</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dlistener"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape-listener</strong>
+          <em>(&amp;optional restart)</em> <a href=
+          '#index-soundscape_002dlistener' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-soundscape_002dlistener-1"></span>
+            <div class="format">
+              <pre class="format">Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
 Optional interactive prefix arg restarts the listener.
 
 (fn &amp;optional RESTART)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dlistener_002dshutdown"></span>
-  <h4 class="subsubsection">12.225.1.4
-  soundscape-listener-shutdown</h4>
-  <dl>
-    <dt id="index-soundscape_002dlistener_002dshutdown">Command:
-    <strong>soundscape-listener-shutdown</strong></dt>
-    <dd>
-      <span id=
-      "index-soundscape_002dlistener_002dshutdown-1"></span>
-      <div class="format">
-        <pre class="format">Shutdown listener.
+      <div class="subsubsection" id=
+      "soundscape_002dlistener_002dshutdown">
+        <h4 class="subsubsection">12.225.1.4
+        soundscape-listener-shutdown</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dlistener_002dshutdown">
+          <span class="category">Command:</span>
+          <span><strong>soundscape-listener-shutdown</strong>
+          <a href='#index-soundscape_002dlistener_002dshutdown'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-soundscape_002dlistener_002dshutdown-1"></span>
+            <div class="format">
+              <pre class="format">Shutdown listener.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dremote"></span>
-  <h4 class="subsubsection">12.225.1.5 soundscape-remote</h4>
-  <dl>
-    <dt id="index-soundscape_002dremote">Command:
-    <strong>soundscape-remote</strong> <em>(names)</em></dt>
-    <dd>
-      <span id="index-soundscape_002dremote-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Activate scapes named ‘names’ — a list of strings.
+      <div class="subsubsection" id="soundscape_002dremote">
+        <h4 class="subsubsection">12.225.1.5 soundscape-remote</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dremote"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape-remote</strong> <em>(names)</em>
+          <a href='#index-soundscape_002dremote' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-soundscape_002dremote-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Activate scapes named ‘names’ — a list of strings.
 
 (fn NAMES)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002drestart"></span>
-  <h4 class="subsubsection">12.225.1.6 soundscape-restart</h4>
-  <dl>
-    <dt id="index-soundscape_002drestart">Command:
-    <strong>soundscape-restart</strong> <em>(&amp;optional
-    prompt)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-. r</kbd></dt>
-        <dd><span id="index-C_002d_002e-r"></span></dd>
-        <dt><kbd>C-' r</kbd></dt>
-        <dd><span id="index-C_002d_0027-r"></span></dd>
-        <dt><kbd>C-x @ s r</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-s-r"></span></dd>
-      </dl><span id="index-soundscape_002drestart-1"></span>
-      <div class="format">
-        <pre class="format">Restart Soundscape  environment.
+      <div class="subsubsection" id="soundscape_002drestart">
+        <h4 class="subsubsection">12.225.1.6
+        soundscape-restart</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002drestart"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape-restart</strong>
+          <em>(&amp;optional prompt)</em> <a href=
+          '#index-soundscape_002drestart' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002e-r'><span><kbd>C-. r</kbd>
+              <a href='#index-C_002d_002e-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002d_0027-r'><span><kbd>C-' r</kbd>
+              <a href='#index-C_002d_0027-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-s-r'><span><kbd>C-x @ s
+              r</kbd> <a href='#index-C_002dx-_0040-s-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-soundscape_002drestart-1"></span>
+            <div class="format">
+              <pre class="format">Restart Soundscape  environment.
 With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
 The  is then saved to soundscape-device for future use.
 
 (fn &amp;optional PROMPT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dstop"></span>
-  <h4 class="subsubsection">12.225.1.7 soundscape-stop</h4>
-  <dl>
-    <dt id="index-soundscape_002dstop">Command:
-    <strong>soundscape-stop</strong> <em>(scape)</em></dt>
-    <dd>
-      <span id="index-soundscape_002dstop-1"></span>
-      <div class="format">
-        <pre class="format">Stop running Soundscape.
+      <div class="subsubsection" id="soundscape_002dstop">
+        <h4 class="subsubsection">12.225.1.7 soundscape-stop</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dstop"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape-stop</strong> <em>(scape)</em>
+          <a href='#index-soundscape_002dstop' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-soundscape_002dstop-1"></span>
+            <div class="format">
+              <pre class="format">Stop running Soundscape.
 
 (fn SCAPE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dtheme"></span>
-  <h4 class="subsubsection">12.225.1.8 soundscape-theme</h4>
-  <dl>
-    <dt id="index-soundscape_002dtheme">Command:
-    <strong>soundscape-theme</strong></dt>
-    <dd>
-      <span id="index-soundscape_002dtheme-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Shows default theme in a special buffer.
+      <div class="subsubsection" id="soundscape_002dtheme">
+        <h4 class="subsubsection">12.225.1.8 soundscape-theme</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dtheme"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape-theme</strong> <a href=
+          '#index-soundscape_002dtheme' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-soundscape_002dtheme-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Shows default theme in a special buffer.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dtoggle"></span>
-  <h4 class="subsubsection">12.225.1.9 soundscape-toggle</h4>
-  <dl>
-    <dt id="index-soundscape_002dtoggle">Command:
-    <strong>soundscape-toggle</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-. t</kbd></dt>
-        <dd><span id="index-C_002d_002e-t"></span></dd>
-        <dt><kbd>C-' t</kbd></dt>
-        <dd><span id="index-C_002d_0027-t"></span></dd>
-        <dt><kbd>C-x @ s t</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-s-t"></span></dd>
-      </dl><span id="index-soundscape_002dtoggle-1"></span>
-      <div class="format">
-        <pre class="format">Toggle automatic SoundScapes.
+      <div class="subsubsection" id="soundscape_002dtoggle">
+        <h4 class="subsubsection">12.225.1.9 soundscape-toggle</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dtoggle"><span class=
+          "category">Command:</span>
+          <span><strong>soundscape-toggle</strong> <a href=
+          '#index-soundscape_002dtoggle' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002e-t'><span><kbd>C-. t</kbd>
+              <a href='#index-C_002d_002e-t' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002d_0027-t'><span><kbd>C-' t</kbd>
+              <a href='#index-C_002d_0027-t' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-s-t'><span><kbd>C-x @ s
+              t</kbd> <a href='#index-C_002dx-_0040-s-t' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-soundscape_002dtoggle-1"></span>
+            <div class="format">
+              <pre class="format">Toggle automatic SoundScapes.
 Run command M-x soundscape-theme to see the default mode-&gt;mood mapping.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape_002dupdate_002dmood"></span>
-  <h4 class="subsubsection">12.225.1.10 soundscape-update-mood</h4>
-  <dl>
-    <dt id="index-soundscape_002dupdate_002dmood">Command:
-    <strong>soundscape-update-mood</strong> <em>(&amp;optional
-    prompt-mode)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-. u</kbd></dt>
-        <dd><span id="index-C_002d_002e-u"></span></dd>
-        <dt><kbd>C-' u</kbd></dt>
-        <dd><span id="index-C_002d_0027-u"></span></dd>
-        <dt><kbd>C-x @ s u</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-s-u"></span></dd>
-      </dl><span id=
-      "index-soundscape_002dupdate_002dmood-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Update mood/scape mapping for current  mode.
+      <div class="subsubsection" id=
+      "soundscape_002dupdate_002dmood">
+        <h4 class="subsubsection">12.225.1.10
+        soundscape-update-mood</h4>
+        <dl class="def">
+          <dt id="index-soundscape_002dupdate_002dmood">
+          <span class="category">Command:</span>
+          <span><strong>soundscape-update-mood</strong>
+          <em>(&amp;optional prompt-mode)</em> <a href=
+          '#index-soundscape_002dupdate_002dmood' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002e-u'><span><kbd>C-. u</kbd>
+              <a href='#index-C_002d_002e-u' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002d_0027-u'><span><kbd>C-' u</kbd>
+              <a href='#index-C_002d_0027-u' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-s-u'><span><kbd>C-x @ s
+              u</kbd> <a href='#index-C_002dx-_0040-s-u' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-soundscape_002dupdate_002dmood-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Update mood/scape mapping for current  mode.
 The  updated mapping is not persisted.
 Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
 
 (fn &amp;optional PROMPT-MODE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="soundscape-Options"></span>
-  <h4 class="subsection">12.225.2 soundscape Options</h4>
-  <dl>
-    <dt id="index-User-Option-114">Variable: <strong>User
-    Option</strong> <em>soundscape-data</em></dt>
-    <dd>
-      <p>Soundscape data directory.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-115">Variable: <strong>User
-    Option</strong> <em>soundscape-device</em></dt>
-    <dd>
-      <p>Alsa sound device to use for soundscapes.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-116">Variable: <strong>User
-    Option</strong> <em>soundscape-idle-delay</em></dt>
-    <dd>
-      <p>Number of seconds of idle time before soundscapes are
-      synchronized with current mode.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-117">Variable: <strong>User
-    Option</strong> <em>soundscape-manager-options</em></dt>
-    <dd>
-      <p>User customizable options list passed to boodler. Defaults
-      specify alsa as the output and set master volume</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="soundscape-Options">
+      <h4 class="subsection">12.225.2 soundscape Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-114"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>soundscape-data</em> <a href=
+        '#index-User-Option-114' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Soundscape data directory.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-115"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>soundscape-device</em> <a href=
+        '#index-User-Option-115' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Alsa sound device to use for soundscapes.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-116"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>soundscape-idle-delay</em> <a href=
+        '#index-User-Option-116' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Number of seconds of idle time before soundscapes are
+          synchronized with current mode.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-117"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>soundscape-manager-options</em>
+        <a href='#index-User-Option-117' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>User customizable options list passed to boodler.
+          Defaults specify alsa as the output and set master
+          volume</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="sox.html" accesskey="n" rel="next">sox</a>,
-    Previous: <a href="plain_002dvoices.html" accesskey="p" rel=
-    "prev">plain-voices</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+    <p>Next: <a href="sox.html">sox</a>, Previous: <a href=
+    "plain_002dvoices.html">plain-voices</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html">Emacspeak Commands And
+    Options</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

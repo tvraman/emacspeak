@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,45 +54,88 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dmuggles"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dmuse.html" accesskey="n" rel=
-    "next">emacspeak-muse</a>, Previous: <a href=
-    "emacspeak_002dmspools.html" accesskey="p" rel=
-    "prev">emacspeak-mspools</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dmuggles-1"></span>
-  <h3 class="section">12.126 emacspeak-muggles</h3>
-  <p>MUGGLES == Emacspeak spells for power-users. This module
-  implements no new functionality — contrast with
-  emacspeak-wizards. Instead, it uses package hydra to provide
-  convenience key-bindings that access existing Emacspeak
-  functionality.</p><span id=
-  "Emacspeak_002dMuggles-Commands"></span>
-  <h4 class="subsection">12.126.1 Emacspeak-Muggles
-  Commands</h4><span id=
-  "emacspeak_002dmuggles_002dbrightness_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.1
-  emacspeak-muggles-brightness/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dbrightness_002fbody">
-    Command:
-    <strong>emacspeak-muggles-brightness/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>&lt;print&gt;</kbd></dt>
-        <dd><span id="index-_003cprint_003e"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dbrightness_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-brightness" hydra.
+  <div class="section" id="emacspeak_002dmuggles">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dmuse.html" accesskey="n" rel=
+      "next">emacspeak-muse</a>, Previous: <a href=
+      "emacspeak_002dmspools.html" accesskey="p" rel=
+      "prev">emacspeak-mspools</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dmuggles-1"></span>
+    <h3 class="section">12.126 emacspeak-muggles</h3>
+    <p>MUGGLES == Emacspeak spells for power-users. This module
+    implements no new functionality — contrast with
+    emacspeak-wizards. Instead, it uses package hydra to provide
+    convenience key-bindings that access existing Emacspeak
+    functionality.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dMuggles-Commands" accesskey=
+      "1">Emacspeak-Muggles Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dMuggles-Commands">
+      <h4 class="subsection">12.126.1 Emacspeak-Muggles
+      Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002dmuggles_002dbrightness_002fbody" accesskey=
+        "1">emacspeak-muggles-brightness/body</a></li>
+        <li><a href="#emacspeak_002dmuggles_002dhideshow_002fbody"
+        accesskey="2">emacspeak-muggles-hideshow/body</a></li>
+        <li><a href="#emacspeak_002dmuggles_002dido_002dyank"
+        accesskey="3">emacspeak-muggles-ido-yank</a></li>
+        <li><a href=
+        "#emacspeak_002dmuggles_002dlispy_002dor_002dsp" accesskey=
+        "4">emacspeak-muggles-lispy-or-sp</a></li>
+        <li><a href=
+        "#emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody"
+        accesskey=
+        "5">emacspeak-muggles-maths-navigator/body</a></li>
+        <li><a href="#emacspeak_002dmuggles_002dnavigate_002fbody"
+        accesskey="6">emacspeak-muggles-navigate/body</a></li>
+        <li><a href=
+        "#emacspeak_002dmuggles_002dorg_002dnav_002fbody"
+        accesskey="7">emacspeak-muggles-org-nav/body</a></li>
+        <li><a href=
+        "#emacspeak_002dmuggles_002dorg_002dtable_002fbody"
+        accesskey="8">emacspeak-muggles-org-table/body</a></li>
+        <li><a href=
+        "#emacspeak_002dmuggles_002dtoggle_002doption_002fbody"
+        accesskey="9">emacspeak-muggles-toggle-option/body</a></li>
+        <li><a href=
+        "#emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody">
+        emacspeak-muggles-undo-only/undo-redo/body</a></li>
+        <li><a href=
+        "#emacspeak_002dmuggles_002dyank_002dpop_002fbody">emacspeak-muggles-yank-pop/body</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dbrightness_002fbody">
+        <h4 class="subsubsection">12.126.1.1
+        emacspeak-muggles-brightness/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dbrightness_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-brightness/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dbrightness_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-_003cprint_003e'>
+              <span><kbd>&lt;print&gt;</kbd> <a href=
+              '#index-_003cprint_003e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dmuggles_002dbrightness_002fbody-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-brightness" hydra.
 
 The heads for the associated hydra are:
 
@@ -106,26 +152,35 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dhideshow_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.2
-  emacspeak-muggles-hideshow/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dhideshow_002fbody">
-    Command: <strong>emacspeak-muggles-hideshow/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-, h</kbd></dt>
-        <dd><span id="index-C_002d_002c-h"></span></dd>
-        <dt><kbd>C-x @ a h</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-a-h"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dhideshow_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-hideshow" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dhideshow_002fbody">
+        <h4 class="subsubsection">12.126.1.2
+        emacspeak-muggles-hideshow/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dhideshow_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-hideshow/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dhideshow_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002c-h'><span><kbd>C-, h</kbd>
+              <a href='#index-C_002d_002c-h' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-h'><span><kbd>C-x @ a
+              h</kbd> <a href='#index-C_002dx-_0040-a-h' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dmuggles_002dhideshow_002fbody-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-hideshow" hydra.
 
 The heads for the associated hydra are:
 
@@ -140,58 +195,81 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dmuggles_002dido_002dyank"></span>
-  <h4 class="subsubsection">12.126.1.3
-  emacspeak-muggles-ido-yank</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dido_002dyank">Command:
-    <strong>emacspeak-muggles-ido-yank</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-M-y</kbd></dt>
-        <dd><span id="index-C_002dM_002dy"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dido_002dyank-1"></span>
-      <div class="format">
-        <pre class="format">Pick what to yank using ido completion.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dido_002dyank">
+        <h4 class="subsubsection">12.126.1.3
+        emacspeak-muggles-ido-yank</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dmuggles_002dido_002dyank">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-ido-yank</strong>
+          <a href='#index-emacspeak_002dmuggles_002dido_002dyank'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002dM_002dy'><span><kbd>C-M-y</kbd>
+              <a href='#index-C_002dM_002dy' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dmuggles_002dido_002dyank-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Pick what to yank using ido completion.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dlispy_002dor_002dsp"></span>
-  <h4 class="subsubsection">12.126.1.4
-  emacspeak-muggles-lispy-or-sp</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dlispy_002dor_002dsp">
-    Command: <strong>emacspeak-muggles-lispy-or-sp</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dmuggles_002dlispy_002dor_002dsp-1"></span>
-      <div class="format">
-        <pre class="format">Toggle between lispy and smartparens.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dlispy_002dor_002dsp">
+        <h4 class="subsubsection">12.126.1.4
+        emacspeak-muggles-lispy-or-sp</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dlispy_002dor_002dsp">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-lispy-or-sp</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dlispy_002dor_002dsp'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dmuggles_002dlispy_002dor_002dsp-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Toggle between lispy and smartparens.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.5
-  emacspeak-muggles-maths-navigator/body</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody">
-    Command:
-    <strong>emacspeak-muggles-maths-navigator/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>s-SPC</kbd></dt>
-        <dd><span id="index-s_002dSPC"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-maths-navigator" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody">
+        <h4 class="subsubsection">12.126.1.5
+        emacspeak-muggles-maths-navigator/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-maths-navigator/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-s_002dSPC'><span><kbd>s-SPC</kbd>
+              <a href='#index-s_002dSPC' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-maths-navigator" hydra.
 
 The heads for the associated hydra are:
 
@@ -208,24 +286,32 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dnavigate_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.6
-  emacspeak-muggles-navigate/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dnavigate_002fbody">
-    Command: <strong>emacspeak-muggles-navigate/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>s-n</kbd></dt>
-        <dd><span id="index-s_002dn"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dnavigate_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-navigate" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dnavigate_002fbody">
+        <h4 class="subsubsection">12.126.1.6
+        emacspeak-muggles-navigate/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dnavigate_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-navigate/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dnavigate_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-s_002dn'><span><kbd>s-n</kbd> <a href=
+              '#index-s_002dn' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dmuggles_002dnavigate_002fbody-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-navigate" hydra.
 
 The heads for the associated hydra are:
 
@@ -247,21 +333,29 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dorg_002dnav_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.7
-  emacspeak-muggles-org-nav/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dorg_002dnav_002fbody">
-    Command: <strong>emacspeak-muggles-org-nav/body</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dmuggles_002dorg_002dnav_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-org-nav" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dorg_002dnav_002fbody">
+        <h4 class="subsubsection">12.126.1.7
+        emacspeak-muggles-org-nav/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dorg_002dnav_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-org-nav/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dorg_002dnav_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dmuggles_002dorg_002dnav_002fbody-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-org-nav" hydra.
 
 The heads for the associated hydra are:
 
@@ -276,22 +370,29 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dorg_002dtable_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.8
-  emacspeak-muggles-org-table/body</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dmuggles_002dorg_002dtable_002fbody">
-    Command: <strong>emacspeak-muggles-org-table/body</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dmuggles_002dorg_002dtable_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-org-table" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dorg_002dtable_002fbody">
+        <h4 class="subsubsection">12.126.1.8
+        emacspeak-muggles-org-table/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dorg_002dtable_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-org-table/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dorg_002dtable_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dmuggles_002dorg_002dtable_002fbody-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-org-table" hydra.
 
 The heads for the associated hydra are:
 
@@ -308,26 +409,32 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dtoggle_002doption_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.9
-  emacspeak-muggles-toggle-option/body</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody">
-    Command:
-    <strong>emacspeak-muggles-toggle-option/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-c o</kbd></dt>
-        <dd><span id="index-C_002dc-o-1"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-toggle-option" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dtoggle_002doption_002fbody">
+        <h4 class="subsubsection">12.126.1.9
+        emacspeak-muggles-toggle-option/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-toggle-option/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002dc-o-1'><span><kbd>C-c o</kbd>
+              <a href='#index-C_002dc-o-1' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-toggle-option" hydra.
 
 The heads for the associated hydra are:
 
@@ -350,26 +457,32 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.10
-  emacspeak-muggles-undo-only/undo-redo/body</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody">
-    Command:
-    <strong>emacspeak-muggles-undo-only/undo-redo/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-/</kbd></dt>
-        <dd><span id="index-C_002d_002f"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-undo-only/undo-redo" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody">
+        <h4 class="subsubsection">12.126.1.10
+        emacspeak-muggles-undo-only/undo-redo/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-undo-only/undo-redo/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002f'><span><kbd>C-/</kbd>
+              <a href='#index-C_002d_002f' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-undo-only/undo-redo" hydra.
 
 The heads for the associated hydra are:
 
@@ -379,21 +492,29 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dmuggles_002dyank_002dpop_002fbody"></span>
-  <h4 class="subsubsection">12.126.1.11
-  emacspeak-muggles-yank-pop/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dyank_002dpop_002fbody">
-    Command: <strong>emacspeak-muggles-yank-pop/body</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dmuggles_002dyank_002dpop_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-yank-pop" hydra.
+      <div class="subsubsection" id=
+      "emacspeak_002dmuggles_002dyank_002dpop_002fbody">
+        <h4 class="subsubsection">12.126.1.11
+        emacspeak-muggles-yank-pop/body</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dmuggles_002dyank_002dpop_002fbody">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-muggles-yank-pop/body</strong>
+          <a href=
+          '#index-emacspeak_002dmuggles_002dyank_002dpop_002fbody'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dmuggles_002dyank_002dpop_002fbody-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Call the body in the "emacspeak-muggles-yank-pop" hydra.
 
 The heads for the associated hydra are:
 
@@ -408,17 +529,19 @@ The heads for the associated hydra are:
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002dmuse.html" accesskey="n" rel=
-    "next">emacspeak-muse</a>, Previous: <a href=
-    "emacspeak_002dmspools.html" accesskey="p" rel=
-    "prev">emacspeak-mspools</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    <p>Next: <a href="emacspeak_002dmuse.html">emacspeak-muse</a>,
+    Previous: <a href=
+    "emacspeak_002dmspools.html">emacspeak-mspools</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -15,6 +15,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -27,11 +29,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -40,6 +42,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -48,129 +51,211 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="gmaps"></span>
-  <div class="header">
-    <p>Next: <a href="ladspa.html" accesskey="n" rel=
-    "next">ladspa</a>, Previous: <a href="gm_002dnnir.html"
-    accesskey="p" rel="prev">gm-nnir</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="gmaps-1"></span>
-  <h3 class="section">12.220 gmaps</h3>
-  <p>Implements the Google Maps API</p><span id=
-  "Gmaps-Commands"></span>
-  <h4 class="subsection">12.220.1 Gmaps Commands</h4><span id=
-  "gmaps-2"></span>
-  <h4 class="subsubsection">12.220.1.1 gmaps</h4>
-  <dl>
-    <dt id="index-gmaps">Command: <strong>gmaps</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-; e</kbd></dt>
-        <dd><span id="index-C_002d_003b-e"></span></dd>
-        <dt><kbd>C-x @ h e</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-h-e"></span></dd>
-      </dl><span id="index-gmaps-1"></span>
-      <div class="format">
-        <pre class="format">Google Maps Interaction.
+  <div class="section" id="gmaps">
+    <div class="header">
+      <p>Next: <a href="ladspa.html" accesskey="n" rel=
+      "next">ladspa</a>, Previous: <a href="gm_002dnnir.html"
+      accesskey="p" rel="prev">gm-nnir</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="gmaps-1"></span>
+    <h3 class="section">12.220 gmaps</h3>
+    <p>Implements the Google Maps API</p>
+    <ul class="section-toc">
+      <li><a href="#Gmaps-Commands" accesskey="1">Gmaps
+      Commands</a></li>
+      <li><a href="#gmaps-Options" accesskey="2">gmaps
+      Options</a></li>
+    </ul>
+    <div class="subsection" id="Gmaps-Commands">
+      <h4 class="subsection">12.220.1 Gmaps Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#gmaps-2" accesskey="1">gmaps</a></li>
+        <li><a href="#gmaps_002dbicycling_002ddirections"
+        accesskey="2">gmaps-bicycling-directions</a></li>
+        <li><a href="#gmaps_002ddirections" accesskey=
+        "3">gmaps-directions</a></li>
+        <li><a href="#gmaps_002ddriving_002ddirections" accesskey=
+        "4">gmaps-driving-directions</a></li>
+        <li><a href="#gmaps_002dlocations_002dload" accesskey=
+        "5">gmaps-locations-load</a></li>
+        <li><a href="#gmaps_002dlocations_002dsave" accesskey=
+        "6">gmaps-locations-save</a></li>
+        <li><a href="#gmaps_002dmode" accesskey=
+        "7">gmaps-mode</a></li>
+        <li><a href="#gmaps_002dplace_002ddetails" accesskey=
+        "8">gmaps-place-details</a></li>
+        <li><a href="#gmaps_002dplace_002dreviews" accesskey=
+        "9">gmaps-place-reviews</a></li>
+        <li><a href=
+        "#gmaps_002dplaces_002dnearby">gmaps-places-nearby</a></li>
+        <li><a href=
+        "#gmaps_002dplaces_002dsearch">gmaps-places-search</a></li>
+        <li><a href=
+        "#gmaps_002dset_002dcurrent_002dfilter">gmaps-set-current-filter</a></li>
+        <li><a href=
+        "#gmaps_002dset_002dcurrent_002dlocation">gmaps-set-current-location</a></li>
+        <li><a href=
+        "#gmaps_002dset_002dcurrent_002dradius">gmaps-set-current-radius</a></li>
+        <li><a href=
+        "#gmaps_002dtransit_002ddirections">gmaps-transit-directions</a></li>
+        <li><a href=
+        "#gmaps_002dwalking_002ddirections">gmaps-walking-directions</a></li>
+      </ul>
+      <div class="subsubsection" id="gmaps-2">
+        <h4 class="subsubsection">12.220.1.1 gmaps</h4>
+        <dl class="def">
+          <dt id="index-gmaps"><span class=
+          "category">Command:</span> <span><strong>gmaps</strong>
+          <a href='#index-gmaps' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_003b-e'><span><kbd>C-; e</kbd>
+              <a href='#index-C_002d_003b-e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-e'><span><kbd>C-x @ h
+              e</kbd> <a href='#index-C_002dx-_0040-h-e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-gmaps-1"></span>
+            <div class="format">
+              <pre class="format">Google Maps Interaction.
 
 This function has :around advice: ‘ad-Advice-gmaps’.
 
 (fn)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dbicycling_002ddirections"></span>
-  <h4 class="subsubsection">12.220.1.2
-  gmaps-bicycling-directions</h4>
-  <dl>
-    <dt id="index-gmaps_002dbicycling_002ddirections">Command:
-    <strong>gmaps-bicycling-directions</strong> <em>(origin
-    destination)</em></dt>
-    <dd>
-      <span id="index-gmaps_002dbicycling_002ddirections-1"></span>
-      <div class="format">
-        <pre class="format">Biking directions from Google Maps.
+      <div class="subsubsection" id=
+      "gmaps_002dbicycling_002ddirections">
+        <h4 class="subsubsection">12.220.1.2
+        gmaps-bicycling-directions</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dbicycling_002ddirections">
+          <span class="category">Command:</span>
+          <span><strong>gmaps-bicycling-directions</strong>
+          <em>(origin destination)</em> <a href=
+          '#index-gmaps_002dbicycling_002ddirections' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gmaps_002dbicycling_002ddirections-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Biking directions from Google Maps.
 
 This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
 
 (fn ORIGIN DESTINATION)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002ddirections"></span>
-  <h4 class="subsubsection">12.220.1.3 gmaps-directions</h4>
-  <dl>
-    <dt id="index-gmaps_002ddirections">Command:
-    <strong>gmaps-directions</strong> <em>(origin destination
-    mode)</em></dt>
-    <dd>
-      <span id="index-gmaps_002ddirections-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Display  directions obtained from Google Maps.
+      <div class="subsubsection" id="gmaps_002ddirections">
+        <h4 class="subsubsection">12.220.1.3 gmaps-directions</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002ddirections"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-directions</strong> <em>(origin
+          destination mode)</em> <a href=
+          '#index-gmaps_002ddirections' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002ddirections-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Display  directions obtained from Google Maps.
 
 (fn ORIGIN DESTINATION MODE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002ddriving_002ddirections"></span>
-  <h4 class="subsubsection">12.220.1.4
-  gmaps-driving-directions</h4>
-  <dl>
-    <dt id="index-gmaps_002ddriving_002ddirections">Command:
-    <strong>gmaps-driving-directions</strong> <em>(origin
-    destination)</em></dt>
-    <dd>
-      <span id="index-gmaps_002ddriving_002ddirections-1"></span>
-      <div class="format">
-        <pre class="format">Driving directions from Google Maps.
+      <div class="subsubsection" id=
+      "gmaps_002ddriving_002ddirections">
+        <h4 class="subsubsection">12.220.1.4
+        gmaps-driving-directions</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002ddriving_002ddirections">
+          <span class="category">Command:</span>
+          <span><strong>gmaps-driving-directions</strong>
+          <em>(origin destination)</em> <a href=
+          '#index-gmaps_002ddriving_002ddirections' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gmaps_002ddriving_002ddirections-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Driving directions from Google Maps.
 
 This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
 
 (fn ORIGIN DESTINATION)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dlocations_002dload"></span>
-  <h4 class="subsubsection">12.220.1.5 gmaps-locations-load</h4>
-  <dl>
-    <dt id="index-gmaps_002dlocations_002dload">Command:
-    <strong>gmaps-locations-load</strong></dt>
-    <dd>
-      <span id="index-gmaps_002dlocations_002dload-1"></span>
-      <div class="format">
-        <pre class="format">Load saved GMaps locations.
+      <div class="subsubsection" id="gmaps_002dlocations_002dload">
+        <h4 class="subsubsection">12.220.1.5
+        gmaps-locations-load</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dlocations_002dload"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-locations-load</strong> <a href=
+          '#index-gmaps_002dlocations_002dload' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002dlocations_002dload-1"></span>
+            <div class="format">
+              <pre class="format">Load saved GMaps locations.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dlocations_002dsave"></span>
-  <h4 class="subsubsection">12.220.1.6 gmaps-locations-save</h4>
-  <dl>
-    <dt id="index-gmaps_002dlocations_002dsave">Command:
-    <strong>gmaps-locations-save</strong></dt>
-    <dd>
-      <span id="index-gmaps_002dlocations_002dsave-1"></span>
-      <div class="format">
-        <pre class="format">Save GMaps Locations.
+      <div class="subsubsection" id="gmaps_002dlocations_002dsave">
+        <h4 class="subsubsection">12.220.1.6
+        gmaps-locations-save</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dlocations_002dsave"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-locations-save</strong> <a href=
+          '#index-gmaps_002dlocations_002dsave' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002dlocations_002dsave-1"></span>
+            <div class="format">
+              <pre class="format">Save GMaps Locations.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dmode"></span>
-  <h4 class="subsubsection">12.220.1.7 gmaps-mode</h4>
-  <dl>
-    <dt id="index-gmaps_002dmode">Command:
-    <strong>gmaps-mode</strong></dt>
-    <dd>
-      <span id="index-gmaps_002dmode-1"></span>
-      <div class="format">
-        <pre class=
-        "format">A Google Maps front-end for the Emacspeak desktop.
+      <div class="subsubsection" id="gmaps_002dmode">
+        <h4 class="subsubsection">12.220.1.7 gmaps-mode</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dmode"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-mode</strong> <a href=
+          '#index-gmaps_002dmode' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002dmode-1"></span>
+            <div class="format">
+              <pre class=
+              "format">A Google Maps front-end for the Emacspeak desktop.
 
 In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘gmaps-mode-hook’, as the final or
@@ -197,66 +282,93 @@ w               gmaps-walking-directions
 M-i             backward-button
 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dplace_002ddetails"></span>
-  <h4 class="subsubsection">12.220.1.8 gmaps-place-details</h4>
-  <dl>
-    <dt id="index-gmaps_002dplace_002ddetails">Command:
-    <strong>gmaps-place-details</strong></dt>
-    <dd>
-      <span id="index-gmaps_002dplace_002ddetails-1"></span>
-      <div class="format">
-        <pre class="format">Display details for place at point.
+      <div class="subsubsection" id="gmaps_002dplace_002ddetails">
+        <h4 class="subsubsection">12.220.1.8
+        gmaps-place-details</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dplace_002ddetails"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-place-details</strong> <a href=
+          '#index-gmaps_002dplace_002ddetails' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002dplace_002ddetails-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Display details for place at point.
 Insert reviews if already displaying details.
 
 This function has :around advice: ‘ad-Advice-gmaps-place-details’.
 
 (fn)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dplace_002dreviews"></span>
-  <h4 class="subsubsection">12.220.1.9 gmaps-place-reviews</h4>
-  <dl>
-    <dt id="index-gmaps_002dplace_002dreviews">Command:
-    <strong>gmaps-place-reviews</strong></dt>
-    <dd>
-      <span id="index-gmaps_002dplace_002dreviews-1"></span>
-      <div class="format">
-        <pre class="format">Display reviews for place at point.
+      <div class="subsubsection" id="gmaps_002dplace_002dreviews">
+        <h4 class="subsubsection">12.220.1.9
+        gmaps-place-reviews</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dplace_002dreviews"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-place-reviews</strong> <a href=
+          '#index-gmaps_002dplace_002dreviews' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002dplace_002dreviews-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Display reviews for place at point.
 Place details need to have been expanded first.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dplaces_002dnearby"></span>
-  <h4 class="subsubsection">12.220.1.10 gmaps-places-nearby</h4>
-  <dl>
-    <dt id="index-gmaps_002dplaces_002dnearby">Command:
-    <strong>gmaps-places-nearby</strong> <em>(&amp;optional
-    clear-filter)</em></dt>
-    <dd>
-      <span id="index-gmaps_002dplaces_002dnearby-1"></span>
-      <div class="format">
-        <pre class="format">Find places near current location.
+      <div class="subsubsection" id="gmaps_002dplaces_002dnearby">
+        <h4 class="subsubsection">12.220.1.10
+        gmaps-places-nearby</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dplaces_002dnearby"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-places-nearby</strong>
+          <em>(&amp;optional clear-filter)</em> <a href=
+          '#index-gmaps_002dplaces_002dnearby' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002dplaces_002dnearby-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters.
 
 This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
 
 (fn &amp;optional CLEAR-FILTER)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dplaces_002dsearch"></span>
-  <h4 class="subsubsection">12.220.1.11 gmaps-places-search</h4>
-  <dl>
-    <dt id="index-gmaps_002dplaces_002dsearch">Command:
-    <strong>gmaps-places-search</strong> <em>(query &amp;optional
-    clear-filter)</em></dt>
-    <dd>
-      <span id="index-gmaps_002dplaces_002dsearch-1"></span>
-      <div class="format">
-        <pre class="format">Perform a places search.
+      <div class="subsubsection" id="gmaps_002dplaces_002dsearch">
+        <h4 class="subsubsection">12.220.1.11
+        gmaps-places-search</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dplaces_002dsearch"><span class=
+          "category">Command:</span>
+          <span><strong>gmaps-places-search</strong> <em>(query
+          &amp;optional clear-filter)</em> <a href=
+          '#index-gmaps_002dplaces_002dsearch' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-gmaps_002dplaces_002dsearch-1"></span>
+            <div class="format">
+              <pre class="format">Perform a places search.
 Use this only if you dont know the locality  of the place you’re looking for.
 Optional  prefix arg clears any active filters.
 
@@ -264,128 +376,171 @@ This function has :around advice: ‘ad-Advice-gmaps-places-search’.
 
 (fn QUERY &amp;optional CLEAR-FILTER)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dset_002dcurrent_002dfilter"></span>
-  <h4 class="subsubsection">12.220.1.12
-  gmaps-set-current-filter</h4>
-  <dl>
-    <dt id="index-gmaps_002dset_002dcurrent_002dfilter">Command:
-    <strong>gmaps-set-current-filter</strong> <em>(&amp;optional
-    all)</em></dt>
-    <dd>
-      <span id=
-      "index-gmaps_002dset_002dcurrent_002dfilter-1"></span>
-      <div class="format">
-        <pre class="format">Set up filter in current buffer.
+      <div class="subsubsection" id=
+      "gmaps_002dset_002dcurrent_002dfilter">
+        <h4 class="subsubsection">12.220.1.12
+        gmaps-set-current-filter</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dset_002dcurrent_002dfilter">
+          <span class="category">Command:</span>
+          <span><strong>gmaps-set-current-filter</strong>
+          <em>(&amp;optional all)</em> <a href=
+          '#index-gmaps_002dset_002dcurrent_002dfilter' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gmaps_002dset_002dcurrent_002dfilter-1"></span>
+            <div class="format">
+              <pre class="format">Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields.
 
 (fn &amp;optional ALL)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dset_002dcurrent_002dlocation"></span>
-  <h4 class="subsubsection">12.220.1.13
-  gmaps-set-current-location</h4>
-  <dl>
-    <dt id="index-gmaps_002dset_002dcurrent_002dlocation">Command:
-    <strong>gmaps-set-current-location</strong>
-    <em>(address)</em></dt>
-    <dd>
-      <span id=
-      "index-gmaps_002dset_002dcurrent_002dlocation-1"></span>
-      <div class="format">
-        <pre class="format"> Set current location.
+      <div class="subsubsection" id=
+      "gmaps_002dset_002dcurrent_002dlocation">
+        <h4 class="subsubsection">12.220.1.13
+        gmaps-set-current-location</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dset_002dcurrent_002dlocation">
+          <span class="category">Command:</span>
+          <span><strong>gmaps-set-current-location</strong>
+          <em>(address)</em> <a href=
+          '#index-gmaps_002dset_002dcurrent_002dlocation' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gmaps_002dset_002dcurrent_002dlocation-1"></span>
+            <div class="format">
+              <pre class="format"> Set current location.
 
 This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
 
 (fn ADDRESS)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dset_002dcurrent_002dradius"></span>
-  <h4 class="subsubsection">12.220.1.14
-  gmaps-set-current-radius</h4>
-  <dl>
-    <dt id="index-gmaps_002dset_002dcurrent_002dradius">Command:
-    <strong>gmaps-set-current-radius</strong>
-    <em>(radius)</em></dt>
-    <dd>
-      <span id=
-      "index-gmaps_002dset_002dcurrent_002dradius-1"></span>
-      <div class="format">
-        <pre class="format">Set current radius
+      <div class="subsubsection" id=
+      "gmaps_002dset_002dcurrent_002dradius">
+        <h4 class="subsubsection">12.220.1.14
+        gmaps-set-current-radius</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dset_002dcurrent_002dradius">
+          <span class="category">Command:</span>
+          <span><strong>gmaps-set-current-radius</strong>
+          <em>(radius)</em> <a href=
+          '#index-gmaps_002dset_002dcurrent_002dradius' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gmaps_002dset_002dcurrent_002dradius-1"></span>
+            <div class="format">
+              <pre class="format">Set current radius
 
 This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
 
 (fn RADIUS)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dtransit_002ddirections"></span>
-  <h4 class="subsubsection">12.220.1.15
-  gmaps-transit-directions</h4>
-  <dl>
-    <dt id="index-gmaps_002dtransit_002ddirections">Command:
-    <strong>gmaps-transit-directions</strong> <em>(origin
-    destination)</em></dt>
-    <dd>
-      <span id="index-gmaps_002dtransit_002ddirections-1"></span>
-      <div class="format">
-        <pre class="format">Transit directions from Google Maps.
+      <div class="subsubsection" id=
+      "gmaps_002dtransit_002ddirections">
+        <h4 class="subsubsection">12.220.1.15
+        gmaps-transit-directions</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dtransit_002ddirections">
+          <span class="category">Command:</span>
+          <span><strong>gmaps-transit-directions</strong>
+          <em>(origin destination)</em> <a href=
+          '#index-gmaps_002dtransit_002ddirections' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gmaps_002dtransit_002ddirections-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Transit directions from Google Maps.
 
 This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
 
 (fn ORIGIN DESTINATION)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps_002dwalking_002ddirections"></span>
-  <h4 class="subsubsection">12.220.1.16
-  gmaps-walking-directions</h4>
-  <dl>
-    <dt id="index-gmaps_002dwalking_002ddirections">Command:
-    <strong>gmaps-walking-directions</strong> <em>(origin
-    destination)</em></dt>
-    <dd>
-      <span id="index-gmaps_002dwalking_002ddirections-1"></span>
-      <div class="format">
-        <pre class="format">Walking directions from Google Maps.
+      <div class="subsubsection" id=
+      "gmaps_002dwalking_002ddirections">
+        <h4 class="subsubsection">12.220.1.16
+        gmaps-walking-directions</h4>
+        <dl class="def">
+          <dt id="index-gmaps_002dwalking_002ddirections">
+          <span class="category">Command:</span>
+          <span><strong>gmaps-walking-directions</strong>
+          <em>(origin destination)</em> <a href=
+          '#index-gmaps_002dwalking_002ddirections' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gmaps_002dwalking_002ddirections-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Walking directions from Google Maps.
 
 This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
 
 (fn ORIGIN DESTINATION)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="gmaps-Options"></span>
-  <h4 class="subsection">12.220.2 gmaps Options</h4>
-  <dl>
-    <dt id="index-User-Option-110">Variable: <strong>User
-    Option</strong> <em>gmaps-api-key</em></dt>
-    <dd>
-      <p>Maps API key — goto https://code.google.com/apis/console
-      to get one.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-111">Variable: <strong>User
-    Option</strong> <em>gmaps-my-address</em></dt>
-    <dd>
-      <p>Location address. Setting this updates gmaps-my-location
-      coordinates via geocoding.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="gmaps-Options">
+      <h4 class="subsection">12.220.2 gmaps Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-110"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>gmaps-api-key</em> <a href=
+        '#index-User-Option-110' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Maps API key — goto
+          https://code.google.com/apis/console to get one.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-111"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>gmaps-my-address</em> <a href=
+        '#index-User-Option-111' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Location address. Setting this updates
+          gmaps-my-location coordinates via geocoding.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="ladspa.html" accesskey="n" rel=
-    "next">ladspa</a>, Previous: <a href="gm_002dnnir.html"
-    accesskey="p" rel="prev">gm-nnir</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+    <p>Next: <a href="ladspa.html">ladspa</a>, Previous: <a href=
+    "gm_002dnnir.html">gm-nnir</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html">Emacspeak Commands And
+    Options</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,113 +54,169 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dsounds"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dspeak.html" accesskey="n" rel=
-    "next">emacspeak-speak</a>, Previous: <a href=
-    "emacspeak_002dsolitaire.html" accesskey="p" rel=
-    "prev">emacspeak-solitaire</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dsounds-1"></span>
-  <h3 class="section">12.173 emacspeak-sounds</h3>
-  <p>This module provides the interface for generating auditory
-  icons in emacspeak.</p><span id=
-  "Emacspeak_002dSounds-Commands"></span>
-  <h4 class="subsection">12.173.1 Emacspeak-Sounds
-  Commands</h4><span id="emacspeak_002daudio_002dsetup"></span>
-  <h4 class="subsubsection">12.173.1.1 emacspeak-audio-setup</h4>
-  <dl>
-    <dt id="index-emacspeak_002daudio_002dsetup">Command:
-    <strong>emacspeak-audio-setup</strong> <em>(&amp;optional
-    prefix)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e (</kbd></dt>
-        <dd><span id="index-C_002de-_0028"></span></dd>
-        <dt><kbd>&lt;fn&gt; (</kbd></dt>
-        <dd><span id="index-_003cfn_003e-_0028"></span></dd>
-      </dl><span id="index-emacspeak_002daudio_002dsetup-1"></span>
-      <div class="format">
-        <pre class="format">Call amixer  command.
+  <div class="section" id="emacspeak_002dsounds">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dspeak.html" accesskey="n"
+      rel="next">emacspeak-speak</a>, Previous: <a href=
+      "emacspeak_002dsolitaire.html" accesskey="p" rel=
+      "prev">emacspeak-solitaire</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dsounds-1"></span>
+    <h3 class="section">12.173 emacspeak-sounds</h3>
+    <p>This module provides the interface for generating auditory
+    icons in emacspeak.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dSounds-Commands" accesskey=
+      "1">Emacspeak-Sounds Commands</a></li>
+      <li><a href="#emacspeak_002dsounds-Options" accesskey=
+      "2">emacspeak-sounds Options</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dSounds-Commands">
+      <h4 class="subsection">12.173.1 Emacspeak-Sounds
+      Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002daudio_002dsetup" accesskey=
+        "1">emacspeak-audio-setup</a></li>
+        <li><a href="#emacspeak_002dsounds_002dselect_002dtheme"
+        accesskey="2">emacspeak-sounds-select-theme</a></li>
+        <li><a href="#emacspeak_002dtoggle_002dauditory_002dicons"
+        accesskey="3">emacspeak-toggle-auditory-icons</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002daudio_002dsetup">
+        <h4 class="subsubsection">12.173.1.1
+        emacspeak-audio-setup</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002daudio_002dsetup"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-audio-setup</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002daudio_002dsetup' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-_0028'><span><kbd>C-e (</kbd>
+              <a href='#index-C_002de-_0028' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-_0028'>
+              <span><kbd>&lt;fn&gt; (</kbd> <a href=
+              '#index-_003cfn_003e-_0028' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002daudio_002dsetup-1"></span>
+            <div class="format">
+              <pre class="format">Call amixer  command.
 
 (fn &amp;optional PREFIX)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dsounds_002dselect_002dtheme"></span>
-  <h4 class="subsubsection">12.173.1.2
-  emacspeak-sounds-select-theme</h4>
-  <dl>
-    <dt id="index-emacspeak_002dsounds_002dselect_002dtheme">
-    Command: <strong>emacspeak-sounds-select-theme</strong>
-    <em>(theme)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e )</kbd></dt>
-        <dd><span id="index-C_002de-_0029"></span></dd>
-        <dt><kbd>&lt;fn&gt; )</kbd></dt>
-        <dd><span id="index-_003cfn_003e-_0029"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dsounds_002dselect_002dtheme-1"></span>
-      <div class="format">
-        <pre class="format">Select theme for auditory icons.
+      <div class="subsubsection" id=
+      "emacspeak_002dsounds_002dselect_002dtheme">
+        <h4 class="subsubsection">12.173.1.2
+        emacspeak-sounds-select-theme</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dsounds_002dselect_002dtheme">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-sounds-select-theme</strong>
+          <em>(theme)</em> <a href=
+          '#index-emacspeak_002dsounds_002dselect_002dtheme' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-_0029'><span><kbd>C-e )</kbd>
+              <a href='#index-C_002de-_0029' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-_0029'>
+              <span><kbd>&lt;fn&gt; )</kbd> <a href=
+              '#index-_003cfn_003e-_0029' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dsounds_002dselect_002dtheme-1"></span>
+            <div class="format">
+              <pre class="format">Select theme for auditory icons.
 
 (fn THEME)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtoggle_002dauditory_002dicons"></span>
-  <h4 class="subsubsection">12.173.1.3
-  emacspeak-toggle-auditory-icons</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtoggle_002dauditory_002dicons">
-    Command: <strong>emacspeak-toggle-auditory-icons</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-a</kbd></dt>
-        <dd><span id="index-C_002de-C_002da"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-a</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002da"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dtoggle_002dauditory_002dicons-1"></span>
-      <div class="format">
-        <pre class="format">Toggle use of auditory icons.
+      <div class="subsubsection" id=
+      "emacspeak_002dtoggle_002dauditory_002dicons">
+        <h4 class="subsubsection">12.173.1.3
+        emacspeak-toggle-auditory-icons</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtoggle_002dauditory_002dicons">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-toggle-auditory-icons</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002dtoggle_002dauditory_002dicons'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002da'><span><kbd>C-e
+              C-a</kbd> <a href='#index-C_002de-C_002da' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002da'>
+              <span><kbd>&lt;fn&gt; C-a</kbd> <a href=
+              '#index-_003cfn_003e-C_002da' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dtoggle_002dauditory_002dicons-1"></span>
+            <div class="format">
+              <pre class="format">Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value.
 
 (fn &amp;optional PREFIX)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dsounds-Options"></span>
-  <h4 class="subsection">12.173.2 emacspeak-sounds Options</h4>
-  <dl>
-    <dt id="index-User-Option-74">Variable: <strong>User
-    Option</strong> <em>emacspeak-play-args</em></dt>
-    <dd>
-      <p>Set this to nil if using paplay from pulseaudio.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-75">Variable: <strong>User
-    Option</strong> <em>emacspeak-play-program</em></dt>
-    <dd>
-      <p>Play program.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-76">Variable: <strong>User
-    Option</strong> <em>emacspeak-sounds-default-theme</em></dt>
-    <dd>
-      <p>Default theme for auditory icons.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="emacspeak_002dsounds-Options">
+      <h4 class="subsection">12.173.2 emacspeak-sounds Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-74"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-play-args</em> <a href=
+        '#index-User-Option-74' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Set this to nil if using paplay from pulseaudio.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-75"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-play-program</em> <a href=
+        '#index-User-Option-75' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Play program.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-76"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-sounds-default-theme</em>
+        <a href='#index-User-Option-76' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Default theme for auditory icons.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
 </body>
 </html>

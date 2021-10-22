@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -23,17 +25,17 @@
   "Table of Contents" />
   <link href="Emacs-Packages.html" rel="up" title=
   "Emacs Packages" />
-  <link href="Intro.html" rel="next" title="Intro" />
+  <link href="Messaging.html" rel="next" title="Messaging" />
   <link href="Browsing-Structure.html" rel="prev" title=
   "Browsing Structure" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -42,6 +44,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -50,62 +53,42 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Web-Browsing"></span>
-  <div class="header">
-    <p>Next: <a href="Messaging.html" accesskey="n" rel=
-    "next">Messaging</a>, Previous: <a href=
-    "Browsing-Structure.html" accesskey="p" rel="prev">Browsing
-    Structure</a>, Up: <a href="Emacs-Packages.html" accesskey="u"
-    rel="up">Emacs Packages</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+  <div class="section" id="Web-Browsing">
+    <div class="header">
+      <p>Next: <a href="Messaging.html" accesskey="n" rel=
+      "next">Messaging</a>, Previous: <a href=
+      "Browsing-Structure.html" accesskey="p" rel="prev">Browsing
+      Structure</a>, Up: <a href="Emacs-Packages.html" accesskey=
+      "u" rel="up">Emacs Packages.</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Web-Browsing-1"></span>
+    <h3 class="section">10.4 Web Browsing</h3><span id=
+    "index-Web-Browsing"></span>
+    <p>Note that there is newer material at <a href=
+    "http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html">
+    http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html</a>
+    and in See <a href="emacspeak_002deww.html">emacspeak-eww</a>.
+    For Emacs 24.4 and later, note that the built-in Web browser
+    EWW is also the browser of choice for emacspeak.</p>
+    <p>— T. V. Raman, October 2014.</p>
+    <p>This document, “The State of Web Browsing in Emacspeak”
+    describes the primary web browsers in use under emacspeak and
+    ways they might be used more efficiently.</p>
+    <p>Version 1.0 — February, 2007.</p>
+    <p>Copyright © 2007 Robert D. Crawford <a href=
+    "mailto:rdc1x@comcast.net">rdc1x@comcast.net</a></p>
+    <ul class="section-toc">
+      <li><a href="Intro.html" accesskey="1">Intro</a></li>
+      <li><a href="emacs_002dw3.html" accesskey=
+      "2">emacs-w3</a></li>
+      <li><a href="Add_002dons.html" accesskey="3">Add-ons</a></li>
+      <li><a href="Conclusion.html" accesskey=
+      "4">Conclusion</a></li>
+    </ul>
   </div>
-  <hr />
-  <span id="Web-Browsing-1"></span>
-  <h3 class="section">10.4 Web Browsing</h3><span id=
-  "index-Web-Browsing"></span>
-  <p>Note that there is newer material at <a href=
-  "http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html">
-  http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html</a>
-  and in See <a href="emacspeak_002deww.html">emacspeak-eww</a>.
-  For Emacs 24.4 and later, note that the built-in Web browser EWW
-  is also the browser of choice for emacspeak.</p>
-  <p>— T. V. Raman, October 2014.</p>
-  <p>This document, “The State of Web Browsing in Emacspeak”
-  describes the primary web browsers in use under emacspeak and
-  ways they might be used more efficiently.</p>
-  <p>Version 1.0 — February, 2007.</p>
-  <p>Copyright © 2007 Robert D. Crawford <a href=
-  "mailto:rdc1x@comcast.net">rdc1x@comcast.net</a></p>
-  <table class="menu" border="0" cellspacing="0">
-    <tr>
-      <td align="left" valign="top">• <a href="Intro.html"
-      accesskey="1">Intro</a></td>
-      <td>&nbsp;&nbsp;</td>
-      <td align="left" valign="top">Why this document and what it
-      is about</td>
-    </tr>
-    <tr>
-      <td align="left" valign="top">• <a href="emacs_002dw3.html"
-      accesskey="2">emacs-w3</a></td>
-      <td>&nbsp;&nbsp;</td>
-      <td align="left" valign="top">Browsing the web with
-      emacs/w3</td>
-    </tr>
-    <tr>
-      <td align="left" valign="top">• <a href="Add_002dons.html"
-      accesskey="3">Add-ons</a></td>
-      <td>&nbsp;&nbsp;</td>
-      <td align="left" valign="top">Add-ons to make life
-      better</td>
-    </tr>
-    <tr>
-      <td align="left" valign="top">• <a href="Conclusion.html"
-      accesskey="4">Conclusion</a></td>
-      <td>&nbsp;&nbsp;</td>
-      <td align="left" valign="top">Wrapping it up</td>
-    </tr>
-  </table>
 </body>
 </html>

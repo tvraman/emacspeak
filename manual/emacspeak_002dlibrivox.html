@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,139 +54,217 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dlibrivox"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dlispy.html" accesskey="n" rel=
-    "next">emacspeak-lispy</a>, Previous: <a href=
-    "emacspeak_002dkmacro.html" accesskey="p" rel=
-    "prev">emacspeak-kmacro</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dlibrivox-1"></span>
-  <h3 class="section">12.112 emacspeak-librivox</h3>
-  <p>LIBRIVOX == <a href=
-  "http://www.librivox.org">http://www.librivox.org</a> — Free
-  Audio Books. API Info: <a href=
-  "https://librivox.org/api/info">https://librivox.org/api/info</a>
-  It provides a simple Web API This module implements an Emacspeak
-  Librivox client.</p><span id="Usage-1"></span>
-  <h4 class="subsection">12.112.1 Usage</h4>
-  <p>main entry point is command <code>emacspeak-librivox</code>
-  bound to <kbd>C-; l</kbd>.</p><span id=
-  "Emacspeak_002dLibrivox-Commands"></span>
-  <h4 class="subsection">12.112.2 Emacspeak-Librivox
-  Commands</h4><span id="emacspeak_002dlibrivox-2"></span>
-  <h4 class="subsubsection">12.112.2.1 emacspeak-librivox</h4>
-  <dl>
-    <dt id="index-emacspeak_002dlibrivox">Command:
-    <strong>emacspeak-librivox</strong> <em>(search-type)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-; l</kbd></dt>
-        <dd><span id="index-C_002d_003b-l"></span></dd>
-        <dt><kbd>C-x @ h l</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-h-l"></span></dd>
-      </dl><span id="index-emacspeak_002dlibrivox-1"></span>
-      <div class="format">
-        <pre class="format">Launch a Librivox Search.
+  <div class="section" id="emacspeak_002dlibrivox">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dlispy.html" accesskey="n"
+      rel="next">emacspeak-lispy</a>, Previous: <a href=
+      "emacspeak_002dkmacro.html" accesskey="p" rel=
+      "prev">emacspeak-kmacro</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dlibrivox-1"></span>
+    <h3 class="section">12.112 emacspeak-librivox</h3>
+    <p>LIBRIVOX == <a href=
+    "http://www.librivox.org">http://www.librivox.org</a> — Free
+    Audio Books. API Info: <a href=
+    "https://librivox.org/api/info">https://librivox.org/api/info</a>
+    It provides a simple Web API This module implements an
+    Emacspeak Librivox client.</p>
+    <ul class="section-toc">
+      <li><a href="#Usage-1" accesskey="1">Usage</a></li>
+      <li><a href="#Emacspeak_002dLibrivox-Commands" accesskey=
+      "2">Emacspeak-Librivox Commands</a></li>
+      <li><a href="#emacspeak_002dlibrivox-Options" accesskey=
+      "3">emacspeak-librivox Options</a></li>
+    </ul>
+    <div class="subsection" id="Usage-1">
+      <h4 class="subsection">12.112.1 Usage</h4>
+      <p>main entry point is command
+      <code>emacspeak-librivox</code> bound to <kbd>C-;
+      l</kbd>.</p>
+    </div>
+    <div class="subsection" id="Emacspeak_002dLibrivox-Commands">
+      <h4 class="subsection">12.112.2 Emacspeak-Librivox
+      Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002dlibrivox-2" accesskey=
+        "1">emacspeak-librivox</a></li>
+        <li><a href="#emacspeak_002dlibrivox_002dplay" accesskey=
+        "2">emacspeak-librivox-play</a></li>
+        <li><a href=
+        "#emacspeak_002dlibrivox_002dsearch_002dby_002dauthor"
+        accesskey="3">emacspeak-librivox-search-by-author</a></li>
+        <li><a href=
+        "#emacspeak_002dlibrivox_002dsearch_002dby_002dgenre"
+        accesskey="4">emacspeak-librivox-search-by-genre</a></li>
+        <li><a href=
+        "#emacspeak_002dlibrivox_002dsearch_002dby_002dtitle"
+        accesskey="5">emacspeak-librivox-search-by-title</a></li>
+      </ul>
+      <div class="subsubsection" id="emacspeak_002dlibrivox-2">
+        <h4 class="subsubsection">12.112.2.1
+        emacspeak-librivox</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dlibrivox"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-librivox</strong>
+          <em>(search-type)</em> <a href=
+          '#index-emacspeak_002dlibrivox' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_003b-l'><span><kbd>C-; l</kbd>
+              <a href='#index-C_002d_003b-l' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-l'><span><kbd>C-x @ h
+              l</kbd> <a href='#index-C_002dx-_0040-h-l' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-emacspeak_002dlibrivox-1"></span>
+            <div class="format">
+              <pre class="format">Launch a Librivox Search.
 
 (fn SEARCH-TYPE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dlibrivox_002dplay"></span>
-  <h4 class="subsubsection">12.112.2.2 emacspeak-librivox-play</h4>
-  <dl>
-    <dt id="index-emacspeak_002dlibrivox_002dplay">Command:
-    <strong>emacspeak-librivox-play</strong>
-    <em>(rss-url)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002dlibrivox_002dplay-1"></span>
-      <div class="format">
-        <pre class="format">Play book stream
+      <div class="subsubsection" id=
+      "emacspeak_002dlibrivox_002dplay">
+        <h4 class="subsubsection">12.112.2.2
+        emacspeak-librivox-play</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dlibrivox_002dplay">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-librivox-play</strong>
+          <em>(rss-url)</em> <a href=
+          '#index-emacspeak_002dlibrivox_002dplay' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dlibrivox_002dplay-1"></span>
+            <div class="format">
+              <pre class="format">Play book stream
 
 (fn RSS-URL)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dlibrivox_002dsearch_002dby_002dauthor"></span>
-  <h4 class="subsubsection">12.112.2.3
-  emacspeak-librivox-search-by-author</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor">
-    Command: <strong>emacspeak-librivox-search-by-author</strong>
-    <em>(author &amp;optional offset)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Search by author. Both exact and partial matches for
+      <div class="subsubsection" id=
+      "emacspeak_002dlibrivox_002dsearch_002dby_002dauthor">
+        <h4 class="subsubsection">12.112.2.3
+        emacspeak-librivox-search-by-author</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-librivox-search-by-author</strong>
+          <em>(author &amp;optional offset)</em> <a href=
+          '#index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Search by author. Both exact and partial matches for
 ‘author’. Optional interactive prefix arg ‘offset’ prompts for offset
 — use this for retrieving next set of results.
 
 (fn AUTHOR &amp;optional OFFSET)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dlibrivox_002dsearch_002dby_002dgenre"></span>
-  <h4 class="subsubsection">12.112.2.4
-  emacspeak-librivox-search-by-genre</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre">
-    Command: <strong>emacspeak-librivox-search-by-genre</strong>
-    <em>(genre &amp;optional offset)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre-1"></span>
-      <div class="format">
-        <pre class="format">Search by genre.
+      <div class="subsubsection" id=
+      "emacspeak_002dlibrivox_002dsearch_002dby_002dgenre">
+        <h4 class="subsubsection">12.112.2.4
+        emacspeak-librivox-search-by-genre</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-librivox-search-by-genre</strong>
+          <em>(genre &amp;optional offset)</em> <a href=
+          '#index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre-1">
+            </span>
+            <div class="format">
+              <pre class="format">Search by genre.
 Optional prefix arg ‘offset’ prompts for offset.
 
 (fn GENRE &amp;optional OFFSET)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dlibrivox_002dsearch_002dby_002dtitle"></span>
-  <h4 class="subsubsection">12.112.2.5
-  emacspeak-librivox-search-by-title</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle">
-    Command: <strong>emacspeak-librivox-search-by-title</strong>
-    <em>(title &amp;optional offset)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Search by title. Both exact and partial matches for ‘title’. Optional
+      <div class="subsubsection" id=
+      "emacspeak_002dlibrivox_002dsearch_002dby_002dtitle">
+        <h4 class="subsubsection">12.112.2.5
+        emacspeak-librivox-search-by-title</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-librivox-search-by-title</strong>
+          <em>(title &amp;optional offset)</em> <a href=
+          '#index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Search by title. Both exact and partial matches for ‘title’. Optional
 prefix arg ‘offset’ prompts for offset — use this for retrieving
 more results.
 
 (fn TITLE &amp;optional OFFSET)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dlibrivox-Options"></span>
-  <h4 class="subsection">12.112.3 emacspeak-librivox Options</h4>
-  <dl>
-    <dt id="index-User-Option-51">Variable: <strong>User
-    Option</strong> <em>emacspeak-librivox-local-cache</em></dt>
-    <dd>
-      <p>Location where we cache LIBRIVOX playlists.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="emacspeak_002dlibrivox-Options">
+      <h4 class="subsection">12.112.3 emacspeak-librivox
+      Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-51"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-librivox-local-cache</em>
+        <a href='#index-User-Option-51' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Location where we cache LIBRIVOX playlists.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dlispy.html">emacspeak-lispy</a>, Previous:
+    <a href="emacspeak_002dkmacro.html">emacspeak-kmacro</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

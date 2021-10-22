@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -15,6 +15,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -26,11 +28,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -39,6 +41,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -47,64 +50,67 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Working"></span>
-  <div class="header">
-    <p>Next: <a href="Reading.html" accesskey="n" rel=
-    "next">Reading</a>, Previous: <a href="Overview.html"
-    accesskey="p" rel="prev">Overview</a>, Up: <a href=
-    "Basic-Usage.html" accesskey="u" rel="up">Basic Usage</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  <div class="section" id="Working">
+    <div class="header">
+      <p>Next: <a href="Reading.html" accesskey="n" rel=
+      "next">Reading Without Moving</a>, Previous: <a href=
+      "Overview.html" accesskey="p" rel="prev">Emacspeak
+      Overview</a>, Up: <a href="Basic-Usage.html" accesskey="u"
+      rel="up">Basic Usage.</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Using-Emacs-Buffers"></span>
+    <h3 class="section">6.2 Using Emacs Buffers</h3>
+    <p>While typing in an Emacs buffer, hitting space speaks the
+    recently typed word. I use completion all the time; so
+    Emacspeak will speak the completion just inserted as well as
+    the next possible completion. In Emacs, use <kbd>M-x
+    load-library <span class="key">RETURN</span> completion
+    <span class="key">RETURN</span></kbd> for loading the
+    completion package.</p>
+    <p>The standard Emacs prompting functions have also been
+    speech-enabled. Emacs prompts with available lists of
+    completions in response to partial input wherever appropriate —
+    all forms of completion provide speech feedback.</p>
+    <p>In addition, Emacspeak provides a number of commands for
+    reading portions of the current buffer, getting status
+    information, and modifying Emacspeak’s state.</p>
+    <p>All of the commands are documented in the subsequent
+    sections. They can be classified into types:</p>
+    <ul>
+      <li>Emacspeak commands for listening to chunks of
+      information. The names of these commands all start with the
+      common prefix <code>emacspeak-speak-</code>. All Emacspeak
+      commands are bound to the keymap <var>emacspeak-keymap</var>
+      and are accessed with the key <kbd>C-e</kbd><a id="DOCF2"
+      href="#FOOT2" name="DOCF2"><sup>2</sup></a>. Thus, the
+      Emacspeak command <em>emacspeak-speak-line</em> is bound to
+      <kbd>l</kbd> in keymap <var>emacspeak-keymap</var> and can be
+      accessed with the keystroke <kbd>C-e l</kbd>. If for some
+      reason you wish to use some key other than <kbd>C-e</kbd> as
+      the common keyboard prefix for all Emacspeak commands, set
+      the variable <var>emacspeak-prefix</var>.</li>
+      <li>The second category of commands provided by Emacspeak
+      manipulate the state of the speech device. The names of these
+      commands start with the common prefix <code>dtk-</code> and
+      are bound in keymap <var>emacspeak-dtk-submap</var>.
+        <p>You can access these commands via the prefix <kbd>C-e
+        d</kbd> <a id="DOCF3" href="#FOOT3" name=
+        "DOCF3"><sup>3</sup></a>. Thus, the command
+        <em>dtk-set-rate</em> is bound to <kbd>r</kbd> in keymap
+        <var>emacspeak-dtk-submap</var> and can be executed by
+        pressing <kbd>C-e d r</kbd>.</p>
+      </li>
+    </ul>
+    <p>Emacs has extensive online help; so does emacspeak. Please
+    use it.</p>
+    <p>This info manual is only to get you started. You can get a
+    summary of Emacspeak’s features by pressing <kbd>C-h
+    C-e</kbd></p>
   </div>
-  <hr />
-  <span id="Using-Emacs-Buffers"></span>
-  <h3 class="section">6.2 Using Emacs Buffers</h3>
-  <p>While typing in an Emacs buffer, hitting space speaks the
-  recently typed word. I use completion all the time; so Emacspeak
-  will speak the completion just inserted as well as the next
-  possible completion. In Emacs, use <kbd>M-x load-library
-  <span class="key">RETURN</span> completion <span class=
-  "key">RETURN</span></kbd> for loading the completion package.</p>
-  <p>The standard Emacs prompting functions have also been
-  speech-enabled. Emacs prompts with available lists of completions
-  in response to partial input wherever appropriate — all forms of
-  completion provide speech feedback.</p>
-  <p>In addition, Emacspeak provides a number of commands for
-  reading portions of the current buffer, getting status
-  information, and modifying Emacspeak’s state.</p>
-  <p>All of the commands are documented in the subsequent sections.
-  They can be classified into types:</p>
-  <ul>
-    <li>Emacspeak commands for listening to chunks of information.
-    The names of these commands all start with the common prefix
-    <code>emacspeak-speak-</code>. All Emacspeak commands are bound
-    to the keymap <var>emacspeak-keymap</var> and are accessed with
-    the key <kbd>C-e</kbd><a id="DOCF2" href="#FOOT2" name=
-    "DOCF2"><sup>2</sup></a>. Thus, the Emacspeak command
-    <em>emacspeak-speak-line</em> is bound to <kbd>l</kbd> in
-    keymap <var>emacspeak-keymap</var> and can be accessed with the
-    keystroke <kbd>C-e l</kbd>. If for some reason you wish to use
-    some key other than <kbd>C-e</kbd> as the common keyboard
-    prefix for all Emacspeak commands, set the variable
-    <var>emacspeak-prefix</var>.</li>
-    <li>The second category of commands provided by Emacspeak
-    manipulate the state of the speech device. The names of these
-    commands start with the common prefix <code>dtk-</code> and are
-    bound in keymap <var>emacspeak-dtk-submap</var>.
-      <p>You can access these commands via the prefix <kbd>C-e
-      d</kbd> <a id="DOCF3" href="#FOOT3" name=
-      "DOCF3"><sup>3</sup></a>. Thus, the command
-      <em>dtk-set-rate</em> is bound to <kbd>r</kbd> in keymap
-      <var>emacspeak-dtk-submap</var> and can be executed by
-      pressing <kbd>C-e d r</kbd>.</p>
-    </li>
-  </ul>
-  <p>Emacs has extensive online help; so does emacspeak. Please use
-  it.</p>
-  <p>This info manual is only to get you started. You can get a
-  summary of Emacspeak’s features by pressing <kbd>C-h
-  C-e</kbd></p>
   <div class="footnote">
     <hr />
     <h4 class="footnotes-heading">Footnotes</h4>
@@ -116,13 +122,12 @@
   </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="Reading.html" accesskey="n" rel=
-    "next">Reading</a>, Previous: <a href="Overview.html"
-    accesskey="p" rel="prev">Overview</a>, Up: <a href=
-    "Basic-Usage.html" accesskey="u" rel="up">Basic Usage</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    <p>Next: <a href="Reading.html">Reading Without Moving</a>,
+    Previous: <a href="Overview.html">Emacspeak Overview</a>, Up:
+    <a href="Basic-Usage.html">Basic Usage.</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

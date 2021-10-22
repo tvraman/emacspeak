@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,43 +54,46 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Template_002dbased-Authoring"></span>
-  <div class="header">
-    <p>Next: <a href="Maintaining-Structured-Data.html" accesskey=
-    "n" rel="next">Maintaining Structured Data</a>, Previous:
-    <a href="Outline-Editing.html" accesskey="p" rel="prev">Outline
-    Editing</a>, Up: <a href="Structured-Editing.html" accesskey=
-    "u" rel="up">Structured Editing</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+  <div class="subsection" id="Template_002dbased-Authoring">
+    <div class="header">
+      <p>Next: <a href="Maintaining-Structured-Data.html"
+      accesskey="n" rel="next">Maintaining Structured Data</a>,
+      Previous: <a href="Outline-Editing.html" accesskey="p" rel=
+      "prev">Outline Editing</a>, Up: <a href=
+      "Structured-Editing.html" accesskey="u" rel="up">Structured
+      Editing And Templates</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Template_002dbased-Authoring-1"></span>
+    <h4 class="subsection">10.2.2 Template-based Authoring</h4>
+    <p>Emacspeak supports two powerful template-based authoring
+    subsystems that enable the user to quickly create and fill in
+    templates. <em>Dmacro</em> (short for “dynamic macros”) allows
+    the user to define and invoke template-based macros that are
+    specialized for creating different types of content. For
+    example, when programming in C, the user can invoke dynamic
+    macros that insert skeletons of standard C constructs with a
+    few keystrokes. This form of editing has numerous advantages in
+    creating consistently structured code when developing large
+    software modules. Emacspeak speech-enables mode <em>dmacro</em>
+    to provide succinct spoken feedback as templates are created
+    and filled. The user invokes <em>dmacro</em> via command
+    <em>insert dmacro</em>, which is typically bound to a single
+    key. This results in a dialog where the user is prompted to
+    pick one of the dynamic macros available in the current
+    context. If the users choice can be uniquely completed, that
+    completion is spoken; otherwise, the list of possible
+    completions based on the available partial input is spoken,
+    accompanied by auditory icon <em>help</em>.</p>
+    <p>An alternative template-editing facility is provided by mode
+    <em>tempo</em> This mode is designed to be used in creating
+    template-based editing tools for specific markup languages; a
+    good example is mode <em>html-helper</em>, a mode for creating
+    and updating HTML documents for publishing on the WWW (see see
+    <a href="Document-Authoring.html">Document Authoring</a>).</p>
   </div>
-  <hr />
-  <span id="Template_002dbased-Authoring-1"></span>
-  <h4 class="subsection">10.2.2 Template-based Authoring</h4>
-  <p>Emacspeak supports two powerful template-based authoring
-  subsystems that enable the user to quickly create and fill in
-  templates. <em>Dmacro</em> (short for “dynamic macros”) allows
-  the user to define and invoke template-based macros that are
-  specialized for creating different types of content. For example,
-  when programming in C, the user can invoke dynamic macros that
-  insert skeletons of standard C constructs with a few keystrokes.
-  This form of editing has numerous advantages in creating
-  consistently structured code when developing large software
-  modules. Emacspeak speech-enables mode <em>dmacro</em> to provide
-  succinct spoken feedback as templates are created and filled. The
-  user invokes <em>dmacro</em> via command <em>insert dmacro</em>,
-  which is typically bound to a single key. This results in a
-  dialog where the user is prompted to pick one of the dynamic
-  macros available in the current context. If the users choice can
-  be uniquely completed, that completion is spoken; otherwise, the
-  list of possible completions based on the available partial input
-  is spoken, accompanied by auditory icon <em>help</em>.</p>
-  <p>An alternative template-editing facility is provided by mode
-  <em>tempo</em> This mode is designed to be used in creating
-  template-based editing tools for specific markup languages; a
-  good example is mode <em>html-helper</em>, a mode for creating
-  and updating HTML documents for publishing on the WWW (see see
-  <a href="Document-Authoring.html">Document Authoring</a>).</p>
 </body>
 </html>

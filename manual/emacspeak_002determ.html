@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,66 +54,169 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002determ"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002deudc.html" accesskey="n" rel=
-    "next">emacspeak-eudc</a>, Previous: <a href=
-    "emacspeak_002detable.html" accesskey="p" rel=
-    "prev">emacspeak-etable</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002determ-1"></span>
-  <h3 class="section">12.71 emacspeak-eterm</h3>
-  <p>This module makes eterm talk. Eterm is the new terminal
-  emulator for Emacs. Use of emacspeak with eterm really needs an
-  info page. At present, the only documentation is the source level
-  documentation. This module uses Control-t as an additional prefix
-  key to allow the user To move around the terminal and have
-  different parts spoken.</p><span id=
-  "Emacspeak_002dEterm-Commands"></span>
-  <h4 class="subsection">12.71.1 Emacspeak-Eterm
-  Commands</h4><span id=
-  "emacspeak_002determ_002dcopy_002dregion_002dto_002dregister"></span>
-  <h4 class="subsubsection">12.71.1.1
-  emacspeak-eterm-copy-region-to-register</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister">
-    Command:
-    <strong>emacspeak-eterm-copy-region-to-register</strong>
-    <em>(register)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Copy text from terminal to an Emacs REGISTER.
+  <div class="section" id="emacspeak_002determ">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002deudc.html" accesskey="n" rel=
+      "next">emacspeak-eudc</a>, Previous: <a href=
+      "emacspeak_002detable.html" accesskey="p" rel=
+      "prev">emacspeak-etable</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002determ-1"></span>
+    <h3 class="section">12.71 emacspeak-eterm</h3>
+    <p>This module makes eterm talk. Eterm is the new terminal
+    emulator for Emacs. Use of emacspeak with eterm really needs an
+    info page. At present, the only documentation is the source
+    level documentation. This module uses Control-t as an
+    additional prefix key to allow the user To move around the
+    terminal and have different parts spoken.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dEterm-Commands" accesskey=
+      "1">Emacspeak-Eterm Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dEterm-Commands">
+      <h4 class="subsection">12.71.1 Emacspeak-Eterm Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002determ_002dcopy_002dregion_002dto_002dregister"
+        accesskey=
+        "1">emacspeak-eterm-copy-region-to-register</a></li>
+        <li><a href="#emacspeak_002determ_002ddefine_002dwindow"
+        accesskey="2">emacspeak-eterm-define-window</a></li>
+        <li><a href="#emacspeak_002determ_002ddescribe_002dwindow"
+        accesskey="3">emacspeak-eterm-describe-window</a></li>
+        <li><a href="#emacspeak_002determ_002dgoto_002dline"
+        accesskey="4">emacspeak-eterm-goto-line</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dkill_002dring_002dsave_002dregion"
+        accesskey=
+        "5">emacspeak-eterm-kill-ring-save-region</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dmaybe_002dsend_002draw"
+        accesskey="6">emacspeak-eterm-maybe-send-raw</a></li>
+        <li><a href="#emacspeak_002determ_002dpaste_002dregister"
+        accesskey="7">emacspeak-eterm-paste-register</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dbackward_002dword"
+        accesskey=
+        "8">emacspeak-eterm-pointer-backward-word</a></li>
+        <li><a href="#emacspeak_002determ_002dpointer_002ddown"
+        accesskey="9">emacspeak-eterm-pointer-down</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dforward_002dword">emacspeak-eterm-pointer-forward-word</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dleft">emacspeak-eterm-pointer-left</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dright">emacspeak-eterm-pointer-right</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dto_002dbottom">emacspeak-eterm-pointer-to-bottom</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dto_002dcursor">emacspeak-eterm-pointer-to-cursor</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dto_002dleft_002dedge">
+        emacspeak-eterm-pointer-to-left-edge</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange">
+        emacspeak-eterm-pointer-to-next-color-change</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange">
+        emacspeak-eterm-pointer-to-previous-color-change</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dto_002dright_002dedge">
+        emacspeak-eterm-pointer-to-right-edge</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dto_002dtop">emacspeak-eterm-pointer-to-top</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dpointer_002dup">emacspeak-eterm-pointer-up</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dsearch_002dbackward">emacspeak-eterm-search-backward</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dsearch_002dforward">emacspeak-eterm-search-forward</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dset_002dfilter_002dwindow">emacspeak-eterm-set-filter-window</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dset_002dfocus_002dwindow">emacspeak-eterm-set-focus-window</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dset_002dmarker">emacspeak-eterm-set-marker</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dcursor">emacspeak-eterm-speak-cursor</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dpointer">emacspeak-eterm-speak-pointer</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dpointer_002dchar">emacspeak-eterm-speak-pointer-char</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dpointer_002dline">emacspeak-eterm-speak-pointer-line</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dpointer_002dword">emacspeak-eterm-speak-pointer-word</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dpredefined_002dwindow">emacspeak-eterm-speak-predefined-window</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dscreen">emacspeak-eterm-speak-screen</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dspeak_002dwindow">emacspeak-eterm-speak-window</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dtoggle_002dfilter_002dwindow">emacspeak-eterm-toggle-filter-window</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dtoggle_002dfocus_002dwindow">emacspeak-eterm-toggle-focus-window</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dtoggle_002dpointer_002dmode">emacspeak-eterm-toggle-pointer-mode</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dtoggle_002dreview">emacspeak-eterm-toggle-review</a></li>
+        <li><a href=
+        "#emacspeak_002determ_002dyank_002dwindow">emacspeak-eterm-yank-window</a></li>
+        <li><a href=
+        "#emacspeak_002dtoggle_002determ_002dautospeak">emacspeak-toggle-eterm-autospeak</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dcopy_002dregion_002dto_002dregister">
+        <h4 class="subsubsection">12.71.1.1
+        emacspeak-eterm-copy-region-to-register</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-copy-region-to-register</strong>
+          <em>(register)</em> <a href=
+          '#index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker
 set by command M-x emacspeak-eterm-set-marker and the
 emacspeak eterm pointer to a register.
 
 (fn REGISTER)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002ddefine_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.2
-  emacspeak-eterm-define-window</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002ddefine_002dwindow">
-    Command: <strong>emacspeak-eterm-define-window</strong>
-    <em>(id)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002ddefine_002dwindow-1"></span>
-      <div class="format">
-        <pre class="format">Prompt for a window ID.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002ddefine_002dwindow">
+        <h4 class="subsubsection">12.71.1.2
+        emacspeak-eterm-define-window</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002ddefine_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-define-window</strong>
+          <em>(id)</em> <a href=
+          '#index-emacspeak_002determ_002ddefine_002dwindow' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002ddefine_002dwindow-1"></span>
+            <div class="format">
+              <pre class="format">Prompt for a window ID.
 The window is then define to be
 the rectangle delimited by point and eterm mark.  This is to
 be used when emacspeak is set to review mode inside an
@@ -118,400 +224,529 @@ eterm.
 
 (fn ID)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002ddescribe_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.3
-  emacspeak-eterm-describe-window</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002ddescribe_002dwindow">
-    Command: <strong>emacspeak-eterm-describe-window</strong>
-    <em>(id)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002ddescribe_002dwindow-1"></span>
-      <div class="format">
-        <pre class="format">Describe an eterm  window.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002ddescribe_002dwindow">
+        <h4 class="subsubsection">12.71.1.3
+        emacspeak-eterm-describe-window</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002ddescribe_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-describe-window</strong>
+          <em>(id)</em> <a href=
+          '#index-emacspeak_002determ_002ddescribe_002dwindow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002ddescribe_002dwindow-1"></span>
+            <div class="format">
+              <pre class="format">Describe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
 
 (fn ID)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dgoto_002dline"></span>
-  <h4 class="subsubsection">12.71.1.4
-  emacspeak-eterm-goto-line</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dgoto_002dline">Command:
-    <strong>emacspeak-eterm-goto-line</strong> <em>(line)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dgoto_002dline-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Move emacspeak eterm pointer to a specified LINE.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dgoto_002dline">
+        <h4 class="subsubsection">12.71.1.4
+        emacspeak-eterm-goto-line</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dgoto_002dline">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-goto-line</strong>
+          <em>(line)</em> <a href=
+          '#index-emacspeak_002determ_002dgoto_002dline' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dgoto_002dline-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Move emacspeak eterm pointer to a specified LINE.
 
 (fn LINE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dkill_002dring_002dsave_002dregion"></span>
-  <h4 class="subsubsection">12.71.1.5
-  emacspeak-eterm-kill-ring-save-region</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion">
-    Command:
-    <strong>emacspeak-eterm-kill-ring-save-region</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion-1">
-      </span>
-      <div class="format">
-        <pre class="format">Copy text from terminal to kill ring.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dkill_002dring_002dsave_002dregion">
+        <h4 class="subsubsection">12.71.1.5
+        emacspeak-eterm-kill-ring-save-region</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-kill-ring-save-region</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Copy text from terminal to kill ring.
 This copies  region delimited by the emacspeak eterm marker
 set by command M-x emacspeak-eterm-set-marker and the
 emacspeak eterm pointer.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dmaybe_002dsend_002draw"></span>
-  <h4 class="subsubsection">12.71.1.6
-  emacspeak-eterm-maybe-send-raw</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dmaybe_002dsend_002draw">
-    Command: <strong>emacspeak-eterm-maybe-send-raw</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dmaybe_002dsend_002draw-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Send a raw character through if in the terminal buffer.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dmaybe_002dsend_002draw">
+        <h4 class="subsubsection">12.71.1.6
+        emacspeak-eterm-maybe-send-raw</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dmaybe_002dsend_002draw">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-maybe-send-raw</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dmaybe_002dsend_002draw'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dmaybe_002dsend_002draw-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Send a raw character through if in the terminal buffer.
 Execute end of line if
 in a non eterm buffer if executed via C-e C-e
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpaste_002dregister"></span>
-  <h4 class="subsubsection">12.71.1.7
-  emacspeak-eterm-paste-register</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dpaste_002dregister">
-    Command: <strong>emacspeak-eterm-paste-register</strong>
-    <em>(register)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpaste_002dregister-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Paste contents of REGISTER at current location.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpaste_002dregister">
+        <h4 class="subsubsection">12.71.1.7
+        emacspeak-eterm-paste-register</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpaste_002dregister">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-paste-register</strong>
+          <em>(register)</em> <a href=
+          '#index-emacspeak_002determ_002dpaste_002dregister'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpaste_002dregister-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
 
 (fn REGISTER)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dbackward_002dword"></span>
-  <h4 class="subsubsection">12.71.1.8
-  emacspeak-eterm-pointer-backward-word</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dbackward_002dword">
-    Command: <strong>emacspeak-eterm-pointer-backward-word</strong>
-    <em>(count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dbackward_002dword-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move the pointer backward  by words.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dbackward_002dword">
+        <h4 class="subsubsection">12.71.1.8
+        emacspeak-eterm-pointer-backward-word</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dbackward_002dword">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-backward-word</strong>
+          <em>(count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002dbackward_002dword'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dbackward_002dword-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the pointer backward  by words.
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
 
 (fn COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dpointer_002ddown"></span>
-  <h4 class="subsubsection">12.71.1.9
-  emacspeak-eterm-pointer-down</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dpointer_002ddown">
-    Command: <strong>emacspeak-eterm-pointer-down</strong>
-    <em>(count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002ddown-1"></span>
-      <div class="format">
-        <pre class="format">Move the pointer down a line.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002ddown">
+        <h4 class="subsubsection">12.71.1.9
+        emacspeak-eterm-pointer-down</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dpointer_002ddown">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-down</strong>
+          <em>(count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002ddown' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002ddown-1"></span>
+            <div class="format">
+              <pre class="format">Move the pointer down a line.
 Argument COUNT specifies number of lines by which to move.
 
 (fn COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dforward_002dword"></span>
-  <h4 class="subsubsection">12.71.1.10
-  emacspeak-eterm-pointer-forward-word</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dforward_002dword">
-    Command: <strong>emacspeak-eterm-pointer-forward-word</strong>
-    <em>(count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dforward_002dword-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move the pointer forward by words.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dforward_002dword">
+        <h4 class="subsubsection">12.71.1.10
+        emacspeak-eterm-pointer-forward-word</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dforward_002dword">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-forward-word</strong>
+          <em>(count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002dforward_002dword'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dforward_002dword-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the pointer forward by words.
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
 
 (fn COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dpointer_002dleft"></span>
-  <h4 class="subsubsection">12.71.1.11
-  emacspeak-eterm-pointer-left</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dpointer_002dleft">
-    Command: <strong>emacspeak-eterm-pointer-left</strong>
-    <em>(count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dleft-1"></span>
-      <div class="format">
-        <pre class="format">Move the pointer left.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dleft">
+        <h4 class="subsubsection">12.71.1.11
+        emacspeak-eterm-pointer-left</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dpointer_002dleft">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-left</strong>
+          <em>(count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002dleft' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dleft-1"></span>
+            <div class="format">
+              <pre class="format">Move the pointer left.
 Argument COUNT specifies number of columns by which to move.
 
 (fn COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dpointer_002dright"></span>
-  <h4 class="subsubsection">12.71.1.12
-  emacspeak-eterm-pointer-right</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dpointer_002dright">
-    Command: <strong>emacspeak-eterm-pointer-right</strong>
-    <em>(count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dright-1"></span>
-      <div class="format">
-        <pre class="format">Move the pointer right.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dright">
+        <h4 class="subsubsection">12.71.1.12
+        emacspeak-eterm-pointer-right</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dpointer_002dright">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-right</strong>
+          <em>(count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002dright' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dright-1"></span>
+            <div class="format">
+              <pre class="format">Move the pointer right.
 Argument COUNT specifies number of columns by which to move.
 
 (fn COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dto_002dbottom"></span>
-  <h4 class="subsubsection">12.71.1.13
-  emacspeak-eterm-pointer-to-bottom</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dto_002dbottom">
-    Command:
-    <strong>emacspeak-eterm-pointer-to-bottom</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dto_002dbottom-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Move the pointer to the bottom  of the screen.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dto_002dbottom">
+        <h4 class="subsubsection">12.71.1.13
+        emacspeak-eterm-pointer-to-bottom</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dto_002dbottom">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-to-bottom</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dpointer_002dto_002dbottom'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dto_002dbottom-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the pointer to the bottom  of the screen.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dto_002dcursor"></span>
-  <h4 class="subsubsection">12.71.1.14
-  emacspeak-eterm-pointer-to-cursor</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dto_002dcursor">
-    Command:
-    <strong>emacspeak-eterm-pointer-to-cursor</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dto_002dcursor-1"></span>
-      <div class="format">
-        <pre class="format">Move the pointer to the cursor.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dto_002dcursor">
+        <h4 class="subsubsection">12.71.1.14
+        emacspeak-eterm-pointer-to-cursor</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dto_002dcursor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-to-cursor</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dpointer_002dto_002dcursor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dto_002dcursor-1">
+            </span>
+            <div class="format">
+              <pre class="format">Move the pointer to the cursor.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dto_002dleft_002dedge"></span>
-  <h4 class="subsubsection">12.71.1.15
-  emacspeak-eterm-pointer-to-left-edge</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge">
-    Command:
-    <strong>emacspeak-eterm-pointer-to-left-edge</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move the pointer to the right edge.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dto_002dleft_002dedge">
+        <h4 class="subsubsection">12.71.1.15
+        emacspeak-eterm-pointer-to-left-edge</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-to-left-edge</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the pointer to the right edge.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange"></span>
-  <h4 class="subsubsection">12.71.1.16
-  emacspeak-eterm-pointer-to-next-color-change</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange">
-    Command:
-    <strong>emacspeak-eterm-pointer-to-next-color-change</strong>
-    <em>(&amp;optional count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Move the eterm pointer to the next color change.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange">
+        <h4 class="subsubsection">12.71.1.16
+        emacspeak-eterm-pointer-to-next-color-change</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-to-next-color-change</strong>
+          <em>(&amp;optional count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
 
 (fn &amp;optional COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange"></span>
-  <h4 class="subsubsection">12.71.1.17
-  emacspeak-eterm-pointer-to-previous-color-change</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange">
-    Command:
-    <strong>emacspeak-eterm-pointer-to-previous-color-change</strong>
-    <em>(&amp;optional count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Move the eterm pointer to the next color change.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange">
+        <h4 class="subsubsection">12.71.1.17
+        emacspeak-eterm-pointer-to-previous-color-change</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-to-previous-color-change</strong>
+          <em>(&amp;optional count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
 
 (fn &amp;optional COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dto_002dright_002dedge"></span>
-  <h4 class="subsubsection">12.71.1.18
-  emacspeak-eterm-pointer-to-right-edge</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge">
-    Command:
-    <strong>emacspeak-eterm-pointer-to-right-edge</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge-1">
-      </span>
-      <div class="format">
-        <pre class="format">Move the pointer to the right edge.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dto_002dright_002dedge">
+        <h4 class="subsubsection">12.71.1.18
+        emacspeak-eterm-pointer-to-right-edge</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-to-right-edge</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the pointer to the right edge.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dpointer_002dto_002dtop"></span>
-  <h4 class="subsubsection">12.71.1.19
-  emacspeak-eterm-pointer-to-top</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dpointer_002dto_002dtop">
-    Command: <strong>emacspeak-eterm-pointer-to-top</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dto_002dtop-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Move the pointer to the top of the screen.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dto_002dtop">
+        <h4 class="subsubsection">12.71.1.19
+        emacspeak-eterm-pointer-to-top</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dpointer_002dto_002dtop">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-to-top</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dpointer_002dto_002dtop'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dto_002dtop-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Move the pointer to the top of the screen.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dpointer_002dup"></span>
-  <h4 class="subsubsection">12.71.1.20
-  emacspeak-eterm-pointer-up</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dpointer_002dup">Command:
-    <strong>emacspeak-eterm-pointer-up</strong>
-    <em>(count)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dpointer_002dup-1"></span>
-      <div class="format">
-        <pre class="format">Move the pointer up a line.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dpointer_002dup">
+        <h4 class="subsubsection">12.71.1.20
+        emacspeak-eterm-pointer-up</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dpointer_002dup">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-pointer-up</strong>
+          <em>(count)</em> <a href=
+          '#index-emacspeak_002determ_002dpointer_002dup' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dpointer_002dup-1"></span>
+            <div class="format">
+              <pre class="format">Move the pointer up a line.
 Argument COUNT .specifies number of lines by which to move.
 
 (fn COUNT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dsearch_002dbackward"></span>
-  <h4 class="subsubsection">12.71.1.21
-  emacspeak-eterm-search-backward</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dsearch_002dbackward">
-    Command: <strong>emacspeak-eterm-search-backward</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dsearch_002dbackward-1"></span>
-      <div class="format">
-        <pre class="format">Search backward on the terminal.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dsearch_002dbackward">
+        <h4 class="subsubsection">12.71.1.21
+        emacspeak-eterm-search-backward</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dsearch_002dbackward">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-search-backward</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dsearch_002dbackward'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dsearch_002dbackward-1"></span>
+            <div class="format">
+              <pre class="format">Search backward on the terminal.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dsearch_002dforward"></span>
-  <h4 class="subsubsection">12.71.1.22
-  emacspeak-eterm-search-forward</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dsearch_002dforward">
-    Command: <strong>emacspeak-eterm-search-forward</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dsearch_002dforward-1"></span>
-      <div class="format">
-        <pre class="format">Search forward on the terminal.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dsearch_002dforward">
+        <h4 class="subsubsection">12.71.1.22
+        emacspeak-eterm-search-forward</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dsearch_002dforward">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-search-forward</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dsearch_002dforward'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dsearch_002dforward-1"></span>
+            <div class="format">
+              <pre class="format">Search forward on the terminal.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dset_002dfilter_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.23
-  emacspeak-eterm-set-filter-window</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dset_002dfilter_002dwindow">
-    Command: <strong>emacspeak-eterm-set-filter-window</strong>
-    <em>(flag)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dset_002dfilter_002dwindow-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Prompt for the id of a predefined window,
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dset_002dfilter_002dwindow">
+        <h4 class="subsubsection">12.71.1.23
+        emacspeak-eterm-set-filter-window</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dset_002dfilter_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-set-filter-window</strong>
+          <em>(flag)</em> <a href=
+          '#index-emacspeak_002determ_002dset_002dfilter_002dwindow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dset_002dfilter_002dwindow-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Prompt for the id of a predefined window,
 and set the ‘filter’ window to it.
 Non-nil interactive prefix arg ‘unsets’ the filter window;
 this is equivalent to having the entire terminal as the filter window (this is
@@ -521,23 +756,29 @@ activity within the filter window.
 
 (fn FLAG)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dset_002dfocus_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.24
-  emacspeak-eterm-set-focus-window</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dset_002dfocus_002dwindow">
-    Command: <strong>emacspeak-eterm-set-focus-window</strong>
-    <em>(flag)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dset_002dfocus_002dwindow-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Prompt for the id of a predefined window,
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dset_002dfocus_002dwindow">
+        <h4 class="subsubsection">12.71.1.24
+        emacspeak-eterm-set-focus-window</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dset_002dfocus_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-set-focus-window</strong>
+          <em>(flag)</em> <a href=
+          '#index-emacspeak_002determ_002dset_002dfocus_002dwindow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dset_002dfocus_002dwindow-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Prompt for the id of a predefined window,
 and set the ‘focus’ window to it.
 Non-nil interactive prefix arg ‘unsets’ the focus window;
 this is equivalent to having the entire terminal as the focus window (this is
@@ -547,286 +788,380 @@ and speaking that window upon seeing screen activity.
 
 (fn FLAG)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dset_002dmarker"></span>
-  <h4 class="subsubsection">12.71.1.25
-  emacspeak-eterm-set-marker</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dset_002dmarker">Command:
-    <strong>emacspeak-eterm-set-marker</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dset_002dmarker-1"></span>
-      <div class="format">
-        <pre class="format">Set Emacspeak eterm marker.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dset_002dmarker">
+        <h4 class="subsubsection">12.71.1.25
+        emacspeak-eterm-set-marker</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dset_002dmarker">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-set-marker</strong>
+          <a href='#index-emacspeak_002determ_002dset_002dmarker'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dset_002dmarker-1"></span>
+            <div class="format">
+              <pre class="format">Set Emacspeak eterm marker.
 This sets  the emacspeak eterm marker to the position pointed
 to by the emacspeak eterm pointer.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dspeak_002dcursor"></span>
-  <h4 class="subsubsection">12.71.1.26
-  emacspeak-eterm-speak-cursor</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dspeak_002dcursor">
-    Command: <strong>emacspeak-eterm-speak-cursor</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dcursor-1"></span>
-      <div class="format">
-        <pre class="format">Speak cursor position.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dcursor">
+        <h4 class="subsubsection">12.71.1.26
+        emacspeak-eterm-speak-cursor</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dspeak_002dcursor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-cursor</strong>
+          <a href='#index-emacspeak_002determ_002dspeak_002dcursor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dcursor-1"></span>
+            <div class="format">
+              <pre class="format">Speak cursor position.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dspeak_002dpointer"></span>
-  <h4 class="subsubsection">12.71.1.27
-  emacspeak-eterm-speak-pointer</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dspeak_002dpointer">
-    Command: <strong>emacspeak-eterm-speak-pointer</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dpointer-1"></span>
-      <div class="format">
-        <pre class="format">Speak current pointer position.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dpointer">
+        <h4 class="subsubsection">12.71.1.27
+        emacspeak-eterm-speak-pointer</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dspeak_002dpointer">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-pointer</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dspeak_002dpointer' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dpointer-1"></span>
+            <div class="format">
+              <pre class="format">Speak current pointer position.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dspeak_002dpointer_002dchar"></span>
-  <h4 class="subsubsection">12.71.1.28
-  emacspeak-eterm-speak-pointer-char</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dspeak_002dpointer_002dchar">
-    Command: <strong>emacspeak-eterm-speak-pointer-char</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dpointer_002dchar-1"></span>
-      <div class="format">
-        <pre class="format">Speak char under eterm pointer.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dpointer_002dchar">
+        <h4 class="subsubsection">12.71.1.28
+        emacspeak-eterm-speak-pointer-char</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dspeak_002dpointer_002dchar">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-pointer-char</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002determ_002dspeak_002dpointer_002dchar'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dpointer_002dchar-1">
+            </span>
+            <div class="format">
+              <pre class="format">Speak char under eterm pointer.
 Pronounces character phonetically unless  called with a PREFIX arg.
 
 (fn &amp;optional PREFIX)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dspeak_002dpointer_002dline"></span>
-  <h4 class="subsubsection">12.71.1.29
-  emacspeak-eterm-speak-pointer-line</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dspeak_002dpointer_002dline">
-    Command:
-    <strong>emacspeak-eterm-speak-pointer-line</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dpointer_002dline-1"></span>
-      <div class="format">
-        <pre class="format">Speak the line the pointer is on.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dpointer_002dline">
+        <h4 class="subsubsection">12.71.1.29
+        emacspeak-eterm-speak-pointer-line</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dspeak_002dpointer_002dline">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-pointer-line</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dspeak_002dpointer_002dline'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dpointer_002dline-1">
+            </span>
+            <div class="format">
+              <pre class="format">Speak the line the pointer is on.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dspeak_002dpointer_002dword"></span>
-  <h4 class="subsubsection">12.71.1.30
-  emacspeak-eterm-speak-pointer-word</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dspeak_002dpointer_002dword">
-    Command:
-    <strong>emacspeak-eterm-speak-pointer-word</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dpointer_002dword-1"></span>
-      <div class="format">
-        <pre class="format">Speak the word  the pointer is on.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dpointer_002dword">
+        <h4 class="subsubsection">12.71.1.30
+        emacspeak-eterm-speak-pointer-word</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dspeak_002dpointer_002dword">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-pointer-word</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dspeak_002dpointer_002dword'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dpointer_002dword-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak the word  the pointer is on.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dspeak_002dpredefined_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.31
-  emacspeak-eterm-speak-predefined-window</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow">
-    Command:
-    <strong>emacspeak-eterm-speak-predefined-window</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Speak a predefined eterm window between 1 and 10.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dpredefined_002dwindow">
+        <h4 class="subsubsection">12.71.1.31
+        emacspeak-eterm-speak-predefined-window</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-predefined-window</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak a predefined eterm window between 1 and 10.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dspeak_002dscreen"></span>
-  <h4 class="subsubsection">12.71.1.32
-  emacspeak-eterm-speak-screen</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dspeak_002dscreen">
-    Command: <strong>emacspeak-eterm-speak-screen</strong>
-    <em>(&amp;optional flag)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dscreen-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speak the screen.  Default is to speak from the emacspeak pointer  to point.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dscreen">
+        <h4 class="subsubsection">12.71.1.32
+        emacspeak-eterm-speak-screen</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dspeak_002dscreen">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-screen</strong>
+          <em>(&amp;optional flag)</em> <a href=
+          '#index-emacspeak_002determ_002dspeak_002dscreen' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dscreen-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speak the screen.  Default is to speak from the emacspeak pointer  to point.
 Optional prefix arg FLAG causes region above
 the Emacspeak pointer to be spoken.
 
 (fn &amp;optional FLAG)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dspeak_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.33
-  emacspeak-eterm-speak-window</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dspeak_002dwindow">
-    Command: <strong>emacspeak-eterm-speak-window</strong>
-    <em>(id)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dspeak_002dwindow-1"></span>
-      <div class="format">
-        <pre class="format">Speak an eterm window.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dspeak_002dwindow">
+        <h4 class="subsubsection">12.71.1.33
+        emacspeak-eterm-speak-window</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dspeak_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-speak-window</strong>
+          <em>(id)</em> <a href=
+          '#index-emacspeak_002determ_002dspeak_002dwindow' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dspeak_002dwindow-1"></span>
+            <div class="format">
+              <pre class="format">Speak an eterm window.
 Argument ID specifies the window.
 
 (fn ID)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dtoggle_002dfilter_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.34
-  emacspeak-eterm-toggle-filter-window</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow">
-    Command:
-    <strong>emacspeak-eterm-toggle-filter-window</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow-1">
-      </span>
-      <div class="format">
-        <pre class="format">Toggle active state of filter window.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dtoggle_002dfilter_002dwindow">
+        <h4 class="subsubsection">12.71.1.34
+        emacspeak-eterm-toggle-filter-window</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-toggle-filter-window</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Toggle active state of filter window.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dtoggle_002dfocus_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.35
-  emacspeak-eterm-toggle-focus-window</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow">
-    Command:
-    <strong>emacspeak-eterm-toggle-focus-window</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow-1">
-      </span>
-      <div class="format">
-        <pre class="format">Toggle active state of focus window.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dtoggle_002dfocus_002dwindow">
+        <h4 class="subsubsection">12.71.1.35
+        emacspeak-eterm-toggle-focus-window</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-toggle-focus-window</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Toggle active state of focus window.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002determ_002dtoggle_002dpointer_002dmode"></span>
-  <h4 class="subsubsection">12.71.1.36
-  emacspeak-eterm-toggle-pointer-mode</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002determ_002dtoggle_002dpointer_002dmode">
-    Command: <strong>emacspeak-eterm-toggle-pointer-mode</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dtoggle_002dpointer_002dmode-1">
-      </span>
-      <div class="format">
-        <pre class="format">Toggle emacspeak eterm pointer mode.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dtoggle_002dpointer_002dmode">
+        <h4 class="subsubsection">12.71.1.36
+        emacspeak-eterm-toggle-pointer-mode</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002determ_002dtoggle_002dpointer_002dmode">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-toggle-pointer-mode</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002determ_002dtoggle_002dpointer_002dmode'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dtoggle_002dpointer_002dmode-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Toggle emacspeak eterm pointer mode.
 With optional interactive prefix  arg, turn it on.
 When emacspeak eterm is in pointer mode, the eterm read pointer
 stays where it is rather than automatically moving to the terminal cursor when
 there is terminal activity.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dtoggle_002dreview"></span>
-  <h4 class="subsubsection">12.71.1.37
-  emacspeak-eterm-toggle-review</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dtoggle_002dreview">
-    Command: <strong>emacspeak-eterm-toggle-review</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dtoggle_002dreview-1"></span>
-      <div class="format">
-        <pre class="format">Toggle state of eterm review.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dtoggle_002dreview">
+        <h4 class="subsubsection">12.71.1.37
+        emacspeak-eterm-toggle-review</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dtoggle_002dreview">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-toggle-review</strong>
+          <a href=
+          '#index-emacspeak_002determ_002dtoggle_002dreview' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dtoggle_002dreview-1"></span>
+            <div class="format">
+              <pre class="format">Toggle state of eterm review.
 In review mode, you can move around the terminal and listen to the contents
 without sending input to the terminal itself.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002determ_002dyank_002dwindow"></span>
-  <h4 class="subsubsection">12.71.1.38
-  emacspeak-eterm-yank-window</h4>
-  <dl>
-    <dt id="index-emacspeak_002determ_002dyank_002dwindow">Command:
-    <strong>emacspeak-eterm-yank-window</strong> <em>(id)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002determ_002dyank_002dwindow-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Yank contents of  an eterm window at point.
+      <div class="subsubsection" id=
+      "emacspeak_002determ_002dyank_002dwindow">
+        <h4 class="subsubsection">12.71.1.38
+        emacspeak-eterm-yank-window</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002determ_002dyank_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-eterm-yank-window</strong>
+          <em>(id)</em> <a href=
+          '#index-emacspeak_002determ_002dyank_002dwindow' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002determ_002dyank_002dwindow-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Yank contents of  an eterm window at point.
 
 (fn ID)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtoggle_002determ_002dautospeak"></span>
-  <h4 class="subsubsection">12.71.1.39
-  emacspeak-toggle-eterm-autospeak</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtoggle_002determ_002dautospeak">
-    Command: <strong>emacspeak-toggle-eterm-autospeak</strong>
-    <em>(&amp;optional prefix)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dtoggle_002determ_002dautospeak-1"></span>
-      <div class="format">
-        <pre class="format">Toggle state of eterm autospeak.
+      <div class="subsubsection" id=
+      "emacspeak_002dtoggle_002determ_002dautospeak">
+        <h4 class="subsubsection">12.71.1.39
+        emacspeak-toggle-eterm-autospeak</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtoggle_002determ_002dautospeak">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-toggle-eterm-autospeak</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002dtoggle_002determ_002dautospeak'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dtoggle_002determ_002dautospeak-1"></span>
+            <div class="format">
+              <pre class="format">Toggle state of eterm autospeak.
 When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken.
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002deudc.html" accesskey="n" rel=
-    "next">emacspeak-eudc</a>, Previous: <a href=
-    "emacspeak_002detable.html" accesskey="p" rel=
-    "prev">emacspeak-etable</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+    <p>Next: <a href="emacspeak_002deudc.html">emacspeak-eudc</a>,
+    Previous: <a href=
+    "emacspeak_002detable.html">emacspeak-etable</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html">Emacspeak Commands And
+    Options</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

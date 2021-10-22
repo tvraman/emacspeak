@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -23,19 +25,19 @@
   "Table of Contents" />
   <link href="Emacspeak-At-Twenty.html" rel="up" title=
   "Emacspeak At Twenty" />
-  <link href="Programming-Defensively.html" rel="next" title=
-  "Programming Defensively" />
+  <link href="Emacspeak-And-Authoring-Documents.html" rel="next"
+  title="Emacspeak And Authoring Documents" />
   <link href=
   "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029.html"
   rel="prev" title="Key Component --- Text To Speech (TTS)" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -44,6 +46,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -52,89 +55,87 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Emacspeak-And-Software-Development"></span>
-  <div class="header">
-    <p>Next: <a href="Emacspeak-And-Authoring-Documents.html"
-    accesskey="n" rel="next">Emacspeak And Authoring Documents</a>,
-    Previous: <a href=
-    "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029.html"
-    accesskey="p" rel="prev">Key Component --- Text To Speech
-    (TTS)</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u"
-    rel="up">Emacspeak At Twenty</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+  <div class="section" id="Emacspeak-And-Software-Development">
+    <div class="header">
+      <p>Next: <a href="Emacspeak-And-Authoring-Documents.html"
+      accesskey="n" rel="next">Emacspeak And Authoring
+      Documents</a>, Previous: <a href=
+      "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029.html"
+      accesskey="p" rel="prev">Key Component — Text To Speech
+      (TTS)</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey=
+      "u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Emacspeak-And-Software-Development-1"></span>
+    <h3 class="section">15.5 Emacspeak And Software
+    Development</h3>
+    <p>Version 0.01 of Emacspeak was written using IBM
+    Screen-Reader on a PC with a terminal emulator accessing a UNIX
+    workstation. But in about 2 weeks, Emacspeak was already a
+    better environment for developing Emacspeak in particular and
+    software development in general. Here are a few highlights in
+    1994 that made Emacspeak a good software development
+    environment, present-day users of Emacspeak will see that that
+    was just scratching the surface.</p>
+    <ul>
+      <li>Audio formatting using voice-lock to provide aural syntax
+      highlighting.</li>
+      <li>Succinct auditory icons to provide efficient
+      feedback.</li>
+      <li>Emacs’ ability to navigate code structurally —</li>
+    </ul>
+    <p>as opposed to moving around by plain-text units such as
+    characters, lines and words. S-Expressions are a major win!</p>
+    <ul>
+      <li>Emacs’ ability to specialize behavior based on major and
+      minor modes.</li>
+      <li>Ability to browse program code using tags, and getting
+      fluent spoken feedback.</li>
+      <li>Completion <strong>everywhere</strong>.</li>
+      <li>Everything is searchable — this is a huge win when you
+      cannot see the screen.</li>
+      <li>Interactive spell-checking using ISpell with continuous
+      spoken feedback augmented by aural highlights.</li>
+      <li>Running code compilation and being able to jump to errors
+      with spoken feedback.</li>
+      <li>Ability to move through diff chunks when working with
+      source code and source control systems; refined diffs as
+      provided by the <strong>ediff</strong> package when
+      speech-enabled is a major productivity win.</li>
+      <li>Ability to easily move between email, document authoring
+      and programming — though this may appear trivial, it
+      continues to be one of Emacs’ biggest wins.</li>
+    </ul>
+    <p>Long-term Emacs users will recognize all of the above as
+    being among the reasons why they do most things inside Emacs —
+    there is little that is Emacspeak specific in the above list —
+    except that Emacspeak was able to provide fluent,
+    well-integrated contextual feedback for all of these tasks. And
+    that was a game-changer given what I had had before Emacspeak.
+    As a case in point, I did not dare program in Python before I
+    speech-enabled Emacs’ Python-Mode; the fact that white space is
+    significant in Python made it difficult to program using a
+    plain screen-reader that was unaware of the semantics of the
+    underlying content being accessed.</p>
+    <ul class="section-toc">
+      <li><a href="Programming-Defensively.html" accesskey=
+      "1">Programming Defensively</a></li>
+    </ul>
   </div>
   <hr />
-  <span id="Emacspeak-And-Software-Development-1"></span>
-  <h3 class="section">15.5 Emacspeak And Software Development</h3>
-  <p>Version 0.01 of Emacspeak was written using IBM Screen-Reader
-  on a PC with a terminal emulator accessing a UNIX workstation.
-  But in about 2 weeks, Emacspeak was already a better environment
-  for developing Emacspeak in particular and software development
-  in general. Here are a few highlights in 1994 that made Emacspeak
-  a good software development environment, present-day users of
-  Emacspeak will see that that was just scratching the surface.</p>
-  <ul>
-    <li>Audio formatting using voice-lock to provide aural syntax
-    highlighting.</li>
-    <li>Succinct auditory icons to provide efficient feedback.</li>
-    <li>Emacs’ ability to navigate code structurally —</li>
-  </ul>
-  <p>as opposed to moving around by plain-text units such as
-  characters, lines and words. S-Expressions are a major win!</p>
-  <ul>
-    <li>Emacs’ ability to specialize behavior based on major and
-    minor modes.</li>
-    <li>Ability to browse program code using tags, and getting
-    fluent spoken feedback.</li>
-    <li>Completion <strong>everywhere</strong>.</li>
-    <li>Everything is searchable — this is a huge win when you
-    cannot see the screen.</li>
-    <li>Interactive spell-checking using ISpell with continuous
-    spoken feedback augmented by aural highlights.</li>
-    <li>Running code compilation and being able to jump to errors
-    with spoken feedback.</li>
-    <li>Ability to move through diff chunks when working with
-    source code and source control systems; refined diffs as
-    provided by the <strong>ediff</strong> package when
-    speech-enabled is a major productivity win.</li>
-    <li>Ability to easily move between email, document authoring
-    and programming — though this may appear trivial, it continues
-    to be one of Emacs’ biggest wins.</li>
-  </ul>
-  <p>Long-term Emacs users will recognize all of the above as being
-  among the reasons why they do most things inside Emacs — there is
-  little that is Emacspeak specific in the above list — except that
-  Emacspeak was able to provide fluent, well-integrated contextual
-  feedback for all of these tasks. And that was a game-changer
-  given what I had had before Emacspeak. As a case in point, I did
-  not dare program in Python before I speech-enabled Emacs’
-  Python-Mode; the fact that white space is significant in Python
-  made it difficult to program using a plain screen-reader that was
-  unaware of the semantics of the underlying content being
-  accessed.</p>
-  <table class="menu" border="0" cellspacing="0">
-    <tr>
-      <td align="left" valign="top">• <a href=
-      "Programming-Defensively.html" accesskey="1">Programming
-      Defensively</a></td>
-      <td>&nbsp;&nbsp;</td>
-      <td align="left" valign="top"></td>
-    </tr>
-  </table>
-  <hr />
   <div class="header">
-    <p>Next: <a href="Emacspeak-And-Authoring-Documents.html"
-    accesskey="n" rel="next">Emacspeak And Authoring Documents</a>,
-    Previous: <a href=
-    "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029.html"
-    accesskey="p" rel="prev">Key Component --- Text To Speech
-    (TTS)</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u"
-    rel="up">Emacspeak At Twenty</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+    <p>Next: <a href=
+    "Emacspeak-And-Authoring-Documents.html">Emacspeak And
+    Authoring Documents</a>, Previous: <a href=
+    "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029.html">
+    Key Component — Text To Speech (TTS)</a>, Up: <a href=
+    "Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href="Concept-Index.html"
+    title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

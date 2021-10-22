@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -23,18 +25,16 @@
   "Table of Contents" />
   <link href="Emacs-Packages.html" rel="up" title=
   "Emacs Packages" />
-  <link href="Running-Terminal-Based-Applications.html" rel="next"
-  title="Running Terminal Based Applications" />
   <link href="Personal-Information-Management.html" rel="prev"
   title="Personal Information Management" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +43,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,236 +52,269 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="Desktop-Applications"></span>
-  <div class="header">
-    <p>Previous: <a href="Personal-Information-Management.html"
-    accesskey="p" rel="prev">Personal Information Management</a>,
-    Up: <a href="Emacs-Packages.html" accesskey="u" rel="up">Emacs
-    Packages</a> &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  <div class="section" id="Desktop-Applications">
+    <div class="header">
+      <p>Previous: <a href="Personal-Information-Management.html"
+      accesskey="p" rel="prev">Personal Information Management</a>,
+      Up: <a href="Emacs-Packages.html" accesskey="u" rel=
+      "up">Emacs Packages.</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Desktop-Applications-1"></span>
+    <h3 class="section">10.10 Desktop Applications</h3><span id=
+    "index-Desktop-Applications"></span>
+    <ul class="section-toc">
+      <li><a href="#Spread-Sheets" accesskey="1">Spread
+      Sheets</a></li>
+      <li><a href="#Forms-Mode" accesskey="2">Forms Mode</a></li>
+      <li><a href="#OCR-_002d_002d_002d-Reading-Print-Documents"
+      accesskey="3"><acronym>OCR</acronym> — Reading Print
+      Documents</a></li>
+    </ul>
+    <div class="subsection" id="Spread-Sheets">
+      <h4 class="subsection">10.10.1 Spread Sheets</h4>
+      <p>Spreadsheet applications present a two dimensional view of
+      structured data where the field values are (possibly)
+      mutually dependent. On the Emacspeak desktop, a
+      speech-enabled spreadsheet application can be used to
+      manipulate such data-driven documents ranging from simple
+      cheque books and expense reports to complex investment
+      portfolios. Where the traditional visual interface to
+      spreadsheets is typically independent of the semantics of the
+      data stored in the spreadsheet, the speech-enabled interface
+      is derived from the <em>meaning</em> of the various fields
+      making up the data. When presenting such information on a
+      visual display, implicit visual layout can be used to cue the
+      user to the meaning of different data fields.</p>
+      <p>On the other hand, in the case of an actively scrolling
+      auditory display, the spoken output needs to explicitly
+      convey both the value and interpretation of the different
+      data items. In addition, the interface needs to enable an
+      active dialog between user and application where the user is
+      able to query the system about the possible meaning of a
+      particular item of data.</p>
+      <p>Finally, the aural interface needs to enable
+      <em>multiple</em> views of the display. In the visual
+      interface, such <em>multiple</em> views are automatically
+      enabled by the two dimensional layout combined with the eye’s
+      ability to move rapidly around the layout structure. Thus,
+      while viewing any particular row of a portfolio, one can
+      immediately see the current total value as well as the net
+      gain or loss. The Emacs spread-sheet package
+      <code>dismal</code> can be retrieved from <a href=
+      "ftp://cs.nyu.edu/pub/local/fox/dismal">ftp://cs.nyu.edu/pub/local/fox/dismal</a>.</p>
+    </div>
+    <div class="subsection" id="Forms-Mode">
+      <h4 class="subsection">10.10.2 Forms Mode</h4>
+      <p><em>Forms</em> mode an Emacs mode designed to edit
+      structured data records like the line shown from file
+      <samp>/etc/passwd</samp> presents a user-friendly visual
+      interface that displays the field name along with the field
+      value. The user can edit the field value and save the file,
+      at which point the data is written out using the underlying
+      <code>:</code> delimited representation. Mode <em>forms</em>
+      provides a flexible interface to associating meaning to the
+      fields of such structured data files. For details on it use,
+      see the forms-mode section of the online Emacs info
+      documentation.</p>
+    </div>
+    <div class="subsection" id=
+    "OCR-_002d_002d_002d-Reading-Print-Documents">
+      <h4 class="subsection">10.10.3 <acronym>OCR</acronym> —
+      Reading Print Documents</h4>
+      <p>Module <code>emacspeak-ocr</code> implements an
+      <acronym title="Optical Character Recognition">OCR</acronym>
+      (Optical Character Recognition) front-end for the Emacspeak
+      desktop.</p>
+      <p>Page image is acquired using tools from package
+      <code>SANE</code> (Scanner Access Now Easy). The acquired
+      image is run through the <acronym title=
+      "Optical Character Recognition">OCR</acronym> engine if one
+      is available, and the results placed in a buffer that is
+      suitable for browsing the results. This buffer is placed in
+      mode <code>emacspeak-ocr-mode</code> a specialized mode for
+      reading and scanning documents.</p>
+      <ul class="section-toc">
+        <li><a href="#Emacspeak-OCR-Mode" accesskey="1">Emacspeak
+        <acronym>OCR</acronym> Mode</a></li>
+      </ul>
+      <div class="subsubsection" id="Emacspeak-OCR-Mode">
+        <h4 class="subsubsection">10.10.3.1 Emacspeak
+        <acronym>OCR</acronym> Mode</h4>
+        <p>Emacspeak <acronym title=
+        "Optical Character Recognition">OCR</acronym> mode is a
+        special major mode for document scanning and
+        <acronym title="Optical Character Recognition">OCR</acronym>.</p>
+        <p>Pre-requisites:</p>
+        <ul>
+          <li>A working scanner back-end like SANE on Linux.</li>
+          <li>An <acronym title=
+          "Optical Character Recognition">OCR</acronym>
+          engine.</li>
+        </ul>
+        <p>Make sure your scanner back-end works, and that you have
+        the utilities to scan a document and acquire an image as a
+        tiff file. Then set variable
+        <var>emacspeak-ocr-scan-image-program</var> to point at
+        this utility. By default, this is set to ‘scanimage’ which
+        is the image scanning utility provided by SANE.</p>
+        <p>By default, this front-end attempts to compress the
+        acquired tiff image; make sure you have a utility like
+        <code>tiffcp</code>. Variable
+        <var>emacspeak-ocr-compress-image</var> is set to ‘tiffcp’
+        by default; if you use something else, you should customize
+        this variable.</p>
+        <p>Next, make sure you have an <acronym title=
+        "Optical Character Recognition">OCR</acronym> engine
+        installed and working. By default this front-end assumes
+        that <acronym title=
+        "Optical Character Recognition">OCR</acronym> is available
+        as <code>/usr/bin/ocr</code>.</p>
+        <p>Once you have ensured that acquiring an image and
+        applying <acronym title=
+        "Optical Character Recognition">OCR</acronym> to it work
+        independently of Emacs, you can use this Emacspeak
+        front-end to enable easy <acronym title=
+        "Optical Character Recognition">OCR</acronym> access from
+        within Emacspeak.</p>
+        <p>The Emacspeak <acronym title=
+        "Optical Character Recognition">OCR</acronym> front-end is
+        launched by command <em>emacspeak-ocr</em> bound to
+        <kbd>C-e C-o</kbd>.</p>
+        <p>This command switches to a special buffer that has
+        <acronym title=
+        "Optical Character Recognition">OCR</acronym> commands
+        bounds to single keystrokes — see the key-binding list at
+        the end of this description. Use Emacs online help facility
+        to look up help on these commands.</p>
+        <p>Mode <em>emacspeak-ocr-mode</em> provides the necessary
+        functionality to scan, <acronym title=
+        "Optical Character Recognition">OCR</acronym>, read and
+        save documents. By default, scanned images and the
+        resulting text are saved under directory
+        <samp>~/ocr</samp>; see variable
+        <var>emacspeak-ocr-working-directory</var>. Invoking
+        command <em>emacspeak-ocr-open-working-directory</em> bound
+        to <kbd>d</kbd> will open this directory.</p>
+        <p>By default, the document being scanned is named
+        ‘untitled’. You can name the document by using command
+        <em>emacspeak-ocr-name-document</em> bound to <kbd>n</kbd>.
+        The document name is used in constructing the name of the
+        image and text files.</p>
+        <p>Here is a list of all emacspeak <acronym title=
+        "Optical Character Recognition">OCR</acronym> commands
+        along with their key-bindings and a brief description:</p>
+        <dl compact="compact">
+          <dt><span><kbd>digit</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-page</em> Jumps to specified page
+            in the <acronym title=
+            "Optical Character Recognition">OCR</acronym>
+            output.</p>
+          </dd>
+          <dt><span><kbd>c</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-set-compress-image-options</em>
+            Interactively update image compression options. Prompts
+            with current setting in the minibuffer. Setting
+            persists for current Emacs session.</p>
+          </dd>
+          <dt><span><kbd>i</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-set-scan-image-options</em>
+            Interactively update scan image options. Prompts with
+            current setting in the minibuffer. Setting persists for
+            current Emacs session.</p>
+          </dd>
+          <dt><span><kbd>spc</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-read-current-page</em> Speaks
+            current page.</p>
+          </dd>
+          <dt><span><kbd>s</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-save-current-page</em> Saves
+            current page as a text file.</p>
+          </dd>
+          <dt><span><kbd>p</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-page</em> Prompts for a page
+            number and moves to the specified page.</p>
+          </dd>
+          <dt><span><kbd>]</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-forward-page</em> Move forward to
+            the next page.</p>
+          </dd>
+          <dt><span><kbd>[</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-backward-page</em> Move back to
+            the previous page.</p>
+          </dd>
+          <dt><span><kbd>d</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-open-working-directory</em> Open
+            directory containing the results of <acronym title=
+            "Optical Character Recognition">OCR</acronym>.</p>
+          </dd>
+          <dt><span><kbd>n</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-name-document</em> Name current
+            document.</p>
+          </dd>
+          <dt><span><kbd>o</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-recognize-image</em> Launch
+            <acronym title=
+            "Optical Character Recognition">OCR</acronym> engine on
+            a scanned image.</p>
+          </dd>
+          <dt><span><kbd>i</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-scan-image</em> Acquire an image
+            using <code>scanimage</code>.</p>
+          </dd>
+          <dt><span><kbd>RET</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-scan-and-recognize</em> Scan and
+            recognize a page.</p>
+          </dd>
+          <dt><span><kbd>w</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-write-document</em> Write all
+            pages of current document to a text file.</p>
+          </dd>
+          <dt><span><kbd>q</kbd></span></dt>
+          <dd>
+            <p><em>bury-buffer</em> Bury the <acronym title=
+            "Optical Character Recognition">OCR</acronym>
+            buffer.</p>
+          </dd>
+          <dt><span><kbd>c</kbd></span></dt>
+          <dd>
+            <p><em>emacspeak-ocr-customize</em> Customize Emacspeak
+            <acronym title=
+            "Optical Character Recognition">OCR</acronym>
+            settings.</p>
+          </dd>
+          <dt><span><kbd>?</kbd></span></dt>
+          <dd>
+            <p><em>describe-mode</em> Describe <acronym title=
+            "Optical Character Recognition">OCR</acronym> mode.</p>
+          </dd>
+        </dl>
+      </div>
+    </div>
   </div>
   <hr />
-  <span id="Desktop-Applications-1"></span>
-  <h3 class="section">10.10 Desktop Applications</h3><span id=
-  "index-Desktop-Applications"></span> <span id=
-  "Spread-Sheets"></span>
-  <h4 class="subsection">10.10.1 Spread Sheets</h4>
-  <p>Spreadsheet applications present a two dimensional view of
-  structured data where the field values are (possibly) mutually
-  dependent. On the Emacspeak desktop, a speech-enabled spreadsheet
-  application can be used to manipulate such data-driven documents
-  ranging from simple cheque books and expense reports to complex
-  investment portfolios. Where the traditional visual interface to
-  spreadsheets is typically independent of the semantics of the
-  data stored in the spreadsheet, the speech-enabled interface is
-  derived from the <em>meaning</em> of the various fields making up
-  the data. When presenting such information on a visual display,
-  implicit visual layout can be used to cue the user to the meaning
-  of different data fields.</p>
-  <p>On the other hand, in the case of an actively scrolling
-  auditory display, the spoken output needs to explicitly convey
-  both the value and interpretation of the different data items. In
-  addition, the interface needs to enable an active dialog between
-  user and application where the user is able to query the system
-  about the possible meaning of a particular item of data.</p>
-  <p>Finally, the aural interface needs to enable <em>multiple</em>
-  views of the display. In the visual interface, such
-  <em>multiple</em> views are automatically enabled by the two
-  dimensional layout combined with the eye’s ability to move
-  rapidly around the layout structure. Thus, while viewing any
-  particular row of a portfolio, one can immediately see the
-  current total value as well as the net gain or loss. The Emacs
-  spread-sheet package <code>dismal</code> can be retrieved from
-  <a href=
-  "ftp://cs.nyu.edu/pub/local/fox/dismal">ftp://cs.nyu.edu/pub/local/fox/dismal</a>.</p><span id="Forms-Mode"></span>
-  <h4 class="subsection">10.10.2 Forms Mode</h4>
-  <p><em>Forms</em> mode an Emacs mode designed to edit structured
-  data records like the line shown from file
-  <samp>/etc/passwd</samp> presents a user-friendly visual
-  interface that displays the field name along with the field
-  value. The user can edit the field value and save the file, at
-  which point the data is written out using the underlying
-  <code>:</code> delimited representation. Mode <em>forms</em>
-  provides a flexible interface to associating meaning to the
-  fields of such structured data files. For details on it use, see
-  the forms-mode section of the online Emacs info
-  documentation.</p><span id=
-  "OCR-_002d_002d_002d-Reading-Print-Documents"></span>
-  <h4 class="subsection">10.10.3 <acronym>OCR</acronym> — Reading
-  Print Documents</h4>
-  <p>Module <code>emacspeak-ocr</code> implements an
-  <acronym title="Optical Character Recognition">OCR</acronym>
-  (Optical Character Recognition) front-end for the Emacspeak
-  desktop.</p>
-  <p>Page image is acquired using tools from package
-  <code>SANE</code> (Scanner Access Now Easy). The acquired image
-  is run through the <acronym title=
-  "Optical Character Recognition">OCR</acronym> engine if one is
-  available, and the results placed in a buffer that is suitable
-  for browsing the results. This buffer is placed in mode
-  <code>emacspeak-ocr-mode</code> a specialized mode for reading
-  and scanning documents.</p><span id="Emacspeak-OCR-Mode"></span>
-  <h4 class="subsubsection">10.10.3.1 Emacspeak
-  <acronym>OCR</acronym> Mode</h4>
-  <p>Emacspeak <acronym title=
-  "Optical Character Recognition">OCR</acronym> mode is a special
-  major mode for document scanning and <acronym title=
-  "Optical Character Recognition">OCR</acronym>.</p>
-  <p>Pre-requisites:</p>
-  <ul>
-    <li>A working scanner back-end like SANE on Linux.</li>
-    <li>An <acronym title=
-    "Optical Character Recognition">OCR</acronym> engine.</li>
-  </ul>
-  <p>Make sure your scanner back-end works, and that you have the
-  utilities to scan a document and acquire an image as a tiff file.
-  Then set variable <var>emacspeak-ocr-scan-image-program</var> to
-  point at this utility. By default, this is set to ‘scanimage’
-  which is the image scanning utility provided by SANE.</p>
-  <p>By default, this front-end attempts to compress the acquired
-  tiff image; make sure you have a utility like
-  <code>tiffcp</code>. Variable
-  <var>emacspeak-ocr-compress-image</var> is set to ‘tiffcp’ by
-  default; if you use something else, you should customize this
-  variable.</p>
-  <p>Next, make sure you have an <acronym title=
-  "Optical Character Recognition">OCR</acronym> engine installed
-  and working. By default this front-end assumes that
-  <acronym title="Optical Character Recognition">OCR</acronym> is
-  available as <code>/usr/bin/ocr</code>.</p>
-  <p>Once you have ensured that acquiring an image and applying
-  <acronym title="Optical Character Recognition">OCR</acronym> to
-  it work independently of Emacs, you can use this Emacspeak
-  front-end to enable easy <acronym title=
-  "Optical Character Recognition">OCR</acronym> access from within
-  Emacspeak.</p>
-  <p>The Emacspeak <acronym title=
-  "Optical Character Recognition">OCR</acronym> front-end is
-  launched by command <em>emacspeak-ocr</em> bound to <kbd>C-e
-  C-o</kbd>.</p>
-  <p>This command switches to a special buffer that has
-  <acronym title="Optical Character Recognition">OCR</acronym>
-  commands bounds to single keystrokes — see the key-binding list
-  at the end of this description. Use Emacs online help facility to
-  look up help on these commands.</p>
-  <p>Mode <em>emacspeak-ocr-mode</em> provides the necessary
-  functionality to scan, <acronym title=
-  "Optical Character Recognition">OCR</acronym>, read and save
-  documents. By default, scanned images and the resulting text are
-  saved under directory <samp>~/ocr</samp>; see variable
-  <var>emacspeak-ocr-working-directory</var>. Invoking command
-  <em>emacspeak-ocr-open-working-directory</em> bound to
-  <kbd>d</kbd> will open this directory.</p>
-  <p>By default, the document being scanned is named ‘untitled’.
-  You can name the document by using command
-  <em>emacspeak-ocr-name-document</em> bound to <kbd>n</kbd>. The
-  document name is used in constructing the name of the image and
-  text files.</p>
-  <p>Here is a list of all emacspeak <acronym title=
-  "Optical Character Recognition">OCR</acronym> commands along with
-  their key-bindings and a brief description:</p>
-  <dl compact="compact">
-    <dt><kbd>digit</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-page</em> Jumps to specified page in the
-      <acronym title="Optical Character Recognition">OCR</acronym>
-      output.</p>
-    </dd>
-    <dt><kbd>c</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-set-compress-image-options</em>
-      Interactively update image compression options. Prompts with
-      current setting in the minibuffer. Setting persists for
-      current Emacs session.</p>
-    </dd>
-    <dt><kbd>i</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-set-scan-image-options</em>
-      Interactively update scan image options. Prompts with current
-      setting in the minibuffer. Setting persists for current Emacs
-      session.</p>
-    </dd>
-    <dt><kbd>spc</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-read-current-page</em> Speaks current
-      page.</p>
-    </dd>
-    <dt><kbd>s</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-save-current-page</em> Saves current
-      page as a text file.</p>
-    </dd>
-    <dt><kbd>p</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-page</em> Prompts for a page number and
-      moves to the specified page.</p>
-    </dd>
-    <dt><kbd>]</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-forward-page</em> Move forward to the
-      next page.</p>
-    </dd>
-    <dt><kbd>[</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-backward-page</em> Move back to the
-      previous page.</p>
-    </dd>
-    <dt><kbd>d</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-open-working-directory</em> Open
-      directory containing the results of <acronym title=
-      "Optical Character Recognition">OCR</acronym>.</p>
-    </dd>
-    <dt><kbd>n</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-name-document</em> Name current
-      document.</p>
-    </dd>
-    <dt><kbd>o</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-recognize-image</em> Launch
-      <acronym title="Optical Character Recognition">OCR</acronym>
-      engine on a scanned image.</p>
-    </dd>
-    <dt><kbd>i</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-scan-image</em> Acquire an image using
-      <code>scanimage</code>.</p>
-    </dd>
-    <dt><kbd>RET</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-scan-and-recognize</em> Scan and
-      recognize a page.</p>
-    </dd>
-    <dt><kbd>w</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-write-document</em> Write all pages of
-      current document to a text file.</p>
-    </dd>
-    <dt><kbd>q</kbd></dt>
-    <dd>
-      <p><em>bury-buffer</em> Bury the <acronym title=
-      "Optical Character Recognition">OCR</acronym> buffer.</p>
-    </dd>
-    <dt><kbd>c</kbd></dt>
-    <dd>
-      <p><em>emacspeak-ocr-customize</em> Customize Emacspeak
-      <acronym title="Optical Character Recognition">OCR</acronym>
-      settings.</p>
-    </dd>
-    <dt><kbd>?</kbd></dt>
-    <dd>
-      <p><em>describe-mode</em> Describe <acronym title=
-      "Optical Character Recognition">OCR</acronym> mode.</p>
-    </dd>
-  </dl>
-  <hr />
   <div class="header">
-    <p>Previous: <a href="Personal-Information-Management.html"
-    accesskey="p" rel="prev">Personal Information Management</a>,
-    Up: <a href="Emacs-Packages.html" accesskey="u" rel="up">Emacs
-    Packages</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    <p>Previous: <a href=
+    "Personal-Information-Management.html">Personal Information
+    Management</a>, Up: <a href="Emacs-Packages.html">Emacs
+    Packages.</a> &nbsp; [<a href="index.html#SEC_Contents" title=
     "Table of contents" rel="contents">Contents</a>][<a href=
     "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
   </div>

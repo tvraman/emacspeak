@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,74 +54,106 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002damark"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002danalog.html" accesskey="n" rel=
-    "next">emacspeak-analog</a>, Previous: <a href=
-    "emacspeak_002dadvice.html" accesskey="p" rel=
-    "prev">emacspeak-advice</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002damark-1"></span>
-  <h3 class="section">12.12 emacspeak-amark</h3>
-  <p>Structure emacspeak-amark holds a bookmark into an mp3 file
-  path: fully qualified pathname to file being marked name:
-  Bookmark tag Position: time offset from start</p>
-  <p>This library will be used from emacspeak-m-player,
-  emacspeak-mplayer and friends to set and jump to
-  bookmarks.</p><span id="Emacspeak_002dAmark-Commands"></span>
-  <h4 class="subsection">12.12.1 Emacspeak-Amark
-  Commands</h4><span id="emacspeak_002damark_002dadd"></span>
-  <h4 class="subsubsection">12.12.1.1 emacspeak-amark-add</h4>
-  <dl>
-    <dt id="index-emacspeak_002damark_002dadd">Command:
-    <strong>emacspeak-amark-add</strong> <em>(path name
-    position)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002damark_002dadd-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Add an AMark to the buffer local list of AMarks. AMarks are
+  <div class="section" id="emacspeak_002damark">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002danalog.html" accesskey="n"
+      rel="next">emacspeak-analog</a>, Previous: <a href=
+      "emacspeak_002dadvice.html" accesskey="p" rel=
+      "prev">emacspeak-advice</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002damark-1"></span>
+    <h3 class="section">12.12 emacspeak-amark</h3>
+    <p>Structure emacspeak-amark holds a bookmark into an mp3 file
+    path: fully qualified pathname to file being marked name:
+    Bookmark tag Position: time offset from start</p>
+    <p>This library will be used from emacspeak-m-player,
+    emacspeak-mplayer and friends to set and jump to bookmarks.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dAmark-Commands" accesskey=
+      "1">Emacspeak-Amark Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dAmark-Commands">
+      <h4 class="subsection">12.12.1 Emacspeak-Amark Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002damark_002dadd" accesskey=
+        "1">emacspeak-amark-add</a></li>
+        <li><a href="#emacspeak_002damark_002dfind" accesskey=
+        "2">emacspeak-amark-find</a></li>
+        <li><a href="#emacspeak_002damark_002dsave" accesskey=
+        "3">emacspeak-amark-save</a></li>
+      </ul>
+      <div class="subsubsection" id="emacspeak_002damark_002dadd">
+        <h4 class="subsubsection">12.12.1.1
+        emacspeak-amark-add</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002damark_002dadd"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-amark-add</strong> <em>(path name
+          position)</em> <a href=
+          '#index-emacspeak_002damark_002dadd' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002damark_002dadd-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Add an AMark to the buffer local list of AMarks. AMarks are
 bookmarks in audio content. If there is an existing amark of the
 given name, it is updated with path and position.
 
 (fn PATH NAME POSITION)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002damark_002dfind"></span>
-  <h4 class="subsubsection">12.12.1.2 emacspeak-amark-find</h4>
-  <dl>
-    <dt id="index-emacspeak_002damark_002dfind">Command:
-    <strong>emacspeak-amark-find</strong> <em>(name)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002damark_002dfind-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Return matching AMark if found in buffer-local AMark list.
+      <div class="subsubsection" id="emacspeak_002damark_002dfind">
+        <h4 class="subsubsection">12.12.1.2
+        emacspeak-amark-find</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002damark_002dfind"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-amark-find</strong>
+          <em>(name)</em> <a href=
+          '#index-emacspeak_002damark_002dfind' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002damark_002dfind-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Return matching AMark if found in buffer-local AMark list.
 
 (fn NAME)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002damark_002dsave"></span>
-  <h4 class="subsubsection">12.12.1.3 emacspeak-amark-save</h4>
-  <dl>
-    <dt id="index-emacspeak_002damark_002dsave">Command:
-    <strong>emacspeak-amark-save</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002damark_002dsave-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Save buffer-local AMarks in  currently playing directory.
+      <div class="subsubsection" id="emacspeak_002damark_002dsave">
+        <h4 class="subsubsection">12.12.1.3
+        emacspeak-amark-save</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002damark_002dsave"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-amark-save</strong> <a href=
+          '#index-emacspeak_002damark_002dsave' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002damark_002dsave-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Save buffer-local AMarks in  currently playing directory.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
 </body>
 </html>

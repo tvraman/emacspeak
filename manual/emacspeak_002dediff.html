@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,53 +54,70 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dediff"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002deglot.html" accesskey="n" rel=
-    "next">emacspeak-eglot</a>, Previous: <a href=
-    "emacspeak_002declim.html" accesskey="p" rel=
-    "prev">emacspeak-eclim</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dediff-1"></span>
-  <h3 class="section">12.53 emacspeak-ediff</h3>
-  <p>Ediff provides a nice visual interface to diff. ;;;Comparing
-  and patching files is easy with ediff when you can see the
-  screen. This module provides Emacspeak extensions to work
-  fluently with ediff. Try it out, it’s an excellent example of why
-  Emacspeak is better than a traditional screenreader. This module
-  was originally written to interface to the old ediff.el bundled
-  with GNU Emacs 19.28 and earlier. It has been updated to work
-  with the newer and much larger ediff system found in Emacs 19.29
-  and later.</p>
-  <p>When using under modern versions of Emacs, I recommend setting
-  (setq ediff-window-setup-function ’ediff-setup-windows-plain) so
-  that Emacs always displays Ediff windows in a single
-  frame.</p><span id="Emacspeak_002dEdiff-Commands"></span>
-  <h4 class="subsection">12.53.1 Emacspeak-Ediff
-  Commands</h4><span id=
-  "emacspeak_002dediff_002dspeak_002dcurrent_002ddifference"></span>
-  <h4 class="subsubsection">12.53.1.1
-  emacspeak-ediff-speak-current-difference</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dediff_002dspeak_002dcurrent_002ddifference">
-    Command:
-    <strong>emacspeak-ediff-speak-current-difference</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dediff_002dspeak_002dcurrent_002ddifference-1">
-      </span>
-      <div class="format">
-        <pre class="format">Speak the current difference
+  <div class="section" id="emacspeak_002dediff">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002deglot.html" accesskey="n"
+      rel="next">emacspeak-eglot</a>, Previous: <a href=
+      "emacspeak_002declim.html" accesskey="p" rel=
+      "prev">emacspeak-eclim</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dediff-1"></span>
+    <h3 class="section">12.53 emacspeak-ediff</h3>
+    <p>Ediff provides a nice visual interface to diff. ;;;Comparing
+    and patching files is easy with ediff when you can see the
+    screen. This module provides Emacspeak extensions to work
+    fluently with ediff. Try it out, it’s an excellent example of
+    why Emacspeak is better than a traditional screenreader. This
+    module was originally written to interface to the old ediff.el
+    bundled with GNU Emacs 19.28 and earlier. It has been updated
+    to work with the newer and much larger ediff system found in
+    Emacs 19.29 and later.</p>
+    <p>When using under modern versions of Emacs, I recommend
+    setting (setq ediff-window-setup-function
+    ’ediff-setup-windows-plain) so that Emacs always displays Ediff
+    windows in a single frame.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dEdiff-Commands" accesskey=
+      "1">Emacspeak-Ediff Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dEdiff-Commands">
+      <h4 class="subsection">12.53.1 Emacspeak-Ediff Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002dediff_002dspeak_002dcurrent_002ddifference"
+        accesskey=
+        "1">emacspeak-ediff-speak-current-difference</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dediff_002dspeak_002dcurrent_002ddifference">
+        <h4 class="subsubsection">12.53.1.1
+        emacspeak-ediff-speak-current-difference</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dediff_002dspeak_002dcurrent_002ddifference">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-ediff-speak-current-difference</strong>
+          <a href=
+          '#index-emacspeak_002dediff_002dspeak_002dcurrent_002ddifference'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dediff_002dspeak_002dcurrent_002ddifference-1">
+            </span>
+            <div class="format">
+              <pre class="format">Speak the current difference
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
 </body>
 </html>

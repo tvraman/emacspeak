@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -17,6 +17,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -34,11 +36,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -47,6 +49,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -55,53 +58,53 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id=
+  <div class="section" id=
   "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks">
-  </span>
-  <div class="header">
-    <p>Next: <a href=
-    "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html"
-    accesskey="n" rel="next">Social Web --- EMail Instant Messaging
-    Blogging And Tweeting Using Open Protocols</a>, Previous:
-    <a href=
-    "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html"
-    accesskey="p" rel="prev">EBooks --- Ubiquitous Access To
-    Books</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u"
-    rel="up">Emacspeak At Twenty</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
+    <div class="header">
+      <p>Next: <a href=
+      "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html"
+      accesskey="n" rel="next">Social Web — EMail, Instant
+      Messaging, Blogging And Tweeting Using Open Protocols</a>,
+      Previous: <a href=
+      "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html"
+      accesskey="p" rel="prev">EBooks — Ubiquitous Access To
+      Books</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey=
+      "u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id=
+    "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks-1"></span>
+    <h3 class="section">15.12 Leveraging Computational Tools — From
+    SQL And R To IPython Notebooks</h3>
+    <p>The ability to invoke external processes and interface with
+    them via a simple read-eval-loop (REPL) is perhaps one of
+    Emacs’ strongest extension points. This means that a wide
+    variety of computational tools become immediately available for
+    embedding within the Emacs environment — a facility that has
+    been widely exploited by the Emacs community. Over the years,
+    Emacspeak has leveraged many of these facilities to provide a
+    well-integrated auditory interface.</p>
+    <p>Starting from a tight code, eval, test form of iterative
+    programming as encouraged by Lisp. Applied to languages like
+    Python and Ruby to exploratory computational tools such as R
+    for data analysis and SQL for database interaction, the
+    Emacspeak Audio Desktop has come to encompass a collection of
+    rich computational tools that provide an efficient eyes-free
+    experience.</p>
+    <p>In this context, module <strong>ein</strong> — Emacs IPython
+    Notebooks — provides another excellent example of an Emacs tool
+    that helps interface seamlessly with others in the technical
+    domain. IPython Notebooks provide an easy means of reaching a
+    large audience when publishing technical material with
+    interactive computational content; module <strong>ein</strong>
+    brings the power and convenience of Emacs ’ editting facilities
+    when developing the content. Speech-enabling package
+    <strong>ein</strong> is a major win since editting program
+    source code in an eyes-free environment is far smoother in
+    Emacs than in a browser-based editor.</p>
   </div>
-  <hr />
-  <span id=
-  "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks-1"></span>
-  <h3 class="section">15.12 Leveraging Computational Tools — From
-  SQL And R To IPython Notebooks</h3>
-  <p>The ability to invoke external processes and interface with
-  them via a simple read-eval-loop (REPL) is perhaps one of Emacs’
-  strongest extension points. This means that a wide variety of
-  computational tools become immediately available for embedding
-  within the Emacs environment — a facility that has been widely
-  exploited by the Emacs community. Over the years, Emacspeak has
-  leveraged many of these facilities to provide a well-integrated
-  auditory interface.</p>
-  <p>Starting from a tight code, eval, test form of iterative
-  programming as encouraged by Lisp. Applied to languages like
-  Python and Ruby to exploratory computational tools such as R for
-  data analysis and SQL for database interaction, the Emacspeak
-  Audio Desktop has come to encompass a collection of rich
-  computational tools that provide an efficient eyes-free
-  experience.</p>
-  <p>In this context, module <strong>ein</strong> — Emacs IPython
-  Notebooks — provides another excellent example of an Emacs tool
-  that helps interface seamlessly with others in the technical
-  domain. IPython Notebooks provide an easy means of reaching a
-  large audience when publishing technical material with
-  interactive computational content; module <strong>ein</strong>
-  brings the power and convenience of Emacs ’ editting facilities
-  when developing the content. Speech-enabling package
-  <strong>ein</strong> is a major win since editting program source
-  code in an eyes-free environment is far smoother in Emacs than in
-  a browser-based editor.</p>
 </body>
 </html>

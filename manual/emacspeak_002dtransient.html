@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,73 +54,107 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dtransient"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dtwittering.html" accesskey="n"
-    rel="next">emacspeak-twittering</a>, Previous: <a href=
-    "emacspeak_002dtodo_002dmode.html" accesskey="p" rel=
-    "prev">emacspeak-todo-mode</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dtransient-1"></span>
-  <h3 class="section">12.192 emacspeak-transient</h3>
-  <p>TRANSIENT == Transient commands — used by magit and friends.
-  This module speech-enables transient.</p><span id=
-  "Introduction-3"></span>
-  <h4 class="subsection">12.192.1 Introduction</h4>
-  <p>Package Transient is similar to package Hydra in the sense
-  that it can be used to create a sequence of chained/hierarchical
-  commands that are invoked via a sequence of keys. It is used by
-  Magit for dispatching to the various Git commands.
-  Speech-enabling package Transient results in the various
-  interactive commands producing auditory feedback. Transient shows
-  an ephemeral window with the currently available commands,
-  Emacspeak speech-enables transient–show to cache that content so
-  it can be browsed if desired.</p>
-  <p>Finally, this module defines a new minor mode called
-  transient-emacspeak that enables interactive browsing of the
-  contents displayed temporarily. Note that without this
-  functionality, learning complex packages like Magit would be
-  difficult because the list of available commands can be very
-  long.</p><span id="Recommended-Customizations"></span>
-  <h4 class="subsection">12.192.2 Recommended Customizations</h4>
-  <p>I use the following customizations via .custom, adjust to
-  taste, but use these only after reading the transient info
-  documentations.</p>
-  <ul>
-    <li>transient-force-single-column: t</li>
-    <li>transient-show-popup: 1</li>
-    <li>transient-enable-popup-navigation: t</li>
-  </ul>
-  <p>this pops up the transient buffer after a short delay and lets
-  you move through the buttons with the up/down
-  arrows.</p><span id="Browsing-Contents-Of-transient_002d_002dshow"></span>
-  <h4 class="subsection">12.192.3 Browsing Contents Of
-  transient–show</h4>
-  <p>When executing a command defined via Transient — e.g. command
-  Magit-dispatch and friends, press <kbd>C-z</kbd>
-  (transient-suspend) to temporarily suspend the currently active
-  transient. Emacspeak now displays a *transient-emacspeak* buffer
-  that displays the contents of the most recently displayed
-  transient choices. Pressing <kbd>C-c</kbd> resumes the transient;
-  Pressing <kbd>C-q</kbd> quits the transient.</p><span id=
-  "Emacspeak_002dTransient-Commands"></span>
-  <h4 class="subsection">12.192.4 Emacspeak-Transient
-  Commands</h4><span id="emacspeak_002dtransient_002dmode"></span>
-  <h4 class="subsubsection">12.192.4.1
-  emacspeak-transient-mode</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtransient_002dmode">Command:
-    <strong>emacspeak-transient-mode</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dtransient_002dmode-1"></span>
-      <div class="format">
-        <pre class="format">emacspeak integration with Transient.
+  <div class="section" id="emacspeak_002dtransient">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dtwittering.html" accesskey=
+      "n" rel="next">emacspeak-twittering</a>, Previous: <a href=
+      "emacspeak_002dtodo_002dmode.html" accesskey="p" rel=
+      "prev">emacspeak-todo-mode</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dtransient-1"></span>
+    <h3 class="section">12.192 emacspeak-transient</h3>
+    <p>TRANSIENT == Transient commands — used by magit and friends.
+    This module speech-enables transient.</p>
+    <ul class="section-toc">
+      <li><a href="#Introduction-3" accesskey=
+      "1">Introduction</a></li>
+      <li><a href="#Recommended-Customizations" accesskey=
+      "2">Recommended Customizations</a></li>
+      <li><a href="#Browsing-Contents-Of-transient_002d_002dshow"
+      accesskey="3">Browsing Contents Of transient–show</a></li>
+      <li><a href="#Emacspeak_002dTransient-Commands" accesskey=
+      "4">Emacspeak-Transient Commands</a></li>
+    </ul>
+    <div class="subsection" id="Introduction-3">
+      <h4 class="subsection">12.192.1 Introduction</h4>
+      <p>Package Transient is similar to package Hydra in the sense
+      that it can be used to create a sequence of
+      chained/hierarchical commands that are invoked via a sequence
+      of keys. It is used by Magit for dispatching to the various
+      Git commands. Speech-enabling package Transient results in
+      the various interactive commands producing auditory feedback.
+      Transient shows an ephemeral window with the currently
+      available commands, Emacspeak speech-enables transient–show
+      to cache that content so it can be browsed if desired.</p>
+      <p>Finally, this module defines a new minor mode called
+      transient-emacspeak that enables interactive browsing of the
+      contents displayed temporarily. Note that without this
+      functionality, learning complex packages like Magit would be
+      difficult because the list of available commands can be very
+      long.</p>
+    </div>
+    <div class="subsection" id="Recommended-Customizations">
+      <h4 class="subsection">12.192.2 Recommended
+      Customizations</h4>
+      <p>I use the following customizations via .custom, adjust to
+      taste, but use these only after reading the transient info
+      documentations.</p>
+      <ul>
+        <li>transient-force-single-column: t</li>
+        <li>transient-show-popup: 1</li>
+        <li>transient-enable-popup-navigation: t</li>
+      </ul>
+      <p>this pops up the transient buffer after a short delay and
+      lets you move through the buttons with the up/down
+      arrows.</p>
+    </div>
+    <div class="subsection" id=
+    "Browsing-Contents-Of-transient_002d_002dshow">
+      <h4 class="subsection">12.192.3 Browsing Contents Of
+      transient–show</h4>
+      <p>When executing a command defined via Transient — e.g.
+      command Magit-dispatch and friends, press <kbd>C-z</kbd>
+      (transient-suspend) to temporarily suspend the currently
+      active transient. Emacspeak now displays a
+      *transient-emacspeak* buffer that displays the contents of
+      the most recently displayed transient choices. Pressing
+      <kbd>C-c</kbd> resumes the transient; Pressing <kbd>C-q</kbd>
+      quits the transient.</p>
+    </div>
+    <div class="subsection" id="Emacspeak_002dTransient-Commands">
+      <h4 class="subsection">12.192.4 Emacspeak-Transient
+      Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002dtransient_002dmode" accesskey=
+        "1">emacspeak-transient-mode</a></li>
+        <li><a href="#emacspeak_002dtransient_002dnext_002dsection"
+        accesskey="2">emacspeak-transient-next-section</a></li>
+        <li><a href=
+        "#emacspeak_002dtransient_002dprevious_002dsection"
+        accesskey="3">emacspeak-transient-previous-section</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dtransient_002dmode">
+        <h4 class="subsubsection">12.192.4.1
+        emacspeak-transient-mode</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dtransient_002dmode">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-transient-mode</strong> <a href=
+          '#index-emacspeak_002dtransient_002dmode' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dtransient_002dmode-1"></span>
+            <div class="format">
+              <pre class=
+              "format">emacspeak integration with Transient.
 
 In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-transient-mode-hook’, as the
@@ -127,49 +164,65 @@ key             binding
 —             ——-
 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtransient_002dnext_002dsection"></span>
-  <h4 class="subsubsection">12.192.4.2
-  emacspeak-transient-next-section</h4>
-  <dl>
-    <dt id="index-emacspeak_002dtransient_002dnext_002dsection">
-    Command: <strong>emacspeak-transient-next-section</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dtransient_002dnext_002dsection-1"></span>
-      <div class="format">
-        <pre class="format">Next transient section.
+      <div class="subsubsection" id=
+      "emacspeak_002dtransient_002dnext_002dsection">
+        <h4 class="subsubsection">12.192.4.2
+        emacspeak-transient-next-section</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtransient_002dnext_002dsection">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-transient-next-section</strong>
+          <a href=
+          '#index-emacspeak_002dtransient_002dnext_002dsection'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dtransient_002dnext_002dsection-1"></span>
+            <div class="format">
+              <pre class="format">Next transient section.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dtransient_002dprevious_002dsection"></span>
-  <h4 class="subsubsection">12.192.4.3
-  emacspeak-transient-previous-section</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dtransient_002dprevious_002dsection">
-    Command:
-    <strong>emacspeak-transient-previous-section</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dtransient_002dprevious_002dsection-1"></span>
-      <div class="format">
-        <pre class="format">Previous transient section.
+      <div class="subsubsection" id=
+      "emacspeak_002dtransient_002dprevious_002dsection">
+        <h4 class="subsubsection">12.192.4.3
+        emacspeak-transient-previous-section</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dtransient_002dprevious_002dsection">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-transient-previous-section</strong>
+          <a href=
+          '#index-emacspeak_002dtransient_002dprevious_002dsection'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dtransient_002dprevious_002dsection-1">
+            </span>
+            <div class="format">
+              <pre class="format">Previous transient section.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002dtwittering.html" accesskey="n"
-    rel="next">emacspeak-twittering</a>, Previous: <a href=
-    "emacspeak_002dtodo_002dmode.html" accesskey="p" rel=
-    "prev">emacspeak-todo-mode</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    <p>Next: <a href=
+    "emacspeak_002dtwittering.html">emacspeak-twittering</a>,
+    Previous: <a href=
+    "emacspeak_002dtodo_002dmode.html">emacspeak-todo-mode</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

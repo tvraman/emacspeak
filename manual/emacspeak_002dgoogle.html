@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,867 +54,1239 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dgoogle"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dgridtext.html" accesskey="n"
-    rel="next">emacspeak-gridtext</a>, Previous: <a href=
-    "emacspeak_002dgomoku.html" accesskey="p" rel=
-    "prev">emacspeak-gomoku</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dgoogle-1"></span>
-  <h3 class="section">12.90 emacspeak-google</h3>
-  <p>There are a number of search tools that can be implemented on
-  the Google search page — in a JS-powered browser, these show up
-  as the Google tool-belt. This module implements a minor mode for
-  use in Google result pages that enables these tools via single
-  keyboard commands. Originally all options were available as
-  tbs=p:v Now, some specialized searches, e.g. blog search are
-  tbm=</p><span id="Emacspeak_002dGoogle-Commands"></span>
-  <h4 class="subsection">12.90.1 Emacspeak-Google
-  Commands</h4><span id=
-  "emacspeak_002dgoogle_002dextract_002dfrom_002dcache"></span>
-  <h4 class="subsubsection">12.90.1.1
-  emacspeak-google-extract-from-cache</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dextract_002dfrom_002dcache">
-    Command:
-    <strong>emacspeak-google-extract-from-cache</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dextract_002dfrom_002dcache-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Extract current  page from the Google cache. 
+  <div class="section" id="emacspeak_002dgoogle">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dgridtext.html" accesskey="n"
+      rel="next">emacspeak-gridtext</a>, Previous: <a href=
+      "emacspeak_002dgomoku.html" accesskey="p" rel=
+      "prev">emacspeak-gomoku</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dgoogle-1"></span>
+    <h3 class="section">12.90 emacspeak-google</h3>
+    <p>There are a number of search tools that can be implemented
+    on the Google search page — in a JS-powered browser, these show
+    up as the Google tool-belt. This module implements a minor mode
+    for use in Google result pages that enables these tools via
+    single keyboard commands. Originally all options were available
+    as tbs=p:v Now, some specialized searches, e.g. blog search are
+    tbm=</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dGoogle-Commands" accesskey=
+      "1">Emacspeak-Google Commands</a></li>
+      <li><a href="#emacspeak_002dgoogle-Options" accesskey=
+      "2">emacspeak-google Options</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dGoogle-Commands">
+      <h4 class="subsection">12.90.1 Emacspeak-Google Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002dgoogle_002dextract_002dfrom_002dcache"
+        accesskey="1">emacspeak-google-extract-from-cache</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dknowledge_002dsearch" accesskey=
+        "2">emacspeak-google-knowledge-search</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002don_002dthis_002dsite" accesskey=
+        "3">emacspeak-google-on-this-site</a></li>
+        <li><a href="#emacspeak_002dgoogle_002dopen_002dlink"
+        accesskey="4">emacspeak-google-open-link</a></li>
+        <li><a href="#emacspeak_002dgoogle_002dshow_002dtoolbelt"
+        accesskey="5">emacspeak-google-show-toolbelt</a></li>
+        <li><a href="#emacspeak_002dgoogle_002dsign_002din"
+        accesskey="6">emacspeak-google-sign-in</a></li>
+        <li><a href="#emacspeak_002dgoogle_002dsign_002dout"
+        accesskey="7">emacspeak-google-sign-out</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage"
+        accesskey=
+        "8">emacspeak-google-similar-to-this-page</a></li>
+        <li><a href="#emacspeak_002dgoogle_002dtoolbelt_002dchange"
+        accesskey="9">emacspeak-google-toolbelt-change</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping">
+        emacspeak-google-toolbelt-change-Shopping</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog">emacspeak-google-toolbelt-change-blog</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks">emacspeak-google-toolbelt-change-books</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat">
+        emacspeak-google-toolbelt-change-books-format</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype">
+        emacspeak-google-toolbelt-change-books-type</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability">
+        emacspeak-google-toolbelt-change-books-viewability</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial">
+        emacspeak-google-toolbelt-change-commercial</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices">
+        emacspeak-google-toolbelt-change-commercial-prices</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter">
+        emacspeak-google-toolbelt-change-date-filter</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums">emacspeak-google-toolbelt-change-forums</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions">
+        emacspeak-google-toolbelt-change-group-discussions</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages">emacspeak-google-toolbelt-change-images</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth">
+        emacspeak-google-toolbelt-change-in-depth</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral">
+        emacspeak-google-toolbelt-change-literal</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews">emacspeak-google-toolbelt-change-news</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial">
+        emacspeak-google-toolbelt-change-non-commercial</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents">
+        emacspeak-google-toolbelt-change-patents</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces">emacspeak-google-toolbelt-change-places</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent">emacspeak-google-toolbelt-change-recent</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes">
+        emacspeak-google-toolbelt-change-recipes</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews">
+        emacspeak-google-toolbelt-change-reviews</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial">emacspeak-google-toolbelt-change-social</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate">
+        emacspeak-google-toolbelt-change-sort-by-date</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets">
+        emacspeak-google-toolbelt-change-structured-snippets</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline">
+        emacspeak-google-toolbelt-change-timeline</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh">
+        emacspeak-google-toolbelt-change-timeline-high</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow">
+        emacspeak-google-toolbelt-change-timeline-low</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo">emacspeak-google-toolbelt-change-video</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration">
+        emacspeak-google-toolbelt-change-video-duration</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited">
+        emacspeak-google-toolbelt-change-web-history-not-visited</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited">
+        emacspeak-google-toolbelt-change-web-history-visited</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtts">emacspeak-google-tts</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dtts_002dregion">emacspeak-google-tts-region</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip">emacspeak-google-what-is-my-ip</a></li>
+        <li><a href=
+        "#emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage">
+        emacspeak-google-who-links-to-this-page</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dextract_002dfrom_002dcache">
+        <h4 class="subsubsection">12.90.1.1
+        emacspeak-google-extract-from-cache</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dextract_002dfrom_002dcache">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-extract-from-cache</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dextract_002dfrom_002dcache'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dextract_002dfrom_002dcache-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Extract current  page from the Google cache. 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dknowledge_002dsearch"></span>
-  <h4 class="subsubsection">12.90.1.2
-  emacspeak-google-knowledge-search</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dknowledge_002dsearch">
-    Command: <strong>emacspeak-google-knowledge-search</strong>
-    <em>(query &amp;optional limit)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-; k</kbd></dt>
-        <dd><span id="index-C_002d_003b-k"></span></dd>
-        <dt><kbd>C-x @ h k</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-h-k"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dgoogle_002dknowledge_002dsearch-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Perform a Google Knowledge Graph search.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dknowledge_002dsearch">
+        <h4 class="subsubsection">12.90.1.2
+        emacspeak-google-knowledge-search</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dknowledge_002dsearch">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-knowledge-search</strong>
+          <em>(query &amp;optional limit)</em> <a href=
+          '#index-emacspeak_002dgoogle_002dknowledge_002dsearch'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_003b-k'><span><kbd>C-; k</kbd>
+              <a href='#index-C_002d_003b-k' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-k'><span><kbd>C-x @ h
+              k</kbd> <a href='#index-C_002dx-_0040-h-k' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dgoogle_002dknowledge_002dsearch-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Perform a Google Knowledge Graph search.
 Optional interactive prefix arg ‘limit’ prompts for number of
 results, default is 1.
 
 (fn QUERY &amp;optional LIMIT)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002don_002dthis_002dsite"></span>
-  <h4 class="subsubsection">12.90.1.3
-  emacspeak-google-on-this-site</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002don_002dthis_002dsite">
-    Command: <strong>emacspeak-google-on-this-site</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002don_002dthis_002dsite-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Perform a google search restricted to the current WWW site.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002don_002dthis_002dsite">
+        <h4 class="subsubsection">12.90.1.3
+        emacspeak-google-on-this-site</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002don_002dthis_002dsite">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-on-this-site</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002don_002dthis_002dsite'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002don_002dthis_002dsite-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Perform a google search restricted to the current WWW site.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dgoogle_002dopen_002dlink"></span>
-  <h4 class="subsubsection">12.90.1.4
-  emacspeak-google-open-link</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dopen_002dlink">Command:
-    <strong>emacspeak-google-open-link</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dopen_002dlink-1"></span>
-      <div class="format">
-        <pre class="format">Open Google link under point.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dopen_002dlink">
+        <h4 class="subsubsection">12.90.1.4
+        emacspeak-google-open-link</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dgoogle_002dopen_002dlink">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-open-link</strong>
+          <a href='#index-emacspeak_002dgoogle_002dopen_002dlink'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dopen_002dlink-1"></span>
+            <div class="format">
+              <pre class="format">Open Google link under point.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dshow_002dtoolbelt"></span>
-  <h4 class="subsubsection">12.90.1.5
-  emacspeak-google-show-toolbelt</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dshow_002dtoolbelt">
-    Command: <strong>emacspeak-google-show-toolbelt</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dshow_002dtoolbelt-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Reload search page with toolbelt showing.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dshow_002dtoolbelt">
+        <h4 class="subsubsection">12.90.1.5
+        emacspeak-google-show-toolbelt</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dshow_002dtoolbelt">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-show-toolbelt</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dshow_002dtoolbelt'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dshow_002dtoolbelt-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Reload search page with toolbelt showing.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dgoogle_002dsign_002din"></span>
-  <h4 class="subsubsection">12.90.1.6 emacspeak-google-sign-in</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dsign_002din">Command:
-    <strong>emacspeak-google-sign-in</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dsign_002din-1"></span>
-      <div class="format">
-        <pre class="format">Sign in to Google.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dsign_002din">
+        <h4 class="subsubsection">12.90.1.6
+        emacspeak-google-sign-in</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dgoogle_002dsign_002din">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-sign-in</strong> <a href=
+          '#index-emacspeak_002dgoogle_002dsign_002din' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dsign_002din-1"></span>
+            <div class="format">
+              <pre class="format">Sign in to Google.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dgoogle_002dsign_002dout"></span>
-  <h4 class="subsubsection">12.90.1.7
-  emacspeak-google-sign-out</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dsign_002dout">Command:
-    <strong>emacspeak-google-sign-out</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dsign_002dout-1"></span>
-      <div class="format">
-        <pre class="format">Sign out to Google.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dsign_002dout">
+        <h4 class="subsubsection">12.90.1.7
+        emacspeak-google-sign-out</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dgoogle_002dsign_002dout">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-sign-out</strong> <a href=
+          '#index-emacspeak_002dgoogle_002dsign_002dout' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dsign_002dout-1"></span>
+            <div class="format">
+              <pre class="format">Sign out to Google.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage"></span>
-  <h4 class="subsubsection">12.90.1.8
-  emacspeak-google-similar-to-this-page</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage">
-    Command: <strong>emacspeak-google-similar-to-this-page</strong>
-    <em>(url)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Ask Google to find documents similar to this one.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage">
+        <h4 class="subsubsection">12.90.1.8
+        emacspeak-google-similar-to-this-page</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-similar-to-this-page</strong>
+          <em>(url)</em> <a href=
+          '#index-emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dsimilar_002dto_002dthis_002dpage-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Ask Google to find documents similar to this one.
 
 (fn URL)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange"></span>
-  <h4 class="subsubsection">12.90.1.9
-  emacspeak-google-toolbelt-change</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dtoolbelt_002dchange">
-    Command: <strong>emacspeak-google-toolbelt-change</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Command to change values in the toolbelt and execute the query.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange">
+        <h4 class="subsubsection">12.90.1.9
+        emacspeak-google-toolbelt-change</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Command to change values in the toolbelt and execute the query.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping"></span>
-  <h4 class="subsubsection">12.90.1.10
-  emacspeak-google-toolbelt-change-Shopping</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-Shopping</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  Shopping in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping">
+        <h4 class="subsubsection">12.90.1.10
+        emacspeak-google-toolbelt-change-Shopping</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-Shopping</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  Shopping in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog"></span>
-  <h4 class="subsubsection">12.90.1.11
-  emacspeak-google-toolbelt-change-blog</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-blog</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  blog in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog">
+        <h4 class="subsubsection">12.90.1.11
+        emacspeak-google-toolbelt-change-blog</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-blog</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  blog in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks"></span>
-  <h4 class="subsubsection">12.90.1.12
-  emacspeak-google-toolbelt-change-books</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-books</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  books in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks">
+        <h4 class="subsubsection">12.90.1.12
+        emacspeak-google-toolbelt-change-books</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-books</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  books in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat"></span>
-  <h4 class="subsubsection">12.90.1.13
-  emacspeak-google-toolbelt-change-books-format</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-books-format</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  books-format in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat">
+        <h4 class="subsubsection">12.90.1.13
+        emacspeak-google-toolbelt-change-books-format</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-books-format</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  books-format in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype"></span>
-  <h4 class="subsubsection">12.90.1.14
-  emacspeak-google-toolbelt-change-books-type</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-books-type</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  books-type in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype">
+        <h4 class="subsubsection">12.90.1.14
+        emacspeak-google-toolbelt-change-books-type</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-books-type</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  books-type in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability"></span>
-  <h4 class="subsubsection">12.90.1.15
-  emacspeak-google-toolbelt-change-books-viewability</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-books-viewability</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  books-viewability in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability">
+        <h4 class="subsubsection">12.90.1.15
+        emacspeak-google-toolbelt-change-books-viewability</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-books-viewability</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  books-viewability in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial"></span>
-  <h4 class="subsubsection">12.90.1.16
-  emacspeak-google-toolbelt-change-commercial</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-commercial</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  commercial in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial">
+        <h4 class="subsubsection">12.90.1.16
+        emacspeak-google-toolbelt-change-commercial</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-commercial</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  commercial in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices"></span>
-  <h4 class="subsubsection">12.90.1.17
-  emacspeak-google-toolbelt-change-commercial-prices</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-commercial-prices</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  commercial-prices in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices">
+        <h4 class="subsubsection">12.90.1.17
+        emacspeak-google-toolbelt-change-commercial-prices</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-commercial-prices</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  commercial-prices in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter"></span>
-  <h4 class="subsubsection">12.90.1.18
-  emacspeak-google-toolbelt-change-date-filter</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-date-filter</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  date-filter in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter">
+        <h4 class="subsubsection">12.90.1.18
+        emacspeak-google-toolbelt-change-date-filter</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-date-filter</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  date-filter in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums"></span>
-  <h4 class="subsubsection">12.90.1.19
-  emacspeak-google-toolbelt-change-forums</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-forums</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  forums in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums">
+        <h4 class="subsubsection">12.90.1.19
+        emacspeak-google-toolbelt-change-forums</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-forums</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  forums in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions"></span>
-  <h4 class="subsubsection">12.90.1.20
-  emacspeak-google-toolbelt-change-group-discussions</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-group-discussions</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  group-discussions in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions">
+        <h4 class="subsubsection">12.90.1.20
+        emacspeak-google-toolbelt-change-group-discussions</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-group-discussions</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  group-discussions in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages"></span>
-  <h4 class="subsubsection">12.90.1.21
-  emacspeak-google-toolbelt-change-images</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-images</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  images in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages">
+        <h4 class="subsubsection">12.90.1.21
+        emacspeak-google-toolbelt-change-images</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-images</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  images in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth"></span>
-  <h4 class="subsubsection">12.90.1.22
-  emacspeak-google-toolbelt-change-in-depth</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-in-depth</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  in-depth in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth">
+        <h4 class="subsubsection">12.90.1.22
+        emacspeak-google-toolbelt-change-in-depth</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-in-depth</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  in-depth in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral"></span>
-  <h4 class="subsubsection">12.90.1.23
-  emacspeak-google-toolbelt-change-literal</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-literal</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  literal in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral">
+        <h4 class="subsubsection">12.90.1.23
+        emacspeak-google-toolbelt-change-literal</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-literal</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  literal in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews"></span>
-  <h4 class="subsubsection">12.90.1.24
-  emacspeak-google-toolbelt-change-news</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-news</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  news in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews">
+        <h4 class="subsubsection">12.90.1.24
+        emacspeak-google-toolbelt-change-news</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-news</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  news in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial"></span>
-  <h4 class="subsubsection">12.90.1.25
-  emacspeak-google-toolbelt-change-non-commercial</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-non-commercial</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  non-commercial in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial">
+        <h4 class="subsubsection">12.90.1.25
+        emacspeak-google-toolbelt-change-non-commercial</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-non-commercial</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  non-commercial in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents"></span>
-  <h4 class="subsubsection">12.90.1.26
-  emacspeak-google-toolbelt-change-patents</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-patents</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  patents in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents">
+        <h4 class="subsubsection">12.90.1.26
+        emacspeak-google-toolbelt-change-patents</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-patents</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  patents in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces"></span>
-  <h4 class="subsubsection">12.90.1.27
-  emacspeak-google-toolbelt-change-places</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-places</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  places in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces">
+        <h4 class="subsubsection">12.90.1.27
+        emacspeak-google-toolbelt-change-places</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-places</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  places in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent"></span>
-  <h4 class="subsubsection">12.90.1.28
-  emacspeak-google-toolbelt-change-recent</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-recent</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  recent in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent">
+        <h4 class="subsubsection">12.90.1.28
+        emacspeak-google-toolbelt-change-recent</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-recent</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  recent in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes"></span>
-  <h4 class="subsubsection">12.90.1.29
-  emacspeak-google-toolbelt-change-recipes</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-recipes</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  recipes in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes">
+        <h4 class="subsubsection">12.90.1.29
+        emacspeak-google-toolbelt-change-recipes</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-recipes</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  recipes in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews"></span>
-  <h4 class="subsubsection">12.90.1.30
-  emacspeak-google-toolbelt-change-reviews</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-reviews</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  reviews in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews">
+        <h4 class="subsubsection">12.90.1.30
+        emacspeak-google-toolbelt-change-reviews</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-reviews</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  reviews in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial"></span>
-  <h4 class="subsubsection">12.90.1.31
-  emacspeak-google-toolbelt-change-social</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-social</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  social in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial">
+        <h4 class="subsubsection">12.90.1.31
+        emacspeak-google-toolbelt-change-social</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-social</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  social in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate"></span>
-  <h4 class="subsubsection">12.90.1.32
-  emacspeak-google-toolbelt-change-sort-by-date</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-sort-by-date</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  sort-by-date in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate">
+        <h4 class="subsubsection">12.90.1.32
+        emacspeak-google-toolbelt-change-sort-by-date</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-sort-by-date</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  sort-by-date in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets"></span>
-  <h4 class="subsubsection">12.90.1.33
-  emacspeak-google-toolbelt-change-structured-snippets</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-structured-snippets</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  structured-snippets in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets">
+        <h4 class="subsubsection">12.90.1.33
+        emacspeak-google-toolbelt-change-structured-snippets</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-structured-snippets</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  structured-snippets in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline"></span>
-  <h4 class="subsubsection">12.90.1.34
-  emacspeak-google-toolbelt-change-timeline</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-timeline</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  timeline in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline">
+        <h4 class="subsubsection">12.90.1.34
+        emacspeak-google-toolbelt-change-timeline</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-timeline</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  timeline in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh"></span>
-  <h4 class="subsubsection">12.90.1.35
-  emacspeak-google-toolbelt-change-timeline-high</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-timeline-high</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  timeline-high in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh">
+        <h4 class="subsubsection">12.90.1.35
+        emacspeak-google-toolbelt-change-timeline-high</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-timeline-high</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  timeline-high in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow"></span>
-  <h4 class="subsubsection">12.90.1.36
-  emacspeak-google-toolbelt-change-timeline-low</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-timeline-low</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  timeline-low in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow">
+        <h4 class="subsubsection">12.90.1.36
+        emacspeak-google-toolbelt-change-timeline-low</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-timeline-low</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  timeline-low in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo"></span>
-  <h4 class="subsubsection">12.90.1.37
-  emacspeak-google-toolbelt-change-video</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-video</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  video in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo">
+        <h4 class="subsubsection">12.90.1.37
+        emacspeak-google-toolbelt-change-video</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-video</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  video in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration"></span>
-  <h4 class="subsubsection">12.90.1.38
-  emacspeak-google-toolbelt-change-video-duration</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-video-duration</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  video-duration in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration">
+        <h4 class="subsubsection">12.90.1.38
+        emacspeak-google-toolbelt-change-video-duration</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-video-duration</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  video-duration in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited"></span>
-  <h4 class="subsubsection">12.90.1.39
-  emacspeak-google-toolbelt-change-web-history-not-visited</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-web-history-not-visited</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  web-history-not-visited in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited">
+        <h4 class="subsubsection">12.90.1.39
+        emacspeak-google-toolbelt-change-web-history-not-visited</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-web-history-not-visited</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  web-history-not-visited in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited"></span>
-  <h4 class="subsubsection">12.90.1.40
-  emacspeak-google-toolbelt-change-web-history-visited</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited">
-    Command:
-    <strong>emacspeak-google-toolbelt-change-web-history-visited</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Change  web-history-visited in the currently active toolbelt.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited">
+        <h4 class="subsubsection">12.90.1.40
+        emacspeak-google-toolbelt-change-web-history-visited</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-toolbelt-change-web-history-visited</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Change  web-history-visited in the currently active toolbelt.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dgoogle_002dtts"></span>
-  <h4 class="subsubsection">12.90.1.41 emacspeak-google-tts</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dtts">Command:
-    <strong>emacspeak-google-tts</strong> <em>(text &amp;optional
-    lang)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002dgoogle_002dtts-1"></span>
-      <div class="format">
-        <pre class="format">Google Network TTS.
+      <div class="subsubsection" id="emacspeak_002dgoogle_002dtts">
+        <h4 class="subsubsection">12.90.1.41
+        emacspeak-google-tts</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dgoogle_002dtts"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-google-tts</strong> <em>(text
+          &amp;optional lang)</em> <a href=
+          '#index-emacspeak_002dgoogle_002dtts' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002dgoogle_002dtts-1"></span>
+            <div class="format">
+              <pre class="format">Google Network TTS.
 Optional interactive prefix arg ‘lang’ specifies  language identifier.
 
 (fn TEXT &amp;optional LANG)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dgoogle_002dtts_002dregion"></span>
-  <h4 class="subsubsection">12.90.1.42
-  emacspeak-google-tts-region</h4>
-  <dl>
-    <dt id="index-emacspeak_002dgoogle_002dtts_002dregion">Command:
-    <strong>emacspeak-google-tts-region</strong> <em>(start end
-    &amp;optional ask-lang)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dtts_002dregion-1"></span>
-      <div class="format">
-        <pre class="format">Speak region using Google Network TTS.
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dtts_002dregion">
+        <h4 class="subsubsection">12.90.1.42
+        emacspeak-google-tts-region</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dgoogle_002dtts_002dregion">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-tts-region</strong>
+          <em>(start end &amp;optional ask-lang)</em> <a href=
+          '#index-emacspeak_002dgoogle_002dtts_002dregion' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dtts_002dregion-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speak region using Google Network TTS.
 
 (fn START END &amp;optional ASK-LANG)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip"></span>
-  <h4 class="subsubsection">12.90.1.43
-  emacspeak-google-what-is-my-ip</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip">
-    Command: <strong>emacspeak-google-what-is-my-ip</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip-1"></span>
-      <div class="format">
-        <pre class="format">Show my public IP
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip">
+        <h4 class="subsubsection">12.90.1.43
+        emacspeak-google-what-is-my-ip</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-what-is-my-ip</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip-1">
+            </span>
+            <div class="format">
+              <pre class="format">Show my public IP
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage"></span>
-  <h4 class="subsubsection">12.90.1.44
-  emacspeak-google-who-links-to-this-page</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage">
-    Command:
-    <strong>emacspeak-google-who-links-to-this-page</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Perform a google search to locate documents that link to the
+      <div class="subsubsection" id=
+      "emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage">
+        <h4 class="subsubsection">12.90.1.44
+        emacspeak-google-who-links-to-this-page</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-google-who-links-to-this-page</strong>
+          <a href=
+          '#index-emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Perform a google search to locate documents that link to the
 current page.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dgoogle-Options"></span>
-  <h4 class="subsection">12.90.2 emacspeak-google Options</h4>
-  <dl>
-    <dt id="index-User-Option-39">Variable: <strong>User
-    Option</strong> <em>emacspeak-google-kg-key</em></dt>
-    <dd>
-      <p>API Key for Google Knowledge Graph.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-40">Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-google-tts-default-language</em></dt>
-    <dd>
-      <p>Default language used for Google TTS.</p>
-    </dd>
-  </dl>
+    </div>
+    <div class="subsection" id="emacspeak_002dgoogle-Options">
+      <h4 class="subsection">12.90.2 emacspeak-google Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-39"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-google-kg-key</em> <a href=
+        '#index-User-Option-39' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>API Key for Google Knowledge Graph.</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-40"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong>
+        <em>emacspeak-google-tts-default-language</em> <a href=
+        '#index-User-Option-40' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Default language used for Google TTS.</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002dgridtext.html" accesskey="n"
-    rel="next">emacspeak-gridtext</a>, Previous: <a href=
-    "emacspeak_002dgomoku.html" accesskey="p" rel=
-    "prev">emacspeak-gomoku</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    <p>Next: <a href=
+    "emacspeak_002dgridtext.html">emacspeak-gridtext</a>, Previous:
+    <a href="emacspeak_002dgomoku.html">emacspeak-gomoku</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -16,6 +16,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -30,11 +32,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -43,6 +45,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -51,440 +54,678 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="emacspeak_002dchess"></span>
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dcider.html" accesskey="n" rel=
-    "next">emacspeak-cider</a>, Previous: <a href=
-    "emacspeak_002dcalibredb.html" accesskey="p" rel=
-    "prev">emacspeak-calibredb</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="emacspeak_002dchess-1"></span>
-  <h3 class="section">12.30 emacspeak-chess</h3>
-  <p>The Emacs Chess package provides a rich environment for
-  playing and exploring Chess Games. That package comes with a
-  light-weight module that announces moves.</p><span id=
-  "Emacspeak_002dChess-Commands"></span>
-  <h4 class="subsection">12.30.1 Emacspeak-Chess
-  Commands</h4><span id="emacspeak_002dchess_002deast"></span>
-  <h4 class="subsubsection">12.30.1.1 emacspeak-chess-east</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002deast">Command:
-    <strong>emacspeak-chess-east</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002deast-1"></span>
-      <div class="format">
-        <pre class="format">Move east one step.
+  <div class="section" id="emacspeak_002dchess">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dcider.html" accesskey="n"
+      rel="next">emacspeak-cider</a>, Previous: <a href=
+      "emacspeak_002dcalibredb.html" accesskey="p" rel=
+      "prev">emacspeak-calibredb</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dchess-1"></span>
+    <h3 class="section">12.30 emacspeak-chess</h3>
+    <p>The Emacs Chess package provides a rich environment for
+    playing and exploring Chess Games. That package comes with a
+    light-weight module that announces moves.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dChess-Commands" accesskey=
+      "1">Emacspeak-Chess Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dChess-Commands">
+      <h4 class="subsection">12.30.1 Emacspeak-Chess Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002dchess_002deast" accesskey=
+        "1">emacspeak-chess-east</a></li>
+        <li><a href="#emacspeak_002dchess_002dgoto_002dtarget"
+        accesskey="2">emacspeak-chess-goto-target</a></li>
+        <li><a href="#emacspeak_002dchess_002djump" accesskey=
+        "3">emacspeak-chess-jump</a></li>
+        <li><a href="#emacspeak_002dchess_002dlook_002deast"
+        accesskey="4">emacspeak-chess-look-east</a></li>
+        <li><a href="#emacspeak_002dchess_002dlook_002dking"
+        accesskey="5">emacspeak-chess-look-king</a></li>
+        <li><a href="#emacspeak_002dchess_002dlook_002dknight"
+        accesskey="6">emacspeak-chess-look-knight</a></li>
+        <li><a href="#emacspeak_002dchess_002dlook_002dnorth"
+        accesskey="7">emacspeak-chess-look-north</a></li>
+        <li><a href="#emacspeak_002dchess_002dlook_002dnortheast"
+        accesskey="8">emacspeak-chess-look-northeast</a></li>
+        <li><a href="#emacspeak_002dchess_002dlook_002dnorthwest"
+        accesskey="9">emacspeak-chess-look-northwest</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dlook_002dsouth">emacspeak-chess-look-south</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dlook_002dsoutheast">emacspeak-chess-look-southeast</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dlook_002dsouthwest">emacspeak-chess-look-southwest</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dlook_002dwest">emacspeak-chess-look-west</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dnorth">emacspeak-chess-north</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dnortheast">emacspeak-chess-northeast</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dnorthwest">emacspeak-chess-northwest</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dsouth">emacspeak-chess-south</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dsoutheast">emacspeak-chess-southeast</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dsouthwest">emacspeak-chess-southwest</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dspeak_002dboard">emacspeak-chess-speak-board</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dspeak_002dpiece_002dsquares">emacspeak-chess-speak-piece-squares</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dspeak_002dthat_002dsquare">emacspeak-chess-speak-that-square</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dspeak_002dthis_002dmove">emacspeak-chess-speak-this-move</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dspeak_002dthis_002dsquare">emacspeak-chess-speak-this-square</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dspeak_002dwho_002dtargets">emacspeak-chess-speak-who-targets</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dview_002drank_002dor_002dfile">emacspeak-chess-view-rank-or-file</a></li>
+        <li><a href=
+        "#emacspeak_002dchess_002dwest">emacspeak-chess-west</a></li>
+      </ul>
+      <div class="subsubsection" id="emacspeak_002dchess_002deast">
+        <h4 class="subsubsection">12.30.1.1
+        emacspeak-chess-east</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002deast"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-chess-east</strong> <a href=
+          '#index-emacspeak_002dchess_002deast' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002dchess_002deast-1"></span>
+            <div class="format">
+              <pre class="format">Move east one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dgoto_002dtarget"></span>
-  <h4 class="subsubsection">12.30.1.2
-  emacspeak-chess-goto-target</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dgoto_002dtarget">Command:
-    <strong>emacspeak-chess-goto-target</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dgoto_002dtarget-1"></span>
-      <div class="format">
-        <pre class="format">Jump to the most recent target square.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dgoto_002dtarget">
+        <h4 class="subsubsection">12.30.1.2
+        emacspeak-chess-goto-target</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dgoto_002dtarget">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-goto-target</strong>
+          <a href='#index-emacspeak_002dchess_002dgoto_002dtarget'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dgoto_002dtarget-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Jump to the most recent target square.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002djump"></span>
-  <h4 class="subsubsection">12.30.1.3 emacspeak-chess-jump</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002djump">Command:
-    <strong>emacspeak-chess-jump</strong> <em>(coord)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002djump-1"></span>
-      <div class="format">
-        <pre class="format">Jump to square specified as coord.
+      <div class="subsubsection" id="emacspeak_002dchess_002djump">
+        <h4 class="subsubsection">12.30.1.3
+        emacspeak-chess-jump</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002djump"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-chess-jump</strong>
+          <em>(coord)</em> <a href=
+          '#index-emacspeak_002dchess_002djump' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002dchess_002djump-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Jump to square specified as coord.
 
 (fn COORD)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dlook_002deast"></span>
-  <h4 class="subsubsection">12.30.1.4
-  emacspeak-chess-look-east</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002deast">Command:
-    <strong>emacspeak-chess-look-east</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002deast-1"></span>
-      <div class="format">
-        <pre class="format">Look east 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002deast">
+        <h4 class="subsubsection">12.30.1.4
+        emacspeak-chess-look-east</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dlook_002deast">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-east</strong> <a href=
+          '#index-emacspeak_002dchess_002dlook_002deast' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002deast-1"></span>
+            <div class="format">
+              <pre class="format">Look east 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dlook_002dking"></span>
-  <h4 class="subsubsection">12.30.1.5
-  emacspeak-chess-look-king</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dking">Command:
-    <strong>emacspeak-chess-look-king</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dking-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Look along non-empty squares reachable by the king  from current position. 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dking">
+        <h4 class="subsubsection">12.30.1.5
+        emacspeak-chess-look-king</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dlook_002dking">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-king</strong> <a href=
+          '#index-emacspeak_002dchess_002dlook_002dking' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dking-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Look along non-empty squares reachable by the king  from current position. 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dlook_002dknight"></span>
-  <h4 class="subsubsection">12.30.1.6
-  emacspeak-chess-look-knight</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dknight">Command:
-    <strong>emacspeak-chess-look-knight</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dknight-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Look along non-empty squares reachable by a knight from current position. 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dknight">
+        <h4 class="subsubsection">12.30.1.6
+        emacspeak-chess-look-knight</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dlook_002dknight">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-knight</strong>
+          <a href='#index-emacspeak_002dchess_002dlook_002dknight'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dknight-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Look along non-empty squares reachable by a knight from current position. 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dlook_002dnorth"></span>
-  <h4 class="subsubsection">12.30.1.7
-  emacspeak-chess-look-north</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dnorth">Command:
-    <strong>emacspeak-chess-look-north</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dnorth-1"></span>
-      <div class="format">
-        <pre class="format">Look north 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dnorth">
+        <h4 class="subsubsection">12.30.1.7
+        emacspeak-chess-look-north</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dlook_002dnorth">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-north</strong>
+          <a href='#index-emacspeak_002dchess_002dlook_002dnorth'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dnorth-1"></span>
+            <div class="format">
+              <pre class="format">Look north 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dlook_002dnortheast"></span>
-  <h4 class="subsubsection">12.30.1.8
-  emacspeak-chess-look-northeast</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dnortheast">
-    Command: <strong>emacspeak-chess-look-northeast</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dnortheast-1"></span>
-      <div class="format">
-        <pre class="format">Look northeast 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dnortheast">
+        <h4 class="subsubsection">12.30.1.8
+        emacspeak-chess-look-northeast</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dlook_002dnortheast">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-northeast</strong>
+          <a href=
+          '#index-emacspeak_002dchess_002dlook_002dnortheast'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dnortheast-1"></span>
+            <div class="format">
+              <pre class="format">Look northeast 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dlook_002dnorthwest"></span>
-  <h4 class="subsubsection">12.30.1.9
-  emacspeak-chess-look-northwest</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dnorthwest">
-    Command: <strong>emacspeak-chess-look-northwest</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dnorthwest-1"></span>
-      <div class="format">
-        <pre class="format">Look northwest 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dnorthwest">
+        <h4 class="subsubsection">12.30.1.9
+        emacspeak-chess-look-northwest</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dlook_002dnorthwest">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-northwest</strong>
+          <a href=
+          '#index-emacspeak_002dchess_002dlook_002dnorthwest'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dnorthwest-1"></span>
+            <div class="format">
+              <pre class="format">Look northwest 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dlook_002dsouth"></span>
-  <h4 class="subsubsection">12.30.1.10
-  emacspeak-chess-look-south</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dsouth">Command:
-    <strong>emacspeak-chess-look-south</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dsouth-1"></span>
-      <div class="format">
-        <pre class="format">Look south 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dsouth">
+        <h4 class="subsubsection">12.30.1.10
+        emacspeak-chess-look-south</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dlook_002dsouth">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-south</strong>
+          <a href='#index-emacspeak_002dchess_002dlook_002dsouth'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dsouth-1"></span>
+            <div class="format">
+              <pre class="format">Look south 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dlook_002dsoutheast"></span>
-  <h4 class="subsubsection">12.30.1.11
-  emacspeak-chess-look-southeast</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dsoutheast">
-    Command: <strong>emacspeak-chess-look-southeast</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dsoutheast-1"></span>
-      <div class="format">
-        <pre class="format">Look southeast 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dsoutheast">
+        <h4 class="subsubsection">12.30.1.11
+        emacspeak-chess-look-southeast</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dlook_002dsoutheast">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-southeast</strong>
+          <a href=
+          '#index-emacspeak_002dchess_002dlook_002dsoutheast'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dsoutheast-1"></span>
+            <div class="format">
+              <pre class="format">Look southeast 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dlook_002dsouthwest"></span>
-  <h4 class="subsubsection">12.30.1.12
-  emacspeak-chess-look-southwest</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dsouthwest">
-    Command: <strong>emacspeak-chess-look-southwest</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dsouthwest-1"></span>
-      <div class="format">
-        <pre class="format">Look southwest 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dsouthwest">
+        <h4 class="subsubsection">12.30.1.12
+        emacspeak-chess-look-southwest</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dlook_002dsouthwest">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-southwest</strong>
+          <a href=
+          '#index-emacspeak_002dchess_002dlook_002dsouthwest'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dsouthwest-1"></span>
+            <div class="format">
+              <pre class="format">Look southwest 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dlook_002dwest"></span>
-  <h4 class="subsubsection">12.30.1.13
-  emacspeak-chess-look-west</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dlook_002dwest">Command:
-    <strong>emacspeak-chess-look-west</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dlook_002dwest-1"></span>
-      <div class="format">
-        <pre class="format">Look west 
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dlook_002dwest">
+        <h4 class="subsubsection">12.30.1.13
+        emacspeak-chess-look-west</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dlook_002dwest">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-look-west</strong> <a href=
+          '#index-emacspeak_002dchess_002dlook_002dwest' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dlook_002dwest-1"></span>
+            <div class="format">
+              <pre class="format">Look west 
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dnorth"></span>
-  <h4 class="subsubsection">12.30.1.14 emacspeak-chess-north</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dnorth">Command:
-    <strong>emacspeak-chess-north</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002dnorth-1"></span>
-      <div class="format">
-        <pre class="format">Move north one step.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dnorth">
+        <h4 class="subsubsection">12.30.1.14
+        emacspeak-chess-north</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dnorth"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-chess-north</strong> <a href=
+          '#index-emacspeak_002dchess_002dnorth' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dnorth-1"></span>
+            <div class="format">
+              <pre class="format">Move north one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dnortheast"></span>
-  <h4 class="subsubsection">12.30.1.15
-  emacspeak-chess-northeast</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dnortheast">Command:
-    <strong>emacspeak-chess-northeast</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002dnortheast-1"></span>
-      <div class="format">
-        <pre class="format">Move northeast one step.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dnortheast">
+        <h4 class="subsubsection">12.30.1.15
+        emacspeak-chess-northeast</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dnortheast">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-northeast</strong> <a href=
+          '#index-emacspeak_002dchess_002dnortheast' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dnortheast-1"></span>
+            <div class="format">
+              <pre class="format">Move northeast one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dnorthwest"></span>
-  <h4 class="subsubsection">12.30.1.16
-  emacspeak-chess-northwest</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dnorthwest">Command:
-    <strong>emacspeak-chess-northwest</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002dnorthwest-1"></span>
-      <div class="format">
-        <pre class="format">Move northwest one step.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dnorthwest">
+        <h4 class="subsubsection">12.30.1.16
+        emacspeak-chess-northwest</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dnorthwest">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-northwest</strong> <a href=
+          '#index-emacspeak_002dchess_002dnorthwest' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dnorthwest-1"></span>
+            <div class="format">
+              <pre class="format">Move northwest one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dsouth"></span>
-  <h4 class="subsubsection">12.30.1.17 emacspeak-chess-south</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dsouth">Command:
-    <strong>emacspeak-chess-south</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002dsouth-1"></span>
-      <div class="format">
-        <pre class="format">Move south one step.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dsouth">
+        <h4 class="subsubsection">12.30.1.17
+        emacspeak-chess-south</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dsouth"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-chess-south</strong> <a href=
+          '#index-emacspeak_002dchess_002dsouth' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dsouth-1"></span>
+            <div class="format">
+              <pre class="format">Move south one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dsoutheast"></span>
-  <h4 class="subsubsection">12.30.1.18
-  emacspeak-chess-southeast</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dsoutheast">Command:
-    <strong>emacspeak-chess-southeast</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002dsoutheast-1"></span>
-      <div class="format">
-        <pre class="format">Move southeast one step.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dsoutheast">
+        <h4 class="subsubsection">12.30.1.18
+        emacspeak-chess-southeast</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dsoutheast">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-southeast</strong> <a href=
+          '#index-emacspeak_002dchess_002dsoutheast' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dsoutheast-1"></span>
+            <div class="format">
+              <pre class="format">Move southeast one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dsouthwest"></span>
-  <h4 class="subsubsection">12.30.1.19
-  emacspeak-chess-southwest</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dsouthwest">Command:
-    <strong>emacspeak-chess-southwest</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002dsouthwest-1"></span>
-      <div class="format">
-        <pre class="format">Move southwest one step.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dsouthwest">
+        <h4 class="subsubsection">12.30.1.19
+        emacspeak-chess-southwest</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dsouthwest">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-southwest</strong> <a href=
+          '#index-emacspeak_002dchess_002dsouthwest' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dsouthwest-1"></span>
+            <div class="format">
+              <pre class="format">Move southwest one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dspeak_002dboard"></span>
-  <h4 class="subsubsection">12.30.1.20
-  emacspeak-chess-speak-board</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dspeak_002dboard">Command:
-    <strong>emacspeak-chess-speak-board</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dspeak_002dboard-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speak complete board. Only useful in end-states.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dspeak_002dboard">
+        <h4 class="subsubsection">12.30.1.20
+        emacspeak-chess-speak-board</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dspeak_002dboard">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-speak-board</strong>
+          <a href='#index-emacspeak_002dchess_002dspeak_002dboard'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dspeak_002dboard-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Speak complete board. Only useful in end-states.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dspeak_002dpiece_002dsquares"></span>
-  <h4 class="subsubsection">12.30.1.21
-  emacspeak-chess-speak-piece-squares</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dchess_002dspeak_002dpiece_002dsquares">
-    Command: <strong>emacspeak-chess-speak-piece-squares</strong>
-    <em>(piece)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dspeak_002dpiece_002dsquares-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Prompt for a piece (single char) and speak its locations on the
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dspeak_002dpiece_002dsquares">
+        <h4 class="subsubsection">12.30.1.21
+        emacspeak-chess-speak-piece-squares</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dspeak_002dpiece_002dsquares">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-speak-piece-squares</strong>
+          <em>(piece)</em> <a href=
+          '#index-emacspeak_002dchess_002dspeak_002dpiece_002dsquares'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dspeak_002dpiece_002dsquares-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Prompt for a piece (single char) and speak its locations on the
   board.  Piece is specified as a char using SAN notation. Use
   ‘w’ for all whites pieces,  ‘l’ for all black pieces,
 and ‘a’ for entire board..
 
 (fn PIECE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dspeak_002dthat_002dsquare"></span>
-  <h4 class="subsubsection">12.30.1.22
-  emacspeak-chess-speak-that-square</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dchess_002dspeak_002dthat_002dsquare">
-    Command: <strong>emacspeak-chess-speak-that-square</strong>
-    <em>(coord)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dspeak_002dthat_002dsquare-1"></span>
-      <div class="format">
-        <pre class="format">Speak square at specified coord.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dspeak_002dthat_002dsquare">
+        <h4 class="subsubsection">12.30.1.22
+        emacspeak-chess-speak-that-square</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dspeak_002dthat_002dsquare">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-speak-that-square</strong>
+          <em>(coord)</em> <a href=
+          '#index-emacspeak_002dchess_002dspeak_002dthat_002dsquare'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dspeak_002dthat_002dsquare-1">
+            </span>
+            <div class="format">
+              <pre class="format">Speak square at specified coord.
 
 (fn COORD)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dspeak_002dthis_002dmove"></span>
-  <h4 class="subsubsection">12.30.1.23
-  emacspeak-chess-speak-this-move</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dspeak_002dthis_002dmove">
-    Command: <strong>emacspeak-chess-speak-this-move</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dspeak_002dthis_002dmove-1"></span>
-      <div class="format">
-        <pre class="format">Speak move at current display index.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dspeak_002dthis_002dmove">
+        <h4 class="subsubsection">12.30.1.23
+        emacspeak-chess-speak-this-move</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dspeak_002dthis_002dmove">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-speak-this-move</strong>
+          <a href=
+          '#index-emacspeak_002dchess_002dspeak_002dthis_002dmove'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dspeak_002dthis_002dmove-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak move at current display index.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dspeak_002dthis_002dsquare"></span>
-  <h4 class="subsubsection">12.30.1.24
-  emacspeak-chess-speak-this-square</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dchess_002dspeak_002dthis_002dsquare">
-    Command:
-    <strong>emacspeak-chess-speak-this-square</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dspeak_002dthis_002dsquare-1"></span>
-      <div class="format">
-        <pre class="format">Speak square under point.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dspeak_002dthis_002dsquare">
+        <h4 class="subsubsection">12.30.1.24
+        emacspeak-chess-speak-this-square</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dspeak_002dthis_002dsquare">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-speak-this-square</strong>
+          <a href=
+          '#index-emacspeak_002dchess_002dspeak_002dthis_002dsquare'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dspeak_002dthis_002dsquare-1">
+            </span>
+            <div class="format">
+              <pre class="format">Speak square under point.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dspeak_002dwho_002dtargets"></span>
-  <h4 class="subsubsection">12.30.1.25
-  emacspeak-chess-speak-who-targets</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dchess_002dspeak_002dwho_002dtargets">
-    Command: <strong>emacspeak-chess-speak-who-targets</strong>
-    <em>(piece)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dspeak_002dwho_002dtargets-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speak description of squares that can target current square.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dspeak_002dwho_002dtargets">
+        <h4 class="subsubsection">12.30.1.25
+        emacspeak-chess-speak-who-targets</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dspeak_002dwho_002dtargets">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-speak-who-targets</strong>
+          <em>(piece)</em> <a href=
+          '#index-emacspeak_002dchess_002dspeak_002dwho_002dtargets'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dspeak_002dwho_002dtargets-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak description of squares that can target current square.
 Argument ‘piece’ specifies  piece-or-color as in command
   emacspeak-chess-speak-piece-squares
 
 (fn PIECE)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dchess_002dview_002drank_002dor_002dfile"></span>
-  <h4 class="subsubsection">12.30.1.26
-  emacspeak-chess-view-rank-or-file</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dchess_002dview_002drank_002dor_002dfile">
-    Command:
-    <strong>emacspeak-chess-view-rank-or-file</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dchess_002dview_002drank_002dor_002dfile-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">View a complete rank or file from white’s perspective.
+      <div class="subsubsection" id=
+      "emacspeak_002dchess_002dview_002drank_002dor_002dfile">
+        <h4 class="subsubsection">12.30.1.26
+        emacspeak-chess-view-rank-or-file</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dchess_002dview_002drank_002dor_002dfile">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-chess-view-rank-or-file</strong>
+          <a href=
+          '#index-emacspeak_002dchess_002dview_002drank_002dor_002dfile'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dchess_002dview_002drank_002dor_002dfile-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">View a complete rank or file from white’s perspective.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl><span id="emacspeak_002dchess_002dwest"></span>
-  <h4 class="subsubsection">12.30.1.27 emacspeak-chess-west</h4>
-  <dl>
-    <dt id="index-emacspeak_002dchess_002dwest">Command:
-    <strong>emacspeak-chess-west</strong></dt>
-    <dd>
-      <span id="index-emacspeak_002dchess_002dwest-1"></span>
-      <div class="format">
-        <pre class="format">Move west one step.
+      <div class="subsubsection" id="emacspeak_002dchess_002dwest">
+        <h4 class="subsubsection">12.30.1.27
+        emacspeak-chess-west</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dchess_002dwest"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-chess-west</strong> <a href=
+          '#index-emacspeak_002dchess_002dwest' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002dchess_002dwest-1"></span>
+            <div class="format">
+              <pre class="format">Move west one step.
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
   <hr />
   <div class="header">
-    <p>Next: <a href="emacspeak_002dcider.html" accesskey="n" rel=
-    "next">emacspeak-cider</a>, Previous: <a href=
-    "emacspeak_002dcalibredb.html" accesskey="p" rel=
-    "prev">emacspeak-calibredb</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    <p>Next: <a href=
+    "emacspeak_002dcider.html">emacspeak-cider</a>, Previous:
+    <a href="emacspeak_002dcalibredb.html">emacspeak-calibredb</a>,
+    Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href="Concept-Index.html" title=
     "Index" rel="index">Index</a>]</p>

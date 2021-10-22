@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -15,6 +15,8 @@
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
   <link href="index.html" rel="start" title="Top" />
   <link href="Concept-Index.html" rel="index" title=
   "Concept Index" />
@@ -27,11 +29,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
@@ -40,6 +42,7 @@
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
@@ -48,45 +51,63 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <span id="gm_002dnnir"></span>
-  <div class="header">
-    <p>Next: <a href="gmaps.html" accesskey="n" rel=
-    "next">gmaps</a>, Previous: <a href="g_002dutils.html"
-    accesskey="p" rel="prev">g-utils</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
-  <hr />
-  <span id="gm_002dnnir-1"></span>
-  <h3 class="section">12.219 gm-nnir</h3>
-  <p>Makes search GMail more convenient. IMap search operators,
-  GMail search extensions.</p><span id=
-  "Gm_002dNnir-Commands"></span>
-  <h4 class="subsection">12.219.1 Gm-Nnir Commands</h4><span id=
-  "gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup"></span>
-  <h4 class="subsubsection">12.219.1.1
-  gm-nnir-group-make-gmail-group</h4>
-  <dl>
-    <dt id=
-    "index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup">
-    Command: <strong>gm-nnir-group-make-gmail-group</strong>
-    <em>(query)</em></dt>
-    <dd>
-      <span id=
-      "index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup-1"></span>
-      <div class="format">
-        <pre class="format">Use GMail search syntax exclusively.
+  <div class="section" id="gm_002dnnir">
+    <div class="header">
+      <p>Next: <a href="gmaps.html" accesskey="n" rel=
+      "next">gmaps</a>, Previous: <a href="g_002dutils.html"
+      accesskey="p" rel="prev">g-utils</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="gm_002dnnir-1"></span>
+    <h3 class="section">12.219 gm-nnir</h3>
+    <p>Makes search GMail more convenient. IMap search operators,
+    GMail search extensions.</p>
+    <ul class="section-toc">
+      <li><a href="#Gm_002dNnir-Commands" accesskey="1">Gm-Nnir
+      Commands</a></li>
+    </ul>
+    <div class="subsection" id="Gm_002dNnir-Commands">
+      <h4 class="subsection">12.219.1 Gm-Nnir Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup"
+        accesskey="1">gm-nnir-group-make-gmail-group</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup">
+        <h4 class="subsubsection">12.219.1.1
+        gm-nnir-group-make-gmail-group</h4>
+        <dl class="def">
+          <dt id=
+          "index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup">
+          <span class="category">Command:</span>
+          <span><strong>gm-nnir-group-make-gmail-group</strong>
+          <em>(query)</em> <a href=
+          '#index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.
  note: nnimap-address etc are available as local vars if needed
  in these functions.
 
 (fn QUERY)
 </pre>
+            </div>
+          </dd>
+        </dl>
       </div>
-    </dd>
-  </dl>
+    </div>
+  </div>
 </body>
 </html>
