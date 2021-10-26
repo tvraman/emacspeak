@@ -1,5 +1,7 @@
 [playlist]
-file1=http://ais-nzme.streamguys1.com/nz_001_aac
+
+file1=https://ais-nzme.streamguys1.com/nz_060_aac
+;file1=http://ais-nzme.streamguys1.com/nz_001_aac
 NumberOfEntries=1
 Version=2
 Title=Radio Sport
