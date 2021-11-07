@@ -1383,6 +1383,7 @@ Indicate change of selection with an auditory icon
     (read-char "Modify syntax for: ")
     (read-string "Syntax Entry: ")
     current-prefix-arg)))
+
 (defadvice help-follow (after emacspeak pre act comp)
   "Speak the ref we moved to."
   (when (ems-interactive-p)
@@ -2665,6 +2666,21 @@ Produce an auditory icon if possible."
           (format "On %s" (buffer-name ielm-working-buffer) )))))
      (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-header-line)))
+
+;;}}}
+;;{{{Help Navigation:
+
+(cl-loop
+ for f in 
+ '(help-goto-next-page help-goto-previous-page)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'scroll)
+       (emacspeak-speak-line)))))
+
 
 ;;}}}
 (provide 'emacspeak-advice)
