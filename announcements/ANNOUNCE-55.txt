@@ -40,6 +40,12 @@ access to the evolving assistant-oriented social Internet cloud.
 
 * Major Enhancements:
 
+1. Speech-enable Emacs Application Framework  
+2. Updated Soundscapes 🔊
+3. Updated Auditory Icons 🕬
+4. Updated Transient Support 𝥍
+5. Speech-Enabled CalibreDB  📚
+6. External Browsers From EWW  🕸
 
       — And a lot more than will fit this margin. … 🗞
      
