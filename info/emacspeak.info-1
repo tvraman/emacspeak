@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 22, 2021.
+last updated on November 20, 2021.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -4382,10 +4382,8 @@ detailed usage instructions and key-bindings.
      d Date Search
      b Browse
 
-     key             binding
-     —             ——-
-
-     ESC		Prefix Command
+     Key             Binding
+     ——————————————————————————-
      SPC		emacspeak-bookshare-expand-at-point
      +		emacspeak-bookshare-action
      /		emacspeak-bookshare-action
@@ -5185,9 +5183,6 @@ after emacspeak has been started.
      run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as
      the final or penultimate step during initialization.
 
-     key             binding
-     —             ——-
-
 
 
 File: emacspeak.info,  Node: emacspeak-deadgrep,  Next: emacspeak-debugger,  Prev: emacspeak-dbus,  Up: Emacspeak Commands And Options
@@ -5918,9 +5913,8 @@ quick summary of commands for
      A Calibre Front-end.
      Letters do not insert themselves; instead, they are commands.
 
-     key             binding
-     —             ——-
-
+     Key             Binding
+     ——————————————————————————-
      RET		emacspeak-epub-calibre-dired-at-point
 
      In addition to any hooks its parent mode ‘special-mode’ might have
@@ -6161,16 +6155,14 @@ quick summary of commands for
 
      An EPub Front-end.
      Letters do not insert themselves; instead, they are commands.
-     key             binding
-     —             ——-
 
+     Key             Binding
+     ——————————————————————————-
      C-a		emacspeak-epub-bookshelf-add-directory
      C-d		emacspeak-epub-bookshelf-remove-directory
      C-l		emacspeak-epub-bookshelf-redraw
      RET		emacspeak-epub-eww
      C-o		emacspeak-epub-bookshelf-open-epub
-     C-x		Prefix Command
-     ESC		Prefix Command
      /		emacspeak-epub-calibre-results
      A		emacspeak-epub-bookshelf-calibre-author
      C		emacspeak-epub-gutenberg-catalog
@@ -7946,9 +7938,8 @@ original text being filtered.
 
      Major mode for FilterText interaction.
 
-     key             binding
-     —             ——-
-
+     Key             Binding
+     ——————————————————————————-
      =		keep-lines
      ^		flush-lines
      r		emacspeak-filtertext-revert

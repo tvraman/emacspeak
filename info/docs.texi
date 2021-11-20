@@ -1830,10 +1830,8 @@ s Full Text Search
 d Date Search
 b Browse
 
-key             binding
----             -------
-
-ESC		Prefix Command
+Key             Binding
+-------------------------------------------------------------------------------
 SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
 /		emacspeak-bookshare-action
@@ -2715,9 +2713,6 @@ In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as
 the final or penultimate step during initialization.
 
-key             binding
----             -------
-
 @end format
 @end deffn
 
@@ -3492,9 +3487,8 @@ Here is  a quick summary of commands for
 A Calibre Front-end.
 Letters do not insert themselves; instead, they are commands.
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 RET		emacspeak-epub-calibre-dired-at-point
 
 In addition to any hooks its parent mode ‘special-mode’ might have
@@ -3789,16 +3783,14 @@ Locate epub files using locate.
 @format
 An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
-key             binding
----             -------
 
+Key             Binding
+-------------------------------------------------------------------------------
 C-a		emacspeak-epub-bookshelf-add-directory
 C-d		emacspeak-epub-bookshelf-remove-directory
 C-l		emacspeak-epub-bookshelf-redraw
 RET		emacspeak-epub-eww
 C-o		emacspeak-epub-bookshelf-open-epub
-C-x		Prefix Command
-ESC		Prefix Command
 /		emacspeak-epub-calibre-results
 A		emacspeak-epub-bookshelf-calibre-author
 C		emacspeak-epub-gutenberg-catalog
@@ -5959,9 +5951,8 @@ Copy over text in region to special filtertext buffer to  filter text.
 @format
 Major mode for FilterText interaction. 
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 =		keep-lines
 ^		flush-lines
 r		emacspeak-filtertext-revert
@@ -7772,12 +7763,10 @@ Interactive prefix ‘raw’ reads a raw URL.
 @format
 Major mode for m-player interaction. 
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 C-l		ladspa
 RET		emacspeak-m-player-load
-ESC		Prefix Command
 SPC		emacspeak-m-player-pause
 %		emacspeak-m-player-display-percent
 (		emacspeak-m-player-left-channel
@@ -8280,12 +8269,10 @@ Optional prefix arg ‘best’ chooses highest.
 Start or control Emacspeak multimedia player.
 Controls media playback when already playing.
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 C-l		ladspa
 RET		emacspeak-m-player-load
-ESC		Prefix Command
 SPC		emacspeak-m-player-pause
 %		emacspeak-m-player-display-percent
 (		emacspeak-m-player-left-channel
@@ -8354,7 +8341,6 @@ DEL		emacspeak-m-player-reset-speed
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
 M-l		emacspeak-m-player-load-playlist
-
 .
 @end format
 @end deffn
@@ -8554,9 +8540,8 @@ This mode is similar to Emacs’ ‘view-mode’.
 see the key-binding list at the end of this description.
 Emacs online help facility to look up help on these commands.
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 [		backward-page
 ]		forward-page
 h		emacspeak-maths-left
@@ -9203,9 +9188,9 @@ in constructing the name of the image and text files.
 
 Key Bindings: 
 
-See key             binding
----             -------
-
+See 
+Key             Binding
+-------------------------------------------------------------------------------
 RET		emacspeak-ocr-scan-and-recognize
 SPC		emacspeak-ocr-read-current-page
 1 .. 9		emacspeak-ocr-page
@@ -9225,7 +9210,6 @@ p		emacspeak-ocr-page
 q		bury-buffer
 s		emacspeak-ocr-save-current-page
 w		emacspeak-ocr-write-document
-
 .
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
@@ -12725,15 +12709,14 @@ feature. Note that you can intersperse meaningful strings in the list that
 specifies the filter.
 
 Full List Of Keybindings:
-key             binding
----             -------
 
+Key             Binding
+-------------------------------------------------------------------------------
 C-b		emacspeak-table-previous-column
 C-f		emacspeak-table-next-column
 TAB		emacspeak-table-next-column
 C-n		emacspeak-table-next-row
 C-p		emacspeak-table-previous-row
-ESC		Prefix Command
 SPC		emacspeak-table-speak-current-element
 #		emacspeak-table-sort-on-current-column
 ,		emacspeak-table-find-csv-file
@@ -13610,9 +13593,6 @@ emacspeak integration with Transient.
 In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-transient-mode-hook’, as the
 final or penultimate step during initialization.
-
-key             binding
----             -------
 
 @end format
 @end deffn
@@ -14927,11 +14907,9 @@ Updated headlines found in emacspeak-webspace-headlines.
 @format
 Major mode for Webspace interaction.
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 TAB		forward-button
-ESC		Prefix Command
 '		emacspeak-speak-rest-of-buffer
 .		emacspeak-webspace-filter
 /		search-forward
@@ -15963,9 +15941,6 @@ In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as
 the final or penultimate step during initialization.
 
-key             binding
----             -------
-
 @end format
 @end deffn
 
@@ -16778,9 +16753,8 @@ Accelerator for VC viewer.
 @format
 Major mode for interactively viewing virtual console contents.
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 C-l		emacspeak-wizards-vc-viewer-refresh
 
 In addition to any hooks its parent mode ‘special-mode’ might have
@@ -17534,11 +17508,9 @@ In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘gmaps-mode-hook’, as the final or
 penultimate step during initialization.
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 TAB		forward-button
-ESC		Prefix Command
 SPC		gmaps-place-details
 [		backward-page
 ]		forward-page
@@ -17748,9 +17720,8 @@ In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘ladspa-mode-hook’, as the final or
 penultimate step during initialization.
 
-key             binding
----             -------
-
+Key             Binding
+-------------------------------------------------------------------------------
 RET		ladspa-instantiate
 SPC		ladspa-analyse-plugin-at-point
 a		emacspeak-m-player-add-ladspa
@@ -18071,9 +18042,6 @@ An audio workbench for the Emacspeak desktop.
 In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘sox-mode-hook’, as the final or
 penultimate step during initialization.
-
-key             binding
----             -------
 
 @end format
 @end deffn
