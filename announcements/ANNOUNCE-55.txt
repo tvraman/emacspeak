@@ -33,7 +33,7 @@ eyes-free access to all major 32 and 64 bit operating environments. By
 seamlessly blending live access to all aspects of the Internet such as
 ubiquitous assistance, Web-surfing, blogging, remote software
 development, social computing and electronic messaging into the audio
-desktop, Emacspeak enables speech access to local and remote
+desktop, Emacspeak enables spoken access to local and remote
 information with a consistent and well-integrated user interface. A
 rich suite of task-oriented tools provides efficient speech-enabled
 access to the evolving assistant-oriented social Internet cloud.
@@ -42,13 +42,12 @@ access to the evolving assistant-oriented social Internet cloud.
 
 1. Speech-enable Emacs Application Framework  
 2. Updated Soundscapes 🔊
-3. Updated Auditory Icons 🕬
+3. Updated Auditory Icons 🎧
 4. Updated Transient Support 𝥍
 5. Speech-Enabled CalibreDB  📚
 6. External Browsers From EWW  🕸
 
       — And a lot more than will fit this margin. … 🗞
-     
   
 Note: This version *requires* emacs-27.1 or later. 
 
@@ -66,7 +65,7 @@ and the underlying GIT versioning software used to develop and distribute the sy
 
 Extensive studies have shown that thanks to these features, users
 consider Emacspeak to be absolutely priceless. Thanks to this
-wide-spread user demand, the present version remains   priceless
+wide-spread user demand, the present version remains   free of cost 
 as ever—it is being made available at the same zero-cost as
 previous releases.
 
@@ -99,7 +98,6 @@ user-centric design of Emacspeak; “It is the user --- and not the
 computer-- that stops functioning when Emacspeak is uninstalled!”.
 
 ** Note from Aster,Bubbles and Tilden:
-
 
 UnDoctored Videos Inc. is looking for volunteers to star in a
 video demonstrating such complete user failure.
@@ -265,13 +263,11 @@ April 12, 1999, Emacspeak became part of the [[http://tvraman.github.io/emacspea
 Research Collection]] on Information Technology at the Smithsonian's
 National Museum of American History.
 
-The Emacspeak mailing list is archived at Vassar --the home of the
+The Emacspeak mailing list is archived at
+[[https://www.emacspeak.org][Emacspeak Mail Archive]] --the home of the
 Emacspeak mailing list-- thanks to Greg Priest-Dorman, and provides a
-valuable knowledge base for new users. Note that we are currently
-looking for a new home for the mailing list --- stay tuned; in the
-meantime, the list is available via
-*nntp+news.gmane.io:gmane.emacs.emacspeak.general*
-from within Gnus.
+valuable knowledge base for new users.
+
 
 * Press/Analyst Contact: Tilden Labrador
 
