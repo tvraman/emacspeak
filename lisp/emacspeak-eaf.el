@@ -209,7 +209,7 @@ eaf-stop-process
 eaf-toggle-fullscreen
 )
 
-(defadvice eaf-proxy-insert_or_export_text (after emacspeak pre act comp)
+(defadvice eaf-py-proxy-insert_or_export_text (after emacspeak pre act comp)
   "Speak resulting buffer."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
