@@ -297,23 +297,12 @@ proc sh  {{duration 50}} {
     return ""
 }
 
-# Caps: this driver currently offers either
-# - announcing each capitals (tts_split_caps)
-# - or raising pitch (tts_capitalize)
-# - or beeping (tts_allcaps_beep)
-#
 proc tts_split_caps {flag} {
-    global tts 
-    if { $flag == 1 } {
-	caps "spelling"
-    } else {
-	if {$tts(capitalize) == 0    } {
-	    caps "none"
-	}
-    }
-    service
+    global tts
+    set tts(split_caps) $flag
     return ""
 }
+
 proc tts_reset {} {
     global tts
     #synth  -reset
