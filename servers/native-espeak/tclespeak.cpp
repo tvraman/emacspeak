@@ -39,12 +39,13 @@
 
 #include <assert.h>
 #include <espeak-ng/speak_lib.h>
+#include <set>
+#include <sstream>
 #include <stdlib.h>
 #include <string.h>
+#include <string>
 #include <sys/time.h>
 #include <tcl.h>
-#include <set>
-#include <string>
 #include <vector>
 using std::set;
 using std::string;
@@ -74,7 +75,7 @@ int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 
-static void initLanguage(Tcl_Interp *interp);
+static int initLanguage(Tcl_Interp *interp);
 static int getLangIndex(Tcl_Interp *interp, unsigned long *theIndex);
 
 //>
@@ -83,7 +84,7 @@ static int getLangIndex(Tcl_Interp *interp, unsigned long *theIndex);
 void TclEspeakFree(ClientData handle) { espeak_Terminate(); }
 
 //>
-//<Tclespeak_init
+//<Tclespeyak_init
 
 int Tclespeak_Init(Tcl_Interp *interp) {
   void *handle = NULL;
@@ -121,8 +122,7 @@ int Tclespeak_Init(Tcl_Interp *interp) {
                        TclEspeakFree);
   //>
 
-  initLanguage(interp);
-  return TCL_OK;
+  return initLanguage(interp);
 }
 
 int GetRate(ClientData handle, Tcl_Interp *interp, int objc,
@@ -166,17 +166,27 @@ int SetRate(ClientData handle, Tcl_Interp *interp, int objc,
 //>
 //<say
 
-static bool closeTags(string input, string &output) {
-  char *tag_orig = (char *)malloc(sizeof(char) * (input.size() + 1));
-  strncpy(tag_orig, input.c_str(), input.size());
-  output = "";
+static string::size_type findInRange(const char c, const string& str,
+                                    string::size_type start,
+                                    string::size_type end) {
+  if (end >= str.size()) {
+    end = str.size();
+  }
+  for (string::size_type i = start; i < end; ++i) {
+    if (c == str[i]) {
+      return i;
+    }
+  }
+  return string::npos;
+}
 
+static bool closeTags(const string &input, string &output) {
+  std::ostringstream closingTags;
   // check that a text (non whitespace) is present
-  char *tag = tag_orig;
   int a_tag_count = 0;
   bool a_text_is_present = false;
 
-  while (*tag) {
+  for (auto tag = input.cbegin(); tag != input.cend(); ++tag) {
     if (*tag == '<') {
       a_tag_count++;
     }
@@ -188,31 +198,37 @@ static bool closeTags(string input, string &output) {
     if ((*tag == '>') && a_tag_count) {
       a_tag_count--;
     }
-    tag++;
   }
 
   if (a_text_is_present) {
-    tag = tag_orig;
-    while (tag) {
+    string::size_type tag_pos = input.size();
+    if (string::npos == tag_pos) {
+      fprintf(stderr, "Synthesizer argument of size (size_t)(-1), ignoring "
+                      "last chraracter\n");
+      --tag_pos;
+    }
+    string::size_type prev_match = tag_pos;
+    while (string::npos != tag_pos) {
       // look for a '<'
-      tag = strrchr(tag_orig, '<');
-
-      if (tag) {
-        char *end = strchr(tag, ' ');
-        if (!end && (NULL == strchr(tag, '/'))) {
-          end = strchr(tag, '>');
+      tag_pos = input.find_last_of('<', tag_pos);
+      if (string::npos != tag_pos) {
+        string::size_type end = findInRange(' ', input, tag_pos, prev_match);
+        if ((string::npos == end) &&
+            (string::npos == findInRange('/', input, tag_pos, prev_match))) {
+          end = findInRange('>', input, tag_pos, prev_match);
         }
-        if (end && (tag + 1 < end)) {
-          *end = 0;
-          output += "</" + string(tag + 1) + ">";
+        if ((string::npos != end) && (tag_pos + 1 < end)) {
+          prev_match = end;
+          closingTags << "</" <<
+            input.substr(tag_pos + 1, (end - (tag_pos + 1))) << ">";
         }
-        *tag = 0;
+        prev_match = tag_pos;
+        tag_pos--; // Start search before previous tag to avoid infinite loop
       }
     }
   }
 
-  free(tag_orig);
-
+  output.assign(closingTags.str());
   return a_text_is_present;
 }
 
@@ -226,10 +242,15 @@ int Say(ClientData handle, Tcl_Interp *interp, int objc,
       string a_end_ssml;
       if (closeTags(a_begin_ssml, a_end_ssml)) {
         string a_ssml = a_begin_ssml + a_end_ssml;
-
         unsigned int unique_identifier = 0;
-        espeak_Synth(a_ssml.c_str(), a_ssml.length() + 1, 0, POS_CHARACTER, 0,
-                     espeakCHARS_UTF8 | espeakSSML, &unique_identifier, NULL);
+        if (EE_OK != espeak_Synth(a_ssml.c_str(), a_ssml.length() + 1, 0,
+                                  POS_CHARACTER, 0,
+                                  espeakCHARS_UTF8 | espeakSSML,
+                                  &unique_identifier, NULL)) {
+          Tcl_AppendResult(
+              interp, "Could not synthesize string: ", a_ssml.c_str(), NULL);
+          return TCL_ERROR;
+        }
       }
     }
   }
@@ -363,17 +384,21 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
 
 static vector<string> available_languages;
 
-static void SetLanguageHelper(Tcl_Interp *interp, size_t aIndex) {
+static int SetLanguageHelper(Tcl_Interp *interp, size_t aIndex) {
+  espeak_ERROR voice_status = espeak_ERROR::EE_OK;
   espeak_VOICE *current_voice = NULL;
   espeak_VOICE a_voice;
   memset(&a_voice, 0, sizeof(espeak_VOICE));
   a_voice.languages = (char *)available_languages[aIndex].c_str();
   a_voice.gender = 1;
-  espeak_SetVoiceByProperties(&a_voice);
+  voice_status = espeak_SetVoiceByProperties(&a_voice);
+  if (espeak_ERROR::EE_OK != voice_status) {
+    Tcl_AppendResult(interp, "could not set voice");
+    return TCL_ERROR;
+  }
   current_voice = espeak_GetCurrentVoice();
   Tcl_SetVar(interp, "voicename", current_voice->name, 0);
-  // But what if we couldn't set the voice?  Need some better error handling.
-  return;
+  return TCL_OK;
 }
 
 int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
@@ -381,8 +406,9 @@ int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
   unsigned long aIndex = 0;
 
   if (getLangIndex(interp, &aIndex)) {
-    SetLanguageHelper(interp, aIndex);
+    return SetLanguageHelper(interp, aIndex);
   }
+  // TODO: Error reporting for this
   return TCL_OK;
 }
 
@@ -404,7 +430,7 @@ static vector<string> ParseLanguages(const char *lang_str) {
   return voice_langs;
 }
 
-static void initLanguage(Tcl_Interp *interp) {
+static int initLanguage(Tcl_Interp *interp) {
   // List the available languages
   set<string> unique_languages;
   int i = 0;
@@ -471,11 +497,15 @@ static void initLanguage(Tcl_Interp *interp) {
     Tcl_SetVar2(interp, "langsynth", "current", buffer, 0);
     Tcl_SetVar2(interp, "langcode", "current", "en", 0);
   }
-  SetLanguageHelper(interp, default_index);
+
+  if (TCL_OK != SetLanguageHelper(interp, default_index)) {
+    return TCL_ERROR;
+  }
   // Presumably we have at least one language, namely English,
   // so no chance of underflowing size_t with this subtraction:
   snprintf(buffer, sizeof(buffer), "%lu", lang_count - 1);
   Tcl_SetVar2(interp, "langsynth", "top", buffer, 0);
+  return TCL_OK;
 }
 
 static int getLangIndex(Tcl_Interp *interp, unsigned long *theIndex) {
