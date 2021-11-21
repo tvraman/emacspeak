@@ -40,7 +40,6 @@
 #include <assert.h>
 #include <espeak-ng/speak_lib.h>
 #include <set>
-#include <sstream>
 #include <stdlib.h>
 #include <string.h>
 #include <string>
@@ -180,13 +179,12 @@ static string::size_type findInRange(const char c, const string& str,
   return string::npos;
 }
 
-static bool closeTags(const string &input, string &output) {
-  std::ostringstream closingTags;
+static bool closeTags(string &ssml) {
   // check that a text (non whitespace) is present
   int a_tag_count = 0;
   bool a_text_is_present = false;
 
-  for (auto tag = input.cbegin(); tag != input.cend(); ++tag) {
+  for (auto tag = ssml.cbegin(); tag != ssml.cend(); ++tag) {
     if (*tag == '<') {
       a_tag_count++;
     }
@@ -201,7 +199,7 @@ static bool closeTags(const string &input, string &output) {
   }
 
   if (a_text_is_present) {
-    string::size_type tag_pos = input.size();
+    string::size_type tag_pos = ssml.size();
     if (string::npos == tag_pos) {
       fprintf(stderr, "Synthesizer argument of size (size_t)(-1), ignoring "
                       "last chraracter\n");
@@ -210,25 +208,24 @@ static bool closeTags(const string &input, string &output) {
     string::size_type prev_match = tag_pos;
     while (string::npos != tag_pos) {
       // look for a '<'
-      tag_pos = input.find_last_of('<', tag_pos);
+      tag_pos = ssml.find_last_of('<', tag_pos);
       if (string::npos != tag_pos) {
-        string::size_type end = findInRange(' ', input, tag_pos, prev_match);
+        string::size_type end = findInRange(' ', ssml, tag_pos, prev_match);
         if ((string::npos == end) &&
-            (string::npos == findInRange('/', input, tag_pos, prev_match))) {
-          end = findInRange('>', input, tag_pos, prev_match);
+            (string::npos == findInRange('/', ssml, tag_pos, prev_match))) {
+          end = findInRange('>', ssml, tag_pos, prev_match);
         }
         if ((string::npos != end) && (tag_pos + 1 < end)) {
           prev_match = end;
-          closingTags << "</" <<
-            input.substr(tag_pos + 1, (end - (tag_pos + 1))) << ">";
+          ssml.append("</");
+          ssml.append(ssml.substr(tag_pos + 1, end - (tag_pos + 1)));
+          ssml.push_back('>');
         }
         prev_match = tag_pos;
         tag_pos--; // Start search before previous tag to avoid infinite loop
       }
     }
   }
-
-  output.assign(closingTags.str());
   return a_text_is_present;
 }
 
@@ -238,10 +235,8 @@ int Say(ClientData handle, Tcl_Interp *interp, int objc,
   for (i = 1; i < objc; i++) {
     char *a_text = (char *)Tcl_GetStringFromObj(objv[i], NULL);
     if (a_text) {
-      string a_begin_ssml = a_text;
-      string a_end_ssml;
-      if (closeTags(a_begin_ssml, a_end_ssml)) {
-        string a_ssml = a_begin_ssml + a_end_ssml;
+      string a_ssml = a_text;
+      if (closeTags(a_ssml)) {
         unsigned int unique_identifier = 0;
         if (EE_OK != espeak_Synth(a_ssml.c_str(), a_ssml.length() + 1, 0,
                                   POS_CHARACTER, 0,
