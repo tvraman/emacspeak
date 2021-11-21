@@ -132,7 +132,8 @@ int GetRate(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   rc = Tcl_GetIntFromObj(interp, objv[1], &voice);
-  if (rc != TCL_OK) return rc;
+  if (rc != TCL_OK)
+    return rc;
 
   rate = espeak_GetParameter(espeakRATE, 1);
 
@@ -151,13 +152,16 @@ int SetRate(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   rc = Tcl_GetIntFromObj(interp, objv[1], &voice);
-  if (rc != TCL_OK) return rc;
+  if (rc != TCL_OK)
+    return rc;
   rc = Tcl_GetIntFromObj(interp, objv[2], &rate);
-  if (rc != TCL_OK) return rc;
+  if (rc != TCL_OK)
+    return rc;
 
   if (rate != current_rate) {
     success = (espeak_SetParameter(espeakRATE, rate, 0) == EE_OK);
-    if (success) current_rate = rate;
+    if (success)
+      current_rate = rate;
   }
   return success ? TCL_OK : TCL_ERROR;
 }
@@ -165,9 +169,9 @@ int SetRate(ClientData handle, Tcl_Interp *interp, int objc,
 //>
 //<say
 
-static string::size_type findInRange(const char c, const string& str,
-                                    string::size_type start,
-                                    string::size_type end) {
+static string::size_type findInRange(const char c, const string &str,
+                                     string::size_type start,
+                                     string::size_type end) {
   if (end >= str.size()) {
     end = str.size();
   }
@@ -309,7 +313,7 @@ int Caps(ClientData handle, Tcl_Interp *interp, int objc,
   static const char *current_mode = "";
   char *a_mode = (char *)Tcl_GetStringFromObj(objv[1], NULL);
   if (a_mode && strcmp(a_mode, current_mode)) {
-    int a_type = 0;  // none
+    int a_type = 0; // none
 
     if (strcmp(a_mode, "tone") == 0) {
       a_type = 1;
