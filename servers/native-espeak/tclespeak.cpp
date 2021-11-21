@@ -216,7 +216,6 @@ static bool closeTags(string &ssml) {
           end = findInRange('>', ssml, tag_pos, prev_match);
         }
         if ((string::npos != end) && (tag_pos + 1 < end)) {
-          prev_match = end;
           ssml.append("</");
           ssml.append(ssml.substr(tag_pos + 1, end - (tag_pos + 1)));
           ssml.push_back('>');
@@ -367,8 +366,8 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
 
-  const char *_path = (char *)malloc(16);
-  char *version = (char *)malloc(16);
+  const char *_path = NULL;
+  char *version = (char *)malloc(17);
   strncpy(version, espeak_Info(&_path), 16);
   Tcl_SetResult(interp, version, TCL_STATIC);
   return TCL_OK;
@@ -459,7 +458,6 @@ static int initLanguage(Tcl_Interp *interp) {
     unique_languages.insert(voice_langs.begin(), voice_langs.end());
   }
   available_languages.assign(unique_languages.begin(), unique_languages.end());
-  vector<string>::iterator it;
   size_t lang_count = available_languages.size();
   size_t english_index = lang_count;
   size_t default_index = lang_count;
