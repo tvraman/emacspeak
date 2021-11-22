@@ -132,7 +132,8 @@ int GetRate(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   rc = Tcl_GetIntFromObj(interp, objv[1], &voice);
-  if (rc != TCL_OK) return rc;
+  if (rc != TCL_OK)
+    return rc;
 
   rate = espeak_GetParameter(espeakRATE, 1);
 
@@ -151,13 +152,16 @@ int SetRate(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   rc = Tcl_GetIntFromObj(interp, objv[1], &voice);
-  if (rc != TCL_OK) return rc;
+  if (rc != TCL_OK)
+    return rc;
   rc = Tcl_GetIntFromObj(interp, objv[2], &rate);
-  if (rc != TCL_OK) return rc;
+  if (rc != TCL_OK)
+    return rc;
 
   if (rate != current_rate) {
     success = (espeak_SetParameter(espeakRATE, rate, 0) == EE_OK);
-    if (success) current_rate = rate;
+    if (success)
+      current_rate = rate;
   }
   return success ? TCL_OK : TCL_ERROR;
 }
@@ -165,9 +169,9 @@ int SetRate(ClientData handle, Tcl_Interp *interp, int objc,
 //>
 //<say
 
-static string::size_type findInRange(const char c, const string& str,
-                                    string::size_type start,
-                                    string::size_type end) {
+static string::size_type findInRange(const char c, const string &str,
+                                     string::size_type start,
+                                     string::size_type end) {
   if (end >= str.size()) {
     end = str.size();
   }
@@ -216,7 +220,6 @@ static bool closeTags(string &ssml) {
           end = findInRange('>', ssml, tag_pos, prev_match);
         }
         if ((string::npos != end) && (tag_pos + 1 < end)) {
-          prev_match = end;
           ssml.append("</");
           ssml.append(ssml.substr(tag_pos + 1, end - (tag_pos + 1)));
           ssml.push_back('>');
@@ -310,7 +313,7 @@ int Caps(ClientData handle, Tcl_Interp *interp, int objc,
   static const char *current_mode = "";
   char *a_mode = (char *)Tcl_GetStringFromObj(objv[1], NULL);
   if (a_mode && strcmp(a_mode, current_mode)) {
-    int a_type = 0;  // none
+    int a_type = 0; // none
 
     if (strcmp(a_mode, "tone") == 0) {
       a_type = 1;
@@ -367,9 +370,9 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
 
-  const char *_path = (char *)malloc(16);
-  char *version = (char *)malloc(16);
-    strncpy(version, espeak_Info(&_path), strlen(_path) + 1);
+  const char *_path = NULL;
+  char *version = (char *)malloc(17);
+  strncpy(version, espeak_Info(&_path), 16);
   Tcl_SetResult(interp, version, TCL_STATIC);
   return TCL_OK;
 }
@@ -459,7 +462,6 @@ static int initLanguage(Tcl_Interp *interp) {
     unique_languages.insert(voice_langs.begin(), voice_langs.end());
   }
   available_languages.assign(unique_languages.begin(), unique_languages.end());
-  vector<string>::iterator it;
   size_t lang_count = available_languages.size();
   size_t english_index = lang_count;
   size_t default_index = lang_count;
