@@ -369,10 +369,7 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
 
   const char *_path = (char *)malloc(16);
   char *version = (char *)malloc(16);
-  _Pragma("GCC diagnostic push")
-_Pragma("GCC diagnostic ignored \"-Wstringop-truncation\"")
-  strncpy(version, espeak_Info(&_path), 16);
-  _Pragma("GCC diagnostic pop")
+    strncpy(version, espeak_Info(&_path), strlen(version));
   Tcl_SetResult(interp, version, TCL_STATIC);
   return TCL_OK;
 }
