@@ -322,8 +322,7 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   const char *_path = NULL;
-  char *version = (char *)malloc(17);
-  strncpy(version, espeak_Info(&_path), 16);
+  char *version = strdup( espeak_Info(&_path));
   Tcl_SetResult(interp, version, TCL_STATIC);
   return TCL_OK;
 }
