@@ -1,7 +1,7 @@
 /*Id: This code comes from atcleci.cpp 4231 2006-10-13 02:43:46Z tv.raman.tv */
 
 // Jan 2007 Gilles Casse <gcasse@oralux.org>
-// * eSpeak driver for emacspeak
+// * eSpeak server for emacspeak
 //
 // Mar 2007
 // * Language switching.
