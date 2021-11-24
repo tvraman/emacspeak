@@ -237,6 +237,7 @@ already disabled."
     (when (featurep 'xbacklight) (xbacklight-black))
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
+    (shell-command "xset b 100 440 &")
     (when
         (dbus-call-method
          :session
