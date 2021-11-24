@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
 <feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'>
   <id>tag:blogger.com,1999:blog-20280042</id><updated>
-    2021-09-19T10:50:14.708-07:00
+    2021-11-24T08:30:38.867-08:00
   </updated>
   <title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>
     Here is where I plan to Blog Emacspeak tricks and introduce new
@@ -19,11 +19,535 @@
     <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
   </author>
   <generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>
-    177
+    178
   </openSearch:totalResults>
   <openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>
     10
   </openSearch:itemsPerPage>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-3740089600894731588</id><published>
+      2021-11-24T08:30:00.000-08:00
+    </published>
+    <updated>2021-11-24T08:30:02.614-08:00</updated><title type='text'>
+      Announcing Emacspeak 55.0 (CalmDog)
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Announcing Emacspeak
+      55.0—CalmDog!&lt;/h1&gt;
+      &lt;p&gt;
+      The enjoyment of one&#39;s tools is an essential ingredient of
+      successful work. &amp;#x2013; Donald E. Knuth
+      &lt;/p&gt;
+      
+      &lt;div id=&quot;outline-container-org458a930&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org458a930&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; For Immediate
+      Release:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      San Jose, CA, (Nov 24, 2021)
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgbf9ddd1&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgbf9ddd1&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;1.1.&lt;/span&gt; Emacspeak
+      55.0 (CalmDog)  Unleashed!  🦮&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+      &lt;p&gt;
+      &amp;#x2014; Making Accessible Computing Effortless!
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Advancing Accessibility In The Age Of User-Aware Interfaces
+      &amp;#x2014; Zero
+      cost of Ownership makes priceless software Universally affordable!
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Emacspeak Inc (NASDOG: ESPK) &amp;#x2014; &lt;a
+      
+      href=&quot;http://github.com/tvraman/emacspeak&quot;&gt;http://github.com/tvraman/emacspeak&lt;/a&gt;
+      announces  immediate world-wide availability of &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/releases/download/54.0/emacspeak-53.0.tar.bz2&quot;&gt;Emacspeak 55.0&lt;/a&gt;
+      (CalmDog) 🦮 &amp;#x2014; a powerful audio desktop that leverages
+      today&#39;s
+      evolving Data, Social and Assistant-Oriented Internet cloud to
+      enableworking efficiently and effectively from anywhere!
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org648436e&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org648436e&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Investors
+      Note:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      With several prominent tweeters expanding coverage of &lt;span
+      class=&quot;underline&quot;&gt;#emacspeak&lt;/span&gt;,
+      NASDOG: ESPK has now been consistently trading over the social net
+      atlevels close to that once attained by DogCom high-fliers—and is
+      trading at levels close to that achieved by once better known stocks
+      in the tech sector.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orga01459f&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orga01459f&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; What Is
+      It?&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      Emacspeak is a fully functional audio desktop that provides complete
+      eyes-free access to all major 32 and 64 bit operating environments.
+      By
+      seamlessly blending live access to all aspects of the Internet such
+      as
+      ubiquitous assistance, Web-surfing, blogging, remote software
+      development, social computing and electronic messaging into the
+      audiodesktop, Emacspeak enables spoken access to local and remote
+      information with a consistent and well-integrated user interface. A
+      rich suite of task-oriented tools provides efficient speech-enabled
+      access to the evolving assistant-oriented social Internet cloud.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org32377e2&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org32377e2&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; Major
+      Enhancements:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Speech-enable Emacs Application Framework  &lt;/li&gt;
+      &lt;li&gt;Updated Soundscapes 🔊&lt;/li&gt;
+      &lt;li&gt;Updated Auditory Icons 🎧&lt;/li&gt;
+      &lt;li&gt;Updated Transient Support 𝥍&lt;/li&gt;
+      &lt;li&gt;Speech-Enabled CalibreDB  📚&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;
+      External Browsers From EWW  🕸
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      — And a lot more than will fit this margin. … 🗞
+      &lt;/p&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      Note: This version &lt;b&gt;requires&lt;/b&gt; emacs-27.1 or later. 
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgba428e9&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgba428e9&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt; Establishing
+      Liberty, Equality And Freedom:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;p&gt;
+      Never a toy system, Emacspeak is voluntarily bundled with all
+      major Linux distributions. Though designed to be modular,
+      distributors have freely chosen to bundle the fully integrated
+      system without any undue pressure—a documented success for
+      the integrated innovation embodied by Emacspeak. As the system
+      evolves, both upgrades and downgrades continue to be available at
+      the same zero-cost to all users. The integrity of the Emacspeak
+      codebase is ensured by the reliable and secure Linux platform
+      and the underlying GIT versioning software used to develop and
+      distribute the system.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Extensive studies have shown that thanks to these features, users
+      consider Emacspeak to be absolutely priceless. Thanks to this
+      wide-spread user demand, the present version remains   free of cost 
+      as ever—it is being made available at the same zero-cost as
+      previous releases.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      At the same time, Emacspeak continues to innovate in the area of
+      eyes-free Assistance and social interaction and carries forward the
+      well-established Open Source tradition of introducing user interface
+      features that eventually show up in luser environments.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      On this theme, when once challenged by a proponent of a crash-prone
+      but well-marketed mousetrap with the assertion &quot;Emacs is a
+      system from
+      the 70&#39;s&quot;, the creator of Emacspeak evinced surprise at the
+      unusual
+      candor manifest in the assertion that it would take popular
+      idiot-proven interfaces until the year 2070 to catch up to where the
+      Emacspeak audio desktop is today. Industry experts welcomed this
+      refreshing breath of Courage Certainty and Clarity (CCC) at a time
+      when users are reeling from the Fear Uncertainty and Doubt (FUD)
+      unleashed by complex software systems backed by even more convoluted
+      press releases.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org3ac4067&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3ac4067&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;6.&lt;/span&gt; Independent
+      Test Results:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
+      &lt;p&gt;
+      Independent test results have proven that unlike some modern (and
+      not so modern) software, Emacspeak can be safely uninstalled without
+      adversely affecting the continued performance of the computer. These
+      same tests also revealed that once uninstalled, the user stopped
+      functioning altogether. Speaking with Aster Labrador, the creator of
+      Emacspeak once pointed out that these results re-emphasize the
+      user-centric design of Emacspeak; “It is the user &amp;#x2014; and
+      not the
+      computer&amp;#x2013; that stops functioning when Emacspeak is
+      uninstalled!”.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org3dc256b&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org3dc256b&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;6.1.&lt;/span&gt; Note from
+      Aster,Bubbles and Tilden:&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-6-1&quot;&gt;
+      &lt;p&gt;
+      UnDoctored Videos Inc. is looking for volunteers to star in a
+      video demonstrating such complete user failure.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org13d725e&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org13d725e&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;7.&lt;/span&gt; Obtaining
+      Emacspeak:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
+      &lt;p&gt;
+      Emacspeak can be downloaded from GitHub &amp;#x2014; see
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt; you can visit Emacspeak on the
+      WWW at &lt;a
+      
+      href=&quot;http://emacspeak.sf.net&quot;&gt;http://emacspeak.sf.net&lt;/a&gt;. You can subscribe to the emacspeak
+      mailing list — &lt;a
+      
+      href=&quot;http://mail.emacspeak.org&quot;&gt;emacspeak@emacspeak.org&lt;/a&gt;.  The &lt;a href=&quot;http://emacspeak.blogspot.com&quot;&gt;Emacspeak Blog&lt;/a&gt; is a good
+      source for news about recent enhancements and how to use them.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      The latest development snapshot of Emacspeak is always available at
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;GitHub&lt;/a&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org11d427d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org11d427d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;8.&lt;/span&gt;
+      History:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-8&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak 55.0 (CalmDog) attempts to be as calm as
+      Tilden.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 54.0 (EZDog) learns to take it easy from
+      Tilden.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 53.0 (EfficientDog)  focuses on 
+      efficiency.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a
+      pleasurable experience.&lt;/li&gt;
+      &lt;li&gt;Bigger and more powerful than any smart assistAnt,
+      AssistDog provides&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      instant access to the most relevant information at all times.
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak 50.0 (SageDog) embraces the wisdom of stability
+      as
+      opposed to rapid change and the concomitant  creation of bugs.🚭: 
+      Naturally Intelligent (NI)™ at how information is spoken,
+      Emacspeak&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      is entirely free of Artificial Ingredients (AI)™.
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak 49.0 (WiseDog) leverages the wisdom gleaned from
+      earlier releases to provide an enhanced  auditory
+      experience.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 48.0  (ServiceDog) builds on earlier releases to
+      provide
+      continued end-user value.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 47.0 (GentleDog) goes the next step in being
+      helpful
+      while letting users learn and grow.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 46.0 (HelpfulDog) heralds the  coming of Smart
+      Assistants.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 45.0 (IdealDog) is named in recognition of
+      Emacs&#39;
+      excellent integration with various programming language
+      environments &amp;#x2014; thanks to this, Emacspeak is the IDE of
+      choice
+      for eyes-free software engineering.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 44.0 continues the steady pace of innovation on
+      the
+      audio desktop.&lt;/li&gt;
+      &lt;li&gt;Emacspeak  43.0 brings even more end-user efficiency by
+      leveraging the
+      ability to spatially place multiple audio streams to provide timely
+      auditory feedback.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 42.0 while moving to GitHub from Google Code
+      continues to
+      innovate in the areas of auditory user interfaces and efficient,
+      light-weight Internet access.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 41.0 continues to improve 
+      on  the desire to provide not just equal, but superior access —
+      technology when correctly implemented can significantly enhance the
+      human ability.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 40.0 goes back to Web basics by enabling
+      &lt;a
+      
+      href=&quot;http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html&quot;&gt;efficient access&lt;/a&gt; to large amounts of readable Web content.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 39.0 continues the Emacspeak tradition of
+      increasing the breadth of
+      user tasks that are covered without introducing unnecessary
+      bloatware.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 38.0 is the latest in a series of award-winning
+      releases from Emacspeak Inc.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 37.0 continues the tradition of
+      delivering robust software as reflected by its code-name.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 36.0 enhances the audio desktop with many new
+      tools including full
+      EPub support — hence the name EPubDog.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 35.0 is all about
+      teaching a new dog old tricks — and is aptly code-named HeadDog in
+      on  of our new Press/Analyst contact. emacspeak-34.0 (AKA Bubbles)
+      established a new beach-head with respect to rapid task completion
+      inan eyes-free environment.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-33.0 AKA StarDog brings
+      unparalleled cloud access to the audio desktop.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 32.0 AKA
+      LuckyDog continues to innovate via open technologies for better
+      access.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 31.0 AKA TweetDog — adds tweeting to the
+      Emacspeak
+      desktop.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to the
+      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
+      resilliance and innovation
+      embodied by Open Source software—it would not exist without the
+      thriving Emacs community that continues to ensure that Emacs remains
+      one of the premier user environments despite perhaps also being one
+      of
+      the oldest.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 28.0—AKA PuppyDog—exemplifies the rapid pace
+      of
+      development evinced by Open Source software.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 27.0—AKA
+      FastDog—is the latest in a sequence of upgrades that make previous
+      releases obsolete and downgrades unnecessary.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 26—AKA
+      LeadDog—continues the tradition of introducing innovative access
+      solutions that are unfettered by the constraints inherent in
+      traditional adaptive technologies.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 25 —AKA ActiveDog
+      —re-activates open, unfettered access to online
+      information.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-Alive —AKA LiveDog —enlivens open,
+      unfetteredinformation access with a series of live updates that once
+      again
+      demonstrate the power and agility of open source software
+      development.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 23.0 &amp;#x2014; AKA Retriever—went the extra
+      mile in
+      fetching full access.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 22.0 —AKA GuideDog —helps users
+      navigate the Web more effectively than ever before.&lt;/li&gt;
+      &lt;li&gt;Emacspeak 21.0
+      —AKA PlayDog —continued the 
+      Emacspeak tradition of relying on enhanced
+      productivity to liberate users.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-20.0 —AKA LeapDog —continues
+      the long established GNU/Emacs tradition of integrated innovation to
+      create a pleasurable computing environment for eyes-free
+      interaction.&lt;/li&gt;
+      &lt;li&gt;emacspeak-19.0 &amp;#x2013;AKA WorkDog&amp;#x2013; is
+      designed to enhance
+      user productivity at work and leisure.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-18.0 &amp;#x2013;code named
+      GoodDog&amp;#x2013; continued the Emacspeak tradition of enhancing
+      user
+      productivity and thereby reducing total cost of
+      ownership.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-17.0 &amp;#x2013;code named HappyDog&amp;#x2013;
+      enhances user
+      productivity by exploiting today&#39;s evolving WWW
+      standards.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-16.0 &amp;#x2013;code named
+      CleverDog&amp;#x2013; the follow-up to
+      SmartDog&amp;#x2013; continued the tradition of working better,
+      faster,
+      smarter.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-15.0 &amp;#x2013;code named
+      SmartDog&amp;#x2013;followed up on TopDog
+      as the next in a continuing  series of award-winning audio desktop
+      releases from  Emacspeak Inc.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-14.0 &amp;#x2013;code named
+      TopDog&amp;#x2013;was&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      the first release of this millennium. 
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak-13.0 &amp;#x2013;codenamed
+      YellowLab&amp;#x2013; was the closing release of the
+      20th. century.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-12.0 &amp;#x2013;code named
+      GoldenDog&amp;#x2013; began
+      leveraging the evolving semantic WWW to provide task-oriented speech
+      access to Webformation.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-11.0 &amp;#x2013;code named Aster&amp;#x2013;
+      went the
+      final step in making Linux a zero-cost Internet access solution for
+      blind and visually impaired users.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-10.0 &amp;#x2013;(AKA
+      Emacspeak-2000) code named WonderDog&amp;#x2013; continued the
+      tradition of
+      award-winning software releases designed to make eyes-free computing
+      a
+      productive and pleasurable experience.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-9.0 &amp;#x2013;(AKA
+      Emacspeak 99) code named BlackLab&amp;#x2013; continued to innovate
+      in the areas
+      of speech interaction and interactive accessibility.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-8.0 &amp;#x2013;(AKA Emacspeak-98++) code named
+      BlackDog&amp;#x2013; was a major upgrade to
+      the speech output extension to Emacs.&lt;/li&gt;
+      &lt;li&gt;Emacspeak-95 (code named Illinois) was released as
+      OpenSource on
+      the Internet in May 1995 as the first complete speech interface
+      to UNIX workstations. The subsequent release, Emacspeak-96 (code
+      named Egypt) made available in May 1996 provided significant
+      enhancements to the interface. Emacspeak-97 (Tennessee) went
+      further in providing a true audio desktop. Emacspeak-98
+      integrated Internetworking into all aspects of the audio desktop
+      to provide the first fully interactive speech-enabled
+      WebTop.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgd434354&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd434354&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;9.&lt;/span&gt; About
+      Emacspeak:&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-9&quot;&gt;
+      &lt;p&gt;
+      Originally based at Cornell (NY) —
+      &lt;a
+      
+      href=&quot;http://www.cs.cornell.edu/home/raman&quot;&gt;http://www.cs.cornell.edu/home/raman&lt;/a&gt; —home to Auditory User
+      Interfaces (AUI) on the WWW,  Emacspeak is now maintained on GitHub
+      —&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt;. The system is mirrored
+      world-wide by an international network of software archives and
+      bundled voluntarily with all major Linux distributions. On Monday,
+      April 12, 1999, Emacspeak became part of the &lt;a
+      
+      href=&quot;http://tvraman.github.io/emacspeak/blog/smithsonian-study.html&quot;&gt;Smithsonian&#39;s Permanent
+      Research Collection&lt;/a&gt; on Information Technology at the
+      Smithsonian&#39;s
+      National Museum of American History.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      The Emacspeak mailing list is archived at
+      &lt;a href=&quot;https://www.emacspeak.org&quot;&gt;Emacspeak Mail
+      Archive&lt;/a&gt; &amp;#x2013;the home of the
+      Emacspeak mailing list&amp;#x2013; thanks to Greg Priest-Dorman, and
+      provides a
+      valuable knowledge base for new users.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org3940d8e&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3940d8e&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;10.&lt;/span&gt; Press/Analyst
+      Contact: Tilden Labrador&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-10&quot;&gt;
+      &lt;p&gt;
+      Going forward, Tilden acknowledges his exclusive monopoly on
+      setting the direction of the Emacspeak Audio Desktop (🦮) and
+      promises to exercise this freedom to innovate and her resulting
+      power responsibly (as before) in the interest of all dogs.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      *About This Release:
+      &lt;/p&gt;
+      &lt;hr /&gt;
+      
+      &lt;p&gt;
+      Windows-Free (WF) is a favorite battle-cry of The League Against
+      Forced Fenestration (LAFF).  &amp;#x2013;see
+      &lt;a
+      
+      href=&quot;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&quot;&gt;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&lt;/a&gt; for details on
+      the ill-effects of Forced Fenestration.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      CopyWrite )C( Aster, Hubbell and Tilden Labrador. All Writes
+      Reserved.
+      HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are
+      Registered
+      Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs
+      belong to
+      their respective owners.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;	
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3740089600894731588'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3740089600894731588'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/11/announcing-emacspeak-550-calmdog.html' title='Announcing Emacspeak 55.0 (CalmDog)'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-6263923850603207795</id><published>
       2021-09-19T10:49:00.001-07:00
@@ -2570,182 +3094,6 @@
     <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/>
     <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/>
     <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/emacs-paired-commands-efficient.html' title='Emacs: Paired Commands --- Efficient Keyboard Interaction Using Hydra'/>
-    <author>
-      <name>T. V. Raman</name><uri>
-        http://www.blogger.com/profile/03589687652590194428
-      </uri>
-      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
-    </author>
-  </entry>
-  <entry>
-    <id>tag:blogger.com,1999:blog-20280042.post-8563131593972762432</id><published>
-      2020-09-08T16:26:00.000-07:00
-    </published>
-    <updated>2020-09-08T16:26:13.245-07:00</updated><title type='text'>
-      Searching GMail From GNUS
-    </title>
-    <content type='html'>&lt;div id=&quot;content&quot;&gt;
-      &lt;h1 class=&quot;title&quot;&gt;Using GMail Search Operators In
-      GNUS&lt;/h1&gt;
-      &lt;div id=&quot;outline-container-org551bed2&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org551bed2&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
-      Summary&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-      &lt;p&gt;
-      I have been using the following to search GMail from GNUS for over 8
-      years now. The recent announcement of the &lt;span
-      class=&quot;underline&quot;&gt;nnselect&lt;/span&gt; back-end
-      reminded
-      me that I had never gotten to writing this up formally, So here
-      goes. With the described solution in place, you can search your
-      GMailfrom within  GNUS using the same GMail Search operators  that
-      you&#39;re
-      familiar with from within  your Web Browser, e.g. searches of the
-      form
-      &lt;i&gt;from: foo&lt;/i&gt;,  &lt;i&gt;subject:bar&lt;/i&gt;,
-      &lt;i&gt;after:date&lt;/i&gt; and combinations of the
-      above.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org77c15d3&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org77c15d3&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt;
-      Background&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-      &lt;p&gt;
-      You can read email with GNUS, and many people read GMail with GNUS,
-      however, the details of GMail setup with GNUS wont fit this margin. 
-      For my own
-      GMail setup using Ceasar&#39;s excellent &lt;span
-      class=&quot;underline&quot;&gt;auth-xoauth2&lt;/span&gt; package,
-      see file
-      &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el&quot;&gt;gnus-gmail-prepare.el&lt;/a&gt;.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org742fc31&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org742fc31&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Leveraging GNUS
-      Back-end NNIR To Search GMail&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-      &lt;p&gt;
-      GMail is accessed from GNUS using the imap protocol.  The &lt;span
-      class=&quot;underline&quot;&gt;imap&lt;/span&gt;
-      specification defines a set of standard search operators; GMail
-      itself
-      defines a slightly different and arguably easier to use set of
-      searchoperators. Module
-      &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el&quot;&gt;gm-nnir&lt;/a&gt;
-      himplements both the standard IMap search operator as well as
-      GMail&#39;s
-      search operators; in practice, I have mostly only used the GMail
-      Search operators in the last 8 years since implementing this module.
-      &lt;/p&gt;
-      
-      &lt;p&gt;
-      Without further ado, here is the  code to enable GMail Search:
-      &lt;/p&gt;
-      
-      &lt;div class=&quot;org-src-container&quot;&gt;
-      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(defun
-      gm-nnir-group-make-gmail-group (query)
-      &quot;Use GMail search syntax.
-      See https://support.google.com/mail/answer/7190?hl=en for syntax.
-      &quot;
-      (interactive &quot;sGMail Query: &quot;)  
-      (let ((nnir-imap-default-search-key &quot;imap&quot;)
-      (q (format &quot;X-GM-RAW \&quot;%s\&quot;&quot; query)))
-      (cond
-      ((gnus-group-group-name)           ; Search current group
-      (gnus-group-make-nnir-group
-      nil                              ; no extra params needed
-      `(nnir-specs (nnir-query-spec (query ,q)))))
-      (t (error &quot;Not on a group.&quot;)))))
-      &lt;/pre&gt;
-      &lt;/div&gt;
-      
-      &lt;p&gt;
-      I bind the above to &lt;span
-      class=&quot;underline&quot;&gt;/&lt;/span&gt; by using
-      &lt;/p&gt;
-      &lt;div class=&quot;org-src-container&quot;&gt;
-      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(define-key
-      gnus-group-mode-map &quot;/&quot;
-      &#39;gm-nnir-group-make-gmail-group)
-      &lt;/pre&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      
-      
-      
-      &lt;div id=&quot;outline-container-org3464a1f&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org3464a1f&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Example Of
-      Use&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
-      &lt;p&gt;
-      I am subscribed to list &lt;span
-      class=&quot;underline&quot;&gt;emacs-devel@gnu.org&lt;/span&gt; and
-      email sent to that
-      list gets GMail Label &lt;code&gt;emacs-devel&lt;/code&gt;. In Gnus,
-      I open that label as
-      group &lt;code&gt;emacs-devel@gnu.org&lt;/code&gt;. Typing &lt;span
-      class=&quot;underline&quot;&gt;/&lt;/span&gt; on the group line and
-      entering
-      &lt;/p&gt;
-      &lt;pre class=&quot;example&quot;&gt;
-      from:rms after:2020/09/01
-      &lt;/pre&gt;
-      
-      &lt;p&gt;
-      in the minibuffer results in the following:
-      &lt;/p&gt;
-      
-      &lt;pre class=&quot;example&quot;&gt;
-      1.1 Re: Good first issues to contribute Richard Stallman 05-Sep
-      [5.3k]
-      2.1 Lars Ingebrigtsen is now one of the Emacs maintainers Richard
-      Stallman 06-Sep [4.9k]
-      3.1 Re: A new user perspective about &quot;Changes for emacs
-      28&quot; Richard Stallman 07-Sep [5.5k]
-      4.5 Re: Changes for emacs 28 Richard Stallman 07-Sep [5.3k]
-      5.1  Richard Stallman 07-Sep &amp;lt;6.2k&amp;gt;
-      6.1  Richard Stallman 07-Sep &amp;lt;6.0k&amp;gt;
-      7.1  Richard Stallman 07-Sep &amp;lt;5.5k&amp;gt;
-      8.1  Richard Stallman 07-Sep &amp;lt;5.7k&amp;gt;
-      
-      &lt;/pre&gt;
-      
-      
-      
-      
-      &lt;p&gt;
-      The search above creates an ephemeral group with matching messages
-      appearing as shown above, you can read messages, reply to them and
-      doanything else that you might ordinarily do within the GNUS
-      interface.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;					
-    </content>
-    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/>
-    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/>
-    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/searching-gmail-from-gnus.html' title='Searching GMail From GNUS'/>
     <author>
       <name>T. V. Raman</name><uri>
         http://www.blogger.com/profile/03589687652590194428
