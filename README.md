@@ -1,5 +1,5 @@
 # Emacspeak: The Complete Audio Desktop
-* [Download Release 52.0](https://github.com/tvraman/emacspeak/releases/download/52.0/emacspeak-52.0.tar.bz2)
+
 * [Blog](http://tvraman.github.io/emacspeak/blog)  Articles  --- including  emacspeak.blogspot.com  posts.
 * [Manual](http://tvraman.github.io/emacspeak/manual) Info manual for emacspeak.
 * [Web](http://emacspeak.sf.net) Emacspeak Web Site.
