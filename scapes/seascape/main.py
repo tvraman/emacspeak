@@ -18,10 +18,10 @@ wavesounds = [
 class SurfWaves(agent.Agent):
     """Orchestrate wave agents SurfWaveSounds and SurfBackgroundWaves"""
     def run(self):
-        
+
         ag = nature.BirdCalls()
         self.sched_agent(ag)
-            
+
         for i in range(8):
             x = -1 + i * 0.25
             sc = self.new_channel_pan(x)
@@ -30,6 +30,7 @@ class SurfWaves(agent.Agent):
             sc = self.new_channel_pan(-x)
             ag = SurfWaveSounds()
             self.sched_agent(ag, i * 10, sc)
+
 
 class SurfWaveSounds(agent.Agent):
     def run(self):
