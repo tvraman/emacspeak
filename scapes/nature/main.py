@@ -5,6 +5,7 @@ from boopak.package import *
 from boopak.argdef import *
 from boodle import agent, stereo
 from boodle import builtin
+
 manage = bimport('org.boodler.manage')
 play = bimport('org.boodler.play')
 aRain = bimport('com.eblong.pw.rain')
@@ -17,28 +18,58 @@ cricket = bimport('org.boodler.old.insect')
 trill = bimport('org.boodler.sample.insect')
 
 ca_mocks = [
-    birds.mocking_1, birds.mocking_2, birds.mocking_3, birds.mocking_4,
-    birds.mocking_5, birds.mocking_6, birds.mocker_01, birds.mocker_02,
-    birds.mocker_03, birds.mocker_04, birds.mocker_05, birds.mocker_06,
-    birds.mocker_07, birds.mocker_08, birds.mocker_09, birds.mocker_10,
+    birds.mocking_1,
+    birds.mocking_2,
+    birds.mocking_3,
+    birds.mocking_4,
+    birds.mocking_5,
+    birds.mocking_6,
+    birds.mocker_01,
+    birds.mocker_02,
+    birds.mocker_03,
+    birds.mocker_04,
+    birds.mocker_05,
+    birds.mocker_06,
+    birds.mocker_07,
+    birds.mocker_08,
+    birds.mocker_09,
+    birds.mocker_10,
 ]
 
 fl_mocks = [
-    birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
-     birds.fl_mocking_5, birds.fl_mocking_6,
-    birds.thrasher_01, birds.thrasher_02,
-    birds.mocker_41, birds.mocker_42, birds.mocker_43, birds.mocker_44,
-    birds.mocker_45, birds.mocker_46, birds.mocker_47, birds.mocker_48,
-    birds.mocker_49, birds.mocker_50, birds.mocker_51, birds.mocker_52,
-    birds.mocker_53, birds.mocker_54, birds.mocker_55, birds.mocker_56,
-    birds.mocker_57, birds.mocker_58, birds.mocker_59, birds.mocker_60,
+    birds.fl_mocking_1,
+    birds.fl_mocking_2,
+    birds.fl_mocking_3,
+    birds.fl_mocking_5,
+    birds.fl_mocking_6,
+    birds.thrasher_01,
+    birds.thrasher_02,
+    birds.mocker_41,
+    birds.mocker_42,
+    birds.mocker_43,
+    birds.mocker_44,
+    birds.mocker_45,
+    birds.mocker_46,
+    birds.mocker_47,
+    birds.mocker_48,
+    birds.mocker_49,
+    birds.mocker_50,
+    birds.mocker_51,
+    birds.mocker_52,
+    birds.mocker_53,
+    birds.mocker_54,
+    birds.mocker_55,
+    birds.mocker_56,
+    birds.mocker_57,
+    birds.mocker_58,
+    birds.mocker_59,
+    birds.mocker_60,
 ]
 
 cuckoos = [
-    birds.black_sparrow, birds.sparrow_black,
-    birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
-    birds.cuckoo_05, birds.cuckoo_06, birds.cuckoo_07, birds.cuckoo_08,
-    birds.cuckoo_09, birds.cuckoo_10,
+    birds.black_sparrow, birds.sparrow_black, birds.cuckoo_01, birds.cuckoo_02,
+    birds.cuckoo_03, birds.cuckoo_04, birds.cuckoo_05, birds.cuckoo_06,
+    birds.cuckoo_07, birds.cuckoo_08, birds.cuckoo_09, birds.cuckoo_10,
     birds.mocker_11, birds.mocker_12, birds.mocker_13, birds.mocker_14,
     birds.mocker_15, birds.mocker_16, birds.mocker_17, birds.mocker_18,
     birds.mocker_19, birds.mocker_20, birds.mocker_21, birds.mocker_22,
@@ -51,28 +82,56 @@ cuckoos = [
 
 nightingales = [
     birds.thrush_nightingale_1, birds.thrush_nightingale_2,
-    birds.thrush_nightingale_3, birds.thrush_nightingale_4,
-    birds.blackbird_01, birds.blackbird_02, birds.blackbird_03,
-    birds.nightingale_001, birds.nightingale_002, birds.nightingale_003,
-    birds.nightingale_004, birds.nightingale_005, birds.nightingale_006,
-    birds.nightingale_007, birds.nightingale_008, birds.nightingale_009,
-    birds.nightingale_010, birds.nightingale_011, birds.nightingale_012,
-    birds.nightingale_013, birds.nightingale_014, birds.nightingale_015,
-    birds.nightingale_016, birds.nightingale_017, birds.nightingale_018,
-    birds.nightingale_019, birds.nightingale_020, birds.nightingale_021
+    birds.thrush_nightingale_3, birds.thrush_nightingale_4, birds.blackbird_01,
+    birds.blackbird_02, birds.blackbird_03, birds.nightingale_001,
+    birds.nightingale_002, birds.nightingale_003, birds.nightingale_004,
+    birds.nightingale_005, birds.nightingale_006, birds.nightingale_007,
+    birds.nightingale_008, birds.nightingale_009, birds.nightingale_010,
+    birds.nightingale_011, birds.nightingale_012, birds.nightingale_013,
+    birds.nightingale_014, birds.nightingale_015, birds.nightingale_016,
+    birds.nightingale_017, birds.nightingale_018, birds.nightingale_019,
+    birds.nightingale_020, birds.nightingale_021
 ]
 
 ia_birds = [
-    birds.cardinal_01, birds.screech_owl,
-    birds.mt_quail, birds.morning_dove, birds.dove_morning, birds.osprey,
-    birds.lark_01, birds.lark_02, birds.wren_01, birds.ia_bird_1,
-    birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
-    birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9,
-    birds.mocker_61, birds.mocker_62, birds.mocker_63, birds.mocker_64,
-    birds.mocker_65, birds.mocker_66, birds.mocker_67, birds.mocker_68,
-    birds.mocker_69, birds.mocker_70, birds.mocker_71, birds.mocker_72,
-    birds.mocker_73, birds.mocker_74, birds.mocker_75, birds.mocker_76,
-    birds.mocker_77, birds.mocker_78, birds.mocker_79, birds.mocker_80,
+    birds.cardinal_01,
+    birds.screech_owl,
+    birds.mt_quail,
+    birds.morning_dove,
+    birds.dove_morning,
+    birds.osprey,
+    birds.lark_01,
+    birds.lark_02,
+    birds.wren_01,
+    birds.ia_bird_1,
+    birds.ia_bird_2,
+    birds.ia_bird_3,
+    birds.ia_bird_4,
+    birds.ia_bird_5,
+    birds.ia_bird_6,
+    birds.ia_bird_7,
+    birds.ia_bird_8,
+    birds.ia_bird_9,
+    birds.mocker_61,
+    birds.mocker_62,
+    birds.mocker_63,
+    birds.mocker_64,
+    birds.mocker_65,
+    birds.mocker_66,
+    birds.mocker_67,
+    birds.mocker_68,
+    birds.mocker_69,
+    birds.mocker_70,
+    birds.mocker_71,
+    birds.mocker_72,
+    birds.mocker_73,
+    birds.mocker_74,
+    birds.mocker_75,
+    birds.mocker_76,
+    birds.mocker_77,
+    birds.mocker_78,
+    birds.mocker_79,
+    birds.mocker_80,
 ]
 
 tropical_birds = [
@@ -559,7 +618,8 @@ class Nightscape(agent.Agent):
             ag = Crickets(0.0, 10.0, 0.1, 0.7, 1.4)
             self.sched_agent(ag, 0, nc)
 
-def birdLengths ():
+
+def birdLengths():
     print "Cuckoos: ", len(cuckoos)
     print "CA Mocks: ", len(ca_mocks)
     print "FL Mocks: ", len(fl_mocks)
@@ -568,14 +628,16 @@ def birdLengths ():
     print "SongBirds: ", len(song_birds)
     print "TropicalBirds: ", len(tropical_birds)
 
+
 #birdLengths() #for debugging
-    
+
 
 class BirdChorus(agent.Agent):
     def init(self):
         self.agents = [
-            IABirds, SongBirds, CaMockingBirds, 
-            Nightingales, TropicalBirds,  FlMockingBirds,Cuckoos]
+            IABirds, SongBirds, CaMockingBirds, Nightingales, TropicalBirds,
+            FlMockingBirds, Cuckoos
+        ]
 
     def run(self):
         doNature(self)
@@ -590,11 +652,13 @@ class BirdChorus(agent.Agent):
                 bc = self.new_channel_pan(x[k])
                 start = k
                 ag = self.agents[i](
-                    start, random.uniform(30, 90),  # duration
-                    1.0, 1.0,  # volume
-                     -0.7 + 0.2 * k  # pan  (-.7, .7)
+                    start,
+                    random.uniform(30, 90),  # duration
+                    1.0,
+                    1.0,  # volume
+                    -0.7 + 0.2 * k  # pan  (-.7, .7)
                 )
-                bc.set_pan (target,(random.uniform(1, 3)))
+                bc.set_pan(target, (random.uniform(1, 3)))
                 self.sched_agent(ag, k * 5, bc)
 
 
@@ -635,8 +699,10 @@ class BirdCalls(agent.Agent):
                 k = (i + j) % len(x)
                 bc = self.new_channel_pan(x[k])
                 ag = self.agents[i](
-                    0, 60,
-                    0.7, 1.0,  # volume
+                    0,
+                    60,
+                    0.7,
+                    1.0,  # volume
                     -1 + k * 0.285714  # pan
                 )
                 self.sched_agent(ag, 0, bc)
