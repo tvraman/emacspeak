@@ -1,0 +1,6 @@
+Downloaded using emacspeak-twittering-twarc
+
+1. First make sure to sign in to twitter using M-x twit.
+   2. Then invoke command emacspeak-twittering-twarc
+3. To view text of tweets, use jq like so:
+: jq .full_text <filename>
