@@ -16346,6 +16346,8 @@ t   :  tops/last
 @format
 Open a frame on a remote Emacs.
 Remote workstation is  ‘emacspeak-wizards-remote-workstation’.
+Works best when you already are ssh-impel-ed in and have a talking
+  remote Emacs in   a local XTerm.
 @end format
 @end deffn
 
