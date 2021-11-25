@@ -1,27 +1,27 @@
 * Executive Summary
 
 Emacspeak has supported /Cloud Computing/ since 1995, i.e., long
-before the term /Cloud Computing/ was invented.  I have used
-Emacs with Emacspeak running on remote servers (called cloud-top in
-the rest of this article) since that time, with a local speech server
-on my client machine providing spoken feedback.  The underlying
-ssh-based scripts have changed over time; this article documents what
-I have been using for the last 7 years or more. As with everything
-else Linux, you should not use this without understanding how it
-works. All of the relevant code is checked into GitHub, but if you use
-it without understanding, you are likely to get 2 for the price of
-1😀.
+before the term was invented.  I have used Emacs with Emacspeak
+running on remote servers (called cloud-top in the rest of this
+article) since that time, with a local speech server on my client
+machine providing spoken feedback.  The underlying ssh-based scripts
+have changed over time; this article documents what I have been using
+for the last 7 years or more. As with everything else Linux, you
+should not use this without understanding how it works. All of the
+relevant code is checked into GitHub, but if you use it without
+understanding, you are likely to get 2 for the price of 1😀.
 
 * The Basics
 
-1. Emacspeak produces all  spoken and non-spoken feedback via a
-   /speech server/.
+1. Emacspeak produces all spoken and non-spoken feedback via a /speech
+   server/ --- see [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/][Emacspeak: Beautiful Code]] for the detailed
+   architecture overview.
 2. This server runs as a separate process and can either run *locally*
    i.e. on the machine running emacs; it can also run *remotely*,
    e.g. your laptop from which  you login to your cloud-top.
-3. Note the /local/ and /remote/ in the above --- to Emacspeak, the
-   machine where Emacs runs is the local machine, so your machine in
-   the cloud is *local* to Emacspeak.
+3. Note the /local/ and /remote/ terminology in the above --- to
+   Emacspeak, the machine where Emacs runs is the local machine, so
+   your machine in the cloud is *local* to Emacspeak.
 4. Consequently, the machine from where you SSH to the cloud, a
    laptop, a Raspberry Pi, or in a future a tin-can that you use as a
    client is *remote* to emacspeak.
@@ -35,7 +35,9 @@ it without understanding, you are likely to get 2 for the price of
 3. When running Emacspeak on a cloud-top, this /local speech server/ is just a
    simple shell script that connects to a local port  --- by default    *2222*.
 4. When you connect to your cloud-top via SSH, you first /reverse port
-   forward/ port *2222* from the cloud-top back to your client.
+   forward/ port *2222* from the cloud-top back to your client. This
+   causes data sent to port *2222* on the cloud-top by Emacs to show
+   up on port *2222* on the local machine where your speech server is listening.
 5. With that reverse port forwarding in place and assuming that
    ~espeak~ is your TTS engine, running the speech-server
    ~cloud-espeak~ on the cloud-top connects back to your client to
@@ -66,9 +68,10 @@ On your client device, run
 
 : . <emacspeak_dir>/bash-utils/remote
 
-This need be done only once per interactive shell.
+This need be done only once per interactive shell.It defines ~bash~
+functions _remote_ and _rtts_.
 
-Next, run  Bash function ~remote~ defined in the script you just
+Next, run  Bash function _remote_ defined in the script you just
 loaded.
 
 : remote host.example.com  speech-server espeak
@@ -76,7 +79,7 @@ loaded.
 This does the following:
 
 1. Starts a local speech server for the TTS engine ~espeak~.
-2. Opens an SSH session to the cloud-top host.example.com
+2. Opens an SSH session to the cloud-top host.example.com.
 3. Plays a musical chime (using ~sox~) to cue completion.
 4. Depending on your SSH setup, you may or may not need to type your
     ssh password at this point; avoiding having to type a password is
@@ -87,6 +90,15 @@ This does the following:
 6. Note that typically, you should run something like ~screen~ on the
    cloud-top and run Emacs within that ~screen~ session; this will let
    you persist a running Emacs across multiple login/logout.
+
+* Experience On A Well-Configured Setup
+
+On a well-configured setup, you typically need only do:
+
+1. Run the bash function that starts the local TTS server, and then
+   connects to the cloud-top via SSH with reverse-port forwarding active.
+2. Assuming there is an Emacs session running under screen at the
+   remote end, it'll start talking on your local client.
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil

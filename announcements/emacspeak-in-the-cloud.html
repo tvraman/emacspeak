@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-24 Wed 19:52 -->
+<!-- 2021-11-25 Thu 07:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacspeak In The Age Of Cloud Computing</title>
@@ -197,37 +197,37 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Emacspeak In The Age Of Cloud Computing</h1>
-<div id="outline-container-orgd01a6ea" class="outline-2">
-<h2 id="orgd01a6ea"><span class="section-number-2">1.</span> Executive Summary</h2>
+<div id="outline-container-orgd973121" class="outline-2">
+<h2 id="orgd973121"><span class="section-number-2">1.</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacspeak has supported <i>Cloud Computing</i> since 1995, i.e., long
-before the term <i>Cloud Computing</i> was invented.  I have used
-Emacs with Emacspeak running on remote servers (called cloud-top in
-the rest of this article) since that time, with a local speech server
-on my client machine providing spoken feedback.  The underlying
-ssh-based scripts have changed over time; this article documents what
-I have been using for the last 7 years or more. As with everything
-else Linux, you should not use this without understanding how it
-works. All of the relevant code is checked into GitHub, but if you use
-it without understanding, you are likely to get 2 for the price of
-1😀.
+before the term was invented.  I have used Emacs with Emacspeak
+running on remote servers (called cloud-top in the rest of this
+article) since that time, with a local speech server on my client
+machine providing spoken feedback.  The underlying ssh-based scripts
+have changed over time; this article documents what I have been using
+for the last 7 years or more. As with everything else Linux, you
+should not use this without understanding how it works. All of the
+relevant code is checked into GitHub, but if you use it without
+understanding, you are likely to get 2 for the price of 1😀.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org91eff4d" class="outline-2">
-<h2 id="org91eff4d"><span class="section-number-2">2.</span> The Basics</h2>
+<div id="outline-container-orgce224d0" class="outline-2">
+<h2 id="orgce224d0"><span class="section-number-2">2.</span> The Basics</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
-<li>Emacspeak produces all  spoken and non-spoken feedback via a
-<i>speech server</i>.</li>
+<li>Emacspeak produces all spoken and non-spoken feedback via a <i>speech
+server</i> &#x2014; see <a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/">Emacspeak: Beautiful Code</a> for the detailed
+architecture overview.</li>
 <li>This server runs as a separate process and can either run <b>locally</b>
 i.e. on the machine running emacs; it can also run <b>remotely</b>,
 e.g. your laptop from which  you login to your cloud-top.</li>
-<li>Note the <i>local</i> and <i>remote</i> in the above &#x2014; to Emacspeak, the
-machine where Emacs runs is the local machine, so your machine in
-the cloud is <b>local</b> to Emacspeak.</li>
+<li>Note the <i>local</i> and <i>remote</i> terminology in the above &#x2014; to
+Emacspeak, the machine where Emacs runs is the local machine, so
+your machine in the cloud is <b>local</b> to Emacspeak.</li>
 <li>Consequently, the machine from where you SSH to the cloud, a
 laptop, a Raspberry Pi, or in a future a tin-can that you use as a
 client is <b>remote</b> to emacspeak.</li>
@@ -235,8 +235,8 @@ client is <b>remote</b> to emacspeak.</li>
 </div>
 </div>
 
-<div id="outline-container-orgdccc8df" class="outline-2">
-<h2 id="orgdccc8df"><span class="section-number-2">3.</span> How It Works</h2>
+<div id="outline-container-org9d1d106" class="outline-2">
+<h2 id="org9d1d106"><span class="section-number-2">3.</span> How It Works</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>When you start Emacs with Emacspeak loaded, Emacs starts the
@@ -246,7 +246,9 @@ normally this starts the local server for your  prefered TTS engine.</li>
 <li>When running Emacspeak on a cloud-top, this <i>local speech server</i> is just a
 simple shell script that connects to a local port  &#x2014; by default    <b>2222</b>.</li>
 <li>When you connect to your cloud-top via SSH, you first <i>reverse port
-forward</i> port <b>2222</b> from the cloud-top back to your client.</li>
+forward</i> port <b>2222</b> from the cloud-top back to your client. This
+causes data sent to port <b>2222</b> on the cloud-top by Emacs to show
+up on port <b>2222</b> on the local machine where your speech server is listening.</li>
 <li>With that reverse port forwarding in place and assuming that
 <code>espeak</code> is your TTS engine, running the speech-server
 <code>cloud-espeak</code> on the cloud-top connects back to your client to
@@ -262,36 +264,57 @@ this is <code>ssh-espeak</code>.
 <p>
 See directory <code>bash-utils</code> in your emacspeak Git checkout for the
 relevant Bash scripts.
-</p>
-
-<ul class="org-ul">
-<li><p>
-Workflow
-</p>
-
-<p>
-Here is what the workflow looks like, again, use this <b>only if</b>
-you have read and understood the previous section.
-</p></li>
-</ul>
-<p>
-See<a href="https://github.com/tvraman/emacspeak/blob/master/bash-utils/remote#L8">Bash Utils</a> for the scripts mentioned below. Everything below
-assumes a Bash Shell.  On your client device, run
 </p></li>
 </ol>
+</div>
+</div>
+
+<div id="outline-container-org81b1ca8" class="outline-2">
+<h2 id="org81b1ca8"><span class="section-number-2">4.</span> Workflow</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+  Here is what the workflow looks like, again, use this <b>only if</b>
+  you have read and understood the previous section.
+See<a href="https://github.com/tvraman/emacspeak/blob/master/bash-utils/remote#L8">Bash Utils</a> for the scripts mentioned below. Everything below
+assumes a Bash Shell.
+</p>
+
+<p>
+On your cloud-top, specify the speech-server to use by running
+</p>
+
 <pre class="example">
-. .bash-utils/remote
+export DTK_PROGRAM=cloud-espeak
 </pre>
 
+
 <p>
-This need be done only once per interactive shell.
+You can put the above in your  <code>.bash_profile</code> on your cloud-top.
 </p>
 
 <p>
-Next, run  Bash function <code>remote</code> defined in the script you just
-loaded:
-:remote host.example.com  speech-server espeak
+On your client device, run
 </p>
+
+<pre class="example">
+. &lt;emacspeak_dir&gt;/bash-utils/remote
+</pre>
+
+
+<p>
+This need be done only once per interactive shell.It defines <code>bash</code>
+functions <span class="underline">remote</span> and <span class="underline">rtts</span>.
+</p>
+
+<p>
+Next, run  Bash function <span class="underline">remote</span> defined in the script you just
+loaded.
+</p>
+
+<pre class="example">
+remote host.example.com  speech-server espeak
+</pre>
+
 
 <p>
 This does the following:
@@ -299,11 +322,33 @@ This does the following:
 
 <ol class="org-ol">
 <li>Starts a local speech server for the TTS engine <code>espeak</code>.</li>
-<li>Opens an SSH session to the cloud-top host.example.com</li>
+<li>Opens an SSH session to the cloud-top host.example.com.</li>
 <li>Plays a musical chime (using <code>sox</code>) to cue completion.</li>
 <li>Depending on your SSH setup, you may or may not need to type your
  ssh password at this point; avoiding having to type a password is
 beyond the perview of this article, consult the SSH manual pages.</li>
+<li>Now, run Emacs on  the cloud-top. Assuming that you have updated
+your Emacs initialization to load Emacspeak, this will get
+Emacspeak running on   the cloud-top talking on your client.</li>
+<li>Note that typically, you should run something like <code>screen</code> on the
+cloud-top and run Emacs within that <code>screen</code> session; this will let
+you persist a running Emacs across multiple login/logout.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org4676fc9" class="outline-2">
+<h2 id="org4676fc9"><span class="section-number-2">5.</span> Experience On A Well-Configured Setup</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+On a well-configured setup, you typically need only do:
+</p>
+
+<ol class="org-ol">
+<li>Run the bash function that starts the local TTS server, and then
+connects to the cloud-top via SSH with reverse-port forwarding active.</li>
+<li>Assuming there is an Emacs session running under screen at the
+remote end, it'll start talking on your local client.</li>
 </ol>
 </div>
 </div>
@@ -311,7 +356,7 @@ beyond the perview of this article, consult the SSH manual pages.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-11-24 Wed 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2021-11-24 Wed 19:52</p>
+<p class="date">Created: 2021-11-25 Thu 07:00</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
