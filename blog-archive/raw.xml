@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
 <feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'>
   <id>tag:blogger.com,1999:blog-20280042</id><updated>
-    2021-11-24T08:30:38.867-08:00
+    2021-11-25T07:10:31.062-08:00
   </updated>
   <title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>
     Here is where I plan to Blog Emacspeak tricks and introduce new
@@ -19,11 +19,249 @@
     <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
   </author>
   <generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>
-    178
+    179
   </openSearch:totalResults>
   <openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>
     10
   </openSearch:itemsPerPage>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-8282700412236478605</id><published>
+      2021-11-25T07:09:00.002-08:00
+    </published>
+    <updated>2021-11-25T07:09:48.848-08:00</updated><title type='text'>
+      Emacspeak In The Age Of Cloud Computing
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Emacspeak In The Age Of Cloud
+      Computing&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-orgd973121&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd973121&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Emacspeak has supported &lt;i&gt;Cloud Computing&lt;/i&gt; since
+      1995, i.e., long
+      before the term was invented.  I have used Emacs with Emacspeak
+      running on remote servers (called cloud-top in the rest of this
+      article) since that time, with a local speech server on my client
+      machine providing spoken feedback.  The underlying ssh-based scripts
+      have changed over time; this article documents what I have been
+      usingfor the last 7 years or more. As with everything else Linux,
+      youshould not use this without understanding how it works. All of
+      therelevant code is checked into GitHub, but if you use it without
+      understanding, you are likely to get 2 for the price of 1😀.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgce224d0&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgce224d0&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; The
+      Basics&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Emacspeak produces all spoken and non-spoken feedback via
+      a &lt;i&gt;speech
+      server&lt;/i&gt; &amp;#x2014; see &lt;a
+      
+      href=&quot;http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/&quot;&gt;Emacspeak: Beautiful Code&lt;/a&gt; for the detailed
+      architecture overview.&lt;/li&gt;
+      &lt;li&gt;This server runs as a separate process and can either run
+      &lt;b&gt;locally&lt;/b&gt;
+      i.e. on the machine running emacs; it can also run
+      &lt;b&gt;remotely&lt;/b&gt;,
+      e.g. your laptop from which  you login to your cloud-top.&lt;/li&gt;
+      &lt;li&gt;Note the &lt;i&gt;local&lt;/i&gt; and
+      &lt;i&gt;remote&lt;/i&gt; terminology in the above &amp;#x2014; to
+      Emacspeak, the machine where Emacs runs is the local machine, so
+      your machine in the cloud is &lt;b&gt;local&lt;/b&gt; to
+      Emacspeak.&lt;/li&gt;
+      &lt;li&gt;Consequently, the machine from where you SSH to the cloud,
+      a
+      laptop, a Raspberry Pi, or in a future a tin-can that you use as a
+      client is &lt;b&gt;remote&lt;/b&gt; to emacspeak.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org9d1d106&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org9d1d106&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; How It
+      Works&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;When you start Emacs with Emacspeak loaded, Emacs starts
+      the
+      speech-server as the first step in the emacspeak startup.
+      normally this starts the local server for your  prefered TTS
+      engine.&lt;/li&gt;
+      &lt;li&gt;See the emacspeak manual for how this speech-server is
+      determined.&lt;/li&gt;
+      &lt;li&gt;When running Emacspeak on a cloud-top, this &lt;i&gt;local
+      speech server&lt;/i&gt; is just a
+      simple shell script that connects to a local port  &amp;#x2014; by
+      default    &lt;b&gt;2222&lt;/b&gt;.&lt;/li&gt;
+      &lt;li&gt;When you connect to your cloud-top via SSH, you first
+      &lt;i&gt;reverse port
+      forward&lt;/i&gt; port &lt;b&gt;2222&lt;/b&gt; from the cloud-top
+      back to your client. This
+      causes data sent to port &lt;b&gt;2222&lt;/b&gt; on the cloud-top by
+      Emacs to show
+      up on port &lt;b&gt;2222&lt;/b&gt; on the local machine where your
+      speech server is listening.&lt;/li&gt;
+      &lt;li&gt;With that reverse port forwarding in place and assuming
+      that
+      &lt;code&gt;espeak&lt;/code&gt; is your TTS engine, running the
+      speech-server
+      &lt;code&gt;cloud-espeak&lt;/code&gt; on the cloud-top connects back
+      to your client to
+      produce spoken output.&lt;/li&gt;
+      &lt;li&gt;For the previous step to work, something (or someone)
+      needs to be
+      listening on port &lt;b&gt;2222&lt;/b&gt; on your client.&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;
+      So you need to start the relevant speech server  on your client
+      before you &lt;code&gt;ssh&lt;/code&gt; to your cloud-top
+      &amp;#x2014; in the case of &lt;code&gt;espeak&lt;/code&gt;,
+      this is &lt;code&gt;ssh-espeak&lt;/code&gt;.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      See directory &lt;code&gt;bash-utils&lt;/code&gt; in your emacspeak
+      Git checkout for the
+      relevant Bash scripts.
+      &lt;/p&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org81b1ca8&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org81b1ca8&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt;
+      Workflow&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;p&gt;
+      Here is what the workflow looks like, again, use this &lt;b&gt;only
+      if&lt;/b&gt;
+      you have read and understood the previous section.
+      See&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/bash-utils/remote#L8&quot;&gt;Bash Utils&lt;/a&gt; for the scripts mentioned below. Everything below
+      assumes a Bash Shell.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      On your cloud-top, specify the speech-server to use by running
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      export DTK_PROGRAM=cloud-espeak
+      &lt;/pre&gt;
+      
+      
+      &lt;p&gt;
+      You can put the above in your 
+      &lt;code&gt;.bash_profile&lt;/code&gt; on your cloud-top.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      On your client device, run
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      . &amp;lt;emacspeak_dir&amp;gt;/bash-utils/remote
+      &lt;/pre&gt;
+      
+      
+      &lt;p&gt;
+      This need be done only once per interactive shell.It defines
+      &lt;code&gt;bash&lt;/code&gt;
+      functions &lt;span
+      class=&quot;underline&quot;&gt;remote&lt;/span&gt; and &lt;span
+      class=&quot;underline&quot;&gt;rtts&lt;/span&gt;.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Next, run  Bash function &lt;span
+      class=&quot;underline&quot;&gt;remote&lt;/span&gt; defined in the
+      script you just
+      loaded.
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      remote host.example.com  speech-server espeak
+      &lt;/pre&gt;
+      
+      
+      &lt;p&gt;
+      This does the following:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Starts a local speech server for the TTS engine
+      &lt;code&gt;espeak&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Opens an SSH session to the cloud-top
+      host.example.com.&lt;/li&gt;
+      &lt;li&gt;Plays a musical chime (using &lt;code&gt;sox&lt;/code&gt;)
+      to cue completion.&lt;/li&gt;
+      &lt;li&gt;Depending on your SSH setup, you may or may not need to
+      type your
+      ssh password at this point; avoiding having to type a password is
+      beyond the perview of this article, consult the SSH manual
+      pages.&lt;/li&gt;
+      &lt;li&gt;Now, run Emacs on  the cloud-top. Assuming that you have
+      updated
+      your Emacs initialization to load Emacspeak, this will get
+      Emacspeak running on   the cloud-top talking on your
+      client.&lt;/li&gt;
+      &lt;li&gt;Note that typically, you should run something like
+      &lt;code&gt;screen&lt;/code&gt; on the
+      cloud-top and run Emacs within that &lt;code&gt;screen&lt;/code&gt;
+      session; this will let
+      you persist a running Emacs across multiple login/logout.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org4676fc9&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org4676fc9&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt; Experience On
+      A Well-Configured Setup&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;p&gt;
+      On a well-configured setup, you typically need only do:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Run the bash function that starts the local TTS server,
+      and then
+      connects to the cloud-top via SSH with reverse-port forwarding
+      active.&lt;/li&gt;
+      &lt;li&gt;Assuming there is an Emacs session running under screen at
+      the
+      remote end, it&#39;ll start talking on your local client.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8282700412236478605'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8282700412236478605'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2021/11/emacspeak-in-age-of-cloud-computing.html' title='Emacspeak In The Age Of Cloud Computing'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-3740089600894731588</id><published>
       2021-11-24T08:30:00.000-08:00
@@ -2880,220 +3118,6 @@
     <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
     <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
     <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html' title='On Defining Keys In Emacs'/>
-    <author>
-      <name>T. V. Raman</name><uri>
-        http://www.blogger.com/profile/03589687652590194428
-      </uri>
-      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
-    </author>
-  </entry>
-  <entry>
-    <id>tag:blogger.com,1999:blog-20280042.post-5376248580919833370</id><published>
-      2020-09-16T10:29:00.001-07:00
-    </published>
-    <updated>2020-09-16T10:29:30.285-07:00</updated><title type='text'>
-      Emacs: Paired Commands --- Efficient Keyboard Interaction Using
-      Hydra
-    </title>
-    <content type='html'>&lt;div id=&quot;content&quot;&gt;
-      &lt;h1 class=&quot;title&quot;&gt;Emacs: paired Commands —
-      Efficient Keyboard Interaction Using Hydra&lt;/h1&gt;
-      &lt;div id=&quot;outline-container-orgf8040fa&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;orgf8040fa&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
-      Summary&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-      &lt;p&gt;
-      Emacs commands such as &lt;code&gt;yank&lt;/code&gt; and
-      &lt;code&gt;yank-pop&lt;/code&gt; or
-      &lt;code&gt;undo-only&lt;/code&gt; and
-      &lt;code&gt;undo-redo&lt;/code&gt; come in logical pairs.  Such
-      logical pairs (or command
-      tuples in general) are characterized by the fact that one often
-      invokes a sequence of these commands repeatedly until the desired
-      result is attained.  Package &lt;a
-      href=&quot;https://github.com/abo-abo/hydra&quot;&gt;Hydra&lt;/a&gt;
-      defines an elegant means of
-      combining such command pairs into a single higher-level command that
-      can be invoked more efficiently from the keyboard.
-      To my knowledge, the only built-in Emacs command that exhibits a
-      similar behavior is Emacs&#39;
-      &lt;code&gt;text-scale-adjust&lt;/code&gt;.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-orgf39356f&quot;
-      class=&quot;outline-3&quot;&gt;
-      &lt;h3 id=&quot;orgf39356f&quot;&gt;&lt;span
-      class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Example:
-      &lt;code&gt;undo-oanly&lt;/code&gt; And
-      &lt;code&gt;undo-redo&lt;/code&gt;&lt;/h3&gt;
-      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
-      &lt;p&gt;
-      Command &lt;code&gt;undo-only&lt;/code&gt; allows one to  move back
-      through a sequence of
-      changes.Command &lt;code&gt;undo-redo&lt;/code&gt; in contrast
-      &lt;i&gt;undoes&lt;/i&gt; previous undo
-      commands.
-      In practice, one often moves back through a sequence of operations,
-      with a few &lt;code&gt;undo-redo&lt;/code&gt; invocations mixed in
-      if one moves back too far.
-      &lt;/p&gt;
-      
-      &lt;p&gt;
-      Emacs convention would suggest that one bind these commands to
-      separate keys, but this has a few disadvantages:
-      &lt;/p&gt;
-      
-      &lt;ul class=&quot;org-ul&quot;&gt;
-      &lt;li&gt;Binding separate keys to the two commands feels wasteful,
-      especially as unbound keys in Emacs become increasingly
-      precious.&lt;/li&gt;
-      &lt;li&gt;It&#39;s not ergonomic  to jump between the two commands
-      in this pair
-      unless one chooses the key-bindings &lt;i&gt;carefully&lt;/i&gt;
-      &amp;#x2014; as an example,
-      I used &lt;span class=&quot;underline&quot;&gt;C-x u&lt;/span&gt;
-      for &lt;code&gt;undo-only and _C-x C-u&lt;/code&gt; for
-      &lt;code&gt;undo-redo&lt;/code&gt; for
-      many years. But now, a continuous sequence of undo operations
-      requires too much chording.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-orga592e5d&quot;
-      class=&quot;outline-3&quot;&gt;
-      &lt;h3 id=&quot;orga592e5d&quot;&gt;&lt;span
-      class=&quot;section-number-3&quot;&gt;1.2&lt;/span&gt; A Hydra
-      Inspired Solution&lt;/h3&gt;
-      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;Combine the two commands into a higher-level
-      command.&lt;/li&gt;
-      &lt;li&gt;Bind that command to a single key, in my case &lt;span
-      class=&quot;underline&quot;&gt;C-/&lt;/span&gt;
-      (&lt;i&gt;C-_&lt;/i&gt; on a tty).&lt;/li&gt;
-      &lt;li&gt;When invoked, the Hydra-defined command does one of the
-      following:
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;Invokes &lt;code&gt;undo-only&lt;/code&gt;  on being
-      called, then continues to read keys.&lt;/li&gt;
-      &lt;li&gt;Subsequent presses of &lt;span
-      class=&quot;underline&quot;&gt;/&lt;/span&gt; invoke command
-      &lt;code&gt;undo-only&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Pressing &lt;span
-      class=&quot;underline&quot;&gt;\&lt;/span&gt; invokes
-      &lt;code&gt;undo-redo&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Any other key quits the Hydra-generated higher-level
-      command.&lt;/li&gt;
-      &lt;/ol&gt;&lt;/li&gt;
-      &lt;/ol&gt;
-      
-      &lt;p&gt;
-      This is defined as part of Emacspeak&#39;s collection of &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-muggles.el#L1&quot;&gt;Muggles&lt;/a&gt;, as is evident, this is much nicer to  your wrists.
-      &lt;/p&gt;
-      
-      
-      &lt;div class=&quot;org-src-container&quot;&gt;
-      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(global-set-key
-      (kbd &lt;span style=&quot;color:
-      #8b2252;&quot;&gt;&quot;C-/&quot;&lt;/span&gt;) 
-      (&lt;span style=&quot;color: #a020f0;&quot;&gt;defhydra&lt;/span&gt;
-      emacspeak-muggles-undo-only/undo-redo
-      (&lt;span style=&quot;color:
-      #483d8b;&quot;&gt;:body-pre&lt;/span&gt; (emacspeak-hydra-body-pre
-      &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Undo
-      Smartly&quot;&lt;/span&gt;)
-      &lt;span style=&quot;color: #483d8b;&quot;&gt;:pre&lt;/span&gt;
-      (&lt;span style=&quot;color: #a020f0;&quot;&gt;progn&lt;/span&gt;
-      (&lt;span style=&quot;color: #a020f0;&quot;&gt;when&lt;/span&gt;
-      hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-pre))
-      &lt;span style=&quot;color: #483d8b;&quot;&gt;:post&lt;/span&gt;
-      emacspeak-hydra-post)
-      &lt;span style=&quot;color:
-      #8b2252;&quot;&gt;&quot;Undo&quot;&lt;/span&gt;
-      (&lt;span style=&quot;color:
-      #8b2252;&quot;&gt;&quot;?&quot;&lt;/span&gt;
-      (emacspeak-hydra-self-help &lt;span style=&quot;color:
-      
-      #8b2252;&quot;&gt;&quot;emacspeak-muggles-undo-only/undo-redo&quot;&lt;/span&gt;))
-      (&lt;span style=&quot;color:
-      #8b2252;&quot;&gt;&quot;/&quot;&lt;/span&gt; undo-only nil)
-      (&lt;span style=&quot;color:
-      #8b2252;&quot;&gt;&quot;\\&quot;&lt;/span&gt; undo-redo nil)))
-      &lt;/pre&gt;
-      &lt;/div&gt;
-      
-      &lt;p&gt;
-      Note that the above can be simplified by dropping the
-      emacspeak-specific clauses when not using Emacspeak.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org6e9b5d6&quot;
-      class=&quot;outline-3&quot;&gt;
-      &lt;h3 id=&quot;org6e9b5d6&quot;&gt;&lt;span
-      class=&quot;section-number-3&quot;&gt;1.3&lt;/span&gt; Repeatable
-      Yank/Pop From The Hydra Wiki&lt;/h3&gt;
-      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
-      &lt;p&gt;
-      I originally discovered the metaphor of repeatable paired commands a
-      few years ago from the &lt;a
-      href=&quot;https://github.com/abo-abo/hydra.wiki.git&quot;&gt;Hydra
-      Wiki&lt;/a&gt;  which demonstrates a &lt;a
-      
-      href=&quot;https://github.com/abo-abo/hydra/wiki/Emacs&quot;&gt;repeatable
-      yank/pop&lt;/a&gt;.  To summarize its effects:
-      &lt;/p&gt;
-      
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;&lt;span class=&quot;underline&quot;&gt;C-y&lt;/span&gt;
-      invokes the hydra-generated higher-level command.&lt;/li&gt;
-      &lt;li&gt;Subsequent presses of &lt;span
-      class=&quot;underline&quot;&gt;y&lt;/span&gt; is  the same of
-      &lt;code&gt;yank-pop&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Pressing &lt;span
-      class=&quot;underline&quot;&gt;Y&lt;/span&gt; invokes
-      &lt;code&gt;yank-pop&lt;/code&gt; with a negative
-      argument.&lt;/li&gt;
-      &lt;li&gt;Consequence of above, you can grab the last entry on the
-      &lt;code&gt;kill-ring&lt;/code&gt; by pressing &lt;span
-      class=&quot;underline&quot;&gt;Y&lt;/span&gt; after invoking the
-      command &amp;#x2014; would
-      take a lot more keystrokes in vanilla Emacs.&lt;/li&gt;
-      &lt;li&gt;You can also add smart affordances such as searching the
-      &lt;code&gt;kill-ring&lt;/code&gt; via interfaces such as
-      &lt;code&gt;ido&lt;/code&gt;.&lt;/li&gt;
-      &lt;/ol&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org7cceb4f&quot;
-      class=&quot;outline-3&quot;&gt;
-      &lt;h3 id=&quot;org7cceb4f&quot;&gt;&lt;span
-      class=&quot;section-number-3&quot;&gt;1.4&lt;/span&gt;
-      Conclusion&lt;/h3&gt;
-      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-4&quot;&gt;
-      &lt;p&gt;
-      As Emacs gains in functionality, grouping commands into higher-level
-      abstractions, generating a single higher-level command that is bound
-      to a key, and using that invocation context to implement the  result
-      of subsequent keypresses is an abstraction that generalizes well.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-    </content>
-    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/>
-    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/>
-    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/emacs-paired-commands-efficient.html' title='Emacs: Paired Commands --- Efficient Keyboard Interaction Using Hydra'/>
     <author>
       <name>T. V. Raman</name><uri>
         http://www.blogger.com/profile/03589687652590194428
