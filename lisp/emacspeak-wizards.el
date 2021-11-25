@@ -2974,7 +2974,9 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
 
 (defun emacspeak-wizards-remote-frame ()
   "Open a frame on a remote Emacs.
-Remote workstation is  `emacspeak-wizards-remote-workstation'."
+Remote workstation is  `emacspeak-wizards-remote-workstation'.
+Works best when you already are ssh-impel-ed in and have a talking
+  remote Emacs in   a local XTerm."
   (interactive )
   (cl-declare (special emacspeak-wizards-remote-workstation))
   (cl-assert
@@ -2987,7 +2989,7 @@ Remote workstation is  `emacspeak-wizards-remote-workstation'."
                          (cl-first (split-string emacspeak-wizards-remote-workstation "\\.")))))))
     (start-process
      "REmacs" "*REmacs*" "ssh"
-     "-Y"                       ;;; forward Trusted X11
+     "-Y" ;;; forward Trusted X11
      emacspeak-wizards-remote-workstation
      "emacsclient" "-c"
      "-a" "''"
