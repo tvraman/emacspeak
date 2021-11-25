@@ -1,0 +1,104 @@
+* Executive Summary
+
+Emacspeak has supported /Cloud Computing/ since 1995, i.e., long
+before the term /Cloud Computing/ was invented.  I have used
+Emacs with Emacspeak running on remote servers (called cloud-top in
+the rest of this article) since that time, with a local speech server
+on my client machine providing spoken feedback.  The underlying
+ssh-based scripts have changed over time; this article documents what
+I have been using for the last 7 years or more. As with everything
+else Linux, you should not use this without understanding how it
+works. All of the relevant code is checked into GitHub, but if you use
+it without understanding, you are likely to get 2 for the price of
+1😀.
+
+* The Basics
+
+1. Emacspeak produces all  spoken and non-spoken feedback via a
+   /speech server/.
+2. This server runs as a separate process and can either run *locally*
+   i.e. on the machine running emacs; it can also run *remotely*,
+   e.g. your laptop from which  you login to your cloud-top.
+3. Note the /local/ and /remote/ in the above --- to Emacspeak, the
+   machine where Emacs runs is the local machine, so your machine in
+   the cloud is *local* to Emacspeak.
+4. Consequently, the machine from where you SSH to the cloud, a
+   laptop, a Raspberry Pi, or in a future a tin-can that you use as a
+   client is *remote* to emacspeak.
+
+* How It Works
+
+1. When you start Emacs with Emacspeak loaded, Emacs starts the
+   speech-server as the first step in the emacspeak startup.
+   normally this starts the local server for your  prefered TTS engine.
+2. See the emacspeak manual for how this speech-server is determined.
+3. When running Emacspeak on a cloud-top, this /local speech server/ is just a
+   simple shell script that connects to a local port  --- by default    *2222*.
+4. When you connect to your cloud-top via SSH, you first /reverse port
+   forward/ port *2222* from the cloud-top back to your client.
+5. With that reverse port forwarding in place and assuming that
+   ~espeak~ is your TTS engine, running the speech-server
+   ~cloud-espeak~ on the cloud-top connects back to your client to
+   produce spoken output.
+6. For the previous step to work, something (or someone) needs to be
+   listening on port *2222* on your client.
+7. So you need to start the relevant speech server  on your client
+   before you ~ssh~ to your cloud-top --- in the case of ~espeak~,
+   this is ~ssh-espeak~.
+
+   See directory ~bash-utils~ in your emacspeak Git checkout for the
+   relevant Bash scripts.
+
+* Workflow
+
+     Here is what the workflow looks like, again, use this *only if*
+     you have read and understood the previous section.
+   See[[https://github.com/tvraman/emacspeak/blob/master/bash-utils/remote#L8][Bash Utils]] for the scripts mentioned below. Everything below
+   assumes a Bash Shell.
+
+On your cloud-top, specify the speech-server to use by running
+
+: export DTK_PROGRAM=cloud-espeak
+
+You can put the above in your  ~.bash_profile~ on your cloud-top.
+
+On your client device, run
+
+: . <emacspeak_dir>/bash-utils/remote
+
+This need be done only once per interactive shell.
+
+Next, run  Bash function ~remote~ defined in the script you just
+loaded.
+
+: remote host.example.com  speech-server espeak
+
+This does the following:
+
+1. Starts a local speech server for the TTS engine ~espeak~.
+2. Opens an SSH session to the cloud-top host.example.com
+3. Plays a musical chime (using ~sox~) to cue completion.
+4. Depending on your SSH setup, you may or may not need to type your
+    ssh password at this point; avoiding having to type a password is
+   beyond the perview of this article, consult the SSH manual pages.
+5. Now, run Emacs on  the cloud-top. Assuming that you have updated
+   your Emacs initialization to load Emacspeak, this will get
+   Emacspeak running on   the cloud-top talking on your client.
+6. Note that typically, you should run something like ~screen~ on the
+   cloud-top and run Emacs within that ~screen~ session; this will let
+   you persist a running Emacs across multiple login/logout.
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Emacspeak In The Age Of Cloud Computing
+#+date: <2021-11-24 Wed>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 29.0.50 (Org mode 9.5)
+#+cite_export:
