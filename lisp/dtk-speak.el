@@ -1965,7 +1965,9 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
-    ("BOX DRAWING" . (lambda (s) "."))
+    ("BOX DRAWING" . ".")
+    ("^Mathematical Sans-Serif\\( small\\| capital\\)? letter \\(.*\\)$"
+     . (lambda (s) (match-string 2 s)))
     ("^greek\\( small\\| capital\\)? letter \\(.*\\)$"
      . (lambda (s) (match-string 2 s)))
     ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s)
@@ -2098,13 +2100,14 @@ ppunctuation character."
 (defun dtk-unicode-apply-name-transformation-rules (name)
   "Apply transformation rules in
 dtk-unicode-name-transformation-rules-alist to NAME."
-  (funcall
-   (or
-    (assoc-default
-     name
-     dtk-unicode-name-transformation-rules-alist 'string-match)
-    'identity)
-   name))
+  (let ((case-fold-search t))
+    (funcall
+     (or
+      (assoc-default
+       name
+       dtk-unicode-name-transformation-rules-alist 'string-match)
+      'identity)
+     name)))
 
 (defun dtk-unicode-uncustomize-char (char)
   "Delete custom replacement for CHAR.
