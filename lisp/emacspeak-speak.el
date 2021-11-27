@@ -2469,7 +2469,7 @@ Also display match context in minibuffer."
           (sit-for blink-matching-delay)))))))
 
 ;;}}}
-;;{{{  Auxillary functions:
+;;{{{  Auxiliary functions:
 
 (defun emacspeak-kill-buffer-carefully (buffer)
   "Kill BUFFER BUF if it exists."
