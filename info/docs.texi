@@ -18202,7 +18202,7 @@ from one binaural beat to another.
 
 @format
 Play binaural audio with beat-spec specifying the various tones.
-Param ‘beat-spec-list’ is a list of ‘(carrier beat) tupples.
+Param ‘beat-spec-list’ is a list of ‘(carrier beat) tuples.
 
 (fn LENGTH BEAT-SPEC-LIST GAIN)
 @end format

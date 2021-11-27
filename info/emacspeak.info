@@ -12,13 +12,13 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 25, 2021.
+last updated on November 27, 2021.
 
 
 Indirect:
 emacspeak.info-1: 433
 emacspeak.info-2: 300815
-emacspeak.info-3: 602727
+emacspeak.info-3: 602726
 
 Tag Table:
 (Indirect)
@@ -313,37 +313,37 @@ Node: plain-voices556892
 Node: soundscape557247
 Node: sox561117
 Node: sox-gen563763
-Node: tetris570011
-Node: toy-braille570152
-Node: voice-defs570993
-Node: voice-setup575268
-Node: xbacklight579632
-Node: URL Templates580726
-Node: Emacspeak Keyboard Commands586187
-Node: TTS Servers588245
-Node: Emacspeak At Twenty594473
-Node: Turning Twenty596176
-Node: Using UNIX With Speech Output --- 1994596864
-Node: Key Enabler --- Emacs And Lisp Advice598705
-Node: Key Component --- Text To Speech (TTS)599750
-Node: Emacspeak And Software Development602727
-Node: Programming Defensively605343
-Node: Emacspeak And Authoring Documents606602
-Node: Emacspeak And The Early Days Of The Web608177
-Node: Audio Formatting --- Generalizing Aural CSS611625
-Node: Conversational Gestures For The Audio Desktop614693
-Node: Speech-Enabling Interactive Games618048
-Node: Accessing Media Streams619825
-Node: EBooks --- Ubiquitous Access To Books621932
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks624480
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols626346
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access629828
-Node: Mashing It Up --- Leveraging Evolving Web APIs633372
-Node: Conclusion --- Turning Twenty635877
-Node: References637259
-Node: Acknowledgments638189
-Node: Concept Index638345
-Node: Key Index641988
+Node: tetris570010
+Node: toy-braille570151
+Node: voice-defs570992
+Node: voice-setup575267
+Node: xbacklight579631
+Node: URL Templates580725
+Node: Emacspeak Keyboard Commands586186
+Node: TTS Servers588244
+Node: Emacspeak At Twenty594472
+Node: Turning Twenty596175
+Node: Using UNIX With Speech Output --- 1994596863
+Node: Key Enabler --- Emacs And Lisp Advice598704
+Node: Key Component --- Text To Speech (TTS)599749
+Node: Emacspeak And Software Development602726
+Node: Programming Defensively605342
+Node: Emacspeak And Authoring Documents606601
+Node: Emacspeak And The Early Days Of The Web608176
+Node: Audio Formatting --- Generalizing Aural CSS611624
+Node: Conversational Gestures For The Audio Desktop614692
+Node: Speech-Enabling Interactive Games618047
+Node: Accessing Media Streams619824
+Node: EBooks --- Ubiquitous Access To Books621931
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks624479
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols626345
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access629827
+Node: Mashing It Up --- Leveraging Evolving Web APIs633371
+Node: Conclusion --- Turning Twenty635876
+Node: References637258
+Node: Acknowledgments638188
+Node: Concept Index638344
+Node: Key Index641987
 
 End Tag Table
 

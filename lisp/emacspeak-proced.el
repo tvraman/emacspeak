@@ -277,7 +277,7 @@
      (pos
       (forward-line (1+ pos))
       (emacspeak-proced-speak-this-field))
-     (t (error "Cant find %s" name)))))
+     (t (error "Can't find %s" name)))))
 
 ;;}}}
 ;;{{{ Advice interactive commands:

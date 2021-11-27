@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 25, 2021.
+last updated on November 27, 2021.
 
 
 File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
@@ -9014,7 +9014,7 @@ binaural beats.
  -- Command: sox-beats-binaural (length beat-spec-list gain)
 
      Play binaural audio with beat-spec specifying the various tones.
-     Param ‘beat-spec-list’ is a list of ‘(carrier beat) tupples.
+     Param ‘beat-spec-list’ is a list of ‘(carrier beat) tuples.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 

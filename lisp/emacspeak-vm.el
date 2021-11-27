@@ -682,11 +682,11 @@ Leave point at front of decoded attachment."
    ((eq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
     (setq vm-mime-alternative-select-method
           emacspeak-vm-promote-html-attachments)
-    (message "Prefering HTML Mime alternative."))
+    (message "Preferring HTML Mime alternative."))
    ((eq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
     (setq vm-mime-alternative-select-method
           emacspeak-vm-demote-html-attachments)
-    (message "Prefering Text/Plain Mime alternative."))
+    (message "Preferring Text/Plain Mime alternative."))
    (t (message "Resetting state to HTML Mime demotion.")
       (setq vm-mime-alternative-select-method
             emacspeak-vm-demote-html-attachments))))

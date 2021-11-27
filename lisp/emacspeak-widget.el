@@ -425,7 +425,7 @@ Returns a string with appropriate personality."
 (defun emacspeak-widget-help-checkbox (widget)
   "Summarize a checkbox"
   (let* ((value (widget-value widget))
-                                        ;sibling has the lable
+                                        ;sibling has the label
          (sibling (widget-get-sibling widget))
          (label (if sibling
                     (emacspeak-widget-label sibling)

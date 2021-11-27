@@ -219,7 +219,7 @@ and TABLE gives the values along that dimension."
     #'(lambda (setting)
       (aset table
             (cl-first setting)
-            (format ""); no-op --- chagne to taste.
+            (format ""); no-op --- change to taste.
             ))
    '(
      (0 0 0)

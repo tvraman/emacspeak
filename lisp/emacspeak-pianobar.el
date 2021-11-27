@@ -61,7 +61,7 @@
 ;;; @code{C-e '}. 
 ;;;  Command emacspeak-pianobar is designed to let you
 ;;; launch Pandora channels and switch tracks/channels without moving
-;;; away from your primary tasks such as editting code or
+;;; away from your primary tasks such as editing code or
 ;;; reading/composing email. Toward this end, launching command
 ;;; emacspeak-pianobar the first time initializes the
 ;;; @code{*pianobar*} buffer and launches command @code{pianobar};

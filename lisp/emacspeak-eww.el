@@ -1857,7 +1857,7 @@ The %s is automatically spoken if there is no user activity."
   (let ((buffer (get-text-property (line-beginning-position) 'eww-buffer)))
     (if buffer
         (dtk-speak (buffer-name buffer))
-      (message "Cant find an EWW buffer for this line. "))))
+      (message "Can't find an EWW buffer for this line. "))))
 
 (defadvice eww-list-buffers (after emacspeak pre act comp)
   "speak."

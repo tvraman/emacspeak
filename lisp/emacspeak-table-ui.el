@@ -327,7 +327,7 @@ Full List Of Keybindings:
 (make-variable-buffer-local 'emacspeak-table-speak-row-filter)
 
 (defun emacspeak-table-handle-row-filter-token  (token)
-  "Handle a single token in an Emacspeak table row/column formater."
+  "Handle a single token in an Emacspeak table row/column formatter."
   (let ((value nil))
     (cond
      ((stringp token) (format "%s" token))

@@ -189,7 +189,7 @@ gain `gain'."
   "Command-line that produces multiple  binaural beats.")
 
 (defun sox-read-binaural-beats ()
-  "Read and return a list of binaural beat-spec tupples."
+  "Read and return a list of binaural beat-spec tuples."
   (let ((specs nil)
         (this-freq 0)
         (this-beat nil))
@@ -204,7 +204,7 @@ gain `gain'."
 
 (defun sox-beats-binaural (length beat-spec-list  gain)
   "Play binaural audio with beat-spec specifying the various tones.
-Param `beat-spec-list' is a list of `(carrier beat) tupples."
+Param `beat-spec-list' is a list of `(carrier beat) tuples."
   (interactive
    (list
     (timer-duration(read-from-minibuffer "Duration: "))

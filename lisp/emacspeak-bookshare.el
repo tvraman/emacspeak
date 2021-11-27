@@ -646,7 +646,7 @@ b Browse
     (cond
      ((and handler (fboundp handler))
       (funcall handler element))
-     (t ; Cant get here:
+     (t ; Can't get here:
       (insert (format "Handler for %s not implemented yet.\n" tag))))))
 
 (defun emacspeak-bookshare-bookshare-handler (response)

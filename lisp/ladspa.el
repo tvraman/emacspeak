@@ -78,7 +78,7 @@
 ;;;###autoload
 (defconst ladspa-home
   (or (getenv "LADSPA_PATH") "/usr/lib/ladspa")
-  "Instalation location for Ladspa plugins.")
+  "Installation location for Ladspa plugins.")
 
 (defconst ladspa-analyse
   (executable-find "analyseplugin")

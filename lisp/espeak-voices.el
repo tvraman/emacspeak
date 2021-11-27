@@ -216,7 +216,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  stress
 
-;;;  Not implemented fo Espeak now.
+;;;  Not implemented for Espeak now.
 
 (defun espeak-get-stress-code (_value _family)
   "Just a dummy."

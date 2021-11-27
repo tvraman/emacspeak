@@ -161,7 +161,7 @@ Otherwise cue user to the line just created."
       (emacspeak-speak-rectangle
        (car cell)
        (cdr cell)))
-     (t (error "Cant identify cell.")))))
+     (t (error "Can't identify cell.")))))
 
 (cl-loop for f in
          '(table-forward-cell table-backward-cell)

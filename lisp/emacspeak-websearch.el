@@ -361,7 +361,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
           (concat
            (emacspeak-websearch-google-uri)
            query
-           (format "&num=%s%s"          ; acumulate options
+           (format "&num=%s%s"          ; accumulate options
                    emacspeak-websearch-google-number-of-results
                    (or emacspeak-websearch-google-options ""))
            (when lucky

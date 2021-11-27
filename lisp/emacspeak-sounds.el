@@ -239,7 +239,7 @@ Do not set this by hand;
 ;;{{{ Play icon list:
 
 ;;; For now this is like emacspeak-play-auditory-icon,
-;;; i.e. wont work via the speech server,
+;;; i.e. won't work via the speech server,
 ;;; and consequently not for Emacspeak  on a remote machine.
 
 (defun emacspeak-play-auditory-icon-list (icon-list)

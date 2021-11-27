@@ -81,7 +81,7 @@ Added element goes inside the HTML head if any."
     dom))
 
 ;;}}}
-;;{{{  Filterring Inspired by dom.el:
+;;{{{  Filtering Inspired by dom.el:
 
 (defun dom-by-tag-list (dom tag-list)
   "Return elements in DOM that is of type appearing in tag-list.
