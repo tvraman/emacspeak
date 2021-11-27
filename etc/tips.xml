@@ -461,7 +461,7 @@ example, see <application>hideshow</application>.</para></answer>
           </para>
         </question>
         <answer>
-          <para><emphasis>Emacs buffers</emphasis> are the building bloks of the
+          <para><emphasis>Emacs buffers</emphasis> are the building blocks of the
           Emacspeak audio desktop.  Current context is
           thus determined by the <emphasis>current
           buffer</emphasis> ---i.e., the buffer with which the
@@ -547,7 +547,7 @@ example, see <application>hideshow</application>.</para></answer>
               cue.  As an example, Emacspeak produces an
               auditory tone only if a buffer is
               <emphasis>read-only</emphasis> --the absence of
-              the tone indicates the buffer can be editted
+              the tone indicates the buffer can be edited
               which is usually the case.  Similarly, no tone
               is produced when a buffer does not need saving.
           </para>

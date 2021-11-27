@@ -1,5 +1,5 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Tips And Tricks For The Emacspeak Audio Desktop</title><link rel="stylesheet" type="text/css" href="docbook.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><meta name="description" content=" This document is a collection of productivity tips for using the Emacspeak audio desktop. Make sure you listen to this document with punctuation mode set to all to ensure that you do not miss important concepts. Note that this document is to be used in concert with the built-in online help facilities. Toward this end, the first section gives help on using Emacs online help; subsequent sections are intentionally brief since the interested user is expected to lookup the details of a command using these facilities. See How To Ask Questions The Smart Way for how you can improve your own productivity while contributing to continuously improving the tools you rely on for your work. The latest copy of this document is always available via Emacspeak GitHub Repository and on the Emacspeak WWW site."></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm46908176949968"></a>Tips And Tricks For The Emacspeak Audio Desktop
-    </h2></div><div><div class="author"><h3 class="author"><span class="firstname">T. V.</span> <span class="surname">Raman</span></h3></div></div><div><p class="copyright">Copyright © 2002 T. V. Raman</p></div><div><div class="legalnotice"><a name="idm46908176948736"></a><p>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Tips And Tricks For The Emacspeak Audio Desktop</title><link rel="stylesheet" type="text/css" href="docbook.css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot"><meta name="description" content=" This document is a collection of productivity tips for using the Emacspeak audio desktop. Make sure you listen to this document with punctuation mode set to all to ensure that you do not miss important concepts. Note that this document is to be used in concert with the built-in online help facilities. Toward this end, the first section gives help on using Emacs online help; subsequent sections are intentionally brief since the interested user is expected to lookup the details of a command using these facilities. See How To Ask Questions The Smart Way for how you can improve your own productivity while contributing to continuously improving the tools you rely on for your work. The latest copy of this document is always available via Emacspeak GitHub Repository and on the Emacspeak WWW site."></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm1"></a>Tips And Tricks For The Emacspeak Audio Desktop
+    </h2></div><div><div class="author"><h3 class="author"><span class="firstname">T. V.</span> <span class="surname">Raman</span></h3></div></div><div><p class="copyright">Copyright © 2002 T. V. Raman</p></div><div><div class="legalnotice"><a name="idm3"></a><p>
         This work is being made available under the same
         copyright as that used by the Linux Documentation
         Project see
@@ -32,19 +32,19 @@
         and  on the 
         <a class="ulink" href="https://tvraman.github.io/emacspeak/tips.html" target="_top">Emacspeak
         WWW site</a>.
-      </p></div></div></div><hr></div><div class="qandaset"><a name="idm46908177017552"></a><dl><dt>1.  <a href="#help">Online Help</a></dt><dd><dl><dt>1.1. <a href="#idm46908174132240"> Interactive help.</a></dt><dt>1.2. <a href="#idm46908173828912"> Online hypertext help.</a></dt><dt>1.3. <a href="#idm46908176133280">Emacspeak Hypertext Reference</a></dt><dt>1.4. <a href="#idm46908176130736"> Opening info page that documents  a given key.</a></dt><dt>1.5. <a href="#idm46908176852464"> Opening info page that documents a given command. </a></dt><dt>1.6. <a href="#idm46908176849696"> Picking from available choices.</a></dt><dt>1.7. <a href="#idm46908176845232"> Minibuffer prompting and completion.</a></dt><dt>1.8. <a href="#idm46908176840368">Customizing Emacs And Emacspeak</a></dt><dt>1.9. <a href="#idm46908177011568">Browsing UNIX Man Pages</a></dt></dl></dd><dt>2.  <a href="#folders">Files And Folders</a></dt><dd><dl><dt>2.1. <a href="#idm46908177006976"> Working on files and folders.</a></dt><dt>2.2. <a href="#idm46908177003280"> Working with remote directories.</a></dt><dt>2.3. <a href="#idm46908176997312">Locating files.</a></dt><dt>2.4. <a href="#idm46908176992144"> Using UNIX find from within Emacs.</a></dt><dt>2.5. <a href="#idm46908176986448"> Searching all files in a directory hierarchy. </a></dt><dt>2.6. <a href="#idm46908171504944"> Search and replace across a collection of files. </a></dt></dl></dd><dt>3.  <a href="#read">Reading, Browsing And Skimming</a></dt><dd><dl><dt>3.1. <a href="#idm46908171498256"> Hiding and exposing text blocks. </a></dt><dt>3.2. <a href="#idm46908171492320">use Emacs'  set-selective-display to
-advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm46908171488768">Skipping  across blank lines</a></dt><dt>3.4. <a href="#idm46908171485104">Browsing structured text using Emacs outline mode</a></dt><dt>3.5. <a href="#idm46908171478896">Everything is
-          searchable.</a></dt><dt>3.6. <a href="#idm46908171474000">Saving positions in a file.</a></dt><dt>3.7. <a href="#idm46908171470112">Working with  different portions of
-          a file at the same time.</a></dt><dt>3.8. <a href="#idm46908171463968">Accumulating Annotations  While Reading</a></dt></dl></dd><dt>4.  <a href="#status">State Of The Emacspeak Audio Desktop</a></dt><dd><dl><dt>4.1. <a href="#idm46908171458640">Hearing The Current Context
-          </a></dt><dt>4.2. <a href="#idm46908171453376">Information conveyed by 
-          command emacspeak-speak-mode-line</a></dt><dt>4.3. <a href="#idm46908171426304">Information conveyed by command emacspeak-speak-minor-mode-line</a></dt></dl></dd><dt>5.  <a href="#multimedia">Multimedia On The Emacspeak Audio
-      Desktop</a></dt><dd><dl><dt>5.1. <a href="#idm46908171420096">Setting State Of The Auditory Display Using AMixer</a></dt><dt>5.2. <a href="#idm46908171417312">Playing audio CDs</a></dt><dt>5.3. <a href="#idm46908171412592">Setting up music playlists</a></dt><dt>5.4. <a href="#idm46908171406192">Playing Media Streams</a></dt><dt>5.5. <a href="#idm46908171399008">Streaming media presets</a></dt><dt>5.6. <a href="#idm46908171395408"></a></dt></dl></dd><dt>6.  <a href="#author">Authoring Tools</a></dt><dd><dl></dl></dd><dt>7.  <a href="#messaging">Electronic Messaging</a></dt><dd><dl></dl></dd><dt>8.  <a href="#web">Web Browsing</a></dt><dd><dl><dt>8.1. <a href="#idm46908171387568">What Web Browsers Can I Use?</a></dt></dl></dd><dt>9.  <a href="#admin">System Management And System
-      Administration</a></dt><dd><dl></dl></dd><dt>10.  <a href="#utils">Emacspeak Utilities</a></dt><dd><dl><dt>10.1. <a href="#idm46908171369280">
-          Launch a root shell.</a></dt><dt>10.2. <a href="#idm46908171364528">
+      </p></div></div></div><hr></div><div class="qandaset"><a name="idm22"></a><dl><dt>1.  <a href="#help">Online Help</a></dt><dd><dl><dt>1.1. <a href="#idm26"> Interactive help.</a></dt><dt>1.2. <a href="#idm45"> Online hypertext help.</a></dt><dt>1.3. <a href="#idm56">Emacspeak Hypertext Reference</a></dt><dt>1.4. <a href="#idm63"> Opening info page that documents  a given key.</a></dt><dt>1.5. <a href="#idm70"> Opening info page that documents a given command. </a></dt><dt>1.6. <a href="#idm77"> Picking from available choices.</a></dt><dt>1.7. <a href="#idm86"> Minibuffer prompting and completion.</a></dt><dt>1.8. <a href="#idm97">Customizing Emacs And Emacspeak</a></dt><dt>1.9. <a href="#idm106">Browsing UNIX Man Pages</a></dt></dl></dd><dt>2.  <a href="#folders">Files And Folders</a></dt><dd><dl><dt>2.1. <a href="#idm115"> Working on files and folders.</a></dt><dt>2.2. <a href="#idm123"> Working with remote directories.</a></dt><dt>2.3. <a href="#idm134">Locating files.</a></dt><dt>2.4. <a href="#idm143"> Using UNIX find from within Emacs.</a></dt><dt>2.5. <a href="#idm153"> Searching all files in a directory hierarchy. </a></dt><dt>2.6. <a href="#idm162"> Search and replace across a collection of files. </a></dt></dl></dd><dt>3.  <a href="#read">Reading, Browsing And Skimming</a></dt><dd><dl><dt>3.1. <a href="#idm178"> Hiding and exposing text blocks. </a></dt><dt>3.2. <a href="#idm194">use Emacs'  set-selective-display to
+advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm202">Skipping  across blank lines</a></dt><dt>3.4. <a href="#idm212">Browsing structured text using Emacs outline mode</a></dt><dt>3.5. <a href="#idm223">Everything is
+          searchable.</a></dt><dt>3.6. <a href="#idm234">Saving positions in a file.</a></dt><dt>3.7. <a href="#idm242">Working with  different portions of
+          a file at the same time.</a></dt><dt>3.8. <a href="#idm258">Accumulating Annotations  While Reading</a></dt></dl></dd><dt>4.  <a href="#status">State Of The Emacspeak Audio Desktop</a></dt><dd><dl><dt>4.1. <a href="#idm268">Hearing The Current Context
+          </a></dt><dt>4.2. <a href="#idm279">Information conveyed by 
+          command emacspeak-speak-mode-line</a></dt><dt>4.3. <a href="#idm319">Information conveyed by command emacspeak-speak-minor-mode-line</a></dt></dl></dd><dt>5.  <a href="#multimedia">Multimedia On The Emacspeak Audio
+      Desktop</a></dt><dd><dl><dt>5.1. <a href="#idm334">Setting State Of The Auditory Display Using AMixer</a></dt><dt>5.2. <a href="#idm340">Playing audio CDs</a></dt><dt>5.3. <a href="#idm349">Setting up music playlists</a></dt><dt>5.4. <a href="#idm362">Playing Media Streams</a></dt><dt>5.5. <a href="#idm375">Streaming media presets</a></dt><dt>5.6. <a href="#idm382"></a></dt></dl></dd><dt>6.  <a href="#author">Authoring Tools</a></dt><dd><dl></dl></dd><dt>7.  <a href="#messaging">Electronic Messaging</a></dt><dd><dl></dl></dd><dt>8.  <a href="#web">Web Browsing</a></dt><dd><dl><dt>8.1. <a href="#idm397">What Web Browsers Can I Use?</a></dt></dl></dd><dt>9.  <a href="#admin">System Management And System
+      Administration</a></dt><dd><dl></dl></dd><dt>10.  <a href="#utils">Emacspeak Utilities</a></dt><dd><dl><dt>10.1. <a href="#idm431">
+          Launch a root shell.</a></dt><dt>10.2. <a href="#idm441">
             Setting shell's working directory to buffer's
             current directory
-          </a></dt><dt>10.3. <a href="#idm46908171360240">Emacspeak Clipboard</a></dt><dt>10.4. <a href="#idm46908171356400">Copying current file.</a></dt><dt>10.5. <a href="#idm46908171353680">Personal telephone directory.</a></dt><dt>10.6. <a href="#idm46908171351040">Tabbulating shell command output.</a></dt><dt>10.7. <a href="#idm46908171347520">Filtering  specific columns of all lines.</a></dt></dl></dd></dl><table border="0" style="width: 100%;"><colgroup><col align="left" width="1%"><col></colgroup><tbody><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="help"></a>1. Online Help</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>1.1. <a href="#idm46908174132240"> Interactive help.</a></dt><dt>1.2. <a href="#idm46908173828912"> Online hypertext help.</a></dt><dt>1.3. <a href="#idm46908176133280">Emacspeak Hypertext Reference</a></dt><dt>1.4. <a href="#idm46908176130736"> Opening info page that documents  a given key.</a></dt><dt>1.5. <a href="#idm46908176852464"> Opening info page that documents a given command. </a></dt><dt>1.6. <a href="#idm46908176849696"> Picking from available choices.</a></dt><dt>1.7. <a href="#idm46908176845232"> Minibuffer prompting and completion.</a></dt><dt>1.8. <a href="#idm46908176840368">Customizing Emacs And Emacspeak</a></dt><dt>1.9. <a href="#idm46908177011568">Browsing UNIX Man Pages</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
-      Tips on using Emacs online help facilities.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908174132240"></a><a name="idm46908175553024"></a><p><b>1.1.</b></p></td><td align="left" valign="top"><p> Interactive help.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </a></dt><dt>10.3. <a href="#idm449">Emacspeak Clipboard</a></dt><dt>10.4. <a href="#idm459">Copying current file.</a></dt><dt>10.5. <a href="#idm465">Personal telephone directory.</a></dt><dt>10.6. <a href="#idm471">Tabbulating shell command output.</a></dt><dt>10.7. <a href="#idm478">Filtering  specific columns of all lines.</a></dt></dl></dd></dl><table border="0" style="width: 100%;"><colgroup><col align="left" width="1%"><col></colgroup><tbody><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="help"></a>1. Online Help</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>1.1. <a href="#idm26"> Interactive help.</a></dt><dt>1.2. <a href="#idm45"> Online hypertext help.</a></dt><dt>1.3. <a href="#idm56">Emacspeak Hypertext Reference</a></dt><dt>1.4. <a href="#idm63"> Opening info page that documents  a given key.</a></dt><dt>1.5. <a href="#idm70"> Opening info page that documents a given command. </a></dt><dt>1.6. <a href="#idm77"> Picking from available choices.</a></dt><dt>1.7. <a href="#idm86"> Minibuffer prompting and completion.</a></dt><dt>1.8. <a href="#idm97">Customizing Emacs And Emacspeak</a></dt><dt>1.9. <a href="#idm106">Browsing UNIX Man Pages</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
+      Tips on using Emacs online help facilities.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm26"></a><a name="idm27"></a><p><b>1.1.</b></p></td><td align="left" valign="top"><p> Interactive help.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Online documentation is accessed using commands available on key
             <span class="command"><strong><span class="keysym">C-h</span></strong></span>. The
             type of help obtained is determined by the
@@ -56,23 +56,23 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
             </td></tr><tr><td><span class="command"><strong><span class="keysym">w</span></strong></span>
             looks up key that invokes specified command.
             </td></tr></table><p>
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908173828912"></a><a name="idm46908175138176"></a><p><b>1.2.</b></p></td><td align="left" valign="top"><p> Online hypertext help.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm45"></a><a name="idm46"></a><p><b>1.2.</b></p></td><td align="left" valign="top"><p> Online hypertext help.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Invoke the online hypertext help system
             (<span class="command"><strong>info</strong></span>) by pressing
             <span class="command"><strong><span class="keysym">C-h i</span></strong></span>.
             Press <span class="command"><strong><span class="keysym">h</span></strong></span> when
             using  <span class="application">Info</span> to
             obtain a primer for first time users.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176133280"></a><a name="idm46908176133024"></a><p><b>1.3.</b></p></td><td align="left" valign="top"><p>Emacspeak Hypertext Reference</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>You can open the online Emacspeak hypertext reference using
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm56"></a><a name="idm57"></a><p><b>1.3.</b></p></td><td align="left" valign="top"><p>Emacspeak Hypertext Reference</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>You can open the online Emacspeak hypertext reference using
           key <span class="command"><strong><span class="keysym">C-e TAB</span></strong></span>.
-        </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176130736"></a><a name="idm46908176855088"></a><p><b>1.4.</b></p></td><td align="left" valign="top"><p> Opening info page that documents  a given key.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+        </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm63"></a><a name="idm64"></a><p><b>1.4.</b></p></td><td align="left" valign="top"><p> Opening info page that documents  a given key.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Press <span class="command"><strong><span class="keysym"> C-h C-k </span></strong></span>followed
             by the key whose documentation you wish to
             locate.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176852464"></a><a name="idm46908176852208"></a><p><b>1.5.</b></p></td><td align="left" valign="top"><p> Opening info page that documents a given command. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm70"></a><a name="idm71"></a><p><b>1.5.</b></p></td><td align="left" valign="top"><p> Opening info page that documents a given command. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Press <span class="command"><strong><span class="keysym">C-h
             C-f</span></strong></span>
-          and specify the command name when prompted.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176849696"></a><a name="idm46908176849440"></a><p><b>1.6.</b></p></td><td align="left" valign="top"><p> Picking from available choices.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          and specify the command name when prompted.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm77"></a><a name="idm78"></a><p><b>1.6.</b></p></td><td align="left" valign="top"><p> Picking from available choices.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Hitting  <span class="command"><strong><span class="keysym">tab</span></strong></span>
             causes Emacs to complete the currently typed input as far as
             possible.
@@ -83,7 +83,7 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
             choice. Alternatively, you can browse the
             completion list which is typically displayed in
             another window in a buffer called 
-          <code class="literal">*Completions*</code>.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176845232"></a><a name="idm46908176844976"></a><p><b>1.7.</b></p></td><td align="left" valign="top"><p> Minibuffer prompting and completion.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          <code class="literal">*Completions*</code>.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm86"></a><a name="idm87"></a><p><b>1.7.</b></p></td><td align="left" valign="top"><p> Minibuffer prompting and completion.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Emacs uses the <span class="emphasis"><em>minibuffer</em></span> when
             prompting  for user input.
             When using completion in the minibuffer by
@@ -91,7 +91,7 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
             you can switch to the 
             <code class="literal">*Completions*</code>
             buffer by pressing command <span class="command"><strong><span class="keysym">C-o</span></strong></span>.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176840368"></a><a name="idm46908176840112"></a><p><b>1.8.</b></p></td><td align="left" valign="top"><p>Customizing Emacs And Emacspeak</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm97"></a><a name="idm98"></a><p><b>1.8.</b></p></td><td align="left" valign="top"><p>Customizing Emacs And Emacspeak</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Emacspeak can now be customized using
             <span class="application">custom</span> and this is
             the recommended way for users new to Emacs to
@@ -104,22 +104,22 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
             that not all Emacs packages are fully
             customizable via
             <span class="application">custom</span>.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908177011568"></a><a name="idm46908177011312"></a><p><b>1.9.</b></p></td><td align="left" valign="top"><p>Browsing UNIX Man Pages</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm106"></a><a name="idm107"></a><p><b>1.9.</b></p></td><td align="left" valign="top"><p>Browsing UNIX Man Pages</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Use Emacs  command <span class="command"><strong>man</strong></span>
             to view UNIX manual pages using a speech-enabled
             interface. This interface provides structured
             browsing which is something missing when viewing
-          UNIX man pages inside a traditional pager program.</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="folders"></a>2. Files And Folders</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>2.1. <a href="#idm46908177006976"> Working on files and folders.</a></dt><dt>2.2. <a href="#idm46908177003280"> Working with remote directories.</a></dt><dt>2.3. <a href="#idm46908176997312">Locating files.</a></dt><dt>2.4. <a href="#idm46908176992144"> Using UNIX find from within Emacs.</a></dt><dt>2.5. <a href="#idm46908176986448"> Searching all files in a directory hierarchy. </a></dt><dt>2.6. <a href="#idm46908171504944"> Search and replace across a collection of files. </a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
+          UNIX man pages inside a traditional pager program.</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="folders"></a>2. Files And Folders</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>2.1. <a href="#idm115"> Working on files and folders.</a></dt><dt>2.2. <a href="#idm123"> Working with remote directories.</a></dt><dt>2.3. <a href="#idm134">Locating files.</a></dt><dt>2.4. <a href="#idm143"> Using UNIX find from within Emacs.</a></dt><dt>2.5. <a href="#idm153"> Searching all files in a directory hierarchy. </a></dt><dt>2.6. <a href="#idm162"> Search and replace across a collection of files. </a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
         This section  contains tips  on working efficiently
         with files and folders, both local and remote.
-      </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908177006976"></a><a name="idm46908177006720"></a><p><b>2.1.</b></p></td><td align="left" valign="top"><p> Working on files and folders.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+      </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm115"></a><a name="idm116"></a><p><b>2.1.</b></p></td><td align="left" valign="top"><p> Working on files and folders.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Use command <span class="command"><strong>
             dired</strong></span>
             (directory editor) normally bound to
             <span class="command"><strong><span class="keysym">
             C-x d              </span></strong></span>
             to operate on files and folders.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908177003280"></a><a name="idm46908177003024"></a><p><b>2.2.</b></p></td><td align="left" valign="top"><p> Working with remote directories.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p> Built-in Emacs package
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm123"></a><a name="idm124"></a><p><b>2.2.</b></p></td><td align="left" valign="top"><p> Working with remote directories.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p> Built-in Emacs package
           <span class="application">tramp</span>
           provides seamless access to remote files and folders by
           using UNIX <span class="command"><strong>ssh</strong></span>
@@ -130,7 +130,7 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
           Note that in the above,
           <span class="emphasis"><em>username</em></span>
           defaults to <span class="emphasis"><em>anonymous</em></span>.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176997312"></a><a name="idm46908176997056"></a><p><b>2.3.</b></p></td><td align="left" valign="top"><p>Locating files.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm134"></a><a name="idm135"></a><p><b>2.3.</b></p></td><td align="left" valign="top"><p>Locating files.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Use <span class="command"><strong>locate</strong></span>
             and <span class="command"><strong>
             locate-with-filter</strong></span> to
@@ -142,13 +142,13 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
             locate database</span> that
             is typically rebuilt nightly on standard Linux
             systems.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176992144"></a><a name="idm46908176991888"></a><p><b>2.4.</b></p></td><td align="left" valign="top"><p> Using UNIX <span class="command"><strong>find</strong></span> from within Emacs.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm143"></a><a name="idm144"></a><p><b>2.4.</b></p></td><td align="left" valign="top"><p> Using UNIX <span class="command"><strong>find</strong></span> from within Emacs.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Use commands <span class="command"><strong>
             find-name-dired</strong></span>, <span class="command"><strong>find-grep-dired</strong></span> and
             <span class="command"><strong>find-dired</strong></span> to use UNIX
             <span class="application">find</span> to locate files
             and folders on your hard drive.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908176986448"></a><a name="idm46908176986192"></a><p><b>2.5.</b></p></td><td align="left" valign="top"><p> Searching all files in a directory hierarchy. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm153"></a><a name="idm154"></a><p><b>2.5.</b></p></td><td align="left" valign="top"><p> Searching all files in a directory hierarchy. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Install and use Emacs package
             <span class="application">igrep</span>
             ---an extended Emacs interface to UNIX
@@ -156,19 +156,19 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
             to search all files in a directory.
             For simpler tasks use command 
             <span class="command"><strong>grep-dired</strong></span> and command <span class="command"><strong>find-grep-dired</strong></span>.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171504944"></a><a name="idm46908171504688"></a><p><b>2.6.</b></p></td><td align="left" valign="top"><p> Search and replace across a collection of files. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm162"></a><a name="idm163"></a><p><b>2.6.</b></p></td><td align="left" valign="top"><p> Search and replace across a collection of files. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             When working on a project consisting of many files, 
             build a tags table using UNIX command
             <span class="command"><strong>etags</strong></span>
             and use it to advantage from within Emacs with commands such
             as 
             </p><table border="0" summary="Simple list" class="simplelist"><tr><td><span class="command"><strong>find-tag</strong></span></td></tr><tr><td><span class="command"><strong>tags-search</strong></span></td></tr><tr><td><span class="command"><strong>tags-query-replace</strong></span></td></tr></table><p>
-          </p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="read"></a>3. Reading, Browsing And Skimming</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>3.1. <a href="#idm46908171498256"> Hiding and exposing text blocks. </a></dt><dt>3.2. <a href="#idm46908171492320">use Emacs'  set-selective-display to
-advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm46908171488768">Skipping  across blank lines</a></dt><dt>3.4. <a href="#idm46908171485104">Browsing structured text using Emacs outline mode</a></dt><dt>3.5. <a href="#idm46908171478896">Everything is
-          searchable.</a></dt><dt>3.6. <a href="#idm46908171474000">Saving positions in a file.</a></dt><dt>3.7. <a href="#idm46908171470112">Working with  different portions of
-          a file at the same time.</a></dt><dt>3.8. <a href="#idm46908171463968">Accumulating Annotations  While Reading</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
+          </p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="read"></a>3. Reading, Browsing And Skimming</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>3.1. <a href="#idm178"> Hiding and exposing text blocks. </a></dt><dt>3.2. <a href="#idm194">use Emacs'  set-selective-display to
+advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm202">Skipping  across blank lines</a></dt><dt>3.4. <a href="#idm212">Browsing structured text using Emacs outline mode</a></dt><dt>3.5. <a href="#idm223">Everything is
+          searchable.</a></dt><dt>3.6. <a href="#idm234">Saving positions in a file.</a></dt><dt>3.7. <a href="#idm242">Working with  different portions of
+          a file at the same time.</a></dt><dt>3.8. <a href="#idm258">Accumulating Annotations  While Reading</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
         This section contains tips for efficiently working with
-      large amounts of content using speech output.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171498256"></a><a name="idm46908171498000"></a><p><b>3.1.</b></p></td><td align="left" valign="top"><p> Hiding and exposing text blocks. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+      large amounts of content using speech output.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm178"></a><a name="idm179"></a><p><b>3.1.</b></p></td><td align="left" valign="top"><p> Hiding and exposing text blocks. </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             You can hide <span class="emphasis"><em>blocks of text</em></span>
             when skimming a file.
             A <span class="emphasis"><em>block of text</em></span>
@@ -178,16 +178,16 @@ advantage when working with indented text.</a></dt><dt>3.3. <a href="#idm4690817
             See commands 
             </p><table border="0" summary="Simple list" class="simplelist"><tr><td><span class="command"><strong><span class="keysym">C-e j</span></strong></span><span class="command"><strong> emacspeak-hide-or-expose-block</strong></span></td></tr><tr><td><span class="command"><strong><span class="keysym">C-e C-j</span></strong></span><span class="command"><strong> emacspeak-hide-speak-block-sans-prefix</strong></span></td></tr></table><p>
             to use these features.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171492320"></a><a name="idm46908171492064"></a><p><b>3.2.</b></p></td><td align="left" valign="top"><p>use Emacs'  <span class="command"><strong>set-selective-display</strong></span> to
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm194"></a><a name="idm195"></a><p><b>3.2.</b></p></td><td align="left" valign="top"><p>use Emacs'  <span class="command"><strong>set-selective-display</strong></span> to
 advantage when working with indented text.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
 When working with content that uses indentation to reflect structure,
 you can use Emacs' built-in <span class="command"><strong>set-selective-display</strong></span>
 to advantage and selectively collapse/expand contents. Emacs comes
 with additional package that enable such structured traversal, as an
-example, see <span class="application">hideshow</span>.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171488768"></a><a name="idm46908171488512"></a><p><b>3.3.</b></p></td><td align="left" valign="top"><p>Skipping  across blank lines</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+example, see <span class="application">hideshow</span>.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm202"></a><a name="idm203"></a><p><b>3.3.</b></p></td><td align="left" valign="top"><p>Skipping  across blank lines</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Use commands
             </p><table border="0" summary="Simple list" class="simplelist"><tr><td><span class="command"><strong>emacspeak-skip-blank-lines-backward</strong></span></td></tr><tr><td><span class="command"><strong>emacspeak-skip-blank-lines-forward</strong></span></td></tr></table><p>
-          to move across contiguous blank lines.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171485104"></a><a name="idm46908171484848"></a><p><b>3.4.</b></p></td><td align="left" valign="top"><p>Browsing structured text using Emacs outline mode</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          to move across contiguous blank lines.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm212"></a><a name="idm213"></a><p><b>3.4.</b></p></td><td align="left" valign="top"><p>Browsing structured text using Emacs outline mode</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Emacs outline facility provides a powerful tool for browsing textual
             material based on its implicit structure.
             By default, command <span class="command"><strong>outline-minor-mode</strong></span>
@@ -205,7 +205,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             called <code class="literal">.espeak.el</code>
             in that directory that sets up things like Emacs variable
             <code class="varname">outline-regexp</code>.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171478896"></a><a name="idm46908171478640"></a><p><b>3.5.</b></p></td><td align="left" valign="top"><p><span class="emphasis"><em>Everything</em></span> is
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm223"></a><a name="idm224"></a><p><b>3.5.</b></p></td><td align="left" valign="top"><p><span class="emphasis"><em>Everything</em></span> is
           searchable.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Everything
             is <span class="emphasis"><em>searchable</em></span>
@@ -216,7 +216,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             and  <span class="command"><strong><span class="keycap"><strong>C-r</strong></span></strong></span>
             to perform forward or backward incremental search to locate
             relevant information  than to listen to  the  content.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171474000"></a><a name="idm46908171473744"></a><p><b>3.6.</b></p></td><td align="left" valign="top"><p>Saving positions in a file.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm234"></a><a name="idm235"></a><p><b>3.6.</b></p></td><td align="left" valign="top"><p>Saving positions in a file.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Use Emacs <span class="emphasis"><em>mark</em></span> to save temporary
             positions in a file.
             Use built-in Emacs <span class="application">bookmark</span>
@@ -224,7 +224,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             Emacs package <span class="application">desktop</span>
             to have Emacs automatically recreate the state of the audio
             desktop on restart.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171470112"></a><a name="idm46908171469856"></a><p><b>3.7.</b></p></td><td align="left" valign="top"><p>Working with  different portions of
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm242"></a><a name="idm243"></a><p><b>3.7.</b></p></td><td align="left" valign="top"><p>Working with  different portions of
           a file at the same time.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Display the file in different Emacs
             <span class="emphasis"><em>windows</em></span> 
@@ -234,7 +234,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             </p><table border="0" summary="Simple list" class="simplelist"><tr><td><span class="command"><strong>emacspeak-speak-predefined-window</strong></span></td></tr><tr><td><span class="command"><strong>emacspeak-speak-this-buffer-other-window-display</strong></span></td></tr><tr><td><span class="command"><strong>emacspeak-speak-this-buffer-previous-display</strong></span></td></tr><tr><td><span class="command"><strong>emacspeak-speak-this-buffer-next-display</strong></span></td></tr></table><p>
             to listen to a given  portion of a file whilst working on a
             different portion of the same file.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171463968"></a><a name="idm46908171463712"></a><p><b>3.8.</b></p></td><td align="left" valign="top"><p>Accumulating Annotations  While Reading</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm258"></a><a name="idm259"></a><p><b>3.8.</b></p></td><td align="left" valign="top"><p>Accumulating Annotations  While Reading</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             It is often useful to be able to  jot down comments or notes
             while reading a large document.
             Rather than switching back and forth between the document
@@ -243,16 +243,16 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             Emacspeak utility 
             <span class="command"><strong>emacspeak-annotate-add-annotation</strong></span> --see
             that command's online documentation for details on
-          its use.</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="status"></a>4. State Of The Emacspeak Audio Desktop</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>4.1. <a href="#idm46908171458640">Hearing The Current Context
-          </a></dt><dt>4.2. <a href="#idm46908171453376">Information conveyed by 
-          command emacspeak-speak-mode-line</a></dt><dt>4.3. <a href="#idm46908171426304">Information conveyed by command emacspeak-speak-minor-mode-line</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>This section contains tips on querying and updating
+          its use.</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="status"></a>4. State Of The Emacspeak Audio Desktop</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>4.1. <a href="#idm268">Hearing The Current Context
+          </a></dt><dt>4.2. <a href="#idm279">Information conveyed by 
+          command emacspeak-speak-mode-line</a></dt><dt>4.3. <a href="#idm319">Information conveyed by command emacspeak-speak-minor-mode-line</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>This section contains tips on querying and updating
       the status of the Emacspeak audio desktop.
       See section 
       <a class="ulink" href="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20" target="_top">
       status commands</a>
       in the Emacspeak online manual for additional details.
-      </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171458640"></a><a name="idm46908171458384"></a><p><b>4.1.</b></p></td><td align="left" valign="top"><p>Hearing The Current Context
-          </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p><span class="emphasis"><em>Emacs buffers</em></span> are the building bloks of the
+      </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm268"></a><a name="idm269"></a><p><b>4.1.</b></p></td><td align="left" valign="top"><p>Hearing The Current Context
+          </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p><span class="emphasis"><em>Emacs buffers</em></span> are the building blocks of the
           Emacspeak audio desktop.  Current context is
           thus determined by the <span class="emphasis"><em>current
           buffer</em></span> ---i.e., the buffer with which the
@@ -267,7 +267,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
           <span class="command"><strong>emacspeak-speak-mode-line</strong></span>;
           additional details are provided by command
           <span class="command"><strong>emacspeak-speak-minor-mode-line</strong></span>.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171453376"></a><a name="idm46908171453120"></a><p><b>4.2.</b></p></td><td align="left" valign="top"><p>Information conveyed by 
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm279"></a><a name="idm280"></a><p><b>4.2.</b></p></td><td align="left" valign="top"><p>Information conveyed by 
           command <span class="command"><strong>emacspeak-speak-mode-line</strong></span></p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Command
             <span class="command"><strong>emacspeak-speak-mode-line</strong></span> is
@@ -328,10 +328,10 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
               cue.  As an example, Emacspeak produces an
               auditory tone only if a buffer is
               <span class="emphasis"><em>read-only</em></span> --the absence of
-              the tone indicates the buffer can be editted
+              the tone indicates the buffer can be edited
               which is usually the case.  Similarly, no tone
               is produced when a buffer does not need saving.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171426304"></a><a name="idm46908171426048"></a><p><b>4.3.</b></p></td><td align="left" valign="top"><p>Information conveyed by command <span class="command"><strong>emacspeak-speak-minor-mode-line</strong></span></p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm319"></a><a name="idm320"></a><p><b>4.3.</b></p></td><td align="left" valign="top"><p>Information conveyed by command <span class="command"><strong>emacspeak-speak-minor-mode-line</strong></span></p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Command
             <span class="command"><strong>emacspeak-speak-minor-mode-line</strong></span>
             typically conveys additional information
@@ -339,23 +339,23 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             </p><table border="0" summary="Simple list" class="simplelist"><tr><td>Minor modes that are active e.g.,
             <span class="emphasis"><em>voice-lock</em></span></td></tr><tr><td>Version number of files under revision control.</td></tr><tr><td>Current encoding system in use.</td></tr></table><p>
           </p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="multimedia"></a>5. Multimedia On The Emacspeak Audio
-      Desktop</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>5.1. <a href="#idm46908171420096">Setting State Of The Auditory Display Using AMixer</a></dt><dt>5.2. <a href="#idm46908171417312">Playing audio CDs</a></dt><dt>5.3. <a href="#idm46908171412592">Setting up music playlists</a></dt><dt>5.4. <a href="#idm46908171406192">Playing Media Streams</a></dt><dt>5.5. <a href="#idm46908171399008">Streaming media presets</a></dt><dt>5.6. <a href="#idm46908171395408"></a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
+      Desktop</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>5.1. <a href="#idm334">Setting State Of The Auditory Display Using AMixer</a></dt><dt>5.2. <a href="#idm340">Playing audio CDs</a></dt><dt>5.3. <a href="#idm349">Setting up music playlists</a></dt><dt>5.4. <a href="#idm362">Playing Media Streams</a></dt><dt>5.5. <a href="#idm375">Streaming media presets</a></dt><dt>5.6. <a href="#idm382"></a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>
         This section contains tips on using the various
         multimedia features of the Emacspeak audio
-      desktop.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171420096"></a><a name="idm46908171419840"></a><p><b>5.1.</b></p></td><td align="left" valign="top"><p>Setting State Of The Auditory Display Using AMixer</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+      desktop.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm334"></a><a name="idm335"></a><p><b>5.1.</b></p></td><td align="left" valign="top"><p>Setting State Of The Auditory Display Using AMixer</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             The state of the auditory display can be set and
             updated using command
             <span class="command"><strong>emacspeak-audio-setup</strong></span>.  The
             available settings depend on the sound card in
             use. 
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171417312"></a><a name="idm46908171417056"></a><p><b>5.2.</b></p></td><td align="left" valign="top"><p>Playing audio CDs</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Emacspeak built-in command
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm340"></a><a name="idm341"></a><p><b>5.2.</b></p></td><td align="left" valign="top"><p>Playing audio CDs</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Emacspeak built-in command
           <span class="command"><strong>cd-tool</strong></span>
           uses the command-line tools provided by RPM package 
           <span class="application">cdp</span>.
           This is convenient for  playing tracks from a CD.
           Use <span class="application">cdcd</span> from within an Emacs
           shell for more complex tasks such as querying a
-          <span class="application">CDDB</span> database.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171412592"></a><a name="idm46908171412336"></a><p><b>5.3.</b></p></td><td align="left" valign="top"><p>Setting up music playlists</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Application
+          <span class="application">CDDB</span> database.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm349"></a><a name="idm350"></a><p><b>5.3.</b></p></td><td align="left" valign="top"><p>Setting up music playlists</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Application
           <span class="application">mplayer</span> can play music
           listed 
           in a <span class="application">playlist</span> file --typically
@@ -371,7 +371,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             cd $HOME/music
             find . -name '*.mp3'  &gt; playlist.m3u
           </pre></blockquote></div><p>
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171406192"></a><a name="idm46908171405936"></a><p><b>5.4.</b></p></td><td align="left" valign="top"><p>Playing Media Streams</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm362"></a><a name="idm363"></a><p><b>5.4.</b></p></td><td align="left" valign="top"><p>Playing Media Streams</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Install <span class="application">mplayer</span>
             -- this is an open source media player.
             Once you have this installed and configured, you can use
@@ -391,7 +391,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             <span class="application">mplayer</span>
             and then execute <span class="application">mplayer</span>
             commands directly.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171399008"></a><a name="idm46908171398752"></a><p><b>5.5.</b></p></td><td align="left" valign="top"><p>Streaming media presets</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Streaming media on the WWW is often
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm375"></a><a name="idm376"></a><p><b>5.5.</b></p></td><td align="left" valign="top"><p>Streaming media presets</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Streaming media on the WWW is often
           well-hidden behind several mouse clicks.
           Emacspeak allows you to configure your favorite
           streams as an organized hierarchy.  The Emacspeak
@@ -400,7 +400,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
           access these by using standard Emacs completion
           when prompted for a <code class="computeroutput">media
           Resource</code> by command
-          <span class="command"><strong>emacspeak-m-player</strong></span>. </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171395408"></a><a name="idm46908171395152"></a><p><b>5.6.</b></p></td><td align="left" valign="top"></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          <span class="command"><strong>emacspeak-m-player</strong></span>. </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm382"></a><a name="idm383"></a><p><b>5.6.</b></p></td><td align="left" valign="top"></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             The ImageMagick  package provides a powerful set of image
             manipulation tools --for an excellent  overview see 
             the online article 
@@ -417,7 +417,7 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
         For further details, see the relevant section 
         of the online Emacspeak manual on 
         <a class="ulink" href="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40" target="_top">
-      electronic messaging.</a></p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="web"></a>8. Web Browsing</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>8.1. <a href="#idm46908171387568">What Web Browsers Can I Use?</a></dt></dl></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171387568"></a><a name="idm46908171387312"></a><p><b>8.1.</b></p></td><td align="left" valign="top"><p>What Web Browsers Can I Use?</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+      electronic messaging.</a></p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="web"></a>8. Web Browsing</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>8.1. <a href="#idm397">What Web Browsers Can I Use?</a></dt></dl></td></tr><tr class="question"><td align="left" valign="top"><a name="idm397"></a><a name="idm398"></a><p><b>8.1.</b></p></td><td align="left" valign="top"><p>What Web Browsers Can I Use?</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             There are a number of available options, none of which are completely
             satisfactory.
           Here is a summary of what is available.</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>
@@ -455,21 +455,21 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
               not to be confused with the older Lynx browser.
               It has rudimentary Javascript support and is under active development.
               Emacspeak command: <span class="command"><strong>emacspeak-links</strong></span>.</p></li></ol></div></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="admin"></a>9. System Management And System
-      Administration</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>This section contains tips on managing your system.</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="utils"></a>10. Emacspeak Utilities</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>10.1. <a href="#idm46908171369280">
-          Launch a root shell.</a></dt><dt>10.2. <a href="#idm46908171364528">
+      Administration</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>This section contains tips on managing your system.</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><h3 class="title"><a name="utils"></a>10. Emacspeak Utilities</h3></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><dl><dt>10.1. <a href="#idm431">
+          Launch a root shell.</a></dt><dt>10.2. <a href="#idm441">
             Setting shell's working directory to buffer's
             current directory
-          </a></dt><dt>10.3. <a href="#idm46908171360240">Emacspeak Clipboard</a></dt><dt>10.4. <a href="#idm46908171356400">Copying current file.</a></dt><dt>10.5. <a href="#idm46908171353680">Personal telephone directory.</a></dt><dt>10.6. <a href="#idm46908171351040">Tabbulating shell command output.</a></dt><dt>10.7. <a href="#idm46908171347520">Filtering  specific columns of all lines.</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>This section gives tips on using some of the built-in
+          </a></dt><dt>10.3. <a href="#idm449">Emacspeak Clipboard</a></dt><dt>10.4. <a href="#idm459">Copying current file.</a></dt><dt>10.5. <a href="#idm465">Personal telephone directory.</a></dt><dt>10.6. <a href="#idm471">Tabbulating shell command output.</a></dt><dt>10.7. <a href="#idm478">Filtering  specific columns of all lines.</a></dt></dl></td></tr><tr class="toc"><td align="left" valign="top" colspan="2"><p>This section gives tips on using some of the built-in
       productivity tools bundled with Emacspeak.
       Most of these are implemented in module
       <span class="application">emacspeak-wizards</span>.
-      </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171369280"></a><a name="idm46908171369024"></a><p><b>10.1.</b></p></td><td align="left" valign="top"><p>
+      </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm431"></a><a name="idm432"></a><p><b>10.1.</b></p></td><td align="left" valign="top"><p>
           Launch a <span class="command"><strong>root</strong></span> shell.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p><span class="emphasis"><em>Never</em></span> run Emacspeak as the
           <span class="command"><strong>root</strong></span> user.
           Instead use Emacspeak command 
           <span class="command"><strong>emacspeak-root</strong></span>
           to create a <span class="command"><strong>root shell</strong></span> after starting Emacspeak.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171364528"></a><a name="idm46908171364272"></a><p><b>10.2.</b></p></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm441"></a><a name="idm442"></a><p><b>10.2.</b></p></td><td align="left" valign="top"><p>
             Setting shell's working directory to buffer's
             current directory
           </p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
@@ -481,26 +481,26 @@ example, see <span class="application">hideshow</span>.</p></td></tr><tr class="
             switches to a running shell buffer and
             automatically executes command
             <span class="command"><strong>cd</strong></span> so you are in the right
-          working directory.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171360240"></a><a name="idm46908171359984"></a><p><b>10.3.</b></p></td><td align="left" valign="top"><p>Emacspeak Clipboard</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          working directory.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm449"></a><a name="idm450"></a><p><b>10.3.</b></p></td><td align="left" valign="top"><p>Emacspeak Clipboard</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Emacspeak provides a clipboard facility to enabling cut and
             paste across different emacspeak sessions,
             see commands
             </p><table border="0" summary="Simple list" class="simplelist"><tr><td><span class="command"><strong>emacspeak-clipboard-copy</strong></span></td></tr><tr><td><span class="command"><strong>emacspeak-clipboard-paste</strong></span></td></tr></table><p>
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171356400"></a><a name="idm46908171356144"></a><p><b>10.4.</b></p></td><td align="left" valign="top"><p>Copying current file.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Emacspeak command
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm459"></a><a name="idm460"></a><p><b>10.4.</b></p></td><td align="left" valign="top"><p>Copying current file.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Emacspeak command
           <span class="command"><strong>emacspeak-copy-current-file</strong></span>
           lets you copy the file being visited to a
           different location ---this is a convenient way of
           publishing to a  WWW server.
-          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171353680"></a><a name="idm46908171353424"></a><p><b>10.5.</b></p></td><td align="left" valign="top"><p>Personal telephone directory.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          </p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm465"></a><a name="idm466"></a><p><b>10.5.</b></p></td><td align="left" valign="top"><p>Personal telephone directory.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             Emacspeak command
             <span class="command"><strong>emacspeak-speak-telephone-directory</strong></span>
-          lets you maintain a telephone directory as a simple text file.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171351040"></a><a name="idm46908171350784"></a><p><b>10.6.</b></p></td><td align="left" valign="top"><p>Tabbulating shell command output.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Many UNIX commands produce tabulated output,
+          lets you maintain a telephone directory as a simple text file.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm471"></a><a name="idm472"></a><p><b>10.6.</b></p></td><td align="left" valign="top"><p>Tabbulating shell command output.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>Many UNIX commands produce tabulated output,
           e.g., command <span class="command"><strong>df</strong></span> for displaying
           a disk usage summary.
           You can use Emacspeak command
           <span class="command"><strong>emacspeak-speak-run-shell-command</strong></span>
           to run such commands and have the tabular output available
-          for browsing using Emacspeak's table browsing facilities.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm46908171347520"></a><a name="idm46908171347264"></a><p><b>10.7.</b></p></td><td align="left" valign="top"><p>Filtering  specific columns of all lines.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
+          for browsing using Emacspeak's table browsing facilities.</p></td></tr><tr class="question"><td align="left" valign="top"><a name="idm478"></a><a name="idm479"></a><p><b>10.7.</b></p></td><td align="left" valign="top"><p>Filtering  specific columns of all lines.</p></td></tr><tr class="answer"><td align="left" valign="top"></td><td align="left" valign="top"><p>
             This is most useful when working with log files.  Command
             <span class="command"><strong> emacspeak-speak-line-set-column-filter</strong></span>
             enables you to filter out uninteresting columns of each

@@ -413,7 +413,7 @@ module emacspeak-evil speech-enables EVIL.</application>
     <application name="ocr">
       Emacs front-end  to OCR engines.
       This module provides speech-enabled access to image
-      aquisition and  document recognition tools
+      acquisition and  document recognition tools
       available on the underlying platform.
     </application>
     <application name="emacspeak-daisy">
@@ -590,7 +590,7 @@ module emacspeak-vdiff.</application>
     hosts.</application>
     <application name="units">
       Simple wizard for accessing Units tool
-      --- a powerful units convertor.
+      --- a powerful units converter.
     </application>
   </category>
   <category name=" programming">
@@ -635,38 +635,38 @@ module emacspeak-vdiff.</application>
       Emacs Class Browser with support for Java, C++, C
       and other popular languages.
       Provides navigable table of contents as well as a browsable method and
-      function index  for the file being editted.
+      function index  for the file being edited.
     </application>
     <application name="gud">
       Unified debugger front-end.
       Allows interactive debugging with fluent spoken feedback.
     </application>
     <application name="c">
-      Editting support for C, C++  and related languages with full aural
+      Editing support for C, C++  and related languages with full aural
       highlighting and semantic support.
       Provides contextual spoken feedback using semantic context
-      of code being editted.
+      of code being edited.
     </application>
     <application name="compile">
       Front-end to running batch compiles.
       Provides easy navigation through the lines containing errors.
     </application>
     <application name="perl">
-      Editting support for Perl.
+      Editing support for Perl.
       Features  aural highlighting and easy access to
       online help.
     </application>
     <application name="ruby">
-      Speech-enables editting support for Ruby.
+      Speech-enables editing support for Ruby.
       Features  aural highlighting and easy access to
       online help.
     </application>
     <application name="lua">
-      Editting support for interactive LUA  development.
+      Editing support for interactive LUA  development.
       Features aural highlighting, structured browsing and debugging.
     </application>
     <application name="Go">
-      Editting support for interactive Go  development.
+      Editing support for interactive Go  development.
       Features aural highlighting, structured browsing and debugging.
     </application>
     <application name="geiser">
@@ -687,7 +687,7 @@ module emacspeak-vdiff.</application>
       structured browsing and interactive  help.
     </application>
     <application name="python">
-      Editting support for interactive Python development.
+      Editing support for interactive Python development.
       Features aural highlighting, structured browsing and debugging.
     </application>
 <application name="elpy">
@@ -702,27 +702,27 @@ module emacspeak-vdiff.</application>
       SQL development.
     </application>
     <application name="generic">
-      Editting support for JavaScript and  Apache configuration files
+      Editing support for JavaScript and  Apache configuration files
       with voice locking and structured navigation.
     </application>
     <application name="hideshow">
       Hiding and showing blocks of C code.
     </application>
     <application name="make-mode">
-      Editting support for creating and maintaining Makefiles.
+      Editing support for creating and maintaining Makefiles.
     </application>
     <application name="sh-script">
-      Editting support for shell scripts.
+      Editing support for shell scripts.
     </application>
     <application name="rpm-spec">
-      Editting support for RPM spec files.
+      Editing support for RPM spec files.
     </application>
     <application name="yasnippet">
       Support for creating and filling-in templates using package YaSnippets.
       Used to implement wizards in JDE, HTML helper mode and friends.
     </application>
     <application name="dmacro">
-      Dynamic macro package for template-based editting.
+      Dynamic macro package for template-based editing.
     </application>
     <application name="oo-browser">
       Tool for browsing  object oriented software codebases
