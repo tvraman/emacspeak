@@ -295,7 +295,7 @@ File: emacspeak.info,  Node: Speech-Enabling Interactive Games,  Up: Conversatio
 ----------------------------------------
 
 So in 1997, I went the next step in asking — given access to the
-underlying infromation, is it possible to build effective eyes-free
+underlying information, is it possible to build effective eyes-free
 interaction to highly interactive tasks?  I picked *Tetris* as a means
 of exploring this space, the result was an Emacspeak extension to
 speech-enable module *tetris.el*.  The details of what was learned were
@@ -309,7 +309,7 @@ interface layer that formed part of the XForms
 
    Speech-enabling games for effective eyes-free interaction has proven
 highly educational.  Interactive games are typically built to challenge
-the user, and if the eyes-free interface is inefficient, you just wont
+the user, and if the eyes-free interface is inefficient, you just won’t
 play the game — contrast this with a task that you *must* perform, where
 you’re likely to make do with a sub-optimal interface.  Over the years,
 Emacspeak has come to include eyes-free interfaces to several games
@@ -426,9 +426,9 @@ another excellent example of an Emacs tool that helps interface
 seamlessly with others in the technical domain.  IPython Notebooks
 provide an easy means of reaching a large audience when publishing
 technical material with interactive computational content; module *ein*
-brings the power and convenience of Emacs ’ editting facilities when
+brings the power and convenience of Emacs ’ editing facilities when
 developing the content.  Speech-enabling package *ein* is a major win
-since editting program source code in an eyes-free environment is far
+since editing program source code in an eyes-free environment is far
 smoother in Emacs than in a browser-based editor.
 
 
