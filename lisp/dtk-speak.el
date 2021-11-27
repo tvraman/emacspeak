@@ -1628,7 +1628,7 @@ grouping"
                        dtk-speak-server-initialized dtk-quiet))
                                         ; ensure words is a  string
   (unless (stringp words) (setq words (format "%s" words)))
-  ;; I wont talk if you dont want me to
+  ;; I won't talk if you dont want me to
   (unless
       (or dtk-quiet (string-equal words ""))
     (or (eq 'run (process-status dtk-speaker-process))
