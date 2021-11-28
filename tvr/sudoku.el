@@ -96,7 +96,7 @@
 ;;   * Downloading files no longer requires lynx!  There are now four
 ;;     options: the native url library (in emacs >= 22), w3, lynx, and
 ;;     wget. The first two are pure elisp, so they should be platform
-;;     independet. Thanks to Wojciech Komornicki for getting me
+;;     independent. Thanks to Wojciech Komornicki for getting me
 ;;     started on this.
 ;;   * Added a save-options entry to the drop-down menu. You really
 ;;     don't need to (and maybe shouldn't) customize by hand anymore. 

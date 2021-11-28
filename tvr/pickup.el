@@ -123,7 +123,7 @@
                             (pickup-limit game)))))))
 
 (defun pickup-fibonacci (max)
-  "Return vector  of Fibonacci numbers upto max."
+  "Return vector  of Fibonacci numbers up to max."
   (let ((result '(2 1)))
     (while (< (cl-first result) max)
       (push  (+ (cl-first result) (cl-second result)) result))
