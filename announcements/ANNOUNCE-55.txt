@@ -172,7 +172,7 @@ is entirely free of Artificial Ingredients (AI)™.
   - Emacspeak 31.0 AKA TweetDog — adds tweeting to the Emacspeak
    desktop. 
   - Emacspeak 30.0 AKA SocialDog brings the Social Web to the
-   audio desktop—you cant but be social if you speak! 
+   audio desktop—you can't but be social if you speak! 
   - Emacspeak 29.0—AKAAbleDog—is a testament to the resilliance and innovation
    embodied by Open Source software—it would not exist without the
    thriving Emacs community that continues to ensure that Emacs remains
