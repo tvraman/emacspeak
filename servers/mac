@@ -61,7 +61,7 @@ if debugLevel > 0:
 ttsState['speechRate'] = 500
 ttsState['charFactor'] = 1.8
 ttsState['sayRate'] = round(ttsState['speechRate'] * ttsState['charFactor'])
-# set capitalize to off initialy
+# set capitalize to off initially
 ttsState['capitalize'] = 0
 
 # Possible levels of punctuation (none, some, all).
