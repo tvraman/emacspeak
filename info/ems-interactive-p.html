@@ -356,7 +356,7 @@ If this test returns <span class="underline">T</span>, we memoize the result and
 <p>
 Next, we advice function <span class="underline">call-interactively</span> to check if the function
 being called interactively is one of the functions that has been
-adviced by Emacspeak. If so, we record the fact in the previously
+advised by Emacspeak. If so, we record the fact in the previously
 declared global flag <span class="underline">ems-called-interactively-p</span>.
 </p>
 
@@ -375,7 +375,7 @@ on the function being called."
 <p>
 We define an equivalent advice form on function
 <span class="underline">funcall-interactively</span> as well. Now, whenever any function that has
-been adviced by Emacspeak is called interactively, that interactive
+been advised by Emacspeak is called interactively, that interactive
 call gets recorded in the global flag. In the custom Emacspeak
 predicate we define, we check the value of this flag, and if
 set, consume it, i.e. unset the flag and return <span class="underline">T</span>.
@@ -418,7 +418,7 @@ advantage of working correctly for Emacspeak's specific use-case.
 <p>
 User presses <span class="underline">C-n</span> or <span class="underline">[down]</span> to move to the next line &#x2014;
 this is an interactive call to function <span class="underline">next-line</span>.
-Function <span class="underline">next-line</span> is adviced by Emacspeak, that advice form contains:
+Function <span class="underline">next-line</span> is advised by Emacspeak, that advice form contains:
 </p>
 
 <pre class="example">
@@ -434,7 +434,7 @@ return <span class="underline">t</span> in this case.
 <li>Pressing <span class="underline">C-n</span> first calls <span class="underline">call-interactively</span> with <span class="underline">next-line</span> as
 the function to call.</li>
 <li>The advice on <span class="underline">call-interactively</span> first checks
-if  <span class="underline">next-line</span> has been adviced by Emacspeak &#x2014;
+if  <span class="underline">next-line</span> has been advised by Emacspeak &#x2014;
   <span class="underline">(ems-record-interactive-p (ad-get-arg 0))</span> &#x2014; in this example,
   <span class="underline">(ad-get-arg 0)</span> returns <span class="underline">next-line</span>.</li>
 <li>Predicate <span class="underline">ems-record-interactive-p</span>  returns <span class="underline">t</span> after setting
@@ -454,7 +454,7 @@ advice-generated wrapper function.</li>
 &#x2014; since that is the function that the advice system calls. This
 matches the value bound to <span class="underline">caller-advice</span> which is the precise
 test we need to verify that the advice form is being evaluated in
-the context of an interactive call to our adviced function.</li>
+the context of an interactive call to our advised function.</li>
 </ol>
 </div>
 </div>
