@@ -209,7 +209,7 @@ bugs = [
 
 
 def pendulum(n):
-    """Generate an oscilating sequence."""
+    """Generate an oscillating sequence."""
     i = 0
     while 1:
         yield abs(i)
