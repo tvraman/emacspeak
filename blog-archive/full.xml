@@ -109,7 +109,7 @@
       &lt;li&gt;When you start Emacs with Emacspeak loaded, Emacs starts
       the
       speech-server as the first step in the emacspeak startup.
-      normally this starts the local server for your  prefered TTS
+      normally this starts the local server for your  preferred TTS
       engine.&lt;/li&gt;
       &lt;li&gt;See the emacspeak manual for how this speech-server is
       determined.&lt;/li&gt;
@@ -418,7 +418,7 @@
       &lt;/p&gt;
       
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   free of cost 
       as ever—it is being made available at the same zero-cost as
@@ -461,7 +461,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; “It is the user &amp;#x2014; and
       not the
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -605,7 +605,7 @@
       Emacspeak
       desktop.&lt;/li&gt;
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to the
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance and innovation
       embodied by Open Source software—it would not exist without the
@@ -1144,7 +1144,7 @@
       buffers &amp;#x2014; and  Emacs provides a large number of
       built-ins and extensions packages for &lt;i&gt;switching
       buffers&lt;/i&gt;. One can
-      put together numerous workflows by picking among these to make
+      put together numerous workflows by picking among thesee to make
       context switching &lt;i&gt;contextual&lt;/i&gt; &amp;#x2014; using
       the most appropriate
       workflow can lead to  being able to focus much better on the core
@@ -1202,7 +1202,7 @@
       &lt;p&gt;
       Here are some of the building blocks I use to construct workflows
       that
-      meet the use-cases enumerated in the previous section. Many of these
+      meet the use-cases enumerated in the previous section. Many of thesee
       are built into Emacs; some come from extra packages and a few are
       implemented in Emacspeak to fill the gaps.  See the related article
       &lt;a
@@ -1240,11 +1240,11 @@
       Note&lt;/h3&gt;
       &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
       &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;Notice that many of these commands come in pairs and use
+      &lt;li&gt;Notice that many of thesee commands come in pairs and use
       key-bindings that also pair-up with respect to muscle memory; over
       time I have found this type of pairing to be essential for them to
       become part of one&#39;s daily habit.&lt;/li&gt;
-      &lt;li&gt;And when these task-specific commands dont get you the
+      &lt;li&gt;And when thesee task-specific commands dont get you the
       buffer
       you want with one or two keystrokes, one can always fallback to
       &lt;code&gt;switch-to-buffer&lt;/code&gt;.&lt;/li&gt;
@@ -1464,7 +1464,7 @@
       &lt;/p&gt;
       
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   priceless
       as ever—it is being made available at the same zero-cost as
@@ -1507,7 +1507,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; “It is the user &amp;#x2014; and
       not the
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -1649,7 +1649,7 @@
       Emacspeak
       desktop.&lt;/li&gt;
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to the
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance and innovation
       embodied by Open Source software—it would not exist without the
@@ -1995,7 +1995,7 @@
       &lt;/p&gt;
       
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   priceless
       as ever—it is being made available at the same zero-cost as
@@ -2038,7 +2038,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; “It is the user &amp;#x2014; and
       not the
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -2180,7 +2180,7 @@
       Emacspeak
       desktop.&lt;/li&gt;
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to the
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance and innovation
       embodied by Open Source software—it would not exist without the
@@ -2423,7 +2423,7 @@
       be able to extract data in a useful form from EWW rendered pages.
       This
       article describes one simple approach that lets me turn HTML tables
-      found in the wild into a coherent tabular data structure  that I can
+      found in the willd into a coherent tabular data structure  that I can
       access meaningfully via emacspeak to obtain multiple &lt;i&gt;spoken
       views&lt;/i&gt; of
       the data.
@@ -2481,7 +2481,7 @@
       &lt;/ol&gt;
       
       &lt;p&gt;
-      See the following sections for details on each of these steps.
+      See the following sections for details on each of thesee steps.
       &lt;/p&gt;
       &lt;/div&gt;
       
@@ -2652,7 +2652,7 @@
       header.&lt;/li&gt;
       &lt;li&gt;For more advanced use-cases, one can define a &lt;i&gt;row
       filter&lt;/i&gt; or
-      &lt;i&gt;column filter&lt;/i&gt;, think of these as specialized
+      &lt;i&gt;column filter&lt;/i&gt;, think of thesee as specialized
       &lt;i&gt;formatters&lt;/i&gt; that
       can format  selected cells and their headers into a
       natural-sounding sentence.&lt;/li&gt;
@@ -2715,7 +2715,7 @@
       
       &lt;p&gt;
       The next section gives a high-level overview of the steps that led
-      tothe final version.
+      to the final version.
       &lt;/p&gt;
       &lt;/div&gt;
       &lt;/div&gt;
@@ -2741,7 +2741,7 @@
       &lt;/p&gt;
       
       &lt;p&gt;
-      The first  step in simplification was to separate these steps, by 
+      The first  step in simplification was to separate thesee steps, by 
       using function &lt;code&gt;split-string&lt;/code&gt; to split the
       input string on
       &lt;span class=&quot;underline&quot;&gt;whitespace&lt;/span&gt; to
@@ -2817,7 +2817,7 @@
       &lt;p&gt;
       To improve readability, I created let-bindings to some of the regex
       patterns used to identify key-sequence patterns.
-      In the process, I also made these more readable by using &lt;span
+      In the process, I also made thesee more readable by using &lt;span
       class=&quot;underline&quot;&gt;[:space:]&lt;/span&gt;
       for white-space tests.
       &lt;/p&gt;
@@ -3191,10 +3191,10 @@
       id=&quot;text-2&quot;&gt;
       &lt;p&gt;
       You can read email with GNUS, and many people read GMail with GNUS,
-      however, the details of GMail setup with GNUS wont fit this margin. 
+      however, the details of GMail setup with GNUS won't fit this margin. 
       For
       my own
-      GMail setup using Ceasar&#39;s excellent &lt;span
+      GMail setup using Caesar&#39;s excellent &lt;span
       class=&quot;underline&quot;&gt;auth-xoauth2&lt;/span&gt; package,
       see      file&lt;a
       
@@ -3434,7 +3434,7 @@
       &lt;li&gt;Load package-specific prepare.el files.&lt;/li&gt;
       &lt;li&gt;Load the custom settings file.&lt;/li&gt;
       &lt;li&gt;Starts up things like the emacs server.&lt;/li&gt;
-      &lt;li&gt;Some of these tasks are done on a separate thread using
+      &lt;li&gt;Some of thesee tasks are done on a separate thread using
       make-thread.&lt;/li&gt;
       &lt;/ul&gt;&lt;/li&gt;
       &lt;li&gt;The work of loading files etc., is done within macro &lt;a
@@ -3488,7 +3488,7 @@
       &lt;li&gt;Remembering  the name of a custom-setting  you set up a
       while
       ago
-      is still  a challenge, You cant find it unless you remember its
+      is still  a challenge, You can't find it unless you remember its
       approximate name.&lt;/li&gt;
       &lt;li&gt;Command
       &lt;code&gt;emacspeak-wizards-customize-saved&lt;/code&gt; bound to
@@ -4464,7 +4464,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -4527,7 +4527,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; “It is the user
       &amp;#x2014; and
       not the&lt;br /&gt;
@@ -4684,7 +4684,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -5177,7 +5177,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -5240,7 +5240,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; “It is the user
       &amp;#x2014; and
       not the&lt;br /&gt;
@@ -5396,7 +5396,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -5692,7 +5692,7 @@
       class=&quot;underline&quot;&gt;after&lt;/span&gt;, or&lt;br /&gt;
       &lt;span class=&quot;underline&quot;&gt;around&lt;/span&gt; advice.
       In
-      brief, Emacspeak used these three classes of&lt;br /&gt;
+      brief, Emacspeak used thesee three classes of&lt;br /&gt;
       advice as follows:&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
       &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Speak line moved to
@@ -5713,7 +5713,7 @@
       /&gt;
       that remembers the current context, calls the original
       function&lt;br      /&gt;
-      being adviced, and finally speak the current context that now&lt;br
+      being advised, and finally speak the current context that now&lt;br
       /&gt;
       reflects the completion.&lt;/li&gt;
       &lt;/ol&gt;&lt;br /&gt;
@@ -5911,7 +5911,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -5974,7 +5974,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; “It is the user
       &amp;#x2014; and
       not the&lt;br /&gt;
@@ -6122,7 +6122,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -6469,7 +6469,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -6532,7 +6532,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; “It is the user
       &amp;#x2014; and
       not the&lt;br /&gt;
@@ -6676,7 +6676,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -7106,7 +7106,7 @@
       mind)&lt;br
       /&gt;
       alongside a rich collection of tools for navigating among open&lt;br
-      /&gt;buffers. And these affordances have significantly increased
+      /&gt;buffers. And thesee affordances have significantly increased
       over      the&lt;br /&gt;
       last few years with the arrival of packages like
       &lt;code&gt;ido&lt;/code&gt;,
@@ -7115,7 +7115,7 @@
       strategies for rapid task&lt;br /&gt;
       completion such as flex and fuzzy matching. This article
       investigates&lt;br /&gt;
-      these tools in an eyes-free environment, specifically in the
+      thesee tools in an eyes-free environment, specifically in the
       context&lt;br /&gt;
       of Emacspeak and rapid task completion. I&#39;ve not investigated
       every&lt;br /&gt;
@@ -7245,7 +7245,7 @@
       applies
       here as well.&lt;/dd&gt; &lt;/dl&gt;&lt;br /&gt;
       &lt;br /&gt;
-      &lt;p&gt;Notice that as one performs all of these tasks,
+      &lt;p&gt;Notice that as one performs all of thesee tasks,
       &lt;b&gt;every
       target&lt;/b&gt; is an&lt;br /&gt;
       Emacs buffer or Emacs buffer location. In the case of completion,
@@ -7267,7 +7267,7 @@
       &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;A large visual display
       can
       offer the user many choices at a time,&lt;br /&gt;
-      and the eye&#39;s ability to rapidly scan these choices makes for
+      and the eye&#39;s ability to rapidly scan thesee choices makes for
       an&lt;br /&gt;
       extremely fast &lt;b&gt;Suggest/Input/Filter/Target&lt;/b&gt; loop.
       As an
@@ -7275,7 +7275,7 @@
       interface like &lt;code&gt;helm&lt;/code&gt; can display a large
       number
       of initial&lt;br /&gt;
-      choices, with the user  filtering these down with a few strategic
+      choices, with the user  filtering thesee down with a few strategic
       key-presses.&lt;/li&gt;
       &lt;li&gt;Spoken output takes time &amp;#x2014; and there is simply
       no
@@ -7362,7 +7362,7 @@
       /&gt;
       available choices are too large to fit on a typical visual&lt;br
       /&gt;
-      display. Interestingly, most of these have also been solved by&lt;br
+      display. Interestingly, most of thesee have also been solved by&lt;br
       /&gt;mainstream Emacs developers in their never-ending/unerring
       quest for
       increased&lt;br /&gt;
@@ -7402,7 +7402,7 @@
       automatically filters the choices&lt;br /&gt;
       down for me &amp;#x2014; I can then get to the
       &lt;code&gt;org-mode&lt;/code&gt; buffer I want with&lt;br /&gt;
-      one or two keystrokes. Notice that in  all of these cases, I&#39;m
+      one or two keystrokes. Notice that in  all of thesee cases, I&#39;m
       relying&lt;br /&gt;
       on the fact that I mostly know what I want, i.e., the
       &lt;i&gt;explore&lt;/i&gt; phase&lt;br /&gt;
@@ -7726,7 +7726,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -7789,7 +7789,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; “It is the user
       &amp;#x2013;and
       not the&lt;br /&gt;
@@ -7929,7 +7929,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -8224,7 +8224,7 @@
       underrun &amp;#x2014; that&#39;s when ALSA is starved of audio data.
        
       But in many&lt;br /&gt;
-      of these cases, the ALSA device was still in a &lt;span
+      of thesee cases, the ALSA device was still in a &lt;span
       class=&quot;underline&quot;&gt;RUNNING&lt;/span&gt; rather
       than&lt;br      /&gt;
       an &lt;span class=&quot;underline&quot;&gt;XRUN&lt;/span&gt; state
@@ -8392,7 +8392,7 @@
       🖁&lt;/li&gt;
       &lt;li&gt;Updated IDO Support:  ⨼&lt;/li&gt;
       &lt;li&gt;Implemented NOAA Weather API:  ☔&lt;/li&gt;
-      &lt;li&gt;Speech-Enable Typographic Editting Support: 
+      &lt;li&gt;Speech-Enable Typographic Editing Support: 
       🖶&lt;/li&gt;
       &lt;li&gt;Speech-Enable Package Origami:  🗀&lt;/li&gt;
       &lt;li&gt;Magit  Enhancements for Magitians:   🎛&lt;/li&gt;
@@ -8400,7 +8400,7 @@
       &lt;li&gt;Added SmartParen Support:  〙&lt;/li&gt;
       &lt;li&gt;Speech-enabled Minesweeper game: 🤯&lt;br /&gt;
       &lt;br /&gt;
-      &lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;And a lot more than wil
+      &lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;And a lot more than will
       fit
       this margin. … 🗞&lt;/li&gt;
       &lt;/ul&gt;&lt;/li&gt;
@@ -8429,7 +8429,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -8492,7 +8492,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; &quot;It is the user
       &amp;#x2013;and not the&lt;br /&gt;
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -8628,7 +8628,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -8946,7 +8946,7 @@
       /&gt;     
       &lt;code&gt;&amp;lt;package&amp;gt;-prepare.el&lt;/code&gt;
       files.&lt;/li&gt;
-      &lt;li&gt;All of these files are byte-compiled.&lt;/li&gt;
+      &lt;li&gt;All of thesee files are byte-compiled.&lt;/li&gt;
       &lt;/ol&gt;&lt;br /&gt;
       &lt;p&gt;As a first step, I added code to my start-up file to time
       the
@@ -8988,7 +8988,7 @@
       /&gt;
       package-specific setup at the time.  As part of the cleanup, I
       updated&lt;br /&gt;
-      these to strictly load package-autoload files and wrapped
+      thesee to strictly load package-autoload files and wrapped
       post-package&lt;br /&gt;
       setup code in &lt;code&gt;eval-after-load&lt;/code&gt; &amp;#x2014;
       this
@@ -9398,7 +9398,7 @@
       &lt;p&gt;The HRTF devices are named with prefix &lt;span
       class=&quot;underline&quot;&gt;tts&lt;/span&gt; because I  would
       like      to&lt;br /&gt;
-      use these with software TTS; but for now the   result with TTS is
+      use thesee with software TTS; but for now the   result with TTS is
       not&lt;br /&gt;
       as good as it is with Soundscapes.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
@@ -9452,7 +9452,7 @@
       class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; Other Uses Of
       HRTF
       Devices&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
-      id=&quot;text-5&quot;&gt;&lt;p&gt;You can experiment with these
+      id=&quot;text-5&quot;&gt;&lt;p&gt;You can experiment with thesee
       devices
       using aplay e.g.:&lt;br /&gt;
       &lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;aplay -Dtts_a0_e0
@@ -9608,7 +9608,7 @@
       ⏰&lt;/li&gt;
       &lt;li&gt;Flycheck And Interactive Correction. 𐄂&lt;br /&gt;
       &lt;br /&gt;
-      &lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;And a lot more than wil
+      &lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;And a lot more than will
       fit
       this margin. … 🗞&lt;/li&gt;
       &lt;/ul&gt;&lt;/li&gt;
@@ -9638,7 +9638,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -9701,7 +9701,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; &quot;It is the user
       &amp;#x2013;and not the&lt;br /&gt;
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -9834,7 +9834,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -10297,7 +10297,7 @@
       one to search GMail using GMail&#39;s search operators &amp;#x2014;
       that
       is my&lt;br /&gt;
-      prefered means of quickly finding email messages using&lt;br /&gt;
+      preferred means of quickly finding email messages using&lt;br /&gt;
       search. This is very fast since the search happens
       server-side,&lt;br      /&gt;
       and  only email headers are retrieved when displaying the
@@ -10385,7 +10385,7 @@
       speech-enabled is being called interactively &amp;#x2014; otherwise
       one
       would&lt;br /&gt;
-      get a lot of chatter as these functions get called from within
+      get a lot of chatter as thesee functions get called from within
       elisp&lt;br /&gt;
       programs, e.g. functions like &lt;span
       class=&quot;underline&quot;&gt;forward-sexp&lt;/span&gt; or &lt;span
@@ -10485,7 +10485,7 @@
       (containing) function has an Emacspeak-defined advice on it and
       is&lt;br
       /&gt;
-      called interactively &amp;#x2014; these are the only cases that our
+      called interactively &amp;#x2014; thesee are the only cases that our
       predicate&lt;br /&gt;
       needs to test.&lt;br /&gt;
       &lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;(defvar
@@ -10547,7 +10547,7 @@
       if the function being called interactively is one of the
       functions&lt;br
       /&gt;
-      that has been adviced by Emacspeak. If so, we record the fact in 
+      that has been advised by Emacspeak. If so, we record the fact in 
       the&lt;br /&gt;
       previously declared global flag &lt;br /&gt;
       &lt;span
@@ -10572,7 +10572,7 @@
       &lt;span
       class=&quot;underline&quot;&gt;funcall-interactively&lt;/span&gt; as
       well. Now, whenever any function that has&lt;br /&gt;
-      been adviced by Emacspeak is called interactively, that
+      been advised by Emacspeak is called interactively, that
       interactive&lt;br
       /&gt;
       call gets recorded in the global flag. In the custom Emacspeak&lt;br
@@ -11463,7 +11463,7 @@
       Javascript WebApp development. ⺩&lt;/li&gt;
       &lt;li&gt;Improved &lt;code&gt;slime&lt;/code&gt; support for Lisp
       programming. Λ&lt;/li&gt;
-      &lt;li&gt;Support for rst-mode for editting ReST
+      &lt;li&gt;Support for rst-mode for editing ReST
       files.🖹&lt;/li&gt;
       &lt;li&gt;Version control info in modeline.⎔&lt;/li&gt;
       &lt;li&gt;Speech-enabled &lt;code&gt;elisp-refs&lt;/code&gt; to aid
@@ -11489,7 +11489,7 @@
       
       
       href=&quot;https://gist.github.com/08046e9befd9755dc05282ae5c8d32f5&quot;&gt;Script etc/bootstrap.sh&lt;/a&gt;  for bootstrapping into Emacspeak on a well-configured Linux system. 👢&lt;/li&gt;
-      &lt;li&gt;And a lot more than wil fit this margin. …
+      &lt;li&gt;And a lot more than will fit this margin. …
       🗞&lt;/li&gt;
       &lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
       &lt;br /&gt;
@@ -11516,7 +11516,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -11579,7 +11579,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; &quot;It is the user
       &amp;#x2013;and not the&lt;br /&gt;
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -11710,7 +11710,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -12034,7 +12034,7 @@
       &lt;li&gt;Updated Info manual 🕮&lt;/li&gt;
       &lt;li&gt;emacspeak-url-templates: Smart Web access.  ♅&lt;/li&gt;
       &lt;li&gt;emacspeak-websearch.el Find things fast. ♁&lt;/li&gt;
-      &lt;li&gt;And a lot more than wil fit this margin. …&lt;/li&gt;
+      &lt;li&gt;And a lot more than will fit this margin. …&lt;/li&gt;
       &lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
       &lt;div id=&quot;outline-container-orgheadline4&quot;
       class=&quot;outline-2&quot;&gt;&lt;h2
@@ -12059,7 +12059,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -12122,7 +12122,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; &quot;It is the user
       &amp;#x2013;and not the&lt;br /&gt;
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -12247,7 +12247,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -12494,7 +12494,7 @@
       &lt;b&gt;OpenAL&lt;/b&gt; can provide an enhanced&lt;br /&gt;
       headphone listening experience on Linux &amp;#x2014;  this article
       summarizes&lt;br /&gt;
-      various tools and techniques for leveraging these affordances on
+      various tools and techniques for leveraging thesee affordances on
       the&lt;br /&gt;
       Emacspeak Audio Desktop.&lt;br /&gt;
       &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
@@ -12506,7 +12506,7 @@
       id=&quot;text-2&quot;&gt;&lt;dl
       
       class=&quot;org-dl&quot;&gt;&lt;dt&gt;ALSA&lt;/dt&gt;&lt;dd&gt;Advanced
-      Linux Sound Architecture. This is my  prefered
+      Linux Sound Architecture. This is my  preferred
       means of controlling audio, and I entirely avoid Pulseaudio on
       all my machines.&lt;/dd&gt;
       &lt;dt&gt;Ladspa &lt;/dt&gt;&lt;dd&gt;Linux Audio Developer&#39;s
@@ -12571,7 +12571,7 @@
       lets you add some of the&lt;br /&gt;
       more commonly used Ladspa effects with smart minibuffer&lt;br /&gt;
       prompts. Use tab completion to discover some of the predefined&lt;br
-      /&gt;filters &amp;#x2014; these are just convenience shortcuts
+      /&gt;filters &amp;#x2014; thesee are just convenience shortcuts
       &amp;#x2014; and you can&lt;br /&gt;
       add  any filters you use commonly to this list.&lt;/li&gt;
       &lt;li&gt;Note that &lt;code&gt;mplayer&lt;/code&gt; also has its
@@ -12611,7 +12611,7 @@
       Ladspa plugins into the output processing chain is an elegant
       means&lt;br
       /&gt;
-      for enhancing the auditory experience provided by these&lt;br /&gt;
+      for enhancing the auditory experience provided by thesee&lt;br /&gt;
       soundscapes. In this instance, I apply one of the predefined
       reverb&lt;br
       /&gt;
@@ -12787,7 +12787,7 @@
       moods at the time of writing. For readability, I have stripped out
       the&lt;br /&gt;
       &lt;span class=&quot;underline&quot;&gt;package-name&lt;/span&gt;
-      for      these soundscapes.&lt;br /&gt;
+      for      thesee soundscapes.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
       &lt;br /&gt;
       &lt;table border=&quot;2&quot; cellspacing=&quot;0&quot;
@@ -13064,7 +13064,7 @@
       Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
       id=&quot;text-1&quot;&gt;&lt;p&gt;The Emacspeak GitHub repository
       now      includes a new auditory icon theme&lt;br /&gt;
-      &lt;code&gt;pan-chimes&lt;/code&gt; &amp;#x2014; these are the
+      &lt;code&gt;pan-chimes&lt;/code&gt; &amp;#x2014; thesee are the
       result of
       spatializing theme &lt;code&gt;chimes&lt;/code&gt;.&lt;br /&gt;
       &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
@@ -13080,7 +13080,7 @@
       /&gt;
       Thanksgiving weekend. Package &lt;code&gt;tap-plugins&lt;/code&gt;
       provides a number of&lt;br /&gt;
-      interesting Ladspa plugins; one of these,
+      interesting Ladspa plugins; one of thesee,
       &lt;code&gt;tap_reverb&lt;/code&gt; is used in&lt;br /&gt;
       module &lt;code&gt;emacspeak-m-player&lt;/code&gt; to provide a
       variety
@@ -13097,7 +13097,7 @@
       allows
       the injection of &lt;code&gt;ladspa&lt;br /&gt;
       plugins&lt;/code&gt; in its processing chain.&lt;br /&gt;
-      Combining these, I have created theme
+      Combining thesee, I have created theme
       &lt;code&gt;pan-chimes&lt;/code&gt;
       that  provides a&lt;br /&gt;
       spatialized version of sound-theme
@@ -13354,7 +13354,7 @@
       🗞&lt;/li&gt;      &lt;li&gt;emacspeak-url-templates: Smart Web
       access.  ♅&lt;/li&gt;
       &lt;li&gt;emacspeak-websearch.el Find things fast. ♁&lt;/li&gt;
-      &lt;li&gt;And a lot more than wil fit this margin. …&lt;/li&gt;
+      &lt;li&gt;And a lot more than will fit this margin. …&lt;/li&gt;
       &lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
       &lt;div id=&quot;outline-container-orgheadline4&quot;
       class=&quot;outline-2&quot;&gt;&lt;h2
@@ -13379,7 +13379,7 @@
       /&gt;
       used to develop and distribute the software.&lt;br /&gt;
       &lt;/p&gt;&lt;br /&gt;
-      &lt;p&gt;Extensive studies have shown that thanks to these features,
+      &lt;p&gt;Extensive studies have shown that thanks to thesee features,
       users&lt;br /&gt;
       consider Emacspeak to be absolutely priceless. Thanks to this&lt;br
       /&gt;
@@ -13442,7 +13442,7 @@
       /&gt;
       functioning altogether. Speaking with Aster Labrador, the creator
       of&lt;br /&gt;
-      Emacspeak once pointed out that these results re-emphasize the&lt;br
+      Emacspeak once pointed out that thesee results re-emphasize the&lt;br
       /&gt;user-centric design of Emacspeak; &quot;It is the user
       &amp;#x2013;and not the&lt;br /&gt;
       computer&amp;#x2013; that stops functioning when Emacspeak is
@@ -13563,7 +13563,7 @@
       &lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to
       the&lt;br
       /&gt;
-      audio desktop—you cant but be social if you speak!&lt;/li&gt;
+      audio desktop—you can't but be social if you speak!&lt;/li&gt;
       &lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the
       resilliance
       and innovation&lt;br /&gt;
@@ -14154,7 +14154,7 @@
       id=&quot;sec-1-3&quot;&gt;&lt;span
       class=&quot;section-number-3&quot;&gt;1.3&lt;/span&gt; Blogger
       Note:&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot;
-      id=&quot;text-1-3&quot;&gt;&lt;p&gt;Going forward, these articles
+      id=&quot;text-1-3&quot;&gt;&lt;p&gt;Going forward, thesee articles
       will be
       published via GitHub &amp;#x2013; rather than Blogspot &amp;#x2014;
       the
@@ -14833,7 +14833,7 @@
       &lt;/li&gt;
       &lt;li&gt;Emacs 24.4: Supports all new features in Emacs 24.4. 🌚
       &lt;/li&gt;
-      &lt;li&gt;And a lot more than wil fit this margin. …
+      &lt;li&gt;And a lot more than will fit this margin. …
       &lt;/li&gt;
       &lt;/ul&gt;
       &lt;/div&gt;
@@ -14858,7 +14858,7 @@
       &lt;/p&gt;
       
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   priceless
       as ever—it is being made available at the same zero-cost as
@@ -14902,7 +14902,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; &quot;It is the user –and not
       the      computer– that stops functioning when Emacspeak is
       uninstalled!&quot;.
@@ -14991,7 +14991,7 @@
       access. Emacspeak 31.0 AKA TweetDog — adds tweeting to the
       Emacspeak
       desktop. Emacspeak 30.0 AKA SocialDog brings the Social Web to the
-      audio desktop—you cant but be social if you speak! Emacspeak
+      audio desktop—you can't but be social if you speak! Emacspeak
       29.0—AKAAbleDog—is a testament to the resilliance and innovation
       embodied by Open Source software—it would not exist without the
       thriving Emacs community that continues to ensure that Emacs remains
@@ -15279,7 +15279,7 @@
       
       class=&#39;underline&#39;&gt;log_&amp;lt;tts-name&amp;gt;&lt;/span&gt;
       servers for the various supported speech servers.  When selected,
-      these &lt;i&gt;log-speech&lt;/i&gt; servers produce no speech
+      thesee &lt;i&gt;log-speech&lt;/i&gt; servers produce no speech
       output;      instead, they
       output the speech server commands received from Emacspeak to a file
       in
@@ -15516,7 +15516,7 @@
       &lt;li&gt;But over time, the advantages present in Git as a source
       control 
       system and GitHub as a hosting service have increased — primary 
-      among these — a rich set of Emacs tools that have been written 
+      among thesee — a rich set of Emacs tools that have been written 
       to leverage the GitHub API. 
       &lt;/li&gt; 
       &lt;li&gt;For Git integration in Emacs, my personal preference is
@@ -15584,7 +15584,7 @@
       Blog&lt;/a&gt;
       in late 2005, I have published a 
       sequence of articles describing Emacspeak features and usage 
-      patterns; I felt that having these articles for local reference 
+      patterns; I felt that having thesee articles for local reference 
       made a useful supplement to the emacspeak online 
       documentation. Toward this end, I have downloaded all articles 
       published so far and checked in both XML and HTML versions into 
@@ -15681,7 +15681,7 @@
       on modern hardware. As an example, applying effects such as 3D
       spatialization, high-end reverb effects etc. once consumed
       CPU cycles to the extent where it was not possible to play with
-      these in realtime. All these now take less than 1–5% of the CPU,
+      thesee in realtime. All thesee now take less than 1–5% of the CPU,
       and that when my laptop is running in power-save mode!
       &lt;/p&gt;
       &lt;/div&gt;
@@ -15708,7 +15708,7 @@
       Pre-Requisites&lt;/h4&gt;
       &lt;div id=&#39;text-1-1-1&#39; class=&#39;outline-text-4&#39;&gt;
       &lt;p&gt;
-      SoX with all available auxillary packages for adding support for
+      SoX with all available auxiliary packages for adding support for
       various filetypes such as mp3.
       The various Ladspa related packages for installing additional
       audio effect filters. 
@@ -15793,7 +15793,7 @@
       class=&#39;underline&#39;&gt;tap-plugins&lt;/span&gt; defines a
       total of
       42
-      Reverb Presets, experiment with these when wearing headsets.
+      Reverb Presets, experiment with thesee when wearing headsets.
       Once you have applied a Reverb Preset, you can edit its current
       settings via command emacspeak-m-player-edit-reverb  bound to
       &lt;span
@@ -16042,7 +16042,7 @@
       &lt;div id=&#39;text-1&#39; class=&#39;outline-text-2&#39;&gt;
       &lt;p&gt;
       &lt;a href=&#39;http://www.csounds.com/&#39;&gt;CSound&lt;/a&gt; is
-      a      sophisticated music sound synthesis system with a
+      a      sophisticated music sound syntheseis system with a
       strong community of developers.  I&#39;ve played off and on with
       CSound ever since the early 90&#39;s  and have always been intrigued
       by the possibility of   algorithmically creating new auditory icon
@@ -16194,7 +16194,7 @@
       &lt;/li&gt; 
       &lt;li&gt;Emacs 24.4: Supports all new features in Emacs 24.4. 🌚 
       &lt;/li&gt; 
-      &lt;li&gt;And a lot more than wil fit this margin. … 
+      &lt;li&gt;And a lot more than will fit this margin. … 
       &lt;/li&gt; 
       &lt;/ul&gt; 
       &lt;/div&gt; 
@@ -16219,7 +16219,7 @@
       &lt;/p&gt; 
       
       &lt;p&gt; 
-      Extensive studies have shown that thanks to these features, users 
+      Extensive studies have shown that thanks to thesee features, users 
       consider Emacspeak to be absolutely priceless. Thanks to this 
       wide-spread user demand, the present version remains   priceless 
       as ever—it is being made available at the same zero-cost as 
@@ -16263,7 +16263,7 @@
       These 
       same tests also revealed that once uninstalled, the user stopped 
       functioning altogether. Speaking with Aster Labrador, the creator of
-            Emacspeak once pointed out that these results re-emphasize the
+            Emacspeak once pointed out that thesee results re-emphasize the
             user-centric design of Emacspeak; &quot;It is the user –and
       not the 
       computer– that stops functioning when Emacspeak is
@@ -16352,7 +16352,7 @@
       desktop. Emacspeak 32.0 AKA LuckyDog continues to innovate via 
       open technologies for better access. Emacspeak 31.0 AKA TweetDog 
       — adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA 
-      SocialDog brings the Social Web to the audio desktop—you cant but 
+      SocialDog brings the Social Web to the audio desktop—you can't but 
       be social if you speak! Emacspeak 29.0—AKAAbleDog—is a testament
             to the resilliance and innovation embodied by Open Source 
       software—it would not exist without the thriving Emacs community 
@@ -16701,7 +16701,7 @@
       Emacspeak is a speech-subsystem for Emacs; it depends on an
       external Text-To-Speech (TTS) engine to produce speech. In 1994,
       Digital Equipment released what would turn out to be the last in
-      the line of hardware DECTalk synthesizers, the DECTalk
+      the line of hardware DECTalk syntheseizers, the DECTalk
       Express. This was essentially an Intel 386with 1mb of flash
       memory that ran a version of the DECTalk TTS software — to date,
       it still remains my favorite Text-To-Speech engine. At the time,
@@ -16824,7 +16824,7 @@
       among the reasons why they do most things inside Emacs — there is
       little that is Emacspeak specific in the above list — except that
       Emacspeak was able to provide fluent, well-integrated contextual
-      feedback for all of these tasks. And that was a game-changer
+      feedback for all of thesee tasks. And that was a game-changer
       given what I had had before Emacspeak. As a case in point, I did
       not dare program in Python before I speech-enabled Emacs&#39;
       Python-Mode; the fact that white space is significant in Python
@@ -16956,7 +16956,7 @@
       including the &lt;b&gt;label&lt;/b&gt; element as a means of
       associating
       metadata
-      with interactive form controls in HTML, and many of these ideas
+      with interactive form controls in HTML, and many of thesee ideas
       were prototyped in Emacs-W3 at the time. Over the years, Emacs-W3
       fell behind the times — especially as the Web moved away from
       cleanly structured HTML to a massive soup of unmatched tags. This
@@ -16974,7 +16974,7 @@
       desktop in late 1999 with the arrival of XSLT, and Daniel
       Veillard&#39;s excellent implementation via the
       &lt;b&gt;libxml2&lt;/b&gt; and
-      &lt;b&gt;libxslt&lt;/b&gt; packages. With these in hand, Emacspeak
+      &lt;b&gt;libxslt&lt;/b&gt; packages. With thesee in hand, Emacspeak
       was
       able to
       hand-off the bulk of HTML error correction to the
@@ -16990,7 +16990,7 @@
       into
       Emacs;
       this means that you can now parse arbitrary HTML as found in the
-      wild without incurring a performance hit. This functionality was
+      willd without incurring a performance hit. This functionality was
       leveraged first by package &lt;b&gt;shr&lt;/b&gt; (Simple HTML
       Renderer)
       within
@@ -17058,7 +17058,7 @@
       abstract,
       i.e.,
       they were independent of any given speech engine. Later in the
-      fall of 1995, I re-expressed these set of abstract voice
+      fall of 1995, I re-expressed thesee set of abstract voice
       properties in terms of Aural CSS; the work was published as a
       first draft toward the end of 1995, and implemented in Emacs-W3
       in early 1996. Aural CSS was an appendix in the CSS-1.0
@@ -17147,16 +17147,16 @@
       more opportunities for creating innovative forms of eyes-free
       interaction. With respect to what had gone before (and is still
       par for the course as far as traditional screen-readers are
-      concerned), these types of highly dynamic interfaces present a
+      concerned), thesee types of highly dynamic interfaces present a
       challenge. For example, consider handling a completion interface
       using a screen-reader that is speaking the visual display. There
       is a significant challenge in deciding &lt;i&gt;what to
       speak&lt;/i&gt;
       e.g., when
       presented with a list of completions, the currently typed text,
-      and the default completion, which of these should you speak, and
+      and the default completion, which of thesee should you speak, and
       in what order? The problem gets harder when you consider that the
-      underlying semantics of these items is generally not available
+      underlying semantics of thesee items is generally not available
       from examining the visual presentation in a consistent manner. By
       having direct access to the underlying information being
       presented, Emacspeak had a leg up with respect to addressing the
@@ -17164,7 +17164,7 @@
       information, how do you present it effectively in an eyes-free
       environment? For this and many other cases of dynamic
       interaction, a combination of audio formatting, auditory icons,
-      and the ability to synthesize succinct messages from a
+      and the ability to syntheseize succinct messages from a
       combination of information items — rather than having to forcibly
       speak each item as it is rendered visually provided for highly
       efficient eyes-free interaction.
@@ -17188,7 +17188,7 @@
       &lt;div id=&#39;text-9-1&#39; class=&#39;outline-text-3&#39;&gt;
       &lt;p&gt;
       So in 1997, I went the next step in asking — given access to the
-      underlying infromation, is it possible to build effective
+      underlying information, is it possible to build effective
       eyes-free interaction to highly interactive tasks? I picked
       &lt;b&gt;Tetris&lt;/b&gt; as a means of exploring this space, the
       result
@@ -17212,7 +17212,7 @@
       Speech-enabling games for effective eyes-free interaction has
       proven highly educational. Interactive games are typically built
       to challenge the user, and if the eyes-free interface is
-      inefficient, you just wont play the game — contrast this with a
+      inefficient, you just won't play the game — contrast this with a
       task that you &lt;b&gt;must&lt;/b&gt; perform, where you&#39;re
       likely to
       make do with
@@ -17223,7 +17223,7 @@
       &lt;a
       
       
-      href=&#39;http://en.wikipedia.org/wiki/2048_(video_game)&#39;&gt;Sudoku&lt;/a&gt;, and of late the popular &lt;a href=&#39;http://en.wikipedia.org/wiki/2048_(video_game)&#39;&gt;2048 game&lt;/a&gt;. Each of these have in
+      href=&#39;http://en.wikipedia.org/wiki/2048_(video_game)&#39;&gt;Sudoku&lt;/a&gt;, and of late the popular &lt;a href=&#39;http://en.wikipedia.org/wiki/2048_(video_game)&#39;&gt;2048 game&lt;/a&gt;. Each of thesee have in
       turn contributed to enhancing the interaction model in Emacspeak,
       and those innovations typically make their way to the rest of the
       environment.
@@ -17244,7 +17244,7 @@
       the advent of RealAudio in 1995; soon there were a large number
       of media streams available on the Internet ranging from music
       streams to live radio stations. But there was an interesting
-      twist — for the most part, all of these media streams expected
+      twist — for the most part, all of thesee media streams expected
       one to look at the screen, even though the primary content was
       purely audio (streaming video hadn&#39;t arrived yet!). Starting in
       1996, Emacspeak started including a variety of eyes-free
@@ -17264,7 +17264,7 @@
       wrappers
       for
       &lt;b&gt;mplayer&lt;/b&gt; and &lt;b&gt;alsaplayer&lt;/b&gt; —
-      collectively, these let you
+      collectively, thesee let you
       efficiently launch all types of media streams, including
       streaming video, without having to explicitly switch context.
       &lt;/p&gt;
@@ -17281,7 +17281,7 @@
       Emacs community develops better and smarter ways of navigating
       the filesystem using completions, e.g., package
       &lt;b&gt;ido&lt;/b&gt;,
-      these
+      thesee
       types of actions become even more efficient!
       &lt;/p&gt;
       &lt;/div&gt;
@@ -17314,13 +17314,13 @@
       all of the electronic books I had on my local disk — Emacs&#39;
       strengths with respect to browsing textual documents meant that I
       needed to build little that was specific to Emacspeak. The late
-      90&#39;s saw the arival of Daisy as an XML-based format for
+      90&#39;s saw the arrival of Daisy as an XML-based format for
       accessible electronic books. The last decade has seen the rapid
       convergence to &lt;b&gt;epub&lt;/b&gt; as a distribution format of
       choice
       for
       electronic books. Emacspeak provides interaction modes that make
-      organizing, searching and reading these materials on the
+      organizing, searching and reading thesee materials on the
       Emacspeak Audio Desktop a pleasant experience. Emacspeak also
       provides an OCR-Mode — this enables one to call out to an
       external OCR program and read the content efficiently.
@@ -17373,7 +17373,7 @@
       computational tools become immediately available for embedding
       within the Emacs environment — a facility that has been widely
       exploited by the Emacs community. Over the years, Emacspeak has
-      leveraged many of these facilities to provide a well-integrated
+      leveraged many of thesee facilities to provide a well-integrated
       auditory interface.
       &lt;/p&gt;
       
@@ -17398,8 +17398,8 @@
       content; module &lt;b&gt;ein&lt;/b&gt; brings the power and
       convenience
       of Emacs &#39;
-      editting facilities when developing the content. Speech-enabling
-      package &lt;b&gt;ein&lt;/b&gt; is a major win since editting program
+      editing facilities when developing the content. Speech-enabling
+      package &lt;b&gt;ein&lt;/b&gt; is a major win since editing program
       source code
       in an eyes-free environment is far smoother in Emacs than in a
       browser-based editor.
@@ -17421,7 +17421,7 @@
       for email in 1990, along with &lt;b&gt;gnus&lt;/b&gt; for Usenet
       access
       many years
-      before developing Emacspeak. So these were the first major
+      before developing Emacspeak. So thesee were the first major
       packages that Emacspeak speech-enabled. Being able to access the
       underlying data structures used to visually render email messages
       and Usenet articles enabled Emacspeak to produce rich, succinct
@@ -17470,7 +17470,7 @@
       &lt;/p&gt;
       
       &lt;p&gt;
-      As the Web evolved to encompass ever-increasing swathes of
+      As the Web evolved to encompass ever-increasing swathese of
       communication functionality that had already been available on
       the Internet, we saw the world move from Usenet groups to
       &lt;b&gt;Blogs&lt;/b&gt;
@@ -17566,7 +17566,7 @@
       
       
       &lt;p&gt;
-      I later codified these filtering rules in terms of XPath, and
+      I later codified thesee filtering rules in terms of XPath, and
       also integrated XSLT-based pre-processing of incoming HTML
       content before it got handed off to Emacs-W3 — and yes,
       Emacs/Advice once again came in handy with respect to injecting
@@ -17623,7 +17623,7 @@
       only runtime that is supported is a full-blown Web browser; but
       the arrival of native mobile apps has actually proven a net
       positive in encouraging sites to create a cleaner
-      separation. Emacspeak has leveraged these APIs to create
+      separation. Emacspeak has leveraged thesee APIs to create
       Emacspeak front-ends to many useful services, here are a few:
       &lt;/p&gt;
       
@@ -17933,7 +17933,7 @@
       without the user having to switch contexts — it achieves this by
       using overlays that appear briefly in the form of a conceptual
       tooltip. These pseudo tooltips are created and destroyed via a
-      timer; keyboard interaction causes these to be updated —
+      timer; keyboard interaction causes thesee to be updated —
       including hiding the tooltip where appropriate.
       &lt;/p&gt;
       
@@ -17965,7 +17965,7 @@
       &lt;/p&gt;
       
       &lt;p&gt;
-      I found these articles really helpful while learning to write
+      I found thesee articles really helpful while learning to write
       package &lt;i&gt;emacspeak-company&lt;/i&gt;.
       &lt;/p&gt;
       &lt;ul class=&#39;org-ul&#39;&gt;
@@ -18134,7 +18134,7 @@
       &lt;/li&gt; 
       &lt;li&gt;Emacs 24.4: Supports all new features in Emacs 24.4. 🌚 
       &lt;/li&gt; 
-      &lt;li&gt;And a lot more than wil fit this margin. … 
+      &lt;li&gt;And a lot more than will fit this margin. … 
       &lt;/li&gt; 
       &lt;/ul&gt; 
       &lt;/div&gt; 
@@ -18158,7 +18158,7 @@
       &lt;/p&gt; 
       
       &lt;p&gt; 
-      Extensive studies have shown that thanks to these features, users 
+      Extensive studies have shown that thanks to thesee features, users 
       consider Emacspeak to be absolutely priceless. Thanks to this 
       wide-spread user demand, the present version remains   priceless 
       as ever—it is being made available at the same zero-cost as 
@@ -18202,7 +18202,7 @@
       These 
       same tests also revealed that once uninstalled, the user stopped 
       functioning altogether. Speaking with Aster Labrador, the creator of
-            Emacspeak once pointed out that these results re-emphasize the
+            Emacspeak once pointed out that thesee results re-emphasize the
             user-centric design of Emacspeak; &quot;It is the user –and
       not the 
       computer– that stops functioning when Emacspeak is
@@ -18290,7 +18290,7 @@
       desktop. Emacspeak 32.0 AKA LuckyDog continues to innovate via 
       open technologies for better access. Emacspeak 31.0 AKA TweetDog 
       — adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA 
-      SocialDog brings the Social Web to the audio desktop—you cant but 
+      SocialDog brings the Social Web to the audio desktop—you can't but 
       be social if you speak! Emacspeak 29.0—AKAAbleDog—is a testament
             to the resilliance and innovation embodied by Open Source 
       software—it would not exist without the thriving Emacs community 
@@ -18489,7 +18489,7 @@
       Within a few weeks, &lt;a
       
       
-      href=&#39;http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html&#39;&gt;EWW&lt;/a&gt; has become my prefered way of consuming
+      href=&#39;http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html&#39;&gt;EWW&lt;/a&gt; has become my preferred way of consuming
       large amounts of Web content — except for simple fill-out
       forms, it has entirely replaced Emacs/W3 for me. Goes without
       saying that I still use ChromeVox for Js-heavy Web sites.
@@ -18542,7 +18542,7 @@
       &lt;p&gt;
       The suite of DOM filtered views has been enhanced to support
       filtering by class, id, role, or element-list.  In addition, you
-      can also invert these filters.
+      can also invert thesee filters.
       &lt;/p&gt;
       &lt;/div&gt;
       &lt;/div&gt;
@@ -18688,7 +18688,7 @@
       up specific buffers to have &lt;i&gt;interesting&lt;/i&gt; tidbits
       of      information 
       displayed automatically in the header-line; Emacspeak speaks 
-      these items of information as you switch contexts. This article 
+      thesee items of information as you switch contexts. This article 
       explains the usage model and underlying  design of Emacspeak 
       Webspaces. 
       &lt;/p&gt; 
@@ -18721,7 +18721,7 @@
       switching contexts does 
       not become an object of attention ie, the casual task remains 
       casual, as opposed to becoming the primary task.  Email is 
-      the antithesis to this model — where if you start glancing 
+      the antitheseis to this model — where if you start glancing 
       at email, it&#39;s a sufficiently strong distraction that you&#39;ll
             start doing email  — as opposed to what you were supposed 
       to be doing. 
@@ -18795,7 +18795,7 @@
       context switching amongst tasks. Notice that if I didn&#39;t go back
             and check for that item within a day, it would fall off the 
       ring-buffer cache — and this usually would mean that it likely 
-      wasn&#39;t that important after all. 
+      wasn't&#39;t that important after all. 
       &lt;/p&gt; 
       &lt;/div&gt; 
       &lt;/div&gt; 
@@ -19462,7 +19462,7 @@
       (&lt;a href=&#39;http://cnn.com&#39;&gt;http://cnn.com&lt;/a&gt;). 
       &lt;/p&gt;
       &lt;p&gt;
-      When visiting these and other content-heavy sites, try:
+      When visiting thesee and other content-heavy sites, try:
       &lt;/p&gt;
       &lt;dl&gt;
       &lt;dt&gt;&lt;b&gt;A&lt;/b&gt;&lt;/dt&gt;&lt;dd&gt;Filter by
@@ -19633,7 +19633,7 @@
       &lt;/li&gt;
       &lt;li&gt;Improved Emacs 24.3 support. 🌑
       &lt;/li&gt;
-      &lt;li&gt;And a lot more than wil fit this margin. …
+      &lt;li&gt;And a lot more than will fit this margin. …
       &lt;/li&gt;
       &lt;/ul&gt;
       
@@ -19663,7 +19663,7 @@
       used to develop and distribute the software.
       &lt;/p&gt;
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains priceless
       as ever—it is being made available at the same zero-cost as
@@ -19708,7 +19708,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; &quot;It is the user  – and not
       the
       computer –  that stops functioning when Emacspeak is
@@ -19795,7 +19795,7 @@
       desktop. Emacspeak 32.0 AKA LuckyDog continues to innovate via
       open technologies for better access. Emacspeak 31.0 AKA TweetDog
       —  adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA
-      SocialDog brings the Social Web to the audio desktop—you cant but
+      SocialDog brings the Social Web to the audio desktop—you can't but
       be social if you speak! Emacspeak 29.0—AKAAbleDog—is a testament
       to the resilliance and innovation embodied by Open Source
       software—it would not exist without the thriving Emacs community
@@ -20115,7 +20115,7 @@
       used to develop and distribute the software. 
       &lt;/p&gt; 
       &lt;p&gt; 
-      Extensive studies have shown that thanks to these features, users 
+      Extensive studies have shown that thanks to thesee features, users 
       consider Emacspeak to be absolutely priceless. Thanks to this 
       wide-spread user demand, the present version remains   priceless 
       as ever—it is being made available at the same zero-cost as 
@@ -20162,7 +20162,7 @@
       These 
       same tests also revealed that once uninstalled, the user stopped 
       functioning altogether. Speaking with Aster Labrador, the creator of
-            Emacspeak once pointed out that these results re-emphasize the
+            Emacspeak once pointed out that thesee results re-emphasize the
             user-centric design of Emacspeak; &quot;It is the user –and
       not the 
       computer– that stops functioning when Emacspeak is
@@ -20248,7 +20248,7 @@
       desktop. Emacspeak 32.0 AKA LuckyDog continues to innovate via 
       open technologies for better access. Emacspeak 31.0 AKA TweetDog 
       — adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA 
-      SocialDog brings the Social Web to the audio desktop—you cant but 
+      SocialDog brings the Social Web to the audio desktop—you can't but 
       be social if you speak! Emacspeak 29.0—AKAAbleDog—is a testament
             to the resilliance and innovation embodied by Open Source 
       software—it would not exist without the thriving Emacs community 
@@ -20754,7 +20754,7 @@
       used to develop and distribute the software.
       &lt;/p&gt;
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   priceless
       as ever—it is being made available at the same zero-cost as
@@ -20799,7 +20799,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; &quot;It is the user –and not
       the      computer– that stops functioning when Emacspeak is
       uninstalled!&quot;.
@@ -20881,7 +20881,7 @@
       desktop. Emacspeak 32.0 AKA LuckyDog continues to innovate via
       open technologies for better access. Emacspeak 31.0 AKA TweetDog
       — adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA
-      SocialDog brings the Social Web to the audio desktop—you cant but
+      SocialDog brings the Social Web to the audio desktop—you can't but
       be social if you speak! Emacspeak 29.0—AKAAbleDog—is a testament
       to the resilliance and innovation embodied by Open Source
       software—it would not exist without the thriving Emacs community
@@ -21197,7 +21197,7 @@
       used to develop and distribute the software.   
       &lt;/p&gt;   
       &lt;p&gt;   
-      Extensive studies have shown that thanks to these features, users   
+      Extensive studies have shown that thanks to thesee features, users   
       consider Emacspeak to be absolutely priceless. Thanks to this   
       wide-spread user demand, the present version remains   priceless   
       as ever—it is being made available at the same zero-cost as   
@@ -21242,7 +21242,7 @@
       same tests also revealed that once uninstalled, the user stopped   
       functioning altogether. Speaking with Aster Labrador, the creator of
         
-      Emacspeak once pointed out that these results re-emphasize the   
+      Emacspeak once pointed out that thesee results re-emphasize the   
       user-centric design of Emacspeak; &quot;It is the user —and not
       the   
       computer— that stops functioning when Emacspeak is
@@ -21316,7 +21316,7 @@
       continues to innovate via open technologies for better   
       access. Emacspeak 31.0 AKA TweetDog — adds tweeting to the   
       Emacspeak desktop. Emacspeak 30.0 AKA SocialDog brings the Social   
-      Web to the audio desktop—you cant but be social if you speak!   
+      Web to the audio desktop—you can't but be social if you speak!   
       Emacspeak 29.0—AKAAbleDog—is a testament to the resilliance and 
        
       innovation embodied by Open Source software—it would not exist   
@@ -21680,7 +21680,7 @@
       used to develop and distribute the software.
       &lt;/p&gt;
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   priceless
       as ever—it is being made available at the same zero-cost as
@@ -21725,7 +21725,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; &quot;It is the user –and not
       the      computer– that stops functioning when Emacspeak is
       uninstalled!&quot;.
@@ -21806,7 +21806,7 @@
       continues to innovate via open technologies for better
       access. Emacspeak 31.0 AKA TweetDog — adds tweeting to the
       Emacspeak desktop. Emacspeak 30.0 AKA SocialDog brings the Social
-      Web to the audio desktop—you cant but be social if you speak!
+      Web to the audio desktop—you can't but be social if you speak!
       Emacspeak 29.0—AKAAbleDog—is a testament to the resilliance and
       innovation embodied by Open Source software—it would not exist
       without the thriving Emacs community that continues to ensure
@@ -22120,7 +22120,7 @@
       
       
       href=&#39;http://emacspeak.sf.net/raman/hubbell-labrador/epitaph.html&#39;&gt;Epitaph&lt;/a&gt;. This release is code named Bubbles  in honour of her
-      unflagging service over these last 11 years.
+      unflagging service over thesee last 11 years.
       &lt;/p&gt;
       &lt;/div&gt;
       
@@ -22226,7 +22226,7 @@
       used to develop and distribute the software.
       &lt;/p&gt;
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   priceless
       as ever—it is being made available at the same zero-cost as
@@ -22270,7 +22270,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; &quot;It is the user –and not
       the      computer– that stops functioning when Emacspeak is
       uninstalled!&quot;.
@@ -22342,7 +22342,7 @@
       Emacspeak 32.0 AKA LuckyDog continues to innovate via open
       technologies for better access. Emacspeak 31.0 AKA TweetDog ---
       adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA
-      SocialDog brings the Social Web to the audio desktop—you cant
+      SocialDog brings the Social Web to the audio desktop—you can't
       but be social if you speak! Emacspeak 29.0—AKAAbleDog—is
       a testament to the resilliance and innovation embodied by Open
       Source software—it would not exist without the thriving Emacs
@@ -22883,7 +22883,7 @@
       used to develop and distribute the software. 
       &lt;/p&gt; 
       &lt;p&gt; 
-      Extensive studies have shown that thanks to these features, users 
+      Extensive studies have shown that thanks to thesee features, users 
       consider Emacspeak to be absolutely priceless. Thanks to this 
       wide-spread user demand, the present version remains   priceless 
       as ever  ---  it is being made available at the same zero-cost as 
@@ -22929,7 +22929,7 @@
       These 
       same tests also revealed that once uninstalled, the user stopped 
       functioning altogether. Speaking with Aster Labrador, the creator of
-            Emacspeak once pointed out that these results re-emphasize the
+            Emacspeak once pointed out that thesee results re-emphasize the
             user-centric design of Emacspeak; &quot;It is the user  -- and
       not the 
       computer --  that stops functioning when Emacspeak is
@@ -23009,7 +23009,7 @@
       Emacspeak 32.0 AKA LuckyDog continues to innovate via open 
       technologies for better access. Emacspeak 31.0 AKA TweetDog --- 
       adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA 
-      SocialDog brings the Social Web to the audio desktop  ---  you cant 
+      SocialDog brings the Social Web to the audio desktop  ---  you can't 
       but be social if you speak! Emacspeak 29.0  ---  AKAAbleDog  ---  is
             a testament to the resilliance and innovation embodied by Open
             Source software  ---  it would not exist without the thriving
@@ -23304,7 +23304,7 @@
       used to develop and distribute the software.
       &lt;/p&gt;
       &lt;p&gt;
-      Extensive studies have shown that thanks to these features, users
+      Extensive studies have shown that thanks to thesee features, users
       consider Emacspeak to be absolutely priceless. Thanks to this
       wide-spread user demand, the present version remains   priceless
       as ever  ---  it is being made available at the same zero-cost as
@@ -23344,7 +23344,7 @@
       adversely affecting the continued performance of the computer. These
       same tests also revealed that once uninstalled, the user stopped
       functioning altogether. Speaking with Aster Labrador, the creator of
-      Emacspeak once pointed out that these results re-emphasize the
+      Emacspeak once pointed out that thesee results re-emphasize the
       user-centric design of Emacspeak; &quot;It is the user  -- ;and not
       the
       computer -- ; that stops functioning when Emacspeak is
@@ -23407,7 +23407,7 @@
       Emacspeak 32.0 AKA LuckyDog continues to innovate via open
       technologies for better access. Emacspeak 31.0 AKA TweetDog ---
       adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA
-      SocialDog brings the Social Web to the audio desktop  ---  you cant
+      SocialDog brings the Social Web to the audio desktop  ---  you can't
       but be social if you speak! Emacspeak 29.0  ---  AKAAbleDog  ---  is
       a testament to the resilliance and innovation embodied by Open
       Source software  ---  it would not exist without the thriving Emacs
@@ -23588,7 +23588,7 @@
       to the CS Faculty at Cornell for my &lt;a
       
       
-      href=&#39;http://www.cs.cornell.edu/home/raman/phd-thesis/index.html&#39;&gt;PhD&lt;/a&gt;, I released the source
+      href=&#39;http://www.cs.cornell.edu/home/raman/phd-theseis/index.html&#39;&gt;PhD&lt;/a&gt;, I released the source
       code as Open Source --- thanks to Prof. David Gries at Cornell
       for approving this release.&lt;/p&gt;
       &lt;p&gt;The sources are checked into GoogleCode project 
@@ -23606,7 +23606,7 @@
       code base. Nothing has changed in that context, nor is it likely
       to change in the coming future; however I get requests off and on
       from different parts of the Web from teachers and students alike
-      who have seen my PhD  thesis, played with the demos, and wish to
+      who have seen my PhD  theseis, played with the demos, and wish to
       study the sources.&lt;/p&gt;
       &lt;h2&gt;What You&#39;ll Find In The Sources&lt;/h2&gt;
       &lt;p&gt;The code has not been actively developed since I finished
@@ -23853,7 +23853,7 @@
       &lt;h2&gt;Introducing The Emacspeak Google Tool-belt&lt;/h2&gt;
       
       &lt;p&gt;Module &lt;code&gt;emacspeak-google.el&lt;/code&gt;
-      implements a suite of Google tools collectively refered to
+      implements a suite of Google tools collectively referred to
       as &lt;em&gt;The Google Tool-Belt&lt;/em&gt;. These tools let you
       slice
       and
@@ -24040,7 +24040,7 @@
       using it often, you can bind it to a key of your choice.
       Command &lt;code&gt;emacspeak-wizards-braille&lt;/code&gt; prompts
       for
-      thestring to Braille and produces a Grade-1 representation of  the
+      thesetring to Braille and produces a Grade-1 representation of  the
       specified string using the appropriate Unicode characters.  
       &lt;/p&gt;
       &lt;p&gt;
@@ -24217,7 +24217,7 @@
       &lt;p&gt;Command &lt;code&gt;emacspeak-multimedia&lt;/code&gt; lets
       you
       launch all
-      forms of local and remote media. However this stil requires you
+      forms of local and remote media. However this still requires you
       to specify the media location --- and this requires a bunch of
       keystrokes that you end up repeating for selecting media that you
       play often, e.g., from your private music collection. No more
@@ -24250,7 +24250,7 @@
       &lt;/ul&gt;
       &lt;p&gt;In my own case, I have favorites defined on
       &lt;code&gt;hyper-&amp;lt;n&amp;gt;&lt;/code&gt;  so I can define
-      upto 10
+      up to 10
       hotkey
       assignments  for media  locations.Once launched, Emacspeak
       automatically switches to the media player buffer; note that this
@@ -24347,10 +24347,10 @@
       &lt;li&gt;
       A collection of useful talking applications that turn an
       Android phone into an eyes-free communication device  ---  see
-      subsequent sections for an overview of these
-      applications. Note that thes eapplications have been written
+      subsequent sections for an overview of thesee
+      applications. Note that these eapplications have been written
       to be both useful to end-users as well as to help the
-      developper community to come up to speed with developing
+      developer community to come up to speed with developing
       eyes-free applications for Android.
       
       &lt;/li&gt;
@@ -24358,8 +24358,8 @@
       
       &lt;p&gt;We will be uploading video tutorials demonstrating the use
       of
-      these applications to YouTube  ---   please see the project
-      Web site for these links as they become available.
+      thesee applications to YouTube  ---   please see the project
+      Web site for thesee links as they become available.
       &lt;/p&gt;
       
       &lt;/div&gt;
@@ -25090,10 +25090,10 @@
       a      search-term --- with the word we just grabbed as the
       default.&lt;/li&gt;
       &lt;li&gt;Fetches other relevant search terms in the background via
-      Google Suggest, and makes these available via Emacs&#39; minibuffer
+      Google Suggest, and makes thesee available via Emacs&#39; minibuffer
       history mechanism. Use keys &lt;code&gt;M-n&lt;/code&gt; and
       &lt;code&gt;M-p&lt;/code&gt;
-      to cycle through these if needed.&lt;/li&gt;
+      to cycle through thesee if needed.&lt;/li&gt;
       &lt;li&gt;Hitting &lt;code&gt;ENTER&lt;/code&gt; performs a Google
       Search
       using the
@@ -25156,7 +25156,7 @@
       href=&#39;http://www.abilitynet.org.uk/accessibility2/&#39;&gt;Accessibility 2.0&lt;/a&gt; is now a hot topic on the Web
       --- and we would like to move from  a world where AJAX
       applications were a straight No-No with respect to blind users to
-      a world where these same technologies are used to enhance their
+      a world where thesee same technologies are used to enhance their
       usability for everyone.
       &lt;/p&gt;
       &lt;p&gt;
@@ -25783,14 +25783,14 @@
       to
       the resounding success of systems like the World Wide Web and The
       Blogosphere,
-      these viral features in Emacspeak are expected to win ones
+      thesee viral features in Emacspeak are expected to win ones
       running instance many social connections.
-      The longer one uses these features, the &lt;em&gt;deeper&lt;/em&gt;
+      The longer one uses thesee features, the &lt;em&gt;deeper&lt;/em&gt;
       one&#39;s &lt;em&gt;social graph&lt;/em&gt;
-      --- going forward,  the information encapsulated in these social
+      --- going forward,  the information encapsulated in thesee social
       graphs will be converted to ever-increasing stacks of small
       pieces of green paper.&lt;/p&gt;
-      &lt;h2&gt;Coming Soon!&lt;/h2&gt; &lt;p&gt;As these features are
+      &lt;h2&gt;Coming Soon!&lt;/h2&gt; &lt;p&gt;As thesee features are
       launched
       over the
       next few weeks, expect Emacspeak generated conversation streams
@@ -26153,7 +26153,7 @@
       
       &lt;p&gt;These are some todos that I plan to get to eventually ---
       if      you have coding cycles to contribute, feel free to work on
-      these.&lt;/p&gt;
+      thesee.&lt;/p&gt;
       &lt;ul&gt;
       &lt;li&gt;Create an HTTP  binding to the TTS servers using TCL and
       the
@@ -26203,7 +26203,7 @@
       Alt Text&lt;/a&gt;.
       It&#39;s a very good read,  and though its conclusions might be
       depressing to people coming to this area from the outside ---
-      they should be no surprize to users who have been trying to use
+      they should be no surprise to users who have been trying to use
       the Web via spoken output over the last 10 years.
       From the perspective of the Emacspeak user who lives in a
       specialized browsing environment that is optimized for performing
@@ -26666,9 +26666,9 @@
       audio --- this appears to be an artifact of using
       &lt;em&gt;recordmydesktop&lt;/em&gt; that I was unable to
       eliminate.&lt;/li&gt;
-      &lt;li&gt;In each of these articles, I&#39;ll enumerate the actions
+      &lt;li&gt;In each of thesee articles, I&#39;ll enumerate the actions
       I      take,
-      and their effect. I&#39;ll enumearate actual keystrokes, but I
+      and their effect. I&#39;ll enumerate actual keystrokes, but I
       suggest readers focus more on the atomic commands being executed,
       rather than individual keypresses.&lt;/li&gt;
       &lt;/ul&gt;
@@ -26842,7 +26842,7 @@
       to      Emacspeak&#39;s &lt;em&gt;Web Command Line&lt;/em&gt;.
       Once you&#39;ve signed in, you can use 
       template &lt;code&gt;GMail Search&lt;/code&gt;
-      to type a search term, and find matching mesages.
+      to type a search term, and find matching messages.
       Note that GMail uses CSS class &lt;code&gt;msg&lt;/code&gt;
       to tag the actual contents of a message. You can use this to
       advantage by hitting &lt;code&gt;e c&lt;/code&gt;
@@ -26854,7 +26854,7 @@
       too
       click intensive for my liking.
       But cudos to Srinivas for doing the hard work that lets me
-      discover the pain points in the HTML interface; until now these
+      discover the pain points in the HTML interface; until now thesee
       were completely invisible to me since I couldn&#39;t  
       use GMail from 
       the Emacspeak environment.&lt;/p&gt;
@@ -26911,7 +26911,7 @@
       given that one can do many more sophisticated tweaks to one&#39;s
       sound-card.
       Tool &lt;code&gt;alsamixer&lt;/code&gt; --- a full-screen  terminal
-      application is bewilderingly confusing (at least to me),
+      application is bewillderingly confusing (at least to me),
       and &lt;code&gt;amixer&lt;/code&gt; though usable required me to go
       find
       out
@@ -27045,7 +27045,7 @@
       extension --- it  
       displays a dynamically generated list of completions as one does
       Google searches in Firefox.
-      The prefered way of Googling on the Emacspeak audio desktop 
+      The preferred way of Googling on the Emacspeak audio desktop 
       --- using Emacspeak&#39;s Websearch facility available via
       &lt;code&gt;C-e ?&lt;/code&gt;
       is now &lt;em&gt;Google-Suggest&lt;/em&gt; enabled. This means that
@@ -27163,7 +27163,7 @@
       &lt;li&gt;When using W3, Emacspeak automatically builds a cache of
       CSS
       &lt;code&gt;classnames&lt;/code&gt; and &lt;code&gt;ids&lt;/code&gt;
-      occuring on the
+      occurring on the
       page.
       These are then used to provide interactive completion when
       invoking commands 
@@ -27203,7 +27203,7 @@
       &lt;li&gt;Module &lt;code&gt;emacspeak-w3m&lt;/code&gt; still needs
       work
       to take
-      advantage of all of these changes; I myself do not use W3M much,
+      advantage of all of thesee changes; I myself do not use W3M much,
       so those updates will happen as and when W3M users contribute the
       necessary time and patches.&lt;/li&gt;
       &lt;/ul&gt;
@@ -27244,7 +27244,7 @@
       href=&#39;http://www.blogger.com/feeds/20280042/posts/default&#39;&gt;useful
       additions&lt;/a&gt;
       to the Picasa Web API yesterday. I&#39;ve added support for most of
-      these new features in module &lt;a
+      thesee new features in module &lt;a
       
       
       href=&#39;http://emacspeak.googlecode.com/svn/trunk/lisp/g-client/gphoto.el&#39;&gt;gphoto&lt;/a&gt;
@@ -27348,7 +27348,7 @@
       &lt;div xmlns=&#39;http://www.w3.org/1999/xhtml&#39;&gt;
       &lt;p&gt;Information about Emacspeak and its use is available from a
       collection of Web sites,
-      and being able to restrict the search to these authoritative
+      and being able to restrict the search to thesee authoritative
       sources 
       is a good way of quickly finding the right document, without
       being distracted by the numerous hits one finds  when doing a
@@ -27639,8 +27639,8 @@
       Emacspeak users are likely to find the RSS and ATOM feeds for
       photo albums   more useful in general; package
       &lt;code&gt;gphoto&lt;/code&gt;
-      provides easy access to previewing these feeds
-      as well as viewing/editting  the metadata that goes along with
+      provides easy access to previewing thesee feeds
+      as well as viewing/editing  the metadata that goes along with
       the pictures.
       As an example of such a feed, here is 
       &lt;a
@@ -27738,7 +27738,7 @@
       I&#39;ve finally found the right development environment for myself
       for writing and debugging Web Applications that use JavaScript to
       implement client-side interaction.
-      It turns out that it wasn&#39;t just me who found the thought of
+      It turns out that it wasn't&#39;t just me who found the thought of
       programming inside the Web browser a painful experience ---
       pleasant though the final end-user interaction that those results
       deliver might be for the final user.
@@ -28092,7 +28092,7 @@
       tools. Notice that Emacspeak has had this since the late 90&#39;s in
       the form of first the &lt;em&gt;websearch&lt;/em&gt; module, to be
       later
-      joined by &lt;em&gt;url-templates&lt;/em&gt;. I believe these
+      joined by &lt;em&gt;url-templates&lt;/em&gt;. I believe thesee
       innovations
       arrived earlier on the Emacspeak Webtop as compared to the rest
       of the Web for the following reasons:&lt;/p&gt;
@@ -28114,7 +28114,7 @@
       &lt;/ul&gt;
       
       &lt;p&gt;Incidentally when I showed others working in the field of
-      accessibility these Emacspeak tools during their early days, they
+      accessibility thesee Emacspeak tools during their early days, they
       were promptly dismissed as site-specific hacks that wouldn&#39;t
       scale in the face of generic screenreaders that would
       &lt;em&gt;handle
@@ -28288,8 +28288,8 @@
       
       &lt;p&gt;
       Google offers a number of services using a Google account. Many
-      of these services also expose a Web API. this package provides a
-      set of Emacs modules for accessing these services from inside
+      of thesee services also expose a Web API. this package provides a
+      set of Emacs modules for accessing thesee services from inside
       Emacs. These modules are designed with an Emacs-centric, rather
       than a Web-browser centered view of the world. Where necessary
       Emacs package &lt;code&gt;browse-url&lt;/code&gt; is used to invoke
@@ -28388,7 +28388,7 @@
       
       
       &lt;p&gt;
-      This client implements posting, editting and deleting of blog
+      This client implements posting, editing and deleting of blog
       entries using the new Blogger API --- it replaces the now
       obsolete &lt;a
       
@@ -28434,7 +28434,7 @@
       url&lt;/b&gt; for individual posts.
       &lt;/li&gt;
       &lt;li&gt;
-      &lt;i&gt;Editting&lt;/i&gt; Command
+      &lt;i&gt;Editing&lt;/i&gt; Command
       &lt;code&gt;gblogger-edit-entry&lt;/code&gt; takes the &lt;b&gt;edit
       url&lt;/b&gt;
       of a previously posted entry. It retrieves the entry, and
@@ -28684,7 +28684,7 @@
       &lt;p&gt;
       I had earlier reported the IBM TTS engine segfaulting on my home
       Ubuntu 6 machine; I&#39;m still to fix that problem. 
-      Surprizingly though, I tried it on a different Ubuntu 6 machine,
+      Surprisingly though, I tried it on a different Ubuntu 6 machine,
       and there, installing 
       &lt;pre&gt;
       sudo apt-get install libstdc++2.10-glibc2.2
@@ -28975,9 +28975,9 @@
       used effectively  at the shell. You can download pre-built
       binaries for your flavor of Linux (GCC3.2 or later vs GCC 2.95
       based systems) 
-      note that these are 
+      note that thesee are 
       nightly builds. You can also download a source zip archive. Note
-      that all of these requires you to accept a 
+      that all of thesee requires you to accept a 
       End Users License Agreement (&lt;code&gt;EULA&lt;/code&gt;)
       before being taken to the download link.&lt;/p&gt;
       &lt;p&gt;The links on the page above can be confusing; Here are
@@ -29070,7 +29070,7 @@
     </title>
     <content type='html'>&lt;div
       xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      &lt;p&gt;On the positive side with respect to software synthesis,
+      &lt;p&gt;On the positive side with respect to software syntheseis,
       the      Software Dectalk &lt;em&gt;does&lt;/em&gt;
       work out of the box on Ubuntu  --- &lt;em&gt;out of the
       box&lt;/em&gt;
@@ -29130,7 +29130,7 @@
       remarkably
       little installed from the perspective of an emacspeak user. You
       end up with a very nice GUI but very little else --- the
-      reasoning being that the average user wont need much more, and
+      reasoning being that the average user won't need much more, and
       the savvy user can always run
       &lt;code&gt;apt-get&lt;/code&gt;.&lt;/dd&gt;&lt;dt&gt;Bad&lt;/dt&gt;
       &lt;dd&gt;Worse, Ubuntu does not install
@@ -29167,7 +29167,7 @@
       &lt;code&gt;tcl8.3&lt;/code&gt;
       and&lt;code&gt;tclx8.3&lt;/code&gt; --- rather than the newest (8.4)
       versions of
-      these packages.
+      thesee packages.
       This is because as of 8.4, the maintainers of those packages no
       longer build a stand-alone &lt;code&gt;tcl&lt;/code&gt; (extended
       TCL)
@@ -29370,7 +29370,7 @@
       tell  which snapshot you&#39;re looking at. &lt;/li&gt;
       &lt;/ul&gt;
       &lt;p&gt;Note that
-      reading these is not a replacement for learning about SVN ---
+      reading thesee is not a replacement for learning about SVN ---
       there is an excellent on-line book available at 
       &lt;a href=&quot;http://svnbook.red-bean.com/&quot;&gt;SVN
       Manual&lt;/a&gt;.&lt;/p&gt;
@@ -29502,7 +29502,7 @@
       between speech clients and TTS engines was first floated sometime
       in the late 90&#39;s.  Such a common layer is a laudible goal but is
       something that takes time and effort to get right. Additionally,
-      you have the challenge of geting existing software e.g.,
+      you have the challenge of getting existing software e.g.,
       emacspeak, to abandon their own speech abstraction and
       re-implement against a supposedly more generic, but completely
       untested and untried intermediate layer.
@@ -29566,16 +29566,16 @@
       the entire line of dired output is not a pleasant
       experience. The dired-specific module in Emacspeak advises
       all interactive dired commands to speak the &quot;right&quot;
-      information. As an another example, GUD interaction
+      information. As an another example, GOOD interaction
       automatically speaks the line of source-code without leaving
-      the &lt;b&gt;Gud&lt;/b&gt; buffer.
+      the &lt;b&gt;Good&lt;/b&gt; buffer.
       &lt;/li&gt;
       &lt;li&gt;
       Emacspeak comes with many &quot;Emacs Applets&quot; for performing
       tasks that most users would perform outside of
       Emacs. Examples include playing CDs, playing multimedia
       streams etc. Fortunately, I have not had to write too many
-      of these since there are always Emacs users other than
+      of thesee since there are always Emacs users other than
       myself who also create such Emacs applications --- so where
       Emacs applications already exist, I merely speech-enable
       them with a small set of advice definitions, and in some
@@ -29690,7 +29690,7 @@
       &lt;code&gt;C-e?&lt;/code&gt;. Specific search tools are selected by
       single-letter keystrokes following &lt;code&gt;C-e?&lt;/code&gt; ---
       I&#39;ll
-      enumerate some of these below.&lt;/p&gt;
+      enumerate some of thesee below.&lt;/p&gt;
       
       &lt;dl&gt;
       &lt;dt&gt;i&lt;/dt&gt;
@@ -29986,7 +29986,7 @@
       helps
       flesh out this material;
       my hope is that 
-      the ALSA community has more insight into how these settings
+      the ALSA community has more insight into how thesee settings
       work.&lt;/li&gt;
       &lt;/ul&gt;
       &lt;p&gt;For the above, &lt;em&gt;works effectively&lt;/em&gt; means
@@ -30010,7 +30010,7 @@
       well.
       An example of a card that &lt;em&gt;does not&lt;/em&gt; work well
       with
-      these
+      thesee
       settings is the Audigy-LS from Creative; the TTS engine works on
       that card, but performs degrades:
       &lt;/p&gt;
@@ -30022,7 +30022,7 @@
       &lt;/ul&gt;
       &lt;pre&gt;
       Id: asoundrc,v 1.3 2006/05/23 00:22:16 raman Exp $
-      #these numbers work on the following:
+      #thesee numbers work on the following:
       # aplay -l | head 1
       # I82801DBICH4 [Intel 82801DB-ICH4] (IBM Thinkpads)
       # ICH6 [Intel ICH6],
@@ -30083,7 +30083,7 @@
       &lt;p&gt;
       The similarities between Web access issues faced 
       by mobile users and those confronting eyes-free Web browsing are
-      striking, and these similarities have often been used to advocate
+      striking, and thesee similarities have often been used to advocate
       the creation of well-structured, accessible  Web content. As an
       example of mobile-friendly content 
       being a blessing for eyes-free spoken access to WebFormation,
@@ -30326,13 +30326,13 @@
       Emacspeak given the ability to apply XSL transforms, as well as
       obtaining aural styling via ACSS.
       However W3&#39;s url handling layer often breaks when faced with
-      multiple redirects, especially when some of these happen through
+      multiple redirects, especially when some of thesee happen through
       the &lt;code&gt;Host:&lt;/code&gt; HTTP header. Additionally,
       &lt;code&gt;HTTPS&lt;/code&gt; authentication sometimes fails
       mysteriously in
       the presence of redirects.&lt;/p&gt;
       
-      &lt;p&gt;In many of these cases, &lt;code&gt;lynx&lt;/code&gt;
+      &lt;p&gt;In many of thesee cases, &lt;code&gt;lynx&lt;/code&gt;
       happily
       fetches the
       pages correctly; however you&#39;re then stuck using  a  fairly weak
@@ -30358,7 +30358,7 @@
       all
       is well by experimenting with &lt;code&gt;emacsclient&lt;/code&gt;
       to      ensure
-      that external programs can hand-off editting tasks to the
+      that external programs can hand-off editing tasks to the
       currently running Emacs.&lt;/p&gt;
       
       
@@ -30391,16 +30391,16 @@
       This creates an &lt;em&gt;Edit&lt;/em&gt; item in the
       &lt;em&gt;print      menu&lt;/em&gt;.
       Invoking this menu item causes the current page to be handed off
-      to Emacs for editting.
+      to Emacs for editing.
       If you want to edit the source, first switch to &lt;em&gt;source
       view&lt;/em&gt; by hitting &lt;code&gt;\&lt;/code&gt; before
       invoking      print.&lt;/li&gt;
       &lt;li&gt;&lt;code&gt;KEYMAP:???:EDITTEXTAREA	# use external editor
       to
       edit a form textarea&lt;/code&gt;&lt;br/&gt;
-      This sets lynx up so that when editting a multiline textarea, you
-      can hand off the editting job to Emacs. This is particularly
-      useful for editting Wiki pages. Replace the
+      This sets lynx up so that when editing a multiline textarea, you
+      can hand off the editing job to Emacs. This is particularly
+      useful for editing Wiki pages. Replace the
       &lt;code&gt;??&lt;/code&gt;
       with
       the desired key sequence.&lt;/li&gt;
@@ -30483,7 +30483,7 @@
       &lt;code&gt;emacspeak-sudoku-history-pop&lt;/code&gt;
       bound to &lt;code&gt;M&lt;/code&gt; allow one to
       &lt;em&gt;mark&lt;/em&gt; interesting
-      states in the game and return to these prior states with a single
+      states in the game and return to thesee prior states with a single
       keystroke. This means that when one is confronted with  one of
       two choices, with no apparent additional information on which 
       route to take, it becomes possible to push that state on to the
@@ -30602,7 +30602,7 @@
       face at point. A recent update I implemented last weekend makes
       this more useful, so make sure you do a CVS update; earlier this
       command used to display the ACSS setting --- now it displays the
-      abstract name. Describe-variable on these names should tell you
+      abstract name. Describe-variable on thesee names should tell you
       what to customize; so as an example:&lt;/p&gt;
       
       &lt;p&gt;Put point on a comment line, and hit &lt;code&gt;C-e
@@ -30675,11 +30675,11 @@
       &lt;h3&gt;What this gives is:&lt;/h3&gt;
       
       &lt;ol&gt;
-      &lt;li&gt;The ability to customize the voice via custom by editting
+      &lt;li&gt;The ability to customize the voice via custom by editing
       the list of numbers in
       &lt;code&gt;voice-bolden-settings&lt;/code&gt;&lt;/li&gt;
       
-      &lt;li&gt;When that list is editted,
+      &lt;li&gt;When that list is edited,
       &lt;code&gt;voice-bolden&lt;/code&gt; is arranged to be
       updated automatically.&lt;/li&gt;
       &lt;/ol&gt;
@@ -30888,7 +30888,7 @@
       to      use because of the heavy-weight Web page design, and the
       need to
       repeatedly click before you get the download you want.&lt;/p&gt;
-      &lt;p&gt;The most irksome of these is the download mechanism
+      &lt;p&gt;The most irksome of thesee is the download mechanism
       provided      by Sourceforge --- where you first need to browse a
       list of
       download servers, pick a mirror, and then download what you
@@ -30992,7 +30992,7 @@
       &lt;p&gt;To find out what channels and genres are available, browse
       the
       BBC Web site --- channel and genre names are not hard-wired into
-      Emacspeak since these can change over time with channels and
+      Emacspeak since thesee can change over time with channels and
       genres being added or renamed.&lt;/p&gt;
       &lt;/div&gt;
     </content>
@@ -31078,7 +31078,7 @@
       
       
       href=&quot;http://emacspeak.blogspot.com/2005/12/emacspeak-web-tricks-web-command-line.html&quot;&gt;Web
-      Command Line&lt;/a&gt;. Many of these &lt;code&gt;smart
+      Command Line&lt;/a&gt;. Many of thesee &lt;code&gt;smart
       URLs&lt;/code&gt;
       prompt
       the user for the date, e.g. you can use &lt;code&gt;smart
@@ -31090,7 +31090,7 @@
       using a &lt;code&gt;calendar&lt;/code&gt; that functions as a
       &lt;em&gt;date-picker&lt;/em&gt;, and Emacs has a very powerful
       built-in
-      calendar. Emacspeak ties these two together by arranging for
+      calendar. Emacspeak ties thesee two together by arranging for
       commands that prompt for a date to use the &lt;em&gt;current
       date&lt;/em&gt;
       in the  Emacs Calendar as the default. So the easiest way to play
@@ -31171,7 +31171,7 @@
       the      Blog if you have write access using commands provided by
       module
       &lt;code&gt;atom-blogger&lt;/code&gt;.
-      Eventually, I may add commands to these hyperlinks to
+      Eventually, I may add commands to thesee hyperlinks to
       automatically invoke the appropriate command from
       &lt;code&gt;atom-blogger&lt;/code&gt;; for now, I find it 
       sufficiently
@@ -31221,8 +31221,8 @@
       I noticed that Emacspeak was not announcing indented lines in
       preformatted source-code examples, even with &lt;code&gt;audio
       indentation&lt;/code&gt; turned on.
-      The reason is that many of these texts use an HTML non-breaking
-      space for indentation, and though W3 was rendering these
+      The reason is that many of thesee texts use an HTML non-breaking
+      space for indentation, and though W3 was rendering thesee
       correctly, the default syntax table in W3 had not defined the
       resulting &lt;code&gt;octal 240&lt;/code&gt; to be of class
       white-space. Consequently, Emacspeak&#39;s audio indentation code
@@ -31267,7 +31267,7 @@
       &lt;p&gt;
       Module &lt;code&gt;atom-blogger&lt;/code&gt; is a light-weight Emacs
       client
-      for creating or editting &lt;em&gt;blogger&lt;/em&gt; posts using
+      for creating or editing &lt;em&gt;blogger&lt;/em&gt; posts using
       ATOM.
       Emacspeak bundles &lt;code&gt;atom-blogger&lt;/code&gt; and
       speech-enables it
@@ -31358,7 +31358,7 @@
       &lt;p&gt;
       Emacspeak includes  a large collection of wizards implemented in
       module &lt;code&gt;emacspeak-wizards.el&lt;/code&gt;
-      One of these ---&lt;code&gt;emacspeak-wizrds-rivo&lt;/code&gt; 
+      One of thesee ---&lt;code&gt;emacspeak-wizrds-rivo&lt;/code&gt; 
       works      hand-in-hand with script
       &lt;code&gt;etc/rivo.pl&lt;/code&gt;
       to provide a simple &lt;strong&gt;record for later
@@ -31562,13 +31562,13 @@
       morning.
       It uses &lt;code&gt;curl&lt;/code&gt; to  process the HTTP Post
       Request.&lt;/p&gt;
-      &lt;h3&gt;Editting Previous Entries&lt;/h3&gt;
+      &lt;h3&gt;Editing Previous Entries&lt;/h3&gt;
       &lt;p&gt;What&#39;s more, the bare-bones atom-blogger can now edit
       previous posts.
       This is done by getting the desired entry, filtering it for elements
       that
       should not be present when submitting updates, and adding a
-      &lt;code&gt;generator&lt;/code&gt; element --- all of these steps
+      &lt;code&gt;generator&lt;/code&gt; element --- all of thesee steps
       are      required by the Blogger API.
       Unwanted elements are filtered out using
       &lt;code&gt;xsltproc&lt;/code&gt;.
