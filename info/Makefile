@@ -62,14 +62,9 @@ pub:  html/index.html introducing-emacspeak.html
 clean: 
 	\rm *.info *.pdf || echo "all clean"
 
-codespell:
+spell:
 	codespell -I .codespell *.texi
 
-spell:
-	@mv .spell.words .spell.tex
-	@cat ${FILES} | aspell --ignore-case -t --list --add-filter texinfo   \
- | sort | uniq > .spell.words
-	@diff .spell.tex .spell.words
 
 tags:
 	etags *.texi
