@@ -3,17 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-04 Mon 17:42 -->
+<!-- 2021-11-28 Sun 07:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A Simple Introduction to Emacspeak</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Alex Midence" />
-<meta name="description" content="A non-technical introduction to Emacspeak."
- />
+<meta name="description" content="A non-technical introduction to Emacspeak." />
 <meta name="keywords" content="Emacspeak audio desktop accessible linux editor authoring programming" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -34,8 +33,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -43,22 +43,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -164,6 +164,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -181,176 +194,150 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">A Simple Introduction to Emacspeak</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7506a76">1. Introduction</a>
+<li><a href="#org9a6455c">1. Introduction</a>
 <ul>
-<li><a href="#org91f7d8c">1.1. Who is this for?</a></li>
-<li><a href="#org6fb6ab3">1.2. How best to use this Tutorial</a></li>
-<li><a href="#orga84b14d">1.3. What is Emacs and obtaining information on it through Info.</a>
+<li><a href="#orgc797f7a">1.1. Who is this for?</a></li>
+<li><a href="#orgee4bdf6">1.2. How best to use this Tutorial</a></li>
+<li><a href="#org077cfd0">1.3. What is Emacs and obtaining information on it through Info.</a>
 <ul>
-<li><a href="#org89403d8">1.3.1. The Emacs Help system</a></li>
-<li><a href="#org26a089d">1.3.2. Using the menu bar to access help</a></li>
-<li><a href="#orge70c4d8">1.3.3. Hotkeys for getting help.</a></li>
+<li><a href="#org51bd119">1.3.1. The Emacs Help system</a></li>
+<li><a href="#org3312d1a">1.3.2. Using the menu bar to access help</a></li>
+<li><a href="#orgf948761">1.3.3. Hotkeys for getting help.</a></li>
 </ul>
 </li>
-<li><a href="#orgffefc13">1.4. What is Emacspeak and where to find the user's manual.</a>
+<li><a href="#orgb08b717">1.4. What is Emacspeak and where to find the user's manual.</a>
 <ul>
-<li><a href="#orgf810a20">1.4.1. Emacspeak and getting help</a></li>
+<li><a href="#orgec255e7">1.4.1. Emacspeak and getting help</a></li>
 </ul>
 </li>
-<li><a href="#org765f40a">1.5. Navigation</a>
+<li><a href="#orged83ce0">1.5. Navigation</a>
 <ul>
-<li><a href="#orge56fc99">1.5.1. Movement commands.</a></li>
-<li><a href="#orgeeba2c5">1.5.2. Reading Commands</a></li>
-<li><a href="#org4ff2679">1.5.3. Other commands</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgefa13aa">2. Configuration</a>
-<ul>
-<li><a href="#orgc258a05">2.1. Setting up your environment</a>
-<ul>
-<li><a href="#orgfd4ec88">2.1.1. Voice rate, punctuation level and key echo</a></li>
-</ul>
-</li>
-<li><a href="#orga1f6215">2.2. Customizing Emacs using Easy Customizations</a></li>
-<li><a href="#org21a6d28">2.3. Configuring Emacspeak on the fly</a>
-<ul>
-<li><a href="#org83ff0ab">2.3.1. Audible Icons</a></li>
-<li><a href="#org065b6da">2.3.2. A sample of a .emacs file's contents</a></li>
-</ul>
-</li>
-<li><a href="#orgeeb175c">2.4. Adding pluggins or extensions</a>
-<ul>
-<li><a href="#org16e7f26">2.4.1. Adding packages through Synaptic</a></li>
-</ul>
-</li>
-<li><a href="#org94e2c3c">2.5. Using Elpa  to extend your Emacs</a></li>
-</ul>
-</li>
-<li><a href="#org0238e88">3. Putting it to use.</a>
-<ul>
-<li><a href="#org92ed8ce">3.1. First Launch of Emacspeak</a></li>
-<li><a href="#orgf9a7e03">3.2. Additional notes</a></li>
-</ul>
-</li>
-<li><a href="#org5125876">4. Manipulating  text</a>
-<ul>
-<li><a href="#org889a002">4.1. Your first text file</a>
-<ul>
-<li><a href="#org08eeb3b">4.1.1. But wait!  What about spell checking?</a></li>
-<li><a href="#orgf0839cf">4.1.2. Visiting files</a></li>
-</ul>
-</li>
-<li><a href="#org8be194a">4.2. Let's make a webpage!</a>
-<ul>
-<li><a href="#org7fcce46">4.2.1. Fil in the Sections</a></li>
-<li><a href="#org3a92bf1">4.2.2. Creating Links</a></li>
-<li><a href="#orgad8d884">4.2.3. Exercise:</a></li>
-<li><a href="#org83d63bf">4.2.4. Exporting to html</a></li>
-</ul>
-</li>
-<li><a href="#orgebadc4a">4.3. Let's write some code!</a>
-<ul>
-<li><a href="#orga789ef0">4.3.1. Exercise:</a></li>
+<li><a href="#org510c8f0">1.5.1. Movement commands.</a></li>
+<li><a href="#org8086c6b">1.5.2. Reading Commands</a></li>
+<li><a href="#org072a17f">1.5.3. Other commands</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org6cc677f">5. Onto the wide wide world:</a>
+<li><a href="#org0714b72">2. Configuration</a>
 <ul>
-<li><a href="#org25dab70">5.1. How about a chat?</a>
+<li><a href="#orgb7e47f2">2.1. Setting up your environment</a>
 <ul>
-<li><a href="#org1e2bb49">5.1.1. Actual chatting tips</a></li>
+<li><a href="#org144c811">2.1.1. Voice rate, punctuation level and key echo</a></li>
 </ul>
 </li>
-<li><a href="#org88b8209">5.2. Let's browse the web.</a>
+<li><a href="#org30e6377">2.2. Customizing Emacs using Easy Customizations</a></li>
+<li><a href="#org608618b">2.3. Configuring Emacspeak on the fly</a>
 <ul>
-<li><a href="#org76b2d41">5.2.1. Url Templates</a></li>
-<li><a href="#org6e8f929">5.2.2. Exercise.</a></li>
+<li><a href="#org027c31f">2.3.1. Audible Icons</a></li>
+<li><a href="#org27c683c">2.3.2. A sample of a .emacs file's contents</a></li>
 </ul>
 </li>
-<li><a href="#orgf6f870f">5.3. Sending e-mail</a></li>
+<li><a href="#orgeb749d5">2.4. Adding pluggins or extensions</a>
+<ul>
+<li><a href="#org3bbbac1">2.4.1. Adding packages through Synaptic</a></li>
 </ul>
 </li>
-<li><a href="#org5a55c15">6. Retreat into your shell, why don't you?</a></li>
-<li><a href="#org414ba87">7. File Management</a></li>
-<li><a href="#org43f0ce0">8. Playing media files in Emacspeak</a></li>
-<li><a href="#org071e240">9. Wrapping it up</a></li>
-<li><a href="#org240be2c">10. Acknowledgements</a></li>
-<li><a href="#org4a9f7c2">11. Appendices</a>
-<ul>
-<li><a href="#org1d92152">11.1. Installing Emacspeak</a>
-<ul>
-<li><a href="#org4290ac9">11.1.1. Using Synaptic</a></li>
-<li><a href="#orgbe61ba0">11.1.2. Using the command line</a></li>
+<li><a href="#orgd9d5e30">2.5. Using Elpa  to extend your Emacs</a></li>
 </ul>
 </li>
-<li><a href="#org5acb692">11.2. Emacs and Emacspeak links:  For when you want to go fishing</a></li>
+<li><a href="#orgcb7958d">3. Putting it to use.</a>
+<ul>
+<li><a href="#org6ca7ea3">3.1. First Launch of Emacspeak</a></li>
+<li><a href="#org4482072">3.2. Additional notes</a></li>
+</ul>
+</li>
+<li><a href="#org2e62318">4. Manipulating  text</a>
+<ul>
+<li><a href="#org2aab56b">4.1. Your first text file</a>
+<ul>
+<li><a href="#org1088c2f">4.1.1. But wait!  What about spell checking?</a></li>
+<li><a href="#orgb2f261f">4.1.2. Visiting files</a></li>
+</ul>
+</li>
+<li><a href="#org3e7cac9">4.2. Let's make a webpage!</a>
+<ul>
+<li><a href="#org2a6da47">4.2.1. Fil in the Sections</a></li>
+<li><a href="#orgeb278e5">4.2.2. Creating Links</a></li>
+<li><a href="#org1d6f9fe">4.2.3. Exercise:</a></li>
+<li><a href="#org10a9d53">4.2.4. Exporting to html</a></li>
+</ul>
+</li>
+<li><a href="#org7f74080">4.3. Let's write some code!</a>
+<ul>
+<li><a href="#orgceb5401">4.3.1. Exercise:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org987bf3e">5. Onto the wide wide world:</a>
+<ul>
+<li><a href="#org6fc259e">5.1. How about a chat?</a>
+<ul>
+<li><a href="#org64f930a">5.1.1. Actual chatting tips</a></li>
+</ul>
+</li>
+<li><a href="#org39e0711">5.2. Let's browse the web.</a>
+<ul>
+<li><a href="#org4b148fd">5.2.1. Url Templates</a></li>
+<li><a href="#orgfe8f7f9">5.2.2. Exercise.</a></li>
+</ul>
+</li>
+<li><a href="#orgd86ba6f">5.3. Sending e-mail</a></li>
+</ul>
+</li>
+<li><a href="#org2f43f3e">6. Retreat into your shell, why don't you?</a></li>
+<li><a href="#org21cee48">7. File Management</a></li>
+<li><a href="#org4d49a54">8. Playing media files in Emacspeak</a></li>
+<li><a href="#orga37a243">9. Wrapping it up</a></li>
+<li><a href="#org1cd7808">10. Acknowledgements</a></li>
+<li><a href="#org1633df5">11. Appendices</a>
+<ul>
+<li><a href="#org0c0784f">11.1. Installing Emacspeak</a>
+<ul>
+<li><a href="#org0710214">11.1.1. Using Synaptic</a></li>
+<li><a href="#orge13a8b7">11.1.2. Using the command line</a></li>
+</ul>
+</li>
+<li><a href="#org9c7dd64">11.2. Emacs and Emacspeak links:  For when you want to go fishing</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7506a76" class="outline-2">
-<h2 id="org7506a76"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org9a6455c" class="outline-2">
+<h2 id="org9a6455c"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In past years, there have been quite a few excellent reference
@@ -360,9 +347,9 @@ right now that I won't try to reproduce their work since for one
 thing, I can't hope to equal the job they did much less top it, and
 for another, I find writing reference materials to be a rather boring
 and tedious business best left to the pros.  No, dear reader, this is
-something far simpler and far more digestible.  What we have  here is
-a no frills Emacspeak how-to or tutorial if you will permit such a
-term whose main purpose is to tell you what you need to know and do to
+something far simpler and far more digestible.  What we have here is a
+no frills Emacspeak how-to or tutorial if you will permit such a term
+whose main purpose is to tell you what you need to know and do to
 accomplish something productive within 5 minutes of launching it.  So,
 it's going to be very non-technical and very superficial.  Because of
 this, there will be many places where you are encouraged to refer to
@@ -381,8 +368,8 @@ the vinux support group at <a href="mailto:vinux-support@googlegroups.com">vinux
 </div>
 
 
-<div id="outline-container-org91f7d8c" class="outline-3">
-<h3 id="org91f7d8c"><span class="section-number-3">1.1</span> Who is this for?</h3>
+<div id="outline-container-orgc797f7a" class="outline-3">
+<h3 id="orgc797f7a"><span class="section-number-3">1.1.</span> Who is this for?</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 This tutorial is for anyone who is interested in adding another
@@ -393,7 +380,17 @@ Because of this, it will deviate from the usual path and ease you into
 hotkeys by first showing you the menu system of Emacs.  We will also
 talk about movement and navigation using more common naming
 conventions such as the ones you would find in Gnome, Windows or Mac.
-This is because these days, the overwhelming majority of blind people use Windows and the screen readers that make it accessible.  Gone are the days when most of us were command line users though, we have not entirely lost our love for the mighty hotkey.  So, don't think the hotkeys will be ignored.  Far from it since the menus in Emacs are its training wheels and you can't really start doing things quickly until you have learned at least the basic hotkeys.  Learning hotkeys takes time though and, meanwhile, you actually want to DO something as in right now without having to  feel like a schoolboy or girl memorizing lines for some poem or play or something like that.  This is why menus will be talked about a lot.  
+This is because these days, the overwhelming majority of blind people
+use Windows and the screen readers that make it accessible.  Gone are
+the days when most of us were command line users though, we have not
+entirely lost our love for the mighty hotkey.  So, don't think the
+hotkeys will be ignored.  Far from it since the menus in Emacs are its
+training wheels and you can't really start doing things quickly until
+you have learned at least the basic hotkeys.  Learning hotkeys takes
+time though and, meanwhile, you actually want to DO something as in
+right now without having to feel like a schoolboy or girl memorizing
+lines for some poem or play or something like that.  This is why menus
+will be talked about a lot.
 </p>
 
 <p>
@@ -401,7 +398,8 @@ What this tutorial will not teach you is how to use Linux in general.
 That topic is huge and far too encompassing to cover here.  If you
 come across terms you don't understand or have never heard before, I
 want you to make extensive use of Google, info, and the man pages.  If
-there is one lesson which is Linux-wide which I will teach you, it is this:
+there is one lesson which is Linux-wide which I will teach you, it is
+this:
 </p>
 
 <p>
@@ -449,27 +447,36 @@ of this, you may decide that there is something missing or something
 can be made better and you are the one who can make that happen
 whereupon, you roll up your sleeves, stock up on caffeine and turn
 your back on Morpheus' restful embrace for a night or two while you
-make your contribution.  If you do, then, be welcome among us for you are become one of us in truth.  Free and open source software is about everyone working together towards making things better for the good of all.  It is the price we gladly pay for free software.
+make your contribution.  If you do, then, be welcome among us for you
+are become one of us in truth.  Free and open source software is about
+everyone working together towards making things better for the good of
+all.  It is the price we gladly pay for free software.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org6fb6ab3" class="outline-3">
-<h3 id="org6fb6ab3"><span class="section-number-3">1.2</span> How best to use this Tutorial</h3>
+<div id="outline-container-orgee4bdf6" class="outline-3">
+<h3 id="orgee4bdf6"><span class="section-number-3">1.2.</span> How best to use this Tutorial</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The best way to use this tutorial is to read it using an application
 and in an environment you already know well such as note pad or,
 Internet Explorer in Windows with your favorite screen reader or a
-text editor like Gedit
-or the Firefox browser in Gnome with Orca as the screen reader or, maybe Nano or Vim in the Linux Console with
+text editor like Gedit or the Firefox browser in Gnome with Orca as
+the screen reader or, maybe Nano or Vim in the Linux Console with
 Speakup.  Mac users, I am sorry, I don't know Mac at all so I am
 afraid it'll be up to you to decide which editor works best for you on
 your end.  If you are using a browser with a screen reader to access
 this in its html form, you can navigate quickly through major chapters
 by using whatever key your screen reader designates for level 2
-headings.  I do not recommend you try reading this tutorial in Emacspeak if you don't know anything about it since you'll spend most of your time trying to move around in it and won't be able to focus on the content as easily.  This might cause you some frustration and the whole point of this is to make things easier on you so you don't give up when you first make contact with Emacspeak.  It's got a very unique way of doing things and, it can take some getting used to at first.  
+headings.  I do not recommend you try reading this tutorial in
+Emacspeak if you don't know anything about it since you'll spend most
+of your time trying to move around in it and won't be able to focus on
+the content as easily.  This might cause you some frustration and the
+whole point of this is to make things easier on you so you don't give
+up when you first make contact with Emacspeak.  It's got a very unique
+way of doing things and, it can take some getting used to at first.
 </p>
 
 <p>
@@ -486,11 +493,11 @@ and this is a good thing.
 </div>
 
 
-<div id="outline-container-orga84b14d" class="outline-3">
-<h3 id="orga84b14d"><span class="section-number-3">1.3</span> What is Emacs and obtaining information on it through Info.</h3>
+<div id="outline-container-org077cfd0" class="outline-3">
+<h3 id="org077cfd0"><span class="section-number-3">1.3.</span> What is Emacs and obtaining information on it through Info.</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-So, what is Emacs?   I thought we were learning about Emacspeak here.
+So, what is Emacs?  I thought we were learning about Emacspeak here.
 Well, Emacs is the application which Emacspeak causes to talk and
 react in a way that is more productive and efficient for someone using
 speech to interact with their computer.  Ok, so what is Emacs then?
@@ -498,32 +505,44 @@ You will find lots and lots of definitions and descriptions of it on
 line claiming all sorts of things about it from calling it a superb
 editor, or a desktop to calling it a bloated piece of software that
 doesn't compare to whatever else that person thinks is awesome and
-cool.  Honestly, though, Emacs is a text editor that got extended  and
+cool.  Honestly, though, Emacs is a text editor that got extended and
 enhanced to such an extent that it will now do just about anything you
 want to do on a machine.  It will let you edit since it's never
 stopped being a superb text editor.  It will play music for you, brows
 the web, send e-mail, organize your life for you, run a shell for you,
-help you write programs and webpages and on, and on, and on.  It's because it can do all this stuff that people refer to Emacs as a desktop even though it is still at its heart an editor.  That's Editor with a capital E, mind.  It is probably the single most powerful editor you will ever use.  If you want to take a moment to read about the many uses to which you can put Emacs, you could hop online and read the <a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/index.html">web version of the Emacs manual</a> by following the link I just gave you.
+help you write programs and webpages and on, and on, and on.  It's
+because it can do all this stuff that people refer to Emacs as a
+desktop even though it is still at its heart an editor.  That's Editor
+with a capital E, mind.  It is probably the single most powerful
+editor you will ever use.  If you want to take a moment to read about
+the many uses to which you can put Emacs, you could hop online and
+read the
+<a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/index.html">web
+version of the Emacs manual</a> by following the link I just gave you.
 </p>
 
 <p>
 Emacs, believe it or not, is pretty easy to learn.  It has a
 reputation for being newbie friendly.  There are tons of resources
 inside of it and out on the web for learning how to use it and become
-productive quickly.  For instance, <a href="http://www.emacswiki.org/emacs/EmacsNewbie">here is a nice page</a> dedicated
-specifically to newbies learning their way around Emacs.  When you first bring it up and, for that matter,
-from anywhere within it, you always have the option of typing control
-h t and bringing up the Emacs Tutorial.  Anyone who wants to learn to
-use Emacs should take this tutorial at first opportunity.  I cannot recommend it strongly
-enough.  This will show you how to move around in Emacs and walk you
-through a few basic editing commands.  Even more help can be found
-inside the Info Pages.  Info is the system Emacs uses to store its
-help files.  They are browseable much like webpages are with hyperlinks and the like.  In fact, before we go any further, let's talk about the help system a bit.
+productive quickly.  For instance,
+<a href="http://www.emacswiki.org/emacs/EmacsNewbie">here is a nice page</a>
+dedicated specifically to newbies learning their way around Emacs.
+When you first bring it up and, for that matter, from anywhere within
+it, you always have the option of typing control h t and bringing up
+the Emacs Tutorial.  Anyone who wants to learn to use Emacs should
+take this tutorial at first opportunity.  I cannot recommend it
+strongly enough.  This will show you how to move around in Emacs and
+walk you through a few basic editing commands.  Even more help can be
+found inside the Info Pages.  Info is the system Emacs uses to store
+its help files.  They are browsable much like webpages are with
+hyperlinks and the like.  In fact, before we go any further, let's
+talk about the help system a bit.
 </p>
 </div>
 
-<div id="outline-container-org89403d8" class="outline-4">
-<h4 id="org89403d8"><span class="section-number-4">1.3.1</span> The Emacs Help system</h4>
+<div id="outline-container-org51bd119" class="outline-4">
+<h4 id="org51bd119"><span class="section-number-4">1.3.1.</span> The Emacs Help system</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 Emacs has been around a long time.  Because of this, and thanks to the
@@ -536,8 +555,11 @@ things before you bring up Emacs, you can type info emacs at the
 command line prompt and browse the help pages from there or, of
 course, you can browse them from within Emacs itself.  To access the
 help system, you either select it using the menu bar, use a c-h
-combination, or by pressing m-x (meta x) and typing info.  More on m-x later.
-Shortly, we will discuss getting help from the menu bar.  Then, we'll have a look at some hotkey shortcuts to this information.  First though, some naming conventions which will make your life easier:
+combination, or by pressing m-x (meta x) and typing info.  More on m-x
+later.  Shortly, we will discuss getting help from the menu bar.
+Then, we'll have a look at some hotkey shortcuts to this information.
+First though, some naming conventions which will make your life
+easier:
 </p>
 
 <ul class="org-ul">
@@ -554,38 +576,45 @@ Shortly, we will discuss getting help from the menu bar.  Then, we'll have a loo
 <li>Buffers:  Buffers are regions Emacs uses to separate information.
 They are not physical and should not be confused with windows though
 they do many of the same things you are used to thinking of when you
-think about what a window does.  The Emacs user's manual
-has <a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html">a
+think about what a window does.  The Emacs user's manual has
+<a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html">a
 very good explanation</a> of what they are and I suggest you explore
-them both in this link and using the emacs tutorial so as to familiarize yourself with the concept.  To get a list of buffers similar to a "Window list" or "applications list" which is what you may be used to in Windows land,  type c-x c-b.  Just arrow up and down and press enter on the one you want to switch to.</li>
+them both in this link and using the emacs tutorial so as to
+familiarize yourself with the concept.  To get a list of buffers
+similar to a "Window list" or "applications list" which is what you
+may be used to in Windows land, type c-x c-b.  Just arrow up and
+down and press enter on the one you want to switch to.</li>
 <li>Windows:  These are physical regions of the screen used to display
 information.  For instance, you can have the buffer containing the
 document you are editing split into two windows with one showing
 where you are typing and the other one showing another part of the
-same document.  The Emacs Manual has <a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Screen.html#Screen">an excellent section</a> on how the
-screen is divided in Emacs.  It goes into more detail and also
-explains what frames and rectangles are in the Emacs context.</li>
+same document.  The Emacs Manual has
+<a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Screen.html#Screen">an
+excellent section</a> on how the screen is divided in Emacs.  It goes
+into more detail and also explains what frames and rectangles are in
+the Emacs context.</li>
 </ul>
 
 <p>
-Now that these are out of the way, Let's go back to talking about help and reading it.
+Now that these are out of the way, Let's go back to talking about help
+and reading it.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org26a089d" class="outline-4">
-<h4 id="org26a089d"><span class="section-number-4">1.3.2</span> Using the menu bar to access help</h4>
+<div id="outline-container-org3312d1a" class="outline-4">
+<h4 id="org3312d1a"><span class="section-number-4">1.3.2.</span> Using the menu bar to access help</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 This is as good a time as any to formally introduce the menu bar.
 Emacs has one that will be easy for Gnome, Windows or Mac users to
 navigate without any problem.  Hold down the alt or meta key as Emacs
 calls it and press your grave button which on the U.S. keyboard, is
-located to the left of the number 1.  Some folks call it the back tick.
-If this doesn't work with your particular keyboard, try hitting f10.
-The menus are file, edit, options, buffers, tools and help.  To go
-from one to the other, use your up and down arrows.  To select one,
+located to the left of the number 1.  Some folks call it the back
+tick.  If this doesn't work with your particular keyboard, try hitting
+f10.  The menus are file, edit, options, buffers, tools and help.  To
+go from one to the other, use your up and down arrows.  To select one,
 press enter and arrow up and down through its options.  When you find
 the one you want, press enter.  If you make a mistake and want to
 start over, press c-g or control g which is the Emacs quit command.
@@ -594,7 +623,9 @@ in the actual menus themselves since you don't use right and left
 arrow.  Sometimes there are more menu items than this when you are in
 certain pluggins or modes, as they are called but these which I listed
 here are always present.  You will see this for yourself when we
-explore some of the modes we'll be covering in this tutorial.  The help menu is the one you want for this section so press enter on it when you hear it.
+explore some of the modes we'll be covering in this tutorial.  The
+help menu is the one you want for this section so press enter on it
+when you hear it.
 </p>
 
 <p>
@@ -619,21 +650,27 @@ The items in the help menu are as follows:
 
 <p>
 The ones to look at first are the "Emacs tutorial", "read the manual"
-and "key describer".  Each of these has  a hotkey bound to it.  I
+and "key describer".  Each of these has a hotkey bound to it.  I
 suggest you learn these as you will probably be using the help system
 a lot at first.  In truth, you will never stop using the help system
 since Emacs has so many features and so much functionality that you
 will discover new stuff all the time for which you'll need to read the
-help files.  To get back to your work, just open up the buffer list with c-x c-b and arrow up and down till you get to the buffer containing what you were doing and press enter.  If you want to get rid of the help buffer you were reading, kill it by typing c-x k and pressing enter.
+help files.  To get back to your work, just open up the buffer list
+with c-x c-b and arrow up and down till you get to the buffer
+containing what you were doing and press enter.  If you want to get
+rid of the help buffer you were reading, kill it by typing c-x k and
+pressing enter.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge70c4d8" class="outline-4">
-<h4 id="orge70c4d8"><span class="section-number-4">1.3.3</span> Hotkeys for getting help.</h4>
+<div id="outline-container-orgf948761" class="outline-4">
+<h4 id="orgf948761"><span class="section-number-4">1.3.3.</span> Hotkeys for getting help.</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
-If you find the menu bar cumbersome, and, believe me you will eventually, here are the hotkeys for accessing help from Emacs.  Note that they all have the c-h prefix:
+If you find the menu bar cumbersome, and, believe me you will
+eventually, here are the hotkeys for accessing help from Emacs.  Note
+that they all have the c-h prefix:
 </p>
 
 <ul class="org-ul">
@@ -649,8 +686,8 @@ Emacs.  In fact, I'm going to recommend that you follow it at first
 opportunity since it is very well done and will show you how to move
 around in a file.  If you are going to do this, however, skip down
 to the section describing what to expect during your first launch of
-Emacspeak since its unique interface sometimes makes it easy to get lost for some people the first time
-they pull it up.</li>
+Emacspeak since its unique interface sometimes makes it easy to get
+lost for some people the first time they pull it up.</li>
 <li>c-h cap M:  This lets you get to a help file that has a list of all the
 hotkeys for a given mode.  Useful for when you get tired of the menu
 bar.  The nice thing about this feature is that each hotkey's
@@ -667,56 +704,107 @@ have no idea what to push to do it.  Give me a list of possibles."</li>
 </div>
 
 
-<div id="outline-container-orgffefc13" class="outline-3">
-<h3 id="orgffefc13"><span class="section-number-3">1.4</span> What is Emacspeak and where to find the user's manual.</h3>
+<div id="outline-container-orgb08b717" class="outline-3">
+<h3 id="orgb08b717"><span class="section-number-3">1.4.</span> What is Emacspeak and where to find the user's manual.</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-Emacspeak is an extension of Emacs written by Dr. T. V. Raman, a blind computer scientist currently working for Google.  It turns it into a self-voicing solution that renders it's output in spoken form in a way that makes it easier for interacting with it without vision.  It added a lot of commands and changed the behavior of Emacs while doing it so seamlessly that, you don't realize that you are using emacspeak features which are not present in an unmodified Emacs.  It is integrated into Emacs itself to such an extent that people who use it tend to blur the line between the extension and the application.  While you are learning however, it is important for you to keep the two apart.  If you learn your way around Emacs you will pick up things on Emacspeak little by little.  Once you have the basics of Emacs down and can move around in and edit files, manipulate the contents of a directory and do a few other things, you can focus completely on Emacspeak and unlocking its more complex and delightful secrets.  This learning strategy has worked out rather well for me and it is the path I suggest for someone who is completely new to Linux and has a strong background in Windows and the screen reader solutions there.  The reason for this is that both will require you to learn some new concepts that are tied to how the application and the extension work under the hood.  This is very important since customizing often involves tinkering with some of the stuff under the hood which can be a bit foreign to the windows user.  The truth is, Windows has spoiled us by making so much of what goes on under the hood hidden from us and automated.  A powerful tool like Emacspeak can be a bit daunting at times for someone used to all the pampering of the Windows environment where the software developers and distributors take it upon themselves to think for you and lock you away from the code.  Sometimes, the help files themselves are a bit hard to follow without first learning this under-the-hood knowledge so, learning a few things about Emacs will help you more easily learn how Emacspeak does what it does for you.
+Emacspeak is an extension of Emacs written by Dr. T. V. Raman, a blind
+computer scientist currently working for Google.  It turns it into a
+self-voicing solution that renders it's output in spoken form in a way
+that makes it easier for interacting with it without vision.  It added
+a lot of commands and changed the behavior of Emacs while doing it so
+seamlessly that, you don't realize that you are using emacspeak
+features which are not present in an unmodified Emacs.  It is
+integrated into Emacs itself to such an extent that people who use it
+tend to blur the line between the extension and the application.
+While you are learning however, it is important for you to keep the
+two apart.  If you learn your way around Emacs you will pick up things
+on Emacspeak little by little.  Once you have the basics of Emacs down
+and can move around in and edit files, manipulate the contents of a
+directory and do a few other things, you can focus completely on
+Emacspeak and unlocking its more complex and delightful secrets.  This
+learning strategy has worked out rather well for me and it is the path
+I suggest for someone who is completely new to Linux and has a strong
+background in Windows and the screen reader solutions there.  The
+reason for this is that both will require you to learn some new
+concepts that are tied to how the application and the extension work
+under the hood.  This is very important since customizing often
+involves tinkering with some of the stuff under the hood which can be
+a bit foreign to the windows user.  The truth is, Windows has spoiled
+us by making so much of what goes on under the hood hidden from us and
+automated.  A powerful tool like Emacspeak can be a bit daunting at
+times for someone used to all the pampering of the Windows environment
+where the software developers and distributors take it upon themselves
+to think for you and lock you away from the code.  Sometimes, the help
+files themselves are a bit hard to follow without first learning this
+under-the-hood knowledge so, learning a few things about Emacs will
+help you more easily learn how Emacspeak does what it does for you.
 </p>
 </div>
 
 
-<div id="outline-container-orgf810a20" class="outline-4">
-<h4 id="orgf810a20"><span class="section-number-4">1.4.1</span> Emacspeak and getting help</h4>
+<div id="outline-container-orgec255e7" class="outline-4">
+<h4 id="orgec255e7"><span class="section-number-4">1.4.1.</span> Emacspeak and getting help</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
-Emacspeak also has a user's manual which can be accessed using the hot key combination c-h c-e. Again, that's control h and control e.  I will gradually stop explaining this as the tutorial progresses so, make sure you learn what is meant by this naming convention.  
-The Emacspeak user's manual contains many useful and practical tips for getting the most out of it so, make sure you read it.  It is not set up like the info pages so, this is a great time to really learn how to move around in a file in Emacspeak.  While browsing this file, you will notice that some things are spoken in a lower voice.  This is how Emacspeak tells you that you are on a link.  You can press enter on any one of these links and get more information on them.  At the end of each, there is a "back" link which, when you press enter on it, will take you back to the Emacspeak help page.  There is an online version of the manual you might enjoy browsing.  Here is its link:
+Emacspeak also has a user's manual which can be accessed using the hot
+key combination c-h c-e. Again, that's control h and control e.  I
+will gradually stop explaining this as the tutorial progresses so,
+make sure you learn what is meant by this naming convention.  The
+Emacspeak user's manual contains many useful and practical tips for
+getting the most out of it so, make sure you read it.  It is not set
+up like the info pages so, this is a great time to really learn how to
+move around in a file in Emacspeak.  While browsing this file, you
+will notice that some things are spoken in a lower voice.  This is how
+Emacspeak tells you that you are on a link.  You can press enter on
+any one of these links and get more information on them.  At the end
+of each, there is a "back" link which, when you press enter on it,
+will take you back to the Emacspeak help page.  There is an online
+version of the manual you might enjoy browsing.  Here is its link:
 </p>
 
 <p>
-<a href="http://www.cs.cornell.edu/home/raman/emacspeak/info/emacspeak.html#SEC_Top">Emacspeak User's Manual</a>
+<a href="http://www.cs.cornell.edu/home/raman/emacspeak/info/emacspeak.html#SEC_Top">Emacspeak
+User's Manual</a>
 </p>
 
 <p>
-Another resource for you is the Emacspeak FAQ.  The FAQ can be found by typing c-e cap F.  Note that this is a capital f.  
+Another resource for you is the Emacspeak FAQ.  The FAQ can be found
+by typing c-e cap F.  Note that this is a capital f.
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org765f40a" class="outline-3">
-<h3 id="org765f40a"><span class="section-number-3">1.5</span> Navigation</h3>
+<div id="outline-container-orged83ce0" class="outline-3">
+<h3 id="orged83ce0"><span class="section-number-3">1.5.</span> Navigation</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Ok, now that the help system has been introduced, it's time to learn
 how to move around a large bunch of text.  This is where we learn some
 more hotkeys.  Refer to this section frequently in your adventures
 with Emacs since these keys are valid from virtually any environment
-in Emacs.  You need to learn these because it is as important to know them as it was for you to learn all the key combinations Jaws, Window Eyes, or NVDA and their friends had you learn in windows to move around.  If you just stick to the arrow keys, (which, of course, you can), you'll be at it for years and years and wind up giving up.  so, here we go:
+in Emacs.  You need to learn these because it is as important to know
+them as it was for you to learn all the key combinations Jaws, Window
+Eyes, or NVDA and their friends had you learn in windows to move
+around.  If you just stick to the arrow keys, (which, of course, you
+can), you'll be at it for years and years and wind up giving up.  so,
+here we go:
 </p>
 </div>
 
-<div id="outline-container-orge56fc99" class="outline-4">
-<h4 id="orge56fc99"><span class="section-number-4">1.5.1</span> Movement commands.</h4>
+<div id="outline-container-org510c8f0" class="outline-4">
+<h4 id="org510c8f0"><span class="section-number-4">1.5.1.</span> Movement commands.</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
-Where c- stands for control m- stands  for meta or alt and s- stands for shift:
+Where c- stands for control m- stands for meta or alt and s- stands
+for shift:
 </p>
 
 <p>
-note:  If you get stuck and just want out of Emacs altogether, type c-x and c-c.    
+note: If you get stuck and just want out of Emacs altogether, type c-x
+and c-c.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -781,7 +869,8 @@ note:  If you get stuck and just want out of Emacs altogether, type c-x and c-c.
 </table>
 
 <p>
-Daunting?   Well, at first glance they can be but, here's a mnemonic device for you:
+Daunting?  Well, at first glance they can be but, here's a mnemonic
+device for you:
 </p>
 
 <ul class="org-ul">
@@ -791,16 +880,23 @@ Daunting?   Well, at first glance they can be but, here's a mnemonic device for 
 </ul>
 
 <p>
-And, c-v and m-v are kind of to be learned on your own.  It's not because of any special reason other than that I haven't been able to come up with anything clever by which to remember them.  If you can, please let us know and we'll stick it in here.  v stands for vertical is about as far as I've gotten.
+And, c-v and m-v are kind of to be learned on your own.  It's not
+because of any special reason other than that I haven't been able to
+come up with anything clever by which to remember them.  If you can,
+please let us know and we'll stick it in here.  v stands for vertical
+is about as far as I've gotten.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgeeba2c5" class="outline-4">
-<h4 id="orgeeba2c5"><span class="section-number-4">1.5.2</span> Reading Commands</h4>
+<div id="outline-container-org8086c6b" class="outline-4">
+<h4 id="org8086c6b"><span class="section-number-4">1.5.2.</span> Reading Commands</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
-Here are some basic reading commands.  Please note that this is not an exhaustive list.  There are many more.  Use c-h c-e to access the help file containing them.  These let you read parts of the screen without moving your cursor:
+Here are some basic reading commands.  Please note that this is not an
+exhaustive list.  There are many more.  Use c-h c-e to access the help
+file containing them.  These let you read parts of the screen without
+moving your cursor:
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -862,23 +958,23 @@ Here are some basic reading commands.  Please note that this is not an exhaustiv
 </div>
 </div>
 
-<div id="outline-container-org4ff2679" class="outline-4">
-<h4 id="org4ff2679"><span class="section-number-4">1.5.3</span> Other commands</h4>
+<div id="outline-container-org072a17f" class="outline-4">
+<h4 id="org072a17f"><span class="section-number-4">1.5.3.</span> Other commands</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
-Commands for moving through and reading files are not the only commands you will
-need in Emacspeak.  Here are a few other useful commands for you.
-Remember, if you don't feel up to memorizing them yet, you do have a
-nice menu bar to fall back on if you need it which you can reach
-through alt plus grave or f10.  Here we go:
+Commands for moving through and reading files are not the only
+commands you will need in Emacspeak.  Here are a few other useful
+commands for you.  Remember, if you don't feel up to memorizing them
+yet, you do have a nice menu bar to fall back on if you need it which
+you can reach through alt plus grave or f10.  Here we go:
 </p>
 
 <dl class="org-dl">
 <dt>Open a file:  c-x c-f </dt><dd>This command will put your cursor after
- the ~/ which starts all file and directory names inside your
-home folder.  If you want to create a new file, simply type in its
-name and press enter.  If you want to "visit" a pre-existing file,
-either type its name or arrow down through the list of files and
+ the ~/ which starts all file and directory names inside your home
+folder.  If you want to create a new file, simply type in its name
+and press enter.  If you want to "visit" a pre-existing file, either
+type its name or arrow down through the list of files and
 directories in your home directory and press enter on it when you
 hear its name spoken.</dd>
 <dt>Save your current file:  c-x c-s </dt><dd>Works very much like a control s in Windows or Gnome.  If you have auditory icons turned on, there's a neat little bleep unique to this key binding's function.</dd>
@@ -898,18 +994,19 @@ it no longer becomes accessible to you for anything.</dd>
 string and actually start jumping you to the place you want as you
 are typing.  Press an arrow key when you think you are at your
 destination and read the line with c-e l to confirm.  I love these
-commands because they help with rapid navigation in a file or buffer and work absolutely everywhere including shells and directories.</dd>
+commands because they help with rapid navigation in a file or buffer
+and work absolutely everywhere including shells and directories.</dd>
 <dt>Move to other window: c-x o</dt><dd>Some modes will split your screen
-into several regions called windows and display either part of
+   into several regions called windows and display either part of
 your current buffer or other buffers in those windows
-simultaneously.  The Emacs Code Browser is a good example of a
-mode that does this.  The c-x o command helps you move your
-cursor to these different windows.</dd>
+simultaneously.  The Emacs Code Browser is a good example of a mode
+that does this.  The c-x o command helps you move your cursor to
+these different windows.</dd>
 <dt>One window only:  c-x 1</dt><dd>if something has split your screen into
-more than one window as described in the previous command, the
-c-x 1 will get rid of those other windows and only have one
-appear on the screen.  The data those other windows held is still
-there, it's just not displayed.</dd>
+   more than one window as described in the previous command, the
+c-x 1 will get rid of those other windows and only have one appear
+on the screen.  The data those other windows held is still there,
+it's just not displayed.</dd>
 <dt>emacs command:  m-x </dt><dd>Everything bound to a hotkey is actually a
 function or program which you can invoke directly by name.  For
 instance, c-h i pulls up the help system of Emacs.  To invoke it
@@ -918,40 +1015,60 @@ lots of modes or applications from the m-x prompt.  It's even
 browsable.  Have a look with your up and down arrows.  When you get
 tired of it, use the following command I will show you.</dd>
 <dt>quit:  c-g </dt><dd>This command works about like the cancel buttons you find in
-Gnome and Windows.  It aborts  just about anything.</dd>
+Gnome and Windows.  It aborts just about anything.</dd>
 <dt>Exit Emacs:  c-x c-c </dt><dd>This is very important!  It does what you
-would expect.  Before Emacspeak goes away, it will ask you if you want to save the file you have been working on if applicable and it will always ask you if you want to kil the "active processes" that exist.  You will need to actually type out yes on that one not just y.</dd>
+would expect.  Before Emacspeak goes away, it will ask you if you
+want to save the file you have been working on if applicable and it
+will always ask you if you want to kil the "active processes" that
+exist.  You will need to actually type out yes on that one not just
+y.</dd>
 </dl>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgefa13aa" class="outline-2">
-<h2 id="orgefa13aa"><span class="section-number-2">2</span> Configuration</h2>
+<div id="outline-container-org0714b72" class="outline-2">
+<h2 id="org0714b72"><span class="section-number-2">2.</span> Configuration</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Configuring Emacs and Emacspeak involves several things.  You may want to add more extensions, change how it talks, and change how it behaves in certain situations.  You might also want to change how it loads when you launch Emacspeak.  We will discuss all of these next.  
+Configuring Emacs and Emacspeak involves several things.  You may want
+to add more extensions, change how it talks, and change how it behaves
+in certain situations.  You might also want to change how it loads
+when you launch Emacspeak.  We will discuss all of these next.
 </p>
 </div>
 
-<div id="outline-container-orgc258a05" class="outline-3">
-<h3 id="orgc258a05"><span class="section-number-3">2.1</span> Setting up your environment</h3>
+<div id="outline-container-orgb7e47f2" class="outline-3">
+<h3 id="orgb7e47f2"><span class="section-number-3">2.1.</span> Setting up your environment</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-This section talks about how to set up how Emacspeak speaks to you and how to make it present information for you in certain ways.  Before you can customize it though, you need to edit the shell script that launches Emacspeak found in /usr/bin/emacspeak.  To do this, type the following at a terminal:
+This section talks about how to set up how Emacspeak speaks to you and
+how to make it present information for you in certain ways.  Before
+you can customize it though, you need to edit the shell script that
+launches Emacspeak found in /usr/bin/emacspeak.  To do this, type the
+following at a terminal:
 </p>
 
-<pre class="example">
-sudo gedit /usr/bin/emacspeak
-</pre>
 <p>
-Once that's done, arrow down till you get to the part that begins to talk about exporting to unary mode.  You need to get rid of those lines.  Do this either by commenting them out with a # sine or by just deleting them altogether.  Unary mode isn't necessary for Emacspeak anymore and it will slow your system down some.  Next, find the line that begins with execute emacs -q -l followed by a path to the emacspeak file in the /usr/share/emacs directory.  You need to get rid of the -q flag since this will prevent you from being able to customize your Emacs at all.  If  you want to play it safe, comment the line out then select, copy and paste a copy of it underneath and just delete the -q from that one. When you are done, save your changes and you are ready to customize.
+#+BEGIN<sub>EXAMPLE</sub>
+sudo gedit /usr/bin/emacspeak #+END<sub>EXAMPLE</sub> Once that's done, arrow
+down till you get to the part that begins to talk about exporting to
+unary mode.  You need to get rid of those lines.  Do this either by
+commenting them out with a # sine or by just deleting them altogether.
+Unary mode isn't necessary for Emacspeak anymore and it will slow your
+system down some.  Next, find the line that begins with execute emacs
+-q -l followed by a path to the emacspeak file in the /usr/share/emacs
+directory.  You need to get rid of the -q flag since this will prevent
+you from being able to customize your Emacs at all.  If you want to
+play it safe, comment the line out then select, copy and paste a copy
+of it underneath and just delete the -q from that one. When you are
+done, save your changes and you are ready to customize.
 </p>
 </div>
 
-<div id="outline-container-orgfd4ec88" class="outline-4">
-<h4 id="orgfd4ec88"><span class="section-number-4">2.1.1</span> Voice rate, punctuation level and key echo</h4>
+<div id="outline-container-org144c811" class="outline-4">
+<h4 id="org144c811"><span class="section-number-4">2.1.1.</span> Voice rate, punctuation level and key echo</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 Hopefully, your distribution came with emacspeak more or less
@@ -961,63 +1078,85 @@ Honestly, the fastest way you will find to customize Emacspeak is to
 edit your .emacs file (it's like an ini and a config file rolled into
 one for Emacs), and put your settings there.  This, however, will
 involve learning some Emacs Lisp, the language Emacs is partly written
-in, and can be a bit heavy going for a new user.  Fortunately, an alternative method exists.
+in, and can be a bit heavy going for a new user.  Fortunately, an
+alternative method exists.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga1f6215" class="outline-3">
-<h3 id="orga1f6215"><span class="section-number-3">2.2</span> Customizing Emacs using Easy Customizations</h3>
+<div id="outline-container-org30e6377" class="outline-3">
+<h3 id="org30e6377"><span class="section-number-3">2.2.</span> Customizing Emacs using Easy Customizations</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-As I mentioned previously, the fastest way to customize your Emacspeak installation is by editing your .emacs file and setting all sorts of variables and instructions there.  This requires that you either find a code snippet to paste into it and hope that the person who claims that it works is correct or learning Emacs LIsp yourself.  A much easier, if time consuming alternative is to use the Easy Customizations section of Emacs to do this.  You get there by typeing m-x customize or by hitting c-e cap 
-b from anywhere within Emacs. c-e cap c takes you directly to the Emacspeak section of the truly 
-massive customizations area. It's hard to explain how this thing 
-works. You get a page with links on it representing "groups". 
-Pressing enter on these groups takes you deeper into the section in 
-question. You then arrow around to find the settings you want to save 
-and do it either by hitting space bar in certain areas, setting things 
-to t (on) or nil (off) in certain places or, in still others, by 
-typing numbers or letters and things.  Each group is read in a lower voice by Emacspeak indicating that you 
-can press enter on it to interact with it. Most of the buffer is read- 
-only except for the places which are usually at the end of lines where 
-you can add values. You will use c-e c-e (move to end of line) a lot in there. Another 
-handy thing to get real familiar with quickly is c-s and c-r. c-s is 
-search forward and c-r is search backward. Both will start moving the 
-cursor as you type until you land where you want to be. Hitting your 
-arrow keys makes the search entry field go away and lets you interact 
-with Emacs at whatever point you told it to take you to. It's the 
-only sane way to navigate this area once you know what you are looking 
-for. The important thing to search for is "save for future sessions". It 
-should be obvious what that does. Please be prepared to spend a lot of time familiarizing yourself with this part of Emacs.  Once you get the hang of it, though, it's pretty quick especially if you use the search functions described above.
+As I mentioned previously, the fastest way to customize your Emacspeak
+installation is by editing your .emacs file and setting all sorts of
+variables and instructions there.  This requires that you either find
+a code snippet to paste into it and hope that the person who claims
+that it works is correct or learning Emacs LIsp yourself.  A much
+easier, if time consuming alternative is to use the Easy
+Customizations section of Emacs to do this.  You get there by typeing
+m-x customize or by hitting c-e cap b from anywhere within Emacs. c-e
+cap c takes you directly to the Emacspeak section of the truly massive
+customizations area. It's hard to explain how this thing works. You
+get a page with links on it representing "groups".  Pressing enter on
+these groups takes you deeper into the section in question. You then
+arrow around to find the settings you want to save and do it either by
+hitting space bar in certain areas, setting things to t (on) or nil
+(off) in certain places or, in still others, by typing numbers or
+letters and things.  Each group is read in a lower voice by Emacspeak
+indicating that you can press enter on it to interact with it. Most of
+the buffer is read- only except for the places which are usually at
+the end of lines where you can add values. You will use c-e c-e (move
+to end of line) a lot in there. Another handy thing to get real
+familiar with quickly is c-s and c-r. c-s is search forward and c-r is
+search backward. Both will start moving the cursor as you type until
+you land where you want to be. Hitting your arrow keys makes the
+search entry field go away and lets you interact with Emacs at
+whatever point you told it to take you to. It's the only sane way to
+navigate this area once you know what you are looking for. The
+important thing to search for is "save for future sessions". It should
+be obvious what that does. Please be prepared to spend a lot of time
+familiarizing yourself with this part of Emacs.  Once you get the hang
+of it, though, it's pretty quick especially if you use the search
+functions described above.
 </p>
 
 <p>
-Here's what to expect when you launch it for the first time.  To access the Emacspeak-specific section of the rather large customizations area, type c-e c- cap c.  You should find yourself in the customizations buffer.  type c-n a bit to move
-down a few lines.  Listen carefully to the instructions to this part
-of Emacs as they are pretty self-explanatory.  Each item in brackets
-can be interacted with either by pressing enter or by typing in the
-field to the right of it.  Use your movement commands liberally.  To
-change speech, the [tts] group will be the place to go.  Once you are
-done with your customizations, go to the top of the buffer with m-&lt;
-and arrow or c-n down to the line that contains the option to save for
-current or future sessions and the exit button. Or, you could cut right to the chase by typing c-r to search backwards and then typing save for future sessions.
+Here's what to expect when you launch it for the first time.  To
+access the Emacspeak-specific section of the rather large
+customizations area, type c-e c- cap c.  You should find yourself in
+the customizations buffer.  type c-n a bit to move down a few lines.
+Listen carefully to the instructions to this part of Emacs as they are
+pretty self-explanatory.  Each item in brackets can be interacted with
+either by pressing enter or by typing in the field to the right of it.
+Use your movement commands liberally.  To change speech, the [tts]
+group will be the place to go.  Once you are done with your
+customizations, go to the top of the buffer with m-&lt; and arrow or c-n
+down to the line that contains the option to save for current or
+future sessions and the exit button. Or, you could cut right to the
+chase by typing c-r to search backwards and then typing save for
+future sessions.
 </p>
 
 <p>
-If you would like a much better and more in depth explanation of this feature of Emacs, I urge you to visit the <a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Easy-Customization.html">chapter dedicated to Easy Customizations</a> in the Emacs Manual.
+If you would like a much better and more in depth explanation of this
+feature of Emacs, I urge you to visit the
+<a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Easy-Customization.html">chapter
+dedicated to Easy Customizations</a> in the Emacs Manual.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org21a6d28" class="outline-3">
-<h3 id="org21a6d28"><span class="section-number-3">2.3</span> Configuring Emacspeak on the fly</h3>
+<div id="outline-container-org608618b" class="outline-3">
+<h3 id="org608618b"><span class="section-number-3">2.3.</span> Configuring Emacspeak on the fly</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 If you don't want to mess around with the Easy Customizations section
 just now and just want to do some on-the-fly changing, here are some
-hotkeys that you can use to do this.  Note that putting c-u before all of these makes the changes Emacswide.  Otherwise, you'll change Emacspeak's  speaking behavior local to your current buffer.
+hotkeys that you can use to do this.  Note that putting c-u before all
+of these makes the changes Emacswide.  Otherwise, you'll change
+Emacspeak's speaking behavior local to your current buffer.
 </p>
 
 <ul class="org-ul">
@@ -1035,21 +1174,34 @@ hotkeys that you can use to do this.  Note that putting c-u before all of these 
 
 
 
-<div id="outline-container-org83ff0ab" class="outline-4">
-<h4 id="org83ff0ab"><span class="section-number-4">2.3.1</span> Audible Icons</h4>
+<div id="outline-container-org027c31f" class="outline-4">
+<h4 id="org027c31f"><span class="section-number-4">2.3.1.</span> Audible Icons</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-As mentioned before, audible icons are sounds associated with behavior such as pulling up menus, toggling something on or off, moving to the beginning or end of a file and changing screenfuls of ext with c-v m-v.  If you used Jaws in Windows (lots of folks do since at the time of this writing, it's the most popular screen reader in the most popular operating system), you know this concept by the name of Sound Schemes.  to turn on these audible icons, use c-e c-a.  to turn them on globally, type c-u c-e c-a.
+As mentioned before, audible icons are sounds associated with behavior
+such as pulling up menus, toggling something on or off, moving to the
+beginning or end of a file and changing screenfuls of ext with c-v
+m-v.  If you used Jaws in Windows (lots of folks do since at the time
+of this writing, it's the most popular screen reader in the most
+popular operating system), you know this concept by the name of Sound
+Schemes.  to turn on these audible icons, use c-e c-a.  to turn them
+on globally, type c-u c-e c-a.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org065b6da" class="outline-4">
-<h4 id="org065b6da"><span class="section-number-4">2.3.2</span> A sample of a .emacs file's contents</h4>
+<div id="outline-container-org27c683c" class="outline-4">
+<h4 id="org27c683c"><span class="section-number-4">2.3.2.</span> A sample of a .emacs file's contents</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
-Earlier, I told you that the easiest and fastest way to change your settings is by changing what your .emacs file contains.  Here is a snippet from  mine which makes your caps indicated by a clink, your speech rate at 250 wpm, your punctuation level most, and word and char echo off but line echo on.  Copy and paste this exactly as I have it here and you should be ok.  If you want word echo on instead of line echo, change the t to nill and vise versa for the applical line item.:  
+Earlier, I told you that the easiest and fastest way to change your
+settings is by changing what your .emacs file contains.  Here is a
+snippet from mine which makes your caps indicated by a clink, your
+speech rate at 250 wpm, your punctuation level most, and word and char
+echo off but line echo on.  Copy and paste this exactly as I have it
+here and you should be ok.  If you want word echo on instead of line
+echo, change the t to nill and vice versa for the applical line item.:
 </p>
 
 <p>
@@ -1057,57 +1209,73 @@ Earlier, I told you that the easiest and fastest way to change your settings is 
 </p>
 
 <p>
- '(emacspeak-character-echo nil)
- '(emacspeak-line-echo t)
- '(emacspeak-word-echo nil)
- '(espeak-default-speech-rate 250)
- '(line-number-mode nil))
- (dtk-toggle-split-caps t)
- (dtk-toggle-allcaps-beep t)
-#+END<sub>SRC</sub> emacs-lisp
+'(emacspeak-character-echo nil) '(emacspeak-line-echo t)
+'(emacspeak-word-echo nil) '(espeak-default-speech-rate 250)
+'(line-number-mode nil)) (dtk-toggle-split-caps t)
+(dtk-toggle-allcaps-beep t) #+END<sub>SRC</sub> emacs-lisp
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgeeb175c" class="outline-3">
-<h3 id="orgeeb175c"><span class="section-number-3">2.4</span> Adding pluggins or extensions</h3>
+<div id="outline-container-orgeb749d5" class="outline-3">
+<h3 id="orgeb749d5"><span class="section-number-3">2.4.</span> Adding pluggins or extensions</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-There are two ways to add extensions to your Emacs which we will discuss.  There are more but these are the easiest.  Remember, this is for newbies to learn Emacspeak.  These two ways are through the  <a href="http://www.nongnu.org/synaptic/">synaptic package manager</a> and through the Emacs Lisp Package archive or <a href="http://tromey.com/elpa/">Elpa</a> as it is called for short.  The next two sections will show you how to add packages and extensions to your Emacs using these two solutions.
+There are two ways to add extensions to your Emacs which we will
+discuss.  There are more but these are the easiest.  Remember, this is
+for newbies to learn Emacspeak.  These two ways are through the
+<a href="http://www.nongnu.org/synaptic/">synaptic package manager</a> and
+through the Emacs Lisp Package archive or
+<a href="http://tromey.com/elpa/">Elpa</a> as it is called for short.  The next
+two sections will show you how to add packages and extensions to your
+Emacs using these two solutions.
 </p>
 </div>
 
 
-<div id="outline-container-org16e7f26" class="outline-4">
-<h4 id="org16e7f26"><span class="section-number-4">2.4.1</span> Adding packages through Synaptic</h4>
+<div id="outline-container-org3bbbac1" class="outline-4">
+<h4 id="org3bbbac1"><span class="section-number-4">2.4.1.</span> Adding packages through Synaptic</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
-Many of the extensions that have been written for Emacs can be added through Synaptic inside of Gnome.  Just bring it up and type control f for find and type in  emacs.  Press enter and wait for a bit and it will only show you the packages which are related to emacs.  Tab a few times till you hear Orca say "s column header".  Now, arrow down to go through the list.  Arrow left and right to move from column to column such as package name, installed version, latest version and description.  When you get to a package you want, mark it by typing control i.  When you have marked all the ones you want, press control p to apply changes and tap to apply and press enter.  If you need more help than this using the Synaptic Package Manager, follow the link provided in the previous section which will take you to its homepage where you can learn more about it
+Many of the extensions that have been written for Emacs can be added
+through Synaptic inside of Gnome.  Just bring it up and type control f
+for find and type in emacs.  Press enter and wait for a bit and it
+will only show you the packages which are related to emacs.  Tab a few
+times till you hear Orca say "s column header".  Now, arrow down to go
+through the list.  Arrow left and right to move from column to column
+such as package name, installed version, latest version and
+description.  When you get to a package you want, mark it by typing
+control i.  When you have marked all the ones you want, press control
+p to apply changes and tap to apply and press enter.  If you need more
+help than this using the Synaptic Package Manager, follow the link
+provided in the previous section which will take you to its homepage
+where you can learn more about it
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org94e2c3c" class="outline-3">
-<h3 id="org94e2c3c"><span class="section-number-3">2.5</span> Using Elpa  to extend your Emacs</h3>
+<div id="outline-container-orgd9d5e30" class="outline-3">
+<h3 id="orgd9d5e30"><span class="section-number-3">2.5.</span> Using Elpa  to extend your Emacs</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
-Elpa is a system Emacs uses for downloading and installing extensions.  Some are very large and include several modes while others are small and may only consist of a minor mode.  As you become more proficient in Emacs, you will be in a better position to pick which packages you want for your machine.  In order to make Elpa available, you will need to paste a bit of lisp code into your scratch buffer.  Here is the code.  Cut and paste this into an empty text file for later use in case you ever have to reinstall your Emacs:
+Elpa is a system Emacs uses for downloading and installing extensions.
+Some are very large and include several modes while others are small
+and may only consist of a minor mode.  As you become more proficient
+in Emacs, you will be in a better position to pick which packages you
+want for your machine.  In order to make Elpa available, you will need
+to paste a bit of lisp code into your scratch buffer.  Here is the
+code.  Cut and paste this into an empty text file for later use in
+case you ever have to reinstall your Emacs:
 </p>
 
 <p>
-#BEGIN<sub>SRC</sub> emacs-lisp
-  (let ((buffer (url-retrieve-synchronously
-	       "<a href="http://tromey.com/elpa/package-install.el">http://tromey.com/elpa/package-install.el</a>")))
-  (save-excursion
-    (set-buffer buffer)
-    (goto-char (point-min))
-    (re-search-forward "^$" nil 'move)
-    (eval-region (point) (point-max))
-    (kill-buffer (current-buffer))))
-#+END<sub>SRC</sub>
-Ok, here's what you do:
+#BEGIN<sub>SRC</sub> emacs-lisp (let ((buffer (url-retrieve-synchronously
+  "<a href="http://tromey.com/elpa/package-install.el">http://tromey.com/elpa/package-install.el</a>"))) (save-excursion
+  (set-buffer buffer) (goto-char (point-min)) (re-search-forward "^$"
+  nil 'move) (eval-region (point) (point-max)) (kill-buffer
+  (current-buffer)))) #+END<sub>SRC</sub> Ok, here's what you do:
 </p>
 
 <ol class="org-ol">
@@ -1124,7 +1292,13 @@ Ok, here's what you do:
 </ol>
 
 <p>
-Once you have elpa installed, just arrow up and down through the list of packages and type i next to the one you want to install.  Do that till you have made all your choices and then type x to have it download and install them.  When you are done, type c-x c-c to close Emacs and then bring it right back up again either in console or in gnome according to your preference and you should have the new packages you wanted installed and ready for use.
+Once you have elpa installed, just arrow up and down through the list
+of packages and type i next to the one you want to install.  Do that
+till you have made all your choices and then type x to have it
+download and install them.  When you are done, type c-x c-c to close
+Emacs and then bring it right back up again either in console or in
+gnome according to your preference and you should have the new
+packages you wanted installed and ready for use.
 </p>
 
 <p>
@@ -1139,8 +1313,8 @@ for Emacs.
 </div>
 </div>
 
-<div id="outline-container-org0238e88" class="outline-2">
-<h2 id="org0238e88"><span class="section-number-2">3</span> Putting it to use.</h2>
+<div id="outline-container-orgcb7958d" class="outline-2">
+<h2 id="orgcb7958d"><span class="section-number-2">3.</span> Putting it to use.</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Now that we have our emacspeak all set up the way we want it, let's
@@ -1149,30 +1323,53 @@ independently.  They have been written so as not to build on one
 another too much.  This way, a newcomer to Emacspeak can pick what
 they want to accomplish first to get their feet wet.  Remember to
 refer to the hotkey list described in prior sections for help
-navigating them.  I suggest you try every one of these at some point.  You will then get a very good idea of the potential emacspeak has.  Remember to make heavy use of the info pages and the key describers discussed in the section on getting help.  Also, never forget that Google is your friend.  Emacs runs primarily on Linux and Unix systems.  The internet began its life on Unix systems for the most part and Linux grew up with the Internet in its modern form and is available in dozens of flavors each with their own web pages and documentation, forums, mailings and so forth.  What this means to you is that there are tons and tons of web resources for Emacs for you to consult.  Use them to the fullest extent possible.
+navigating them.  I suggest you try every one of these at some point.
+You will then get a very good idea of the potential emacspeak has.
+Remember to make heavy use of the info pages and the key describers
+discussed in the section on getting help.  Also, never forget that
+Google is your friend.  Emacs runs primarily on Linux and Unix
+systems.  The internet began its life on Unix systems for the most
+part and Linux grew up with the Internet in its modern form and is
+available in dozens of flavors each with their own web pages and
+documentation, forums, mailings and so forth.  What this means to you
+is that there are tons and tons of web resources for Emacs for you to
+consult.  Use them to the fullest extent possible.
 </p>
 </div>
 
 
-<div id="outline-container-org92ed8ce" class="outline-3">
-<h3 id="org92ed8ce"><span class="section-number-3">3.1</span> First Launch of Emacspeak</h3>
+<div id="outline-container-org6ca7ea3" class="outline-3">
+<h3 id="org6ca7ea3"><span class="section-number-3">3.1.</span> First Launch of Emacspeak</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-Let's back up a bit and describe what you can expect when you launch Emacspeak for the first time.  The very first time you launch it from your console or terminal, you will hear e-speak load up first and then Emacspeak will tell you that it is "fully operational" and all its "circuits are working perfectly."  You will then find yourself on a screen  that is the Emacs welcome page.  Move around on it a bit with c-n and c-p.  You will hear it announce the Emacs Tutorial and link to Browse the Emacs Manual very early on.  If you want to take this moment to explore these resources, by all means do so.  You may find it very fascinating and enjoyable to explore this new application in as safe a manner as this.  Whenever you are done exploring Emacspeak and just want to quit, type c-x c-c.  You will get a prompt that says:
+Let's back up a bit and describe what you can expect when you launch
+Emacspeak for the first time.  The very first time you launch it from
+your console or terminal, you will hear e-speak load up first and then
+Emacspeak will tell you that it is "fully operational" and all its
+"circuits are working perfectly."  You will then find yourself on a
+screen that is the Emacs welcome page.  Move around on it a bit with
+c-n and c-p.  You will hear it announce the Emacs Tutorial and link to
+Browse the Emacs Manual very early on.  If you want to take this
+moment to explore these resources, by all means do so.  You may find
+it very fascinating and enjoyable to explore this new application in
+as safe a manner as this.  Whenever you are done exploring Emacspeak
+and just want to quit, type c-x c-c.  You will get a prompt that says:
 </p>
 
 <p>
-"Active processes exist.  Kill anyway?" 
+"Active processes exist.  Kill anyway?"
 </p>
 
 <p>
-type "yes" all the way out and, of course, without the quotation marks I'm using for grammatical effect.  You will then find yourself back at the command prompt where you started.  
+type "yes" all the way out and, of course, without the quotation marks
+I'm using for grammatical effect.  You will then find yourself back at
+the command prompt where you started.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf9a7e03" class="outline-3">
-<h3 id="orgf9a7e03"><span class="section-number-3">3.2</span> Additional notes</h3>
+<div id="outline-container-org4482072" class="outline-3">
+<h3 id="org4482072"><span class="section-number-3">3.2.</span> Additional notes</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Please note that I always show you how to use Emacspeak from a console
@@ -1188,7 +1385,8 @@ meta key is unassigned in this launch and this causes you to have to
 use escape as a prefix for everything you normally hold down the meta
 key for.  I personally find it annoying and don't use it this way
 because it isn't very efficient.  You may not find it so in which
-case, feel free to pull emacspeak up in xterm.  To put in the switch I mentioned, bring it up like this:
+case, feel free to pull emacspeak up in xterm.  To put in the switch I
+mentioned, bring it up like this:
 </p>
 
 <ol class="org-ol">
@@ -1201,27 +1399,63 @@ case, feel free to pull emacspeak up in xterm.  To put in the switch I mentioned
 
 
 <p>
-Don't use gnome terminal unless you are turning your orca off because they will both talk at once.  If you are going to do that, kill orca while you run Emacspeak and don't bother with the -nw switch.  I've used Emacspeak this way a couple of times but I like having Orca around for x-windows stuff so, I run my Emacspeak in a virtual console, tty1 to be exact.  I also like to use speakup in the pure console environment so, I have tty2 logged in and brought up as well with speakup not toggled off in it.  I typically have a Gnu Screen session going in there so I can multitask inside the console but that is another topic for another day.  Bottom line is, don't ever ever let one good tool cheat you out of being able to use another.  Avoid the silly romanticized emotional loyalties people tend to develop for doing things one way and with one thing.  Watch out for the pernicious tendencies people have of turning their noses up at perfectly good software just because they don't like the interface, don't believe in how the developer deals with his code or other such foolishness most end users could care less about.  If you are using Emacspeak, it is because you are visually impaired.  This means that your options for what kind of software you can use are limited enough as it is.  Don't hamper yourself further by turning your back on any tool you can use to get the job done.  We just can't afford that kind of thinking.  Use the best tool for the job as much as time, resources and inclinations allow and leave philosophy and idealism to people like Plato and politicians.  Ok, I'll get off my soap box now.
+Don't use gnome terminal unless you are turning your orca off because
+they will both talk at once.  If you are going to do that, kill orca
+while you run Emacspeak and don't bother with the -nw switch.  I've
+used Emacspeak this way a couple of times but I like having Orca
+around for x-windows stuff so, I run my Emacspeak in a virtual
+console, tty1 to be exact.  I also like to use speakup in the pure
+console environment so, I have tty2 logged in and brought up as well
+with speakup not toggled off in it.  I typically have a Gnu Screen
+session going in there so I can multitask inside the console but that
+is another topic for another day.  Bottom line is, don't ever ever let
+one good tool cheat you out of being able to use another.  Avoid the
+silly romanticized emotional loyalties people tend to develop for
+doing things one way and with one thing.  Watch out for the pernicious
+tendencies people have of turning their noses up at perfectly good
+software just because they don't like the interface, don't believe in
+how the developer deals with his code or other such foolishness most
+end users could care less about.  If you are using Emacspeak, it is
+because you are visually impaired.  This means that your options for
+what kind of software you can use are limited enough as it is.  Don't
+hamper yourself further by turning your back on any tool you can use
+to get the job done.  We just can't afford that kind of thinking.  Use
+the best tool for the job as much as time, resources and inclinations
+allow and leave philosophy and idealism to people like Plato and
+politicians.  Ok, I'll get off my soap box now.
 </p>
 
 <p>
-Bringing up Emacspeak in the console is nice because you can still have speakup running though in the background and it can be called upon to read the screen in a traditional screen-reader manner with the number pad.  To keep speakup from talking over emacspeak, simply hold down the numpad insert and press numpad enter.  To make it speak the screen as it changes again, just press that key combination a second time and it'll toggle speakup back on for you.  All right, now, without further adieu, let's get started!
+Bringing up Emacspeak in the console is nice because you can still
+have speakup running though in the background and it can be called
+upon to read the screen in a traditional screen-reader manner with the
+number pad.  To keep speakup from talking over emacspeak, simply hold
+down the numpad insert and press numpad enter.  To make it speak the
+screen as it changes again, just press that key combination a second
+time and it'll toggle speakup back on for you.  All right, now,
+without further adieu, let's get started!
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5125876" class="outline-2">
-<h2 id="org5125876"><span class="section-number-2">4</span> Manipulating  text</h2>
+<div id="outline-container-org2e62318" class="outline-2">
+<h2 id="org2e62318"><span class="section-number-2">4.</span> Manipulating  text</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-Emacs is the king of editors.  Yes, I know that sounds really pompous and I suppose it also sounds rather silly but, honest, it's true.  No other editor can do as much as Emacs can in as efficient a manner and with as much room for customizations and extensions as this 30 something  year-old editor.  The next few sections will feature step by step instructions on creating files which are, at the core, just text files but that do many different things.  Here we go!
+Emacs is the king of editors.  Yes, I know that sounds really pompous
+and I suppose it also sounds rather silly but, honest, it's true.  No
+other editor can do as much as Emacs can in as efficient a manner and
+with as much room for customizations and extensions as this 30
+something year-old editor.  The next few sections will feature step by
+step instructions on creating files which are, at the core, just text
+files but that do many different things.  Here we go!
 </p>
 </div>
 
 
-<div id="outline-container-org889a002" class="outline-3">
-<h3 id="org889a002"><span class="section-number-3">4.1</span> Your first text file</h3>
+<div id="outline-container-org2aab56b" class="outline-3">
+<h3 id="org2aab56b"><span class="section-number-3">4.1.</span> Your first text file</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 In This section will show you how to create and edit your first plain
@@ -1239,7 +1473,8 @@ extensively and markups and such are always available for you to see
 and understand due to the prevalence of free software and open source
 thinking.  The text file can be put to many uses.  We'll really see
 one of these uses when we write our first webpage using Emacs's
-org-mode but, for now, let's just make a text file.  It will get you used to editing and movement commands within Emacs.
+org-mode but, for now, let's just make a text file.  It will get you
+used to editing and movement commands within Emacs.
 </p>
 
 <p>
@@ -1249,41 +1484,53 @@ From the command prompt. do the following:
 <ol class="org-ol">
 <li>Make a directory from which to work.  So type this:</li>
 </ol>
-<pre class="example">
+<p>
+#+BEGIN<sub>EXAMPLE</sub>
+</p>
 
+<p>
 mkdir learn-emacspeak
+</p>
 
-</pre>
+<p>
+#+END<sub>EXAMPLE</sub>
+</p>
 <ol class="org-ol">
 <li>Now, move to it in order to work from there by typing:</li>
 </ol>
-<pre class="example">
+<p>
+#+BEGIN<sub>EXAMPLE</sub>
+</p>
 
+<p>
 cd learn-emacspeak
+</p>
 
-</pre>
+<p>
+#+END<sub>EXAMPLE</sub>
+</p>
 <ol class="org-ol">
-<li>Now, we can begin.  Turn Speakup to quiet mode by holding down the numpad insert and pressing enter.  Espeak will say "You turned me off!"  It will hang around in the background and can be accessed using your number key pad but it won't announce changes in the screen anymore.  If you just want Speakup out of the picture, press print-screen and it wil kill it.  Press print screen again to bring it back to life.</li>
+<li>Now, we can begin.  Turn Speakup to quiet mode by holding down the numpad insert and pressing enter.  Espeak will say "You turned me off!"  It will hang around in the background and can be accessed using your number key pad but it won't announce changes in the screen anymore.  If you just want Speakup out of the picture, press print-screen and it will kill it.  Press print screen again to bring it back to life.</li>
 <li>The moment of truth is upon us!  We're going to bring Emacspeak up with a text file.  You do this by typing the following into a command prompt in the console:</li>
 </ol>
 <p>
-#BEGIN<sub>EXAMPLE</sub>
-emacspeak firstfile.txt
-#+END<sub>EXAMPLE</sub>
+#BEGIN<sub>EXAMPLE</sub> emacspeak firstfile.txt #+END<sub>EXAMPLE</sub>
 </p>
 
 <p>
-Emacspeak will come up and you will be in an empty file buffer.  Type a few lines.  For instance:
+Emacspeak will come up and you will be in an empty file buffer.  Type
+a few lines.  For instance:
 </p>
 
-<pre class="example">
-Mary had a little lamb
-Whose fleece was white as snow.
-And everywhere that mary went,
-The lamb was sure to go!
-</pre>
 <p>
-Use the movement keys taught to you in prior chapters of this tutorial to move around this file.  Move around by character, word, and sentence.  If you decided to type many more lines, you can move by screenful by scrolling vertical with c-v and m-v.  Here are a few editing commands for you:
+#+BEGIN<sub>EXAMPLE</sub>
+Mary had a little lamb Whose fleece was white as snow.  And everywhere
+that mary went, The lamb was sure to go!  #+END<sub>EXAMPLE</sub> Use the
+movement keys taught to you in prior chapters of this tutorial to move
+around this file.  Move around by character, word, and sentence.  If
+you decided to type many more lines, you can move by screenful by
+scrolling vertical with c-v and m-v.  Here are a few editing commands
+for you:
 </p>
 <ul class="org-ul">
 <li>Delete character:  c-d</li>
@@ -1312,16 +1559,16 @@ access the options menu and arrow down to "Auto fill in text modes"
 and press enter.  Your lines will wrap from that point on.  Don't get
 taken in by the actual word wrapping features because they just
 wordwrap for visual effect.  Emacspeak won't be fooled and will treat
-your text as single line paragraphs.  
+your text as single line paragraphs.
 </p>
 
 <p>
-When you are done with your file,  Press c-x c-s to save your changes.  
+When you are done with your file, Press c-x c-s to save your changes.
 </p>
 </div>
 
-<div id="outline-container-org08eeb3b" class="outline-4">
-<h4 id="org08eeb3b"><span class="section-number-4">4.1.1</span> But wait!  What about spell checking?</h4>
+<div id="outline-container-org1088c2f" class="outline-4">
+<h4 id="org1088c2f"><span class="section-number-4">4.1.1.</span> But wait!  What about spell checking?</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 Ok, so now that we have finished typing our text file and we've saved
@@ -1330,7 +1577,7 @@ there!  Or, you might have just slipped up and forgot to double a
 consonant, lengthen a vowel or something like that.  To remedy this
 situation, Emacs has a spell checking mode you can turn to.  From
 anywhere in your file type m-x ispell-buffer.  Emacspeak will read the
-sentence or line of any mispelled word and use a lower voice to
+sentence or line of any misspelled word and use a lower voice to
 pinpoint the misspelled word for you.  You are then given a list of
 choices to choose from.  It's pretty straightforward.  If you get
 stuck, just type a question mark and you will get a nice help file
@@ -1340,51 +1587,78 @@ c-x c-s to save and you are set.
 </div>
 </div>
 
-<div id="outline-container-orgf0839cf" class="outline-4">
-<h4 id="orgf0839cf"><span class="section-number-4">4.1.2</span> Visiting files</h4>
+<div id="outline-container-orgb2f261f" class="outline-4">
+<h4 id="orgb2f261f"><span class="section-number-4">4.1.2.</span> Visiting files</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
-To edit a new file from an already running emacs session or to open a file you had edited  previously, type c-x c-f.  YOu will be placed after the ~/ which tells Emacs to visit or create a file in your home directory.  If you are pulling up our little text file at some future point, we would type learn-emacspeak/firstfile.txt.  Of course, there's also completion.
+To edit a new file from an already running emacs session or to open a
+file you had edited previously, type c-x c-f.  YOu will be placed
+after the ~/ which tells Emacs to visit or create a file in your home
+directory.  If you are pulling up our little text file at some future
+point, we would type learn-emacspeak/firstfile.txt.  Of course,
+there's also completion.
 </p>
 
 <p>
-If you don't remember the exact string to type to get to a file, type the beginning of it and then tap to get emacs to generate a completion list.  Then, type page up to put you into the completions buffer where you canarrow up and down to pick your completion.  Sometimes, you get more than one file at a time on a line so use left and right arrows to get to other files on such lines.  That's all there is to it!  You now know enough to get you started writing text files.  Use that menu bar when you get stuck and then learn those hotkeys by browsing the help files as you go along.  
+If you don't remember the exact string to type to get to a file, type
+the beginning of it and then tap to get emacs to generate a completion
+list.  Then, type page up to put you into the completions buffer where
+you canarrow up and down to pick your completion.  Sometimes, you get
+more than one file at a time on a line so use left and right arrows to
+get to other files on such lines.  That's all there is to it!  You now
+know enough to get you started writing text files.  Use that menu bar
+when you get stuck and then learn those hotkeys by browsing the help
+files as you go along.
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org8be194a" class="outline-3">
-<h3 id="org8be194a"><span class="section-number-3">4.2</span> Let's make a webpage!</h3>
+<div id="outline-container-org3e7cac9" class="outline-3">
+<h3 id="org3e7cac9"><span class="section-number-3">4.2.</span> Let's make a webpage!</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
-I am now going to teach you how to write your own homepage using Emacspeak without knowing a single solitary lick of css or html code.  Your homepage wil be accesible, structured and usable with just about any browser out there.  You'll be able to save it to a thum drive and put it onto any machine you use regardless of platform and it will work for you no matter what screen reader you use.  And, my friend, we will do this in just a few short minutes.  Don't believe me?  Watch and learn!
+I am now going to teach you how to write your own homepage using
+Emacspeak without knowing a single solitary lick of css or html code.
+Your homepage will be accessible, structured and usable with just
+about any browser out there.  You'll be able to save it to a thum
+drive and put it onto any machine you use regardless of platform and
+it will work for you no matter what screen reader you use.  And, my
+friend, we will do this in just a few short minutes.  Don't believe
+me?  Watch and learn!
 </p>
 
 <p>
-We are going to use a built-in mode of Emacs called org-mode.  It is used for all kinds of things like planning agendas, scheduling, writing notes and authoring.  You can take what you write in this mode and have it spit it out to a structured ascii text file, an html file, a LaTx file a pdf file and, of course, an html file which is what we will be doing.  Let's get started!
-Note:  You can get more information about org-mode and all its many
-uses by browsing the online manual by following this link:  <a href="http://orgmode.org/manual/index.html">online
-version of the Org-Mode Manual</a>.  If you are in Emacs, you can also, of
-course browse this documentation using info.
-From the command prompt. do the following:
+We are going to use a built-in mode of Emacs called org-mode.  It is
+used for all kinds of things like planning agendas, scheduling,
+writing notes and authoring.  You can take what you write in this mode
+and have it spit it out to a structured ascii text file, an html file,
+a LaTx file a pdf file and, of course, an html file which is what we
+will be doing.  Let's get started!  Note: You can get more information
+about org-mode and all its many uses by browsing the online manual by
+following this link: <a href="http://orgmode.org/manual/index.html">online
+version of the Org-Mode Manual</a>.  If you are in Emacs, you can also,
+of course browse this documentation using info.  From the command
+prompt. do the following:
 </p>
 
 <ol class="org-ol">
 <li>If you haven't already, make a directory from which to work.  So type this:</li>
 </ol>
-<pre class="example">
-mkdir learn-emacspeak
-</pre>
+<p>
+#+BEGIN<sub>EXAMPLE</sub>
+mkdir learn-emacspeak #+END<sub>EXAMPLE</sub>
+</p>
 <ol class="org-ol">
 <li>Now, move to it in order to work from there by typing:</li>
 </ol>
-<pre class="example">
-cd learn-emacspeak
-</pre>
+<p>
+#+BEGIN<sub>EXAMPLE</sub>
+cd learn-emacspeak #+END<sub>EXAMPLE</sub>
+</p>
 <ol class="org-ol">
-<li>Now, we can begin.  Turn Speakup to quiet mode by holding down the numpad insert and pressing enter.  Espeak will say "You turned me off!"  It will hang around in the background and can be accessed using your number key pad but it won't announce changes in the screen anymore.  If you just want Speakup out of the picture, press print-screen and it wil kill it.  Press print screen again to bring it back to life.</li>
+<li>Now, we can begin.  Turn Speakup to quiet mode by holding down the numpad insert and pressing enter.  Espeak will say "You turned me off!"  It will hang around in the background and can be accessed using your number key pad but it won't announce changes in the screen anymore.  If you just want Speakup out of the picture, press print-screen and it will kill it.  Press print screen again to bring it back to life.</li>
 <li>Type emacspeak myhomepage.org at the command prompt and press enter.</li>
 </ol>
 
@@ -1399,7 +1673,8 @@ homepage!
 </p>
 
 <p>
-Let's first create the structure of our page.  We will use 3 headings, personal, technical, and other.  We can do this in three ways.  
+Let's first create the structure of our page.  We will use 3 headings,
+personal, technical, and other.  We can do this in three ways.
 </p>
 
 <ul class="org-ul">
@@ -1409,99 +1684,159 @@ Let's first create the structure of our page.  We will use 3 headings, personal,
 </ul>
 
 <p>
-Pick a method and create the heading names I assigned you above.  
+Pick a method and create the heading names I assigned you above.
 </p>
 </div>
 
-<div id="outline-container-org7fcce46" class="outline-4">
-<h4 id="org7fcce46"><span class="section-number-4">4.2.1</span> Fil in the Sections</h4>
+<div id="outline-container-org2a6da47" class="outline-4">
+<h4 id="org2a6da47"><span class="section-number-4">4.2.1.</span> Fil in the Sections</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
-Ok, now, we flesh out our page.  Using your arrows or c-p and c-n, get to the first one called "personal."  You will notice that it is preceeded by an asterisk.  Type c-e c-e to get us to the end of the line and press enter.  Now, type something brief to remind yourself of what's in this section.  Something like this:
+Ok, now, we flesh out our page.  Using your arrows or c-p and c-n, get
+to the first one called "personal."  You will notice that it is
+preceded by an asterisk.  Type c-e c-e to get us to the end of the
+line and press enter.  Now, type something brief to remind yourself of
+what's in this section.  Something like this:
 </p>
 
 <p>
-This section contains my personal information links such as my e-mail page, my bank's page and my social accounts pages like Linked-in, twitter and Facebook.
+This section contains my personal information links such as my e-mail
+page, my bank's page and my social accounts pages like Linked-in,
+twitter and Facebook.
 </p>
 
 <p>
-Press enter twice and let's get ready to make our links.  
+Press enter twice and let's get ready to make our links.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3a92bf1" class="outline-4">
-<h4 id="org3a92bf1"><span class="section-number-4">4.2.2</span> Creating Links</h4>
+<div id="outline-container-orgeb278e5" class="outline-4">
+<h4 id="orgeb278e5"><span class="section-number-4">4.2.2.</span> Creating Links</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
-As in the case of headings, there are three ways to put links into your homepage with org-mode.  Really, there's more than this but, we are trying to keep it simple so we will restrict ourselves to three.  
+As in the case of headings, there are three ways to put links into
+your homepage with org-mode.  Really, there's more than this but, we
+are trying to keep it simple so we will restrict ourselves to three.
 </p>
 
 <dl class="org-dl">
 <dt>Using the menu bar: </dt><dd>Again, we hit f10 or alt grave and arrow down to org's menu and press enter.  Then, we arrow down to "hyperlink" and press enter again.  We are now in a submenu.  Arrow until you hear "Insert hyperlink" and press enter.  From here, we have a list of different sorts of links to choose from.  If you explore a bit, you will find http, https, ftp, sendmail and many more which are far too many to list here.  Arrow down to <a href="http://">http://</a> and enter the url of the page you are linking to.</dd>
 </dl>
 <p>
-Example:  
-</p>
-<pre class="example">
+Example:
+#+BEGIN<sub>EXAMPLE</sub>
 www.vinux-project.org
-
-</pre>
+</p>
 <p>
-Press enter again and you are at a point where you can enter a description.  This is where you enter the text you want to hehar telling you what that url is to.  Along the same vein as our example:  Vinux home page.
+#+end<sub>EXAMPLE</sub> Press enter again and you are at a point where you can
+enter a description.  This is where you enter the text you want to
+hehar telling you what that url is to.  Along the same vein as our
+example: Vinux home page.
 </p>
 <dl class="org-dl">
 <dt>A hotkey combination: </dt><dd>To add a link using hotkeys, we use the c-c prefix and then c-l.  So, c-c c-l and we are in the list of url types again.  Proceed as outlined above at this point.</dd>
 <dt>Using the link markup codes:</dt><dd>Again, this is my personal
-favorite since I don't really like to interrupt my typing to mess
-with menus and lists and things.  To add a llink this way, we put
-in square brackets.  This is a square bracket: [.  You want two
-left square brackets one after the other.   Then we put the url
-in.  Next, we put in a right bracket to close the pair containing
-the url and follow it with a left square bracket. Here, we type the link's description.  When the description is finished, we put a right square bracket to close the description field and another to close the link addition.  When you press enter now, you have a link in your page!  You can test the link by arrowing up to it and noting that Emacspeak speaks it in the lower voice designated for links.  You can also follow the link.  You can either do that with the menu bar or with the c-c c-o hotkey.</dd>
+   favorite since I don't really like to interrupt my typing to mess
+with menus and lists and things.  To add a llink this way, we put in
+square brackets.  This is a square bracket: [.  You want two left
+square brackets one after the other.  Then we put the url in.  Next,
+we put in a right bracket to close the pair containing the url and
+follow it with a left square bracket. Here, we type the link's
+description.  When the description is finished, we put a right
+square bracket to close the description field and another to close
+the link addition.  When you press enter now, you have a link in
+your page!  You can test the link by arrowing up to it and noting
+that Emacspeak speaks it in the lower voice designated for links.
+You can also follow the link.  You can either do that with the menu
+bar or with the c-c c-o hotkey.</dd>
 </dl>
 
 <p>
-Here is an example of some links you can put in your page's personal section:
+Here is an example of some links you can put in your page's personal
+section:
+#+BEGIN<sub>EXAMPLE</sub>
 </p>
-<pre class="example">
-[[http://gmail.google.com][Check your Gmail account]]
-[[http://www.twitter.com][Browse my Twitter page]]
-[[http://www.facebook.com][My Facebook Page]]
-[[http://www.sourceforge.net][Check my Source Forge Account]]
-</pre>
+<p>
+<a href="http://gmail.google.com">Check your Gmail account</a>
+<a href="http://www.twitter.com">Browse my Twitter page</a>
+<a href="http://www.facebook.com">My Facebook Page</a>
+<a href="http://www.sourceforge.net">Check my Source Forge Account</a>
+#+END<sub>EXAMPLE</sub>
+</p>
 
 <p>
-We can put the links in a list.  It's really easy.  Just preceed every line of your list with a plus sign and two spaces and then your beginning brackets or the insertion of the link and the links will be formatted into a list for you.  Another way to do it is in a table.  Each cell is separated by pipes or vertical bars.  This is a pipe:  |.  For further guidance in creating tables in org-mode, consult the org-mode documetation online or thorugh the info pages.  I like lists because they are easy to navigate with Orca and Jaws.  Suggestions for the personal heading are a link to gmail.google.com, twitter.com and to your bank or something like that.  Mine has my gmail, rfbd, my retirement account, and Linked-in since that's the only thing even approximating social networking that I do.  
+We can put the links in a list.  It's really easy.  Just precede every
+line of your list with a plus sign and two spaces and then your
+beginning brackets or the insertion of the link and the links will be
+formatted into a list for you.  Another way to do it is in a table.
+Each cell is separated by pipes or vertical bars.  This is a pipe: |.
+For further guidance in creating tables in org-mode, consult the
+org-mode documentation online or through the info pages.  I like lists
+because they are easy to navigate with Orca and Jaws.  Suggestions for
+the personal heading are a link to gmail.google.com, twitter.com and
+to your bank or something like that.  Mine has my gmail, rfbd, my
+retirement account, and Linked-in since that's the only thing even
+approximating social networking that I do.
 </p>
 
 <p>
-To go to each subsequent heading level in the file you are writing, type c-c n for next and c-c p for previous.   Put your cursor at the end of each line with c-e c-e and press enter to get into where you can edit.  You can fold headings where the stuff inside each of them is tucked away form view for you so the document tree is browsable and you can read the big picture.  Makes authoring real easy, I can tell you.  I'm using org-mode to write this tutorial, as it happens.  To fold, you get to the line containing the heading and backtab.  To unfold and read the heading's contents, press tab.  When headings are folded, emacspeak will announce them as such in auditory icons with a sort of clicking or clapping sound.  Try it out.  It's pretty neat.  when you unfold one, emacspeak will tell you that you can view the heading's children.  
+To go to each subsequent heading level in the file you are writing,
+type c-c n for next and c-c p for previous.  Put your cursor at the
+end of each line with c-e c-e and press enter to get into where you
+can edit.  You can fold headings where the stuff inside each of them
+is tucked away form view for you so the document tree is browsable and
+you can read the big picture.  Makes authoring real easy, I can tell
+you.  I'm using org-mode to write this tutorial, as it happens.  To
+fold, you get to the line containing the heading and backtab.  To
+unfold and read the heading's contents, press tab.  When headings are
+folded, emacspeak will announce them as such in auditory icons with a
+sort of clicking or clapping sound.  Try it out.  It's pretty neat.
+when you unfold one, emacspeak will tell you that you can view the
+heading's children.
 </p>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgad8d884" class="outline-4">
-<h4 id="orgad8d884"><span class="section-number-4">4.2.3</span> Exercise:</h4>
+<div id="outline-container-org1d6f9fe" class="outline-4">
+<h4 id="org1d6f9fe"><span class="section-number-4">4.2.3.</span> Exercise:</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
-Now, it's your turn.  Using the example above, fill in the rest of your personal links, put in some technical links like the Vinux homepage, the Emacspeak homepage, the Orca page ETC.  Then, in your final heading, put in some other links of interest to you.  
+Now, it's your turn.  Using the example above, fill in the rest of
+your personal links, put in some technical links like the Vinux
+homepage, the Emacspeak homepage, the Orca page ETC.  Then, in your
+final heading, put in some other links of interest to you.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org83d63bf" class="outline-4">
-<h4 id="org83d63bf"><span class="section-number-4">4.2.4</span> Exporting to html</h4>
+<div id="outline-container-org10a9d53" class="outline-4">
+<h4 id="org10a9d53"><span class="section-number-4">4.2.4.</span> Exporting to html</h4>
 <div class="outline-text-4" id="text-4-2-4">
 <p>
-So, now we have our homepage all written up and we are ready to export it.  Again, you can do this with the org menu bar which you should know how to get to by now or by typing c-c c-e.  You will be asked to enter a command.  This is where you have the choice to export to all sorts of other formats.  I'll let you explore those on your own.  For now, just type h for html.  YOu will be asked for a document title.  Mine says, strangely enough, Alex's  homepage. Title yours as you want and then press enter.  Now, either open up another tty virtual console or alt f7 to go into Gnome and get to a terminal and navigate to your learn-emacspeak directory.  Perform  an ls command to list the files in the directory and you should hear the html file in there.  To test it, launch your favorite browser and see how all the links work nicely.
+So, now we have our homepage all written up and we are ready to export
+it.  Again, you can do this with the org menu bar which you should
+know how to get to by now or by typing c-c c-e.  You will be asked to
+enter a command.  This is where you have the choice to export to all
+sorts of other formats.  I'll let you explore those on your own.  For
+now, just type h for html.  YOu will be asked for a document title.
+Mine says, strangely enough, Alex's homepage. Title yours as you want
+and then press enter.  Now, either open up another tty virtual console
+or alt f7 to go into Gnome and get to a terminal and navigate to your
+learn-emacspeak directory.  Perform an ls command to list the files in
+the directory and you should hear the html file in there.  To test it,
+launch your favorite browser and see how all the links work nicely.
 </p>
 
 <p>
-Congratulations!  You have just written your first webpage using Emacspeak.  Pretty easy, right?  To continue your learning experience, have a look at the org-mode documentation which you can get to through info or the org-mode menu and find out about all the other amazing things this litttle gem inside of Emacs can do for you.
+Congratulations!  You have just written your first webpage using
+Emacspeak.  Pretty easy, right?  To continue your learning experience,
+have a look at the org-mode documentation which you can get to through
+info or the org-mode menu and find out about all the other amazing
+things this litttle gem inside of Emacs can do for you.
 </p>
 </div>
 </div>
@@ -1509,8 +1844,8 @@ Congratulations!  You have just written your first webpage using Emacspeak.  Pre
 
 
 
-<div id="outline-container-orgebadc4a" class="outline-3">
-<h3 id="orgebadc4a"><span class="section-number-3">4.3</span> Let's write some code!</h3>
+<div id="outline-container-org7f74080" class="outline-3">
+<h3 id="org7f74080"><span class="section-number-3">4.3.</span> Let's write some code!</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 No document pretending to explain to someone how to use Emacs and
@@ -1519,17 +1854,21 @@ on coding.  Writing programs is one of Emacs' primary function among
 many of its users.  It's got a mode for just about every language.
 For our purposes, we will use the c-mode which is the one for c and
 c++ and other languages related to it.  Don't worry if your language
-is different, all of the concepts I wil explore in this brief tutorial
-are common to all programming languages.  I just happen to know c++
-so, it's what I used.  If you know Python, Perl, Shell Script, Java or
-something like that Emacs has you covered.  Just replace the .cpp
-extension with the one corresponding to your language and chances are,
-Emacs will have a mode for it pre-installed and come up for you in
-that mode.  Here we go:
+is different, all of the concepts I will explore in this brief
+tutorial are common to all programming languages.  I just happen to
+know c++ so, it's what I used.  If you know Python, Perl, Shell
+Script, Java or something like that Emacs has you covered.  Just
+replace the .cpp extension with the one corresponding to your language
+and chances are, Emacs will have a mode for it pre-installed and come
+up for you in that mode.  Here we go:
 </p>
 
 <p>
-If you write code, I'm going to assume you know how to use a command line.  If you don't and you want to code in Linux, learn it as  soon as you  can.  This section has the least amount  of hand holding since, if you program, you need to be willing to explore more than your average user.  
+If you write code, I'm going to assume you know how to use a command
+line.  If you don't and you want to code in Linux, learn it as soon as
+you can.  This section has the least amount of hand holding since, if
+you program, you need to be willling to explore more than your average
+user.
 </p>
 
 <ol class="org-ol">
@@ -1541,36 +1880,35 @@ If you write code, I'm going to assume you know how to use a command line.  If y
 
 
 <p>
-You are now inside an empty buffer in Emacs's c-mode.  Emacspeak will act rather differently here than in other environments.  Let's write a short program to demonstrate.  We wil  have some comments, some include or, what you might know as import statements, a fiew variables and a function.  Notice how emacspeak's voice changes according to context.  Write these lines exactly as shown here:
+You are now inside an empty buffer in Emacs's c-mode.  Emacspeak will
+act rather differently here than in other environments.  Let's write a
+short program to demonstrate.  We will have some comments, some
+include or, what you might know as import statements, a fiew variables
+and a function.  Notice how emacspeak's voice changes according to
+context.  Write these lines exactly as shown here:
 </p>
 
-<div class="org-src-container">
-<pre class="src src-c++"><span style="color: #b22222;">//  </span><span style="color: #b22222;">This is a comment in c++</span>
-<span style="color: #b22222;">// </span><span style="color: #b22222;">It should be spoken in a monotone voice.</span>
-<span style="color: #b22222;">// </span><span style="color: #b22222;">You can't miss it.</span>
-<span style="color: #b22222;">// </span><span style="color: #b22222;">notice how it treats header file inclusions next</span>
-<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;iostream&gt;</span>
-<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;string&gt;</span>
-<span style="color: #b22222;">// </span><span style="color: #b22222;">Here's our function</span>
-<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span> ()
-{
-<span style="color: #b22222;">// </span><span style="color: #b22222;">Now, an object of type string and its initialization</span>
-<span style="color: #008b8b;">std</span>::<span style="color: #228b22;">string</span> <span style="color: #a0522d;">howdy</span> = <span style="color: #8b2252;">"Howdy, partner.  This is emacspeak talking to you!"</span>;
-<span style="color: #228b22;">int</span> <span style="color: #a0522d;">a</span>, <span style="color: #a0522d;">b</span>, <span style="color: #a0522d;">c</span>;  <span style="color: #b22222;">// </span><span style="color: #b22222;">Some variable declarations.</span>
-a = 1, b = 2, c = 3;  <span style="color: #b22222;">// </span><span style="color: #b22222;">Assigning them values</span>
-<span style="color: #008b8b;">std</span>::cout &lt;&lt; howdy &lt;&lt; <span style="color: #8b2252;">"\n Let's count to three: \n"</span> 
-&lt;&lt; a &lt;&lt; b &lt;&lt; c;
-<span style="color: #b22222;">// </span><span style="color: #b22222;">Print some text using console out in c++.</span>
-<span style="color: #a020f0;">return</span> 0;  <span style="color: #b22222;">//  </span><span style="color: #b22222;">We end our program.</span>
-}
-</pre>
-</div>
+<p>
+#+BEGIN<sub>SRC</sub> c++
+<i>/ This is a comment in c++ /</i> It should be spoken in a monotone
+voice.  <i>/ You can't miss it.  /</i> notice how it treats header file
+inclusions next #include &lt;iostream&gt; #include &lt;string&gt; <i>/ Here's our
+function int main () { /</i> Now, an object of type string and its
+initialization std::string howdy = "Howdy, partner.  This is emacspeak
+talking to you!"; int a, b, c; <i>/ Some variable declarations.  a = 1,
+b = 2, c = 3; /</i> Assigning them values std::cout &lt;&lt; howdy &lt;&lt; "\n Let's
+count to three: \n" &lt;&lt; a &lt;&lt; b &lt;&lt; c; <i>/ Print some text using console
+out in c++.  return 0; /</i> We end our program.  } #+END<sub>SRC</sub>
+</p>
 
 <p>
 To save our work, we type c-x c-s.  Now, explore the file using c-p
 and c-n and then go by words with m-f and m-b.  Some new keys that are
 specific to this mode are m-p and m-n which move you to the previous
-and next statement respectively.  Make some changes to the comments.  Use c-d for character deletion, m-d for word deletion and c-k for deleting a whole line.  c-y "yanks" the line back from being killed.  It's Emacs talk for paste.  
+and next statement respectively.  Make some changes to the comments.
+Use c-d for character deletion, m-d for word deletion and c-k for
+deleting a whole line.  c-y "yanks" the line back from being killed.
+It's Emacs talk for paste.
 </p>
 
 <p>
@@ -1582,36 +1920,45 @@ own since it is only of interest to you if you code in c++ and
 explanations of how that is done are way beyond the scope of this
 tutorial.  Another thing to look at is the list of hotkeys specific to
 it by typing c-h m and then moving to the help buffer with c-x o.
-Incidentally, c-h b will give you a more compact list of hotkeys.  
+Incidentally, c-h b will give you a more compact list of hotkeys.
 </p>
 </div>
 
 
-<div id="outline-container-orga789ef0" class="outline-4">
-<h4 id="orga789ef0"><span class="section-number-4">4.3.1</span> Exercise:</h4>
+<div id="outline-container-orgceb5401" class="outline-4">
+<h4 id="orgceb5401"><span class="section-number-4">4.3.1.</span> Exercise:</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
-From a command prompt, launch emacspeak with a new program in a language you are familiar with like Python.  Explore how Emacspeak will talk in certain situations and with certain elements of code.  
+From a command prompt, launch emacspeak with a new program in a
+language you are familiar with like Python.  Explore how Emacspeak
+will talk in certain situations and with certain elements of code.
 </p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6cc677f" class="outline-2">
-<h2 id="org6cc677f"><span class="section-number-2">5</span> Onto the wide wide world:</h2>
+<div id="outline-container-org987bf3e" class="outline-2">
+<h2 id="org987bf3e"><span class="section-number-2">5.</span> Onto the wide wide world:</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-Emacspeak lets you have access to all elements of the internet.  Whether it's e-mail, the web, chatting with Irc, social networking with Facebook and Twitter or reading your favorite newsgroups, it can all be done from within Emacs and Emacspeak has been written with support for this functionality.  We will explore some of this in the next few sections.  
+Emacspeak lets you have access to all elements of the internet.
+Whether it's e-mail, the web, chatting with Irc, social networking
+with Facebook and Twitter or reading your favorite newsgroups, it can
+all be done from within Emacs and Emacspeak has been written with
+support for this functionality.  We will explore some of this in the
+next few sections.
 </p>
 </div>
 
 
-<div id="outline-container-org25dab70" class="outline-3">
-<h3 id="org25dab70"><span class="section-number-3">5.1</span> How about a chat?</h3>
+<div id="outline-container-org6fc259e" class="outline-3">
+<h3 id="org6fc259e"><span class="section-number-3">5.1.</span> How about a chat?</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
-Chatting with Emacspeak is truly a breeze.  You won't believe how easy it is.  The best way to illustrate that is to show you how you would chat on the Vinux irc channel.  Here's what you do:
+Chatting with Emacspeak is truly a breeze.  You won't believe how easy
+it is.  The best way to illustrate that is to show you how you would
+chat on the Vinux irc channel.  Here's what you do:
 </p>
 
 <ol class="org-ol">
@@ -1654,52 +2001,94 @@ Example:
 </table>
 
 <p>
-Give it a few moments and it should tell you that you are on the server you chose.  At this point, things get pretty straightforward because now, you can use the menu bar which can be reached with f10 or alt grave accent and arrow to the erc-mode menu and press enter.  Choose an option such as joining a channel and then type in the channel you want to join.  Another way to do this is to just type /join #channelName as you would in any other irc client.  All the usual irc commands work here.  the menu bar contains a few helpful shortcuts for when you don't know them but you can get away without ever visiting it.  
+Give it a few moments and it should tell you that you are on the
+server you chose.  At this point, things get pretty straightforward
+because now, you can use the menu bar which can be reached with f10 or
+alt grave accent and arrow to the erc-mode menu and press enter.
+Choose an option such as joining a channel and then type in the
+channel you want to join.  Another way to do this is to just type
+/join #channelName as you would in any other irc client.  All the
+usual irc commands work here.  the menu bar contains a few helpful
+shortcuts for when you don't know them but you can get away without
+ever visiting it.
 </p>
 </div>
 
-<div id="outline-container-org1e2bb49" class="outline-4">
-<h4 id="org1e2bb49"><span class="section-number-4">5.1.1</span> Actual chatting tips</h4>
+<div id="outline-container-org64f930a" class="outline-4">
+<h4 id="org64f930a"><span class="section-number-4">5.1.1.</span> Actual chatting tips</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <p>
 Once you have joined a channel, you will want to monitor it so you
 know what people are saying.  To do this, type c-c c-m.  This will
 monitor your current channel.  If you have auditory icons turned on,
-you will get a little sound preceeding every message someone types.  To talk to someone, just type what you want to say and press enter.  You'll hear a little ding if you have auditory icons but not the text you typed.  To get past this, I usually turn on line echo locally with c-e d l.  
+you will get a little sound preceding every message someone types.
+To talk to someone, just type what you want to say and press enter.
+You'll hear a little ding if you have auditory icons but not the text
+you typed.  To get past this, I usually turn on line echo locally with
+c-e d l.
 </p>
 
 <p>
-You can have multiple channels at a time which you are monitoring.  Personally, I have no idea why someone would want to do this but, I'm sure there are reasons out there for wanting to do this.  If you have such a reason, each channel is in its own buffer.  All you have to do to switch back and forth between channels you are on is to go to the buffer containing that channel and its conversations by hitting c-x c-b for the buffer list, arrowing down to the buffer in question and hitting enter on it.  
-Once you are done chatting, just use /leave to leave the channel you are on or go to the menu bar and find the leave command in the erc-mode menu.  Once you've done this, you can either disconnect from the server or just kill the buffer you are on to stop your erc session.  And that's all there is to it!
+You can have multiple channels at a time which you are monitoring.
+Personally, I have no idea why someone would want to do this but, I'm
+sure there are reasons out there for wanting to do this.  If you have
+such a reason, each channel is in its own buffer.  All you have to do
+to switch back and forth between channels you are on is to go to the
+buffer containing that channel and its conversations by hitting c-x
+c-b for the buffer list, arrowing down to the buffer in question and
+hitting enter on it.  Once you are done chatting, just use /leave to
+leave the channel you are on or go to the menu bar and find the leave
+command in the erc-mode menu.  Once you've done this, you can either
+disconnect from the server or just kill the buffer you are on to stop
+your erc session.  And that's all there is to it!
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org88b8209" class="outline-3">
-<h3 id="org88b8209"><span class="section-number-3">5.2</span> Let's browse the web.</h3>
+<div id="outline-container-org39e0711" class="outline-3">
+<h3 id="org39e0711"><span class="section-number-3">5.2.</span> Let's browse the web.</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
-In the words of Emacspeak's author DR. T. V. Raman, "There are many solutions for browsing the web in Emacspeak neither of them entirely satisfactory."  For most simple html and css pages, you can definitely have a very pleasing browsing experience with Emacs w3, the closest thing Emacs has to a a native browser.  W3 doesn't have a Javascript interpreter so, anything containing javascript wil have to be accessed through other solutions.  I will leave it up to you to explore these as this is merely a tutorial for getting your feet wet.  W3 is a nice little browser which should fulfill a large percentage of your browsing needs.  When it comes to more complex ones, however, you will really want to use another tool like Firefox through Orca.  Since Orca currently has some slowness issues with regard to browsing, though it is good to know that, at least, for some of your browsing, you can indeed turn to Emacspeak and quickly go through web content.  Here's how to get started doing this.
-The plugin you  will need is an emacs-native browser called Emacs w3.
-It's not shipped with Emacs and its development has stagnated in
-recent years but it's still a nice browser as long as you aren't
-trying to nview web pages with lots of javascript.  It's even got
-support for aural css which is a rather neat feature.  I'll et you
-Google what this is since discussions on it can get lengthy.  Anyway,
-Emacs w3 can be put on through Elpa.  Refer to the section in this
-tutorial that discusses how to set it up and how to install packages
-using this tool.  For the rest of this section, I'm going to assume
-that you followed these instructions and have Emacs w3 installed.
-Another thing you may wish to consider is making it so that all html
-documents which are rendered and pulled up as webpages instead of
-source code  get pulled up in w3 and not something else like Firefox.
-This can be done in the customizations area.  Type c-h cap B then arrow up to the appropriate subsection and navigate to where this can be done.  The setting you want to change is labeled "browse url."
+In the words of Emacspeak's author DR. T. V. Raman, "There are many
+solutions for browsing the web in Emacspeak neither of them entirely
+satisfactory."  For most simple html and css pages, you can definitely
+have a very pleasing browsing experience with Emacs w3, the closest
+thing Emacs has to a a native browser.  W3 doesn't have a Javascript
+interpreter so, anything containing javascript will have to be
+accessed through other solutions.  I will leave it up to you to
+explore these as this is merely a tutorial for getting your feet wet.
+W3 is a nice little browser which should fulfill a large percentage of
+your browsing needs.  When it comes to more complex ones, however, you
+will really want to use another tool like Firefox through Orca.  Since
+Orca currently has some slowness issues with regard to browsing,
+though it is good to know that, at least, for some of your browsing,
+you can indeed turn to Emacspeak and quickly go through web content.
+Here's how to get started doing this.  The plugin you will need is an
+emacs-native browser called Emacs w3.  It's not shipped with Emacs and
+its development has stagnated in recent years but it's still a nice
+browser as long as you aren't trying to nview web pages with lots of
+javascript.  It's even got support for aural css which is a rather
+neat feature.  I'll et you Google what this is since discussions on it
+can get lengthy.  Anyway, Emacs w3 can be put on through Elpa.  Refer
+to the section in this tutorial that discusses how to set it up and
+how to install packages using this tool.  For the rest of this
+section, I'm going to assume that you followed these instructions and
+have Emacs w3 installed.  Another thing you may wish to consider is
+making it so that all html documents which are rendered and pulled up
+as webpages instead of source code get pulled up in w3 and not
+something else like Firefox.  This can be done in the customizations
+area.  Type c-h cap B then arrow up to the appropriate subsection and
+navigate to where this can be done.  The setting you want to change is
+labeled "browse url."
 </p>
 
 <p>
-To bring it up, simply press m-x and then type w3.  It should bring up a homepage for itself on the gnu.org site.  To move around the web, here are the basic commands.  Note the capitalization of these commands:
+To bring it up, simply press m-x and then type w3.  It should bring up
+a homepage for itself on the gnu.org site.  To move around the web,
+here are the basic commands.  Note the capitalization of these
+commands:
 </p>
 
 <dl class="org-dl">
@@ -1717,19 +2106,42 @@ To bring it up, simply press m-x and then type w3.  It should bring up a homepag
 </dl>
 
 <p>
-These commands should get you started.  If you want more, remember, you always have c-h m to consult.  It will bring up a list of all the hotkeys for you.  There are many many more than the ones I mentioned.  Also, please note that w3 has it's own menu bar.  You should find it pretty easy to follow since it's very similar to other browsers' menu bars.  
+These commands should get you started.  If you want more, remember,
+you always have c-h m to consult.  It will bring up a list of all the
+hotkeys for you.  There are many many more than the ones I mentioned.
+Also, please note that w3 has it's own menu bar.  You should find it
+pretty easy to follow since it's very similar to other browsers' menu
+bars.
 </p>
 
 <p>
-While you browse, Emacspeak will announce links in a lower pitch voice and will also modulate its voice depending on headings, quotes and other attributes of the document you are browsing.  But, you may ask, are there no specific Emacspeak commands?  There are many and I will let you explore them as you get used to Emacs itself.  But, there is one priceless gem you will find quite useful which I will discuss in the next subsection.
+While you browse, Emacspeak will announce links in a lower pitch voice
+and will also modulate its voice depending on headings, quotes and
+other attributes of the document you are browsing.  But, you may ask,
+are there no specific Emacspeak commands?  There are many and I will
+let you explore them as you get used to Emacs itself.  But, there is
+one priceless gem you will find quite useful which I will discuss in
+the next subsection.
 </p>
 </div>
 
-<div id="outline-container-org76b2d41" class="outline-4">
-<h4 id="org76b2d41"><span class="section-number-4">5.2.1</span> Url Templates</h4>
+<div id="outline-container-org4b148fd" class="outline-4">
+<h4 id="org4b148fd"><span class="section-number-4">5.2.1.</span> Url Templates</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
-One of Emacspeak's greatest strengths is how it presents you with information and how it allows you to interact with Emacs.  It's not a screen reader in the strictest sense of the word because, it doesn't tell you what's on the screen but, rather, what you need to know to get the job done.  All you have to do to prove this point is navigate with your numberpad if you have speakup set to off with numpad Enter.  You will actually hear the physical layout of the screen whereas Emacspeak lets you have what you need when you need it.  An outstanding example of this is the nice variety of Url Templates available.  These are nice shortcuts to parts of long web pages that let you just get right down to business and not have to explore a page for a long time before arriving at where you want to go.  Let's explore a couple of these.
+One of Emacspeak's greatest strengths is how it presents you with
+information and how it allows you to interact with Emacs.  It's not a
+screen reader in the strictest sense of the word because, it doesn't
+tell you what's on the screen but, rather, what you need to know to
+get the job done.  All you have to do to prove this point is navigate
+with your numberpad if you have speakup set to off with numpad Enter.
+You will actually hear the physical layout of the screen whereas
+Emacspeak lets you have what you need when you need it.  An
+outstanding example of this is the nice variety of Url Templates
+available.  These are nice shortcuts to parts of long web pages that
+let you just get right down to business and not have to explore a page
+for a long time before arriving at where you want to go.  Let's
+explore a couple of these.
 </p>
 
 <p>
@@ -1754,8 +2166,8 @@ Bookshare search:
 </ol>
 </div>
 </div>
-<div id="outline-container-org6e8f929" class="outline-4">
-<h4 id="org6e8f929"><span class="section-number-4">5.2.2</span> Exercise.</h4>
+<div id="outline-container-orgfe8f7f9" class="outline-4">
+<h4 id="orgfe8f7f9"><span class="section-number-4">5.2.2.</span> Exercise.</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <ol class="org-ol">
 <li>There is a lot more to w3 and Emacspeak than what I covered here.  Take a few moments and explore it thoroughly using the info pages, and by googling for more information online.  Conveniently, there's a google search URL.  Try putting it to use in this way and use your newfound knowledge to browse the resultant page.</li>
@@ -1765,8 +2177,8 @@ Bookshare search:
 </div>
 </div>
 
-<div id="outline-container-orgf6f870f" class="outline-3">
-<h3 id="orgf6f870f"><span class="section-number-3">5.3</span> Sending e-mail</h3>
+<div id="outline-container-orgd86ba6f" class="outline-3">
+<h3 id="orgd86ba6f"><span class="section-number-3">5.3.</span> Sending e-mail</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 If you have a setup on your linux box that enables you to send and
@@ -1777,12 +2189,12 @@ have never done it before.  You will need to acquire and configure
 Fetchmail, Procmail and either Postfix or Sendmail.  These are
 programs that handle different aspects of sending and receiving e-mail
 at a system level.  Emacs then pulls the incoming messages from your
-system mail box usually located in /var/mail/username whereX user name is your
-login name on your machine.  Outgoing mail gets sent out through
-whatever you are using as an outgoing mail handling program such as
-Sendmail or Postfix.  There is a lot of information out there on the
-net on how to set this stuff up on your machine.  I suggest you have a
-good look at it before attempting this.  
+system mail box usually located in /var/mail/username whereX user name
+is your login name on your machine.  Outgoing mail gets sent out
+through whatever you are using as an outgoing mail handling program
+such as Sendmail or Postfix.  There is a lot of information out there
+on the net on how to set this stuff up on your machine.  I suggest you
+have a good look at it before attempting this.
 </p>
 
 <p>
@@ -1793,18 +2205,18 @@ be used for this purpose which you are encouraged to investigate.
 There are others which can be gotten through synaptic or by visiting
 webpages containing them on the net and installing them directly by
 hand.  Dr. Raman states in the user manual for Emacspeak that he is
-partial to VM.  
+partial to VM.
 </p>
 
 <p>
-First, reading your e-mail is as easy as typing m-x
-rmail.  The interface is a bit old fashioned so you will get a ton of
-header file information that most other clients just hide from you.
-Use c-n to get past all of that stuff and you will get to the body of
-your message.  You can use either c-e B (note the capital b), to tell
+First, reading your e-mail is as easy as typing m-x rmail.  The
+interface is a bit old fashioned so you will get a ton of header file
+information that most other clients just hide from you.  Use c-n to
+get past all of that stuff and you will get to the body of your
+message.  You can use either c-e B (note the capital b), to tell
 Emacspeak to read the whole buffer from point to you or you can read
-the mesage by screenful with c-v.  m-n will take you to the next
-messsage once you are done reading it.  As usual, there's also a menu
+the message by screenful with c-v.  m-n will take you to the next
+message once you are done reading it.  As usual, there's also a menu
 bar that contains many more features and c-h b or c-h m will give you
 more hotkeys if you don't want to fool with the menu bar.  To exit the
 mail mode, hit q for quit.
@@ -1823,8 +2235,8 @@ lists.
 </div>
 </div>
 
-<div id="outline-container-org5a55c15" class="outline-2">
-<h2 id="org5a55c15"><span class="section-number-2">6</span> Retreat into your shell, why don't you?</h2>
+<div id="outline-container-org2f43f3e" class="outline-2">
+<h2 id="org2f43f3e"><span class="section-number-2">6.</span> Retreat into your shell, why don't you?</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Emacspeak grants you access to a shell from within Emacs by making it
@@ -1843,13 +2255,15 @@ speakup or from a terminal within Gnome.  It is definitely convenient.
 </p>
 
 <p>
-The shell also lets you launch programs like Alpine, Abook and Lynx just as you would in a console session.  Emacspeak then acts like a regular screen reader with these solutions.
+The shell also lets you launch programs like Alpine, Abook and Lynx
+just as you would in a console session.  Emacspeak then acts like a
+regular screen reader with these solutions.
 </p>
 
 <p>
-An immediate use to which you can put the shell in the context of
-this tutorial is by compiling the code we wrote earlier in the
-"Let's write some code" section.   Here's what you do:
+An immediate use to which you can put the shell in the context of this
+tutorial is by compiling the code we wrote earlier in the "Let's write
+some code" section.  Here's what you do:
 </p>
 
 <ol class="org-ol">
@@ -1857,7 +2271,7 @@ this tutorial is by compiling the code we wrote earlier in the
 <li>At the prompt, type shell and press enter.</li>
 <li>Now, we type g++ program1.cpp -o program1 and press enter.</li>
 <li>All the compiler messages you may be used to seeing will come
-right up for you .  Or, if all is well, it compiles without a
+ right up for you .  Or, if all is well, it compiles without a
 hitch.  It shouldcompile but, if it doesn't for some reason, you
 will have to go in and fix the code.  I'm assuming you know some
 c++ so you can do that.  There are tons of people way more
@@ -1867,23 +2281,23 @@ qualified than me to teach you c++.</li>
 
 <p>
 The whole thing can be done right from inside Emacspeak.  Pretty
-convenient, right?  
+convenient, right?
 </p>
 </div>
 </div>
 
-<div id="outline-container-org414ba87" class="outline-2">
-<h2 id="org414ba87"><span class="section-number-2">7</span> File Management</h2>
+<div id="outline-container-org21cee48" class="outline-2">
+<h2 id="org21cee48"><span class="section-number-2">7.</span> File Management</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Emacs has a very nice file management mode called dired Mode.  It's
 very powerful and fully enabled with all the Emacspeak functionality.
-To access it, type either c-x d or m-x dired.  You will be placed in a buffer which
-contains a list of the files in your current directory.  From here,
-you can delete, rename, change ownership, and much much more.  It's a
-bonified file management system which rivals all the others you have
-probably used.  Also, it keeps its interface whether you are working
-on your own machine's files or even an ftp directory.  
+To access it, type either c-x d or m-x dired.  You will be placed in a
+buffer which contains a list of the files in your current directory.
+From here, you can delete, rename, change ownership, and much much
+more.  It's a bonified file management system which rivals all the
+others you have probably used.  Also, it keeps its interface whether
+you are working on your own machine's files or even an ftp directory.
 </p>
 
 <p>
@@ -1893,89 +2307,92 @@ another directory, go to the top of the buffer and arrow down a few
 lines until you get to the line containing your current directory
 location.  Hit c-e twice to get you to the end of the line and either
 append the subdirectory you want to go to or backspace until you have
-a blank line in which to type the name of the  directory you want to
-go to.  If you don't remember the full name, don't worry.  Emacs has
+a blank line in which to type the name of the directory you want to go
+to.  If you don't remember the full name, don't worry.  Emacs has
 awesome completion features.  Just hit page up and you will be taken
 to completions buffer where you can arrow to and press enter on the
-item you want.  Asside from the global hotkeys discussed in the
+item you want.  Aside from the global hotkeys discussed in the
 introductory material, there are many more unique to this mode which
 you can find by typing c-h b.  Then, c-x o to get to the other window
 and read the help file listing them all.  If you don't feel up to
-hotkeys, there is, of course, a nice set of menus from which you
-can choose by hitting alt grave.    
+hotkeys, there is, of course, a nice set of menus from which you can
+choose by hitting alt grave.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org43f0ce0" class="outline-2">
-<h2 id="org43f0ce0"><span class="section-number-2">8</span> Playing media files in Emacspeak</h2>
+<div id="outline-container-org4d49a54" class="outline-2">
+<h2 id="org4d49a54"><span class="section-number-2">8.</span> Playing media files in Emacspeak</h2>
 <div class="outline-text-2" id="text-8">
 <p>
-Note:  This section was written by Dave Hunt.  Some very minor modifications to sentence structure were made to fit into this tutorial as a whole but, I've changed as little as I could of his original content.  Thanks, Dave!&#x2014;Alex Midence
+Note: This section was written by Dave Hunt.  Some very minor
+modifications to sentence structure were made to fit into this
+tutorial as a whole but, I've changed as little as I could of his
+original content.  Thanks, Dave!&#x2014;Alex Midence
 </p>
 
 <p>
-First things first, using dired mode to browse and listen to music files will not work. In its default setup, dired mode will not 
-open external apps, such as mplayer. Rather, it will visit the file at 
-'.' in a new buffer, applying appropriate editing/display 'modes' to this 
-buffer. In the case of an 'mp3' file, it likely opens in 'fundamental 
-mode'. This is a text editing mode, used in the absence of other 
-modes. 
-If you do not have Mplayer installed on your machine already, go ahead and install it before you set Emacs up to play your media files.  Now that mplayer is installed, get the emms (Emacs Multimedia System) package. You can use elpa for this. Next, put some 
-setup code into '~/.emacs', here it is: 
-</p>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #b22222;">;;; </span><span style="color: #b22222;">mark here... </span>
-<span style="color: #b22222;">;;; </span><span style="color: #b22222;">Fore emms. </span>
-(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">emms-setup</span>) 
-(emms-all) 
-(emms-default-players) 
-(<span style="color: #a020f0;">setq</span> emms-source-file-default-directory <span style="color: #8b2252;">"~/Music/"</span>) 
-<span style="color: #b22222;">;;; </span><span style="color: #b22222;">end lisp code </span>
-</pre>
-</div>
-
-<p>
-I cobbled the above together from my reading of the '.info' doc for 
-emms, and some use of the 'describe-mode', 'describe-variable', and 
-'describe-function' operations. Being fueled with a super-duper latte 
-helped, too. While writing this, I started emms-browse-by-artist, one 
-of the available functions. If your files are tagged, you'll be able to 
-browse by artist, album, genre, and year. Maybe there are more? 
-Anyway, you'll get a kind of 'tree view', in which hitting 'spacebar' expands and 
-collapses branches. 'shift+return' adds selected track to playlist; 'c-j' 
-plays. You can shuffle, sort, edit your playlist. 
+First things first, using dired mode to browse and listen to music
+files will not work. In its default setup, dired mode will not open
+external apps, such as mplayer. Rather, it will visit the file at '.'
+in a new buffer, applying appropriate editing/display 'modes' to this
+buffer. In the case of an 'mp3' file, it likely opens in 'fundamental
+mode'. This is a text editing mode, used in the absence of other
+modes.  If you do not have Mplayer installed on your machine already,
+go ahead and install it before you set Emacs up to play your media
+files.  Now that mplayer is installed, get the emms (Emacs Multimedia
+System) package. You can use elpa for this. Next, put some setup code
+into '~/.emacs', here it is:
 </p>
 
 <p>
-Another music option is emacs-m-player, a front-end that controls your 
-installed mplayer app. One way to start it is to type 'm-x 
-emacspeak-m-player' and hit 'enter'. You'll be asked for a resource to 
-play. This should be a playlist, in the form of '.m3u' or '.pls'. The 
-default is to play tracks, in order. If you want to play a stream, you 
-can either save its playlist to a local directory, and use 
-emacspeak-m-player, or, you can use one of the emacs web clients, and an 
-associatd function for playing the url at '.'. Here's an example: I 
-like the station 'radioparadise.com'. If I use the w3m browser, I can 
-visit this main page, go to the 'listen now' area, and select one of the 
-links. Typing 'l', when the link is under '.', automatically launches 
-emacspeak-m-player and gives it the stream's playlist. To do this same 
-thing in the w3 browser, I can put '.' on the desired link, and type 'e 
-e'. I'll be prompted for the name of the function to pass the url to. 
-'emacspeak-m-player' should begin playing the stream. If I now go back 
-to the emacspeak-m-player buffer, I have a few single-key commands, 
-including '+' and '-' to raise and lower volume. There are a bunch of 
-commands for adjusting the balance and eq, but I've not used them. 
-I find the playing of music within emacs very cumbersome, and usually 
-save my listening for when I'm in Gnome, where I use rhythmbox. 
+#+BEGIN<sub>SRC</sub> emacs-lisp 
+;;; mark here&#x2026;  Fore emms.  (require 'emms-setup) (emms-all)
+;;; (emms-default-players) (setq emms-source-file-default-directory
+;;; "~/Music/") end lisp code #+END<sub>SRC</sub>
+</p>
+
+<p>
+I cobbled the above together from my reading of the '.info' doc for
+emms, and some use of the 'describe-mode', 'describe-variable', and
+'describe-function' operations. Being fueled with a super-duper latte
+helped, too. While writing this, I started emms-browse-by-artist, one
+of the available functions. If your files are tagged, you'll be able
+to browse by artist, album, genre, and year. Maybe there are more?
+Anyway, you'll get a kind of 'tree view', in which hitting 'spacebar'
+expands and collapses branches. 'shift+return' adds selected track to
+playlist; 'c-j' plays. You can shuffle, sort, edit your playlist.
+</p>
+
+<p>
+Another music option is emacs-m-player, a front-end that controls your
+installed mplayer app. One way to start it is to type 'm-x
+emacspeak-m-player' and hit 'enter'. You'll be asked for a resource to
+play. This should be a playlist, in the form of '.m3u' or '.pls'. The
+default is to play tracks, in order. If you want to play a stream, you
+can either save its playlist to a local directory, and use
+emacspeak-m-player, or, you can use one of the emacs web clients, and
+an associated function for playing the url at '.'. Here's an example:
+I like the station 'radioparadise.com'. If I use the w3m browser, I
+can visit this main page, go to the 'listen now' area, and select one
+of the links. Typing 'l', when the link is under '.', automatically
+launches emacspeak-m-player and gives it the stream's playlist. To do
+this same thing in the w3 browser, I can put '.' on the desired link,
+and type 'e e'. I'll be prompted for the name of the function to pass
+the url to.  'emacspeak-m-player' should begin playing the stream. If
+I now go back to the emacspeak-m-player buffer, I have a few
+single-key commands, including '+' and '-' to raise and lower
+volume. There are a bunch of commands for adjusting the balance and
+eq, but I've not used them.  I find the playing of music within emacs
+very cumbersome, and usually save my listening for when I'm in Gnome,
+where I use rhythmbox.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org071e240" class="outline-2">
-<h2 id="org071e240"><span class="section-number-2">9</span> Wrapping it up</h2>
+<div id="outline-container-orga37a243" class="outline-2">
+<h2 id="orga37a243"><span class="section-number-2">9.</span> Wrapping it up</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 When I set out to write this little tutorial, it was out of a desire
@@ -1987,8 +2404,8 @@ accomplishing something worthwhile within the first few minutes after
 launching it.  I also wanted to do something about decreasing the
 steep learning curve Emacs and, by extension Emacspeak has due to the
 different interface and the higher expectation of tweaking from the
-end user.  I hope I have succeeded.  I hope that  you have decided to
-learn more about Emacspeak and that you have been  encouraged to
+end user.  I hope I have succeeded.  I hope that you have decided to
+learn more about Emacspeak and that you have been encouraged to
 investigate all its possibilities.  It is rare that a blind person
 finds a truly accessible, low cost, and reliable piece of software
 that puts one on an equal footting with sighted counterparts in the
@@ -2008,39 +2425,39 @@ Hopefully, what you did is pick one of the tasks introduced above,
 tried it out and then promptly turned around and tried them all out
 possibly in order but maybe not.  If you didn't do this, I want you to
 go back and do so.  Once you have done this, I want you to do some
-homework.  Yes, I'm a teacher by profession , as it turns out and giving
-homework comes as naturally to me as breathing.  I want you to
-investigate social networking  with Emacspeak.  I also want you to
+homework.  Yes, I'm a teacher by profession , as it turns out and
+giving homework comes as naturally to me as breathing.  I want you to
+investigate social networking with Emacspeak.  I also want you to
 check out the games which Dr. Raman has enabled on here.  Tetris, for
-one, is quite interesting as is chess and all the rest.
-As for the social networking stuff, here's a tip, Facebook and Twitter
-have their own modes in Emacs whose individual manuals are just a
-google search away.  E-mail has many modes also, some of them much
-more advanced than the one we explored together.  A few of these are
-built into Emacs itself and still others  can be gotten through
-Synaptic package manager.  This, too, is just a google search away.  I
-also want you to look into other authoring modes like Muse Mode and
-even Auctext.  The latter is pretty advanced but, extremely handy to
-know since it lets you create a document and set the type-facing on it
-so that it comes out looking great and you can do this without vision
-just by using markup in the LateX language.  For those of you with a
-bent towards coding, give Emacs Lisp a shot.  There's an info manual
-right inside of Emacs that you can use to help you get started right
-away.  Make some code contributions for us all to benefit from.  We
-can not expect Dr. Raman to do it all, you know.  We must all give
-something back.  Lastly, I want you to
-always be willing to help other newcomers to Emacspeak out by aiding
-them in learning this piece of software quickly and become productive
-in it very quickly.  In fact, share your new discoveries with other users of
-all levels in places like the Emacspeak list and the Vinux Forum.  I
-look forward to learning from  such postings.
+one, is quite interesting as is chess and all the rest.  As for the
+social networking stuff, here's a tip, Facebook and Twitter have their
+own modes in Emacs whose individual manuals are just a google search
+away.  E-mail has many modes also, some of them much more advanced
+than the one we explored together.  A few of these are built into
+Emacs itself and still others can be gotten through Synaptic package
+manager.  This, too, is just a google search away.  I also want you to
+look into other authoring modes like Muse Mode and even Auctext.  The
+latter is pretty advanced but, extremely handy to know since it lets
+you create a document and set the type-facing on it so that it comes
+out looking great and you can do this without vision just by using
+markup in the LateX language.  For those of you with a bent towards
+coding, give Emacs Lisp a shot.  There's an info manual right inside
+of Emacs that you can use to help you get started right away.  Make
+some code contributions for us all to benefit from.  We can not expect
+Dr. Raman to do it all, you know.  We must all give something back.
+Lastly, I want you to always be willling to help other newcomers to
+Emacspeak out by aiding them in learning this piece of software
+quickly and become productive in it very quickly.  In fact, share your
+new discoveries with other users of all levels in places like the
+Emacspeak list and the Vinux Forum.  I look forward to learning from
+such postings.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org240be2c" class="outline-2">
-<h2 id="org240be2c"><span class="section-number-2">10</span> Acknowledgements</h2>
+<div id="outline-container-org1cd7808" class="outline-2">
+<h2 id="org1cd7808"><span class="section-number-2">10.</span> Acknowledgements</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 I'd like to thank some people specifically for their help in filling
@@ -2050,20 +2467,19 @@ materials from which to draw:
 
 <dl class="org-dl">
 <dt>Richard M. Stallman and T. V. Raman </dt><dd>Let's give credit where it
-is so truly due, shall we?  These two have my sincere grattitude
-for creating such an amazing application and interface
-respectively.</dd>
+   is so truly due, shall we?  These two have my sincere grattitude
+for creating such an amazing application and interface respectively.</dd>
 <dt>Tim Cross from the Emacspeak list</dt><dd>Thank you for helping out
 with some of the elisp code questions I had.</dd>
 <dt>David Ring of  the vinux lists </dt><dd>Your many postings, howto contributions and responses
-to inquiries were of immense help as I learned Emacspeak and then
+   to inquiries were of immense help as I learned Emacspeak and then
 decided to write this document.</dd>
 <dt>Robert Crawford from the Emacspeak list</dt><dd>Your corrections were
 invaluable.  Thank you very much indeed!</dd>
 <dt>Dave Hunt from the Vinux Support Forum</dt><dd>Thank you for
 contributing the section on playing music with Emacspeak.</dd>
 <dt>Anthony  Sales </dt><dd>A very very special thank you goes to you
-for creating and implementing Vinux.  It is a truly wonderful
+   for creating and implementing Vinux.  It is a truly wonderful
 Linux, absolutely perfect for visually impaired users of all
 technical levels.</dd>
 </dl>
@@ -2071,19 +2487,23 @@ technical levels.</dd>
 </div>
 
 
-<div id="outline-container-org4a9f7c2" class="outline-2">
-<h2 id="org4a9f7c2"><span class="section-number-2">11</span> Appendices</h2>
+<div id="outline-container-org1633df5" class="outline-2">
+<h2 id="org1633df5"><span class="section-number-2">11.</span> Appendices</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-org1d92152" class="outline-3">
-<h3 id="org1d92152"><span class="section-number-3">11.1</span> Installing Emacspeak</h3>
+<div id="outline-container-org0c0784f" class="outline-3">
+<h3 id="org0c0784f"><span class="section-number-3">11.1.</span> Installing Emacspeak</h3>
 <div class="outline-text-3" id="text-11-1">
 <p>
-This tutorial was written for users of the Vinux distribution of Linux which, as of version 3.01, comes with Emacspeak pre-installed for you.  However, if you are using another distribution or, you just want to build it up yourself, the following supplemental sections wil walk you through doing just that.
+This tutorial was written for users of the Vinux distribution of Linux
+which, as of version 3.01, comes with Emacspeak pre-installed for you.
+However, if you are using another distribution or, you just want to
+build it up yourself, the following supplemental sections will walk
+you through doing just that.
 </p>
 </div>
-<div id="outline-container-org4290ac9" class="outline-4">
-<h4 id="org4290ac9"><span class="section-number-4">11.1.1</span> Using Synaptic</h4>
+<div id="outline-container-org0710214" class="outline-4">
+<h4 id="org0710214"><span class="section-number-4">11.1.1.</span> Using Synaptic</h4>
 <div class="outline-text-4" id="text-11-1-1">
 <p>
 This section assumes prior experience using the Synaptic package
@@ -2094,19 +2514,13 @@ manager system found in Debian-based Linux distributions:
 <li>From within synaptic, type control f for search and type Emacs and
 press enter.</li>
 <li>Tab a few times till you get to the package column and arrow down
-through the choices until you get to either emacs 23 or emacs
-gtk.</li>
+through the choices until you get to either emacs 23 or emacs gtk.</li>
 <li>Press control i to mark for installation.</li>
 <li>Press control p to apply changes and build Emacs before installing
 emacspeak.</li>
 <li>Once Emacs is done installing, type control f for find again and
-type in emacspeak.</li>
-</ol>
-<p>
-6 as before and arrow through the choices you
-    are provided.  Emacspeak 32 is the one you want.  
-</p>
-<ol class="org-ol">
+type in emacspeak.  6 as before and arrow through the choices you
+are provided.  Emacspeak 32 is the one you want.</li>
 <li>Mark and apply changes as instructed above with control i and
 control p.</li>
 <li>Inform Emacspeak at the prompt that you are using espeak as a
@@ -2118,26 +2532,27 @@ line using emacspeak.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgbe61ba0" class="outline-4">
-<h4 id="orgbe61ba0"><span class="section-number-4">11.1.2</span> Using the command line</h4>
+<div id="outline-container-orge13a8b7" class="outline-4">
+<h4 id="orge13a8b7"><span class="section-number-4">11.1.2.</span> Using the command line</h4>
 <div class="outline-text-4" id="text-11-1-2">
 <p>
 In Vinux, installing Emacspeak is as easy as:
+#+BEGIN<sub>EXAMPLE</sub>
 </p>
-<pre class="example">
-sudo apt-get install emacspeak
-</pre>
+<p>
+sudo apt-get install emacspeak #+END<sub>EXAMPLE</sub>
+</p>
 
 <p>
 All the dependencies will be built for you.  The only danger is that
 it will build with the emacs 23 Metapackage of Ubuntu and it includes
 some stuff whose behavior I am not sure of and which has produced odd
-effects for me in the past.  You may not have these problems,
-however.  
+effects for me in the past.  You may not have these problems, however.
 </p>
 
 <p>
-If your distribution is other than Vinux, the recommendation is as follows:
+If your distribution is other than Vinux, the recommendation is as
+follows:
 </p>
 
 <ol class="org-ol">
@@ -2147,34 +2562,43 @@ If your distribution is other than Vinux, the recommendation is as follows:
 
 <p>
 example:
+#+BEGIN<sub>EXAMPLE</sub>
 </p>
-<pre class="example">
-apt-get install emacs
-apt-get install emacspeak
-</pre>
+<p>
+apt-get install emacs apt-get install emacspeak #+END<sub>EXAMPLE</sub>
+</p>
 
 <p>
-Either way, you will get a menu prompting you to choose which speech synthesizer to use.  E-speak is my recommendation since it is free and reliable and can be sped up quite a bit.  You will be asked for a server port.  Answer none to this question and tab to the forward button and press enter.  YOu may be asked this question again.  Answer none each time.  Eventually, everything will build and you will be able to launch Emacspeak from the console command prompt.
+Either way, you will get a menu prompting you to choose which speech
+synthesizer to use.  E-speak is my recommendation since it is free and
+reliable and can be sped up quite a bit.  You will be asked for a
+server port.  Answer none to this question and tab to the forward
+button and press enter.  YOu may be asked this question again.  Answer
+none each time.  Eventually, everything will build and you will be
+able to launch Emacspeak from the console command prompt.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5acb692" class="outline-3">
-<h3 id="org5acb692"><span class="section-number-3">11.2</span> Emacs and Emacspeak links:  For when you want to go fishing</h3>
+<div id="outline-container-org9c7dd64" class="outline-3">
+<h3 id="org9c7dd64"><span class="section-number-3">11.2.</span> Emacs and Emacspeak links:  For when you want to go fishing</h3>
 <div class="outline-text-3" id="text-11-2">
 <p>
-"Give someone a fish, and you have fed them for a meal.  Teach them to fish and you have fed them for life."&#x2013;Somebody very smart.
+"Give someone a fish, and you have fed them for a meal.  Teach them to
+fish and you have fed them for life."&#x2013;Somebody very smart.
 </p>
 
 <p>
-Now that you have gotten your feet wet with Emacspeak, it's time for you to expand your knowledge.  Here are some links you can visit that should help you with that.  
+Now that you have gotten your feet wet with Emacspeak, it's time for
+you to expand your knowledge.  Here are some links you can visit that
+should help you with that.
 </p>
 
 
 <dl class="org-dl">
 <dt><a href="http://emacspeak-guide.sourceforge.net/tutorial.html/">A Gentle Introduction to Emacspeak</a></dt><dd>This is an old tutorial which still holds valuable information.  Just watch out for outdated links in it.  It was written way back in good old y2k.</dd>
-<dt><a href="http://jeremy.zawodny.com/emacs/emacs.html">The Emacs Beginners Howto</a> </dt><dd>An Excelent document written to introduce people to Emacs.</dd>
+<dt><a href="http://jeremy.zawodny.com/emacs/emacs.html">The Emacs Beginners Howto</a> </dt><dd>An Excellent document written to introduce people to Emacs.</dd>
 <dt><a href="http://emacspeak.sourceforge.net/info/index.html#Top">Emacspeak User's Manual Second Edition</a> </dt><dd>There are two Emacspeak Users Guides that can be found online, this is the link to the most recent.</dd>
 <dt><a href="http://emacspeak.sourceforge.net/user-guide/">Emacspeak Users Guide</a> </dt><dd>This is the older document mentioned previously.  There are still many valuable pieces of information in there so, I still think it is worth posting here.</dd>
 <dt><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/index.html">The Emacs Manual</a> </dt><dd>Not to be confused with the Emacspeak manual, this link takes you to the user's manual for Emacs itself.  It is big, exhaustive, and very well-written.  It covers just about anything you'd ever want to know about Emacs.</dd>
@@ -2185,7 +2609,13 @@ Now that you have gotten your feet wet with Emacspeak, it's time for you to expa
 
 
 <p>
-Finally, Emacspeak has a mailing list to whichyou can subscribe.  The subscription address is <a href="mailto:emacspeak-request@cs.vassar.edu">emacspeak-request@cs.vassar.edu</a> and the address to post messages is <a href="mailto:emacspeak@cs.vassar.edu">emacspeak@cs.vassar.edu</a>.  To browse the list archives, the url is <a href="http://www.cs.vassar.edu/~priestdo/emacspeak/">http://www.cs.vassar.edu/~priestdo/emacspeak/</a>.
+Finally, Emacspeak has a mailing list to whichyou can subscribe.  The
+subscription address is
+<a href="mailto:emacspeak-request@cs.vassar.edu">emacspeak-request@cs.vassar.edu</a>
+and the address to post messages is
+<a href="mailto:emacspeak@cs.vassar.edu">emacspeak@cs.vassar.edu</a>.  To
+browse the list archives, the url is
+<a href="http://www.cs.vassar.edu/~priestdo/emacspeak/">http://www.cs.vassar.edu/~priestdo/emacspeak/</a>.
 </p>
 
 <p>
@@ -2197,8 +2627,8 @@ Now, go fish!
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Alex Midence</p>
-<p class="date">Created: 2018-06-04 Mon 17:42</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-11-28 Sun 07:13</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
