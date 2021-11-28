@@ -234,7 +234,7 @@ pcm.soft_left {
 # }}}
 # {{{TTS Mono:
 
-#  The Route plugin routes audio among channles using a TTable .
+#  The Route plugin routes audio among channels using a TTable .
 #TTable is a transfer table.
 # Matrix of Source->Destination values
 # Unspecified entries default to 0.

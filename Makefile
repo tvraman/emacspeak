@@ -53,13 +53,13 @@ emacspeak: config
 	@make install
 
 outloud: 
-	@cd servers/linux-outloud && $(MAKE) --no-print-directory || echo "Cant build Outloud server!"
+	@cd servers/linux-outloud && $(MAKE) --no-print-directory || echo "Can't build Outloud server!"
 
 espeak: 
-	@cd servers/native-espeak && $(MAKE) --no-print-directory  || echo "Cant build espeak server!"
+	@cd servers/native-espeak && $(MAKE) --no-print-directory  || echo "Can't build espeak server!"
 
 # }}}
-# {{{  Maintainance targets   dist
+# {{{  Maintenance targets   dist
 
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: 

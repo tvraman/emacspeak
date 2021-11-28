@@ -51,7 +51,7 @@
  * proc index x { puts "I just played index $x" }
  *
  * synth "Hello world" synth -index 0 "This is some" -index 1
- * "really wierd" say -index 2 "text" say -reset
+ * "really weird" say -index 2 "text" say -reset
  *
  * The only difference bewtween say and synth is that synth
  * calls eciSynthesize and say doesn't.  You can put as many
@@ -93,7 +93,7 @@ int waveBufferBytes = 0;
 //<decls and function prototypes
 
 /*
- * The following declarations are derived from the publically
+ * The following declarations are derived from the publicly
  * available documentation for ViaVoice TTS outloud. --they are
  * placed here to obviate the need for having the ViaVoice SDK
  * installed.
