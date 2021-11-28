@@ -7,49 +7,5 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 55 --- Emacspeak 55 User Visible Changes
-
-This version requires Emacs-27.1 or later.
-
-** emacspeak-eaf.el
-
-Speech-enable the elisp side of Emacs Application Framework
-
-** Updated Soundscapes
-
-   Soundscapes updated and tuned for better headphone listening.
-   
-**  Updated Auditory Icons
-
-   Theme ~pan-chimes~ updated for better headphone listening.
-
-** Updated Transient Support
-
-   Transient support has been updated to avoid chatter. With the
-   newest version of transient, emacspeak users can navigate
-   transients by sections.
-   
-   
-** Speech-Enabled CalibreDB Mode
-
-   Module ~emacspeak-calibredb~ speech-enables ~calibredb~, a
-   full-fledged mode for Calibre Library Interaction 
-
-** Removed Tapestry Dependency
-
-Emacspeak no longer depends on tapestry.el  which was cloned from the
-~vm~ package over 20+ years ago.
-Key _C-e M-t_ now runs an equivalent command that does not depend on
-tapestry.
-
-** External Browsers From EWW
-
-You can now launch Chrome with _c_ and Emacs Application
-Framework(EAF)'s embedded blink-based WebView with _j_ in EWW buffers.
-
-** Incorporate Awesome RSS
-
-   See _etc/awesome-rsss-fixup.sh_ for setup instructions; this
-   enables discovery of RSS feeds via a collection of updated ~OPML~
-   files from the _awesome-rss_ project on Github.
+* Emacspeak 56 --- Emacspeak 55 User Visible Changes
    
