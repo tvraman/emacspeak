@@ -51,7 +51,7 @@ Description: Generate Table of contents
     <h2>
       <a name="__about_this_style">About This Style</a>
     </h2>
-    <p>This style genrates a table of contents.</p>
+    <p>This style generates a table of contents.</p>
     the sections in the 
   </xsl:template>
   
