@@ -1,4 +1,4 @@
-(ql:quickload "aweb")
+(ql:quickload :tts)
 (tts:init) ;;; (tts:init :engine "espeak" for espeak
  (tts:speak "Welcome To The Next In Browsers!")
 (define-configuration buffer
