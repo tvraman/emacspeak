@@ -3,7 +3,7 @@
 
 #include <tcl.h>
 
-/* The declarations in langswitch (.h, .cpp) are derived from the publically
+/* The declarations in langswitch (.h, .cpp) are derived from the publicly
    available eci.h (APIs for IBM Text To Speech) at http://ibmtts-sdk.sf.net
 
    Its license is copied below
