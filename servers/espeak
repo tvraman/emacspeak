@@ -5,7 +5,7 @@
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
-# $Date: 2006-08-11 21:11:17 +0200 (ven, 11 aoû 2006) $ |
+# $Date: 2006-08-11 21:11:17 +0200 (ven, 11 aoÃ» 2006) $ |
 #  $Revision: 4047 $ | 
 # Location undetermined
 #
@@ -485,7 +485,7 @@ set tts(input) stdin
 if {[info exists server_p]} {
     set tts(input) sock0
 }
-set servers [file dirname $argv0]
+set servers [file normalize [file dirname $argv0]]
 set tclTTS $servers/native-espeak
 load $tclTTS/tclespeak[info sharedlibextension]
 if {[file exists /proc/asound]} {
