@@ -153,7 +153,7 @@ display editor (quoting from the Emacs Manual). Emacs dates back to
 the mind 1970s and is very popular on Unix systems.  The core of Emacs
 is a Lisp interpreter and this forms the basis of writing extensions
 that add functionality to the editor. org-mode is an example of such
-an extenstion.
+an extension.
 
 Emacs is available for Windows, Linux, Mac-OS X, and just about every
 other Unix operating system.
@@ -260,7 +260,7 @@ when the file is opened.
 The second line is a list of contexts I use. The single letters in
 parentheses are used for the fast selection of contexts.
 Choosing a contest is done by issuing the command C-c C-c then
-entering the letter correspoding to the category.
+entering the letter corresponding to the category.
 
 The third line causes org-mode to suppress the leading asterisks on
 headings which greatly improves readability.
