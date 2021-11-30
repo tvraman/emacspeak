@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #$Id$
-#Description: Print out hostname wher ewe logged in from:
+#Description: Print out hostname where ewe logged in from:
 use strict;
 #see /usr/include/utmp.h
 use constant  RECORD_SIZE => 292;
