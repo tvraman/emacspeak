@@ -357,7 +357,7 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
     (setq emacspeak-feeds-awesome-rss-map (make-hash-table :test #'equal))
     (cl-loop
      for f in
-     (directory-files-recursively emacspeak-feeds-awesome-rss "\\.opml$")
+     (directory-files-recursively emacspeak-feeds-awesome-rss "\\\\.opml\\'")
      do
      (puthash
       (substring (file-name-nondirectory f) 0 -5)

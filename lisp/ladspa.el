@@ -100,7 +100,7 @@
     (setq ladspa-plugins nil)
     (cl-loop
      for d in (split-string ladspa-home ":" t) do
-     (setq ladspa-libs (nconc ladspa-libs (directory-files d  nil "\\.so$"))))
+     (setq ladspa-libs (nconc ladspa-libs (directory-files d  nil "\\.so\\'"))))
     ladspa-libs)))
 
 ;;}}}

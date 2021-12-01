@@ -204,7 +204,7 @@ Reset immediately after being used.")
    ((file-directory-p file)
     (cl-loop
      for f in
-     (directory-files-recursively file  "\\.mp3$") do
+     (directory-files-recursively file  "\\.mp3\\'") do
      (cl-pushnew f emacspeak-m-player-dynamic-playlist))
     (dtk-speak-and-echo
      (format "Added files from directory %s" (file-name-base file))))
