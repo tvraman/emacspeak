@@ -602,7 +602,7 @@ Letters do not insert themselves; instead, they are commands.
         (filename nil))
     (cl-loop
      for f in
-     (directory-files emacspeak-epub-library-directory  'full "\\.epub$")
+     (directory-files emacspeak-epub-library-directory  'full "\\.epub\\'")
      do
      (setq filename (shell-quote-argument f))
      (unless
@@ -797,7 +797,7 @@ No book files are deleted."
     (read-file-name "BookShelf: "
                     (expand-file-name emacspeak-epub-bookshelf-directory)
                     nil t nil
-                    #'(lambda (s) (string-match ".bsf$" s)))))
+                    #'(lambda (s) (string-match "\\.bsf\\'" s)))))
   (cl-declare (special emacspeak-epub-db))
   (let ((buffer (find-file-noselect bookshelf))
         (bookshelf-name  (substring (file-name-nondirectory bookshelf) 0 -4)))
@@ -1279,7 +1279,7 @@ Letters do not insert themselves; instead, they are commands.
   "Locate epub files using locate."  (interactive "sSearch Pattern: ")
   (cl-declare (special locate-command locate-make-command-line))
   (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
-    (locate-with-filter pattern ".epub$")))
+    (locate-with-filter pattern "\\.epub\\'")))
 
 ;;}}}
 ;;{{{ nov Integration:
