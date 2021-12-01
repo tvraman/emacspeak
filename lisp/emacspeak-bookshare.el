@@ -1129,9 +1129,7 @@ Make sure it's downloaded and unpacked first."
     (emacspeak-xslt-view-file
      xsl
      (cl-first
-      (directory-files directory
-                       'full
-                       "\\.xml$")))))
+      (directory-files directory 'full "\\.xml\\'")))))
 
 (defun emacspeak-bookshare-url-executor (url)
   "Custom URL executor for use in Bookshare TOC."
@@ -1168,7 +1166,7 @@ Make sure it's downloaded and unpacked first."
        xsl
        (shell-quote-argument
         (cl-first
-         (directory-files directory 'full "\\.xml$"))))))))
+         (directory-files directory 'full "\\.xml\\'"))))))))
 
 (defun emacspeak-bookshare-extract-xml (url)
   "Extract content referred to by link under point, and return an XML buffer."
@@ -1235,7 +1233,7 @@ Make sure it's downloaded and unpacked first."
     (emacspeak-xslt-view-file
      xsl
      (cl-first
-      (directory-files directory 'full "\\.xml$")))))
+      (directory-files directory 'full "\\.xml\\'")))))
 
 (defun emacspeak-bookshare-toc (directory)
   "View TOC for book in specified directory."
@@ -1257,7 +1255,7 @@ Make sure it's downloaded and unpacked first."
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
-     (cl-first (directory-files directory 'full "\\.xml$")))))
+     (cl-first (directory-files directory 'full "\\.xml\\'")))))
 
 (defvar emacspeak-bookshare-html-to-text-command
   "lynx -dump -stdin"
@@ -1289,7 +1287,7 @@ Useful for fulltext search in a book."
              "%s  --nonet --novalid %s %s | %s"
              emacspeak-xslt-program xsl
              (shell-quote-argument
-              (cl-first (directory-files directory 'full "\\.xml$")))
+              (cl-first (directory-files directory 'full "\\.xml\\'")))
              emacspeak-bookshare-html-to-text-command))
       (erase-buffer)
       (setq buffer-undo-list t)
@@ -1330,7 +1328,7 @@ Useful for fulltext search in a book."
              "%s  --nonet --novalid %s %s "
              emacspeak-xslt-program xsl
              (shell-quote-argument
-              (cl-first (directory-files directory 'full "\\.xml$")))))
+              (cl-first (directory-files directory 'full "\\.xml\\'")))))
       (erase-buffer)
       (setq buffer-undo-list t)
       (shell-command command (current-buffer) nil)
