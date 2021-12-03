@@ -1,9 +1,1 @@
-[playlist]
-
-file1=https://ais-nzme.streamguys1.com/nz_060_aac
-;file1=http://ais-nzme.streamguys1.com/nz_001_aac
-NumberOfEntries=1
-Version=2
-Title=Radio Sport
-;;; Found through iheart radio --- station id 6194
-;;; Alternately search for radio sport auckland, get  the .aac url  in the play page
+https://ais-nzme.streamguys1.com/nz_060_aac
