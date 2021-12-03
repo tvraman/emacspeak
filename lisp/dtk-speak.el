@@ -1965,7 +1965,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
-    ("BOX DRAWING" . ".")
+    ("BOX DRAWING" . #'(lambda (_ignored) "."))
     ("^Mathematical Sans-Serif\\( small\\| capital\\)? letter \\(.*\\)$"
      . (lambda (s) (match-string 2 s)))
     ("^greek\\( small\\| capital\\)? letter \\(.*\\)$"
