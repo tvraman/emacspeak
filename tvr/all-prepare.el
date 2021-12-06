@@ -211,7 +211,7 @@ This moves them into the Spam folder."
         (if (file-exists-p "/usr/share/doc/hyperspec/")
             "file:///usr/share/doc/hyperspec/"
           "http://www.lispworks.com/reference/HyperSpec/"))
-  (global-set-key "\C-c s" 'slime-selector)
+  (global-set-key (ems-kbd "C-c s") 'slime-selector)
   (setq slime-contribs '(slime-fancy slime-hyperdoc slime-quicklisp))
   (slime-setup)
   (slime-autodoc--disable)
