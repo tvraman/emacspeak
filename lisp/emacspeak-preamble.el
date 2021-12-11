@@ -142,7 +142,7 @@
 ;;; ems-interactive-p is reserved for use within Emacspeak advice.
 
 (defvar ems-called-interactively-p nil
-  "Record interactive calls to adviced functions.")
+  "Record interactive calls to advised functions.")
 
 (defun ems-record-interactive-p (f)
   "Predicate to test if we  record interactive calls.
