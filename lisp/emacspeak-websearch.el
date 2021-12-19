@@ -348,15 +348,13 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
                        ems--websearch-google-filter
                        emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
-  (let ((toolbelt (emacspeak-google-toolbelt))
+  (let ((emacspeak-eww-masquerade t)
+        (toolbelt (emacspeak-google-toolbelt))
         (search-url nil)
         (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
         (lucky (and flag  (consp flag) (= 16 (car flag)))))
     (emacspeak-google-cache-query query)
     (emacspeak-google-cache-toolbelt toolbelt)
-    (if lucky
-        (emacspeak-eww-autospeak)
-      (emacspeak-websearch-post-process "Results" 'emacspeak-speak-line))
     (setq search-url
           (concat
            (emacspeak-websearch-google-uri)
@@ -370,11 +368,14 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
               (url-hexify-string "I'm Feeling Lucky")))))
     (cond
      (add-toolbelt (emacspeak-google-toolbelt-change))
-     (lucky (browse-url search-url))
+     (lucky
+      (emacspeak-eww-autospeak)
+      (browse-url search-url))
      (t                                 ; always just show results
-(add-hook
+      (add-hook
        'emacspeak-eww-post-process-hook
        #'(lambda ()
+           (goto-char (point-min))
            (emacspeak-eww-next-h1  'speak)))      
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
@@ -406,7 +407,7 @@ Optional prefix arg prompts for toolbelt options."
       (add-hook
        'emacspeak-eww-post-process-hook
        #'(lambda ()
-           (emacspeak-eww-next-h1)
+           (goto-char (point-min))
            (emacspeak-eww-next-h1  'speak)))
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
