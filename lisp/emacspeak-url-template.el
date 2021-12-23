@@ -1370,6 +1370,16 @@ template."
        (shr-url-at-point nil)))))
 
 ;;}}}
+;;{{{cnbc using eaf:
+
+(emacspeak-url-template-define
+ "CNBC Using EAF"
+ "https://tunein.com/radio/CNBC-s110052/"
+ nil nil
+ "Play CNBC Using EAF"
+ #'emacspeak-eww-browse-eaf)
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
