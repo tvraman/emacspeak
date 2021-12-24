@@ -758,13 +758,13 @@ are available are cued by an auditory icon on the header line."
 
 (voice-setup-add-map
  '(
-    (shr-abbreviation  voice-bolden-extra)
-(shr-h1  voice-bolden)
-(shr-h2  voice-bolden-medium)
-(shr-h3 voice-lighten)
-(shr-h4 voice-lighten-medium)
-(shr-h5 voice-lighten-extra)
-(shr-h6  voice-smoothen)
+   (shr-abbreviation  voice-bolden-extra)
+   (shr-h1  voice-bolden)
+   (shr-h2  voice-bolden-medium)
+   (shr-h3 voice-lighten)
+   (shr-h4 voice-lighten-medium)
+   (shr-h5 voice-lighten-extra)
+   (shr-h6  voice-smoothen)
    (eww-invalid-certificate  voice-lighten-extra)
    (eww-valid-certificate voice-bolden)
    (eww-form-submit voice-animate)
@@ -2423,8 +2423,6 @@ With interactive prefix arg, move to the start of the table."
 ;;}}}
 ;;{{{Open With External Browser: EAF, Chrome
 
-
-
 (declare-function eaf-open-browser "eaf-browser" (url &optional args))
 
 (defun emacspeak-eww-browse-eaf  (url)
@@ -2433,7 +2431,7 @@ With interactive prefix arg, move to the start of the table."
   (unless(require 'eaf)
     (error "Install Emacs Application Framework"))
   (require 'eaf-browser)
-  (eaf-open-browser url))
+  (make-thread #'(lambda ()(eaf-open-browser url))))
 
 (defun emacspeak-eww-browse-chrome (url)
   "Open with Chrome."
