@@ -159,6 +159,7 @@
     (emacspeak-rmail-summarize-message rmail-current-message)))
 (defadvice rmail-next-labeled-message (around emacspeak pre act comp)
   "speak"
+  (cl-declare (special rmail-current-message))
   (cond
    ((ems-interactive-p)
     (let ((original rmail-current-message))
@@ -235,10 +236,12 @@
 
 ;;}}}
 ;;{{{  key bindings
+(when (and (boundp 'rmail-mode-map) (keymapp rmail-mode-map))  
+  (cl-declaim (special rmail-mode-map))
+  (define-key rmail-mode-map "\C-m" 'emacspeak-rmail-summarize-current-message)
+  (define-key rmail-mode-map "L"
+              'emacspeak-rmail-speak-current-message-labels))
 
-(cl-declaim (special rmail-mode-map))
-(define-key rmail-mode-map "\C-m" 'emacspeak-rmail-summarize-current-message)
-(define-key rmail-mode-map "L" 'emacspeak-rmail-speak-current-message-labels)
 
 ;;}}}
 (provide  'emacspeak-rmail)

@@ -18726,7 +18726,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 73 URL Templates.
+This section documents a total of 74 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -18776,7 +18776,9 @@ Bing results as RSS feed.@item @b{Bloomberg Stock  Lookup}
 
 Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us@item @b{CIA World Fact Book}
 
-Open CIA World Fact Book For Specified Country.@item @b{CNN Content}
+Open CIA World Fact Book For Specified Country.@item @b{CNBC Using EAF}
+
+Play CNBC Using EAF@item @b{CNN Content}
 
 Filter down to CNN content area.@item @b{CNN Headlines}
 
