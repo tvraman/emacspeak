@@ -247,8 +247,7 @@ Use Custom to customize where possible. "
   "Start up emacs.
 This function loads Emacspeak.
 Emacs customization and library configuration happens via the after-init-hook. "
-  (cl-declare (special emacspeak-directory
-                       outloud-default-speech-rate dectalk-default-speech-rate))
+  (cl-declare (special emacspeak-directory))
   (unless (featurep 'emacspeak)
     (tvr-time-load ;;; load emacspeak:
         (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup"))))
