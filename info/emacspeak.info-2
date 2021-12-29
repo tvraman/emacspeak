@@ -1337,6 +1337,15 @@ Annotations follow Aural CSS as implemented in Emacspeak, This allows us
 to map these expressions to aural properties supported by specific TTS
 engines.
 
+   Start the server/client: M-x emacspeak-maths-start.  Once the server
+and client are started, you can browse any number of math expressions
+using the emacspeak-maths-navigator defined in module *Note
+emacspeak-maths:: as described below.
+
+   Note: In general, once everything is configured correctly, using the
+maths navigator automatically starts the server and client.  Invoke the
+Navigator using ‘s-spc’ — this is the <windows> key on
+
 12.120.3 Emacspeak-Maths Commands
 ---------------------------------
 
@@ -10013,47 +10022,4 @@ the architecture of Emacspeak, see the chapter on Emacspeak
 in the book Beautiful Code
 (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
 from O’Reilly.
-
-
-File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
-
-15.4 Key Component — Text To Speech (TTS)
-=========================================
-
-Emacspeak is a speech-subsystem for Emacs; it depends on an external
-Text-To-Speech (TTS) engine to produce speech.  In 1994, Digital
-Equipment released what would turn out to be the last in the line of
-hardware DECTalk synthesizers, the DECTalk Express.  This was
-essentially an Intel 386with 1mb of flash memory that ran a version of
-the DECTalk TTS software — to date, it still remains my favorite
-Text-To-Speech engine.  At the time, I also had a software version of
-the same engine running on my DEC-Alpha workstation; the desire to use
-either a software or hardware solution to produce speech output defined
-the Emacspeak speech-server architecture.
-
-   I went to IBM Research in 1999; this coincided with IBM releasing a
-version of the Eloquennce TTS engine on Linux under the name _ViaVoice
-Outloud_.  My colleague Jeffrey Sorenson implemented an early version of
-the Emacspeak speech-server for this engine using the OSS API; I later
-updated it to use the ALSA library while on a flight back to SFO from
-Boston in 2001.  That is still the TTS engine that is speaking as I type
-this article on my laptop.
-
-   20 years on, TTS continues to be the weakest link on Linux; the best
-available solution in terms of quality continues to be the Linux port of
-Eloquence TTS available from Voxin in Europe for a small price.  Looking
-back across 20 years, the state of TTS on Linux in particular and across
-all platforms in general continues to be a disappointment; most of
-today’s newer TTS engines are geared toward mainstream use-cases where
-_naturalness_ of the voice tends to supersede intelligibility at higher
-speech-rates.  Ironically, modern TTS engines also give applications far
-less control over the generated output — as a case in point, I
-implemented Audio System For Technical Readings (AsTeR)
-(http://www.cs.cornell.edu/home/raman/aster/demo.html) in 1994 using the
-DECTalk; 20 years later, we implemented MathML support
-(http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/)
-in ChromeVox (http://www.chromevox.com/) using Google TTS. In 2013, it
-turned out to be difficult or impossible to implement the type of audio
-renderings that were possible with the admittedly less-natural sounding
-DECTalk!
 
