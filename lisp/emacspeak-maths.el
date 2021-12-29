@@ -60,7 +60,7 @@
 ;;; Note: In general, once everything is configured correctly, using
 ;;; the maths navigator automatically starts the server and
 ;;; client. Invoke the Navigator using @kbd{s-spc} --- this is the <windows>
-;;; key on
+;;; key on Linux laptops.
 ;;; Linux. Now you can use these keys:
 ;;; @itemize
 ;;; @item  Show Output <o> Switch to output buffer and quit Maths Navigator
