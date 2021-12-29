@@ -1344,7 +1344,7 @@ emacspeak-maths:: as described below.
 
    Note: In general, once everything is configured correctly, using the
 maths navigator automatically starts the server and client.  Invoke the
-Navigator using ‘s-spc’ — this is the <windows> key on
+Navigator using ‘s-spc’ — this is the <windows> key on Linux laptops.
 
 12.120.3 Emacspeak-Maths Commands
 ---------------------------------

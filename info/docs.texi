@@ -8432,7 +8432,7 @@ expressions using the emacspeak-maths-navigator defined in module
 Note: In general, once everything is configured correctly, using
 the maths navigator automatically starts the server and
 client. Invoke the Navigator using @kbd{s-spc} --- this is the <windows>
-key on
+key on Linux laptops.
 
 @subsection Emacspeak-Maths Commands
 
