@@ -173,12 +173,6 @@ This moves them into the Spam folder."
       (:network-server . "talk.google.com")
       (:port . 5223)
       (:connection-type . ssl)))))
-;; -*- lexical-binding: nil; -*-
-;;; setup package python-mode (melpa) --- not to be confused with
-;;;built-in package python.
-(eval-after-load "python-mode"
-  `(progn
-     (add-hook 'python-mode-hook #'elpy-enable)))
 (with-eval-after-load "smartparens"
   (require 'smartparens-config)
   (sp-use-smartparens-bindings)
