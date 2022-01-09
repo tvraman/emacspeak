@@ -1,4 +1,4 @@
-;;; emacspeak-muggles.el --- Convenience Hydras For The Emacspeak Desktop  -*- lexical-binding: t; -*-
+;;; emacspeak-muggles.el --- Convenience Hydras -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
 ;;; Keywords: Emacspeak,  Audio Desktop muggles
@@ -61,7 +61,7 @@
 ;;;@itemize
 ;;; @item Brightness: @kbd{print} Control display brightness using xbacklight.
 ;;; @item Navigate: @kbd{s-n} Navigate with ease.
-;;;@item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
+;;;@item  org-mode structure nav: @kbd{C-c C-SPC}  Navigation  for org-mode.
 ;;;@item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
 ;;; @item hideshow: C-, h Provide HideShow bindings.
 ;;; @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
@@ -104,11 +104,15 @@
   (require 'emacspeak-m-player))
 (require 'flycheck)
 (declare-function org-table-previous-row "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-current-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-current-element
+                  "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-coordinates "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-both-headers-and-element "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-row-header-and-element "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-column-header-and-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-both-headers-and-element
+                  "emacspeak-org" nil)
+(declare-function
+ emacspeak-org-table-speak-row-header-and-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-column-header-and-element
+                  "emacspeak-org" nil)
 
 
 ;;}}}
@@ -236,7 +240,8 @@
    "
 _C-f_ turn-on-folding-mmode:       %`folding-mode
 _C_flycheck-mode: %`flycheck-mode
-_e_emacspeak-m-player-toggle-extrastereo: %(member \"extrastereo\" emacspeak-m-player-custom-filters)
+_e_emacspeak-m-player-toggle-extrastereo: \
+%(member \"extrastereo\" emacspeak-m-player-custom-filters)
 _F_ flyspell-mode:       %`flyspell-mode
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
@@ -316,7 +321,8 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
     (delete-region (region-beginning) (region-end)))
   (let ((orig (point)))
     (insert
-     (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring)))
+     (ido-completing-read
+      "Yank what? " (mapcar 'substring-no-properties kill-ring)))
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'yank-object)
       (emacspeak-speak-region orig (point)))))
