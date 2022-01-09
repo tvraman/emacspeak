@@ -141,7 +141,9 @@ startup sound."
   "Customize my emacs.
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
-                       outline-mode-prefix-map outline-minor-mode-prefix))
+                       python-mode-hook outline-mode-prefix-map
+                       outline-minor-mode-prefix))
+  (add-hook 'python-mode-hook #'elpy-enable)
   (setq outline-minor-mode-prefix "\C-co")
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
