@@ -85,7 +85,8 @@ T               emacspeak-table-goto-top
 
 The next two commands let you search the table.
 The commands ask you if you want to search rows or columns.
-When searching headers remember that row 0 is the column header, and that column 0 is the row header.
+When searching headers remember that row 0 is the column header,
+and that column 0 is the row header.
 
 h               emacspeak-table-search-headers
 s               emacspeak-table-search
