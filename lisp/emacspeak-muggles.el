@@ -126,7 +126,8 @@
       (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
       (emacspeak-hydra-body-pre "brightness"))
     :hint nil
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+    :pre emacspeak-hydra-pre
+    :post emacspeak-hydra-post)
    "Brightness "
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
    ("s" xbacklight-set "set")
