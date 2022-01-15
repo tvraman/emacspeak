@@ -2808,7 +2808,9 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
          (start (point-min))
          (address
           (if (and ask (= 16 (car ask)))
-              (read-from-minibuffer "Address:")
+              (completing-read
+               "Address:"
+               gmaps-location-table)
             gmaps-my-address))
          (geo (if (and ask (= 16 (car ask)))
                   (gmaps-address-geocode address)
