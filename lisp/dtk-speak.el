@@ -108,7 +108,7 @@ mac for MAC TTS (default on Mac)")
 (defcustom dtk-cleanup-repeats
   (list
    ". " "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
-   "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>" "^")
+   "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>" "^" "<" ">")
   "List of repeating patterns to clean up.
 Use `dtk-add-cleanup-pattern'
  bound to \\[dtk-add-cleanup-pattern]  to add  patterns.
