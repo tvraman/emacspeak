@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 29, 2021.
+last updated on January 18, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2995,7 +2995,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-midge::Speech-enable MIDI editor.
 * emacspeak-mines::Speech-enable MINES.
 * emacspeak-mspools::Speech enable MSpools – Monitor multiple mail drops.
-* emacspeak-muggles::Convenience Hydras For The Emacspeak Desktop.
+* emacspeak-muggles::Convenience Hydras.
 * emacspeak-muse::Speech-enable Muse.
 * emacspeak-navi-mode::Speech-enable NAVI-MODE.
 * emacspeak-net-utils::Speech enable net-utils.

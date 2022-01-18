@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 29, 2021.
+last updated on January 18, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: emacspeak-hydra,  Up: Emacspeak Commands And Options
@@ -1793,7 +1793,7 @@ Emacspeak functionality.
      "p":    ‘emacspeak-muggles-lispy-or-sp’,
      "t":    ‘(call-interactively #’toggle-truncate-lines)’,
      "u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
-     "q":    ‘nil’
+     "q":    nil
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
@@ -4735,7 +4735,8 @@ User interface to tables
 
      The next two commands let you search the table.
      The commands ask you if you want to search rows or columns.
-     When searching headers remember that row 0 is the column header, and that column 0 is the row header.
+     When searching headers remember that row 0 is the column header,
+     and that column 0 is the row header.
 
      h               emacspeak-table-search-headers
      s               emacspeak-table-search
@@ -8060,7 +8061,7 @@ convenience key-bindings that access existing Emacspeak functionality.
      "?":    ‘Info-summary’,
      "h":    ‘Info-help’,
      "q":    ‘quit-window’,
-     "C-g":    ‘nil’
+     "C-g":    nil
 
      The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 
@@ -8159,7 +8160,7 @@ convenience key-bindings that access existing Emacspeak functionality.
      "p":    ‘outline-previous-visible-heading’,
      "f":    ‘outline-forward-same-level’,
      "b":    ‘outline-backward-same-level’,
-     "z":    ‘nil’
+     "z":    nil
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
@@ -8233,7 +8234,7 @@ convenience key-bindings that access existing Emacspeak functionality.
      ".":    ‘set-mark-command’,
      "/":    ‘View-search-regexp-forward’,
      "<":    ‘beginning-of-buffer’,
-     "<return>":    ‘nil’,
+     "<return>":    nil,
      "=":    ‘what-line’,
      ">":    ‘end-of-buffer’,
      "@":    ‘View-back-to-mark’,
@@ -8260,7 +8261,7 @@ convenience key-bindings that access existing Emacspeak functionality.
      "m":    ‘point-to-register’,
      "n":    ‘View-search-last-regexp-forward’,
      "p":    ‘View-search-last-regexp-backward’,
-     "q":    ‘nil’,
+     "q":    nil,
      "r":    ‘copy-to-register’,
      "s":    ‘emacspeak-hydra-toggle-talkative’,
      "t":    ‘(recenter 0)’,
