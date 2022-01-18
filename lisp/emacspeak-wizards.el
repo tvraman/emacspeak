@@ -2800,7 +2800,8 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
 
 (defun ems--noaa-get-data (ask)
   "Internal function that gets NOAA data and returns a results buffer."
-  (cl-declare (special gmaps-my-address))
+  (cl-declare (special gmaps-my-address
+                       gmaps-location-table))
   (let* ((buffer (get-buffer-create "*NOAA Weather*"))
          (inhibit-read-only t)
          (date nil)
