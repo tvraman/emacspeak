@@ -1,5 +1,7 @@
 #!/bin/sh
-#
+# Build Emacs in your git checkout from
+# git://git.savannah.gnu.org/emacs.git
+
 #git reset --hard
 git pull
 export CCFLAGS="-O3"
