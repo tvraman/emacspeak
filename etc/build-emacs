@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+#git reset --hard
+git pull
+export CCFLAGS="-O3"
+export LDFLAGS="-O3"
+export CPPFLAGS="-Ofast "
+test -f Makefile || ./configure --enable-silent-rules  \
+--without-native-compilation --without-xwidgets \
+ --with-mailutils  --without-compress-install --with-pgtk
+#make -j 8 V=0 bootstrap
+make -j 2 V=0
