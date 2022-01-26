@@ -2431,7 +2431,7 @@ With interactive prefix arg, move to the start of the table."
   (unless(require 'eaf)
     (error "Install Emacs Application Framework"))
   (require 'eaf-browser)
-  (make-thread #'(lambda ()(eaf-open-browser url))))
+  (eaf-open-browser url))
 
 (defun emacspeak-eww-browse-chrome (url)
   "Open with Chrome."
