@@ -56,10 +56,7 @@
   (cond
    ((= (following-char) 0)
     (message "No file on this line"))
-   (t(save-excursion
-       (end-of-line)
-       (skip-syntax-backward "^ ")
-       (emacspeak-speak-field)))))
+   (t (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ Advice
