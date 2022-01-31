@@ -228,8 +228,7 @@ Use Custom to customize where possible. "
   (cond
    ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
     (when dtk-caps
-      (setq dtk-caps nil)
-      (setq-default dtk-caps nil))
+      (setq dtk-caps nil))
     (lispy-mode ))
    (t (smartparens-mode)))
   (yas-minor-mode)
