@@ -142,7 +142,9 @@ and TABLE gives the values along that dimension."
 ;;{{{  average pitch
 
 ;;; Average pitch of standard text is aurally mapped to 
-;;; a setting of 5.
+;;; a setting of 5. These percentage changes interpolate
+;;; between the x-low, low, medium, high, and x-high
+;;; percentages defined by espeak
 
 ;;{{{  paul average pitch
 
@@ -151,19 +153,19 @@ and TABLE gives the values along that dimension."
    #'(lambda (setting)
        (aset table
              (cl-first setting)
-             (format "<prosody pitch=\"%s\">"
+             (format "<prosody pitch=\"%s%%\">"
                      (cl-second setting))))
    '(
      (0 0)
-     (1 10)
-     (2 20)
-     (3 30)
-     (4 40)
-     (5 50)
-     (6 60)
-     (7 70)
-     (8 80)
-     (9 90)))
+     (1 70) ; x-low
+     (2 78)
+     (3 85) ; low
+     (4 93)
+     (5 100) ; medium/default
+     (6 105)
+     (7 110) ; high
+     (8 115)
+     (9 120))) ; x-high
   (espeak-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
@@ -188,19 +190,19 @@ and TABLE gives the values along that dimension."
    #'(lambda (setting)
        (aset table
              (cl-first setting)
-             (format "<prosody range=\"%s\">"
+             (format "<prosody range=\"%s%%\">"
                      (cl-second setting))))
    '(
      (0 0)
-     (1 10)
-     (2 30)
-     (3 40)
-     (4 50)
-     (5 60)
-     (6 70)
-     (7 80)
-     (8 90)
-     (9 100)))
+     (1 20) ; x-low
+     (2 35)
+     (3 50) ; low
+     (4 75)
+     (5 100) ; medium/default
+     (6 120)
+     (7 140) ; high
+     (8 160)
+     (9 180))) ; x-high
   (espeak-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
