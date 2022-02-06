@@ -64,19 +64,12 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  annotate-annotate
-annotate-clear-annotations
-annotate-delete-annotation
-annotate-export-annotations
-annotate-import-annotations
-annotate-integrate-annotations
-annotate-load-annotations
-annotate-mode
-annotate-save-annotations
-annotate-show-annotation-summary
-annotate-summary-of-file-from-current-pos
-)
+
+
+(defadvice annotate-annotate (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (dtk-notify-speak "Added annotation")))
 
 (cl-loop
  for f in 
