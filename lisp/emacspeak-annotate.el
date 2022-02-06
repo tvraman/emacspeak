@@ -69,8 +69,6 @@
 annotate-clear-annotations
 annotate-delete-annotation
 annotate-export-annotations
-annotate-goto-next-annotation
-annotate-goto-previous-annotation
 annotate-import-annotations
 annotate-integrate-annotations
 annotate-load-annotations
@@ -79,6 +77,21 @@ annotate-save-annotations
 annotate-show-annotation-summary
 annotate-summary-of-file-from-current-pos
 )
+
+(cl-loop
+ for f in 
+ '(annotate-goto-next-annotation
+   annotate-goto-previous-annotation)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (let ((o (cl-first (overlays-at (point)))))
+         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-speak-line)
+         (dtk-notify-speak (overlay-get o 'annotation)))))))
+
 
 
 ;;}}}
