@@ -84,6 +84,7 @@ emacspeak-actions.elc \
 emacspeak-add-log.elc \
 emacspeak-amark.elc \
 emacspeak-analog.elc \
+emacspeak-annotate.elc \
 emacspeak-apt-sources.elc \
 emacspeak-arc.elc \
 emacspeak-auctex.elc \
