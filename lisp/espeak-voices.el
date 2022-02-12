@@ -69,7 +69,7 @@
 ;;{{{  voice table
 
 (defvar tts-default-voice
-  "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
+  "<voice xml:lang=\"$la\">"
   "Default voice used. ")
 
 (defvar espeak-default-voice-string ""
