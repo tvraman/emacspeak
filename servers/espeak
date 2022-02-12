@@ -56,8 +56,9 @@ source $wd/tts-lib.tcl
 # For example, if there are three available languages: 
 # langsynth(top)=2
 
-# voicename: name of the current voice for announcements
-# This variable is set by tclespeak
+# voicename: currently selected voice for a synth language
+# voicename(current) is the currently selected voice
+# 
 
 # langcode: language identifier
 # e.g. langcode(0)="fi"
@@ -68,9 +69,11 @@ source $wd/tts-lib.tcl
 
 set langsynth(current) 0
 set langsynth(top) 0
-set voicename "default"
 set langcode(0) "en-us"
 set langcode(current) "en-us"
+set voicename(0) "en-us"
+set voicename(current) "en-us"
+
 set mswindows [expr { $tcl_platform(platform) == "windows" } ]
 
 # select the next synth language
@@ -96,11 +99,12 @@ proc set_next_lang {say_it} {
 
     set langsynth(current) $index
     set langcode(current) $langcode($index)
+    set voicename(current) $voicename($index)
 
-    setLanguage $langsynth(current)
-puts stderr "Language: $langsynth(current) Voice: $voicename"
+    setLanguage $langsynth(current) $voicename(current)
+    puts stderr "Language: $langsynth(current) Voice: $voicename(currrent)"
     if { [info exists say_it]} {
-	tts_say "$voicename"
+	tts_say "$voicename(current)"
     }
 }
 
@@ -127,10 +131,11 @@ proc set_previous_lang {say_it} {
 
     set langsynth(current) $index
     set langcode(current) $langcode($index)
-    setLanguage $langsynth(current)
-puts stderr "Language: $langsynth(current) Voice: $voicename"
+    set voicename(current) $voicename($index)
+    setLanguage $langsynth(current) $voicename(current)
+puts stderr "Language: $langsynth(current) Voice: $voicename(current)"
     if { [info exists say_it]} {
-	tts_say "$voicename "
+	tts_say "$voicename(current) "
     }
 }
 
@@ -140,7 +145,7 @@ proc set_lang {{name "en"} {say_it "nil"}} {
     global langsynth
     global langalias
     global langcode
-global voicename 
+    global voicename
      if { ![info exists langalias($name)]} {
 	return
      }
@@ -151,10 +156,31 @@ global voicename
     
     set langsynth(current) $langalias($name)
     set langcode(current) $langcode($langalias($name))
-    setLanguage $langsynth(current)
+    set voicename(current) $voicename($langalias($name))
+    setLanguage $langsynth(current) $voicename(current)
 
     if { $say_it == "t"} {
-	tts_say "$voicename"
+	tts_say "$voicename(current)"
+    }
+}
+
+# select_voice "mb-en1"
+# select_voice "mb-en1" "en"
+# select_voiece "en-us+victor"
+proc select_voice {name {lang ""}} {
+    global voicename
+    global langsynth
+    global langalias
+    if { $lang != "" && ![info exists langalias($lang)] } {
+        return
+    }
+
+    if { $lang == "" || $langalias($lang) == $langsynth(current) } {
+        set voicename(current) $name
+        set voicename($langsynth(current)) $name
+        setLanguage $langsynth(current) $voicename(current)
+    } else {
+        set voicename($langalias($lang)) $name
     }
 }
 
@@ -180,6 +206,10 @@ proc list_langalias {} {
     echo [ array get langalias ]
 }
 
+proc list_voicename {} {
+    global voicename
+    echo [ array get voicename ]
+}
 
 proc version {} {
     q " eSpeak [ttsVersion]"
@@ -222,9 +252,9 @@ proc tts_say {text} {
     service 
     set la $langcode(current)
 
-    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
+    set prefix "<voice xml:lang=\"$la\">"
     regsub -all {\[\*\]} $text { } text 
-    synth " $prefix $text"
+    synth "$prefix $text"
     service
     return ""
 }
@@ -234,7 +264,7 @@ proc l {text} {
     global langcode
 
     set la $langcode(current)
-    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
+    set prefix "<voice xml:lang=\"$la\">"
     if {[regexp  {[A-Z]} $text]} {
         # Use a relative pitch adjustment.  +70% seems goodafter some testing.
         set prefix "$prefix <prosody pitch=\"+70%\">"
@@ -396,15 +426,11 @@ proc service {} {
 
 proc speech_task {} {
     global queue tts
-    global langcode
 
     set tts(talking?) 1
     set tts(not_stopped) 1
     set length [queue_length]
-    set la $langcode(current)
 
-    #set prefix "<voice xml:lang=\"$la\" gender=\"male\"
-    #variant=\"1\">"
     set prefix ""
     loop index 0 $length {
 
@@ -414,7 +440,7 @@ proc speech_task {} {
             s {
 
                 set text [clean [lindex $event 1]]
-                synth " $prefix $text"
+                synth "$prefix $text"
                 set retval [service]
                 set prefix ""
             }

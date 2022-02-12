@@ -352,29 +352,34 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
 
 static vector<string> available_languages;
 
-static int SetLanguageHelper(Tcl_Interp *interp, size_t aIndex) {
+static int SetLanguageHelper(Tcl_Interp *interp, size_t aIndex,
+                             const char *voiceName) {
   espeak_ERROR voice_status = espeak_ERROR::EE_OK;
-  espeak_VOICE *current_voice = NULL;
-  espeak_VOICE a_voice;
-  memset(&a_voice, 0, sizeof(espeak_VOICE));
-  a_voice.languages = (char *)available_languages[aIndex].c_str();
-  a_voice.gender = 1;
-  voice_status = espeak_SetVoiceByProperties(&a_voice);
+  voice_status = espeak_SetVoiceByName(voiceName);
   if (espeak_ERROR::EE_OK != voice_status) {
-    Tcl_AppendResult(interp, "could not set voice");
-    return TCL_ERROR;
+    fprintf(stderr,
+            "Could not find selected voice %s, falling back to "
+            "language-based selection\n",
+            voiceName);
+    espeak_VOICE a_voice;
+    memset(&a_voice, 0, sizeof(espeak_VOICE));
+    a_voice.languages = (char *)available_languages[aIndex].c_str();
+    a_voice.gender = 1;
+    voice_status = espeak_SetVoiceByProperties(&a_voice);
+    if (espeak_ERROR::EE_OK != voice_status) {
+      Tcl_AppendResult(interp, "could not set voice");
+      return TCL_ERROR;
+    }
   }
-  current_voice = espeak_GetCurrentVoice();
-  Tcl_SetVar(interp, "voicename", current_voice->name, 0);
   return TCL_OK;
 }
 
 int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
                 Tcl_Obj *CONST objv[]) {
   unsigned long aIndex = 0;
-
   if (getLangIndex(interp, &aIndex)) {
-    return SetLanguageHelper(interp, aIndex);
+    const char *voiceName = Tcl_GetString(objv[2]);
+    return SetLanguageHelper(interp, aIndex, voiceName);
   }
   // TODO: Error reporting for this
   return TCL_OK;
@@ -442,10 +447,12 @@ static int initLanguage(Tcl_Interp *interp) {
     snprintf(buffer, sizeof(buffer), "%lu", ui);
     Tcl_SetVar2(interp, "langalias", aLangCode, buffer, 0);
     Tcl_SetVar2(interp, "langcode", buffer, aLangCode, 0);
+    Tcl_SetVar2(interp, "voicename", buffer, aLangCode, 0);
     if (default_index == lang_count) {
       if (strcasecmp(aDefaultLang.c_str(), aLangCode) == 0) {
         Tcl_SetVar2(interp, "langsynth", "current", buffer, 0);
         Tcl_SetVar2(interp, "langcode", "current", (char *)aLangCode, 0);
+        Tcl_SetVar2(interp, "voicename", "current", (char *)aLangCode, 0);
         default_index = ui;
       }
     }
@@ -464,9 +471,11 @@ static int initLanguage(Tcl_Interp *interp) {
     snprintf(buffer, sizeof(buffer), "%lu", english_index);
     Tcl_SetVar2(interp, "langsynth", "current", buffer, 0);
     Tcl_SetVar2(interp, "langcode", "current", "en", 0);
+    Tcl_SetVar2(interp, "voicename", "current", "en", 0);
   }
 
-  if (TCL_OK != SetLanguageHelper(interp, default_index)) {
+  const char *defaultVoice = Tcl_GetVar2(interp, "voicename", "current", 0);
+  if (TCL_OK != SetLanguageHelper(interp, default_index, defaultVoice)) {
     return TCL_ERROR;
   }
   // Presumably we have at least one language, namely English,
