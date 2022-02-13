@@ -104,7 +104,7 @@ COMMAND-STRING to the TTS engine."
 ;;{{{ voice definitions
 
 ;;; the nine predefined voices:
-(espeak-define-voice 'paul "<voice gender=\"male\" variant=\"1\">")
+(espeak-define-voice 'paul "")
 
 ;;; Modified voices:
 

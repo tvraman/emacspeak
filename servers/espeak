@@ -139,9 +139,11 @@ puts stderr "Language: $langsynth(current) Voice: $voicename(current)"
     }
 }
 
-# select a new synth language
+# select a new synth language, optionally including the voice
 # set_lang "en"
-proc set_lang {{name "en"} {say_it "nil"}} {
+# set_lang "en" "en-mb1"
+# set_lang "en" "en+whisper"
+proc set_lang {{name "en"} {voice ""} {say_it "nil"}} {
     global langsynth
     global langalias
     global langcode
@@ -150,37 +152,23 @@ proc set_lang {{name "en"} {say_it "nil"}} {
 	return
      }
 
-     if { $langalias($name) == $langsynth(current) } {
+    if { $langalias($name) == $langsynth(current)
+         && ($voice == "" || $voicename($langsynth(current)) == $voice) } {
 	return
      }
-    
+
     set langsynth(current) $langalias($name)
     set langcode(current) $langcode($langalias($name))
+
+    if { $voice != "" } {
+        set voicename($langsynth(current)) $voice
+    }
+
     set voicename(current) $voicename($langalias($name))
     setLanguage $langsynth(current) $voicename(current)
 
     if { $say_it == "t"} {
 	tts_say "$voicename(current)"
-    }
-}
-
-# select_voice "mb-en1"
-# select_voice "mb-en1" "en"
-# select_voiece "en-us+victor"
-proc select_voice {name {lang ""}} {
-    global voicename
-    global langsynth
-    global langalias
-    if { $lang != "" && ![info exists langalias($lang)] } {
-        return
-    }
-
-    if { $lang == "" || $langalias($lang) == $langsynth(current) } {
-        set voicename(current) $name
-        set voicename($langsynth(current)) $name
-        setLanguage $langsynth(current) $voicename(current)
-    } else {
-        set voicename($langalias($lang)) $name
     }
 }
 
