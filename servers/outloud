@@ -457,7 +457,7 @@ if {[info exists env(ECIINI)] &&  ![file exists $env(ECIINI)] } {
     set env(ECIINI) $tclTTS/eci.ini
 }
 load $tclTTS/atcleci.so
-set tts(play) /usr/bin/aplay
+set tts(play) "/usr/bin/aplay -q"
 synth {`v1 Via Voice using Alsa.}
 
 
