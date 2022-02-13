@@ -321,14 +321,8 @@ proc sh  {{duration 50}} {
 # - or beeping (tts_allcaps_beep)
 #
 proc tts_split_caps {flag} {
-    global tts 
-    if { $flag == 1 } {
-	caps "spelling"
-    } else {
-	if {$tts(capitalize) == 0    } {
-	    caps "none"
-	}
-    }
+    global tts
+    set tts(split_caps) $flag
     service
     return ""
 }
