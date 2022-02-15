@@ -161,7 +161,8 @@
    (shr-link voice-bolden)
    (success voice-brighten-extra)
    (underline voice-lighten-extra)
-   (variable-pitch voice-animate-extra)
+   (variable-pitch voice-animate-medium)
+   (variable-pitch-text  voice-animate-extra)
    (warning voice-brighten)
    ))
 
