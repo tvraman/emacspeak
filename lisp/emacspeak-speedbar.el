@@ -60,16 +60,6 @@
 (require 'emacspeak-preamble)
 (require 'speedbar "speedbar" 'no-error)
 ;;}}}
-;;{{{  work outside a windowing system
-
-                                        ;(defadvice speedbar-frame-mode (around emacspeak pre act comp)
-                                        ;"Wrapper to force speedbar to work outside a windowing system. "
-                                        ;(let ((spoofing-p (not window-system)))
-                                        ;ad-do-it
-                                        ;     (setq voice-lock-mode t))
-                                        ;   ad-return-value)
-
-;;}}}
 ;;{{{ Helper:
 
 (defun emacspeak-speedbar-speak-line()
