@@ -321,7 +321,6 @@ Returns t if a block was found and hidden."
   "Hide or expose a block of text.
  Optional interactive prefix arg causes all blocks in current
 buffer to be hidden or exposed."
-
   (interactive "P")
   (save-excursion
     (dtk-stop)
