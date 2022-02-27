@@ -1232,7 +1232,6 @@ for use as a DOM filter."
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
-;;;(setq shr-base (shr-parse-base url))
     (shr-insert-document filtered-dom)
     (emacspeak-eww-set-dom filtered-dom)
     (emacspeak-eww-set-url url)
