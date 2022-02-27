@@ -1145,7 +1145,20 @@ Note that the Web browser should reset this hook after using it.")
     (shr-generic dom)
     (put-text-property start (point) 'article 'eww-tag)))
 
-(defvar emacspeak-eww-shr-render-functions
+
+(defun emacspeak-eww-em-with-newline  (dom)
+  "render EM node but with newline after."
+  (shr-tag-em dom)
+  (insert "  \n"))
+
+
+(defun emacspeak-eww-strong-with-newline  (dom)
+  "render STRONG node but with newline after."
+  (shr-tag-strong dom)
+  (insert "\n"))
+
+
+(defvar emacspeak-eww-shr-renderers
   '((article . emacspeak-eww-tag-article)
     (title . eww-tag-title)
     (form . eww-tag-form)
@@ -1223,12 +1236,19 @@ for use as a DOM filter."
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
   (cl-declare (special emacspeak-eww-rename-result-buffer
-                       emacspeak-eww-shr-render-functions))
+                       emacspeak-eww-shr-renderers))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
         (inhibit-read-only t)
-        (shr-external-rendering-functions emacspeak-eww-shr-render-functions))
+        (shr-external-rendering-functions
+         (copy-sequence emacspeak-eww-shr-renderers)))
+    (cl-pushnew
+     (cons 'em 'emacspeak-eww-em-with-newline)
+     emacspeak-eww-shr-renderers)
+    (cl-pushnew
+     (cons 'strong 'emacspeak-eww-strong-with-newline)
+     emacspeak-eww-shr-renderers)
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
@@ -1437,7 +1457,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (cl-declare (special  emacspeak-eww-shr-render-functions))
+  (cl-declare (special  emacspeak-eww-shr-renderers))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1473,7 +1493,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   property=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (cl-declare (special  emacspeak-eww-shr-render-functions))
+  (cl-declare (special  emacspeak-eww-shr-renderers))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1509,7 +1529,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   itemprop=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (cl-declare (special  emacspeak-eww-shr-render-functions))
+  (cl-declare (special  emacspeak-eww-shr-renderers))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
