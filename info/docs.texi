@@ -20,6 +20,7 @@ This chapter documents a total of 1146 commands and 146 options.
 * emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio Content.
 * emacspeak-analog::Speech-enable analog -- a log viewer.
+* emacspeak-annotate::Speech-enable ANNOTATE.
 * emacspeak-apt-sources::speech-enable APT's sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode -- a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment.
@@ -1330,6 +1331,12 @@ Move up and speak current field.
 Speak current field.
 @end format
 @end deffn
+
+@node emacspeak-annotate
+@section emacspeak-annotate
+
+ANNOTATE == annotate.el from melpa
+Speech-enable creation and navigation of annotations.
 
 @node emacspeak-apt-sources
 @section emacspeak-apt-sources

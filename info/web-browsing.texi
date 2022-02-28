@@ -454,7 +454,7 @@ feeds and use @kbd{M-x emacspeak-atom-browse} for atom feeds.  There is also
 emacspeak support for newsticker, an rss / atom reader that is a part
 of emacs 22, but I have never used it.
 
-I personally use @inforef{Top,gnus,gnus}, for rss feeds but setting gnus up for only that
+I personally use @xref{Top,gnus,gnus}, for rss feeds but setting gnus up for only that
 purpose is like hunting rabbits with a bazooka. 
 
 @heading  emacspeak websearch

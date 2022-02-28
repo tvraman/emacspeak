@@ -19,7 +19,7 @@ MAKEINFO = makeinfo
 CSS=--css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
 EMACS=emacs
 
-all: info  introducing-emacspeak.info turning-twenty.info emacspeak.pdf
+all: info  introducing-emacspeak.info turning-twenty.info #emacspeak.pdf
 
 info: emacspeak.info
 
