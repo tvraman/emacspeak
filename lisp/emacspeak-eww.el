@@ -1171,6 +1171,14 @@ Note that the Web browser should reset this hook after using it.")
     (link . eww-tag-link)
     (a . eww-tag-a))
   "Customize shr rendering for EWW.")
+;;; Create a special list of renderers to use when filtering 
+(defvar emacspeak-eww-filter-renderers
+  (let ((copy (copy-sequence emacspeak-eww-shr-renderers)))
+    (cl-pushnew (cons 'em 'emacspeak-eww-em-with-newline) copy)
+    (cl-pushnew (cons 'strong 'emacspeak-eww-strong-with-newline)
+                copy)
+    copy)
+  "Renderers used when filtering.")
 
 (defun eww-dom-keep-if (dom predicate)
   "Return filtered DOM  keeping nodes that match  predicate.
@@ -1236,19 +1244,12 @@ for use as a DOM filter."
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
   (cl-declare (special emacspeak-eww-rename-result-buffer
-                       emacspeak-eww-shr-renderers))
+                       emacspeak-eww-filter-renderers))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
         (inhibit-read-only t)
-        (shr-external-rendering-functions
-         (copy-sequence emacspeak-eww-shr-renderers)))
-    (cl-pushnew
-     (cons 'em 'emacspeak-eww-em-with-newline)
-     emacspeak-eww-shr-renderers)
-    (cl-pushnew
-     (cons 'strong 'emacspeak-eww-strong-with-newline)
-     emacspeak-eww-shr-renderers)
+        (shr-external-rendering-functions emacspeak-eww-filter-renderers))
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
