@@ -1,5 +1,9 @@
 # Emacspeak: The Complete Audio Desktop
 
+Speech-enable Emacs to produce spoken feedback for all user
+interaction with Emacs.
+
+
 * [Blog](http://tvraman.github.io/emacspeak/blog)  Articles  --- including  emacspeak.blogspot.com  posts.
 * [Manual](http://tvraman.github.io/emacspeak/manual) Info manual for emacspeak.
 * [Web](http://emacspeak.sf.net) Emacspeak Web Site.
