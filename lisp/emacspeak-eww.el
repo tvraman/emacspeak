@@ -1152,6 +1152,11 @@ Note that the Web browser should reset this hook after using it.")
   (insert "  \n"))
 
 
+(defun emacspeak-eww-span-with-newline  (dom)
+  "render span  node but with newline after."
+  (shr-tag-span dom)
+  (insert "  \n"))
+
 (defun emacspeak-eww-strong-with-newline  (dom)
   "render STRONG node but with newline after."
   (shr-tag-strong dom)
@@ -1177,6 +1182,7 @@ Note that the Web browser should reset this hook after using it.")
     (cl-pushnew (cons 'em 'emacspeak-eww-em-with-newline) copy)
     (cl-pushnew (cons 'strong 'emacspeak-eww-strong-with-newline)
                 copy)
+    (cl-pushnew (cons 'span 'emacspeak-eww-span-with-newline) copy)
     copy)
   "Renderers used when filtering.")
 
