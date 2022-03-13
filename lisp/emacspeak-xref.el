@@ -59,7 +59,7 @@
  for   f in 
  '(
    xref-find-definitions xref-pop-marker-stack pop-tag-mark
-   xref-next-line xref-prev-line
+   xref-next-line xref-prev-line xref-go-back
    xref-find-regexp  xref-pop-marker-stack
    xref-find-apropos xref-goto-xref)
  do
