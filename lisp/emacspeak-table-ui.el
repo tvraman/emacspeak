@@ -974,7 +974,7 @@ match, makes the matching row or column current."
   (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (kill-new  (emacspeak-table-current-element emacspeak-table))
   (when (called-interactively-p 'interactive) 
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-auditory-icon 'yank-object)
     (message "Copied element to kill ring")))
 (defun emacspeak-table-copy-current-element-to-register (register)
   "Copy current table element to specified register."

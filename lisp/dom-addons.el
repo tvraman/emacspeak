@@ -165,7 +165,8 @@ ATTRIBUTE would typically be `class', `id' or the like."
 (defsubst dom-node-as-text (node)
   "Return all the text bits in the current node and some specific
 children, e.g. `a', concatenated."
-  (with-temp-buffer (shr-insert-document node) (buffer-string)))
+  (with-temp-buffer (shr-insert-document node)
+                    (buffer-substring-no-properties (point-min) (point-max))))
 
 ;;}}}
 (provide 'dom-addons)

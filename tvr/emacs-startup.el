@@ -143,7 +143,10 @@ Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        python-mode-hook outline-mode-prefix-map
                        outline-minor-mode-prefix))
-  (add-hook 'python-mode-hook #'elpy-enable)
+  (add-hook 'python-mode-hook
+            #'(lambda nil
+                (elpy-enable)
+                (define-key elpy-mode-map (ems-kbd "C-c C-a") 'elpy-autopep8-fix-code)))
   (setq outline-minor-mode-prefix "\C-co")
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
