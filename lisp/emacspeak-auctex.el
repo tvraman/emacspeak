@@ -73,26 +73,26 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
-(defadvice LaTeX-mark-section (after emacspeak pre act)
+(defadvice LaTeX-mark-section (after emacspeak pre act comp)
   "Speak the first line. 
 Also provide an auditory icon. "
   (when (ems-interactive-p) 
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
 
-(defadvice LaTeX-mark-environment (after emacspeak pre act)
+(defadvice LaTeX-mark-environment (after emacspeak pre act comp)
   "Speak the first line. 
 Also provide an auditory icon. "
   (when (ems-interactive-p) 
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
 
-(defadvice LaTeX-format-paragraph (after emacspeak pre act)
+(defadvice LaTeX-format-paragraph (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
-(defadvice LaTeX-format-region (around emacspeak pre act)
+(defadvice LaTeX-format-region (around emacspeak pre act comp)
   "Ask for confirmation.
 speak after formatting region"
   (cond
@@ -107,17 +107,17 @@ speak after formatting region"
 ;;}}}
 ;;{{{  delimiter matching:
 
-(defadvice LaTeX-find-matching-begin (after emacspeak pre act)
+(defadvice LaTeX-find-matching-begin (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice LaTeX-find-matching-end (after emacspeak pre act)
+(defadvice LaTeX-find-matching-end (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice LaTeX-close-environment (after emacspeak pre act)
+(defadvice LaTeX-close-environment (after emacspeak pre act comp)
   "Speak the inserted line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
@@ -147,19 +147,19 @@ speak after formatting region"
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice LaTeX-insert-item (after emacspeak pre act)
+(defadvice LaTeX-insert-item (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice LaTeX-environment (after emacspeak pre act)
+(defadvice LaTeX-environment (after emacspeak pre act comp)
   "speak, by speaking
 the opening line of the newly inserted environment. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-read-previous-line)))
 
-(defadvice TeX-insert-macro (around  emacspeak pre act)
+(defadvice TeX-insert-macro (around  emacspeak pre act comp)
   "Speak."
   (let ((opoint (point)))
     ad-do-it
@@ -168,25 +168,25 @@ the opening line of the newly inserted environment. "
 ;;}}}
 ;;{{{  Commenting chunks:
 
-(defadvice TeX-comment-region (after emacspeak pre act)
+(defadvice TeX-comment-region (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice TeX-un-comment (after emacspeak pre act)
+(defadvice TeX-un-comment (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice TeX-un-comment-region (after emacspeak pre act)
+(defadvice TeX-un-comment-region (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice TeX-comment-paragraph (after emacspeak pre act)
+(defadvice TeX-comment-paragraph (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
@@ -195,7 +195,7 @@ the opening line of the newly inserted environment. "
 ;;}}}
 ;;{{{  Debugging tex
 
-(defadvice TeX-next-error (after emacspeak pre act)
+(defadvice TeX-next-error (after emacspeak pre act comp)
   "Speak the error line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)

@@ -84,7 +84,7 @@
            )
          do
          (eval
-          `(defadvice ,f (after  emacspeak pre act)
+          `(defadvice ,f (after  emacspeak pre act comp)
              "Speak the line containing the error. "
              (when (ems-interactive-p)
                (dtk-stop)
@@ -107,13 +107,13 @@
 ;;}}}
 ;;{{{ advise process filter and sentinels
 
-(defadvice compile (after emacspeak pre act)
+(defadvice compile (after emacspeak pre act comp)
   "provide auditory confirmation"
   (when (ems-interactive-p)
     (message "Launched compilation")
     (emacspeak-auditory-icon 'task-done)))
 
-(defadvice  compilation-sentinel (after emacspeak pre act)
+(defadvice  compilation-sentinel (after emacspeak pre act comp)
   "speak"
   (emacspeak-auditory-icon 'task-done)
   (message "process %s %s"

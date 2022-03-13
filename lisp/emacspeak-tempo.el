@@ -65,17 +65,17 @@
 ;;}}}
 ;;{{{  Advice: 
 
-(defadvice tempo-forward-mark (after emacspeak pre act)
+(defadvice tempo-forward-mark (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice tempo-backward-mark (after emacspeak pre act)
+(defadvice tempo-backward-mark (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice html-helper-smart-insert-item  (after emacspeak pre act)
+(defadvice html-helper-smart-insert-item  (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))

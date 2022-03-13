@@ -56,19 +56,19 @@
     (emacspeak-auditory-icon 'mark-object)
     (message "Set bookmark ")))
 
-(defadvice bookmark-yank-word (after emacspeak pre act)
+(defadvice bookmark-yank-word (after emacspeak pre act comp)
   "Speak what has been yanked so far"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
 
-(defadvice bookmark-insert-current-bookmark (after emacspeak pre act)
+(defadvice bookmark-insert-current-bookmark (after emacspeak pre act comp)
   "Speak what has been yanked so far"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
 
-(defadvice bookmark-insert-current-file-name (after emacspeak pre act)
+(defadvice bookmark-insert-current-file-name (after emacspeak pre act comp)
   "Speak what has been yanked so far"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)

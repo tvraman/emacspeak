@@ -77,7 +77,7 @@ many available corrections."
   :type 'number
   :group 'emacspeak-ispell)
 
-(defadvice ispell-command-loop (before emacspeak pre act)
+(defadvice ispell-command-loop (before emacspeak pre act comp)
   "Speak the line containing the incorrect word.
  Then speak the possible corrections. "
   (let ((choices  (ad-get-arg 0))
@@ -117,7 +117,7 @@ many available corrections."
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it)))
 
-(defadvice ispell-help (before emacspeak pre act)
+(defadvice ispell-help (before emacspeak pre act comp)
   "Speak the help message. "
   (let ((dtk-stop-immediately nil))
     (dtk-speak (documentation 'ispell-help))))

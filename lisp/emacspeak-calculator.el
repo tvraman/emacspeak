@@ -173,7 +173,7 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-calculator-summarize)))
 
-(defadvice calculator-backspace (around emacspeak pre act)
+(defadvice calculator-backspace (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)

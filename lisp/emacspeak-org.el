@@ -260,7 +260,7 @@
 ;;}}}
 ;;{{{ completion:
 
-(defadvice org-complete (around emacspeak pre act)
+(defadvice org-complete (around emacspeak pre act comp)
   "Say what you completed."
   (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately t))
@@ -386,7 +386,7 @@
 ;;}}}
 ;;{{{ deleting chars:
 
-(defadvice org-delete-backward-char (around emacspeak pre act)
+(defadvice org-delete-backward-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -396,7 +396,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice org-delete-char (around emacspeak pre act)
+(defadvice org-delete-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)

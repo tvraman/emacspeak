@@ -156,7 +156,7 @@
              "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)))))
-(defadvice emms-playlist-mode-bury-buffer (after emacspeak pre act)
+(defadvice emms-playlist-mode-bury-buffer (after emacspeak pre act comp)
   "Announce the buffer that becomes current."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)

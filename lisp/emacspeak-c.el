@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{ advice electric deletion
 
-(defadvice c-electric-delete-forward (around emacspeak pre act)
+(defadvice c-electric-delete-forward (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -71,7 +71,7 @@
  '(c-hungry-delete-forward c-hungry-delete-backwards c-electric-backspace)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act)
+  `(defadvice ,f (around emacspeak pre act comp)
      "Speak character you're deleting."
      (cond
       ((ems-interactive-p)
@@ -85,14 +85,14 @@
 ;;{{{  advice things to speak
 ;;{{{  Electric chars speak
 
-(defadvice c-electric-semi&comma (after emacspeak pre act)
+(defadvice c-electric-semi&comma (after emacspeak pre act comp)
   "Speak the line when a statement is completed."
   (when (ems-interactive-p)
     (cond
      ((= last-input-event ?,) (dtk-speak " comma "))
      (t (emacspeak-speak-line)))))
 
-(defadvice c-electric-delete (before emacspeak pre act)
+(defadvice c-electric-delete (before emacspeak pre act comp)
   "Speak char before deleting it."
   (when (ems-interactive-p)
     (emacspeak-speak-this-char(preceding-char))
@@ -103,19 +103,19 @@
 
 ;;; CPP directives:
 
-(defadvice c-up-conditional (after emacspeak pre act)
+(defadvice c-up-conditional (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice c-forward-conditional (after emacspeak pre act)
+(defadvice c-forward-conditional (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice c-backward-conditional (after emacspeak pre act)
+(defadvice c-backward-conditional (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -123,19 +123,19 @@
 
 ;;; Statements
 
-(defadvice c-beginning-of-statement (after emacspeak pre act)
+(defadvice c-beginning-of-statement (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
-(defadvice c-end-of-statement (after emacspeak pre act)
+(defadvice c-end-of-statement (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
-(defadvice c-mark-function (after emacspeak pre act)
+(defadvice c-mark-function (after emacspeak pre act comp)
   "Provide spoken and auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
@@ -146,13 +146,13 @@
 ;;}}}
 ;;{{{ advice program navigation
 
-(defadvice  c-beginning-of-defun (after emacspeak pre act)
+(defadvice  c-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)
     (emacspeak-speak-line)))
 
-(defadvice  c-end-of-defun (after emacspeak pre act)
+(defadvice  c-end-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)
@@ -161,7 +161,7 @@
 ;;}}}
 ;;{{{  extensions  provided by c++ mode
 
-(defadvice c-scope-operator (after emacspeak pre act)
+(defadvice c-scope-operator (after emacspeak pre act comp)
   "speak what you inserted."
   (when (ems-interactive-p)
     (dtk-speak "colon colon")))
@@ -347,7 +347,7 @@ and their meanings. ")
 ;;}}}
 ;;{{{  indenting commands
 
-(defadvice c-indent-defun (after emacspeak pre act)
+(defadvice c-indent-defun (after emacspeak pre act comp)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented function")))

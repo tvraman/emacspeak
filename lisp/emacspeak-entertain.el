@@ -54,7 +54,7 @@
 ;;}}}
 ;;{{{ doctar
 
-(defadvice doctor-txtype (after emacspeak pre act)
+(defadvice doctor-txtype (after emacspeak pre act comp)
   (dtk-speak
    (mapconcat
     #'(lambda (s)

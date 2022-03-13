@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{  electric editing
 
-(defadvice py-electric-backspace (around emacspeak pre act)
+(defadvice py-electric-backspace (around emacspeak pre act comp)
   "Speak character you're deleting.
 Provide contextual feedback when closing blocks"
   (cond
@@ -75,7 +75,7 @@ Provide contextual feedback when closing blocks"
    (t ad-do-it))
   ad-return-value)
 
-(defadvice py-electric-delete (around emacspeak pre act)
+(defadvice py-electric-delete (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -354,7 +354,7 @@ Provide contextual feedback when closing blocks"
 ;;}}}
 ;;{{{ the process buffer
 
-(defadvice py-process-filter (around emacspeak pre act)
+(defadvice py-process-filter (around emacspeak pre act comp)
   "Make comint in Python speak its output. "
   (cl-declare (special emacspeak-comint-autospeak))
   (let ((prior (point))

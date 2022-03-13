@@ -81,7 +81,7 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'right)))
 
-(defadvice  python-indent-dedent-line-backspace (around emacspeak pre act)
+(defadvice  python-indent-dedent-line-backspace (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)

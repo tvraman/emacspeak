@@ -59,7 +59,7 @@
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
 
-(defadvice cperl-electric-backspace (around emacspeak pre act)
+(defadvice cperl-electric-backspace (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -69,7 +69,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice cperl-linefeed (around emacspeak pre act)
+(defadvice cperl-linefeed (around emacspeak pre act comp)
   "Speak the previous line if line echo is on. 
   See command \\[emacspeak-toggle-line-echo].
 Otherwise cue user to the line just created. "
@@ -87,7 +87,7 @@ Otherwise cue user to the line just created. "
   ad-do-it
   ad-return-value)
 
-(defadvice cperl-indent-exp  (after emacspeak pre act)
+(defadvice cperl-indent-exp  (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
@@ -120,7 +120,7 @@ Otherwise cue user to the line just created. "
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice cperl-comment-region (after emacspeak pre act)
+(defadvice cperl-comment-region (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
@@ -131,7 +131,7 @@ Otherwise cue user to the line just created. "
                  "Commented")
                (count-lines (point) (mark))))))
 
-(defadvice cperl-uncomment-region (after emacspeak pre act)
+(defadvice cperl-uncomment-region (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
@@ -157,7 +157,7 @@ Otherwise cue user to the line just created. "
     (message "Filled region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
-(defadvice cperl-fill-paragraph (after emacspeak pre act)
+(defadvice cperl-fill-paragraph (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)

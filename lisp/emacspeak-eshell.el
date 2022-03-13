@@ -84,7 +84,7 @@
 ;;}}}
 ;;{{{  Advice top-level EShell
 
-(defadvice eshell (after emacspeak pre act)
+(defadvice eshell (after emacspeak pre act comp)
   "Announce switching to shell mode.
 Provide an auditory icon if possible."
   (when (ems-interactive-p)
@@ -190,7 +190,7 @@ personalities.")
 ;;}}}
 ;;{{{ advice esh-mode
 
-(defadvice eshell-delchar-or-maybe-eof (around emacspeak pre act)
+(defadvice eshell-delchar-or-maybe-eof (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -203,7 +203,7 @@ personalities.")
    (t ad-do-it))
   ad-return-value)
 
-(defadvice eshell-delete-backward-char (around emacspeak pre act)
+(defadvice eshell-delete-backward-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -231,7 +231,7 @@ personalities.")
     (emacspeak-auditory-icon 'delete-object)
     (message "Flushed output")))
 
-(defadvice eshell-kill-input (before emacspeak pre act)
+(defadvice eshell-kill-input (before emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)

@@ -102,7 +102,7 @@ Note that some badly formed mime messages  cause trouble."
 ;;}}}
 ;;{{{ Advice completions
 
-(defadvice vm-minibuffer-complete-word (around emacspeak pre act)
+(defadvice vm-minibuffer-complete-word (around emacspeak pre act comp)
   "Say what you completed."
   (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately t))
@@ -117,7 +117,7 @@ Note that some badly formed mime messages  cause trouble."
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
-(defadvice vm-minibuffer-complete-word-and-exit (around emacspeak pre act)
+(defadvice vm-minibuffer-complete-word-and-exit (around emacspeak pre act comp)
   "Say what you completed."
   (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately t))
@@ -276,7 +276,7 @@ that has been forwarded multiple times."
   (re-search-forward "^ *Subject:" nil t)
   (emacspeak-speak-line))
 
-(defadvice vm-scroll-forward (after emacspeak pre act)
+(defadvice vm-scroll-forward (after emacspeak pre act comp)
   "Produce auditory feedback.
 Then speak the screenful. "
   (when (ems-interactive-p)
@@ -287,7 +287,7 @@ Then speak the screenful. "
         (forward-line (window-height window))
         (emacspeak-speak-region start (point))))))
 
-(defadvice vm-scroll-backward (after emacspeak pre act)
+(defadvice vm-scroll-backward (after emacspeak pre act comp)
   "Produce auditory feedback.
 Then speak the screenful. "
   (when (ems-interactive-p)
@@ -305,18 +305,18 @@ Then speak the screenful. "
 ;;}}}
 ;;{{{  deleting and killing
 
-(defadvice vm-delete-message (after emacspeak pre act)
+(defadvice vm-delete-message (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Message discarded.")))
 
-(defadvice vm-undelete-message (after emacspeak pre act)
+(defadvice vm-undelete-message (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (message "Message recovered.")))
 
-(defadvice vm-kill-subject (after emacspeak pre act)
+(defadvice vm-kill-subject (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
@@ -325,7 +325,7 @@ Then speak the screenful. "
 ;;}}}
 ;;{{{  Sending mail:
 
-(defadvice vm-forward-message (around emacspeak pre act)
+(defadvice vm-forward-message (around emacspeak pre act comp)
   "Provide aural feedback."
   (cond
    ((ems-interactive-p)
@@ -337,23 +337,23 @@ Then speak the screenful. "
          ad-do-it))
   ad-return-value)
 
-(defadvice vm-reply (after emacspeak pre act)
+(defadvice vm-reply (after emacspeak pre act comp)
   "Provide aural feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
-(defadvice vm-followup (after emacspeak pre act)
+(defadvice vm-followup (after emacspeak pre act comp)
   "Provide aural feedback."
   (when (ems-interactive-p)
     (message "Folluwing up")
     (emacspeak-speak-mode-line)))
 
-(defadvice vm-reply-include-text (after emacspeak pre act)
+(defadvice vm-reply-include-text (after emacspeak pre act comp)
   "Provide aural feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
-(defadvice vm-followup-include-text (after emacspeak pre act)
+(defadvice vm-followup-include-text (after emacspeak pre act comp)
   "Provide aural feedback."
   (when (ems-interactive-p)
     (message "Following up")
@@ -374,7 +374,7 @@ Then speak the screenful. "
  '(vm-mail vm-mail-from-folder)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Speak."
      (when (ems-interactive-p)
        (let ((dtk-stop-immediately nil))
@@ -384,7 +384,7 @@ Then speak the screenful. "
 ;;}}}
 ;;{{{ quitting
 
-(defadvice vm-quit (after emacspeak pre act)
+(defadvice vm-quit (after emacspeak pre act comp)
   "Provide an auditory icon if requested"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)

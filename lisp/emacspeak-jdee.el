@@ -93,7 +93,7 @@
   (message "%s" (ad-get-arg 0))
   (emacspeak-auditory-icon 'help))
 
-(defadvice jdee-complete-at-point (around emacspeak pre act)
+(defadvice jdee-complete-at-point (around emacspeak pre act comp)
   "Say what you completed."
   (let ((emacspeak-speak-messages nil))
     (when dtk-stop-immediately (dtk-stop))
@@ -310,7 +310,7 @@ If we are on the last call, do nothing."
 ;;}}}
 ;;{{{ camel case deletion
 
-(defadvice jdee-kill-camel-tok (before emacspeak pre act)
+(defadvice jdee-kill-camel-tok (before emacspeak pre act comp)
   "Speak word before killing it."
   (when (ems-interactive-p)
     (dtk-speak

@@ -99,7 +99,7 @@ Cue electric insertion with a tone."
     (message "Marked function containing %s lines."
              (count-lines (point) (mark)))))
 
-(defadvice ess-indent-exp  (after emacspeak pre act)
+(defadvice ess-indent-exp  (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)

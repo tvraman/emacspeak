@@ -49,7 +49,7 @@
 ;;}}}
 ;;{{{  Advise key helpers:
 
-(defadvice gud-display-line (after emacspeak pre act)
+(defadvice gud-display-line (after emacspeak pre act comp)
   "Speak the error line"
   (cl-declare (special gud-overlay-arrow-position))
   (let ((marker gud-overlay-arrow-position))

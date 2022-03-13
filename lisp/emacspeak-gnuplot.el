@@ -99,7 +99,7 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
-(defadvice gnuplot-delchar-or-maybe-eof (around emacspeak pre act)
+(defadvice gnuplot-delchar-or-maybe-eof (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -126,7 +126,7 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice gnuplot-complete-keyword (around emacspeak pre act)
+(defadvice gnuplot-complete-keyword (around emacspeak pre act comp)
   "Say what you completed."
   (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately dtk-stop-immediately))

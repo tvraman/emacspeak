@@ -66,12 +66,12 @@
      (when (ems-interactive-p)
        (emacspeak-speak-char t)))))
 
-(defadvice folding-goto-line (after emacspeak pre act)
+(defadvice folding-goto-line (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice folding-mode (after emacspeak pre act)
+(defadvice folding-mode (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
@@ -84,7 +84,7 @@
    folding-toggle-enter-exit folding-region-open-close
    )do 
  (eval
-  `(defadvice ,f (after emacspeak pre act)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Produce an auditory icon and then speak the line. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)
@@ -97,7 +97,7 @@
    folding-shift-out folding-whole-buffer)
  do
  (eval
-  `(defadvice  ,f (after emacspeak pre act)
+  `(defadvice  ,f (after emacspeak pre act comp)
      "Produce an auditory icon.
 Then speak the folded line."
      (when (ems-interactive-p)
@@ -111,14 +111,14 @@ Then speak the folded line."
    folding-shift-in folding-open-buffer)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Produce an auditory icon.
 Then speak the  line."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon'open-object)
        (emacspeak-speak-line)))))
 
-(defadvice folding-fold-region (after emacspeak pre act)
+(defadvice folding-fold-region (after emacspeak pre act comp)
   "Produce an auditory icon. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)

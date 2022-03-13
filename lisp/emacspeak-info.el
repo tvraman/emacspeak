@@ -144,7 +144,7 @@ node -- speak the entire node."
         Info-next Info-prev)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act)
+  `(defadvice ,f (after emacspeak pre act comp)
      " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
      (when (ems-interactive-p) (emacspeak-info-visit-node)))))
@@ -155,7 +155,7 @@ emacspeak-info-select-node-speak-chunk"
     (emacspeak-auditory-icon 'search-hit)
     (emacspeak-speak-line)))
 
-(defadvice Info-scroll-up (after emacspeak pre act)
+(defadvice Info-scroll-up (after emacspeak pre act comp)
   "Speak the screenful."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
@@ -165,7 +165,7 @@ emacspeak-info-select-node-speak-chunk"
         (forward-line (window-height window))
         (emacspeak-speak-region start (point))))))
 
-(defadvice Info-scroll-down (after emacspeak pre act)
+(defadvice Info-scroll-down (after emacspeak pre act comp)
   "Speak the screenful."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
@@ -175,7 +175,7 @@ emacspeak-info-select-node-speak-chunk"
         (forward-line (window-height window))
         (emacspeak-speak-region start (point))))))
 
-(defadvice Info-exit (after emacspeak pre act)
+(defadvice Info-exit (after emacspeak pre act comp)
   "Play an auditory icon to close info,
 and then cue the next selected buffer."
   (when (ems-interactive-p)
@@ -183,13 +183,13 @@ and then cue the next selected buffer."
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice Info-next-reference (after emacspeak pre act)
+(defadvice Info-next-reference (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice Info-prev-reference (after emacspeak pre act)
+(defadvice Info-prev-reference (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)

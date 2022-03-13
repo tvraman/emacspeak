@@ -55,7 +55,7 @@
 ;;}}}
 ;;{{{  completion 
 
-(defadvice meta-complete-symbol (around emacspeak pre act)
+(defadvice meta-complete-symbol (around emacspeak pre act comp)
   "Say what you completed."
   (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately dtk-stop-immediately))
@@ -75,7 +75,7 @@
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice meta-fill-paragraph (after emacspeak pre act)
+(defadvice meta-fill-paragraph (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
@@ -83,13 +83,13 @@
 
 ;;}}}
 ;;{{{  navigation 
-(defadvice  meta-beginning-of-defun (after emacspeak pre act)
+(defadvice  meta-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice  meta-end-of-defun (after emacspeak pre act)
+(defadvice  meta-end-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -98,7 +98,7 @@
 ;;}}}
 ;;{{{  commenting etc
 
-(defadvice meta-comment-region (after emacspeak pre act)
+(defadvice meta-comment-region (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
@@ -109,7 +109,7 @@
                  "Commented")
                (count-lines (point) (mark 'force))))))
 
-(defadvice meta-comment-defun (after emacspeak pre act)
+(defadvice meta-comment-defun (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
@@ -119,33 +119,33 @@
                  "Commented")
                (count-lines (point) (mark 'force))))))
 
-(defadvice meta-uncomment-defun (after emacspeak pre act)
+(defadvice meta-uncomment-defun (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (message "Uncommented environment containing %s lines"
              (count-lines (point) (mark 'force)))))
 
-(defadvice meta-uncomment-region (after emacspeak pre act)
+(defadvice meta-uncomment-region (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (message "Uncommented  region containing %s lines"
              (count-lines (point) (mark 'force)))))
 
-(defadvice meta-indent-region (after emacspeak pre act)
+(defadvice meta-indent-region (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  region containing %s lines"
              (count-lines (point) (mark 'force)))))
 
-(defadvice meta-indent-buffer (after emacspeak pre act)
+(defadvice meta-indent-buffer (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  buffer containing %s lines"
              (count-lines (point-min) (point-max 'force)))))
 
-(defadvice meta-mark-defun (after emacspeak pre act)
+(defadvice meta-mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)

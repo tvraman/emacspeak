@@ -1003,15 +1003,15 @@ activity within the filter window."
 (defvar eterm-current-personality nil
   "Current personality for eterm. ")
 
-(defadvice term (before emacspeak pre act)
+(defadvice term (before emacspeak pre act comp)
   "Single window please!"
   (delete-other-windows))
 
-(defadvice ansi-term (before emacspeak pre act)
+(defadvice ansi-term (before emacspeak pre act comp)
   "Single window please!"
   (delete-other-windows))
 
-(defadvice term-mode   (after emacspeak pre act)
+(defadvice term-mode   (after emacspeak pre act comp)
   "Customize eterm to work with Emacspeak.
 Additional commands provided by emacspeak under eterm are
 available with the prefix emacspeak-eterm-prefix and are listed below:
@@ -1160,7 +1160,7 @@ When emacspeak eterm is in pointer mode, the eterm read pointer
 stays where it is rather than automatically moving to the terminal cursor when
 there is terminal activity.")
 
-(defadvice term-dynamic-complete (around emacspeak pre act)
+(defadvice term-dynamic-complete (around emacspeak pre act comp)
   "Speak the completion. "
   (cl-declare (special emacspeak-eterm-row term-current-row))
   (let  ((saved-point (point)))
@@ -1173,7 +1173,7 @@ there is terminal activity.")
  '(
    (term-underline voice-brighten-medium)
    ))
-(defadvice term-line-mode (after emacspeak pre act)
+(defadvice term-line-mode (after emacspeak pre act comp)
   "Announce that you entered line mode. "
   (make-local-variable 'eterm-line-mode)
   (setq mode-line-process
@@ -1183,7 +1183,7 @@ there is terminal activity.")
   (when (ems-interactive-p)
     (dtk-speak "Terminal line mode ")))
 
-(defadvice term-char-mode (after emacspeak pre act)
+(defadvice term-char-mode (after emacspeak pre act comp)
   "Announce you entered character mode. "
   (setq mode-line-process
         '("char"))
@@ -1196,32 +1196,32 @@ there is terminal activity.")
 ;;}}}
 ;;{{{  Advice term functions that duplicate functionality of their comint counterparts
 
-(defadvice term-next-input (after emacspeak pre act)
+(defadvice term-next-input (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice term-next-matching-input (after emacspeak pre act)
+(defadvice term-next-matching-input (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice term-previous-input (after emacspeak pre act)
+(defadvice term-previous-input (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice term-previous-matching-input (after emacspeak pre act)
+(defadvice term-previous-matching-input (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defadvice term-send-input (after emacspeak pre act)
+(defadvice term-send-input (after emacspeak pre act comp)
   "Flush any ongoing speech"
   (when (ems-interactive-p)
     (dtk-stop)))
 
-(defadvice term-previous-prompt (after emacspeak pre act)
+(defadvice term-previous-prompt (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
@@ -1229,39 +1229,39 @@ there is terminal activity.")
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
 
-(defadvice term-next-prompt (after emacspeak pre act)
+(defadvice term-next-prompt (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
-(defadvice term-dynamic-list-input-ring (after emacspeak pre act)
+(defadvice term-dynamic-list-input-ring (after emacspeak pre act comp)
   "speak"
   (message  "Switch to the other window to browse the input history "))
 
-(defadvice term-kill-output (after emacspeak pre act)
+(defadvice term-kill-output (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Nuked output of last command ")))
 
-(defadvice term-quit-subjob (after emacspeak pre act)
+(defadvice term-quit-subjob (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (message "Sent quit signal to subjob ")))
 
-(defadvice term-stop-subjob (after emacspeak pre act)
+(defadvice term-stop-subjob (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (message "Stopped the subjob")))
 
-(defadvice term-interrupt-subjob (after emacspeak pre act)
+(defadvice term-interrupt-subjob (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (message "Interrupted  the subjob")))
 
-(defadvice term-kill-input (before emacspeak pre act)
+(defadvice term-kill-input (before emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
     (let ((pmark (process-mark (get-buffer-process (current-buffer)))))
@@ -1269,7 +1269,7 @@ there is terminal activity.")
         (emacspeak-auditory-icon 'delete-object)
         (emacspeak-speak-region  pmark (point))))))
 
-(defadvice term-dynamic-list-filename-completions (after emacspeak pre act)
+(defadvice term-dynamic-list-filename-completions (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (message "Switch to the completions window to browse the possible

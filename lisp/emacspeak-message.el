@@ -198,7 +198,7 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice message-beginning-of-line (before emacspeak pre act)
+(defadvice message-beginning-of-line (before emacspeak pre act comp)
   "Stop speech first."
   (when (ems-interactive-p) (dtk-stop)
         (emacspeak-auditory-icon 'select-object)
@@ -216,7 +216,7 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice message-newline-and-reformat (after emacspeak pre act)
+(defadvice message-newline-and-reformat (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)

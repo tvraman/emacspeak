@@ -127,7 +127,7 @@
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
-(defadvice dired-find-file  (around  emacspeak pre act)
+(defadvice dired-find-file  (around  emacspeak pre act comp)
   "Produce an auditory icon."
   (cond
    ((ems-interactive-p)
@@ -150,7 +150,7 @@
    )
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Speak the filename."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
@@ -162,7 +162,7 @@
                    dired-unmark-backward dired-maybe-insert-subdir)
  do
  (eval
-  `(defadvice ,f  (after emacspeak pre act)
+  `(defadvice ,f  (after emacspeak pre act comp)
      "Speak the filename name."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
@@ -176,19 +176,19 @@
 ;;; We speak the line moved to, and indicate the state change
 ;;; with an auditory icon.
 
-(defadvice dired-mark (after emacspeak pre act)
+(defadvice dired-mark (after emacspeak pre act comp)
   "Produce an auditory icon."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-dired-speak-line)))
 
-(defadvice dired-flag-file-deletion (after emacspeak pre act)
+(defadvice dired-flag-file-deletion (after emacspeak pre act comp)
   "Produce an auditory icon indicating that a file was marked for deletion."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-dired-speak-line)))
 
-(defadvice dired-unmark (after emacspeak pre act)
+(defadvice dired-unmark (after emacspeak pre act comp)
   "Give speech feedback. Also provide an auditory icon."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'deselect-object)

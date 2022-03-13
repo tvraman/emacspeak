@@ -89,7 +89,7 @@
  '(markdown-outdent-or-delete markdown-exdent-or-delete)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act)
+  `(defadvice ,f (around emacspeak pre act comp)
      "Speak character you're deleting."
      (cond
       ((ems-interactive-p)

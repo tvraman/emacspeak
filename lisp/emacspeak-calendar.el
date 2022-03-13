@@ -124,7 +124,7 @@
              (let ((emacspeak-speak-messages (not (ems-interactive-p))))
                ad-do-it))))
 
-(defadvice view-diary-entries (after emacspeak pre act)
+(defadvice view-diary-entries (after emacspeak pre act comp)
   "Speak the diary entries."
   (when (ems-interactive-p)
     (ems-with-messages-silenced
@@ -137,7 +137,7 @@
           (emacspeak-speak-buffer))))
       (t (dtk-speak "No diary entries."))))))
 
-(defadvice  mark-visible-calendar-date (after emacspeak pre act)
+(defadvice  mark-visible-calendar-date (after emacspeak pre act comp)
   "Use voice locking to mark date. "
   (let ((date (ad-get-arg 0)))
     (if (calendar-date-is-valid-p date)
@@ -160,7 +160,7 @@
 (setq calendar-mode-line-format
       emacspeak-calendar-mode-line-format)
 
-(defadvice calendar (after emacspeak pre act)
+(defadvice calendar (after emacspeak pre act comp)
   "Announce yourself."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -172,98 +172,98 @@
     (tts-with-punctuations 'some
                            (emacspeak-speak-mode-line))))
 
-(defadvice calendar-goto-date (after emacspeak pre act)
+(defadvice calendar-goto-date (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date))
   (emacspeak-auditory-icon 'select-object))
 
-(defadvice calendar-goto-today (after emacspeak pre act)
+(defadvice calendar-goto-today (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date))
 
   (emacspeak-auditory-icon 'select-object))
 
-(defadvice calendar-backward-day (after emacspeak pre act)
+(defadvice calendar-backward-day (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice calendar-forward-day (after emacspeak pre act)
+(defadvice calendar-forward-day (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice calendar-backward-week (after emacspeak pre act)
+(defadvice calendar-backward-week (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'paragraph)))
 
-(defadvice calendar-forward-week (after emacspeak pre act)
+(defadvice calendar-forward-week (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'paragraph)))
 
-(defadvice calendar-backward-month (after emacspeak pre act)
+(defadvice calendar-backward-month (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'section)))
 
-(defadvice calendar-forward-month (after emacspeak pre act)
+(defadvice calendar-forward-month (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'section)))
 
-(defadvice calendar-backward-year (after emacspeak pre act)
+(defadvice calendar-backward-year (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice calendar-forward-year (after emacspeak pre act)
+(defadvice calendar-forward-year (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice calendar-beginning-of-week (after emacspeak pre act)
+(defadvice calendar-beginning-of-week (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'paragraph)))
 
-(defadvice calendar-beginning-of-month (after emacspeak pre act)
+(defadvice calendar-beginning-of-month (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'section)))
 
-(defadvice calendar-beginning-of-year (after emacspeak pre act)
+(defadvice calendar-beginning-of-year (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice calendar-end-of-week (after emacspeak pre act)
+(defadvice calendar-end-of-week (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'paragraph)))
 
-(defadvice calendar-end-of-month (after emacspeak pre act)
+(defadvice calendar-end-of-month (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'section)))
 
-(defadvice calendar-end-of-year (after emacspeak pre act)
+(defadvice calendar-end-of-year (after emacspeak pre act comp)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
@@ -272,13 +272,13 @@
          '(exit-calendar calendar-exit calendar-quit)
          do
          (eval
-          `(defadvice ,f (after emacspeak pre act)
+          `(defadvice ,f (after emacspeak pre act comp)
              "Speak modeline. "
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'close-object)
                (emacspeak-speak-mode-line)))))
 
-(defadvice insert-block-diary-entry (before emacspeak pre act)
+(defadvice insert-block-diary-entry (before emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (let*
@@ -307,7 +307,7 @@
   ad-do-it
   (setq emacspeak-calendar-user-input ad-return-value)
   ad-return-value)
-(defadvice insert-anniversary-diary-entry (before emacspeak pre act)
+(defadvice insert-anniversary-diary-entry (before emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -315,7 +315,7 @@
              (calendar-date-string
               (calendar-cursor-to-date)))))
 
-(defadvice insert-cyclic-diary-entry (after emacspeak pre act)
+(defadvice insert-cyclic-diary-entry (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -323,20 +323,20 @@
 %s days"
              emacspeak-calendar-user-input)))
 
-(defadvice insert-diary-entry (after emacspeak pre act)
+(defadvice insert-diary-entry (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-(defadvice insert-weekly-diary-entry (before emacspeak pre act)
+(defadvice insert-weekly-diary-entry (before emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Weekly diary entry for %s"
              (calendar-day-name (calendar-cursor-to-date t)))))
 
-(defadvice insert-yearly-diary-entry (before emacspeak pre act)
+(defadvice insert-yearly-diary-entry (before emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -344,7 +344,7 @@
              (calendar-month-name(cl-first (calendar-cursor-to-date t)))
              (cl-second (calendar-cursor-to-date t)))))
 
-(defadvice insert-monthly-diary-entry (before emacspeak pre act)
+(defadvice insert-monthly-diary-entry (before emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -458,7 +458,7 @@
 
 ;;}}}
 
-(defadvice appt-add (after emacspeak pre act)
+(defadvice appt-add (after emacspeak pre act comp)
   "Confirm that the alarm got set."
   (when (ems-interactive-p)
     (let ((time (ad-get-arg 0))

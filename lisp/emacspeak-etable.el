@@ -69,7 +69,7 @@
 ;;}}}
 ;;{{{ Advice edit commands
 
-(defadvice *table--cell-delete-char (around emacspeak pre act)
+(defadvice *table--cell-delete-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -79,7 +79,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice *table--cell-delete-backward-char (around emacspeak pre act)
+(defadvice *table--cell-delete-backward-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
@@ -104,13 +104,13 @@
       (dtk-stop)
       (emacspeak-speak-this-char last-input-event)))))
 
-(defadvice *table--cell-quoted-insert  (after emacspeak pre act)
+(defadvice *table--cell-quoted-insert  (after emacspeak pre act comp)
   "Speak the character that was inserted."
   (when (ems-interactive-p)
     (table--finish-delayed-tasks)
     (emacspeak-speak-this-char (preceding-char))))
 
-(defadvice *table--cell-newline (before emacspeak pre act)
+(defadvice *table--cell-newline (before emacspeak pre act comp)
   "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo].  Otherwise cue the user to
 the newly created blank line."
@@ -122,7 +122,7 @@ the newly created blank line."
      (t(if dtk-stop-immediately (dtk-stop))
        (dtk-tone 225 120 'force)))))
 
-(defadvice *table--cell-newline-and-indent (around emacspeak pre act)
+(defadvice *table--cell-newline-and-indent (around emacspeak pre act comp)
   "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo].
 Otherwise cue user to the line just created."
@@ -139,7 +139,7 @@ Otherwise cue user to the line just created."
   ad-do-it
   ad-return-value)
 
-(defadvice *table--cell-open-line (after emacspeak pre act)
+(defadvice *table--cell-open-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (let ((count (ad-get-arg 0)))

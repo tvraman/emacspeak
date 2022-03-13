@@ -187,12 +187,12 @@ is a Tcl expression, and the last argument is Tcl commands.")
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)))
 
-(defadvice indent-tcl-exp (after emacspeak pre act)
+(defadvice indent-tcl-exp (after emacspeak pre act comp)
   "Produce an auditory icon"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
-(defadvice tcl-indent-line (after emacspeak pre act)
+(defadvice tcl-indent-line (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-speak-line)))

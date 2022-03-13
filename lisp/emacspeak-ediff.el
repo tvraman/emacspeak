@@ -94,7 +94,7 @@
   "Holds the control buffer for the most recent ediff")
 ;;;Please tell me what control buffer you're using--
 
-(defadvice ediff-setup-control-buffer (after emacspeak pre act)
+(defadvice ediff-setup-control-buffer (after emacspeak pre act comp)
   (setq emacspeak-ediff-control-buffer (ad-get-arg 0)))
 
 (defsubst emacspeak-ediff-control-panel ()
@@ -235,45 +235,45 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
-(defadvice ediff-status-info (after emacspeak pre act)
+(defadvice ediff-status-info (after emacspeak pre act comp)
   "Speak the status information"
   (when (ems-interactive-p)
     (save-current-buffer
       (set-buffer " *ediff-info*")
       (emacspeak-speak-buffer))))
 
-(defadvice ediff-scroll-up (after emacspeak pre act)
+(defadvice ediff-scroll-up (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled up buffers A and B")))
 
-(defadvice ediff-scroll-down (after emacspeak pre act)
+(defadvice ediff-scroll-down (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled down buffers A and B")))
 
-(defadvice ediff-toggle-split (after emacspeak pre act)
+(defadvice ediff-toggle-split (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (if (eq ediff-split-window-function 'split-window-vertically)
         (message "Split ediff windows vertically")
       (message "Split ediff windows horizontally"))))
 
-(defadvice ediff-recenter (after emacspeak pre act)
+(defadvice ediff-recenter (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Refreshed the ediff display")))
 
-(defadvice ediff-jump-to-difference (after emacspeak pre act)
+(defadvice ediff-jump-to-difference (after emacspeak pre act comp)
   "Speak the difference you jumped to"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
-(defadvice ediff-jump-to-difference-at-point (after emacspeak pre act)
+(defadvice ediff-jump-to-difference-at-point (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)

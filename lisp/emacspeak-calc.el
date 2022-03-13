@@ -57,7 +57,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
-(defadvice calc-quit (after emacspeak pre act)
+(defadvice calc-quit (after emacspeak pre act comp)
   "Announce the buffer that becomes current when calc is quit."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
@@ -66,7 +66,7 @@
 ;;}}}
 ;;{{{  speak output 
 
-(defadvice calc-call-last-kbd-macro (around emacspeak pre act)
+(defadvice calc-call-last-kbd-macro (around emacspeak pre act comp)
   "Speak."
   (cond
    ((ems-interactive-p)

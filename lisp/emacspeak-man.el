@@ -72,7 +72,7 @@
 ;;}}}
 ;;{{{  advice interactive commands 
 
-(defadvice  Man-mode (after emacspeak pre act)
+(defadvice  Man-mode (after emacspeak pre act comp)
   "Fixup variables paragraph-start and paragraph-separate.
 Also provide an auditory icon"
   (setq paragraph-start "^[\011\012\014]*$"
@@ -85,61 +85,61 @@ Also provide an auditory icon"
   (emacspeak-pronounce-refresh-pronunciations)
   (emacspeak-auditory-icon 'help))
 
-(defadvice   Man-goto-section  (after emacspeak pre act)
+(defadvice   Man-goto-section  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
-(defadvice   Man-goto-page  (after emacspeak pre act)
+(defadvice   Man-goto-page  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice   Man-next-manpage  (after emacspeak pre act)
+(defadvice   Man-next-manpage  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice   Man-previous-manpage  (after emacspeak pre act)
+(defadvice   Man-previous-manpage  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice Man-next-section (after emacspeak pre act)
+(defadvice Man-next-section (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
-(defadvice Man-previous-section (after emacspeak pre act)
+(defadvice Man-previous-section (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
-(defadvice Man-goto-see-also-section (after emacspeak pre act)
+(defadvice Man-goto-see-also-section (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice Man-quit (after emacspeak pre act)
+(defadvice Man-quit (after emacspeak pre act comp)
   "Announce buffer that is current"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice Man-kill (after emacspeak pre act)
+(defadvice Man-kill (after emacspeak pre act comp)
   "Announce buffer that is current"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice man (after emacspeak pre act)
+(defadvice man (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))

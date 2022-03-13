@@ -75,7 +75,7 @@
 ;;}}}
 ;;{{{ Advice:
 
-(defadvice              bbdb-delete-current-field-or-record (after emacspeak pre act)
+(defadvice              bbdb-delete-current-field-or-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
@@ -84,12 +84,12 @@
         (forward-line 1))
       (emacspeak-speak-line))))
 
-(defadvice bbdb-edit-current-field (before emacspeak pre act)
+(defadvice bbdb-edit-current-field (before emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
-(defadvice bbdb-send-mail (before emacspeak pre act)
+(defadvice bbdb-send-mail (before emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((to (if (consp (ad-get-arg 0))
@@ -105,7 +105,7 @@
                (if  (consp (ad-get-arg 0))
                    " and others " " ")))))
 
-(defadvice bbdb-next-record (after emacspeak pre act)
+(defadvice bbdb-next-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -114,7 +114,7 @@
         (forward-line 1))
       (emacspeak-speak-line))))
 
-(defadvice bbdb-prev-record (after emacspeak pre act)
+(defadvice bbdb-prev-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -123,30 +123,30 @@
         (forward-line 1))
       (emacspeak-speak-line))))
 
-(defadvice bbdb-omit-record (after emacspeak pre act)
+(defadvice bbdb-omit-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
-(defadvice bbdb-bury-buffer (after emacspeak pre act)
+(defadvice bbdb-bury-buffer (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice bbdb-elide-record (after emacspeak pre act)
+(defadvice bbdb-elide-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (message "Toggled  record display")))
 
-(defadvice bbdb-transpose-fields (after emacspeak pre act)
+(defadvice bbdb-transpose-fields (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice bbdb-complete-name (around emacspeak pre act)
+(defadvice bbdb-complete-name (around emacspeak pre act comp)
   "Speak"
   (cl-declare (special completion-reference-buffer))
   (cond
