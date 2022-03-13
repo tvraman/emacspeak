@@ -17,24 +17,24 @@ _defined_voices = {}
 
 # Map from ACSS dimensions to Dectalk settings:
 
-_table ={}
-#family codes:
+_table = {}
+# family codes:
 
 _table['family'] = {
-    'male' : ' :np ',
-    'paul' :  ':np',
-    'man' :  ':nh',
-    'man' : ' :nh ',
-    'dennis' :  ':nd',
-    'frank' :  ':nf',
-    'betty' :  ':nb',
-    'female' : ' :nb ',
-    'ursula' :  ':nu',
-    'wendy' :  ':nw',
-    'rita' :  ':nr',
-    'kid' :  ':nk',
-    'child' : ' :nk '
-    }
+    'male': ' :np ',
+    'paul':  ':np',
+    'man':  ':nh',
+    'man': ' :nh ',
+    'dennis':  ':nd',
+    'frank':  ':nf',
+    'betty':  ':nb',
+    'female': ' :nb ',
+    'ursula':  ':nu',
+    'wendy':  ':nw',
+    'rita':  ':nr',
+    'kid':  ':nk',
+    'child': ' :nk '
+}
 
 # average-pitch :
 # Average pitch for standard male voice is 122hz --this is mapped to
@@ -44,13 +44,15 @@ _table['family'] = {
 # We change parameter head-size in conjunction with average pitch to
 # produce a more natural change on the Dectalk.
 
-#male average pitch
+# male average pitch
+
 
 def _update_map(table, key, format,  settings):
     """Internal function to update acss->synth mapping."""
-    table[key] ={}
-    for setting  in  settings:
+    table[key] = {}
+    for setting in settings:
         _table[key][setting[0]] = format % setting[1:]
+
 
 _male_ap = [
     (0, 96, 115),
@@ -67,7 +69,7 @@ _male_ap = [
 _update_map(_table, ('male', 'average-pitch'),
             " ap %s hs %s ",  _male_ap)
 
-#Man  has a big head --and a lower pitch for the middle setting
+# Man  has a big head --and a lower pitch for the middle setting
 _man_ap = [
     (0, 50, 125),
     (1, 59, 123),
@@ -79,10 +81,10 @@ _man_ap = [
     (7, 110, 105),
     (8, 125, 100),
     (9, 140, 95)
-    ]
+]
 
-_update_map(_table,('man', 'average-pitch'),
-            " ap %s hs %s ",_man_ap)
+_update_map(_table, ('man', 'average-pitch'),
+            " ap %s hs %s ", _man_ap)
 
 _female_ap = [
     (0, 160, 115),
@@ -95,10 +97,10 @@ _female_ap = [
     (7, 225, 96),
     (8, 240, 94),
     (9, 260, 91)
-    ]
+]
 
 _update_map(_table, ('female', 'average-pitch'),
-            " ap %s hs %s ",_female_ap)
+            " ap %s hs %s ", _female_ap)
 
 # pitch-range for male:
 
@@ -120,7 +122,7 @@ _male_pr = [
     (7, 174, 70),
     (8, 211, 80),
     (9, 250, 100),
-    ]
+]
 
 _update_map(_table, ('male', 'pitch-range'),
             " pr %s as %s ", _male_pr)
@@ -136,7 +138,7 @@ _man_pr = [
     (7, 174, 100),
     (8, 211, 100),
     (9, 250, 100)
-    ]
+]
 
 _update_map(_table, ('man', 'pitch-range'),
             " pr %s as %s ", _man_pr)
@@ -152,7 +154,7 @@ _female_pr = [
     (7, 190, 75),
     (8, 220, 87),
     (9, 250, 100)
-    ]
+]
 
 _update_map(_table, ('female', 'pitch-range'),
             " pr %s as %s ", _female_pr)
@@ -169,7 +171,7 @@ _update_map(_table, ('female', 'pitch-range'),
 # frequency targets are completely achieved in the phonetic transitions.
 
 
-_male_stress =[
+_male_stress = [
     (0, 0, 0, 0, 0),
     (1, 3, 6, 20, 3),
     (2, 6, 12, 40, 6),
@@ -196,7 +198,7 @@ _man_stress = [
     (7, 60, 66, 54, 22),
     (8, 80, 78, 77, 34),
     (9, 100, 100, 100, 40)
-    ]
+]
 
 
 _update_map(_table, ('man', 'stress'),
@@ -214,12 +216,12 @@ _female_stress = [
     (8, 77, 90, 85, 30),
     (9, 100, 100, 100, 40)
 
-    ]
+]
 
 _update_map(_table, ('female', 'stress'),
             " hr %s sr %s qu %s bf %s ", _female_stress)
 
-#richness
+# richness
 
 # Smoothness and richness vary inversely.
 # a  maximally smooth voice produces a quieter effect
@@ -233,14 +235,14 @@ _male_richness = [
     (3, 42, 40),
     (4, 56, 30),
     (5, 70, 28),
-    (6, 60, 24 ),
+    (6, 60, 24),
     (7, 70, 16),
     (8, 80, 8),
     (9, 100, 0)
-    ]
+]
 
 _update_map(_table, ('male', 'richness'),
-            " ri %s sm %s " ,_male_richness)
+            " ri %s sm %s ", _male_richness)
 
 _man_richness = [
     (0, 100, 0),
@@ -253,55 +255,66 @@ _man_richness = [
     (7, 40, 44),
     (8, 20, 65),
     (9, 0, 70)
-    ]
+]
 
 _update_map(_table, ('man', 'richness'),
-            " ri %s sm %s " , _man_richness)
+            " ri %s sm %s ", _man_richness)
 
 _female_richness = [
     (0, 0, 100),
     (1, 8, 76),
     (2, 16, 52),
-    (3, 24,28),
+    (3, 24, 28),
     (4, 32, 10),
     (5, 40, 4),
     (6, 50, 3),
     (7, 65, 3),
     (8, 80,  2),
     (9, 100, 0)
-    ]
+]
 
 _update_map(_table, ('female', 'richness'),
             " ri %s sm %s ", _female_richness)
-def getrate(r):    return 180 + 4*r
+
+
+def getrate(r): return 180 + 4*r
+
 
 def getvoicelist(): return _table['family'].keys()
+
 
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
     specified  ACSS setting.
     Synthesizer code is a tupple of the form (open,close)
     where open sets the voice, and close resets it."""
-    
-    name=acss.name()
-    if name in _defined_voices: return _defined_voices[name]
-    _defined_voices[name] =acss2voice(acss)
+
+    name = acss.name()
+    if name in _defined_voices:
+        return _defined_voices[name]
+    _defined_voices[name] = acss2voice(acss)
     return _defined_voices[name]
+
 
 def acss2voice(acss):
     """Return synthesizer code."""
     code = ""
-    family ='male'
-    if 'family'in acss:
+    family = 'male'
+    if 'family' in acss:
         family = acss['family']
         code += _table['family'][family]
-    if 'rate' in acss: code += " :ra %s" % getrate(acss['rate'])
-    if 'punctuations' in acss: code += " :punc %s" %acss['punctuations']
+    if 'rate' in acss:
+        code += " :ra %s" % getrate(acss['rate'])
+    if 'punctuations' in acss:
+        code += " :punc %s" % acss['punctuations']
     voice = ""
     dv = ""
     for d in ['average-pitch', 'pitch-range',
               'richness', 'stress']:
-        if d in acss:voice += _table[(family, d)][acss[d]]
-    if voice: dv = " :dv %s" % voice
-    if code or voice: code = "[%s  %s]" % (code, dv)
+        if d in acss:
+            voice += _table[(family, d)][acss[d]]
+    if voice:
+        dv = " :dv %s" % voice
+    if code or voice:
+        code = "[%s  %s]" % (code, dv)
     return (code, " [:np] ")

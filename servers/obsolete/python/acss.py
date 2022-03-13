@@ -13,44 +13,46 @@ __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "LGPL"
 
+
 class ACSS(dict):
 
     """Holds ACSS representation of a voice."""
 
     settings = {
-                'family' : None,
-                'rate' : 50,
-                'gain' : 5,
-                'average-pitch' : 5,
-                'pitch-range' : 5, 
-                'stress' : 5,
-                'richness' : 5,
-                'punctuations' : 'all'
-                }
+        'family': None,
+        'rate': 50,
+        'gain': 5,
+        'average-pitch': 5,
+        'pitch-range': 5,
+        'stress': 5,
+        'richness': 5,
+        'punctuations': 'all'
+    }
 
-    def __init__(self,props={}):
+    def __init__(self, props={}):
         """Create and initialize ACSS structure."""
         for k in props:
-            if k in ACSS.settings: self[k] = props[k]
+            if k in ACSS.settings:
+                self[k] = props[k]
         self.updateName()
 
-    def __setitem__ (self, key, value):
+    def __setitem__(self, key, value):
         """Update name when we change values."""
         dict.__setitem__(self, key, value)
         self.updateName()
 
     def __delitem__(self, key):
         """Update name if we delete a key."""
-        dict.__delitem__(self,key)
+        dict.__delitem__(self, key)
         self.updateName()
-    
+
     def updateName(self):
         """Update name based on settings."""
-        _name='acss-'
+        _name = 'acss-'
         names = self.keys()
         if names:
             names.sort()
-            for  k in names:
+            for k in names:
                 _name += "%s-%s:" % (k, self[k])
         self._name = _name[:-1]
 

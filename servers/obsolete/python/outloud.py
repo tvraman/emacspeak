@@ -16,30 +16,32 @@ __license__ = "LGPL"
 _defined_voices = {}
 
 # Map from ACSS dimensions to Outloud settings:
+
+
 def _update_map(table, key, format,  settings):
     """Internal function to update acss->synth mapping."""
-    table[key] ={}
-    for setting  in  settings:
+    table[key] = {}
+    for setting in settings:
         _table[key][setting[0]] = format % setting[1:]
 
 
-_table ={}
-#family codes:
+_table = {}
+# family codes:
 
 _table['family'] = {
-    'paul' :   " `v1 ",
-    'male' :   " `v1 ",
-    'harry' :  " `v1 `vh65 `vb50 ",
-    'man' :  " `v1 `vh65 `vb50 ",
-    'dennis' :  " `v1  `vb0 ",
-    'frank' :  " `v1 `vr100 ",
-    'betty' :  " `v7 ",
-    'female' :  " `v7 ",
-    'ursula' :  " `v2 ",
-    'rita' :  " `v2 `vr100 ",
-    'wendy' :  " `v2 `vy50 ",
-    'kit' :  " `v3 ",
-'child' :  " `v3 "
+    'paul':   " `v1 ",
+    'male':   " `v1 ",
+    'harry':  " `v1 `vh65 `vb50 ",
+    'man':  " `v1 `vh65 `vb50 ",
+    'dennis':  " `v1  `vb0 ",
+    'frank':  " `v1 `vr100 ",
+    'betty':  " `v7 ",
+    'female':  " `v7 ",
+    'ursula':  " `v2 ",
+    'rita':  " `v2 `vr100 ",
+    'wendy':  " `v2 `vy50 ",
+    'kit':  " `v3 ",
+    'child':  " `v3 "
 }
 # Average pitch for standard male voice is 65 --this is mapped to
 # a setting of 5.
@@ -48,7 +50,7 @@ _table['family'] = {
 # We change parameter head-size in conjunction with average pitch to
 # produce a more natural change on the TTS engine.
 
-#male average pitch
+# male average pitch
 
 _male_ap = [
     (0, 0, 90),
@@ -61,12 +63,12 @@ _male_ap = [
     (7, 83, 30, ),
     (8, 87, 26),
     (9, 92, 21)
-    ]
+]
 
 _update_map(_table, ('male', 'average-pitch'),
             " `vb%s `vh%s ",  _male_ap)
 
-#Harry  has a big head --and a lower pitch for the middle setting
+# Harry  has a big head --and a lower pitch for the middle setting
 _man_ap = [
     (0, 0, 90),
     (1, 10, 85, ),
@@ -78,11 +80,11 @@ _man_ap = [
     (7, 70, 40, ),
     (8, 80, 30),
     (9, 90, 20)
-    ]
+]
 
-_update_map(_table,('man', 'average-pitch'),
-            " `vb%s `vh% s",_man_ap)
-#defalt baseline is average pitch of 81
+_update_map(_table, ('man', 'average-pitch'),
+            " `vb%s `vh% s", _man_ap)
+# defalt baseline is average pitch of 81
 
 _female_ap = [
     (0, 5, 70),
@@ -94,11 +96,11 @@ _female_ap = [
     (6, 85, 55),
     (7, 89, 60),
     (8, 93, 65),
-(9, 97, 69)
-    ]
+    (9, 97, 69)
+]
 
 _update_map(_table, ('female', 'average-pitch'),
-            " `vb%s `vh% s",_female_ap)
+            " `vb%s `vh% s", _female_ap)
 
 # pitch-range for male:
 
@@ -110,17 +112,17 @@ _update_map(_table, ('female', 'average-pitch'),
 
 
 _male_pr = [
-    (0,0),
-    (1,5),
-    (2,15),
-    (3,20),
-    (4,25),
-    (5,30),
-    (6,47),
-    (7,64),
-    (8,81),
-    (9,100)
-    ]
+    (0, 0),
+    (1, 5),
+    (2, 15),
+    (3, 20),
+    (4, 25),
+    (5, 30),
+    (6, 47),
+    (7, 64),
+    (8, 81),
+    (9, 100)
+]
 
 _update_map(_table, ('male', 'pitch-range'),
             " `vf%s  ", _male_pr)
@@ -135,8 +137,8 @@ _man_pr = [
     (6, 47),
     (7, 64),
     (8, 81),
-(9, 100)
-    ]
+    (9, 100)
+]
 
 _update_map(_table, ('man', 'pitch-range'),
             " `vf%s  ", _man_pr)
@@ -152,7 +154,7 @@ _female_pr = [
     (7, 64),
     (8, 81),
     (9, 100)
-    ]
+]
 
 _update_map(_table, ('female', 'pitch-range'),
             " `vf%s  ", _female_pr)
@@ -160,7 +162,7 @@ _update_map(_table, ('female', 'pitch-range'),
 # Stress:
 # On the outloud we map stress to roughness
 
-_male_stress =[
+_male_stress = [
     (0, 0),
     (1, 5),
     (2, 10),
@@ -171,20 +173,20 @@ _male_stress =[
     (7, 35),
     (8, 40),
     (9, 45)
-    ]
+]
 
 _update_map(_table, ('male', 'stress'),
             " `vr%s  ", _male_stress)
 
-#Same stress values work for female and man:
+# Same stress values work for female and man:
 
 _update_map(_table, ('man', 'stress'),
             " `vr%s  ", _male_stress)
-  
+
 _update_map(_table, ('female', 'stress'),
             " `vr%s  ", _male_stress)
 
-#richness
+# richness
 
 # Smoothness and richness vary inversely.
 # a  maximally smooth voice produces a quieter effect
@@ -202,15 +204,15 @@ _male_richness = [
     (7, 28, 95),
     (8, 32, 97, ),
     (9, 36, 100)
-    ]
-                  
-_update_map(_table, ('male', 'richness'),
-            " `vy%s  `vv%s " ,_male_richness)
+]
 
-#same settings work for man and female:
+_update_map(_table, ('male', 'richness'),
+            " `vy%s  `vv%s ", _male_richness)
+
+# same settings work for man and female:
 
 _update_map(_table, ('man', 'richness'),
-            " `vy%s  `vv%s " , _male_richness)
+            " `vy%s  `vv%s ", _male_richness)
 
 _update_map(_table, ('female', 'richness'),
             " `vy%s  `vv%s ", _male_richness)
@@ -218,32 +220,40 @@ _update_map(_table, ('female', 'richness'),
 # getrate is here for symmetry with other engines:
 # In the case of outloud, we dont need to normalize
 
+
 def getrate(r): return r
 
+
 def getvoicelist(): return _table['family'].keys()
+
 
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
     specified  ACSS setting.
     Synthesizer code is a tupple of the form (open,close)
     where open sets the voice, and close resets it."""
-    
-    name=acss.name()
-    if name in _defined_voices: return _defined_voices[name]
-    _defined_voices[name] =acss2voice(acss)
+
+    name = acss.name()
+    if name in _defined_voices:
+        return _defined_voices[name]
+    _defined_voices[name] = acss2voice(acss)
     return _defined_voices[name]
+
 
 def acss2voice(acss):
     """Return synthesizer code."""
     code = ""
-    family ='male'
-    if 'family'in acss:
+    family = 'male'
+    if 'family' in acss:
         family = acss['family']
         code += _table['family'][family]
-    if 'rate' in acss: code += " `vs%s" % acss['rate']
+    if 'rate' in acss:
+        code += " `vs%s" % acss['rate']
     voice = ""
     for d in ['average-pitch', 'pitch-range',
               'richness', 'stress']:
-        if d in acss:voice += _table[(family, d)][acss[d]]
-    if code or voice: code = "%s %s" % (code, voice)
+        if d in acss:
+            voice += _table[(family, d)][acss[d]]
+    if code or voice:
+        code = "%s %s" % (code, voice)
     return (code, " `v1 ")
