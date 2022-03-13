@@ -146,7 +146,7 @@ Use Custom to customize where possible. "
   (add-hook 'python-mode-hook
             #'(lambda nil
                 (elpy-enable)
-                (define-key elpy-mode-map (ems-kbd "C-c C-a") 'elpy-autopep8-fix-code)))
+                (define-key elpy-mode-map (ems-kbd "C-c C-a") 'elpy-format-code)))
   (setq outline-minor-mode-prefix "\C-co")
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
