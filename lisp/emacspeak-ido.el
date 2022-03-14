@@ -88,7 +88,7 @@
       (if (bound-and-true-p ido--overlay)
           (overlay-get ido--overlay 'after-string)
         (minibuffer-contents))
-      (format " %d choices: " (1- (length ido-matches)))
+      (format " %d choices: "  (length ido-matches))
       (if(or (null ido-current-directory)
              (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
           " "
