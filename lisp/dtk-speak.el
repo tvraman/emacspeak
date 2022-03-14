@@ -417,7 +417,8 @@ specifies the current pronunciation mode --- See
   "Match capitalized or upper-case words.")
 
 (defcustom dtk-caps-prefix
-  (propertize  " cap " 'personality 'acss-p3-s1-r3)
+  
+  (propertize  "cap" 'personality 'acss-s4-r6)
   "Prefix used to indicate capitalization":type 'string
   :group 'tts
   :set #'(lambda (sym val)
@@ -425,7 +426,8 @@ specifies the current pronunciation mode --- See
                         (propertize  val 'personality 'acss-p3-s1-r3))))
 
 (defcustom dtk-allcaps-prefix
-  (propertize  " acc " 'personality 'acss-p3-s1-r3)
+  
+  (propertize  " acc " 'personality 'acss-s4-r6)
   "Prefix used to indicate AllCaps"
   :type 'string
   :group 'tts
