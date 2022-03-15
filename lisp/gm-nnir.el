@@ -151,7 +151,9 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax.
      ((gnus-group-group-name)           ; Search current group
       (gnus-group-make-nnir-group
        nil                              ; no extra params needed
-       `(nnir-specs (nnir-query-spec (query ,q)))))
+       `(nnir-specs (nnir-query-spec (query ,q))))
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-mode-line))
      (t (error "Not on a group.")))))
 
 ;;}}}
