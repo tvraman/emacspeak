@@ -559,7 +559,7 @@ name of the list.")
 
 (emacspeak-url-template-define
  "CNN Market Data "
- "http://money.cnn.com/markets/data/"
+ "https://money.cnn.com/data/markets/"
  nil
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))
