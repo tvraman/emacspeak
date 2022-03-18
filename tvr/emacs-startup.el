@@ -145,8 +145,7 @@ Use Custom to customize where possible. "
                        outline-minor-mode-prefix))
   (add-hook 'python-mode-hook
             #'(lambda nil
-                (elpy-enable)
-                (define-key elpy-mode-map (ems-kbd "C-c C-a") 'elpy-format-code)))
+                (elpy-enable)))
   (setq outline-minor-mode-prefix "\C-co")
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
@@ -191,7 +190,7 @@ Use Custom to customize where possible. "
     (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
-  (make-thread #'(lambda nil (load "eww")))
+  (funcall #'(lambda nil (load "eww")))
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
