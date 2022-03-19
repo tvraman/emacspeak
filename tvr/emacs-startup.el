@@ -190,7 +190,7 @@ Use Custom to customize where possible. "
     (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
-  (funcall #'(lambda nil (load "eww")))
+  (make-thread #'(lambda nil (load "eww")))
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
