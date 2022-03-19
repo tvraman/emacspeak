@@ -269,7 +269,6 @@ proc l {text} {
         # Use a relative pitch adjustment.  +70% seems goodafter some testing.
         set prefix "$prefix <prosody pitch=\"+70%\">"
     }
-    set tts(not_stopped) 1
     # TBD: say-as, format attribute: instead of characters/glyphs, define "word"
     synth "$prefix <say-as interpret-as=\"characters\" format=\"characters\">$text"
     service
@@ -292,14 +291,11 @@ proc tts_pause {} {
 
 proc s {} {
     global tts
-
-
-    if {$tts(not_stopped) == 1} {
-
-
+    if ($tts(not_stopped) == 1) {
         set tts(not_stopped) 0
         stop
         queue_clear
+        set tts(not_stopped) 1
     } else {
         puts stderr StopNoOp
     }
@@ -422,7 +418,6 @@ proc speech_task {} {
     global queue tts
 
     set tts(talking?) 1
-    set tts(not_stopped) 1
     set length [queue_length]
 
     set prefix ""
@@ -440,7 +435,7 @@ proc speech_task {} {
             }
             c {
                 set text  [lindex $event 1]
-set prefix "$text"
+                set prefix "$text"
                 synth "$text"
                 set retval ""
             }
@@ -457,8 +452,7 @@ set prefix "$text"
                 }
             }
             r {
-
-# The first argument to setRate is ignored.
+                # The first argument to setRate is ignored.
                 setRate 0 [lindex  $event 1]
             }
         }
