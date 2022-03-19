@@ -258,7 +258,7 @@ proc set_previous_lang {say_it} {
 
 # select a new synth language
 # set_lang "en"
-proc set_lang {{name "en"} {voice ""} {say_it "nil"}} {
+proc set_lang {{name "en"} {say_it "nil"}} {
     global langsynth
     global langalias
 global langlabel

@@ -453,13 +453,12 @@ Uses a 5ms fade-in and fade-out. "
           (not dtk-speak-server-initialized))
     (dtk-interp-tone pitch duration force)))
 
-(defun dtk-set-language (lang &optional synth-voice)
-  "Set language and, optionally, the synthizer voice."
-  (interactive "sEnter language: \nsEnter synthizer voice (Enter nothing for no change for this language): \n")
+(defun dtk-set-language (lang)
+  "Set language."
+  (interactive "sEnter language: \n")
   (cl-declare (special dtk-speak-server-initialized))
-  (unless synth-voice (setq synth-voice ""))
   (when dtk-speak-server-initialized
-    (dtk-interp-language lang synth-voice (called-interactively-p 'interactive))))
+    (dtk-interp-language lang (called-interactively-p 'interactive))))
 
 (defun dtk-set-next-language ()
   "Switch to  next  language"
@@ -2014,10 +2013,10 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (process-send-string dtk-speaker-process
                        (format "set_previous_lang %s\n" say_it)))
 
-(defsubst dtk-interp-language (language synth_voice say_it)
+(defsubst dtk-interp-language (language say_it)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                       (format "set_lang %s %S %s \n" language synth_voice say_it)))
+                       (format "set_lang %s %s \n" language say_it)))
 
 (defsubst dtk-interp-preferred-language (alias language)
   (cl-declare (special dtk-speaker-process))
