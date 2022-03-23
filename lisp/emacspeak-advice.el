@@ -793,38 +793,31 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (with-eval-after-load "eldoc"
   (global-eldoc-mode -1)
-  (setq eldoc-idle-delay 3))
-
-(defvar emacspeak-eldoc-speak-explicitly
-  (not (tts-multistream-p dtk-program))
-  "Set to T if not using a separate TTS notification stream.")
+  (setq eldoc-idle-delay 10))
 
 (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
+
+(defvar-local emacspeak-eldoc-message nil
+  "Our cache of eldoc message.")
 
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."
 ;;; eldoc flashes message temporarily, we speak from cache."
   (ems-with-messages-silenced
-   (let ((cached-message eldoc-last-message))
-     ad-do-it
-     (when
-         (and eldoc-last-message
-              emacspeak-eldoc-speak-explicitly
-              (not (string-equal cached-message eldoc-last-message)))
-       (dtk-speak-and-echo eldoc-last-message))
-     ad-return-value)))
+      (let ((cached-message (ad-get-arg 0)))
+        ad-do-it
+        (dtk-speak-and-echo cached-message)
+        (setq emacspeak-eldoc-message cached-message)
+        ad-return-value)))
 
 (defun emacspeak-eldoc-speak-doc ()
   "Speak Eldoc documentation if available."
   (interactive)
-  (cl-declare (special eldoc-documentation-function))
-  (cond
-   (eldoc-documentation-function
-    (tts-with-punctuations
-     'all
-     (dtk-speak-and-echo
-      (or (funcall eldoc-documentation-function) "No ElDoc here "))))
-   (t (message "No ElDoc here. "))))
+  (cl-declare (special emacspeak-eldoc-message))
+  (tts-with-punctuations
+      'all
+    (dtk-speak-and-echo
+     (or  emacspeak-eldoc-message "No eldoc here\""))))
 
 (defadvice ange-ftp-process-handle-hash (around emacspeak pre act comp)
   "Jibber intelligently."
