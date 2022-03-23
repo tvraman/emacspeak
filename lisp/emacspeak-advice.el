@@ -802,22 +802,17 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."
-;;; eldoc flashes message temporarily, we speak from cache."
-  (ems-with-messages-silenced
       (let ((cached-message (ad-get-arg 0)))
         ad-do-it
-        (dtk-speak-and-echo cached-message)
         (setq emacspeak-eldoc-message cached-message)
-        ad-return-value)))
+        ad-return-value))
 
 (defun emacspeak-eldoc-speak-doc ()
-  "Speak Eldoc documentation if available."
+  "Speak cached Eldoc documentation if available."
   (interactive)
   (cl-declare (special emacspeak-eldoc-message))
-  (tts-with-punctuations
-      'all
-    (dtk-speak-and-echo
-     (or  emacspeak-eldoc-message "No eldoc here\""))))
+  (tts-with-punctuations 'all
+    (dtk-speak-and-echo (or  emacspeak-eldoc-message "No eldoc here"))))
 
 (defadvice ange-ftp-process-handle-hash (around emacspeak pre act comp)
   "Jibber intelligently."
