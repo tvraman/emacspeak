@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 27, 2022.
+last updated on March 23, 2022.
 
 
 File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
@@ -1059,7 +1059,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' t:                                 soundscape.         (line  108)
 * C-' u:                                 soundscape.         (line  119)
 * C-' v:                                 extra-muggles.      (line  231)
-* C-, ,:                                 emacspeak-advice.   (line   21)
 * C-, /:                                 extra-muggles.      (line  291)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
@@ -1488,7 +1487,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-h \:                                 emacspeak-wizards.  (line  333)
 * C-M-y:                                 emacspeak-muggles.  (line   64)
-* C-x @ a ,:                             emacspeak-advice.   (line   22)
 * C-x @ a /:                             extra-muggles.      (line  292)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)

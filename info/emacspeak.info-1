@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 27, 2022.
+last updated on March 23, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3826,10 +3826,8 @@ forms not needed in Emacs 22.
 ...................................
 
  -- Command: emacspeak-eldoc-speak-doc
-     ‘C-, ,’
-     ‘C-x @ a ,’
 
-     Speak Eldoc documentation if available.
+     Speak cached Eldoc documentation if available.
 
 12.11.2 emacspeak-advice Options
 --------------------------------

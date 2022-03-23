@@ -802,10 +802,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."
-      (let ((cached-message (ad-get-arg 0)))
         ad-do-it
-        (setq emacspeak-eldoc-message cached-message)
-        ad-return-value))
+        (setq emacspeak-eldoc-message (ad-get-arg 0))
+        ad-return-value)
 
 (defun emacspeak-eldoc-speak-doc ()
   "Speak cached Eldoc documentation if available."

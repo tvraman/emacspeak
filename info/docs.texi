@@ -1204,17 +1204,10 @@ not needed in Emacs 22.
 
 @subsubsection emacspeak-eldoc-speak-doc
 @deffn {Command} emacspeak-eldoc-speak-doc   
-@table @kbd
-@item C-, ,
-@kindex C-, ,
-@item C-x @@ a ,
-@kindex C-x @@ a ,
-@end table
-
 @findex emacspeak-eldoc-speak-doc
 
 @format
-Speak Eldoc documentation if available.
+Speak cached Eldoc documentation if available.
 @end format
 @end deffn
 
