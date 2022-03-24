@@ -1,16 +1,16 @@
-#!/usr/bin/python
+#!/usr/local/bin/python3
 # E-Mac-Speak
 # Emacspeak on Mac.
 
 __author__ = "David Tseng, Bart Bunting"
 
 import aifc
+import io
 import math
 import mmap
 import os
 import platform
 import re
-import StringIO
 import subprocess
 import sys
 import tempfile
@@ -196,7 +196,7 @@ class FileObserver(NSObject):
     else:
       self.fileHandle.readInBackgroundAndNotify()
       if self.readCallback is not None:
-        self.readCallback(self, str(newData))
+        self.readCallback(self, newData.decode('utf-8'))
 
   def close(self):
     self.nc.removeObserver_(self)
@@ -224,7 +224,7 @@ def gotLine(observer, aLine):
     AppHelper.stopEventLoop()
 
 def gotError(observer, err):
-  print "error:", err
+  print("error:", err)
   AppHelper.stopEventLoop()
 
 def writeDebugLog(level, output):
@@ -237,7 +237,7 @@ def writeDebugLog(level, output):
       DEBUGFILE.write("\n" + output)
       # Write debug messages to STDOUT if requested as well
       if debugToSTDOUT:
-        print output + "\n"
+        print(output + "\n")
     DEBUGFILE.flush()
 
 
@@ -305,10 +305,7 @@ class _ProtocolHandler:
     output = prefix + " " + output + " " + suffix
     writeDebugLog(4, "about to speak letter: " + output + "\n")
     # Send directly to TTS to avoid any line processing.
-    try:
-      speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
-    except:
-      pass
+    speechSynthesizer.startSpeakingString_(output)
 
   def handleQueueCode(self, args):
     global codeQueue
@@ -345,7 +342,7 @@ class _ProtocolHandler:
     frequencyWave = 2 * math.pi * frequency / frameRate
     # frequencyWave is measured in radians per sample
 
-    f = StringIO.StringIO()
+    f = io.BytesIO()
     e = aifc.open(f, 'w')
     e.setnchannels(1)
     e.setsampwidth(2)
@@ -361,12 +358,9 @@ class _ProtocolHandler:
 
   def handleTtsSay(self, args):
     self.handleStopSpeaking(None)
-    try:
-      speechSynthesizer.startSpeakingString_(
+    speechSynthesizer.startSpeakingString_(
           '[[rate %i]] %s' % (ttsState['sayRate'],
                           args.replace('[*]','[[slnc 50 ]]')))
-    except:
-      pass
 
   def handleTtsSelftest(self, args):
     samples = ["phaser 0.8 0.74 3.0 0.4 0.5 -t",
@@ -453,18 +447,18 @@ class _ProtocolHandler:
       spaceArg = matcher.group('spaceArg')
 
       # Send off to the handler.
-      if id and self.protocolIdToHandlerMap.has_key(id):
+      if id and id in self.protocolIdToHandlerMap:
         self.protocolIdToHandlerMap[id](None)
       elif (
         blockId and
-        self.protocolIdToHandlerMap.has_key(blockId)):
+        blockId in self.protocolIdToHandlerMap):
         self.protocolIdToHandlerMap[blockId](blockArg)
       elif (
         spaceId and
-        spaceArg and self.protocolIdToHandlerMap.has_key(spaceId)):
+        spaceArg and spaceId in self.protocolIdToHandlerMap):
         self.protocolIdToHandlerMap[spaceId](spaceArg)
       else:
-        print "unable to parse"
+        print("unable to parse")
         writeDebugLog(
           4, "Error! unsupported message id:%s, blockId:%s, blockArg:%s, spaceId:%s, spaceArg:%s" % (
           id, blockId, blockArg, spaceId, spaceArg))
@@ -576,11 +570,8 @@ def processSpeechQueue():
       output = item[1].strip(" {}")
       if output:
         speechSynthesizer.setRate_(ttsState['speechRate'])
-        try:
-          speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
-          writeDebugLog(2, "\nsay: " + output + "\nend\n")
-        except:
-          pass
+        speechSynthesizer.startSpeakingString_(output)
+        writeDebugLog(2, "\nsay: " + output + "\nend\n")
       else:
         processSpeechQueue()
 
@@ -608,10 +599,7 @@ def processSpeechQueue():
       writeDebugLog(4, "rendering text clip" + str(output))
       speechSynthesizer.setRate_(ttsState['speechRate'])
       if not enableSox:
-        try:
-          speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
-        except:
-          pass
+        speechSynthesizer.startSpeakingString_(output)
       else:
         if speechSynthesizer.startSpeakingString_toURL_(
 output, speechOutUrl) and output not in renderingBlacklist:
@@ -697,7 +685,7 @@ def main():
     AppHelper.runConsoleEventLoop()
   except KeyboardInterrupt:
     writeDebugLog(2, "\nKeyboard interrupt")
-  except Exception, err:
+  except Exception as err:
     writeDebugLog(2, "Server crashed:%s" % err)
 
 if __name__ == '__main__':
