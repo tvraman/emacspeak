@@ -800,8 +800,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (dtk-speak (buffer-string)))))
 
 (with-eval-after-load "eldoc"
-  (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument
-                                  'voice-bolden)
+  (remove-hook 'eldoc-display-functions #'eldoc-display-in-echo-area)
   (add-hook 'eldoc-display-functions #'eldoc-display-in-buffer)
   (add-hook 'eldoc-display-functions #'emacspeak-speak-eldoc))
 
