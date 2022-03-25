@@ -796,11 +796,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (emacspeak-auditory-icon 'help)
   (when interactive 
     (with-temp-buffer 
-      (setq-local eldoc--doc-buffer-docs docs)
       (let ((inhibit-read-only t)
             (things-reported-on))
         (erase-buffer)
-        (setq buffer-read-only t)
         (cl-loop for (docs . rest) on docs
                  for (this-doc . plist) = docs
                  for thing = (plist-get plist :thing)
@@ -815,7 +813,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                  do (insert this-doc)
                  when rest do (insert "\n")
                  finally (goto-char (point-min)))
-        (dtk-speak (buffer-string))))))
+            (dtk-speak (buffer-string))))))
 
 (with-eval-after-load "eldoc"
   (add-hook 'eldoc-display-functions 'emacspeak-speak-eldoc)
