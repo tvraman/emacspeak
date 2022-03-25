@@ -791,33 +791,19 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (when (bufferp ad-return-value)
       (dtk-speak (format "Displayed message in buffer  %s" buffer-name)))))
 ;;; cloned from eldoc--format-doc-buffer
-(defun emacspeak-speak-eldoc   (docs interactive)
+(defun emacspeak-speak-eldoc (_docs interactive)
   "Speak eldoc."
+  (cl-declare (special eldoc--doc-buffer))
   (emacspeak-auditory-icon 'help)
-  (when interactive 
-    (with-temp-buffer 
-      (let ((inhibit-read-only t)
-            (things-reported-on))
-        (erase-buffer)
-        (cl-loop for (docs . rest) on docs
-                 for (this-doc . plist) = docs
-                 for thing = (plist-get plist :thing)
-                 when thing do
-                 (cl-pushnew thing things-reported-on)
-                 (setq this-doc
-                       (concat
-                        (propertize (format "%s" thing)
-                                    'face (plist-get plist :face))
-                        ": "
-                        this-doc))
-                 do (insert this-doc)
-                 when rest do (insert "\n")
-                 finally (goto-char (point-min)))
-            (dtk-speak (buffer-string))))))
+  (when interactive
+    (with-current-buffer eldoc--doc-buffer
+      (dtk-speak (buffer-string)))))
 
 (with-eval-after-load "eldoc"
-  (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
-  (add-hook 'eldoc-display-functions 'emacspeak-speak-eldoc))
+  (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument
+                                  'voice-bolden)
+  (add-hook 'eldoc-display-functions #'eldoc-display-in-buffer)
+  (add-hook 'eldoc-display-functions #'emacspeak-speak-eldoc))
 
 (defadvice ange-ftp-process-handle-hash (around emacspeak pre act comp)
   "Jibber intelligently."
