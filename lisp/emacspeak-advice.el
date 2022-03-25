@@ -816,10 +816,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
             (dtk-speak (buffer-string))))))
 
 (with-eval-after-load "eldoc"
-  (add-hook 'eldoc-display-functions 'emacspeak-speak-eldoc)
-  (global-eldoc-mode -1))
-
-(voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
+  (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
+  (add-hook 'eldoc-display-functions 'emacspeak-speak-eldoc))
 
 (defadvice ange-ftp-process-handle-hash (around emacspeak pre act comp)
   "Jibber intelligently."
