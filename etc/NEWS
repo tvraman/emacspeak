@@ -12,3 +12,8 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** Speech-enable Package Annotate
 
 Module ~emacspeak-annotate~ speech-enables package ~annotate~.
+
+** Updated ELDoc Support 
+
+Eldoc support has been updated to speak available eldoc on user
+request via _C-,,_.
