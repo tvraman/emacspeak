@@ -791,13 +791,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (when (bufferp ad-return-value)
       (dtk-speak (format "Displayed message in buffer  %s" buffer-name)))))
 
-(defun emacspeak-speak-eldoc (_docs interactive)
+(defun emacspeak-speak-eldoc (docs interactive)
   "Speak eldoc."
   (cl-declare (special eldoc--doc-buffer))
-    (emacspeak-auditory-icon 'doc)
+  (with-current-buffer eldoc--doc-buffer
+    (unless (equal docs eldoc--doc-buffer-docs)
+      (emacspeak-auditory-icon 'doc))
     (when interactive
-      (with-current-buffer eldoc--doc-buffer
-        (dtk-speak (buffer-string)))))
+      (dtk-speak (buffer-string)))))
 
 (with-eval-after-load "eldoc"
   (remove-hook 'eldoc-display-functions #'eldoc-display-in-echo-area)
