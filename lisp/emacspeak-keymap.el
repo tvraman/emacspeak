@@ -581,7 +581,7 @@
 
 (defcustom emacspeak-alt-keys 
   '(
-            ;("," emacspeak-eldoc-speak-doc) ; doesn't work
+            ("," eldoc)
     ("a" emacspeak-feeds-atom-display)
     ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)

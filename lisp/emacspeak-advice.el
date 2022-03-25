@@ -790,10 +790,35 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (let ((buffer-name (ad-get-arg 1)))
     (when (bufferp ad-return-value)
       (dtk-speak (format "Displayed message in buffer  %s" buffer-name)))))
+;;; cloned from eldoc--format-doc-buffer
+(defun emacspeak-speak-eldoc   (docs interactive)
+  "Speak eldoc."
+  (emacspeak-auditory-icon 'help)
+  (when interactive 
+    (with-temp-buffer 
+      (setq-local eldoc--doc-buffer-docs docs)
+      (let ((inhibit-read-only t)
+            (things-reported-on))
+        (erase-buffer) (setq buffer-read-only t)
+        (cl-loop for (docs . rest) on docs
+                 for (this-doc . plist) = docs
+                 for thing = (plist-get plist :thing)
+                 when thing do
+                 (cl-pushnew thing things-reported-on)
+                 (setq this-doc
+                       (concat
+                        (propertize (format "%s" thing)
+                                    'face (plist-get plist :face))
+                        ": "
+                        this-doc))
+                 do (insert this-doc)
+                 when rest do (insert "\n")
+                 finally (goto-char (point-min)))
+        (dtk-speak (buffer-string))))))
 
 (with-eval-after-load "eldoc"
-  (global-eldoc-mode -1)
-  (setq eldoc-idle-delay 10))
+  (add-hook 'eldoc-display-functions 'emacspeak-speak-eldoc)
+  (global-eldoc-mode -1))
 
 (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
 
