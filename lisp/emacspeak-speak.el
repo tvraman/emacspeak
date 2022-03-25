@@ -809,7 +809,7 @@ before-string, or after-string) is indicated with auditory icon
   (interactive "P")
   (cl-declare (special
                voice-animate voice-indent linum-mode
-               ked rdtk-punctuation-mode dtk-cleanup-repeats
+                dtk-punctuation-mode dtk-cleanup-repeats
                emacspeak-speak-line-invert-filter
                emacspeak-speak-blank-line-regexp
                ems--speak-max-line emacspeak-show-point
