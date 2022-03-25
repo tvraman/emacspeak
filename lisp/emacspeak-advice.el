@@ -797,22 +797,6 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
 
-(defvar-local emacspeak-eldoc-message nil
-  "Our cache of eldoc message.")
-
-(defadvice eldoc-message (around emacspeak pre act comp)
-  "Speech enable ELDoc."
-        ad-do-it
-        (setq emacspeak-eldoc-message (ad-get-arg 0))
-        ad-return-value)
-
-(defun emacspeak-eldoc-speak-doc ()
-  "Speak cached Eldoc documentation if available."
-  (interactive)
-  (cl-declare (special emacspeak-eldoc-message))
-  (tts-with-punctuations 'all
-    (dtk-speak-and-echo (or  emacspeak-eldoc-message "No eldoc here"))))
-
 (defadvice ange-ftp-process-handle-hash (around emacspeak pre act comp)
   "Jibber intelligently."
   (cl-declare (special ange-ftp-last-percent))
