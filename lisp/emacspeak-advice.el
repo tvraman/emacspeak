@@ -797,15 +797,13 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (with-current-buffer eldoc--doc-buffer
     (unless (equal docs eldoc--doc-buffer-docs)
       (emacspeak-auditory-icon 'doc))
-    (when interactive
-      (dtk-speak (buffer-string)))))
+    (when interactive (dtk-speak (buffer-string)))))
 
 (with-eval-after-load "eldoc"
   (remove-hook 'eldoc-display-functions #'eldoc-display-in-echo-area)
   (add-hook 'eldoc-display-functions #'eldoc-display-in-buffer)
   (add-hook 'eldoc-display-functions #'emacspeak-speak-eldoc)
-  (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden)
-  )
+  (voice-setup-set-voice-for-face 'eldoc-highlight-function-argument 'voice-bolden))
 
 (defadvice ange-ftp-process-handle-hash (around emacspeak pre act comp)
   "Jibber intelligently."
