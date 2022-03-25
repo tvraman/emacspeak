@@ -799,7 +799,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (setq-local eldoc--doc-buffer-docs docs)
       (let ((inhibit-read-only t)
             (things-reported-on))
-        (erase-buffer) (setq buffer-read-only t)
+        (erase-buffer)
+        (setq buffer-read-only t)
         (cl-loop for (docs . rest) on docs
                  for (this-doc . plist) = docs
                  for thing = (plist-get plist :thing)
