@@ -454,7 +454,7 @@ Uses a 5ms fade-in and fade-out. "
     (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
-  "Set language."
+  "Set language. If your server supports it, also set the synthesis voice, using the syntax language:voice , where language can be omitted."
   (interactive "sEnter language: \n")
   (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized

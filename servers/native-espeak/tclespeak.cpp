@@ -39,14 +39,16 @@
 
 #include <assert.h>
 #include <espeak-ng/speak_lib.h>
-#include <set>
+#include <map>
 #include <stdlib.h>
 #include <string.h>
 #include <string>
 #include <sys/time.h>
 #include <tcl.h>
 #include <vector>
-using std::set;
+
+using std::map;
+using std::pair;
 using std::string;
 using std::vector;
 
@@ -64,6 +66,7 @@ extern "C" EXPORT int Tclespeak_Init(Tcl_Interp *interp);
 int SetRate(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int GetRate(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int getTTSVersion(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
+int getTTSDataPath(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int Punct(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int Say(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int SetLanguage(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
@@ -105,6 +108,8 @@ int Tclespeak_Init(Tcl_Interp *interp) {
                        TclEspeakFree);
   Tcl_CreateObjCommand(interp, "ttsVersion", getTTSVersion, (ClientData)handle,
                        TclEspeakFree);
+  Tcl_CreateObjCommand(interp, "ttsDataPath", getTTSDataPath,
+                       (ClientData)handle, TclEspeakFree);
   Tcl_CreateObjCommand(interp, "punct", Punct, (ClientData)handle, NULL);
   Tcl_CreateObjCommand(interp, "say", Say, (ClientData)handle, TclEspeakFree);
   Tcl_CreateObjCommand(interp, "synth", Say, (ClientData)handle, NULL);
@@ -348,6 +353,27 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
 }
 
 //>
+//<getTTSDataPath
+
+int getTTSDataPath(ClientData handle, Tcl_Interp *interp, int objc,
+                   Tcl_Obj *CONST objv[]) {
+  if (objc != 1) {
+    Tcl_AppendResult(interp, "Usage: dataPath   ", TCL_STATIC);
+    return TCL_ERROR;
+  }
+
+  const char *path = NULL;
+  // Get path to espeak data
+  espeak_Info(&path);
+  // Hand the path over to TCL
+  size_t pathLen = strlen(path) + 1;
+  char *pathCopy = Tcl_Alloc(pathLen);
+  memcpy(pathCopy, path, pathLen * sizeof(char));
+  Tcl_SetResult(interp, pathCopy, TCL_DYNAMIC);
+  return TCL_OK;
+}
+
+//>
 //<SetLanguage
 
 static vector<string> available_languages;
@@ -388,8 +414,8 @@ int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
 //>
 //<initLanguage, getLangIndex
 
-static vector<string> ParseLanguages(const char *lang_str) {
-  vector<string> voice_langs;
+static vector<pair<char, string>> ParseLanguages(const char *lang_str) {
+  vector<pair<char, string>> voice_langs;
   const char *p = lang_str;
   // The languages string is a string of (priority-byte, language-name)
   // pairs.  Each language name ends with a NUL byte, and the whole string
@@ -397,7 +423,7 @@ static vector<string> ParseLanguages(const char *lang_str) {
   // (priority-byte text NUL-byte)* NUL-byte
   // We can ignore the priority byte for now.  Revisit it later?
   while (*p) {
-    voice_langs.push_back(string(p + 1));
+    voice_langs.emplace_back(*p, string(p + 1));
     p += strlen(p + 1) + 2;
   }
   return voice_langs;
@@ -405,7 +431,8 @@ static vector<string> ParseLanguages(const char *lang_str) {
 
 static int initLanguage(Tcl_Interp *interp) {
   // List the available languages
-  set<string> unique_languages;
+  // A map from language name to (voice priority, default voice name)
+  map<string, pair<char, string>> langToVoice;
   int i = 0;
   unsigned long ui = 0;
   char *envDefaultLang = (char *)getenv("LANGUAGE");
@@ -433,10 +460,22 @@ static int initLanguage(Tcl_Interp *interp) {
   const espeak_VOICE **voices = espeak_ListVoices(NULL);
 
   for (i = 0; voices[i] != 0; i++) {
-    vector<string> voice_langs = ParseLanguages(voices[i]->languages);
-    unique_languages.insert(voice_langs.begin(), voice_langs.end());
+    string voiceName = voices[i]->identifier;
+    vector<pair<char, string>> voice_langs =
+        ParseLanguages(voices[i]->languages);
+    for (const auto &language : voice_langs) {
+      auto langEntry = langToVoice.find(language.second);
+      if (langEntry == langToVoice.end() ||
+          langEntry->second.first > language.first) {
+        langToVoice.insert({language.second, {language.first, voiceName}});
+      }
+    }
   }
-  available_languages.assign(unique_languages.begin(), unique_languages.end());
+  available_languages.reserve(langToVoice.size());
+  for (const auto &keyVal : langToVoice) {
+    available_languages.push_back(keyVal.first);
+  }
+
   vector<string>::iterator it;
   size_t lang_count = available_languages.size();
   size_t english_index = lang_count;
@@ -445,14 +484,15 @@ static int initLanguage(Tcl_Interp *interp) {
   for (ui = 0; ui < lang_count; ui++) {
     const char *aLangCode = available_languages[ui].c_str();
     snprintf(buffer, sizeof(buffer), "%lu", ui);
+    const char *voiceName = langToVoice[available_languages[ui]].second.c_str();
     Tcl_SetVar2(interp, "langalias", aLangCode, buffer, 0);
     Tcl_SetVar2(interp, "langcode", buffer, aLangCode, 0);
-    Tcl_SetVar2(interp, "voicename", buffer, aLangCode, 0);
+    Tcl_SetVar2(interp, "voicename", buffer, voiceName, 0);
     if (default_index == lang_count) {
       if (strcasecmp(aDefaultLang.c_str(), aLangCode) == 0) {
         Tcl_SetVar2(interp, "langsynth", "current", buffer, 0);
         Tcl_SetVar2(interp, "langcode", "current", (char *)aLangCode, 0);
-        Tcl_SetVar2(interp, "voicename", "current", (char *)aLangCode, 0);
+        Tcl_SetVar2(interp, "voicename", "current", (char *)voiceName, 0);
         default_index = ui;
       }
     }

@@ -141,21 +141,46 @@ puts stderr "Language: $langsynth(current) Voice: $voicename(current)"
 
 # select a new synth language
 # set_lang "en"
-proc set_lang {{name "en"} {say_it "nil"}} {
+# Or select a voice with
+# set_lang "en:whisper"
+# Or keep the current language and just change the voice with
+# set_lang ":whisper"
+proc set_lang {{nameAndVoice "en"} {say_it "nil"}} {
     global langsynth
     global langalias
     global langcode
     global voicename
+    global voiceVariants
+
+    set voiceStart [string first : $nameAndVoice]
+    if { $voiceStart == -1 } {
+        set name $nameAndVoice
+        if { ![info exists langalias($name)] } {
+            return
+        }
+        set voice $voicename($langalias($name))
+    } elseif { $voiceStart == 0 } {
+        set name $langcode($langsynth(current))
+        set voice [string range $nameAndVoice 1 end]
+    } else {
+        set name [string range $nameAndVoice 0 [expr {$voiceStart - 1}]]
+        set voice [string range $nameAndVoice [expr {$voiceStart + 1}] end]
+    }
+
      if { ![info exists langalias($name)]} {
 	return
      }
 
-     if { $langalias($name) == $langsynth(current) } {
+    if { [info exists voiceVariants($voice)] } {
+        set voice $name+$voice
+    }
+     if { $langalias($name) == $langsynth(current) && $voice == $voicename(current)} {
 	return
      }
-    
+
     set langsynth(current) $langalias($name)
     set langcode(current) $langcode($langalias($name))
+    set voicename($langalias($name)) $voice
     set voicename(current) $voicename($langalias($name))
     setLanguage $langsynth(current) $voicename(current)
 
@@ -169,6 +194,8 @@ proc set_lang {{name "en"} {say_it "nil"}} {
 # select_voiece "en-us+victor"
 proc select_voice {name {lang ""}} {
     global voicename
+    global voiceVariants
+    global langcode
     global langsynth
     global langalias
     if { $lang != "" && ![info exists langalias($lang)] } {
@@ -176,10 +203,16 @@ proc select_voice {name {lang ""}} {
     }
 
     if { $lang == "" || $langalias($lang) == $langsynth(current) } {
+        if { [info exists voiceVariants($name)] } {
+            set name $langcode($langsynth(current))+$name
+        }
         set voicename(current) $name
         set voicename($langsynth(current)) $name
         setLanguage $langsynth(current) $voicename(current)
     } else {
+        if { [info exists voiceVariants($name)] } {
+            set name $langalias($lang)+$name
+        }
         set voicename($langalias($lang)) $name
     }
 }
@@ -508,6 +541,13 @@ if {[file exists /proc/asound]} {
 # WSLg and other systems with remote sound
     set tts(play) /usr/bin/paplay
 }
+
+# Get the list of voice variants available so you can call for en-us:whisper
+# and not en-us:en-us+whisper
+foreach variant [glob -tails -directory [ttsDataPath]/voices/!v *] {
+    set voiceVariants($variant) {}
+}
+
 synth "<voice>eSpeak  [ttsVersion]"
 service
 
