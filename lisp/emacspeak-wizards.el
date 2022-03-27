@@ -757,7 +757,8 @@ Optional interactive prefix arg ask-pwd prompts for password."
        (read-file-name
         "PDF File: "
         nil default-directory
-        t nil)))
+        t nil
+        #'(lambda (f) (string-match "\\.pdf$" f)))))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-pdf-to-text-options
                        emacspeak-wizards-pdf-to-text-program))
