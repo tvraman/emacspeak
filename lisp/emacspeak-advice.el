@@ -794,7 +794,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defun emacspeak-speak-eldoc (docs interactive)
   "Speak eldoc."
   (cl-declare (special eldoc--doc-buffer-docs eldoc--doc-buffer))
-  (when eldoc--doc-buffer
+  (when (and eldoc--doc-buffer (buffer-live-p eldoc--doc-buffer))
     (with-current-buffer eldoc--doc-buffer
       (unless (equal docs eldoc--doc-buffer-docs)
         (emacspeak-auditory-icon 'doc))
