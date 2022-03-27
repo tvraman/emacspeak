@@ -189,34 +189,6 @@ proc set_lang {{nameAndVoice "en"} {say_it "nil"}} {
     }
 }
 
-# select_voice "mb-en1"
-# select_voice "mb-en1" "en"
-# select_voiece "en-us+victor"
-proc select_voice {name {lang ""}} {
-    global voicename
-    global voiceVariants
-    global langcode
-    global langsynth
-    global langalias
-    if { $lang != "" && ![info exists langalias($lang)] } {
-        return
-    }
-
-    if { $lang == "" || $langalias($lang) == $langsynth(current) } {
-        if { [info exists voiceVariants($name)] } {
-            set name $langcode($langsynth(current))+$name
-        }
-        set voicename(current) $name
-        set voicename($langsynth(current)) $name
-        setLanguage $langsynth(current) $voicename(current)
-    } else {
-        if { [info exists voiceVariants($name)] } {
-            set name $langalias($lang)+$name
-        }
-        set voicename($langalias($lang)) $name
-    }
-}
-
 # set_preferred_lang "en" "en_GB"
 proc set_preferred_lang {alias lang} {
     global langsynth
@@ -285,9 +257,9 @@ proc tts_say {text} {
     service 
     set la $langcode(current)
 
-    set prefix "<voice xml:lang=\"$la\">"
-    regsub -all {\[\*\]} $text { } text 
-    synth "$prefix $text"
+    set prefix ""
+    regsub -all {\[\*\]} $text { } text
+    synth "${prefix}${text}"
     service
     return ""
 }

@@ -69,8 +69,8 @@
 ;;{{{  voice table
 
 (defvar tts-default-voice
-  "<voice xml:lang=\"$la\">"
-  "Default voice used. ")
+  ""
+  "Default voice used.")
 
 (defvar espeak-default-voice-string ""
   "Default Espeak tag for  default voice.")
