@@ -895,7 +895,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak completion."
      (when (ems-interactive-p)
-       (tts-with-punctuations 'all (dtk-speak dabbrev--last-expansion))))))
+       (tts-with-punctuations 'all
+         (accept-process-output)
+         (dtk-speak dabbrev--last-expansion))))))
 
 (voice-setup-add-map
  '(
