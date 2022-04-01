@@ -205,7 +205,7 @@ Use Custom to customize where possible. "
   (with-eval-after-load
       'yasnippet
       (yas-reload-all))
-  (tvr-time-load (load "emacspeak-muggles"))
+  (load "emacspeak-muggles")
   (soundscape-toggle)
   (emacspeak-wizards-project-shells-initialize))
 (declare-function emacspeak-pronounce-toggle-use-of-dictionaries "emacspeak-pronounce" (&optional state))
