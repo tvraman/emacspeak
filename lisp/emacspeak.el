@@ -376,6 +376,11 @@ the Emacspeak desktop.")
      emacspeak-version))
   "Emacspeak startup message.")
 
+(defcustom emacspeak-soundscapes nil
+  "Whether we should turn on soundscapes."
+  :type 'boolean
+  :group 'emacspeak)
+
 ;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
