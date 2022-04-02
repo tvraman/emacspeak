@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1146 commands and 146 options.
+This chapter documents a total of 1145 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -1035,6 +1035,11 @@ If set to T, emacspeak plays its icon as it launches.
 
 @end defvar
 
+@defvar {User Option} emacspeak-soundscapes
+Whether we should turn on soundscapes.
+
+@end defvar
+
 @node emacspeak-2048
 @section emacspeak-2048
 
@@ -1199,17 +1204,6 @@ Note that we needed to advice a lot more for Emacs 19 and
 Emacs 20 than we do for Emacs 21 and Emacs 22.
 As of August 2007, this file is being purged of advice forms
 not needed in Emacs 22.
-
-@subsection Emacspeak-Advice Commands
-
-@subsubsection emacspeak-eldoc-speak-doc
-@deffn {Command} emacspeak-eldoc-speak-doc   
-@findex emacspeak-eldoc-speak-doc
-
-@format
-Speak cached Eldoc documentation if available.
-@end format
-@end deffn
 
 @subsection emacspeak-advice Options
 

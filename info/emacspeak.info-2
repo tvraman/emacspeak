@@ -12,15 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 23, 2022.
-
-
-File: emacspeak.info,  Node: emacspeak-hideshow,  Next: emacspeak-hydra,  Prev: emacspeak-hide-lines,  Up: Emacspeak Commands And Options
-
-12.99 emacspeak-hideshow
-========================
-
-speech-enable hideshow.el
+last updated on April 2, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: emacspeak-hideshow,  Up: Emacspeak Commands And Options
