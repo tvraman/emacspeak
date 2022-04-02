@@ -167,19 +167,20 @@ Stop apps that use the network."
 
 (defun emacspeak-dbus-screensaver-check ()
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
-  (ems-with-messages-silenced
-   (condition-case nil
-       (dbus-call-method
-        :session
-        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-        "org.gnome.ScreenSaver" "GetActive")
-     (error
-      (progn
-        (shell-command
-         "pidof gnome-screensaver \
+  (when (file-exists-p "/usr/bin/gnome-screensaver")
+      (ems-with-messages-silenced
+          (condition-case nil
+              (dbus-call-method
+               :session
+               "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+               "org.gnome.ScreenSaver" "GetActive")
+            (error
+             (progn
+               (shell-command
+                "pidof gnome-screensaver \
  && kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
-        (start-process "screen-saver" nil "gnome-screensaver"))))
-   t))
+               (start-process "screen-saver" nil "gnome-screensaver"))))
+        t)))
 
 (defvar emacspeak-dbus-sleep-registration nil
   "List holding sleep registration.")
