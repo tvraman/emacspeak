@@ -201,13 +201,14 @@ Use Custom to customize where possible. "
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
   (tvr-time-load (load tvr-libs)) ;;; load  settings   not  customizable via custom.
-  (tvr-customize)      ;;; customizations
+  (tvr-customize)                 ;;; customizations
   (with-eval-after-load
       'yasnippet
-      (yas-reload-all))
+    (yas-reload-all))
   (load "emacspeak-muggles")
-  (soundscape-toggle)
-  (emacspeak-wizards-project-shells-initialize))
+  (emacspeak-wizards-project-shells-initialize)
+  (when emacspeak-soundscapes (soundscape-toggle)))
+
 (declare-function emacspeak-pronounce-toggle-use-of-dictionaries "emacspeak-pronounce" (&optional state))
 
 (defun tvr-text-mode-hook ()
