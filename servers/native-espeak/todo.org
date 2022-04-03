@@ -1,3 +1,23 @@
-* ESpeak Todo 
-  
-  - Teach tclespeak.cpp to  list and use mbrola voices if installed.
+* Current functionality
+- The server fully implements the emacspeak server interface
+- Users can switch languages and the voice used for each language.
+  In general, the syntax for arguments to dtk-set-language is
+  `[lang-code][:voice]`, for example "en-us:whisper".
+  The voice name can be any value that would be accepted by the espeak command.
+  The default voice for a language can be selected by omitting the colon,
+  and the voice for the current language can be changed by using just `:voicename`
+- Relative pitch and volume adjustments are used to convey aural styling
+* TODO MBROLA
+MBROLA voices are known to cause the speech server to hang.
+The cause of this issue is unknown.
+
+As a temporary measure, the speech server rejects attempts to select MBROLA voices.
+* TODO Voice selection menu
+While espeak supports many voice variants users may wish to test,
+the list of variants is not exposed to Emacs, and so there is no convenient UI
+that will allow users to explore this option.
+* TODO Changing the base pitch or volume
+There is currently no interface that will allow users to change the base
+pitch or volume of a voice.
+* TODO Cleaning up the TCL interface
+

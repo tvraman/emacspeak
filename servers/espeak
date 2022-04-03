@@ -168,14 +168,20 @@ proc set_lang {{nameAndVoice "en"} {say_it "nil"}} {
     }
 
      if { ![info exists langalias($name)]} {
-	return
+         return
      }
 
     if { [info exists voiceVariants($voice)] } {
         set voice $name+$voice
     }
-     if { $langalias($name) == $langsynth(current) && $voice == $voicename(current)} {
-	return
+
+    if { [string first mb- $voice] != -1} {
+        tts_say "Not enabling MBROLA voice since they cause server hangs"
+        set $voice $voicename($langalias($name))
+    }
+
+    if { $langalias($name) == $langsynth(current) && $voice == $voicename(current)} {
+        return
      }
 
     set langsynth(current) $langalias($name)
