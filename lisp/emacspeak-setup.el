@@ -55,7 +55,7 @@
 ;;{{{Load-path:
 
 (cl-pushnew
- (expand-file-name "../lisp/" (file-name-directory load-file-name))
+ (expand-file-name "../lisp" (file-name-directory load-file-name))
  load-path
  :test #'string=)
 (require 'emacspeak-preamble)
