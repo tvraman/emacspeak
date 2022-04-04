@@ -81,11 +81,15 @@
 ;;{{{Forward Decls:
 
 (declare-function org-table-previous-row "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-current-element "emacspeak-org" nil)
+(declare-function
+ emacspeak-org-table-speak-current-element "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-coordinates "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-both-headers-and-element "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-row-header-and-element "emacspeak-org" nil)
-(declare-function emacspeak-org-table-speak-column-header-and-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-both-headers-and-element
+                  "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-row-header-and-element
+                  "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-column-header-and-element
+                  "emacspeak-org" nil)
 
 ;;}}}
 ;;{{{defgroup:
@@ -172,7 +176,8 @@ Prompts for the new location and preserves modification time
                              minibuffer-history)))
     (setq emacspeak-copy-associated-location location)
     (when (file-directory-p location)
-      (unless (string-equal location (car emacspeak-copy-file-location-history))
+      (unless
+          (string-equal location (car emacspeak-copy-file-location-history))
         (push location emacspeak-copy-file-location-history))
       (setq location
             (expand-file-name
@@ -209,7 +214,8 @@ Prompts for the new location and preserves modification time
                              minibuffer-history)))
     (setq emacspeak-copy-associated-location location)
     (when (file-directory-p location)
-      (unless (string-equal location (car emacspeak-copy-file-location-history))
+      (unless
+          (string-equal location (car emacspeak-copy-file-location-history))
         (push location emacspeak-copy-file-location-history))
       (setq location
             (expand-file-name
@@ -242,7 +248,8 @@ Prompts for the new location and preserves modification time
                              minibuffer-history)))
     (setq emacspeak-copy-associated-location location)
     (when (file-directory-p location)
-      (unless (string-equal location (car emacspeak-copy-file-location-history))
+      (unless
+          (string-equal location (car emacspeak-copy-file-location-history))
         (push location emacspeak-copy-file-location-history))
       (setq location
             (expand-file-name
@@ -340,7 +347,8 @@ This is just a text file, and we use grep to search it."
 With prefix arg, opens the phone book for editing."
   (interactive "P")
   (cond
-   (edit (funcall-interactively #'find-file emacspeak-speak-telephone-directory))
+   (edit
+    (funcall-interactively #'find-file emacspeak-speak-telephone-directory))
    ((file-exists-p emacspeak-speak-telephone-directory)
     (emacspeak-shell-command
      (format "%s %s %s"
@@ -766,7 +774,8 @@ Optional interactive prefix arg ask-pwd prompts for password."
   (let ((passwd (when ask-pwd (read-passwd "User Password:")))
         (output-buffer
          (format "%s"
-                 (file-name-sans-extension (file-name-nondirectory filename)))))
+                 (file-name-sans-extension
+                  (file-name-nondirectory filename)))))
     (shell-command
      (format
       "%s %s %s  %s - | cat -s "
@@ -1146,7 +1155,7 @@ Ubuntu and Debian this is group `tty'.")
 (cl-declaim (special emacspeak-wizards-vc-view-mode-map))
 
 (define-key emacspeak-wizards-vc-view-mode-map
-  "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
+            "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
 ;;{{{ longest line in region
@@ -1406,7 +1415,8 @@ of the source buffer."
        for s in shells do
        (let ((sd
               (with-current-buffer s
-                (expand-file-name emacspeak-wizards--project-shell-directory))))
+                (expand-file-name
+                 emacspeak-wizards--project-shell-directory))))
          (when
              (and
               (string-prefix-p sd dir)
@@ -1473,7 +1483,8 @@ of the source buffer."
            (buffer (gethash key emacspeak-wizards--shells-table)))
       (when
           (and prefix
-               (or (eq major-mode 'dired-mode) buffer-file-name)) ;  source determines target directory
+                                        ;  source determines target directory
+               (or (eq major-mode 'dired-mode) buffer-file-name))
         (ems--shell-pushd-if-needed directory buffer))
       (funcall-interactively #'pop-to-buffer buffer)))))
 
@@ -1673,7 +1684,8 @@ term if needed."
 ;;;###autoload
 (defun emacspeak-wizards-espeak-string (string)
   "Speak string in lang via ESpeak.
-Lang is obtained from property `lang' on string, or  via an interactive prompt."
+Lang is obtained from property `lang' on string, or via an
+interactive prompt."
   (interactive "sString: ")
   (let ((lang (get-text-property 0 'lang string)))
     (unless lang
@@ -1723,9 +1735,9 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     result))
 
 ;;;###autoload
-(defun emacspeak-wizards-enumerate-uncovered-commands (pattern &optional bound-only)
+(defun emacspeak-wizards-enumerate-uncovered-commands (pattern &optional bound)
   "Enumerate unadvised commands matching pattern.
-Optional interactive prefix arg `bound-only'
+Optional interactive prefix arg `bound'
 filters out commands that dont have an active key-binding."
   (interactive "sFilter Regex:\nP")
   (let ((result nil))
@@ -1736,7 +1748,7 @@ filters out commands that dont have an active key-binding."
                (and
                 (string-match pattern name)
                 (commandp s)
-                (if bound-only (where-is-internal s nil nil t) t)
+                (if bound (where-is-internal s nil nil t) t)
                 (not (string-match "^emacspeak" name))
                 (not (string-match "^ad-Orig" name))
                 (not (ad-find-some-advice s 'any "emacspeak")))
@@ -1925,7 +1937,7 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
   :group 'emacspeak-wizards)
 
 (defvar emacspeak-wizards-alpha-vantage-base
-  "https://www.alphavantage.co/query?function=%s&symbol=%s&apikey=%s&datatype=csv"
+  "https://alphavantage.co/query?function=%s&symbol=%s&apikey=%s&datatype=csv"
   "Rest End-Point For Alpha-Vantage Stock API.")
 
 (defun emacspeak-wizards-alpha-vantage-uri (func ticker)
@@ -1973,14 +1985,16 @@ access to the various functions provided by alpha-vantage."
   (let* ((completion-ignore-case t)
          (method
           (if custom
-              (upcase (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
+              (upcase
+               (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
             "TIME_SERIES_DAILY"))
          (url
           (emacspeak-wizards-alpha-vantage-uri
            method
            ticker)))
     (kill-new url)
-    (emacspeak-table-view-csv-url url (format "%s Data For %s" method ticker))))
+    (emacspeak-table-view-csv-url url
+                                  (format "%s Data For %s" method ticker))))
 
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
@@ -2013,7 +2027,6 @@ for how to get  an API key. "
   "Local file cache of IEX API data.")
 
 (defconst ems--iex-types
-                                        ;(mapconcat #'identity '("quote" "financials" "news" "stats") ",")
   "quote"
   "Iex query types.")
 
@@ -2042,7 +2055,8 @@ Parameter `action' specifies relative URL. '"
 Uses symbols set in `emacspeak-wizards-personal-portfolio '.
 Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (cl-declare (special emacspeak-wizards-iex-portfolio-file g-curl-program
-                       emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
+                       emacspeak-wizards-personal-portfolio
+                       emacspeak-wizards-iex-cache))
   (let* ((symbols
           (mapconcat
            #'identity
@@ -2052,7 +2066,8 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
      (format "%s -s -D %s/iex-headers -o %s '%s'"
              g-curl-program temporary-file-directory
              emacspeak-wizards-iex-portfolio-file url))
-    (setq emacspeak-wizards-iex-cache (ems--json-read-file emacspeak-wizards-iex-portfolio-file))))
+    (setq emacspeak-wizards-iex-cache
+          (ems--json-read-file emacspeak-wizards-iex-portfolio-file))))
 
 (defun emacspeak-wizards-iex-show-metadata ()
   "Account metadata."
@@ -2060,13 +2075,15 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (cl-declare (special emacspeak-wizards-iex-base))
   (message "%s"
            (g-json-from-url
-            (format "%s/account/metadata?token=%s" emacspeak-wizards-iex-base emacspeak-iex-api-key))))
+            (format "%s/account/metadata?token=%s"
+                    emacspeak-wizards-iex-base emacspeak-iex-api-key))))
 
 (defun emacspeak-wizards-iex-show-price (symbol)
   "Quick Quote: Just stock price from IEXCloud."
   (interactive
    (list
-    (completing-read "Stock Symbol: " (split-string emacspeak-wizards-personal-portfolio))))
+    (completing-read
+     "Stock Symbol: " (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-wizards-personal-portfolio))
   (let-alist
@@ -2133,7 +2150,8 @@ P: Show live price for current stock."
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
     (setq
-     emacspeak-table-speak-element 'emacspeak-table-speak-row-header-and-element
+     emacspeak-table-speak-element
+     'emacspeak-table-speak-row-header-and-element
      emacspeak-table-speak-row-filter emacspeak-wizards-iex-quotes-row-filter
      header-line-format
      (format "Stock Quotes From IEXTrading"))
@@ -2300,7 +2318,8 @@ t   :  tops/last
 "
   (interactive "P")
   (cl-case
-      (read-char "f: Financials, n: News, p: Price, q: Quotes, t: tops, m:metadata")
+      (read-char
+       "f: Financials, n: News, p: Price, q: Quotes, t: tops, m:metadata")
     (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
     (?p (call-interactively #'emacspeak-wizards-iex-show-price))
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
@@ -2485,7 +2504,8 @@ Otherwise just return  `color'."
   "Display frame's foreground/background color seetting."
   (interactive)
   (message "%s on %s"
-           (ems--color-name (frame-parameter (selected-frame) 'foreground-color))
+           (ems--color-name
+            (frame-parameter (selected-frame) 'foreground-color))
            (ems--color-name
             (frame-parameter (selected-frame) 'background-color))))
 
@@ -2795,7 +2815,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
   (cl-declare (special gmaps-my-address))
   (cl-assert (or geo gmaps-my-address) nil "Location not specified.")
   (unless geo (setq geo (gmaps-address-geocode gmaps-my-address)))
-  (let-alist ;;; return forecast url 
+  (let-alist ;;; return forecast url
       (g-json-from-url (ems--noaa-get-gridpoint geo))
     .properties.forecast))
 
@@ -2879,7 +2899,8 @@ weather for `gmaps-my-address'.  "
 ;;}}}
 ;;{{{ generate declare-function statements:
 
-(declare-function help--symbol-completion-table "help-fns" (string pred action))
+(declare-function help--symbol-completion-table
+                  "help-fns" (string pred action))
 
 (defun emacspeak-wizards-gen-fn-decl (f &optional ext)
   "Generate declare-function call for function `f'.
@@ -2989,8 +3010,11 @@ Works best when you already are ssh-impel-ed in and have a talking
   (let((process-environment '("TERM=xterm" ))
        (title
         `((name .
-                ,(format "%s:Emacs"
-                         (cl-first (split-string emacspeak-wizards-remote-workstation "\\.")))))))
+                ,(format
+                  "%s:Emacs"
+                  (cl-first
+                   (split-string
+                    emacspeak-wizards-remote-workstation "\\.")))))))
     (start-process
      "REmacs" "*REmacs*" "ssh"
      "-Y" ;;; forward Trusted X11
@@ -3020,7 +3044,8 @@ personality at point. "
   (let ((settings nil)
         (n '(family average-pitch pitch-range stress richness punctuations))
         (values nil))
-    (when personality (setq settings (intern (format "%s-settings" personality))))
+    (when personality
+      (setq settings (intern (format "%s-settings" personality))))
     (cond
      ((symbol-value settings) ;;; globally bound, display it
       (setq values (symbol-value settings))
