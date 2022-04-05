@@ -25,7 +25,7 @@
 ;;;    package-specific <package>-prepare.el file.
 ;;; 5. Install everything from elpa/melpa as far as possible. (vm is an
 ;;;    exception at present) --- I have nearly 200 packages activated.
-;;; 6. The startup file is a collection of functions with entry-point tvr-emacs.
+;;; 6. The startup file contains functions with entry-point tvr-emacs.
 ;;; 7. The only top-level call is (tvr-emacs).
 ;;; 8. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
 ;;;    - after-init-hook to do the bulk of the work.
@@ -175,7 +175,8 @@ Use Custom to customize where possible. "
    (global-set-key (ems-kbd (cl-first key)) (cl-second key)))
   (cl-loop ;;; shell wizard
    for i from 0 to 9 do
-   (global-set-key (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
+   (global-set-key
+    (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
 ;;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
   (define-key ctl-x-map "j" 'pop-global-mark)
@@ -194,14 +195,16 @@ Use Custom to customize where possible. "
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
+  (format-all-mode 1)
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
-  (tvr-time-load (load tvr-libs)) ;;; load  settings   not  customizable via custom.
-  (tvr-customize)                 ;;; customizations
+   ;;; load  settings   not  customizable via custom.
+  (tvr-time-load (load tvr-libs))
+  (tvr-customize) ;;; customizations
   (with-eval-after-load
       'yasnippet
     (yas-reload-all))
@@ -209,7 +212,9 @@ Use Custom to customize where possible. "
   (emacspeak-wizards-project-shells-initialize)
   (when emacspeak-soundscapes (soundscape-toggle)))
 
-(declare-function emacspeak-pronounce-toggle-use-of-dictionaries "emacspeak-pronounce" (&optional state))
+(declare-function
+ emacspeak-pronounce-toggle-use-of-dictionaries
+ "emacspeak-pronounce" (&optional state))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
@@ -242,15 +247,15 @@ Use Custom to customize where possible. "
 
 (defun tvr-emacs ()
   "Start up emacs.
-This function loads Emacspeak.
-Emacs customization and library configuration happens via the after-init-hook. "
+This function loads Emacspeak.  Emacs customization and library
+configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory))
   (tvr-time-load ;;; load emacspeak:
       (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup")))
   (cl-pushnew (expand-file-name "tvr/" emacspeak-directory) load-path
               :test #'string-equal)
   (add-hook 'after-init-hook #'tvr-after-init)
-  (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook)) ;end defun tvr-emacs
+  (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook))
 
 ;;}}}
 (tvr-emacs)
@@ -259,7 +264,9 @@ Emacs customization and library configuration happens via the after-init-hook. "
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function soundscape-toggle "soundscape" nil)
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
-(declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
+(declare-function
+ emacspeak-wizards-project-shells-initialize
+ "emacspeak-wizards" nil)
 
 ;;}}}
 (provide 'emacs-startup)
