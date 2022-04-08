@@ -95,12 +95,12 @@ Receives buffer containing HTML as its argument.")
   "Cookie jar used for Google services.
 Customize this to live on your local disk."
   :type 'file
-  :set '(lambda (sym val)
-          (cl-declare (special g-cookie-options))
-          (setq g-cookie-options
-                (format "--cookie %s --cookie-jar %s"
-                        val val))
-          (set-default sym val))
+  :set (lambda (sym val)
+         (cl-declare (special g-cookie-options))
+         (setq g-cookie-options
+               (format "--cookie %s --cookie-jar %s"
+                       val val))
+         (set-default sym val))
   :group 'g)
 
 (defun g-cookie-jar ()
