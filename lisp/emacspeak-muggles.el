@@ -324,7 +324,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
     (insert
      (ido-completing-read
       "Yank what? " (mapcar 'substring-no-properties kill-ring)))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'yank-object)
       (emacspeak-speak-region orig (point)))))
 
