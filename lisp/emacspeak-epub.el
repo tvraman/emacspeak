@@ -504,14 +504,16 @@ Optional interactive prefix arg author-first prints author at the
   (interactive "P")
   (cl-declare (special  emacspeak-epub-db))
   (let ((inhibit-read-only t)
-        (formatter (if author-first
-                       'emacspeak-epub-insert-author-title
-                     'emacspeak-epub-insert-title-author)))
+        (formatter
+         (if author-first
+             #'emacspeak-epub-insert-author-title
+           #'emacspeak-epub-insert-title-author)))
     (erase-buffer)
     (maphash formatter emacspeak-epub-db)
     (sort-lines nil (point-min) (point-max))
     (goto-char (point-min)))
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon 'task-done)))
 
 
 (defun emacspeak-epub-bookshelf-refresh ()
