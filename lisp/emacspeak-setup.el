@@ -53,7 +53,7 @@
 
 ;;}}}
 ;;{{{Load-path:
-
+(require 'cl-lib)
 (cl-pushnew
  (expand-file-name "../lisp" (file-name-directory load-file-name))
  load-path
