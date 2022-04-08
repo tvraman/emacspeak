@@ -443,7 +443,7 @@ and return the results in a newly created buffer. "
            (cons "base"
                  (format "\"'%s'\""
                          url))))))
-    (when (ems-interactive-p) (emacspeak-eww-autospeak))
+    (when (called-interactively-p 'interactive) (emacspeak-eww-autospeak))
     (save-current-buffer
       (set-buffer src-buffer)
       (when unescape-charent
