@@ -299,7 +299,7 @@ s   Sub-square Distribution.
     (emacspeak-sudoku-erase-these-cells
      (cl-loop for i from 0 to  8
               collect  (list i (cl-second cell)))))
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-sudoku-erase-current-column ()
@@ -310,7 +310,7 @@ s   Sub-square Distribution.
     (emacspeak-sudoku-erase-these-cells
      (cl-loop for i from 0 to  8
               collect  (list (cl-first cell) i))))
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-sudoku-sub-square-cells (square)
@@ -331,7 +331,7 @@ s   Sub-square Distribution.
            (sudoku-get-cell-from-point (point))))
          (square-cells (emacspeak-sudoku-sub-square-cells square)))
     (emacspeak-sudoku-erase-these-cells square-cells))
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'delete-object)))
 
 ;;}}}
