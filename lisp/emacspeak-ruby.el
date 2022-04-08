@@ -102,11 +102,11 @@
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   (defadvice ruby-electric-brace (after emacspeak pre act comp)
     "Speak what you inserted.
-Cue electric insertion with a tone.")
-  (when (ems-interactive-p)
-    (let ((emacspeak-speak-messages nil))
-      (emacspeak-speak-this-char last-input-event)
-      (dtk-tone 800 100 t))))
+Cue electric insertion with a tone."
+    (when (ems-interactive-p)
+      (let ((emacspeak-speak-messages nil))
+        (emacspeak-speak-this-char last-input-event)
+        (dtk-tone 800 100 t)))))
 
 ;;}}}
 ;;{{{ Advice inferior ruby:
