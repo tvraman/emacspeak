@@ -938,7 +938,7 @@ Location is specified by name."
 
 (defun emacspeak-wizards-generate-finder-callback ()
   "Generate a callback for use in the Emacspeak Finder."
-  (lambda (widget &rest _)
+  #'(lambda (widget &rest _)
      (cl-declare (special emacspeak-wizards-finder-args))
      (let ((value (widget-value widget)))
        (setq emacspeak-wizards-finder-args value))))

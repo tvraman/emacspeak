@@ -108,7 +108,7 @@
         (msg nil))
     (setq msg
           (mapconcat
-           (lambda (screen)
+           #'(lambda (screen)
              (ems-with-messages-silenced
               (let ((screen-name (assoc-default screen screen-to-name-alist)))
                 (concat

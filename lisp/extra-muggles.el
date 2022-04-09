@@ -411,8 +411,8 @@ Also generates global keybindings if any."
     :pre emacspeak-hydra-pre
     :post emacspeak-hydra-post)
    "Smart Parens"
-   ("'" (lambda (_) (interactive "P") (sp-wrap-with-pair "'")))  
-   ("(" (lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
+   ("'" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "'")))  
+   ("(" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
    ("<down>" sp-splice-sexp-killing-forward)  
    ("<left>" sp-forward-barf-sexp)  
    ("<right>" sp-forward-slurp-sexp)  
@@ -421,7 +421,7 @@ Also generates global keybindings if any."
    ("C-<left>" sp-backward-barf-sexp)  
    ("C-<right>" sp-backward-slurp-sexp)
    ("R" sp-splice-sexp)  
-   ("\"" (lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))  
+   ("\"" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))  
    ("a" beginning-of-defun)
    ("b" sp-backward-sexp)  
    ("c" sp-convolute-sexp)  
@@ -438,7 +438,7 @@ Also generates global keybindings if any."
    ("t" sp-transpose-sexp)  
    ("u" sp-backward-up-sexp)  
    ("w" sp-copy-sexp)  
-   ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
+   ("{" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
 
 ;;}}}
 ;;{{{  View Mode:
