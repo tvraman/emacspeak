@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-04-09 Sat 14:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advice On Emacs Advice</title>
+<meta name="author" content="T.V Raman" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Advice On Emacs Advice</h1>
+<div id="outline-container-org303b39e" class="outline-2">
+<h2 id="org303b39e"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Love it or hate it, lisp <code>advice</code> is powerful and useful.  This
+article covers some of the places where <code>advice</code> can provide a means
+of discovering useful behaviors that can then be later codified
+without resorting to advice. Advice can also prove to be a powerful
+means of experimentation; these experiments  can become permanent, e.g., when the
+resulting modifications introduced via <code>advice</code> are only relevant to a small
+minority &#x2014; a good example is package <a href="https://github.com/tvraman/emacspeak">Emacspeak</a>. These are but two
+extremes of a continuum and <code>advice</code> enables many possibilities in
+that range.
+</p>
+
+<p>
+This article is written in the light of nearly 28 years of Emacspeak
+development, a time during which I have learn some useful lessons on
+how to use advice safely and program defensively. 
+This article itself does not take any position in the <i>Advice is evil,
+dont use it</i> debate &#x2014; it is here to help you if you do decide to use
+<code>advice</code> for a given task.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b61f06" class="outline-2">
+<h2 id="org3b61f06"><span class="section-number-2">2.</span> Where Advice Can Be Useful</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Temporarily  <i>trace</i>  a given function &#x2014; <code>advice</code> can display
+messages on entry and exit to the adviced function. Emacs' own
+built-in debug-on-entry mostly obviates the need to do this.</li>
+<li>You want custom  behavior for some command in a package, where
+the package author (hasn't yet) provided an appropriate <i>before</i>
+or <i>after</i> hook. Implementing the desired behavior as a <i>before</i>
+or <i>after</i> advice is a friction-free means of experimenting with
+your idea. Once proven useful, the  advice-based prototype can be
+used to motivate the introduction of the new hook, and once
+implemented, you can eliminate the <code>advice</code>.</li>
+<li>Having implemented a custom behavior, you discover that the
+author of the package you are extending is unable to incorporate
+your suggestion. Advice here can provide a light-weight
+alternative to forking the package in question.</li>
+<li>The modified behavior you wish to implement is relevant to a
+small minority. You need to advice a large number of functions
+because the modified behavior you desire requires complete access
+to the calling context and environment. A good example is
+generating rich contextual spoken feedback &#x2014; advice is
+excellently suited to this task.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3ad6e12" class="outline-2">
+<h2 id="org3ad6e12"><span class="section-number-2">3.</span> Advice Tips</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+These tips are written in terms of <code>defadvice</code> but apply equally well
+to the API introduced in module <code>nadvice</code>.
+</p>
+
+<ol class="org-ol">
+<li>Use <code>before/after</code> advice as far as possible, and resort to
+<code>around</code> advice only when you must.</li>
+<li>Name all your <code>advice</code> fragments consistently.</li>
+<li>Do not depend on the argument names used in the function being
+adviced, instead use <span class="underline">ad-get-arg</span> to positionally access the adviced
+function's arguments.</li>
+<li>Use lexical scoping in all your functions, and be rigorous in
+declaring any special variables using <span class="underline">(cl-declare (special
+&#x2026;))</span> in your code. The byte-compiler is your friend; use this
+declaration when you see warnings about special variables.</li>
+<li>Except for very simple advice fragments, use a <span class="underline">let</span> form inside
+your advice to bind variables.</li>
+<li>Within your advice, do not depend on any global state that you
+haven't yourself bound within the <span class="underline">let</span> body in your advice.</li>
+<li>If you write <code>around</code> advice, ensure that the last form in your
+<code>advice</code> is <span class="underline">ad-return-value</span>. Dont modify this value unless you
+<b>absolutely</b> must.</li>
+<li>Make sure to use <span class="underline">ad-do-it</span> in your <code>around</code> advice so that the
+original function gets called &#x2014; except in the very rare cases 
+where you want to entirely bypass the original function.</li>
+<li>In the rare case where you have multiple <span class="underline">defadvice</span> on the same
+function, note that you can specify the order win which these are
+called. Use this only when experimenting, and make sure to
+clean-up later by combining the advice fragments into a single
+call to <code>defadvice</code>.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgd77eefa" class="outline-2">
+<h2 id="orgd77eefa"><span class="section-number-2">4.</span> Historical Note</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Advice was contributed to Emacs in early 1994 by Hans
+Chalupsky. I started the Emacspeak project a few months after and
+am indebted to him &#x2014; both for his advice implementation and for
+numerous email exchanges with him at the time as I learnt to use 
+ advice.</li>
+<li>I released Emacspeak in April 1995. A few days later I was
+thrilled to receive a phone call from RMS &#x2014; where he told me all
+the reasons why I shouldn't use advice. This was distressing to
+say the least; I had two choices &#x2014; abandon Emacspeak using
+advice, or to ignore his advice. I took the middle-road; I made
+careful note of all his admonitions and warnings, and the result
+was to program defensively. Many of the tips listed in the
+previous section are a direct consequence of keeping an eye out
+for the various pitfalls he outlined during that phone call.</li>
+<li>I've also garnered useful tips and tricks on the emacs-devel list
+over the  years from folks like Stefan Mounier &#x2014; especially as
+Emacs transitioned to module <code>nadvice</code> in 2014.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-04-07 Thu 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2022-04-09 Sat 14:30</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

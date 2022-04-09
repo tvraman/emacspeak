@@ -1,3 +1,96 @@
+* Introduction 
+
+Love it or hate it, lisp ~advice~ is powerful and useful.  This
+article covers some of the places where ~advice~ can provide a means
+of discovering useful behaviors that can then be later codified
+without resorting to advice. Advice can also prove to be a powerful
+means of experimentation; these experiments  can become permanent, e.g., when the
+resulting modifications introduced via ~advice~ are only relevant to a small
+minority --- a good example is package [[https://github.com/tvraman/emacspeak][Emacspeak]]. These are but two
+extremes of a continuum and ~advice~ enables many possibilities in
+that range.
+
+This article is written in the light of nearly 28 years of Emacspeak
+development, a time during which I have learn some useful lessons on
+how to use advice safely and program defensively. 
+This article itself does not take any position in the /Advice is evil,
+dont use it/ debate --- it is here to help you if you do decide to use
+~advice~ for a given task.
+
+* Where Advice Can Be Useful
+
+  1. Temporarily  /trace/  a given function --- ~advice~ can display
+    messages on entry and exit to the adviced function. Emacs' own
+    built-in debug-on-entry mostly obviates the need to do this.
+  2. You want custom  behavior for some command in a package, where
+     the package author (hasn't yet) provided an appropriate /before/
+     or /after/ hook. Implementing the desired behavior as a /before/
+     or /after/ advice is a friction-free means of experimenting with
+     your idea. Once proven useful, the  advice-based prototype can be
+     used to motivate the introduction of the new hook, and once
+     implemented, you can eliminate the ~advice~.
+  3. Having implemented a custom behavior, you discover that the
+     author of the package you are extending is unable to incorporate
+     your suggestion. Advice here can provide a light-weight
+     alternative to forking the package in question.
+  4. The modified behavior you wish to implement is relevant to a
+     small minority. You need to advice a large number of functions
+     because the modified behavior you desire requires complete access
+     to the calling context and environment. A good example is
+     generating rich contextual spoken feedback --- advice is
+     excellently suited to this task.
+
+* Advice Tips 
+
+These tips are written in terms of ~defadvice~ but apply equally well
+to the API introduced in module ~nadvice~.
+
+  1. Use ~before/after~ advice as far as possible, and resort to
+   ~around~ advice only when you must.
+  2. Name all your ~advice~ fragments consistently.
+  3. Do not depend on the argument names used in the function being
+     adviced, instead use _ad-get-arg_ to positionally access the adviced
+     function's arguments.
+  4. Use lexical scoping in all your functions, and be rigorous in
+     declaring any special variables using _(cl-declare (special
+     ...))_ in your code. The byte-compiler is your friend; use this
+     declaration when you see warnings about special variables.
+  5. Except for very simple advice fragments, use a _let_ form inside
+     your advice to bind variables.
+  6. Within your advice, do not depend on any global state that you
+     haven't yourself bound within the _let_ body in your advice.
+  7. If you write ~around~ advice, ensure that the last form in your
+     ~advice~ is _ad-return-value_. Dont modify this value unless you
+     *absolutely* must.
+  8. Make sure to use _ad-do-it_ in your ~around~ advice so that the
+     original function gets called --- except in the very rare cases 
+     where you want to entirely bypass the original function.
+  9. In the rare case where you have multiple _defadvice_ on the same
+     function, note that you can specify the order win which these are
+     called. Use this only when experimenting, and make sure to
+     clean-up later by combining the advice fragments into a single
+     call to ~defadvice~.
+* Historical Note
+
+  - Advice was contributed to Emacs in early 1994 by Hans
+   Chalupsky. I started the Emacspeak project a few months after and
+   am indebted to him --- both for his advice implementation and for
+   numerous email exchanges with him at the time as I learnt to use 
+    advice.
+  - I released Emacspeak in April 1995. A few days later I was
+    thrilled to receive a phone call from RMS --- where he told me all
+    the reasons why I shouldn't use advice. This was distressing to
+    say the least; I had two choices --- abandon Emacspeak using
+    advice, or to ignore his advice. I took the middle-road; I made
+    careful note of all his admonitions and warnings, and the result
+    was to program defensively. Many of the tips listed in the
+    previous section are a direct consequence of keeping an eye out
+    for the various pitfalls he outlined during that phone call.
+  - I've also garnered useful tips and tricks on the emacs-devel list
+    over the  years from folks like Stefan Mounier --- especially as
+    Emacs transitioned to module ~nadvice~ in 2014. 
+    
+  
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
