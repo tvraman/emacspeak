@@ -24,3 +24,4 @@ servers/native-espeak/tclespeak.so
 /etc/pickup-c/pickup
 /.ccls-cache/
 *.pdf
+**.pdf
