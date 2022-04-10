@@ -15765,15 +15765,15 @@ mapped to voices.
 @end deffn
 
 @subsubsection emacspeak-wizards-enumerate-uncovered-commands
-@deffn {Command} emacspeak-wizards-enumerate-uncovered-commands  (pattern &optional bound-only)
+@deffn {Command} emacspeak-wizards-enumerate-uncovered-commands  (pattern &optional bound)
 @findex emacspeak-wizards-enumerate-uncovered-commands
 
 @format
 Enumerate unadvised commands matching pattern.
-Optional interactive prefix arg ‘bound-only’
+Optional interactive prefix arg ‘bound’
 filters out commands that dont have an active key-binding.
 
-(fn PATTERN &optional BOUND-ONLY)
+(fn PATTERN &optional BOUND)
 @end format
 @end deffn
 
@@ -15814,7 +15814,8 @@ Speak region using ESpeak polyglot wizard.
 
 @format
 Speak string in lang via ESpeak.
-Lang is obtained from property ‘lang’ on string, or  via an interactive prompt.
+Lang is obtained from property ‘lang’ on string, or via an
+interactive prompt.
 
 (fn STRING)
 @end format
@@ -17237,8 +17238,8 @@ Call the body in the "emacspeak-muggles-smartparens" hydra.
 
 The heads for the associated hydra are:
 
-"’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
-"(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
+"’":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
+"(":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
 "<down>":    ‘sp-splice-sexp-killing-forward’,
 "<left>":    ‘sp-forward-barf-sexp’,
 "<right>":    ‘sp-forward-slurp-sexp’,
@@ -17247,7 +17248,7 @@ The heads for the associated hydra are:
 "C-<left>":    ‘sp-backward-barf-sexp’,
 "C-<right>":    ‘sp-backward-slurp-sexp’,
 "R":    ‘sp-splice-sexp’,
-""":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
+""":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
 "a":    ‘beginning-of-defun’,
 "b":    ‘sp-backward-sexp’,
 "c":    ‘sp-convolute-sexp’,
@@ -17264,7 +17265,7 @@ The heads for the associated hydra are:
 "t":    ‘sp-transpose-sexp’,
 "u":    ‘sp-backward-up-sexp’,
 "w":    ‘sp-copy-sexp’,
-"@{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "@{"))’
+"@{":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "@{"))’
 
 The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 @end format
