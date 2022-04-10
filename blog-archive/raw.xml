@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
 <feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'>
   <id>tag:blogger.com,1999:blog-20280042</id><updated>
-    2021-11-25T07:10:31.062-08:00
+    2022-04-09T14:39:50.169-07:00
   </updated>
   <title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>
     Here is where I plan to Blog Emacspeak tricks and introduce new
@@ -19,11 +19,204 @@
     <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
   </author>
   <generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>
-    179
+    180
   </openSearch:totalResults>
   <openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>
     10
   </openSearch:itemsPerPage>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-2874306629833574905</id><published>
+      2022-04-09T14:39:00.001-07:00
+    </published>
+    <updated>2022-04-09T14:39:13.463-07:00</updated><title type='text'>
+      Advice On Emacs Advice
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Advice On Emacs Advice&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org303b39e&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org303b39e&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Introduction&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Love it or hate it, lisp &lt;code&gt;advice&lt;/code&gt; is powerful
+      and useful.  This
+      article covers some of the places where
+      &lt;code&gt;advice&lt;/code&gt; can provide a means
+      of discovering useful behaviors that can then be later codified
+      without resorting to advice. Advice can also prove to be a powerful
+      means of experimentation; these experiments  can become permanent,
+      e.g., when the
+      resulting modifications introduced via
+      &lt;code&gt;advice&lt;/code&gt; are only relevant to a small
+      minority &amp;#x2014; a good example is package &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;Emacspeak&lt;/a&gt;. These are but two
+      extremes of a continuum and &lt;code&gt;advice&lt;/code&gt; enables
+      many possibilities in
+      that range.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      This article is written in the light of nearly 28 years of Emacspeak
+      development, a time during which I have learn some useful lessons on
+      how to use advice safely and program defensively. 
+      This article itself does not take any position in the
+      &lt;i&gt;Advice is evil,
+      dont use it&lt;/i&gt; debate &amp;#x2014; it is here to help you if
+      you do decide to use
+      &lt;code&gt;advice&lt;/code&gt; for a given task.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org3b61f06&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3b61f06&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Where Advice
+      Can Be Useful&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Temporarily  &lt;i&gt;trace&lt;/i&gt;  a given function
+      &amp;#x2014; &lt;code&gt;advice&lt;/code&gt; can display
+      messages on entry and exit to the adviced function. Emacs&#39; own
+      built-in debug-on-entry mostly obviates the need to do
+      this.&lt;/li&gt;
+      &lt;li&gt;You want custom  behavior for some command in a package,
+      where
+      the package author (hasn&#39;t yet) provided an appropriate
+      &lt;i&gt;before&lt;/i&gt;
+      or &lt;i&gt;after&lt;/i&gt; hook. Implementing the desired behavior
+      as a &lt;i&gt;before&lt;/i&gt;
+      or &lt;i&gt;after&lt;/i&gt; advice is a friction-free means of
+      experimenting with
+      your idea. Once proven useful, the  advice-based prototype can be
+      used to motivate the introduction of the new hook, and once
+      implemented, you can eliminate the
+      &lt;code&gt;advice&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Having implemented a custom behavior, you discover that
+      theauthor of the package you are extending is unable to incorporate
+      your suggestion. Advice here can provide a light-weight
+      alternative to forking the package in question.&lt;/li&gt;
+      &lt;li&gt;The modified behavior you wish to implement is relevant to
+      a
+      small minority. You need to advice a large number of functions
+      because the modified behavior you desire requires complete access
+      to the calling context and environment. A good example is
+      generating rich contextual spoken feedback &amp;#x2014; advice is
+      excellently suited to this task.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org3ad6e12&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org3ad6e12&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Advice
+      Tips&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      These tips are written in terms of
+      &lt;code&gt;defadvice&lt;/code&gt; but apply equally well
+      to the API introduced in module &lt;code&gt;nadvice&lt;/code&gt;.
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Use &lt;code&gt;before/after&lt;/code&gt; advice as far as
+      possible, and resort to
+      &lt;code&gt;around&lt;/code&gt; advice only when you
+      must.&lt;/li&gt;&lt;li&gt;Name all your
+      &lt;code&gt;advice&lt;/code&gt; fragments consistently.&lt;/li&gt;
+      &lt;li&gt;Do not depend on the argument names used in the function
+      being
+      adviced, instead use &lt;span
+      class=&quot;underline&quot;&gt;ad-get-arg&lt;/span&gt; to
+      positionally access the adviced
+      function&#39;s arguments.&lt;/li&gt;
+      &lt;li&gt;Use lexical scoping in all your functions, and be rigorous
+      in
+      declaring any special variables using &lt;span
+      class=&quot;underline&quot;&gt;(cl-declare (special
+      &amp;#x2026;))&lt;/span&gt; in your code. The byte-compiler is your
+      friend; use this
+      declaration when you see warnings about special
+      variables.&lt;/li&gt;&lt;li&gt;Except for very simple advice
+      fragments, use a &lt;span
+      class=&quot;underline&quot;&gt;let&lt;/span&gt; form inside
+      your advice to bind variables.&lt;/li&gt;
+      &lt;li&gt;Within your advice, do not depend on any global state that
+      you
+      haven&#39;t yourself bound within the &lt;span
+      class=&quot;underline&quot;&gt;let&lt;/span&gt; body in your
+      advice.&lt;/li&gt;
+      &lt;li&gt;If you write &lt;code&gt;around&lt;/code&gt; advice,
+      ensure that the last form in your
+      &lt;code&gt;advice&lt;/code&gt; is &lt;span
+      class=&quot;underline&quot;&gt;ad-return-value&lt;/span&gt;. Dont
+      modify this value unless you
+      &lt;b&gt;absolutely&lt;/b&gt; must.&lt;/li&gt;
+      &lt;li&gt;Make sure to use &lt;span
+      class=&quot;underline&quot;&gt;ad-do-it&lt;/span&gt; in your
+      &lt;code&gt;around&lt;/code&gt; advice so that the
+      original function gets called &amp;#x2014; except in the very rare
+      cases 
+      where you want to entirely bypass the original function.&lt;/li&gt;
+      &lt;li&gt;In the rare case where you have multiple &lt;span
+      class=&quot;underline&quot;&gt;defadvice&lt;/span&gt; on the same
+      function, note that you can specify the order win which these are
+      called. Use this only when experimenting, and make sure to
+      clean-up later by combining the advice fragments into a single
+      call to &lt;code&gt;defadvice&lt;/code&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgd77eefa&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd77eefa&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; Historical
+      Note&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Advice was contributed to Emacs in early 1994 by Hans
+      Chalupsky. I started the Emacspeak project a few months after and
+      am indebted to him &amp;#x2014; both for his advice implementation
+      and for
+      numerous email exchanges with him at the time as I learnt to use 
+      advice.&lt;/li&gt;
+      &lt;li&gt;I released Emacspeak in April 1995. A few days later I was
+      thrilled to receive a phone call from RMS &amp;#x2014; where he told
+      me all
+      the reasons why I shouldn&#39;t use advice. This was distressing to
+      say the least; I had two choices &amp;#x2014; abandon Emacspeak
+      usingadvice, or to ignore his advice. I took the middle-road; I made
+      careful note of all his admonitions and warnings, and the result
+      was to program defensively. Many of the tips listed in the
+      previous section are a direct consequence of keeping an eye out
+      for the various pitfalls he outlined during that phone
+      call.&lt;/li&gt;
+      &lt;li&gt;I&#39;ve also garnered useful tips and tricks on the
+      emacs-devel list
+      over the  years from folks like Stefan Mounier &amp;#x2014;
+      especially as
+      Emacs transitioned to module &lt;code&gt;nadvice&lt;/code&gt; in
+      2014.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2874306629833574905'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2874306629833574905'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2022/04/advice-on-emacs-advice.html' title='Advice On Emacs Advice'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-8282700412236478605</id><published>
       2021-11-25T07:09:00.002-08:00
@@ -2954,170 +3147,6 @@
     <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2853057356022218696'/>
     <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2853057356022218696'/>
     <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/10/extracted-light-weight-key-reader-by.html' title='Extracted A Light-Weight Key-Reader By Progressive Simplification'/>
-    <author>
-      <name>T. V. Raman</name><uri>
-        http://www.blogger.com/profile/03589687652590194428
-      </uri>
-      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
-    </author>
-  </entry>
-  <entry>
-    <id>tag:blogger.com,1999:blog-20280042.post-2451348598884750312</id><published>
-      2020-10-05T17:32:00.000-07:00
-    </published>
-    <updated>2020-10-05T17:32:08.430-07:00</updated><title type='text'>On
-      Defining Keys In Emacs
-    </title>
-    <content type='html'>&lt;div id=&quot;content&quot;&gt;
-      &lt;h1 class=&quot;title&quot;&gt;On Defining Keys In
-      Emacs&lt;/h1&gt;
-      &lt;div id=&quot;outline-container-org540a36d&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org540a36d&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
-      Overview&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-      &lt;p&gt;
-      Emacs is extremely flexible with respect to letting you bind keys to
-      commands.
-      Interestingly, and perhaps because of its history tracing back to
-      &lt;i&gt;keyboard macros&lt;/i&gt;,  &lt;b&gt;naming&lt;/b&gt; the
-      key you wish to bind is not so
-      straight-forward as it appears on the surface. Here are things
-      I&#39;ve
-      used and learnt over the last 30 years of Emacs hackery:
-      &lt;/p&gt;
-      
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;The most basic way of naming a key is via a string of the
-      form
-      &lt;i&gt;\C-a&lt;/i&gt; or &lt;i&gt;\M-\C-a&lt;/i&gt; where
-      &lt;i&gt;\C&lt;/i&gt; denotes the &lt;i&gt;Control
-      Modifier&lt;/i&gt;.&lt;/li&gt;
-      &lt;li&gt;This notation gets unwieldy fast when using multiple
-      modifiers as
-      in the &lt;i&gt;\M-\C-a&lt;/i&gt; example.&lt;/li&gt;
-      &lt;li&gt;It gets worse, under X, you can bind &lt;i&gt;\C- / for
-      /Control Space&lt;/i&gt;
-      &amp;#x2014; notice that the space character here which is easy to
-      miss as
-      white-space is significant.&lt;/li&gt;
-      &lt;li&gt;The &lt;i&gt;\&amp;lt;modifier&amp;gt;-char&lt;/i&gt;
-      notation mostly appears to date back to
-      the age of the terminal emulator (tty), so for example, it cannot
-      denote &lt;i&gt;Control+Right&lt;/i&gt; for example.&lt;/li&gt;
-      &lt;li&gt;The Emacs and Elisp info manuals recommend using function
-      &lt;i&gt;kbd&lt;/i&gt;
-      for this reason, this function on the surface provides a unified
-      interface for naming keys.&lt;/li&gt;
-      &lt;/ol&gt;
-      
-      &lt;p&gt;
-      If you look no further, you remain happy, but &amp;#x2026;
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org44745fc&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org44745fc&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Function
-      &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-      &lt;p&gt;
-      But if you do peel the onion, here is what you  find:
-      &lt;/p&gt;
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;Function &lt;code&gt;kbd&lt;/code&gt;  does nothing more
-      than calling function
-      &lt;code&gt;read-kbd-macro&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Function &lt;code&gt;read-kbd-macro&lt;/code&gt; documents
-      itself as &lt;i&gt;reading the region&lt;/i&gt;
-      as a  &lt;i&gt;keyboard macro&lt;/i&gt;.&lt;/li&gt;
-      &lt;li&gt;The above overloading is  achieved  by the call to
-      function &lt;code&gt;edmacro-parse-keys&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;And finally we reach the scary core of the onion that is
-      sufficient to make your eyes water!&lt;/li&gt;
-      &lt;li&gt;Function &lt;code&gt;edmacro-parse-keys&lt;/code&gt; is an
-      inscrutable piece of code
-      that  both looks extremely clever and magical and like all clever
-      code, feels fragile.&lt;/li&gt;
-      &lt;/ol&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      
-      
-      &lt;div id=&quot;outline-container-org7a9ba62&quot;
-      class=&quot;outline-2&quot;&gt;
-      &lt;h2 id=&quot;org7a9ba62&quot;&gt;&lt;span
-      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Understanding
-      And (Hopefully) Simplifying  Function
-      &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
-      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-      &lt;p&gt;
-      A simplified &lt;code&gt;ems-kbd&lt;/code&gt; function that is free
-      from the complexity
-      resulting from reading in a saved keyboard macro feels like a
-      worthwhile goal.
-      I started down this road both to understand function
-      &lt;code&gt;edmacro-parse-keys&lt;/code&gt; &amp;#x2014; sadly, I
-      haven&#39;t yet found a specification
-      for naming all available keys outside of the implementation of that
-      function.
-      So I started  &lt;a
-      
-      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/ems-kbd.el#L1&quot;&gt;ems-kbd.el&lt;/a&gt;
-      along with a simple test-suite to see how far I could get toward the
-      goal of creating an equivalent &lt;code&gt;kbd&lt;/code&gt;
-      function.&lt;/p&gt;
-      &lt;/div&gt;
-      
-      &lt;div id=&quot;outline-container-org4416bb1&quot;
-      class=&quot;outline-3&quot;&gt;
-      &lt;h3 id=&quot;org4416bb1&quot;&gt;&lt;span
-      class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; Steps So
-      Far&lt;/h3&gt;
-      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
-      &lt;ol class=&quot;org-ol&quot;&gt;
-      &lt;li&gt;Documented the implementation.&lt;/li&gt;
-      &lt;li&gt;Added a simple set of tests in the file.&lt;/li&gt;
-      &lt;li&gt;Changed &lt;span
-      class=&quot;underline&quot;&gt;if&lt;/span&gt; to &lt;span
-      class=&quot;underline&quot;&gt;cond&lt;/span&gt; or &lt;span
-      class=&quot;underline&quot;&gt;when&lt;/span&gt; as
-      appropriate.&lt;/li&gt;
-      &lt;li&gt;Eliminated the logic  that handled  the keyboard macro
-      serialization for repeated keys.&lt;/li&gt;
-      &lt;li&gt;Removed the logic for handling invocations of
-      &lt;code&gt;execute-extended-command&lt;/code&gt; &amp;#x2014;
-      otherwise known as &lt;span
-      class=&quot;underline&quot;&gt;M-x&lt;/span&gt;.&lt;/li&gt;
-      &lt;li&gt;A lot more remains, e.g., 
-      &lt;ul class=&quot;org-ul&quot;&gt;
-      &lt;li&gt;simplifying how modifier bits are handled,&lt;/li&gt;
-      &lt;li&gt;Simplifying how special patterns like &lt;span
-      class=&quot;underline&quot;&gt;SPC&lt;/span&gt; or &lt;span
-      class=&quot;underline&quot;&gt;TAB&lt;/span&gt; are
-      handled.&lt;/li&gt;
-      &lt;li&gt;And likely a lot more.&lt;/li&gt;
-      &lt;/ul&gt;&lt;/li&gt;
-      &lt;/ol&gt;
-      
-      &lt;p&gt;
-      An alternative approach might be to rewrite it from scratch, but
-      thatfeels intractable unless I can track down a specification for
-      naming
-      keys that is  exhaustive with respect to the various conventions
-      thathave been used over the years.
-      &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-    </content>
-    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
-    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
-    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html' title='On Defining Keys In Emacs'/>
     <author>
       <name>T. V. Raman</name><uri>
         http://www.blogger.com/profile/03589687652590194428
