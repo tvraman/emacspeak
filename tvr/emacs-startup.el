@@ -249,8 +249,9 @@ Use Custom to customize where possible. "
 This function loads Emacspeak.  Emacs customization and library
 configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory))
-  (tvr-time-load ;;; load emacspeak:
-      (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup")))
+  (unless (featurep 'emacspeak)
+    (tvr-time-load ;;; load emacspeak:
+        (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup"))))
   (cl-pushnew (expand-file-name "tvr/" emacspeak-directory) load-path
               :test #'string-equal)
   (add-hook 'after-init-hook #'tvr-after-init)
