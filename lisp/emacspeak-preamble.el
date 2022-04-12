@@ -169,7 +169,7 @@
 
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
 (defun ems--generate-interactive-check (orig-mac funname args &rest body)
-  "Lexically redefine check  of ems-interactive-funcname within  BODY.
+  "Lexically redefine ems-interactive-p  to test  ems-interactive-funcname within  BODY.
 The local definition expands to a call to  `eq'  that 
 compares  FUNNAME to our stored value of ems-interactive-funcname."
   (apply orig-mac funname args
