@@ -174,10 +174,11 @@ The local definition expands to a call to  `eq'  that
 compares  FUNNAME to our stored value of ems-interactive-funcname."
   (apply orig-mac funname args
          (macroexp-unprogn
-          (macroexpand-all (macroexp-progn body)
-                           `((ems-interactive-p ; new definition
-                              . ,(lambda () `(eq ems-interactive-funcname ',funname)))
-                             . ,macroexpand-all-environment)))))
+          (macroexpand-all
+           (macroexp-progn body)
+           `((ems-interactive-p         ; new definition
+              . ,(lambda () `(eq ems-interactive-funcname ',funname)))
+             . ,macroexpand-all-environment)))))
 
 (defun ems-interactive-p ()
   "Dynamically defined at runtime to provide Emacspeak's
