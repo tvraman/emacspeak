@@ -157,7 +157,7 @@
 ;;;  In practice it rarely makes a difference, luckily.
 
 ;;; Design:
-;;; call-interactively and funcall-interactively store the name of the
+;;; Advice on funcall-interactively stores the name of the
 ;;; interactive command being run.
 ;;; The defadvice macro is itself adviced to generate a locally bound
 ;;; predicate that ensures that ems-interactive-p is only called from
@@ -172,10 +172,6 @@
   (let ((ems--interactive-funcname (ad-get-arg 0)))
     ad-do-it))
 
-(defadvice call-interactively (around emacspeak  pre act comp)
-  "Record name of interactive function being called."
-  (let ((ems--interactive-funcname (ad-get-arg 0)))
-    ad-do-it))
 ;;; Beware: Advice on defadvice 
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
 (defun ems--generate-interactive-check (orig-macro funname args &rest body)
