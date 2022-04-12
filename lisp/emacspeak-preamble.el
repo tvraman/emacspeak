@@ -202,8 +202,6 @@ FUNNAME to our stored value of ems--interactive-funcname."
 (defsubst ems--fastload (file)
   "Load file efficiently."
   (let ((file-name-handler-alist nil)
-        (coding-system-for-write 'emacs-internal)
-        (coding-system-for-read 'emacs-internal)
         (load-source-file-function nil))
     (load file)))
 
