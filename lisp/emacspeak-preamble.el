@@ -168,11 +168,11 @@
     ad-do-it))
 
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
-(defun ems--generate-interactive-check (orig-mac funname args &rest body)
+(defun ems--generate-interactive-check (orig-macro funname args &rest body)
   "Lexically redefine ems-interactive-p  to test  ems-interactive-funcname within  BODY.
 The local definition expands to a call to  `eq'  that 
 compares  FUNNAME to our stored value of ems-interactive-funcname."
-  (apply orig-mac funname args
+  (apply orig-macro funname args
          (macroexp-unprogn
           (macroexpand-all
            (macroexp-progn body)
