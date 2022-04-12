@@ -154,38 +154,39 @@
 ;;; within emacspeak advice forms.
 ;;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
 
-(defvar ems-interactive-funcname nil
+(defvar ems--interactive-funcname nil
   "Holds name of function being called interactively.")
 
 (defadvice funcall-interactively (around emacspeak  pre act comp)
   "Record name of interactive function being called."
-  (let ((ems-interactive-funcname (ad-get-arg 0)))
+  (let ((ems--interactive-funcname (ad-get-arg 0)))
     ad-do-it))
 
 (defadvice call-interactively (around emacspeak  pre act comp)
   "Record name of interactive function being called."
-  (let ((ems-interactive-funcname (ad-get-arg 0)))
+  (let ((ems--interactive-funcname (ad-get-arg 0)))
     ad-do-it))
-
+;;; Beware: Advice on defadvice 
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
 (defun ems--generate-interactive-check (orig-macro funname args &rest body)
-  "Lexically redefine ems-interactive-p  to test  ems-interactive-funcname within  BODY.
-The local definition expands to a call to  `eq'  that 
-compares  FUNNAME to our stored value of ems-interactive-funcname."
+  "Lexically redefine ems-interactive-p  to test  ems--interactive-funcname.
+The local definition expands to a call to `eq' that compares
+FUNNAME to our stored value of ems--interactive-funcname."
   (apply orig-macro funname args
          (macroexp-unprogn
           (macroexpand-all
            (macroexp-progn body)
            `((ems-interactive-p         ; new definition
-              . ,(lambda () `(eq ems-interactive-funcname ',funname)))
+              . ,(lambda () `(eq ems--interactive-funcname ',funname)))
              . ,macroexpand-all-environment)))))
 
 (defun ems-interactive-p ()
   "Dynamically defined at runtime to provide Emacspeak's
   interactive check.  Should never be called, so produce debug
   info if the unexpected happens."
-  (cl-declare (special ems-interactive-funcname))
-  (error "ems-interactive-p: unexpected"))
+  (cl-declare (special ems--interactive-funcname))
+  (error
+   (format "From %s: Unexpected call!" ems--interactive-funcname)))
 
 ;;}}}
 ;;{{{defsubst: ems--fastload:
