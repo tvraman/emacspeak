@@ -137,7 +137,7 @@
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
-;;; The old  implementation below appears to work for  emacspeak.
+;;; The old  implementation appears to work for  emacspeak.
 ;;; it has been moved to obsolete/old-emacspeak-preamble.el to avoid
 ;;; the fragility from using backtrace-frame.
 ;;; See http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html
