@@ -146,6 +146,16 @@
 ;;; This updated implementation avoids that call and was contributed
 ;;; by Stefan Monnier.
 
+;;;  FIXME: Note that `ems-interactive-p', unlike `called-interactively-p',
+;;;  will return non-nil when the original command calls itself recursively.
+;;;  More specifically `called-interactively-p' tries to returns non-nil
+;;;  if and only if the current call to the surrounding function (let's call it
+;;;  F) was made interactively, whereas `ems-interactive-p' returns non-nil if
+;;;  F happens to be the same function as the one that was called interactively
+;;;  (either because it's the original (interactive) call, or because of
+;;;  a nested/recursive call).
+;;;  In practice it rarely makes a difference, luckily.
+
 ;;; Design:
 ;;; call-interactively and funcall-interactively store the name of the
 ;;; interactive command being run.
