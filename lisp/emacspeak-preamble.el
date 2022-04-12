@@ -137,17 +137,25 @@
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
-;;; This implementation below appears to work for  emacspeak.
+;;; The old  implementation below appears to work for  emacspeak.
+;;; it has been moved to obsolete/old-emacspeak-preamble.el to avoid
+;;; the fragility from using backtrace-frame.
 ;;; See http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html
-;;; for the version that  depended on calling backtrace-frame. This
-;;; updated implementation avoids that call and was contributed by
-;;; Stefan Mounier.
+;;; for the version that  depended on calling backtrace-frame.
 
-;;; ems-interactive-p is reserved for use within Emacspeak advice.
+;;; This updated implementation avoids that call and was contributed
+;;; by Stefan Monnier.
+
+;;; Design:
+;;; call-interactively and funcall-interactively store the name of the
+;;; interactive command being run.
+;;; The defadvice macro is itself adviced to generate a locally bound
+;;; predicate that ensures that ems-interactive-p is only called from
+;;; within emacspeak advice forms.
+;;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
 
 (defvar ems-interactive-funcname nil
-  "Record interactive calls to advised functions --- stores the
-  function name.")
+  "Holds name of function being called interactively.")
 
 (defadvice funcall-interactively (around emacspeak  pre act comp)
   "Record name of interactive function being called."
@@ -171,16 +179,12 @@ compares  FUNNAME to our stored value of ems-interactive-funcname."
                               . ,(lambda () `(eq ems-interactive-funcname ',funname)))
                              . ,macroexpand-all-environment)))))
 
-(defvar ems--interactive-last-backtrace nil)
-
 (defun ems-interactive-p ()
   "Dynamically defined at runtime to provide Emacspeak's
   interactive check.  Should never be called, so produce debug
   info if the unexpected happens."
-  (cl-declare (special ems-interactive-funcname
-                       ems--interactive-last-backtrace))
-  (setq ems--interactive-last-backtrace (backtrace-frames))
-  nil)
+  (cl-declare (special ems-interactive-funcname))
+  (error "ems-interactive-p: unexpected"))
 
 ;;}}}
 ;;{{{defsubst: ems--fastload:
