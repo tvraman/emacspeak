@@ -7,6 +7,26 @@
   The default voice for a language can be selected by omitting the colon,
   and the voice for the current language can be changed by using just `:voicename`
 - Relative pitch and volume adjustments are used to convey aural styling
+* Changes in Emacspeak 56
+The espeak server supports voice selection for each language.
+When calling dtk-set-lang (either interactively using C-e d S or in your init file)
+the argument is no longer restricted to just a language name
+(such as "en-us" or "pl"): the language name be followed by a : and then the name
+of a voice known to espeak. For example, "en-us:whisper" selects
+US English with the 'whisper' variant loaded.
+
+Additionally, starting the language selection with a `:` changes the voice
+for the current language - that is, ":victor" loads the victor variant for
+the currently selected language.
+
+The chosen voice is maintained separately for each language, so switching back
+to a language will restore the voice selected for it.
+
+If the specified voice cannot be found, the server will fall back to the previous
+method of selecting a voice based on the requested language.
+
+Note: attempting to use an MBROLA voice from the espeak server typically causes
+hangs, and so the server will reject attempts to select such voice.
 * TODO MBROLA
 MBROLA voices are known to cause the speech server to hang.
 The cause of this issue is unknown.
@@ -20,4 +40,3 @@ that will allow users to explore this option.
 There is currently no interface that will allow users to change the base
 pitch or volume of a voice.
 * TODO Cleaning up the TCL interface
-
