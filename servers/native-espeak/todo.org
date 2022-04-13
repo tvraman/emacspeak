@@ -8,6 +8,15 @@
   and the voice for the current language can be changed by using just `:voicename`
 - Relative pitch and volume adjustments are used to convey aural styling
 * Changes in Emacspeak 56
+** Relative pitch and volume
+In order to ensure auditory feedback functions correctly no matter what voice
+is selected, the mappings of emacspeak's auditory faces to espeak commands
+have been changed to use percentages of the base pitch and volume instead of
+absolute values for those voice parameters.
+
+This change causes some voice styles to sound different, but the impact
+should be minor.
+** Voice selection support
 The espeak server supports voice selection for each language.
 When calling dtk-set-lang (either interactively using C-e d S or in your init file)
 the argument is no longer restricted to just a language name
