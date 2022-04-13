@@ -104,7 +104,7 @@ proc set_next_lang {say_it} {
     setLanguage $langsynth(current) $voicename(current)
     puts stderr "Language: $langsynth(current) Voice: $voicename(currrent)"
     if { [info exists say_it]} {
-	tts_say "$voicename(current)"
+        tts_say "$voicename(current)"
     }
 }
 
@@ -133,9 +133,9 @@ proc set_previous_lang {say_it} {
     set langcode(current) $langcode($index)
     set voicename(current) $voicename($index)
     setLanguage $langsynth(current) $voicename(current)
-puts stderr "Language: $langsynth(current) Voice: $voicename(current)"
+    puts stderr "Language: $langsynth(current) Voice: $voicename(current)"
     if { [info exists say_it]} {
-	tts_say "$voicename(current) "
+        tts_say "$voicename(current) "
     }
 }
 
@@ -522,8 +522,12 @@ if {[file exists /proc/asound]} {
 
 # Get the list of voice variants available so you can call for en-us:whisper
 # and not en-us:en-us+whisper
-foreach variant [glob -tails -directory [ttsDataPath]/voices/!v *] {
+foreach variant [glob -nocomplain -tails -directory [ttsDataPath]/voices/!v *] {
     set voiceVariants($variant) {}
+}
+if {![info exists voiceVariants]} {
+    array set voiceVariants {}
+    puts stderr "Warning: no voice variants found under [ttsDataPath]"
 }
 
 synth "<voice>eSpeak  [ttsVersion]"
@@ -540,7 +544,7 @@ if $mswindows {
 }
 
 #}}}
-#{{{ Emacs local variables  
+#{{{ Emacs local variables
 
 ### Local variables:
 ### mode: tcl
