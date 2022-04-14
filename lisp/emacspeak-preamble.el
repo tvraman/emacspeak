@@ -137,14 +137,15 @@
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
-;;; The old  implementation appears to work for  emacspeak.
-;;; it has been moved to obsolete/old-emacspeak-preamble.el to avoid
-;;; the fragility from using backtrace-frame.
-;;; See http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html
-;;; for the version that  depended on calling backtrace-frame.
+
+;;; The implementation from 2014 worked for emacspeak.  it has been
+;;; moved to obsolete/old-emacspeak-preamble.el to avoid the fragility
+;;; from using backtrace-frame.  See
+;;; http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html for
+;;; the version that depended on calling backtrace-frame.
 
 ;;; This updated implementation avoids that call and was contributed
-;;; by Stefan Monnier.
+;;; by Stefan Monnier in April 2022.
 
 ;;;  FIXME: Note that `ems-interactive-p', unlike `called-interactively-p',
 ;;;  will return non-nil when the original command calls itself recursively.
@@ -154,7 +155,7 @@
 ;;;  F happens to be the same function as the one that was called interactively
 ;;;  (either because it's the original (interactive) call, or because of
 ;;;  a nested/recursive call).
-;;;  In practice it rarely makes a difference, luckily.
+;;; This behavior is the desired one for Emacspeak.
 
 ;;; Design:
 ;;; Advice on funcall-interactively stores the name of the
@@ -188,7 +189,7 @@ FUNNAME to our stored value of ems--interactive-funcname."
 
 (defun ems-interactive-p ()
   "Dynamically defined at runtime to provide Emacspeak's
-  interactive check.  Should never be called, so produce debug
+  interactive check.  This definition never be called, so produce debug
   info if the unexpected happens."
   (cl-declare (special ems--interactive-funcname))
   (error
