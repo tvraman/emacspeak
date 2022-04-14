@@ -1668,7 +1668,7 @@ mapped to voices.
           "index-emacspeak_002dwizards_002denumerate_002duncovered_002dcommands">
           <span class="category">Command:</span>
           <span><strong>emacspeak-wizards-enumerate-uncovered-commands</strong>
-          <em>(pattern &amp;optional bound-only)</em> <a href=
+          <em>(pattern &amp;optional bound)</em> <a href=
           '#index-emacspeak_002dwizards_002denumerate_002duncovered_002dcommands'
           class='copiable-anchor'>¶</a></span></dt>
           <dd>
@@ -1678,10 +1678,10 @@ mapped to voices.
             <div class="format">
               <pre class=
               "format">Enumerate unadvised commands matching pattern.
-Optional interactive prefix arg ‘bound-only’
+Optional interactive prefix arg ‘bound’
 filters out commands that dont have an active key-binding.
 
-(fn PATTERN &amp;optional BOUND-ONLY)
+(fn PATTERN &amp;optional BOUND)
 </pre>
             </div>
           </dd>
@@ -1777,7 +1777,8 @@ filters out commands that dont have an active key-binding.
             "index-emacspeak_002dwizards_002despeak_002dstring-1"></span>
             <div class="format">
               <pre class="format">Speak string in lang via ESpeak.
-Lang is obtained from property ‘lang’ on string, or  via an interactive prompt.
+Lang is obtained from property ‘lang’ on string, or via an
+interactive prompt.
 
 (fn STRING)
 </pre>

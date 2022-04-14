@@ -395,8 +395,8 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
 The heads for the associated hydra are:
 
-"’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
-"(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
+"’":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
+"(":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
 "&lt;down&gt;":    ‘sp-splice-sexp-killing-forward’,
 "&lt;left&gt;":    ‘sp-forward-barf-sexp’,
 "&lt;right&gt;":    ‘sp-forward-slurp-sexp’,
@@ -405,7 +405,7 @@ The heads for the associated hydra are:
 "C-&lt;left&gt;":    ‘sp-backward-barf-sexp’,
 "C-&lt;right&gt;":    ‘sp-backward-slurp-sexp’,
 "R":    ‘sp-splice-sexp’,
-""":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
+""":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
 "a":    ‘beginning-of-defun’,
 "b":    ‘sp-backward-sexp’,
 "c":    ‘sp-convolute-sexp’,
@@ -422,7 +422,7 @@ The heads for the associated hydra are:
 "t":    ‘sp-transpose-sexp’,
 "u":    ‘sp-backward-up-sexp’,
 "w":    ‘sp-copy-sexp’,
-"{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "{"))’
+"{":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "{"))’
 
 The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 </pre>
