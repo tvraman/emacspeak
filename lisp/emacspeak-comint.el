@@ -125,7 +125,7 @@ buffer is not current or its window live.")
 
 (make-variable-buffer-local 'emacspeak-comint-output-monitor)
 
-;;;###autoload
+;;;###autoload (autoload 'emacspeak-toggle-comint-output-monitor "emacspeak-comint" t)
 (ems-generate-switcher 'emacspeak-toggle-comint-output-monitor
                        'emacspeak-comint-output-monitor
                        "Toggle  Emacspeak comint monitor.
