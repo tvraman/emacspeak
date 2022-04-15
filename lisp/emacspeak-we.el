@@ -1,57 +1,57 @@
-;;; emacspeak-we.el --- Transform Web Pages Using XSLT  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Edit/Transform Web Pages using XSLT
-;;; Keywords: Emacspeak,  Audio Desktop Web, XSLT
+;; emacspeak-we.el --- Transform Web Pages Using XSLT  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Edit/Transform Web Pages using XSLT
+;; Keywords: Emacspeak,  Audio Desktop Web, XSLT
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-04 09:12:03 -0700 (Mon, 04 Aug 2008) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-04 09:12:03 -0700 (Mon, 04 Aug 2008) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
-;;; Commentary:
-;;; we is for webedit
-;;; Invoke XSLT to edit/transform Web pages before they get
-;;; rendered.
-;;; we makes emacspeak's webedit layer independent of a given
-;;; Emacs web browser  EWW
-;;; This module will use the abstraction provided by browse-url
-;;; to handle Web pages.
+;; Commentary:
+;; we is for webedit
+;; Invoke XSLT to edit/transform Web pages before they get
+;; rendered.
+;; we makes emacspeak's webedit layer independent of a given
+;; Emacs web browser  EWW
+;; This module will use the abstraction provided by browse-url
+;; to handle Web pages.
 
 
 
-;;; Code:
+;; Code:
 
 ;;}}}
 ;;{{{  Required modules
@@ -77,7 +77,7 @@
 
 ;;}}}
 ;;{{{ URL Rewrite:
-;;; forward decl to help compiler 
+;; forward decl to help compiler 
 (defvar emacspeak-eww-url-at-point)
 
 (defun emacspeak-we-url-rewrite-and-follow (&optional prompt)
@@ -168,10 +168,10 @@ Default is to apply sort-tables.")
 (defvar emacspeak-we-xsl-params nil
   "XSL params if any to pass to emacspeak-xslt-region.")
 
-;;; Note that emacspeak-we-xsl-transform, emacspeak-we-xsl-params
-;;; and emacspeak-we-xsl-p
-;;; need to be set at top-level since the page-rendering code is
-;;; called asynchronously.
+;; Note that emacspeak-we-xsl-transform, emacspeak-we-xsl-params
+;; and emacspeak-we-xsl-p
+;; need to be set at top-level since the page-rendering code is
+;; called asynchronously.
 
 (defvar emacspeak-we-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes.")
@@ -1056,8 +1056,8 @@ used as well."
 (provide 'emacspeak-we)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

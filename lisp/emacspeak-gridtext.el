@@ -1,65 +1,65 @@
-;;; emacspeak-gridtext.el --- Overlay Grids To filter columnar text  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak module for laying grids on text
-;;; Keywords: Emacspeak, gridtext
+;; emacspeak-gridtext.el --- Overlay Grids To filter columnar text  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak module for laying grids on text
+;; Keywords: Emacspeak, gridtext
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4150 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4150 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
-;;; Commentary:
+;; Commentary:
 
-;;; Emacspeak's table browsing mode allows one to
-;;; efficiently access  content that is tabular in nature.
-;;; That module also provides functions for inferring table
-;;; structure where possible.
-;;; Often, such structure is hard to infer automatically
-;;; --but might be known to the user 
-;;; e.g. treat columns 1 through 30 as one column of a table
-;;; and so on.
-;;; This module allows the user to specify a conceptual grid
-;;; that is "overlaid" on the region of text to turn it into
-;;; a table for tabular browsing. For now, elements of the
-;;; grid are "one line" high --but that may change in the
-;;; future if necessary. This module is useful for browsing
-;;; structured text files and the output from programs that
-;;; tabulate their output.
-;;; It's also useful for handling multicolumn text.
-;;; The "grid" is specified as a list of (start end) tuples..
-;;; Code:
+;; Emacspeak's table browsing mode allows one to
+;; efficiently access  content that is tabular in nature.
+;; That module also provides functions for inferring table
+;; structure where possible.
+;; Often, such structure is hard to infer automatically
+;; --but might be known to the user 
+;; e.g. treat columns 1 through 30 as one column of a table
+;; and so on.
+;; This module allows the user to specify a conceptual grid
+;; that is "overlaid" on the region of text to turn it into
+;; a table for tabular browsing. For now, elements of the
+;; grid are "one line" high --but that may change in the
+;; future if necessary. This module is useful for browsing
+;; structured text files and the output from programs that
+;; tabulate their output.
+;; It's also useful for handling multicolumn text.
+;; The "grid" is specified as a list of (start end) tuples..
+;; Code:
 
 ;;}}}
 ;;{{{ required modules
@@ -113,7 +113,7 @@ end   as specified by grid."
                  (cl-loop for j from 0 to (1- (length grid))
                           do
                           (when (< (1- (nth j grid)) this-length)
-;;; within bounds 
+;; within bounds 
                             (aset  this-row j
                                    (substring
                                     this-line
@@ -222,8 +222,8 @@ end   as specified by grid."
 (provide 'emacspeak-gridtext)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

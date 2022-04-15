@@ -1,50 +1,50 @@
-;;; dtk-speak.el --- Interface to speech server -*- lexical-binding: t; -*-
-;;;$Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacs interface to TTS
-;;; Keywords: TTS  Emacs Elisp
+;; dtk-speak.el --- Interface to speech server -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacs interface to TTS
+;; Keywords: TTS  Emacs Elisp
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-07-06 10:18:30 -0700 (Sun, 06 Jul 2008) $ |
-;;;  $Revision: 4670 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-07-06 10:18:30 -0700 (Sun, 06 Jul 2008) $ |
+;;  $Revision: 4670 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ introduction:
 
-;;; Commentary:
-;;;Defines the TTS interface.
-;;; Here, prefix dtk is synonymous with tts.
-;;; Code:
+;; Commentary:
+;; Defines the TTS interface.
+;; Here, prefix dtk is synonymous with tts.
+;; Code:
 ;;
 
 ;;}}}
@@ -77,7 +77,7 @@ espeak      For eSpeak (default on Linux)
 mac for MAC TTS (default on Mac)")
 ;;}}}
 
-;;; Importing dtk-interp by inclusion:
+;; Importing dtk-interp by inclusion:
 
 ;;{{{ macros
 
@@ -315,11 +315,11 @@ bound to \\[dtk-toggle-caps].")
 ;;}}}
 ;;{{{Style Helper:
 
-;;; helper: Identify (a . b).
+;; helper: Identify (a . b).
 (defsubst dtk-plain-cons-p (value)
   (and (consp value) (not (proper-list-p value))))
 
-;;; Helper: Get face->voice mapping
+;; Helper: Get face->voice mapping
 
 (defun dtk-get-voice-for-face  (value)
     "Face->voice map"
@@ -340,24 +340,24 @@ bound to \\[dtk-toggle-caps].")
 ;;}}}
 ;;{{{ Tone Helpers:
 
-;;; Deletion Tone.
+;; Deletion Tone.
 (defsubst dtk-tone-deletion ()
   (dtk-tone 500 75 'force))
-;;; Upcase Tone.
+;; Upcase Tone.
 (defsubst dtk-tone-upcase ()
   (dtk-tone 800 100 'force))
-;;;Downcase tone.
+;; Downcase tone.
 (defsubst dtk-tone-downcase ()
   (dtk-tone 600 100 'force))
 
 ;;}}}
 ;;{{{ helper: apply pronunciations
 
-;;; moved here from the emacspeak-pronounce module for efficient
+;; moved here from the emacspeak-pronounce module for efficient
 ;;compilation
 
-;;; Helper: like replace-match but preserves existing face or apply
-;;; 'match for pronunciation
+;; Helper: like replace-match but preserves existing face or apply
+;; 'match for pronunciation
 
 (defsubst tts-replace-match (replace)
   (cl-declare (special emacspeak-pronounce-personality))
@@ -488,11 +488,11 @@ Uses a 5ms fade-in and fade-out. "
   (when dtk-speak-server-initialized
     (dtk-interp-list-language)))
 
-;;; helper function:
-;;; Quote the string in current buffer so tcl does not barf.
-;;; Fix brackets by changing to text.
-;;; This is necessary because
-;;;  [] marks dtk commands; {} is special to tcl
+;; helper function:
+;; Quote the string in current buffer so tcl does not barf.
+;; Fix brackets by changing to text.
+;; This is necessary because
+;;  [] marks dtk commands; {} is special to tcl
 
 (defconst dtk-bracket-regexp
   "[][{}<>\\|`#\n]"
@@ -619,11 +619,11 @@ specifies the current pronunciation mode --- See
             (insert dtk-caps-prefix))
            (t (insert dtk-allcaps-prefix))))))))
 
-;;; Takes a string, and replaces occurrences  of this pattern
-;;; that are longer than 3 by a string of the form \"count
-;;; string\". Second argument, mode, is the pronunciation
-;;; mode being used to speak.  Removing repeated chars, and
-;;; replacing them by a count:
+;; Takes a string, and replaces occurrences  of this pattern
+;; that are longer than 3 by a string of the form \"count
+;; string\". Second argument, mode, is the pronunciation
+;; mode being used to speak.  Removing repeated chars, and
+;; replacing them by a count:
 
 (defun dtk-replace-duplicates (string mode)
   "Replace repeating patterns.
@@ -665,10 +665,10 @@ specifies the current pronunciation mode --- See
 (defun dtk-quote (mode)
   "Clean-up text."
   (let ((inhibit-read-only t))
-;;; dtk will think it's processing a command otherwise:
+;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets mode)
     (dtk-handle-caps)
-;;; fix control chars
+;; fix control chars
     (dtk-fix-control-chars)))
 
 (defun dtk-fix-backslash ()
@@ -677,13 +677,13 @@ specifies the current pronunciation mode --- See
   (while (search-forward "\\" nil t)
     (replace-match " backslash " nil t)))
 
-;;; Moving  across a chunk of text.
-;;; A chunk  is specified by a punctuation (todo? followed by whitespace)
-;;; or  multiple blank lines
-;;; or a comment start or end
-;;; or a parenthesis grouping start or end
-;;; leaves point at the end of the chunk.
-;;; returns  distance moved; nil if stationery
+;; Moving  across a chunk of text.
+;; A chunk  is specified by a punctuation (todo? followed by whitespace)
+;; or  multiple blank lines
+;; or a comment start or end
+;; or a parenthesis grouping start or end
+;; leaves point at the end of the chunk.
+;; returns  distance moved; nil if stationery
 (defvar-local dtk-chunk-separator-syntax ".>)$\""
   "Syntax classes  used when   splitting text.")
 
@@ -692,7 +692,7 @@ specifies the current pronunciation mode --- See
   (cl-declare (special dtk-chunk-separator-syntax))
   (concat "^" dtk-chunk-separator-syntax))
 
-;;; set chunk separator to match both whitespace and punctuations:
+;; set chunk separator to match both whitespace and punctuations:
 (defun dtk-chunk-on-white-space-and-punctuations ()
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
@@ -705,10 +705,10 @@ specifies the current pronunciation mode --- See
          #'(lambda (x) (= x ?-))
          dtk-chunk-separator-syntax)))
 
-;;; invarianc: looking at complement
-;;; move across the complement and the following separator
-;;; return value is a boolean indicating if we moved.
-;;; side-effect is to move across a chunk
+;; invarianc: looking at complement
+;; move across the complement and the following separator
+;; return value is a boolean indicating if we moved.
+;; side-effect is to move across a chunk
 (defun dtk-move-across-a-chunk (separator complement)
   "Move over a chunk of text.
 Chunks are defined  based on major modes.
@@ -724,7 +724,7 @@ Argument COMPLEMENT  is the complement of separator."
   (unless (or (eq 'inaudible voice)
               (null text) (string-equal text "")
               (and (listp voice) (memq 'inaudible voice)))
-;;; ensure text is a  string
+;; ensure text is a  string
     (unless (stringp text) (setq text (format "%s" text)))
     (dtk-interp-queue-code
      (cond
@@ -767,17 +767,17 @@ Argument COMPLEMENT  is the complement of separator."
     (dtk-interp-letter letter)
     (dtk-interp-queue-code (tts-voice-reset-code))))
 
-;;;Internal function used by dtk-speak to send text out.
-;;;Handles voice locking etc.
-;;; assumes in dtk-scratch-buffer
-;;;start and end give the extent of the
-;;;text to be spoken.
-;;; note that property auditory-icon at the start  of a clause
-;;; causes the sound
-;;; to be queued.
-;;;
-;;; Similarly, property pause at the start of a clause specifies
-;;; amount of pause to insert.
+;; Internal function used by dtk-speak to send text out.
+;; Handles voice locking etc.
+;; assumes in dtk-scratch-buffer
+;; start and end give the extent of the
+;; text to be spoken.
+;; note that property auditory-icon at the start  of a clause
+;; causes the sound
+;; to be queued.
+;; 
+;; Similarly, property pause at the start of a clause specifies
+;; amount of pause to insert.
 
 (defsubst dtk-next-single-property-change (start prop object limit)
   (let ((initial-value (get-text-property start prop object)))
@@ -791,8 +791,8 @@ Argument COMPLEMENT  is the complement of separator."
           (setq pos (next-single-property-change pos prop object limit)))
         pos)))))
 
-;;; Get position of previous style change from start to end. Here, style
-;;; change is any change in property personality, face or font-lock-face.
+;; Get position of previous style change from start to end. Here, style
+;; change is any change in property personality, face or font-lock-face.
 
 (defsubst dtk-previous-style-change (start &optional end)
   (or end (setq end (point-min)))
@@ -801,8 +801,8 @@ Argument COMPLEMENT  is the complement of separator."
    (previous-single-property-change start 'face (current-buffer) end)
    (previous-single-property-change start 'font-lock-face (current-buffer) end)))
 
-;;; Get position of next style change from start   to end.
-;;; Here,  change is any change in property personality, face or font-lock-face.
+;; Get position of next style change from start   to end.
+;; Here,  change is any change in property personality, face or font-lock-face.
 (defsubst dtk-next-style-change (start &optional end)
   (or end (setq end (point-max)))
   (min
@@ -840,12 +840,12 @@ Argument COMPLEMENT  is the complement of separator."
         (when (get-text-property start 'pause)
           (dtk-interp-silence (get-text-property start 'pause) nil)))))))
 
-;;;Force the speech.
+;; Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
 
-;;;Write out the string to the tts via TCL.
-;;; No quoting is done,
-;;; ifyou want to quote the text, see dtk-speak
+;; Write out the string to the tts via TCL.
+;; No quoting is done,
+;; ifyou want to quote the text, see dtk-speak
 
 (defun dtk-dispatch (string)
   "Send request  to speech server."
@@ -1154,7 +1154,7 @@ Set by \\[dtk-set-punctuations].")
   (make-vector 256 "")
   "Maps characters to pronunciation strings.")
 
-;;;  Assign entries in the table:
+;;  Assign entries in the table:
 (defun dtk-speak-setup-character-table ()
   "Setup pronunciations in the character table for theTTS engine."
   (let ((table dtk-character-to-speech-table))
@@ -1286,7 +1286,7 @@ Set by \\[dtk-set-punctuations].")
     (aset table 125 "right[*]brace ")
     (aset table 126 "tilde")
     (aset table 127 "backspace")
-;;; Characters with the 8th bit set:
+;; Characters with the 8th bit set:
     (aset table 128 " octal 200 ")
     (aset table 129 " ")                ;shows up on WWW pages
     (aset table 130 " octal 202 ")
@@ -1429,7 +1429,7 @@ Set by \\[dtk-set-punctuations].")
 ;;}}}
 ;;{{{  interactively selecting the server:
 
-;;; will be reset on a per TTS engine basis.
+;; will be reset on a per TTS engine basis.
 (fset 'tts-get-voice-command 'dectalk-get-voice-command)
 
 (defun tts-voice-reset-code ()
@@ -1552,7 +1552,7 @@ Set to nil to disable a separate Notification stream."
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
 
-;;; Helper: dtk-make-process:
+;; Helper: dtk-make-process:
 (defun dtk-make-process (name)
   "Make a  TTS process called name."
   (cl-declare (special dtk-program  emacspeak-servers-directory))
@@ -1634,17 +1634,17 @@ unless   `dtk-quiet' is set to t. "
                        voice-lock-mode dtk-punctuation-mode
                        dtk-split-caps
                        emacspeak-pronounce-pronunciation-table selective-display))
-;;; ensure text is a  string
+;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
-;;; ensure  the process  is live
+;; ensure  the process  is live
   (unless (process-live-p dtk-speaker-process) (dtk-initialize))
-;;; If you dont want me to talk,or my server is not running,
-;;; I will remain silent.
-;;; I also do nothing if text is nil or ""
+;; If you dont want me to talk,or my server is not running,
+;; I will remain silent.
+;; I also do nothing if text is nil or ""
   (unless
       (or dtk-quiet (not dtk-speak-server-initialized)
           (null text) (zerop (length text)))
-;;; flush previous speech if asked to
+;; flush previous speech if asked to
     (when dtk-stop-immediately
       (when (process-live-p dtk-notify-process) (dtk-notify-stop))
       (dtk-stop))
@@ -1678,7 +1678,7 @@ unless   `dtk-quiet' is set to t. "
       (with-current-buffer dtk-scratch-buffer
         (setq buffer-undo-list t)
         (erase-buffer)
-;;; inherit environment
+;; inherit environment
         (setq
          yank-excluded-properties dtk-yank-excluded-properties
          emacspeak-pronounce-personality pron-personality
@@ -1714,7 +1714,7 @@ unless   `dtk-quiet' is set to t. "
             (setq end (point))
             (dtk-audio-format start end)
             (setq start end)))          ; end while
-;;; process trailing text
+;; process trailing text
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
           (unless (eobp) (dtk-audio-format (point) (point-max))))))
@@ -1742,7 +1742,7 @@ grouping"
   (cl-declare (special dtk-speaker-process))
   (unless group (setq group 3))
   (when (numberp group)
-;;; Create split list
+;; Create split list
     (setq group
           (let ((q (/ (length text) group))
                 (r (% (length text) group))
@@ -1909,14 +1909,14 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
       (dtk-force))))
 
 ;;}}}
-;;; Include dtk-unicode.el
+;; Include dtk-unicode.el
 
-;;; dtk-unicode.el --- Pronounce Unicode characters
+;; dtk-unicode.el --- Pronounce Unicode characters
 ;;{{{ Header: Lukas
 
 ;; Copyright 2007, 2011 Lukas Loehrer
-;;; TVR: Integrated into Emacspeak July 6, 2008
-;;; Using patch from Lukas.
+;; TVR: Integrated into Emacspeak July 6, 2008
+;; Using patch from Lukas.
 ;;
 ;; Author: Lukas Loehrer <loehrerl |at| gmx.net>
 ;; Version: $Id$
@@ -2043,10 +2043,10 @@ dtk-unicode-untouched-charsets."
   (setq dtk-unicode-untouched-charsets charsets)
   (setq dtk-unicode-charset-filter-regexp
         (dtk-unicode-build-skip-regexp dtk-unicode-untouched-charsets)))
-;;; Execute BODY like `progn' with CHARSETS at the front of priority list.
-;;; CHARSETS is a list of charsets.  See
-;;; `set-charset-priority'.  This affects the implicit sorting of lists of
-;;; charsets returned by operations such as `find-charset-region'.
+;; Execute BODY like `progn' with CHARSETS at the front of priority list.
+;; CHARSETS is a list of charsets.  See
+;; `set-charset-priority'.  This affects the implicit sorting of lists of
+;; charsets returned by operations such as `find-charset-region'.
 
 (defmacro dtk--with-charset-priority (charsets &rest body)
   (declare (indent 1) (debug t))
@@ -2056,7 +2056,7 @@ dtk-unicode-untouched-charsets."
        (unwind-protect
            (progn ,@body)
          (apply #'set-charset-priority ,current)))))
-;;; Now use it:
+;; Now use it:
 
 (defun dtk-unicode-char-in-charsets-p (char charsets)
   "Return t if CHAR is a member of one in the charsets in CHARSETS."
@@ -2181,14 +2181,14 @@ When called interactively, CHAR defaults to the character after point."
             (set-text-properties pos (point) props)))))))
 
 ;;}}}
-;;; dtk-unicode.el ends here
+;; dtk-unicode.el ends here
 
 (provide 'dtk-speak)
 ;;{{{  emacs local variables
 
-;;; local variables:
-;;; coding: utf-8
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; coding: utf-8
+;; folded-file: t
+;; end:
 
 ;;}}}

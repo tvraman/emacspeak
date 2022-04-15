@@ -1,42 +1,42 @@
-;;; emacspeak-nxml.el --- Speech enable nxml mode  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: Controlling mplayer from emacs 
-;;; Keywords: Emacspeak, nxml streaming media 
+;; emacspeak-nxml.el --- Speech enable nxml mode  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: Controlling mplayer from emacs 
+;; Keywords: Emacspeak, nxml streaming media 
 ;;{{{  LCD Archive entry: 
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
-;;; A speech interface to Emacs |
-;;; $Date: 2008-04-15 18:29:37 -0700 (Tue, 15 Apr 2008) $ |
-;;;  $Revision: 4532 $ | 
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
+;; A speech interface to Emacs |
+;; $Date: 2008-04-15 18:29:37 -0700 (Tue, 15 Apr 2008) $ |
+;;  $Revision: 4532 $ | 
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved. 
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (c) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved. 
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Required modules
 
@@ -45,10 +45,10 @@
 
 ;;}}}
 ;;{{{ Introduction:
-;;; Commentary:
-;;; nxml-mode is a new XML mode for emacs by James Clark.
-;;;  Package nxml is available from the Emacs package archive.
-;;; Code:
+;; Commentary:
+;; nxml-mode is a new XML mode for emacs by James Clark.
+;;  Package nxml is available from the Emacs package archive.
+;; Code:
 ;;}}}
 ;;{{{ voice locking 
 (voice-setup-add-map
@@ -135,7 +135,7 @@
 ;;{{{ pronunciations 
 (cl-declaim (special emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
 
-;;; nxml mode inherits from xml mode
+;; nxml mode inherits from xml mode
 (emacspeak-pronounce-augment-pronunciations 'xml-mode
                                             emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
 (emacspeak-pronounce-add-super 'xml-mode 'nxml-mode)
@@ -257,8 +257,8 @@
 (provide 'emacspeak-nxml)
 ;;{{{ end of file 
 
-;;; local variables:
-;;; folded-file: t
-;;; end: 
+;; local variables:
+;; folded-file: t
+;; end: 
 
 ;;}}}

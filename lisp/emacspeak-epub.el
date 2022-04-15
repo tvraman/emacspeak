@@ -1,170 +1,170 @@
-;;; emacspeak-epub.el --- epubs On emacspeak desktop  -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-epub.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak front-end for EPUBS Talking Books
-;;; Keywords: Emacspeak, epubs Digital Talking Books
+;; emacspeak-epub.el --- epubs On emacspeak desktop  -*- lexical-binding: t; -*-
+;; $Id: emacspeak-epub.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak front-end for EPUBS Talking Books
+;; Keywords: Emacspeak, epubs Digital Talking Books
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-06-21 10:60:41 -0700 (Sat, 21 Jun 2008) $ |
-;;;  $Revision: 4541 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-06-21 10:60:41 -0700 (Sat, 21 Jun 2008) $ |
+;;  $Revision: 4541 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
-;;; Commentary:
+;; Commentary:
 
-;;; @subsection Introduction
-;;;
-;;; This module implements the Emacspeak EPub
-;;; Bookshelf --- a unified interface for organizing, locating and
-;;; reading EPub EBooks on the emacspeak Audio Desktop. The epub
-;;; reader is built using the Emacs Web Browser (EWW), and all of
-;;; emacspeak's EWW conveniences are available when reading EBooks ---
-;;; see @xref{emacspeak-eww} for useful tools including bookmarking
-;;; and structured navigation. For now it supports epub2 --- it will
-;;; support epub3 some time in the future.
+;; @subsection Introduction
+;; 
+;; This module implements the Emacspeak EPub
+;; Bookshelf --- a unified interface for organizing, locating and
+;; reading EPub EBooks on the emacspeak Audio Desktop. The epub
+;; reader is built using the Emacs Web Browser (EWW), and all of
+;; emacspeak's EWW conveniences are available when reading EBooks ---
+;; see @xref{emacspeak-eww} for useful tools including bookmarking
+;; and structured navigation. For now it supports epub2 --- it will
+;; support epub3 some time in the future.
 
-;;; The main entry point is command @command{emacspeak-epub} bound to
-;;; @kbd{C-e g}. This command opens a new bookshelf buffer unless the
-;;; user has previously opened a specific bookshelf. A
-;;; @emph{bookshelf} is a buffer that lists books placed on a given
-;;; bookshelf --- these are listed by @emph{title} and
-;;; @emph{author}. The bookshelf buffer is in a special mode that
-;;; provides single-key commands for adding, removing and finding
-;;; books, as well as for opening the selected book using Emacs'
-;;; built-in Web browser (@command{eww}).
-;;;
-;;; The next few sections give a high-level overview of the emacspeak
-;;; Bookshelf and EPub interaction, followed by detailed documentation
-;;; on the various commands and user options.
+;; The main entry point is command @command{emacspeak-epub} bound to
+;; @kbd{C-e g}. This command opens a new bookshelf buffer unless the
+;; user has previously opened a specific bookshelf. A
+;; @emph{bookshelf} is a buffer that lists books placed on a given
+;; bookshelf --- these are listed by @emph{title} and
+;; @emph{author}. The bookshelf buffer is in a special mode that
+;; provides single-key commands for adding, removing and finding
+;; books, as well as for opening the selected book using Emacs'
+;; built-in Web browser (@command{eww}).
+;; 
+;; The next few sections give a high-level overview of the emacspeak
+;; Bookshelf and EPub interaction, followed by detailed documentation
+;; on the various commands and user options.
 
-;;; @subsection Organizing EBooks On The Emacspeak Desktop
-;;;
-;;; In the simplest case, EBooks can be placed under a specific
-;;; directory (with sub-directories as needed).
-;;; Customize   user option @code{emacspeak-epub-library-directory}
-;;; to point to this location.
-;;; Here is  a quick summary of commands for
-;;; organizing, saving and opening  a bookshelf:
-;;;
-;;; @table @kbd
-;;; @item a
-;;; emacspeak-epub-bookshelf-add-epub
-;;; @item b
-;;; emacspeak-epub-bookshelf-open
-;;; @item c
-;;; emacspeak-epub-bookshelf-clear
-;;; @item d
-;;; emacspeak-epub-bookshelf-remove-this-book
-;;; @item r
-;;; emacspeak-epub-bookshelf-rename
-;;; @item l
-;;; emacspeak-epub-locate-epubs
-;;; @item C-a
-;;; emacspeak-epub-bookshelf-add-directory
-;;; @item C-d
-;;; emacspeak-epub-bookshelf-remove-directory
-;;; @item C-l
-;;; emacspeak-epub-bookshelf-redraw
-;;; @item C-o
-;;; emacspeak-epub-bookshelf-open-epub
-;;; @item M-s
-;;; emacspeak-epub-bookshelf-save
-;;; @item C-x C-q
-;;; emacspeak-epub-bookshelf-refresh
-;;; @item C-x C-s
-;;; emacspeak-epub-bookshelf-save
-;;; @end table
-;;;
-;;; @subsection Integrating With Project Gutenberg
-;;;
-;;; Gutenberg integration provides one-shot commands for downloading
-;;; the latest copy of the Gutenberg catalog and  finding and downloading
-;;; the desired epub for offline reading.
-;;;
-;;; @table @kbd
-;;; @item C
-;;; emacspeak-epub-gutenberg-catalog
-;;; @item g
-;;; emacspeak-epub-gutenberg-download
-;;; @end table
-;;; Once downloaded, these EBooks can be
-;;; organized under  @code{emacspeak-epub-library-directory}
-;;; For  more advanced usage, see the next section
-;;; on integrating with Calibre catalogs.
-;;;
-;;; @subsection Calibre Integration
-;;;
-;;; Project Calibre  enables the indexing and searching of
-;;; large EBook collections.
-;;; Read the Calibre documentation for organizing and indexing your EBook library.
-;;; See user options named @code{emacspeak-epub-calibre-*} for
-;;; customizing  emacspeak to work with Calibre.
-;;; Once set up, Calibre integration provides
-;;; the following commands from the @emph{bookshelf} buffer:
-;;;
-;;; @table @kbd
-;;; @item /
-;;; emacspeak-epub-calibre-results
-;;; @item A
-;;; emacspeak-epub-bookshelf-calibre-author
-;;; @item S
-;;; emacspeak-epub-bookshelf-calibre-search
-;;; @item T
-;;; emacspeak-epub-bookshelf-calibre-title
-;;; @end table
-;;;
-;;; @subsection Reading EBooks From The Bookshelf
-;;;
-;;; The most efficient means to read an EBook is to have EWW render
-;;; the entire book --- this works well even for very large EBooks
-;;; given that EWW is efficient at rendering HTML. Rendering the
-;;; entire book means that all of the contents are available for
-;;; searching. To view an EBook in its entirety, use command
-;;; @code{emacspeak-epub-eww}. You can open the EPub table of contents
-;;; with command @code{emacspeak-epub-open}; for a
-;;; well-constructed epub, this TOC should provide hyperlinks to each
-;;; section listed in the table of contents.
-;;;
-;;; @table @kbd
-;;; @item RET
-;;; emacspeak-epub-eww
-;;; @item e
-;;; emacspeak-epub-eww
-;;; @item f
-;;; emacspeak-epub-browse-files
-;;; @item o
-;;; emacspeak-epub-open
-;;; @end table
+;; @subsection Organizing EBooks On The Emacspeak Desktop
+;; 
+;; In the simplest case, EBooks can be placed under a specific
+;; directory (with sub-directories as needed).
+;; Customize   user option @code{emacspeak-epub-library-directory}
+;; to point to this location.
+;; Here is  a quick summary of commands for
+;; organizing, saving and opening  a bookshelf:
+;; 
+;; @table @kbd
+;; @item a
+;; emacspeak-epub-bookshelf-add-epub
+;; @item b
+;; emacspeak-epub-bookshelf-open
+;; @item c
+;; emacspeak-epub-bookshelf-clear
+;; @item d
+;; emacspeak-epub-bookshelf-remove-this-book
+;; @item r
+;; emacspeak-epub-bookshelf-rename
+;; @item l
+;; emacspeak-epub-locate-epubs
+;; @item C-a
+;; emacspeak-epub-bookshelf-add-directory
+;; @item C-d
+;; emacspeak-epub-bookshelf-remove-directory
+;; @item C-l
+;; emacspeak-epub-bookshelf-redraw
+;; @item C-o
+;; emacspeak-epub-bookshelf-open-epub
+;; @item M-s
+;; emacspeak-epub-bookshelf-save
+;; @item C-x C-q
+;; emacspeak-epub-bookshelf-refresh
+;; @item C-x C-s
+;; emacspeak-epub-bookshelf-save
+;; @end table
+;; 
+;; @subsection Integrating With Project Gutenberg
+;; 
+;; Gutenberg integration provides one-shot commands for downloading
+;; the latest copy of the Gutenberg catalog and  finding and downloading
+;; the desired epub for offline reading.
+;; 
+;; @table @kbd
+;; @item C
+;; emacspeak-epub-gutenberg-catalog
+;; @item g
+;; emacspeak-epub-gutenberg-download
+;; @end table
+;; Once downloaded, these EBooks can be
+;; organized under  @code{emacspeak-epub-library-directory}
+;; For  more advanced usage, see the next section
+;; on integrating with Calibre catalogs.
+;; 
+;; @subsection Calibre Integration
+;; 
+;; Project Calibre  enables the indexing and searching of
+;; large EBook collections.
+;; Read the Calibre documentation for organizing and indexing your EBook library.
+;; See user options named @code{emacspeak-epub-calibre-*} for
+;; customizing  emacspeak to work with Calibre.
+;; Once set up, Calibre integration provides
+;; the following commands from the @emph{bookshelf} buffer:
+;; 
+;; @table @kbd
+;; @item /
+;; emacspeak-epub-calibre-results
+;; @item A
+;; emacspeak-epub-bookshelf-calibre-author
+;; @item S
+;; emacspeak-epub-bookshelf-calibre-search
+;; @item T
+;; emacspeak-epub-bookshelf-calibre-title
+;; @end table
+;; 
+;; @subsection Reading EBooks From The Bookshelf
+;; 
+;; The most efficient means to read an EBook is to have EWW render
+;; the entire book --- this works well even for very large EBooks
+;; given that EWW is efficient at rendering HTML. Rendering the
+;; entire book means that all of the contents are available for
+;; searching. To view an EBook in its entirety, use command
+;; @code{emacspeak-epub-eww}. You can open the EPub table of contents
+;; with command @code{emacspeak-epub-open}; for a
+;; well-constructed epub, this TOC should provide hyperlinks to each
+;; section listed in the table of contents.
+;; 
+;; @table @kbd
+;; @item RET
+;; emacspeak-epub-eww
+;; @item e
+;; emacspeak-epub-eww
+;; @item f
+;; emacspeak-epub-browse-files
+;; @item o
+;; emacspeak-epub-open
+;; @end table
 ;;}}}
 ;;{{{ Required Modules:
 
@@ -207,7 +207,7 @@
 
 ;;}}}
 ;;{{{ EPub Implementation:
-;;; Helper: dom from file in archive
+;; Helper: dom from file in archive
 (defsubst emacspeak-epub-dom-from-archive (epub-file file &optional xml-p)
   "Return DOM from specified file in epub archive."
   (cl-declare (special emacspeak-epub-zip-extract))
@@ -965,12 +965,12 @@ to find Epubs  having full viewability.")
 ;;}}}
 ;;{{{ Gutenberg Hookup:
 
-;;; Offline Catalog:
-;;; http://www.gutenberg.org/wiki/Gutenberg:Offline_Catalogs
-;;; Goal:
-;;; Snapshot catalog, enable local searches, and pull desired book to local cache
-;;; using appropriate recipe.
-;;; http://www.gutenberg.org/ebooks/<bookid>.epub.?noimages?
+;; Offline Catalog:
+;; http://www.gutenberg.org/wiki/Gutenberg:Offline_Catalogs
+;; Goal:
+;; Snapshot catalog, enable local searches, and pull desired book to local cache
+;; using appropriate recipe.
+;; http://www.gutenberg.org/ebooks/<bookid>.epub.?noimages?
 (defcustom emacspeak-epub-gutenberg-mirror
   "http://www.gutenberg.org/ebooks/"
   "Base URL  for Gutenberg mirror."
@@ -1058,7 +1058,7 @@ Fetch if needed, or if refresh is T."
 ;;}}}
 ;;{{{ Calibre Hookup:
 
-;;; Inspired by https://github.com/whacked/calibre-mode.git
+;; Inspired by https://github.com/whacked/calibre-mode.git
 
 (defcustom emacspeak-epub-calibre-root-dir
   (expand-file-name "calibre" emacspeak-epub-library-directory)
@@ -1074,13 +1074,13 @@ Fetch if needed, or if refresh is T."
   (expand-file-name "metadata.db" emacspeak-epub-calibre-root-dir)
   "Calibre database.")
 
-;;; Record returned by queries:
+;; Record returned by queries:
 
 (cl-defstruct emacspeak-epub-calibre-record
-;;; "b.title,  b.author_sort, b.path,  d.format"
+;; "b.title,  b.author_sort, b.path,  d.format"
   title author  path format)
 
-;;; Helper: Construct query
+;; Helper: Construct query
 (defun emacspeak-epub-calibre-build-query (where &optional limit)
   "Build a Calibre query as SQL statement.
 Argument  `where' is a simple SQL where clause."
@@ -1299,8 +1299,8 @@ in emacspeak-epub-mode")
 (provide 'emacspeak-epub)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

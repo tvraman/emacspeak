@@ -1,42 +1,42 @@
-;;; emacspeak-rpm-spec.el --- Speech enable rpm spec editor  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: Controlling mplayer from emacs 
-;;; Keywords: Emacspeak, rpm-spec streaming media 
+;; emacspeak-rpm-spec.el --- Speech enable rpm spec editor  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: Controlling mplayer from emacs 
+;; Keywords: Emacspeak, rpm-spec streaming media 
 ;;{{{  LCD Archive entry: 
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
-;;; A speech interface to Emacs |
-;;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
-;;;  $Revision: 4555 $ | 
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
+;; A speech interface to Emacs |
+;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
+;;  $Revision: 4555 $ | 
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved. 
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (c) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved. 
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Required modules
 
@@ -44,9 +44,9 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ Introduction:
-;;; Commentary:
-;;; speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
-;;; Code:
+;; Commentary:
+;; speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
+;; Code:
 ;;}}}
 ;;{{{ Advice insertion commands:
 
@@ -162,8 +162,8 @@
 (provide 'emacspeak-rpm-spec)
 ;;{{{ end of file 
 
-;;; local variables:
-;;; folded-file: t
-;;; end: 
+;; local variables:
+;; folded-file: t
+;; end: 
 
 ;;}}}

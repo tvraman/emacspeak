@@ -1,4 +1,4 @@
-;;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: nil; -*-
+;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: nil; -*-
 
 ;; Copyright (C) 1997, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
 ;;   2009, 2011  Free Software Foundation, Inc.
@@ -23,9 +23,9 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 
-;;; Commentary:
+;; Commentary:
 
-;;; Code:
+;; Code:
 
 (require 'cl-lib)
 
@@ -611,4 +611,4 @@ tetris-mode keybindings:
 (provide 'tetris)
 
 ;; arch-tag: fb780d53-3ff0-49f0-8e19-f7f13cf2d49e
-;;; tetris.el ends here
+;; tetris.el ends here

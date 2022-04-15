@@ -1,40 +1,40 @@
-;;; emacspeak-preamble.el --- standard  include for Emacspeak modules  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; DescriptionEmacspeak extensions for auctex-mode
-;;; Keywords:emacspeak, audio interface to emacs AUCTEX
+;; emacspeak-preamble.el --- standard  include for Emacspeak modules  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; DescriptionEmacspeak extensions for auctex-mode
+;; Keywords:emacspeak, audio interface to emacs AUCTEX
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 ;;{{{ Define Locations, Require modules
@@ -136,34 +136,34 @@
 ;;}}}
 ;;{{{ Interactive Check Implementation:
 
-;;; Notes:
+;; Notes:
 
-;;; The implementation from 2014 worked for emacspeak.  it has been
-;;; moved to obsolete/old-emacspeak-preamble.el to avoid the fragility
-;;; from using backtrace-frame.  See
-;;; http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html for
-;;; the version that depended on calling backtrace-frame.
+;; The implementation from 2014 worked for emacspeak.  it has been
+;; moved to obsolete/old-emacspeak-preamble.el to avoid the fragility
+;; from using backtrace-frame.  See
+;; http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html for
+;; the version that depended on calling backtrace-frame.
 
-;;; This updated implementation avoids that call and was contributed
-;;; by Stefan Monnier in April 2022.
+;; This updated implementation avoids that call and was contributed
+;; by Stefan Monnier in April 2022.
 
-;;;  FIXME: Note that `ems-interactive-p', unlike `called-interactively-p',
-;;;  will return non-nil when the original command calls itself recursively.
-;;;  More specifically `called-interactively-p' tries to returns non-nil
-;;;  if and only if the current call to the surrounding function (let's call it
-;;;  F) was made interactively, whereas `ems-interactive-p' returns non-nil if
-;;;  F happens to be the same function as the one that was called interactively
-;;;  (either because it's the original (interactive) call, or because of
-;;;  a nested/recursive call).
-;;; This behavior is the desired one for Emacspeak.
+;;  FIXME: Note that `ems-interactive-p', unlike `called-interactively-p',
+;;  will return non-nil when the original command calls itself recursively.
+;;  More specifically `called-interactively-p' tries to returns non-nil
+;;  if and only if the current call to the surrounding function (let's call it
+;;  F) was made interactively, whereas `ems-interactive-p' returns non-nil if
+;;  F happens to be the same function as the one that was called interactively
+;;  (either because it's the original (interactive) call, or because of
+;;  a nested/recursive call).
+;; This behavior is the desired one for Emacspeak.
 
-;;; Design:
-;;; Advice on funcall-interactively stores the name of the
-;;; interactive command being run.
-;;; The defadvice macro is itself adviced to generate a locally bound
-;;; predicate that ensures that ems-interactive-p is only called from
-;;; within emacspeak advice forms.
-;;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
+;; Design:
+;; Advice on funcall-interactively stores the name of the
+;; interactive command being run.
+;; The defadvice macro is itself adviced to generate a locally bound
+;; predicate that ensures that ems-interactive-p is only called from
+;; within emacspeak advice forms.
+;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
 
 (defvar ems--interactive-funcname nil
   "Holds name of function being called interactively.")
@@ -173,7 +173,7 @@
   (let ((ems--interactive-funcname (ad-get-arg 0)))
     ad-do-it))
 
-;;; Beware: Advice on defadvice 
+;; Beware: Advice on defadvice 
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
 (defun ems--generate-interactive-check (orig-macro funname args &rest body)
   "Lexically redefine ems-interactive-p  to test  ems--interactive-funcname.
@@ -198,7 +198,7 @@ FUNNAME to our stored value of ems--interactive-funcname."
 ;;}}}
 ;;{{{defsubst: ems--fastload:
 
-;;; Internal function  used to efficiently load files.
+;; Internal function  used to efficiently load files.
 
 (defsubst ems--fastload (file)
   "Load file efficiently."
@@ -210,8 +210,8 @@ FUNNAME to our stored value of ems--interactive-funcname."
 (provide  'emacspeak-preamble)
 ;;{{{  emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

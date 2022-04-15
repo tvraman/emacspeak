@@ -1,48 +1,48 @@
-;;; emacspeak-webspace.el --- Webspaces In Emacspeak  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: WebSpace provides smart updates from the Web.
-;;; Keywords: Emacspeak, Audio Desktop webspace
+;; emacspeak-webspace.el --- Webspaces In Emacspeak  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: WebSpace provides smart updates from the Web.
+;; Keywords: Emacspeak, Audio Desktop webspace
 ;;{{{ LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;; $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;; $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNWEBSPACE FOR A PARTICULAR PURPOSE. See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING. If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNWEBSPACE FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING. If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ introduction
 
-;;; Commentary:
-;;; WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
-;;; Code:
+;; Commentary:
+;; WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
+;; Code:
 
 ;;}}}
 ;;{{{ Required modules
@@ -58,7 +58,7 @@
 ;;}}}
 ;;{{{ WebSpace Mode:
 
-;;; Define a derived-mode called WebSpace that is generally useful for hypetext display.
+;; Define a derived-mode called WebSpace that is generally useful for hypetext display.
 
 (define-derived-mode emacspeak-webspace-mode special-mode
   "Webspace Interaction"
@@ -169,7 +169,7 @@ Generates auditory and visual display."
              (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory))
      (current-buffer))
     (goto-char (point-min))
-;;; newline -> spc
+;; newline -> spc
     (while (re-search-forward "\n" nil t) (replace-match " "))
     (goto-char (point-min))
     (read (current-buffer))))
@@ -326,12 +326,12 @@ Updated headlines found in emacspeak-webspace-headlines."
 ;;}}}
 ;;{{{ Feed Reader:
 
-;;; In memory of Google Reader:
+;; In memory of Google Reader:
 
 (defvar emacspeak-webspace-reader-buffer "Reader"
   "Name of Reader buffer.")
 
-;;; New Reader using emacspeak-feeds:
+;; New Reader using emacspeak-feeds:
 
 (define-button-type 'emacspeak-webspace-feed-link
   'follow-link t
@@ -385,8 +385,8 @@ Optional interactive prefix arg forces a refresh."
 (provide 'emacspeak-webspace)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

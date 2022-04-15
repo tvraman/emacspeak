@@ -1,4 +1,4 @@
-;;; emacspeak-nm.el --- Simple NetworkManager integration through D-Bus.  -*- lexical-binding: t; -*-
+;; emacspeak-nm.el --- Simple NetworkManager integration through D-Bus.  -*- lexical-binding: t; -*-
 ;; -*- coding: utf-8 -*-
 
 ;; Author: Øyvind Stegard <oyvind.stegard@ifi.uio.no>

@@ -1,68 +1,68 @@
-;;; emacspeak-librivox.el --- LIBRIVOX API client  -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable LIBRIVOX --- Free public-domain Audio Books
-;;; Keywords: Emacspeak,  Audio Desktop librivox
+;; emacspeak-librivox.el --- LIBRIVOX API client  -*- lexical-binding: t; -*-
+;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable LIBRIVOX --- Free public-domain Audio Books
+;; Keywords: Emacspeak,  Audio Desktop librivox
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or fitness FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or fitness FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
-;;; Commentary:
-;;; LIBRIVOX == @url{http://www.librivox.org} --- Free Audio Books.
-;;; API Info: @url{https://librivox.org/api/info}
-;;; It provides a simple Web  API
-;;; This module implements an Emacspeak Librivox client.
-;;;
-;;; @subsection Usage
-;;;
-;;; main entry point is command @code{emacspeak-librivox} bound to @kbd{C-; l}.
-;;; This prompts with the following choices:
-;;; @itemize
-;;; @item @kbd{a} Author --- Search  by Author.
-;;; @item @kbd{t} Title --- Search  by Title.
-;;; @item @kbd{g} Genre --- Search  by Genre --- with minibuffer completion.
-;;; @item @kbd{p} Play --- Play a  book.
-;;;@item @kbd{d} Directory --- Browse local cache.
-;;; @end itemize
-;;;
-;;; Search results are displayed in a Web page that provides controls
-;;;for accessing the book.
+;; Commentary:
+;; LIBRIVOX == @url{http://www.librivox.org} --- Free Audio Books.
+;; API Info: @url{https://librivox.org/api/info}
+;; It provides a simple Web  API
+;; This module implements an Emacspeak Librivox client.
+;; 
+;; @subsection Usage
+;; 
+;; main entry point is command @code{emacspeak-librivox} bound to @kbd{C-; l}.
+;; This prompts with the following choices:
+;; @itemize
+;; @item @kbd{a} Author --- Search  by Author.
+;; @item @kbd{t} Title --- Search  by Title.
+;; @item @kbd{g} Genre --- Search  by Genre --- with minibuffer completion.
+;; @item @kbd{p} Play --- Play a  book.
+;; @item @kbd{d} Directory --- Browse local cache.
+;; @end itemize
+;; 
+;; Search results are displayed in a Web page that provides controls
+;; for accessing the book.
 
-;;; Code:
+;; Code:
 
 ;;}}}
 ;;{{{  Required modules
@@ -88,18 +88,18 @@
   "https://librivox.org/api/feed/"
   "Base REST end-point for Librivox API  access.")
 
-;;; audiobooks:
-;;; Params from API Documentation:
+;; audiobooks:
+;; Params from API Documentation:
 
-;;; * id - fetches a single record
-;;; * since - takes a UNIX timestamp
-;;; returns all projects cataloged since that time
-;;; * author - all records by that author last name
-;;; * title - all matching titles
-;;; * genre - all projects of the matching genre
-;;; * extended - =1 will return the full set of data about the project
-;;; * limit (default is 50)
-;;;   * offset
+;; * id - fetches a single record
+;; * since - takes a UNIX timestamp
+;; returns all projects cataloged since that time
+;; * author - all records by that author last name
+;; * title - all matching titles
+;; * genre - all projects of the matching genre
+;; * extended - =1 will return the full set of data about the project
+;; * limit (default is 50)
+;;   * offset
 (defvar emacspeak-librivox-results-limit 100
   "Number of results to retrieve at a time.")
 
@@ -112,8 +112,8 @@
            offset emacspeak-librivox-results-limit)
    pattern))
 
-;;; Audio Tracks API:
-;;; Params:
+;; Audio Tracks API:
+;; Params:
 ;; * id - of track itself
 ;; * project_id - all tracks for project
 
@@ -122,8 +122,8 @@
   (cl-declare (special emacspeak-librivox-api-base))
   (concat emacspeak-librivox-api-base "audiotracks?format=json&" pattern))
 
-;;; Simple Authors API:
-;;; Params:
+;; Simple Authors API:
+;; Params:
 ;; * id - of author
 ;; * last_name - exact match
 
@@ -391,8 +391,8 @@ more results."
 (provide 'emacspeak-librivox)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

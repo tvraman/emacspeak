@@ -1,58 +1,58 @@
-;;; emacspeak-ispell.el --- Speech enable Ispell -- Emacs' interactive spell checker  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak extension to speech enable ispell
-;;; Keywords: Emacspeak, Ispell, Spoken Output, Ispell version 2.30
+;; emacspeak-ispell.el --- Speech enable Ispell -- Emacs' interactive spell checker  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak extension to speech enable ispell
+;; Keywords: Emacspeak, Ispell, Spoken Output, Ispell version 2.30
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
-;;; Commentary:
-;;; This module speech enables ispell.
-;;; Implementation note: This is hard because of how  ispell.el is written
-;;; Namely, all of the work is done by one huge hairy function.
-;;; This makes advising it hard.
-;;; The ispell commands work well with Emacspeak as long as the list of correction choices are few.
-;;; For interactively moving through corrections, install package flyspell-correct from MELPA
-;;; (package-install "flyspell-correct")
-;;; Then use M-x flyspell-mode.
-;;; Package flyspell is speech-enabled by Emacspeak module emacspeak-flyspell
-;;; And that module sets up flyspell-correct to use IDO-style completion,
-;;; i.e. you can move through corrections with C-r and C-s.
+;; Commentary:
+;; This module speech enables ispell.
+;; Implementation note: This is hard because of how  ispell.el is written
+;; Namely, all of the work is done by one huge hairy function.
+;; This makes advising it hard.
+;; The ispell commands work well with Emacspeak as long as the list of correction choices are few.
+;; For interactively moving through corrections, install package flyspell-correct from MELPA
+;; (package-install "flyspell-correct")
+;; Then use M-x flyspell-mode.
+;; Package flyspell is speech-enabled by Emacspeak module emacspeak-flyspell
+;; And that module sets up flyspell-correct to use IDO-style completion,
+;; i.e. you can move through corrections with C-r and C-s.
 
-;;; Code:
+;; Code:
 ;;}}}
 ;;{{{ requires
 
@@ -63,9 +63,9 @@
 ;;}}}
 ;;{{{  ispell command cl-loop:
 
-;;; defun ispell-command-loop (miss guess word start end)
-;;; Advice speaks the line containing the error with the erroneous
-;;; word highlighted.
+;; defun ispell-command-loop (miss guess word start end)
+;; Advice speaks the line containing the error with the erroneous
+;; word highlighted.
 
 (defgroup emacspeak-ispell nil
   "Spell checking group."
@@ -157,8 +157,8 @@ many available corrections."
 (provide 'emacspeak-ispell)
 ;;{{{  emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

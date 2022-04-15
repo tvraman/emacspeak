@@ -1,12 +1,12 @@
-;;; Saved through ges-version 0.3.3dev at 2004-11-20 18:20  -*- lexical-binding: t; -*-
-;;; From: Marco Parrone <marc0@autistici.org>
-;;; Subject: toy-braille.el  ---  Code to get "toy" UCS braille strings
-;;; Keywords: Emacs, Unicode, UCS, toy, braille
-;;; Newsgroups: gmane.emacs.sources
-;;; Date: Mon, 12 Jul 2004 21:40:05 GMT
-;;; Organization: none
+;; Saved through ges-version 0.3.3dev at 2004-11-20 18:20  -*- lexical-binding: t; -*-
+;; From: Marco Parrone <marc0@autistici.org>
+;; Subject: toy-braille.el  ---  Code to get "toy" UCS braille strings
+;; Keywords: Emacs, Unicode, UCS, toy, braille
+;; Newsgroups: gmane.emacs.sources
+;; Date: Mon, 12 Jul 2004 21:40:05 GMT
+;; Organization: none
 
-;;; toy-braille.el  ---  Code to get "toy" UCS braille strings.     -*- coding: utf-8 -*-
+;; toy-braille.el  ---  Code to get "toy" UCS braille strings.     -*- coding: utf-8 -*-
 
 ;; NO (C)  2004  Marco Parrone.
 ;; This file is placed into the Public Domain.
@@ -23,7 +23,7 @@
 ;; Language: Emacs Lisp
 ;; Compatibility: GNU Emacs 21.3
 
-;;; Commentary:
+;; Commentary:
 
 ;; This is a bit of toy code to write in braille.
 ;;
@@ -52,7 +52,7 @@
 ;;
 ;;   http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
-;;; Code:
+;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (defvar toy-braille-map
@@ -94,6 +94,6 @@
                              "' not found in `toy-braille-map'")))))
             inlst))))
 
-;;;; toy-braille.el ends here.
+;; ; toy-braille.el ends here.
 
 (provide 'toy-braille)

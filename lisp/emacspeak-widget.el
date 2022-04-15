@@ -1,53 +1,53 @@
-;;; emacspeak-widget.el --- Speech enable Emacs' native GUI widget library  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $ 
-;;; Description: Emacspeak extensions to widgets
-;;; Keywords:emacspeak, audio interface to emacs customized widgets
+;; emacspeak-widget.el --- Speech enable Emacs' native GUI widget library  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $ 
+;; Description: Emacspeak extensions to widgets
+;; Keywords:emacspeak, audio interface to emacs customized widgets
 ;;{{{  LCD Archive entry: 
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-03-23 20:20:09 -0700 (Sun, 23 Mar 2008) $ |
-;;;  $Revision: 4532 $ | 
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-03-23 20:20:09 -0700 (Sun, 23 Mar 2008) $ |
+;;  $Revision: 4532 $ | 
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman 
-;;; Copyright (c) 1995 by T. V. Raman  
-;;; All Rights Reserved. 
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman 
+;; Copyright (c) 1995 by T. V. Raman  
+;; All Rights Reserved. 
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 
 ;;{{{  Introduction
 
-;;; Commentary:
+;; Commentary:
 
-;;; This module implements the necessary extensions to provide talking
-;;; widgets.
+;; This module implements the necessary extensions to provide talking
+;; widgets.
 
 ;;}}}
 ;;{{{ required modules 
 
-;;; Code:
+;; Code:
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -136,7 +136,7 @@ Returns a string with appropriate personality."
      (p (emacspeak-widget-summarize p))
      (t (message "Widget at point has no parent")))))
 
-;;; Find summarizer for a specific widget type and dispatch.
+;; Find summarizer for a specific widget type and dispatch.
 
 (defun emacspeak-widget-summarize(widget)
   "Summarize specified widget."
@@ -504,7 +504,7 @@ Returns a string with appropriate personality."
 ;;}}}
 ;;{{{  Widget motion
 
-;;; avoid redundant message speech output
+;; avoid redundant message speech output
 (defadvice widget-echo-help (around emacspeak pre act comp)
   (ems-with-messages-silenced
    ad-do-it
@@ -558,7 +558,7 @@ Returns a string with appropriate personality."
 
 ;;}}}
 ;;{{{  activating widgets:
-;;; forward declaration:
+;; forward declaration:
 
 (defadvice widget-button-press (around emacspeak pre act comp)
   "speak"
@@ -692,10 +692,10 @@ widget before summarizing."
 (define-widget 'personality 'item
   "Individual voice in a voice selector.")
 
-;;; We rely on dectalk-voice-table as our default voice table.
-;;; Names defined in this --- and other voice tables --- are
-;;; generic --and  not device specific.
-;;;
+;; We rely on dectalk-voice-table as our default voice table.
+;; Names defined in this --- and other voice tables --- are
+;; generic --and  not device specific.
+;; 
 
 (defun emacspeak-widget-create-voice-selector ()
   "Create a suitable voice selector widget."
@@ -713,8 +713,8 @@ widget before summarizing."
 (provide  'emacspeak-widget)
 ;;{{{  emacs local variables 
 
-;;; local variables:
-;;; folded-file: t
-;;; end: 
+;; local variables:
+;; folded-file: t
+;; end: 
 
 ;;}}}

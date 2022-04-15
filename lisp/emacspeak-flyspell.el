@@ -1,63 +1,63 @@
-;;; emacspeak-flyspell.el --- Speech enable flyspell -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak extension to speech enable flyspell
-;;; Keywords: Emacspeak, Ispell, Spoken Output, fly spell checking
+;; emacspeak-flyspell.el --- Speech enable flyspell -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak extension to speech enable flyspell
+;; Keywords: Emacspeak, Ispell, Spoken Output, fly spell checking
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
-;;; Commentary:
+;; Commentary:
 
-;;; This module speech enables flyspell.
-;;; it loads flyspell-correct if available,
-;;; And when loading flyspell-correct sets up that module
-;;; to use  one of   three supported correction styles:
-;;; @itemize @bullet
-;;; @item ido: IDO-like completion with C-s and C-r moving through choices.
-;;; @item popup:Use  up and down arrows to move through  corrections.
-;;; @item helm: A helm interface for picking amongst  corrections.
-;;; @end itemize
-;;; See documentation for package flyspell-correct for additional
-;;; details.
-;;;
-;;; Use Customization emacspeak-flyspell-correct to pick
-;;; between ido, popup and helm.
+;; This module speech enables flyspell.
+;; it loads flyspell-correct if available,
+;; And when loading flyspell-correct sets up that module
+;; to use  one of   three supported correction styles:
+;; @itemize @bullet
+;; @item ido: IDO-like completion with C-s and C-r moving through choices.
+;; @item popup:Use  up and down arrows to move through  corrections.
+;; @item helm: A helm interface for picking amongst  corrections.
+;; @end itemize
+;; See documentation for package flyspell-correct for additional
+;; details.
+;; 
+;; Use Customization emacspeak-flyspell-correct to pick
+;; between ido, popup and helm.
 
-;;; Code:
+;; Code:
 
 ;;}}}
 ;;{{{ Requires
@@ -126,7 +126,7 @@ fly spell checking."
   "Correction style to use with flyspell."
   :type 'symbol)
 
-;;; flyspell-correct is available on melpa:
+;; flyspell-correct is available on melpa:
 (cl-declaim (special flyspell-mode-map))
 (when
     (and (bound-and-true-p flyspell-mode-map)
@@ -150,10 +150,10 @@ fly spell checking."
 (provide 'emacspeak-flyspell)
 ;;{{{ emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}
 
-;;; emacspeak-flyspell.el ends here
+;; emacspeak-flyspell.el ends here

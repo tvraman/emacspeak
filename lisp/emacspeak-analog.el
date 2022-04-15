@@ -1,53 +1,53 @@
-;;; emacspeak-analog.el --- Speech-enable analog -- a log viewer  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak front-end for ANALOG log analyzer
-;;; Keywords: Emacspeak, analog
+;; emacspeak-analog.el --- Speech-enable analog -- a log viewer  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak front-end for ANALOG log analyzer
+;; Keywords: Emacspeak, analog
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-09-01 15:12:15 -0700 (Sat, 01 Sep 2007) $ |
-;;;  $Revision: 4150 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-09-01 15:12:15 -0700 (Sat, 01 Sep 2007) $ |
+;;  $Revision: 4150 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;{{{  Introduction:
-;;; Commentary:
+;; Commentary:
 
-;;; Speech-enables package analog --convenient log analyzer 
+;; Speech-enables package analog --convenient log analyzer 
 
 ;;}}}
 ;;{{{ required modules
 
-;;; Code:
+;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
@@ -101,10 +101,10 @@
 ;;}}}
 ;;{{{ field navigation
 
-;;; You can add a fields property that holds a list of field start
-;;; positions 
-;;; in analog-entries-list
-;;; emacspeak will use this to navigate using the arrow keys.
+;; You can add a fields property that holds a list of field start
+;; positions 
+;; in analog-entries-list
+;; emacspeak will use this to navigate using the arrow keys.
 
 (defun emacspeak-analog-get-field-spec ()
   "Returns field specification if one defined for current entry.
@@ -244,8 +244,8 @@ Speak field or char moved to."
 (provide 'emacspeak-analog)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

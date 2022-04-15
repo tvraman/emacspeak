@@ -1,42 +1,42 @@
-;;; emacspeak-midge.el --- Speech-enable MIDI editor  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak extension to speech-enable MIDGE
-;;; Keywords: Emacspeak, MIDI 
+;; emacspeak-midge.el --- Speech-enable MIDI editor  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak extension to speech-enable MIDGE
+;; Keywords: Emacspeak, MIDI 
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ required modules
 
@@ -45,21 +45,21 @@
 ;;}}}
 ;;{{{  Introduction:
 
-;;; Commentary:
+;; Commentary:
 
-;;; This module speech enables  midge.
-;;; Midge is a MIDI composer/editor tool.
-;;;From the package README file:
+;; This module speech enables  midge.
+;; Midge is a MIDI composer/editor tool.
+;; From the package README file:
                                         ; Midge, for midi generator, is a text to midi translator.
                                         ; It creates type 1 (ie multitrack) midi files from text
                                         ; descriptions of music. It is a single perl script, which
                                         ; does not require any additional modules.
-;;;The package also provides a convenient emacs mode for
-;;;editing and playing  midge files.
-;;;Midge's homepage is at:
-;;; http://www.dmriley.demon.co.uk/code/midge/ 
+;; The package also provides a convenient emacs mode for
+;; editing and playing  midge files.
+;; Midge's homepage is at:
+;; http://www.dmriley.demon.co.uk/code/midge/ 
 
-;;; Code:
+;; Code:
 
 ;;}}}
 ;;{{{ Speech enable interactive commands.
@@ -171,8 +171,8 @@
 (provide 'emacspeak-midge)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

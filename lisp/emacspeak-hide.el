@@ -1,53 +1,53 @@
-;;; emacspeak-hide.el --- Provides user commands for hiding and exposing blocks of text  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Hide and expose blocks of text
-;;; Keywords: Emacspeak, Speak, Spoken Output, hide
+;; emacspeak-hide.el --- Provides user commands for hiding and exposing blocks of text  -*- lexical-binding: t; -*-
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Hide and expose blocks of text
+;; Keywords: Emacspeak, Speak, Spoken Output, hide
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision$ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision$ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction
 
-;;; Commentary:
-;;; Flexible hide and show for emacspeak.
-;;; This module allows one to easily hide or expose
-;;; blocks of lines starting with a common prefix.
-;;; It is motivated by the need to flexibly hide quoted text in email
-;;; but is designed to be more general.
-;;; the prefix parsing is inspired by filladapt.el
-;;; Code:
+;; Commentary:
+;; Flexible hide and show for emacspeak.
+;; This module allows one to easily hide or expose
+;; blocks of lines starting with a common prefix.
+;; It is motivated by the need to flexibly hide quoted text in email
+;; but is designed to be more general.
+;; the prefix parsing is inspired by filladapt.el
+;; Code:
 
 ;;}}}
 ;;{{{  Required modules
@@ -62,7 +62,7 @@
 (defvar emacspeak-hidden-header-line-personality voice-annotate
   "Personality used to identify header lines of blocks.")
 
-;;; forcibly set this to t to avoid a possible Emacs bug:
+;; forcibly set this to t to avoid a possible Emacs bug:
 (cl-declaim (special line-move-ignore-invisible))
 (setq line-move-ignore-invisible t)
 
@@ -161,7 +161,7 @@ STRING is the token's text."
 ;;}}}
 ;;{{{  test for a prefix match
 
-;;; Return t if this line matches the specified prefix spec
+;; Return t if this line matches the specified prefix spec
 
 (defun emacspeak-hide-prefix-matches-this-line (prefix)
   (unless (eobp)
@@ -220,10 +220,10 @@ Returns t if a block was found and hidden."
 ;;}}}
 ;;{{{  Exposing a block
 
-;;; Hiding marks the body of a block to be invisible,
-;;; and marks the entire block
-;;; by setting property emacspeak-hidden-block to name of block
-;;; Use this to efficiently identify and unhide the block.
+;; Hiding marks the body of a block to be invisible,
+;; and marks the entire block
+;; by setting property emacspeak-hidden-block to name of block
+;; Use this to efficiently identify and unhide the block.
 
 (defun emacspeak-hide-expose-block ()
   "Exposes currently hidden block."
@@ -298,7 +298,7 @@ Returns t if a block was found and hidden."
 
 ;;}}}
 ;;{{{ User interface
-;;;helper to get prefix
+;; helper to get prefix
 (defun emacspeak-hide-get-block-prefix ()
   (cl-declare (special emacspeak-hide-prefix-token-table))
   (let ((block-prefix nil))
@@ -397,8 +397,8 @@ buffer to be hidden or exposed."
 (provide 'emacspeak-hide)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}
