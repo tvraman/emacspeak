@@ -2062,10 +2062,9 @@ Produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{ set up clause boundaries for specific modes:
-;;;###autoload
 
-(add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
-(add-hook 'text-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
+(add-hook 'help-mode-hook #'emacspeak-speak-adjust-clause-boundaries)
+(add-hook 'text-mode-hook #'emacspeak-speak-adjust-clause-boundaries)
 
 ;;}}}
 ;;{{{ setup minibuffer hooks:
