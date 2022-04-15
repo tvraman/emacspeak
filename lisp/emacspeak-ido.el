@@ -1,57 +1,57 @@
-;; emacspeak-ido.el --- speech-enable ido  -*- lexical-binding: t; -*-
-;; $Id$
-;; $Author: tv.raman.tv $
-;; Description:   extension to speech enable ido
-;; Keywords: Emacspeak, Audio Desktop
+;;; emacspeak-ido.el --- speech-enable ido  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; $Author: tv.raman.tv $
+;;; Description:   extension to speech enable ido
+;;; Keywords: Emacspeak, Audio Desktop
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
-;;  $Revision: 4555 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
+;;;  $Revision: 4555 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{  Introduction:
 
-;; Commentary:
+;;; Commentary:
 
-;; speech-enable ido.el
-;; This is an interesting task since most of the value-add
-;; provided by package ido.el  is visual feedback.
-;; Speech UI Challenge: What  is the most efficient means of
-;; conveying a dynamically updating set of choices?
-;; current strategy is to walk the list using c-s and c-r as
-;; provided by ido
-;; Set number matches shown (ido-max-prospects) to 3 using Custom so you dont hear
-;; the entire list.
+;;; speech-enable ido.el
+;;; This is an interesting task since most of the value-add
+;;; provided by package ido.el  is visual feedback.
+;;; Speech UI Challenge: What  is the most efficient means of
+;;; conveying a dynamically updating set of choices?
+;;; current strategy is to walk the list using c-s and c-r as
+;;; provided by ido
+;;; Set number matches shown (ido-max-prospects) to 3 using Custom so you dont hear
+;;; the entire list.
 
-;; Code:
+;;; Code:
 
 ;;}}}
 
@@ -223,8 +223,8 @@ The default value of 12 is too high for using ido effectively with speech. "
 (provide 'emacspeak-ido)
 ;;{{{ end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

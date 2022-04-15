@@ -1,41 +1,41 @@
-;; cd-tool.el --- Play  CDs from Emacs  -*- lexical-binding: t; -*-
-;; $Id$
-;; Emacs front-end to CDTool
+;;; cd-tool.el --- Play  CDs from Emacs  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; Emacs front-end to CDTool
 ;;{{{  Copyright:
 
-;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 ;;{{{ introduction
 
-;; Commentary:
-;; Provide an emacs front-end to cdtool.
-;; cdtool can be obtained as an rpm
-;; check using rpmfind
-;; or from its home site at
-;;   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
-;; This module also provides the ability to play or save
-;; clips from a CD if you have cdda2wav installed.
-;; cdda2wav is a cd to wav converter.
-;; 
-;; Code:
+;;; Commentary:
+;;; Provide an emacs front-end to cdtool.
+;;; cdtool can be obtained as an rpm
+;;; check using rpmfind
+;;; or from its home site at
+;;;   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
+;;; This module also provides the ability to play or save
+;;; clips from a CD if you have cdda2wav installed.
+;;; cdda2wav is a cd to wav converter.
+;;; 
+;;; Code:
 ;;}}}
 ;;{{{ required packages
 
@@ -45,7 +45,7 @@
 ;;}}}
 ;;{{{ top level
 
-;; Code:
+;;; Code:
 
 (defcustom cd-tool-start-command "cdstart"
 "Name of cdstart command; most likely either \"cdstart\" or \"cdplay\"."
@@ -156,8 +156,8 @@ cap C   Save clip to disk
 (provide 'cd-tool)
 ;;{{{ end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

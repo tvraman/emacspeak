@@ -1,53 +1,53 @@
-;; emacspeak-gnus.el --- Speech enable GNUS -- Fluent spoken access to imap, usenet  -*- lexical-binding: t; -*-
-;; $Id$
-;; $Author: tv.raman.tv $ 
-;; Description:  Emacspeak extension to speech enable Gnus
-;; Keywords: Emacspeak, Gnus, Advice, Spoken Output, News
+;;; emacspeak-gnus.el --- Speech enable GNUS -- Fluent spoken access to imap, usenet  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; $Author: tv.raman.tv $ 
+;;; Description:  Emacspeak extension to speech enable Gnus
+;;; Keywords: Emacspeak, Gnus, Advice, Spoken Output, News
 ;;{{{  LCD Archive entry: 
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
-;; A speech interface to Emacs |
-;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
-;;  $Revision: 4532 $ | 
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
+;;; A speech interface to Emacs |
+;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
+;;;  $Revision: 4532 $ | 
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;; Copyright (C) 1995 -- 2021, T. V. Raman 
-;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;; All Rights Reserved. 
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman 
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved. 
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 ;;{{{  Introduction:
 
-;; Commentary:
+;;; Commentary:
 
-;; This module advises gnus to speak. 
-;; Updating support in 2014 (Emacspeak is nearly 20 years old)
-;; Updating in 2018 as I switch to gnus as my primary mail interface.
-;; These customizations to gnus make it convenient to listen to news:
-;; You can read news mostly by using the four arrow keys.
-;; By default all article headers are hidden, so you hear the real news.
+;;; This module advises gnus to speak. 
+;;; Updating support in 2014 (Emacspeak is nearly 20 years old)
+;;; Updating in 2018 as I switch to gnus as my primary mail interface.
+;;; These customizations to gnus make it convenient to listen to news:
+;;; You can read news mostly by using the four arrow keys.
+;;; By default all article headers are hidden, so you hear the real news.
 
-;; Code:
+;;; Code:
 
 ;;}}}
 ;;{{{ requires
@@ -87,7 +87,7 @@ instead you hear only the first screenful."
   :group 'emacspeak-gnus 
   )
 
-;; Keybindings 
+;;; Keybindings 
 (defun emacspeak-gnus-setup-keys ()
   "Setup Emacspeak keys."
   (cl-declare (special gnus-summary-mode-map
@@ -140,7 +140,7 @@ instead you hear only the first screenful."
 ;;}}}
 ;;{{{ Advise top-level gnus command
 
-;; emacs can hang if too many message sfly by as gnus starts
+;;; emacs can hang if too many message sfly by as gnus starts
 (defadvice gnus (around emacspeak pre act comp)
   "Silence messages, produce auditory icon."
   (dtk-speak  "Starting gnus")
@@ -726,11 +726,11 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ rdc: mapping font faces to personalities 
 
-;; article buffer personalities
+;;; article buffer personalities
 
-;; Since citation does not normally go beyond 4 levels deep, in my 
-;; experience, there are separate voices for the first four levels
-;; and then they are repeated
+;;; Since citation does not normally go beyond 4 levels deep, in my 
+;;; experience, there are separate voices for the first four levels
+;;; and then they are repeated
 (voice-setup-add-map
  '(
    (gnus-button voice-bolden)
@@ -861,7 +861,7 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
-;; local variables:
-;; folded-file: t
-;; end: 
+;;; local variables:
+;;; folded-file: t
+;;; end: 
 ;;}}}

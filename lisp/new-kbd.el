@@ -1,7 +1,7 @@
 (require 'cl-lib)
 (eval-when-compile (require 'subr-x))
 
-;; See[[info:elisp#Key Sequences][info:elisp#Key Sequences]]
+;;; See[[info:elisp#Key Sequences][info:elisp#Key Sequences]]
 (defvar ems--kbd-char-table
   '(("NUL" . "\0")
     ("RET" . "\r")
@@ -58,17 +58,17 @@
                    (list (+ bits (- ?\C-\^@)
                             (logand (aref word 0) 31)))))
             (t (setq key (list (+ bits (aref word 0)))))))))
-;; push key on to the result vector 
+;;; push key on to the result vector 
        (when key (cl-callf vconcat res key))))
     res))
 
-;; Tests:
-;; Note that we fail on
-;; "M-ESC"
-;; "M-<DEL>"
-;; "H-<RET>" etc,
-;; But match on "H-RET"
-;;  (thanks Drew Adams) Likely due to over-optimization.
+;;; Tests:
+;;; Note that we fail on
+;;; "M-ESC"
+;;; "M-<DEL>"
+;;; "H-<RET>" etc,
+;;; But match on "H-RET"
+;;;  (thanks Drew Adams) Likely due to over-optimization.
 
 (let ((tests 
        '(

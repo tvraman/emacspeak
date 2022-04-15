@@ -1,37 +1,37 @@
-;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: nil; -*-
+;;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: nil; -*-
 
-;; Copyright (C) 1997, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
-;;   2009, 2011  Free Software Foundation, Inc.
+;;; Copyright (C) 1997, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
+;;;   2009, 2011  Free Software Foundation, Inc.
 
-;; Author: Glynn Clements <glynn@sensei.co.uk>
-;; Version: 2.01
-;; Created: 1997-08-13
-;; Keywords: games
+;;; Author: Glynn Clements <glynn@sensei.co.uk>
+;;; Version: 2.01
+;;; Created: 1997-08-13
+;;; Keywords: games
 
-;; This file is part of GNU Emacs.
+;;; This file is part of GNU Emacs.
 
-;; GNU Emacs is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
+;;; GNU Emacs is free software: you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation, either version 3 of the License, or
+;;; (at your option) any later version.
 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 
-;; Commentary:
+;;; Commentary:
 
-;; Code:
+;;; Code:
 
 (require 'cl-lib)
 
 (require 'gamegrid)
 
-;; ;;;;;;;;;;;;; customization variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;; customization variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defgroup tetris nil
   "Play a game of tetris."
@@ -105,15 +105,15 @@ Element 0 is ignored.")
 (defvar tetris-score-y (+ tetris-next-y 6)
   "Y position of score.")
 
-;; It is not safe to put this in /tmp.
-;; Someone could make a symlink in /tmp
-;; pointing to a file you don't want to clobber.
+;;; It is not safe to put this in /tmp.
+;;; Someone could make a symlink in /tmp
+;;; pointing to a file you don't want to clobber.
 (defvar tetris-score-file "tetris-scores"
   ;; anybody with a well-connected server want to host this?
                                         ;(defvar tetris-score-file "/anonymous@ftp.pgt.com:/pub/cgw/tetris-scores"
   "File for holding high scores.")
 
-;; ;;;;;;;;;;;;; display options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;; display options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defvar tetris-blank-options
   '(((glyph colorize)
@@ -149,7 +149,7 @@ Element 0 is ignored.")
     nil
     nil))
 
-;; ;;;;;;;;;;;;; constants ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;; constants ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defconst tetris-shapes
   [[[[1 1 0 0] [1 1 0 0] [1 1 0 0] [1 1 0 0]]
@@ -205,7 +205,7 @@ Element 0 is ignored.")
 (defun tetris-default-update-speed-function (_shapes rows)
   (/ 20.0 (+ 50.0 rows)))
 
-;; ;;;;;;;;;;;;; variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;; variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defvar tetris-shape 0)
 (defvar tetris-rot 0)
@@ -227,7 +227,7 @@ Element 0 is ignored.")
 (make-variable-buffer-local 'tetris-pos-y)
 (make-variable-buffer-local 'tetris-paused)
 
-;; ;;;;;;;;;;;;; keymaps ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;; keymaps ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defvar tetris-mode-map
   (make-sparse-keymap 'tetris-mode-map))
@@ -247,7 +247,7 @@ Element 0 is ignored.")
 
 (define-key tetris-null-map "n"         'tetris-start-game)
 
-;; ;;;;;;;;;;;;;;;; game functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;; game functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun tetris-display-options ()
   (let ((options (make-vector 256 nil)))
@@ -610,5 +610,5 @@ tetris-mode keybindings:
 
 (provide 'tetris)
 
-;; arch-tag: fb780d53-3ff0-49f0-8e19-f7f13cf2d49e
-;; tetris.el ends here
+;;; arch-tag: fb780d53-3ff0-49f0-8e19-f7f13cf2d49e
+;;; tetris.el ends here

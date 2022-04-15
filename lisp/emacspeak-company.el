@@ -1,57 +1,57 @@
-;; emacspeak-company.el --- Speech-enable COMPANY-mode  -*- lexical-binding: t; -*-
-;; $Id: emacspeak-company.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;; $Author: tv.raman.tv $
-;; Description:  Speech-enable COMPANY An Emacs Interface to company
-;; Keywords: Emacspeak,  Audio Desktop company
+;;; emacspeak-company.el --- Speech-enable COMPANY-mode  -*- lexical-binding: t; -*-
+;;; $Id: emacspeak-company.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
+;;; Description:  Speech-enable COMPANY An Emacs Interface to company
+;;; Keywords: Emacspeak,  Audio Desktop company
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;  $Revision: 4532 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;;  $Revision: 4532 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;; Copyright (C) 1995 -- 2021, T. V. Raman
-;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNCOMPANY FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNCOMPANY FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
-;; Commentary:
-;; COMPANY -mode: Complete Anything Support for emacs.
-;; 
-;; This module provides an Emacspeak Company Front-end, And advises
-;; the needed interactive commands in Company. It adds an
-;; emacspeak-specific front-end @code{emacspeak-company-frontend} to
-;; the value of company-frontends. Note that @var{company-frontends}
-;; is a user-customizable option and ends up getting saved by emacs
-;; along with other custom settings. Function
-;; @code{emacspeak-company-frontend} handles providing spoken
-;; feedback, and leaves it to other frontends on
-;; @var{company-frontends}   to generate their own feedback.
+;;; Commentary:
+;;; COMPANY -mode: Complete Anything Support for emacs.
+;;; 
+;;; This module provides an Emacspeak Company Front-end, And advises
+;;; the needed interactive commands in Company. It adds an
+;;; emacspeak-specific front-end @code{emacspeak-company-frontend} to
+;;; the value of company-frontends. Note that @var{company-frontends}
+;;; is a user-customizable option and ends up getting saved by emacs
+;;; along with other custom settings. Function
+;;; @code{emacspeak-company-frontend} handles providing spoken
+;;; feedback, and leaves it to other frontends on
+;;; @var{company-frontends}   to generate their own feedback.
 ;;}}}
 ;;{{{  Required modules
 
@@ -139,8 +139,8 @@
 (provide 'emacspeak-company)
 ;;{{{ end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

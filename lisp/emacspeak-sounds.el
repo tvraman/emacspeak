@@ -1,68 +1,68 @@
-;; emacspeak-sounds.el --- Defines Emacspeak auditory icons  -*- lexical-binding: t; -*-
-;; $Id$
-;; $Author: tv.raman.tv $
-;; Description:  Module for adding sound cues to emacspeak
-;; Keywords:emacspeak, audio interface to emacs, auditory icons
+;;; emacspeak-sounds.el --- Defines Emacspeak auditory icons  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; $Author: tv.raman.tv $
+;;; Description:  Module for adding sound cues to emacspeak
+;;; Keywords:emacspeak, audio interface to emacs, auditory icons
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
-;;  $Revision: 4670 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
+;;;  $Revision: 4670 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;; Copyright (C) 1995 -- 2021, T. V. Raman
-;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 ;;{{{  Introduction:
 
-;; Commentary:
-;; This module provides the interface for generating auditory icons in emacspeak.
-;; Design goal:
-;; 1) Auditory icons should be used to provide additional feedback,
-;; not as a gimmick.
-;; 2) The interface should be usable at all times without the icons:
-;; e.g. when on a machine without a sound card.
-;; 3) General principle for when to use an icon:
-;; Convey information about events taking place in parallel.
-;; For instance, if making a selection automatically moves the current focus
-;; to the next choice,
-;; We speak the next choice, while indicating the fact that something was selected with a sound cue.
-;;  This interface will assume the availability of a shell command "play"
-;; that can take one or more sound files and play them.
-;; This module will also provide a mapping between names in the elisp world and actual sound files.
-;; Modules that wish to use auditory icons should use these names, instead of actual file names.
-;; As of Emacspeak 13.0, this module defines a themes
-;; architecture for  auditory icons.
-;; Sound files corresponding to a given theme are found in
-;; appropriate subdirectories of emacspeak-sounds-directory
+;;; Commentary:
+;;; This module provides the interface for generating auditory icons in emacspeak.
+;;; Design goal:
+;;; 1) Auditory icons should be used to provide additional feedback,
+;;; not as a gimmick.
+;;; 2) The interface should be usable at all times without the icons:
+;;; e.g. when on a machine without a sound card.
+;;; 3) General principle for when to use an icon:
+;;; Convey information about events taking place in parallel.
+;;; For instance, if making a selection automatically moves the current focus
+;;; to the next choice,
+;;; We speak the next choice, while indicating the fact that something was selected with a sound cue.
+;;;  This interface will assume the availability of a shell command "play"
+;;; that can take one or more sound files and play them.
+;;; This module will also provide a mapping between names in the elisp world and actual sound files.
+;;; Modules that wish to use auditory icons should use these names, instead of actual file names.
+;;; As of Emacspeak 13.0, this module defines a themes
+;;; architecture for  auditory icons.
+;;; Sound files corresponding to a given theme are found in
+;;; appropriate subdirectories of emacspeak-sounds-directory
 
 ;;}}}
 ;;{{{ required modules
 
-;; Code:
+;;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 ;;}}}
@@ -238,9 +238,9 @@ Do not set this by hand;
 ;;}}}
 ;;{{{ Play icon list:
 
-;; For now this is like emacspeak-play-auditory-icon,
-;; i.e. won't work via the speech server,
-;; and consequently not for Emacspeak  on a remote machine.
+;;; For now this is like emacspeak-play-auditory-icon,
+;;; i.e. won't work via the speech server,
+;;; and consequently not for Emacspeak  on a remote machine.
 
 (defun emacspeak-play-auditory-icon-list (icon-list)
   "Play list of icons."
@@ -271,7 +271,7 @@ Use Serve when working with remote speech servers."
 ;;}}}
 ;;{{{  toggle auditory icons
 
-;; This is the main entry point to this module:
+;;; This is the main entry point to this module:
 
 (defun emacspeak-toggle-auditory-icons (&optional prefix)
   "Toggle use of auditory icons.
@@ -316,8 +316,8 @@ Optional interactive PREFIX arg toggles global value."
 (provide  'emacspeak-sounds)
 ;;{{{  emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

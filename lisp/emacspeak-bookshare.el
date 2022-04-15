@@ -1,84 +1,84 @@
-;; emacspeak-bookshare.el --- Speech-enabled  BOOKSHARE client  -*- lexical-binding: t; -*-
-;; $Id: emacspeak-bookshare.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;; $Author: tv.raman.tv $
-;; Description:  Speech-enable BOOKSHARE An Emacs Interface to bookshare
-;; Keywords: Emacspeak,  Audio Desktop bookshare
+;;; emacspeak-bookshare.el --- Speech-enabled  BOOKSHARE client  -*- lexical-binding: t; -*-
+;;; $Id: emacspeak-bookshare.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
+;;; Description:  Speech-enable BOOKSHARE An Emacs Interface to bookshare
+;;; Keywords: Emacspeak,  Audio Desktop bookshare
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;  $Revision: 4532 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;;  $Revision: 4532 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;; Copyright (C) 1995 -- 2021, T. V. Raman
-;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNBOOKSHARE FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNBOOKSHARE FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
-;; Commentary:
-;; BOOKSHARE == http://www.bookshare.org
-;; provides book access to print-disabled users.
-;; It provides a simple Web  API http://developer.bookshare.org
-;; This module implements an Emacspeak Bookshare client.
-;; @subsection  requirements
-;; @itemize
-;; @item You need to get your own API key
-;; @item You need Emacs built with libxml2 support
-;; @end itemize
-;; 
-;; @subsection Usage
-;; The main entry point is command @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
-;; This creates a special @emph{Bookshare Interaction} buffer that is
-;; placed in @emph{emacspeak-bookshare-mode}.
-;; Se the help for that mode on detailed usage instructions and key-bindings.
-;; 
-;; @subsection Sample Interaction
-;; 
-;; Assuming you have correctly setup your API key:
-;; @itemize
-;; @item Customize group @code{emacspeak-bookshare} by pressing @kbd{C-h G}.
-;; @item  Press @kbd{C-e C-b} to open or switch to the Bookshare buffer.
-;; @item Perform a search @kbd{a} or @kbd{t} for author or title search.
-;; @item You will be prompted for your Bookshare password if this is
-;; the first time.
-;; @item The password will be saved to your configured
-;; @code{auth-source} --- usually @code{~/.authinfo.gpg}.
-;; You can also use @code{password-store[.]}
-;; @item The results of the search appear in the Bookshare buffer.
-;; Audio formatting and auditory icons convey if  a result is already available locally.
-;; @item If not available locally, press @kbd{D} to download the content.
-;; @item Press @kbd{U} to unpack the downloaded content.
-;; @item Press @kbd{e} to  display the entire book.
-;; @item Press @kbd{c} to display the table of contents.
-;; @item Now, use all of EWW  @xref{emacspeak-eww} extensions  and profit!
-;; @end itemize
-;; Code:
+;;; Commentary:
+;;; BOOKSHARE == http://www.bookshare.org
+;;; provides book access to print-disabled users.
+;;; It provides a simple Web  API http://developer.bookshare.org
+;;; This module implements an Emacspeak Bookshare client.
+;;; @subsection  requirements
+;;; @itemize
+;;; @item You need to get your own API key
+;;; @item You need Emacs built with libxml2 support
+;;; @end itemize
+;;; 
+;;; @subsection Usage
+;;; The main entry point is command @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
+;;; This creates a special @emph{Bookshare Interaction} buffer that is
+;;; placed in @emph{emacspeak-bookshare-mode}.
+;;; Se the help for that mode on detailed usage instructions and key-bindings.
+;;; 
+;;; @subsection Sample Interaction
+;;; 
+;;; Assuming you have correctly setup your API key:
+;;; @itemize
+;;; @item Customize group @code{emacspeak-bookshare} by pressing @kbd{C-h G}.
+;;; @item  Press @kbd{C-e C-b} to open or switch to the Bookshare buffer.
+;;; @item Perform a search @kbd{a} or @kbd{t} for author or title search.
+;;; @item You will be prompted for your Bookshare password if this is
+;;; the first time.
+;;; @item The password will be saved to your configured
+;;; @code{auth-source} --- usually @code{~/.authinfo.gpg}.
+;;; You can also use @code{password-store[.]}
+;;; @item The results of the search appear in the Bookshare buffer.
+;;; Audio formatting and auditory icons convey if  a result is already available locally.
+;;; @item If not available locally, press @kbd{D} to download the content.
+;;; @item Press @kbd{U} to unpack the downloaded content.
+;;; @item Press @kbd{e} to  display the entire book.
+;;; @item Press @kbd{c} to display the table of contents.
+;;; @item Now, use all of EWW  @xref{emacspeak-eww} extensions  and profit!
+;;; @end itemize
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 
@@ -324,7 +324,7 @@ Optional argument 'no-auth says we dont need a user auth."
 (defvar emacspeak-bookshare-categories nil
   "Cached list of categories.")
 
-;; temporary definition
+;;; temporary definition
 
 (defun emacspeak-bookshare-categories ()
   "Return memoized list of categories."
@@ -341,7 +341,7 @@ Optional argument 'no-auth says we dont need a user auth."
        for r in result collect
        (url-encode-url (dom-text (dom-by-tag r  'name))))))))
 
-;;  Following actions return book metadata:
+;;;  Following actions return book metadata:
 
 (defun emacspeak-bookshare-isbn-search (query)
   "Perform a Bookshare isbn search."
@@ -353,7 +353,7 @@ Optional argument 'no-auth says we dont need a user auth."
   (interactive "sId: ")
   (emacspeak-bookshare-api-call "book/id" query))
 
-;; preference  getter/setter:
+;;; preference  getter/setter:
 
 (defun emacspeak-bookshare-list-preferences ()
   "Return preference list."
@@ -369,7 +369,7 @@ Optional argument 'no-auth says we dont need a user auth."
    (format "preference/%s/set/%s"
            preference-id value)))
 
-;; Following Actions return book-list structures within a bookshare envelope.
+;;; Following Actions return book-list structures within a bookshare envelope.
 
 (defun emacspeak-bookshare-author-search (query &optional category)
   "Perform a Bookshare author search.
@@ -467,7 +467,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
 ;;}}}
 ;;{{{ Periodical Actions:
 
-;; Returns periodical list
+;;; Returns periodical list
 
 (defun emacspeak-bookshare-periodical-list ()
   "Return list of periodicals."
@@ -817,11 +817,11 @@ b Browse
 ;;{{{  Property Accessors:
 
 ;;{{{ Generate Declarations:
-;; (cl-loop
-;;  for p in
-;;  '(author title id metadata target directory)
-;;  do
-;;  (declare-function (format "emacspeak-bookshare-get-%s"  p) "emacspeak-bookshare" nil))
+;;; (cl-loop
+;;;  for p in
+;;;  '(author title id metadata target directory)
+;;;  do
+;;;  (declare-function (format "emacspeak-bookshare-get-%s"  p) "emacspeak-bookshare" nil))
 
 (declare-function emacspeak-bookshare-get-author    "emacspeak-bookshare" nil)
 
@@ -831,7 +831,7 @@ b Browse
 (declare-function emacspeak-bookshare-get-target    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-directory    "emacspeak-bookshare" nil)
 
-;; ;;}}}
+;;; ;;}}}
 (cl-loop for p in
          '(author title id metadata target directory)
          do
@@ -1374,8 +1374,8 @@ Useful for fulltext search in a book."
 (provide 'emacspeak-bookshare)
 ;;{{{ end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

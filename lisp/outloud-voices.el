@@ -1,50 +1,50 @@
-;; outloud-voices.el --- Define  OutLoud tags  -*- lexical-binding: t; -*-
-;; $Id$
-;; $Author: tv.raman.tv $
-;; Description:  Module to set up Eloquent voices and personalities
-;; Keywords: Voice, Personality, IBM ViaVoice Outloud
+;;; outloud-voices.el --- Define  OutLoud tags  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; $Author: tv.raman.tv $
+;;; Description:  Module to set up Eloquent voices and personalities
+;;; Keywords: Voice, Personality, IBM ViaVoice Outloud
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2008-07-06 10:18:30 -0700 (Sun, 06 Jul 2008) $ |
-;;  $Revision: 4532 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2008-07-06 10:18:30 -0700 (Sun, 06 Jul 2008) $ |
+;;;  $Revision: 4532 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;; Copyright (C) 1995 -- 2021, T. V. Raman
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;{{{  Introduction:
 
-;; Commentary:
-;;  Interface to outloud server.
-;; This module is IBM ViaVoice Outloud specific.
-;; Code:
+;;; Commentary:
+;;;  Interface to outloud server.
+;;; This module is IBM ViaVoice Outloud specific.
+;;; Code:
 
 ;;}}}
 ;;{{{ Required modules
@@ -109,7 +109,7 @@
 (outloud-define-voice 'paul  " `v1 ")
 
 ;;}}}
-;;  Mapping css parameters to tts codes --- see../servers /linux-outloud/lib/voice-params.org
+;;;  Mapping css parameters to tts codes --- see../servers /linux-outloud/lib/voice-params.org
 ;;{{{  hash table for mapping families to their dimensions
 
 (defvar outloud-css-code-tables (make-hash-table)
@@ -130,17 +130,17 @@
 ;;}}}
 ;;{{{  average pitch
 
-;; Average pitch for standard male voice is 65 --this is mapped to
-;; a setting of 5.
-;; head-size for default male is 50.
-;; Average pitch varies inversely with speaker head size --a child
-;; has a small head and a higher pitched voice.
-;; We change parameter head-size in conjunction with average pitch to
-;; produce a more natural change on the TTS engine.
+;;; Average pitch for standard male voice is 65 --this is mapped to
+;;; a setting of 5.
+;;; head-size for default male is 50.
+;;; Average pitch varies inversely with speaker head size --a child
+;;; has a small head and a higher pitched voice.
+;;; We change parameter head-size in conjunction with average pitch to
+;;; produce a more natural change on the TTS engine.
 
 ;;{{{  paul average pitch
 
-;; median: pitch: 65  head-size 50
+;;; median: pitch: 65  head-size 50
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
@@ -175,10 +175,10 @@
 ;;}}}
 ;;{{{  pitch range
 
-;;  Standard pitch range is 30 and is  mapped to
-;; a setting of 5.
-;; A value of 0 produces a flat monotone voice --maximum value of 100
-;; produces a highly animated voice.
+;;;  Standard pitch range is 30 and is  mapped to
+;;; a setting of 5.
+;;; A value of 0 produces a flat monotone voice --maximum value of 100
+;;; produces a highly animated voice.
 
 ;;{{{  paul pitch range
 
@@ -216,7 +216,7 @@
 ;;}}}
 ;;{{{  stress
 
-;; On the outloud we map stress to roughness
+;;; On the outloud we map stress to roughness
 ;;{{{  paul stress
 
 (let ((table (make-vector 10 "")))
@@ -325,8 +325,8 @@
 (provide 'outloud-voices)
 ;;{{{  emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

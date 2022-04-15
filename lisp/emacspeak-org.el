@@ -1,52 +1,52 @@
-;; emacspeak-org.el --- Speech-enable org  -*- lexical-binding: t; -*-
-;; $Id$
-;; $Author: tv.raman.tv $
-;; Description:  Emacspeak front-end for ORG
-;; Keywords: Emacspeak, org
+;;; emacspeak-org.el --- Speech-enable org  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; $Author: tv.raman.tv $
+;;; Description:  Emacspeak front-end for ORG
+;;; Keywords: Emacspeak, org
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2008-03-22 18:58:40 -0700 (Sat, 22 Mar 2008) $ |
-;;  $Revision: 4347 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2008-03-22 18:58:40 -0700 (Sat, 22 Mar 2008) $ |
+;;;  $Revision: 4347 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;; Copyright (C) 1995 -- 2021, T. V. Raman
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
-;; Commentary:
-;; Speech-enable org ---
-;;  Org allows you to keep organized notes and todo lists.
-;; Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
-;; or http://orgmode.org/
-;; 
-;; Code:
+;;; Commentary:
+;;; Speech-enable org ---
+;;;  Org allows you to keep organized notes and todo lists.
+;;; Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
+;;; or http://orgmode.org/
+;;; 
+;;; Code:
 
 ;;}}}
 ;;{{{ required modules
@@ -179,11 +179,11 @@
     (const :tag "speak column contents and both headers" emacspeak-org-table-speak-both-headers-and-element))
   :group 'emacspeak-org)
 
-;; orgalist-mode defines structured navigators that in turn call org-cycle.
-;; Removing itneractive check in advice for org-cycle
-;; to speech enable all such nav commands.
-;; Note that org itself produces the folded state via org-unlogged-message
-;; Which gets spoken by Emacspeak
+;;; orgalist-mode defines structured navigators that in turn call org-cycle.
+;;; Removing itneractive check in advice for org-cycle
+;;; to speech enable all such nav commands.
+;;; Note that org itself produces the folded state via org-unlogged-message
+;;; Which gets spoken by Emacspeak
 (cl-loop
  for f in
  '(org-cycle org-shifttab)
@@ -324,7 +324,7 @@
 ;;}}}
 ;;{{{ Agenda:
 
-;; AGENDA NAVIGATION
+;;; AGENDA NAVIGATION
 
 (cl-loop
  for f in
@@ -467,7 +467,7 @@
 
 (add-hook 'org-mode-hook #'emacspeak-org-mode-setup)
 
-;; advice end-of-line here to call org specific action
+;;; advice end-of-line here to call org specific action
 (defadvice end-of-line (after emacspeak-org pre act comp)
   "Call org specific actions in org mode."
   (when (and (ems-interactive-p)
@@ -738,7 +738,7 @@ arg just opens the file"
 ;;}}}
 ;;{{{ specialized input buffers:
 
-;; Taken from a message on the org mailing list.
+;;; Taken from a message on the org mailing list.
 
 
 (defun emacspeak-org-popup-input-buffer (mode)
@@ -770,8 +770,8 @@ arg just opens the file"
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

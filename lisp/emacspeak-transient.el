@@ -1,87 +1,87 @@
-;; emacspeak-transient.el --- Speech-enable TRANSIENT  -*- lexical-binding: t; -*-
-;; $Author: tv.raman.tv $
-;; Description:  Speech-enable TRANSIENT An Emacs Interface to transient
-;; Keywords: Emacspeak,  Audio Desktop transient
+;;; emacspeak-transient.el --- Speech-enable TRANSIENT  -*- lexical-binding: t; -*-
+;;; $Author: tv.raman.tv $
+;;; Description:  Speech-enable TRANSIENT An Emacs Interface to transient
+;;; Keywords: Emacspeak,  Audio Desktop transient
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;  $Revision: 4532 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;;  $Revision: 4532 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
-;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNTRANSIENT FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNTRANSIENT FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
-;; Commentary:
-;; TRANSIENT ==  Transient commands --- used by magit and friends.
-;; This module speech-enables transient.
+;;; Commentary:
+;;; TRANSIENT ==  Transient commands --- used by magit and friends.
+;;; This module speech-enables transient.
 
-;; @subsection Introduction
-;; 
-;; Package Transient is similar to package Hydra in the sense that it
-;; can be used to create a sequence of chained/hierarchical commands
-;; that are invoked via a sequence of keys. It is used by Magit for
-;; dispatching to the various Git commands.  Speech-enabling package
-;; Transient results in the various interactive commands producing
-;; auditory feedback. Transient shows an ephemeral window with the
-;; currently available commands, Emacspeak speech-enables
-;; transient--show to cache that content so it can be browsed if
-;; desired.
-;; 
-;; Finally, this module defines a new minor mode called
-;; transient-emacspeak  that  enables  interactive browsing of the
-;; contents displayed temporarily. Note that without this
-;; functionality, learning complex packages like Magit would be difficult
-;; because  the list of available commands can be very long.
-;; @subsection Recommended Customizations
-;; I use the following customizations via .custom, adjust to taste,
-;; but use these only after reading the transient info documentations.
-;; @itemize
-;; @item transient-force-single-column: t
-;; @item  transient-show-popup:  1
-;; @item transient-enable-popup-navigation:  t
-;; @end itemize
-;; 
-;; this pops up the transient buffer after a short delay  and lets
-;; you move through the buttons with the    up/down arrows. 
-;; @subsection Browsing Contents Of transient--show
-;; 
-;; When executing a command defined via Transient --- e.g. command
-;; Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
-;; temporarily suspend   the currently active transient. Emacspeak now
-;; displays a  *transient-emacspeak* buffer that displays the contents of the
-;; most recently displayed transient choices. Pressing @kbd {C-c} resumes
-;; the transient; Pressing @kbd{C-q} quits the transient.
-;; 
-;; Code:
+;;; @subsection Introduction
+;;; 
+;;; Package Transient is similar to package Hydra in the sense that it
+;;; can be used to create a sequence of chained/hierarchical commands
+;;; that are invoked via a sequence of keys. It is used by Magit for
+;;; dispatching to the various Git commands.  Speech-enabling package
+;;; Transient results in the various interactive commands producing
+;;; auditory feedback. Transient shows an ephemeral window with the
+;;; currently available commands, Emacspeak speech-enables
+;;; transient--show to cache that content so it can be browsed if
+;;; desired.
+;;; 
+;;; Finally, this module defines a new minor mode called
+;;; transient-emacspeak  that  enables  interactive browsing of the
+;;; contents displayed temporarily. Note that without this
+;;; functionality, learning complex packages like Magit would be difficult
+;;; because  the list of available commands can be very long.
+;;; @subsection Recommended Customizations
+;;; I use the following customizations via .custom, adjust to taste,
+;;; but use these only after reading the transient info documentations.
+;;; @itemize
+;;; @item transient-force-single-column: t
+;;; @item  transient-show-popup:  1
+;;; @item transient-enable-popup-navigation:  t
+;;; @end itemize
+;;; 
+;;; this pops up the transient buffer after a short delay  and lets
+;;; you move through the buttons with the    up/down arrows. 
+;;; @subsection Browsing Contents Of transient--show
+;;; 
+;;; When executing a command defined via Transient --- e.g. command
+;;; Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
+;;; temporarily suspend   the currently active transient. Emacspeak now
+;;; displays a  *transient-emacspeak* buffer that displays the contents of the
+;;; most recently displayed transient choices. Pressing @kbd {C-c} resumes
+;;; the transient; Pressing @kbd{C-q} quits the transient.
+;;; 
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
@@ -300,8 +300,8 @@ Press `C-c' to resume the suspended transient."
 (provide 'emacspeak-transient)
 ;;{{{ end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}

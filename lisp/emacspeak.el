@@ -1,53 +1,53 @@
-;; emacspeak.el --- The Complete Audio Desktop  -*- lexical-binding: t; -*-
-;; $Id$
-;; $Author: tv.raman.tv $
-;; Description:  Emacspeak: A speech interface to Emacs
-;; Keywords: Emacspeak, Speech, Dectalk,
+;;; emacspeak.el --- The Complete Audio Desktop  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; $Author: tv.raman.tv $
+;;; Description:  Emacspeak: A speech interface to Emacs
+;;; Keywords: Emacspeak, Speech, Dectalk,
 ;;{{{  LCD Archive entry:
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2008-07-06 16:33:47 -0700 (Sun, 06 Jul 2008) $ |
-;;  $Revision: 4642 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2008-07-06 16:33:47 -0700 (Sun, 06 Jul 2008) $ |
+;;;  $Revision: 4642 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;; Copyright (C) 1995 -- 2021, T. V. Raman
-;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 ;;{{{ Introduction
 
-;; Commentary:
+;;; Commentary:
 
-;; Emacspeak extends Emacs to be a fully functional audio desktop.
-;; This is the main emacspeak module.
-;; It actually does very little:
-;; It sets up Emacs to load package-specific
-;; Emacspeak modules as each package is loaded.
-;; It implements function emacspeak which loads the rest of the system.
+;;; Emacspeak extends Emacs to be a fully functional audio desktop.
+;;; This is the main emacspeak module.
+;;; It actually does very little:
+;;; It sets up Emacs to load package-specific
+;;; Emacspeak modules as each package is loaded.
+;;; It implements function emacspeak which loads the rest of the system.
 
-;; Code:
+;;; Code:
 
 ;;}}}
 ;;{{{ Required modules
@@ -75,7 +75,7 @@ the Emacspeak desktop.")
   :link '(url-link :tag "Tips"
                    "https://tvraman.github.io/emacspeak/tips.html"
                    :help-echo "Emacspeak Tips and Tricks.")
-;; end links
+;;; end links
   :group 'applications)
 
 ;;}}}
@@ -83,15 +83,15 @@ the Emacspeak desktop.")
 
 
 
-;; This function adds the appropriate form to `after-load-alist' to
-;; set up Emacspeak support for a given package.  Argument MODULE (a
-;; symbol)specifies the emacspeak module that implements the
-;; speech-enabling extensions for `package' (a string).
+;;; This function adds the appropriate form to `after-load-alist' to
+;;; set up Emacspeak support for a given package.  Argument MODULE (a
+;;; symbol)specifies the emacspeak module that implements the
+;;; speech-enabling extensions for `package' (a string).
 (defsubst emacspeak-do-package-setup (package module)
   "Setup Emacspeak extension for   PACKAGE. "
   (with-eval-after-load package (require module)))
 
-;; DocView
+;;; DocView
 (declare-function doc-view-open-text "doc-view")
 (with-eval-after-load "doc-view"
   (add-hook 'doc-view-mode-hook #'doc-view-open-text))
@@ -303,8 +303,8 @@ the Emacspeak desktop.")
 ;;}}}
 ;;{{{ setup programming modes
 
-;; turn on automatic voice locking , split caps and punctuations in
-;; programming  modes
+;;; turn on automatic voice locking , split caps and punctuations in
+;;; programming  modes
 
 ;;;###autoload
 (defsubst emacspeak-setup-programming-mode ()
@@ -427,10 +427,10 @@ commands and options for details."
 (provide 'emacspeak)
 ;;{{{ end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}
 
-;; emacspeak.el ends here
+;;; emacspeak.el ends here

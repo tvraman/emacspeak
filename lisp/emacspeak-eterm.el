@@ -1,56 +1,56 @@
-;; emacspeak-eterm.el --- Speech enable eterm -- Emacs' terminal emulator  term.el  -*- lexical-binding: t; -*-
-;; $Id$
-;; $Author: tv.raman.tv $
-;; Description:  Emacspeak extension to speech enable eterm.
-;; Keywords: Emacspeak, Eterm, Terminal emulation, Spoken Output
+;;; emacspeak-eterm.el --- Speech enable eterm -- Emacs' terminal emulator  term.el  -*- lexical-binding: t; -*-
+;;; $Id$
+;;; $Author: tv.raman.tv $
+;;; Description:  Emacspeak extension to speech enable eterm.
+;;; Keywords: Emacspeak, Eterm, Terminal emulation, Spoken Output
 ;;{{{  LCD Archive entry:
 
-;; LCD Archive Entry:
-;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;; A speech interface to Emacs |
-;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;  $Revision: 4532 $ |
-;; Location undetermined
-;; 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;;; A speech interface to Emacs |
+;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;;  $Revision: 4532 $ |
+;;; Location undetermined
+;;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;; Copyright (C) 1995 -- 2021, T. V. Raman
-;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;; All Rights Reserved.
-;; 
-;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
-;; GNU Emacs is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;; 
-;; GNU Emacs is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;; 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;; Copyright (C) 1995 -- 2021, T. V. Raman
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved.
+;;; 
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;; 
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;; 
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;; 
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{ required packages:
 
-;; Commentary:
+;;; Commentary:
 ;;{{{  Introduction:
-;; This module makes eterm talk.
-;; Eterm is the new terminal emulator for Emacs.
-;; Use of emacspeak with eterm really needs an info page.
-;; At present, the only documentation is the source level documentation.
-;; This module uses Control-t as an additional prefix key to allow the user
-;; To move around the terminal and have different parts spoken.
+;;; This module makes eterm talk.
+;;; Eterm is the new terminal emulator for Emacs.
+;;; Use of emacspeak with eterm really needs an info page.
+;;; At present, the only documentation is the source level documentation.
+;;; This module uses Control-t as an additional prefix key to allow the user
+;;; To move around the terminal and have different parts spoken.
 
 ;;}}}
 ;;
-;; Code:
+;;; Code:
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
@@ -188,15 +188,15 @@ Useful when eterm is in review mode.")
 ;;}}}
 ;;{{{  functions
 
-;; nuke term cache info
+;;; nuke term cache info
 (defun emacspeak-eterm-nuke-cached-info ()
   (cl-declare (special term-current-row term-current-column))
   (setq term-current-row nil
         term-current-column nil))
 
-;; Send the last input character as a  raw key,
-;; ie without any interpretation.
-;; Ensure you're in a terminal before sending it through."
+;;; Send the last input character as a  raw key,
+;;; ie without any interpretation.
+;;; Ensure you're in a terminal before sending it through."
 (defun emacspeak-eterm-maybe-send-raw ()
   "Send a raw character through if in the terminal buffer.
 Execute end of line if
@@ -241,10 +241,10 @@ the Emacspeak pointer to be spoken."
 ;;}}}
 ;;{{{  Speaking the screen pointer:
 
-;; The pointer is an invisible marker that is
-;; moved around to speak the screen.
-;; The pointer is emacspeak-eterm-pointer and starts off at the cursor.
-;; Speaking relative to the pointer:
+;;; The pointer is an invisible marker that is
+;;; moved around to speak the screen.
+;;; The pointer is emacspeak-eterm-pointer and starts off at the cursor.
+;;; Speaking relative to the pointer:
 
 (defun emacspeak-eterm-speak-pointer-line ()
   "Speak the line the pointer is on."
@@ -447,7 +447,7 @@ Argument COUNT specifies number of words by which to move."
   (interactive)
   (emacspeak-eterm-search -1))
 
-;; Helper function for searching:
+;;; Helper function for searching:
 
 (defun emacspeak-eterm-search(direction)
   "Prompt for a string,
@@ -483,7 +483,7 @@ If found, the Emacspeak pointer is left at the hit. "
 ;;}}}
 ;;{{{  Highlight tracking:
 
-;; Moving pointer  to the next highlighted portion of the screen:
+;;; Moving pointer  to the next highlighted portion of the screen:
 
 (defun emacspeak-eterm-pointer-to-next-color-change  (&optional count)
   "Move the eterm pointer to the next color change.
@@ -636,8 +636,8 @@ sent to the terminal as if it were typed by the user."
 ;;}}}
 ;;{{{  Defining and speaking terminal windows:
 
-;; A window structure is of the form
-;; [column row right-stretch left-stretch ]
+;;; A window structure is of the form
+;;; [column row right-stretch left-stretch ]
 
 (defun emacspeak-eterm-make-window (top-left bottom-right right-stretch left-stretch)
   (let ((win (make-vector 4  nil)))
@@ -675,7 +675,7 @@ Argument ID specifies the window."
             (and (not left-stretch) (< column top-left-column))
             (and (not right-stretch) (> column bottom-right-column)))))))
 
-;; Translate a screen position to a buffer position
+;;; Translate a screen position to a buffer position
 
 (defun emacspeak-eterm-coordinates-to-position (coordinates)
   "Translate screen COORDINATES to buffer position.
@@ -692,8 +692,8 @@ as a cons cell (column .  row) to a buffer position in the eterm buffer"
         (emacspeak-eterm-nuke-cached-info)
         (point)))))
 
-;; Translate buffer position to screen coordinates.
-;; returns a cons cell (column . row)
+;;; Translate buffer position to screen coordinates.
+;;; returns a cons cell (column . row)
 (defun emacspeak-eterm-position-to-coordinates (pos)
   "Translate a buffer POS in the eterm buffer to screen coordinates."
   (cl-declare (special term-home-marker))
@@ -709,7 +709,7 @@ as a cons cell (column .  row) to a buffer position in the eterm buffer"
         (emacspeak-eterm-nuke-cached-info)
         coordinates))))
 
-;; return contents of a term window
+;;; return contents of a term window
 (defun emacspeak-eterm-return-window-contents (eterm-window)
   "Return  the contents of a window as a string.
 Argument ETERM-WINDOW specifies a predefined eterm window."
@@ -1280,8 +1280,8 @@ completions for filename at point")))
 (provide 'emacspeak-eterm)
 ;;{{{  emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+;;; local variables:
+;;; folded-file: t
+;;; end:
 
 ;;}}}
