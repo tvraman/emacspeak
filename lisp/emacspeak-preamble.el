@@ -2,7 +2,7 @@
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for auctex-mode
-;;; Keywords:emacspeak, audio interface to emacs AUCTEX
+;;; Keywords:emacspeak, audio interface to emacs 
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
