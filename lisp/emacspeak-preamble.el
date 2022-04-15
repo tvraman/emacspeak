@@ -147,7 +147,7 @@
 ;;; This updated implementation avoids that call and was contributed
 ;;; by Stefan Monnier in April 2022.
 
-;;;  FIXME: Note that `ems-interactive-p', unlike `called-interactively-p',
+;;;  Note that `ems-interactive-p', unlike `called-interactively-p',
 ;;;  will return non-nil when the original command calls itself recursively.
 ;;;  More specifically `called-interactively-p' tries to returns non-nil
 ;;;  if and only if the current call to the surrounding function (let's call it
@@ -155,7 +155,6 @@
 ;;;  F happens to be the same function as the one that was called interactively
 ;;;  (either because it's the original (interactive) call, or because of
 ;;;  a nested/recursive call).
-;;; This behavior is the desired one for Emacspeak.
 
 ;;; Design:
 ;;; Advice on funcall-interactively stores the name of the
