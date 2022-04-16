@@ -450,6 +450,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile(require 'subr-x))
 (require 'emacspeak-preamble)
+(require 'emacspeak-speak)
 (require 'eww  )
 (require 'dom)
 (require 'dom-addons)

@@ -51,6 +51,7 @@
 ;;{{{ required modules
 
 (require 'cl-lib)
+(require 'voice-setup)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
 (declare-function ems--fastload "emacspeak-preamble" (file))
@@ -1565,9 +1566,7 @@ Set to nil to disable a separate Notification stream."
 
 (defun dtk-initialize ()
   "Initialize speech system."
-  (cl-declare (special dtk-speaker-process
-                       dtk-speak-server-initialized
-                       dtk-program))
+  (voice-setup)
   (let* ((new-process (dtk-make-process "Speaker"))
          (state (process-status new-process)))
     (setq dtk-speak-server-initialized (memq state '(run open)))

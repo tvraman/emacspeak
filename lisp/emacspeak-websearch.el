@@ -51,6 +51,8 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-speak)
+(require 'emacspeak-sounds)
 (require 'emacspeak-google)
 (require 'gweb)
 (declare-function word-at-point "thingatpt" (&optional no-properties))

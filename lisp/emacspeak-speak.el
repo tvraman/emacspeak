@@ -55,9 +55,11 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'voice-setup)
+(require 'voice-defs)                   ;For `voice-animate'
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
+(require 'emacspeak-preamble)           ;For `ems--fastload'
+(require 'emacspeak-sounds)             ;For `emacspeak-auditory-icon'
 (require 'sox-gen)
 (declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))

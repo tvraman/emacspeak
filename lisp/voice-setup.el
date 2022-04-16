@@ -117,22 +117,33 @@
 ;;; Whenever we switch engines, we load voice-definitions for that
 ;;; engine by reloading module voice-defs.
 (cl-declaim (special dtk-program))
-(cond
- ((string-match "outloud" dtk-program)
-  (require 'outloud-voices)
-  (outloud-configure-tts))
- ((string-match "dtk" dtk-program)
-  (require 'dectalk-voices)
-  (dectalk-configure-tts))
- ((string-match "mac$" dtk-program)
-  (require 'mac-voices)
-  (mac-configure-tts))
- ((string-match "espeak$" dtk-program)
-  (require 'espeak-voices)
-  (espeak-configure-tts))
- (t
-  (require 'plain-voices)
-  (plain-configure-tts)))
+
+(cl-defstruct (acss
+               (:predicate nil) ;; Don't make a predicate we don't need.
+               (:copier nil))   ;; Don't make a copier we don't need.
+  family average-pitch pitch-range stress richness)
+
+(defun voice-setup ()
+  (cond
+   ((string-match "outloud" dtk-program)
+    (require 'outloud-voices)
+    (outloud-configure-tts))
+   ((string-match "dtk" dtk-program)
+    (require 'dectalk-voices)
+    (dectalk-configure-tts))
+   ((string-match "mac\\'" dtk-program)
+    (require 'mac-voices)
+    (mac-configure-tts))
+   ((string-match "espeak\\'" dtk-program)
+    (require 'espeak-voices)
+    (espeak-configure-tts))
+   (t
+    (require 'plain-voices)
+    (plain-configure-tts))))
+
+(unless (fboundp 'tts-voice-defined-p)
+  ;; For use during compilation, while voices have not been setup yet.
+  (fset 'tts-voice-defined-p (lambda (&rest _) t)))
 
 (defun voice-acss-from-speech-style (style)
   "Compute a  name for this STYLE.
