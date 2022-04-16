@@ -57,8 +57,6 @@
   (require 'derived)
   (require 'let-alist))
 (require 'emacspeak-preamble)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 (eval-when-compile
   (require 'calendar)
   (require 'cus-edit)

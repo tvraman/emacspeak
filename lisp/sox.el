@@ -182,7 +182,7 @@
      ("s" sox-save)
      )
    do
-   (define-key sox-mode-map (kbd (cl-first k)) (cl-second k))))
+   (define-key sox-mode-map (ems-kbd (cl-first k)) (cl-second k))))
 
 ;;}}}
 ;;{{{ Top-level Context:

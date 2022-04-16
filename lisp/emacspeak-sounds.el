@@ -64,7 +64,6 @@
 
 ;;; Code:
 (require 'cl-lib)
-(require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 ;;}}}
 ;;{{{  state of auditory icons
@@ -75,21 +74,6 @@ Use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons].")
 
 (make-variable-buffer-local 'emacspeak-use-auditory-icons)
-
-;;}}}
-;;{{{  setup play function
-
-(defvar emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon
-  "Function that plays auditory icons.
-play : Launches play-program to play.
-Serve: Send a command to the speech-server to play.
-Queue : Add auditory icon to speech queue.
-Use Serve when working with remote speech servers.")
-
-(defsubst emacspeak-auditory-icon (icon)
-  "Play an auditory ICON."
-  (when emacspeak-use-auditory-icons
-    (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
 ;;{{{ Setup Audio 
@@ -265,6 +249,24 @@ Do not set this by hand;
   (let ((default-directory  emacspeak-sounds-directory))
     (apply #'start-process "APlay" nil emacspeak-play-program
            (mapcar #'emacspeak-get-sound-filename icon-list))))
+
+;;}}}
+;;{{{  setup play function
+
+(defvar emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
+"Function that plays auditory icons.
+play : Launches play-program to play.
+Serve: Send a command to the speech-server to play.
+Queue : Add auditory icon to speech queue.
+Use Serve when working with remote speech servers."
+  )
+
+(defsubst emacspeak-auditory-icon (icon)
+  "Play an auditory ICON."
+  (cl-declare (special emacspeak-auditory-icon-function
+                       emacspeak-use-auditory-icons))
+  (when emacspeak-use-auditory-icons
+    (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
 ;;{{{  toggle auditory icons

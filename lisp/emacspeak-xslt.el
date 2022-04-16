@@ -54,18 +54,22 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  xslt Environment:
+;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return  stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
 
+;;;###autoload
 (defconst emacspeak-opml-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "opml.xsl"))
   "XSL stylesheet used for viewing OPML  Feeds.")
 
+;;;###autoload
 (defconst emacspeak-rss-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "rss.xsl"))
   "XSL stylesheet used for viewing RSS Feeds.")
 
+;;;###autoload
 (defconst emacspeak-atom-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
   "XSL stylesheet used for viewing Atom Feeds.")
@@ -90,6 +94,7 @@
    (read-file-name "XSL Transformation: "
                    emacspeak-xslt-directory
                    emacspeak-we-xsl-transform)))
+;;;###autoload
 (defvar emacspeak-xslt-program
   (executable-find "xsltproc")
   "Name of XSLT transformation engine.")

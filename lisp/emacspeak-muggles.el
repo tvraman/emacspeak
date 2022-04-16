@@ -87,9 +87,8 @@
 (require 'emacspeak-preamble)
 
 (eval-when-compile
-  ;; FIXME: Network access as part of compilation is EVIL!
-  ;; (when (locate-library "package")
-  ;;   (unless (locate-library "hydra") (package-install 'hydra)))
+  (when (locate-library "package")
+    (unless (locate-library "hydra") (package-install 'hydra)))
   
   (require 'emacspeak-hydra)
   (require 'org)
@@ -103,7 +102,7 @@
   (require 'xbacklight)
   (require 'view)
   (require 'emacspeak-m-player))
-(require 'flycheck nil t) ;; Don't burp if absent during compilation.
+(require 'flycheck)
 (declare-function org-table-previous-row "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-current-element
                   "emacspeak-org" nil)

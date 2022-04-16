@@ -282,7 +282,7 @@ list of parsed ladspa-plugin structures, one per label."
            ("e" ladspa-edit-control)
            )
          do
-         (define-key ladspa-mode-map (kbd (cl-first k)) (cl-second k)))
+         (define-key ladspa-mode-map (ems-kbd (cl-first k)) (cl-second k)))
 
 ;;}}}
 ;;{{{ Instantiate Ladspa Plugin:

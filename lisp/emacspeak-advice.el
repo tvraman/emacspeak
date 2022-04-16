@@ -62,8 +62,8 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
+(eval-when-compile (require 'advice))
 (require 'emacspeak-preamble)
-(require 'emacspeak-speak)
 
 ;;}}}
 ;;{{{  Advice Replace
