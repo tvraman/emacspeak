@@ -1,4 +1,3 @@
-
 diff --git a/.elpaignore b/.elpaignore
 new file mode 100644
 index 000000000..bbd94b5ee
@@ -9,7 +8,19 @@ index 000000000..bbd94b5ee
 +tvr
 +obsolete
 +utils
-
+diff --git a/.gitignore b/.gitignore
+index 7adf965b9..c3021a080 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -25,3 +25,8 @@ servers/native-espeak/tclespeak.so
+ /.ccls-cache/
+ *.pdf
+ **.pdf
++
++# ELPA-generated files
++/emacspeak-autoloads.el
++/emacspeak-pkg.el
++/lisp/emacspeak-autoloads.el
 diff --git a/lisp/Makefile b/lisp/Makefile
 index 65302d74e..7899268f5 100644
 --- a/lisp/Makefile
@@ -22,223 +33,102 @@ index 65302d74e..7899268f5 100644
  	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
  	-l ./emacspeak-autoload.el  \
  	-f emacspeak-auto-generate-autoloads
-diff --git a/lisp/dectalk-voices.el b/lisp/dectalk-voices.el
-index d7fc35d28..b135805ba 100644
---- a/lisp/dectalk-voices.el
-+++ b/lisp/dectalk-voices.el
-@@ -50,6 +50,7 @@
+diff --git a/lisp/amixer.el b/lisp/amixer.el
+index f75a8b6bf..5706feea0 100644
+--- a/lisp/amixer.el
++++ b/lisp/amixer.el
+@@ -44,6 +44,7 @@
+ ;;{{{ required packages
  
  (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
 +(require 'emacspeak-preamble)
+ (cl-declaim  (optimize  (safety 0) (speed 3)))
  
  ;;}}}
- ;;{{{ Customizations:
-diff --git a/lisp/dtk-speak.el b/lisp/dtk-speak.el
-index 4e8536242..9036479ef 100644
---- a/lisp/dtk-speak.el
-+++ b/lisp/dtk-speak.el
-@@ -51,6 +51,7 @@
+diff --git a/lisp/dectalk-voices.el b/lisp/dectalk-voices.el
+index d7fc35d28..8363cf182 100644
+--- a/lisp/dectalk-voices.el
++++ b/lisp/dectalk-voices.el
+@@ -49,6 +49,7 @@
  ;;{{{ required modules
  
  (require 'cl-lib)
-+(require 'voice-setup)
++(require 'emacspeak-preamble)
  (cl-declaim  (optimize  (safety 0) (speed 3)))
- (eval-when-compile (require 'subr-x))
- (declare-function ems--fastload "emacspeak-preamble" (file))
-@@ -1565,9 +1566,7 @@ Set to nil to disable a separate Notification stream."
+ 
+ ;;}}}
+@@ -374,7 +375,6 @@ and TABLE gives the values along that dimension."
+   (setq tts-default-voice 'paul)
+   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
+   (fset 'tts-get-voice-command 'dectalk-get-voice-command)
+-  (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
+   (fset 'tts-define-voice-from-speech-style 'dectalk-define-voice-from-speech-style)
+   (setq tts-default-speech-rate dectalk-default-speech-rate)
+   (set-default 'tts-default-speech-rate dectalk-default-speech-rate)
+diff --git a/lisp/dtk-speak.el b/lisp/dtk-speak.el
+index 4e8536242..e75190057 100644
+--- a/lisp/dtk-speak.el
++++ b/lisp/dtk-speak.el
+@@ -1429,8 +1429,11 @@ Set by \\[dtk-set-punctuations].")
+ ;;}}}
+ ;;{{{  interactively selecting the server:
+ 
+-;;; will be reset on a per TTS engine basis.
+-(fset 'tts-get-voice-command 'dectalk-get-voice-command)
++;; These functions will be reset on a per TTS engine basis
++;; via `voice-setup' called by `dtk-initialize'.
++(defalias 'tts-get-voice-command (lambda (&rest _) ""))
++(defalias 'tts-define-voice-from-speech-style #'ignore)
++(defalias 'tts-voice-defined-p (lambda (&rest _) t))
+ 
+ (defun tts-voice-reset-code ()
+   "Return voice reset code."
+@@ -1565,9 +1568,10 @@ Set to nil to disable a separate Notification stream."
  
  (defun dtk-initialize ()
    "Initialize speech system."
 -  (cl-declare (special dtk-speaker-process
 -                       dtk-speak-server-initialized
 -                       dtk-program))
++  ;; `voice-setup' requires us, so we can't require it at top-level.
++  (require 'voice-setup)
++  (declare-function voice-setup "voice-setup" ())
 +  (voice-setup)
    (let* ((new-process (dtk-make-process "Speaker"))
           (state (process-status new-process)))
      (setq dtk-speak-server-initialized (memq state '(run open)))
-diff --git a/lisp/emacspeak-advice.el b/lisp/emacspeak-advice.el
-index fb8348c8b..19e67e83e 100644
---- a/lisp/emacspeak-advice.el
-+++ b/lisp/emacspeak-advice.el
-@@ -62,8 +62,8 @@
+@@ -1722,10 +1726,12 @@ unless   `dtk-quiet' is set to t. "
  
- (require 'cl-lib)
- (cl-declaim (optimize (safety 0) (speed 3)))
--(eval-when-compile (require 'advice))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
+ (defmacro ems-with-messages-silenced (&rest body)
+   "Evaluate body  after temporarily silencing messages."
+-  (declare (indent 1) (debug t))
+-  `(let ((emacspeak-speak-messages nil)
++  (declare (indent 0) (debug t))
++  `(progn
++     (defvar emacspeak-speak-messages)
++     (let ((emacspeak-speak-messages nil)
+          (inhibit-message t))
+-     ,@body))
++     ,@body)))
  
+ (defun dtk-speak-and-echo (message)
+   "Speak message and echo it."
+diff --git a/lisp/emacspeak-autoload.el b/lisp/emacspeak-autoload.el
+index c25fd53a3..cb908bcb7 100644
+--- a/lisp/emacspeak-autoload.el
++++ b/lisp/emacspeak-autoload.el
+@@ -63,9 +63,10 @@
  ;;}}}
- ;;{{{  Advice Replace
-diff --git a/lisp/emacspeak-bookshare.el b/lisp/emacspeak-bookshare.el
-index d5729a904..cf3fce826 100644
---- a/lisp/emacspeak-bookshare.el
-+++ b/lisp/emacspeak-bookshare.el
-@@ -85,6 +85,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (eval-when-compile (require 'derived)
-                    (require 'g-utils))
- (require 'dom)
-diff --git a/lisp/emacspeak-bs.el b/lisp/emacspeak-bs.el
-index 7c84a06ee..6287d5d4c 100644
---- a/lisp/emacspeak-bs.el
-+++ b/lisp/emacspeak-bs.el
-@@ -42,6 +42,7 @@
+ ;;{{{ generate autoloads
  
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'bs)
- ;;}}}
- ;;{{{  Introduction:
-diff --git a/lisp/emacspeak-comint.el b/lisp/emacspeak-comint.el
-index c267b5656..f63f49760 100644
---- a/lisp/emacspeak-comint.el
-+++ b/lisp/emacspeak-comint.el
-@@ -54,6 +54,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'comint)
- (require 'shell)
- 
-diff --git a/lisp/emacspeak-compile.el b/lisp/emacspeak-compile.el
-index 64fdf4bfc..9a2c8bcde 100644
---- a/lisp/emacspeak-compile.el
-+++ b/lisp/emacspeak-compile.el
-@@ -50,6 +50,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- 
- ;;}}}
- ;;{{{ Personalities  
-diff --git a/lisp/emacspeak-cperl.el b/lisp/emacspeak-cperl.el
-index 9be617236..011e9ea8e 100644
---- a/lisp/emacspeak-cperl.el
-+++ b/lisp/emacspeak-cperl.el
-@@ -41,6 +41,7 @@
- 
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- ;;}}}
- ;;{{{  Introduction:
- 
-diff --git a/lisp/emacspeak-dismal.el b/lisp/emacspeak-dismal.el
-index bbeb75eaa..0f1f08cab 100644
---- a/lisp/emacspeak-dismal.el
-+++ b/lisp/emacspeak-dismal.el
-@@ -45,6 +45,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- ;;}}}
- ;;{{{ Forward Decls:
- 
-diff --git a/lisp/emacspeak-elfeed.el b/lisp/emacspeak-elfeed.el
-index 0f0cdc46c..3c6217f74 100644
---- a/lisp/emacspeak-elfeed.el
-+++ b/lisp/emacspeak-elfeed.el
-@@ -51,6 +51,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'elfeed "elfeed" 'no-match)
- ;;}}}
- ;;{{{ Map Faces to voices
-diff --git a/lisp/emacspeak-enriched.el b/lisp/emacspeak-enriched.el
-index 607057118..526ab0691 100644
---- a/lisp/emacspeak-enriched.el
-+++ b/lisp/emacspeak-enriched.el
-@@ -45,6 +45,7 @@
- ;;{{{ required modules
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- 
- ;;}}}
- ;;{{{ voiceify-faces 
-diff --git a/lisp/emacspeak-epub.el b/lisp/emacspeak-epub.el
-index c4039c341..ad940bb37 100644
---- a/lisp/emacspeak-epub.el
-+++ b/lisp/emacspeak-epub.el
-@@ -171,6 +171,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'emacspeak-xslt)
- 
- (eval-when-compile
-diff --git a/lisp/emacspeak-eww.el b/lisp/emacspeak-eww.el
-index a33bdee40..780df4c4d 100644
---- a/lisp/emacspeak-eww.el
-+++ b/lisp/emacspeak-eww.el
-@@ -450,6 +450,7 @@
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (eval-when-compile(require 'subr-x))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'eww  )
- (require 'dom)
- (require 'dom-addons)
-diff --git a/lisp/emacspeak-feeds.el b/lisp/emacspeak-feeds.el
-index 550b7c64f..185c8ad4a 100644
---- a/lisp/emacspeak-feeds.el
-+++ b/lisp/emacspeak-feeds.el
-@@ -51,6 +51,7 @@
- (require 'cl-extra)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'emacspeak-xslt)
- (require 'url)
- (require 'eww)
-diff --git a/lisp/emacspeak-helm.el b/lisp/emacspeak-helm.el
-index 6f2727e23..42667fd28 100644
---- a/lisp/emacspeak-helm.el
-+++ b/lisp/emacspeak-helm.el
-@@ -54,6 +54,7 @@
- (require 'emacspeak-google)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- 
- ;;}}}
- ;;{{{ Setup Helm Hooks:
-diff --git a/lisp/emacspeak-hydra.el b/lisp/emacspeak-hydra.el
-index 464c890fc..3415e5560 100644
---- a/lisp/emacspeak-hydra.el
-+++ b/lisp/emacspeak-hydra.el
-@@ -48,6 +48,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-sounds)
- (require 'hydra "hydra" 'no-error)
- 
- ;;}}}
-diff --git a/lisp/emacspeak-kmacro.el b/lisp/emacspeak-kmacro.el
-index c39528c0e..de481d221 100644
---- a/lisp/emacspeak-kmacro.el
-+++ b/lisp/emacspeak-kmacro.el
-@@ -47,6 +47,7 @@
- ;;; Code:
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- 
- ;;}}}
- ;;{{{ bind keys 
++(defvar dtk-quiet)
++
+ (defun emacspeak-auto-generate-autoloads ()
+   "Generate emacspeak autoloads."
+-  (cl-declare (special  emacspeak-auto-autoloads-file ))
+   (let ((dtk-quiet t)
+         (generated-autoload-file emacspeak-auto-autoloads-file))
+     (update-directory-autoloads (file-name-directory emacspeak-auto-autoloads-file))))
 diff --git a/lisp/emacspeak-muggles.el b/lisp/emacspeak-muggles.el
 index d44c0e48b..c171db8a6 100644
 --- a/lisp/emacspeak-muggles.el
@@ -265,19 +155,28 @@ index d44c0e48b..c171db8a6 100644
  (declare-function emacspeak-org-table-speak-current-element
                    "emacspeak-org" nil)
 diff --git a/lisp/emacspeak-outline.el b/lisp/emacspeak-outline.el
-index e4edc22bd..20e806d25 100644
+index e4edc22bd..856741b6a 100644
 --- a/lisp/emacspeak-outline.el
 +++ b/lisp/emacspeak-outline.el
-@@ -50,6 +50,7 @@
+@@ -106,7 +106,7 @@
  
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'outline)
+ (defadvice outline-flag-region (around emacspeak pre act comp)
+   "Reflect hide/show via property invisible as wel"
+-  (cl-declare (special ems--voiceify-overlays))
++  (defvar ems--voiceify-overlays)
+   (let  ((ems--voiceify-overlays  nil)
+          (beg (ad-get-arg 0))
+          (end (ad-get-arg 1))
+@@ -301,7 +301,6 @@ except that the outline section is  spoken"
  
- ;;}}}
+ (defadvice outline-up-heading (around emacspeak pre act comp)
+   "Silence error messages."
+-  (cl-declare (special emacspeak-speak-errors))
+   (ems-with-errors-silenced
+       ad-do-it
+     ad-return-value))
 diff --git a/lisp/emacspeak-preamble.el b/lisp/emacspeak-preamble.el
-index 2b8f01409..444a28c4a 100644
+index 2b8f01409..f06e97621 100644
 --- a/lisp/emacspeak-preamble.el
 +++ b/lisp/emacspeak-preamble.el
 @@ -43,15 +43,14 @@
@@ -298,214 +197,101 @@ index 2b8f01409..444a28c4a 100644
  ;;;###autoload
  (defvar emacspeak-directory
    (expand-file-name "../" (file-name-directory load-file-name))
-@@ -128,10 +127,7 @@
- (require 'dtk-speak)
- (require 'voice-setup)
- (require 'voice-defs)
--(require 'emacspeak-pronounce)
- (require 'emacspeak-keymap)
--(require 'emacspeak-speak)
--(require 'emacspeak-sounds)
- 
- ;;}}}
- ;;{{{ Interactive Check Implementation:
 diff --git a/lisp/emacspeak-pronounce.el b/lisp/emacspeak-pronounce.el
-index 8b457d6ba..540434b11 100644
+index 8b457d6ba..095c429c6 100644
 --- a/lisp/emacspeak-pronounce.el
 +++ b/lisp/emacspeak-pronounce.el
 @@ -60,6 +60,7 @@
  ;;{{{ required Modules:
  
  (require 'cl-lib)
-+(require 'emacspeak-preamble)
++(require 'emacspeak-sounds)
  (cl-declaim  (optimize  (safety 0) (speed 3)))
  ;;}}}
  ;;{{{ Dictionary structure:
-diff --git a/lisp/emacspeak-sh-script.el b/lisp/emacspeak-sh-script.el
-index 0246d2b48..79a3dbd2d 100644
---- a/lisp/emacspeak-sh-script.el
-+++ b/lisp/emacspeak-sh-script.el
-@@ -42,6 +42,7 @@
- 
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- ;;}}}
- ;;{{{  Introduction:
- 
+@@ -299,6 +300,10 @@ Default is emacspeak-pronounce-dictionaries-file."
+   (when (file-exists-p filename)
+     (condition-case nil
+         (progn
++          ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
++          ;; us, so we can't require it at top-level.
++          (require 'emacspeak-preamble)
++          (declare-function ems--fastload "emacspeak-preamble" (file))
+           (ems--fastload filename)
+           (setq emacspeak-pronounce-dictionaries-loaded t))
+       (error (message "Error loading pronunciation dictionary")))))
 diff --git a/lisp/emacspeak-sounds.el b/lisp/emacspeak-sounds.el
-index ff302109d..85bca20d4 100644
+index ff302109d..bc8696057 100644
 --- a/lisp/emacspeak-sounds.el
 +++ b/lisp/emacspeak-sounds.el
-@@ -64,6 +64,7 @@
- 
- ;;; Code:
- (require 'cl-lib)
-+(require 'emacspeak-preamble)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- ;;}}}
- ;;{{{  state of auditory icons
-@@ -75,6 +76,21 @@ Use `emacspeak-toggle-auditory-icons' bound to
- 
- (make-variable-buffer-local 'emacspeak-use-auditory-icons)
- 
-+;;}}}
-+;;{{{  setup play function
-+
-+(defvar emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon
-+  "Function that plays auditory icons.
-+play : Launches play-program to play.
-+Serve: Send a command to the speech-server to play.
-+Queue : Add auditory icon to speech queue.
-+Use Serve when working with remote speech servers.")
-+
-+(defsubst emacspeak-auditory-icon (icon)
-+  "Play an auditory ICON."
-+  (when emacspeak-use-auditory-icons
-+    (funcall emacspeak-auditory-icon-function icon)))
-+
- ;;}}}
- ;;{{{ Setup Audio 
- (declare-function amixer "amixer" (&optional refresh))
-@@ -250,24 +266,6 @@ Do not set this by hand;
-     (apply #'start-process "APlay" nil emacspeak-play-program
-            (mapcar #'emacspeak-get-sound-filename icon-list))))
- 
--;;}}}
--;;{{{  setup play function
--
--(defvar emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
--"Function that plays auditory icons.
--play : Launches play-program to play.
--Serve: Send a command to the speech-server to play.
--Queue : Add auditory icon to speech queue.
--Use Serve when working with remote speech servers."
--  )
--
--(defsubst emacspeak-auditory-icon (icon)
--  "Play an auditory ICON."
--  (cl-declare (special emacspeak-auditory-icon-function
--                       emacspeak-use-auditory-icons))
--  (when emacspeak-use-auditory-icons
--    (funcall emacspeak-auditory-icon-function icon)))
--
- ;;}}}
- ;;{{{  toggle auditory icons
+@@ -140,6 +140,10 @@ Do not set this by hand;
+     (cond
+      ((emacspeak-sounds-theme-get-extension theme-name) t)
+      ((file-exists-p (expand-file-name "define-theme.el" theme-name))
++      ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
++      ;; us, so we can't require it at top-level.
++      (require 'emacspeak-preamble)
++      (declare-function ems--fastload "emacspeak-preamble" (file))
+       (ems--fastload (expand-file-name "define-theme.el" theme-name)))
+      (t (error "Theme %s is missing its configuration file. " theme-name))))
  
 diff --git a/lisp/emacspeak-speak.el b/lisp/emacspeak-speak.el
-index 1c917ac02..a42b32180 100644
+index 1c917ac02..3ff242405 100644
 --- a/lisp/emacspeak-speak.el
 +++ b/lisp/emacspeak-speak.el
-@@ -55,9 +55,11 @@
- 
+@@ -56,8 +56,10 @@
  (require 'cl-lib)
  (cl-declaim  (optimize  (safety 0) (speed 3)))
--(require 'voice-setup)
-+(require 'voice-defs)                   ;For `voice-animate'
+ (require 'voice-setup)
++(require 'voice-defs)
  (require 'dtk-speak)
  (require 'emacspeak-pronounce)
-+(require 'emacspeak-preamble)           ;For `ems--fastload'
-+(require 'emacspeak-sounds)             ;For `emacspeak-auditory-icon'
++(require 'emacspeak-sounds)
  (require 'sox-gen)
  (declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
  (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
-diff --git a/lisp/emacspeak-speedbar.el b/lisp/emacspeak-speedbar.el
-index dc4d7dd21..0e8c42e07 100644
---- a/lisp/emacspeak-speedbar.el
-+++ b/lisp/emacspeak-speedbar.el
-@@ -58,6 +58,7 @@
+@@ -349,7 +351,7 @@ Argument BODY specifies forms to execute."
+ (defmacro ems-with-errors-silenced (&rest body)
+   "Evaluate body  after temporarily silencing auditory error feedback."
+   (declare (indent 1) (debug t))
+-  `(let ((emacspeak-speak-errors nil)
++  `(let (;; (emacspeak-speak-errors nil) ;FIXME: Unused!
+          (emacspeak-speak-messages nil))
+      ,@body))
  
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require 'speedbar "speedbar" 'no-error)
- ;;}}}
- ;;{{{ Helper:
-diff --git a/lisp/emacspeak-texinfo.el b/lisp/emacspeak-texinfo.el
-index 6da84fc5f..9ef116d70 100644
---- a/lisp/emacspeak-texinfo.el
-+++ b/lisp/emacspeak-texinfo.el
-@@ -42,6 +42,7 @@
- ;;{{{  Required modules 
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- ;;}}}
- ;;{{{  Introduction:
- 
-diff --git a/lisp/emacspeak-vertico.el b/lisp/emacspeak-vertico.el
-index 51c88c47e..41ebdb892 100644
---- a/lisp/emacspeak-vertico.el
-+++ b/lisp/emacspeak-vertico.el
-@@ -26,7 +26,7 @@
- 
- ;;}}}
- ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
--^L
-+
- ;;{{{  introduction
- 
- ;;; Commentary:
-diff --git a/lisp/emacspeak-vm.el b/lisp/emacspeak-vm.el
-index 2517b56a4..67e975d60 100644
---- a/lisp/emacspeak-vm.el
-+++ b/lisp/emacspeak-vm.el
-@@ -49,6 +49,7 @@
- ;;{{{ requires
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- (require  'vm "vm" 'no-error)
+@@ -641,6 +643,10 @@ emacspeak-speak-filter-table)\n" k v)))
+                        emacspeak-speak-filter-table
+                        emacspeak-speak-filters-loaded-p))
+   (unless emacspeak-speak-filters-loaded-p
++    ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
++    ;; us, so we can't require it at top-level.
++    (require 'emacspeak-preamble)
++    (declare-function ems--fastload "emacspeak-preamble" (file))
+     (ems--fastload emacspeak-speak-filter-persistent-store)
+     (setq emacspeak-speak-filters-loaded-p t)
+     (add-hook 'kill-emacs-hook 'emacspeak-speak-persist-filter-settings)))
+@@ -2779,10 +2785,10 @@ This function is sensitive to calendar mode when prompting."
+   "\C-p" 'emacspeak-minibuffer-previous-completion)
+ (define-key 
+ minibuffer-local-completion-map
+- (ems-kbd "C-@")
++ (kbd "C-@")
+  'emacspeak-minibuffer-choose-completion)
+ (define-key minibuffer-local-completion-map
+-  (ems-kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
++  (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
  
  ;;}}}
-diff --git a/lisp/emacspeak-websearch.el b/lisp/emacspeak-websearch.el
-index 4c2829ca6..cb28c8e64 100644
---- a/lisp/emacspeak-websearch.el
-+++ b/lisp/emacspeak-websearch.el
-@@ -51,6 +51,8 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
-+(require 'emacspeak-sounds)
- (require 'emacspeak-google)
- (require 'gweb)
- (declare-function word-at-point "thingatpt" (&optional no-properties))
-diff --git a/lisp/emacspeak-webspace.el b/lisp/emacspeak-webspace.el
-index da69402a2..d3e5ef942 100644
---- a/lisp/emacspeak-webspace.el
-+++ b/lisp/emacspeak-webspace.el
-@@ -50,6 +50,8 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
-+(require 'emacspeak-sounds)
- (require 'ring)
- (require 'derived)
- (require 'gweb)
-diff --git a/lisp/emacspeak-widget.el b/lisp/emacspeak-widget.el
-index 31a8a3a11..1ba9fc889 100644
---- a/lisp/emacspeak-widget.el
-+++ b/lisp/emacspeak-widget.el
-@@ -52,6 +52,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-sounds)
- (require 'voice-setup)
- (require 'wid-edit)
- 
+ ;;{{{ Open Emacspeak Info Pages:
 diff --git a/lisp/emacspeak-wizards.el b/lisp/emacspeak-wizards.el
-index 252490422..188b37cea 100644
+index 252490422..eaf463101 100644
 --- a/lisp/emacspeak-wizards.el
 +++ b/lisp/emacspeak-wizards.el
-@@ -57,6 +57,8 @@
+@@ -57,6 +57,7 @@
    (require 'derived)
    (require 'let-alist))
  (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
-+(require 'emacspeak-sounds)
++(require 'color)
  (eval-when-compile
    (require 'calendar)
    (require 'cus-edit)
@@ -545,7 +331,7 @@ index a10e1e04c..0adc26fea 100644
    (executable-find "xsltproc")
    "Name of XSLT transformation engine.")
 diff --git a/lisp/emacspeak.el b/lisp/emacspeak.el
-index c36fb8efc..84be6212a 100644
+index c36fb8efc..3f6f037c8 100644
 --- a/lisp/emacspeak.el
 +++ b/lisp/emacspeak.el
 @@ -3,6 +3,8 @@
@@ -557,26 +343,30 @@ index c36fb8efc..84be6212a 100644
  ;;{{{  LCD Archive entry:
  ;;; LCD Archive Entry:
  ;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-@@ -55,6 +57,7 @@
- (require 'cl-lib)
- (cl-declaim  (optimize  (safety 0) (speed 3)))
- (require 'emacspeak-preamble)
-+(require 'emacspeak-speak)
- 
- ;;}}}
- ;;{{{  Customize groups
 diff --git a/lisp/espeak-voices.el b/lisp/espeak-voices.el
-index 31aafaac3..51ae75669 100644
+index 31aafaac3..cfbbdb718 100644
 --- a/lisp/espeak-voices.el
 +++ b/lisp/espeak-voices.el
 @@ -40,6 +40,7 @@
  ;;{{{ Required modules
  
  (require 'cl-lib)
-+(require 'emacspeak-preamble)
++(require 'emacspeak-preamble)           ;For `ems--fastload'.
  (cl-declaim  (optimize  (safety 0) (speed 3)))
  ;;}}}
  ;;{{{ Customizations:
+diff --git a/lisp/gm-nnir.el b/lisp/gm-nnir.el
+index 122d9ecb6..a9c68629e 100644
+--- a/lisp/gm-nnir.el
++++ b/lisp/gm-nnir.el
+@@ -62,6 +62,7 @@
+ ;;{{{  Required modules
+ 
+ (require 'cl-lib)
++(require 'emacspeak-preamble)
+ (cl-declaim  (optimize  (safety 0) (speed 3)))
+ (with-no-warnings (require 'nnir))
+ (require 'gnus-group)
 diff --git a/lisp/ladspa.el b/lisp/ladspa.el
 index 896ee2116..835491774 100644
 --- a/lisp/ladspa.el
@@ -591,35 +381,66 @@ index 896ee2116..835491774 100644
  ;;}}}
  ;;{{{ Instantiate Ladspa Plugin:
 diff --git a/lisp/mac-voices.el b/lisp/mac-voices.el
-index 4a0dadd31..d66f0666b 100644
+index 4a0dadd31..dc837f0a3 100644
 --- a/lisp/mac-voices.el
 +++ b/lisp/mac-voices.el
 @@ -50,6 +50,7 @@
  ;;{{{ Required modules
  
  (require 'cl-lib)
-+(require 'emacspeak-preamble)
++(require 'emacspeak-preamble)           ;For `ems--fastload'.
  (cl-declaim  (optimize  (safety 0) (speed 3)))
  
  ;;}}}
-diff --git a/lisp/sox.el b/lisp/sox.el
-index c769f5fb7..d05318496 100644
---- a/lisp/sox.el
-+++ b/lisp/sox.el
-@@ -182,7 +182,7 @@
-      ("s" sox-save)
-      )
-    do
--   (define-key sox-mode-map (ems-kbd (cl-first k)) (cl-second k))))
-+   (define-key sox-mode-map (kbd (cl-first k)) (cl-second k))))
+diff --git a/lisp/outloud-voices.el b/lisp/outloud-voices.el
+index 632f7f8c3..6198d81d0 100644
+--- a/lisp/outloud-voices.el
++++ b/lisp/outloud-voices.el
+@@ -50,6 +50,7 @@
+ ;;{{{ Required modules
+ 
+ (require 'cl-lib)
++(require 'emacspeak-preamble)           ;For `ems--fastload'.
+ (cl-declaim  (optimize  (safety 0) (speed 3)))
+ ;;}}}
+ ;;{{{ Customizations:
+diff --git a/lisp/plain-voices.el b/lisp/plain-voices.el
+index 58b8e2dda..fc2c17fa1 100644
+--- a/lisp/plain-voices.el
++++ b/lisp/plain-voices.el
+@@ -48,6 +48,7 @@
+ 
+ ;;; Code:
+ (require 'cl-lib)
++(require 'emacspeak-preamble)           ;For `ems--fastload'.
+ (cl-declaim  (optimize  (safety 0) (speed 3)))
  
  ;;}}}
- ;;{{{ Top-level Context:
+diff --git a/lisp/sox-gen.el b/lisp/sox-gen.el
+index 5d9ba1a3f..43de51854 100644
+--- a/lisp/sox-gen.el
++++ b/lisp/sox-gen.el
+@@ -115,6 +115,7 @@
+ ;;{{{  Required modules
+ 
+ (require 'cl-lib)
++(require 'dtk-speak)
+ (cl-declaim  (optimize  (safety 0) (speed 3)))
+ 
+ 
 diff --git a/lisp/voice-setup.el b/lisp/voice-setup.el
-index 0fa95238c..c15f00f0b 100644
+index 0fa95238c..19366c586 100644
 --- a/lisp/voice-setup.el
 +++ b/lisp/voice-setup.el
-@@ -117,22 +117,33 @@
+@@ -97,6 +97,7 @@
+ ;;{{{ Required modules
+ 
+ (require 'cl-lib)
++(require 'dtk-speak)
+ (cl-declaim  (optimize  (safety 0) (speed 3)))
+ (eval-when-compile (require 'easy-mmode))
+ 
+@@ -117,22 +118,29 @@
  ;;; Whenever we switch engines, we load voice-definitions for that
  ;;; engine by reloading module voice-defs.
  (cl-declaim (special dtk-program))
@@ -662,10 +483,51 @@ index 0fa95238c..c15f00f0b 100644
 +   (t
 +    (require 'plain-voices)
 +    (plain-configure-tts))))
-+
-+(unless (fboundp 'tts-voice-defined-p)
-+  ;; For use during compilation, while voices have not been setup yet.
-+  (fset 'tts-voice-defined-p (lambda (&rest _) t)))
  
  (defun voice-acss-from-speech-style (style)
    "Compute a  name for this STYLE.
+diff --git a/sounds/3d/define-theme.el b/sounds/3d/define-theme.el
+index 55cc2a945..5cd4a2254 100644
+--- a/sounds/3d/define-theme.el
++++ b/sounds/3d/define-theme.el
+@@ -1,5 +1,5 @@
+ ;;; Sound theme generated using CSound to produce  spatially located icons.  -*- lexical-binding: t; -*-
+-
++(require 'emacspeak-sounds)
+ (emacspeak-sounds-define-theme
+  (expand-file-name "3d/" emacspeak-sounds-directory)
+  ".wav")
+diff --git a/sounds/chimes/define-theme.el b/sounds/chimes/define-theme.el
+index 1c89d6340..d5665bcb6 100644
+--- a/sounds/chimes/define-theme.el
++++ b/sounds/chimes/define-theme.el
+@@ -1,5 +1,6 @@
+ ;;; Wave icons using chimes as a theme  -*- lexical-binding: t; -*- 
+ 
++(require 'emacspeak-sounds)
+ (emacspeak-sounds-define-theme
+  (expand-file-name "chimes/" emacspeak-sounds-directory)
+  ".wav")
+diff --git a/sounds/classic/define-theme.el b/sounds/classic/define-theme.el
+index 779ae28ae..9c9e55c6c 100644
+--- a/sounds/classic/define-theme.el
++++ b/sounds/classic/define-theme.el
+@@ -1,4 +1,5 @@
+ ;;; Default theme as 44.1K stereo  -*- lexical-binding: t; -*-
++(require 'emacspeak-sounds)
+ (emacspeak-sounds-define-theme
+  (expand-file-name "classic/" emacspeak-sounds-directory)
+  ".wav")
+diff --git a/sounds/pan-chimes/define-theme.el b/sounds/pan-chimes/define-theme.el
+index 178bc2c59..7f41a5092 100644
+--- a/sounds/pan-chimes/define-theme.el
++++ b/sounds/pan-chimes/define-theme.el
+@@ -1,6 +1,7 @@
+ ;;; Wave icons using chimes as a theme  -*- lexical-binding: t; -*-
+ ;;; Icons from theme Chimes with effect autopan applied using mplayer and ladspa
+ 
++(require 'emacspeak-sounds)
+ (emacspeak-sounds-define-theme
+  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
+  ".wav")
+
