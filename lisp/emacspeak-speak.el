@@ -56,8 +56,10 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'voice-setup)
+(require 'voice-defs)
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
+(require 'emacspeak-sounds)
 (require 'sox-gen)
 (declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
@@ -349,7 +351,7 @@ Argument BODY specifies forms to execute."
 (defmacro ems-with-errors-silenced (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   (declare (indent 1) (debug t))
-  `(let ((emacspeak-speak-errors nil)
+  `(let (;; (emacspeak-speak-errors nil) ;FIXME: Unused!
          (emacspeak-speak-messages nil))
      ,@body))
 
@@ -641,6 +643,10 @@ emacspeak-speak-filter-table)\n" k v)))
                        emacspeak-speak-filter-table
                        emacspeak-speak-filters-loaded-p))
   (unless emacspeak-speak-filters-loaded-p
+    ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
+    ;; us, so we can't require it at top-level.
+    (require 'emacspeak-preamble)
+    (declare-function ems--fastload "emacspeak-preamble" (file))
     (ems--fastload emacspeak-speak-filter-persistent-store)
     (setq emacspeak-speak-filters-loaded-p t)
     (add-hook 'kill-emacs-hook 'emacspeak-speak-persist-filter-settings)))
@@ -2779,10 +2785,10 @@ This function is sensitive to calendar mode when prompting."
   "\C-p" 'emacspeak-minibuffer-previous-completion)
 (define-key 
 minibuffer-local-completion-map
- (ems-kbd "C-@")
+ (kbd "C-@")
  'emacspeak-minibuffer-choose-completion)
 (define-key minibuffer-local-completion-map
-  (ems-kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
+  (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
 
 ;;}}}
 ;;{{{ Open Emacspeak Info Pages:

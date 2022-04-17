@@ -63,9 +63,10 @@
 ;;}}}
 ;;{{{ generate autoloads
 
+(defvar dtk-quiet)
+
 (defun emacspeak-auto-generate-autoloads ()
   "Generate emacspeak autoloads."
-  (cl-declare (special  emacspeak-auto-autoloads-file ))
   (let ((dtk-quiet t)
         (generated-autoload-file emacspeak-auto-autoloads-file))
     (update-directory-autoloads (file-name-directory emacspeak-auto-autoloads-file))))

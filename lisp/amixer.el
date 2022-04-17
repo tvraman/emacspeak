@@ -44,6 +44,7 @@
 ;;{{{ required packages
 
 (require 'cl-lib)
+(require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}

@@ -106,7 +106,7 @@
 
 (defadvice outline-flag-region (around emacspeak pre act comp)
   "Reflect hide/show via property invisible as wel"
-  (cl-declare (special ems--voiceify-overlays))
+  (defvar ems--voiceify-overlays)
   (let  ((ems--voiceify-overlays  nil)
          (beg (ad-get-arg 0))
          (end (ad-get-arg 1))
@@ -301,7 +301,6 @@ except that the outline section is  spoken"
 
 (defadvice outline-up-heading (around emacspeak pre act comp)
   "Silence error messages."
-  (cl-declare (special emacspeak-speak-errors))
   (ems-with-errors-silenced
       ad-do-it
     ad-return-value))

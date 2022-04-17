@@ -60,6 +60,7 @@
 ;;{{{ required Modules:
 
 (require 'cl-lib)
+(require 'emacspeak-sounds)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 ;;}}}
 ;;{{{ Dictionary structure:
@@ -299,6 +300,10 @@ Default is emacspeak-pronounce-dictionaries-file."
   (when (file-exists-p filename)
     (condition-case nil
         (progn
+          ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
+          ;; us, so we can't require it at top-level.
+          (require 'emacspeak-preamble)
+          (declare-function ems--fastload "emacspeak-preamble" (file))
           (ems--fastload filename)
           (setq emacspeak-pronounce-dictionaries-loaded t))
       (error (message "Error loading pronunciation dictionary")))))

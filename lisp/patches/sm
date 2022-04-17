@@ -1,26 +1,3 @@
-diff --git a/.elpaignore b/.elpaignore
-new file mode 100644
-index 000000000..bbd94b5ee
---- /dev/null
-+++ b/.elpaignore
-@@ -0,0 +1,4 @@
-+contrib
-+tvr
-+obsolete
-+utils
-diff --git a/.gitignore b/.gitignore
-index 7adf965b9..c3021a080 100644
---- a/.gitignore
-+++ b/.gitignore
-@@ -25,3 +25,8 @@ servers/native-espeak/tclespeak.so
- /.ccls-cache/
- *.pdf
- **.pdf
-+
-+# ELPA-generated files
-+/emacspeak-autoloads.el
-+/emacspeak-pkg.el
-+/lisp/emacspeak-autoloads.el
 diff --git a/lisp/Makefile b/lisp/Makefile
 index 65302d74e..7899268f5 100644
 --- a/lisp/Makefile

@@ -1429,8 +1429,11 @@ Set by \\[dtk-set-punctuations].")
 ;;}}}
 ;;{{{  interactively selecting the server:
 
-;;; will be reset on a per TTS engine basis.
-(fset 'tts-get-voice-command 'dectalk-get-voice-command)
+;; These functions will be reset on a per TTS engine basis
+;; via `voice-setup' called by `dtk-initialize'.
+(defalias 'tts-get-voice-command (lambda (&rest _) ""))
+(defalias 'tts-define-voice-from-speech-style #'ignore)
+(defalias 'tts-voice-defined-p (lambda (&rest _) t))
 
 (defun tts-voice-reset-code ()
   "Return voice reset code."
@@ -1565,9 +1568,10 @@ Set to nil to disable a separate Notification stream."
 
 (defun dtk-initialize ()
   "Initialize speech system."
-  (cl-declare (special dtk-speaker-process
-                       dtk-speak-server-initialized
-                       dtk-program))
+  ;; `voice-setup' requires us, so we can't require it at top-level.
+  (require 'voice-setup)
+  (declare-function voice-setup "voice-setup" ())
+  (voice-setup)
   (let* ((new-process (dtk-make-process "Speaker"))
          (state (process-status new-process)))
     (setq dtk-speak-server-initialized (memq state '(run open)))
@@ -1722,10 +1726,12 @@ unless   `dtk-quiet' is set to t. "
 
 (defmacro ems-with-messages-silenced (&rest body)
   "Evaluate body  after temporarily silencing messages."
-  (declare (indent 1) (debug t))
-  `(let ((emacspeak-speak-messages nil)
+  (declare (indent 0) (debug t))
+  `(progn
+     (defvar emacspeak-speak-messages)
+     (let ((emacspeak-speak-messages nil)
          (inhibit-message t))
-     ,@body))
+     ,@body)))
 
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it."

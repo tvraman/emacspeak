@@ -140,6 +140,10 @@ Do not set this by hand;
     (cond
      ((emacspeak-sounds-theme-get-extension theme-name) t)
      ((file-exists-p (expand-file-name "define-theme.el" theme-name))
+      ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
+      ;; us, so we can't require it at top-level.
+      (require 'emacspeak-preamble)
+      (declare-function ems--fastload "emacspeak-preamble" (file))
       (ems--fastload (expand-file-name "define-theme.el" theme-name)))
      (t (error "Theme %s is missing its configuration file. " theme-name))))
 

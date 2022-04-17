@@ -43,14 +43,13 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
 
-(cl-defstruct  acss
-  family average-pitch pitch-range stress richness)
-
 (eval-when-compile (require 'subr-x))
 (require 'advice)
 (setq ad-redefinition-action 'accept)
 
 ;;{{{  Define locations
+
+;; FIXME: Don't autoload variables unless there's a *really* clear need for it.
 
 ;;;###autoload
 (defvar emacspeak-directory

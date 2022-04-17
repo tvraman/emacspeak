@@ -62,6 +62,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (with-no-warnings (require 'nnir))
 (require 'gnus-group)

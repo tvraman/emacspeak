@@ -319,7 +319,6 @@ emacs -batch -q \
 # {{{build time target --loaddefs
 
 emacspeak-loaddefs.el: 
-	@echo ";;;Auto generated" > emacspeak-loaddefs.el
 	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
