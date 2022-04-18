@@ -90,8 +90,9 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-dired)
 (eval-when-compile
-  (when (locate-library "package")
-    (unless (locate-library "hydra") (package-install 'hydra)))
+  ;; FIXME: Network access as part of compilation is EVIL!
+  ;; (when (locate-library "package")
+  ;;   (unless (locate-library "hydra") (package-install 'hydra)))
   (require 'emacspeak-hydra)
   (require 'emacspeak-outline)
   (require 'vuiet nil 'no-error)

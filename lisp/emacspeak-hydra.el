@@ -95,6 +95,8 @@ Also turn on hydra-is-helpful if it was turned off."
 
 ;;; We use plain messages:
 
+;; FIXME: Move into the `emacspeak' function so that Emacs is not affected
+;; when we're merely loading this file.
 (setq hydra-head-format "%s "
       hydra-hint-display-type nil
       hydra-hint-display-type #'message)

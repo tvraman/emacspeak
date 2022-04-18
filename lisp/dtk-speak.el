@@ -246,7 +246,7 @@ mac for MAC TTS (default on Mac)")
 ;;{{{  user customizations:
 
 (defgroup tts nil
-  "TTS."
+  "TTS." ;; ¿¿I guess this is shorthand for "Thou art Totally Screwed"??
   :group 'emacspeak
   :prefix "dtk-")
 

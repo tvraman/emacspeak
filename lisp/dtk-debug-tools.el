@@ -66,11 +66,11 @@
                dtk-split-caps dtk-caps
                emacspeak-pronounce-pronunciation-table
                selective-display))
-;;; ensure text is a  string
+  ;; Ensure text is a  string.
   (unless (stringp text) (setq text (format "%s" text)))
-;;; If you dont want me to talk,or my server is not running,
-;;; I will remain silent.
-;;; I also do nothing if text is nil or ""
+  ;; If you dont want me to talk,or my server is not running,
+  ;; I will remain silent.
+  ;; I also do nothing if text is nil or "".
   (unless
       (or dtk-quiet (not dtk-speak-server-initialized)
           (null text) (zerop (length text)))
@@ -83,23 +83,23 @@
           (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
-          (pronunciation-table emacspeak-pronounce-pronunciation-table)
+          ;; (pronunciation-table emacspeak-pronounce-pronunciation-table)
           (inherit-chunk-separator-syntax dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
           (inherit-strip-octals tts-strip-octals)
-          (complement-separator (dtk-complement-chunk-separator-syntax))
+          ;; (complement-separator (dtk-complement-chunk-separator-syntax))
           (caps dtk-caps)
           (split-caps dtk-split-caps)
           (inherit-enable-multibyte-characters enable-multibyte-characters)
           (tts-scratch-buffer (get-buffer-create "*TTS-Debug*"))
-          (start 1)
-          (end nil)
+          ;; (start 1)
+          ;; (end nil)
           (mode dtk-punctuation-mode)
           (voice-lock voice-lock-mode))
       (with-current-buffer tts-scratch-buffer
         (setq buffer-undo-list t)
         (erase-buffer)
-;;; inherit environment
+        ;; inherit environment
         (setq
          buffer-invisibility-spec invisibility-spec
          dtk-chunk-separator-syntax inherit-chunk-separator-syntax
