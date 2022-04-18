@@ -1,5 +1,4 @@
-;;; $Author: tv.raman.tv $
-;; emacspeak-haskell.el --- Speech-enable HASKELL  -*- lexical-binding: t; -*-
+;;; emacspeak-haskell.el --- Speech-enable HASKELL  -*- lexical-binding: t; -*-
 ;; Description:  Speech-enable HASKELL An Emacs Interface to haskell
 ;; Keywords: Emacspeak,  Audio Desktop haskell
 ;;{{{  LCD Archive entry:
