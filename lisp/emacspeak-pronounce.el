@@ -1,59 +1,59 @@
 ;;; emacspeak-pronounce.el --- Emacspeak pronunciation dictionaries -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: Emacspeak pronunciation dictionaries
-;;; Keywords:emacspeak, audio interface to emacs customized pronunciation
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: Emacspeak pronunciation dictionaries
+;; Keywords:emacspeak, audio interface to emacs customized pronunciation
 ;;{{{ LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-02-19 16:55:48 -0800 (Tue, 19 Feb 2008) $ |
-;;; $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-02-19 16:55:48 -0800 (Tue, 19 Feb 2008) $ |
+;; $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1995 by T. V. Raman
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING. If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1995 by T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING. If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 
 ;;{{{ Introduction
 
 ;;; Commentary:
-;;; This module implements user customizable pronunciation dictionaries
-;;; for emacspeak. Custom pronunciations can be defined per file, per
-;;; directory and/or per major mode. Emacspeak maintains a persistent
-;;; user dictionary upon request and loads these in new emacspeak
-;;; sessions. This module implements the user interface to the custom
-;;; dictionary as well as providing the internal API used by the rest
-;;; of emacspeak in using the dictionary.
-;;; @subsection Algorithm:
+;; This module implements user customizable pronunciation dictionaries
+;; for emacspeak. Custom pronunciations can be defined per file, per
+;; directory and/or per major mode. Emacspeak maintains a persistent
+;; user dictionary upon request and loads these in new emacspeak
+;; sessions. This module implements the user interface to the custom
+;; dictionary as well as providing the internal API used by the rest
+;; of emacspeak in using the dictionary.
+;; @subsection Algorithm:
 
-;;; The persistent dictionary is a hash table where the hash keys are
-;;; filenames, directory names, or major-mode names. The hash values
-;;; are association lists defining the dictionary. Users of this module
-;;; can retrieve a dictionary made up of all applicable association
-;;; lists for a given file.
+;; The persistent dictionary is a hash table where the hash keys are
+;; filenames, directory names, or major-mode names. The hash values
+;; are association lists defining the dictionary. Users of this module
+;; can retrieve a dictionary made up of all applicable association
+;; lists for a given file.
 ;;; Code:
 
 ;;}}}
@@ -130,10 +130,10 @@ the match  being passed to the func which returns  the new pronunciation."
 ;;}}}
 ;;{{{ setting up inheritance relations
 
-;;; child inherits parents dictionary
-;;; parent stored as a property on child symbol.
-;;; when dictionary composed for a buffer, inherited dictionaries are
-;;; also looked up.
+;; child inherits parents dictionary
+;; parent stored as a property on child symbol.
+;; when dictionary composed for a buffer, inherited dictionaries are
+;; also looked up.
 (defun emacspeak-pronounce-add-super (parent child)
   "Make CHILD inherit PARENT's pronunciations."
   (let ((orig (get child 'emacspeak-pronounce-supers)))
@@ -186,39 +186,39 @@ the match  being passed to the func which returns  the new pronunciation."
 ;;}}}
 ;;{{{ defining some inheritance relations:
 
-;;; gnus server mode inherits from gnus group mode
+;; gnus server mode inherits from gnus group mode
 
 (emacspeak-pronounce-add-super 'gnus-group-mode
                                'gnus-server-mode)
 
-;;; c++ mode inherits from C mode
+;; c++ mode inherits from C mode
 (emacspeak-pronounce-add-super 'c-mode 'c++-mode)
-;;; shell inherits from comint:
+;; shell inherits from comint:
 (emacspeak-pronounce-add-super 'comint-mode 'shell-mode)
-;;; latex-mode and latex2e-mode inherit from plain-tex-mode
+;; latex-mode and latex2e-mode inherit from plain-tex-mode
 
 (emacspeak-pronounce-add-super 'plain-tex-mode 'latex-mode)
 (emacspeak-pronounce-add-super 'plain-tex-mode 'latex2e-mode)
-;;; latex modes should inherit from plain text modes too
+;; latex modes should inherit from plain text modes too
 (emacspeak-pronounce-add-super 'text-mode 'latex-mode)
 (emacspeak-pronounce-add-super 'text-mode 'latex2e-mode)
 (emacspeak-pronounce-add-super 'text-mode 'plain-tex-mode)
-;;; xsl inherits from xml
+;; xsl inherits from xml
 (emacspeak-pronounce-add-super 'xml-mode 'xsl-mode)
 
-;;; VM,  EWW, org
+;; VM,  EWW, org
 (emacspeak-pronounce-add-super 'text-mode 'eww-mode)
 (emacspeak-pronounce-add-super 'text-mode 'vm-presentation-mode)
 (emacspeak-pronounce-add-super 'text-mode 'org-mode)
 ;;}}}
 ;;{{{ Composing and applying dictionaries:
 
-;;; Composing a dictionary results in the return of a hash table that
-;;; contains the applicable string.pronunciation pairs for a given
-;;; buffer.
-;;; Applying a pronunciation table results in the strings being
-;;; globally replaced by the defined pronunciations.
-;;; Case is handled similarly to vanila emacs behavior.
+;; Composing a dictionary results in the return of a hash table that
+;; contains the applicable string.pronunciation pairs for a given
+;; buffer.
+;; Applying a pronunciation table results in the strings being
+;; globally replaced by the defined pronunciations.
+;; Case is handled similarly to vanila emacs behavior.
 
 ;;{{{ composing the dictionary
 
@@ -463,7 +463,7 @@ First loads any persistent dictionaries if not already loaded."
   "Return the pronunciation table."
   emacspeak-pronounce-pronunciation-table)
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
   "Toggle  pronunciation dictionaries. "
   (interactive "P")
@@ -781,14 +781,14 @@ with Git among other things."
 ;;}}}
 ;;{{{Merge  Dictionaries:
 
-;;; Over time, you can end up with dictionary entries in  a child-mode
-;;; e.g. eww-mode that better belong in the parent, e.g. text-mode.
-;;; Merging dictionaries results in entries from the source
-;;; dictionaries moving into the target dictionary. Once merged, these
-;;; entries  are removed from the source dictionary.
-;;; The same can happen when pronunciations are initially  defined for
-;;; a file,, then later merged into the  dictionary for  the
-;;; containing directory.
+;; Over time, you can end up with dictionary entries in  a child-mode
+;; e.g. eww-mode that better belong in the parent, e.g. text-mode.
+;; Merging dictionaries results in entries from the source
+;; dictionaries moving into the target dictionary. Once merged, these
+;; entries  are removed from the source dictionary.
+;; The same can happen when pronunciations are initially  defined for
+;; a file,, then later merged into the  dictionary for  the
+;; containing directory.
 
 (defun emacspeak-pronounce-merge-dictionaries (from into)
   "Merge dic `from' into dict `into'"
@@ -813,8 +813,8 @@ with Git among other things."
 (provide 'emacspeak-pronounce)
 ;;{{{ emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

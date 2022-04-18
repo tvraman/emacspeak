@@ -1,69 +1,69 @@
 ;;; emacspeak-m-player.el --- Control mplayer from Emacs  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: Controlling mplayer from emacs
-;;; Keywords: Emacspeak, m-player streaming media
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: Controlling mplayer from emacs
+;; Keywords: Emacspeak, m-player streaming media
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-06-29 17:58:19 -0700 (Sun, 29 Jun 2008) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-06-29 17:58:19 -0700 (Sun, 29 Jun 2008) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (c) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ Introduction:
 
 ;;; Commentary:
 
-;;; Defines an Emacspeak front-end for interacting with @code{mplayer}.
-;;; Program @code{mplayer}  is a versatile media player capable of playing many
-;;; streaming media formats.
-;;; This module provides complete access to all @code{mplayer} functionality
-;;; from a convenient Emacs interface.
-;;; 
-;;; @subsection Usage
-;;; 
-;;; The main entry-point is command @code{emacspeak-multimedia}
-;;; bound to @kbd{C-e ;}.
-;;; This prompts for and launches the desired media stream.
-;;; Once a stream is playing, you can control it with single-letter keystrokes
-;;; in the @code{*M-Player*} buffer.
-;;; Alternatively, you can switch away from that buffer to do real work,
-;;; And invoke @code{m-player} commands by  first pressing @kbd{C-e ;}.
-;;; As an example, pressing @kbd{v} in the @code{*M-Player*} buffer
-;;; prompts for and sets the volume;
-;;; When not in the @code{*M-Player*} buffer, you can achieve the same
-;;; by pressing @kbd{C-e ; v}.
-;;; Press @kbd{C-h b} in the @code{*M-Player*}
-;;; buffer  to list  @code{m-player} keybindings.
-;;; 
+;; Defines an Emacspeak front-end for interacting with @code{mplayer}.
+;; Program @code{mplayer}  is a versatile media player capable of playing many
+;; streaming media formats.
+;; This module provides complete access to all @code{mplayer} functionality
+;; from a convenient Emacs interface.
+;; 
+;; @subsection Usage
+;; 
+;; The main entry-point is command @code{emacspeak-multimedia}
+;; bound to @kbd{C-e ;}.
+;; This prompts for and launches the desired media stream.
+;; Once a stream is playing, you can control it with single-letter keystrokes
+;; in the @code{*M-Player*} buffer.
+;; Alternatively, you can switch away from that buffer to do real work,
+;; And invoke @code{m-player} commands by  first pressing @kbd{C-e ;}.
+;; As an example, pressing @kbd{v} in the @code{*M-Player*} buffer
+;; prompts for and sets the volume;
+;; When not in the @code{*M-Player*} buffer, you can achieve the same
+;; by pressing @kbd{C-e ; v}.
+;; Press @kbd{C-h b} in the @code{*M-Player*}
+;; buffer  to list  @code{m-player} keybindings.
+;; 
 ;;; Code:
 
 ;;}}}
@@ -185,13 +185,13 @@ This is set to nil when playing Internet  streams.")
 ;;}}}
 ;;{{{Dynamic playlist:
 
-;;; Dynamic playlists are one-shot, and managed directly by emacspeak,
-;;; ie no playlist file.
+;; Dynamic playlists are one-shot, and managed directly by emacspeak,
+;; ie no playlist file.
 
 (defvar emacspeak-m-player-dynamic-playlist  nil
   "Dynamic plist --- lists files in the playlist.
 Reset immediately after being used.")
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-add-to-dynamic (file)
   "Add file to the current  dynamic playlist."
   (interactive
@@ -248,7 +248,7 @@ Reset immediately after being used.")
   "Emacspeak media player."
   :group 'emacspeak)
 
-;;;###autoload
+;;###autoload
 (defcustom emacspeak-m-player-program
   (executable-find "mplayer")
   "Media player program."
@@ -285,7 +285,7 @@ Reset immediately after being used.")
     (string :tag "filter"))
   :group 'emacspeak-m-player)
 
-;;;###autoload
+;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
   "Map  keys  to launch MPlayer on a  directory."
   :group 'emacspeak-m-player
@@ -308,7 +308,7 @@ Reset immediately after being used.")
   (regexp-opt '("mp3" "audio" "music"))
   "Pattern matching locations where we store media.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-multimedia  ()
   "Start or control Emacspeak multimedia player.
 Controls media playback when already playing.
@@ -393,7 +393,7 @@ Controls media playback when already playing.
     default-directory)
    (t   emacspeak-media-shortcuts-directory)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-url (url &optional playlist-p)
   "Call emacspeak-m-player on  URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
@@ -488,7 +488,7 @@ If a dynamic playlist exists, just use it."
         (process-buffer emacspeak-m-player-process)
       (emacspeak-amark-save))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
@@ -587,7 +587,7 @@ dynamic playlist. "
            (car (last (split-string resource "/" t))))
           (t (file-name-nondirectory resource))))))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
   "Use openal.  "
   (interactive
@@ -627,7 +627,7 @@ This will work if the soundcard is set to 48000."
                    emacspeak-m-player-options)))
       (call-interactively #'emacspeak-m-player))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-shuffle ()
   "M-Player with shuffle turned on."
   (interactive)
@@ -637,7 +637,7 @@ This will work if the soundcard is set to 48000."
     (call-interactively #'emacspeak-m-player)))
 
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-loop (&optional raw)
   "M-Player with repeat indefinitely  turned on.
 Interactive prefix `raw' reads a raw URL."
@@ -723,7 +723,7 @@ necessary."
   "Return list (position filename length)  to use as an amark. "
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-;;; dispatch command twice to avoid flakiness in mplayer
+;; dispatch command twice to avoid flakiness in mplayer
     (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n")
     (let* ((output (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n") )
            (lines (split-string output "\n" 'omit-nulls))
@@ -1133,7 +1133,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 ;;}}}
 ;;{{{ Media History:
 
-;;;###autoload
+;;###autoload
 (defvar emacspeak-m-player-media-history nil
   "Record media urls we played.")
 
@@ -1162,10 +1162,10 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 ;;}}}
 ;;{{{ equalizer
 
-;;; Equalizer presets:
-;;; Cloned from VLC and munged for m-player.
-;;; VLC uses -20db .. 20db; mplayer uses -12db .. 12db
-;;; See http://advantage-bash.blogspot.com/2013/05/mplayer-presets.html
+;; Equalizer presets:
+;; Cloned from VLC and munged for m-player.
+;; VLC uses -20db .. 20db; mplayer uses -12db .. 12db
+;; See http://advantage-bash.blogspot.com/2013/05/mplayer-presets.html
 
 (defvar emacspeak-m-player-equalizer-presets
   '(
@@ -1219,9 +1219,9 @@ Applies  the resulting value at each step."
         (key nil)
         (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
-;;; First, clear any equalizers in effect:
+;; First, clear any equalizers in effect:
     (emacspeak-m-player-dispatch "af_del equalizer")
-;;; Apply specified vector:
+;; Apply specified vector:
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
       (setq key
@@ -1431,7 +1431,7 @@ flat classical club dance full-bass full-bass-and-treble
 (declare-function emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional best)
   "Use youtube-dl and mplayer to stream  audio from Youtube.
 Default picks lowest quality ---
@@ -1458,7 +1458,7 @@ Optional prefix arg `best' chooses highest."
     (kill-new u)
     (emacspeak-m-player u)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-youtube-live (url)
   "Use youtube-dl and mplayer to live-stream   from Youtube. "
   (interactive
@@ -1540,7 +1540,7 @@ As the default, use current position."
 ;;}}}
 ;;{{{ Adding specific Ladspa filters:
 
-;;; tap_reverb filter
+;; tap_reverb filter
 
 (defvar emacspeak-m-player-reverb-filter
   '("ladspa=tap_reverb:tap_reverb" 10000 -2 -10 1 1 1 1 6)
@@ -1703,7 +1703,7 @@ tap-reverb already installed."
 ;;}}}
 ;;{{{ Play RSS Stream:
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-play-rss (rss-url)
   "Play an RSS stream."
   (interactive
@@ -1732,7 +1732,7 @@ tap-reverb already installed."
   "Keymap used to play locate results.")
 (add-hook 'locate-mode-hook
           #'emacspeak-pronounce-refresh-pronunciations)
-;;;###autoload
+;;###autoload
 (defun emacspeak-m-player-locate-media (pattern)
   "Locate media matching  pattern.  The results can be
 played as a play-list by pressing [RET] on the first line, see
@@ -1870,7 +1870,7 @@ our pre-defined filters if appropriate."
   :type 'directory
   :group 'emacspeak-m-player)
 
-;;; Functionality restored from emacspeak-alsaplayer.el:
+;; Functionality restored from emacspeak-alsaplayer.el:
 
 (defvar-local clip-start nil
   "Start position of clip.")
@@ -1938,8 +1938,8 @@ Interactive prefix arg prompts for the timestamp."
 (provide 'emacspeak-m-player)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

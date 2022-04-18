@@ -1,60 +1,60 @@
 ;;; emacspeak-lispy.el --- Speech-enable LISPY  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable LISPY An Emacs Interface to lispy
-;;; Keywords: Emacspeak,  Audio Desktop lispy
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable LISPY An Emacs Interface to lispy
+;; Keywords: Emacspeak,  Audio Desktop lispy
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNLISPY FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNLISPY FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; LISPY ==  smart Navigation Of Lisp code
-;;; This module speech-enables lispy.
-;;;  @subsection Overview
-;;; Lispy editing keeps delimiters balanced and Lispy navigators
-;;; reliably place point on either the opening or closing delimiter of
-;;; the current s-expression. Emacspeak leverages this fact in the
-;;; type of spoken feedback that is produced. All navigation commands  produce the following:
-;;; @itemize
-;;; @item  Speak the current s-expression when at the front of a sexp.
-;;; @item  Speak the current line with option @code{emacspeak-show-point}
-;;; turned on when at the end of an s-expression.
-;;; @item  Produce auditory icon @code{left} or @code{right} to indicate point being at the beginning or end of current line.
-;;; @item Indicate with an auditory icon if point did not move.
-;;; @end itemize
+;; LISPY ==  smart Navigation Of Lisp code
+;; This module speech-enables lispy.
+;;  @subsection Overview
+;; Lispy editing keeps delimiters balanced and Lispy navigators
+;; reliably place point on either the opening or closing delimiter of
+;; the current s-expression. Emacspeak leverages this fact in the
+;; type of spoken feedback that is produced. All navigation commands  produce the following:
+;; @itemize
+;; @item  Speak the current s-expression when at the front of a sexp.
+;; @item  Speak the current line with option @code{emacspeak-show-point}
+;; turned on when at the end of an s-expression.
+;; @item  Produce auditory icon @code{left} or @code{right} to indicate point being at the beginning or end of current line.
+;; @item Indicate with an auditory icon if point did not move.
+;; @end itemize
 
 ;;; Code:
 
@@ -346,8 +346,8 @@ Indicate  no movement if we did not move."
 (provide 'emacspeak-lispy)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

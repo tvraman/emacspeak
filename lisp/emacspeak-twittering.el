@@ -1,53 +1,53 @@
 ;;; emacspeak-twittering.el --- Speech-enable Twittering-mode  -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-twit.el 6133 2009-03-17 02:36:43Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable twit.el and twitter.el --- Twitter from Emacs
-;;; Keywords: Emacspeak,  Audio Desktop twittering-mode
+;; $Id: emacspeak-twit.el 6133 2009-03-17 02:36:43Z tv.raman.tv $
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable twit.el and twitter.el --- Twitter from Emacs
+;; Keywords: Emacspeak,  Audio Desktop twittering-mode
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNTWIT FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNTWIT FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;;  module twittering-mode.el  is found on  the emacs wiki
-;;; This module speech-enables twittering-mode which works using
-;;;  oauth for authentication.
-;;; Note: As of Thu Sep  2 08:11:25 PDT 2010
-;;; twit.el is broken.
+;;  module twittering-mode.el  is found on  the emacs wiki
+;; This module speech-enables twittering-mode which works using
+;;  oauth for authentication.
+;; Note: As of Thu Sep  2 08:11:25 PDT 2010
+;; twit.el is broken.
 
-;;; Advises interactive functions to speak
+;; Advises interactive functions to speak
 
 ;;}}}
 ;;{{{  Required modules
@@ -166,7 +166,7 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
 ;;}}}>
 ;;{{{ turn on voice lock:
 
-;;; no minor mode hook for now alas:
+;; no minor mode hook for now alas:
 
 (add-hook
  'twittering-mode-hook
@@ -251,8 +251,8 @@ downloading:"))
 (provide 'emacspeak-twittering)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

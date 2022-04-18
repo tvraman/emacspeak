@@ -1,54 +1,54 @@
 ;;; gmaps.el --- Google Maps  -*- lexical-binding: t; -*-
-;;; $Id: gmaps.el 8157 2013-02-19 01:31:05Z tv.raman.tv $
-;;; $Author: raman $
-;;; Description:  Google Maps -> Lisp
-;;; Keywords: Google   Maps API
+;; $Id: gmaps.el 8157 2013-02-19 01:31:05Z tv.raman.tv $
+;; $Author: raman $
+;; Description:  Google Maps -> Lisp
+;; Keywords: Google   Maps API
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; gcal| T. V. Raman |tv.raman.tv@gmail.com
-;;; An emacs interface to Reader|
-;;; $Date: 2006/09/28 17:47:44 $ |
-;;;  $Revision: 1.30 $ |
-;;; Location undetermined
-;;; License: GPL
-;;; 
+;; LCD Archive Entry:
+;; gcal| T. V. Raman |tv.raman.tv@gmail.com
+;; An emacs interface to Reader|
+;; $Date: 2006/09/28 17:47:44 $ |
+;;  $Revision: 1.30 $ |
+;; Location undetermined
+;; License: GPL
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
 
-;;; Copyright (c) 2006 and later, Google Inc.
-;;; All rights reserved.
+;; Copyright (c) 2006 and later, Google Inc.
+;; All rights reserved.
 
-;;; Redistribution and use in source and binary forms, with or without modification,
-;;; are permitted provided that the following conditions are met:
+;; Redistribution and use in source and binary forms, with or without modification,
+;; are permitted provided that the following conditions are met:
 
-;;;     * Redistributions of source code must retain the above copyright notice,
-;;;       this list of conditions and the following disclaimer.
-;;;     * Redistributions in binary form must reproduce the above copyright notice,
-;;;       this list of conditions and the following disclaimer in the documentation
-;;;       and/or other materials provided with the distribution.
-;;;     * The name of the author may not be used to endorse or promote products
-;;;       derived from this software without specific prior written permission.
+;;     * Redistributions of source code must retain the above copyright notice,
+;;       this list of conditions and the following disclaimer.
+;;     * Redistributions in binary form must reproduce the above copyright notice,
+;;       this list of conditions and the following disclaimer in the documentation
+;;       and/or other materials provided with the distribution.
+;;     * The name of the author may not be used to endorse or promote products
+;;       derived from this software without specific prior written permission.
 
-;;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-;;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-;;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-;;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-;;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-;;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-;;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-;;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
-;;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-;;; SUCH DAMAGE.
+;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+;; SUCH DAMAGE.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 ;;; Commentary:
-;;; Implements the Google Maps API
+;; Implements the Google Maps API
 ;;; Code:
 ;;}}}
 ;;{{{  Required modules
@@ -62,7 +62,7 @@
 (defgroup gmaps nil
   "Google Maps"
   :group 'g)
-;;; https://developers.google.com/places/
+;; https://developers.google.com/places/
 
 (defcustom gmaps-api-key nil
   "Maps  API  key --- goto  https://code.google.com/apis/console to get one."
@@ -89,7 +89,7 @@
 
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
   "Hash table that memoizes geolocation.")
-;;;###autoload
+;;###autoload
 (defun gmaps-address-location (address)
   "Returns gmaps--location structure. "
   (cl-declare (special gmaps-location-table gmaps-locations-loaded-p))
@@ -113,7 +113,7 @@
       (puthash  (gmaps--location-address result) result gmaps-location-table)
       (gmaps-locations-save)
       result))))
-;;;###autoload
+;;###autoload
 (defun gmaps-address-geocode(address)
   "Return lat/long for a given address."
   (gmaps--location-lat-lng (gmaps-address-location address)))
@@ -155,7 +155,7 @@
 
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
 
-;;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html
+;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html
 
 (defvar gmaps-geocoder-base
   "https://maps.google.com/maps/api/geocode/json?"
@@ -175,7 +175,7 @@
   (format "%slatlng=%s&sensor=false&key=%s"
           gmaps-geocoder-base location gmaps-api-key))
 
-;;;###autoload
+;;###autoload
 (defun gmaps-geocode (address &optional raw-p)
   "Geocode given address.
 Optional argument `raw-p' returns complete JSON  object."
@@ -187,7 +187,7 @@ Optional argument `raw-p' returns complete JSON  object."
      (raw-p (g-json-get 'results result))
      (t (g-json-path-lookup "results.[0].geometry.location" result)))))
 
-;;;###autoload
+;;###autoload
 (defun gmaps-reverse-geocode (lat-long &optional raw-p)
   "Reverse geocode lat-long.
 Optional argument `raw-p' returns raw JSON  object."
@@ -217,7 +217,7 @@ Optional argument `raw-p' returns raw JSON  object."
          (aref (gmaps-reverse-geocode location 'raw) 0))))
     (error "")))
 
-;;; Example of use:
+;; Example of use:
 (defvar gmaps-my-location
   nil
   "Geo coordinates --- automatically set by reverse geocoding gmaps-my-address")
@@ -227,7 +227,7 @@ Optional argument `raw-p' returns raw JSON  object."
   "Postal Code --- automatically set by reverse geocoding gmaps-my-address")
 
 (declare-function  emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
-;;;###autoload
+;;###autoload
 (defcustom gmaps-my-address
   nil
   "Location address. Setting this updates gmaps-my-location
@@ -248,7 +248,7 @@ coordinates via geocoding."
 ;;}}}
 ;;{{{ Maps Directions
 
-;;; See  https://developers.google.com/maps/documentation/directions/
+;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gmaps-directions-base
   (concat 
    "https://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
@@ -264,7 +264,7 @@ Parameters 'origin' and 'destination' are  be url-encoded."
           mode (float-time)))
 
 ;;; Places:
-;;; https://developers.google.com/places/documentation/
+;; https://developers.google.com/places/documentation/
 ;;
 (defvar gmaps-places-base
   "https://maps.googleapis.com/maps/api/place/%s/json?sensor=false&key=%s"
@@ -280,7 +280,7 @@ Parameter `key' is the API  key."
 ;;}}}
 ;;{{{ Google Maps API V3
 
-;;; See  https://developers.google.com/maps/documentation/directions/
+;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gmaps-modes '("driving" "walking" "bicycling" "transit")
   "Supported modes for getting directions.")
 
@@ -336,7 +336,7 @@ Parameter `key' is the API  key."
 (defvar gmaps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
 
-;;;###autoload
+;;###autoload
 (defun gmaps ()
   "Google Maps Interaction."
   (interactive)
@@ -473,7 +473,7 @@ origin/destination may be returned as a lat,long string."
 ;;}}}
 ;;{{{ Places:
 
-;;; Place Types: https://developers.google.com/places/documentation/supported_types
+;; Place Types: https://developers.google.com/places/documentation/supported_types
 
 (defvar gmaps-place-types
   '(
@@ -952,8 +952,8 @@ Place details need to have been expanded first."
 (provide 'gmaps)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

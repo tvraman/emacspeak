@@ -1,49 +1,49 @@
 ;;; emacspeak-comint.el --- Speech-enable COMINT  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable COMINT An Emacs Interface to comint
-;;; Keywords: Emacspeak,  Audio Desktop comint
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable COMINT An Emacs Interface to comint
+;; Keywords: Emacspeak,  Audio Desktop comint
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNCOMINT FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNCOMINT FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; comint == command interaction.
-;;; Advice comint and friends to speak.
-;;; 
+;; comint == command interaction.
+;; Advice comint and friends to speak.
+;; 
 
 
 ;;; Code:
@@ -106,7 +106,7 @@ Interactive PREFIX arg means toggle  global default value. "
              (if emacspeak-comint-autospeak "on" "off")
              (if prefix "" " locally")))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-toggle-inaudible-or-comint-autospeak ()
   "Toggle comint-autospeak when in a comint or vterm buffer.
 Otherwise call voice-setup-toggle-silence-personality which
@@ -125,18 +125,18 @@ buffer is not current or its window live.")
 
 (make-variable-buffer-local 'emacspeak-comint-output-monitor)
 
-;;;###autoload (autoload 'emacspeak-toggle-comint-output-monitor "emacspeak-comint" t)
+;;###autoload (autoload 'emacspeak-toggle-comint-output-monitor "emacspeak-comint" t)
 (ems-generate-switcher 'emacspeak-toggle-comint-output-monitor
                        'emacspeak-comint-output-monitor
                        "Toggle  Emacspeak comint monitor.
 Interactive PREFIX arg means toggle the global default value. ")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-comint-speech-setup ()
   "Speech setup."
   (cl-declare (special comint-mode-map
                        header-line-format emacspeak-use-header-line))
-;;; Experimental: discard undo info in comint:
+;; Experimental: discard undo info in comint:
   (setq buffer-undo-list t)
   (when emacspeak-use-header-line
     (setq
@@ -214,7 +214,7 @@ Interactive PREFIX arg means toggle the global default value. ")
    (t ad-do-it))
   ad-return-value)
 
-;;; Customize comint:
+;; Customize comint:
 
 (add-hook 'comint-output-filter-functions
           'comint-truncate-buffer)
@@ -534,8 +534,8 @@ instead, always play an auditory icon when the shell prompt is displayed."
 ;;{{{dirtrack-procfs:
 
 (declare-function shell-dirtrack-mode "shell" (&optional arg))
-;;; Directory tracking for shell buffers on  systems that have  /proc
-;;; Adapted from Emacs Wiki:
+;; Directory tracking for shell buffers on  systems that have  /proc
+;; Adapted from Emacs Wiki:
 (defun emacspeak-shell-dirtrack-procfs (str)
   "Directory tracking using /proc.
 /proc/pid/cwd is a symlink to working directory."
@@ -582,8 +582,8 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 (provide 'emacspeak-comint)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

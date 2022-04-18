@@ -1,59 +1,59 @@
 ;;; emacspeak-ocr.el --- ocr Front-end for emacspeak desktop  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak front-end for OCR
-;;; Keywords: Emacspeak, ocr
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak front-end for OCR
+;; Keywords: Emacspeak, ocr
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
-;;;  $Revision: 4448 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
+;;  $Revision: 4448 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
 ;;; Commentary:
 
-;;; This module defines Emacspeak front-end to OCR.
-;;; This module assumes that sane is installed and working
-;;; for image acquisition,
-;;; and that there is an OCR engine that can take acquired
-;;; images and produce text.
+;; This module defines Emacspeak front-end to OCR.
+;; This module assumes that sane is installed and working
+;; for image acquisition,
+;; and that there is an OCR engine that can take acquired
+;; images and produce text.
 ;;; Prerequisites:
-;;; Sane installed and working.
-;;; scanimage to generate tiff files from scanner.
-;;; tiffcp to compress the tiff file.
-;;; working ocr executable 
-;;; by default this module assumes that the OCR executable
-;;; is named "ocr"
+;; Sane installed and working.
+;; scanimage to generate tiff files from scanner.
+;; tiffcp to compress the tiff file.
+;; working ocr executable 
+;; by default this module assumes that the OCR executable
+;; is named "ocr"
 
 ;;; Code:
 
@@ -331,7 +331,7 @@ See \\{emacspeak-ocr-mode-map}.
   "Return a default name for OCR document."
   (format-time-string "%m-%d-%y"))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-ocr ()
   "An OCR front-end for the Emacspeak desktop.  
 
@@ -746,8 +746,8 @@ Setting persists for current Emacs session."
 (provide 'emacspeak-ocr)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

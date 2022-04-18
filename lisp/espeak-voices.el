@@ -1,39 +1,39 @@
 ;;; espeak-voices.el --- Define  Espeak tags  -*- lexical-binding: t; -*-
-;;; Description:  Module to set up Espeak voices and personalities
-;;; Keywords: Voice, Personality, Espeak
+;; Description:  Module to set up Espeak voices and personalities
+;; Keywords: Voice, Personality, Espeak
 ;;{{{  LCD Archive entry:
 
 ;;}}}
 ;;{{{  Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman 
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman 
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
 ;;; Commentary:
 
-;;; This module defines the various voices used in voice-lock mode by
-;;; the ESpeak TTS engine.
+;; This module defines the various voices used in voice-lock mode by
+;; the ESpeak TTS engine.
 
 ;;; Code:
 ;;}}}
@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{ Top-Level TTS Call
 
-;;;###autoload
+;;###autoload
 (defun espeak ()
   "Start ESpeak."
   (interactive)
@@ -104,13 +104,13 @@ COMMAND-STRING to the TTS engine."
 ;;}}}
 ;;{{{ voice definitions
 
-;;; the nine predefined voices:
+;; the nine predefined voices:
 (espeak-define-voice 'paul "<voice gender=\"male\" variant=\"1\">")
 
-;;; Modified voices:
+;; Modified voices:
 
 ;;}}}
-;;; Mapping css parameters to tts codes
+;; Mapping css parameters to tts codes
 ;;{{{ voice family codes
 
 (defun espeak-get-family-code (_name)
@@ -142,10 +142,10 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  average pitch
 
-;;; Average pitch of standard text is aurally mapped to 
-;;; a setting of 5. These percentage changes interpolate
-;;; between the x-low, low, medium, high, and x-high
-;;; percentages defined by espeak
+;; Average pitch of standard text is aurally mapped to 
+;; a setting of 5. These percentage changes interpolate
+;; between the x-low, low, medium, high, and x-high
+;; percentages defined by espeak
 
 ;;{{{  paul average pitch
 
@@ -181,8 +181,8 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{  pitch range
-;;; Based on the sampler, it seems this setting is a range of 
-;;; values from 0 to 100%, 0 being monotone.
+;; Based on the sampler, it seems this setting is a range of 
+;; values from 0 to 100%, 0 being monotone.
 
 ;;{{{  paul pitch range
 
@@ -219,7 +219,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  stress
 
-;;;  Not implemented for Espeak now.
+;;  Not implemented for Espeak now.
 
 (defun espeak-get-stress-code (_value _family)
   "Just a dummy."
@@ -228,9 +228,9 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  richness
 
-;;; Smoothness and richness vary inversely.
-;;; Richness is currently implemented as volume, with a setting of 0
-;;; corresponding to mute.  Smoothness is not implemented.
+;; Smoothness and richness vary inversely.
+;; Richness is currently implemented as volume, with a setting of 0
+;; corresponding to mute.  Smoothness is not implemented.
 
 ;;{{{  paul richness
 
@@ -300,7 +300,7 @@ and TABLE gives the values along that dimension."
                      when   (string-match "\\(\\[\\*\\]\\)"  entry) do
                      (setf entry (replace-match " " nil nil  entry 1)))
             table))))
-;;;###autoload
+;;###autoload
 (defun espeak-configure-tts ()
   "Configure  to use eSpeak."
   (cl-declare (special tts-default-speech-rate
@@ -324,8 +324,8 @@ and TABLE gives the values along that dimension."
 (provide 'espeak-voices)
 ;;{{{  emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

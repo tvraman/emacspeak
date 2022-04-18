@@ -1,48 +1,48 @@
 ;;; emacspeak-websearch.el --- search utilities  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak extension to make Web searching convenient
-;;; Keywords: Emacspeak, WWW interaction
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak extension to make Web searching convenient
+;; Keywords: Emacspeak, WWW interaction
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-14 11:23:31 -0700 (Thu, 14 Aug 2008) $ |
-;;;  $Revision: 4625 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-14 11:23:31 -0700 (Thu, 14 Aug 2008) $ |
+;;  $Revision: 4625 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{  Introduction:
 
 ;;; Commentary:
 
-;;; This module provides utility functions for searching the WWW
+;; This module provides utility functions for searching the WWW
 
 ;;; Code:
 
@@ -124,7 +124,7 @@
                                    'emacspeak-websearch-help)
 
 (emacspeak-websearch-set-key ?? 'help)
-;;;###autoload
+;;###autoload
 (defun emacspeak-websearch-dispatch  ()
   " Press `?' to list available search engines.
    This interface attempts to speak the most relevant information
@@ -337,7 +337,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "Number of Google search results.")
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-websearch-google (query &optional flag)
   "Perform a Google search.  First optional interactive prefix arg
 `flag' prompts for additional search options. Second interactive
@@ -412,7 +412,7 @@ Optional prefix arg prompts for toolbelt options."
        ems--websearch-google-filter
        (format emacspeak-websearch-accessible-google-url query))))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "IGoogle: ")))
@@ -562,8 +562,8 @@ Optional prefix arg prompts for toolbelt options."
 (provide 'emacspeak-websearch)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

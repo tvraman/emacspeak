@@ -1,42 +1,42 @@
 ;;; emacspeak-table-ui.el --- Table Navigation UI  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak Table Navigation UI
-;;; Keywords: Emacspeak, Table UI ,  Visual layout gives structure
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-06-26 15:46:49 -0700 (Thu, 26 Jun 2008) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak Table Navigation UI
+;; Keywords: Emacspeak, Table UI ,  Visual layout gives structure
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-06-26 15:46:49 -0700 (Thu, 26 Jun 2008) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1995 by T. V. Raman
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1995 by T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 
 ;;{{{  Introduction
 
 ;;; Commentary:
-;;; User interface to tables
+;; User interface to tables
 ;;; Code:
 
 ;;}}}
@@ -51,8 +51,8 @@
 ;;}}}
 ;;{{{  emacspeak table mode
 
-;;; emacspeak-table-submap makes these available globally.
-;;; Forward declaration
+;; emacspeak-table-submap makes these available globally.
+;; Forward declaration
 
 (define-derived-mode  emacspeak-table-mode  special-mode
   "Table Navigation On The Emacspeak Audio Desktop"
@@ -347,7 +347,7 @@ Full List Of Keybindings:
       (put-text-property 0 (length value) 'face 'bold value)
       value)
      ((and (symbolp (cl-first token)) (fboundp  (cl-first token)))
-;;; applying a function:
+;; applying a function:
       (setq value
             (funcall
              (cl-first token) ;;; get args
@@ -412,7 +412,7 @@ Optional prefix arg prompts for a new filter."
            (numberp (cl-second token)))
       (emacspeak-table-get-entry-with-headers (cl-first token) (cl-second token)))
      ((and (symbolp (cl-first token)) (fboundp  (cl-first token)))
-;;; applying a function:
+;; applying a function:
       (setq value
             (funcall
              (cl-first token) ;;; get args
@@ -480,7 +480,7 @@ Optional prefix arg prompts for a new filter."
     (skip-chars-backward "^,\n")))
 
 ;;}}}
-;;;###autoload
+;;###autoload
 (defun emacspeak-table-prepare-table-buffer (table buffer)
   "Prepare tabular data."
   (cl-declare (special emacspeak-table ems--positions))
@@ -525,7 +525,7 @@ Optional prefix arg prompts for a new filter."
   (setq truncate-lines t)
   (message "Use Emacspeak Table UI to browse this table."))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-table-find-file (filename)
   "Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -568,7 +568,7 @@ the documentation on the table browser."
       (push "" fields))
     (nreverse fields)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-table-find-csv-file (filename)
   "Process a csv (comma separated values) file.
 The processed  data is presented using emacspeak table navigation. "
@@ -577,7 +577,7 @@ The processed  data is presented using emacspeak table navigation. "
     (emacspeak-table-view-csv-buffer buffer)
     (kill-buffer buffer)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
   "Process a csv (comma separated values) data.
 The processed  data is  presented using emacspeak table navigation. "
@@ -628,7 +628,7 @@ The processed  data is  presented using emacspeak table navigation. "
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-table-view-csv-url  (url &optional buffer-name)
   "Process a csv (comma separated values) data at  `URL'.
 The processed  data is  presented using emacspeak table navigation. "
@@ -640,7 +640,7 @@ The processed  data is  presented using emacspeak table navigation. "
 
 ;;}}}
 ;;{{{ Processing a region of tabular data
-;;;###autoload
+;;###autoload
 (defun emacspeak-table-display-table-in-region (start end)
   "Recognize tabular data in current region and display it in table
 browsing mode in a a separate buffer.
@@ -989,7 +989,7 @@ match, makes the matching row or column current."
 ;;}}}
 ;;{{{ variables
 
-;;; Implementing table editing and table clipboard.
+;; Implementing table editing and table clipboard.
 (defvar emacspeak-table-clipboard nil
   "Variable to hold table copied to the clipboard.")
 
@@ -1268,8 +1268,8 @@ future  use."
 (provide  'emacspeak-table-ui)
 ;;{{{  emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

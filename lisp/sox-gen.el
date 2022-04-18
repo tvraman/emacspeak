@@ -1,114 +1,114 @@
 ;;; sox-gen.el --- Binaural Beats And More Using SoX -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  collection of SoX  sound generators including Binaural Beats
-;;; Keywords: Emacspeak,  Audio Desktop sox
+;; $Author: tv.raman.tv $
+;; Description:  collection of SoX  sound generators including Binaural Beats
+;; Keywords: Emacspeak,  Audio Desktop sox
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; Provides binaural audio along with pre-defined themes.
-;;; This module can be used independent of Emacspeak.
+;; Provides binaural audio along with pre-defined themes.
+;; This module can be used independent of Emacspeak.
 
-;;; @subsection Binaural Beats  Using SoX
-;;; 
-;;; A binaural beat is an auditory illusion perceived when two different
-;;; pure-tone sine waves, both with frequencies lower than 1500 Hz, with
-;;; less than a 40 Hz difference between them, are presented to a listener
-;;; dichotically (one through each ear). For example, if a 530 Hz pure tone
-;;; is presented to a subject's right ear, while a 520 Hz pure tone is
-;;; presented to the subject's left ear, the listener will perceive the
-;;; auditory illusion of a third tone, in addition to the two pure-tones
-;;; presented to each ear. The third sound is called a binaural beat, and in
-;;; this example would have a perceived pitch correlating to a frequency of
-;;; 10 Hz, that being the difference between the 530 Hz and 520 Hz pure
-;;; tones presented to each ear. For more details, see
-;;; @url{https://en.wikipedia.org/wiki/Binaural_beats}.
-;;; 
-;;; This module implements a set of user-facing commands for generating
-;;; binaural beats. The commands are organized from high-level commands that
-;;; play predefined binaural beats to lower-level commands that can be
-;;; used to create new effect sequences.
-;;; 
-;;; All binaural beat sequences are played with a relatively low gain
-;;; --- they are designed to be heard in the background and when
-;;; effective blend fully into the background. You can increase the
-;;; overall volume of all binaural beat sequences by customizing
-;;; @defvar {User Option} sox-binaural-gain-offset to a positive value
-;;; @end defvar
-;;; --- default is 0.
-;;; 
-;;; @subsubsection High-Level Commands For Pre-Defined Binaural Beats
-;;; 
-;;; These commands can be called directly to play one of the predefined
-;;; binaural beats.
-;;; 
-;;; @itemize
-;;; @item @command{sox-rev-up}: A set of binaural beats designed for  use
-;;; at the start of the day. Transitions from @emph{Dream} -> @emph{Think}
-;;; ->@emph{Act} -> @emph{Focus}.
-;;; @item @command{sox-wind-down}: A  set of binaural beats for winding down
-;;; at the end of the day. This can be thought of as the reverse of
-;;; @command{sox-rev-up} and the sequence transitions from @emph{Act} ->
-;;; @emph{Think} -> @emph{Dream} ->@emph{Sleep}.
-;;; @item @command{sox-turn-down}: Designed for falling asleep.
-;;; This sequence starts with a short period of @emph{Dream} before moving
-;;; to @emph{Sleep}.
-;;; @item @command{sox-relax}:  A variant of the previous sequence,
-;;; @code{sox-relax} spends equal time in @emph{Dream} and @emph{Sleep}.
-;;; @item @command{sox-binaural}: Provide a completion-based front-end to
-;;; playing any one of the predefined binaural effects (@emph{Delta},
-;;; @emph{Theta}, @emph{Alpha}, @emph{Beta}, or @emph{Gamma}. The previously
-;;; defined sequences are built up using these effects.
-;;; @item @command{sox-beats-binaural}: Plays a collection of binaural
-;;; beats, prompting for carrier and beat frequencies for each tone. The
-;;; predefined sequences listed earlier were created after first generating
-;;; experimental beat-sequences using this command.
-;;; @item @command{sox-slide-binaural}: Prompts for two binaural effects
-;;; (see above) and generates a binaural beat that @emph{slides} from the
-;;; first effect to the second over a specified duration.
-;;; @item @command{sox-chakras}: Pick  amongst one of a predefined set of
-;;; sequences designed for @emph{Chakra} meditation.
-;;; @item @command{sox-tone-binaural}: Generate a simple binaural beat
-;;; with a single carrier frequency.
-;;; @item @command{sox-tone-slide-binaural}: Generate a  tone that slides
-;;; from one binaural beat to another.
-;;; @end itemize
-;;; 
+;; @subsection Binaural Beats  Using SoX
+;; 
+;; A binaural beat is an auditory illusion perceived when two different
+;; pure-tone sine waves, both with frequencies lower than 1500 Hz, with
+;; less than a 40 Hz difference between them, are presented to a listener
+;; dichotically (one through each ear). For example, if a 530 Hz pure tone
+;; is presented to a subject's right ear, while a 520 Hz pure tone is
+;; presented to the subject's left ear, the listener will perceive the
+;; auditory illusion of a third tone, in addition to the two pure-tones
+;; presented to each ear. The third sound is called a binaural beat, and in
+;; this example would have a perceived pitch correlating to a frequency of
+;; 10 Hz, that being the difference between the 530 Hz and 520 Hz pure
+;; tones presented to each ear. For more details, see
+;; @url{https://en.wikipedia.org/wiki/Binaural_beats}.
+;; 
+;; This module implements a set of user-facing commands for generating
+;; binaural beats. The commands are organized from high-level commands that
+;; play predefined binaural beats to lower-level commands that can be
+;; used to create new effect sequences.
+;; 
+;; All binaural beat sequences are played with a relatively low gain
+;; --- they are designed to be heard in the background and when
+;; effective blend fully into the background. You can increase the
+;; overall volume of all binaural beat sequences by customizing
+;; @defvar {User Option} sox-binaural-gain-offset to a positive value
+;; @end defvar
+;; --- default is 0.
+;; 
+;; @subsubsection High-Level Commands For Pre-Defined Binaural Beats
+;; 
+;; These commands can be called directly to play one of the predefined
+;; binaural beats.
+;; 
+;; @itemize
+;; @item @command{sox-rev-up}: A set of binaural beats designed for  use
+;; at the start of the day. Transitions from @emph{Dream} -> @emph{Think}
+;; ->@emph{Act} -> @emph{Focus}.
+;; @item @command{sox-wind-down}: A  set of binaural beats for winding down
+;; at the end of the day. This can be thought of as the reverse of
+;; @command{sox-rev-up} and the sequence transitions from @emph{Act} ->
+;; @emph{Think} -> @emph{Dream} ->@emph{Sleep}.
+;; @item @command{sox-turn-down}: Designed for falling asleep.
+;; This sequence starts with a short period of @emph{Dream} before moving
+;; to @emph{Sleep}.
+;; @item @command{sox-relax}:  A variant of the previous sequence,
+;; @code{sox-relax} spends equal time in @emph{Dream} and @emph{Sleep}.
+;; @item @command{sox-binaural}: Provide a completion-based front-end to
+;; playing any one of the predefined binaural effects (@emph{Delta},
+;; @emph{Theta}, @emph{Alpha}, @emph{Beta}, or @emph{Gamma}. The previously
+;; defined sequences are built up using these effects.
+;; @item @command{sox-beats-binaural}: Plays a collection of binaural
+;; beats, prompting for carrier and beat frequencies for each tone. The
+;; predefined sequences listed earlier were created after first generating
+;; experimental beat-sequences using this command.
+;; @item @command{sox-slide-binaural}: Prompts for two binaural effects
+;; (see above) and generates a binaural beat that @emph{slides} from the
+;; first effect to the second over a specified duration.
+;; @item @command{sox-chakras}: Pick  amongst one of a predefined set of
+;; sequences designed for @emph{Chakra} meditation.
+;; @item @command{sox-tone-binaural}: Generate a simple binaural beat
+;; with a single carrier frequency.
+;; @item @command{sox-tone-slide-binaural}: Generate a  tone that slides
+;; from one binaural beat to another.
+;; @end itemize
+;; 
 ;;; Code:
 
 ;;}}}
@@ -261,8 +261,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
       (error "Effect not defined.")))
 ;;{{{  Define Effects:
 
-;;; delta, theta, alpha, beta, gamma
-;;; sleep, dream, think, act, focus
+;; delta, theta, alpha, beta, gamma
+;; sleep, dream, think, act, focus
 
 (sox-define-binaural-effect
  "sleep" ; delta
@@ -294,7 +294,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
   :beats '((75 40.0) (150 40.0) (225 40.0) (300 40.0))
   :gain -20))
 
-;;; }}}
+;; }}}
 
 (defun sox--format-seconds (secs)
   "Audio-format seconds."
@@ -381,7 +381,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
   '(("dream" 4) ("sleep" 4))
   "List of  beats to use for relaxing.")
 
-;;; Theme Helper:
+;; Theme Helper:
 (defcustom sox-binaural-slider-scale 5.0
   "Scale factor used to compute slide duration when moving from one
 binaural beat to another."
@@ -433,7 +433,7 @@ binaural beat to another."
             (sox-binaural this then))
         b end)
        (setq start (+ start end))
-;;; slider
+;; slider
        (when (and next (not (zerop slider-len)))
          (run-with-timer                ; start  at slider-start
           slider-start nil              ; no repeat
@@ -474,8 +474,8 @@ binaural beat to another."
 ;;}}}
 ;;{{{ Chakra Themes:
 
-;;; Default Theme For Chakras:
-;;; From: https://www.youtube.com/watch?v=ARoih8HTPGw
+;; Default Theme For Chakras:
+;; From: https://www.youtube.com/watch?v=ARoih8HTPGw
 
 (defconst sox--chakra-settings-0
   '(
@@ -497,8 +497,8 @@ binaural beat to another."
    :beats `(,(cdr s))
    :gain -20)))
 
-;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
-;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
+;; Chakras: Set 1:Carrier frequencies taken from  the Web.
+;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
 
 (defconst sox--chakra-settings-1
   '(
@@ -702,8 +702,8 @@ remix - fade 0 4 .1 norm -1 channels 2"
 (provide 'sox-gen)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

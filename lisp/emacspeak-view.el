@@ -1,45 +1,45 @@
 ;;; emacspeak-view.el --- Speech enable View mode -- Efficient browsing of read-only content  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $ 
-;;; DescriptionEmacspeak extensions for view
-;;; Keywords:emacspeak, audio interface to emacs, view-mode
+;; $Id$
+;; $Author: tv.raman.tv $ 
+;; DescriptionEmacspeak extensions for view
+;; Keywords:emacspeak, audio interface to emacs, view-mode
 ;;{{{  LCD Archive entry: 
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-06-21 14:58:40 -0700 (Sat, 21 Jun 2008) $ |
-;;;  $Revision: 4532 $ | 
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-06-21 14:58:40 -0700 (Sat, 21 Jun 2008) $ |
+;;  $Revision: 4532 $ | 
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman 
-;;; Copyright (c) 1996 by T. V. Raman 
-;;; All Rights Reserved. 
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman 
+;; Copyright (c) 1996 by T. V. Raman 
+;; All Rights Reserved. 
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 
 ;;{{{  Introduction:
 ;;; Commentary:
-;;; Provide additional advice to view-mode
+;; Provide additional advice to view-mode
 ;;; Code:
 ;;}}}
 ;;{{{ requires
@@ -49,14 +49,14 @@
 ;;}}}
 ;;{{{  Setup view mode to work with emacspeak
 
-;;; restore emacspeak keybindings:
+;; restore emacspeak keybindings:
 (cl-declaim (special emacspeak-prefix))
 (add-hook
  'view-mode-hook
  #'(lambda ()
      (local-unset-key emacspeak-prefix)
      (emacspeak-view-setup-keys)))
-;;; Generate automatic advise:
+;; Generate automatic advise:
 
 ;;}}}
 ;;{{{ additional interactive commands
@@ -347,7 +347,7 @@ keybindings for view mode")
            (define-key view-mode-map
              (format "%s" i)
              'emacspeak-speak-predefined-window))
-;;; convenience keys
+;; convenience keys
   (define-key view-mode-map "\C-j" 'emacspeak-hide-speak-block-sans-prefix)
   (define-key view-mode-map "\M- " 'emacspeak-outline-speak-this-heading)
   (define-key view-mode-map "\M-n" 'outline-next-visible-heading)
@@ -368,8 +368,8 @@ keybindings for view mode")
 (provide  'emacspeak-view)
 ;;{{{  emacs local variables 
 
-;;; local variables:
-;;; folded-file: t
-;;; end: 
+;; local variables:
+;; folded-file: t
+;; end: 
 
 ;;}}}

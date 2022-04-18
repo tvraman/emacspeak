@@ -1,8 +1,8 @@
 ;;; From the author of the modus themes:
 
 
-;;; Code is courtesy of Omar Antolín Camarena:
-;;; https://github.com/oantolin/emacs-config
+;; Code is courtesy of Omar Antolín Camarena:
+;; https://github.com/oantolin/emacs-config
 
 (defun wcag (hex)
   (apply #'+
@@ -19,9 +19,9 @@
                (+ (wcag c2) 0.05))))
     (max ct (/ ct))))
 
-;;; You can then combine that with Org's tables. Such as what I have on
-;;; this blog post:
-;;; https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/
-;;; (I am not particularly good with Org tables, but those work).
+;; You can then combine that with Org's tables. Such as what I have on
+;; this blog post:
+;; https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/
+;; (I am not particularly good with Org tables, but those work).
 
 

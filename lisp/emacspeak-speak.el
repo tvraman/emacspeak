@@ -1,52 +1,52 @@
 ;;; emacspeak-speak.el --- Implements core services -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Contains the functions for speaking various chunks of text
-;;; Keywords: Emacspeak,  Spoken Output
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Contains the functions for speaking various chunks of text
+;; Keywords: Emacspeak,  Spoken Output
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-18 16:25:05 -0700 (Mon, 18 Aug 2008) $ |
-;;;  $Revision: 4552 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-18 16:25:05 -0700 (Mon, 18 Aug 2008) $ |
+;;  $Revision: 4552 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
 ;;; Commentary:
 
-;;; This module defines the core speech services used by emacspeak.
-;;; It depends on the speech server interface modules
-;;; It protects other parts of emacspeak
-;;; from becoming dependent on the speech server modules
+;; This module defines the core speech services used by emacspeak.
+;; It depends on the speech server interface modules
+;; It protects other parts of emacspeak
+;; from becoming dependent on the speech server modules
 
 ;;; Code:
 
@@ -180,9 +180,9 @@ message area.  You can use command
   :group 'emacspeak
   :type 'boolean)
 
-;;; Emacspeak silences messages from shell-command when called
-;;; non-interactively.  This replacement is used within Emacspeak to
-;;; invoke commands whose output we want to hear.
+;; Emacspeak silences messages from shell-command when called
+;; non-interactively.  This replacement is used within Emacspeak to
+;; invoke commands whose output we want to hear.
 
 (defun emacspeak-shell-command (command)
   "Run shell command COMMANDAND speak its output."
@@ -307,8 +307,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
 ;;}}}
 ;;{{{  Macros
 
-;;; Save read-only and modification state, perform some actions and
-;;; restore state
+;; Save read-only and modification state, perform some actions and
+;; restore state
 
 (defmacro ems-set-personality-temporarily (start end value &rest body)
   "Temporarily set personality.
@@ -552,8 +552,8 @@ setting."
 
 (make-variable-buffer-local 'emacspeak-audio-indentation)
 
-;;; Indicate indentation.
-;;; Argument indent   indicates number of columns to indent.
+;; Indicate indentation.
+;; Argument indent   indicates number of columns to indent.
 
 ;;}}}
 ;;{{{ filtering columns
@@ -694,32 +694,32 @@ the sense of the filter. "
 ;;}}}
 ;;{{{  Actions
 
-;;; Setting value of property 'emacspeak-action to a list
-;;; of the form (before | after function)
-;;; function to be executed before or after the unit of text at that
-;;; point is spoken.
+;; Setting value of property 'emacspeak-action to a list
+;; of the form (before | after function)
+;; function to be executed before or after the unit of text at that
+;; point is spoken.
 (defvar-local emacspeak-action-mode nil
   "Determines if action mode is active.
 Non-nil value means that any function that is set as the
 value of property action is executed when the text at that
 point is spoken.")
 
-;;; Record in the mode line
+;; Record in the mode line
 (or
  (assq 'emacspeak-action-mode minor-mode-alist)
  (setq minor-mode-alist
        (append minor-mode-alist
                '((emacspeak-action-mode " Action")))))
 
-;;; Return the appropriate action hook variable that defines actions
-;;; for this mode.
+;; Return the appropriate action hook variable that defines actions
+;; for this mode.
 
 (defun emacspeak-action-get-action-hook (mode)
   "Retrieve action hook.
 Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode)))
 
-;;; Execute action at point
+;; Execute action at point
 (defun emacspeak-handle-action-at-point (&optional pos)
   "Execute action specified at point."
   (cl-declare (special emacspeak-action-mode))
@@ -847,7 +847,7 @@ before-string, or after-string) is indicated with auditory icon
                  (bound-and-true-p linenum-mode))
            (line-number-at-pos)))
         (indent nil))
-;;; determine what to speak based on prefix arg
+;; determine what to speak based on prefix arg
     (cond
      ((null arg))
      ((> arg 0) (setq start orig))
@@ -878,7 +878,7 @@ before-string, or after-string) is indicated with auditory icon
       (emacspeak-auditory-icon 'ellipses))
     (when (or display before after) (emacspeak-auditory-icon 'more))
     (cond
-;;; C1..C5
+;; C1..C5
      ((string-equal "" line)
       (dtk-tone 130.8 150 'force))
      ((string-match emacspeak-speak-blank-line-regexp line) ;only white space
@@ -1444,7 +1444,7 @@ indicating the arrival  of new mail when displaying the mode line.")
 ;;}}}
 ;;{{{  Speak mode line information
 
-;;; compute current line number
+;; compute current line number
 (defsubst emacspeak-get-current-line-number ()
   (let ((start (point)))
     (save-excursion
@@ -1670,7 +1670,7 @@ Displays name of current buffer.")
 ;;}}}
 ;;{{{  Speak text without moving point
 
-;;; Functions to browse without moving:
+;; Functions to browse without moving:
 (defun emacspeak-read-line-internal (arg)
   "Read a line without moving.
 Line to read is specified relative to the current line, prefix args gives the
@@ -1904,8 +1904,8 @@ Argument STRING specifies the alphanumeric phone number."
 ;;}}}
 ;;{{{ speaking marks
 
-;;; Intelligent mark feedback for emacspeak:
-;;; 
+;; Intelligent mark feedback for emacspeak:
+;; 
 
 (defun emacspeak-speak-current-mark (count)
   "Speak the line containing the mark.
@@ -1940,7 +1940,7 @@ location of the mark is indicated by an aural highlight. "
 ;;}}}
 ;;{{{ speaking personality chunks
 
-;;; Block navigation
+;; Block navigation
 
 ;;}}}
 ;;{{{Face Ranges:
@@ -2057,9 +2057,9 @@ was spoken.  Any other key continues to speak the buffer."
 ;;}}}
 ;;{{{  Moving across fields:
 
-;;; Fields are defined by property 'field
+;; Fields are defined by property 'field
 
-;;; helper function: speak a field
+;; helper function: speak a field
 
 
 (defun emacspeak-speak-field ()
@@ -2232,13 +2232,13 @@ is the same as for the Emacs builtin `other-window'."
 ;;}}}
 ;;{{{  Intelligent interactive commands for reading:
 
-;;; Prompt the user if asked to prompt.
-;;; Prompt is:
-;;; press 'b' for beginning of unit,
-;;; 'r' for rest of unit,
-;;; any other key for entire unit
-;;; returns 1, -1, or nil accordingly.
-;;; If prompt is nil, does not prompt: just gets the input
+;; Prompt the user if asked to prompt.
+;; Prompt is:
+;; press 'b' for beginning of unit,
+;; 'r' for rest of unit,
+;; any other key for entire unit
+;; returns 1, -1, or nil accordingly.
+;; If prompt is nil, does not prompt: just gets the input
 
 (defun emacspeak-ask-how-to-speak (unit-name prompt)
   "Argument UNIT-NAME specifies kind of unit that is being spoken.
@@ -2321,7 +2321,7 @@ any other key to speak entire sexp."
 ;;{{{  emacs rectangles and regions:
 
 
-;;; These help you listen to columns of text. Useful for tabulated data
+;; These help you listen to columns of text. Useful for tabulated data
 (defun emacspeak-speak-rectangle (start end)
   "Speak a rectangle of text.
 Rectangle is delimited by point and mark.  When call from a
@@ -2333,9 +2333,9 @@ program, arguments specify the START and END of the rectangle."
 ;;}}}
 ;;{{{  Matching delimiters:
 
-;;; A modified blink-matching-open that always displays the matching line
-;;; in the minibuffer so emacspeak can speak it.
-;;; Helper: emacspeak-speak-blinkpos-message
+;; A modified blink-matching-open that always displays the matching line
+;; in the minibuffer so emacspeak can speak it.
+;; Helper: emacspeak-speak-blinkpos-message
 
 (defun emacspeak-speak-blinkpos-message (blinkpos)
   "Speak message about matching blinkpos."
@@ -2349,18 +2349,18 @@ program, arguments specify the START and END of the rectangle."
       (concat
        "Matches "
        (cond
-;;; Show what precedes the open in its line, if anything.
+;; Show what precedes the open in its line, if anything.
         ((save-excursion
            (skip-chars-backward " \t")
            (not (bolp)))
          (buffer-substring (line-beginning-position) (1+ blinkpos)))
-;;; Show what follows the open in its line, if anything.
+;; Show what follows the open in its line, if anything.
         ((save-excursion
            (forward-char 1)
            (skip-chars-forward " \t")
            (not (eolp)))
          (buffer-substring blinkpos (line-end-position)))
-;;; Otherwise show the previous nonblank line.
+;; Otherwise show the previous nonblank line.
         (t
          (concat
           (buffer-substring
@@ -2371,13 +2371,13 @@ program, arguments specify the START and END of the rectangle."
            (progn (end-of-line)
                   (skip-chars-backward " \t")
                   (point)))
-;;; Replace the newline and other whitespace with `...'.
+;; Replace the newline and other whitespace with `...'.
           "..."
           (buffer-substring blinkpos (1+ blinkpos)))))))))))
 
-;;; The only change to emacs' default blink-matching-paren is the
-;;; addition of the call to helper emacspeak-speak-blinkpos-message
-;;; This matcher if from emacs 19 from memory.
+;; The only change to emacs' default blink-matching-paren is the
+;; addition of the call to helper emacspeak-speak-blinkpos-message
+;; This matcher if from emacs 19 from memory.
 
 (defun emacspeak-blink-matching-open ()
   "Move cursor momentarily to the beginning of the sexp before point.
@@ -2464,7 +2464,7 @@ Also display match context in minibuffer."
                                              (progn (end-of-line)
                                                     (skip-chars-backward " \t")
                                                     (point)))
-;;; Replace the newline and other whitespace with `...'.
+;; Replace the newline and other whitespace with `...'.
                            "..."
                            (buffer-substring blinkpos (1+ blinkpos)))
                         ;; There is nothing to show except the char itself.
@@ -2513,7 +2513,7 @@ Argument O specifies overlay."
 ;;}}}
 ;;{{{  completion helpers
 
-;;; switching to completions window from minibuffer:
+;; switching to completions window from minibuffer:
 
 (defun emacspeak-get-minibuffer-contents ()
   "Return contents of the minibuffer."
@@ -2521,7 +2521,7 @@ Argument O specifies overlay."
     (set-buffer (window-buffer (minibuffer-window)))
     (minibuffer-contents)))
 
-;;; Make all occurrences of string inaudible
+;; Make all occurrences of string inaudible
 (defun emacspeak-make-string-inaudible (string)
   (unless (string-match "^ *$" string)
     (with-silent-modifications
@@ -2744,7 +2744,7 @@ This function is sensitive to calendar mode when prompting."
       (let ((voice-lock-mode nil))
         (funcall-interactively #'previous-completion 1)))))
 
-;;; Hacked out of choose-completion
+;; Hacked out of choose-completion
 (defun emacspeak--choose-completion ()
   "Choose the completion at point."
   (interactive)
@@ -2899,8 +2899,8 @@ but quickly switch to a window by name."
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

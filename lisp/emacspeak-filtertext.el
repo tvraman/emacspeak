@@ -1,42 +1,42 @@
 ;;; emacspeak-filtertext.el --- Utilities to filter text  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:   Implement text filters 
-;;; Keywords: Emacspeak, Audio Desktop
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:   Implement text filters 
+;; Keywords: Emacspeak, Audio Desktop
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ required modules
 
@@ -45,20 +45,20 @@
 ;;}}}
 ;;{{{  Introduction:
 ;;; Commentary:
-;;; It is often useful  to view the results of filtering
-;;; large amounts of text.;;; Typically you do this with
-;;; various combinations of grep and friends.
-;;; When doing so it requires explicit effort to not destroy
-;;; the original text being filtered.
-;;; This module provides a textfilter utility that:
-;;; A) Copies over the selected text to a special filtertext
-;;; buffer
-;;; B) Implements a filtertext mode for that buffer that
-;;; allows easy application of filters
-;;; C: Provides commands for reverting to the original
-;;; unfiltered text
-;;; D: Provides commands for saving results from
-;;; intermediate filters.
+;; It is often useful  to view the results of filtering
+;; large amounts of text.;;; Typically you do this with
+;; various combinations of grep and friends.
+;; When doing so it requires explicit effort to not destroy
+;; the original text being filtered.
+;; This module provides a textfilter utility that:
+;; A) Copies over the selected text to a special filtertext
+;; buffer
+;; B) Implements a filtertext mode for that buffer that
+;; allows easy application of filters
+;; C: Provides commands for reverting to the original
+;; unfiltered text
+;; D: Provides commands for saving results from
+;; intermediate filters.
 ;;; Code:
 ;;}}}
 ;;{{{  structures 
@@ -89,7 +89,7 @@
 
 ;;}}}
 ;;{{{ Interactive commands 
-;;;###autoload
+;;###autoload
 (defun emacspeak-filtertext(start end)
   "Copy over text in region to special filtertext buffer to  filter text. "
   (interactive "r")
@@ -128,8 +128,8 @@
 (provide 'emacspeak-filtertext)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

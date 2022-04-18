@@ -1,56 +1,56 @@
 ;;; ladspa.el --- Ladspa Tools For Emacs  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Expose Ladspa Plugins to Emacs/Emacspeak
-;;; Keywords: Emacspeak,  Audio Desktop Ladspa
+;; $Author: tv.raman.tv $
+;; Description:  Expose Ladspa Plugins to Emacs/Emacspeak
+;; Keywords: Emacspeak,  Audio Desktop Ladspa
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; This module  uses tools from the Ladspa SDK  to expose
-;;; Ladspa plugins in a consistent way to elisp.
-;;; The goal is to make it easy to inspect Ladspa Plugins,
-;;; And invoke them easily from  Ladspa host applications such as MPlayer.
-;;; See
-;;; @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
-;;; Some Ladspa Packages that provide plugins:
-;;; sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins 
-;;; swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa 
-;;; ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins 
+;; This module  uses tools from the Ladspa SDK  to expose
+;; Ladspa plugins in a consistent way to elisp.
+;; The goal is to make it easy to inspect Ladspa Plugins,
+;; And invoke them easily from  Ladspa host applications such as MPlayer.
+;; See
+;; @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
+;; Some Ladspa Packages that provide plugins:
+;; sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins 
+;; swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa 
+;; ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins 
 
 ;;; Code:
 
@@ -75,7 +75,7 @@
 
 ;;}}}
 ;;{{{ Ladspa Setup:
-;;;###autoload
+;;###autoload
 (defconst ladspa-home
   (or (getenv "LADSPA_PATH") "/usr/lib/ladspa")
   "Installation location for Ladspa plugins.")
@@ -247,7 +247,7 @@ list of parsed ladspa-plugin structures, one per label."
   (setq buffer-read-only t)
   (setq header-line-format ladspa-header-line-format))
 
-;;;###autoload
+;;###autoload
 (defun ladspa (&optional refresh)
   "Ladspa workbench."
   (interactive "P")
@@ -406,8 +406,8 @@ list of parsed ladspa-plugin structures, one per label."
 (provide 'ladspa)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

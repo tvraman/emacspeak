@@ -1,46 +1,46 @@
 ;;; Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
 ;;{{{ History:
 
-;;; Segre March 22 1991
-;;; July 15, 2001 finally cutting over to custom.
-;;; August 12, 2007: Cleaned up for Emacs 22
-;;; September 2017: Optimized and Cleaned Up
-;;; August 2020: Limit code at top-level.
+;; Segre March 22 1991
+;; July 15, 2001 finally cutting over to custom.
+;; August 12, 2007: Cleaned up for Emacs 22
+;; September 2017: Optimized and Cleaned Up
+;; August 2020: Limit code at top-level.
 
 ;;}}}
 ;;{{{ Introduction:
 
 ;;; Commentary:
-;;; This startup file is set up with the following goals:
-;;; 1. Speed up emacs startup 
-;;; 2. Customize packages via a custom file as far as possible.
-;;; 3. Keep the  custom settings  in a separate file, with a later goal of
-;;;   turning that into a  theme.
-;;; 4. After converting to a theme,
-;;; Move machine-specific custom settings
-;;;    into a separate host-specific custom file, thus making the
-;;; earlier theme host-independent.
-;;; Place host-specific non-customizable bits in default.el.
-;;; 4. Define package-specific settings not available via Custom in a
-;;;    package-specific <package>-prepare.el file.
-;;; 5. Install everything from elpa/melpa as far as possible. (vm is an
-;;;    exception at present) --- I have nearly 200 packages activated.
-;;; 6. The startup file contains functions with entry-point tvr-emacs.
-;;; 7. The only top-level call is (tvr-emacs).
-;;; 8. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
-;;;    - after-init-hook to do the bulk of the work.
-;;;    - emacs-startup-hook to set up  initial window configuration.
-;;; 9. Function tvr-after-init-hook on after-init-hook does the
-;;; following:
-;;; For efficiency, package-specific setup files are concatenated into
-;;; a single file all-prepare.el by  make.
-;;;    - Load package-specific prepare.el files.
-;;;    - Load the custom settings file.
-;;;    - Start up things like the emacs server.
-;;;    - Some of these tasks are done on a separate thread using make-thread.
-;;;   - The work of loading files etc., is done within macro tvr-time-load
-;;;   which sets up an efficient environment for loading files and
-;;; helps in profiling.
+;; This startup file is set up with the following goals:
+;; 1. Speed up emacs startup 
+;; 2. Customize packages via a custom file as far as possible.
+;; 3. Keep the  custom settings  in a separate file, with a later goal of
+;;   turning that into a  theme.
+;; 4. After converting to a theme,
+;; Move machine-specific custom settings
+;;    into a separate host-specific custom file, thus making the
+;; earlier theme host-independent.
+;; Place host-specific non-customizable bits in default.el.
+;; 4. Define package-specific settings not available via Custom in a
+;;    package-specific <package>-prepare.el file.
+;; 5. Install everything from elpa/melpa as far as possible. (vm is an
+;;    exception at present) --- I have nearly 200 packages activated.
+;; 6. The startup file contains functions with entry-point tvr-emacs.
+;; 7. The only top-level call is (tvr-emacs).
+;; 8. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
+;;    - after-init-hook to do the bulk of the work.
+;;    - emacs-startup-hook to set up  initial window configuration.
+;; 9. Function tvr-after-init-hook on after-init-hook does the
+;; following:
+;; For efficiency, package-specific setup files are concatenated into
+;; a single file all-prepare.el by  make.
+;;    - Load package-specific prepare.el files.
+;;    - Load the custom settings file.
+;;    - Start up things like the emacs server.
+;;    - Some of these tasks are done on a separate thread using make-thread.
+;;   - The work of loading files etc., is done within macro tvr-time-load
+;;   which sets up an efficient environment for loading files and
+;; helps in profiling.
 
 ;;}}}
 ;;{{{  libs, vars:
@@ -81,7 +81,7 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{ Fixups:
 
-;;; Put psession startup on a separate thread:
+;; Put psession startup on a separate thread:
 
 (defadvice psession--restore-objects-from-directory (around ems pre act comp)
   (make-thread ad-do-it))
@@ -93,7 +93,7 @@ Produce timing information as the last step."
   (ignore ad--addoit-function)
   (setq ad-return-value (list user-real-login-name)))
 
-;;; for twittering-mode:
+;; for twittering-mode:
 (defalias 'epa--decode-coding-string 'decode-coding-string)
 
 ;;}}}
@@ -147,7 +147,7 @@ Use Custom to customize where possible. "
             #'(lambda nil
                 (elpy-enable)))
   (setq outline-minor-mode-prefix "\C-co")
-;;; basic look and feel
+;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
    #'(lambda (f) (put f 'disabled nil))
@@ -177,15 +177,15 @@ Use Custom to customize where possible. "
    for i from 0 to 9 do
    (global-set-key
     (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-;;; Smarten up ctl-x-map
+;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
   (define-key ctl-x-map "j" 'pop-global-mark)
   (define-key ctl-x-map "u"  'undo-only)
   (define-key ctl-x-map (ems-kbd "C-u") 'undo-redo)
   (define-key ctl-x-map (ems-kbd "C-d") 'dired-jump)
-;;; Shell mode bindings:
+;; Shell mode bindings:
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
-;;; Outline Setup:
+;; Outline Setup:
   (with-eval-after-load 'outline
     (global-set-key (ems-kbd "C-o") outline-mode-prefix-map) ;;;restore
     (define-key outline-mode-prefix-map "o" 'open-line))
@@ -199,7 +199,7 @@ Use Custom to customize where possible. "
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
-;;; load  library-specific settings, customize, then start things.
+;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
    ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
@@ -219,7 +219,7 @@ Use Custom to customize where possible. "
   "TVR:text-mode"
   (auto-fill-mode)
   (emacspeak-pronounce-toggle-use-of-dictionaries t)
-;;; company-wordfreq setup:
+;; company-wordfreq setup:
   (setq-local company-backends '(company-wordfreq))
   (setq-local company-transformers nil)
   (abbrev-mode)
@@ -284,8 +284,8 @@ configuration happens via the after-init-hook. "
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-;;;local variables:
-;;;folded-file: t
-;;;end:
+;;local variables:
+;;folded-file: t
+;;end:
 
 ;;}}}

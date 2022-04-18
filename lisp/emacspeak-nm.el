@@ -1,18 +1,18 @@
 ;;; emacspeak-nm.el --- Simple NetworkManager integration through D-Bus.  -*- lexical-binding: t; -*-
-;;; -*- coding: utf-8 -*-
+;; -*- coding: utf-8 -*-
 
-;;; Author: Øyvind Stegard <oyvind.stegard@ifi.uio.no>
-;;; License: Public domain, use at own risk, no warranties of any kind.
+;; Author: Øyvind Stegard <oyvind.stegard@ifi.uio.no>
+;; License: Public domain, use at own risk, no warranties of any kind.
 
-;;; Requires Emacs23 with D-Bus bindings and preferably a running NetworkManager
-;;; instance.
+;; Requires Emacs23 with D-Bus bindings and preferably a running NetworkManager
+;; instance.
 ;;
-;;; You will need to call the function `nm-enable' for things to start happening.
-;;; Functions you would like to run when network is connected:
-;;; (add-hook 'nm-connected-hook 'ping-skynet)
+;; You will need to call the function `nm-enable' for things to start happening.
+;; Functions you would like to run when network is connected:
+;; (add-hook 'nm-connected-hook 'ping-skynet)
 ;;
-;;; Functions you would like to run when network is disconnected:
-;;; (add-hook 'nm-disconnected-hook (lambda() (message "Darnit, we are down.")))
+;; Functions you would like to run when network is disconnected:
+;; (add-hook 'nm-disconnected-hook (lambda() (message "Darnit, we are down.")))
 
 (require 'dbus)
 
@@ -67,26 +67,26 @@ already enabled or service is not available."
     (setq nm-dbus-registration nil)
     (message "Disabled integration with NetworkManager.")))
 
-;;; NM_STATE numbers and meanings:
-;;; NM_STATE_UNKNOWN = 0
-;;;     Networking state is unknown. 
-;;; NM_STATE_ASLEEP = 10
-;;;     Networking is inactive and all devices are disabled. 
-;;; NM_STATE_DISCONNECTED = 20
-;;;     There is no active network connection. 
-;;; NM_STATE_DISCONNECTING = 30
-;;;     Network connections are being cleaned up. 
-;;; NM_STATE_CONNECTING = 40
-;;;     A network device is connecting to a network and there is no other available network connection. 
-;;; NM_STATE_CONNECTED_LOCAL = 50
-;;;     A network device is connected, but there is only link-local connectivity. 
-;;; NM_STATE_CONNECTED_SITE = 60
-;;;     A network device is connected, but there is only site-local connectivity. 
-;;; NM_STATE_CONNECTED_GLOBAL = 70
-;;;     A network device is connected, with global network connectivity. 
+;; NM_STATE numbers and meanings:
+;; NM_STATE_UNKNOWN = 0
+;;     Networking state is unknown. 
+;; NM_STATE_ASLEEP = 10
+;;     Networking is inactive and all devices are disabled. 
+;; NM_STATE_DISCONNECTED = 20
+;;     There is no active network connection. 
+;; NM_STATE_DISCONNECTING = 30
+;;     Network connections are being cleaned up. 
+;; NM_STATE_CONNECTING = 40
+;;     A network device is connecting to a network and there is no other available network connection. 
+;; NM_STATE_CONNECTED_LOCAL = 50
+;;     A network device is connected, but there is only link-local connectivity. 
+;; NM_STATE_CONNECTED_SITE = 60
+;;     A network device is connected, but there is only site-local connectivity. 
+;; NM_STATE_CONNECTED_GLOBAL = 70
+;;     A network device is connected, with global network connectivity. 
 ;;
 ;;; See:
-;;; https://developer.gnome.org/NetworkManager/unstable/spec.html#type-NM_STATE
+;; https://developer.gnome.org/NetworkManager/unstable/spec.html#type-NM_STATE
 
 (defun nm-state-dbus-signal-handler (nmstate)
   "Handles NetworkManager signals and runs appropriate hooks."

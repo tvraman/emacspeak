@@ -1,48 +1,48 @@
 ;;; emacspeak-wizards.el --- Magic For Power Users   -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Contains convenience wizards
-;;; Keywords: Emacspeak,  Audio Desktop Wizards
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Contains convenience wizards
+;; Keywords: Emacspeak,  Audio Desktop Wizards
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-15 10:08:11 -0700 (Fri, 15 Aug 2008) $ |
-;;;  $Revision: 4638 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-15 10:08:11 -0700 (Fri, 15 Aug 2008) $ |
+;;  $Revision: 4638 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; Contains various wizards for the Emacspeak desktop.
+;; Contains various wizards for the Emacspeak desktop.
 
 ;;; Code:
 
@@ -116,7 +116,7 @@
 ;;}}}
 ;;{{{  Emacspeak News and Documentation
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-view-emacspeak-news ()
   "Display emacspeak News for a given version."
   (interactive)
@@ -264,7 +264,7 @@ Prompts for the new location and preserves modification time
 ;;}}}
 ;;{{{ pop up messages buffer
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-speak-popup-messages ()
   "Pop up Messages  and switch to it."
   (interactive)
@@ -342,7 +342,7 @@ This is just a text file, and we use grep to search it."
   "grep -i "
   "Command used to look up names in the telephone directory.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-speak-telephone-directory (&optional edit)
   "Lookup and display a phone number.
 With prefix arg, opens the phone book for editing."
@@ -362,9 +362,9 @@ With prefix arg, opens the phone book for editing."
 ;;}}}
 ;;{{{ find file as root
 
-;;; http://emacs-fu.blogspot.com/
-;;; 2013/03/editing-with-root-privileges-once-more.html
-;;;###autoload
+;; http://emacs-fu.blogspot.com/
+;; 2013/03/editing-with-root-privileges-once-more.html
+;;###autoload
 (defun emacspeak-wizards-find-file-as-root (file)
   "Automatically edit file with root-privileges (using
 tramp/sudo), if the file is not writable by user."
@@ -403,7 +403,7 @@ command."
 ;;}}}
 ;;{{{  Learn mode
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-learn-emacs-mode ()
   "Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press \\[keyboard-quit]."
@@ -429,7 +429,7 @@ To leave, press \\[keyboard-quit]."
 ;;}}}
 ;;{{{ Frame Nav:
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)
   "Move to next buffer.
 With optional interactive prefix arg `frame', move to next frame instead."
@@ -438,7 +438,7 @@ With optional interactive prefix arg `frame', move to next frame instead."
    (frame (funcall-interactively #'other-frame 1))
    (t (call-interactively #'next-buffer))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-previous-frame-or-buffer (&optional frame)
   "Move to previous buffer.
 With optional interactive prefix arg `frame', move to previous frame instead."
@@ -449,7 +449,7 @@ With optional interactive prefix arg `frame', move to previous frame instead."
 
 ;;}}}
 ;;{{{  readng different displays of same buffer
-;;;###autoload
+;;###autoload
 (defun emacspeak-speak-this-buffer-other-window-display ( window)
   "Speak this buffer as displayed in a different frame or window.  Emacs
 allows you to display the same buffer in multiple windows or
@@ -470,7 +470,7 @@ listen to the places where you have left the book open.  "
          (window-point win)
          (window-end win 'update))))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-speak-this-buffer-previous-display ()
   "Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -481,7 +481,7 @@ meaning of `previous'."
                         (current-buffer)
                         nil 'visible))))
     (emacspeak-speak-this-buffer-other-window-display (1- count))))
-;;;###autoload
+;;###autoload
 (defun emacspeak-speak-this-buffer-next-display ()
   "Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -515,7 +515,7 @@ open at multiple places at once.  "
     (select-frame (window-frame win))
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
-;;;###autoload
+;;###autoload
 (defun emacspeak-select-this-buffer-previous-display ()
   "Select this buffer as displayed in a `previous' window.
 See documentation for command
@@ -526,7 +526,7 @@ meaning of `previous'."
                         (current-buffer)
                         nil 'visible))))
     (emacspeak-select-this-buffer-other-window-display (1- count))))
-;;;###autoload
+;;###autoload
 (defun emacspeak-select-this-buffer-next-display ()
   "Select this buffer as displayed in a `next' frame.
 See documentation for command
@@ -538,7 +538,7 @@ meaning of `next'."
 ;;}}}
 ;;{{{ Emacs Dev utilities
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-show-eval-result (form)
   "Pretty-print and view Lisp evaluation results."
   (interactive
@@ -596,8 +596,8 @@ meaning of `next'."
 ;;}}}
 ;;{{{  Display properties conveniently
 
-;;; Useful for developping emacspeak:
-;;; Display selected properties of interest
+;; Useful for developping emacspeak:
+;; Display selected properties of interest
 
 (defvar emacspeak-property-table
   '(("personality" . "personality")
@@ -605,7 +605,7 @@ meaning of `next'."
     ("action" . "action"))
   "Properties emacspeak is interested in.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-show-style-at-point ()
   "Show value of property personality (and possibly face) at point."
   (interactive)
@@ -625,7 +625,7 @@ meaning of `next'."
                'face f)))))
     (message msg)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-show-property-at-point (&optional property)
   "Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively. "
@@ -652,7 +652,7 @@ If optional arg property is not supplied, read it interactively. "
 
 ;;}}}
 ;;{{{  moving across blank lines
-;;;###autoload
+;;###autoload
 (defun emacspeak-skip-blank-lines-forward ()
   "Move forward across blank lines, then speak line.
 "
@@ -685,7 +685,7 @@ If optional arg property is not supplied, read it interactively. "
             (dtk-speak
              (concat skipped (ems--this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
-;;;###autoload
+;;###autoload
 (defun emacspeak-skip-blank-lines-backward ()
   "Move backward  across blank lines, then speak line. "
   (interactive)
@@ -723,11 +723,11 @@ If optional arg property is not supplied, read it interactively. "
 ;;}}}
 ;;{{{ shell-toggle
 
-;;; inspired by eshell-toggle
-;;; switch to the shell buffer, and cd to the directory
-;;; that is the default-directory for the previously current
-;;; buffer.
-;;;###autoload
+;; inspired by eshell-toggle
+;; switch to the shell buffer, and cd to the directory
+;; that is the default-directory for the previously current
+;; buffer.
+;;###autoload
 (defun emacspeak-wizards-shell-toggle ()
   "Switch to  shell  and cd to
   directory of the previously current buffer."
@@ -797,7 +797,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
 
 ;;}}}
 ;;{{{ tramp wizard
-;;;###autoload
+;;###autoload
 (defcustom emacspeak-wizards-tramp-locations nil
   "Tramp locations used by Emacspeak tramp wizard.
 Locations added here via custom can be opened using command
@@ -809,7 +809,7 @@ bound to \\[emacspeak-wizards-tramp-open-location]."
                 (string :tag "Location")))
   :group 'emacspeak-wizards)
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-tramp-open-location (name)
   "Open specified tramp location.
 Location is specified by name."
@@ -892,7 +892,7 @@ Location is specified by name."
   (if (member switch emacspeak-wizards-find-switches-that-need-quoting)
       (format "'%s'" arg)
     arg))
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-generate-finder ()
   "Generate a widget-enabled finder wizard."
   (interactive)
@@ -943,7 +943,7 @@ Location is specified by name."
      (cl-declare (special emacspeak-wizards-finder-args))
      (let ((value (widget-value widget)))
        (setq emacspeak-wizards-finder-args value))))
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-finder-find (directory)
   "Run find-dired on specified switches after prompting for the
 directory to where find is to be launched."
@@ -972,7 +972,7 @@ directory to where find is to be launched."
 
 (declare-function emacspeak-custom-goto-group "emacspeak-custom" nil)
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-customize ()
   "Customize Emacspeak."
   (interactive)
@@ -982,7 +982,7 @@ directory to where find is to be launched."
 
 ;;}}}
 ;;{{{ squeeze blank lines in current buffer:
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-squeeze-blanks (start end)
   "Squeeze multiple blank lines."
   (interactive "r")
@@ -1010,7 +1010,7 @@ directory to where find is to be launched."
   "Regexp pattern used to identify header lines by command
 emacspeak-wizards-occur-header-lines.")
 (make-variable-buffer-local 'emacspeak-occur-pattern)
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-how-many-matches (start end &optional prefix)
   "If you define a file local variable
 called `emacspeak-occur-pattern' that holds a regular expression
@@ -1033,7 +1033,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
       (setq emacspeak-occur-pattern pattern)
       (how-many pattern start end 'interactive)))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-occur-header-lines (&optional prefix)
   "If you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
@@ -1057,7 +1057,7 @@ prompts for and sets value of the file local pattern."
 ;;}}}
 ;;{{{   Switching buffers, killing buffers etc
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-kill-buffer-quietly ()
   "Kill current buffer without  confirmation."
   (interactive)
@@ -1084,7 +1084,7 @@ Ubuntu and Debian this is group `tty'.")
 
 (make-variable-buffer-local 'emacspeak-wizards-vc-console)
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-vc-viewer (console)
   "View contents of  virtual console."
   (interactive "nConsole:")
@@ -1160,7 +1160,7 @@ Ubuntu and Debian this is group `tty'.")
 
 ;;}}}
 ;;{{{ longest line in region
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-find-longest-line-in-region (start end)
   "Find longest line in region and move to it. "
   (interactive "r")
@@ -1210,7 +1210,7 @@ Moves to the shortest line when called interactively."
 
 ;;}}}
 ;;{{{ longest para in region
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-find-longest-paragraph-in-region (start end)
   "Find longest paragraph in region, and move to it. "
   (interactive "r")
@@ -1235,7 +1235,7 @@ Moves to the shortest line when called interactively."
 
 ;;}}}
 ;;{{{ face wizard
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-show-face (face)
   "Show  properties of  face."
   (interactive
@@ -1267,9 +1267,9 @@ Moves to the shortest line when called interactively."
 
 ;;}}}
 ;;{{{ ISO dates
-;;; implementation based on icalendar.el
+;; implementation based on icalendar.el
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-speak-iso-datetime (iso)
   "Speak ISO date-time."
   (interactive
@@ -1287,7 +1287,7 @@ Moves to the shortest line when called interactively."
   "Toggled by wizard to record how we are pronouncing mm-dd-yyyy
 dates.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer ()
   "Toggle pronunciation of mm-dd-yyyy dates."
   (interactive)
@@ -1311,7 +1311,7 @@ dates.")
 (defvar emacspeak-wizards-yyyymmdd-date-pronounce nil
   "Toggled by wizard to record how we are pronouncing yyyymmdd dates.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-toggle-yyyymmdd-date-pronouncer ()
   "Toggle pronunciation of yyyymmdd  dates."
   (interactive)
@@ -1335,7 +1335,7 @@ dates.")
 ;;}}}
 ;;{{{ units wizard
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-units ()
   "Run units."
   (interactive)
@@ -1396,7 +1396,7 @@ Direction specifies previous/next."
      ((= 1 (length shells)) (shell "1-shell"))
      (t (call-interactively #'shell)))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-shell (&optional prefix)
   "Run Emacs  `shell' command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
@@ -1430,7 +1430,7 @@ of the source buffer."
        (t (call-interactively #'shell)))))
    (t (call-interactively 'emacspeak-wizards-cycle-to-next-buffer))))
 
-;;; Inspired by package project-shells from melpa --- but simplified.
+;; Inspired by package project-shells from melpa --- but simplified.
 
 (defvar emacspeak-wizards--shells-table (make-hash-table :test #'eq)
   "Table mapping live shell buffers to keys.")
@@ -1438,14 +1438,14 @@ of the source buffer."
 (defun emacspeak-wizards--build-shells-table ()
   "Populate hash-table with live shell buffers."
   (cl-declare (special emacspeak-wizards--shells-table))
-;;; First, remove dead buffers
+;; First, remove dead buffers
   (cl-loop
    for k being the hash-keys of emacspeak-wizards--shells-table
    unless (buffer-live-p (gethash k emacspeak-wizards--shells-table))
    do (remhash k emacspeak-wizards--shells-table))
   (let ((shells (emacspeak-wizards-get-shells))
         (v (hash-table-values emacspeak-wizards--shells-table)))
-;;; Add in live shells that are new
+;; Add in live shells that are new
     (mapc
      #'(lambda (s)
          (when (not (memq s v))
@@ -1454,7 +1454,7 @@ of the source buffer."
             s emacspeak-wizards--shells-table)))
      shells)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-shell-by-key (&optional prefix)
   "Switch to shell buffer by key. This provides a predictable
   means for switching to a specific shell buffer. When invoked
@@ -1500,7 +1500,7 @@ of the source buffer."
 (defvar-local emacspeak-wizards--project-shell-directory "~/"
   "Default directory for a given project shell.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-project-shells-initialize ()
   "Create shells per `emacspeak-wizards-project-shells'."
   (cl-declare (special emacspeak-wizards-project-shells))
@@ -1522,7 +1522,7 @@ of the source buffer."
   (emacspeak-auditory-icon 'task-done)
   (message (abbreviate-file-name default-directory)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-shell-directory-reset ()
   "Set current directory to this shell's initial directory if one was defined."
   (interactive)
@@ -1607,7 +1607,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
     (dolist (buf (cdr (buffer-list (selected-frame))))
       (when (with-current-buffer buf (eq mode major-mode))
         (throw 'cl-loop buf)))))
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-cycle-to-previous-buffer ()
   "Cycles to previous buffer having same mode."
   (interactive)
@@ -1617,7 +1617,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
       (funcall-interactively #'pop-to-buffer prev))
      (t (error "No previous buffer in mode %s" major-mode)))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-cycle-to-next-buffer ()
   "Cycles to next buffer having same mode."
   (interactive)
@@ -1630,7 +1630,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
 ;;}}}
 ;;{{{ Start or switch to term:
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-term (create)
   "Switch to an ansi-term buffer or create one.
 With prefix arg, always creates a new terminal.
@@ -1682,7 +1682,7 @@ term if needed."
                        emacspeak-wizards-espeak-voices-alist)
       emacspeak-wizards-espeak-voices-alist))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-espeak-string (string)
   "Speak string in lang via ESpeak.
 Lang is obtained from property `lang' on string, or via an
@@ -1698,7 +1698,7 @@ interactive prompt."
     (shell-command
      (format "espeak -v %s '%s'" lang string))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-espeak-region (start end)
   "Speak region using ESpeak polyglot wizard."
   (interactive "r")
@@ -1713,7 +1713,7 @@ interactive prompt."
       (skip-syntax-forward " ")
       (setq start (point)))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-espeak-line ()
   "Speak line using espeak polyglot wizard."
   (interactive)
@@ -1735,7 +1735,7 @@ interactive prompt."
            (push s result))))
     result))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-enumerate-uncovered-commands (pattern &optional bound)
   "Enumerate unadvised commands matching pattern.
 Optional interactive prefix arg `bound'
@@ -1757,7 +1757,7 @@ filters out commands that dont have an active key-binding."
     (sort result
           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
   "Enumerate unmapped faces matching pattern."
   (interactive "sPattern:")
@@ -1841,7 +1841,7 @@ mapped to voices."
 ;;}}}
 ;;{{{ Run shell command on current file:
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-shell-command-on-current-file (command)
   "Prompts for and runs shell command on current file."
   (interactive (list (read-shell-command "Command: ")))
@@ -1875,13 +1875,13 @@ mapped to voices."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-line))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-this-mode ()
   "Buffer menu filtered by  mode of current-buffer."
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode major-mode))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-m-player-mode ()
   "Buffer menu filtered by  m-player mode."
   (interactive)
@@ -1896,7 +1896,7 @@ mapped to voices."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-line))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
   "Display list of  EWW buffers."
   (interactive)
@@ -1904,7 +1904,7 @@ mapped to voices."
 ;;}}}
 ;;{{{ TuneIn:
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-tune-in-radio-browse (&optional category)
   "Browse Tune-In Radio.
 Optional interactive prefix arg `category' prompts for a category."
@@ -1913,7 +1913,7 @@ Optional interactive prefix arg `category' prompts for a category."
   (let ((name (if category "RadioTime Categories" "RadioTime Browser")))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-tune-in-radio-search ()
   "Search Tune-In Radio."
   (interactive)
@@ -1924,9 +1924,9 @@ Optional interactive prefix arg `category' prompts for a category."
 ;;}}}
 ;;{{{ alpha-vantage: Stock Quotes
 
-;;; alpha-vantage:
-;;; API Key: https://www.alphavantage.co/support/#api-key
-;;; API Documentation: https://www.alphavantage.co/documentation/
+;; alpha-vantage:
+;; API Key: https://www.alphavantage.co/support/#api-key
+;; API Documentation: https://www.alphavantage.co/documentation/
 
 (defcustom emacspeak-wizards-alpha-vantage-api-key nil
   "API Key  used to retrieve stock data from alpha-vantage.
@@ -1999,11 +1999,11 @@ access to the various functions provided by alpha-vantage."
 
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
-;;; Moving from iextrading to iexcloud.
-;;; This service is the new iextrading, but needs an API key.
-;;; The service still has a free tier that should be sufficient for
-;;; Emacspeak users.
-;;; API Docs at https://iexcloud.io/docs/api/
+;; Moving from iextrading to iexcloud.
+;; This service is the new iextrading, but needs an API key.
+;; The service still has a free tier that should be sufficient for
+;; Emacspeak users.
+;; API Docs at https://iexcloud.io/docs/api/
 
 (defcustom emacspeak-iex-api-key nil
   "Web API  key for IEX Finance access.
@@ -2304,8 +2304,8 @@ Optional interactive prefix arg refreshes cache."
      'emacspeak-table-speak-column-header-and-element)
     (funcall-interactively #'emacspeak-table-goto 1 2)))
 
-;;; Top-Level Dispatch:
-;;;###autoload
+;; Top-Level Dispatch:
+;;###autoload
 (defun emacspeak-wizards-quote (&optional refresh)
   "Top-level dispatch for  Stock Market information.
 
@@ -2329,7 +2329,7 @@ t   :  tops/last
                                refresh))
     (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
     (otherwise (error "Invalid key"))))
-;;; Define emacspeak-wizards-iex-this-news and friends
+;; Define emacspeak-wizards-iex-this-news and friends
 (cl-loop
  for n in
  '(financials news price) do
@@ -2455,7 +2455,7 @@ Optional interactive prefix arg shows  unprocessed results."
    (apply #'color-srgb-to-lab (color-name-to-rgb c1))
    (apply #'color-srgb-to-lab (color-name-to-rgb c2))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-set-colors ()
   "Prompt for foreground and background colors."
   (interactive)
@@ -2465,7 +2465,7 @@ Optional interactive prefix arg shows  unprocessed results."
     (set-foreground-color fg)
     (emacspeak-wizards-color-diff-at-point)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-color-diff-at-point (&optional set)
   "Speak difference between background and foreground color at point.
 With interactive prefix arg, set foreground and background color first."
@@ -2519,14 +2519,14 @@ Otherwise just return  `color'."
     (emacspeak-auditory-icon 'select-object)
     (call-interactively #'emacspeak-wizards-frame-colors)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-colors ()
   "Display list of colors and setup a callback to activate color
 under point as either the foreground or background color."
   (interactive)
   (list-colors-display nil nil '#'emacspeak-wizards--set-color))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-color-at-point ()
   "Echo foreground/background color at point."
   (interactive)
@@ -2597,7 +2597,7 @@ under point as either the foreground or background color."
           (propertize msg 'face `(:foreground ,fg :background ,hexcol)))
     msg))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-color-wheel (start)
   "Manipulate a simple color wheel and display the name and shade
   of the resulting color.  Prompts for a color from which to
@@ -2727,7 +2727,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 ;;}}}
 ;;{{{ Swap Foreground And Background:
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-swap-fg-and-bg ()
   "Swap foreground and background."
   (interactive)
@@ -2740,8 +2740,8 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
 
-;;; For use from etc/emacs-pipe.pl
-;;; Above can be used as a printer command in XTerm
+;; For use from etc/emacs-pipe.pl
+;; Above can be used as a printer command in XTerm
 
 (defun emacspeak-wizards-pipe ()
   "convenience function"
@@ -2762,9 +2762,9 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 ;;}}}
 ;;{{{ Customize Saved Settings  By Pattern:
 
-;;; Emacs' built-in customize-saved can be slow if the saved
-;;; customizations are many. This function allows one to clean-up
-;;; saved settings in smaller groups by specifying a pattern to match.
+;; Emacs' built-in customize-saved can be slow if the saved
+;; customizations are many. This function allows one to clean-up
+;; saved settings in smaller groups by specifying a pattern to match.
 
 (defun emacspeak-wizards-customize-saved (pattern)
   "Customize saved options matching `pattern'.  This command enables
@@ -2800,12 +2800,12 @@ updating custom settings for a specific package or group of packages."
   (let-alist geo
     (format "%s%.4f,%.4f" ems--noaa-grid-endpoint .lat .lng)))
 
-;;; NOAA: format time
-;;; NOAA data has a ":" in tz
+;; NOAA: format time
+;; NOAA data has a ":" in tz
 
 (defsubst ems--noaa-time (fmt iso)
   "Utility function to correctly format ISO date-time strings from NOAA."
-;;; first strip offending ":" in tz
+;; first strip offending ":" in tz
   (when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
     (setq iso (concat (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
@@ -2843,7 +2843,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (erase-buffer)
       (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
-;;; produce Daily forecast
+;; produce Daily forecast
       (let-alist (g-json-from-url url)
         (insert
          (format "* Forecast At %s For %s\n\n"
@@ -2879,7 +2879,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (goto-char (point-min)))
     buffer))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-noaa-weather (&optional ask)
   "Display weather  using NOAA Weather API.
 Data is retrieved only once, subsequent calls switch to previously
@@ -2930,7 +2930,7 @@ external package."
 ;;{{{ Google Newspaper:
 (declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-google-news ()
   "Clean up news.google.com."
   (interactive)
@@ -2945,7 +2945,7 @@ external package."
    "https://news.google.com"
    'speak))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-google-headlines ()
   "Display just the headlines from Google News."
   (interactive)
@@ -2954,9 +2954,9 @@ external package."
 ;;}}}
 ;;{{{ Use Threads To Call Command Asynchronously:
 
-;;; Experimental: Handle with care.
+;; Experimental: Handle with care.
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-execute-asynchronously (key)
   "Read key-sequence, then execute its command on a new thread."
   (interactive (list (read-key-sequence "Key Sequence: ")))
@@ -3026,7 +3026,7 @@ Works best when you already are ssh-impel-ed in and have a talking
 
 ;;}}}
 ;;{{{ describe-voice at point:
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-describe-voice(personality)
   "Describe  voice --- analogous to \\[describe-face].
 When called interactively, `personality' defaults to first
@@ -3066,7 +3066,7 @@ personality at point. "
 ;;}}}
 ;;{{{ tex utils:
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-end-of-word (arg)
   "move to end of word"
   (interactive "P")
@@ -3074,21 +3074,21 @@ personality at point. "
       (forward-word arg)
     (forward-word 1)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-comma-at-end-of-word ()
   "Move to the end of current word and add a comma."
   (interactive)
   (forward-word 1)
   (insert-char ?,))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-lacheck-buffer-file ()
   "Run Lacheck on current buffer."
   (interactive)
   (compile (format "lacheck %s"
                    (buffer-file-name (current-buffer)))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-tex-tie-current-word (n)
   "Tie the next n  words."
   (interactive "P")
@@ -3104,7 +3104,7 @@ personality at point. "
 ;;}}}
 ;;{{{Snarf contents of a delimiter
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-wizards-snarf-sexp (&optional delete)
   "Snarf the contents between delimiters at point.
 Optional interactive prefix arg deletes it."
@@ -3153,9 +3153,9 @@ Optional interactive prefix arg deletes it."
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; byte-compile-warnings: (noruntime )
-;;; end:
+;; local variables:
+;; folded-file: t
+;; byte-compile-warnings: (noruntime )
+;; end:
 
 ;;}}}

@@ -1,6 +1,6 @@
 ;;; analog.el --- monitor lists of files or command output
 
-;;; Copyright (C) 2000, 2001 Matthew P. Hodges
+;; Copyright (C) 2000, 2001 Matthew P. Hodges
 
 ;; Author: Matthew P. Hodges <pczmph@unix.ccc.nottingham.ac.uk>
 ;; Version: $Id: analog.el,v 1.13 2001/03/24 12:07:57 matt Exp $

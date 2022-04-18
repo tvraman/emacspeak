@@ -1,100 +1,100 @@
 ;;; soundscape.el -- Soundscapes for The Emacspeak Desktop  -*- lexical-binding: t; -*-
-;;; Description:  Soundscapes Using Boodler
-;;; Keywords: Emacspeak,  Audio Desktop Soundscapes
+;; Description:  Soundscapes Using Boodler
+;; Keywords: Emacspeak,  Audio Desktop Soundscapes
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; Soundscapes @url{https://en.wikipedia.org/wiki/Soundscape}
-;;; define an acoustic environment.
-;;; Boodler  at @url{http://boodler.org} is a
-;;; Python-based SoundScape generator.
-;;; To use this module, first install boodler.
-;;; Then install the soundscape packages (*.boop) files available
-;;; at @url{http://boodler.org/lib}.
-;;; Make sure boodler works and produces audio in your environment.
-;;; finally install the Boodler packages  from
-;;; emacspeak/scapes from the Emacspeak GitHub repository by running
-;;; @code{cd emacspeak/scapes; make }
-;;; 
-;;; When  boodler is set up and all packages installed, copy
-;;; file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
-;;; The above file lists all installed SoundScapes.
-;;; Directory emacspeak/scapes also contains
-;;; additional Boodler Agents and SoundScapes  that
-;;; I have created for use with Emacspeak.
-;;; 
-;;;  Module soundscape.el  defines Emacs conveniences for running
-;;; Soundscapes. Main Entry Points:
-;;; 
-;;; @itemize
-;;; @item M-x soundscape-toggle -- Enables or
-;;; disables automatic SoundScapes.
-;;; @item M-x soundscape --
-;;; runs a named SoundScape
-;;; @item M-x soundscape-stop -- Stops a specified running Soundscape.
-;;; @item M-x soundscape-kill -- Kills all running Soundscapes.
-;;; @end itemize
-;;; 
-;;; When automatic Soundscapes are enabled, SoundScapes are
-;;;  started and stopped based on the current major
-;;; mode. Active Soundscape  are displayed as part of the minor-mode-alist.
-;;; Command emacspeak-speak-minor-mode-line can be used to have this spoken.
-;;; 
-;;; Thus, SoundScapes can be thought of as reflecting the
-;;; @emph{mood} of the current @emph{mode}.
-;;; This package defines a single @var{soundscape-default-theme}
-;;; that is loaded using @code{(soundscape-load soundscape-default-theme)}.
-;;; Emacs modes that provide similar functionality e.g.,
-;;; communication == email, IM, ... map to  the same @emph{mood}.
+;; Soundscapes @url{https://en.wikipedia.org/wiki/Soundscape}
+;; define an acoustic environment.
+;; Boodler  at @url{http://boodler.org} is a
+;; Python-based SoundScape generator.
+;; To use this module, first install boodler.
+;; Then install the soundscape packages (*.boop) files available
+;; at @url{http://boodler.org/lib}.
+;; Make sure boodler works and produces audio in your environment.
+;; finally install the Boodler packages  from
+;; emacspeak/scapes from the Emacspeak GitHub repository by running
+;; @code{cd emacspeak/scapes; make }
+;; 
+;; When  boodler is set up and all packages installed, copy
+;; file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
+;; The above file lists all installed SoundScapes.
+;; Directory emacspeak/scapes also contains
+;; additional Boodler Agents and SoundScapes  that
+;; I have created for use with Emacspeak.
+;; 
+;;  Module soundscape.el  defines Emacs conveniences for running
+;; Soundscapes. Main Entry Points:
+;; 
+;; @itemize
+;; @item M-x soundscape-toggle -- Enables or
+;; disables automatic SoundScapes.
+;; @item M-x soundscape --
+;; runs a named SoundScape
+;; @item M-x soundscape-stop -- Stops a specified running Soundscape.
+;; @item M-x soundscape-kill -- Kills all running Soundscapes.
+;; @end itemize
+;; 
+;; When automatic Soundscapes are enabled, SoundScapes are
+;;  started and stopped based on the current major
+;; mode. Active Soundscape  are displayed as part of the minor-mode-alist.
+;; Command emacspeak-speak-minor-mode-line can be used to have this spoken.
+;; 
+;; Thus, SoundScapes can be thought of as reflecting the
+;; @emph{mood} of the current @emph{mode}.
+;; This package defines a single @var{soundscape-default-theme}
+;; that is loaded using @code{(soundscape-load soundscape-default-theme)}.
+;; Emacs modes that provide similar functionality e.g.,
+;; communication == email, IM, ... map to  the same @emph{mood}.
 ;;; Code:
 
-;;; Automatic switching of soundscapes happens by sending a message to a UNIX domain socket in /tmp.
-;;; This socket is created by Boodler on startup 
-;;; ls /tmp/soundscape* to find the named pipe.
-;;; To make sure the listener works correctly in your environment, 
-;;;  try this in a shell:
-;;; nc -U <name-of-socket>
-;;; soundscape 1
-;;; Above will switch to the first scape.
-;;; soundscape 1 2 3 
-;;; Will turn   on first three scapes.
-;;; soundscape 0
-;;;  Turns on null soundscape to give silence.
+;; Automatic switching of soundscapes happens by sending a message to a UNIX domain socket in /tmp.
+;; This socket is created by Boodler on startup 
+;; ls /tmp/soundscape* to find the named pipe.
+;; To make sure the listener works correctly in your environment, 
+;;  try this in a shell:
+;; nc -U <name-of-socket>
+;; soundscape 1
+;; Above will switch to the first scape.
+;; soundscape 1 2 3 
+;; Will turn   on first three scapes.
+;; soundscape 0
+;;  Turns on null soundscape to give silence.
 
 ;;}}}
 ;;{{{  Required modules
@@ -211,7 +211,7 @@ Default is to return NullAgent if name not found."
 (defvar soundscape-processes (make-hash-table :test #'equal)
   "Hash table of running Soundscapes indexed by Soundscape path.")
 
-;;;###autoload
+;;###autoload
 (defun soundscape (scape)
   "Play soundscape."
   (interactive (list (soundscape-read)))
@@ -411,7 +411,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
                (string= name  (car pair)))
            soundscape-default-theme)))
 
-;;;###autoload
+;;###autoload
 (defun soundscape-init ()
   "Initialize Soundscape."
   (soundscape-catalog)
@@ -420,7 +420,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
                   minor-mode-alist)
     (push   '(soundscape--auto (:eval (soundscape-current))) minor-mode-alist)))
 
-;;;###autoload
+;;###autoload
 (defun soundscape-listener  (&optional restart)
   "Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
@@ -530,11 +530,11 @@ Optional interactive prefix arg `force' skips optimization checks."
   (setq soundscape--last-mode major-mode)
   (soundscape-sync major-mode 'force))
 
-;;; Advice on select-window, force-mode-line-update etc fire too often.
-;;; Ditto with buffer-list-update-hook
-;;; Running on an idle timer 
-;;;  soundscape-delay (default is 0.1)
-;;;   triggers fewer spurious changes than running on advice.
+;; Advice on select-window, force-mode-line-update etc fire too often.
+;; Ditto with buffer-list-update-hook
+;; Running on an idle timer 
+;;  soundscape-delay (default is 0.1)
+;;   triggers fewer spurious changes than running on advice.
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
@@ -549,7 +549,7 @@ before soundscapes are synchronized with current mode."
   :type 'float
   :group 'soundscape)
 
-;;;###autoload
+;;###autoload
 (defun soundscape-toggle ()
   "Toggle automatic SoundScapes.
 Run command \\[soundscape-theme] to see the default mode->mood mapping."
@@ -647,8 +647,8 @@ The  is then saved to soundscape-device for future use."
 (provide 'soundscape)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

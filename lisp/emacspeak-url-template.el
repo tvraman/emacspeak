@@ -1,54 +1,54 @@
 ;;; emacspeak-url-template.el --- Create library of URI templates -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: Implement library of URI templates
-;;; Keywords: Emacspeak, Audio Desktop
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: Implement library of URI templates
+;; Keywords: Emacspeak, Audio Desktop
 ;;{{{ LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-14 11:23:31 -0700 (Thu, 14 Aug 2008) $ |
-;;; $Revision: 4626 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-14 11:23:31 -0700 (Thu, 14 Aug 2008) $ |
+;; $Revision: 4626 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING. If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING. If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ Introduction:
 
 ;;; Commentary:
 
-;;; It is often useful to have ``parametrized hot list entries''
-;;; i.e., hotlist entries that are ``templates'' for the
-;;; actual URL.
-;;; The user provides values for the parametrized portions
-;;; of the URL e.g. the date.
-;;; See @xref{URL Templates}, for details on the URL templates
-;;; that are presently defined.
+;; It is often useful to have ``parametrized hot list entries''
+;; i.e., hotlist entries that are ``templates'' for the
+;; actual URL.
+;; The user provides values for the parametrized portions
+;; of the URL e.g. the date.
+;; See @xref{URL Templates}, for details on the URL templates
+;; that are presently defined.
 
 ;;; Code:
 
@@ -110,7 +110,7 @@
   (cl-declare (special emacspeak-url-template-table))
   (setf (gethash key emacspeak-url-template-table) ut))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-url-template-get (key)
   "Lookup key and return corresponding template. "
   (cl-declare (special emacspeak-url-template-table))
@@ -189,7 +189,7 @@ dont-url-encode if true then url arguments are not url-encoded "
       (kill-buffer buffer))))
 
 ;;}}}
-;;; template resources
+;; template resources
 ;;{{{ amazon
 
 (emacspeak-url-template-define
@@ -290,7 +290,7 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-speak-rest-of-buffer))
  "Light-weight Google search.")
 
-;;; forward declaration:
+;; forward declaration:
 (defvar gmaps-my-zip nil)
 (emacspeak-url-template-define
  "Google Weather"
@@ -600,7 +600,7 @@ name of the list.")
 ;;}}}
 ;;{{{ MLB scores
 (declare-function emacspeak-wizards-mlb-standings  "emacspeak-wizards" nil)
-;;; standings:
+;; standings:
 
 (emacspeak-url-template-define
  "MLB Scorecard"
@@ -911,7 +911,7 @@ Format is stationid+AM/FM."
 
 ;;}}}
 ;;{{{ TuneIn: streamId->URL
-;;; wget -O t    "http://stream.radiotime.com/listen.stream?streamIds=4299203"
+;; wget -O t    "http://stream.radiotime.com/listen.stream?streamIds=4299203"
 (emacspeak-url-template-define
  "TuneIn Radio"
  "http://opml.radiotime.com/Tune.ashx?id=%s"
@@ -1005,7 +1005,7 @@ Format is stationid+AM/FM."
 ;;}}}
 ;;{{{ Interactive commands
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
   (cl-declare (special emacspeak-eww-post-process-hook))
@@ -1040,7 +1040,7 @@ to specified name for use as a callback."
         (cl-declare (special emacspeak-eww-url-template))
         (setq emacspeak-eww-url-template ',name))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
 Use Emacs completion to obtain a list of available resources.
@@ -1383,8 +1383,8 @@ template."
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

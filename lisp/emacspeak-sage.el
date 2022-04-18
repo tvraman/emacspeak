@@ -1,50 +1,50 @@
 ;;; emacspeak-sage.el --- Speech-enable SAGE  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable SAGE An Emacs Interface to sage
-;;; Keywords: Emacspeak,  Audio Desktop sage
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable SAGE An Emacs Interface to sage
+;; Keywords: Emacspeak,  Audio Desktop sage
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNSAGE FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNSAGE FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; Speech-enable @code{sage-shell-mode}.
-;;; This is a major mode for interacting with @code{sage},
-;;;  @url{http://www.sagemath.org/}
-;;; An Open-source  Mathematical Software System.
+;; Speech-enable @code{sage-shell-mode}.
+;; This is a major mode for interacting with @code{sage},
+;;  @url{http://www.sagemath.org/}
+;; An Open-source  Mathematical Software System.
 
 ;;; Code:
 
@@ -88,7 +88,7 @@
      ((eq major-mode 'sage-shell-mode) (say-it))
      ((eq major-mode 'sage-shell:sage-mode)
       (cl-assert   (sage-shell-edit:process-alist) t "No running Sage.")
-;;; Take the first one for now:
+;; Take the first one for now:
       (with-current-buffer
           (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
         (say-it))))))
@@ -272,7 +272,7 @@
      (format "%s" (symbol-at-point)))))
   (cl-assert (eq  major-mode  'sage-shell:sage-mode) t "Not in a Sage buffer")
   (cl-assert   (sage-shell-edit:process-alist) t "No running Sage.")
-;;; Take the first one for now:
+;; Take the first one for now:
   (with-current-buffer
       (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
     (sage-shell-help:describe-symbol s)))
@@ -294,8 +294,8 @@
 (provide 'emacspeak-sage)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

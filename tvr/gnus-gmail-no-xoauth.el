@@ -1,6 +1,6 @@
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
-;;; GMail without 2-factor
-;;; This module sets things up for GMail.
+;; GMail without 2-factor
+;; This module sets things up for GMail.
 
 ;;{{{ Requires:
 
@@ -14,7 +14,7 @@
      ;;}}}
      ;;{{{ Sending Mail:
 
-;;;  Set send-mail-function via custom.
+;;  Set send-mail-function via custom.
      (setq
                                         ;smtpmail-debug-info t
                                         ;smtpmail-debug-verb t
@@ -72,8 +72,8 @@ This moves them into the Spam folder."
      ))
 
 ;;{{{ Utils:
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

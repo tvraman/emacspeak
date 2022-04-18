@@ -1,48 +1,48 @@
 ;;; dectalk-voices.el --- Define various device independent voices in terms of Dectalk codes  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Module to set up Dectalk voices and personalities
-;;; Keywords: Voice, Personality, Dectalk
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Module to set up Dectalk voices and personalities
+;; Keywords: Voice, Personality, Dectalk
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; This module defines the various voices used in voice-lock mode.
-;;; This module is Dectalk specific.
+;; This module defines the various voices used in voice-lock mode.
+;; This module is Dectalk specific.
 ;;; Code:
 
 ;;}}}
@@ -67,7 +67,7 @@
 ;;}}}
 ;;{{{  Top-level TTS  switcher
 
-;;;###autoload
+;;###autoload
 (defun dectalk ()
   "Dectalk TTS."
   (interactive)
@@ -79,7 +79,7 @@
 ;;}}}
 ;;{{{ Forward declarations:
 
-;;; From dtk-speak.el:
+;; From dtk-speak.el:
 
 (defvar tts-default-speech-rate)
 
@@ -117,7 +117,7 @@
 ;;}}}
 ;;{{{ voice definitions
 
-;;; the nine predefined voices:
+;; the nine predefined voices:
 (dectalk-define-voice 'paul "[:np ]")
 
 ;;}}}
@@ -170,12 +170,12 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  average pitch
 
-;;; Average pitch for standard male voice is 122hz --this is mapped to
-;;; a setting of 5.
-;;; Average pitch varies inversely with speaker head size --a child
-;;; has a small head and a higher pitched voice.
-;;; We change parameter head-size in conjunction with average pitch to
-;;; produce a more natural change on the Dectalk.
+;; Average pitch for standard male voice is 122hz --this is mapped to
+;; a setting of 5.
+;; Average pitch varies inversely with speaker head size --a child
+;; has a small head and a higher pitched voice.
+;; We change parameter head-size in conjunction with average pitch to
+;; produce a more natural change on the Dectalk.
 
 ;;{{{  paul average pitch
 
@@ -218,12 +218,12 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  pitch range
 
-;;;  Standard pitch range is 100 and is  mapped to
-;;; a setting of 5.
-;;; A value of 0 produces a flat monotone voice --maximum value of 250
-;;; produces a highly animated voice.
-;;; Additionally, we also set the assertiveness of the voice so the
-;;; voice is less assertive at lower pitch ranges.
+;;  Standard pitch range is 100 and is  mapped to
+;; a setting of 5.
+;; A value of 0 produces a flat monotone voice --maximum value of 250
+;; produces a highly animated voice.
+;; Additionally, we also set the assertiveness of the voice so the
+;; voice is less assertive at lower pitch ranges.
 ;;{{{  paul pitch range
 
 (let ((table (make-vector 10 "")))
@@ -261,15 +261,15 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  stress
 
-;;; On the Dectalk we vary four parameters
-;;; The hat rise which controls the overall shape of the F0 contour
-;;; for sentence level intonation and stress,
-;;; The stress rise that controls the level of stress on stressed
-;;; syllables,
-;;; the baseline fall for paragraph level intonation
-;;; and the quickness --a parameter that controls whether the final
-;;; frequency targets are completely achieved in the phonetic
-;;; transitions.
+;; On the Dectalk we vary four parameters
+;; The hat rise which controls the overall shape of the F0 contour
+;; for sentence level intonation and stress,
+;; The stress rise that controls the level of stress on stressed
+;; syllables,
+;; the baseline fall for paragraph level intonation
+;; and the quickness --a parameter that controls whether the final
+;; frequency targets are completely achieved in the phonetic
+;; transitions.
 ;;{{{  paul stress
 
 (let ((table (make-vector 10 "")))
@@ -308,9 +308,9 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  richness
 
-;;; Smoothness and richness vary inversely.
-;;; a  maximally smooth voice produces a quieter effect
-;;; a rich voice is "bright" in contrast.
+;; Smoothness and richness vary inversely.
+;; a  maximally smooth voice produces a quieter effect
+;; a rich voice is "bright" in contrast.
 ;;{{{  paul richness
 
 (let ((table (make-vector 10 "")))
@@ -367,7 +367,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ configurater
 
-;;;###autoload
+;;###autoload
 (defun dectalk-configure-tts ()
   "Configures   to use Dectalk."
   (cl-declare (special  dectalk-default-speech-rate
@@ -390,8 +390,8 @@ and TABLE gives the values along that dimension."
 (provide 'dectalk-voices)
 ;;{{{  emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

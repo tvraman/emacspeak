@@ -1,10 +1,10 @@
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
-;;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
-;;; Uses auth-source-xoauth2:
-;;; https://github.com/ccrusius/auth-source-xoauth2
-;;; That module extends Emacs' auth-source with xoauth2 support.
-;;; This module sets things up for GMail.
-;;;Using  a file-based creds store.
+;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
+;; Uses auth-source-xoauth2:
+;; https://github.com/ccrusius/auth-source-xoauth2
+;; That module extends Emacs' auth-source with xoauth2 support.
+;; This module sets things up for GMail.
+;;Using  a file-based creds store.
 ;;{{{ Requires:
 
 (eval-after-load "gnus"
@@ -26,13 +26,13 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
      ;;}}}
      ;;{{{ Tests:
 
-;;; (auth-source-xoauth2--search nil nil "gmail" "raman@google.com""993")
-;;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
+;; (auth-source-xoauth2--search nil nil "gmail" "raman@google.com""993")
+;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
 
      ;;}}}
      ;;{{{ Sending Mail:
 
-;;;  Set send-mail-function via custom.
+;;  Set send-mail-function via custom.
      (setq
                                         ;smtpmail-debug-info t
                                         ;smtpmail-debug-verb t
@@ -122,8 +122,8 @@ This moves them into the Spam folder."
     (plist-get app-secret :client-secret))))
 
 ;;; Usage:
-;;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" file-app-secrets)
-;;;(google-py-oauth2-cli "emacspeak@gmail.com" file-app-secrets)
+;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" file-app-secrets)
+;;(google-py-oauth2-cli "emacspeak@gmail.com" file-app-secrets)
 
 
 (defadvice auth-source-xoauth2--file-creds (around emacspeak pre act comp)
@@ -132,13 +132,13 @@ This moves them into the Spam folder."
     ad-do-it
     ad-return-value))
 
-;;; For message.el in emacs 28
+;; For message.el in emacs 28
 (with-eval-after-load "message"
   (push 'signature message-shoot-gnksa-feet))
 
 (provide 'file-xoauth2)
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

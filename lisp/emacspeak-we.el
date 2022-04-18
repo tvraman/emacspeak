@@ -1,53 +1,53 @@
 ;;; emacspeak-we.el --- Transform Web Pages Using XSLT  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Edit/Transform Web Pages using XSLT
-;;; Keywords: Emacspeak,  Audio Desktop Web, XSLT
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Edit/Transform Web Pages using XSLT
+;; Keywords: Emacspeak,  Audio Desktop Web, XSLT
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-04 09:12:03 -0700 (Mon, 04 Aug 2008) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-04 09:12:03 -0700 (Mon, 04 Aug 2008) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; we is for webedit
-;;; Invoke XSLT to edit/transform Web pages before they get
-;;; rendered.
-;;; we makes emacspeak's webedit layer independent of a given
-;;; Emacs web browser  EWW
-;;; This module will use the abstraction provided by browse-url
-;;; to handle Web pages.
+;; we is for webedit
+;; Invoke XSLT to edit/transform Web pages before they get
+;; rendered.
+;; we makes emacspeak's webedit layer independent of a given
+;; Emacs web browser  EWW
+;; This module will use the abstraction provided by browse-url
+;; to handle Web pages.
 
 
 
@@ -77,7 +77,7 @@
 
 ;;}}}
 ;;{{{ URL Rewrite:
-;;; forward decl to help compiler 
+;; forward decl to help compiler 
 (defvar emacspeak-eww-url-at-point)
 
 (defun emacspeak-we-url-rewrite-and-follow (&optional prompt)
@@ -109,7 +109,7 @@ a rewrite rule even if one is already defined."
 
 ;;}}}
 ;;{{{ url expand and execute
-;;;###autoload
+;;###autoload
 (defvar emacspeak-we-url-executor nil
   "URL expand/execute function  to use in current buffer.")
 
@@ -142,7 +142,7 @@ a rewrite rule even if one is already defined."
 
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
-;;;###autoload
+;;###autoload
 (define-prefix-command 'emacspeak-we-xsl-map)
 
 (defvar emacspeak-we-xsl-filter
@@ -155,23 +155,23 @@ a rewrite rule even if one is already defined."
 (defgroup emacspeak-we nil
   "Emacspeak WebEdit"
   :group 'emacspeak)
-;;;###autoload
+;;###autoload
 (defvar emacspeak-we-xsl-p nil
   "T means we apply XSL before displaying HTML.")
-;;;###autoload
+;;###autoload
 (defvar emacspeak-we-xsl-transform
   nil
   "Specifies transform to use before displaying a page.
 Default is to apply sort-tables.")
 
-;;;###autoload
+;;###autoload
 (defvar emacspeak-we-xsl-params nil
   "XSL params if any to pass to emacspeak-xslt-region.")
 
-;;; Note that emacspeak-we-xsl-transform, emacspeak-we-xsl-params
-;;; and emacspeak-we-xsl-p
-;;; need to be set at top-level since the page-rendering code is
-;;; called asynchronously.
+;; Note that emacspeak-we-xsl-transform, emacspeak-we-xsl-params
+;; and emacspeak-we-xsl-p
+;; need to be set at top-level since the page-rendering code is
+;; called asynchronously.
 
 (defvar emacspeak-we-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes.")
@@ -259,7 +259,7 @@ Default is to apply sort-tables.")
   :type  'boolean
   :group 'emacspeak-we)
 (declare-function emacspeak-eww-reading-settings "emacspeak-eww")
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-xslt-filter (path    url  &optional _speak)
   "Extract elements matching specified XPath path locator
 from Web page -- default is the current page being viewed."
@@ -334,7 +334,7 @@ Each filter is a list of the form
           pattern)))
     (emacspeak-we-xslt-filter filter url speak)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-nested-table (index   url &optional speak)
   "Extract nested table specified by `table-index'. Default is to
 operate on current web page when in a browser buffer; otherwise
@@ -384,7 +384,7 @@ Empty value finishes the list."
         (setq done t)))
     result))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-nested-table-list (tables url &optional speak)
   "Extract specified list of tables from a Web page."
   (interactive
@@ -400,7 +400,7 @@ Empty value finishes the list."
           " | ")))
     (emacspeak-we-xslt-filter filter url speak)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-table-by-position (pos   url
                                                      &optional speak)
   "Extract table at specified pos.
@@ -416,7 +416,7 @@ Default is to extract from current page."
    url
    speak))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-tables-by-position-list (positions url &optional speak)
   "Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
@@ -438,7 +438,7 @@ Tables are specified by their position in the list
      (or (called-interactively-p 'interactive)
          speak))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-table-by-match (match   url &optional speak)
   "Extract table containing  specified match.
  Optional arg url specifies the page to extract content from."
@@ -454,7 +454,7 @@ Tables are specified by their position in the list
    (or (called-interactively-p 'interactive)
        speak)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-tables-by-match-list (match-list
                                                   url &optional speak)
   "Extract specified  tables from a WWW page.
@@ -553,7 +553,7 @@ Tables are specified by containing  match pattern
                  ',(copy-sequence values)))))
     (kill-buffer content)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-by-class (class    url &optional speak)
   "Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -595,7 +595,7 @@ buffer. Interactive use provides list of role values as completion."
                               (or (called-interactively-p 'interactive)
                                   speak))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-junk-by-class (class    url &optional speak)
   "Extract elements not having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -648,7 +648,7 @@ Empty value finishes the list."
         (setq done t)))
     result))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-by-class-list(classes   url &optional
                                                     speak)
   "Extract elements having class specified in list `classes' from HTML.
@@ -671,7 +671,7 @@ values as completion. "
      (format "//*[%s]" filter)
      url
      (or (called-interactively-p 'interactive) speak))))
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-junk-by-class-list(classes   url &optional
                                                  speak)
   "Extract elements not having class specified in list `classes' from HTML.
@@ -695,7 +695,7 @@ values as completion. "
      url
      (or (called-interactively-p 'interactive) speak))))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-by-id (id   url &optional speak)
   "Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -714,7 +714,7 @@ Interactive use provides list of id values as completion."
    url
    speak))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-extract-by-id-list(ids   url &optional speak)
   "Extract elements having id specified in list `ids' from HTML.
 Extracts specified elements from current WWW page and displays it in a
@@ -736,7 +736,7 @@ separate buffer. Interactive use provides list of id values as completion. "
      (or (called-interactively-p 'interactive)
          speak))))
 
-;;;###autoload
+;;###autoload
 (defvar emacspeak-we-url-rewrite-rule nil
   "URL rewrite rule to use in current buffer.")
 
@@ -746,7 +746,7 @@ separate buffer. Interactive use provides list of id values as completion. "
 
 (make-variable-buffer-local 'emacspeak-we-class-filter)
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-class-filter-and-follow (class url &optional _prompt)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
@@ -783,7 +783,7 @@ used as well."
 
 (make-variable-buffer-local 'emacspeak-we-id-filter)
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-follow-and-filter-by-id (id _prompt)
   "Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
@@ -815,7 +815,7 @@ used as well."
      (or redirect url)
      'speak)))
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-style-filter (style   url &optional speak)
   "Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
@@ -833,7 +833,7 @@ specifies the page to extract contents  from."
 
 ;;}}}
 ;;{{{ xpath  filter
-;;;###autoload
+;;###autoload
 (defvar emacspeak-we-recent-xpath-filter
   "//p"
   "Caches most recently used xpath filter.")
@@ -853,12 +853,12 @@ urls.")
 
 (make-variable-buffer-local 'emacspeak-we-xpath-filter)
 
-;;;###autoload
+;;###autoload
 (defvar emacspeak-we-paragraphs-xpath-filter
   "//p"
   "Filter paragraphs.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-xpath-filter-and-follow (&optional prompt)
   "Follow url and point, and filter the result by specified xpath.
 XPath can be set locally for a buffer, and overridden with an
@@ -907,7 +907,7 @@ urls.")
   nil
   "Caches most recently used class filter.")
 
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-class-filter-and-follow-link (&optional prompt)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
@@ -950,7 +950,7 @@ used as well."
 (defvar emacspeak-we-recent-xpath-junk
   nil
   "Caches last XPath used to junk elements.")
-;;;###autoload
+;;###autoload
 (defun emacspeak-we-xpath-junk-and-follow (&optional prompt)
   "Follow url and point, and filter the result by junking
 elements specified by xpath.
@@ -1056,8 +1056,8 @@ used as well."
 (provide 'emacspeak-we)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

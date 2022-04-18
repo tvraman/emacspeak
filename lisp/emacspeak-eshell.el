@@ -1,50 +1,50 @@
 ;;; emacspeak-eshell.el --- Speech-enable EShell - Emacs Shell  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:   Speech-enable EShell
-;;; Keywords: Emacspeak, Audio Desktop
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:   Speech-enable EShell
+;; Keywords: Emacspeak, Audio Desktop
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman<tv.raman.tv@gmail.com>
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; EShell is a shell implemented entirely in Emacs Lisp.
-;;; It is part of emacs 21 --and can also be used under
-;;; Emacs 20.
-;;; This module speech-enables EShell
+;; EShell is a shell implemented entirely in Emacs Lisp.
+;; It is part of emacs 21 --and can also be used under
+;; Emacs 20.
+;; This module speech-enables EShell
 ;;; Code:
 
 ;;}}}
@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{  setup various EShell hooks
 
-;;; Play an auditory icon as you display the prompt
+;; Play an auditory icon as you display the prompt
 (defun emacspeak-eshell-prompt-function ()
   "Play auditory icon for prompt."
   (cl-declare (special eshell-last-command-status))
@@ -68,7 +68,7 @@
 
 (add-hook 'eshell-after-prompt-hook 'emacspeak-eshell-prompt-function)
 
-;;; Speak command output
+;; Speak command output
 
 (defun emacspeak-eshell-speak-output  ()
   "Speak eshell output."
@@ -313,8 +313,8 @@ personalities.")
 (provide 'emacspeak-eshell)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

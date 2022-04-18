@@ -1,58 +1,58 @@
 ;;; emacspeak-advice.el --- Advice Emacs Core   -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: Core advice forms that make emacspeak work
-;;; Keywords: Emacspeak, Speech, Advice, Spoken output
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: Core advice forms that make emacspeak work
+;; Keywords: Emacspeak, Speech, Advice, Spoken output
 ;;{{{ LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-18 17:52:34 -0700 (Mon, 18 Aug 2008) $ |
-;;; $Revision: 4550 $ |
-;;; Location undetermined
-;;; 
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-18 17:52:34 -0700 (Mon, 18 Aug 2008) $ |
+;; $Revision: 4550 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1995, 1996, 1997 by T. V. Raman
-;;; All Rights Reserved.
-;;; 
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;; 
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;; 
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;; 
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-;;; GNU General Public License for more details.
-;;; 
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING. If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1995, 1996, 1997 by T. V. Raman
+;; All Rights Reserved.
+;; 
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING. If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ Introduction:
 
 ;;; Commentary:
 
-;;; This module defines the advice forms for making the core of Emacs speak
-;;; Advice forms that are specific to Emacs subsystems do not belong here!
-;;; I violate this at present by advising completion.
-;;; Note that we needed to advice a lot more for Emacs 19 and
-;;; Emacs 20 than we do for Emacs 21 and Emacs 22.
-;;; As of August 2007, this file is being purged of advice forms
-;;; not needed in Emacs 22.
+;; This module defines the advice forms for making the core of Emacs speak
+;; Advice forms that are specific to Emacs subsystems do not belong here!
+;; I violate this at present by advising completion.
+;; Note that we needed to advice a lot more for Emacs 19 and
+;; Emacs 20 than we do for Emacs 21 and Emacs 22.
+;; As of August 2007, this file is being purged of advice forms
+;; not needed in Emacs 22.
 
 
 ;;; Code:
@@ -118,7 +118,7 @@
 (defvar ems--voiceify-overlays t
   "Voicify overlays")
 
-;;; Needed for  outline support:
+;; Needed for  outline support:
 (defadvice remove-overlays (around emacspeak pre act comp)
   "Clean up properties mirrored from overlays."
   (let ((ems--voiceify-overlays  nil)
@@ -387,7 +387,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (emacspeak-auditory-icon 'paragraph)
        (emacspeak-speak-paragraph)))))
 
-;;; list navigation:
+;; list navigation:
 
 (cl-loop
  for f in
@@ -827,7 +827,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
            (or context "")
            (error-message-string data)))
 
-;;; Silence messages from async handlers:
+;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
   "Silence messages from by timer events."
   (ems-with-messages-silenced ad-do-it))
@@ -1039,9 +1039,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
    (log-edit-summary voice-lighten)
    (log-edit-unknown-header voice-monotone-extra)))
 
-;;; helper function: find out vc version:
+;; helper function: find out vc version:
 
-;;; guess the vc version number from the variable used in minor mode alist
+;; guess the vc version number from the variable used in minor mode alist
 (defun emacspeak-vc-get-version-id ()
   "Return VC version id."
   (cl-declare (special vc-mode))
@@ -1375,7 +1375,7 @@ Indicate change of selection with an auditory icon
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
 
-;;; Silence help for help
+;; Silence help for help
 (defadvice help-window-display-message (around emacspeak pre act comp)
   (ems-with-messages-silenced ad-do-it))
 (cl-loop
@@ -1513,7 +1513,7 @@ Provide an auditory icon if possible."
     (emacspeak-auditory-icon 'close-object)
     (dtk-speak "Finished defining keyboard macro ")))
 
-;;; you DONT WANT TO SUSPEND EMACS WITHOUT CONFIRMATION
+;; you DONT WANT TO SUSPEND EMACS WITHOUT CONFIRMATION
 (defadvice suspend-emacs (around emacspeak pre act comp)
   "Ask for confirmation."
   (let ((confirmation (yes-or-no-p "Do you want to suspend emacs ")))
@@ -1808,7 +1808,7 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ customize isearch:
 
-;;; Fix key bindings:
+;; Fix key bindings:
 
 (cl-declaim (special isearch-mode-map
                      minibuffer-local-isearch-map emacspeak-prefix))
@@ -1817,12 +1817,12 @@ Produce an auditory icon if possible."
             emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map "\M-y" 'isearch-yank-pop)
-;;; face navigators
+;; face navigators
 (define-key isearch-mode-map (ems-kbd "C-b") 'emacspeak-speak-face-backward )
 (define-key isearch-mode-map (ems-kbd "C-f") 'emacspeak-speak-face-forward )
-;;; ISearch setup/teardown
+;; ISearch setup/teardown
 
-;;; Produce auditory icon
+;; Produce auditory icon
 (defun emacspeak-isearch-setup ()
   "Setup emacspeak isearch."
   (emacspeak-auditory-icon 'open-object)
@@ -1838,7 +1838,7 @@ Produce an auditory icon if possible."
 (add-hook 'isearch-mode-end-hook 'emacspeak-isearch-teardown)
 (add-hook 'isearch-mode-end-hook-quit 'emacspeak-isearch-teardown)
 
-;;; Advice isearch-search to speak
+;; Advice isearch-search to speak
 (defadvice isearch-search (after emacspeak pre act comp)
   "Speak the hit."
   (cond
@@ -1888,10 +1888,10 @@ Produce an auditory icon if possible."
        (dtk-speak (propertize  isearch-string 'personality voice-bolden))
        (emacspeak-auditory-icon 'item)))))
 
-;;; Note the advice on the next two toggle commands
-;;; checks the variable being toggled.
-;;; When our advice is called, emacs has not yet reflected
-;;; the newly toggled state.
+;; Note the advice on the next two toggle commands
+;; checks the variable being toggled.
+;; When our advice is called, emacs has not yet reflected
+;; the newly toggled state.
 
 (defadvice isearch-toggle-case-fold (after emacspeak pre act comp)
   "Speak"
@@ -1914,8 +1914,8 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ marking objects produces auditory icons
 
-;;; Prevent push-mark from displaying its mark set message
-;;; when called from functions that know better.
+;; Prevent push-mark from displaying its mark set message
+;; when called from functions that know better.
 
 (defadvice push-mark (around emacspeak pre act comp)
   "Never show the mark set message."
@@ -2672,8 +2672,8 @@ Produce an auditory icon if possible."
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}
