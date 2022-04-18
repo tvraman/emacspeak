@@ -212,7 +212,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (message "Turned %s pianobar electric mode."
              (if emacspeak-pianobar-electric-mode 'on 'off))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-pianobar  ()
   "Start or control Emacspeak Pianobar player."
   (interactive)

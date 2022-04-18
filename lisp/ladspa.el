@@ -75,7 +75,7 @@
 
 ;;}}}
 ;;{{{ Ladspa Setup:
-;;###autoload
+;;;###autoload
 (defconst ladspa-home
   (or (getenv "LADSPA_PATH") "/usr/lib/ladspa")
   "Installation location for Ladspa plugins.")
@@ -247,7 +247,7 @@ list of parsed ladspa-plugin structures, one per label."
   (setq buffer-read-only t)
   (setq header-line-format ladspa-header-line-format))
 
-;;###autoload
+;;;###autoload
 (defun ladspa (&optional refresh)
   "Ladspa workbench."
   (interactive "P")

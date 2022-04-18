@@ -101,7 +101,7 @@
   (expand-file-name "pipe.flac" emacspeak-user-directory)
   "Named socket for piped media streams.")
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-wizards-midi-using-m-score (midi-file)
   "Play midi file using mscore from musescore package."
   (interactive "fMidi File:")
@@ -122,7 +122,7 @@
 ;;}}}
 ;;{{{ Braille
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-wizards-braille (s)
   "Insert Braille string at point."
   (interactive "sBraille: ")
@@ -135,7 +135,7 @@
 ;;{{{ Add autoload cookies:
 
 (defvar emacspeak-autoload-cookie-pattern
-  ";;;###autoload"
+  ";;;;###autoload"
   "autoload cookie pattern.")
 
 
@@ -172,7 +172,7 @@ Default is to add autoload cookies to current file."
   "Read name of a pre-defined personality using completion."
   (read (completing-read (or prompt "Personality: ")
                          (voice-setup-defined-voices))))
-;;###autoload
+;;;###autoload
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
   (interactive (list (voice-setup-read-personality)))
@@ -180,7 +180,7 @@ Default is to add autoload cookies to current file."
                      'personality personality)
   (emacspeak-speak-line))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-wizards-generate-voice-sampler (step)
   "Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family."
@@ -211,7 +211,7 @@ for the current voice family."
           (insert "\n"))))))
     (switch-to-buffer buffer)
     (goto-char (point-min))))
-;;###autoload
+;;;###autoload
 (defun voice-setup-defined-voices ()
   "Return list of voices defined via defvoice"
   (cl-loop
@@ -226,7 +226,7 @@ for the current voice family."
          (expand-file-name "voice-defs.el" emacspeak-lisp-directory)))
    collect v))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-wizards-show-voices ()
   "Display a buffer with sample text in the defined voices."
   (interactive)
@@ -473,7 +473,7 @@ The emacspeak clipboard provides a convenient mechanism for exchanging
 information between different Emacs sessions."
   :group 'emacspeak-speak
   :type 'string)
-;;###autoload
+;;;###autoload
 (defun emacspeak-clipboard-copy (start end &optional prompt)
   "Use file-based Emacspeak Clipboard ---
 dis a convenient way of sharing information between independent
@@ -502,7 +502,7 @@ Emacspeak sessions running on  different machines. "
 (declare-function emacspeak-table-paste-from-clipboard "emacspeak-extras" t)
 
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-clipboard-paste (&optional paste-table)
   "Yank contents of the Emacspeak clipboard at point. "
   (interactive "P")

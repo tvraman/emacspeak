@@ -51,42 +51,42 @@
 
 ;; FIXME: Don't autoload variables unless there's a *really* clear need for it.
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
   "Lisp directory.")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-sounds-directory
   (expand-file-name  "sounds/" emacspeak-directory)
   "Auditory icons directory.")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
   "XSLT.")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Misc.")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
   "Speech servers.")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
   "Info")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
   "Resources.")
 
@@ -95,11 +95,11 @@
   (expand-file-name "README" emacspeak-directory)
   "README.")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-curl-program (executable-find "curl")
   "Curl.")
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-media-extensions
   (eval-when-compile
     (let
@@ -114,7 +114,7 @@
        "$")))
   "Media Extensions.")
 
-;;###autoload
+;;;###autoload
 (defvar  emacspeak-m-player-playlist-pattern
   (eval-when-compile
     (concat

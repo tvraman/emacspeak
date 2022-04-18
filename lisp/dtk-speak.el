@@ -62,7 +62,7 @@
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el"
                   (icon))
-;;###autoload
+;;;###autoload
 (defvar dtk-program
   (or
    (getenv "DTK_PROGRAM")

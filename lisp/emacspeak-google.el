@@ -679,7 +679,7 @@ current page."
 (defvar emacspeak-google-tts-rest-uri
   "https://www.google.com/speech-api/v1/synthesize?lang=%s&text=%s"
   "REST endpoint for network speech synthesis.")
-;;###autoload
+;;;###autoload
 (defun emacspeak-google-tts (text &optional lang)
   "Google Network TTS.
 Optional interactive prefix arg `lang' specifies  language identifier."
@@ -698,7 +698,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
     (start-process
      "google-tts" nil  emacspeak-m-player-program url)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-google-tts-region (start end &optional ask-lang)
   "Speak region using Google Network TTS."
   (interactive

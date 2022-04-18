@@ -131,7 +131,7 @@ Generates auditory and visual display."
   (dtk-speak (format-mode-line header-line-format))
   (emacspeak-auditory-icon 'progress))
 
-;;###autoload(define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
+;;;###autoload(define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
 (cl-declaim (special emacspeak-webspace-keymap))
 
@@ -255,7 +255,7 @@ Updated headlines found in emacspeak-webspace-headlines."
   :type '(repeat (string :tag "URL"))
   :group 'emacspeak-webspace)
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-webspace-headlines ()
   "Startup Headlines ticker using RSS/Atom  feeds."
   (interactive)
@@ -350,7 +350,7 @@ Updated headlines found in emacspeak-webspace-headlines."
   "Open feed associated with this button."
   (emacspeak-feeds-browse-feed (button-get button 'feed)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-webspace-feed-reader (&optional refresh)
   "Display Feed Reader Feed list in a WebSpace buffer.
 Optional interactive prefix arg forces a refresh."

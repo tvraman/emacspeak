@@ -308,7 +308,7 @@ the Emacspeak desktop.")
 ;; turn on automatic voice locking , split caps and punctuations in
 ;; programming  modes
 
-;;###autoload
+;;;###autoload
 (defsubst emacspeak-setup-programming-mode ()
   "Setup programming mode. "
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation dtk-caps))
@@ -383,7 +383,7 @@ the Emacspeak desktop.")
   :type 'boolean
   :group 'emacspeak)
 
-;;###autoload
+;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
 Use Emacs as you normally would, emacspeak provides

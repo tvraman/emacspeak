@@ -242,7 +242,7 @@ Assumes that point is at the front of a field value."
 
 ;;}}}
 ;;{{{ emacspeak forms find file
-;;###autoload
+;;;###autoload
 (defun emacspeak-forms-find-file (filename)
   "Visit a forms file"
   (interactive

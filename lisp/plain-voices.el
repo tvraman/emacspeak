@@ -54,7 +54,7 @@
 ;;}}}
 
 ;;{{{plain:
-;;###autoload
+;;;###autoload
 (defun plain ()
   "Plain TTS."
   (interactive)
@@ -352,7 +352,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ configurater
-;;###autoload
+;;;###autoload
 (defun plain-configure-tts ()
   "Configures TTS  to use Plain."
   (cl-declare (special  plain-default-speech-rate

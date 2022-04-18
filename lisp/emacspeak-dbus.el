@@ -386,7 +386,7 @@ already disabled."
 
 ;;}}}
 ;;{{{Setup:
-;;###autoload
+;;;###autoload
 (defun emacspeak-dbus-setup ()
   "Turn on DBus handlers."
   (require 'dbus)

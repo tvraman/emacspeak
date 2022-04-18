@@ -580,7 +580,7 @@ tetris-mode keybindings:
 
   (run-mode-hooks 'tetris-mode-hook))
 
-;;###autoload
+;;;###autoload
 (defun tetris ()
   "Play the Tetris game.
 Shapes drop from the top of the screen, and the user has to move and

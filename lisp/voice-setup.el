@@ -239,7 +239,7 @@ Define a voice for it if needed, then return the symbol."
 ;;{{{ new light-weight voice lock
 (declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
 
-;;###autoload
+;;;###autoload
 (define-minor-mode voice-lock-mode
   "Toggle voice lock mode."
   :init-value t
@@ -252,7 +252,7 @@ Define a voice for it if needed, then return the symbol."
   "Turn on Voice Lock mode ."
   (interactive)
   (voice-lock-mode))
-;;###autoload
+;;;###autoload
 (define-globalized-minor-mode global-voice-lock-mode
   voice-lock-mode
   voice-lock-mode--turn-on
@@ -284,7 +284,7 @@ Define a voice for it if needed, then return the symbol."
 ;; then the original face->personality mapping is restored.  In
 ;; either case, the buffer is refontified to have the new mapping take effect.
 
-;;###autoload
+;;;###autoload
 (defun voice-setup-toggle-silence-personality ()
   "Toggle audibility of personality under point  . "
   (interactive)

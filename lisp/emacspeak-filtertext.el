@@ -89,7 +89,7 @@
 
 ;;}}}
 ;;{{{ Interactive commands 
-;;###autoload
+;;;###autoload
 (defun emacspeak-filtertext(start end)
   "Copy over text in region to special filtertext buffer to  filter text. "
   (interactive "r")

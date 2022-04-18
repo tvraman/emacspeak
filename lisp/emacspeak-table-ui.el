@@ -480,7 +480,7 @@ Optional prefix arg prompts for a new filter."
     (skip-chars-backward "^,\n")))
 
 ;;}}}
-;;###autoload
+;;;###autoload
 (defun emacspeak-table-prepare-table-buffer (table buffer)
   "Prepare tabular data."
   (cl-declare (special emacspeak-table ems--positions))
@@ -525,7 +525,7 @@ Optional prefix arg prompts for a new filter."
   (setq truncate-lines t)
   (message "Use Emacspeak Table UI to browse this table."))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-table-find-file (filename)
   "Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -568,7 +568,7 @@ the documentation on the table browser."
       (push "" fields))
     (nreverse fields)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-table-find-csv-file (filename)
   "Process a csv (comma separated values) file.
 The processed  data is presented using emacspeak table navigation. "
@@ -577,7 +577,7 @@ The processed  data is presented using emacspeak table navigation. "
     (emacspeak-table-view-csv-buffer buffer)
     (kill-buffer buffer)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
   "Process a csv (comma separated values) data.
 The processed  data is  presented using emacspeak table navigation. "
@@ -628,7 +628,7 @@ The processed  data is  presented using emacspeak table navigation. "
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-table-view-csv-url  (url &optional buffer-name)
   "Process a csv (comma separated values) data at  `URL'.
 The processed  data is  presented using emacspeak table navigation. "
@@ -640,7 +640,7 @@ The processed  data is  presented using emacspeak table navigation. "
 
 ;;}}}
 ;;{{{ Processing a region of tabular data
-;;###autoload
+;;;###autoload
 (defun emacspeak-table-display-table-in-region (start end)
   "Recognize tabular data in current region and display it in table
 browsing mode in a a separate buffer.

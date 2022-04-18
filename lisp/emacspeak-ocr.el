@@ -331,7 +331,7 @@ See \\{emacspeak-ocr-mode-map}.
   "Return a default name for OCR document."
   (format-time-string "%m-%d-%y"))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-ocr ()
   "An OCR front-end for the Emacspeak desktop.  
 

@@ -106,7 +106,7 @@ Interactive PREFIX arg means toggle  global default value. "
              (if emacspeak-comint-autospeak "on" "off")
              (if prefix "" " locally")))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-toggle-inaudible-or-comint-autospeak ()
   "Toggle comint-autospeak when in a comint or vterm buffer.
 Otherwise call voice-setup-toggle-silence-personality which
@@ -125,13 +125,13 @@ buffer is not current or its window live.")
 
 (make-variable-buffer-local 'emacspeak-comint-output-monitor)
 
-;;###autoload (autoload 'emacspeak-toggle-comint-output-monitor "emacspeak-comint" t)
+;;;###autoload (autoload 'emacspeak-toggle-comint-output-monitor "emacspeak-comint" t)
 (ems-generate-switcher 'emacspeak-toggle-comint-output-monitor
                        'emacspeak-comint-output-monitor
                        "Toggle  Emacspeak comint monitor.
 Interactive PREFIX arg means toggle the global default value. ")
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-comint-speech-setup ()
   "Speech setup."
   (cl-declare (special comint-mode-map

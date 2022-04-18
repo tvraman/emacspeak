@@ -321,7 +321,7 @@ more results."
 ;;}}}
 ;;{{{ Top-Level Dispatch:
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-librivox (search-type)
   "Launch a Librivox Search."
   (interactive

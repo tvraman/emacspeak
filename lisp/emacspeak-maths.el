@@ -323,7 +323,7 @@ left for next run."
 (defvar emacspeak-maths-server-program
   (expand-file-name "../js/node/math-server.js" emacspeak-lisp-directory)
   "NodeJS implementation of math-server.")
-;;###autoload
+;;;###autoload
 (defun emacspeak-maths-start ()
   "Start Maths server bridge."
   (interactive)
@@ -489,7 +489,7 @@ Set calc-language to tex to use this feature."
       "Maths: " nil nil nil nil
       (when mark-active (buffer-substring (region-beginning)(region-end))))))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-maths-enter-guess ()
   "Send the guessed  LaTeX expression to Maths server. "
   (interactive)
@@ -500,7 +500,7 @@ Set calc-language to tex to use this feature."
    (emacspeak-maths-client-process emacspeak-maths)
    (format "enter: %s" (emacspeak-maths-input emacspeak-maths))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-maths-enter (latex)
   "Send a LaTeX expression to Maths server,
  guess  based on context. "

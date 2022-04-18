@@ -67,7 +67,7 @@
 ;;}}}
 ;;{{{  Top-level TTS  switcher
 
-;;###autoload
+;;;###autoload
 (defun dectalk ()
   "Dectalk TTS."
   (interactive)
@@ -367,7 +367,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ configurater
 
-;;###autoload
+;;;###autoload
 (defun dectalk-configure-tts ()
   "Configures   to use Dectalk."
   (cl-declare (special  dectalk-default-speech-rate

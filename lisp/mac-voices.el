@@ -55,7 +55,7 @@
 
 ;;}}}
 ;;{{{mac:
-;;###autoload
+;;;###autoload
 (defun mac ()
   "Mac TTS."
   (interactive)
@@ -308,7 +308,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ Configurater 
-;;###autoload
+;;;###autoload
 (defun mac-configure-tts ()
   "Configure TTS  to use mac."
   (cl-declare (special tts-default-speech-rate

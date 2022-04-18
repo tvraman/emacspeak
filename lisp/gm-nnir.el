@@ -138,7 +138,7 @@
 
 ;; GMail Search Commands 
 
-;;###autoload
+;;;###autoload
 (defun gm-nnir-group-make-gmail-group (query)
   "Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.

@@ -81,7 +81,7 @@
             (vconcat row (make-vector (- n-cols (length row)) " ")))))
   data)
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-table-make-table (elements)
   "Construct a table object from elements."
   (cl-assert (vectorp elements) t "Elements should be a vector of

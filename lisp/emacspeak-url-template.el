@@ -110,7 +110,7 @@
   (cl-declare (special emacspeak-url-template-table))
   (setf (gethash key emacspeak-url-template-table) ut))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-url-template-get (key)
   "Lookup key and return corresponding template. "
   (cl-declare (special emacspeak-url-template-table))
@@ -1005,7 +1005,7 @@ Format is stationid+AM/FM."
 ;;}}}
 ;;{{{ Interactive commands
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
   (cl-declare (special emacspeak-eww-post-process-hook))
@@ -1040,7 +1040,7 @@ to specified name for use as a callback."
         (cl-declare (special emacspeak-eww-url-template))
         (setq emacspeak-eww-url-template ',name))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
 Use Emacs completion to obtain a list of available resources.

@@ -626,7 +626,7 @@ Before doing so, re-align the table if necessary."
 
 ;;}}}
 ;;{{{ Capture
-;;###autoload
+;;;###autoload
 (defun emacspeak-org-capture-link (&optional open)
   "Capture hyperlink to current context.
 To use this command, first do `customize-variable'

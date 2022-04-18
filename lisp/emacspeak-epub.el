@@ -819,7 +819,7 @@ No book files are deleted."
 (defvar emacspeak-epub-interaction-buffer "*EPub*"
   "Buffer for EPub interaction.")
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-epub ()
   "EPub  Interaction.
 When opened, displays a bookshelf consisting of  epubs found at the

@@ -103,7 +103,7 @@
 ;; Run get_iplayer regularly to refresh ~/.get_iplayer/radio.cache.
 ;; This command then helps you view that listing using emacs
 ;;forms-mode.
-;;###autoload
+;;;###autoload
 (defun emacspeak-bbc-schedule ()
   "Browse BBC Schedule from get_iplayer radio cache"
   (interactive)

@@ -191,7 +191,7 @@ This is set to nil when playing Internet  streams.")
 (defvar emacspeak-m-player-dynamic-playlist  nil
   "Dynamic plist --- lists files in the playlist.
 Reset immediately after being used.")
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-add-to-dynamic (file)
   "Add file to the current  dynamic playlist."
   (interactive
@@ -248,7 +248,7 @@ Reset immediately after being used.")
   "Emacspeak media player."
   :group 'emacspeak)
 
-;;###autoload
+;;;###autoload
 (defcustom emacspeak-m-player-program
   (executable-find "mplayer")
   "Media player program."
@@ -285,7 +285,7 @@ Reset immediately after being used.")
     (string :tag "filter"))
   :group 'emacspeak-m-player)
 
-;;###autoload
+;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
   "Map  keys  to launch MPlayer on a  directory."
   :group 'emacspeak-m-player
@@ -308,7 +308,7 @@ Reset immediately after being used.")
   (regexp-opt '("mp3" "audio" "music"))
   "Pattern matching locations where we store media.")
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-multimedia  ()
   "Start or control Emacspeak multimedia player.
 Controls media playback when already playing.
@@ -393,7 +393,7 @@ Controls media playback when already playing.
     default-directory)
    (t   emacspeak-media-shortcuts-directory)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-url (url &optional playlist-p)
   "Call emacspeak-m-player on  URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
@@ -488,7 +488,7 @@ If a dynamic playlist exists, just use it."
         (process-buffer emacspeak-m-player-process)
       (emacspeak-amark-save))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
@@ -587,7 +587,7 @@ dynamic playlist. "
            (car (last (split-string resource "/" t))))
           (t (file-name-nondirectory resource))))))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
   "Use openal.  "
   (interactive
@@ -627,7 +627,7 @@ This will work if the soundcard is set to 48000."
                    emacspeak-m-player-options)))
       (call-interactively #'emacspeak-m-player))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-shuffle ()
   "M-Player with shuffle turned on."
   (interactive)
@@ -637,7 +637,7 @@ This will work if the soundcard is set to 48000."
     (call-interactively #'emacspeak-m-player)))
 
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-loop (&optional raw)
   "M-Player with repeat indefinitely  turned on.
 Interactive prefix `raw' reads a raw URL."
@@ -1133,7 +1133,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 ;;}}}
 ;;{{{ Media History:
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-m-player-media-history nil
   "Record media urls we played.")
 
@@ -1431,7 +1431,7 @@ flat classical club dance full-bass full-bass-and-treble
 (declare-function emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional best)
   "Use youtube-dl and mplayer to stream  audio from Youtube.
 Default picks lowest quality ---
@@ -1458,7 +1458,7 @@ Optional prefix arg `best' chooses highest."
     (kill-new u)
     (emacspeak-m-player u)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-youtube-live (url)
   "Use youtube-dl and mplayer to live-stream   from Youtube. "
   (interactive
@@ -1703,7 +1703,7 @@ tap-reverb already installed."
 ;;}}}
 ;;{{{ Play RSS Stream:
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-play-rss (rss-url)
   "Play an RSS stream."
   (interactive
@@ -1732,7 +1732,7 @@ tap-reverb already installed."
   "Keymap used to play locate results.")
 (add-hook 'locate-mode-hook
           #'emacspeak-pronounce-refresh-pronunciations)
-;;###autoload
+;;;###autoload
 (defun emacspeak-m-player-locate-media (pattern)
   "Locate media matching  pattern.  The results can be
 played as a play-list by pressing [RET] on the first line, see

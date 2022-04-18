@@ -224,7 +224,7 @@ to  ~/.emacs.d ")
      (unless  (file-exists-p f) (copy-file sys-alsa user-emacs-directory))
      f)))
 
-;;###autoload
+;;;###autoload
 (defun amixer-restore (&optional conf-file)
   "Reset Alsa."
   (cl-declare (special alsactl-program))
@@ -240,7 +240,7 @@ to  ~/.emacs.d ")
   (message "Resetting  sound to default")
   (amixer-build-db))
 
-;;###autoload
+;;;###autoload
 (defun amixer (&optional refresh)
   "ALSA settings.
 Interactive prefix arg refreshes cache."
@@ -291,7 +291,7 @@ Interactive prefix arg refreshes cache."
        (amixer-control-name control)
        update)))))
 
-;;###autoload
+;;;###autoload
 (defun amixer-store()
   "Persist  amixer."
   (interactive)

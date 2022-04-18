@@ -257,7 +257,7 @@ Returns t if a block was found and hidden."
 
 ;;}}}
 ;;{{{  Hiding and exposing  all blocks in a buffer
-;;###autoload
+;;;###autoload
 (defun emacspeak-hide-all-blocks-in-buffer ()
   "Hide all blocks."
   (ems-with-messages-silenced
@@ -316,7 +316,7 @@ Returns t if a block was found and hidden."
                 (list 'custom
                       (length block-prefix)
                       block-prefix))))))
-;;###autoload
+;;;###autoload
 (defun emacspeak-hide-or-expose-block (&optional prefix)
   "Hide or expose a block of text.
  Optional interactive prefix arg causes all blocks in current
@@ -345,7 +345,7 @@ buffer to be hidden or exposed."
              (emacspeak-hide-get-block-prefix)))
         (when block-prefix
           (emacspeak-hide-current-block  block-prefix)))))))
-;;###autoload
+;;;###autoload
 (defun emacspeak-hide-or-expose-all-blocks ()
   "Hide or expose all blocks."
   (interactive)

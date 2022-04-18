@@ -211,7 +211,7 @@ Default is to return NullAgent if name not found."
 (defvar soundscape-processes (make-hash-table :test #'equal)
   "Hash table of running Soundscapes indexed by Soundscape path.")
 
-;;###autoload
+;;;###autoload
 (defun soundscape (scape)
   "Play soundscape."
   (interactive (list (soundscape-read)))
@@ -411,7 +411,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
                (string= name  (car pair)))
            soundscape-default-theme)))
 
-;;###autoload
+;;;###autoload
 (defun soundscape-init ()
   "Initialize Soundscape."
   (soundscape-catalog)
@@ -420,7 +420,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
                   minor-mode-alist)
     (push   '(soundscape--auto (:eval (soundscape-current))) minor-mode-alist)))
 
-;;###autoload
+;;;###autoload
 (defun soundscape-listener  (&optional restart)
   "Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
@@ -549,7 +549,7 @@ before soundscapes are synchronized with current mode."
   :type 'float
   :group 'soundscape)
 
-;;###autoload
+;;;###autoload
 (defun soundscape-toggle ()
   "Toggle automatic SoundScapes.
 Run command \\[soundscape-theme] to see the default mode->mood mapping."

@@ -68,7 +68,7 @@
 ;;}}}
 ;;{{{ Top level TTS  switcher
 
-;;###autoload
+;;;###autoload
 (defun outloud (&optional device)
   "Start Outloud."
   (interactive "P")
@@ -299,7 +299,7 @@
 ;;}}}
 ;;{{{ Configurater
 
-;;###autoload
+;;;###autoload
 (defun outloud-configure-tts ()
   "Configure TTS  to use Outloud."
   (cl-declare (special tts-default-speech-rate tts-default-voice

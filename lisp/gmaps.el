@@ -89,7 +89,7 @@
 
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
   "Hash table that memoizes geolocation.")
-;;###autoload
+;;;###autoload
 (defun gmaps-address-location (address)
   "Returns gmaps--location structure. "
   (cl-declare (special gmaps-location-table gmaps-locations-loaded-p))
@@ -113,7 +113,7 @@
       (puthash  (gmaps--location-address result) result gmaps-location-table)
       (gmaps-locations-save)
       result))))
-;;###autoload
+;;;###autoload
 (defun gmaps-address-geocode(address)
   "Return lat/long for a given address."
   (gmaps--location-lat-lng (gmaps-address-location address)))
@@ -175,7 +175,7 @@
   (format "%slatlng=%s&sensor=false&key=%s"
           gmaps-geocoder-base location gmaps-api-key))
 
-;;###autoload
+;;;###autoload
 (defun gmaps-geocode (address &optional raw-p)
   "Geocode given address.
 Optional argument `raw-p' returns complete JSON  object."
@@ -187,7 +187,7 @@ Optional argument `raw-p' returns complete JSON  object."
      (raw-p (g-json-get 'results result))
      (t (g-json-path-lookup "results.[0].geometry.location" result)))))
 
-;;###autoload
+;;;###autoload
 (defun gmaps-reverse-geocode (lat-long &optional raw-p)
   "Reverse geocode lat-long.
 Optional argument `raw-p' returns raw JSON  object."
@@ -227,7 +227,7 @@ Optional argument `raw-p' returns raw JSON  object."
   "Postal Code --- automatically set by reverse geocoding gmaps-my-address")
 
 (declare-function  emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
-;;###autoload
+;;;###autoload
 (defcustom gmaps-my-address
   nil
   "Location address. Setting this updates gmaps-my-location
@@ -336,7 +336,7 @@ Parameter `key' is the API  key."
 (defvar gmaps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
 
-;;###autoload
+;;;###autoload
 (defun gmaps ()
   "Google Maps Interaction."
   (interactive)

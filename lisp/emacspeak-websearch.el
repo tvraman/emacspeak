@@ -124,7 +124,7 @@
                                    'emacspeak-websearch-help)
 
 (emacspeak-websearch-set-key ?? 'help)
-;;###autoload
+;;;###autoload
 (defun emacspeak-websearch-dispatch  ()
   " Press `?' to list available search engines.
    This interface attempts to speak the most relevant information
@@ -337,7 +337,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "Number of Google search results.")
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-websearch-google (query &optional flag)
   "Perform a Google search.  First optional interactive prefix arg
 `flag' prompts for additional search options. Second interactive
@@ -412,7 +412,7 @@ Optional prefix arg prompts for toolbelt options."
        ems--websearch-google-filter
        (format emacspeak-websearch-accessible-google-url query))))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "IGoogle: ")))

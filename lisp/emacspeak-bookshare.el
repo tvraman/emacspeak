@@ -881,7 +881,7 @@ b Browse
 (defvar emacspeak-bookshare-interaction-buffer "*Bookshare*"
   "Buffer for Bookshare interaction.")
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-bookshare ()
   "Bookshare  Interaction."
   (interactive)

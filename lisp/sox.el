@@ -152,7 +152,7 @@
 (defvar sox-buffer "Audio WorkBench"
   "Buffer name of workbench.")
 
-;;###autoload
+;;;###autoload
 (defun sox ()
   "Create a new Audio Workbench or switch to one."
   (interactive)
@@ -254,7 +254,7 @@
     (apply #'start-process
            "player" "*SOX*"
            action file options)))
-;;###autoload
+;;;###autoload
 (defun sox-play ()
   "Play sound ."
   (interactive)

@@ -51,7 +51,7 @@
 ;;}}}
 ;;{{{ Commands:
 
-;;###autoload
+;;;###autoload
 (defun xbacklight-get ()
   "Get  brightness level."
   (interactive)
@@ -64,7 +64,7 @@
         (message "Brightness is %d" (round  (read value))))
        (t (message "Brightness is %s" value))))))
 
-;;###autoload
+;;;###autoload
 (defun xbacklight-set (brightness)
   "Set brightness."
   (interactive "sBrightness: ")
@@ -75,25 +75,25 @@
 (defvar xbacklight-step  "10"
   "Step-size used when incrementing and decrementing brightness.")
 
-;;###autoload
+;;;###autoload
 (defun xbacklight-increment ()
   "Increase brightness."
   (interactive)
   (start-process "XBacklight" nil  xbacklight-cmd "-inc" xbacklight-step))
 
-;;###autoload
+;;;###autoload
 (defun xbacklight-decrement ()
   "Decrease brightness."
   (interactive)
   (start-process "XBacklight" nil xbacklight-cmd  "-dec" xbacklight-step))
 
-;;###autoload
+;;;###autoload
 (defun xbacklight-black ()
   "Black screen."
   (interactive)
   (xbacklight-set "0"))
 
-;;###autoload
+;;;###autoload
 (defun xbacklight-white ()
   "White screen."
   (interactive)

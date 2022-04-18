@@ -120,7 +120,7 @@ The feed list is persisted to file saved-feeds on exit."
   "Check if this feed has been added before."
   (cl-declare (special emacspeak-feeds-feeds-table))
   (gethash feed-url emacspeak-feeds-feeds-table))
-;;###autoload
+;;;###autoload
 (defun emacspeak-feeds-add-feed (title url type)
   "Add specified feed to our feed store."
   (interactive
@@ -250,7 +250,7 @@ feeds."
             emacspeak-eww-style style)
       (emacspeak-xslt-without-xsl (browse-url-of-buffer)))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-feeds-rss-display (feed-url)
   "Display RSS feed."
   (interactive
@@ -259,14 +259,14 @@ feeds."
   (cl-declare (special emacspeak-rss-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
   (interactive (list (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-opml-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
   (interactive (list (emacspeak-eww-read-url)))
@@ -294,7 +294,7 @@ Argument `feed' is a feed structure (label url type)."
            (t (error "Unknown feed type %s" type))))
     (emacspeak-feeds-feed-display uri style speak)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-feeds-browse (feed)
   "Browse   feed."
   (interactive
@@ -341,7 +341,7 @@ Argument `feed' is a feed structure (label url type)."
 (defvar emacspeak-feeds-awesome-rss-map nil
   "Hash table that holds OPML Names->Files map.")
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-feeds-awesome-rss ()
   "Display Awesome RSS OPML file read with completion.
 See etc/fixup-awesome-rss  for first-time  for instructions."

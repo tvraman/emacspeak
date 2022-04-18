@@ -153,7 +153,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
 ;;}}}
 ;;{{{ Functions:
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params no-comment)
   "Apply XSLT transformation to region and replace it with the result.  "
   (cl-declare (special emacspeak-xslt-program emacspeak-xslt-options
@@ -214,7 +214,7 @@ Region defaults to entire buffer."
     (set-buffer-multibyte t)
     (current-buffer)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-xslt-url (xsl url &optional params no-comment)
   "Apply XSLT transformation to url
 and return the results in a newly created buffer. "
@@ -318,7 +318,7 @@ part of the libxslt package."
         (goto-char (point-min))
         (browse-url-of-buffer)))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-xslt-xml-url (xsl url &optional params)
   "Apply XSLT transformation to XML url
 and return the results in a newly created buffer. "
@@ -385,7 +385,7 @@ and return the results in a newly created buffer. "
 ;;}}}
 ;;{{{ interactive commands:
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-xslt-view-file(style file)
   "Transform `file' using `style' and preview via browse-url."
   (interactive
@@ -407,7 +407,7 @@ and return the results in a newly created buffer. "
        (current-buffer) 'replace)
       (browse-url-of-buffer))))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-xslt-view (style url)
   "Browse URL with specified XSL style."
   (interactive

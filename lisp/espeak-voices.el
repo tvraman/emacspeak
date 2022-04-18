@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{ Top-Level TTS Call
 
-;;###autoload
+;;;###autoload
 (defun espeak ()
   "Start ESpeak."
   (interactive)
@@ -300,7 +300,7 @@ and TABLE gives the values along that dimension."
                      when   (string-match "\\(\\[\\*\\]\\)"  entry) do
                      (setf entry (replace-match " " nil nil  entry 1)))
             table))))
-;;###autoload
+;;;###autoload
 (defun espeak-configure-tts ()
   "Configure  to use eSpeak."
   (cl-declare (special tts-default-speech-rate

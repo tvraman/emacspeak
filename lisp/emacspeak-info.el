@@ -195,7 +195,7 @@ and then cue the next selected buffer."
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-info-wizard (node-spec)
   "Read a node spec from the minibuffer and launch
 Info-goto-node.

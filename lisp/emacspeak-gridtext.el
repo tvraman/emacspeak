@@ -212,7 +212,7 @@ end   as specified by grid."
 ;;{{{  keymaps 
 (defvar emacspeak-gridtext-keymap nil
   "Prefix keymap used by gridtext.")
-;;###autoload
+;;;###autoload
 (define-prefix-command  'emacspeak-gridtext 'emacspeak-gridtext-keymap)
 (define-key emacspeak-gridtext-keymap "a" 'emacspeak-gridtext-apply)
 (define-key emacspeak-gridtext-keymap "l"

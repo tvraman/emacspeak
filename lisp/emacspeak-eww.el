@@ -462,13 +462,13 @@
 ;;}}}
 ;;{{{ Helpers:
 
-;;###autoload
+;;;###autoload
 (defsubst emacspeak-eww-browser-check ()
   "Browser check"
   (cl-assert  (eq major-mode 'eww-mode) t (error "Not in EWW")))
 
 ;; Return URL under point or URL read from minibuffer.
-;;###autoload
+;;;###autoload
 (defun emacspeak-eww-read-url ()
   (or
    (shr-url-at-point nil)
@@ -960,7 +960,7 @@ Retain previously set punctuations  mode."
 ;;}}}
 ;;{{{ web-pre-process
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-eww-autospeak()
   "Setup post process hook to speak the Web page. "
   (add-hook
@@ -973,10 +973,10 @@ Retain previously set punctuations  mode."
        (emacspeak-speak-buffer))
    'at-end))
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-eww-pre-process-hook nil
   "Pre-process hook -- to be used for XSL preprocessing etc.")
-;;###autoload
+;;;###autoload
 (defun emacspeak-eww-run-pre-process-hook (&rest _ignore)
   "Run web pre process hook."
   (cl-declare (special emacspeak-eww-pre-process-hook))
@@ -991,12 +991,12 @@ Retain previously set punctuations  mode."
 ;;}}}
 ;;{{{ web-post-process
 
-;;###autoload
+;;;###autoload
 (defvar emacspeak-eww-post-process-hook nil
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-eww-run-post-process-hook (&rest _ignore)
   "Run web post process hook."
   (cl-declare (special emacspeak-eww-post-process-hook))
@@ -2057,7 +2057,7 @@ The %s is automatically spoken if there is no user activity."
 
 (declare-function emacspeak-bookshare-eww "emacspeak-bookshare" (directory))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-eww-open-mark (name &optional delete)
   "Open EWW marked location.  With optional interactive prefix
 arg `delete', delete that mark instead."
@@ -2178,7 +2178,7 @@ Warning: Running shell script cbox through this fails mysteriously."
   (emacspeak-eww-smart-tabs-put char url)
   (emacspeak-auditory-icon 'close-object))
 
-;;###autoload
+;;;###autoload
 (defun emacspeak-eww-smart-tabs (char &optional define)
   "Open URL in EWW keyed by  `char'.
 To associate a URL with a char, use this command
@@ -2450,7 +2450,7 @@ With interactive prefix arg, move to the start of the table."
 ;;{{{Open With External Browser: EAF, Chrome
 
 (declare-function eaf-open-browser "eaf-browser" (url &optional args))
-;;###autoload
+;;;###autoload
 (defun emacspeak-eww-browse-eaf  (url)
   "Launch async EAF browser."
   (interactive (list (emacspeak-eww-read-url)))

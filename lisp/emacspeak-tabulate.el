@@ -151,7 +151,7 @@ Fields are assumed to be delimited by whitespace. "
 
 ;;}}}
 ;;{{{ Parse a region of tabular data
-;;###autoload
+;;;###autoload
 (defun ems-tabulate-parse-region (start end)
   "Parse  region as tabular data and return a vector of vectors"
   (let ((table nil)
