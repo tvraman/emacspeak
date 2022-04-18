@@ -1,0 +1,81 @@
+This is the changelog entry for a806a70f6the patch that gets Emacspeak
+compiling under elpa.  It also eliminates warnings when running under
+Emacs built with native-compilation.
+
+I'm indebted to Stefan Monnier for his patch  that finally untangled
+the inter-dependencies among some of the core Emacs modules.
+
+
+2022-04-17  Stefan Monnier  <monnier@iro.umontreal.ca>
+
+    Try and make it compilable using the (Non)GNU ELPA scripts.
+
+    * .gitignore: Add ELPA-generated files.
+    * .elpaignore: New file.
+
+    * lisp/emacspeak.el: Add `Version:` and `Package-Requires:` headers.
+    * lisp/emacspeak-preamble.el (acss): Move to `voice-setup.el`.
+    * lisp/voice-setup.el: Require `dtk-speak`.
+    (acss): Move defstruct from `emacspeak-preamble`.
+    (voice-setup): New function, to delay the calls to <foo>-configure-tts
+    to when Emacspeak is activated.
+    * lisp/dtk-speak.el (dtk-initialize): Call `voice-setup`.
+    (tts-get-voice-command, tts-define-voice-from-speech-style)
+    (tts-voice-defined-p): Provide dummy default definitions via `defalias`
+    so the compiler knows those functions exist.
+    (ems-with-messages-silenced): Explicitly declare
+    `emacspeak-speak-messages` as dynbound for when this macro gets used in
+    a file that does not require `emacspeak-speak`.
+
+    * lisp/emacspeak-speak.el: Require `voice-defs` and `emacspeak-sounds`.
+    (ems-with-errors-silenced): Don't bind `emacspeak-speak-errors` since
+    it's not used anywhere.
+    (emacspeak-speak-load-filter-settings): Make sure `ems--fastload` exists.
+    (minibuffer-local-completion-map): Use `kbd` so it works even `ems-kbd` is
+    not yet defined.
+
+    * lisp/emacspeak-sounds.el (emacspeak-auditory-icon-function)
+    (emacspeak-auditory-icon): Move them before first use.
+    (emacspeak-sounds-define-theme-if-necessary): Make sure
+    `ems--fastload` exists.
+
+    * sounds/*/define-theme.el: Require `emacspeak-sounds`.
+
+    * lisp/sox-gen.el: Require `dtk-speak`.
+
+    * lisp/emacspeak-wizards.el: Require `color`.
+
+    * lisp/emacspeak-pronounce.el: Require emacspeak-sounds.
+    (emacspeak-pronounce-load-dictionaries): Make sure `ems--fastload` exists.
+
+    * lisp/emacspeak-outline.el (outline-flag-region):
+    Declare `ems--voiceify-overlays` as dynbound.
+    (outline-up-heading): Remove declaration of `emacspeak-speak-errors`
+    which should have been in `ems-with-errors-silenced`.
+
+    * lisp/emacspeak-autoload.el (dtk-quiet): Declare as dynbound.
+
+    * lisp/gm-nnir.el:
+    * lisp/plain-voices.el:
+    * lisp/outloud-voices.el:
+    * lisp/mac-voices.el:
+    * lisp/espeak-voices.el:
+    * lisp/dectalk-voices.el:
+    * lisp/amixer.el: Require `emacspeak-preamble`.
+
+    * lisp/ladspa.el, lisp/sox.el: Use `kbd` so it works even `ems-kbd` is
+    not yet defined.
+
+    * lisp/emacspeak-xslt.el: Don't autoload variables whose value depends
+    on `emacspeak-xslt-directory` which is only defined after
+    `emacspeak-preamble` is loaded.
+
+    * lisp/emacspeak-vertico.el: Fix spurious `^L`.
+
+    * lisp/emacspeak-muggles.el (hydra): Don't fetch it automatically,
+    it's evil.
+    (flycheck): Don't signal an error if it's absent.
+
+    * lisp/Makefile (emacspeak-loaddefs.el): Let `autoloads.el` generate
+    the initial form of the file, it does it better.
+
