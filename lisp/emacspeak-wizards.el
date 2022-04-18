@@ -3155,7 +3155,7 @@ Optional interactive prefix arg deletes it."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-warnings: (not noruntime )
+;;; byte-compile-warnings: (noruntime )
 ;;; end:
 
 ;;}}}

@@ -402,7 +402,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-warnings: (not noruntime)
+;;; byte-compile-warnings: (docstring  noruntime)
 ;;; end:
 
 ;;}}}
