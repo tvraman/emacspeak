@@ -14,7 +14,7 @@
     (make-local-variable hook)
     (set hook (list t)))
   hook)
-;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
+;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;; Uses auth-source-xoauth2:
 ;; https://github.com/ccrusius/auth-source-xoauth2
@@ -220,7 +220,7 @@ This moves them into the Spam folder."
    slime-lisp-implementations
    `((sbcl ("sbcl" "--core"
             ,(expand-file-name "sbcl-core-for-slime" user-emacs-directory))))))
-;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: nil; -*-
+;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: nil; -*-
 
 (with-eval-after-load "org"
   (require 'org-tempo)
