@@ -147,7 +147,7 @@ Use Custom to customize where possible. "
             #'(lambda nil
                 (elpy-enable)))
   (setq outline-minor-mode-prefix "\C-co")
-;; basic look and feel
+  ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
    #'(lambda (f) (put f 'disabled nil))
@@ -177,15 +177,15 @@ Use Custom to customize where possible. "
    for i from 0 to 9 do
    (global-set-key
     (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-;; Smarten up ctl-x-map
+  ;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
   (define-key ctl-x-map "j" 'pop-global-mark)
   (define-key ctl-x-map "u"  'undo-only)
   (define-key ctl-x-map (ems-kbd "C-u") 'undo-redo)
   (define-key ctl-x-map (ems-kbd "C-d") 'dired-jump)
-;; Shell mode bindings:
+  ;; Shell mode bindings:
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
-;; Outline Setup:
+  ;; Outline Setup:
   (with-eval-after-load 'outline
     (global-set-key (ems-kbd "C-o") outline-mode-prefix-map) ;;;restore
     (define-key outline-mode-prefix-map "o" 'open-line))
@@ -195,6 +195,7 @@ Use Custom to customize where possible. "
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
+  (add-hook 'prog-mode-hook 'format-all-mode)
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
 
 (defun tvr-after-init ()
