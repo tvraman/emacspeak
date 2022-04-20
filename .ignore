@@ -4,6 +4,7 @@
 *.o
 # ignore generated files:
 README
+README.md
 etc/emacspeak.sh
 lisp/emacspeak-cus-load.el
 lisp/emacspeak-finder-inf.el
