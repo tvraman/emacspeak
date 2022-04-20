@@ -642,6 +642,7 @@
     ("f" magit-file-dispatch)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
+    ("r" restart-emacs)
     ("s" magit-status)
     ("z" suspend-frame)
     )
