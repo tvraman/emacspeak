@@ -137,7 +137,8 @@ mac for MAC TTS (default on Mac)")
 
 (defsubst dtk-interp-say (string)
   (cl-declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process (format "tts_say { %s}\n" string)))
+  (process-send-string dtk-speaker-process
+                       (format "tts_say { %s}\n" string)))
 
 ;;}}}
 ;;{{{ stop
@@ -188,7 +189,8 @@ mac for MAC TTS (default on Mac)")
 (defsubst dtk-interp-preferred-language (alias language)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                       (format "set_preferred_lang %s %s \n" alias language)))
+                       (format "set_preferred_lang %s %s \n"
+                               alias language)))
 
 (defsubst dtk-interp-list-language ()
   (cl-declare (special dtk-speaker-process))
@@ -363,7 +365,8 @@ bound to \\[dtk-toggle-caps].")
   (cl-declare (special emacspeak-pronounce-personality))
   (let* ((start (match-beginning 0))
          (face
-          (or (get-text-property start 'face) emacspeak-pronounce-personality)))
+          (or
+           (get-text-property start 'face) emacspeak-pronounce-personality)))
     (replace-match replace t t)
     (when face (put-text-property start (point) 'face face))))
 
@@ -386,7 +389,8 @@ bound to \\[dtk-toggle-caps].")
             pronunciation
             (save-match-data
               (funcall pronouncer
-                       (buffer-substring (match-beginning 0) (match-end 0)))))
+                       (buffer-substring
+                        (match-beginning 0) (match-end 0)))))
            (tts-replace-match pronunciation))))))))
 
 ;;}}}
@@ -454,7 +458,9 @@ Uses a 5ms fade-in and fade-out. "
     (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
-  "Set language. If your server supports it, also set the synthesis voice, using the syntax language:voice , where language can be omitted."
+  "Set language. If your server supports it, also set the synthesis
+ voice, using the syntax language:voice , where language can be
+ omitted."
   (interactive "sEnter language: \n")
   (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
@@ -799,16 +805,18 @@ Argument COMPLEMENT  is the complement of separator."
   (max
    (previous-single-property-change start 'personality (current-buffer) end)
    (previous-single-property-change start 'face (current-buffer) end)
-   (previous-single-property-change start 'font-lock-face (current-buffer) end)))
+   (previous-single-property-change
+    start 'font-lock-face (current-buffer) end)))
 
 ;; Get position of next style change from start   to end.
-;; Here,  change is any change in property personality, face or font-lock-face.
+;; Here,  change is any change in property personality, face.
 (defsubst dtk-next-style-change (start &optional end)
   (or end (setq end (point-max)))
   (min
    (dtk-next-single-property-change start 'personality (current-buffer) end)
    (dtk-next-single-property-change start 'face (current-buffer) end)
-   (dtk-next-single-property-change start 'font-lock-face (current-buffer) end)))
+   (dtk-next-single-property-change
+    start 'font-lock-face (current-buffer) end)))
 
 (defun dtk-audio-format (start end)
   "Format and speak text from `start' to `end'. "
@@ -857,12 +865,13 @@ Argument COMPLEMENT  is the complement of separator."
       (dtk-interp-say string))))
 
 (defun dtk-stop (&optional all)
-  "Stop speech.
-Optional arg `all' or interactive call   silences notification stream as well."
+  "Stop speech.  Optional arg `all' or interactive call silences
+notification stream as well."
   (interactive "P")
   (when (process-live-p dtk-speaker-process) (dtk-interp-stop))
   (when
-      (and (dtk-notify-process) (or all (called-interactively-p 'interactive)))
+      (and (dtk-notify-process)
+           (or all (called-interactively-p 'interactive)))
     (dtk-notify-stop)))
 
 (defun dtk-reset-default-voice ()
@@ -1526,15 +1535,16 @@ program. Port defaults to dtk-local-server-port"
     current-prefix-arg))
   (cl-declare (special dtk-servers-alist dtk-local-server-port
                        dtk-local-server-process emacspeak-servers-directory))
-  (setq dtk-local-server-process
-        (start-process
-         "LocalTTS"
-         "localTTS*"
-         (expand-file-name dtk-speech-server-program emacspeak-servers-directory)
-         (if prompt-port
-             (read-from-minibuffer "Port:" "3333")
-           dtk-local-server-port)
-         (expand-file-name program emacspeak-servers-directory))))
+  (setq
+   dtk-local-server-process
+   (start-process
+    "LocalTTS"
+    "localTTS*"
+    (expand-file-name dtk-speech-server-program emacspeak-servers-directory)
+    (if prompt-port
+        (read-from-minibuffer "Port:" "3333")
+      dtk-local-server-port)
+    (expand-file-name program emacspeak-servers-directory))))
 
 ;;}}}
 ;;{{{  initialize the speech process
@@ -1580,7 +1590,8 @@ Set to nil to disable a separate Notification stream."
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new-process)
-      (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
+      (when (process-live-p dtk-notify-process)
+        (delete-process dtk-notify-process))
       (when (tts-multistream-p dtk-program) (dtk-notify-initialize))))))
 
 (defun tts-restart ()
@@ -1600,7 +1611,7 @@ Set to nil to disable a separate Notification stream."
    ((not (string-match "-" dtk-chunk-separator-syntax))
     (dtk-chunk-on-white-space-and-punctuations)
     (when (called-interactively-p 'interactive)
-      (message "Text will be split at punctuations and white space when speaking")))
+      (message "Text will be split at punctuations and white space")))
    (t (dtk-chunk-only-on-punctuations)
       (when (called-interactively-p 'interactive)
         (message "Text split  at clause boundaries")))))
@@ -1629,15 +1640,18 @@ This is so text marked invisible is silenced.")
 (defun dtk-speak (text)
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
-  (cl-declare (special dtk-yank-excluded-properties
-                       dtk-speaker-process dtk-stop-immediately
-                       tts-strip-octals inhibit-point-motion-hooks
-                       dtk-speak-server-initialized emacspeak-use-auditory-icons
-                       dtk-speech-rate dtk-speak-nonprinting-chars
-                       dtk-quiet dtk-chunk-separator-syntax inhibit-modification-hooks
-                       voice-lock-mode dtk-punctuation-mode
-                       dtk-split-caps
-                       emacspeak-pronounce-pronunciation-table selective-display))
+  (cl-declare (special
+               dtk-yank-excluded-properties
+               dtk-speaker-process dtk-stop-immediately
+               tts-strip-octals inhibit-point-motion-hooks
+               dtk-speak-server-initialized emacspeak-use-auditory-icons
+               dtk-speech-rate dtk-speak-nonprinting-chars
+               dtk-quiet dtk-chunk-separator-syntax
+               inhibit-modification-hooks
+               voice-lock-mode dtk-punctuation-mode
+               dtk-split-caps
+               emacspeak-pronounce-pronunciation-table
+               selective-display))
 ;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
 ;; ensure  the process  is live
@@ -1838,7 +1852,7 @@ grouping"
     (when dtk-speaker-process (dtk-stop))))
 
 (defun dtk-notify-apply (func text)
-  " Applies func to text with dtk-speaker-process bound to notification stream."
+  " Applies func to text with dtk-speaker-process set to notification stream."
   (let ((dtk-speaker-process (dtk-notify-process)))
     (funcall func text)))
 (declare-function emacspeak-log-notification "emacspeak-speak" (text))
@@ -1978,8 +1992,8 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
      . (lambda (s) (match-string 2 s)))
     ("^greek\\( small\\| capital\\)? letter \\(.*\\)$"
      . (lambda (s) (match-string 2 s)))
-    ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s)
-                                                           (match-string 2 s)))
+    ("^latin\\( small\\| capital\\)? letter \\(.*\\)$"
+     . (lambda (s) (match-string 2 s)))
     ("^DEVANAGARI \\(sign\\|vowel sign\\|letter\\)? \\(.*\\)$"
      . (lambda (s) (match-string 2 s)))
 
