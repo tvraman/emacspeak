@@ -562,7 +562,9 @@ Argument S specifies the syntax class.
 @findex dtk-set-language
 
 @format
-Set language.
+Set language. If your server supports it, also set the synthesis
+ voice, using the syntax language:voice , where language can be
+ omitted.
 
 (fn LANG)
 @end format
@@ -745,8 +747,8 @@ current local  value to the result.
 @findex dtk-stop
 
 @format
-Stop speech.
-Optional arg ‘all’ or interactive call   silences notification stream as well.
+Stop speech.  Optional arg ‘all’ or interactive call silences
+notification stream as well.
 
 (fn &optional ALL)
 @end format

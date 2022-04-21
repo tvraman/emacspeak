@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 20, 2022.
+last updated on April 21, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3352,7 +3352,9 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d S’
      ‘<fn> d S’
 
-     Set language.
+     Set language. If your server supports it, also set the synthesis
+      voice, using the syntax language:voice , where language can be
+      omitted.
 
      (fn LANG)
 
@@ -3469,8 +3471,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e s’
      ‘<fn> s’
 
-     Stop speech.
-     Optional arg ‘all’ or interactive call   silences notification stream as well.
+     Stop speech.  Optional arg ‘all’ or interactive call silences
+     notification stream as well.
 
      (fn &optional ALL)
 
