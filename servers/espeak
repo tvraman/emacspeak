@@ -58,7 +58,6 @@ source $wd/tts-lib.tcl
 
 # voicename: currently selected voice for a synth language
 # voicename(current) is the currently selected voice
-# 
 
 # langcode: language identifier
 # e.g. langcode(0)="fi"
