@@ -71,7 +71,20 @@
     <h3 class="section">12.81 emacspeak-flyspell</h3>
     <p>This module speech enables flyspell. it loads
     flyspell-correct if available, And when loading
-    flyspell-correct sets up that module</p>
+    flyspell-correct sets up that module to use one of three
+    supported correction styles:</p>
+    <ul>
+      <li>ido: IDO-like completion with C-s and C-r moving through
+      choices.</li>
+      <li>popup:Use up and down arrows to move through
+      corrections.</li>
+      <li>helm: A helm interface for picking amongst
+      corrections.</li>
+    </ul>
+    <p>See documentation for package flyspell-correct for
+    additional details.</p>
+    <p>Use Customization emacspeak-flyspell-correct to pick between
+    ido, popup and helm.</p>
     <ul class="section-toc">
       <li><a href="#emacspeak_002dflyspell-Options" accesskey=
       "1">emacspeak-flyspell Options</a></li>

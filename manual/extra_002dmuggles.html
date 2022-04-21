@@ -74,13 +74,54 @@
     <p>This module implements no new functionality — contrast with
     emacspeak-wizards. Instead, it uses package hydra to provide
     convenience key-bindings that access existing Emacspeak
-    functionality.</p>
+    functionality. You need to install package Hydra first:
+    ‘<samp>M-x package-install hydra</samp>’.</p>
+    <p>Note that on newer versions of Emacs, loading this module
+    will attempt to automatically install package hydra if it is
+    not found.</p>
     <ul class="section-toc">
+      <li><a href="#Using-Hydras-1" accesskey="1">Using
+      Hydras</a></li>
+      <li><a href="#Extra-Muggles" accesskey="2">Extra
+      Muggles</a></li>
       <li><a href="#Extra_002dMuggles-Commands" accesskey=
-      "1">Extra-Muggles Commands</a></li>
+      "3">Extra-Muggles Commands</a></li>
     </ul>
+    <div class="subsection" id="Using-Hydras-1">
+      <h4 class="subsection">12.218.1 Using Hydras</h4>
+      <p>See the high-level documentation for the Hydra package by
+      executing <kbd>C-h C-j</kbd> hydra <kbd>RET</kbd>. The
+      documentation in this section uses the same terminology as
+      shown in the hydra package documentation.</p>
+    </div>
+    <div class="subsection" id="Extra-Muggles">
+      <h4 class="subsection">12.218.2 Extra Muggles</h4>
+      <ul>
+        <li>View-Mode: <kbd>C-. v</kbd> Temporarily behave like
+        view-mode.</li>
+        <li>SmartParens: <kbd>C-c ,</kbd> Smart Parens</li>
+        <li>m-player: <kbd>s-m</kbd> Emacspeak-M-Player
+        Commands</li>
+        <li>m-player: <kbd>s-;</kbd> Emacspeak-M-Player muggle</li>
+        <li>pianobar: <kbd>s-'</kbd> Emacspeak-M-pianobar
+        Commands</li>
+        <li>origami: C-, / Origami bindings.</li>
+        <li>outliner: &lt;C-c .&gt; Bindings from
+        outline-minor-mode.</li>
+        <li>Info-Summary: &lt;?&gt; in Info Info Summary
+        Muggle</li>
+        <li>Vuiet Explorer: <kbd>C-; v</kbd> Vuiet Music Explorer
+        and Player</li>
+      </ul>
+      <p>Emacspeak automatically speaks Hydra hints when displayed.
+      To silence all Hydra hints, set hydra-is-helpful to nil. To
+      temporarily silence speaking of Hydra hints, Muggles can bind
+      command <code>emacspeak-hydra-toggle-talkative</code>. As an
+      example, Muggle ‘<samp>ViewMode</samp>’ binds <code>s</code>
+      to this command.</p>
+    </div>
     <div class="subsection" id="Extra_002dMuggles-Commands">
-      <h4 class="subsection">12.218.1 Extra-Muggles Commands</h4>
+      <h4 class="subsection">12.218.3 Extra-Muggles Commands</h4>
       <ul class="section-toc">
         <li><a href=
         "#emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd"
@@ -108,7 +149,7 @@
       </ul>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd">
-        <h4 class="subsubsection">12.218.1.1
+        <h4 class="subsubsection">12.218.3.1
         emacspeak-muggles-emacspeak-m-player-mode-map-cmd</h4>
         <dl class="def">
           <dt id=
@@ -135,7 +176,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dinfo_002dsummary_002fbody">
-        <h4 class="subsubsection">12.218.1.2
+        <h4 class="subsubsection">12.218.3.2
         emacspeak-muggles-info-summary/body</h4>
         <dl class="def">
           <dt id=
@@ -204,7 +245,7 @@ The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dm_002dplayer_002fbody">
-        <h4 class="subsubsection">12.218.1.3
+        <h4 class="subsubsection">12.218.3.3
         emacspeak-muggles-m-player/body</h4>
         <dl class="def">
           <dt id=
@@ -289,7 +330,7 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002doutliner_002fbody">
-        <h4 class="subsubsection">12.218.1.4
+        <h4 class="subsubsection">12.218.3.4
         emacspeak-muggles-outliner/body</h4>
         <dl class="def">
           <dt id=
@@ -345,7 +386,7 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd">
-        <h4 class="subsubsection">12.218.1.5
+        <h4 class="subsubsection">12.218.3.5
         emacspeak-muggles-pianobar-key-map-cmd</h4>
         <dl class="def">
           <dt id=
@@ -372,7 +413,7 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dsmartparens_002fbody">
-        <h4 class="subsubsection">12.218.1.6
+        <h4 class="subsubsection">12.218.3.6
         emacspeak-muggles-smartparens/body</h4>
         <dl class="def">
           <dt id=
@@ -432,7 +473,7 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dview_002fbody">
-        <h4 class="subsubsection">12.218.1.7
+        <h4 class="subsubsection">12.218.3.7
         emacspeak-muggles-view/body</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dmuggles_002dview_002fbody">
@@ -514,7 +555,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dorigami_002fbody">
-        <h4 class="subsubsection">12.218.1.8
+        <h4 class="subsubsection">12.218.3.8
         emacspeak-origami/body</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dorigami_002fbody">

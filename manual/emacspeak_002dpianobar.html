@@ -72,16 +72,49 @@
     <ul class="section-toc">
       <li><a href="#PIANOBAR-_003d_003d-Pandora-Client-for-Emacs"
       accesskey="1">PIANOBAR == Pandora Client for Emacs</a></li>
+      <li><a href="#Emacspeak-Usage_003a" accesskey="2">Emacspeak
+      Usage:</a></li>
       <li><a href="#Emacspeak_002dPianobar-Commands" accesskey=
-      "2">Emacspeak-Pianobar Commands</a></li>
+      "3">Emacspeak-Pianobar Commands</a></li>
     </ul>
     <div class="subsection" id=
     "PIANOBAR-_003d_003d-Pandora-Client-for-Emacs">
       <h4 class="subsection">12.142.1 PIANOBAR == Pandora Client
       for Emacs</h4>
+      <p>pianobar git://github.com/PromyLOPh/pianobar.git
+      Ubuntu/Debian: sudo apt-get install pianobar</p>
+      <p>Pianobar Is a stand-alone client for Pandora Radio.
+      pianobar.el available on the Emacs Wiki at
+      http://www.emacswiki.org/emacs/pianobar.el Provides access to
+      Pandora Radio via pianobar from the comfort of Emacs. This
+      module speech-enables Pianobar and enhances it for the
+      Complete Audio Desktop.</p>
+    </div>
+    <div class="subsection" id="Emacspeak-Usage_003a">
+      <h4 class="subsection">12.142.2 Emacspeak Usage:</h4>
+      <p>Emacspeak implements command emacspeak-pianobar, a
+      light-weight wrapper on top of pianobar. Emacspeak binds this
+      command to <code>C-e '</code>. Command emacspeak-pianobar is
+      designed to let you launch Pandora channels and switch
+      tracks/channels without moving away from your primary tasks
+      such as editing code or reading/composing email. Toward this
+      end, launching command emacspeak-pianobar the first time
+      initializes the <code>*pianobar*</code> buffer and launches
+      command <code>pianobar</code>; but focus remains in your
+      current buffer. Pianobar can be controlled with single
+      keystrokes while in the pianobar buffer — switch to using
+      <code>C-e ''</code>. The most useful keys are
+      <code>right</code> for skipping tracks, <code>up</code> and
+      <code>down</code> for switching channels etc.; see the keys
+      bound in <code>pianobar-key-map</code> for a complete list.
+      Pressing <code>C-e '</code> in the <code>*pianobar*</code>
+      buffer buries the <code>*pianobar*</code>. From here on,
+      Pianobar can be controlled by pressing the Pianobar prefix
+      key (<code>C-e '</code>) followed by keys from
+      <code>pianobar-key-map</code>.</p>
     </div>
     <div class="subsection" id="Emacspeak_002dPianobar-Commands">
-      <h4 class="subsection">12.142.2 Emacspeak-Pianobar
+      <h4 class="subsection">12.142.3 Emacspeak-Pianobar
       Commands</h4>
       <ul class="section-toc">
         <li><a href="#emacspeak_002dpianobar-2" accesskey=
@@ -108,7 +141,7 @@
         accesskey="9">emacspeak-pianobar-volume-up</a></li>
       </ul>
       <div class="subsubsection" id="emacspeak_002dpianobar-2">
-        <h4 class="subsubsection">12.142.2.1
+        <h4 class="subsubsection">12.142.3.1
         emacspeak-pianobar</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dpianobar"><span class=
@@ -136,7 +169,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002dcommand">
-        <h4 class="subsubsection">12.142.2.2
+        <h4 class="subsubsection">12.142.3.2
         emacspeak-pianobar-command</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dpianobar_002dcommand">
@@ -159,7 +192,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002delectric_002dmode_002dtoggle">
-        <h4 class="subsubsection">12.142.2.3
+        <h4 class="subsubsection">12.142.3.3
         emacspeak-pianobar-electric-mode-toggle</h4>
         <dl class="def">
           <dt id=
@@ -184,7 +217,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002dnext_002dpreset">
-        <h4 class="subsubsection">12.142.2.4
+        <h4 class="subsubsection">12.142.3.4
         emacspeak-pianobar-next-preset</h4>
         <dl class="def">
           <dt id=
@@ -206,7 +239,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002dprevious_002dpreset">
-        <h4 class="subsubsection">12.142.2.5
+        <h4 class="subsubsection">12.142.3.5
         emacspeak-pianobar-previous-preset</h4>
         <dl class="def">
           <dt id=
@@ -229,7 +262,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002dsend_002draw">
-        <h4 class="subsubsection">12.142.2.6
+        <h4 class="subsubsection">12.142.3.6
         emacspeak-pianobar-send-raw</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dpianobar_002dsend_002draw">
@@ -253,7 +286,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002dswitch_002dto_002dpreset">
-        <h4 class="subsubsection">12.142.2.7
+        <h4 class="subsubsection">12.142.3.7
         emacspeak-pianobar-switch-to-preset</h4>
         <dl class="def">
           <dt id=
@@ -276,7 +309,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002dvolume_002ddown">
-        <h4 class="subsubsection">12.142.2.8
+        <h4 class="subsubsection">12.142.3.8
         emacspeak-pianobar-volume-down</h4>
         <dl class="def">
           <dt id=
@@ -298,7 +331,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dpianobar_002dvolume_002dup">
-        <h4 class="subsubsection">12.142.2.9
+        <h4 class="subsubsection">12.142.3.9
         emacspeak-pianobar-volume-up</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dpianobar_002dvolume_002dup">

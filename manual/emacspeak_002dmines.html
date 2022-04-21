@@ -71,7 +71,23 @@
     <h3 class="section">12.125 emacspeak-mines</h3>
     <p>MINES == Minesweeper game in emacs. The game itself provides
     a fully keyboard driven interface. In addition, Emacspeak
-    provides</p>
+    provides these additional interactive commands:</p>
+    <ul>
+      <li><kbd>SPC</kbd> Speak current cell.</li>
+      <li><kbd>.</kbd> Speak neighbors of current cell.</li>
+      <li><kbd>,</kbd> Speak number of marks</li>
+      <li><kbd>a</kbd> Move to beginning of row.</li>
+      <li><kbd>e</kbd> Move to end of row.</li>
+      <li><kbd>g</kbd> Move to specified cell</li>
+      <li><kbd>s</kbd> Move to next uncovered cell.</li>
+      <li><kbd>/</kbd> Speak number of remaining uncovered
+      cells.</li>
+      <li><kbd>'</kbd> Speaks entire board.</li>
+    </ul>
+    <p>Speaking cell neighbors uses appropriate clause boundaries
+    to group related cells — neighbors are read left-to-right,
+    top-to-bottom. Moving to the left/right edge of the board
+    produces an appropriate auditory icon.</p>
     <ul class="section-toc">
       <li><a href="#Emacspeak_002dMines-Commands" accesskey=
       "1">Emacspeak-Mines Commands</a></li>

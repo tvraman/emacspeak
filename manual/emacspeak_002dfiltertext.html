@@ -73,7 +73,12 @@
     amounts of text.;;; Typically you do this with various
     combinations of grep and friends. When doing so it requires
     explicit effort to not destroy the original text being
-    filtered.</p>
+    filtered. This module provides a textfilter utility that: A)
+    Copies over the selected text to a special filtertext buffer B)
+    Implements a filtertext mode for that buffer that allows easy
+    application of filters C: Provides commands for reverting to
+    the original unfiltered text D: Provides commands for saving
+    results from intermediate filters.</p>
     <ul class="section-toc">
       <li><a href="#Emacspeak_002dFiltertext-Commands" accesskey=
       "1">Emacspeak-Filtertext Commands</a></li>
@@ -171,6 +176,17 @@ or penultimate step during initialization.
         </dl>
       </div>
     </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dflycheck.html">emacspeak-flycheck</a>, Previous:
+    <a href="emacspeak_002dfeeds.html">emacspeak-feeds</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>

@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
@@ -67,54 +67,16 @@
     <span id="emacspeak-1"></span>
     <h3 class="section">12.6 emacspeak</h3>
     <p>Emacspeak extends Emacs to be a fully functional audio
-    desktop. This is the main emacspeak module.</p>
+    desktop. This is the main emacspeak module. It actually does
+    very little: It sets up Emacs to load package-specific
+    Emacspeak modules as each package is loaded. It implements
+    function emacspeak which loads the rest of the system.</p>
     <ul class="section-toc">
-      <li><a href="#Emacspeak-Commands" accesskey="1">Emacspeak
-      Commands</a></li>
-      <li><a href="#emacspeak-Options" accesskey="2">emacspeak
+      <li><a href="#emacspeak-Options" accesskey="1">emacspeak
       Options</a></li>
     </ul>
-    <div class="subsection" id="Emacspeak-Commands">
-      <h4 class="subsection">12.6.1 Emacspeak Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"
-        accesskey=
-        "1">emacspeak-toggle-comint-output-monitor</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor">
-        <h4 class="subsubsection">12.6.1.1
-        emacspeak-toggle-comint-output-monitor</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-toggle-comint-output-monitor</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-o'><span><kbd>C-e o</kbd>
-              <a href='#index-C_002de-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-o'><span><kbd>&lt;fn&gt;
-              o</kbd> <a href='#index-_003cfn_003e-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor-1"></span>
-            <div class="format">
-              <pre class="format">Toggle  Emacspeak comint monitor.
-Interactive PREFIX arg means toggle the global default value. 
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
     <div class="subsection" id="emacspeak-Options">
-      <h4 class="subsection">12.6.2 emacspeak Options</h4>
+      <h4 class="subsection">12.6.1 emacspeak Options</h4>
       <dl class="def">
         <dt id="index-User-Option-15"><span class=
         "category">Variable:</span> <span><strong>User

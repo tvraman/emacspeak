@@ -73,13 +73,54 @@
     implements no new functionality — contrast with
     emacspeak-wizards. Instead, it uses package hydra to provide
     convenience key-bindings that access existing Emacspeak
-    functionality.</p>
+    functionality. You need to install package Hydra first:
+    ‘<samp>M-x package-install hydra</samp>’.</p>
+    <p>Note that on newer versions of Emacs, loading this module
+    will attempt to automatically install package hydra if it is
+    not found.</p>
     <ul class="section-toc">
+      <li><a href="#Using-Hydras" accesskey="1">Using
+      Hydras</a></li>
+      <li><a href="#Implemented-Muggles" accesskey="2">Implemented
+      Muggles</a></li>
       <li><a href="#Emacspeak_002dMuggles-Commands" accesskey=
-      "1">Emacspeak-Muggles Commands</a></li>
+      "3">Emacspeak-Muggles Commands</a></li>
     </ul>
+    <div class="subsection" id="Using-Hydras">
+      <h4 class="subsection">12.127.1 Using Hydras</h4>
+      <p>See the high-level documentation for the Hydra package by
+      executing <kbd>C-h C-j</kbd> hydra <kbd>RET</kbd>. The
+      documentation in this section uses the same terminology as
+      shown in the hydra package documentation.</p>
+    </div>
+    <div class="subsection" id="Implemented-Muggles">
+      <h4 class="subsection">12.127.2 Implemented Muggles</h4>
+      <ul>
+        <li>Brightness: <kbd>print</kbd> Control display brightness
+        using xbacklight.</li>
+        <li>Navigate: <kbd>s-n</kbd> Navigate with ease.</li>
+        <li>org-mode structure nav: <kbd>C-c C-SPC</kbd> Navigation
+        for org-mode.</li>
+        <li>org-mode tables: <kbd>C-c t</kbd> Table UI for org-mode
+        tables.</li>
+        <li>hideshow: C-, h Provide HideShow bindings.</li>
+        <li>toggle-option: <kbd>C-c o</kbd> Single binding for
+        toggling options.</li>
+        <li>Repeatable-Yank: <kbd>C-y</kbd> Smart yank</li>
+        <li>undo-only/undo-redo: <kbd>C-/</kbd> Undo-only on
+        <kbd>/</kbd> and undo-redo on <kbd>\</kbd></li>
+        <li>emacspeak-maths <kbd>s-SPC</kbd> Speak and browse
+        math.</li>
+      </ul>
+      <p>Emacspeak automatically speaks Hydra hints when displayed.
+      To silence all Hydra hints, set hydra-is-helpful to nil. To
+      temporarily silence speaking of Hydra hints, Muggles can bind
+      command <code>emacspeak-hydra-toggle-talkative</code>. As an
+      example, Muggle ‘<samp>ViewMode</samp>’ binds <code>s</code>
+      to this command.</p>
+    </div>
     <div class="subsection" id="Emacspeak_002dMuggles-Commands">
-      <h4 class="subsection">12.127.1 Emacspeak-Muggles
+      <h4 class="subsection">12.127.3 Emacspeak-Muggles
       Commands</h4>
       <ul class="section-toc">
         <li><a href=
@@ -115,7 +156,7 @@
       </ul>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dbrightness_002fbody">
-        <h4 class="subsubsection">12.127.1.1
+        <h4 class="subsubsection">12.127.3.1
         emacspeak-muggles-brightness/body</h4>
         <dl class="def">
           <dt id=
@@ -158,7 +199,7 @@ The body can be accessed via ‘emacspeak-muggles-brightness/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dhideshow_002fbody">
-        <h4 class="subsubsection">12.127.1.2
+        <h4 class="subsubsection">12.127.3.2
         emacspeak-muggles-hideshow/body</h4>
         <dl class="def">
           <dt id=
@@ -201,7 +242,7 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dido_002dyank">
-        <h4 class="subsubsection">12.127.1.3
+        <h4 class="subsubsection">12.127.3.3
         emacspeak-muggles-ido-yank</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dmuggles_002dido_002dyank">
@@ -226,7 +267,7 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dlispy_002dor_002dsp">
-        <h4 class="subsubsection">12.127.1.4
+        <h4 class="subsubsection">12.127.3.4
         emacspeak-muggles-lispy-or-sp</h4>
         <dl class="def">
           <dt id=
@@ -250,7 +291,7 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody">
-        <h4 class="subsubsection">12.127.1.5
+        <h4 class="subsubsection">12.127.3.5
         emacspeak-muggles-maths-navigator/body</h4>
         <dl class="def">
           <dt id=
@@ -292,7 +333,7 @@ The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dnavigate_002fbody">
-        <h4 class="subsubsection">12.127.1.6
+        <h4 class="subsubsection">12.127.3.6
         emacspeak-muggles-navigate/body</h4>
         <dl class="def">
           <dt id=
@@ -339,7 +380,7 @@ The body can be accessed via ‘emacspeak-muggles-navigate/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dorg_002dnav_002fbody">
-        <h4 class="subsubsection">12.127.1.7
+        <h4 class="subsubsection">12.127.3.7
         emacspeak-muggles-org-nav/body</h4>
         <dl class="def">
           <dt id=
@@ -376,7 +417,7 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dorg_002dtable_002fbody">
-        <h4 class="subsubsection">12.127.1.8
+        <h4 class="subsubsection">12.127.3.8
         emacspeak-muggles-org-table/body</h4>
         <dl class="def">
           <dt id=
@@ -415,7 +456,7 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dtoggle_002doption_002fbody">
-        <h4 class="subsubsection">12.127.1.9
+        <h4 class="subsubsection">12.127.3.9
         emacspeak-muggles-toggle-option/body</h4>
         <dl class="def">
           <dt id=
@@ -463,7 +504,7 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody">
-        <h4 class="subsubsection">12.127.1.10
+        <h4 class="subsubsection">12.127.3.10
         emacspeak-muggles-undo-only/undo-redo/body</h4>
         <dl class="def">
           <dt id=
@@ -498,7 +539,7 @@ The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dmuggles_002dyank_002dpop_002fbody">
-        <h4 class="subsubsection">12.127.1.11
+        <h4 class="subsubsection">12.127.3.11
         emacspeak-muggles-yank-pop/body</h4>
         <dl class="def">
           <dt id=

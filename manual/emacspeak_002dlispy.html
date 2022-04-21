@@ -79,7 +79,20 @@
       <p>Lispy editing keeps delimiters balanced and Lispy
       navigators reliably place point on either the opening or
       closing delimiter of the current s-expression. Emacspeak
-      leverages this fact in the</p>
+      leverages this fact in the type of spoken feedback that is
+      produced. All navigation commands produce the following:</p>
+      <ul>
+        <li>Speak the current s-expression when at the front of a
+        sexp.</li>
+        <li>Speak the current line with option
+        <code>emacspeak-show-point</code> turned on when at the end
+        of an s-expression.</li>
+        <li>Produce auditory icon <code>left</code> or
+        <code>right</code> to indicate point being at the beginning
+        or end of current line.</li>
+        <li>Indicate with an auditory icon if point did not
+        move.</li>
+      </ul>
     </div>
   </div>
 </body>

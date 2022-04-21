@@ -72,12 +72,105 @@
     <p>The Emacs Chess package provides a rich environment for
     playing and exploring Chess Games. That package comes with a
     light-weight module that announces moves.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dChess-Commands" accesskey=
-      "1">Emacspeak-Chess Commands</a></li>
+    <p>This module aims do do much more, including:</p>
+    <ul>
+      <li>Navigate the board along various axies with
+      audio-formatted output.</li>
+      <li>Browse games via rich audio-formatted output.</li>
+      <li>Speech-enable all interactive commands provided by the
+      Chess package.</li>
+      <li>Enable various means of exploring the state of game,
+      perhaps with a view to being able to spot patterns from
+      listening to the output.</li>
     </ul>
+    <ul class="section-toc">
+      <li><a href="#Navigating-And-Examining-The-Board" accesskey=
+      "1">Navigating And Examining The Board</a></li>
+      <li><a href="#Examining-Games" accesskey="2">Examining
+      Games</a></li>
+      <li><a href="#Emacspeak_002dChess-Commands" accesskey=
+      "3">Emacspeak-Chess Commands</a></li>
+    </ul>
+    <div class="subsection" id=
+    "Navigating-And-Examining-The-Board">
+      <h4 class="subsection">12.31.1 Navigating And Examining The
+      Board</h4>
+      <p>The board can be navigated along the 8 compass directions.
+      Arrow keys move to the appropriate squares on the board.
+      <kbd>/</kbd> and <kbd>\</kbd> move down the diagonals.
+      <kbd>[</kbd> and <kbd>]</kbd> move up the respective
+      diagonals.</p>
+      <ul>
+        <li>Move North: <code>emacspeak-chess-north</code> bound to
+        <kbd>up</kbd>.</li>
+        <li>Move South: <code>emacspeak-chess-south</code> bound to
+        <kbd>down</kbd>.</li>
+        <li>Move West: <code>emacspeak-chess-west</code> bound to
+        <kbd>left</kbd>.</li>
+        <li>Move East: <code>emacspeak-chess-east</code> bound to
+        <kbd>right</kbd>.</li>
+      </ul>
+      <p>You can also move along the diagonals:</p>
+      <ul>
+        <li>Move Northwest: <code>emacspeak-chess-northwest</code>
+        bound to <kbd>[</kbd>.</li>
+        <li>Move Northeast: <code>emacspeak-chess-northeast</code>
+        bound to <kbd>]</kbd>.</li>
+        <li>Move Southwest: <code>emacspeak-chess-southwest</code>
+        bound to <kbd>/</kbd>.</li>
+        <li>Move Southeast: <code>emacspeak-chess-southeast</code>
+        bound to <kbd>\</kbd>.</li>
+      </ul>
+      <p>You can also jump to a given board position by:</p>
+      <ul>
+        <li>Jump: <code>emacspeak-chess-jump</code> bound to
+        <kbd>j</kbd>.</li>
+        <li>Target of last move:
+        <code>emacspeak-chess-goto-target</code> bound to
+        <kbd>t</kbd>.</li>
+        <li>Look: <code>emacspeak-chess-speak-that-square</code>
+        bound to <kbd>l</kbd>.</li>
+        <li>Review current square: <kbd>;</kbd>.</li>
+        <li>Review Board: <code>emacspeak-chess-speak-board</code>
+        bound to <kbd>z</kbd>. Useful in end-state.</li>
+        <li>Locate pieces:
+        <code>emacspeak-chess-speak-piece-squares</code> bound to
+        <kbd>s</kbd>. Specify piece as a single char — <kbd>w</kbd>
+        speaks all white pieces, <kbd>l</kbd> speaks all black
+        pieces, use SAN notation char for a specific piece. Use
+        <kbd>a</kbd> to hear entire board, this last is most useful
+        when the game is an end-state.</li>
+        <li>Discover who targets a square:
+        <code>emacspeak-chess-speak-who-targets</code> bound to
+        <kbd>w</kbd>. Argument <code>piece</code> is similar to the
+        previously listed command.</li>
+      </ul>
+      <p>You can obtain views of the board along the rows and
+      diagonals, as well as a <em>knight’s perspective</em> :</p>
+      <ul>
+        <li>Viewers: <kbd>v</kbd> followed by the directional
+        navigation keys speaks the squares in that direction from
+        the current square. <kbd>vn</kbd> speaks the squares from a
+        knight’s perspective, i.e. the squares the Knight would see
+        from the current position. similarly, <kbd>vk</kbd> speaks
+        the non-empty squares seen by the King from the current
+        position. <kbd>v</kbd> followed by a rank-or-file char
+        speaks that complete rank or file.</li>
+      </ul>
+    </div>
+    <div class="subsection" id="Examining-Games">
+      <h4 class="subsection">12.31.2 Examining Games</h4>
+      <p>Package <em>Chess</em> allows one to browse through a game
+      using <kbd>,</kbd> and <kbd>.</kbd> —
+      <code>chess-display-move-backward</code> and
+      <code>chess-display-move-forward</code>. Emacspeak
+      speech-enables these commands to speak the move that led to
+      the currently displayed state of the game. Finally,
+      <kbd>m</kbd> speaks the <em>current move</em> being
+      displayed.</p>
+    </div>
     <div class="subsection" id="Emacspeak_002dChess-Commands">
-      <h4 class="subsection">12.31.1 Emacspeak-Chess Commands</h4>
+      <h4 class="subsection">12.31.3 Emacspeak-Chess Commands</h4>
       <ul class="section-toc">
         <li><a href="#emacspeak_002dchess_002deast" accesskey=
         "1">emacspeak-chess-east</a></li>
@@ -135,7 +228,7 @@
         "#emacspeak_002dchess_002dwest">emacspeak-chess-west</a></li>
       </ul>
       <div class="subsubsection" id="emacspeak_002dchess_002deast">
-        <h4 class="subsubsection">12.31.1.1
+        <h4 class="subsubsection">12.31.3.1
         emacspeak-chess-east</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002deast"><span class=
@@ -154,7 +247,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dgoto_002dtarget">
-        <h4 class="subsubsection">12.31.1.2
+        <h4 class="subsubsection">12.31.3.2
         emacspeak-chess-goto-target</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dgoto_002dtarget">
@@ -174,7 +267,7 @@
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dchess_002djump">
-        <h4 class="subsubsection">12.31.1.3
+        <h4 class="subsubsection">12.31.3.3
         emacspeak-chess-jump</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002djump"><span class=
@@ -197,7 +290,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002deast">
-        <h4 class="subsubsection">12.31.1.4
+        <h4 class="subsubsection">12.31.3.4
         emacspeak-chess-look-east</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dlook_002deast">
@@ -217,7 +310,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dking">
-        <h4 class="subsubsection">12.31.1.5
+        <h4 class="subsubsection">12.31.3.5
         emacspeak-chess-look-king</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dlook_002dking">
@@ -238,7 +331,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dknight">
-        <h4 class="subsubsection">12.31.1.6
+        <h4 class="subsubsection">12.31.3.6
         emacspeak-chess-look-knight</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dlook_002dknight">
@@ -259,7 +352,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dnorth">
-        <h4 class="subsubsection">12.31.1.7
+        <h4 class="subsubsection">12.31.3.7
         emacspeak-chess-look-north</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dlook_002dnorth">
@@ -279,7 +372,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dnortheast">
-        <h4 class="subsubsection">12.31.1.8
+        <h4 class="subsubsection">12.31.3.8
         emacspeak-chess-look-northeast</h4>
         <dl class="def">
           <dt id=
@@ -301,7 +394,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dnorthwest">
-        <h4 class="subsubsection">12.31.1.9
+        <h4 class="subsubsection">12.31.3.9
         emacspeak-chess-look-northwest</h4>
         <dl class="def">
           <dt id=
@@ -323,7 +416,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dsouth">
-        <h4 class="subsubsection">12.31.1.10
+        <h4 class="subsubsection">12.31.3.10
         emacspeak-chess-look-south</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dlook_002dsouth">
@@ -343,7 +436,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dsoutheast">
-        <h4 class="subsubsection">12.31.1.11
+        <h4 class="subsubsection">12.31.3.11
         emacspeak-chess-look-southeast</h4>
         <dl class="def">
           <dt id=
@@ -365,7 +458,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dsouthwest">
-        <h4 class="subsubsection">12.31.1.12
+        <h4 class="subsubsection">12.31.3.12
         emacspeak-chess-look-southwest</h4>
         <dl class="def">
           <dt id=
@@ -387,7 +480,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dlook_002dwest">
-        <h4 class="subsubsection">12.31.1.13
+        <h4 class="subsubsection">12.31.3.13
         emacspeak-chess-look-west</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dlook_002dwest">
@@ -407,7 +500,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dnorth">
-        <h4 class="subsubsection">12.31.1.14
+        <h4 class="subsubsection">12.31.3.14
         emacspeak-chess-north</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dnorth"><span class=
@@ -427,7 +520,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dnortheast">
-        <h4 class="subsubsection">12.31.1.15
+        <h4 class="subsubsection">12.31.3.15
         emacspeak-chess-northeast</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dnortheast">
@@ -447,7 +540,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dnorthwest">
-        <h4 class="subsubsection">12.31.1.16
+        <h4 class="subsubsection">12.31.3.16
         emacspeak-chess-northwest</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dnorthwest">
@@ -467,7 +560,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dsouth">
-        <h4 class="subsubsection">12.31.1.17
+        <h4 class="subsubsection">12.31.3.17
         emacspeak-chess-south</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dsouth"><span class=
@@ -487,7 +580,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dsoutheast">
-        <h4 class="subsubsection">12.31.1.18
+        <h4 class="subsubsection">12.31.3.18
         emacspeak-chess-southeast</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dsoutheast">
@@ -507,7 +600,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dsouthwest">
-        <h4 class="subsubsection">12.31.1.19
+        <h4 class="subsubsection">12.31.3.19
         emacspeak-chess-southwest</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dsouthwest">
@@ -527,7 +620,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dspeak_002dboard">
-        <h4 class="subsubsection">12.31.1.20
+        <h4 class="subsubsection">12.31.3.20
         emacspeak-chess-speak-board</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dspeak_002dboard">
@@ -548,7 +641,7 @@
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dspeak_002dpiece_002dsquares">
-        <h4 class="subsubsection">12.31.1.21
+        <h4 class="subsubsection">12.31.3.21
         emacspeak-chess-speak-piece-squares</h4>
         <dl class="def">
           <dt id=
@@ -577,7 +670,7 @@ and ‘a’ for entire board..
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dspeak_002dthat_002dsquare">
-        <h4 class="subsubsection">12.31.1.22
+        <h4 class="subsubsection">12.31.3.22
         emacspeak-chess-speak-that-square</h4>
         <dl class="def">
           <dt id=
@@ -602,7 +695,7 @@ and ‘a’ for entire board..
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dspeak_002dthis_002dmove">
-        <h4 class="subsubsection">12.31.1.23
+        <h4 class="subsubsection">12.31.3.23
         emacspeak-chess-speak-this-move</h4>
         <dl class="def">
           <dt id=
@@ -626,7 +719,7 @@ and ‘a’ for entire board..
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dspeak_002dthis_002dsquare">
-        <h4 class="subsubsection">12.31.1.24
+        <h4 class="subsubsection">12.31.3.24
         emacspeak-chess-speak-this-square</h4>
         <dl class="def">
           <dt id=
@@ -649,7 +742,7 @@ and ‘a’ for entire board..
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dspeak_002dwho_002dtargets">
-        <h4 class="subsubsection">12.31.1.25
+        <h4 class="subsubsection">12.31.3.25
         emacspeak-chess-speak-who-targets</h4>
         <dl class="def">
           <dt id=
@@ -677,7 +770,7 @@ Argument ‘piece’ specifies  piece-or-color as in command
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dchess_002dview_002drank_002dor_002dfile">
-        <h4 class="subsubsection">12.31.1.26
+        <h4 class="subsubsection">12.31.3.26
         emacspeak-chess-view-rank-or-file</h4>
         <dl class="def">
           <dt id=
@@ -700,7 +793,7 @@ Argument ‘piece’ specifies  piece-or-color as in command
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dchess_002dwest">
-        <h4 class="subsubsection">12.31.1.27
+        <h4 class="subsubsection">12.31.3.27
         emacspeak-chess-west</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dchess_002dwest"><span class=
