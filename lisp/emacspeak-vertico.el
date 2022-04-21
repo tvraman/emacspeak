@@ -77,7 +77,14 @@
   (cl-declare (special vertico--index vertico--base))
   (let ((new-cand
          (substring (vertico--candidate)
-                    (if (>= vertico--index 0) (length vertico--base) 0)))
+                    (if (>= vertico--index 0)
+                        ;; Handle both vectico <= 0.22 and > 0.22, which have
+                        ;; different types for vercito--base
+                        ;; Remove after vertico 0.23
+                        (if (stringp vertico--base)
+                            (length vertico--base)
+                          vertico--base)
+                      0)))
         (to-speak nil))
     (unless (equal emacspeak-vertico--prev-candidate new-cand)
       (push new-cand to-speak)
