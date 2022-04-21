@@ -1,59 +1,59 @@
 ;;; sox.el --- An Audio Work-Bench -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable SOX An Emacs Interface to sox
-;;; Keywords: Emacspeak,  Audio Desktop sox
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable SOX An Emacs Interface to sox
+;; Keywords: Emacspeak,  Audio Desktop sox
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNSOX FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; This module defines a convenient speech-enabled
-;;; interface for editing mp3 and wav files using SoX.
-;;;
-;;; Launching M-x sox  creates a special interaction buffer
-;;; that provides single keystroke commands for editing and
-;;; applying effects to a selected sound file. For adding mp3
-;;; support to sox, do
-;;;
-;;; sudo apt-get libsox-fmt-mp3 install
-;;;
-;;; This module provides support for ladspa effects using module ladspa.el.
-;;; To use ladspa effects with SoX, you need a relatively new build of Sox;
-;;; The stock SoX that is package for Debian/Ubuntu  does not always work.
-;;; This module can be used independent of Emacspeak.
+;; This module defines a convenient speech-enabled
+;; interface for editing mp3 and wav files using SoX.
+;; 
+;; Launching M-x sox  creates a special interaction buffer
+;; that provides single keystroke commands for editing and
+;; applying effects to a selected sound file. For adding mp3
+;; support to sox, do
+;; 
+;; sudo apt-get libsox-fmt-mp3 install
+;; 
+;; This module provides support for ladspa effects using module ladspa.el.
+;; To use ladspa effects with SoX, you need a relatively new build of Sox;
+;; The stock SoX that is package for Debian/Ubuntu  does not always work.
+;; This module can be used independent of Emacspeak.
 ;;; Code:
 
 ;;}}}
@@ -182,7 +182,7 @@
      ("s" sox-save)
      )
    do
-   (define-key sox-mode-map (ems-kbd (cl-first k)) (cl-second k))))
+   (define-key sox-mode-map (kbd (cl-first k)) (cl-second k))))
 
 ;;}}}
 ;;{{{ Top-level Context:
@@ -377,15 +377,15 @@
   "Register effect."
   (cl-pushnew name sox-effects :test #'string=))
 
-;;; To define support for an effect,:
-;;; 1. Add it to the effect table below.
-;;; 2. Clone the code from one of the previously implemented effects,
-;;; And update per the SoX man page.
+;; To define support for an effect,:
+;; 1. Add it to the effect table below.
+;; 2. Clone the code from one of the previously implemented effects,
+;; And update per the SoX man page.
 
 ;;}}}
 ;;{{{ Ladspa Effects:
 
-;;; Heavy lifting done by Ladspa module.
+;; Heavy lifting done by Ladspa module.
 
 (defvar sox-ladspa-params nil
   "Generic spec for ladspa effect.")
@@ -421,16 +421,16 @@ and return a suitable effect structure."
         (getter (intern (format "sox-get-%s-effect" name))))
     ;;; Register effect
     (sox-register-effect name)
-;;; Parameter template used for prompting:
+;; Parameter template used for prompting:
     (eval
      `(defconst ,p-sym ',params
         ,(format "Parameters for effect %s" name)))
 
-;;; Set up  repeat
+;; Set up  repeat
     (when repeat
       (eval `(put ',p-sym 'repeat t)))
 
-;;; Function  for generating effect structure:
+;; Function  for generating effect structure:
     (eval
      `(defun ,getter ()
         ,(format "Read needed params for effect %s
@@ -464,10 +464,10 @@ and return a suitable effect structure." name)
 
 (sox-def-effect "fade" '("shape"  "fade-in" "stop" "fade-out") nil)
 
-;;; reverb:
-;;;reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
-;;; [room-scale (100%) [stereo-depth (100%)
-;;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
+;; reverb:
+;; reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
+;; [room-scale (100%) [stereo-depth (100%)
+;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
 (sox-def-effect
  "reverb"
  '("-w"  "reverb" "hf-damp"
@@ -479,7 +479,7 @@ and return a suitable effect structure." name)
 (provide 'sox)
 ;;{{{ Add Emacspeak Support
 
-;;; Code here can be factored out to emacspeak-sox.el
+;; Code here can be factored out to emacspeak-sox.el
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
@@ -502,8 +502,8 @@ and return a suitable effect structure." name)
 ;;}}}
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

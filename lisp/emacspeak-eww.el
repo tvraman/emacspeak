@@ -1,445 +1,445 @@
 ;;; emacspeak-eww.el --- Speech-enable EWW Browser  -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-eww.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
-;;; Description: Speech-enable EWW An Emacs Interface to eww
-;;; Keywords: Emacspeak, Audio Desktop eww
+;; $Id: emacspeak-eww.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;; $Author: tv.raman.tv $
+;; Description: Speech-enable EWW An Emacs Interface to eww
+;; Keywords: Emacspeak, Audio Desktop eww
 ;;{{{ LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;; $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;; $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNEWW FOR A PARTICULAR PURPOSE. See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING. If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNEWW FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING. If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ introduction
 
 ;;; Commentary:
 
-;;;EWW == Emacs Web Browser
-;;;
-;;; EWW is a light-weight Web browser built into Emacs starting with
-;;; Emacs-24.4 . This module speech-enables EWW.
-;;;
-;;;It implements additional interactive commands for navigating the
-;;; DOM. It also provides a set of filters for interactively filtering
-;;; the DOM by various attributes such as id, class and role.
-;;; Finally, this module updates EWW's built-in key-bindings with
-;;; Emacspeak conveniences.
+;; EWW == Emacs Web Browser
+;; 
+;; EWW is a light-weight Web browser built into Emacs starting with
+;; Emacs-24.4 . This module speech-enables EWW.
+;; 
+;; It implements additional interactive commands for navigating the
+;; DOM. It also provides a set of filters for interactively filtering
+;; the DOM by various attributes such as id, class and role.
+;; Finally, this module updates EWW's built-in key-bindings with
+;; Emacspeak conveniences.
 
-;;; @subsection Structured Navigation
-;;;
-;;; These commands move through section headers as defined in HTML.
-;;;@table @kbd
-;;;@item       1
-;;;@command{emacspeak-eww-next-h1}
-;;;Move to next @code{H1} heading.
-;;;@item       2
-;;;@command{emacspeak-eww-next-h2}
-;;;Move to next @code{H2} heading.
-;;;@item       3
-;;;@command{emacspeak-eww-next-h3}
-;;;Move to next @code{H3} heading.
-;;;@item       4
-;;;@command{emacspeak-eww-next-h4}
-;;;Move to next @code{H4} heading.
-;;;@item       .
-;;;@command{emacspeak-eww-next-h}
-;;;Move to next heading. (@code{H1}...@code{H4}).
-;;;@item       M-1
-;;;@command{emacspeak-eww-previous-h1}
-;;;Move to previous @code{H1} heading.
-;;;@item       M-2
-;;;@command{emacspeak-eww-previous-h2}
-;;;Move to previous @code{H2} heading.
-;;;@item       M-3
-;;;@command{emacspeak-eww-previous-h3}
-;;;Move to previous @code{H3} heading.
-;;;@item       M-4
-;;;@command{emacspeak-eww-previous-h4}
-;;;Move to previous @code{H4} heading.
-;;;@item  ,
-;;;@command{emacspeak-eww-previous-h}
-;;;Move to previous heading (@code{H1}...@code{H4}).
-;;;@end table
-;;;
-;;; This next set of DOM commands enable navigating by HTML elements.
-;;;@table @kbd
-;;;@item       M-SPC
-;;;@command{emacspeak-eww-speak-this-element}
-;;; Speak contents of current element.
-;;;@item       J
-;;;@command{emacspeak-eww-next-element-like-this}
-;;;Jump to next element that is the same as the one under point.
-;;; If there are multiple HTML elements under point,
-;;;prompts for element-name using completion.
-;;;@item       K
-;;;@command{emacspeak-eww-previous-element-like-this}
-;;;Jump to previous element that is the same as the one under point.
-;;; If there are multiple HTML elements under point,
-;;;prompts for element-name using completion.
-;;;@item  N
-;;;@command{emacspeak-eww-next-element-from-history}
-;;;Jump to next element based on  previous J/K command history.
-;;;@item       P
-;;;@command{emacspeak-eww-previous-element-from-history}
-;;;Jump to previous element based on  previous J/K history.
-;;;@item       O
-;;;@command{emacspeak-eww-previous-li}
-;;;Jump to previous list item.
-;;;@item       o
-;;;@command{emacspeak-eww-next-li}
-;;;Jump to next list item.
-;;;@item       T
-;;;@command{emacspeak-eww-previous-table}
-;;;Jump to previous table in page.
-;;;@item  t
-;;;@command{emacspeak-eww-next-table}
-;;;Jump to next table.
-;;;@item       [
-;;;             @command{emacspeak-eww-previous-p}
-;;;             Jump to previous paragraph.
-;;;             @item  ]
-;;;@command{emacspeak-eww-next-p}
-;;;Jump to next paragraph.
-;;;@item       b
-;;;@command{shr-previous-link}
-;;;Jump to previous link.
-;;;@item  f
-;;;@command{shr-next-link}
-;;;Jump to next link.
-;;;@item  n
-;;;@command{emacspeak-eww-next-element}
-;;;Jump to next element.
-;;;@item       p
-;;;@command{emacspeak-eww-previous-element}
-;;;Jump to previous element.
-;;;@item       s
-;;;@command{eww-readable}
-;;;Use EWW's built-in readable tool.
-;;;@item :
-;;;@command{emacspeak-eww-tags-at-point}
-;;;Display  currently active HTML tags at point.
-;;;@end table
-;;;
+;; @subsection Structured Navigation
+;; 
+;; These commands move through section headers as defined in HTML.
+;; @table @kbd
+;; @item       1
+;; @command{emacspeak-eww-next-h1}
+;; Move to next @code{H1} heading.
+;; @item       2
+;; @command{emacspeak-eww-next-h2}
+;; Move to next @code{H2} heading.
+;; @item       3
+;; @command{emacspeak-eww-next-h3}
+;; Move to next @code{H3} heading.
+;; @item       4
+;; @command{emacspeak-eww-next-h4}
+;; Move to next @code{H4} heading.
+;; @item       .
+;; @command{emacspeak-eww-next-h}
+;; Move to next heading. (@code{H1}...@code{H4}).
+;; @item       M-1
+;; @command{emacspeak-eww-previous-h1}
+;; Move to previous @code{H1} heading.
+;; @item       M-2
+;; @command{emacspeak-eww-previous-h2}
+;; Move to previous @code{H2} heading.
+;; @item       M-3
+;; @command{emacspeak-eww-previous-h3}
+;; Move to previous @code{H3} heading.
+;; @item       M-4
+;; @command{emacspeak-eww-previous-h4}
+;; Move to previous @code{H4} heading.
+;; @item  ,
+;; @command{emacspeak-eww-previous-h}
+;; Move to previous heading (@code{H1}...@code{H4}).
+;; @end table
+;; 
+;; This next set of DOM commands enable navigating by HTML elements.
+;; @table @kbd
+;; @item       M-SPC
+;; @command{emacspeak-eww-speak-this-element}
+;; Speak contents of current element.
+;; @item       J
+;; @command{emacspeak-eww-next-element-like-this}
+;; Jump to next element that is the same as the one under point.
+;; If there are multiple HTML elements under point,
+;; prompts for element-name using completion.
+;; @item       K
+;; @command{emacspeak-eww-previous-element-like-this}
+;; Jump to previous element that is the same as the one under point.
+;; If there are multiple HTML elements under point,
+;; prompts for element-name using completion.
+;; @item  N
+;; @command{emacspeak-eww-next-element-from-history}
+;; Jump to next element based on  previous J/K command history.
+;; @item       P
+;; @command{emacspeak-eww-previous-element-from-history}
+;; Jump to previous element based on  previous J/K history.
+;; @item       O
+;; @command{emacspeak-eww-previous-li}
+;; Jump to previous list item.
+;; @item       o
+;; @command{emacspeak-eww-next-li}
+;; Jump to next list item.
+;; @item       T
+;; @command{emacspeak-eww-previous-table}
+;; Jump to previous table in page.
+;; @item  t
+;; @command{emacspeak-eww-next-table}
+;; Jump to next table.
+;; @item       [
+;;             @command{emacspeak-eww-previous-p}
+;;             Jump to previous paragraph.
+;;             @item  ]
+;; @command{emacspeak-eww-next-p}
+;; Jump to next paragraph.
+;; @item       b
+;; @command{shr-previous-link}
+;; Jump to previous link.
+;; @item  f
+;; @command{shr-next-link}
+;; Jump to next link.
+;; @item  n
+;; @command{emacspeak-eww-next-element}
+;; Jump to next element.
+;; @item       p
+;; @command{emacspeak-eww-previous-element}
+;; Jump to previous element.
+;; @item       s
+;; @command{eww-readable}
+;; Use EWW's built-in readable tool.
+;; @item :
+;; @command{emacspeak-eww-tags-at-point}
+;; Display  currently active HTML tags at point.
+;; @end table
+;; 
 
-;;; @subsection Filtering Content Using The DOM
-;;; These commands use EWW's HTML DOM to display different filtered
-;;; views of the Web page.
-;;; With an interactive prefix argument, these commands prompt for a
-;;; list of filters.
-;;; Command @command{emacspeak-eww-restore} bound to @kbd{DEL} can be used
-;;; to restore the previous view.
-;;;
-;;;@table @kbd
-;;;@item  A
-;;;@command{eww-view-dom-having-attribute}
-;;;Display DOM nodes having specified attribute. Valid attributes
-;;;are available via completion.
-;;;@item       C
-;;;@command{eww-view-dom-having-class}
-;;;Display DOM nodes having specified class. Valid classes
-;;;are available via completion.
-;;;@item  E
-;;;@command{eww-view-dom-having-elements}
-;;;Display specified elements from the Dom. Valid element names
-;;;are available via completion.
-;;;@item  I
-;;;@command{eww-view-dom-having-id}
-;;;Display DOM nodes having specified ID. Valid id values
-;;;are available via completion.
-;;;@item  R
-;;;@command{eww-view-dom-having-role}
-;;;Display DOM nodes having specified role. Valid roles
-;;;are available via completion.
-;;;@item       M-a
-;;;@command{eww-view-dom-not-having-attribute}
-;;;Filter out DOM nodes having specified attribute. Valid attribute values
-;;;are available via completion.
-;;;@item       M-c
-;;;@command{eww-view-dom-not-having-class}
-;;;Filter out DOM nodes having specified class. Valid class values
-;;;are available via completion.
-;;;@item       M-e
-;;;@command{eww-view-dom-not-having-elements}
-;;;Filter out  specified element DOM nodes. Valid element names
-;;;are available via completion.
-;;;@item       M-i
-;;;@command{eww-view-dom-not-having-id}
-;;;Dfilter out Display DOM nodes having specified ID. Valid id values
-;;;are available via completion.
-;;;@item       M-r
-;;;@command{eww-view-dom-not-having-role}
-;;;Filter out  DOM nodes having specified role. Valid role values
-;;;are available via completion.
-;;;@end table
-;;; @subsection Diving Into (Focusing) On Specific Content
-;;;
-;;; Contrast this with filtering described in the previous section.
-;;; There, we discussed commands that @emph{filter} the DOM to render
-;;; specific types of elements. For HTML as spoken on the Web, there
-;;; is a separate use-case that is helpful as a dual to filtering,
-;;; namely, displaying a specific portion of a page, typically the
-;;; contents of a @code{div} element.
-;;; These elements often appear many times on a page, and can be
-;;; deeply nested, making it difficult to focus on the relevant
-;;; content on the page, e.g. news sites.
-;;; Commands @code{emacspeak-eww-dive-into-div}
-;;; help  in such cases, @kbd{C-d} renders the @code{div} containing
-;;; point in a separate buffer
-;;;  As with the filtering commands, @kbd{l} returns to the
-;;; buffer where these commands were executed.
-;;; Long-term users of Emacspeak who still remember Emacs-W3 will
-;;; recognize this as the @emph{focus} command implemented by
-;;; Emacspeak for W3.
-;;; @subsection Updated  Commands For Following  Links
+;; @subsection Filtering Content Using The DOM
+;; These commands use EWW's HTML DOM to display different filtered
+;; views of the Web page.
+;; With an interactive prefix argument, these commands prompt for a
+;; list of filters.
+;; Command @command{emacspeak-eww-restore} bound to @kbd{DEL} can be used
+;; to restore the previous view.
+;; 
+;; @table @kbd
+;; @item  A
+;; @command{eww-view-dom-having-attribute}
+;; Display DOM nodes having specified attribute. Valid attributes
+;; are available via completion.
+;; @item       C
+;; @command{eww-view-dom-having-class}
+;; Display DOM nodes having specified class. Valid classes
+;; are available via completion.
+;; @item  E
+;; @command{eww-view-dom-having-elements}
+;; Display specified elements from the Dom. Valid element names
+;; are available via completion.
+;; @item  I
+;; @command{eww-view-dom-having-id}
+;; Display DOM nodes having specified ID. Valid id values
+;; are available via completion.
+;; @item  R
+;; @command{eww-view-dom-having-role}
+;; Display DOM nodes having specified role. Valid roles
+;; are available via completion.
+;; @item       M-a
+;; @command{eww-view-dom-not-having-attribute}
+;; Filter out DOM nodes having specified attribute. Valid attribute values
+;; are available via completion.
+;; @item       M-c
+;; @command{eww-view-dom-not-having-class}
+;; Filter out DOM nodes having specified class. Valid class values
+;; are available via completion.
+;; @item       M-e
+;; @command{eww-view-dom-not-having-elements}
+;; Filter out  specified element DOM nodes. Valid element names
+;; are available via completion.
+;; @item       M-i
+;; @command{eww-view-dom-not-having-id}
+;; Dfilter out Display DOM nodes having specified ID. Valid id values
+;; are available via completion.
+;; @item       M-r
+;; @command{eww-view-dom-not-having-role}
+;; Filter out  DOM nodes having specified role. Valid role values
+;; are available via completion.
+;; @end table
+;; @subsection Diving Into (Focusing) On Specific Content
+;; 
+;; Contrast this with filtering described in the previous section.
+;; There, we discussed commands that @emph{filter} the DOM to render
+;; specific types of elements. For HTML as spoken on the Web, there
+;; is a separate use-case that is helpful as a dual to filtering,
+;; namely, displaying a specific portion of a page, typically the
+;; contents of a @code{div} element.
+;; These elements often appear many times on a page, and can be
+;; deeply nested, making it difficult to focus on the relevant
+;; content on the page, e.g. news sites.
+;; Commands @code{emacspeak-eww-dive-into-div}
+;; help  in such cases, @kbd{C-d} renders the @code{div} containing
+;; point in a separate buffer
+;;  As with the filtering commands, @kbd{l} returns to the
+;; buffer where these commands were executed.
+;; Long-term users of Emacspeak who still remember Emacs-W3 will
+;; recognize this as the @emph{focus} command implemented by
+;; Emacspeak for W3.
+;; @subsection Updated  Commands For Following  Links
 
-;;; These key-bindings are available when point is on a link. They
-;;; enable context-specific actions for following links, e.g., to play
-;;; media streams, or to open various feed-types such as @code{ATOM},
-;;; @code{RSS}, or @code{OPML}.
-;;;
-;;;
-;;; @table @kbd
-;;; @item k
-;;; @command{shr-copy-url}
-;;; Copy URL under point to the kill-ring.
-;;; @item ;
-;;; @command{emacspeak-eww-play-media-at-point}
-;;; Play media URL under point using @code{emacs-m-player}.
-;;; @item U
-;;; @command{emacspeak-eww-curl-play-media-at-point}
-;;; Play media url under point by first downloading the URL using
-;;; CURL. This is useful for sites that do multiple redirects before
-;;; returning the actual media stream URL.
-;;; @item C-o
-;;; @command{emacspeak-feeds-opml-display}
-;;; Display link under point as an @code{OPML} feed .
-;;; @item C-r
-;;; @command{emacspeak-feeds-rss-display}
-;;; Display link under point as an @code{RSS} feed.
-;;; @item C-a
-;;; @command{emacspeak-feeds-atom-display}
-;;; Display link under point as an @code{ATOM} feed.
-;;; @item y
-;;; @command{emacspeak-m-player-youtube-player}
-;;; Play link under point as a Youtube stream.
-;;; @end table
-;;;
-;;; @subsection Table Browsing
+;; These key-bindings are available when point is on a link. They
+;; enable context-specific actions for following links, e.g., to play
+;; media streams, or to open various feed-types such as @code{ATOM},
+;; @code{RSS}, or @code{OPML}.
+;; 
+;; 
+;; @table @kbd
+;; @item k
+;; @command{shr-copy-url}
+;; Copy URL under point to the kill-ring.
+;; @item ;
+;; @command{emacspeak-eww-play-media-at-point}
+;; Play media URL under point using @code{emacs-m-player}.
+;; @item U
+;; @command{emacspeak-eww-curl-play-media-at-point}
+;; Play media url under point by first downloading the URL using
+;; CURL. This is useful for sites that do multiple redirects before
+;; returning the actual media stream URL.
+;; @item C-o
+;; @command{emacspeak-feeds-opml-display}
+;; Display link under point as an @code{OPML} feed .
+;; @item C-r
+;; @command{emacspeak-feeds-rss-display}
+;; Display link under point as an @code{RSS} feed.
+;; @item C-a
+;; @command{emacspeak-feeds-atom-display}
+;; Display link under point as an @code{ATOM} feed.
+;; @item y
+;; @command{emacspeak-m-player-youtube-player}
+;; Play link under point as a Youtube stream.
+;; @end table
+;; 
+;; @subsection Table Browsing
 
-;;; Summary Of Keyboard Commands:
-;;; @itemize
-;;; @item @kbd{M-<left>} emacspeak-eww-table-previous-cell@MDash{}
-;;; Speak previous cell.
-;;; @item @kbd{M-<right>} emacspeak-eww-table-next-cell @MDash{}
-;;; Speak previous cell.
-;;; @item @kbd{M-<up>} emacspeak-eww-table-previous-row @MDash{}
-;;; Speak cell above.
-;;; @item @kbd{M-<down>} emacspeak-eww-table-next-row @MDash{}
-;;; Speak  cell below.
-;;; @item @kbd{M-.} emacspeak-eww-table-speak-cell @MDash{}
-;;; Speak current cell.
-;;; @item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
-;;; Speak number of rows and columns.
-;;; @item @kbd{C-t} emacspeak-eww-table-data @MDash{}
-;;; Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
-;;; @end itemize
+;; Summary Of Keyboard Commands:
+;; @itemize
+;; @item @kbd{M-<left>} emacspeak-eww-table-previous-cell@MDash{}
+;; Speak previous cell.
+;; @item @kbd{M-<right>} emacspeak-eww-table-next-cell @MDash{}
+;; Speak previous cell.
+;; @item @kbd{M-<up>} emacspeak-eww-table-previous-row @MDash{}
+;; Speak cell above.
+;; @item @kbd{M-<down>} emacspeak-eww-table-next-row @MDash{}
+;; Speak  cell below.
+;; @item @kbd{M-.} emacspeak-eww-table-speak-cell @MDash{}
+;; Speak current cell.
+;; @item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
+;; Speak number of rows and columns.
+;; @item @kbd{C-t} emacspeak-eww-table-data @MDash{}
+;; Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
+;; @end itemize
 
-;;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
-;;;@kbd{M-LEFT} and @kbd{M-RIGHT},
-;;; to speak the current, previous and next table cell
-;;;respectively. The latter commands also move to the cell being
-;;;spoken.  You can get  a sense of the table's size via @kbd{M-,}
-;;;which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
-;;;tables, first have then @emph{unnested} using one of the XSLT
-;;;transforms like @code{sort-tables}.
+;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
+;; @kbd{M-LEFT} and @kbd{M-RIGHT},
+;; to speak the current, previous and next table cell
+;; respectively. The latter commands also move to the cell being
+;; spoken.  You can get  a sense of the table's size via @kbd{M-,}
+;; which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
+;; tables, first have then @emph{unnested} using one of the XSLT
+;; transforms like @code{sort-tables}.
 
-;;;@subsection Miscellaneous Commands
+;; @subsection Miscellaneous Commands
 
-;;;@table @kbd
-;;; @item  C-RET
-;;; @command {emacspeak-eww-fillin-form-field}
-;;; When on an input field, insert  username/password information
-;;; accessed via auth-source.
-;;;@item '
-;;;@command{emacspeak-speak-rest-of-buffer}
-;;;Speak rest of current Web page starting from point.
-;;;@item *
-;;;@command{eww-add-bookmark}
-;;;Bookmark current Web page.
-;;;@item = @command{dtk-toggle-punctuation-mode}
-;;;Toggle punctuation mode.
-;;;@item ?
-;;;@command{emacspeak-google-similar-to-this-page}
-;;;Google similarity search.
-;;;@item C-t
-;;;@item G @command{emacspeak-google-command}
-;;;Prefix key to invoke Google-specific commands.
-;;;@item L
-;;;@command{emacspeak-eww-links-rel}
-;;;Display any related links discovered via the document's @code{meta} tag.
-;;;@item Q
-;;;@command{emacspeak-kill-buffer-quietly}
-;;;Delete this buffer.
-;;;@item V
-;;;@command{eww-view-source}
-;;;Display Web page source.
-;;;@item e
-;;;@command{emacspeak-we-xsl-map}
-;;;Prefix key for invoking XSLT-based filters.
-;;;@item k
-;;;@command{eww-copy-page-url}
-;;;Copy page URL to kill-ring.
-;;;@end table
-;;;
-;;; In addition, see commands in
-;;; @xref{emacspeak-google},  for Google-Search specific commands, many of
-;;; which are available via prefix-key @kbd{G}.
+;; @table @kbd
+;; @item  C-RET
+;; @command {emacspeak-eww-fillin-form-field}
+;; When on an input field, insert  username/password information
+;; accessed via auth-source.
+;; @item '
+;; @command{emacspeak-speak-rest-of-buffer}
+;; Speak rest of current Web page starting from point.
+;; @item *
+;; @command{eww-add-bookmark}
+;; Bookmark current Web page.
+;; @item = @command{dtk-toggle-punctuation-mode}
+;; Toggle punctuation mode.
+;; @item ?
+;; @command{emacspeak-google-similar-to-this-page}
+;; Google similarity search.
+;; @item C-t
+;; @item G @command{emacspeak-google-command}
+;; Prefix key to invoke Google-specific commands.
+;; @item L
+;; @command{emacspeak-eww-links-rel}
+;; Display any related links discovered via the document's @code{meta} tag.
+;; @item Q
+;; @command{emacspeak-kill-buffer-quietly}
+;; Delete this buffer.
+;; @item V
+;; @command{eww-view-source}
+;; Display Web page source.
+;; @item e
+;; @command{emacspeak-we-xsl-map}
+;; Prefix key for invoking XSLT-based filters.
+;; @item k
+;; @command{eww-copy-page-url}
+;; Copy page URL to kill-ring.
+;; @end table
+;; 
+;; In addition, see commands in
+;; @xref{emacspeak-google},  for Google-Search specific commands, many of
+;; which are available via prefix-key @kbd{G}.
 
-;;; @subsection Filtering Content Using XSLT And XPath
+;; @subsection Filtering Content Using XSLT And XPath
 
-;;;@table @kbd
-;;;@item C-c
-;;;@command{emacspeak-we-junk-by-class-list}
-;;;Prompts for list of class-names with completion,
-;;;and filters out matching elements.
-;;;@item C-f
-;;;@command{emacspeak-we-count-matches}
-;;;Prompts for XPath expression, and returns count of matching elements.
-;;;@item C-p
-;;;@command{emacspeak-we-xpath-junk-and-follow}
-;;;Follows link under point, and displays that page
-;;;after filtering by a specified XPath expression.
-;;;@item C-t
-;;;@command{emacspeak-we-count-tables}
-;;;Display a count of tables in the page.
-;;;@item C-x
-;;;@command{emacspeak-we-count-nested-tables}
-;;;Counts nested tables.
-;;;@item C
-;;;@command{emacspeak-we-extract-by-class-list}
-;;;Prompts for a list of class-names, and displays matching elements.
-;;;@item D
-;;;@command{emacspeak-we-junk-by-class-list}
-;;;Filters out elements  having specified class attributes.
-;;;@item I
-;;;@command{emacspeak-we-extract-by-id-list}
-;;;Extracts elements by specified list of ID values.
-;;;@item M
-;;;@command{emacspeak-we-extract-tables-by-match-list}
-;;;Extracts tables that match specified selection pattern.
-;;;@item P
-;;;@command{emacspeak-we-follow-and-extract-main}
-;;;Follows link under point, and extracts readable content,
-;;;by default, this is all paragraphs and headings.
-;;;@item S
-;;;@command{emacspeak-we-style-filter}
-;;;Filters content by style attribute.
-;;;@item T
-;;;@command{emacspeak-we-extract-tables-by-position-list}
-;;;Extracts tables by their position on the page.
-;;;@item X
-;;;@command{emacspeak-we-extract-nested-table-list}
-;;;Extracts nested tables.
-;;;@item a
-;;;@command{emacspeak-we-xslt-apply}
-;;;Prompt for and apply specified XSLT transform to current page.
-;;;@item b
-;;;@command{emacspeak-we-follow-and-filter-by-id}
-;;;Follow link under point, and filter by specified id value.
-;;;@item c
-;;;@command{emacspeak-we-extract-by-class}
-;;;Extracts elements by class.
-;;;@item d
-;;;@command{emacspeak-we-junk-by-class}
-;;;Filters out elements having specified class value.
-;;;@item e
-;;;@command{emacspeak-we-url-expand-and-execute}
-;;;Follow link under point, but pass the result to a custom executor.
-;;;@item f
-;;;@command{emacspeak-we-xslt-filter}
-;;;Apply a specified XSLT filter (XPath) to current page.
-;;;@item i
-;;;@command{emacspeak-we-extract-by-id}
-;;;Extract elements by id value.
-;;;@item j
-;;;@command{emacspeak-we-xslt-junk}
-;;;Filter out elements matching specified pattern.
-;;;@item k
-;;;@command{emacspeak-we-toggle-xsl-keep-result}
-;;;Debugging tool  --- retains the  HTML source after XSLT.
-;;;@item m
-;;;@command{emacspeak-we-extract-table-by-match}
-;;;Extract matching table.
-;;;@item p
-;;;@command{emacspeak-we-xpath-filter-and-follow}
-;;;Follow link under point, and filter results by a specified XPath filter.
-;;;@item r
-;;;@command{emacspeak-we-extract-by-role}
-;;;Extract elements by specified role value.
-;;;@item s
-;;;@command{emacspeak-we-xslt-select}
-;;;Select default XSLT transform that is applied before rendering the page.
-;;;@item t
-;;;@command{emacspeak-we-extract-table-by-position}
-;;;Extracts tables by their position on the page.
-;;;@item u
-;;;@command{emacspeak-we-extract-matching-urls}
-;;;Display matching links on the page.
-;;;@item v
-;;;@command{emacspeak-we-class-filter-and-follow-link}
-;;;Follow link under point, and filter by specified class value.
-;;;@item w
-;;;@command{emacspeak-we-extract-by-property}
-;;;Extract element using a combination of DOM attributes.
-;;;@item x
-;;;@command{emacspeak-we-extract-nested-table}
-;;;Extract a nested table using a match-list.
-;;;@item y
-;;;@command{emacspeak-we-class-filter-and-follow}
-;;;Follow link under point and filter by class values.
-;;;@end table
-;;; @subsection EWW And EBooks On The Emacspeak Audio Desktop
-;;; Modules emacspeak-epub and emacspeak-bookshare provide EBook
-;;; front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW to
-;;; render these EBooks. Module emacspeak-eww provides a simple
-;;; bookmarking facility --- called eww-marks (to avoid confusion with
-;;; EWW's Web Bookmarks). When reading an EBook, you can use @code{m}
-;;; to create an EWW-mark at that position. These marks are
-;;; automatically saved across Emacs sessions. To open a previously
-;;; created eww-mark, use command @code{emacspeak-eww-open-mark} bound
-;;; to @code{C-x r e}. This command reads a eww-mark name with
-;;; completion. Use this command with an interactive prefix arg to
-;;; delete a previously created eww-mark.
-;;;
+;; @table @kbd
+;; @item C-c
+;; @command{emacspeak-we-junk-by-class-list}
+;; Prompts for list of class-names with completion,
+;; and filters out matching elements.
+;; @item C-f
+;; @command{emacspeak-we-count-matches}
+;; Prompts for XPath expression, and returns count of matching elements.
+;; @item C-p
+;; @command{emacspeak-we-xpath-junk-and-follow}
+;; Follows link under point, and displays that page
+;; after filtering by a specified XPath expression.
+;; @item C-t
+;; @command{emacspeak-we-count-tables}
+;; Display a count of tables in the page.
+;; @item C-x
+;; @command{emacspeak-we-count-nested-tables}
+;; Counts nested tables.
+;; @item C
+;; @command{emacspeak-we-extract-by-class-list}
+;; Prompts for a list of class-names, and displays matching elements.
+;; @item D
+;; @command{emacspeak-we-junk-by-class-list}
+;; Filters out elements  having specified class attributes.
+;; @item I
+;; @command{emacspeak-we-extract-by-id-list}
+;; Extracts elements by specified list of ID values.
+;; @item M
+;; @command{emacspeak-we-extract-tables-by-match-list}
+;; Extracts tables that match specified selection pattern.
+;; @item P
+;; @command{emacspeak-we-follow-and-extract-main}
+;; Follows link under point, and extracts readable content,
+;; by default, this is all paragraphs and headings.
+;; @item S
+;; @command{emacspeak-we-style-filter}
+;; Filters content by style attribute.
+;; @item T
+;; @command{emacspeak-we-extract-tables-by-position-list}
+;; Extracts tables by their position on the page.
+;; @item X
+;; @command{emacspeak-we-extract-nested-table-list}
+;; Extracts nested tables.
+;; @item a
+;; @command{emacspeak-we-xslt-apply}
+;; Prompt for and apply specified XSLT transform to current page.
+;; @item b
+;; @command{emacspeak-we-follow-and-filter-by-id}
+;; Follow link under point, and filter by specified id value.
+;; @item c
+;; @command{emacspeak-we-extract-by-class}
+;; Extracts elements by class.
+;; @item d
+;; @command{emacspeak-we-junk-by-class}
+;; Filters out elements having specified class value.
+;; @item e
+;; @command{emacspeak-we-url-expand-and-execute}
+;; Follow link under point, but pass the result to a custom executor.
+;; @item f
+;; @command{emacspeak-we-xslt-filter}
+;; Apply a specified XSLT filter (XPath) to current page.
+;; @item i
+;; @command{emacspeak-we-extract-by-id}
+;; Extract elements by id value.
+;; @item j
+;; @command{emacspeak-we-xslt-junk}
+;; Filter out elements matching specified pattern.
+;; @item k
+;; @command{emacspeak-we-toggle-xsl-keep-result}
+;; Debugging tool  --- retains the  HTML source after XSLT.
+;; @item m
+;; @command{emacspeak-we-extract-table-by-match}
+;; Extract matching table.
+;; @item p
+;; @command{emacspeak-we-xpath-filter-and-follow}
+;; Follow link under point, and filter results by a specified XPath filter.
+;; @item r
+;; @command{emacspeak-we-extract-by-role}
+;; Extract elements by specified role value.
+;; @item s
+;; @command{emacspeak-we-xslt-select}
+;; Select default XSLT transform that is applied before rendering the page.
+;; @item t
+;; @command{emacspeak-we-extract-table-by-position}
+;; Extracts tables by their position on the page.
+;; @item u
+;; @command{emacspeak-we-extract-matching-urls}
+;; Display matching links on the page.
+;; @item v
+;; @command{emacspeak-we-class-filter-and-follow-link}
+;; Follow link under point, and filter by specified class value.
+;; @item w
+;; @command{emacspeak-we-extract-by-property}
+;; Extract element using a combination of DOM attributes.
+;; @item x
+;; @command{emacspeak-we-extract-nested-table}
+;; Extract a nested table using a match-list.
+;; @item y
+;; @command{emacspeak-we-class-filter-and-follow}
+;; Follow link under point and filter by class values.
+;; @end table
+;; @subsection EWW And EBooks On The Emacspeak Audio Desktop
+;; Modules emacspeak-epub and emacspeak-bookshare provide EBook
+;; front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW to
+;; render these EBooks. Module emacspeak-eww provides a simple
+;; bookmarking facility --- called eww-marks (to avoid confusion with
+;; EWW's Web Bookmarks). When reading an EBook, you can use @code{m}
+;; to create an EWW-mark at that position. These marks are
+;; automatically saved across Emacs sessions. To open a previously
+;; created eww-mark, use command @code{emacspeak-eww-open-mark} bound
+;; to @code{C-x r e}. This command reads a eww-mark name with
+;; completion. Use this command with an interactive prefix arg to
+;; delete a previously created eww-mark.
+;; 
 
 ;;; Code:
 
@@ -467,14 +467,14 @@
   "Browser check"
   (cl-assert  (eq major-mode 'eww-mode) t (error "Not in EWW")))
 
-;;; Return URL under point or URL read from minibuffer.
+;; Return URL under point or URL read from minibuffer.
 ;;;###autoload
 (defun emacspeak-eww-read-url ()
   (or
    (shr-url-at-point nil)
    (read-string "URL:" (browse-url-url-at-point))))
 
-;;; Generate functions emacspeak-eww-current-title and friends:
+;; Generate functions emacspeak-eww-current-title and friends:
 
 (cl-loop
  for name in
@@ -547,8 +547,8 @@ Safari/537.36"
           )
   "User Agent string sent when masquerading.")
 
-;;; Advice note: Setting ad-return-value in one arm of the cond
-;;; appears to perculate to both arms.
+;; Advice note: Setting ad-return-value in one arm of the cond
+;; appears to perculate to both arms.
 
 (defadvice url-http-user-agent-string (around emacspeak pre act comp)
   "Masquerade response"
@@ -580,9 +580,9 @@ Safari/537.36"
    'eww-mode
    emacspeak-speak-rfc-3339-datetime-pattern
    (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
-;;; turn off images on request
+;; turn off images on request
   (setq shr-inhibit-images emacspeak-eww-inhibit-images)
-;;; remove "I" "o" from eww-link-keymap
+;; remove "I" "o" from eww-link-keymap
   (cl-loop
    for c in
    '(?I ?o)
@@ -801,7 +801,7 @@ are available are cued by an auditory icon on the header line."
 (defvar-local emacspeak-eww-url-template nil
   "Record if this eww buffer is displaying a url-template.")
 
-;;;Check cache if URL already open, otherwise cache.
+;; Check cache if URL already open, otherwise cache.
 
 (defadvice eww-reload (around emacspeak pre act comp)
   "Check buffer local settings for feed buffers.
@@ -941,7 +941,7 @@ Retain previously set punctuations  mode."
         (next-single-property-change (point) 'help-echo
                                      nil (point-max)))))))
 
-;;; Handle emacspeak-we-url-executor
+;; Handle emacspeak-we-url-executor
 
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
@@ -1053,7 +1053,7 @@ Note that the Web browser should reset this hook after using it.")
                            (quote ,tag) 'eww-tag)
         (when (memq (quote ,tag) '(h1 h2 h3 h4 h5 h6))
           (put-text-property start end 'h 'eww-tag)))))))
-;;; Handle MathML math element:
+;; Handle MathML math element:
 
 (defun shr-tag-math (dom)
   "Handle Math Nodes from MathML"
@@ -1083,7 +1083,7 @@ Note that the Web browser should reset this hook after using it.")
 (defvar-local emacspeak-eww-cache-updated nil
   "Records if caches are updated.")
 
-;;; Mark cache to be dirty if we restore history:
+;; Mark cache to be dirty if we restore history:
 
 (defadvice eww-restore-history (after emacspeak pre act comp)
   "mark cache dirty."
@@ -1105,7 +1105,7 @@ Note that the Web browser should reset this hook after using it.")
 (defvar-local eww-property-cache nil
   "Cache of property values. Is buffer-local.")
 
-;;; Holds element names as strings.
+;; Holds element names as strings.
 
 (defvar-local eww-element-cache nil
   "Cache of element names. Is buffer-local.")
@@ -1176,7 +1176,7 @@ Note that the Web browser should reset this hook after using it.")
     (link . eww-tag-link)
     (a . eww-tag-a))
   "Customize shr rendering for EWW.")
-;;; Create a special list of renderers to use when filtering 
+;; Create a special list of renderers to use when filtering 
 (defvar emacspeak-eww-filter-renderers
   (let ((copy (copy-sequence emacspeak-eww-shr-renderers)))
     (cl-pushnew (cons 'em 'emacspeak-eww-em-with-newline) copy)
@@ -1648,7 +1648,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 ;;}}}
 ;;{{{ Element Navigation:
-;;; Try only storing symbols, not strings.
+;; Try only storing symbols, not strings.
 
 (defvar emacspeak-eww-element-navigation-history nil
   "History for element navigation.")
@@ -1778,7 +1778,7 @@ Prompts if content at point is enclosed by multiple elements."
       (emacspeak-eww-next-element  element)
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-region start (point)))))
-;;; Generate next and previous structural navigators:
+;; Generate next and previous structural navigators:
 (defcustom emacspeak-eww-autospeak t
   "Turn this on to make section navigation autospeak.
 This also reverses the meaning of the prefix-arg to section nav
@@ -1931,12 +1931,12 @@ The %s is automatically spoken if there is no user activity."
 ;;}}}
 ;;{{{ Handling Media (audio/video)
 
-;;; This should ideally be handled through mailcap. At present, EWW
-;;; sets eww-use-external-browser-for-content-type to match
-;;; audio/video (only) and hands those off to
-;;; eww-browse-with-external-browser. Below, we advice
-;;; eww-browse-with-external-browser to use emacspeak-m-player
-;;; instead.
+;; This should ideally be handled through mailcap. At present, EWW
+;; sets eww-use-external-browser-for-content-type to match
+;; audio/video (only) and hands those off to
+;; eww-browse-with-external-browser. Below, we advice
+;; eww-browse-with-external-browser to use emacspeak-m-player
+;; instead.
 (defadvice eww-browse-with-external-browser(around emacspeak pre act comp)
   "Use our m-player integration."
   (let* ((url (or (ad-get-arg 0) ""))
@@ -1948,8 +1948,8 @@ The %s is automatically spoken if there is no user activity."
 ;;}}}
 ;;{{{ eww-marks:
 
-;;; Bookmarks for use in reading ebooks with EWW:
-;;; They are called eww-marks to distinguish them from web bookmarks
+;; Bookmarks for use in reading ebooks with EWW:
+;; They are called eww-marks to distinguish them from web bookmarks
 
 (defvar emacspeak-eww-marks-file
   (expand-file-name "eww-marks" emacspeak-user-directory)
@@ -2082,7 +2082,7 @@ arg `delete', delete that mark instead."
       (cl-assert book nil "Book not set.")
       (cond
        ((emacspeak-eww-jump-to-mark bm) t) ;;; Found a buffer with
-;;; book open.
+;; book open.
        (t ;;; so we need to first open the book:
         (setq handler
               (cond
@@ -2248,13 +2248,13 @@ with an interactive prefix arg. "
 ;;}}}
 ;;{{{Enable Table Browsing:
 
-;;; Only works for plain tables, not nested tables.
-;;; Point has to be within the displayed table.
-;;; Property values are part of the content,
-;;; And consequently the DOM ends up pointing back at itself.
-;;; This makes looking at the DOM hard, doesn't appear to have any
-;;;other negatives.
-;;; Overlays may avoid this problem.
+;; Only works for plain tables, not nested tables.
+;; Point has to be within the displayed table.
+;; Property values are part of the content,
+;; And consequently the DOM ends up pointing back at itself.
+;; This makes looking at the DOM hard, doesn't appear to have any
+;; other negatives.
+;; Overlays may avoid this problem.
 
 (defadvice shr-tag-table-1 (around emacspeak pre act comp)
   "Cache pointer to table dom as a text property,
@@ -2468,8 +2468,8 @@ With interactive prefix arg, move to the start of the table."
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

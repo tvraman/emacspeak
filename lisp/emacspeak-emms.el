@@ -1,53 +1,53 @@
 ;;; emacspeak-emms.el --- Speech-enable EMMS Multimedia UI  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak extension to speech-enable EMMS
-;;; Keywords: Emacspeak, Multimedia
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak extension to speech-enable EMMS
+;; Keywords: Emacspeak, Multimedia
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-27 17:54:54 -0700 (Mon, 27 Aug 2007) $ |
-;;;  $Revision: 4150 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-27 17:54:54 -0700 (Mon, 27 Aug 2007) $ |
+;;  $Revision: 4150 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction
 
 ;;; Commentary:
-;;;Speech-enables EMMS --- the Emacs equivalent of XMMS
-;;; available from  the Emacs package archive.
-;;; http://savannah.gnu.org/project/emms
-;;; EMMS is under active development,
-;;; to get the current CVS version, use Emacspeak command
-;;; M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-;;;
+;; Speech-enables EMMS --- the Emacs equivalent of XMMS
+;; available from  the Emacs package archive.
+;; http://savannah.gnu.org/project/emms
+;; EMMS is under active development,
+;; to get the current CVS version, use Emacspeak command
+;; M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
+;; 
 ;;; Code:
 
 ;;}}}
@@ -76,8 +76,8 @@
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'select-object)))))
 
-;;; these commands should not be made to talk since that would  interferes
-;;; with real work.
+;; these commands should not be made to talk since that would  interferes
+;; with real work.
 (cl-loop for f in
          '(emms-start emms-stop emms-sort
                       emms-shuffle emms-random)
@@ -190,8 +190,8 @@ emacspeak-silence-hook."
 (provide 'emacspeak-emms)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

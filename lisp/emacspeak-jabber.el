@@ -1,49 +1,49 @@
 ;;; emacspeak-jabber.el --- Speech-Enable jabber  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description: speech-enable jabber
-;;; Keywords: Emacspeak, jabber
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description: speech-enable jabber
+;; Keywords: Emacspeak, jabber
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-04-15 06:25:36 -0700 (Tue, 15 Apr 2008) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-04-15 06:25:36 -0700 (Tue, 15 Apr 2008) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (c) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ Introduction:
 
 ;;; Commentary:
-;;; emacs-jabber.el implements a  jabber client for emacs
-;;; emacs-jabber is hosted at sourceforge.
-;;; I use emacs-jabber with my gmail.com account
+;; emacs-jabber.el implements a  jabber client for emacs
+;; emacs-jabber is hosted at sourceforge.
+;; I use emacs-jabber with my gmail.com account
 
 ;;; Code:
 
@@ -167,7 +167,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
  jabber-alert-presence-message-function
  #'emacspeak-jabber-presence-default-message)
 
-;;;this is what I use as my jabber alert function:
+;; this is what I use as my jabber alert function:
 (defun emacspeak-jabber-message-default-message (from buffer text)
   "Speak the message."
   (cl-declare (special jabber-message-alert-same-buffer))
@@ -298,8 +298,8 @@ the kill ring as well."
 (provide 'emacspeak-jabber)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

@@ -1,7 +1,0 @@
-Sun Feb  5 10:24:53 EST 2006
-
-  The user is still expected to start emacspeak with
-/usr/bin/emacspeak, but it is now a symlink managed by the
-"alternatives" mechanism.  Emacspeak is also byte-compiled for xemacs,
-and there is another symlink /usr/bin/xemacspeak.  (For details, see
-README.Debian and update-alternatives(8)).

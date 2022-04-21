@@ -1,40 +1,40 @@
 ;;; emacspeak-ediff.el --- Speech enable Emacs interface to diff and merge  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; DescriptionEmacspeak extensions for ediff
-;;; Keywords:emacspeak, audio interface to emacs, Comparing files
+;; $Id$
+;; $Author: tv.raman.tv $
+;; DescriptionEmacspeak extensions for ediff
+;; Keywords:emacspeak, audio interface to emacs, Comparing files
 ;;{{{ LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
-;;; $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
+;; $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1995 by .
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING. If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1995 by .
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING. If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 
@@ -42,19 +42,19 @@
 
 ;;; Commentary:
 
-;;;Ediff provides a nice visual interface to diff. ;;;Comparing and
-;;; patching files is easy with ediff when you can see the screen.
-;;; ;;;This module provides Emacspeak extensions to work fluently
-;;; ;;;with ediff. Try it out, it's an excellent example of why
-;;; Emacspeak is better than a traditional screenreader. This module
-;;; was originally written to interface to the old ediff.el bundled
-;;; with GNU Emacs 19.28 and earlier. It has been updated to work
-;;; with the newer and much larger ediff system found in Emacs 19.29
-;;; and later.
-;;;
-;;; When using under modern versions of Emacs, I recommend setting
-;;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-;;; so that Emacs always displays Ediff windows in a single frame.
+;; Ediff provides a nice visual interface to diff. ;;;Comparing and
+;; patching files is easy with ediff when you can see the screen.
+;; ;;;This module provides Emacspeak extensions to work fluently
+;; ;;;with ediff. Try it out, it's an excellent example of why
+;; Emacspeak is better than a traditional screenreader. This module
+;; was originally written to interface to the old ediff.el bundled
+;; with GNU Emacs 19.28 and earlier. It has been updated to work
+;; with the newer and much larger ediff system found in Emacs 19.29
+;; and later.
+;; 
+;; When using under modern versions of Emacs, I recommend setting
+;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;; so that Emacs always displays Ediff windows in a single frame.
 ;;; Code:
 
 ;;}}}
@@ -92,7 +92,7 @@
 
 (defvar emacspeak-ediff-control-buffer nil
   "Holds the control buffer for the most recent ediff")
-;;;Please tell me what control buffer you're using--
+;; Please tell me what control buffer you're using--
 
 (defadvice ediff-setup-control-buffer (after emacspeak pre act comp)
   (setq emacspeak-ediff-control-buffer (ad-get-arg 0)))
@@ -177,10 +177,10 @@
 ;;}}}
 ;;{{{ Speak an ediff difference:
 
-;;; To speak an ediff difference,
-;;; First announce difference a and speak it.
-;;; If you see keyboard activity, shut up
-;;; and offer to speak difference b.
+;; To speak an ediff difference,
+;; First announce difference a and speak it.
+;; If you see keyboard activity, shut up
+;; and offer to speak difference b.
 
 (defun emacspeak-ediff-speak-difference (n)
   "Speak a difference chunk"
@@ -279,7 +279,7 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
-;;; advice meta panel
+;; advice meta panel
 (defadvice ediff-previous-meta-item (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -322,8 +322,8 @@
 (provide 'emacspeak-ediff)
 ;;{{{ emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

@@ -85,7 +85,7 @@ already enabled or service is not available."
 ;; NM_STATE_CONNECTED_GLOBAL = 70
 ;;     A network device is connected, with global network connectivity. 
 ;;
-;; See:
+;;; See:
 ;; https://developer.gnome.org/NetworkManager/unstable/spec.html#type-NM_STATE
 
 (defun nm-state-dbus-signal-handler (nmstate)

@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: nil; -*-
 (require 'cl-lib)
-;;; Taken from http://tuhdo.github.io/helm-intro.html
+;; Taken from http://tuhdo.github.io/helm-intro.html
 (eval-after-load
     "helm"
   `(progn
@@ -23,9 +23,9 @@
         ("o" helm-mini)) do
       (define-key helm-command-map (cl-first b) (cl-second b)))
 
-;;; Use hyper-, as the helm prefix
+;; Use hyper-, as the helm prefix
      (global-set-key (ems-kbd "C-x @h,") 'helm-command-prefix)
-;;; Insert on desktop
+;; Insert on desktop
                                         ;(global-set-key (ems-kbd "<insert>") 'helm-command-prefix)
 
      (define-key helm-map (ems-kbd "C-s") 'helm-toggle-suspend-update)

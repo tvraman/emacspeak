@@ -1,48 +1,48 @@
 ;;; emacspeak-wizards.el --- Magic For Power Users   -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Contains convenience wizards
-;;; Keywords: Emacspeak,  Audio Desktop Wizards
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Contains convenience wizards
+;; Keywords: Emacspeak,  Audio Desktop Wizards
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-15 10:08:11 -0700 (Fri, 15 Aug 2008) $ |
-;;;  $Revision: 4638 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-15 10:08:11 -0700 (Fri, 15 Aug 2008) $ |
+;;  $Revision: 4638 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; Contains various wizards for the Emacspeak desktop.
+;; Contains various wizards for the Emacspeak desktop.
 
 ;;; Code:
 
@@ -57,6 +57,7 @@
   (require 'derived)
   (require 'let-alist))
 (require 'emacspeak-preamble)
+(require 'color)
 (eval-when-compile
   (require 'calendar)
   (require 'cus-edit)
@@ -361,8 +362,8 @@ With prefix arg, opens the phone book for editing."
 ;;}}}
 ;;{{{ find file as root
 
-;;; http://emacs-fu.blogspot.com/
-;;; 2013/03/editing-with-root-privileges-once-more.html
+;; http://emacs-fu.blogspot.com/
+;; 2013/03/editing-with-root-privileges-once-more.html
 ;;;###autoload
 (defun emacspeak-wizards-find-file-as-root (file)
   "Automatically edit file with root-privileges (using
@@ -595,8 +596,8 @@ meaning of `next'."
 ;;}}}
 ;;{{{  Display properties conveniently
 
-;;; Useful for developping emacspeak:
-;;; Display selected properties of interest
+;; Useful for developping emacspeak:
+;; Display selected properties of interest
 
 (defvar emacspeak-property-table
   '(("personality" . "personality")
@@ -722,10 +723,10 @@ If optional arg property is not supplied, read it interactively. "
 ;;}}}
 ;;{{{ shell-toggle
 
-;;; inspired by eshell-toggle
-;;; switch to the shell buffer, and cd to the directory
-;;; that is the default-directory for the previously current
-;;; buffer.
+;; inspired by eshell-toggle
+;; switch to the shell buffer, and cd to the directory
+;; that is the default-directory for the previously current
+;; buffer.
 ;;;###autoload
 (defun emacspeak-wizards-shell-toggle ()
   "Switch to  shell  and cd to
@@ -1266,7 +1267,7 @@ Moves to the shortest line when called interactively."
 
 ;;}}}
 ;;{{{ ISO dates
-;;; implementation based on icalendar.el
+;; implementation based on icalendar.el
 
 ;;;###autoload
 (defun emacspeak-wizards-speak-iso-datetime (iso)
@@ -1429,7 +1430,7 @@ of the source buffer."
        (t (call-interactively #'shell)))))
    (t (call-interactively 'emacspeak-wizards-cycle-to-next-buffer))))
 
-;;; Inspired by package project-shells from melpa --- but simplified.
+;; Inspired by package project-shells from melpa --- but simplified.
 
 (defvar emacspeak-wizards--shells-table (make-hash-table :test #'eq)
   "Table mapping live shell buffers to keys.")
@@ -1437,14 +1438,14 @@ of the source buffer."
 (defun emacspeak-wizards--build-shells-table ()
   "Populate hash-table with live shell buffers."
   (cl-declare (special emacspeak-wizards--shells-table))
-;;; First, remove dead buffers
+;; First, remove dead buffers
   (cl-loop
    for k being the hash-keys of emacspeak-wizards--shells-table
    unless (buffer-live-p (gethash k emacspeak-wizards--shells-table))
    do (remhash k emacspeak-wizards--shells-table))
   (let ((shells (emacspeak-wizards-get-shells))
         (v (hash-table-values emacspeak-wizards--shells-table)))
-;;; Add in live shells that are new
+;; Add in live shells that are new
     (mapc
      #'(lambda (s)
          (when (not (memq s v))
@@ -1923,9 +1924,9 @@ Optional interactive prefix arg `category' prompts for a category."
 ;;}}}
 ;;{{{ alpha-vantage: Stock Quotes
 
-;;;alpha-vantage:
-;;; API Key: https://www.alphavantage.co/support/#api-key
-;;; API Documentation: https://www.alphavantage.co/documentation/
+;; alpha-vantage:
+;; API Key: https://www.alphavantage.co/support/#api-key
+;; API Documentation: https://www.alphavantage.co/documentation/
 
 (defcustom emacspeak-wizards-alpha-vantage-api-key nil
   "API Key  used to retrieve stock data from alpha-vantage.
@@ -1998,11 +1999,11 @@ access to the various functions provided by alpha-vantage."
 
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
-;;; Moving from iextrading to iexcloud.
-;;; This service is the new iextrading, but needs an API key.
-;;; The service still has a free tier that should be sufficient for
-;;;Emacspeak users.
-;;; API Docs at https://iexcloud.io/docs/api/
+;; Moving from iextrading to iexcloud.
+;; This service is the new iextrading, but needs an API key.
+;; The service still has a free tier that should be sufficient for
+;; Emacspeak users.
+;; API Docs at https://iexcloud.io/docs/api/
 
 (defcustom emacspeak-iex-api-key nil
   "Web API  key for IEX Finance access.
@@ -2303,7 +2304,7 @@ Optional interactive prefix arg refreshes cache."
      'emacspeak-table-speak-column-header-and-element)
     (funcall-interactively #'emacspeak-table-goto 1 2)))
 
-;;; Top-Level Dispatch:
+;; Top-Level Dispatch:
 ;;;###autoload
 (defun emacspeak-wizards-quote (&optional refresh)
   "Top-level dispatch for  Stock Market information.
@@ -2328,7 +2329,7 @@ t   :  tops/last
                                refresh))
     (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
     (otherwise (error "Invalid key"))))
-;;; Define emacspeak-wizards-iex-this-news and friends
+;; Define emacspeak-wizards-iex-this-news and friends
 (cl-loop
  for n in
  '(financials news price) do
@@ -2739,8 +2740,8 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
 
-;;; For use from etc/emacs-pipe.pl
-;;; Above can be used as a printer command in XTerm
+;; For use from etc/emacs-pipe.pl
+;; Above can be used as a printer command in XTerm
 
 (defun emacspeak-wizards-pipe ()
   "convenience function"
@@ -2761,9 +2762,9 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 ;;}}}
 ;;{{{ Customize Saved Settings  By Pattern:
 
-;;; Emacs' built-in customize-saved can be slow if the saved
-;;; customizations are many. This function allows one to clean-up
-;;; saved settings in smaller groups by specifying a pattern to match.
+;; Emacs' built-in customize-saved can be slow if the saved
+;; customizations are many. This function allows one to clean-up
+;; saved settings in smaller groups by specifying a pattern to match.
 
 (defun emacspeak-wizards-customize-saved (pattern)
   "Customize saved options matching `pattern'.  This command enables
@@ -2799,12 +2800,12 @@ updating custom settings for a specific package or group of packages."
   (let-alist geo
     (format "%s%.4f,%.4f" ems--noaa-grid-endpoint .lat .lng)))
 
-;;; NOAA: format time
-;;; NOAA data has a ":" in tz
+;; NOAA: format time
+;; NOAA data has a ":" in tz
 
 (defsubst ems--noaa-time (fmt iso)
   "Utility function to correctly format ISO date-time strings from NOAA."
-;;; first strip offending ":" in tz
+;; first strip offending ":" in tz
   (when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
     (setq iso (concat (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
@@ -2842,7 +2843,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (erase-buffer)
       (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
-;;; produce Daily forecast
+;; produce Daily forecast
       (let-alist (g-json-from-url url)
         (insert
          (format "* Forecast At %s For %s\n\n"
@@ -2953,7 +2954,7 @@ external package."
 ;;}}}
 ;;{{{ Use Threads To Call Command Asynchronously:
 
-;;;Experimental: Handle with care.
+;; Experimental: Handle with care.
 
 ;;;###autoload
 (defun emacspeak-wizards-execute-asynchronously (key)
@@ -3152,9 +3153,9 @@ Optional interactive prefix arg deletes it."
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; byte-compile-warnings: (not noruntime )
-;;; end:
+;; local variables:
+;; folded-file: t
+;; byte-compile-warnings: (noruntime )
+;; end:
 
 ;;}}}

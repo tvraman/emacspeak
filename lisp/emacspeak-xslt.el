@@ -1,50 +1,50 @@
 ;;; emacspeak-xslt.el --- Implements Emacspeak  xslt transform engine  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  xslt transformation routines
-;;; Keywords: Emacspeak,  Audio Desktop XSLT
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  xslt transformation routines
+;; Keywords: Emacspeak,  Audio Desktop XSLT
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-08-12 10:48:54 -0700 (Tue, 12 Aug 2008) $ |
-;;;  $Revision: 4562 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-08-12 10:48:54 -0700 (Tue, 12 Aug 2008) $ |
+;;  $Revision: 4562 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; libxml and libxsl are XML libraries for GNOME.
-;;; xsltproc is a  xslt processor using libxsl
-;;; this module defines routines for applying xsl transformations
-;;; using xsltproc
+;; libxml and libxsl are XML libraries for GNOME.
+;; xsltproc is a  xslt processor using libxsl
+;; this module defines routines for applying xsl transformations
+;; using xsltproc
 ;;; Code:
 
 ;;}}}
@@ -54,22 +54,18 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  xslt Environment:
-;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return  stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
 
-;;;###autoload
 (defconst emacspeak-opml-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "opml.xsl"))
   "XSL stylesheet used for viewing OPML  Feeds.")
 
-;;;###autoload
 (defconst emacspeak-rss-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "rss.xsl"))
   "XSL stylesheet used for viewing RSS Feeds.")
 
-;;;###autoload
 (defconst emacspeak-atom-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
   "XSL stylesheet used for viewing Atom Feeds.")
@@ -94,7 +90,6 @@
    (read-file-name "XSL Transformation: "
                    emacspeak-xslt-directory
                    emacspeak-we-xsl-transform)))
-;;;###autoload
 (defvar emacspeak-xslt-program
   (executable-find "xsltproc")
   "Name of XSLT transformation engine.")
@@ -477,8 +472,8 @@ and return the results in a newly created buffer. "
 (provide 'emacspeak-xslt)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

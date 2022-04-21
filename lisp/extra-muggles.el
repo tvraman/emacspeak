@@ -1,84 +1,84 @@
 ;;; extra-muggles.el --- Additional Hydras For The Emacspeak Desktop  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
-;;; Keywords: Emacspeak,  Audio Desktop muggles
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
+;; Keywords: Emacspeak,  Audio Desktop muggles
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNMUGGLES FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNMUGGLES FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; MUGGLES ==  Emacspeak spells for power-users.
-;;; These are extra hydras that I dont use very often,
-;;; And are being moved here from emacspeak-muggles to save time at
-;;; startup.
-;;;
-;;; This module implements no new functionality --- contrast with
-;;; emacspeak-wizards.  Instead, it uses package hydra to provide
-;;; convenience key-bindings that access existing Emacspeak
-;;; functionality.
-;;; You need to install package Hydra first:
-;;; @samp{M-x package-install  hydra}.
+;; MUGGLES ==  Emacspeak spells for power-users.
+;; These are extra hydras that I dont use very often,
+;; And are being moved here from emacspeak-muggles to save time at
+;; startup.
+;; 
+;; This module implements no new functionality --- contrast with
+;; emacspeak-wizards.  Instead, it uses package hydra to provide
+;; convenience key-bindings that access existing Emacspeak
+;; functionality.
+;; You need to install package Hydra first:
+;; @samp{M-x package-install  hydra}.
 
-;;; Note that on newer versions of Emacs, loading this module will
-;;; attempt to automatically install package hydra if it is not found.
-;;; @subsection Using Hydras
-;;; See the high-level documentation for the Hydra package by executing
-;;; @kbd {C-h C-j } hydra @kbd{RET}.
-;;; The documentation in this section uses the same terminology as
-;;; shown in the hydra package documentation.
+;; Note that on newer versions of Emacs, loading this module will
+;; attempt to automatically install package hydra if it is not found.
+;; @subsection Using Hydras
+;; See the high-level documentation for the Hydra package by executing
+;; @kbd {C-h C-j } hydra @kbd{RET}.
+;; The documentation in this section uses the same terminology as
+;; shown in the hydra package documentation.
 
-;;; @subsection Extra Muggles
+;; @subsection Extra Muggles
 
-;;;@itemize
-;;; @item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
-;;; @item SmartParens: @kbd{C-c ,} Smart Parens
-;;;@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
-;;;@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
-;;;@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
-;;; @item origami: C-, / Origami   bindings.
-;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
-;;;@item Info-Summary: <?> in Info Info Summary Muggle
-;;; @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
-;;;@end itemize
+;; @itemize
+;; @item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
+;; @item SmartParens: @kbd{C-c ,} Smart Parens
+;; @item m-player: @kbd{s-m} Emacspeak-M-Player Commands
+;; @item m-player: @kbd{s-;} Emacspeak-M-Player muggle
+;; @item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
+;; @item origami: C-, / Origami   bindings.
+;; @item outliner: <C-c .> Bindings from outline-minor-mode.
+;; @item Info-Summary: <?> in Info Info Summary Muggle
+;; @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
+;; @end itemize
 
-;;; Emacspeak automatically speaks Hydra hints when displayed.
-;;; To silence all Hydra hints, set hydra-is-helpful to nil.  To
-;;; temporarily silence speaking of Hydra hints, Muggles can bind
-;;; command @code{emacspeak-hydra-toggle-talkative}.  As an
-;;; example, Muggle @samp{ViewMode} binds @code{s} to this command.
+;; Emacspeak automatically speaks Hydra hints when displayed.
+;; To silence all Hydra hints, set hydra-is-helpful to nil.  To
+;; temporarily silence speaking of Hydra hints, Muggles can bind
+;; command @code{emacspeak-hydra-toggle-talkative}.  As an
+;; example, Muggle @samp{ViewMode} binds @code{s} to this command.
 
 ;;; Code:
 
@@ -90,8 +90,9 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-dired)
 (eval-when-compile
-  (when (locate-library "package")
-    (unless (locate-library "hydra") (package-install 'hydra)))
+  ;; FIXME: Network access as part of compilation is EVIL!
+  ;; (when (locate-library "package")
+  ;;   (unless (locate-library "hydra") (package-install 'hydra)))
   (require 'emacspeak-hydra)
   (require 'emacspeak-outline)
   (require 'vuiet nil 'no-error)
@@ -105,12 +106,12 @@
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
 
-;;; Generate A Muggle:
-;;; Take a name of a keymap (symbol)
-;;; And generate an interactive command that can be bound to a key.
-;;; Invoking that command temporarily activates the previously supplied keymap.
-;;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
-;;; Inspired by the Hydra package.
+;; Generate A Muggle:
+;; Take a name of a keymap (symbol)
+;; And generate an interactive command that can be bound to a key.
+;; Invoking that command temporarily activates the previously supplied keymap.
+;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
+;; Inspired by the Hydra package.
 
 (defun emacspeak-muggles-generate (k-map)
   "Generate a Muggle from specified k-map.
@@ -132,7 +133,7 @@ Argument `k-map' is a symbol  that names a keymap."
           (call-interactively (lookup-key (current-global-map) key))
           (emacspeak-auditory-icon 'close-object))))))
 
-;;; Create a command to invoke our media player map:
+;; Create a command to invoke our media player map:
 
 (global-set-key
  (ems-kbd "s-m")
@@ -211,7 +212,7 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;}}}
 ;;{{{ Outliner:
 
-;;; Cloned from Hydra Wiki:
+;; Cloned from Hydra Wiki:
 (global-set-key
  (ems-kbd "C-. o")
  (defhydra emacspeak-muggles-outliner
@@ -257,7 +258,7 @@ _d_: subtree
 ;;}}}
 ;;{{{ Info Summary:
 
-;;; Taken from Hydra wiki and customized to taste:
+;; Taken from Hydra wiki and customized to taste:
 (define-key Info-mode-map (ems-kbd "?")
   (defhydra emacspeak-muggles-info-summary
     (:color blue :hint nil
@@ -540,9 +541,9 @@ Also generates global keybindings if any."
 (provide 'extra-muggles)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; byte-compile-warnings: (not noruntime )
-;;; end:
+;; local variables:
+;; folded-file: t
+;; byte-compile-warnings: (docstring noruntime )
+;; end:
 
 ;;}}}

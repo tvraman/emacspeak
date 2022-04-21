@@ -1,53 +1,53 @@
 ;;; emacspeak-google.el --- Google Search Tools  -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-google.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable GOOGLE An Emacs Interface to google
-;;; Keywords: Emacspeak,  Audio Desktop google
+;; $Id: emacspeak-google.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable GOOGLE An Emacs Interface to google
+;; Keywords: Emacspeak,  Audio Desktop google
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNGOOGLE FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNGOOGLE FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; There are a number of search tools that can be implemented on
-;;; the Google search page --- in a JS-powered browser, these
-;;; show up as the Google tool-belt.
-;;; This module implements a minor mode for use in Google result
-;;; pages that enables these tools via single keyboard commands.
-;;; Originally all options were available as tbs=p:v
-;;; Now, some specialized searches, e.g. blog search are tbm=
+;; There are a number of search tools that can be implemented on
+;; the Google search page --- in a JS-powered browser, these
+;; show up as the Google tool-belt.
+;; This module implements a minor mode for use in Google result
+;; pages that enables these tools via single keyboard commands.
+;; Originally all options were available as tbs=p:v
+;; Now, some specialized searches, e.g. blog search are tbm=
 ;;; Code:
 
 ;;}}}
@@ -64,7 +64,7 @@
 ;;}}}
 ;;{{{ Data Structures
 
-;;; One tool on a tool-belt
+;; One tool on a tool-belt
 
 (cl-defstruct emacspeak-google-tool
   name ; human readable
@@ -135,7 +135,7 @@ This variable is buffer-local.")
       (setq
        emacspeak-google-toolbelt
        (list
-;;; video vid: 1/0
+;; video vid: 1/0
         (make-emacspeak-google-tool
          :name "video"
          :param "vid"
@@ -143,7 +143,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbm
          :value 0)
-;;; Recent
+;; Recent
         (make-emacspeak-google-tool
          :name "recent"
          :param "rcnt"
@@ -151,7 +151,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;;; Duration restrict for video
+;; Duration restrict for video
         (make-emacspeak-google-tool
          :name "video-duration"
          :param "dur"
@@ -159,7 +159,7 @@ This variable is buffer-local.")
          :default "m"
          :value "m"
          :type 'tbs)
-;;; Recipes
+;; Recipes
         (make-emacspeak-google-tool
          :name "recipes"
          :param "rcp"
@@ -167,7 +167,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;; places/local:
+;; places/local:
         (make-emacspeak-google-tool
          :name "places"
          :param "plcs"
@@ -175,7 +175,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;; patents
+;; patents
         (make-emacspeak-google-tool
          :name "patents"
          :param "pts"
@@ -183,7 +183,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;; discussions/forums
+;; discussions/forums
         (make-emacspeak-google-tool
          :name "group-discussions"
          :param "dsc"
@@ -200,7 +200,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
 
-;;; Blog mode
+;; Blog mode
         (make-emacspeak-google-tool
          :name "blog"
          :param "blg"
@@ -208,7 +208,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;; Books mode
+;; Books mode
         (make-emacspeak-google-tool
          :name "books"
          :param "bks"
@@ -216,7 +216,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbm
          :value 0)
-;;; epub
+;; epub
         (make-emacspeak-google-tool
          :name "books-format"
          :param "bft"
@@ -224,7 +224,7 @@ This variable is buffer-local.")
          :default "e"
          :type 'tbs
          :value "e")
-;;; Books viewability
+;; Books viewability
         (make-emacspeak-google-tool
          :name "books-viewability"
          :param "bkv"
@@ -232,7 +232,7 @@ This variable is buffer-local.")
          :default "a"
          :value "a"
          :type 'tbs)
-;;; Book Type
+;; Book Type
         (make-emacspeak-google-tool
          :name "books-type"
          :param "bkt"
@@ -240,7 +240,7 @@ This variable is buffer-local.")
          :default "b"
          :value "b"
          :type 'tbs)
-;;; Forums Mode
+;; Forums Mode
         (make-emacspeak-google-tool
          :name "forums"
          :param "frm"
@@ -248,7 +248,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;;; News Mode
+;; News Mode
         (make-emacspeak-google-tool
          :name "news"
          :param "nws"
@@ -256,7 +256,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;; Reviews
+;; Reviews
         (make-emacspeak-google-tool
          :name "reviews"
          :param "rvw"
@@ -264,7 +264,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;;; Web History Visited
+;; Web History Visited
         (make-emacspeak-google-tool
          :name "web-history-visited"
          :param "whv"
@@ -272,7 +272,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;;; Web History Not Visited
+;; Web History Not Visited
         (make-emacspeak-google-tool
          :name "web-history-not-visited"
          :param "whnv"
@@ -280,7 +280,7 @@ This variable is buffer-local.")
          :range '(0 1)
          :default 0
          :value 0)
-;;; Images
+;; Images
         (make-emacspeak-google-tool
          :name "images"
          :param "isch"
@@ -288,7 +288,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;; Structured Snippets
+;; Structured Snippets
         (make-emacspeak-google-tool
          :name "structured-snippets"
          :param "sts"
@@ -296,7 +296,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;;; sort by date
+;; sort by date
         (make-emacspeak-google-tool
          :name "sort-by-date"
          :param "std"
@@ -304,7 +304,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;;; Timeline
+;; Timeline
         (make-emacspeak-google-tool
          :name "timeline"
          :param "tl"
@@ -312,7 +312,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;;; Timeline Low
+;; Timeline Low
         (make-emacspeak-google-tool
          :name "timeline-low"
          :param "tll"
@@ -320,7 +320,7 @@ This variable is buffer-local.")
          :range "YYYY/MM"
          :default ""
          :value "")
-;;; Date Filter
+;; Date Filter
         (make-emacspeak-google-tool
          :name "date-filter"
          :param "qdr"
@@ -328,7 +328,7 @@ This variable is buffer-local.")
          :default ""
          :type 'tbs
          :value "")
-;;; Timeline High
+;; Timeline High
         (make-emacspeak-google-tool
          :name "timeline-high"
          :param "tlh"
@@ -336,7 +336,7 @@ This variable is buffer-local.")
          :default ""
          :type 'tbs
          :value "")
-;;; more:commercial promotion with prices
+;; more:commercial promotion with prices
         (make-emacspeak-google-tool
          :name "commercial"
          :param "cpk"
@@ -344,7 +344,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;;; verbatim/literal search
+;; verbatim/literal search
         (make-emacspeak-google-tool
          :name "literal"
          :param "li"
@@ -352,7 +352,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;;; shopping
+;; shopping
         (make-emacspeak-google-tool
          :name "Shopping"
          :param "shop"
@@ -367,7 +367,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;;; less:commercial (demotion)
+;; less:commercial (demotion)
         (make-emacspeak-google-tool
          :name "non-commercial"
          :param "cdcpk"
@@ -375,7 +375,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;;; soc
+;; soc
         (make-emacspeak-google-tool
          :name "social"
          :param "sa"
@@ -387,8 +387,8 @@ This variable is buffer-local.")
 ;;}}}
 ;;{{{  URL Fixup
 
-;;; prefix: https://www.google.com/url?q=
-;;; Suffix: &sa=...
+;; prefix: https://www.google.com/url?q=
+;; Suffix: &sa=...
 
 (defun emacspeak-google-canonicalize-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
@@ -504,13 +504,13 @@ current page."
                (cond
                 ((and (listp range)
                       (= 2 (length range)))
-;;; toggle value
+;; toggle value
                  (setf (emacspeak-google-tool-value tool)
                        (if (equal value (cl-first range))
                            (cl-second range)
                          (cl-first range))))
                 ((listp range)
-;;; Prompt using completion
+;; Prompt using completion
                  (setf  (emacspeak-google-tool-value tool)
                         (completing-read
                          "Set tool to: "
@@ -716,7 +716,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
 ;;}}}
 ;;{{{ Google Knowledge Graph:
 
-;;; Google Knowledge Graph Search API  |  Knowledge G https://developers.google.com/knowledge-graph/
+;; Google Knowledge Graph Search API  |  Knowledge G https://developers.google.com/knowledge-graph/
 
 (defcustom emacspeak-google-kg-key  nil
   "API Key for Google Knowledge Graph."
@@ -813,8 +813,8 @@ results, default is 1."
 (provide 'emacspeak-google)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

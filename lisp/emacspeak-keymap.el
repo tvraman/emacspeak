@@ -1,55 +1,55 @@
 ;;; emacspeak-keymap.el --- Setup  keymaps and keybindings provided by Emacspeak  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Module for setting up emacspeak keybindings
-;;; Keywords: Emacspeak
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Module for setting up emacspeak keybindings
+;; Keywords: Emacspeak
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
-;;;  $Revision: 4544 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
+;;  $Revision: 4544 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
 
-;;; This module defines the emacspeak keybindings.
-;;; Note that the <fn> key found on laptops is denoted <XF86WakeUp>
+;; This module defines the emacspeak keybindings.
+;; Note that the <fn> key found on laptops is denoted <XF86WakeUp>
 
 ;;; Code:
 
 ;;}}}
 ;;{{{ requires
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
@@ -57,8 +57,8 @@
 ;;}}}
 ;;{{{ems-kbd: replacement for function kbd
 
-;;; simplified kbd function:
-;;; Uses split-string to  simplify tokenizer.
+;; simplified kbd function:
+;; Uses split-string to  simplify tokenizer.
 
 (defvar ems--kbd-char-table
   '(
@@ -118,7 +118,7 @@
                    (list (+ bits (- ?\C-\^@)
                             (logand (aref word 0) 31)))))
             (t (setq key (list (+ bits (aref word 0)))))))))
-;;; push key on to the result vector 
+;; push key on to the result vector 
        (when key (cl-callf vconcat res key))))
     res))
 
@@ -184,7 +184,7 @@
 (define-prefix-command  'emacspeak-table-submap-command 'emacspeak-table-submap)
 
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
-;;; One-finger use on laptop:
+;; One-finger use on laptop:
 (global-set-key (ems-kbd "<XF86WakeUp>")  'emacspeak-prefix-command)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (ems-kbd "C-t")  'emacspeak-table-submap-command)
@@ -192,7 +192,7 @@
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
 
-;;; help map additions:
+;; help map additions:
 
 (cl-loop
  for binding in
@@ -232,7 +232,7 @@
  do
  (emacspeak-keymap-update help-map binding))
 
-;;; emacspeak-keymap bindings:
+;; emacspeak-keymap bindings:
 (cl-loop
  for binding in
  '(
@@ -399,7 +399,7 @@
  do
  (emacspeak-keymap-update emacspeak-table-submap binding))
 
-;;; Put these in the global map:
+;; Put these in the global map:
 (global-set-key [(shift left)] 'previous-buffer)
 (global-set-key [(shift right)] 'next-buffer)
 (global-set-key [(control left)] 'emacspeak-previous-frame-or-buffer)
@@ -417,18 +417,18 @@
 ;;}}}
 ;;{{{ emacspeak under X windows
 
-;;; Get hyper, alt and super like on the console:
+;; Get hyper, alt and super like on the console:
 (global-set-key (ems-kbd "C-,") 'emacspeak-alt-keymap)
 (global-set-key  (ems-kbd "C-'") 'emacspeak-super-keymap)
 (global-set-key  (ems-kbd "C-.") 'emacspeak-super-keymap)
 (global-set-key  (ems-kbd "C-;") 'emacspeak-hyper-keymap)
-;;; Our very own silence key on the console
+;; Our very own silence key on the console
 (global-set-key '[silence] 'emacspeak-silence)
 
 ;;}}}
 ;;{{{ Create a personal keymap for c-e x
 
-;;; Adding keys using custom:
+;; Adding keys using custom:
 (defvar  emacspeak-personal-keymap nil
   "Emacspeak personal keymap")
 
@@ -621,9 +621,9 @@
 ;;}}}
 ;;{{{ Create a C-z keymap that is customizable 
 
-;;; 2020: Suspending emacs with C-z is something I've not done in 30
-;;; years.
-;;; Turn it into a useful prefix key.
+;; 2020: Suspending emacs with C-z is something I've not done in 30
+;; years.
+;; Turn it into a useful prefix key.
 
 (defvar  emacspeak-ctl-z-keymap nil
   "Emacspeak ctl-z keymap")
@@ -642,6 +642,7 @@
     ("f" magit-file-dispatch)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
+    ("r" restart-emacs)
     ("s" magit-status)
     ("z" suspend-frame)
     )
@@ -747,8 +748,8 @@
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

@@ -1,6 +1,0 @@
-Theme pan-chimes is generated from theme chimes.
-All sounds  have been transformed using mplayer and ladspa.
-Effect Applied: autopan.
-Sounds better when using play earwax
-
-This theme can be generated from theme chimes using ./apply-pan.sh

@@ -12,13 +12,514 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 9, 2022.
+last updated on April 20, 2022.
+
+
+File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
+
+12.91 emacspeak-google
+======================
+
+There are a number of search tools that can be implemented on the Google
+search page — in a JS-powered browser, these show up as the Google
+tool-belt.  This module implements a minor mode for use in Google result
+pages that enables these tools via single keyboard commands.  Originally
+all options were available as tbs=p:v Now, some specialized searches,
+e.g.  blog search are tbm=
+
+12.91.1 Emacspeak-Google Commands
+---------------------------------
+
+12.91.1.1 emacspeak-google-extract-from-cache
+.............................................
+
+ -- Command: emacspeak-google-extract-from-cache
+
+     Extract current  page from the Google cache.
+
+12.91.1.2 emacspeak-google-knowledge-search
+...........................................
+
+ -- Command: emacspeak-google-knowledge-search (query &optional limit)
+     ‘C-; k’
+     ‘C-x @ h k’
+
+     Perform a Google Knowledge Graph search.
+     Optional interactive prefix arg ‘limit’ prompts for number of
+     results, default is 1.
+
+     (fn QUERY &optional LIMIT)
+
+12.91.1.3 emacspeak-google-on-this-site
+.......................................
+
+ -- Command: emacspeak-google-on-this-site
+
+     Perform a google search restricted to the current WWW site.
+
+12.91.1.4 emacspeak-google-open-link
+....................................
+
+ -- Command: emacspeak-google-open-link
+
+     Open Google link under point.
+
+12.91.1.5 emacspeak-google-show-toolbelt
+........................................
+
+ -- Command: emacspeak-google-show-toolbelt
+
+     Reload search page with toolbelt showing.
+
+12.91.1.6 emacspeak-google-sign-in
+..................................
+
+ -- Command: emacspeak-google-sign-in
+
+     Sign in to Google.
+
+12.91.1.7 emacspeak-google-sign-out
+...................................
+
+ -- Command: emacspeak-google-sign-out
+
+     Sign out to Google.
+
+12.91.1.8 emacspeak-google-similar-to-this-page
+...............................................
+
+ -- Command: emacspeak-google-similar-to-this-page (url)
+
+     Ask Google to find documents similar to this one.
+
+     (fn URL)
+
+12.91.1.9 emacspeak-google-toolbelt-change
+..........................................
+
+ -- Command: emacspeak-google-toolbelt-change
+
+     Command to change values in the toolbelt and execute the query.
+
+12.91.1.10 emacspeak-google-toolbelt-change-Shopping
+....................................................
+
+ -- Command: emacspeak-google-toolbelt-change-Shopping
+
+     Change  Shopping in the currently active toolbelt.
+
+12.91.1.11 emacspeak-google-toolbelt-change-blog
+................................................
+
+ -- Command: emacspeak-google-toolbelt-change-blog
+
+     Change  blog in the currently active toolbelt.
+
+12.91.1.12 emacspeak-google-toolbelt-change-books
+.................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books
+
+     Change  books in the currently active toolbelt.
+
+12.91.1.13 emacspeak-google-toolbelt-change-books-format
+........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books-format
+
+     Change  books-format in the currently active toolbelt.
+
+12.91.1.14 emacspeak-google-toolbelt-change-books-type
+......................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books-type
+
+     Change  books-type in the currently active toolbelt.
+
+12.91.1.15 emacspeak-google-toolbelt-change-books-viewability
+.............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-books-viewability
+
+     Change  books-viewability in the currently active toolbelt.
+
+12.91.1.16 emacspeak-google-toolbelt-change-commercial
+......................................................
+
+ -- Command: emacspeak-google-toolbelt-change-commercial
+
+     Change  commercial in the currently active toolbelt.
+
+12.91.1.17 emacspeak-google-toolbelt-change-commercial-prices
+.............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-commercial-prices
+
+     Change  commercial-prices in the currently active toolbelt.
+
+12.91.1.18 emacspeak-google-toolbelt-change-date-filter
+.......................................................
+
+ -- Command: emacspeak-google-toolbelt-change-date-filter
+
+     Change  date-filter in the currently active toolbelt.
+
+12.91.1.19 emacspeak-google-toolbelt-change-forums
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-forums
+
+     Change  forums in the currently active toolbelt.
+
+12.91.1.20 emacspeak-google-toolbelt-change-group-discussions
+.............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-group-discussions
+
+     Change  group-discussions in the currently active toolbelt.
+
+12.91.1.21 emacspeak-google-toolbelt-change-images
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-images
+
+     Change  images in the currently active toolbelt.
+
+12.91.1.22 emacspeak-google-toolbelt-change-in-depth
+....................................................
+
+ -- Command: emacspeak-google-toolbelt-change-in-depth
+
+     Change  in-depth in the currently active toolbelt.
+
+12.91.1.23 emacspeak-google-toolbelt-change-literal
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-literal
+
+     Change  literal in the currently active toolbelt.
+
+12.91.1.24 emacspeak-google-toolbelt-change-news
+................................................
+
+ -- Command: emacspeak-google-toolbelt-change-news
+
+     Change  news in the currently active toolbelt.
+
+12.91.1.25 emacspeak-google-toolbelt-change-non-commercial
+..........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-non-commercial
+
+     Change  non-commercial in the currently active toolbelt.
+
+12.91.1.26 emacspeak-google-toolbelt-change-patents
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-patents
+
+     Change  patents in the currently active toolbelt.
+
+12.91.1.27 emacspeak-google-toolbelt-change-places
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-places
+
+     Change  places in the currently active toolbelt.
+
+12.91.1.28 emacspeak-google-toolbelt-change-recent
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-recent
+
+     Change  recent in the currently active toolbelt.
+
+12.91.1.29 emacspeak-google-toolbelt-change-recipes
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-recipes
+
+     Change  recipes in the currently active toolbelt.
+
+12.91.1.30 emacspeak-google-toolbelt-change-reviews
+...................................................
+
+ -- Command: emacspeak-google-toolbelt-change-reviews
+
+     Change  reviews in the currently active toolbelt.
+
+12.91.1.31 emacspeak-google-toolbelt-change-social
+..................................................
+
+ -- Command: emacspeak-google-toolbelt-change-social
+
+     Change  social in the currently active toolbelt.
+
+12.91.1.32 emacspeak-google-toolbelt-change-sort-by-date
+........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-sort-by-date
+
+     Change  sort-by-date in the currently active toolbelt.
+
+12.91.1.33 emacspeak-google-toolbelt-change-structured-snippets
+...............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-structured-snippets
+
+     Change  structured-snippets in the currently active toolbelt.
+
+12.91.1.34 emacspeak-google-toolbelt-change-timeline
+....................................................
+
+ -- Command: emacspeak-google-toolbelt-change-timeline
+
+     Change  timeline in the currently active toolbelt.
+
+12.91.1.35 emacspeak-google-toolbelt-change-timeline-high
+.........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-timeline-high
+
+     Change  timeline-high in the currently active toolbelt.
+
+12.91.1.36 emacspeak-google-toolbelt-change-timeline-low
+........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-timeline-low
+
+     Change  timeline-low in the currently active toolbelt.
+
+12.91.1.37 emacspeak-google-toolbelt-change-video
+.................................................
+
+ -- Command: emacspeak-google-toolbelt-change-video
+
+     Change  video in the currently active toolbelt.
+
+12.91.1.38 emacspeak-google-toolbelt-change-video-duration
+..........................................................
+
+ -- Command: emacspeak-google-toolbelt-change-video-duration
+
+     Change  video-duration in the currently active toolbelt.
+
+12.91.1.39 emacspeak-google-toolbelt-change-web-history-not-visited
+...................................................................
+
+ -- Command: emacspeak-google-toolbelt-change-web-history-not-visited
+
+     Change  web-history-not-visited in the currently active toolbelt.
+
+12.91.1.40 emacspeak-google-toolbelt-change-web-history-visited
+...............................................................
+
+ -- Command: emacspeak-google-toolbelt-change-web-history-visited
+
+     Change  web-history-visited in the currently active toolbelt.
+
+12.91.1.41 emacspeak-google-tts
+...............................
+
+ -- Command: emacspeak-google-tts (text &optional lang)
+
+     Google Network TTS.
+     Optional interactive prefix arg ‘lang’ specifies  language identifier.
+
+     (fn TEXT &optional LANG)
+
+12.91.1.42 emacspeak-google-tts-region
+......................................
+
+ -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
+
+     Speak region using Google Network TTS.
+
+     (fn START END &optional ASK-LANG)
+
+12.91.1.43 emacspeak-google-what-is-my-ip
+.........................................
+
+ -- Command: emacspeak-google-what-is-my-ip
+
+     Show my public IP
+
+12.91.1.44 emacspeak-google-who-links-to-this-page
+..................................................
+
+ -- Command: emacspeak-google-who-links-to-this-page
+
+     Perform a google search to locate documents that link to the
+     current page.
+
+12.91.2 emacspeak-google Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-google-kg-key
+     API Key for Google Knowledge Graph.
+
+ -- Variable: User Option emacspeak-google-tts-default-language
+     Default language used for Google TTS.
+
+
+File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-gtags,  Prev: emacspeak-google,  Up: Emacspeak Commands And Options
+
+12.92 emacspeak-gridtext
+========================
+
+Emacspeak’s table browsing mode allows one to efficiently access content
+that is tabular in nature.  That module also provides functions for
+inferring table structure where possible.  Often, such structure is hard
+to infer automatically –but might be known to the user e.g.  treat
+columns 1 through 30 as one column of a table and so on.  This module
+allows the user to specify a conceptual grid that is "overlaid" on the
+region of text to turn it into a table for tabular browsing.  For now,
+elements of the grid are "one line" high –but that may change in the
+future if necessary.  This module is useful for browsing structured text
+files and the output from programs that tabulate their output.  It’s
+also useful for handling multicolumn text.  The "grid" is specified as a
+list of (start end) tuples..
+
+12.92.1 Emacspeak-Gridtext Commands
+-----------------------------------
+
+12.92.1.1 emacspeak-gridtext-apply
+..................................
+
+ -- Command: emacspeak-gridtext-apply (start end grid)
+     ‘C-e # a’
+     ‘<fn> # a’
+
+     Apply grid to region.
+
+     (fn START END GRID)
+
+12.92.1.2 emacspeak-gridtext-load
+.................................
+
+ -- Command: emacspeak-gridtext-load (file)
+     ‘C-e # l’
+     ‘<fn> # l’
+
+     Load saved grid settings.
+
+     (fn FILE)
+
+12.92.1.3 emacspeak-gridtext-save
+.................................
+
+ -- Command: emacspeak-gridtext-save (file)
+     ‘C-e # s’
+     ‘<fn> # s’
+
+     Save out grid settings.
+
+     (fn FILE)
+
+
+File: emacspeak.info,  Node: emacspeak-gtags,  Next: emacspeak-gud,  Prev: emacspeak-gridtext,  Up: Emacspeak Commands And Options
+
+12.93 emacspeak-gtags
+=====================
+
+GTAGS == Emacs support for GNU global.  GNU global implements a modern
+tags solution Package gtags interfaces Emacs to this tool.
+
+
+File: emacspeak.info,  Node: emacspeak-gud,  Next: emacspeak-haskell,  Prev: emacspeak-gtags,  Up: Emacspeak Commands And Options
+
+12.94 emacspeak-gud
+===================
+
+Provide additional advice to ease debugger interaction with gud
+
+
+File: emacspeak.info,  Node: emacspeak-haskell,  Next: emacspeak-helm,  Prev: emacspeak-gud,  Up: Emacspeak Commands And Options
+
+12.95 emacspeak-haskell
+=======================
+
+Speech-enable package haskell-mode
+
+
+File: emacspeak.info,  Node: emacspeak-helm,  Next: emacspeak-hide,  Prev: emacspeak-haskell,  Up: Emacspeak Commands And Options
+
+12.96 emacspeak-helm
+====================
+
+HELM == Smart narrowing/selection in emacs This module speech-enables
+Helm interaction.  See tvr/helm-prepare.el in the GitHub repository for
+my helm setup.  that file provides convenient emacspeak-centric
+keybindings for Helm interaction.
+
+
+File: emacspeak.info,  Node: emacspeak-hide,  Next: emacspeak-hide-lines,  Prev: emacspeak-helm,  Up: Emacspeak Commands And Options
+
+12.97 emacspeak-hide
+====================
+
+Flexible hide and show for emacspeak.  This module allows one to easily
+hide or expose blocks of lines starting with a common prefix.  It is
+motivated by the need to flexibly hide quoted text in email but is
+designed to be more general.  the prefix parsing is inspired by
+filladapt.el
+
+12.97.1 Emacspeak-Hide Commands
+-------------------------------
+
+12.97.1.1 emacspeak-hide-or-expose-all-blocks
+.............................................
+
+ -- Command: emacspeak-hide-or-expose-all-blocks
+
+     Hide or expose all blocks.
+
+12.97.1.2 emacspeak-hide-or-expose-block
+........................................
+
+ -- Command: emacspeak-hide-or-expose-block (&optional prefix)
+     ‘C-e j’
+     ‘<fn> j’
+
+     Hide or expose a block of text.
+      Optional interactive prefix arg causes all blocks in current
+     buffer to be hidden or exposed.
+
+     (fn &optional PREFIX)
+
+12.97.1.3 emacspeak-hide-speak-block-sans-prefix
+................................................
+
+ -- Command: emacspeak-hide-speak-block-sans-prefix
+     ‘C-e C-j’
+     ‘<fn> C-j’
+
+     Speaks current block after stripping its prefix.
+
+
+File: emacspeak.info,  Node: emacspeak-hide-lines,  Next: emacspeak-hideshow,  Prev: emacspeak-hide,  Up: Emacspeak Commands And Options
+
+12.98 emacspeak-hide-lines
+==========================
+
+HIDE-LINES == hide/show lines from melpa
+
+
+File: emacspeak.info,  Node: emacspeak-hideshow,  Next: emacspeak-hydra,  Prev: emacspeak-hide-lines,  Up: Emacspeak Commands And Options
+
+12.99 emacspeak-hideshow
+========================
+
+speech-enable hideshow.el
 
 
 File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: emacspeak-hideshow,  Up: Emacspeak Commands And Options
 
 12.100 emacspeak-hydra
 ======================
+
+Speech-enable package hydra: For uses of hydra see module *Note
+emacspeak-muggles::.
 
 12.100.1 Emacspeak-Hydra Commands
 ---------------------------------
@@ -302,7 +803,16 @@ implements an Emacspeak Librivox client.
 12.113.1 Usage
 --------------
 
-main entry point is command ‘emacspeak-librivox’ bound to ‘C-; l’.
+main entry point is command ‘emacspeak-librivox’ bound to ‘C-; l’.  This
+prompts with the following choices:
+   • ‘a’ Author — Search by Author.
+   • ‘t’ Title — Search by Title.
+   • ‘g’ Genre — Search by Genre — with minibuffer completion.
+   • ‘p’ Play — Play a book.
+   • ‘d’ Directory — Browse local cache.
+
+   Search results are displayed in a Web page that provides controls for
+accessing the book.
 
 12.113.2 Emacspeak-Librivox Commands
 ------------------------------------
@@ -379,7 +889,15 @@ LISPY == smart Navigation Of Lisp code This module speech-enables lispy.
 
 Lispy editing keeps delimiters balanced and Lispy navigators reliably
 place point on either the opening or closing delimiter of the current
-s-expression.  Emacspeak leverages this fact in the
+s-expression.  Emacspeak leverages this fact in the type of spoken
+feedback that is produced.  All navigation commands produce the
+following:
+   • Speak the current s-expression when at the front of a sexp.
+   • Speak the current line with option ‘emacspeak-show-point’ turned on
+     when at the end of an s-expression.
+   • Produce auditory icon ‘left’ or ‘right’ to indicate point being at
+     the beginning or end of current line.
+   • Indicate with an auditory icon if point did not move.
 
 
 File: emacspeak.info,  Node: emacspeak-lua,  Next: emacspeak-m-player,  Prev: emacspeak-lispy,  Up: Emacspeak Commands And Options
@@ -1361,6 +1879,22 @@ emacspeak-maths:: as described below.
    Note: In general, once everything is configured correctly, using the
 maths navigator automatically starts the server and client.  Invoke the
 Navigator using ‘s-spc’ — this is the <windows> key on Linux laptops.
+Linux.  Now you can use these keys:
+   • Show Output <o> Switch to output buffer and quit Maths Navigator
+   • Enter: <SPC> Enter a LaTeX expression.
+   • Smart-Enter: <enter> Enter the guessed expression with no
+     prompting.
+   • Alt-Text <a> Process alt-text under point as LaTeX.
+   • Down <down> Move down a level.
+   • Up <up> Move up a level.
+   • Left <left> Move left.
+   • Right <right> Move right.
+   • Exit <any other key> Exit navigator.
+
+   The current expression is spoken after each of the above commands.
+It is also displayed in a special buffer *Spoken Math*.  That buffer
+holds all previously generated output, And Emacs commands forward-page
+and backward-page can be used to move through each chunk of output.
 
 12.121.3 Emacspeak-Maths Commands
 ---------------------------------
@@ -1535,7 +2069,22 @@ File: emacspeak.info,  Node: emacspeak-mines,  Next: emacspeak-mspools,  Prev: e
 ======================
 
 MINES == Minesweeper game in emacs.  The game itself provides a fully
-keyboard driven interface.  In addition, Emacspeak provides
+keyboard driven interface.  In addition, Emacspeak provides these
+additional interactive commands:
+   • ‘SPC’ Speak current cell.
+   • ‘.’ Speak neighbors of current cell.
+   • ‘,’ Speak number of marks
+   • ‘a’ Move to beginning of row.
+   • ‘e’ Move to end of row.
+   • ‘g’ Move to specified cell
+   • ‘s’ Move to next uncovered cell.
+   • ‘/’ Speak number of remaining uncovered cells.
+   • ‘'’ Speaks entire board.
+
+   Speaking cell neighbors uses appropriate clause boundaries to group
+related cells — neighbors are read left-to-right, top-to-bottom.  Moving
+to the left/right edge of the board produces an appropriate auditory
+icon.
 
 12.125.1 Emacspeak-Mines Commands
 ---------------------------------
@@ -1626,12 +2175,42 @@ File: emacspeak.info,  Node: emacspeak-muggles,  Next: emacspeak-muse,  Prev: em
 MUGGLES == Emacspeak spells for power-users.  This module implements no
 new functionality — contrast with emacspeak-wizards.  Instead, it uses
 package hydra to provide convenience key-bindings that access existing
-Emacspeak functionality.
+Emacspeak functionality.  You need to install package Hydra first: ‘M-x
+package-install hydra’.
 
-12.127.1 Emacspeak-Muggles Commands
+   Note that on newer versions of Emacs, loading this module will
+attempt to automatically install package hydra if it is not found.
+
+12.127.1 Using Hydras
+---------------------
+
+See the high-level documentation for the Hydra package by executing ‘C-h
+C-j ’ hydra ‘RET’.  The documentation in this section uses the same
+terminology as shown in the hydra package documentation.
+
+12.127.2 Implemented Muggles
+----------------------------
+
+   • Brightness: ‘print’ Control display brightness using xbacklight.
+   • Navigate: ‘s-n’ Navigate with ease.
+   • org-mode structure nav: ‘C-c C-SPC’ Navigation for org-mode.
+   • org-mode tables: ‘C-c t’ Table UI for org-mode tables.
+   • hideshow: C-, h Provide HideShow bindings.
+   • toggle-option: ‘C-c o’ Single binding for toggling options.
+   • Repeatable-Yank: ‘C-y’ Smart yank
+   • undo-only/undo-redo: ‘C-/ ’ Undo-only on ‘/’ and undo-redo on ‘\’
+   • emacspeak-maths ‘s-SPC’ Speak and browse math.
+
+   Emacspeak automatically speaks Hydra hints when displayed.  To
+silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
+silence speaking of Hydra hints, Muggles can bind command
+‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
+binds ‘s’ to this command.
+
+12.127.3 Emacspeak-Muggles Commands
 -----------------------------------
 
-12.127.1.1 emacspeak-muggles-brightness/body
+12.127.3.1 emacspeak-muggles-brightness/body
 ............................................
 
  -- Command: emacspeak-muggles-brightness/body
@@ -1654,7 +2233,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
-12.127.1.2 emacspeak-muggles-hideshow/body
+12.127.3.2 emacspeak-muggles-hideshow/body
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
@@ -1676,7 +2255,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 
-12.127.1.3 emacspeak-muggles-ido-yank
+12.127.3.3 emacspeak-muggles-ido-yank
 .....................................
 
  -- Command: emacspeak-muggles-ido-yank
@@ -1684,14 +2263,14 @@ Emacspeak functionality.
 
      Pick what to yank using ido completion.
 
-12.127.1.4 emacspeak-muggles-lispy-or-sp
+12.127.3.4 emacspeak-muggles-lispy-or-sp
 ........................................
 
  -- Command: emacspeak-muggles-lispy-or-sp
 
      Toggle between lispy and smartparens.
 
-12.127.1.5 emacspeak-muggles-maths-navigator/body
+12.127.3.5 emacspeak-muggles-maths-navigator/body
 .................................................
 
  -- Command: emacspeak-muggles-maths-navigator/body
@@ -1714,7 +2293,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
 
-12.127.1.6 emacspeak-muggles-navigate/body
+12.127.3.6 emacspeak-muggles-navigate/body
 ..........................................
 
  -- Command: emacspeak-muggles-navigate/body
@@ -1742,7 +2321,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 
-12.127.1.7 emacspeak-muggles-org-nav/body
+12.127.3.7 emacspeak-muggles-org-nav/body
 .........................................
 
  -- Command: emacspeak-muggles-org-nav/body
@@ -1762,7 +2341,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 
-12.127.1.8 emacspeak-muggles-org-table/body
+12.127.3.8 emacspeak-muggles-org-table/body
 ...........................................
 
  -- Command: emacspeak-muggles-org-table/body
@@ -1784,7 +2363,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
-12.127.1.9 emacspeak-muggles-toggle-option/body
+12.127.3.9 emacspeak-muggles-toggle-option/body
 ...............................................
 
  -- Command: emacspeak-muggles-toggle-option/body
@@ -1813,7 +2392,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.127.1.10 emacspeak-muggles-undo-only/undo-redo/body
+12.127.3.10 emacspeak-muggles-undo-only/undo-redo/body
 ......................................................
 
  -- Command: emacspeak-muggles-undo-only/undo-redo/body
@@ -1829,7 +2408,7 @@ Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 
-12.127.1.11 emacspeak-muggles-yank-pop/body
+12.127.3.11 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -2451,10 +3030,37 @@ File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: 
 12.142.1 PIANOBAR == Pandora Client for Emacs
 ---------------------------------------------
 
-12.142.2 Emacspeak-Pianobar Commands
+pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian: sudo
+apt-get install pianobar
+
+   Pianobar Is a stand-alone client for Pandora Radio.  pianobar.el
+available on the Emacs Wiki at
+http://www.emacswiki.org/emacs/pianobar.el Provides access to Pandora
+Radio via pianobar from the comfort of Emacs.  This module
+speech-enables Pianobar and enhances it for the Complete Audio Desktop.
+
+12.142.2 Emacspeak Usage:
+-------------------------
+
+Emacspeak implements command emacspeak-pianobar, a light-weight wrapper
+on top of pianobar.  Emacspeak binds this command to ‘C-e '’.  Command
+emacspeak-pianobar is designed to let you launch Pandora channels and
+switch tracks/channels without moving away from your primary tasks such
+as editing code or reading/composing email.  Toward this end, launching
+command emacspeak-pianobar the first time initializes the ‘*pianobar*’
+buffer and launches command ‘pianobar’; but focus remains in your
+current buffer.  Pianobar can be controlled with single keystrokes while
+in the pianobar buffer — switch to using ‘C-e ''’.  The most useful keys
+are ‘right’ for skipping tracks, ‘up’ and ‘down’ for switching channels
+etc.; see the keys bound in ‘pianobar-key-map’ for a complete list.
+Pressing ‘C-e '’ in the ‘*pianobar*’ buffer buries the ‘*pianobar*’.
+From here on, Pianobar can be controlled by pressing the Pianobar prefix
+key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
+
+12.142.3 Emacspeak-Pianobar Commands
 ------------------------------------
 
-12.142.2.1 emacspeak-pianobar
+12.142.3.1 emacspeak-pianobar
 .............................
 
  -- Command: emacspeak-pianobar
@@ -2463,7 +3069,7 @@ File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: 
 
      Start or control Emacspeak Pianobar player.
 
-12.142.2.2 emacspeak-pianobar-command
+12.142.3.2 emacspeak-pianobar-command
 .....................................
 
  -- Command: emacspeak-pianobar-command (key)
@@ -2472,7 +3078,7 @@ File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: 
 
      (fn KEY)
 
-12.142.2.3 emacspeak-pianobar-electric-mode-toggle
+12.142.3.3 emacspeak-pianobar-electric-mode-toggle
 ..................................................
 
  -- Command: emacspeak-pianobar-electric-mode-toggle
@@ -2480,21 +3086,21 @@ File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: 
      Toggle electric mode in pianobar buffer.
      If electric mode is on, keystrokes invoke pianobar commands directly.
 
-12.142.2.4 emacspeak-pianobar-next-preset
+12.142.3.4 emacspeak-pianobar-next-preset
 .........................................
 
  -- Command: emacspeak-pianobar-next-preset
 
      Switch to next preset.
 
-12.142.2.5 emacspeak-pianobar-previous-preset
+12.142.3.5 emacspeak-pianobar-previous-preset
 .............................................
 
  -- Command: emacspeak-pianobar-previous-preset
 
      Switch to previous preset.
 
-12.142.2.6 emacspeak-pianobar-send-raw
+12.142.3.6 emacspeak-pianobar-send-raw
 ......................................
 
  -- Command: emacspeak-pianobar-send-raw (string)
@@ -2503,21 +3109,21 @@ File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: 
 
      (fn STRING)
 
-12.142.2.7 emacspeak-pianobar-switch-to-preset
+12.142.3.7 emacspeak-pianobar-switch-to-preset
 ..............................................
 
  -- Command: emacspeak-pianobar-switch-to-preset
 
      Switch to one of the  presets.
 
-12.142.2.8 emacspeak-pianobar-volume-down
+12.142.3.8 emacspeak-pianobar-volume-down
 .........................................
 
  -- Command: emacspeak-pianobar-volume-down
 
      Decrease volume
 
-12.142.2.9 emacspeak-pianobar-volume-up
+12.142.3.9 emacspeak-pianobar-volume-up
 .......................................
 
  -- Command: emacspeak-pianobar-volume-up
@@ -2644,17 +3250,26 @@ implements the user interface to the custom dictionary as well as
 providing the internal API used by the rest of emacspeak in using the
 dictionary.
 
-12.147.1 Emacspeak-Pronounce Commands
+12.147.1 Algorithm:
+-------------------
+
+The persistent dictionary is a hash table where the hash keys are
+filenames, directory names, or major-mode names.  The hash values are
+association lists defining the dictionary.  Users of this module can
+retrieve a dictionary made up of all applicable association lists for a
+given file.
+
+12.147.2 Emacspeak-Pronounce Commands
 -------------------------------------
 
-12.147.1.1 emacspeak-pronounce-clear-dictionaries
+12.147.2.1 emacspeak-pronounce-clear-dictionaries
 .................................................
 
  -- Command: emacspeak-pronounce-clear-dictionaries
 
      Clear all current pronunciation dictionaries.
 
-12.147.1.2 emacspeak-pronounce-define-local-pronunciation
+12.147.2.2 emacspeak-pronounce-define-local-pronunciation
 .........................................................
 
  -- Command: emacspeak-pronounce-define-local-pronunciation (word pron)
@@ -2665,7 +3280,7 @@ dictionary.
 
      (fn WORD PRON)
 
-12.147.1.3 emacspeak-pronounce-define-pronunciation
+12.147.2.3 emacspeak-pronounce-define-pronunciation
 ...................................................
 
  -- Command: emacspeak-pronounce-define-pronunciation
@@ -2674,7 +3289,7 @@ dictionary.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.147.1.4 emacspeak-pronounce-define-template-pronunciation
+12.147.2.4 emacspeak-pronounce-define-template-pronunciation
 ............................................................
 
  -- Command: emacspeak-pronounce-define-template-pronunciation
@@ -2683,7 +3298,7 @@ dictionary.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.147.1.5 emacspeak-pronounce-dispatch
+12.147.2.5 emacspeak-pronounce-dispatch
 .......................................
 
  -- Command: emacspeak-pronounce-dispatch
@@ -2692,7 +3307,7 @@ dictionary.
 
      Pronounce Frontend
 
-12.147.1.6 emacspeak-pronounce-edit-pronunciations
+12.147.2.6 emacspeak-pronounce-edit-pronunciations
 ..................................................
 
  -- Command: emacspeak-pronounce-edit-pronunciations (key)
@@ -2702,7 +3317,7 @@ dictionary.
 
      (fn KEY)
 
-12.147.1.7 emacspeak-pronounce-load-dictionaries
+12.147.2.7 emacspeak-pronounce-load-dictionaries
 ................................................
 
  -- Command: emacspeak-pronounce-load-dictionaries (&optional filename)
@@ -2713,7 +3328,7 @@ dictionary.
 
      (fn &optional FILENAME)
 
-12.147.1.8 emacspeak-pronounce-merge-dictionaries
+12.147.2.8 emacspeak-pronounce-merge-dictionaries
 .................................................
 
  -- Command: emacspeak-pronounce-merge-dictionaries (from into)
@@ -2722,21 +3337,21 @@ dictionary.
 
      (fn FROM INTO)
 
-12.147.1.9 emacspeak-pronounce-refresh-pronunciations
+12.147.2.9 emacspeak-pronounce-refresh-pronunciations
 .....................................................
 
  -- Command: emacspeak-pronounce-refresh-pronunciations
 
      Refresh pronunciation table for current buffer.
 
-12.147.1.10 emacspeak-pronounce-save-dictionaries
+12.147.2.10 emacspeak-pronounce-save-dictionaries
 .................................................
 
  -- Command: emacspeak-pronounce-save-dictionaries
 
      Saves  pronunciation dictionaries.
 
-12.147.1.11 emacspeak-pronounce-toggle-use-of-dictionaries
+12.147.2.11 emacspeak-pronounce-toggle-use-of-dictionaries
 ..........................................................
 
  -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
@@ -2746,14 +3361,14 @@ dictionary.
 
      (fn &optional STATE)
 
-12.147.1.12 emacspeak-pronounce-toggle-voice
+12.147.2.12 emacspeak-pronounce-toggle-voice
 ............................................
 
  -- Command: emacspeak-pronounce-toggle-voice
 
      Toggle use of pronunciation personality.
 
-12.147.2 emacspeak-pronounce Options
+12.147.3 emacspeak-pronounce Options
 ------------------------------------
 
  -- Variable: User Option
@@ -3027,7 +3642,12 @@ File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev:
 12.166 emacspeak-setup
 ======================
 
-Entry point for Emacspeak.
+Entry point for Emacspeak.  The simplest and most basic way to start
+emacspeak is: emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el The
+above starts a vanilla Emacs with just Emacspeak loaded.  Once the above
+has been verified to work, You can add (load-library "emacspeak-setup")
+To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
+repository for my setup.
 
 
 File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
@@ -3137,7 +3757,21 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 =======================
 
 This module provides the interface for generating auditory icons in
-emacspeak.
+emacspeak.  Design goal: 1) Auditory icons should be used to provide
+additional feedback, not as a gimmick.  2) The interface should be
+usable at all times without the icons: e.g.  when on a machine without a
+sound card.  3) General principle for when to use an icon: Convey
+information about events taking place in parallel.  For instance, if
+making a selection automatically moves the current focus to the next
+choice, We speak the next choice, while indicating the fact that
+something was selected with a sound cue.  This interface will assume the
+availability of a shell command "play" that can take one or more sound
+files and play them.  This module will also provide a mapping between
+names in the elisp world and actual sound files.  Modules that wish to
+use auditory icons should use these names, instead of actual file names.
+As of Emacspeak 13.0, this module defines a themes architecture for
+auditory icons.  Sound files corresponding to a given theme are found in
+appropriate subdirectories of emacspeak-sounds-directory
 
 12.174.1 Emacspeak-Sounds Commands
 ----------------------------------
@@ -8018,11 +8652,41 @@ emacspeak-muggles to save time at startup.
    This module implements no new functionality — contrast with
 emacspeak-wizards.  Instead, it uses package hydra to provide
 convenience key-bindings that access existing Emacspeak functionality.
+You need to install package Hydra first: ‘M-x package-install hydra’.
 
-12.218.1 Extra-Muggles Commands
+   Note that on newer versions of Emacs, loading this module will
+attempt to automatically install package hydra if it is not found.
+
+12.218.1 Using Hydras
+---------------------
+
+See the high-level documentation for the Hydra package by executing ‘C-h
+C-j ’ hydra ‘RET’.  The documentation in this section uses the same
+terminology as shown in the hydra package documentation.
+
+12.218.2 Extra Muggles
+----------------------
+
+   • View-Mode: ‘C-. v’ Temporarily behave like view-mode.
+   • SmartParens: ‘C-c ,’ Smart Parens
+   • m-player: ‘s-m’ Emacspeak-M-Player Commands
+   • m-player: ‘s-;’ Emacspeak-M-Player muggle
+   • pianobar: ‘s-'’ Emacspeak-M-pianobar Commands
+   • origami: C-, / Origami bindings.
+   • outliner: <C-c .> Bindings from outline-minor-mode.
+   • Info-Summary: <?> in Info Info Summary Muggle
+   • Vuiet Explorer: ‘C-; v’ Vuiet Music Explorer and Player
+
+   Emacspeak automatically speaks Hydra hints when displayed.  To
+silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
+silence speaking of Hydra hints, Muggles can bind command
+‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
+binds ‘s’ to this command.
+
+12.218.3 Extra-Muggles Commands
 -------------------------------
 
-12.218.1.1 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+12.218.3.1 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
 ............................................................
 
  -- Command: emacspeak-muggles-emacspeak-m-player-mode-map-cmd
@@ -8030,7 +8694,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      Temporarily use keymap emacspeak-m-player-mode-map
 
-12.218.1.2 emacspeak-muggles-info-summary/body
+12.218.3.2 emacspeak-muggles-info-summary/body
 ..............................................
 
  -- Command: emacspeak-muggles-info-summary/body
@@ -8082,7 +8746,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 
-12.218.1.3 emacspeak-muggles-m-player/body
+12.218.3.3 emacspeak-muggles-m-player/body
 ..........................................
 
  -- Command: emacspeak-muggles-m-player/body
@@ -8148,7 +8812,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 
-12.218.1.4 emacspeak-muggles-outliner/body
+12.218.3.4 emacspeak-muggles-outliner/body
 ..........................................
 
  -- Command: emacspeak-muggles-outliner/body
@@ -8181,7 +8845,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
-12.218.1.5 emacspeak-muggles-pianobar-key-map-cmd
+12.218.3.5 emacspeak-muggles-pianobar-key-map-cmd
 .................................................
 
  -- Command: emacspeak-muggles-pianobar-key-map-cmd
@@ -8189,7 +8853,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      Temporarily use keymap pianobar-key-map
 
-12.218.1.6 emacspeak-muggles-smartparens/body
+12.218.3.6 emacspeak-muggles-smartparens/body
 .............................................
 
  -- Command: emacspeak-muggles-smartparens/body
@@ -8230,7 +8894,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
-12.218.1.7 emacspeak-muggles-view/body
+12.218.3.7 emacspeak-muggles-view/body
 ......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -8291,7 +8955,7 @@ convenience key-bindings that access existing Emacspeak functionality.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.218.1.8 emacspeak-origami/body
+12.218.3.8 emacspeak-origami/body
 .................................
 
  -- Command: emacspeak-origami/body
@@ -8583,6 +9247,10 @@ consistent way to elisp.  The goal is to make it easy to inspect Ladspa
 Plugins, And invoke them easily from Ladspa host applications such as
 MPlayer.  See
 <http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html>
+Some Ladspa Packages that provide plugins: sudo apt-get install
+zam-plugins wah-plugins vco-plugins tap-plugins swh-plugins rev-plugins
+mcp-plugins liquidsoap-plugin-ladspa ladspa-foo-plugins
+invada-studio-plugins-ladspa fil-plugins
 
 12.222.1 Ladspa Commands
 ------------------------
@@ -8715,6 +9383,23 @@ contains additional Boodler Agents and SoundScapes that I have created
 for use with Emacspeak.
 
    Module soundscape.el defines Emacs conveniences for running
+Soundscapes.  Main Entry Points:
+
+   • M-x soundscape-toggle – Enables or disables automatic SoundScapes.
+   • M-x soundscape – runs a named SoundScape
+   • M-x soundscape-stop – Stops a specified running Soundscape.
+   • M-x soundscape-kill – Kills all running Soundscapes.
+
+   When automatic Soundscapes are enabled, SoundScapes are started and
+stopped based on the current major mode.  Active Soundscape are
+displayed as part of the minor-mode-alist.  Command
+emacspeak-speak-minor-mode-line can be used to have this spoken.
+
+   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
+current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
+that is loaded using ‘(soundscape-load soundscape-default-theme)’.
+Emacs modes that provide similar functionality e.g., communication ==
+email, IM, ...  map to the same _mood_.
 
 12.226.1 Soundscape Commands
 ----------------------------
@@ -9176,12 +9861,6 @@ of braille, nothing more.
    (it will only work if the relative font is installed and properly
 configured).
 
-   References:
-
-   http://www.nbp.org/ic/nbp/braille/index.html
-
-   http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
-
 
 File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: toy-braille,  Up: Emacspeak Commands And Options
 
@@ -9307,737 +9986,4 @@ unique voices defined in this module.
 
  -- Variable: User Option voice-smoothen-settings
      Settings for voice-smoothen
-
-
-File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
-
-12.232 voice-setup
-==================
-
-A voice is to audio as a font is to a visual display.  A personality is
-to audio as a face is to a visual display.
-
-   Voice-lock-mode is a minor mode that causes your comments to be
-spoken in one personality, strings in another, reserved words in
-another, documentation strings in another, and so on.
-
-   Comments will be spoken in ‘voice-comment-personality’.  Strings will
-be spoken in ‘voice-string-personality’.  Function (in their defining
-forms) will be spoken in ‘voice-function-name-personality’.  Reserved
-words will be spoken in ‘voice-keyword-personality’.
-
-   To audio-format text , use M-x voice-lock-mode.  When this minor mode
-is on, the voices of the current line are updated with every insertion
-or deletion.
-
-12.232.1 Voice-Lock And Aural CSS
----------------------------------
-
-The CSS Speech Style Sheet specification defines a number of abstract
-device independent voice properties.  A setting conforming to the CSS
-speech specification can be represented in elisp as a structure.
-
-   We will refer to this structure as a "speech style".  This structure
-needs to be mapped to device dependent codes to produce the desired
-effect.  This module forms a bridge between emacs packages that wish to
-implement audio formatting and Emacspeak’s TTS module.  Emacspeak
-produces voice change effects by examining the value of text-property
-’personality’, as well as the face/font at point.
-
-   Think of a buffer of formatted text along with the text-property
-’personality appropriately set as a "aural display list".  Module
-voice-setup.el help applications like EWW produce audio-formatted output
-by calling function voice-acss-from-speech-style with a "speech-style"
-–a structure as defined in this module and get back a symbol that they
-assign to the value of property ’personality.  Emacspeak’s rendering
-engine then does the needful at the time speech is produced.  Function
-voice-acss-from-speech-style does the following: Takes as input a
-"speech style" (1) Computes a symbol that will be used to refer to this
-specific speech style.  (2) Examines emacspeak’s internal voice table to
-see if this speech style has a voice already defined.  If so it returns
-immediately.  Otherwise, it does the additional work of defining a
--voice for future use.  See its use in this module to see how voices are
-defined independent of a given TTS engine.  How faces map to voices: TTS
-engine specific modules e.g., dectalk-voices.el and outloud-voices.el
-map ACSS dimensions to engine-specific codes.  Emacspeak modules use
-voice-setup-add-map when defining face->personality mappings.  For use
-from other modules.
-
-12.232.2 Voice-Setup Commands
------------------------------
-
-12.232.2.1 voice-lock-mode
-..........................
-
- -- Command: voice-lock-mode (&optional arg)
-     ‘C-e d v’
-     ‘<fn> d v’
-
-     Toggle voice lock mode.
-
-     This is a minor mode.  If called interactively, toggle the
-     ‘Voice-Lock mode’ mode.  If the prefix argument is positive,
-     enable the mode, and if it is zero or negative, disable the mode.
-
-     If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
-     the mode if ARG is nil, omitted, or is a positive number.
-     Disable the mode if ARG is a negative number.
-
-     To check whether the minor mode is enabled in the current buffer,
-     evaluate ‘voice-lock-mode’.
-
-     The mode’s hook is called both when the mode is enabled and when
-     it is disabled.
-
-     (fn &optional ARG)
-
-12.232.2.2 voice-lock-mode–turn-on
-..................................
-
- -- Command: voice-lock-mode--turn-on
-
-     Turn on Voice Lock mode .
-
-12.232.2.3 voice-setup-toggle-silence-personality
-.................................................
-
- -- Command: voice-setup-toggle-silence-personality
-     ‘C-e M-q’
-     ‘<fn> M-q’
-
-     Toggle audibility of personality under point  .
-
-12.232.3 voice-setup Options
-----------------------------
-
- -- Variable: User Option voice-lock-mode-hook
-     Hook run after entering or leaving ‘voice-lock-mode’.  No problems
-     result if this variable is not bound.  ‘add-hook’ automatically
-     binds it.  (This is true for all hook variables.)
-
-
-File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
-
-12.233 xbacklight
-=================
-
-Provide an emacs front-end to xbacklight.  This is a tool that controls
-the brightness on laptops.  To install xbacklight, sudo apt-get install
-xbacklight
-
-12.233.1 Xbacklight Commands
-----------------------------
-
-12.233.1.1 xbacklight-black
-...........................
-
- -- Command: xbacklight-black
-
-     Black screen.
-
-12.233.1.2 xbacklight-decrement
-...............................
-
- -- Command: xbacklight-decrement
-
-     Decrease brightness.
-
-12.233.1.3 xbacklight-get
-.........................
-
- -- Command: xbacklight-get
-
-     Get  brightness level.
-
-12.233.1.4 xbacklight-increment
-...............................
-
- -- Command: xbacklight-increment
-
-     Increase brightness.
-
-12.233.1.5 xbacklight-set
-.........................
-
- -- Command: xbacklight-set (brightness)
-
-     Set brightness.
-
-     (fn BRIGHTNESS)
-
-12.233.1.6 xbacklight-white
-...........................
-
- -- Command: xbacklight-white
-
-     White screen.
-
-
-File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
-
-12.234 URL Templates
-====================
-
-This section documents a total of 74 URL Templates.
-
-   All of these URL templates can be invoked via command ‘M-x
-emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
-command prompts for the name of the template, and completion is
-available via Emacs’ minibuffer completion.  Each URL template carries
-out the following steps:
-   • Prompt for the relevant information.
-   • Fetch the resulting URL using an appropriate fetcher.
-   • Set up the resulting resource with appropriate customizations.
-
-  1. AQI From Wunderground
-
-     Air quality from Wunderground
-  2. Air Traffic Control
-
-     Find live streams for Air Traffic Control.
-  3. Airport conditions
-
-     Display airport conditions from the FAA.
-  4. Amazon Product Details By ASIN
-
-     Retrieve product details from Amazon by either ISBN or ASIN.
-  5. Anonymize Google Search
-
-     Logout from Google to do an anonymous search.
-  6. ArchWiki Search
-
-     Search Linux ArchWiki
-  7. BBC Podcast Directory
-
-     BBC PodCast Directory
-  8. BBC World News Summary
-
-     BBC World News Summary
-  9. Baseball Box Scores
-
-     Display baseball Play By Play.
-  10. Baseball Game Details
-
-     Display baseball Play By Play.
-  11. Baseball Game Index
-
-     Display baseball Play By Play.
-  12. Baseball Highlights
-
-     Display baseball Video Highlights.
-  13. Baseball scores
-
-     Display baseball scores.
-  14. Bing News
-
-     Bing News results as RSS feed.
-  15. Bing Search
-
-     Bing results as RSS feed.
-  16. Bloomberg Stock Lookup
-
-     Lookup Stock Quote information on Bloomberg.  Ticker is of the form
-     goog:us
-  17. CIA World Fact Book
-
-     Open CIA World Fact Book For Specified Country.
-  18. CNBC Using EAF
-
-     Play CNBC Using EAF
-  19. CNN Content
-
-     Filter down to CNN content area.
-  20. CNN Headlines
-
-     News Headlines From CNN
-  21. CNN Market Data
-
-     Market data filtered from CNN Money
-  22. Cricinfo Print
-
-     Printer friendly link on Cricinfo
-  23. Dictionary Lookup
-
-     Dictionary Lookup
-  24. Finance Google
-
-     Lookup ticker on Google Finance.
-  25. Finance Summary From Google
-
-     Display top stocks from Google Finance.
-  26. FreeSound
-
-     Search FreeSound.
-  27. GitHub Search
-
-     Perform a GitHub Search.
-  28. GoLang Browse
-
-     Browse GoLang package documentation.
-  29. GoLang Lookup
-
-     Lookup GoLang package documentation.
-  30. GoLang Search
-
-     Search GoLang package documentation.
-  31. Google Basic
-
-     Light-weight Google search.
-  32. Google News Search
-
-     Search Google news.
-  33. Google Scholar
-
-     Google Scholar Search
-  34. Google Trends
-
-     Google Trends
-  35. Google Weather
-
-     Light-weight Google search.
-  36. Guardian RSS Feeds Directory
-
-     Guardian Feeds Directory
-  37. Hacker News Frontpage
-
-     Display Hacker News Front Page
-  38. Hacker News Search
-
-     Display Hacker News Front Page
-  39. Hoogle Haskell API Search
-
-     Haskell API Search against a local server.
-  40. MLB Scorecard
-
-     Show MLB Scorecard.
-  41. MLB standings
-
-     Display MLB standings.
-  42. Money Headlines From CNN
-
-     Money Headlines From CNN
-  43. NBA standings
-
-     Display NBA standings.
-  44. NLS Bard Bookshelf
-
-     NLS Bard Catalog: Most Popular.  Login once before using this
-     template.
-  45. NLS Bard Popular
-
-     NLS Bard Catalog: Most Popular.  Login once before using this
-     template.
-  46. NLS Bard Recent
-
-     NLS Bard Catalog: Recently Added.  Login once before using this
-     template.
-  47. NLS Bard Search
-
-     Search NLS Bard Catalog.  Login once before using this template.
-  48. NY Times Mobile
-
-     NYTimes Mobile Site
-  49. Old Time Radio
-
-     This months Old Time Radio Programming
-  50. OpenLibrary
-
-     Open Library Search
-  51. Patent Search From Google
-
-     Perform patent search via Google
-  52. RadioTime Browser
-
-     RadioTime Entry point.
-  53. RadioTime Categories
-
-     RadioTime Categories .
-  54. RadioTime Search
-
-     RadioTime Search.
-  55. Reddit At Point.
-
-     Open RSS Feed for Reddit URL under point.
-  56. Reddit By Topic.
-
-     Open RSS Feed for Reddit Topic.
-  57. Reddit Front Page.
-
-     Open Feed for Reddit Front Page.
-  58. Reddit Search.
-
-     Reddit Search Results Feed.
-  59. Seeking Alpha Stock Search
-
-     Seeking Alpha search.
-  60. Sign in to Google
-
-     Login to Google.
-  61. StreamWorld Radio
-
-     Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  62. Tech News From CNet
-
-     Display tech news from CNET
-  63. TuneIn Radio
-
-     Translate StreamId to playable stream.
-  64. Washington Post
-
-     Washington Post Contents
-  65. Wiki Data Search
-
-     Search WikiData.
-  66. WordNet Search
-
-     Look up term in WordNet.
-  67. Yahoo RSSNews
-
-     News From Yahoo As RSS.
-  68. html Google News Search
-
-     Search Google news.
-  69. sourceforge Download
-
-     Download specified file.
-  70. sourceforge browse mirrors
-
-     Retrieve download page at Sourceforge for specified project.
-  71. sourceforge project
-
-     Open specified project page at SourceForge.
-  72. w3c IRC Logs
-
-     Use this to pull up the archived logs from the W3C IRC. You need to
-     know the exact name of the channel.
-  73. w3c Lists
-
-     Use this to pull up the archived mail from the W3C list.  You need
-     to know the exact name of the list.
-  74. world CNN Content
-
-     Filter down to CNN content area.
-
-
-File: emacspeak.info,  Node: Emacspeak Keyboard Commands,  Next: TTS Servers,  Prev: Emacspeak Commands And Options,  Up: Top
-
-13 Emacspeak Keyboard Commands.
-*******************************
-
-This chapter gives an overview of all the keymaps used by Emacspeak.
-For a complete reference, see *Note emacspeak::.  For basic usage, see
-*Note Basic Usage::.
-
-   Emacspeak uses the following keymaps, each of which are invoked by a
-specific prefix key.
-‘C-e’
-     The main Emacspeak keymap.
-‘C-e d’
-     The text-to-speech keymap.
-‘C-;’
-     The Emacspeak hyper keymap.
-‘C-'’
-     The emacspeak super keymap.
-‘C-,’
-     The Emacspeak alt keymap.
-‘C-.’
-     The Emacspeak super keymap.
-‘C-e x’
-     The emacspeak ‘x’ keymap.
-‘C-e C-x’
-     The Emacspeak ‘C-x’ keymap.
-
-   Primary Emacspeak commands start with ‘C-e’.  Following ‘C-e’ with
-‘d’ invokes commands that control the text-to-speech engine.  Note that
-silencing speech is an exception to this rule — Speech silence commands
-are placed directly on the primary emacspeak-keymap (‘C-e s’ and ‘C-e
-.’).
-
-   In addition, Emacspeak introduces five additional keymaps for binding
-its extensive set of facilities to convenient keystrokes.
-
-   When running under a windowing system, Emacs automatically receives
-keys ‘C-;’, ‘C-'’, ‘C-,’ and ‘C-.’.  When running on the Linux console,
-these keys become available after loading the custom Linux keymap found
-in ‘emacspeak/tvr/console-keymaps’ after checking out the emacspeak
-repository from <https://github.com/tvraman/emacspeak>.
-
-   Emacspeak defines personal keymaps accessible via ‘C-e x’ and ‘C-e
-C-x’.  For now, emacspeak does not bind any commands in keymap ‘C-e C-x’
-— this keymap is left for end-user personalization.
-
-   Note that the information presented in the following subsections can
-also be viewed via Emacs’ built-in Help system; e.g., Press ‘C-; C-h’ to
-get a ‘*Help*’ buffer that displays all keys bound in
-‘emacspeak-hyper-keymap’.
-
-
-File: emacspeak.info,  Node: TTS Servers,  Next: Emacspeak At Twenty,  Prev: Emacspeak Keyboard Commands,  Up: Top
-
-14 TTS Servers
-**************
-
-Emacspeak produces spoken output by communicating with one of many
-speech servers.  This section documents the communication protocol
-between the client application i.e.  Emacspeak, and the TTS (Text to
-Speech) server.  This section is primarily intended for developers
-wishing to:
-
-   • Create new speech servers that comply with this communication
-     protocol
-
-   • Developers of other client applications who wish to use the various
-     Emacspeak speech servers.
-
-   For additional notes on how to log and view TTS server commands when
-developing a speech server, see
-<http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html>.
-
-14.1 High-level Overview
-========================
-
-The TTS server reads commands from standard input, and script
-_speech-server_ can be used to cause a TTS server to communicate via a
-TCP socket.  Speech server commands are used by the client application
-to make specific requests of the server; the server listens for these
-requests in a non-blocking read loop and executes requests as they
-become available.  Requests can be classified as follows:
-
-   • Commands that send text to be spoken.
-
-   • Commands that set _state_ of the TTS server.
-
-   All commands are of the form
-
-     commandWord {arguments}
-
-   The braces are optional if the command argument contains no white
-space.  The speech server maintains a _current state_ that determines
-various characteristics of spoken output such as speech rate,
-punctuations mode etc.  (see set of commands that manipulate speech
-state for complete list).  The client application _queues_ The text and
-non-speech audio output to be produced before asking the server to
-_dispatch_ the set of queued requests, i.e.  start producing output.
-
-   Once the server has been asked to produce output, it removes items
-from the front of the queue, sends the requisite commands to the
-underlying TTS engine, and waits for the engine to acknowledge that the
-request has been completely processed.  This is a non-blocking
-operation, i.e., if the client application generates additional
-requests, these are processed _immediately_.
-
-   The above design allows the Emacspeak TTS server to be _highly_
-responsive; Client applications can queue large amounts of text
-(typically queued a clause at a time to achieve the best prosody), ask
-the TTS server to start speaking, and interrupt the spoken output at any
-time.
-
-14.1.1 Commands That Queue Output.
-----------------------------------
-
-This section documents commands that either produce spoken output, or
-queue output to be produced on demand.  Commands that place the request
-on the queue are clearly marked.
-
-     version
-
-   Speaks the _version_ of the TTS engine.  Produces output immediately.
-
-     tts_say text
-
-   Speaks the specified _text_ immediately.  The text is not
-pre-processed in any way, contrast this with the primary way of speaking
-text which is to queue text before asking the server to process the
-queue.
-
-   Note that this command needs to handle the special syntax for
-morpheme boundaries ‘[*]’.  The ‘[*]’ syntax is specific to the Dectalk
-family of synthesizers; servers for other TTS engines need to map this
-pattern to the engine-specific code for each engine.  As an example, see
-‘servers/outloud’ A morpheme boundary results in synthesizing compound
-words such as _left bracket_ with the right intonation; using a space
-would result in that phrase being synthesized as two separate words.
-
-     l c
-
-   Speak _c_ a single character, as a letter.  The character is spoken
-immediately.  This command uses the TTS engine’s capability to speak a
-single character with the ability to flush speech _immediately_.  Client
-applications wishing to produce character-at-a-time output, e.g., when
-providing character echo during keyboard input should use this command.
-
-     d
-
-   This command is used to _dispatch_ all queued requests.  It was
-renamed to a single character command (like many of the commonly used
-TTS server commands) to work more effectively over slow (9600) dialup
-lines.  The effect of calling this command is for the TTS server to
-start processing items that have been queued via earlier requests.
-
-     s
-
-   Stop speech _immediately_.  Spoken output is interrupted, and all
-pending requests are flushed from the queue.
-
-     q text
-
-   Queues text to be spoken.  No spoken output is produced until a
-_dispatch_ request is received via execution of command _d_.
-
-     c codes
-
-   Queues synthesis codes to be sent to the TTS engine.  Codes are sent
-to the engine with no further transformation or processing.  The codes
-are inserted into the output queue and will be dispatched to the TTS
-engine at the appropriate point in the output stream.
-
-     a filename
-
-   Cues the audio file identified by filename for playing.
-
-     t freq length
-
-   Queues a tone to be played at the specified frequency and having the
-specified length.  Frequency is specified in hertz and length is
-specified in milliseconds.
-
-     sh duration
-
-   Queues the specified duration of silence.  Silence is specified in
-milliseconds.
-
-14.1.2 Commands That Set State
-------------------------------
-
-     tts_reset
-
-   Reset TTS engine to default settings.
-
-     tts_set_punctuations mode
-
-   Sets TTS engine to the specified punctuation mode.  Typically, TTS
-servers provide at least three modes:
-
-   • None: Do not speak punctuation characters.
-
-   • Some: Speak some punctuation characters.  Used for English prose.
-
-   • All: Speak out _all_ punctuation characters; useful in programming
-     modes.
-
-     tts_set_speech_rate rate
-
-   Sets speech rate.  The interpretation of this value is typically
-engine specific.
-
-     tts_set_character_scale factor
-
-   Scale factor applied to speech rate when speaking individual
-characters.Thus, setting speech rate to 500 and character scale to 1.2
-will cause command _l_ to use a speech rate of _500 * 1.2 = 600_.
-
-     tts_split_caps flag
-
-   Set state of _split caps_ processing.  Turn this on to speak
-mixed-case (AKA Camel Case) identifiers.
-
-
-File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
-
-15 Emacspeak At Twenty.
-***********************
-
-This article was originally published to mark the 20th anniversary of
-Emacspeak.  It has been incorporated as the final chapter of the
-Emacspeak manual for easy reference.  The original article is available
-on the Web and in its original source form as an *org* file in the
-emacspeak distribution.
-* Menu:
-
-* Turning Twenty::
-* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
-* Key Enabler  ---  Emacs And Lisp Advice::
-* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
-* Emacspeak And Software Development::
-* Emacspeak And Authoring Documents::
-* Emacspeak And The Early Days Of The Web::
-* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
-* Conversational Gestures For The Audio Desktop::
-* Accessing Media Streams::
-* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
-* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
-* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
-* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
-* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
-* Conclusion --- Turning Twenty::
-* References::
-
-
-File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
-
-15.1 Turning Twenty
-===================
-
-One afternoon in the third week of September 1994, I started writing
-myself a small Emacs extension using Lisp Advice to make Emacs speak to
-me so I could use a Linux laptop.  As Emacspeak turns twenty, this
-article is both a quick look back over the twenty years of lessons
-learned, as well as a glimpse into what might be possible as we evolve
-to a world of connected, ubiquitous computing.  This article draws on
-Learning To Program In 10 Years (http://norvig.com/21-days.html) by
-Peter Norvig for some of its inspiration.
-
-
-File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
-
-15.2 Using UNIX With Speech Output — 1994
-=========================================
-
-As a graduate student at Cornell
-(http://www.cs.cornell.edu/info/people/raman/raman.html), I accessed my
-Unix workstation (SunOS) from an Intel 486 PC running IBM Screen-Reader.
-There was no means of directly using a UNIX box at the time; after
-graduating, I continued doing the same for about six months at Digital
-Research in Cambridge — the only difference being that my desktop
-workstation was now a DEC-Alpha.  Throughout this time, Emacs was my
-environment of choice for everything from software development and
-Internet access to writing documents.
-
-   In fall of 1994, I wanted to start using a laptop running Linux; a
-colleague (Dave Wecker) was retiring his 386mhz laptop that already had
-Linux on it and I decided to inherit it.  But there was only one problem
-— until then I had always accessed a UNIX machine from a secondary PC
-running a screen-reader — something that would clearly make no sense
-with a laptop!
-
-   Another colleague, Win Treese, had pointed out the interesting
-possibilities presented by package *advice* in Emacs 19.23 — a few weeks
-earlier, he had sent around a small snippet of code that magically
-modified Emacs’ version-control primitive to first create an _RCS_
-directory if none existed before adding a file to version control.  When
-I speculated about using the Linux laptop, Dave remarked — you live in
-Emacs anyway — why dont you just make it talk!
-
-   Connecting the dots, I decided to write myself a tool that augmented
-Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
-of Emacspeak was up and running.
-
-
-File: emacspeak.info,  Node: Key Enabler --- Emacs And Lisp Advice,  Next: Key Component --- Text To Speech (TTS),  Prev: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
-
-15.3 Key Enabler — Emacs And Lisp Advice
-========================================
-
-It took me a couple of weeks to fully recognize the potential of what I
-had built with Emacs Lisp Advice.  Until then, I had used screen-readers
-to listen to the contents of the visual display — but Lisp Advice let me
-do a lot more — it enabled Emacspeak to generate highly context-specific
-spoken feedback, augmented by a set of auditory icons.  I later
-formalized this design under the name speech-enabled applications
-(http://en.wikipedia.org/wiki/Self-voicing).  For a detailed overview of
-the architecture of Emacspeak, see the chapter on Emacspeak
-(http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html)
-in the book Beautiful Code
-(http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
-from O’Reilly.
 

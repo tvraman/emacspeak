@@ -1,0 +1,192 @@
+diff --git a/.gitignore b/.gitignore
+index 034510fad..c3021a080 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -27,4 +27,6 @@ servers/native-espeak/tclespeak.so
+ **.pdf
+ 
+ # ELPA-generated files
++/emacspeak-autoloads.el
++/emacspeak-pkg.el
+ /lisp/emacspeak-autoloads.el
+diff --git a/lisp/dtk-debug-tools.el b/lisp/dtk-debug-tools.el
+index ef2c708b2..7c3e24fbf 100644
+--- a/lisp/dtk-debug-tools.el
++++ b/lisp/dtk-debug-tools.el
+@@ -66,11 +66,11 @@
+                dtk-split-caps dtk-caps
+                emacspeak-pronounce-pronunciation-table
+                selective-display))
+-;;; ensure text is a  string
++  ;; Ensure text is a  string.
+   (unless (stringp text) (setq text (format "%s" text)))
+-;;; If you dont want me to talk,or my server is not running,
+-;;; I will remain silent.
+-;;; I also do nothing if text is nil or ""
++  ;; If you dont want me to talk,or my server is not running,
++  ;; I will remain silent.
++  ;; I also do nothing if text is nil or "".
+   (unless
+       (or dtk-quiet (not dtk-speak-server-initialized)
+           (null text) (zerop (length text)))
+@@ -83,23 +83,23 @@
+           (deactivate-mark nil)
+           (invisibility-spec buffer-invisibility-spec)
+           (syntax-table (syntax-table))
+-          (pronunciation-table emacspeak-pronounce-pronunciation-table)
++          ;; (pronunciation-table emacspeak-pronounce-pronunciation-table)
+           (inherit-chunk-separator-syntax dtk-chunk-separator-syntax)
+           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
+           (inherit-strip-octals tts-strip-octals)
+-          (complement-separator (dtk-complement-chunk-separator-syntax))
++          ;; (complement-separator (dtk-complement-chunk-separator-syntax))
+           (caps dtk-caps)
+           (split-caps dtk-split-caps)
+           (inherit-enable-multibyte-characters enable-multibyte-characters)
+           (tts-scratch-buffer (get-buffer-create "*TTS-Debug*"))
+-          (start 1)
+-          (end nil)
++          ;; (start 1)
++          ;; (end nil)
+           (mode dtk-punctuation-mode)
+           (voice-lock voice-lock-mode))
+       (with-current-buffer tts-scratch-buffer
+         (setq buffer-undo-list t)
+         (erase-buffer)
+-;;; inherit environment
++        ;; inherit environment
+         (setq
+          buffer-invisibility-spec invisibility-spec
+          dtk-chunk-separator-syntax inherit-chunk-separator-syntax
+diff --git a/lisp/dtk-speak.el b/lisp/dtk-speak.el
+index e75190057..b2756d3e1 100644
+--- a/lisp/dtk-speak.el
++++ b/lisp/dtk-speak.el
+@@ -246,7 +246,7 @@ mac for MAC TTS (default on Mac)")
+ ;;{{{  user customizations:
+ 
+ (defgroup tts nil
+-  "TTS."
++  "TTS." ;; ¿¿I guess this is shorthand for "Thou art Totally Screwed"??
+   :group 'emacspeak
+   :prefix "dtk-")
+ 
+diff --git a/lisp/emacspeak-erc.el b/lisp/emacspeak-erc.el
+index 31f810179..f44984009 100644
+--- a/lisp/emacspeak-erc.el
++++ b/lisp/emacspeak-erc.el
+@@ -299,6 +299,8 @@ set the current local value to the result.")
+ (defadvice erc-make-notice (around emacspeak  pre act comp)
+   "Ignore notices from server is emacspeak-erc-ignore-notices it set."
+   ad-do-it
++  ;; FIXME: AFAICT this does nothing (`defadvice' ignores this return value
++  ;; and returns the value of `ad-return-value' instead!).
+   (cond
+    ((not emacspeak-erc-ignore-notices) ad-return-value)
+    (t " ")))
+diff --git a/lisp/emacspeak-hydra.el b/lisp/emacspeak-hydra.el
+index 464c890fc..cb41a89c3 100644
+--- a/lisp/emacspeak-hydra.el
++++ b/lisp/emacspeak-hydra.el
+@@ -95,6 +95,8 @@ Also turn on hydra-is-helpful if it was turned off."
+ 
+ ;;; We use plain messages:
+ 
++;; FIXME: Move into the `emacspeak' function so that Emacs is not affected
++;; when we're merely loading this file.
+ (setq hydra-head-format "%s "
+       hydra-hint-display-type nil
+       hydra-hint-display-type #'message)
+diff --git a/lisp/emacspeak-sounds.el b/lisp/emacspeak-sounds.el
+index bc8696057..2da437346 100644
+--- a/lisp/emacspeak-sounds.el
++++ b/lisp/emacspeak-sounds.el
+@@ -75,6 +75,21 @@ Use `emacspeak-toggle-auditory-icons' bound to
+ 
+ (make-variable-buffer-local 'emacspeak-use-auditory-icons)
+ 
++;;}}}
++;;{{{  setup play function
++
++(defvar emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon
++  "Function that plays auditory icons.
++play : Launches play-program to play.
++Serve: Send a command to the speech-server to play.
++Queue : Add auditory icon to speech queue.
++Use Serve when working with remote speech servers.")
++
++(defsubst emacspeak-auditory-icon (icon)
++  "Play an auditory ICON."
++  (when emacspeak-use-auditory-icons
++    (funcall emacspeak-auditory-icon-function icon)))
++
+ ;;}}}
+ ;;{{{ Setup Audio 
+ (declare-function amixer "amixer" (&optional refresh))
+@@ -254,24 +269,6 @@ Do not set this by hand;
+     (apply #'start-process "APlay" nil emacspeak-play-program
+            (mapcar #'emacspeak-get-sound-filename icon-list))))
+ 
+-;;}}}
+-;;{{{  setup play function
+-
+-(defvar emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
+-"Function that plays auditory icons.
+-play : Launches play-program to play.
+-Serve: Send a command to the speech-server to play.
+-Queue : Add auditory icon to speech queue.
+-Use Serve when working with remote speech servers."
+-  )
+-
+-(defsubst emacspeak-auditory-icon (icon)
+-  "Play an auditory ICON."
+-  (cl-declare (special emacspeak-auditory-icon-function
+-                       emacspeak-use-auditory-icons))
+-  (when emacspeak-use-auditory-icons
+-    (funcall emacspeak-auditory-icon-function icon)))
+-
+ ;;}}}
+ ;;{{{  toggle auditory icons
+ 
+diff --git a/lisp/emacspeak-vertico.el b/lisp/emacspeak-vertico.el
+index 51c88c47e..41ebdb892 100644
+--- a/lisp/emacspeak-vertico.el
++++ b/lisp/emacspeak-vertico.el
+@@ -26,7 +26,7 @@
+ 
+ ;;}}}
+ ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-^L
++
+ ;;{{{  introduction
+ 
+ ;;; Commentary:
+diff --git a/lisp/extra-muggles.el b/lisp/extra-muggles.el
+index 5280b98d5..d2c82be05 100644
+--- a/lisp/extra-muggles.el
++++ b/lisp/extra-muggles.el
+@@ -90,8 +90,9 @@
+ (require 'emacspeak-preamble)
+ (require 'emacspeak-dired)
+ (eval-when-compile
+-  (when (locate-library "package")
+-    (unless (locate-library "hydra") (package-install 'hydra)))
++  ;; FIXME: Network access as part of compilation is EVIL!
++  ;; (when (locate-library "package")
++  ;;   (unless (locate-library "hydra") (package-install 'hydra)))
+   (require 'emacspeak-hydra)
+   (require 'emacspeak-outline)
+   (require 'vuiet nil 'no-error)
+diff --git a/lisp/sox.el b/lisp/sox.el
+index c769f5fb7..d05318496 100644
+--- a/lisp/sox.el
++++ b/lisp/sox.el
+@@ -182,7 +182,7 @@
+      ("s" sox-save)
+      )
+    do
+-   (define-key sox-mode-map (ems-kbd (cl-first k)) (cl-second k))))
++   (define-key sox-mode-map (kbd (cl-first k)) (cl-second k))))
+ 
+ ;;}}}
+ ;;{{{ Top-level Context:

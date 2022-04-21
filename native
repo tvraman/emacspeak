@@ -1,7 +1,0 @@
-#!/bin/sh
-make clean
-make config emacs=$emacs
-make emacs=$emacs COMPILE='-f batch-byte+native-compile'
-cd lisp
-make emacs=$emacs COMPILE='-f batch-byte+native-compile' muggles --no-print-directory
-make emacs=$emacs COMPILE='-f batch-byte+native-compile' extra-muggles --no-print-directory

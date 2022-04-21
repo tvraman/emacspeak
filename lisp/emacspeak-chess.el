@@ -1,120 +1,120 @@
 ;;; emacspeak-chess.el --- Speech-enable CHESS  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable CHESS An Emacs Interface to chess
-;;; Keywords: Emacspeak,  Audio Desktop chess
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable CHESS An Emacs Interface to chess
+;; Keywords: Emacspeak,  Audio Desktop chess
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, 2019, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNCHESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNCHESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;;
-;;; The Emacs Chess package provides a rich environment for playing and
-;;; exploring Chess Games.
-;;; That package comes with a light-weight module that announces
-;;; moves.
-;;;
-;;; This module aims do do much more, including:
-;;; @itemize @bullet
-;;; @item Navigate the board along various axies with audio-formatted  output.
-;;;  @item Browse games via  rich audio-formatted   output.
-;;; @item Speech-enable all interactive commands  provided by the Chess
-;;; package.
-;;; @item Enable various means of exploring the state of game, perhaps with
-;;; a view to being able to spot patterns   from listening to the
-;;; output.
-;;; @end itemize
-;;; @subsection Navigating And Examining The Board
-;;; The board can be navigated along the 8 compass directions.
-;;; Arrow keys move to the appropriate squares on the board.
-;;; @kbd{/} and @kbd{\} move down the diagonals.
-;;; @kbd{[} and @kbd{]} move up the respective diagonals.
-;;; @itemize  @bullet
-;;; @item  Move North: @code{emacspeak-chess-north} bound to @kbd{up}.
-;;; @item  Move South: @code{emacspeak-chess-south} bound to
-;;; @kbd{down}.
-;;; @item  Move West: @code{emacspeak-chess-west} bound to @kbd{left}.
-;;; @item  Move East: @code{emacspeak-chess-east} bound to @kbd{right}.
-;;; @end itemize
-;;; You can also move along the diagonals:
-;;; @itemize @bullet
-;;; @item  Move Northwest: @code{emacspeak-chess-northwest} bound to
-;;; @kbd{[}.
-;;; @item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{]}.
-;;; @item  Move Southwest: @code{emacspeak-chess-southwest} bound to
-;;; @kbd{/}.
-;;; @item  Move Southeast: @code{emacspeak-chess-southeast} bound to
-;;; @kbd{\}.
-;;; @end itemize
-;;; You can also jump to a given board position by:
-;;; @itemize @bullet
-;;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
-;;; @item Target of last move: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
-;;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
-;;;@kbd{l}.
-;;; @item  Review   current square: @kbd{;}.
-;;; @item Review Board: @code{emacspeak-chess-speak-board} bound to
-;;;@kbd{z}. Useful in end-state.
-;;; @item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
-;;;bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
-;;;all white pieces, @kbd{l} speaks all black pieces, use SAN notation
-;;; char for a specific piece.  Use @kbd{a} to hear entire board, this
-;;;last is most useful when the game is an end-state.
-;;; @item Discover who targets a square:
-;;;@code{emacspeak-chess-speak-who-targets} bound to @kbd{w}. Argument
-;;;@code{piece} is similar to the previously listed command.
-;;; @end itemize
-;;; You can obtain views of the board along the rows and diagonals, as
-;;;well as a @emph{knight's perspective }:
-;;; @itemize @bullet
-;;; @item Viewers: @kbd{v} followed by the directional navigation keys
-;;;speaks the squares in that direction from the current
-;;;square. @kbd{vn} speaks the squares from a knight's perspective,
-;;;i.e. the squares the Knight would see  from the current
-;;;position. similarly, @kbd{vk} speaks the non-empty squares seen by the King
-;;;from the current position.
-;;; @kbd{v} followed by a rank-or-file char speaks that complete rank
-;;;or file.
-;;; @end itemize
-;;; @subsection Examining Games
+;; 
+;; The Emacs Chess package provides a rich environment for playing and
+;; exploring Chess Games.
+;; That package comes with a light-weight module that announces
+;; moves.
+;; 
+;; This module aims do do much more, including:
+;; @itemize @bullet
+;; @item Navigate the board along various axies with audio-formatted  output.
+;;  @item Browse games via  rich audio-formatted   output.
+;; @item Speech-enable all interactive commands  provided by the Chess
+;; package.
+;; @item Enable various means of exploring the state of game, perhaps with
+;; a view to being able to spot patterns   from listening to the
+;; output.
+;; @end itemize
+;; @subsection Navigating And Examining The Board
+;; The board can be navigated along the 8 compass directions.
+;; Arrow keys move to the appropriate squares on the board.
+;; @kbd{/} and @kbd{\} move down the diagonals.
+;; @kbd{[} and @kbd{]} move up the respective diagonals.
+;; @itemize  @bullet
+;; @item  Move North: @code{emacspeak-chess-north} bound to @kbd{up}.
+;; @item  Move South: @code{emacspeak-chess-south} bound to
+;; @kbd{down}.
+;; @item  Move West: @code{emacspeak-chess-west} bound to @kbd{left}.
+;; @item  Move East: @code{emacspeak-chess-east} bound to @kbd{right}.
+;; @end itemize
+;; You can also move along the diagonals:
+;; @itemize @bullet
+;; @item  Move Northwest: @code{emacspeak-chess-northwest} bound to
+;; @kbd{[}.
+;; @item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{]}.
+;; @item  Move Southwest: @code{emacspeak-chess-southwest} bound to
+;; @kbd{/}.
+;; @item  Move Southeast: @code{emacspeak-chess-southeast} bound to
+;; @kbd{\}.
+;; @end itemize
+;; You can also jump to a given board position by:
+;; @itemize @bullet
+;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
+;; @item Target of last move: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
+;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
+;; @kbd{l}.
+;; @item  Review   current square: @kbd{;}.
+;; @item Review Board: @code{emacspeak-chess-speak-board} bound to
+;; @kbd{z}. Useful in end-state.
+;; @item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
+;; bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
+;; all white pieces, @kbd{l} speaks all black pieces, use SAN notation
+;; char for a specific piece.  Use @kbd{a} to hear entire board, this
+;; last is most useful when the game is an end-state.
+;; @item Discover who targets a square:
+;; @code{emacspeak-chess-speak-who-targets} bound to @kbd{w}. Argument
+;; @code{piece} is similar to the previously listed command.
+;; @end itemize
+;; You can obtain views of the board along the rows and diagonals, as
+;; well as a @emph{knight's perspective }:
+;; @itemize @bullet
+;; @item Viewers: @kbd{v} followed by the directional navigation keys
+;; speaks the squares in that direction from the current
+;; square. @kbd{vn} speaks the squares from a knight's perspective,
+;; i.e. the squares the Knight would see  from the current
+;; position. similarly, @kbd{vk} speaks the non-empty squares seen by the King
+;; from the current position.
+;; @kbd{v} followed by a rank-or-file char speaks that complete rank
+;; or file.
+;; @end itemize
+;; @subsection Examining Games
 
-;;; Package @emph{Chess} allows one to browse through a game using
-;;;@kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
-;;;@code{chess-display-move-forward}.  Emacspeak speech-enables these
-;;;commands to speak the move that led to the currently displayed
-;;;state of the game. Finally, @kbd{m} speaks the @emph{current move}
-;;;being displayed.
+;; Package @emph{Chess} allows one to browse through a game using
+;; @kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
+;; @code{chess-display-move-forward}.  Emacspeak speech-enables these
+;; commands to speak the move that led to the currently displayed
+;; state of the game. Finally, @kbd{m} speaks the @emph{current move}
+;; being displayed.
 
 ;;; Code:
 
@@ -669,7 +669,7 @@ specifies index of move, default is final index."
              (emacspeak-chess-piece-name s-piece)
              (emacspeak-chess-piece-name t-piece)
              (chess-index-to-coord target)))))
-;;; additional consequences of move:
+;; additional consequences of move:
     (when promotion
       (setq text
             (concat
@@ -814,7 +814,7 @@ specifies index of move, default is final index."
 (provide 'chess-emacspeak)
 ;;}}}
 ;;{{{Emacspeak Setup:
-;;; Forward Declaration to help documentation builder.
+;; Forward Declaration to help documentation builder.
 (defvar chess-default-modules nil)
 
 (defun emacspeak-chess-setup ()
@@ -848,8 +848,8 @@ specifies index of move, default is final index."
 (provide 'emacspeak-chess)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

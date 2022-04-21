@@ -1,75 +1,75 @@
 ;;; emacspeak-dbus.el --- DBus On Emacspeak Desktop -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-dbus.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
-;;; Description:  DBus Tools For The Emacspeak Desktop
-;;; Keywords: Emacspeak,  Audio Desktop dbus
+;; $Id: emacspeak-dbus.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;; $Author: tv.raman.tv $
+;; Description:  DBus Tools For The Emacspeak Desktop
+;; Keywords: Emacspeak,  Audio Desktop dbus
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNDBUS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNDBUS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; Loading this module sets  up Emacspeak to respond to DBus notifications.
-;;; This module needs to be loaded explicitly from the user's init file
-;;; after emacspeak has been started.
+;; Loading this module sets  up Emacspeak to respond to DBus notifications.
+;; This module needs to be loaded explicitly from the user's init file
+;; after emacspeak has been started.
 
-;;; @subsection Overview
-;;;
-;;; This module provides integration via DBus  for the following:
-;;; @itemize @bullet
-;;; @item Respond to network coming up or going down
-;;; --- @code{(nm-enable)}.
-;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver
-;;; --- @code{(emacspeak-dbus-watch-screen-lock)}.
-;;; @item Respond to laptop  going to sleep or waking up
-;;; ---  @code{(emacspeak-dbus-sleep-enable)}.
-;;; @item Respond to insertion/ejection of removable storage
-;;; --- @code{(emacspeak-dbus-udisks-enable)}.
-;;; @item Watch for power devices
-;;; --- @code{(emacspeak-dbus-upower-enable)}.
-;;; @item An interactive command  @command{emacspeak-dbus-lock-screen}
-;;; bound to @kbd{C-, C-d} to lock the screen using DBus.
-;;; Note: this key-binding is available only if this module is loaded.
-;;; @end itemize
-;;; Add calls to the desired functions from the above list
-;;; to the emacs startup file after  this module has been loaded.
-;;; See relevant hooks for customizing behavior.
-;;; Note that each of the  sleep/wake-up, UDisks2   and network/up-down
-;;; can be separately enabled/disabled, and the actions customized
-;;; via appropriately named hook functions.
-;;;
+;; @subsection Overview
+;; 
+;; This module provides integration via DBus  for the following:
+;; @itemize @bullet
+;; @item Respond to network coming up or going down
+;; --- @code{(nm-enable)}.
+;; @item Respond to screen getting locked/unlocked by gnome-screen-saver
+;; --- @code{(emacspeak-dbus-watch-screen-lock)}.
+;; @item Respond to laptop  going to sleep or waking up
+;; ---  @code{(emacspeak-dbus-sleep-enable)}.
+;; @item Respond to insertion/ejection of removable storage
+;; --- @code{(emacspeak-dbus-udisks-enable)}.
+;; @item Watch for power devices
+;; --- @code{(emacspeak-dbus-upower-enable)}.
+;; @item An interactive command  @command{emacspeak-dbus-lock-screen}
+;; bound to @kbd{C-, C-d} to lock the screen using DBus.
+;; Note: this key-binding is available only if this module is loaded.
+;; @end itemize
+;; Add calls to the desired functions from the above list
+;; to the emacs startup file after  this module has been loaded.
+;; See relevant hooks for customizing behavior.
+;; Note that each of the  sleep/wake-up, UDisks2   and network/up-down
+;; can be separately enabled/disabled, and the actions customized
+;; via appropriately named hook functions.
+;; 
 
 ;;}}}
 ;;{{{  Required modules
@@ -201,7 +201,7 @@ signal registration objects."
             (emacspeak-dbus-resume-signal-handler))))))
    (t (error "org.freedesktop.login1 has no PrepareForSleep signal."))))
 
-;;; Enable integration
+;; Enable integration
 (defun emacspeak-dbus-sleep-enable()
   "Enable integration with Login1. Does nothing if already enabled."
   (interactive)
@@ -209,7 +209,7 @@ signal registration objects."
   (unless emacspeak-dbus-sleep-registration
     (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register))))
 
-;;; Disable integration
+;; Disable integration
 (defun emacspeak-dbus-sleep-disable()
   "Disable integration with login1 daemon. Does nothing if
 already disabled."
@@ -281,7 +281,7 @@ already disabled."
   (unless emacspeak-dbus-udisks-registration
     (setq emacspeak-dbus-udisks-registration (emacspeak-dbus-udisks-register))))
 
-;;; Disable integration
+;; Disable integration
 (defun emacspeak-dbus-udisks-disable()
   "Disable integration with UDisks2 daemon. Does nothing if
 already disabled."
@@ -323,7 +323,7 @@ already disabled."
   (unless emacspeak-dbus-upower-registration
     (setq emacspeak-dbus-upower-registration (emacspeak-dbus-upower-register))))
 
-;;; Disable integration
+;; Disable integration
 (defun emacspeak-dbus-upower-disable()
   "Disable integration with UPower daemon. Does nothing if
 already disabled."
@@ -401,8 +401,8 @@ already disabled."
 (provide 'emacspeak-dbus)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

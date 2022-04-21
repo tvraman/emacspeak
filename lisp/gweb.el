@@ -1,57 +1,57 @@
 ;;; gweb.el --- Google Search  -*- lexical-binding: t; -*-
-;;;$Id$
-;;; $Author: raman $
-;;; Description:  AJAX Search -> Lisp
-;;; Keywords: Google   AJAX API
+;; $Id$
+;; $Author: raman $
+;; Description:  AJAX Search -> Lisp
+;; Keywords: Google   AJAX API
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; gcal| T. V. Raman |tv.raman.tv@gmail.com
-;;; An emacs interface to Reader|
-;;; $Date: 2006/09/28 17:47:44 $ |
-;;;  $Revision: 1.30 $ |
-;;; Location undetermined
-;;; License: GPL
-;;;
+;; LCD Archive Entry:
+;; gcal| T. V. Raman |tv.raman.tv@gmail.com
+;; An emacs interface to Reader|
+;; $Date: 2006/09/28 17:47:44 $ |
+;;  $Revision: 1.30 $ |
+;; Location undetermined
+;; License: GPL
+;; 
 
 ;;}}}
 ;;{{{ Copyright:
 
-;;; Copyright (c) 2006 and later, Google Inc.
-;;; All rights reserved.
+;; Copyright (c) 2006 and later, Google Inc.
+;; All rights reserved.
 
-;;; Redistribution and use in source and binary forms, with or without modification,
-;;; are permitted provided that the following conditions are met:
+;; Redistribution and use in source and binary forms, with or without modification,
+;; are permitted provided that the following conditions are met:
 
-;;;     * Redistributions of source code must retain the above copyright notice,
-;;;       this list of conditions and the following disclaimer.
-;;;     * Redistributions in binary form must reproduce the above copyright notice,
-;;;       this list of conditions and the following disclaimer in the documentation
-;;;       and/or other materials provided with the distribution.
-;;;     * The name of the author may not be used to endorse or promote products
-;;;       derived from this software without specific prior written permission.
+;;     * Redistributions of source code must retain the above copyright notice,
+;;       this list of conditions and the following disclaimer.
+;;     * Redistributions in binary form must reproduce the above copyright notice,
+;;       this list of conditions and the following disclaimer in the documentation
+;;       and/or other materials provided with the distribution.
+;;     * The name of the author may not be used to endorse or promote products
+;;       derived from this software without specific prior written permission.
 
-;;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-;;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-;;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-;;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-;;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-;;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-;;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-;;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
-;;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-;;; SUCH DAMAGE.
+;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+;; SUCH DAMAGE.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
-;;; Commentary: Provide Google services --- such as search,
-;;; search-based completion etc.  For use from within Emacs tools.
-;;; This is meant to be fast and efficient --- and uses WebAPIs as
-;;; opposed to HTML scraping.
+;; Commentary: Provide Google services --- such as search,
+;; search-based completion etc.  For use from within Emacs tools.
+;; This is meant to be fast and efficient --- and uses WebAPIs as
+;; opposed to HTML scraping.
 
 ;;; Code:
 
@@ -79,7 +79,7 @@
 
 (defvar gweb-completion-flag nil
   "Flag that records  Google Suggest in progress.")
-;;; This is dynamically scoped:
+;; This is dynamically scoped:
 (defvar gweb-completion-corpus ""
   "Corpus to use for completion. Let-bind this for using a different
   corpus.
@@ -109,7 +109,7 @@ n == News.")
 (defvar gweb-google-suggest-metadata
   '(metadata .
              (
-;;; Google suggest returns suggestions already sorted
+;; Google suggest returns suggestions already sorted
               (display-sort-function . identity)
                                         ; add annots function here
               ))
@@ -180,8 +180,8 @@ Uses corpus found in gweb-completion-corpus"
 (provide 'gweb)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

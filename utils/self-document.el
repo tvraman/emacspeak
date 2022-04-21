@@ -1,47 +1,47 @@
 ;;; self-document.el --- Documentation Generator For Emacspeak  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Description:  Documentation Generator
-;;; Keywords: Emacspeak,  Audio Desktop self-document
+;; $Author: tv.raman.tv $
+;; Description:  Documentation Generator
+;; Keywords: Emacspeak,  Audio Desktop self-document
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNSELF-DOCUMENT FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;;
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;;
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;;
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNSELF-DOCUMENT FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; Generate documentation for Emacspeak command and options.
+;; Generate documentation for Emacspeak command and options.
 
 ;;; Code:
 
@@ -58,7 +58,7 @@
 ;;}}}
 ;;{{{ Load All Modules
 
-;;; Setup load-path
+;; Setup load-path
 (defconst self-document-lisp-directory
   (expand-file-name "../lisp" (file-name-directory load-file-name))
   "Elisp directory")
@@ -99,10 +99,10 @@
         (load-source-file-function  nil)
         (dtk-program "log-null"))
     (package-initialize)              ; bootstrap emacs package system
-;;; Bootstrap Emacspeak
+;; Bootstrap Emacspeak
     (load-library "emacspeak-setup")
     (setq emacspeak-auditory-icon-function #'ignore)
-;;; Load all Emacspeak modules:
+;; Load all Emacspeak modules:
     (cl-loop
      for f in  self-document-files do
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
@@ -203,7 +203,7 @@
     (if lmc
         (setq lmc (sd-cleanup-commentary lmc)))))
 
-;;; initialize table
+;; initialize table
 (defun self-document-build-map()
   "Build a map of module names to commands and options."
   (let ((file-name-handler-alist nil))
@@ -300,7 +300,7 @@
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
   (let ((file-name-handler-alist nil))
-;;; Only generate in non-degenerate case
+;; Only generate in non-degenerate case
   (when (or (self-document-commentary self)
             (not  (zerop (length (self-document-commands self))))
             (not  (zerop (length (self-document-options self)))))
@@ -500,8 +500,8 @@ This chapter documents a total of %d commands and %d options.\n\n"
 (provide 'self-document)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

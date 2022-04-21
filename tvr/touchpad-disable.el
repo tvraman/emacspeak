@@ -1,14 +1,14 @@
 ;;; Disable mouse buttons and touchpad.
-;;; Instead have all mouse-buttons run dtk-stop 
-;;; Also, Avoids accidental touches  on touch-pad
+;; Instead have all mouse-buttons run dtk-stop 
+;; Also, Avoids accidental touches  on touch-pad
 (require 'cl-lib)
 ;(load-library "disable-mouse-autoloads")
 
-;;; To disable touchpad in all apps:
+;; To disable touchpad in all apps:
 ;; but if you want to completely disable it, you can do the following
 ;; In a terminal type:
 ;; xinput list | grep -i touchpad
-;;; Thinkpad X250: ⎜   ↳ SynPS/2 Synaptics TouchPad              	id=11	[slave  pointer  (2)]
+;; Thinkpad X250: ⎜   ↳ SynPS/2 Synaptics TouchPad              	id=11	[slave  pointer  (2)]
 ;; to determine the device ID (in my case, 11). Then disable by typing:
 ;; xinput set-prop 11 "Device Enabled" 0
 ;; To enable it, type:

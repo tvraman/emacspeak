@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: nil; -*-
 (require 'use-package)
-;;; Autoload emms with one entry proint  ---emms-browser --- bound to C-; .
-;;; After emms is used the first time, the C-; .  becomes a prefix command.
+;; Autoload emms with one entry proint  ---emms-browser --- bound to C-; .
+;; After emms is used the first time, the C-; .  becomes a prefix command.
 
 (use-package emms
   :init (define-prefix-command 'emms-prefix-command  'emms-prefix-map "EMMS")

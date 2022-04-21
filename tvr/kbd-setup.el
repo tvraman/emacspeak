@@ -1,21 +1,21 @@
 ;;; Setup Keyboard for various device types.
 ;;{{{  Linux Console 
 
-;;; Function keymap for linux console:
-;;;Following lines taken from lk20.el
-;;; Fix some keypad keys:
+;; Function keymap for linux console:
+;;Following lines taken from lk20.el
+;; Fix some keypad keys:
 ;(global-unset-key "\e\e")
 (define-key function-key-map "\e[1~" [home])
 (define-key function-key-map "\e[2~" [insert])
 (define-key function-key-map "\e[3~" [delete])
 (define-key function-key-map "\e[4~" [end])
-;;; first 5 function keys 
+;; first 5 function keys 
 (define-key function-key-map "\M-[[A" [f1])
 (define-key function-key-map "\M-[[B" [f2])
 (define-key function-key-map "\M-[[C" [f3])
 (define-key function-key-map "\M-[[D" [f4])
 (define-key function-key-map "\M-[[E" [f5])
-;;; Function key 11 -- 20
+;; Function key 11 -- 20
 (define-key function-key-map "\e[23~" [f11])
 (define-key function-key-map "\e[24~" [f12])
 (define-key function-key-map "\e[25~" [f13])
@@ -27,7 +27,7 @@
 (define-key function-key-map "\e[33~" [f19])
 (define-key function-key-map "\e[34~" [f20])
 
-;;; And finally handle the keypad keys:
+;; And finally handle the keypad keys:
 
 (define-key function-key-map "\eOP" [f1])
 (define-key function-key-map "\eOQ" [f2])
@@ -53,39 +53,39 @@
 (define-key function-key-map "\eOx" [kp-8])
 (define-key function-key-map "\eOy" [kp-9])
 
-;;; Vanila console arrows (needed now in emacs 24:
-;;; This is because facemenu.el grabs \M-O for its keymap.
+;; Vanila console arrows (needed now in emacs 24:
+;; This is because facemenu.el grabs \M-O for its keymap.
 (define-key function-key-map  "\eOA" [( up)])
 (define-key function-key-map "\eOB" [( down)])
 (define-key function-key-map "\eOC" [( right)])
 (define-key function-key-map "\eOD" [( left)])
-;;; shift arrows
+;; shift arrows
 
 (define-key function-key-map  "\e[E" [(shift up)])
 (define-key function-key-map "\e[F" [(shift down)])
 (define-key function-key-map "\e[G" [(shift right)])
 (define-key function-key-map "\e[H" [(shift left)])
-;;; meta shifted arrows
+;; meta shifted arrows
 (define-key function-key-map  "\e\e[E" [(meta shift up)])
 (define-key function-key-map "\e\e[F" [(meta shift down)])
 (define-key function-key-map "\e\e[G" [(meta shift right)])
 (define-key function-key-map "\e\e[H" [(meta shift left)])
-;;; Get control arrows:
+;; Get control arrows:
 
 (define-key function-key-map "\e[I" [(control up)])
 (define-key function-key-map  "\e[J" [(control down)])
 (define-key function-key-map "\e[K" [(control right)])
 (define-key function-key-map "\e[L" [(control left)])
-;;; meta control arrows:
+;; meta control arrows:
 (define-key function-key-map "\e\e[I" [(meta control up)])
 (define-key function-key-map  "\e\e[J" [(meta control down)])
 (define-key function-key-map "\e\e[K" [(meta control right)])
 (define-key function-key-map "\e\e[L" [(meta control left)])
 
-;;; control return and shift return 
+;; control return and shift return 
 (define-key function-key-map "\e[m" [(control return)])
 (define-key function-key-map "\e[M" [(shift return)])
-;;; shift tab:
+;; shift tab:
 (define-key function-key-map "\e[T" [(shift tab)])
 (define-key function-key-map "\e[U" [(control tab)])
 ; shift space
@@ -105,7 +105,7 @@
 ;;}}}
 ;;{{{ Screen:
 
-;;;keys for screen
+;;keys for screen
 (define-key function-key-map "\e\e[A" [27 up])
 (define-key function-key-map "\e\e[B" [27 down])
 (define-key function-key-map "\e\e[D" [27 left])

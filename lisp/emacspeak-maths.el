@@ -1,90 +1,90 @@
 ;;; emacspeak-maths.el --- Audio-Formatted Mathematics  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv, zorkov  $
-;;; Description:  Speak MathML and LaTeX math expressions
-;;; Keywords: Emacspeak,  Audio Desktop maths
+;; $Author: tv.raman.tv, zorkov  $
+;; Description:  Speak MathML and LaTeX math expressions
+;; Keywords: Emacspeak,  Audio Desktop maths
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNMATHS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNMATHS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; @subsection Setup 
-;;; Do not try what follows until you have read  js/node/README.org
-;;; and successfully set up nvm (Node Version Manager) as described there.
-;;; @subsection Technical Overview 
-;;; Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
-;;; based speech-rule-engine for Mathematics as the backend for
-;;; processing mathematical markup. The result of this processing is
-;;; an annotated S-expression that is rendered via Emacspeak's speech
-;;; facilities. Annotations follow Aural CSS as implemented in
-;;; Emacspeak, This allows us to map these expressions to aural
-;;; properties supported by specific TTS engines. 
-;;;
-;;; Start  the server/client: M-x emacspeak-maths-start. Once the server
-;;; and client are started, you can browse any number of math
-;;; expressions using the emacspeak-maths-navigator defined in module
-;;; @xref{emacspeak-maths} as described below.
-;;;
-;;; Note: In general, once everything is configured correctly, using
-;;; the maths navigator automatically starts the server and
-;;; client. Invoke the Navigator using @kbd{s-spc} --- this is the <windows>
-;;; key on Linux laptops.
-;;; Linux. Now you can use these keys:
-;;; @itemize
-;;; @item  Show Output <o> Switch to output buffer and quit Maths Navigator
-;;; @item Enter: <SPC>
-;;; Enter a LaTeX expression.
-;;; @item Smart-Enter: <enter> Enter the guessed expression with no prompting.
-;;; @item Alt-Text <a> Process alt-text
-;;; under point as LaTeX.
-;;; @item Down <down> Move down a level.
-;;; @item
-;;; Up <up> Move up a level.
-;;; @item Left <left> Move left.
-;;; @item Right
-;;; <right> Move right.
-;;; @item Exit <any other key> Exit
-;;; navigator.
-;;;
-;;;
-;;; @end itemize
-;;;The current expression is spoken after
-;;; each of the above commands. It is also displayed in a special
-;;; buffer *Spoken Math*. That buffer holds all previously generated
-;;; output, And Emacs commands forward-page and backward-page can be
-;;; used to move through each chunk of output.
+;; @subsection Setup 
+;; Do not try what follows until you have read  js/node/README.org
+;; and successfully set up nvm (Node Version Manager) as described there.
+;; @subsection Technical Overview 
+;; Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
+;; based speech-rule-engine for Mathematics as the backend for
+;; processing mathematical markup. The result of this processing is
+;; an annotated S-expression that is rendered via Emacspeak's speech
+;; facilities. Annotations follow Aural CSS as implemented in
+;; Emacspeak, This allows us to map these expressions to aural
+;; properties supported by specific TTS engines. 
+;; 
+;; Start  the server/client: M-x emacspeak-maths-start. Once the server
+;; and client are started, you can browse any number of math
+;; expressions using the emacspeak-maths-navigator defined in module
+;; @xref{emacspeak-maths} as described below.
+;; 
+;; Note: In general, once everything is configured correctly, using
+;; the maths navigator automatically starts the server and
+;; client. Invoke the Navigator using @kbd{s-spc} --- this is the <windows>
+;; key on Linux laptops.
+;; Linux. Now you can use these keys:
+;; @itemize
+;; @item  Show Output <o> Switch to output buffer and quit Maths Navigator
+;; @item Enter: <SPC>
+;; Enter a LaTeX expression.
+;; @item Smart-Enter: <enter> Enter the guessed expression with no prompting.
+;; @item Alt-Text <a> Process alt-text
+;; under point as LaTeX.
+;; @item Down <down> Move down a level.
+;; @item
+;; Up <up> Move up a level.
+;; @item Left <left> Move left.
+;; @item Right
+;; <right> Move right.
+;; @item Exit <any other key> Exit
+;; navigator.
+;; 
+;; 
+;; @end itemize
+;; The current expression is spoken after
+;; each of the above commands. It is also displayed in a special
+;; buffer *Spoken Math*. That buffer holds all previously generated
+;; output, And Emacs commands forward-page and backward-page can be
+;; used to move through each chunk of output.
 
 ;;; Code:
 
@@ -107,7 +107,7 @@
     (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
       (nvm-use v)
       (executable-find "node")))
-;;; The fallback below  --- /usr/bin/node e.g. on Ubuntu/Debian  is old.
+;; The fallback below  --- /usr/bin/node e.g. on Ubuntu/Debian  is old.
    ((executable-find "node") (executable-find "node")) 
    (t  nil))
   "Location of `node' executable.  Make sure the environment in which
@@ -149,12 +149,12 @@ Throw error if no handler defined."
 ;;}}}
 ;;{{{ Handlers:
 
-;;; All handlers are called with the body of the unit being parsed.
-;;; Handlers process input and render to output buffer
-;;; Except for the pause handler that merely records the pause,
-;;; Leaving it to the next text handler to consume that pause.
+;; All handlers are called with the body of the unit being parsed.
+;; Handlers process input and render to output buffer
+;; Except for the pause handler that merely records the pause,
+;; Leaving it to the next text handler to consume that pause.
 
-;;; Helper: Handle plain strings
+;; Helper: Handle plain strings
 
 (defun emacspeak-maths-handle-string (string)
   "Handle plain, unannotated string."
@@ -203,7 +203,7 @@ Otherwise, Examine head of sexp, and applies associated handler to the tail."
       :stress .stress
       :richness .richness))))
 
-;;;Helper: Apply pause and consume:
+;; Helper: Apply pause and consume:
 
 (defun emacspeak-maths-apply-pause (start)
   "Apply pause."
@@ -293,11 +293,11 @@ left for next run."
   (with-current-buffer (process-buffer proc)
     (let ((moving (= (point) (process-mark proc))))
       (save-excursion
-;;; Insert the text, advancing the process marker.
+;; Insert the text, advancing the process marker.
         (goto-char (process-mark proc))
         (insert string)
         (set-marker (process-mark proc) (point)))
-;;; Consume process output
+;; Consume process output
       (save-excursion
         (goto-char (point-min))
         (flush-lines "^ *$")
@@ -307,9 +307,9 @@ left for next run."
              (start (point)))
           (condition-case nil
               (while (not (eobp))
-;;; Parse one complete chunk
+;; Parse one complete chunk
                 (setq result (emacspeak-maths-read-output))
-;;; Todo: perhaps accumulate instead of just using recent
+;; Todo: perhaps accumulate instead of just using recent
                 (setf (emacspeak-maths-result emacspeak-maths) result)
                 (skip-syntax-forward " >")
                 (delete-region start (point))
@@ -397,7 +397,7 @@ left for next run."
 ;;{{{ Navigators:
 
 (declare-function calc-kill "calc-yank" (flag no-delete))
-;;; Guess expression from Calc:
+;; Guess expression from Calc:
 (defun emacspeak-maths-guess-calc ()
   "Guess expression to speak in calc buffers.
 Set calc-language to tex to use this feature."
@@ -406,7 +406,7 @@ Set calc-language to tex to use this feature."
   (calc-kill 1 'no-delete)
   (substring (car calc-last-kill) 2))
 
-;;; Guess expression from sage
+;; Guess expression from sage
 
 (declare-function emacspeak-sage-get-output-as-latex "emacspeak-sage" nil)
 
@@ -416,7 +416,7 @@ Set calc-language to tex to use this feature."
   (sit-for 0.1)
   (emacspeak-sage-get-output-as-latex))
 
-;;; Helper: Guess current math expression from TeX/LaTeX
+;; Helper: Guess current math expression from TeX/LaTeX
 
 (defun emacspeak-maths-guess-tex ()
   "Extract math content around point."
@@ -428,7 +428,7 @@ Set calc-language to tex to use this feature."
           (begin nil)
           (end nil))
       (cond
-;;; $ and $$
+;; $ and $$
        ((or (string= "$" delimiter)
             (string= "$$" delimiter))
         (save-excursion
@@ -438,7 +438,7 @@ Set calc-language to tex to use this feature."
           (skip-syntax-forward "^$")
           (setq end (point))
           (buffer-substring begin end)))
-;;; \( and \[
+;; \( and \[
        ((string= "\\(" delimiter)
         (goto-char start)
         (setq begin (+ start  2))
@@ -451,7 +451,7 @@ Set calc-language to tex to use this feature."
         (search-forward "\\]")
         (setq end (- (point) 2))
         (buffer-substring begin end))
-;;; begin equation
+;; begin equation
        ((string= "equation" delimiter)
         (goto-char start)
         (forward-char (length "\\begin{equation}"))
@@ -602,8 +602,8 @@ For use on Wikipedia pages  for example."
 (provide 'emacspeak-maths)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

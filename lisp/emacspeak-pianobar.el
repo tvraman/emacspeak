@@ -1,80 +1,80 @@
 ;;; emacspeak-pianobar.el --- Pandora Radio: Speech-enable PIANOBAR  -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-pianobar.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable PIANOBAR An Emacs Interface to pianobar
-;;; Keywords: Emacspeak,  Audio Desktop pianobar
+;; $Id: emacspeak-pianobar.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;; $Author: tv.raman.tv $
+;; Description:  Speech-enable PIANOBAR An Emacs Interface to pianobar
+;; Keywords: Emacspeak,  Audio Desktop pianobar
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;  $Revision: 4532 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2021, T. V. Raman
-;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNPIANOBAR FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNPIANOBAR FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
 
 ;;; Commentary:
 
-;;; @subsection PIANOBAR ==  Pandora Client for Emacs
+;; @subsection PIANOBAR ==  Pandora Client for Emacs
 
-;;; pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian:
-;;; sudo apt-get install pianobar 
+;; pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian:
+;; sudo apt-get install pianobar 
 
-;;; Pianobar Is a stand-alone client for Pandora Radio. pianobar.el
-;;; available on the Emacs Wiki at
-;;; http://www.emacswiki.org/emacs/pianobar.el Provides access to
-;;; Pandora Radio via pianobar from the comfort of Emacs. This module
-;;; speech-enables Pianobar and enhances it for the Complete Audio
-;;; Desktop.
+;; Pianobar Is a stand-alone client for Pandora Radio. pianobar.el
+;; available on the Emacs Wiki at
+;; http://www.emacswiki.org/emacs/pianobar.el Provides access to
+;; Pandora Radio via pianobar from the comfort of Emacs. This module
+;; speech-enables Pianobar and enhances it for the Complete Audio
+;; Desktop.
 
-;;; @subsection Emacspeak Usage:
+;; @subsection Emacspeak Usage:
 
-;;; Emacspeak implements command emacspeak-pianobar, a light-weight
-;;; wrapper on top of pianobar. Emacspeak binds this command to
-;;; @code{C-e '}. 
-;;;  Command emacspeak-pianobar is designed to let you
-;;; launch Pandora channels and switch tracks/channels without moving
-;;; away from your primary tasks such as editing code or
-;;; reading/composing email. Toward this end, launching command
-;;; emacspeak-pianobar the first time initializes the
-;;; @code{*pianobar*} buffer and launches command @code{pianobar};
-;;; but focus  remains   in your current buffer. Pianobar can be
-;;; controlled with single keystrokes while in  the pianobar  buffer
-;;; --- switch to   using @code{C-e ''}. The most
-;;; useful keys are @code{right} for skipping tracks, @code{up} and
-;;; @code{down} for switching channels etc.; see the keys bound in
-;;; @code{pianobar-key-map} for a complete list. Pressing @code{C-e '}
-;;; in  the @code{*pianobar*} buffer  buries the
-;;; @code{*pianobar*}. From here on, Pianobar can be controlled
-;;; by pressing the Pianobar prefix key (@code{C-e '}) followed by
-;;; keys from @code{pianobar-key-map}.
+;; Emacspeak implements command emacspeak-pianobar, a light-weight
+;; wrapper on top of pianobar. Emacspeak binds this command to
+;; @code{C-e '}. 
+;;  Command emacspeak-pianobar is designed to let you
+;; launch Pandora channels and switch tracks/channels without moving
+;; away from your primary tasks such as editing code or
+;; reading/composing email. Toward this end, launching command
+;; emacspeak-pianobar the first time initializes the
+;; @code{*pianobar*} buffer and launches command @code{pianobar};
+;; but focus  remains   in your current buffer. Pianobar can be
+;; controlled with single keystrokes while in  the pianobar  buffer
+;; --- switch to   using @code{C-e ''}. The most
+;; useful keys are @code{right} for skipping tracks, @code{up} and
+;; @code{down} for switching channels etc.; see the keys bound in
+;; @code{pianobar-key-map} for a complete list. Pressing @code{C-e '}
+;; in  the @code{*pianobar*} buffer  buries the
+;; @code{*pianobar*}. From here on, Pianobar can be controlled
+;; by pressing the Pianobar prefix key (@code{C-e '}) followed by
+;; keys from @code{pianobar-key-map}.
 
 ;;; Code:
 
@@ -146,7 +146,7 @@
     (bury-buffer)
     (emacspeak-auditory-icon 'open-object)))
 
-;;; Advice all actions to play a pre-auditory icon
+;; Advice all actions to play a pre-auditory icon
 
 (cl-loop
  for  f in
@@ -262,7 +262,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defvar emacspeak-pianobar-current-preset 0
   "Current preset.")
 
-;;; Station Presets
+;; Station Presets
 (defun emacspeak-pianobar-switch-to-preset ()
   "Switch to one of the  presets."
   (interactive)
@@ -303,12 +303,12 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 ;;}}}
 
 (provide 'emacspeak-pianobar)
-;;; reload pianobar to fix our vol-change commands.
+;; reload pianobar to fix our vol-change commands.
 (load "pianobar")
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}

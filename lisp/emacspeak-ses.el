@@ -1,48 +1,48 @@
 ;;; emacspeak-ses.el --- Speech-enable ses spread-sheet  -*- lexical-binding: t; -*-
-;;; $Id$
-;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak front-end for SES 
-;;; Keywords: Emacspeak, ses 
+;; $Id$
+;; $Author: tv.raman.tv $
+;; Description:  Emacspeak front-end for SES 
+;; Keywords: Emacspeak, ses 
 ;;{{{  LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
-;;; A speech interface to Emacs |
-;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4074 $ |
-;;; Location undetermined
-;;;
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
+;; A speech interface to Emacs |
+;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
+;;  $Revision: 4074 $ |
+;; Location undetermined
+;; 
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2021, T. V. Raman
-;;; All Rights Reserved.
-;;;
-;;; This file is not part of GNU Emacs, but the same permissions apply.
-;;;
-;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
-;;; the Free Software Foundation; either version 2, or (at your option)
-;;; any later version.
-;;;
-;;; GNU Emacs is distributed in the hope that it will be useful,
-;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;; GNU General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
-;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; Copyright (C) 1995 -- 2021, T. V. Raman
+;; All Rights Reserved.
+;; 
+;; This file is not part of GNU Emacs, but the same permissions apply.
+;; 
+;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;; 
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ;;}}}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;{{{  Introduction:
 ;;; Commentary:
-;;; ses implements a simple spread sheet and is part of Emacs
-;;; This module speech-enables ses
+;; ses implements a simple spread sheet and is part of Emacs
+;; This module speech-enables ses
 ;;; Code:
 ;;}}}
 ;;{{{ required modules
@@ -54,8 +54,8 @@
 ;;}}}
 ;;{{{ emacspeak ses accessors 
 
-;;; these additional accessors are defined in terms of the
-;;;earlier helpers by Emacspeak.
+;; these additional accessors are defined in terms of the
+;; earlier helpers by Emacspeak.
 (defun emacspeak-ses-current-cell-symbol ()
   "Return symbol for current cell."
   (or 
@@ -105,8 +105,8 @@
 ;;}}}
 ;;{{{ new navigation commands 
 
-;;; ses uses intangible properties to enable cell navigation
-;;; here we define navigation primitives that call built-ins and
+;; ses uses intangible properties to enable cell navigation
+;; here we define navigation primitives that call built-ins and
 ;;then speak the right information.
 
 (defun emacspeak-ses-forward-column-and-summarize ()
@@ -169,8 +169,8 @@
 (provide 'emacspeak-ses)
 ;;{{{ end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}
