@@ -25,6 +25,7 @@ debian
 dtk-lite
 emacspeak-pkg.el
 etc/tweets
+etc/tweets
 git-hooks
 html
 js/node/auto

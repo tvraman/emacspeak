@@ -5,6 +5,7 @@ bash-utils
 blog-archive
 contrib
 etc
+etc/tweets
 git-hooks
 html
 nyxtalk
