@@ -14,8 +14,11 @@ runq
 scapes 
 servers/android
 servers/chrome_tts_server
+sounds/3d
 sounds/chimes
+sounds/classic
 sounds/classic 
+sounds/system
 stumpwm
 tvr
 utils
