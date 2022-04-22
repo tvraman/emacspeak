@@ -17,6 +17,10 @@ Module ~emacspeak-annotate~ speech-enables package ~annotate~.
 
 Eldoc support has been updated to speak available eldoc on user
 request via _C-,,_.
+** Updated ESpeak Server
+
+The ~espeak~ server has better support for language and dialect
+switching.
 
 ** Updated Elpy Support
 
