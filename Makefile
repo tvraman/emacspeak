@@ -95,7 +95,7 @@ q:
 	make
 	@cd lisp && make muggles --no-print-directory
 	@cd lisp && make extra-muggles --no-print-directory
-	@cd	 tvr && make  --no-print-directory
+	@test -f tvr && cd	 tvr && make  --no-print-directory
 
 qq:
 	make -s q 2>&1 |grep -v Loading  
