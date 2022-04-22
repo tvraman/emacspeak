@@ -192,11 +192,6 @@ mac for MAC TTS (default on Mac)")
                        (format "set_preferred_lang %s %s \n"
                                alias language)))
 
-(defsubst dtk-interp-list-language ()
-  (cl-declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "list_lang\n")))
-
 ;;}}}
 ;;{{{  Version, rate
 
@@ -487,12 +482,7 @@ Uses a 5ms fade-in and fade-out. "
   (when dtk-speak-server-initialized
     (dtk-interp-preferred-language alias lang)))
 
-(defun dtk-list-languages ()
-  "List  available languages."
-  (interactive)
-  (cl-declare (special dtk-speak-server-initialized))
-  (when dtk-speak-server-initialized
-    (dtk-interp-list-language)))
+
 
 ;; helper function:
 ;; Quote the string in current buffer so tcl does not barf.
