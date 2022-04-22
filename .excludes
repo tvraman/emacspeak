@@ -35,6 +35,7 @@ lib
 lisp/g-client/patches 
 lisp/patches
 nextalk 
+nyxtalk
 obsolete
 patches
 scapes
