@@ -1,5 +1,5 @@
 ;;; emacspeak-eterm.el --- Speech enable eterm -- Emacs' terminal emulator  term.el  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech enable eterm.
 ;; Keywords: Emacspeak, Eterm, Terminal emulation, Spoken Output

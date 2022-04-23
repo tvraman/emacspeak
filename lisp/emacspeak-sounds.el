@@ -1,5 +1,5 @@
 ;;; emacspeak-sounds.el --- Defines Emacspeak auditory icons  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module for adding sound cues to emacspeak
 ;; Keywords:emacspeak, audio interface to emacs, auditory icons

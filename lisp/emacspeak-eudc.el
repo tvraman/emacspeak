@@ -1,5 +1,5 @@
 ;;; emacspeak-eudc.el --- Speech enable  LDAP directory client  -*- lexical-binding: t; -*- 
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable universal directory client 
 ;; Keywords: Emacspeak, Audio Desktop

@@ -1,5 +1,5 @@
 ;;; dectalk-voices.el --- Define various device independent voices in terms of Dectalk codes  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module to set up Dectalk voices and personalities
 ;; Keywords: Voice, Personality, Dectalk

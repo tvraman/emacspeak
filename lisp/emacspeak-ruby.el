@@ -1,5 +1,5 @@
 ;;; emacspeak-ruby.el --- Speech enable Ruby Mode  -*- lexical-binding: t; -*- 
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for Ruby mode
 ;; Keywords:emacspeak, audio interface to emacs Ruby

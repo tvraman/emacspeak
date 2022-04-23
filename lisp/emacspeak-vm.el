@@ -1,6 +1,6 @@
 ;;; emacspeak-vm.el --- Speech enable VMMail    -*- lexical-binding: t; -*-
 ;; (and the one I use)
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech enhance vm
 ;; Keywords: Emacspeak, VM, Email, Spoken Output, Voice annotations

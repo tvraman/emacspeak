@@ -1,5 +1,5 @@
 ;;; emacspeak-webspace.el --- Webspaces In Emacspeak  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description: WebSpace provides smart updates from the Web.
 ;; Keywords: Emacspeak, Audio Desktop webspace

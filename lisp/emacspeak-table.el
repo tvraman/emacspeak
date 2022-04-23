@@ -1,5 +1,5 @@
 ;;; emacspeak-table.el --- Implements data model for table browsing  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak table handling module
 ;; Keywords:emacspeak, audio interface to emacs tables are structured

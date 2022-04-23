@@ -1,5 +1,5 @@
 ;;; xbacklight.el --- Control Display Brightness From Emacs  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; Emacs front-end to XBacklight
 ;;{{{  Copyright:
 

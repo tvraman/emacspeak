@@ -1,5 +1,5 @@
 ;;; emacspeak-eperiodic.el --- Speech-enable Periodic Table  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak speech-enabler for Periodic Table
 ;; Keywords: Emacspeak, periodic  Table

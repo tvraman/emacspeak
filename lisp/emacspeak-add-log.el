@@ -1,5 +1,5 @@
 ;;; emacspeak-add-log.el --- Speech-enable add-log  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  speech-enable change-log-mode
 ;; Keywords: Emacspeak,  Audio Desktop ChangeLogs

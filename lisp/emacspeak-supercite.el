@@ -1,5 +1,5 @@
 ;;; emacspeak-supercite.el --- Speech enable supercite  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable supercite
 ;; Keywords: Emacspeak, supercite, mail

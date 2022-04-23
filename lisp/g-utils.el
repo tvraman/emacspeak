@@ -1,5 +1,5 @@
 ;;; g-utils.el --- Google Client Utilities  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: raman $
 ;; Description:  Google Client utilities
 ;; Keywords: Google   Atom API, Google Services

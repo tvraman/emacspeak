@@ -1,5 +1,5 @@
 ;;; emacspeak-gnus.el --- Speech enable GNUS -- Fluent spoken access to imap, usenet  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable Gnus
 ;; Keywords: Emacspeak, Gnus, Advice, Spoken Output, News

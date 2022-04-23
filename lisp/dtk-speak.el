@@ -1,5 +1,5 @@
 ;;; dtk-speak.el --- Interface to speech server -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacs interface to TTS
 ;; Keywords: TTS  Emacs Elisp

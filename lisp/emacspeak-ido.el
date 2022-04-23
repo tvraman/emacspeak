@@ -1,5 +1,5 @@
 ;;; emacspeak-ido.el --- speech-enable ido  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable ido
 ;; Keywords: Emacspeak, Audio Desktop

@@ -1,5 +1,5 @@
 ;;; emacspeak-ess.el --- Speech-enable ESS: Emacs Speaks Statistics  -*- lexical-binding: t; -*- 
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ESS An Emacs Interface to R and others
 ;; Keywords: Emacspeak,  Audio Desktop Statistics, R

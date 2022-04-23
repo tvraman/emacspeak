@@ -1,5 +1,5 @@
 ;;; emacspeak-net-utils.el --- Speech enable net-utils  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable net-utils
 ;; Keywords: Emacspeak, network utilities 

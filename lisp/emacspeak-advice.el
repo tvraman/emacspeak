@@ -1,5 +1,5 @@
 ;;; emacspeak-advice.el --- Advice Emacs Core   -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description: Core advice forms that make emacspeak work
 ;; Keywords: Emacspeak, Speech, Advice, Spoken output

@@ -1,5 +1,5 @@
 ;;; emacspeak-analog.el --- Speech-enable analog -- a log viewer  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for ANALOG log analyzer
 ;; Keywords: Emacspeak, analog

@@ -1,5 +1,5 @@
 ;;; amixer.el --- Control AMixer from Emacs  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; Emacs front-end to AMixer
 ;;{{{  Copyright:
 

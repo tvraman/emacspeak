@@ -1,5 +1,5 @@
 ;;; emacspeak-flyspell.el --- Speech enable flyspell -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech enable flyspell
 ;; Keywords: Emacspeak, Ispell, Spoken Output, fly spell checking

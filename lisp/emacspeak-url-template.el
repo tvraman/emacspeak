@@ -1,5 +1,5 @@
 ;;; emacspeak-url-template.el --- Create library of URI templates -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description: Implement library of URI templates
 ;; Keywords: Emacspeak, Audio Desktop

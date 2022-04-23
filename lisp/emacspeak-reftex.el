@@ -1,5 +1,5 @@
 ;;; emacspeak-reftex.el --- speech enable reftex, Cross-References In La)TeX -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech enable
 ;; reftex 

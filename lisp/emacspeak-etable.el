@@ -1,5 +1,5 @@
 ;;; emacspeak-etable.el --- Speech enable table.el  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for table.el
 ;; Keywords:emacspeak, audio interface to emacs Tables

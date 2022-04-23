@@ -1,5 +1,5 @@
 ;;; emacspeak-enriched.el --- Audio Formatting for Emacs' WYSIWYG RichText  mode  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak module to speak voiceify rich text
 ;; Keywords:emacspeak, audio interface to emacs rich text

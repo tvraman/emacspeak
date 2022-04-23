@@ -1,5 +1,5 @@
 ;;; emacspeak-proced.el --- Speech-enable PROCED Task Manager  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable PROCED A Task manager for Emacs
 ;; Keywords: Emacspeak,  Audio Desktop proced Task Manager

@@ -1,5 +1,5 @@
 ;;; emacspeak-hideshow.el --- speech-enable hideshow  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable hideshow
 ;; Keywords: Emacspeak, Audio Desktop

@@ -1,5 +1,5 @@
 ;;; emacspeak-muse.el --- Speech-enable Muse  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable Muse
 ;; Keywords: Emacspeak,  Audio Desktop Muse

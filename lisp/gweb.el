@@ -1,5 +1,5 @@
 ;;; gweb.el --- Google Search  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: raman $
 ;; Description:  AJAX Search -> Lisp
 ;; Keywords: Google   AJAX API

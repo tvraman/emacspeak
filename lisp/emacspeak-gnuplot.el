@@ -1,5 +1,5 @@
 ;;; emacspeak-gnuplot.el --- speech-enable gnuplot mode  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech-enable
 ;; gnuplot mode

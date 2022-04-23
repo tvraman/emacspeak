@@ -1,5 +1,5 @@
 ;;; emacspeak-websearch.el --- search utilities  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to make Web searching convenient
 ;; Keywords: Emacspeak, WWW interaction

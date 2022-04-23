@@ -1,5 +1,5 @@
 ;;; emacspeak-newsticker.el --- Speech-enable newsticker  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for NEWSTICKER 
 ;; Keywords: Emacspeak, newsticker 

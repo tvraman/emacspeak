@@ -1,5 +1,5 @@
 ;;; emacspeak-pronounce.el --- Emacspeak pronunciation dictionaries -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description: Emacspeak pronunciation dictionaries
 ;; Keywords:emacspeak, audio interface to emacs customized pronunciation

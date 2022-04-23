@@ -1,5 +1,5 @@
 ;;; emacspeak-re-builder.el --- speech-enable re-builder  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable re-builder
 ;; Keywords: Emacspeak, Audio Desktop

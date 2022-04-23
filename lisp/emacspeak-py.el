@@ -1,5 +1,5 @@
 ;;; emacspeak-python.el --- Speech enable Python development environment  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description: Auditory interface to python mode
 ;; Keywords: Emacspeak, Speak, Spoken Output, python

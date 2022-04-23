@@ -1,5 +1,5 @@
 ;;; emacspeak-erc.el --- speech-enable erc irc client  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak module for speech-enabling erc.el
 ;; Keywords: Emacspeak, erc

@@ -1,5 +1,5 @@
 ;;; emacspeak-dictionary.el --- speech-enable dictionaries  -*- lexical-binding: t; -*- 
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:   Speech enable dictionary mode
 ;; Keywords: Emacspeak, Audio Desktop

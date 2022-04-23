@@ -1,5 +1,5 @@
 ;;; emacspeak-jdee.el --- Speech enable JDEE -- An integrated Java Development Environment  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to JDEE
 ;; Keywords: Emacspeak, Speak, Spoken Output, Java

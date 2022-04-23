@@ -1,5 +1,5 @@
 ;;; outloud-voices.el --- Define  OutLoud tags  -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module to set up Eloquent voices and personalities
 ;; Keywords: Voice, Personality, IBM ViaVoice Outloud

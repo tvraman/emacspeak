@@ -1,5 +1,5 @@
 ;;; emacspeak-speak.el --- Implements core services -*- lexical-binding: t; -*-
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Contains the functions for speaking various chunks of text
 ;; Keywords: Emacspeak,  Spoken Output

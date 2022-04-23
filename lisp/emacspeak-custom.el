@@ -1,5 +1,5 @@
 ;;; emacspeak-custom.el --- Speech enable interactive Emacs customization  -*- lexical-binding: t; -*- 
-;; $Id$
+;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to custom
 ;; Keywords: Emacspeak, Speak, Spoken Output, custom
