@@ -8,7 +8,7 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; $Date: 2008/04/03 15:05:55 $ |
+;; 
 ;;  $Revision: 1.1 $ |
 ;; Location undetermined
 ;; 

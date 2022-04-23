@@ -9,7 +9,7 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@crl.dec.com 
 ;; A speech interface to Emacs |
-;; $Date: 2007-09-07 06:14:47 -0700 (Fri, 07 Sep 2007) $ |
+;; 
 ;;  $Revision: 4532 $ | 
 ;; Location undetermined
 ;; 
