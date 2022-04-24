@@ -1347,6 +1347,12 @@ Indicate change of selection with an auditory icon
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
+
+(defadvice rename-uniquely (after emacspeak pre act comp)
+  "Speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)))
+
 (defadvice local-set-key (before emacspeak pre act comp)
   "Prompt using speech."
   (interactive
@@ -2669,7 +2675,9 @@ Produce an auditory icon if possible."
 
 
 ;;}}}
-;;{{{rrevert-buffer-quick
+;;{{{C-x x commands
+
+
 
 (defadvice revert-buffer-quick (after emacspeak pre act comp)
   "speak."
