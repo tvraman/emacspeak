@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1145 commands and 147 options.
+This chapter documents a total of 1144 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -410,15 +410,6 @@ this pattern if previously added.
 
 @format
 Select  Cloud TTS server.
-@end format
-@end deffn
-
-@subsubsection dtk-list-languages
-@deffn {Command} dtk-list-languages   
-@findex dtk-list-languages
-
-@format
-List  available languages.
 @end format
 @end deffn
 
