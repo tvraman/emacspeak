@@ -2669,6 +2669,16 @@ Produce an auditory icon if possible."
 
 
 ;;}}}
+;;{{{rrevert-buffer-quick
+
+(defadvice revert-buffer-quick (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
