@@ -1428,7 +1428,7 @@ flat classical club dance full-bass full-bass-and-treble
      emacspeak-m-player-youtube-dl url))
    0 -1))
 
-(declare-function emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
+
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 
 ;;;###autoload
@@ -1443,8 +1443,7 @@ Optional prefix arg `best' chooses highest."
   (cl-declare (special emacspeak-m-player-youtube-dl))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
-  (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
-    (setq url (emacspeak-google-canonicalize-result-url url)))
+  (when (string-prefix-p (emacspeak-google-result-url-prefix) url))
   (let ((u
          (string-trim
           (shell-command-to-string
@@ -1469,7 +1468,7 @@ Optional prefix arg `best' chooses highest."
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
   (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
-    (setq url (emacspeak-google-canonicalize-result-url url)))
+    )
   (let ((emacspeak-m-player-options
          (append emacspeak-m-player-options (list "-loop" "0")))
         (u
