@@ -279,16 +279,20 @@ Press `C-c' to resume the suspended transient."
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
   (cl-declare (special transient-enable-popup-navigation
-                       transient-popup-navigation-map transient-predicate-map))
+                       transient-popup-navigation-map
+                       transient-predicate-map))
+  ;; We add this to C-RET ourselves:
+  (define-key transient-popup-navigation-map (kbd "M-RET")  #'transient-push-button)
+  
   (define-key transient-predicate-map
-    [emacspeak-transient-previous-section] 'transient--do-move)
+              [emacspeak-transient-previous-section] 'transient--do-move)
   (define-key transient-predicate-map
-    [emacspeak-transient-next-section] 'transient--do-move)
+              [emacspeak-transient-next-section] 'transient--do-move)
   
   (define-key transient-popup-navigation-map
-    [left] 'emacspeak-transient-previous-section)
+              [left] 'emacspeak-transient-previous-section)
   (define-key transient-popup-navigation-map
-    [right] 'emacspeak-transient-next-section)
+              [right] 'emacspeak-transient-next-section)
 
   (setq transient-enable-popup-navigation t
         transient-force-single-column t
