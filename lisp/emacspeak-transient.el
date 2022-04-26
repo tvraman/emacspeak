@@ -282,7 +282,7 @@ Press `C-c' to resume the suspended transient."
                        transient-popup-navigation-map
                        transient-predicate-map))
   ;; We add this to C-RET ourselves:
-  (define-key transient-popup-navigation-map (kbd "M-RET")  #'transient-push-button)
+  (define-key transient-popup-navigation-map (kbd "C-RET")  #'transient-push-button)
   
   (define-key transient-predicate-map
               [emacspeak-transient-previous-section] 'transient--do-move)
