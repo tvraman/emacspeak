@@ -154,12 +154,12 @@
 (defadvice evil-backward-char (before emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
-    (emacspeak-speak-this-char (char-after (1- (point))))))
+    (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice evil-forward-char (before emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
-    (emacspeak-speak-this-char (char-after (1+ (point))))))
+    (emacspeak-speak-this-char (following-char))))
 
 ;;}}}
 ;;{{{ Deletion:
