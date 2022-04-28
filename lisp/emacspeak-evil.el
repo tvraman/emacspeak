@@ -148,15 +148,15 @@
 ;;}}}
 ;;{{{ Char Motion :
 
-(defadvice evil-backward-char (before emacspeak pre act comp)
-  "Speak char."
-  (when (ems-interactive-p)
-    (emacspeak-speak-this-char (preceding-char))))
-
-(defadvice evil-forward-char (before emacspeak pre act comp)
+(defadvice evil-backward-char (after emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
     (emacspeak-speak-this-char (following-char))))
+
+(defadvice evil-forward-char (after emacspeak pre act comp)
+  "Speak char."
+  (when (ems-interactive-p)
+    (emacspeak-speak-this-char (preceding-char))))
 
 ;;}}}
 ;;{{{ Deletion:
