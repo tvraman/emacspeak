@@ -6,15 +6,15 @@ The enjoyment of one's tools is an essential ingredient of successful work. -- D
 
 San Jose, CA, (May 1, 2022)
 
-** Emacspeak 55.0 (CalmDog)  Unleashed!  🦮
+** Emacspeak 56.0 (AgileDog)  Unleashed!  🦮
        --- Making Accessible Computing Effortless!
 
 Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
 cost of Ownership makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
-announces  immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/55.0/emacspeak-55.0.tar.bz2][Emacspeak 55.0]]
-(CalmDog) 🦮 --- a powerful audio desktop that leverages today's
+announces  immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/55.0/emacspeak-55.0.tar.bz2][Emacspeak 56.0]]
+(AgileDog) 🦮 --- a powerful audio desktop that leverages today's
 evolving Data, Social and Assistant-Oriented Internet cloud to enable
 working efficiently and effectively from anywhere!
 
@@ -40,12 +40,16 @@ access to the evolving assistant-oriented social Internet cloud.
 
 * Major Enhancements:
 
-1. Speech-enable Emacs Application Framework  
-2. Updated Soundscapes 🔊
-3. Updated Auditory Icons 🎧
+
+
+1. Updated eldoc support 🕮
+2. Updated ~elpy~ support  🐍
+3. Updated language switching for Espeak  󠀁
 4. Updated Transient Support 𝥍
-5. Speech-Enabled CalibreDB  📚
-6. External Browsers From EWW  🕸
+5. External Browsers From EWW  🕸
+6. Updated wizards and muggles 🧙
+7. Updated ~url templates~ for smarter Web access ♅
+8.  Fully tested under emacs-28 native compilation   🚄
 
       — And a lot more than will fit this margin. … 🗞
   
@@ -115,7 +119,7 @@ The latest development snapshot of Emacspeak is always available at
 [[https://github.com/tvraman/emacspeak][GitHub]].
 
 * History:
-
+  - Emacspeak 56.0 (AgileDog) belies its age  to be as agile as Tilden.
   - Emacspeak 55.0 (CalmDog) attempts to be as calm as Tilden.
   - Emacspeak 54.0 (EZDog) learns to take it easy from Tilden.
   - Emacspeak 53.0 (EfficientDog)  focuses on  efficiency.
