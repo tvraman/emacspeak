@@ -136,62 +136,51 @@
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
+;;; This implementation below appears to work for  emacspeak.
+;;; See http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html
+;;; ems-interactive-p is reserved for use within Emacspeak advice.
 
-;; The implementation from 2014 worked for emacspeak.  it has been
-;; moved to obsolete/old-emacspeak-preamble.el to avoid the fragility
-;; from using backtrace-frame.  See
-;; http://tvraman.github.io/emacspeak/blog/ems-interactive-p.html for
-;; the version that depended on calling backtrace-frame.
+(defvar ems-called-interactively-p nil
+  "Record interactive calls to adviced functions.")
 
-;; This updated implementation avoids that call and was contributed
-;; by Stefan Monnier in April 2022.
-
-;;  Note that `ems-interactive-p', unlike `called-interactively-p',
-;;  will return non-nil when the original command calls itself recursively.
-;;  More specifically `called-interactively-p' tries to returns non-nil
-;;  if and only if the current call to the surrounding function (let's call it
-;;  F) was made interactively, whereas `ems-interactive-p' returns non-nil if
-;;  F happens to be the same function as the one that was called interactively
-;;  (either because it's the original (interactive) call, or because of
-;;  a nested/recursive call).
-
-;;; Design:
-;; Advice on funcall-interactively stores the name of the
-;; interactive command being run.
-;; The defadvice macro is itself adviced to generate a locally bound
-;; predicate that ensures that ems-interactive-p is only called from
-;; within emacspeak advice forms.
-;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
-
-(defvar ems--interactive-funcname nil
-  "Holds name of function being called interactively.")
+(defun ems-record-interactive-p (f)
+  "Predicate to test if we  record interactive calls.
+ Memoizes result  via property 'emacspeak."
+  (cond
+   ((not (symbolp f)) nil)
+   ((get f 'emacspeak) t) ; already memoized
+   ((ad-find-some-advice f 'any  "emacspeak");emacspeak advice present
+    (put f 'emacspeak t)); memoize and return t
+   (t nil)))
 
 (defadvice funcall-interactively (around emacspeak  pre act comp)
-  "Record name of interactive function being called."
-  (let ((ems--interactive-funcname (ad-get-arg 0)))
+  "Set emacspeak  interactive flag if there is an advice."
+  (let ((ems-called-interactively-p ems-called-interactively-p)) ; save state
+    (when (ems-record-interactive-p (ad-get-arg 0))
+      (setq ems-called-interactively-p (ad-get-arg 0)))
     ad-do-it))
 
-;; Beware: Advice on defadvice 
-(advice-add 'defadvice :around #'ems--generate-interactive-check)
-(defun ems--generate-interactive-check (orig-macro funname args &rest body)
-  "Lexically redefine ems-interactive-p  to test  ems--interactive-funcname.
-The local definition expands to a call to `eq' that compares
-FUNNAME to our stored value of ems--interactive-funcname."
-  (apply orig-macro funname args
-         (macroexp-unprogn
-          (macroexpand-all
-           (macroexp-progn body)
-           `((ems-interactive-p         ; new definition
-              . ,(lambda () `(eq ems--interactive-funcname ',funname)))
-             . ,macroexpand-all-environment)))))
+(defadvice call-interactively (around emacspeak  pre act comp)
+  "Set emacspeak  interactive flag if there is an advice."
+  (let ((ems-called-interactively-p ems-called-interactively-p))
+    (when (ems-record-interactive-p (ad-get-arg 0))
+      (setq ems-called-interactively-p (ad-get-arg 0)))
+    ad-do-it))
 
-(defun ems-interactive-p ()
-  "Dynamically defined at runtime to provide Emacspeak's
-  interactive check.  This definition never be called, so produce debug
-  info if the unexpected happens."
-  (cl-declare (special ems--interactive-funcname))
-  (error
-   (format "From %s: Unexpected call!" ems--interactive-funcname)))
+(defsubst ems-interactive-p ()
+  "Check  interactive flag.
+Return T if set and we are called from the advice for the current
+ command. Turn off the flag once used."
+  (when ems-called-interactively-p      ; interactive call
+    (let ((caller (cl-second (backtrace-frame 1))) ; containing function name
+          (caller-advice ; advice wrapper of containing function
+           (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
+          (result nil))
+                                        ; T if called from our advice
+      (setq result (eq caller caller-advice))
+      (when result
+        (setq ems-called-interactively-p nil) ; turn off now that we used  it
+        result))))
 
 ;;}}}
 ;;{{{defsubst: ems--fastload:
