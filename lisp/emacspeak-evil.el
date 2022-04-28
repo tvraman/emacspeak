@@ -136,9 +136,6 @@
 (cl-loop
  for f in
  '(
-   evil-backward-WORD-begin evil-backward-WORD-end
-   evil-forward-WORD-begin evil-forward-WORD-end
-   ;; eliminating these duplicates causes those commands to fall silent
    evil-backward-word-begin evil-backward-word-end
    evil-forward-word-begin evil-forward-word-end)
  do
