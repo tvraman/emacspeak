@@ -137,9 +137,7 @@
  for f in
  '(
    evil-backward-WORD-begin evil-backward-WORD-end
-   evil-forward-WORD-begin evil-forward-WORD-end
-   evil-backward-word-begin evil-backward-word-end
-   evil-forward-word-begin evil-forward-word-end)
+   evil-forward-WORD-begin evil-forward-WORD-end)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
