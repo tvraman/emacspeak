@@ -145,15 +145,9 @@
 
 ;; This updated implementation avoids that call and was contributed
 ;; by Stefan Monnier in April 2022.
-
-;;  Note that `ems-interactive-p', unlike `called-interactively-p',
-;;  will return non-nil when the original command calls itself recursively.
-;;  More specifically `called-interactively-p' tries to returns non-nil
-;;  if and only if the current call to the surrounding function (let's call it
-;;  F) was made interactively, whereas `ems-interactive-p' returns non-nil if
-;;  F happens to be the same function as the one that was called interactively
-;;  (either because it's the original (interactive) call, or because of
-;;  a nested/recursive call).
+;; Note that like called-interactively-p, our predicate only returns T
+;; for the top-level call, not for any further recursive calls of the
+;; function.
 
 ;;; Design:
 ;; Advice on funcall-interactively stores the name of the
@@ -200,7 +194,6 @@ FUNNAME to our stored value of ems--interactive-funcname."
    (format "From %s: Unexpected call!" ems--interactive-funcname)))
 
 ;;}}}
-
 ;;{{{defsubst: ems--fastload:
 
 ;; Internal function  used to efficiently load files.
