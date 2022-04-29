@@ -314,9 +314,6 @@ Optional interactive prefix arg prompts for a filename."
 (cl-declaim (special-display-p 2048-mode-hook))
 (add-hook '2048-mode-hook 'emacspeak-2048-setup)
 ;;}}}
-;;{{{ Counting moves:
-
-;;}}}
 ;;{{{ Randomize game
 
 (defun emacspeak-2048-randomize-game (&optional count)
