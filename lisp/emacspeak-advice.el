@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Core advice forms that make emacspeak work
 ;; Keywords: Emacspeak, Speech, Advice, Spoken output
-;;{{{ LCD Archive entry:
+;;{{{ LCD Archive entry:a
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -1100,7 +1100,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                     vc-dir-next-directory vc-dir-previous-directory)
  do
  (eval
-  `(defadvice ,f (after emacspeak-pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
