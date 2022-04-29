@@ -1106,13 +1106,13 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
 
-(defadvice vc-dir-mark-file (after emacspeak-pre act comp)
+(defadvice vc-dir-mark-file (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
 
-(defadvice vc-dir-mark (after emacspeak-pre act comp)
+(defadvice vc-dir-mark (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)

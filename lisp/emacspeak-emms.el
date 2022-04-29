@@ -165,9 +165,7 @@
 ;;}}}
 ;;{{{ silence chatter from info
 
-(defadvice emms-info-really-initialize-track (around emacspeak
-                                                     pre act
-                                                     comp)
+(defadvice emms-info-really-initialize-track (around emacspeak pre act comp)
   "Silence messages."
   (ems-with-messages-silenced
    ad-do-it))

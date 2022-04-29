@@ -602,9 +602,7 @@ Produce an auditory icon if possible."
     (set-buffer gnus-article-buffer)
     (emacspeak-speak-line)))
 
-(defadvice gnus-summary-end-of-article
-
-    (after emacspeak pre act comp)
+(defadvice gnus-summary-end-of-article (after emacspeak pre act comp)
   "Speak the first line. "
   (cl-declare (special gnus-article-buffer))
   (save-current-buffer

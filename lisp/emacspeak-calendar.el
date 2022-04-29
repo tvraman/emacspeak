@@ -1,4 +1,4 @@
-;;; emacspeak-calendar.el --- Speech enable Emacs Calendar -- maintain a diary and appointments  -*- lexical-binding: t; -*-
+;;; emacspeak-calendar.el --- Speech enable Emacs Calendar -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extensions to speech enable the calendar.
@@ -88,24 +88,22 @@
   "Speak the date under point when called in Calendar Mode. "
   (interactive)
   (let ((date (calendar-date-string (calendar-cursor-to-date t))))
-    (tts-with-punctuations 'some
-                           (cond
-                            ((emacspeak-calendar-entry-marked-p)
-                             (dtk-speak-using-voice emacspeak-calendar-mark-personality date))
-                            (t (dtk-speak date))))))
+    (tts-with-punctuations
+        'some
+      (cond
+       ((emacspeak-calendar-entry-marked-p)
+        (dtk-speak-using-voice emacspeak-calendar-mark-personality date))
+       (t (dtk-speak date))))))
 
 ;;}}}
 ;;{{{  Advice:
-(defadvice calendar-exchange-point-and-mark (after emacspeak
-                                                   pre act comp)
+(defadvice calendar-exchange-point-and-mark (after emacspeak pre act comp)
   "Speak date under point"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-calendar-speak-date)))
 
-(defadvice calendar-set-mark (after emacspeak
-                                    pre act
-                                    comp)
+(defadvice calendar-set-mark (after emacspeak pre act comp)
   "Speak date under point"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
@@ -408,9 +406,7 @@
     (define-key calendar-mode-map  "\C-e." 'emacspeak-calendar-speak-date)
     (define-key calendar-mode-map  "\C-ee"
       'calendar-end-of-week)))
-
-                                        ;(add-hook 'calendar-initial-window-hook 'emacspeak-calendar-setup t)
-
+                                        
 ;;}}}
 ;;{{{  Appointments:
 

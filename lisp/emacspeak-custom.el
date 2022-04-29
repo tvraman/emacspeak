@@ -104,7 +104,7 @@
     (emacspeak-auditory-icon 'save-object)
     (message "Saved customizations.")))
 
-(defadvice customize-save-customized (around quiet pre act comp)
+(defadvice customize-save-customized (around emacspeak pre act comp)
   "Silence speech."
   (let ((dtk-quiet t)) ad-do-it))
 

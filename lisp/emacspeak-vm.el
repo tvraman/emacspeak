@@ -553,7 +553,7 @@ Leave point at front of decoded attachment."
     ad-do-it
     (emacspeak-vm-mode-line)))
 
-(defadvice vm-count-messages-in-file (around emacspeak-fix pre act comp)
+(defadvice vm-count-messages-in-file (around emacspeak pre act comp)
   (ad-set-arg 1 'quiet)
   ad-do-it)
 

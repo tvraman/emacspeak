@@ -224,8 +224,7 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
-(defadvice sage-shell:copy-previous-output-to-kill-ring
-    (after emacspeak pre act comp)
+(defadvice sage-shell:copy-previous-output-to-kill-ring (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)

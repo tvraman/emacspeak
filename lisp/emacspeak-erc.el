@@ -296,15 +296,6 @@ set the current local value to the result.")
     ad-do-it
     ad-return-value))
 
-(defadvice erc-make-notice (around emacspeak  pre act comp)
-  "Ignore notices from server is emacspeak-erc-ignore-notices it set."
-  ad-do-it
-  ;; FIXME: AFAICT this does nothing (`defadvice' ignores this return value
-  ;; and returns the value of `ad-return-value' instead!).
-  (cond
-   ((not emacspeak-erc-ignore-notices) ad-return-value)
-   (t " ")))
-
 ;;}}}
 ;;{{{ define emacspeak keys
 (cl-declaim (special erc-mode-map))

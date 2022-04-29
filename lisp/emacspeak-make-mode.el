@@ -132,9 +132,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice makefile-browser-insert-selection (after
-                                              emacspeak
-                                              pre act comp)
+(defadvice makefile-browser-insert-selection (after emacspeak pre act comp)
   "Provide status message"
   (when (ems-interactive-p)
     (message

@@ -152,8 +152,7 @@ available."
       'emacspeak-ecb-tree-clear)
     ))
 
-(defadvice tree-buffer-incremental-node-search 
-    (around emacspeak pre act comp)
+(defadvice tree-buffer-incremental-node-search (around emacspeak pre act comp)
   "Track search and provide appropriate auditory feedback."
   
   (cond

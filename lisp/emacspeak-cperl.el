@@ -102,9 +102,7 @@ Otherwise cue user to the line just created. "
     (emacspeak-auditory-icon 'help)
     (message "Displayed info in other window")))
 
-(defadvice cperl-info-on-command (after emacspeak
-                                        pre act
-                                        comp)
+(defadvice cperl-info-on-command (after emacspeak pre act comp)
   "Speak the displayed info"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)

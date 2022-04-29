@@ -365,13 +365,13 @@ Checked by emacspeak specific dis-mode-hooks entry.")
 
 ;;}}}
 ;;{{{ customize for use with html helper mode
-(defadvice dis-html-dump-file (around fix pre act comp)
+(defadvice dis-html-dump-file (around emacspeak pre act comp)
   "Sets html-helper-build-new-buffer to nil first so we dont
 end up building a template page first."
 
   (let ((html-helper-build-new-buffer nil)) ad-do-it))
 
-(defadvice dis-html-dump-range (around fix pre act comp)
+(defadvice dis-html-dump-range (around emacspeak pre act comp)
   "Sets html-helper-build-new-buffer to nil first so we dont
 end up building a template page first."
 

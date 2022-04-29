@@ -222,16 +222,12 @@
     (message "Saving marked buffers.")
     (emacspeak-auditory-icon 'save-object)))
 
-(defadvice  ibuffer-occur-goto-occurence (after emacspeak
-                                                pre act
-                                                comp)
+(defadvice  ibuffer-occur-goto-occurence (after emacspeak pre act comp)
   "Speak line that becomes current."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
-(defadvice  ibuffer-occur-display-occurence (after emacspeak
-                                                   pre act
-                                                   comp)
+(defadvice  ibuffer-occur-display-occurence (after emacspeak pre act comp)
   "Speak line that becomes current."
   (when (ems-interactive-p)
     (emacspeak-speak-line)

@@ -291,8 +291,7 @@ Interactive PREFIX arg means toggle the global default value. ")
    comint-previous-matching-input-from-input)
  do
  (eval
-  `(defadvice ,f (after
-                  emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Speak matched input."
      (when (ems-interactive-p)
        (save-excursion
@@ -524,8 +523,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
         (emacspeak-auditory-icon 'delete-object)
         (emacspeak-speak-region pmark (point))))))
 
-(defadvice comint-dynamic-list-filename-completions
-    (after emacspeak pre act comp)
+(defadvice comint-dynamic-list-filename-completions (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-completions-if-available)))

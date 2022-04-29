@@ -60,40 +60,30 @@
 
 ;;{{{ advice interactive commands
 
-(defadvice gnuplot-send-region-to-gnuplot (after emacspeak
-                                                 pre act
-                                                 comp)
+(defadvice gnuplot-send-region-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
-(defadvice gnuplot-send-line-to-gnuplot (after emacspeak
-                                               pre act
-                                               comp)
+(defadvice gnuplot-send-line-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
-(defadvice gnuplot-send-line-and-forward (after emacspeak
-                                                pre act
-                                                comp)
+(defadvice gnuplot-send-line-and-forward (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
-(defadvice gnuplot-send-buffer-to-gnuplot (after emacspeak
-                                                 pre act
-                                                 comp)
+(defadvice gnuplot-send-buffer-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
-(defadvice gnuplot-send-file-to-gnuplot (after emacspeak
-                                               pre act
-                                               comp)
+(defadvice gnuplot-send-file-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
