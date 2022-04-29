@@ -602,7 +602,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;;}}}
 ;;{{{ advice tabify:
 
-(defadvice untabify (after emacspeak-fix-nbspc pre act comp)
+(defadvice untabify (after emacspeak pre act comp)
   "Fix NBSP chars."
   (let ((start (ad-get-arg 0))
         (end (ad-get-arg 1)))
