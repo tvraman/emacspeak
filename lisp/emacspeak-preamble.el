@@ -171,19 +171,19 @@
   "Lexically redefine ems-interactive-p  to test  ems--interactive-funcname.
 The local definition expands to a call to `eq' that compares
 FUNNAME to our stored value of ems--interactive-funcname."
-  (apply orig-macro funname args
-         (macroexp-unprogn
-          (macroexpand-all
-           (macroexp-progn body)
-           `((ems-interactive-p         ; new definition
-              . ,(lambda ()
-                   `(prog1
-                        (eq ems--interactive-funcname ',funname)
-                      ;; Reset the var to try and avoid misfiring if
-                      ;; it calls itself recursively.
-                      (when (eq ems--interactive-funcname ',funname)
-                        (setq ems--interactive-funcname nil)))))
-             . ,macroexpand-all-environment)))))
+  (apply
+   orig-macro funname args
+   (macroexp-unprogn
+    (macroexpand-all
+     (macroexp-progn body)
+     `((ems-interactive-p               ; new definition
+        . ,(lambda ()
+             `(when (eq ems--interactive-funcname ',funname)
+                ;; Reset the var to try and avoid misfiring if
+                ;; it calls itself recursively.
+                (setq ems--interactive-funcname nil)
+                t)))
+       . ,macroexpand-all-environment)))))
 
 (defun ems-interactive-p ()
   "Dynamically defined at runtime to provide Emacspeak's
