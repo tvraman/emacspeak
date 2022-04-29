@@ -176,11 +176,12 @@ FUNNAME to our stored value of ems--interactive-funcname."
    (macroexp-unprogn
     (macroexpand-all
      (macroexp-progn body)
-     `((ems-interactive-p               ; new definition
+     ;;  env with new definition
+     `((ems-interactive-p               
         . ,(lambda ()
              `(when (eq ems--interactive-funcname ',funname)
-                ;; Reset the var to try and avoid misfiring if
-                ;; it calls itself recursively.
+                ;; Reset the var to nil after consuming it to avoid  misfiring if
+                ;; funname calls itself recursively.
                 (setq ems--interactive-funcname nil)
                 t)))
        . ,macroexpand-all-environment)))))
