@@ -130,7 +130,7 @@
       (put-text-property beg end name nil))
     ad-do-it))
 
-(defadvice delete-overlay (before voice-setup  pre act comp)
+(defadvice delete-overlay (before emacspeak  pre act comp)
   "Augment voice lock."
   (when ems--voiceify-overlays
     (let* ((o (ad-get-arg 0))
@@ -148,7 +148,7 @@
         (with-silent-modifications
           (put-text-property start end 'invisible nil))))))
 
-(defadvice overlay-put (after voice-setup pre act comp)
+(defadvice overlay-put (after emacspeak pre act comp)
   "Augment voice lock."
   (when (and (overlay-buffer (ad-get-arg 0)) ems--voiceify-overlays)
     (let* ((overlay (ad-get-arg 0))
@@ -173,7 +173,7 @@
           (with-silent-modifications
             (put-text-property start end 'invisible (or value nil)))))))))
 
-(defadvice move-overlay (before voice-setup pre act comp)
+(defadvice move-overlay (before emacspeak pre act comp)
   "Used by emacspeak to augment voice lock."
   (when ems--voiceify-overlays
     (let*
