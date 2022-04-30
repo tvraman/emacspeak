@@ -126,9 +126,9 @@ Useful in voiceifying rich text."
 ;;}}}
 ;;{{{ hooks
 (add-hook 'enriched-mode-hook
-           #'(lambda ()
-             (or emacspeak-audio-indentation
-                 (emacspeak-toggle-audio-indentation))))
+          #'(lambda ()
+              (or emacspeak-audio-indentation
+                  (emacspeak-toggle-audio-indentation))))
 ;;}}}
 (provide  'emacspeak-enriched)
 ;;{{{  emacs local variables 

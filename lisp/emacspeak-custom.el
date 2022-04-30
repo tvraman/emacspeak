@@ -216,7 +216,6 @@
   "^/-"
   "Pattern identifying start of custom group.")
 
-
 (defun emacspeak-custom-goto-group ()
   "Jump to custom group when in a customization buffer."
   (interactive)
@@ -257,7 +256,7 @@
 (define-key custom-mode-map "." 'forward-paragraph)
 (define-key custom-mode-map  "\M-t" 'emacspeak-custom-goto-toolbar)
 (define-key custom-mode-map  "\M-g"
-  'emacspeak-custom-goto-group)
+            'emacspeak-custom-goto-group)
 
 ;;}}}
 ;;{{{ augment custom widgets

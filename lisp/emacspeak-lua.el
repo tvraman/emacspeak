@@ -93,9 +93,9 @@
  do
  (eval
   `(defadvice,f (after emacspeak pre act comp)
-     "speak."
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+                "speak."
+                (when (ems-interactive-p)
+                  (emacspeak-auditory-icon 'task-done)))))
 
 (defadvice lua-show-process-buffer(after emacspeak pre act comp)
   "speak."

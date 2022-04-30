@@ -246,7 +246,6 @@ downloading:"))
       whose whose))
     (message "downloading data in the background.")))
 
-
 ;;}}}
 (provide 'emacspeak-twittering)
 ;;{{{ end of file

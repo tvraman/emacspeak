@@ -513,7 +513,6 @@ Optional interactive prefix arg author-first prints author at the
     (goto-char (point-min)))
   (when (called-interactively-p 'interactive) (emacspeak-auditory-icon 'task-done)))
 
-
 (defun emacspeak-epub-bookshelf-refresh ()
   "Refresh and redraw bookshelf."
   (interactive)
@@ -760,7 +759,6 @@ No book files are deleted."
     (emacspeak-epub-bookshelf-redraw)
     (message "Cleared bookshelf.")))
 
-
 (defun emacspeak-epub-bookshelf-save ()
   "Save bookshelf metadata."
   (interactive)
@@ -841,7 +839,6 @@ root directory,see \\[emacspeak-epub-mode]"
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-
 (defun emacspeak-epub-open (epub-file)
   "Open specified Epub.
 Filename may need to  be shell-quoted when called from Lisp."
@@ -857,7 +854,6 @@ Filename may need to  be shell-quoted when called from Lisp."
   "EPub handle.")
 
 (declare-function eww-update-header-line-format "eww" nil)
-
 
 (defun emacspeak-epub-eww (epub-file &optional use-ncx)
   "Display entire book  using EWW from EPub.
@@ -913,16 +909,10 @@ in the epub file."
       (emacspeak-auditory-icon 'open-object))
     (funcall-interactively #'switch-to-buffer eww-epub)))
 
-
-
-
-
-
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
   "REST  end-point for performing Google Books Search
 to find Epubs  having full viewability.")
-
 
 (defun emacspeak-epub-google (query)
   "Search for Epubs from Google Books."
@@ -996,7 +986,6 @@ to find Epubs  having full viewability.")
   (cl-declare (emacspeak-epub-gutenberg-suffix emacspeak-epub-gutenberg-mirror))
   (format "%s%s"
           emacspeak-epub-gutenberg-mirror book-id))
-
 
 (defun emacspeak-epub-gutenberg-download (book-id &optional download)
   "Open web page for specified book.
@@ -1077,7 +1066,7 @@ Fetch if needed, or if refresh is T."
 ;; Record returned by queries:
 
 (cl-defstruct emacspeak-epub-calibre-record
-;; "b.title,  b.author_sort, b.path,  d.format"
+  ;; "b.title,  b.author_sort, b.path,  d.format"
   title author  path format)
 
 ;; Helper: Construct query
@@ -1239,7 +1228,7 @@ Letters do not insert themselves; instead, they are commands.
 
 (cl-declaim (special emacspeak-calibre-mode-map))
 (define-key emacspeak-calibre-mode-map "\C-m"
-  'emacspeak-epub-calibre-dired-at-point)
+            'emacspeak-epub-calibre-dired-at-point)
 
 (defun emacspeak-epub-calibre-results ()
   "Show most recent Calibre search results."

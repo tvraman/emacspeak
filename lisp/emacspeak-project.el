@@ -64,9 +64,6 @@
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
-
-
-
 ;;}}}
 (provide 'emacspeak-project)
 ;;{{{ end of file

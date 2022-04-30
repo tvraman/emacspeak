@@ -62,16 +62,15 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-
 (cl-loop
  for f in 
  '(
-  nov-browse-url
-nov-display-metadata
-nov-goto-toc
-nov-next-document
-nov-previous-document
-)
+   nov-browse-url
+   nov-display-metadata
+   nov-goto-toc
+   nov-next-document
+   nov-previous-document
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

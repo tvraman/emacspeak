@@ -118,7 +118,6 @@
 (require 'dtk-speak)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-
 ;;}}}
 ;;{{{ sox-gen-p:
 
@@ -149,7 +148,6 @@ tones using SoX, e.g., for binaural beats."
   "-q -n synth %s sin %s sin %s gain %s channels 2 "
   "Command-line that produces a binaural beat.")
 
-
 (defun sox-tone-binaural (length freq beat gain)
   "Play binaural audio with carrier frequency `freq', beat `beat', and
 gain `gain'."
@@ -165,7 +163,6 @@ gain `gain'."
     sox-binaural-cmd length
     freq (+ freq beat)
     (+ gain sox-binaural-gain-offset))))
-
 
 (defun sox-tone-slide-binaural (length freq beat-start beat-end  gain)
   "Play binaural audio with carrier frequency `freq', beat
@@ -201,7 +198,6 @@ gain `gain'."
         (setq this-beat (read-number "Beat Frequency [0.5 -- 40]: " 4.5))
         (push (list this-freq this-beat) specs)))
     (nreverse specs)))
-
 
 (defun sox-beats-binaural (length beat-spec-list  gain)
   "Play binaural audio with beat-spec specifying the various tones.
@@ -310,7 +306,6 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
   (sox--binaural-play duration (sox-binaural-get-effect name))
   (dtk-notify-say
    (format "%s: %s" name (sox--format-seconds duration))))
-
 
 (defun sox-slide-binaural (name-1 name-2 duration)
   "Play specified binaural slide from `name-1' to `name-2'."
@@ -433,7 +428,7 @@ binaural beat to another."
             (sox-binaural this then))
         b end)
        (setq start (+ start end))
-;; slider
+       ;; slider
        (when (and next (not (zerop slider-len)))
          (run-with-timer                ; start  at slider-start
           slider-start nil              ; no repeat
@@ -594,7 +589,6 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
                    sin %-14 sin %-21 fade h .01 2 1.5 delay \
                   1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1 channels 2"
   "Command-line that produces a simple chime.")
-
 
 (defun sox-chime (&optional tempo speed)
   "Play chime --- optional args tempo and speed default to 1."

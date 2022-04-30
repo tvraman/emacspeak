@@ -130,10 +130,6 @@ personalities.")
 ;;}}}
 ;;{{{ voices
 
-
-
-
-
 (voice-setup-add-map 
  '(
    (eshell-ls-archive voice-monotone)

@@ -205,7 +205,6 @@
 
 ;;}}}
 
-
 (defun outloud-get-pitch-range-code (value family)
   "Get pitch-range code for  VALUE and FAMILY."
   (or family (setq family 'paul))

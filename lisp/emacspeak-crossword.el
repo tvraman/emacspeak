@@ -55,8 +55,6 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-
-
 (voice-setup-add-map 
  '(
    (crossword-checked-face voice-brighten)
@@ -71,49 +69,48 @@
 
 '(
   crossword
-crossword-backup
-crossword-begin-field
-crossword-bsp-char
-crossword-check-letter
-crossword-check-puzzle
-crossword-check-word
-crossword-clue-scroll-down
-crossword-clue-scroll-page-down
-crossword-clue-scroll-page-end
-crossword-clue-scroll-page-home
-crossword-clue-scroll-page-up
-crossword-clue-scroll-up
-crossword-del-char
-crossword-download
-crossword-end-field
-crossword-goto-clue
-crossword-load
-crossword-mode
-crossword-nav-dir-across
-crossword-nav-dir-down
-crossword-nav-dir-toggle
-crossword-next-char
-crossword-next-field
-crossword-next-line
-crossword-pause-unpause-timer
-crossword-previous-line
-crossword-prior-char
-crossword-prior-field
-crossword-quit
-crossword-restore
-crossword-solve-letter
-crossword-solve-puzzle
-crossword-solve-word
-crossword-summary
-crossword-summary-delete
-crossword-summary-mode
-crossword-summary-revert-buffer
-crossword-summary-select
-crossword-summary-sort
-crossword-summary-tab-backward
-crossword-summary-tab-forward
-)
-
+  crossword-backup
+  crossword-begin-field
+  crossword-bsp-char
+  crossword-check-letter
+  crossword-check-puzzle
+  crossword-check-word
+  crossword-clue-scroll-down
+  crossword-clue-scroll-page-down
+  crossword-clue-scroll-page-end
+  crossword-clue-scroll-page-home
+  crossword-clue-scroll-page-up
+  crossword-clue-scroll-up
+  crossword-del-char
+  crossword-download
+  crossword-end-field
+  crossword-goto-clue
+  crossword-load
+  crossword-mode
+  crossword-nav-dir-across
+  crossword-nav-dir-down
+  crossword-nav-dir-toggle
+  crossword-next-char
+  crossword-next-field
+  crossword-next-line
+  crossword-pause-unpause-timer
+  crossword-previous-line
+  crossword-prior-char
+  crossword-prior-field
+  crossword-quit
+  crossword-restore
+  crossword-solve-letter
+  crossword-solve-puzzle
+  crossword-solve-word
+  crossword-summary
+  crossword-summary-delete
+  crossword-summary-mode
+  crossword-summary-revert-buffer
+  crossword-summary-select
+  crossword-summary-sort
+  crossword-summary-tab-backward
+  crossword-summary-tab-forward
+  )
 
 ;;}}}
 (provide 'emacspeak-crossword)

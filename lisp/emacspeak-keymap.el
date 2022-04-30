@@ -118,7 +118,7 @@
                    (list (+ bits (- ?\C-\^@)
                             (logand (aref word 0) 31)))))
             (t (setq key (list (+ bits (aref word 0)))))))))
-;; push key on to the result vector 
+       ;; push key on to the result vector 
        (when key (cl-callf vconcat res key))))
     res))
 
@@ -128,7 +128,6 @@
 (defun emacspeak-keymap-command-p (s)
   "Test if `s' can to be bound to a key."
   (or (commandp s) (keymapp s)))
-
 
 (defsubst emacspeak-keymap-update (keymap binding)
   "Update keymap with  binding."
@@ -345,7 +344,7 @@
 
 (dotimes (i 10)
   (define-key emacspeak-keymap   (format "%s" i)
-    'emacspeak-speak-predefined-window))
+              'emacspeak-speak-predefined-window))
 
 (cl-loop
  for binding in
@@ -388,7 +387,7 @@
 
 (dotimes (i 10)
   (define-key emacspeak-dtk-submap
-    (format "%s" i)   'dtk-set-predefined-speech-rate))
+              (format "%s" i)   'dtk-set-predefined-speech-rate))
 
 (cl-loop
  for binding in
@@ -502,7 +501,7 @@
   "Emacspeak personal-ctlx keymap")
 
 (define-prefix-command 'emacspeak-personal-ctlx-keymap
-  'emacspeak-personal-ctlx-keymap)
+                       'emacspeak-personal-ctlx-keymap)
 
 (defcustom emacspeak-personal-ctlx-keys nil
   "Key bindings for use with C-e C-x. "
@@ -581,7 +580,7 @@
 
 (defcustom emacspeak-alt-keys 
   '(
-            ("," eldoc)
+    ("," eldoc)
     ("a" emacspeak-feeds-atom-display)
     ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
@@ -599,7 +598,7 @@
     ("u" emacspeak-m-player-url)
     ("v" visual-line-mode)
     ("y" emacspeak-m-player-youtube-player)
-("SPC" emacspeak-eww-smart-tabs)
+    ("SPC" emacspeak-eww-smart-tabs)
     ) 
   "Alt key bindings. "
   :group 'emacspeak

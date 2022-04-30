@@ -141,10 +141,9 @@
 (defvar soundscape-volume 0.3
   "Volume used for soundscape -- between 0 and 1")
 
-
 (defcustom soundscape-manager-options
   `(
-    ;"-o" "alsa"
+                                        ;"-o" "alsa"
     "-m" ,(format "%s" soundscape-volume))
   "User customizable options list passed to boodler.
 Defaults specify alsa as the output and set master volume"
@@ -300,7 +299,6 @@ Default is to return NullAgent if name not found."
     Custom-mode messages-buffer-mode)
   "List of mode names that get the Help mood.")
 
-
 (defun soundscape-load-theme (theme)
   "Sets up automatic Soundscape mappings based on theme.
 See  \\{soundscape-default-theme} for details."
@@ -348,7 +346,7 @@ See  \\{soundscape-default-theme} for details."
     ("TonkSpace" (tabulated-list-mode))
     ("WaterFlow"  (dired-mode))
     )
-"Specifies default map.
+  "Specifies default map.
 Map is a list of lists, where the first element of each sublist
 is a Soundscape name, and the second element is a list of
 Soundscape names. Soundscape at position 0 (the first entry in
@@ -494,7 +492,6 @@ Optional interactive prefix arg restarts the listener."
 ;;}}}
 ;;{{{ Automatic soundscapes:
 
-
 (defvar soundscape--auto nil
   "Record if automatic soundscapes are on.
 Do not set this by hand, use command \\[soundscape-toggle].")
@@ -589,7 +586,7 @@ The  is then saved to soundscape-device for future use."
   (cl-declare (special soundscape--last-mode  soundscape--scapes
                        soundscape--filters soundscape--auto
                        soundscape-volume soundscape-manager-options
-                        soundscape-device))
+                       soundscape-device))
   (setq soundscape--scapes nil soundscape--last-mode nil)
   (when  prompt
     (setq soundscape-volume
@@ -606,7 +603,7 @@ The  is then saved to soundscape-device for future use."
             "default"))
     (setq soundscape-manager-options
           `("-o" "alsa"
-    "-m" ,(format "%s" soundscape-volume))))
+            "-m" ,(format "%s" soundscape-volume))))
   (when soundscape--auto
     (soundscape-toggle)
     (soundscape-listener-shutdown))

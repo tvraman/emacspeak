@@ -147,8 +147,6 @@ Fields are assumed to be delimited by whitespace. "
 ;; tl = start for first column
 ;; br = end for last column
 
-
-
 ;;}}}
 ;;{{{ Parse a region of tabular data
 ;;;###autoload

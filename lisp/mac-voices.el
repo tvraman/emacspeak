@@ -64,8 +64,6 @@
   (dtk-select-server "mac")
   (dtk-initialize))
 
-
-
 ;;}}}
 ;;{{{ Customizations:
 
@@ -188,8 +186,6 @@ and TABLE gives the values along that dimension."
   (mac-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
-
-
 
 (defun mac-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
@@ -324,9 +320,6 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ tts-env for Mac:
-
- 
-
 
 (provide 'mac-voices)
 ;;{{{  emacs local variables

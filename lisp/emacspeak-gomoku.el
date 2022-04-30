@@ -235,8 +235,6 @@
 
 ;;{{{  advice all navigation
 
-
-
 (cl-loop
  for f in
  '(gomoku-beginning-of-line gomoku-end-of-line
@@ -288,9 +286,9 @@
            do
            (define-key gomoku-mode-map key 'gomoku-move-right))
   (define-key gomoku-mode-map "\t"
-    'emacspeak-gomoku-speak-emacs-previous-move)
+              'emacspeak-gomoku-speak-emacs-previous-move)
   (define-key gomoku-mode-map "\M-\t"
-    'emacspeak-gomoku-speak-humans-previous-move) 
+              'emacspeak-gomoku-speak-humans-previous-move) 
   (define-key  gomoku-mode-map "f" 'emacspeak-gomoku-goto-x-y)
   ;; my navigational preference
   (define-key gomoku-mode-map "q" 'gomoku-move-nw)
@@ -308,9 +306,9 @@
   (define-key gomoku-mode-map "r" 'emacspeak-gomoku-show-current-row)
   (define-key gomoku-mode-map "c" 'emacspeak-gomoku-show-current-column)
   (define-key gomoku-mode-map "\\"
-    'emacspeak-gomoku-show-current-positive-diagonal)
+              'emacspeak-gomoku-show-current-positive-diagonal)
   (define-key gomoku-mode-map "/"
-    'emacspeak-gomoku-show-current-negative-diagonal)
+              'emacspeak-gomoku-show-current-negative-diagonal)
   (define-key gomoku-mode-map "=" 'emacspeak-gomoku-speak-number-of-moves)
   )
 

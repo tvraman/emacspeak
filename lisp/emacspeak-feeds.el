@@ -59,7 +59,6 @@
 ;;}}}
 ;;{{{  feed cache
 
-
 (defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
@@ -140,12 +139,11 @@ The feed list is persisted to file saved-feeds on exit."
         (let ((dtk-quiet t))
           (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
         (ems-with-messages-silenced
-            (message "Added feed as %s" title))))))
+         (message "Added feed as %s" title))))))
 
 (defvar emacspeak-feeds-archive-file
   (expand-file-name "feeds.el" emacspeak-user-directory)
   "Feed archive.")
-
 
 (defun emacspeak-feeds-archive-feeds ()
   "Archive list of subscribed fees to personal resource directory.
@@ -164,7 +162,6 @@ Archiving is useful when synchronizing feeds across multiple machines."
       (message "Archived emacspeak-feeds containing %d feeds in %s"
                (length emacspeak-feeds)
                emacspeak-feeds-archive-file))))
-
 
 (defun emacspeak-feeds-restore-feeds ()
   "Restore list of subscribed fees from  personal resource directory.
@@ -189,7 +186,6 @@ Archiving is useful when synchronizing feeds across multiple machines."
          (format "After restoring %d feeds, we have a total of %d feeds. Save? "
                  (length feeds) (length emacspeak-feeds)))
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
-
 
 (defun emacspeak-feeds-fastload-feeds ()
   "Fast load list of feeds from archive.

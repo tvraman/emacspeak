@@ -121,7 +121,7 @@
 (defadvice emms-stream-mode (after emacspeak pre act comp)
   "Update keymaps."
   (define-key emms-stream-mode-map "\C-e"
-    'emacspeak-prefix-command))
+              'emacspeak-prefix-command))
 
 (defadvice emms-stream-delete-bookmark (after emacspeak pre act
                                               comp)
@@ -172,7 +172,6 @@
 
 ;;}}}
 ;;{{{ pause/resume if needed
-
 
 (defun emacspeak-emms-pause-or-resume ()
   "Pause/resume if emms is running. For use  in

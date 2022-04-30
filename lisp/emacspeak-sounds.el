@@ -152,22 +152,21 @@ Do not set this by hand;
 
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
-    (cond
-     ((emacspeak-sounds-theme-get-extension theme-name) t)
-     ((file-exists-p (expand-file-name "define-theme.el" theme-name))
-      ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
-      ;; us, so we can't require it at top-level.
-      (require 'emacspeak-preamble)
-      (declare-function ems--fastload "emacspeak-preamble" (file))
-      (ems--fastload (expand-file-name "define-theme.el" theme-name)))
-     (t (error "Theme %s is missing its configuration file. " theme-name))))
+  (cond
+   ((emacspeak-sounds-theme-get-extension theme-name) t)
+   ((file-exists-p (expand-file-name "define-theme.el" theme-name))
+    ;; `ems--fastload' is defined in `emacspeak-preamble' which requires
+    ;; us, so we can't require it at top-level.
+    (require 'emacspeak-preamble)
+    (declare-function ems--fastload "emacspeak-preamble" (file))
+    (ems--fastload (expand-file-name "define-theme.el" theme-name)))
+   (t (error "Theme %s is missing its configuration file. " theme-name))))
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
   (cl-declare (special emacspeak-sounds-directory))
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
-
 
 (defun emacspeak-sounds-select-theme  (theme)
   "Select theme for auditory icons."
@@ -219,7 +218,6 @@ Do not set this by hand;
 
 ;;}}}
 ;;{{{  serve an auditory icon
-
 
 (defun emacspeak-serve-auditory-icon (sound-name)
   "Serve auditory icon SOUND-NAME."

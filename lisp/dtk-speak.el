@@ -303,8 +303,8 @@ bound to \\[dtk-toggle-caps].")
   "List of  punctuation modes.")
 
 (defvar-local dtk-speech-rate
-  (if (string-match "dtk" dtk-program)
-      225 100)
+    (if (string-match "dtk" dtk-program)
+        225 100)
   "Speech rate.
  Use `dtk-set-rate'
  bound to \\[dtk-set-rate].")
@@ -481,8 +481,6 @@ Uses a 5ms fade-in and fade-out. "
   (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-preferred-language alias lang)))
-
-
 
 ;; helper function:
 ;; Quote the string in current buffer so tcl does not barf.
@@ -661,10 +659,10 @@ specifies the current pronunciation mode --- See
 (defun dtk-quote (mode)
   "Clean-up text."
   (let ((inhibit-read-only t))
-;; dtk will think it's processing a command otherwise:
+    ;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets mode)
     (dtk-handle-caps)
-;; fix control chars
+    ;; fix control chars
     (dtk-fix-control-chars)))
 
 (defun dtk-fix-backslash ()
@@ -720,7 +718,7 @@ Argument COMPLEMENT  is the complement of separator."
   (unless (or (eq 'inaudible voice)
               (null text) (string-equal text "")
               (and (listp voice) (memq 'inaudible voice)))
-;; ensure text is a  string
+    ;; ensure text is a  string
     (unless (stringp text) (setq text (format "%s" text)))
     (dtk-interp-queue-code
      (cond
@@ -1285,7 +1283,7 @@ Set by \\[dtk-set-punctuations].")
     (aset table 125 "right[*]brace ")
     (aset table 126 "tilde")
     (aset table 127 "backspace")
-;; Characters with the 8th bit set:
+    ;; Characters with the 8th bit set:
     (aset table 128 " octal 200 ")
     (aset table 129 " ")                ;shows up on WWW pages
     (aset table 130 " octal 202 ")
@@ -1621,8 +1619,8 @@ Argument S specifies the syntax class."
 ;;{{{ speak text
 
 (defvar-local dtk-yank-excluded-properties
-  '(category field follow-link fontified font-lock-face help-echo
-             keymap local-map mouse-face read-only intangible yank-handler)
+    '(category field follow-link fontified font-lock-face help-echo
+               keymap local-map mouse-face read-only intangible yank-handler)
   "Like yank-excluded-properties, but without  invisible
  in it.
 This is so text marked invisible is silenced.")
@@ -1642,17 +1640,17 @@ unless   `dtk-quiet' is set to t. "
                dtk-split-caps
                emacspeak-pronounce-pronunciation-table
                selective-display))
-;; ensure text is a  string
+  ;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
-;; ensure  the process  is live
+  ;; ensure  the process  is live
   (unless (process-live-p dtk-speaker-process) (dtk-initialize))
-;; If you dont want me to talk,or my server is not running,
-;; I will remain silent.
-;; I also do nothing if text is nil or ""
+  ;; If you dont want me to talk,or my server is not running,
+  ;; I will remain silent.
+  ;; I also do nothing if text is nil or ""
   (unless
       (or dtk-quiet (not dtk-speak-server-initialized)
           (null text) (zerop (length text)))
-;; flush previous speech if asked to
+    ;; flush previous speech if asked to
     (when dtk-stop-immediately
       (when (process-live-p dtk-notify-process) (dtk-notify-stop))
       (dtk-stop))
@@ -1686,7 +1684,7 @@ unless   `dtk-quiet' is set to t. "
       (with-current-buffer dtk-scratch-buffer
         (setq buffer-undo-list t)
         (erase-buffer)
-;; inherit environment
+        ;; inherit environment
         (setq
          yank-excluded-properties dtk-yank-excluded-properties
          emacspeak-pronounce-personality pron-personality
@@ -1722,7 +1720,7 @@ unless   `dtk-quiet' is set to t. "
             (setq end (point))
             (dtk-audio-format start end)
             (setq start end)))          ; end while
-;; process trailing text
+        ;; process trailing text
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
           (unless (eobp) (dtk-audio-format (point) (point-max))))))
@@ -1734,14 +1732,14 @@ unless   `dtk-quiet' is set to t. "
   `(progn
      (defvar emacspeak-speak-messages)
      (let ((emacspeak-speak-messages nil)
-         (inhibit-message t))
-     ,@body)))
+           (inhibit-message t))
+       ,@body)))
 
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it."
   (ems-with-messages-silenced
-      (dtk-speak message)
-    (message "%s" message)))
+   (dtk-speak message)
+   (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.
@@ -1752,7 +1750,7 @@ grouping"
   (cl-declare (special dtk-speaker-process))
   (unless group (setq group 3))
   (when (numberp group)
-;; Create split list
+    ;; Create split list
     (setq group
           (let ((q (/ (length text) group))
                 (r (% (length text) group))

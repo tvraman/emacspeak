@@ -78,7 +78,7 @@
 ;;{{{ Variables:
 
 (defvar emacspeak-librivox-buffer-name
-"Librivox Interaction*"
+  "Librivox Interaction*"
   "Name of Librivox interaction buffer.")
 
 ;;}}}
@@ -229,7 +229,7 @@ Optional arg `offset' (default 0) is used for getting more results."
 
 (defvar emacspeak-librivox-genre-list
   '(
-"Non-fiction" "Action & Adventure" "Action & Adventure Fiction"
+    "Non-fiction" "Action & Adventure" "Action & Adventure Fiction"
     "Ancient" "Animals" "Animals & Nature"
     "Anthologies" "Antiquity" "Art, Design & Architecture"
     "Arts" "Astronomy, Physics & Mechanics" "Ballads"
@@ -278,7 +278,6 @@ Optional arg `offset' (default 0) is used for getting more results."
     )
   "List of genres.")
 
-
 (defun emacspeak-librivox-search-by-genre (genre &optional offset)
   "Search by genre.
 Optional prefix arg `offset' prompts for offset."
@@ -294,7 +293,6 @@ Optional prefix arg `offset' prompts for offset."
            (url-encode-url genre))
    offset))
 
-
 (defun emacspeak-librivox-search-by-author (author &optional offset)
   "Search by author. Both exact and partial matches for
 `author'. Optional interactive prefix arg `offset' prompts for offset
@@ -306,7 +304,6 @@ Optional prefix arg `offset' prompts for offset."
    (format "author=%s"
            (url-hexify-string author))
    offset))
-
 
 (defun emacspeak-librivox-search-by-title (title &optional offset)
   "Search by title. Both exact and partial matches for `title'. Optional

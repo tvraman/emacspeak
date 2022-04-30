@@ -55,7 +55,6 @@
 (require 'voice-setup)
 (require 'wid-edit)
 
-
 ;;}}}
 ;;{{{  Customize global behavior
 

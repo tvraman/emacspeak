@@ -109,7 +109,7 @@ n == News.")
 (defvar gweb-google-suggest-metadata
   '(metadata .
              (
-;; Google suggest returns suggestions already sorted
+              ;; Google suggest returns suggestions already sorted
               (display-sort-function . identity)
                                         ; add annots function here
               ))

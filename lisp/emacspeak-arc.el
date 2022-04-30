@@ -219,7 +219,7 @@ first initializing it if necessary."
   (define-key archive-mode-map "c" 'emacspeak-arc-speak-file-modification-time)
   (define-key archive-mode-map "z" 'emacspeak-arc-speak-file-size)
   (define-key archive-mode-map "/"
-    'emacspeak-arc-speak-file-permissions)
+              'emacspeak-arc-speak-file-permissions)
   )
 
 (cl-eval-when (load)

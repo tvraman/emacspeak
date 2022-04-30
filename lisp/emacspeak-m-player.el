@@ -219,27 +219,26 @@ Reset immediately after being used.")
   (forward-line 1)
   (emacspeak-dired-speak-line))
 
-
 (defun ems--dynamic-playlist-duration ()
   "Return duration of dynamic playlist."
   (cl-declare (special emacspeak-m-player-dynamic-playlist))
   (cl-assert emacspeak-m-player-dynamic-playlist t "No dynamic playlist")
   (ems-with-messages-silenced
-      (let* ((result nil)
-             (buff  " *soxi*")
-             (proc
-              (apply
-               #'start-process
-               "soxi" buff
-               "soxi" "-Td"
-               emacspeak-m-player-dynamic-playlist)))
-        (accept-process-output proc 0 100)
-        (with-current-buffer buff
-          (goto-char (point-min))
-          (setq result (buffer-substring-no-properties
-                        (line-beginning-position)
-                        (line-end-position))))
-        result)))
+   (let* ((result nil)
+          (buff  " *soxi*")
+          (proc
+           (apply
+            #'start-process
+            "soxi" buff
+            "soxi" "-Td"
+            emacspeak-m-player-dynamic-playlist)))
+     (accept-process-output proc 0 100)
+     (with-current-buffer buff
+       (goto-char (point-min))
+       (setq result (buffer-substring-no-properties
+                     (line-beginning-position)
+                     (line-end-position))))
+     result)))
 
 ;;}}}
 ;;{{{ emacspeak-m-player
@@ -422,8 +421,8 @@ If a dynamic playlist exists, just use it."
              #'ido-read-file-name))
           (read-file-name-completion-ignore-case t)
           (default-filename
-            (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
-              (dired-get-filename nil 'no-error)))
+           (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
+             (dired-get-filename nil 'no-error)))
           (dir (emacspeak-media-guess-directory))
           (result nil))
       (setq result
@@ -636,7 +635,6 @@ This will work if the soundcard is set to 48000."
          (append emacspeak-m-player-options (list "-shuffle"))))
     (call-interactively #'emacspeak-m-player)))
 
-
 ;;;###autoload
 (defun emacspeak-m-player-loop (&optional raw)
   "M-Player with repeat indefinitely  turned on.
@@ -655,17 +653,17 @@ Interactive prefix arg appends the new resource to what is playing."
   (interactive
    (list
     (ems-with-messages-silenced
-        (let ((completion-ignore-case t)
-              (read-file-name-completion-ignore-case t))
-          (read-file-name
-           "MP3 Resource: "
-           (if
-               (string-match "\\(mp3\\)\\|\\(audio\\)"
-                             (expand-file-name default-directory))
-               default-directory
-             emacspeak-media-shortcuts-directory)
-           (when (eq major-mode 'dired-mode)
-             (dired-get-filename)))))
+     (let ((completion-ignore-case t)
+           (read-file-name-completion-ignore-case t))
+       (read-file-name
+        "MP3 Resource: "
+        (if
+            (string-match "\\(mp3\\)\\|\\(audio\\)"
+                          (expand-file-name default-directory))
+            default-directory
+          emacspeak-media-shortcuts-directory)
+        (when (eq major-mode 'dired-mode)
+          (dired-get-filename)))))
     current-prefix-arg))
   (cl-declare (special emacspeak-media-extensions
                        emacspeak-media-shortcuts-directory))
@@ -723,7 +721,7 @@ necessary."
   "Return list (position filename length)  to use as an amark. "
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-;; dispatch command twice to avoid flakiness in mplayer
+    ;; dispatch command twice to avoid flakiness in mplayer
     (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n")
     (let* ((output (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n") )
            (lines (split-string output "\n" 'omit-nulls))
@@ -1037,7 +1035,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
              collect
              (concat (cl-first f) " " (cl-second f) "\n ")))
       (tts-with-punctuations 'some
-        (dtk-speak-and-echo (apply #'concat result))))
+                             (dtk-speak-and-echo (apply #'concat result))))
      (t (dtk-speak-and-echo "Waiting")))))
 
 (defun emacspeak-m-player-load-playlist(f)
@@ -1219,9 +1217,9 @@ Applies  the resulting value at each step."
         (key nil)
         (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
-;; First, clear any equalizers in effect:
+    ;; First, clear any equalizers in effect:
     (emacspeak-m-player-dispatch "af_del equalizer")
-;; Apply specified vector:
+    ;; Apply specified vector:
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
       (setq key
@@ -1428,7 +1426,6 @@ flat classical club dance full-bass full-bass-and-treble
      emacspeak-m-player-youtube-dl url))
    0 -1))
 
-
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 
 ;;;###autoload
@@ -1479,7 +1476,6 @@ Optional prefix arg `best' chooses highest."
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (kill-new u)
     (emacspeak-m-player u)))
-
 
 ;;}}}
 ;;{{{ pause/resume

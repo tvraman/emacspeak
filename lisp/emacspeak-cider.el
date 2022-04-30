@@ -42,7 +42,6 @@
 ;;; Commentary:
 ;; Speech-Enable CIDER --- Clojure IDE
 
-
 ;;; Code:
 
 ;;}}}
@@ -253,7 +252,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."(when (ems-interactive-p)
-                                   (emacspeak-speak-line)))))
+               (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ misc commands:

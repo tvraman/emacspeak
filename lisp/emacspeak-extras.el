@@ -96,7 +96,6 @@
 ;;}}}
 ;;{{{Midi Playback Using MuseScore ==mscore:
 
-
 (defvar emacspeak-wizards-media-pipe
   (expand-file-name "pipe.flac" emacspeak-user-directory)
   "Named socket for piped media streams.")
@@ -137,7 +136,6 @@
 (defvar emacspeak-autoload-cookie-pattern
   ";;;;###autoload"
   "autoload cookie pattern.")
-
 
 (defun emacspeak-wizards-add-autoload-cookies (&optional f)
   "Add autoload cookies to file f.
@@ -220,10 +218,10 @@ for the current voice family."
    (and
     (symbolp v) (boundp v)
     (string-match "^voice-" (symbol-name v))
-        (not (string-match "-settings$" (symbol-name v)))
-        (string=
-         (find-lisp-object-file-name v 'defvar)
-         (expand-file-name "voice-defs.el" emacspeak-lisp-directory)))
+    (not (string-match "-settings$" (symbol-name v)))
+    (string=
+     (find-lisp-object-file-name v 'defvar)
+     (expand-file-name "voice-defs.el" emacspeak-lisp-directory)))
    collect v))
 
 ;;;###autoload
@@ -271,7 +269,6 @@ Sample text to use comes from variable
     (list-faces-display pattern)
     (message "Displayed voice-face mappings in other window.")))
 
-
 (defun voice-setup-show-rogue-faces ()
   "Return list of voices that map to non-existent faces."
   (cl-declare (special voice-setup-face-voice-table))
@@ -290,7 +287,6 @@ bound to \\[emacspeak-wizards-tramp-open-location]."
                 (string :tag "Location")))
   :group 'emacspeak-wizards)
 
-
 (defun emacspeak-wizards-tramp-open-location (name)
   "Open specified tramp location.
 Location is specified by name."
@@ -308,7 +304,6 @@ Location is specified by name."
 
 ;;}}}
 ;;{{{ find grep using compile
-
 
 (defun emacspeak-wizards-find-grep (glob pattern)
   "Run compile using find and grep.
@@ -384,7 +379,7 @@ Interactive  arguments specify filename pattern and search pattern."
 (make-variable-buffer-local 'emacspeak-annotate-working-buffer)
 
 (defvar emacspeak-annotate-edit-buffer
-"emacspeak-annotation*"
+  "emacspeak-annotation*"
   "Name of temporary buffer used to edit the annotation.")
 
 (defun emacspeak-annotate-get-annotation ()
@@ -440,7 +435,6 @@ annotation is inserted into the working buffer when complete."
   :type 'file
   :group 'emacspeak-wizards)
 
-
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with a browser ."
   (interactive "sURL: ")
@@ -490,17 +484,16 @@ Emacspeak sessions running on  different machines. "
         (clipboard nil))
     (setq clipboard (find-file-noselect clipboard-file))
     (ems-with-messages-silenced
-        (save-current-buffer
-          (set-buffer clipboard)
-          (erase-buffer)
-          (insert clip)
-          (save-buffer)))
+     (save-current-buffer
+       (set-buffer clipboard)
+       (erase-buffer)
+       (insert clip)
+       (save-buffer)))
     (message "Copied %s lines to Emacspeak clipboard %s"
              (count-lines start end)
              clipboard-file)))
 
 (declare-function emacspeak-table-paste-from-clipboard "emacspeak-extras" t)
-
 
 ;;;###autoload
 (defun emacspeak-clipboard-paste (&optional paste-table)

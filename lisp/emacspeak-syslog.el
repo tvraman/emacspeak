@@ -56,16 +56,16 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(syslog-debug voice-animate)
-(syslog-error voice-bolden)
-(syslog-file voice-smoothen-extra)
-(syslog-hide voice-annotate)
-(syslog-hour voice-monotone-extra)
-(syslog-info voice-animate)
-(syslog-ip voice-lighten)
-(syslog-su voice-bolden)
-(syslog-warn voice-bolden)))
+ '(
+   (syslog-debug voice-animate)
+   (syslog-error voice-bolden)
+   (syslog-file voice-smoothen-extra)
+   (syslog-hide voice-annotate)
+   (syslog-hour voice-monotone-extra)
+   (syslog-info voice-animate)
+   (syslog-ip voice-lighten)
+   (syslog-su voice-bolden)
+   (syslog-warn voice-bolden)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -77,15 +77,12 @@
     (message "Displayed WhoIs data in other window.")
     ))
 
-
 (defadvice syslog-filter-dates (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (forward-line -2)
     (what-line)
     (emacspeak-auditory-icon 'ellipses)))
-
-
 
 (defadvice syslog-filter-lines (after emacspeak pre act comp)
   "speak."

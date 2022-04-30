@@ -44,7 +44,6 @@
 (declare-function widget-at "wid-edit" (&optional pos))
 (declare-function widget-type "wid-edit" (widget))
 
-
 ;;}}}
 ;;{{{  Introduction:
 
@@ -148,8 +147,6 @@ Summarize the form to welcome the user. "
   )
 ;;}}}
 ;;{{{ voiceify values in results 
-
-
 
 (defvar emacspeak-eudc-attribute-value-personality
   voice-animate

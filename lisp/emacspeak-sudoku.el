@@ -205,7 +205,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (cl-count 0
-            (sudoku-row current-board (cl-second cell))))))
+               (sudoku-row current-board (cl-second cell))))))
 
 (defun emacspeak-sudoku-speak-remaining-in-column ()
   "Speaks number of remaining cells in current column."
@@ -214,7 +214,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (cl-count 0
-            (sudoku-column current-board  (cl-first cell))))))
+               (sudoku-column current-board  (cl-first cell))))))
 
 (defun emacspeak-sudoku-speak-remaining-in-sub-square ()
   "Speaks number of remaining cells in current sub-square."
@@ -223,8 +223,8 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (cl-count 0
-            (sudoku-subsquare current-board
-                              (emacspeak-sudoku-cell-sub-square cell))))))
+               (sudoku-subsquare current-board
+                                 (emacspeak-sudoku-cell-sub-square cell))))))
 (defun emacspeak-sudoku-how-many-remaining ()
   "Speak number of remaining squares to fill."
   (interactive)

@@ -86,7 +86,6 @@
        (with-current-buffer (window-buffer (selected-window))
          (emacspeak-speak-mode-line))))))
 
-
 (cl-loop
  for f in 
  '(ivy-done ivy-alt-done ivy-immediate-done)

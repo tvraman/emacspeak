@@ -96,7 +96,6 @@
 ;;}}}
 ;;{{{ top-level dispatch
 
-
 (defun emacspeak-websearch-help ()
   "Displays key mapping used by Emacspeak Websearch."
   (interactive)
@@ -172,15 +171,15 @@ ARGS specifies additional arguments to SPEAKER if any."
   (add-hook
    'emacspeak-eww-post-process-hook
    (eval
-      `#'(lambda nil
-        (let ((inhibit-read-only t))
-          (condition-case nil
-              (cond
-               ((search-forward ,locator nil t)
-                (recenter 0)
-                (apply(quote ,speaker) ,args))
-               (t (message "Your search appears to have failed.")))
-            (error nil)))))
+    `#'(lambda nil
+         (let ((inhibit-read-only t))
+           (condition-case nil
+               (cond
+                ((search-forward ,locator nil t)
+                 (recenter 0)
+                 (apply(quote ,speaker) ,args))
+                (t (message "Your search appears to have failed.")))
+             (error nil)))))
    'at-end))
 
 ;;}}}
@@ -195,7 +194,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 (defvar emacspeak-websearch-biblio-uri
   "http://liinwww.ira.uka.de/searchbib/index?partial=on&case=on&results=citation&maxnum=200&query="
   "URI to search the Computer Science Bibliographies.")
-
 
 (defun emacspeak-websearch-biblio-search (query)
   "Search Computer Science Bibliographies."
@@ -223,7 +221,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (emacspeak-websearch-set-key 3 'citeseer)
 
-
 (defun emacspeak-websearch-citeseer-search(term)
   "Perform a CiteSeer search. "
   (interactive
@@ -242,8 +239,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defvar emacspeak-websearch-foldoc-uri
   "http://foldoc.org/"
-"URI for launching a FolDoc  search.")
-
+  "URI for launching a FolDoc  search.")
 
 (defun emacspeak-websearch-foldoc-search (query)
   "Perform a FolDoc search. "
@@ -267,8 +263,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defvar emacspeak-websearch-gutenberg-uri
   "http://digital.library.upenn.edu/webbin/book/search?"
-"URI for Gutenberg search")
-
+  "URI for Gutenberg search")
 
 (defun emacspeak-websearch-gutenberg (type query)
   "Perform an Gutenberg search"
@@ -384,7 +379,6 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   "https://www.google.com/search?num=25&lite=90586&q=%s"
   "Using experimental Google Lite.")
 
-
 (defun emacspeak-websearch-accessible-google(query &optional options)
   "Use Google Lite (Experimental).
 Optional prefix arg prompts for toolbelt options."
@@ -418,14 +412,12 @@ Optional prefix arg prompts for toolbelt options."
   (interactive (list (gweb-google-autocomplete "IGoogle: ")))
   (emacspeak-websearch-accessible-google query 'use-toolbelt))
 
-
 (defun emacspeak-websearch-google-feeling-lucky (query)
   "Do a I'm Feeling Lucky Google search."
   (interactive
    (list
     (gweb-google-autocomplete "Google Lucky Search: ")))
   (emacspeak-websearch-google query '(16)))
-
 
 (defun emacspeak-websearch-google-search-in-date-range ()
   "Use this from inside the calendar to do Google date-range searches."
@@ -445,7 +437,7 @@ Optional prefix arg prompts for toolbelt options."
 (when (featurep 'calendar)
   (cl-declaim (special calendar-mode-map))
   (define-key calendar-mode-map "gg"
-    'emacspeak-websearch-google-search-in-date-range))
+              'emacspeak-websearch-google-search-in-date-range))
 
 ;;}}}
 ;;{{{ Google News
@@ -454,7 +446,6 @@ Optional prefix arg prompts for toolbelt options."
                                   'emacspeak-websearch-google-news)
 
 (emacspeak-websearch-set-key ?n 'google-news)
-
 
 (defun emacspeak-websearch-google-news ()
   "Invoke Google News url template."
@@ -473,7 +464,6 @@ Optional prefix arg prompts for toolbelt options."
 (defvar emacspeak-websearch-jeeves-uri
   "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
   "URI for Ask Jeeves  search")
-
 
 (defun emacspeak-websearch-ask-jeeves (query)
   "Ask Jeeves for the answer."
@@ -496,7 +486,6 @@ Optional prefix arg prompts for toolbelt options."
   "http://www.m-w.com/cgi-bin/dictionary?va="
   "URI for searching the Merriam Webster dictionary.")
 
-
 (defun emacspeak-websearch-merriam-webster-search (query)
   "Search the Merriam Webster Dictionary."
   (interactive
@@ -516,7 +505,6 @@ Optional prefix arg prompts for toolbelt options."
 
 (emacspeak-websearch-set-key ?w 'wikipedia)
 
-
 (defun emacspeak-websearch-wikipedia-search (query)
   "Search Wikipedia using Google."
   (interactive
@@ -531,7 +519,6 @@ Optional prefix arg prompts for toolbelt options."
                                   'emacspeak-websearch-youtube-search)
 
 (emacspeak-websearch-set-key ?y 'youtube-search)
-
 
 (defun emacspeak-websearch-youtube-search (query)
   "YouTube search."
@@ -550,7 +537,6 @@ Optional prefix arg prompts for toolbelt options."
 (defvar emacspeak-websearch-amazon-search-form
   "http://www.amazon.com/access"
   "Form for Amazon store search.")
-
 
 (defun emacspeak-websearch-amazon-search ()
   "Amazon search."

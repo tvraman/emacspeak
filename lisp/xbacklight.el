@@ -69,8 +69,8 @@
   "Set brightness."
   (interactive "sBrightness: ")
   (cl-declare (special xbacklight-cmd))
-      (when xbacklight-cmd
-        (start-process "XBacklight" nil xbacklight-cmd "-set" brightness)))
+  (when xbacklight-cmd
+    (start-process "XBacklight" nil xbacklight-cmd "-set" brightness)))
 
 (defvar xbacklight-step  "10"
   "Step-size used when incrementing and decrementing brightness.")
@@ -97,7 +97,7 @@
 (defun xbacklight-white ()
   "White screen."
   (interactive)
-   (xbacklight-set "100"))
+  (xbacklight-set "100"))
 
 ;;}}}
 (provide 'xbacklight)

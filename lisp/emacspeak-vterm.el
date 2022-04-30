@@ -101,7 +101,7 @@
 (with-eval-after-load "vterm"
   (cl-declaim (special vterm-mode-map vterm-copy-mode-map))
   (define-key vterm-mode-map (ems-kbd "C-e")
-    'emacspeak-prefix-command)
+              'emacspeak-prefix-command)
   (define-key vterm-copy-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command))
 
 (defadvice vterm (after emacspeak pre act comp)
@@ -128,12 +128,9 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-
 (defadvice vterm-send-return (after emacspeak pre act comp)
   "speak."
   (emacspeak-vterm-snapshot))
-
-
 
 (cl-loop
  for f in
@@ -195,10 +192,10 @@
         (new-row (1+ (count-lines (point-min) (point))))
         (new-column (current-column)))
     (ems-with-messages-silenced ;;; debug output
-        (message
-         "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
-         last-command-event row column
-         new-row new-column current-char))
+     (message
+      "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
+      last-command-event row column
+      new-row new-column current-char))
     (cond
      ((and ;;; backspace or 127
        (memq  last-command-event    '(127 backspace))
@@ -229,7 +226,6 @@
                (save-excursion
                  (beginning-of-line) (buffer-substring (1+ opoint) (point)))))))
         (emacspeak-speak-line))))))
-
 
 ;;}}}
 (provide 'emacspeak-vterm)

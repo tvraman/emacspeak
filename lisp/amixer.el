@@ -151,7 +151,7 @@
                 (line-beginning-position)
                 (line-end-position))
                ","))
-;; only need 3 fields:
+        ;; only need 3 fields:
         (setq fields
               (list
                (nth 0 fields)

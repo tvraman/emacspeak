@@ -54,17 +54,15 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(annotate-annotation voice-animate)
-(annotate-annotation-secondary voice-monotone)
-(annotate-highlight voice-smoothen)
-(annotate-highlight-secondary voice-lighten)
-(annotate-prefix voice-bolden)))
+ '(
+   (annotate-annotation voice-animate)
+   (annotate-annotation-secondary voice-monotone)
+   (annotate-highlight voice-smoothen)
+   (annotate-highlight-secondary voice-lighten)
+   (annotate-prefix voice-bolden)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
-
-
 
 (defadvice annotate-annotate (after emacspeak pre act comp)
   "speak."
@@ -84,8 +82,6 @@
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line)
          (dtk-notify-speak (overlay-get o 'annotation)))))))
-
-
 
 ;;}}}
 (provide 'emacspeak-annotate)

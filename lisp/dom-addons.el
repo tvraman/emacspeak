@@ -152,13 +152,13 @@ ATTRIBUTE would typically be `class', `id' or the like."
   "Return DOM for HTML content at URL."
   (cl-declare (special g-curl-program g-curl-common-options))
   (g-using-scratch
-      (shell-command
-       (format "%s %s '%s'"
-               g-curl-program g-curl-common-options url)
-       (current-buffer))
-    (goto-char (point-min))
-    (xml-remove-comments (point-min) (point-max))
-    (libxml-parse-html-region (point-min) (point-max))))
+   (shell-command
+    (format "%s %s '%s'"
+            g-curl-program g-curl-common-options url)
+    (current-buffer))
+   (goto-char (point-min))
+   (xml-remove-comments (point-min) (point-max))
+   (libxml-parse-html-region (point-min) (point-max))))
 
 ;;}}}
 ;;{{{dom-node-as-text

@@ -102,7 +102,6 @@
   (require 'emacspeak-m-player))
 (with-no-warnings (require 'origami "origami" 'no-error))
 
-
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
 
@@ -152,62 +151,62 @@ Argument `k-map' is a symbol  that names a keymap."
 (global-set-key
  (ems-kbd "s-;")
  (defhydra emacspeak-muggles-m-player
-   (:body-pre (emacspeak-hydra-body-pre "Media Player")
-              :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   (";" emacspeak-m-player)
-   ("+" emacspeak-m-player-volume-up)
-   ("," emacspeak-m-player-backward-10s)
-   ("%" emacspeak-m-player-display-percent)
-   ("-" emacspeak-m-player-volume-down)
-   ("." emacspeak-m-player-forward-10s)
-   ("<" emacspeak-m-player-backward-1min)
-   ("<down>" emacspeak-m-player-forward-1min)
-   ("<end>" emacspeak-m-player-end-of-track)
-   ("<home>" emacspeak-m-player-beginning-of-track)
-   ("<left>" emacspeak-m-player-backward-10s)
-   ("<next>" emacspeak-m-player-forward-10min)
-   ("<prior>" emacspeak-m-player-backward-10min)
-   ("<right>" emacspeak-m-player-forward-10s)
-   ("<up>" emacspeak-m-player-backward-1min)
-   ("=" emacspeak-m-player-volume-up)
-   (">" emacspeak-m-player-forward-1min)
-   ("?" emacspeak-m-player-display-position)
-   ("C" emacspeak-m-player-clear-filters)
-   ("C-m" emacspeak-m-player-load)
-   ("DEL" emacspeak-m-player-reset-speed)
-   ("M-l" emacspeak-m-player-load-playlist)
-   ("O" emacspeak-m-player-reset-options)
-   ("P" emacspeak-m-player-apply-reverb-preset)
-   ("Q" emacspeak-m-player-quit "quit")
-   ("R" emacspeak-m-player-edit-reverb)
-   ("S" emacspeak-amark-save)
-   ("SPC" emacspeak-m-player-pause)
-   ("[" emacspeak-m-player-slower)
-   ("]" emacspeak-m-player-faster)
-   ("a" emacspeak-m-player-amark-add)
-   ("b" emacspeak-m-player-balance)
-   ("c" emacspeak-m-player-slave-command)
-   ("d" emacspeak-m-player-delete-filter)
-   ("e" emacspeak-m-player-add-equalizer)
-   ("f" emacspeak-m-player-add-filter)
-   ("g" emacspeak-m-player-seek-absolute)
-   ("j" emacspeak-m-player-amark-jump)
-   ("l" emacspeak-m-player-get-length)
-   ("m" emacspeak-m-player-mode-line)
-   ("n" emacspeak-m-player-next-track)
-   ("o" emacspeak-m-player-customize-options)
-   ("p" emacspeak-m-player-previous-track)
-   ("q" bury-buffer)
-   ("r" emacspeak-m-player-seek-relative)
-   ("s" emacspeak-m-player-scale-speed)
-   ("t" emacspeak-m-player-play-tracks-jump)
-   ("u" emacspeak-m-player-url)
-   ("v" emacspeak-m-player-volume-change)
-   ("(" emacspeak-m-player-left-channel)
-   (")" emacspeak-m-player-right-channel)
-   ("{" emacspeak-m-player-half-speed)
-   ("}" emacspeak-m-player-double-speed)
-   ))
+           (:body-pre (emacspeak-hydra-body-pre "Media Player")
+                      :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+           (";" emacspeak-m-player)
+           ("+" emacspeak-m-player-volume-up)
+           ("," emacspeak-m-player-backward-10s)
+           ("%" emacspeak-m-player-display-percent)
+           ("-" emacspeak-m-player-volume-down)
+           ("." emacspeak-m-player-forward-10s)
+           ("<" emacspeak-m-player-backward-1min)
+           ("<down>" emacspeak-m-player-forward-1min)
+           ("<end>" emacspeak-m-player-end-of-track)
+           ("<home>" emacspeak-m-player-beginning-of-track)
+           ("<left>" emacspeak-m-player-backward-10s)
+           ("<next>" emacspeak-m-player-forward-10min)
+           ("<prior>" emacspeak-m-player-backward-10min)
+           ("<right>" emacspeak-m-player-forward-10s)
+           ("<up>" emacspeak-m-player-backward-1min)
+           ("=" emacspeak-m-player-volume-up)
+           (">" emacspeak-m-player-forward-1min)
+           ("?" emacspeak-m-player-display-position)
+           ("C" emacspeak-m-player-clear-filters)
+           ("C-m" emacspeak-m-player-load)
+           ("DEL" emacspeak-m-player-reset-speed)
+           ("M-l" emacspeak-m-player-load-playlist)
+           ("O" emacspeak-m-player-reset-options)
+           ("P" emacspeak-m-player-apply-reverb-preset)
+           ("Q" emacspeak-m-player-quit "quit")
+           ("R" emacspeak-m-player-edit-reverb)
+           ("S" emacspeak-amark-save)
+           ("SPC" emacspeak-m-player-pause)
+           ("[" emacspeak-m-player-slower)
+           ("]" emacspeak-m-player-faster)
+           ("a" emacspeak-m-player-amark-add)
+           ("b" emacspeak-m-player-balance)
+           ("c" emacspeak-m-player-slave-command)
+           ("d" emacspeak-m-player-delete-filter)
+           ("e" emacspeak-m-player-add-equalizer)
+           ("f" emacspeak-m-player-add-filter)
+           ("g" emacspeak-m-player-seek-absolute)
+           ("j" emacspeak-m-player-amark-jump)
+           ("l" emacspeak-m-player-get-length)
+           ("m" emacspeak-m-player-mode-line)
+           ("n" emacspeak-m-player-next-track)
+           ("o" emacspeak-m-player-customize-options)
+           ("p" emacspeak-m-player-previous-track)
+           ("q" bury-buffer)
+           ("r" emacspeak-m-player-seek-relative)
+           ("s" emacspeak-m-player-scale-speed)
+           ("t" emacspeak-m-player-play-tracks-jump)
+           ("u" emacspeak-m-player-url)
+           ("v" emacspeak-m-player-volume-change)
+           ("(" emacspeak-m-player-left-channel)
+           (")" emacspeak-m-player-right-channel)
+           ("{" emacspeak-m-player-half-speed)
+           ("}" emacspeak-m-player-double-speed)
+           ))
 
 ;;}}}
 ;;{{{ Outliner:
@@ -216,13 +215,13 @@ Argument `k-map' is a symbol  that names a keymap."
 (global-set-key
  (ems-kbd "C-. o")
  (defhydra emacspeak-muggles-outliner
-   (:body-pre
-    (progn
-      (outline-minor-mode 1)
-      (emacspeak-hydra-body-pre "Outline Navigation"))
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post
-    :color pink :hint nil)
-   "
+           (:body-pre
+            (progn
+              (outline-minor-mode 1)
+              (emacspeak-hydra-body-pre "Outline Navigation"))
+            :pre emacspeak-hydra-pre :post emacspeak-hydra-post
+            :color pink :hint nil)
+           "
 ^Hide^             ^Show^           ^Move
 ^^^^^^------------------------------------------------------
 _q_: sublevels     _a_: all         _u_: up
@@ -233,38 +232,38 @@ _l_: leaves        _s_: subtree     _b_: backward same level
 _d_: subtree
 
 "
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-outliner"))
-   ;; Hide
-   ("q" outline-hide-sublevels) ; Hide everything but the top-level headings
-   ("t" outline-hide-body) ; Hide everything but headings (all body lines)
-   ("o" outline-hide-other)             ; Hide other branches
-   ("c" outline-hide-entry)             ; Hide this entry's body
-   ("l" outline-hide-leaves) ; Hide body lines in this entry and sub-entries
-   ("d" outline-hide-subtree) ; Hide everything in this entry and sub-entries
-   ;; Show
-   ("a" outline-show-all)               ; Show (expand) everything
-   ("e" outline-show-entry)             ; Show this heading's body
-   ("i" outline-show-children) ; Show this heading's immediate child sub-headings
-   ("k" outline-show-branches) ; Show all sub-headings under this heading
-   ("s" outline-show-subtree) ; Show (expand) everything in this heading & below
-   ;; Move
-   ("u" outline-up-heading)               ; Up
-   ("n" outline-next-visible-heading)     ; Next
-   ("p" outline-previous-visible-heading) ; Previous
-   ("f" outline-forward-same-level)       ; Forward - same level
-   ("b" outline-backward-same-level)      ; Backward - same level
-   ("z" nil "leave")))
+           ("?" (emacspeak-hydra-self-help "emacspeak-muggles-outliner"))
+           ;; Hide
+           ("q" outline-hide-sublevels) ; Hide everything but the top-level headings
+           ("t" outline-hide-body) ; Hide everything but headings (all body lines)
+           ("o" outline-hide-other)             ; Hide other branches
+           ("c" outline-hide-entry)             ; Hide this entry's body
+           ("l" outline-hide-leaves) ; Hide body lines in this entry and sub-entries
+           ("d" outline-hide-subtree) ; Hide everything in this entry and sub-entries
+           ;; Show
+           ("a" outline-show-all)               ; Show (expand) everything
+           ("e" outline-show-entry)             ; Show this heading's body
+           ("i" outline-show-children) ; Show this heading's immediate child sub-headings
+           ("k" outline-show-branches) ; Show all sub-headings under this heading
+           ("s" outline-show-subtree) ; Show (expand) everything in this heading & below
+           ;; Move
+           ("u" outline-up-heading)               ; Up
+           ("n" outline-next-visible-heading)     ; Next
+           ("p" outline-previous-visible-heading) ; Previous
+           ("f" outline-forward-same-level)       ; Forward - same level
+           ("b" outline-backward-same-level)      ; Backward - same level
+           ("z" nil "leave")))
 
 ;;}}}
 ;;{{{ Info Summary:
 
 ;; Taken from Hydra wiki and customized to taste:
 (define-key Info-mode-map (ems-kbd "?")
-  (defhydra emacspeak-muggles-info-summary
-    (:color blue :hint nil
-            :body-pre (emacspeak-hydra-body-pre "Info Summary")
-            :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-    "
+            (defhydra emacspeak-muggles-info-summary
+                      (:color blue :hint nil
+                              :body-pre (emacspeak-hydra-body-pre "Info Summary")
+                              :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+                      "
 Info-mode:
 
   ^^_]_ forward  (next logical node)       ^^_l_ast (←)        _u_p (↑)                             _f_ollow reference       _T_OC
@@ -276,52 +275,52 @@ Info-mode:
   _1_ .. _9_ Pick first .. ninth item in the node's menu.
 
 "
-    ("]"   Info-forward-node)
-    ("["   Info-backward-node)
-    ("n"   Info-next)
-    ("p"   Info-prev)
-    ("s"   Info-search)
-    ("S"   Info-search-case-sensitively)
+                      ("]"   Info-forward-node)
+                      ("["   Info-backward-node)
+                      ("n"   Info-next)
+                      ("p"   Info-prev)
+                      ("s"   Info-search)
+                      ("S"   Info-search-case-sensitively)
 
-    ("l"   Info-history-back)
-    ("r"   Info-history-forward)
-    ("H"   Info-history)
-    ("t"   Info-top-node)
-    ("<"   Info-top-node)
-    (">"   Info-final-node)
+                      ("l"   Info-history-back)
+                      ("r"   Info-history-forward)
+                      ("H"   Info-history)
+                      ("t"   Info-top-node)
+                      ("<"   Info-top-node)
+                      (">"   Info-final-node)
 
-    ("u"   Info-up)
-    ("^"   Info-up)
-    ("m"   Info-menu)
-    ("g"   Info-goto-node)
-    ("b"   beginning-of-buffer)
-    ("e"   end-of-buffer)
+                      ("u"   Info-up)
+                      ("^"   Info-up)
+                      ("m"   Info-menu)
+                      ("g"   Info-goto-node)
+                      ("b"   beginning-of-buffer)
+                      ("e"   end-of-buffer)
 
-    ("f"   Info-follow-reference)
-    ("i"   Info-index)
-    (","   Info-index-next)
-    ("I"   Info-virtual-index)
+                      ("f"   Info-follow-reference)
+                      ("i"   Info-index)
+                      (","   Info-index-next)
+                      ("I"   Info-virtual-index)
 
-    ("T"   Info-toc)
-    ("d"   Info-directory)
-    ("c"   Info-copy-current-node-name)
-    ("C"   clone-buffer)
-    ("a"   info-apropos)
+                      ("T"   Info-toc)
+                      ("d"   Info-directory)
+                      ("c"   Info-copy-current-node-name)
+                      ("C"   clone-buffer)
+                      ("a"   info-apropos)
 
-    ("1"   Info-nth-menu-item)
-    ("2"   Info-nth-menu-item)
-    ("3"   Info-nth-menu-item)
-    ("4"   Info-nth-menu-item)
-    ("5"   Info-nth-menu-item)
-    ("6"   Info-nth-menu-item)
-    ("7"   Info-nth-menu-item)
-    ("8"   Info-nth-menu-item)
-    ("9"   Info-nth-menu-item)
+                      ("1"   Info-nth-menu-item)
+                      ("2"   Info-nth-menu-item)
+                      ("3"   Info-nth-menu-item)
+                      ("4"   Info-nth-menu-item)
+                      ("5"   Info-nth-menu-item)
+                      ("6"   Info-nth-menu-item)
+                      ("7"   Info-nth-menu-item)
+                      ("8"   Info-nth-menu-item)
+                      ("9"   Info-nth-menu-item)
 
-    ("?"   Info-summary "Info summary")
-    ("h"   Info-help "Info help")
-    ("q"   quit-window "Info exit")
-    ("C-g" nil "cancel" :color blue)))
+                      ("?"   Info-summary "Info summary")
+                      ("h"   Info-help "Info help")
+                      ("q"   quit-window "Info exit")
+                      ("C-g" nil "cancel" :color blue)))
 
 ;;}}}
 ;;{{{ origami:
@@ -337,24 +336,24 @@ Info-mode:
 (global-set-key
  (ems-kbd "C-, /")
  (defhydra emacspeak-origami
-   (:color red
-           :body-pre
-           (progn
-             (origami-mode 1)
-             (emacspeak-hydra-body-pre "Origami")
-             (emacspeak-hydra-toggle-talkative))
-           :hint nil
-           :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   "
+           (:color red
+                   :body-pre
+                   (progn
+                     (origami-mode 1)
+                     (emacspeak-hydra-body-pre "Origami")
+                     (emacspeak-hydra-toggle-talkative))
+                   :hint nil
+                   :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+           "
     _o_pen node    _n_ext fold       toggle _f_orward
     _c_lose node   _p_revious fold   toggle _a_ll
     "
-   ("o" origami-open-node)
-   ("c" origami-close-node)
-   ("n" origami-next-fold)
-   ("p" origami-previous-fold)
-   ("f" origami-forward-toggle-node)
-   ("a" origami-toggle-all-nodes)))
+           ("o" origami-open-node)
+           ("c" origami-close-node)
+           ("n" origami-next-fold)
+           ("p" origami-previous-fold)
+           ("f" origami-forward-toggle-node)
+           ("a" origami-toggle-all-nodes)))
 
 ;;}}}
 ;;{{{ Muggles Autoload Wizard:
@@ -376,7 +375,6 @@ Info-mode:
                 (string-match emacspeak-muggles-pattern  name))
              (push s result)))))
     result))
-
 
 (defun emacspeak-muggles-generate-autoloads ()
   "Generate autoload lines for all defined muggles.
@@ -405,41 +403,41 @@ Also generates global keybindings if any."
 (global-set-key
  (ems-kbd "C-c ,")
  (defhydra emacspeak-muggles-smartparens
-   (:body-pre
-    (progn
-      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "SmartParens"))
-    :pre emacspeak-hydra-pre
-    :post emacspeak-hydra-post)
-   "Smart Parens"
-   ("'" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "'")))  
-   ("(" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
-   ("<down>" sp-splice-sexp-killing-forward)  
-   ("<left>" sp-forward-barf-sexp)  
-   ("<right>" sp-forward-slurp-sexp)  
-   ("<up>" sp-splice-sexp-killing-backward)  
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-smartparens"))
-   ("C-<left>" sp-backward-barf-sexp)  
-   ("C-<right>" sp-backward-slurp-sexp)
-   ("R" sp-splice-sexp)  
-   ("\"" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))  
-   ("a" beginning-of-defun)
-   ("b" sp-backward-sexp)  
-   ("c" sp-convolute-sexp)  
-   ("d" sp-down-sexp)  
-   ("e" end-of-defun)
-   ("f" sp-forward-sexp)  
-   ("i" sp-indent-defun)  
-   ("j" sp-join-sexp)  
-   ("k" sp-kill-sexp)  
-   ("n" sp-next-sexp)  
-   ("p" sp-previous-sexp)  
-   ("r" sp-splice-sexp-killing-around)  
-   ("s" sp-split-sexp)  
-   ("t" sp-transpose-sexp)  
-   ("u" sp-backward-up-sexp)  
-   ("w" sp-copy-sexp)  
-   ("{" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
+           (:body-pre
+            (progn
+              (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+              (emacspeak-hydra-body-pre "SmartParens"))
+            :pre emacspeak-hydra-pre
+            :post emacspeak-hydra-post)
+           "Smart Parens"
+           ("'" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "'")))  
+           ("(" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
+           ("<down>" sp-splice-sexp-killing-forward)  
+           ("<left>" sp-forward-barf-sexp)  
+           ("<right>" sp-forward-slurp-sexp)  
+           ("<up>" sp-splice-sexp-killing-backward)  
+           ("?" (emacspeak-hydra-self-help "emacspeak-muggles-smartparens"))
+           ("C-<left>" sp-backward-barf-sexp)  
+           ("C-<right>" sp-backward-slurp-sexp)
+           ("R" sp-splice-sexp)  
+           ("\"" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))  
+           ("a" beginning-of-defun)
+           ("b" sp-backward-sexp)  
+           ("c" sp-convolute-sexp)  
+           ("d" sp-down-sexp)  
+           ("e" end-of-defun)
+           ("f" sp-forward-sexp)  
+           ("i" sp-indent-defun)  
+           ("j" sp-join-sexp)  
+           ("k" sp-kill-sexp)  
+           ("n" sp-next-sexp)  
+           ("p" sp-previous-sexp)  
+           ("r" sp-splice-sexp-killing-around)  
+           ("s" sp-split-sexp)  
+           ("t" sp-transpose-sexp)  
+           ("u" sp-backward-up-sexp)  
+           ("w" sp-copy-sexp)  
+           ("{" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
 
 ;;}}}
 ;;{{{  View Mode:
@@ -448,60 +446,60 @@ Also generates global keybindings if any."
  (ems-kbd
   "C-. v")
  (defhydra emacspeak-muggles-view
-   (:body-pre
-    (progn
-      (emacspeak-hydra-toggle-talkative)
-      (emacspeak-hydra-body-pre "View"))
-    :hint nil
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   "View Mode"
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-view"))
-   ("$" set-selective-display)
-   ("%"  View-goto-percent)
-   ("'" register-to-point)
-   ("(" backward-sexp)
-   (")" forward-sexp)
-   ("." set-mark-command)
-   ("/" View-search-regexp-forward)
-   ("<" beginning-of-buffer)
-   ("<return>" nil "quit")
-   ("=" what-line)
-   (">" end-of-buffer)
-   ("@" View-back-to-mark)
-   ("A"beginning-of-defun)
-   ("DEL" View-scroll-page-backward)
-   ("E"end-of-defun)
-   ("J" (emacspeak-hide-or-expose-block 'all))
-   ("SPC" View-scroll-page-forward)
-   ("[" backward-page)
-   ("\\" View-search-regexp-backward)
-   ("]" forward-page)
-   ("a" move-beginning-of-line)
-   ("b" backward-word)
-   ("c" emacspeak-speak-char)
-   ("d" View-scroll-half-page-forward)
-   ("e" move-end-of-line)
-   ("f" forward-word)
-   ("g" goto-line)
-   ("h" backward-char)
-   ("i" emacspeak-speak-mode-line)
-   ("j" next-line)
-   ("k" previous-line)
-   ("l" forward-char)
-   ("m" point-to-register)
-   ("n" View-search-last-regexp-forward)
-   ("p" View-search-last-regexp-backward)
-   ("q" nil "quit")
-   ("r" copy-to-register)
-   ("s" emacspeak-hydra-toggle-talkative)
-   ("t" (recenter 0))
-   ("u" View-scroll-half-page-backward)
-   ("w"emacspeak-speak-word)
-   ("x" exchange-point-and-mark)
-   ("y" kill-ring-save)
-   ("{" backward-paragraph)
-   ("}" forward-paragraph)
-   ))
+           (:body-pre
+            (progn
+              (emacspeak-hydra-toggle-talkative)
+              (emacspeak-hydra-body-pre "View"))
+            :hint nil
+            :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+           "View Mode"
+           ("?" (emacspeak-hydra-self-help "emacspeak-muggles-view"))
+           ("$" set-selective-display)
+           ("%"  View-goto-percent)
+           ("'" register-to-point)
+           ("(" backward-sexp)
+           (")" forward-sexp)
+           ("." set-mark-command)
+           ("/" View-search-regexp-forward)
+           ("<" beginning-of-buffer)
+           ("<return>" nil "quit")
+           ("=" what-line)
+           (">" end-of-buffer)
+           ("@" View-back-to-mark)
+           ("A"beginning-of-defun)
+           ("DEL" View-scroll-page-backward)
+           ("E"end-of-defun)
+           ("J" (emacspeak-hide-or-expose-block 'all))
+           ("SPC" View-scroll-page-forward)
+           ("[" backward-page)
+           ("\\" View-search-regexp-backward)
+           ("]" forward-page)
+           ("a" move-beginning-of-line)
+           ("b" backward-word)
+           ("c" emacspeak-speak-char)
+           ("d" View-scroll-half-page-forward)
+           ("e" move-end-of-line)
+           ("f" forward-word)
+           ("g" goto-line)
+           ("h" backward-char)
+           ("i" emacspeak-speak-mode-line)
+           ("j" next-line)
+           ("k" previous-line)
+           ("l" forward-char)
+           ("m" point-to-register)
+           ("n" View-search-last-regexp-forward)
+           ("p" View-search-last-regexp-backward)
+           ("q" nil "quit")
+           ("r" copy-to-register)
+           ("s" emacspeak-hydra-toggle-talkative)
+           ("t" (recenter 0))
+           ("u" View-scroll-half-page-backward)
+           ("w"emacspeak-speak-word)
+           ("x" exchange-point-and-mark)
+           ("y" kill-ring-save)
+           ("{" backward-paragraph)
+           ("}" forward-paragraph)
+           ))
 
 ;;}}}
 ;;{{{Vuiet:
@@ -512,30 +510,30 @@ Also generates global keybindings if any."
     (global-set-key
      (ems-kbd "C-; v")
      (defhydra emacspeak-muggles-vuiet
-       (:body-pre
-        (progn
-          (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-          (emacspeak-hydra-body-pre "Vuiet  Explorer"))
-        :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-       (";" vuiet-playing-track-lyrics)
-       ("=" vuiet-player-volume-inc)
-       ("-" vuiet-player-volume-dec)
-       ("A" vuiet-play-artist-loved-tracks)
-       ("'" vuiet-play-loved-tracks)
-       ("," vuiet-seek-backward)
-       ("." vuiet-seek-forward)
-       ("C-s" vuiet-artist-info-search)
-       ("L" vuiet-playing-artist-lastfm-page)
-       ("SPC" vuiet-play-pause)
-       ("a" vuiet-artist-info)
-       ("i" emacspeak-vuiet-track-info)
-       ("l" vuiet-love-track)
-       ("n" vuiet-next)
-       ("p" vuiet-play-artist)
-       ("r" vuiet-replay)
-       ("s" vuiet-stop)
-       ("t" vuiet-play-track)
-       ("u" vuiet-unlove-track)))))
+               (:body-pre
+                (progn
+                  (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+                  (emacspeak-hydra-body-pre "Vuiet  Explorer"))
+                :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+               (";" vuiet-playing-track-lyrics)
+               ("=" vuiet-player-volume-inc)
+               ("-" vuiet-player-volume-dec)
+               ("A" vuiet-play-artist-loved-tracks)
+               ("'" vuiet-play-loved-tracks)
+               ("," vuiet-seek-backward)
+               ("." vuiet-seek-forward)
+               ("C-s" vuiet-artist-info-search)
+               ("L" vuiet-playing-artist-lastfm-page)
+               ("SPC" vuiet-play-pause)
+               ("a" vuiet-artist-info)
+               ("i" emacspeak-vuiet-track-info)
+               ("l" vuiet-love-track)
+               ("n" vuiet-next)
+               ("p" vuiet-play-artist)
+               ("r" vuiet-replay)
+               ("s" vuiet-stop)
+               ("t" vuiet-play-track)
+               ("u" vuiet-unlove-track)))))
 
 ;;}}}
 (provide 'extra-muggles)

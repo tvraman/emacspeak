@@ -203,8 +203,6 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-
-
 ;;}}}
 
 (defun dectalk-get-average-pitch-code (value family)
@@ -384,8 +382,6 @@ and TABLE gives the values along that dimension."
                 dtk-speech-rate-base 150))
 
 ;;}}}
-
- 
 
 (provide 'dectalk-voices)
 ;;{{{  emacs local variables

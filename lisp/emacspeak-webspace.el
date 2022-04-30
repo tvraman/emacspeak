@@ -169,7 +169,7 @@ Generates auditory and visual display."
              (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory))
      (current-buffer))
     (goto-char (point-min))
-;; newline -> spc
+    ;; newline -> spc
     (while (re-search-forward "\n" nil t) (replace-match " "))
     (goto-char (point-min))
     (read (current-buffer))))

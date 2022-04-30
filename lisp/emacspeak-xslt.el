@@ -196,7 +196,6 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
         (set-buffer-multibyte t)
         (current-buffer)))))
 
-
 (defun emacspeak-xslt-run (xsl &optional start end)
   "Run xslt on region, and return output filtered by sort -u.
 Region defaults to entire buffer."
@@ -349,7 +348,7 @@ and return the results in a newly created buffer. "
         (shell-command
          command (current-buffer)
          (when emacspeak-xslt-keep-errors
-"xslt errors*")))
+           "xslt errors*")))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
       (goto-char (point-max))
@@ -421,7 +420,6 @@ and return the results in a newly created buffer. "
    (emacspeak-xslt-make-xsl-transformer style))
   (browse-url url))
 
-
 (defun emacspeak-xslt-view-xml (style url &optional unescape-charent)
   "Browse XML URL with specified XSL style."
   (interactive
@@ -446,7 +444,6 @@ and return the results in a newly created buffer. "
       (emacspeak-xslt-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
-
 
 (defun emacspeak-xslt-view-region (style start end &optional unescape-charent)
   "Browse XML region with specified XSL style."

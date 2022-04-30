@@ -168,19 +168,19 @@ Stop apps that use the network."
 (defun emacspeak-dbus-screensaver-check ()
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
   (when (file-exists-p "/usr/bin/gnome-screensaver")
-      (ems-with-messages-silenced
-          (condition-case nil
-              (dbus-call-method
-               :session
-               "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-               "org.gnome.ScreenSaver" "GetActive")
-            (error
-             (progn
-               (shell-command
-                "pidof gnome-screensaver \
+    (ems-with-messages-silenced
+     (condition-case nil
+         (dbus-call-method
+          :session
+          "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+          "org.gnome.ScreenSaver" "GetActive")
+       (error
+        (progn
+          (shell-command
+           "pidof gnome-screensaver \
  && kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
-               (start-process "screen-saver" nil "gnome-screensaver"))))
-        t)))
+          (start-process "screen-saver" nil "gnome-screensaver"))))
+     t)))
 
 (defvar emacspeak-dbus-sleep-registration nil
   "List holding sleep registration.")
@@ -225,9 +225,9 @@ already disabled."
   (cl-declare (special dtk-quiet))
   (let ((dtk-quiet t))
     (ems-with-messages-silenced
-        (save-some-buffers t)
-      (start-process "fuser" nil  "fuser"
-                     "-k" "/dev/snd/*"))))
+     (save-some-buffers t)
+     (start-process "fuser" nil  "fuser"
+                    "-k" "/dev/snd/*"))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 
@@ -235,18 +235,18 @@ already disabled."
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
   (ems-with-messages-silenced
-      (emacspeak-prompt "waking-up")
-    (when (featurep 'xbacklight) (xbacklight-black))
-    (amixer-restore amixer-alsactl-config-file)
-    (when (featurep 'soundscape) (soundscape-restart))
-        (start-process  "xset" nil "xset" "b" "100" "440")
-    (when
-        (dbus-call-method
-         :session
-         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-         "org.gnome.ScreenSaver" "GetActive")
-      (emacspeak-prompt "pwd")
-      (emacspeak-auditory-icon 'help))))
+   (emacspeak-prompt "waking-up")
+   (when (featurep 'xbacklight) (xbacklight-black))
+   (amixer-restore amixer-alsactl-config-file)
+   (when (featurep 'soundscape) (soundscape-restart))
+   (start-process  "xset" nil "xset" "b" "100" "440")
+   (when
+       (dbus-call-method
+        :session
+        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+        "org.gnome.ScreenSaver" "GetActive")
+     (emacspeak-prompt "pwd")
+     (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 

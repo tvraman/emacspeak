@@ -136,9 +136,9 @@
   (interactive)
   (cl-declare (special emacspeak-etc-directory))
   (emacspeak-xslt-without-xsl
-      (browse-url
-       (format "file:///%stips.html"
-               emacspeak-etc-directory)))
+   (browse-url
+    (format "file:///%stips.html"
+            emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
 
@@ -940,9 +940,9 @@ Location is specified by name."
 (defun emacspeak-wizards-generate-finder-callback ()
   "Generate a callback for use in the Emacspeak Finder."
   #'(lambda (widget &rest _)
-     (cl-declare (special emacspeak-wizards-finder-args))
-     (let ((value (widget-value widget)))
-       (setq emacspeak-wizards-finder-args value))))
+      (cl-declare (special emacspeak-wizards-finder-args))
+      (let ((value (widget-value widget)))
+        (setq emacspeak-wizards-finder-args value))))
 ;;;###autoload
 (defun emacspeak-wizards-finder-find (directory)
   "Run find-dired on specified switches after prompting for the
@@ -1092,26 +1092,26 @@ Ubuntu and Debian this is group `tty'.")
                        emacspeak-wizards-vc-console
                        temporary-file-directory))
   (ems-with-messages-silenced
-      (let ((command
-             (format emacspeak-wizards-vc-viewer-command
-                     console
-                     (expand-file-name
-                      (format "vc-%s.dump" console)
-                      temporary-file-directory)))
-            (buffer (get-buffer-create
-                     (format "*vc-%s*" console))))
-        (shell-command command buffer)
-        (switch-to-buffer buffer)
-        (kill-all-local-variables)
-        (insert-file-contents
-         (expand-file-name
-          (format "vc-%s.dump" console)
-          temporary-file-directory))
-        (set-buffer-modified-p nil)
-        (emacspeak-wizards-vc-view-mode)
-        (setq emacspeak-wizards-vc-console console)
-        (goto-char (point-min))
-        (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
+   (let ((command
+          (format emacspeak-wizards-vc-viewer-command
+                  console
+                  (expand-file-name
+                   (format "vc-%s.dump" console)
+                   temporary-file-directory)))
+         (buffer (get-buffer-create
+                  (format "*vc-%s*" console))))
+     (shell-command command buffer)
+     (switch-to-buffer buffer)
+     (kill-all-local-variables)
+     (insert-file-contents
+      (expand-file-name
+       (format "vc-%s.dump" console)
+       temporary-file-directory))
+     (set-buffer-modified-p nil)
+     (emacspeak-wizards-vc-view-mode)
+     (setq emacspeak-wizards-vc-console console)
+     (goto-char (point-min))
+     (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
 
 (defun emacspeak-wizards-vc-viewer-refresh ()
   "Refresh view of VC we're viewing."
@@ -1277,9 +1277,9 @@ Moves to the shortest line when called interactively."
     (read-from-minibuffer "ISO DateTime:"
                           (word-at-point))))
   (ems-with-messages-silenced
-      (let ((time (emacspeak-speak-decode-iso-datetime iso)))
-        (tts-with-punctuations 'some (dtk-speak time))
-        (message time))))
+   (let ((time (emacspeak-speak-decode-iso-datetime iso)))
+     (tts-with-punctuations 'some (dtk-speak time))
+     (message time))))
 
 ;;}}}
 ;;{{{ date pronouncer wizard
@@ -1438,14 +1438,14 @@ of the source buffer."
 (defun emacspeak-wizards--build-shells-table ()
   "Populate hash-table with live shell buffers."
   (cl-declare (special emacspeak-wizards--shells-table))
-;; First, remove dead buffers
+  ;; First, remove dead buffers
   (cl-loop
    for k being the hash-keys of emacspeak-wizards--shells-table
    unless (buffer-live-p (gethash k emacspeak-wizards--shells-table))
    do (remhash k emacspeak-wizards--shells-table))
   (let ((shells (emacspeak-wizards-get-shells))
         (v (hash-table-values emacspeak-wizards--shells-table)))
-;; Add in live shells that are new
+    ;; Add in live shells that are new
     (mapc
      #'(lambda (s)
          (when (not (memq s v))
@@ -1718,8 +1718,8 @@ interactive prompt."
   "Speak line using espeak polyglot wizard."
   (interactive)
   (ems-with-messages-silenced
-      (emacspeak-wizards-espeak-region
-       (line-beginning-position) (line-end-position))))
+   (emacspeak-wizards-espeak-region
+    (line-beginning-position) (line-end-position))))
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
@@ -2780,11 +2780,11 @@ updating custom settings for a specific package or group of packages."
     (when (not found) (user-error "No saved user options matching %s"
                                   pattern))
     (ems-with-messages-silenced
-        (emacspeak-auditory-icon 'progress)
-      (custom-buffer-create
-       (custom-sort-items found t nil)
-       (format "*Customize %d Saved options Matching %s*" (length
-                                                           found) pattern)))
+     (emacspeak-auditory-icon 'progress)
+     (custom-buffer-create
+      (custom-sort-items found t nil)
+      (format "*Customize %d Saved options Matching %s*" (length
+                                                          found) pattern)))
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
@@ -2805,7 +2805,7 @@ updating custom settings for a specific package or group of packages."
 
 (defsubst ems--noaa-time (fmt iso)
   "Utility function to correctly format ISO date-time strings from NOAA."
-;; first strip offending ":" in tz
+  ;; first strip offending ":" in tz
   (when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
     (setq iso (concat (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
@@ -2843,7 +2843,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (erase-buffer)
       (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
-;; produce Daily forecast
+      ;; produce Daily forecast
       (let-alist (g-json-from-url url)
         (insert
          (format "* Forecast At %s For %s\n\n"

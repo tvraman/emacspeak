@@ -171,7 +171,7 @@ Also provide an auditory icon"
 
 (cl-declaim (special  Man-mode-map))
 (define-key Man-mode-map ";"
-  'emacspeak-speak-current-window)
+            'emacspeak-speak-current-window)
 (define-key Man-mode-map "\M-j" 'imenu)
 (define-key Man-mode-map "\M- " 'emacspeak-man-speak-this-section)
 (define-key Man-mode-map "." 'emacspeak-man-browse-man-page)

@@ -77,13 +77,11 @@ the Emacspeak desktop.")
   :link '(url-link :tag "Tips"
                    "https://tvraman.github.io/emacspeak/tips.html"
                    :help-echo "Emacspeak Tips and Tricks.")
-;; end links
+  ;; end links
   :group 'applications)
 
 ;;}}}
 ;;{{{ Package Setup Helper
-
-
 
 ;; This function adds the appropriate form to `after-load-alist' to
 ;; set up Emacspeak support for a given package.  Argument MODULE (a
@@ -313,12 +311,12 @@ the Emacspeak desktop.")
   "Setup programming mode. "
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation dtk-caps))
   (ems-with-messages-silenced
-      (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
-    (dtk-set-punctuations 'all)
-    (or dtk-split-caps (dtk-toggle-split-caps))
-    (or dtk-caps (dtk-toggle-caps))
-    (emacspeak-pronounce-refresh-pronunciations)
-    (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))))
+   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
+   (dtk-set-punctuations 'all)
+   (or dtk-split-caps (dtk-toggle-split-caps))
+   (or dtk-caps (dtk-toggle-caps))
+   (emacspeak-pronounce-refresh-pronunciations)
+   (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))))
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
@@ -328,18 +326,18 @@ the Emacspeak desktop.")
      #'(lambda (hook)
          (add-hook hook #'emacspeak-setup-programming-mode ))
      '(etc-modules-conf-generic-mode-hook resolve-conf-generic-mode-hook
- named-database-generic-mode-hook named-boot-generic-mode-hook
- show-tabs-generic-mode-hook etc-sudoers-generic-mode-hook
- etc-fstab-generic-mode-hook etc-passwd-generic-mode-hook
- etc-services-generic-mode-hook inetd-conf-generic-mode-hook
- mailrc-generic-mode-hook ansible-inventory-generic-mode-hook
- alias-generic-mode-hook java-properties-generic-mode-hook
- java-manifest-generic-mode-hook vrml-generic-mode-hook
- prototype-generic-mode-hook mailagent-rules-generic-mode-hook
- hosts-generic-mode-hook xmodmap-generic-mode-hook
- x-resource-generic-mode-hook fvwm-generic-mode-hook
- samba-generic-mode-hook apache-log-generic-mode-hook
- apache-conf-generic-mode-hook default-generic-mode-hook)))
+                                          named-database-generic-mode-hook named-boot-generic-mode-hook
+                                          show-tabs-generic-mode-hook etc-sudoers-generic-mode-hook
+                                          etc-fstab-generic-mode-hook etc-passwd-generic-mode-hook
+                                          etc-services-generic-mode-hook inetd-conf-generic-mode-hook
+                                          mailrc-generic-mode-hook ansible-inventory-generic-mode-hook
+                                          alias-generic-mode-hook java-properties-generic-mode-hook
+                                          java-manifest-generic-mode-hook vrml-generic-mode-hook
+                                          prototype-generic-mode-hook mailagent-rules-generic-mode-hook
+                                          hosts-generic-mode-hook xmodmap-generic-mode-hook
+                                          x-resource-generic-mode-hook fvwm-generic-mode-hook
+                                          samba-generic-mode-hook apache-log-generic-mode-hook
+                                          apache-conf-generic-mode-hook default-generic-mode-hook)))
   (mapc
    #'(lambda (hook)
        (add-hook hook #'emacspeak-setup-programming-mode))
@@ -362,11 +360,11 @@ the Emacspeak desktop.")
   (cl-declare (special emacspeak-play-emacspeak-startup-icon
                        emacspeak-m-player-program))
   (when (and  emacspeak-play-emacspeak-startup-icon emacspeak-m-player-program)
-      (start-process
-       "mp3" nil
-       emacspeak-m-player-program
-       (expand-file-name "emacspeak.mp3"
-                         emacspeak-sounds-directory))))
+    (start-process
+     "mp3" nil
+     emacspeak-m-player-program
+     (expand-file-name "emacspeak.mp3"
+                       emacspeak-sounds-directory))))
 
 (defvar emacspeak-startup-message
   (eval-when-compile
@@ -394,7 +392,6 @@ spoken.
  Emacspeak commands use \\[emacspeak-prefix-command] as a prefix
 key.  You can configure TTS  with
 \\[emacspeak-dtk-submap-command] as a prefix.
-
 
 \\{emacspeak-keymap}
 

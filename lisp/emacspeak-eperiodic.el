@@ -130,7 +130,7 @@
   (define-key eperiodic-mode-map "n" 'emacspeak-eperiodic-next-line)
   (define-key eperiodic-mode-map "p" 'emacspeak-eperiodic-previous-line)
   (define-key eperiodic-mode-map "l"
-    'emacspeak-eperiodic-play-description)
+              'emacspeak-eperiodic-play-description)
   )
 ;;}}}
 ;;{{{  listen off the web:
@@ -145,9 +145,9 @@
   (let ((e (eperiodic-element-at)))
     (unless e  (error "No element under point."))
     (emacspeak-m-player
-             (format  emacspeak-eperiodic-media-location
-                      (eperiodic-get-element-property e 'symbol))
-             nil)))
+     (format  emacspeak-eperiodic-media-location
+              (eperiodic-get-element-property e 'symbol))
+     nil)))
 
 ;;}}}
 ;;{{{ advice interactive commands

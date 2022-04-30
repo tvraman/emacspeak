@@ -54,48 +54,48 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(elpher-binary voice-monotone)
-(elpher-gemini voice-animate-extra)
-(elpher-gemini-heading1 voice-lighten)
-(elpher-gemini-heading2 voice-brighten)
-(elpher-gemini-heading3 voice-smoothen)
-(elpher-gemini-preformatted voice-monotone)
-(elpher-html voice-bolden)
-(elpher-image voice-annotate)
-(elpher-index voice-lighten)
-(elpher-info voice-monotone)
-(elpher-margin-brackets voice-annotate)
-(elpher-margin-key voice-lighten)
-(elpher-other-url voice-smoothen-extra)
-(elpher-search voice-bolden)
-(elpher-telnet voice-smoothen-extra)
-(elpher-text voice-monotone)
-(elpher-unknown voice-annotate)))
+ '(
+   (elpher-binary voice-monotone)
+   (elpher-gemini voice-animate-extra)
+   (elpher-gemini-heading1 voice-lighten)
+   (elpher-gemini-heading2 voice-brighten)
+   (elpher-gemini-heading3 voice-smoothen)
+   (elpher-gemini-preformatted voice-monotone)
+   (elpher-html voice-bolden)
+   (elpher-image voice-annotate)
+   (elpher-index voice-lighten)
+   (elpher-info voice-monotone)
+   (elpher-margin-brackets voice-annotate)
+   (elpher-margin-key voice-lighten)
+   (elpher-other-url voice-smoothen-extra)
+   (elpher-search voice-bolden)
+   (elpher-telnet voice-smoothen-extra)
+   (elpher-text voice-monotone)
+   (elpher-unknown voice-annotate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
 '(
-elpher-bookmark-current elpher-bookmark-link elpher-bookmarks
-elpher-copy-current-url elpher-copy-link-url
-elpher-download
-elpher-download-current
-elpher-info-current
-elpher-info-link
+  elpher-bookmark-current elpher-bookmark-link elpher-bookmarks
+  elpher-copy-current-url elpher-copy-link-url
+  elpher-download
+  elpher-download-current
+  elpher-info-current
+  elpher-info-link
 
-elpher-set-gopher-coding-system
-elpher-toggle-tls
-elpher-unbookmark-current
-elpher-unbookmark-link
-elpher-view-raw
-)
+  elpher-set-gopher-coding-system
+  elpher-toggle-tls
+  elpher-unbookmark-current
+  elpher-unbookmark-link
+  elpher-view-raw
+  )
 
 (cl-loop
  for f in 
  '(
    elpher-back elpher-back-to-start elpher elpher-root-dir
-               elpher-follow-current-link  elpher-jump
+   elpher-follow-current-link  elpher-jump
    elpher-go elpher-go-current elpher-reload)
  do
  (eval
@@ -104,7 +104,6 @@ elpher-view-raw
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'open-object)))))
-
 
 (cl-loop
  for f in 
@@ -117,9 +116,6 @@ elpher-view-raw
        (emacspeak-auditory-icon 'large-movement)
        (dtk-speak
         (car (get-text-property (point) 'elpher-page)))))))
-
-
-
 
 ;;}}}
 (provide 'emacspeak-elpher)

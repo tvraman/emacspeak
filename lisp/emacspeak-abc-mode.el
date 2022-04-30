@@ -59,19 +59,19 @@
 (cl-loop
  for f in 
  '(
-  abc-align-bars
-abc-backward-song
-abc-crescendo-region
-abc-current-song-number
-abc-diminuendo-region
-abc-extract-chords
-abc-forward-song
-abc-insert-chord
-abc-insert-instrument
-abc-midi-chords
-abc-renumber-songs
-abc-repeat-region
-abc-slur-region)
+   abc-align-bars
+   abc-backward-song
+   abc-crescendo-region
+   abc-current-song-number
+   abc-diminuendo-region
+   abc-extract-chords
+   abc-forward-song
+   abc-insert-chord
+   abc-insert-instrument
+   abc-midi-chords
+   abc-renumber-songs
+   abc-repeat-region
+   abc-slur-region)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -79,8 +79,6 @@ abc-slur-region)
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'button)))))
-
-
 
 ;;}}}
 (provide 'emacspeak-abc-mode)

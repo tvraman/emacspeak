@@ -49,8 +49,6 @@
 ;; This module will use the abstraction provided by browse-url
 ;; to handle Web pages.
 
-
-
 ;;; Code:
 
 ;;}}}
@@ -70,10 +68,10 @@
    'emacspeak-eww-post-process-hook
    (eval
     `#'(lambda nil
-        (rename-buffer
-         (format "%s %s"
-                 (buffer-name) ,key)
-         'unique)))))
+         (rename-buffer
+          (format "%s %s"
+                  (buffer-name) ,key)
+          'unique)))))
 
 ;;}}}
 ;;{{{ URL Rewrite:
@@ -178,7 +176,6 @@ Default is to apply sort-tables.")
 
 (declare-function eww-current-url "eww" nil)
 
-
 (defun emacspeak-we-xslt-apply (xsl)
   "Apply specified transformation to current Web page."
   (interactive (list (emacspeak-xslt-read)))
@@ -187,7 +184,6 @@ Default is to apply sort-tables.")
    'emacspeak-eww-pre-process-hook
    (emacspeak-xslt-make-xsl-transformer  xsl))
   (browse-url (eww-current-url)))
-
 
 (defun emacspeak-we-xslt-select (xsl)
   "Select XSL transformation applied to Web pages before they are displayed ."
@@ -200,7 +196,6 @@ Default is to apply sort-tables.")
              (file-name-sans-extension
               (file-name-nondirectory xsl)))))
 
-
 (defun emacspeak-we-xsl-toggle ()
   "Toggle  application of XSL transformations."
   (interactive)
@@ -211,7 +206,6 @@ Default is to apply sort-tables.")
      (if emacspeak-we-xsl-p 'on 'off))
     (message "Turned %s XSL"
              (if emacspeak-we-xsl-p 'on 'off))))
-
 
 (defun emacspeak-we-count-matches (url locator)
   "Count matches for locator  in Web page."
@@ -226,22 +220,18 @@ Default is to apply sort-tables.")
     (emacspeak-xslt-params-from-xpath locator url)
     'no-comment)))
 
-
 (defun emacspeak-we-count-nested-tables (url)
   "Count nested tables in Web page."
   (interactive (list (emacspeak-eww-read-url)))
   (emacspeak-we-count-matches url "'//table//table'"))
-
 
 (defun emacspeak-we-count-tables (url)
   "Count  tables in Web page."
   (interactive (list (emacspeak-eww-read-url)))
   (emacspeak-we-count-matches url "//table"))
 
-
 (defvar emacspeak-we-xsl-keep-result nil
   "Toggle via command \\[emacspeak-we-toggle-xsl-keep-result].")
-
 
 (defun emacspeak-we-toggle-xsl-keep-result ()
   "Toggle xsl keep result flag."
@@ -295,7 +285,6 @@ Each filter is a list of the form
    #'emacspeak-eww-reading-settings 'at-end)
   (browse-url url))
 
-
 (defun emacspeak-we-xslt-junk (path    url &optional speak)
   "Junk elements matching specified locator."
   (interactive
@@ -319,7 +308,6 @@ Each filter is a list of the form
     (or (called-interactively-p 'interactive) current-prefix-arg)))
   (emacspeak-we-extract-by-role "main"
                                 (funcall emacspeak-eww-url-at-point) speak))
-
 
 (defun emacspeak-we-extract-matching-urls (pattern url &optional speak)
   "Extracts links whose URL matches pattern."
@@ -565,11 +553,10 @@ buffer. Interactive use provides list of class values as completion."
     (emacspeak-eww-read-url)
     (or (called-interactively-p 'interactive) current-prefix-arg)))
   (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
-  (emacspeak-we-xslt-filter filter
+    (emacspeak-we-xslt-filter filter
                               url
                               (or (called-interactively-p 'interactive)
                                   speak))))
-
 
 (defun emacspeak-we-extract-speakable (url &optional speak)
   "Extract elements having class`speakable' from HTML. "
@@ -987,7 +974,6 @@ used as well."
 
 ;;}}}
 ;;{{{ Property filter
-
 
 ;;}}}
 ;;{{{  xsl keymap

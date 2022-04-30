@@ -63,8 +63,6 @@
   (dtk-select-server "plain")
   (dtk-initialize))
 
-
-
 ;;}}}
 ;;{{{ Forward declarations:
 
@@ -175,11 +173,11 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "") ;no-op -- change to taste
-            ))
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format "") ;no-op -- change to taste
+             ))
    '(
      (0 96 115)
      (1 101 112)
@@ -217,11 +215,11 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format ""); no-op --- change to taste.
-            ))
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format ""); no-op --- change to taste.
+             ))
    '(
      (0 0 0)
      (1 20 10)
@@ -262,11 +260,11 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapc
-    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "") ; no-op --- edit to taste
-            ))
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format "") ; no-op --- edit to taste
+             ))
    '(
      (0  0 0 0 0)
      (1 3 6  20 3)
@@ -300,10 +298,10 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapc
-    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format "") ; no-op --- change to taste
-            ))
+   #'(lambda (setting)
+       (aset table (cl-first setting)
+             (format "") ; no-op --- change to taste
+             ))
    '(
      (0 0 100)
      (1 14 80)
@@ -319,8 +317,6 @@ and TABLE gives the values along that dimension."
   (plain-css-set-code-table 'paul 'richness table))
 
 ;;}}}
-
-
 
 (defun plain-get-richness-code (value family)
   (or family (setq family 'paul))
@@ -368,11 +364,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
- 
-
 (plain-configure-tts)
-
-
 
 (provide 'plain-voices)
 ;;{{{  emacs local variables

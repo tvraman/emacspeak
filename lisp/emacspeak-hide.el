@@ -354,7 +354,6 @@ buffer to be hidden or exposed."
 ;;}}}
 ;;{{{  speaking blocks sans prefix
 
-
 (defun emacspeak-hide-speak-block-sans-prefix ()
   "Speaks current block after stripping its prefix. "
   (interactive)

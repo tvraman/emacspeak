@@ -113,7 +113,7 @@
     (let ((row (emacspeak-solitaire-current-row))
           (column (emacspeak-solitaire-current-column))
           (cells nil))
-;; move to top row 
+      ;; move to top row 
       (cl-loop for i  from 1 to(- row 1) do (solitaire-up))
       (cl-case (char-after (point))
         (?o (push "o" cells))
@@ -143,7 +143,7 @@
 ;;{{{ advice commands
 
 (defvar emacspeak-solitaire-autoshow nil
-"T means rows and columns are toned as we move")
+  "T means rows and columns are toned as we move")
 
 (defadvice solitaire-left (after emacspeak pre act comp)
   "speak"

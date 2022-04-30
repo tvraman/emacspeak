@@ -78,8 +78,6 @@
   
   )
 
-
-
 (defadvice selectrum-select-current-candidate (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -126,7 +124,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
-
 
 ;;}}}
 (provide 'emacspeak-selectrum)

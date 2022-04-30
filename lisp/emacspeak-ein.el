@@ -120,7 +120,6 @@
      ((string= "code" type) (sox-sin .5 "%-1:%5" fade))
      ((string= "markdown" type) (sox-sin .5 "%4:%8"fade)))))
 
-
 (declare-function ein:cell-type "ein-classes" (arg &rest args))
 (declare-function ein:worksheet-get-current-cell "ein-worksheet" (&rest --cl-rest--))
 
@@ -148,7 +147,7 @@
 (cl-loop
  for f in 
  '(ein:tb-jump-to-source-at-point-command
- ein:tb-next-item ein:tb-prev-item)
+   ein:tb-next-item ein:tb-prev-item)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -157,14 +156,11 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
-
 (defadvice ein:tb-show-km (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
-
 
 ;;}}}
 ;;{{{pytools:
@@ -179,7 +175,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
-
 
 ;;}}}
 ;;{{{ Worksheets:
@@ -267,13 +262,11 @@
     (emacspeak-auditory-icon 'large-movement)
     ))
 
-
 (defadvice ein:worksheet-move-cell-down-km (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Moved cell down")
     (emacspeak-auditory-icon 'large-movement)))
-
 
 (defadvice ein:worksheet-yank-cell (after emacspeak pre act comp)
   "speak."
@@ -289,22 +282,19 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-    (let  ((state (slot-value (ein:worksheet-get-current-cell)
-                            'collapsed )))
-        (emacspeak-auditory-icon
-         (if state 'close-object 'open-object))
-      (dtk-speak
-       (format "%s output"
-               (if state "Hid" "Showing"))))))))
-
-
+       (let  ((state (slot-value (ein:worksheet-get-current-cell)
+                                 'collapsed )))
+         (emacspeak-auditory-icon
+          (if state 'close-object 'open-object))
+         (dtk-speak
+          (format "%s output"
+                  (if state "Hid" "Showing"))))))))
 
 (defadvice ein:worksheet-split-cell-at-point (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
 
 (defadvice ein:worksheet-merge-cell (after emacspeak pre act comp)
   "speak."
@@ -329,16 +319,16 @@
 (cl-loop
  for f in 
  '(
-  ein:notebook-worksheet-insert-next ein:notebook-worksheet-insert-prev
-  ein:notebook-worksheet-move-next ein:notebook-worksheet-move-prev
-  ein:notebook-worksheet-open-1th ein:notebook-worksheet-open-2th
-  ein:notebook-worksheet-open-3th ein:notebook-worksheet-open-4th
-  ein:notebook-worksheet-open-5th ein:notebook-worksheet-open-6th
-  ein:notebook-worksheet-open-7th ein:notebook-worksheet-open-8th
-  ein:notebook-worksheet-open-last ein:notebook-worksheet-open-next
-  ein:notebook-worksheet-open-next-or-first
-  ein:notebook-worksheet-open-next-or-new
-  ein:notebook-worksheet-open-prev ein:notebook-worksheet-open-prev-or-last)
+   ein:notebook-worksheet-insert-next ein:notebook-worksheet-insert-prev
+   ein:notebook-worksheet-move-next ein:notebook-worksheet-move-prev
+   ein:notebook-worksheet-open-1th ein:notebook-worksheet-open-2th
+   ein:notebook-worksheet-open-3th ein:notebook-worksheet-open-4th
+   ein:notebook-worksheet-open-5th ein:notebook-worksheet-open-6th
+   ein:notebook-worksheet-open-7th ein:notebook-worksheet-open-8th
+   ein:notebook-worksheet-open-last ein:notebook-worksheet-open-next
+   ein:notebook-worksheet-open-next-or-first
+   ein:notebook-worksheet-open-next-or-new
+   ein:notebook-worksheet-open-prev ein:notebook-worksheet-open-prev-or-last)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

@@ -118,7 +118,6 @@
        beg end 'invisible
        (if (ad-get-arg 2) 'outline nil)))))
 
-
 ;;{{{  Hiding and showing subtrees
 
 (defadvice outline-hide-entry (after emacspeak pre act comp)
@@ -192,7 +191,7 @@
 ;;{{{  Interactive speaking of sections
 
 (defvar emacspeak-outline-dont-query-before-speaking t
-"Option to control prompts when speaking  outline sections.")
+  "Option to control prompts when speaking  outline sections.")
 
 (defun emacspeak-outline-speak-heading (what direction)
   "Function used by all interactive section speaking
@@ -244,7 +243,6 @@ except that the outline section is  spoken"
   (forward-line -1)
   (emacspeak-outline-speak-heading 'outline-forward-same-level -1))
 
-
 (defun emacspeak-outline-speak-this-heading ()
   "Speak current outline section starting from point"
   (interactive)
@@ -269,13 +267,13 @@ except that the outline section is  spoken"
   "Bind keys in outline minor mode map"
   (cl-declare (special outline-mode-prefix-map))
   (define-key outline-mode-prefix-map "p"
-    'emacspeak-outline-speak-previous-heading)
+              'emacspeak-outline-speak-previous-heading)
   (define-key outline-mode-prefix-map "n"
-    'emacspeak-outline-speak-next-heading)
+              'emacspeak-outline-speak-next-heading)
   (define-key outline-mode-prefix-map "b"
-    'emacspeak-outline-speak-backward-heading)
+              'emacspeak-outline-speak-backward-heading)
   (define-key outline-mode-prefix-map "f"
-    'emacspeak-outline-speak-forward-heading)
+              'emacspeak-outline-speak-forward-heading)
   (define-key outline-mode-prefix-map " " 'emacspeak-outline-speak-this-heading))
 
 (add-hook 'outline-mode-hook 'emacspeak-outline-setup-keys)
@@ -302,14 +300,13 @@ except that the outline section is  spoken"
 (defadvice outline-up-heading (around emacspeak pre act comp)
   "Silence error messages."
   (ems-with-errors-silenced
-      ad-do-it
-    ad-return-value))
+   ad-do-it
+   ad-return-value))
 
 ;;}}}
 
 ;;}}}
 ;;{{{ foldout specific advice
-
 
 (with-eval-after-load "foldout"
   (defadvice foldout-zoom-subtree (after emacspeak pre act comp)

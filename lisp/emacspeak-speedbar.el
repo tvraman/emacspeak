@@ -227,7 +227,7 @@ An automatically updating speedbar consumes resources.")
   (dtk-set-punctuations 'all)
   (setq speedbar-hide-button-brackets-flag t)
   (define-key speedbar-mode-map "f"
-    'emacspeak-speedbar-click)
+              'emacspeak-speedbar-click)
                                         ;(define-key speedbar-mode-map "\M-n"
                                         ;'emacspeak-speedbar-forward)
                                         ;(define-key speedbar-mode-map "\M-p"

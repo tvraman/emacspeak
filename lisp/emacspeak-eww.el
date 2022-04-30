@@ -576,9 +576,9 @@ Safari/537.36"
    'eww-mode
    emacspeak-speak-rfc-3339-datetime-pattern
    (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
-;; turn off images on request
+  ;; turn off images on request
   (setq shr-inhibit-images emacspeak-eww-inhibit-images)
-;; remove "I" "o" from eww-link-keymap
+  ;; remove "I" "o" from eww-link-keymap
   (cl-loop
    for c in
    '(?I ?o)
@@ -1141,12 +1141,10 @@ Note that the Web browser should reset this hook after using it.")
     (shr-generic dom)
     (put-text-property start (point) 'article 'eww-tag)))
 
-
 (defun emacspeak-eww-em-with-newline  (dom)
   "render EM node but with newline after."
   (shr-tag-em dom)
   (insert "  \n"))
-
 
 (defun emacspeak-eww-span-with-newline  (dom)
   "render span  node but with newline after."
@@ -1157,7 +1155,6 @@ Note that the Web browser should reset this hook after using it.")
   "render STRONG node but with newline after."
   (shr-tag-strong dom)
   (insert "\n"))
-
 
 (defvar emacspeak-eww-shr-renderers
   '((article . emacspeak-eww-tag-article)
@@ -2051,7 +2048,7 @@ arg `delete', delete that mark instead."
       (cl-assert book nil "Book not set.")
       (cond
        ((emacspeak-eww-jump-to-mark bm) t) ;;; Found a buffer with
-;; book open.
+       ;; book open.
        (t ;;; so we need to first open the book:
         (setq handler
               (cond

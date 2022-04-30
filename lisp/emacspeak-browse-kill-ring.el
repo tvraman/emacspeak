@@ -74,7 +74,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 (defadvice browse-kill-ring-forward (after emacspeak pre
-                                     act comp)
+                                           act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)

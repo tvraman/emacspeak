@@ -61,23 +61,21 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-  (tab-bar voice-bolden)
-  (tab-bar-tab voice-animate)
-  (tab-bar-tab-inactive voice-smoothen)
-  (tab-line voice-lighten)))
+ '(
+   (tab-bar voice-bolden)
+   (tab-bar-tab voice-animate)
+   (tab-bar-tab-inactive voice-smoothen)
+   (tab-line voice-lighten)))
 
 ;;}}}
 ;;{{{Helpers:
-
-
 
 (defsubst emacspeak-tab-bar-speak-tab-name ()
   "Speak name of current tab."
   (emacspeak-auditory-icon 'tick-tick)
   (dtk-notify-speak
    (format "%s"
-             (alist-get 'name (alist-get 'current-tab (tab-bar-tabs))))))
+           (alist-get 'name (alist-get 'current-tab (tab-bar-tabs))))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -101,7 +99,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-tab-bar-speak-tab-name)))))
-
 
 (cl-loop
  for f in 
@@ -167,7 +164,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'unmark-object)
     (emacspeak-speak-line)))
-
 
 (cl-loop
  for f in 

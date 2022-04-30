@@ -89,9 +89,9 @@
   `(defadvice ,f (around emacspeak pre act comp)
      "speak. "
      (ems-with-messages-silenced
-         ad-do-it
-         (when (ems-interactive-p)
-           (emacspeak-auditory-icon 'task-done))))))
+      ad-do-it
+      (when (ems-interactive-p)
+        (emacspeak-auditory-icon 'task-done))))))
 
 (add-hook
  'epa-key-list-mode-hook

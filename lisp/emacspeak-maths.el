@@ -107,7 +107,7 @@
     (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
       (nvm-use v)
       (executable-find "node")))
-;; The fallback below  --- /usr/bin/node e.g. on Ubuntu/Debian  is old.
+   ;; The fallback below  --- /usr/bin/node e.g. on Ubuntu/Debian  is old.
    ((executable-find "node") (executable-find "node")) 
    (t  nil))
   "Location of `node' executable.  Make sure the environment in which
@@ -256,7 +256,7 @@ Expected: ((acss) string)."
       ((string= "40" msg) "Bottom of tree")
       ((string= "37" msg) "First node at this level")
       (t msg)))))
-  
+
 (defun emacspeak-maths-handle-parse-error (contents)
   "Display parse-error message."
   (message "%s" contents))
@@ -293,11 +293,11 @@ left for next run."
   (with-current-buffer (process-buffer proc)
     (let ((moving (= (point) (process-mark proc))))
       (save-excursion
-;; Insert the text, advancing the process marker.
+        ;; Insert the text, advancing the process marker.
         (goto-char (process-mark proc))
         (insert string)
         (set-marker (process-mark proc) (point)))
-;; Consume process output
+      ;; Consume process output
       (save-excursion
         (goto-char (point-min))
         (flush-lines "^ *$")
@@ -307,9 +307,9 @@ left for next run."
              (start (point)))
           (condition-case nil
               (while (not (eobp))
-;; Parse one complete chunk
+                ;; Parse one complete chunk
                 (setq result (emacspeak-maths-read-output))
-;; Todo: perhaps accumulate instead of just using recent
+                ;; Todo: perhaps accumulate instead of just using recent
                 (setf (emacspeak-maths-result emacspeak-maths) result)
                 (skip-syntax-forward " >")
                 (delete-region start (point))
@@ -363,7 +363,6 @@ left for next run."
     (kill-buffer (emacspeak-maths-client-buffer emacspeak-maths)))
   (when (called-interactively-p 'interactive)
     (message "Shutdown Maths server and client.")))
-
 
 (defun emacspeak-maths-flush-output ()
   "Flush client buffer if things go out of sync."
@@ -428,7 +427,7 @@ Set calc-language to tex to use this feature."
           (begin nil)
           (end nil))
       (cond
-;; $ and $$
+       ;; $ and $$
        ((or (string= "$" delimiter)
             (string= "$$" delimiter))
         (save-excursion
@@ -438,7 +437,7 @@ Set calc-language to tex to use this feature."
           (skip-syntax-forward "^$")
           (setq end (point))
           (buffer-substring begin end)))
-;; \( and \[
+       ;; \( and \[
        ((string= "\\(" delimiter)
         (goto-char start)
         (setq begin (+ start  2))
@@ -451,7 +450,7 @@ Set calc-language to tex to use this feature."
         (search-forward "\\]")
         (setq end (- (point) 2))
         (buffer-substring begin end))
-;; begin equation
+       ;; begin equation
        ((string= "equation" delimiter)
         (goto-char start)
         (forward-char (length "\\begin{equation}"))

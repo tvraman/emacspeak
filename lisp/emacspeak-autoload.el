@@ -48,7 +48,6 @@
 (require 'cl-lib)
 (require 'autoload)
 
-
 ;;}}}
 (defvar emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el"   (file-name-directory load-file-name))

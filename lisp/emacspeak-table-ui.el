@@ -347,7 +347,7 @@ Full List Of Keybindings:
       (put-text-property 0 (length value) 'face 'bold value)
       value)
      ((and (symbolp (cl-first token)) (fboundp  (cl-first token)))
-;; applying a function:
+      ;; applying a function:
       (setq value
             (funcall
              (cl-first token) ;;; get args
@@ -412,7 +412,7 @@ Optional prefix arg prompts for a new filter."
            (numberp (cl-second token)))
       (emacspeak-table-get-entry-with-headers (cl-first token) (cl-second token)))
      ((and (symbolp (cl-first token)) (fboundp  (cl-first token)))
-;; applying a function:
+      ;; applying a function:
       (setq value
             (funcall
              (cl-first token) ;;; get args
@@ -754,7 +754,6 @@ browsing table elements"
 
 (make-variable-buffer-local 'emacspeak-table-speak-element)
 
-
 (defun emacspeak-table-next-row (&optional count)
   "Move to the next row if possible"
   (interactive "p")
@@ -764,7 +763,6 @@ browsing table elements"
   (emacspeak-table-move-down emacspeak-table count)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
-
 
 (defun emacspeak-table-previous-row (&optional count)
   "Move to the previous row if possible"
@@ -776,7 +774,6 @@ browsing table elements"
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
-
 (defun emacspeak-table-next-column (&optional count)
   "Move to the next column if possible"
   (interactive "p")
@@ -786,7 +783,6 @@ browsing table elements"
   (emacspeak-table-move-right emacspeak-table count)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
-
 
 (defun emacspeak-table-previous-column (&optional count)
   "Move to the previous column  if possible"

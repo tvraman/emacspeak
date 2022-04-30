@@ -53,13 +53,11 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-
-
 (voice-setup-add-map 
-'(
-(flymake-error voice-monotone)
-(flymake-note voice-smoothen)
-(flymake-warning voice-animate)))
+ '(
+   (flymake-error voice-monotone)
+   (flymake-note voice-smoothen)
+   (flymake-warning voice-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -67,8 +65,8 @@
 (cl-loop
  for f in 
  '(flymake-goto-diagnostic
-flymake-goto-next-error
-flymake-goto-prev-error)
+   flymake-goto-next-error
+   flymake-goto-prev-error)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -77,14 +75,10 @@ flymake-goto-prev-error)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-
-
-
 (defadvice flymake-compile (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
-
 
 ;;}}}
 (provide 'emacspeak-flymake)

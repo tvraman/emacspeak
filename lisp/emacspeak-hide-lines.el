@@ -56,8 +56,8 @@
 (cl-loop
  for f in 
  '(
-  hide-lines hide-lines-show-all
-hide-lines-matching hide-lines-not-matching)
+   hide-lines hide-lines-show-all
+   hide-lines-matching hide-lines-not-matching)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -65,8 +65,6 @@ hide-lines-matching hide-lines-not-matching)
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'button)))))
-
-
 
 ;;}}}
 (provide 'emacspeak-hide-lines)

@@ -76,14 +76,14 @@
   (cl-declare (special emacspeak-prefix emacspeak-eterm-prefix
                        emacspeak-eterm-keymap  term-mode-map))
   (define-prefix-command 'emacspeak-eterm-prefix-command
-    'emacspeak-eterm-keymap)
+                         'emacspeak-eterm-keymap)
   (define-key term-mode-map emacspeak-eterm-prefix
-    'emacspeak-eterm-prefix-command)
+              'emacspeak-eterm-prefix-command)
   (suppress-keymap emacspeak-eterm-keymap)
   (let  ((i 0))
     (while (< i 10)
       (define-key emacspeak-eterm-keymap
-        (format "%s" i) 'emacspeak-eterm-speak-predefined-window)
+                  (format "%s" i) 'emacspeak-eterm-speak-predefined-window)
       (cl-incf i)))
   (define-key emacspeak-eterm-keymap "\C-i" 'emacspeak-eterm-speak-cursor)
   (define-key emacspeak-eterm-keymap "\C-q" 'emacspeak-toggle-eterm-autospeak)
@@ -106,9 +106,9 @@
   (define-key emacspeak-eterm-keymap "b"  'emacspeak-eterm-pointer-left)
   (define-key emacspeak-eterm-keymap "f" 'emacspeak-eterm-pointer-right)
   (define-key emacspeak-eterm-keymap "h"
-    'emacspeak-eterm-pointer-to-next-color-change)
+              'emacspeak-eterm-pointer-to-next-color-change)
   (define-key emacspeak-eterm-keymap "H"
-    'emacspeak-eterm-pointer-to-previous-color-change)
+              'emacspeak-eterm-pointer-to-previous-color-change)
   (define-key emacspeak-eterm-keymap "t" 'emacspeak-eterm-pointer-to-top)
   (define-key emacspeak-eterm-keymap "<" 'emacspeak-eterm-pointer-to-top)
   (define-key emacspeak-eterm-keymap ">" 'emacspeak-eterm-pointer-to-bottom)
@@ -116,20 +116,20 @@
   (define-key emacspeak-eterm-keymap "s" 'emacspeak-eterm-search-forward)
                                         ;(define-key emacspeak-eterm-keymap "r" 'emacspeak-eterm-search-backward)
   (define-key emacspeak-eterm-keymap "y"
-    'emacspeak-eterm-kill-ring-save-region)
+              'emacspeak-eterm-kill-ring-save-region)
   (define-key emacspeak-eterm-keymap "x"
-    'emacspeak-eterm-copy-region-to-register)
+              'emacspeak-eterm-copy-region-to-register)
   (define-key emacspeak-eterm-keymap "v" 'emacspeak-eterm-paste-register)
   (define-key emacspeak-eterm-keymap "m" 'emacspeak-eterm-set-marker)
   (define-key emacspeak-eterm-keymap "\C-p"
-    'emacspeak-eterm-toggle-pointer-mode)
+              'emacspeak-eterm-toggle-pointer-mode)
   (define-key emacspeak-eterm-keymap "\C-w" 'emacspeak-eterm-define-window)
   (define-key emacspeak-eterm-keymap "\C-y"
-    'emacspeak-eterm-yank-window)
+              'emacspeak-eterm-yank-window)
   (define-key emacspeak-eterm-keymap "f"
-    'emacspeak-eterm-set-filter-window)
+              'emacspeak-eterm-set-filter-window)
   (define-key emacspeak-eterm-keymap "\C-f"
-    'emacspeak-eterm-set-focus-window)
+              'emacspeak-eterm-set-focus-window)
   (define-key emacspeak-eterm-keymap "A" 'emacspeak-eterm-toggle-filter-window)
   (define-key emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
   (define-key emacspeak-eterm-keymap "\C-d" 'emacspeak-eterm-describe-window)
@@ -140,7 +140,7 @@
        (mapc
         #'(lambda (key)
             (define-key term-raw-escape-map key
-              (lookup-key (current-global-map) key)))
+                        (lookup-key (current-global-map) key)))
         '("\M-x" "\C-h")))
   t)
 
@@ -158,17 +158,17 @@ Useful when eterm is in review mode.")
   (when term-raw-map
     (define-key term-raw-map emacspeak-prefix 'emacspeak-prefix-command)
     (define-key term-raw-map (concat emacspeak-prefix emacspeak-prefix)
-      'emacspeak-eterm-maybe-send-raw)
+                'emacspeak-eterm-maybe-send-raw)
     (define-key term-raw-map emacspeak-eterm-prefix
-      'emacspeak-eterm-prefix-command)
+                'emacspeak-eterm-prefix-command)
     (define-key term-raw-map emacspeak-eterm-raw-prefix term-raw-map)
     (define-key term-raw-map
-      (concat emacspeak-eterm-raw-prefix emacspeak-eterm-raw-prefix)
-      'emacspeak-eterm-maybe-send-raw)
+                (concat emacspeak-eterm-raw-prefix emacspeak-eterm-raw-prefix)
+                'emacspeak-eterm-maybe-send-raw)
     (define-key term-raw-map
-      (concat emacspeak-eterm-prefix emacspeak-eterm-prefix) 'emacspeak-eterm-maybe-send-raw)
+                (concat emacspeak-eterm-prefix emacspeak-eterm-prefix) 'emacspeak-eterm-maybe-send-raw)
     (define-key emacspeak-eterm-keymap emacspeak-eterm-raw-prefix
-      term-raw-map)))
+                term-raw-map)))
 
 ;;}}}
 ;;{{{  voice definitions  for eterm  highlight, underline etc

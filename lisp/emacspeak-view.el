@@ -88,7 +88,6 @@
                   (where-is-internal 'View-exit view-mode-map 'firstonly)))
       (message "Exited view mode"))))
 
-
 (cl-loop
  for f in
  '(
@@ -102,7 +101,6 @@
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
-
 (cl-loop
  for f in
  '(
@@ -112,12 +110,12 @@
    view-emacs-todo view-external-packages
    view-file-other-frame view-file-other-window
    view-hello-file view-lossage ) do
-   (eval
-    `(defadvice ,f (after emacspeak pre act comp)
-       "Speech-enabled by Emacspeak."
-       (when (ems-interactive-p)
-         (emacspeak-auditory-icon 'open-object)
-         (emacspeak-speak-mode-line)))))
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speech-enabled by Emacspeak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-mode-line)))))
 
 (defadvice View-exit (after emacspeak pre act comp)
   "speak."
@@ -345,9 +343,9 @@ keybindings for view mode")
   (cl-loop for i from 0 to 9
            do
            (define-key view-mode-map
-             (format "%s" i)
-             'emacspeak-speak-predefined-window))
-;; convenience keys
+                       (format "%s" i)
+                       'emacspeak-speak-predefined-window))
+  ;; convenience keys
   (define-key view-mode-map "\C-j" 'emacspeak-hide-speak-block-sans-prefix)
   (define-key view-mode-map "\M- " 'emacspeak-outline-speak-this-heading)
   (define-key view-mode-map "\M-n" 'outline-next-visible-heading)

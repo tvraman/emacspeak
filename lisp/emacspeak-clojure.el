@@ -51,8 +51,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-
-
 ;;}}}
 ;;{{{ Map Faces:
 
@@ -85,10 +83,10 @@
 (cl-loop
  for f in 
  '(clojure-view-cheatsheet
-                   clojure-view-grimoire
-                   clojure-view-guide
-                   clojure-view-reference-section
-                   clojure-view-style-guide)
+   clojure-view-grimoire
+   clojure-view-guide
+   clojure-view-reference-section
+   clojure-view-style-guide)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

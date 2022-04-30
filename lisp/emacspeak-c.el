@@ -175,7 +175,7 @@
   (emacspeak-auditory-icon 'item)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax)))
-;; skip across a comment
+    ;; skip across a comment
     (cond
      ((or (assq 'c semantics)
           (assq 'comment-intro semantics))
@@ -205,7 +205,7 @@ this level")
   (emacspeak-auditory-icon 'item)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax)))
-;; skip across a comment
+    ;; skip across a comment
     (cond
      ((or (assq 'c semantics)
           (assq 'comment-intro semantics))

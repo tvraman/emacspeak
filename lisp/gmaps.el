@@ -149,7 +149,7 @@
     (when (called-interactively-p 'interactive)
       (message "Saved GMaps Locations."))
     (when (featurep 'emacspeak)
-    (emacspeak-auditory-icon 'save-object)))                                    )
+      (emacspeak-auditory-icon 'save-object)))                                    )
 
 ;;}}}
 
@@ -704,7 +704,7 @@ Optional interactive prefix arg prompts for all filter fields."
 Uses default radius. optional interactive prefix arg clears any active filters."
   (interactive "P")
   (cl-declare (special gmaps-current-location gmaps-current-filter
-                    gmaps-api-key gmaps-places-radius))
+                       gmaps-api-key gmaps-places-radius))
   (unless gmaps-current-location (error "Set current location."))
   (and clear-filter (setq gmaps-current-filter nil))
   (goto-char (point-max))

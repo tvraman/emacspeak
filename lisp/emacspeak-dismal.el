@@ -189,32 +189,32 @@ emacspeak-dismal-row-summarizer-list"
   (let ((summary nil))
     (setq summary 
           (mapconcat
-            #'(lambda (token)
-              (let ((value nil))
-                (cond
-                 ((stringp token) token)
-                 ((numberp token)
-                  (setq value
-                        (format "%s"
-                                (emacspeak-dismal-cell-value
-                                 dismal-current-row token)))
-                  (put-text-property  0   (length value)
-                                      'personality  emacspeak-dismal-value-personality 
+           #'(lambda (token)
+               (let ((value nil))
+                 (cond
+                  ((stringp token) token)
+                  ((numberp token)
+                   (setq value
+                         (format "%s"
+                                 (emacspeak-dismal-cell-value
+                                  dismal-current-row token)))
+                   (put-text-property  0   (length value)
+                                       'personality  emacspeak-dismal-value-personality 
+                                       value)
+                   value)
+                  ((and (listp token)
+                        (numberp (cl-first token))
+                        (numberp (cl-second token)))
+                   (setq value
+                         (format "%s"
+                                 (emacspeak-dismal-cell-value
+                                  (cl-first token)
+                                  (cl-second token))))
+                   (put-text-property 0   (length value)
+                                      'personality emacspeak-dismal-value-personality 
                                       value)
-                  value)
-                 ((and (listp token)
-                       (numberp (cl-first token))
-                       (numberp (cl-second token)))
-                  (setq value
-                        (format "%s"
-                                (emacspeak-dismal-cell-value
-                                 (cl-first token)
-                                 (cl-second token))))
-                  (put-text-property 0   (length value)
-                                     'personality emacspeak-dismal-value-personality 
-                                     value)
-                  value)
-                 (t  (format "%s" token)))))
+                   value)
+                  (t  (format "%s" token)))))
            emacspeak-dismal-row-summarizer-list 
            " "))
     (dtk-speak summary)))
@@ -234,32 +234,32 @@ emacspeak-dismal-col-summarizer-list"
   (let ((summary nil))
     (setq summary 
           (mapconcat
-            #'(lambda (token)
-              (let ((value nil))
-                (cond
-                 ((stringp token) token)
-                 ((numberp token)
-                  (setq value
-                        (format "%s"
-                                (emacspeak-dismal-cell-value token
-                                                             dismal-current-col)))
-                  (put-text-property 0 (length value)
-                                     'personality
-                                     emacspeak-dismal-value-personality value)
-                  value)
-                 ((and (listp token)
-                       (numberp (cl-first token))
-                       (numberp (cl-second token)))
-                  (setq value
-                        (format "%s"
-                                (emacspeak-dismal-cell-value
-                                 (cl-first token)
-                                 (cl-second token))))
-                  (put-text-property 0 (length value)
-                                     'personality
-                                     emacspeak-dismal-value-personality value)
-                  value)
-                 (t  (format "%s" token)))))
+           #'(lambda (token)
+               (let ((value nil))
+                 (cond
+                  ((stringp token) token)
+                  ((numberp token)
+                   (setq value
+                         (format "%s"
+                                 (emacspeak-dismal-cell-value token
+                                                              dismal-current-col)))
+                   (put-text-property 0 (length value)
+                                      'personality
+                                      emacspeak-dismal-value-personality value)
+                   value)
+                  ((and (listp token)
+                        (numberp (cl-first token))
+                        (numberp (cl-second token)))
+                   (setq value
+                         (format "%s"
+                                 (emacspeak-dismal-cell-value
+                                  (cl-first token)
+                                  (cl-second token))))
+                   (put-text-property 0 (length value)
+                                      'personality
+                                      emacspeak-dismal-value-personality value)
+                   value)
+                  (t  (format "%s" token)))))
            emacspeak-dismal-col-summarizer-list 
            " "))
     (dtk-speak summary)))
@@ -274,16 +274,16 @@ emacspeak-dismal-sheet-summarizer-list"
       (dis-recalculate-matrix))
     (message 
      (mapconcat
-       #'(lambda (token)
-         (cond
-          ((stringp token) token)
-          ((and (listp token)
-                (numberp (cl-first token))
-                (numberp (cl-second token)))
-           (emacspeak-dismal-cell-value
-            (cl-first token)
-            (cl-second token)))
-          (t  (format "%s" token))))
+      #'(lambda (token)
+          (cond
+           ((stringp token) token)
+           ((and (listp token)
+                 (numberp (cl-first token))
+                 (numberp (cl-second token)))
+            (emacspeak-dismal-cell-value
+             (cl-first token)
+             (cl-second token)))
+           (t  (format "%s" token))))
       emacspeak-dismal-sheet-summarizer-list 
       " "))))
 
@@ -329,7 +329,7 @@ Checked by emacspeak specific dis-mode-hooks entry.")
           #'(lambda nil
               (cl-declare (special dismal-saved-variables dismal-map))
               (define-key dismal-map (concat emacspeak-prefix "e")
-                'dis-last-column)
+                          'dis-last-column)
               (define-key dismal-map emacspeak-prefix 'emacspeak-prefix-command)
               (unless emacspeak-dismal-already-customized-dismal
                 (setq emacspeak-dismal-already-customized-dismal t)
@@ -348,7 +348,7 @@ Checked by emacspeak specific dis-mode-hooks entry.")
      (local-unset-key emacspeak-prefix)
      (define-key dismal-map emacspeak-prefix 'emacspeak-prefix-command)
      (define-key dismal-map (concat emacspeak-prefix "e")
-       'dis-last-column)
+                 'dis-last-column)
      (define-key dismal-map  "," 'emacspeak-dismal-display-cell-expression)
      (define-key dismal-map  "." 'emacspeak-dismal-display-cell-value)
      (define-key dismal-map "R" 'emacspeak-dismal-display-cell-with-row-header)

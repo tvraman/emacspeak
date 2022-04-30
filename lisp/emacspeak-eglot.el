@@ -53,10 +53,8 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-
-
 (voice-setup-add-map 
-'((eglot-mode-line voice-lighten)))
+ '((eglot-mode-line voice-lighten)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -80,8 +78,6 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
-
-
 
 ;;}}}
 (provide 'emacspeak-eglot)

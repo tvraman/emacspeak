@@ -421,16 +421,16 @@ and return a suitable effect structure."
         (getter (intern (format "sox-get-%s-effect" name))))
     ;;; Register effect
     (sox-register-effect name)
-;; Parameter template used for prompting:
+    ;; Parameter template used for prompting:
     (eval
      `(defconst ,p-sym ',params
         ,(format "Parameters for effect %s" name)))
 
-;; Set up  repeat
+    ;; Set up  repeat
     (when repeat
       (eval `(put ',p-sym 'repeat t)))
 
-;; Function  for generating effect structure:
+    ;; Function  for generating effect structure:
     (eval
      `(defun ,getter ()
         ,(format "Read needed params for effect %s

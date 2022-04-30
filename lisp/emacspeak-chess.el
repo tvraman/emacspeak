@@ -400,7 +400,7 @@
    2))
 
 (define-prefix-command 'emacspeak-chess-view-prefix
-  'emacspeak-chess-view-map)
+                       'emacspeak-chess-view-map)
 
 (cl-declaim (special emacspeak-chess-view-map))
 (cl-loop
@@ -436,11 +436,11 @@
   "List of non-empty squares a knight can reach from current position."
   (let ((index (get-text-property (point) 'chess-coord))
         (kd ;;; knight directions
-    (list
-     chess-direction-north-northeast chess-direction-east-northeast
-     chess-direction-east-southeast chess-direction-south-southeast
-     chess-direction-south-southwest chess-direction-west-southwest
-     chess-direction-west-northwest chess-direction-north-northwest))
+         (list
+          chess-direction-north-northeast chess-direction-east-northeast
+          chess-direction-east-southeast chess-direction-south-southeast
+          chess-direction-south-southwest chess-direction-west-southwest
+          chess-direction-west-northwest chess-direction-north-northwest))
         (result nil)
         (target nil)
         (squares nil))
@@ -470,11 +470,11 @@
   "List of non-empty squares a king can reach from current position."
   (let ((index (get-text-property (point) 'chess-coord))
         (kd ;;; king directions
-    (list
-     chess-direction-northwest chess-direction-north chess-direction-northeast
-     chess-direction-east
-     chess-direction-southeast chess-direction-south chess-direction-southwest
-     chess-direction-west))
+         (list
+          chess-direction-northwest chess-direction-north chess-direction-northeast
+          chess-direction-east
+          chess-direction-southeast chess-direction-south chess-direction-southwest
+          chess-direction-west))
         (result nil)
         (target nil)
         (squares nil))
@@ -499,9 +499,6 @@
   (interactive)
   (dtk-speak-list (emacspeak-chess-collect-king-squares) 2)
   (emacspeak-auditory-icon 'task-done))
-
-
-
 
 (defun emacspeak-chess-square-name (index)
   "Return an audio formatted name of square at given index
@@ -669,7 +666,7 @@ specifies index of move, default is final index."
              (emacspeak-chess-piece-name s-piece)
              (emacspeak-chess-piece-name t-piece)
              (chess-index-to-coord target)))))
-;; additional consequences of move:
+    ;; additional consequences of move:
     (when promotion
       (setq text
             (concat

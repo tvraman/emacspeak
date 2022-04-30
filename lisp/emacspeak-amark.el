@@ -70,8 +70,6 @@
 (defvar-local emacspeak-amark-list nil
   "List of buffer-local AMarks. ")
 
-
-
 ;;}}}
 ;;{{{ AMark Functions:
 (defun emacspeak-amark-names ()

@@ -56,12 +56,12 @@
 (cl-loop
  for f in 
  '(
-  orgalist--cycle-indentation orgalist-check-item orgalist-cycle-bullet
-orgalist-indent-item orgalist-indent-item-tree orgalist-insert-item
-orgalist-insert-radio-list orgalist-move-item-down orgalist-move-item-up
-orgalist-next-item orgalist-outdent-item orgalist-outdent-item-tree
-orgalist-previous-item
-)
+   orgalist--cycle-indentation orgalist-check-item orgalist-cycle-bullet
+   orgalist-indent-item orgalist-indent-item-tree orgalist-insert-item
+   orgalist-insert-radio-list orgalist-move-item-down orgalist-move-item-up
+   orgalist-next-item orgalist-outdent-item orgalist-outdent-item-tree
+   orgalist-previous-item
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -69,8 +69,6 @@ orgalist-previous-item
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
-
-
 
 ;;}}}
 (provide 'emacspeak-orgalist)

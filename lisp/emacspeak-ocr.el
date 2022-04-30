@@ -307,15 +307,15 @@ See \\{emacspeak-ocr-mode-map}.
 (define-key emacspeak-ocr-mode-map "p" 'emacspeak-ocr-page)
 (define-key emacspeak-ocr-mode-map "s" 'emacspeak-ocr-save-current-page)
 (define-key emacspeak-ocr-mode-map " "
-  'emacspeak-ocr-read-current-page)
+            'emacspeak-ocr-read-current-page)
 (define-key emacspeak-ocr-mode-map "I"
-  'emacspeak-ocr-set-scan-image-options)
+            'emacspeak-ocr-set-scan-image-options)
 (define-key emacspeak-ocr-mode-map "C" 'emacspeak-ocr-set-compress-image-options)
 (cl-loop for i from 1 to 9
          do
          (define-key emacspeak-ocr-mode-map
-           (format "%s" i)
-           'emacspeak-ocr-page))
+                     (format "%s" i)
+                     'emacspeak-ocr-page))
 
 ;;}}}
 ;;{{{ interactive commands
@@ -419,7 +419,6 @@ Pick a short but meaningful name."
               (1+ emacspeak-ocr-last-page-number)))
       (message "Acquired  image to file %s"
                image-name))))
-
 
 (defun emacspeak-ocr-scan-photo (&optional metadata)
   "Scan in a photograph.
@@ -601,7 +600,6 @@ corresponding to the expected `current page' is not found."
                           'emacspeak-ocr-process-sentinel)
     (message "Launched OCR engine.")))
 
-
 (defun emacspeak-ocr-scan-and-recognize ()
   "Scan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
@@ -610,7 +608,6 @@ correctly by themselves."
   (interactive)
   (emacspeak-ocr-scan-image)
   (emacspeak-ocr-recognize-image))
-
 
 (defun emacspeak-ocr-open-working-directory ()
   "Launch dired on OCR working directory."
@@ -716,7 +713,6 @@ correctly by themselves."
        (aref emacspeak-ocr-page-positions
              (1+ emacspeak-ocr-current-page-number))))))
 
-
 (defun emacspeak-ocr-set-scan-image-options  (setting)
   "Interactively update scan image options.
 Prompts with current setting in the minibuffer.
@@ -728,7 +724,6 @@ Setting persists for current Emacs session."
      emacspeak-ocr-scan-image-options)))
   (cl-declare (special emacspeak-ocr-scan-image-options))
   (setq emacspeak-ocr-scan-image-options setting))
-
 
 (defun emacspeak-ocr-set-compress-image-options  (setting)
   "Interactively update  image compression options.

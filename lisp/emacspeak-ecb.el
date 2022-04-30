@@ -145,11 +145,11 @@ available."
                                  tree-buffer-key-map
                                  global-map))
     (define-key tree-buffer-key-map "\d"
-      'emacspeak-ecb-tree-backspace)
+                'emacspeak-ecb-tree-backspace)
     (define-key tree-buffer-key-map '[delete]
-      'emacspeak-ecb-tree-backspace)
+                'emacspeak-ecb-tree-backspace)
     (define-key tree-buffer-key-map '[home]
-      'emacspeak-ecb-tree-clear)
+                'emacspeak-ecb-tree-clear)
     ))
 
 (defadvice tree-buffer-incremental-node-search (around emacspeak pre act comp)

@@ -129,15 +129,14 @@ speak after formatting region"
  do
  (eval
   `(defadvice ,f(around emacspeak pre act com)
-  "Speak quotes that were inserted."
-  (cond
-   ((ems-interactive-p)
-    (let ((orig (point)))
-      ad-do-it
-      (emacspeak-speak-region orig (point))))
-   (t ad-do-it))
-  ad-return-value)))
-
+     "Speak quotes that were inserted."
+     (cond
+      ((ems-interactive-p)
+       (let ((orig (point)))
+         ad-do-it
+         (emacspeak-speak-region orig (point))))
+      (t ad-do-it))
+     ad-return-value)))
 
 ;;}}}
 ;;{{{  Inserting structures
@@ -207,16 +206,16 @@ the opening line of the newly inserted environment. "
 ;; We add imenu settings to LaTeX-mode-hook
 
 (add-hook  'LaTeX-mode-hook
-            #'(lambda ()
-              (cl-declare (special imenu-generic-expression
-                                   imenu-create-index-function))
-              (require 'imenu)
-              (setq imenu-create-index-function 'imenu-default-create-index-function)
-              (setq imenu-generic-expression
-                    '(
-                      (nil
-                       "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
-                       2)))))
+           #'(lambda ()
+               (cl-declare (special imenu-generic-expression
+                                    imenu-create-index-function))
+               (require 'imenu)
+               (setq imenu-create-index-function 'imenu-default-create-index-function)
+               (setq imenu-generic-expression
+                     '(
+                       (nil
+                        "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
+                        2)))))
 
 ;;}}}
 ;;{{{ advice font changes 
@@ -236,7 +235,6 @@ the opening line of the newly inserted environment. "
 ;;}}}
 ;;{{{ tex utils:
 
-
 (defun emacspeak-auctex-end-of-word (arg)
   "move to end of word"
   (interactive "P")
@@ -244,20 +242,17 @@ the opening line of the newly inserted environment. "
       (forward-word arg)
     (forward-word 1)))
 
-
 (defun emacspeak-auctex-comma-at-end-of-word ()
   "Move to the end of current word and add a comma."
   (interactive)
   (forward-word 1)
   (insert-char ?,))
 
-
 (defun emacspeak-auctex-lacheck-buffer-file ()
   "Run Lacheck on current buffer."
   (interactive)
   (compile (format "lacheck %s"
                    (buffer-file-name (current-buffer)))))
-
 
 (defun emacspeak-auctex-tex-tie-current-word (n)
   "Tie the next n  words."

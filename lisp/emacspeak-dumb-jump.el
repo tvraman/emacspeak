@@ -58,14 +58,14 @@
 (cl-loop
  for f in 
  '(
-  dumb-jump-back
-dumb-jump-go
-dumb-jump-go-current-window
-dumb-jump-go-other-window
-dumb-jump-go-prefer-external
-dumb-jump-go-prefer-external-other-window
-dumb-jump-go-prompt
-)
+   dumb-jump-back
+   dumb-jump-go
+   dumb-jump-go-current-window
+   dumb-jump-go-other-window
+   dumb-jump-go-prefer-external
+   dumb-jump-go-prefer-external-other-window
+   dumb-jump-go-prompt
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -74,8 +74,6 @@ dumb-jump-go-prompt
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))
        (emacspeak-auditory-icon 'large-movement)))))
-
-
 
 ;;}}}
 (provide 'emacspeak-dumb-jump)

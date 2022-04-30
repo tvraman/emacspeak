@@ -139,17 +139,17 @@
 (add-hook
  'helm-help-mode-before-hook
  #'(lambda()
-   "Turn off speaking read-key prompts"
-   (setq emacspeak-speak-messages nil)
-   (emacspeak-auditory-icon 'open-object)))
+     "Turn off speaking read-key prompts"
+     (setq emacspeak-speak-messages nil)
+     (emacspeak-auditory-icon 'open-object)))
 
 (add-hook
  'helm-help-mode-after-hook
  #'(lambda()
-   "restore speaking messages."
-   (setq emacspeak-speak-messages t)
-   (emacspeak-auditory-icon 'close-object)))
- 
+     "restore speaking messages."
+     (setq emacspeak-speak-messages t)
+     (emacspeak-auditory-icon 'close-object)))
+
 ;;}}}
 (provide 'emacspeak-helm)
 ;;{{{ end of file

@@ -78,22 +78,22 @@
 (defun emacspeak-calendar-entry-marked-p()
   "Check if diary entry is marked. "
   (memq 'diary
-          (delq nil
-                (mapcar
-                 #'(lambda (overlay)
-                     (overlay-get overlay 'face))
-                 (overlays-at (point))))))
+        (delq nil
+              (mapcar
+               #'(lambda (overlay)
+                   (overlay-get overlay 'face))
+               (overlays-at (point))))))
 
 (defun emacspeak-calendar-speak-date()
   "Speak the date under point when called in Calendar Mode. "
   (interactive)
   (let ((date (calendar-date-string (calendar-cursor-to-date t))))
     (tts-with-punctuations
-        'some
-      (cond
-       ((emacspeak-calendar-entry-marked-p)
-        (dtk-speak-using-voice emacspeak-calendar-mark-personality date))
-       (t (dtk-speak date))))))
+     'some
+     (cond
+      ((emacspeak-calendar-entry-marked-p)
+       (dtk-speak-using-voice emacspeak-calendar-mark-personality date))
+      (t (dtk-speak date))))))
 
 ;;}}}
 ;;{{{  Advice:
@@ -363,7 +363,6 @@
 ;;}}}
 ;;{{{ Global sunrise/sunset wizard:
 
-
 (defun emacspeak-calendar-sunrise-sunset (address &optional arg)
   "Display sunrise/sunset for specified address."
   (interactive
@@ -388,12 +387,8 @@
          (time-string (solar-sunrise-sunset-string date)))
     (message "%s: %s at %s" date-string time-string address)))
 
-
-
 ;;}}}
 ;;{{{  keymap
-
-
 
 (defun emacspeak-calendar-setup()
   "Set up appropriate bindings for calendar"
@@ -405,8 +400,8 @@
     (define-key calendar-mode-map "\M-s" 'emacspeak-calendar-sunrise-sunset)
     (define-key calendar-mode-map  "\C-e." 'emacspeak-calendar-speak-date)
     (define-key calendar-mode-map  "\C-ee"
-      'calendar-end-of-week)))
-                                        
+                'calendar-end-of-week)))
+
 ;;}}}
 ;;{{{  Appointments:
 

@@ -51,7 +51,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-
 ;;}}}
 ;;{{{ Forward Declaration 
 (declare-function shx-insert "shx" (&rest args))

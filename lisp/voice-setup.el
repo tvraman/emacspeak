@@ -145,23 +145,23 @@
 (defun voice-acss-from-speech-style (style)
   "Compute a  name for this STYLE.
 Define a voice for it if needed, then return the symbol."
-    (let ((f (acss-family style))
-          (a (acss-average-pitch style))
-          (p (acss-pitch-range style))
-          (s (acss-stress style))
-          (r (acss-richness style))
-          (name nil))
-      (setq name
-            (intern
-             (format "acss%s%s%s%s%s"
-                     (if f (format "-%s" f) "")
-                     (if a (format "-a%s" a) "")
-                     (if p (format "-p%s" p) "")
-                     (if s (format "-s%s" s) "")
-                     (if r (format "-r%s" r) ""))))
-      (unless (tts-voice-defined-p name)
-        (tts-define-voice-from-speech-style name style))
-      name))
+  (let ((f (acss-family style))
+        (a (acss-average-pitch style))
+        (p (acss-pitch-range style))
+        (s (acss-stress style))
+        (r (acss-richness style))
+        (name nil))
+    (setq name
+          (intern
+           (format "acss%s%s%s%s%s"
+                   (if f (format "-%s" f) "")
+                   (if a (format "-a%s" a) "")
+                   (if p (format "-p%s" p) "")
+                   (if s (format "-s%s" s) "")
+                   (if r (format "-r%s" r) ""))))
+    (unless (tts-voice-defined-p name)
+      (tts-define-voice-from-speech-style name style))
+    name))
 
 ;;}}}
 ;;{{{ map faces to voices
@@ -233,7 +233,7 @@ Define a voice for it if needed, then return the symbol."
        :set
        #'(lambda  (sym val)
            (setq ,voice (voice-setup-acss-from-style val))
-             (set-default sym val)))))
+           (set-default sym val)))))
 
 ;;}}}
 ;;{{{ new light-weight voice lock

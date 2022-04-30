@@ -134,7 +134,6 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-
 (cl-loop
  for f in
  '(

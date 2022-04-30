@@ -255,8 +255,6 @@ the match  being passed to the func which returns  the new pronunciation."
   :type '(file :tag "Dictionary File ")
   :group 'emacspeak)
 
-
-
 (defun emacspeak-pronounce-save-dictionaries ()
   "Saves  pronunciation dictionaries."
   (interactive)
@@ -308,7 +306,6 @@ Default is emacspeak-pronounce-dictionaries-file."
           (setq emacspeak-pronounce-dictionaries-loaded t))
       (error (message "Error loading pronunciation dictionary")))))
 
-
 (defun emacspeak-pronounce-clear-dictionaries ()
   "Clear all current pronunciation dictionaries."
   (interactive)
@@ -344,7 +341,7 @@ Default is emacspeak-pronounce-dictionaries-file."
                       (< (count-lines (region-beginning)
                                       (region-end)) 2)
                       (buffer-substring-no-properties (region-beginning)
-                                        (region-end))))
+                                                      (region-end))))
         (emacspeak-pronounce-yank-word-point (point)))
     (setq emacspeak-pronounce-current-buffer (current-buffer))
     (read-from-minibuffer
@@ -354,7 +351,6 @@ Default is emacspeak-pronounce-dictionaries-file."
        (progn
          (define-key now-map "\C-w"'emacspeak-pronounce-yank-word))
        now-map))))
-
 
 (defun emacspeak-pronounce-define-local-pronunciation (word pron)
   "Define buffer local pronunciation.
@@ -404,7 +400,6 @@ Returns a pair of the form (key-type . key)."
      (t (error "Cannot define pronunciations with key type %s" key-type)))
     (cons key-type key)))
 
-
 (defun emacspeak-pronounce-define-template-pronunciation ()
   "Interactively define template entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
@@ -429,7 +424,6 @@ First loads any persistent dictionaries if not already loaded."
       (emacspeak-pronounce-refresh-pronunciations))
     (when (eq (car key-pair) 'buffer)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry word pronunciation))))
-
 
 (defun emacspeak-pronounce-define-pronunciation ()
   "Interactively define entries in the pronunciation dictionaries.
@@ -482,7 +476,6 @@ First loads any persistent dictionaries if not already loaded."
     (message
      "Pronunciations %s."
      (if emacspeak-pronounce-pronunciation-table " on " " off "))))
-
 
 (defun emacspeak-pronounce-refresh-pronunciations ()
   "Refresh pronunciation table for current buffer. "
@@ -612,7 +605,6 @@ First loads any persistent dictionaries if not already loaded."
          emacspeak-pronounce-dictionaries)
         value))))
 
-
 (defun emacspeak-pronounce-edit-pronunciations (key)
   "Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key."
@@ -643,7 +635,6 @@ specified pronunciation dictionary key."
 (defvar emacspeak-pronounce-help
   "Dictionary: Clear Define Edit Load Refresh Save Toggle voicify"
   "Dictionary Help")
-
 
 (defun emacspeak-pronounce-dispatch ()
   "Pronounce Frontend"
@@ -683,16 +674,16 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
-    (let ((fields (mapcar #'read (split-string string "-"))))
-       (calendar-date-string
-        (list (cl-second fields)
-              (cl-first fields)
-              (cond
-               ((< (cl-third fields) 50)
-                (+ 2000 (cl-third fields)))
-               ((< (cl-third fields) 100)
-                (+ 1900 (cl-third fields)))
-               (t (cl-third fields)))))))
+  (let ((fields (mapcar #'read (split-string string "-"))))
+    (calendar-date-string
+     (list (cl-second fields)
+           (cl-first fields)
+           (cond
+            ((< (cl-third fields) 50)
+             (+ 2000 (cl-third fields)))
+            ((< (cl-third fields) 100)
+             (+ 1900 (cl-third fields)))
+            (t (cl-third fields)))))))
 
 (defvar emacspeak-pronounce-date-yyyymmdd-pattern
   "[0-9]\\{8\\}"

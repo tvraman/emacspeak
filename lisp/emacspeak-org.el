@@ -267,10 +267,10 @@
     ad-do-it
     (if (> (point) prior)
         (tts-with-punctuations
-            'all
-          (if (> (length (emacspeak-get-minibuffer-contents)) 0)
-              (dtk-speak (emacspeak-get-minibuffer-contents))
-            (emacspeak-speak-line)))
+         'all
+         (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+             (dtk-speak (emacspeak-get-minibuffer-contents))
+           (emacspeak-speak-line)))
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
@@ -499,7 +499,6 @@
 ;;}}}
 ;;{{{ global input wizard
 
-
 (defun emacspeak-org-popup-input ()
   "Pops up an org input area."
   (interactive)
@@ -527,7 +526,6 @@
   "speak."
   (emacspeak-auditory-icon 'close-object))
 
-
 (defun emacspeak-org-table-speak-current-element ()
   "echoes current table element"
   (interactive)
@@ -536,13 +534,11 @@
      ((string-match "^ *$" field) (dtk-speak "space"))
      (t (dtk-speak-and-echo field)))))
 
-
 (defun emacspeak-org-table-speak-column-header ()
   "echoes column header"
   (interactive)
   (dtk-speak-and-echo
    (propertize (org-table-get 1 nil) 'face 'bold)))
-
 
 (defun emacspeak-org-table-speak-row-header ()
   "echoes row header"
@@ -550,14 +546,12 @@
   (dtk-speak-and-echo
    (propertize (org-table-get nil 1) 'face 'italic)))
 
-
 (defun emacspeak-org-table-speak-coordinates ()
   "echoes coordinates"
   (interactive)
   (dtk-speak-and-echo
    (concat "row " (number-to-string (org-table-current-line))
            ", column " (number-to-string (org-table-current-column)))))
-
 
 (defun emacspeak-org-table-speak-both-headers-and-element ()
   "echoes both row and col headers."
@@ -569,7 +563,6 @@
     (propertize (org-table-get  1 nil) 'face 'bold) " "
     (org-table-get-field))))
 
-
 (defun emacspeak-org-table-speak-row-header-and-element ()
   "echoes row header and element"
   (interactive)
@@ -578,7 +571,6 @@
     (propertize (org-table-get nil 1) 'face 'italic)
     " "
     (org-table-get-field))))
-
 
 (defun emacspeak-org-table-speak-column-header-and-element ()
   "echoes col header and element"
@@ -601,7 +593,6 @@
 
 ;;}}}
 ;;{{{ Additional table function:
-
 
 (unless (fboundp 'org-table-previous-row)
   (defun org-table-previous-row ()
@@ -734,12 +725,10 @@ arg just opens the file"
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'item))
 
-
 ;;}}}
 ;;{{{ specialized input buffers:
 
 ;; Taken from a message on the org mailing list.
-
 
 (defun emacspeak-org-popup-input-buffer (mode)
   "Provide an input buffer in a specified mode."
@@ -750,8 +739,8 @@ arg just opens the file"
       "Mode: "
       (mapcar
        #'(lambda (e)
-         (list (symbol-name e)))
-              (apropos-internal "-mode$" 'commandp))
+           (list (symbol-name e)))
+       (apropos-internal "-mode$" 'commandp))
       nil t))))
   (let ((buffer-name (generate-new-buffer-name "*input*")))
     (pop-to-buffer (make-indirect-buffer (current-buffer) buffer-name))
@@ -759,10 +748,10 @@ arg just opens the file"
     (funcall mode)
     (let ((map (copy-keymap (current-local-map))))
       (define-key map (ems-kbd "C-c C-c")
-        #'(lambda ()
-          (interactive)
-          (kill-buffer nil)
-          (delete-window)))
+                  #'(lambda ()
+                      (interactive)
+                      (kill-buffer nil)
+                      (delete-window)))
       (use-local-map map))
     (shrink-window-if-larger-than-buffer)))
 

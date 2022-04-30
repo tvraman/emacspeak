@@ -115,9 +115,6 @@ Assumes that point is at the front of a field value."
        (emacspeak-auditory-icon 'search-hit)
        (emacspeak-speak-line)))))
 
-
-
-
 (defadvice forms-next-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -261,11 +258,11 @@ Assumes that point is at the front of a field value."
                #'(lambda (map)
                    (define-key map "\C-m" 'emacspeak-forms-rerun-filter)
                    (define-key map "."
-                     'emacspeak-forms-summarize-current-position)
+                               'emacspeak-forms-summarize-current-position)
                    (define-key map "," 'emacspeak-forms-summarize-current-record))
                (list forms-mode-ro-map 
                      forms-mode-map))
-;; move to first field
+              ;; move to first field
               (forms-next-field 1)))
 
 ;;}}}

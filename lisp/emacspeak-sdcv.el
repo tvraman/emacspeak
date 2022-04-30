@@ -71,8 +71,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
-
-
 (cl-loop
  for f in
  '(sdcv-previous-dictionary sdcv-next-dictionary)
@@ -93,9 +91,6 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)))))
-
-
-
 
 (defun emacspeak-sdcv-update-dictionary-list ()
   "Update sdcv dictionary lists if necessary by examining

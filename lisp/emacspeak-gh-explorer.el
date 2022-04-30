@@ -92,10 +92,10 @@
   (ems--gh-explorer-nav 1))
 
 (defun emacspeak-gh-explorer-previous ()
-     "Moveback and speak current entry."
-     (interactive)
-     
-     (ems--gh-explorer-nav -1))
+  "Moveback and speak current entry."
+  (interactive)
+  
+  (ems--gh-explorer-nav -1))
 
 (eval-after-load
     "github-explorer"

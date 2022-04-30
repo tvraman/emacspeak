@@ -53,12 +53,10 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-
-
 (voice-setup-add-map 
-'(
-(racer-help-heading-face voice-lighten)
-(racer-tooltip voice-brighten)))
+ '(
+   (racer-help-heading-face voice-lighten)
+   (racer-tooltip voice-brighten)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -80,7 +78,6 @@
               (buffer-live-p (get-buffer "*Racer Help*")))
     (emacspeak-auditory-icon 'help-object)
     (with-current-buffer "*Racer Help*" (emacspeak-speak-buffer))))
-
 
 ;;}}}
 (provide 'emacspeak-racer)

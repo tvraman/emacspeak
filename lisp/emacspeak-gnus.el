@@ -79,7 +79,7 @@
   :group 'emacspeak-gnus)
 
 (defcustom  emacspeak-gnus-large-article 100
-"Articles having more than
+  "Articles having more than
 emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful."
@@ -97,7 +97,7 @@ instead you hear only the first screenful."
   (define-key gnus-summary-mode-map "t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
-  ;(define-key  gnus-group-mode-map "?" 'gm-nnir-group-make-nnir-group)
+                                        ;(define-key  gnus-group-mode-map "?" 'gm-nnir-group-make-nnir-group)
   (define-key gnus-group-mode-map "/" 'gm-nnir-group-make-gmail-group)
   (define-key gnus-group-mode-map ";" 'emacspeak-gnus-personal-gmail-recent)
   (define-key gnus-group-mode-map ":" 'emacspeak-gnus-personal-gmail-last-week)
@@ -107,7 +107,7 @@ instead you hear only the first screenful."
   (define-key gnus-group-mode-map "\C-p" 'gnus-group-prev-group)
   (define-key gnus-summary-wash-map "D" 'gnus-summary-downcase-article)
   (define-key gnus-group-mode-map '[right]
-    'gnus-group-read-group))
+              'gnus-group-read-group))
 
 (add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
 
@@ -154,10 +154,10 @@ instead you hear only the first screenful."
  do
  (eval
   `(defadvice ,f(after emacspeak pre act com)
-    "Provide auditory contextual feedback."
-    (when (ems-interactive-p)
-      (emacspeak-speak-mode-line)
-      (emacspeak-auditory-icon 'close-object)))))
+     "Provide auditory contextual feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-mode-line)
+       (emacspeak-auditory-icon 'close-object)))))
 
 ;;}}}
 ;;{{{  starting up:
@@ -838,13 +838,11 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ GMail Search Accelerators:
 
-
 (defun emacspeak-gnus-personal-gmail-recent ()
   "Look for mail addressed personally in the last day."
   (interactive)
   (gm-nnir-group-make-gmail-group
    (format "newer_than:1d to:me -cc:%s" user-mail-address)))
-
 
 (defun emacspeak-gnus-personal-gmail-last-week()
   "Look for mail addressed personally in the last week."

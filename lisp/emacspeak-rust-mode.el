@@ -73,8 +73,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done))))) 
 
-
-
 (defadvice rust-dbg-wrap-or-unwrap (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -119,7 +117,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-
 (defun emacspeak-rust-mode-setup ()
   "Setup additional keys etc."
   (cl-declare (special rust-mode-map))
@@ -138,7 +135,7 @@
  for f in 
  '(
    rustic-beginning-of-defun rustic-end-of-defun
-                             rustic-beginning-of-function rustic-end-of-string)
+   rustic-beginning-of-function rustic-end-of-string)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

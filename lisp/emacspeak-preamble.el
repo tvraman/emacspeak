@@ -90,7 +90,6 @@
 (defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
   "Resources.")
 
-
 (defvar emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
   "README.")

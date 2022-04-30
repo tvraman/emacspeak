@@ -85,7 +85,6 @@
       (emacspeak-speak-line))
     ))
 
-
 (defadvice js2-mark-defun  (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)

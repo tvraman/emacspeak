@@ -329,12 +329,12 @@ Then speak the screenful. "
   "Provide aural feedback."
   (cond
    ((ems-interactive-p)
-      (emacspeak-auditory-icon 'open-object)
-      (message "Forwarding message")
-      ad-do-it
-      (emacspeak-speak-line))
-        (t
-         ad-do-it))
+    (emacspeak-auditory-icon 'open-object)
+    (message "Forwarding message")
+    ad-do-it
+    (emacspeak-speak-line))
+   (t
+    ad-do-it))
   ad-return-value)
 
 (defadvice vm-reply (after emacspeak pre act comp)
@@ -423,8 +423,8 @@ Then speak the screenful. "
   (define-key vm-mode-map "," 'emacspeak-vm-speak-message)
   (define-key vm-mode-map "\M-l" 'emacspeak-vm-speak-labels)
   (define-key vm-mode-map
-    (concat emacspeak-prefix "m")
-    'emacspeak-vm-mode-line)
+              (concat emacspeak-prefix "m")
+              'emacspeak-vm-mode-line)
   )
 ;;}}}
 ;;{{{ advise searching:
@@ -598,23 +598,21 @@ Leave point at front of decoded attachment."
 
 (defun vm-mime-display-internal-shr-text/html (start end _layout)
   "Use shr to inline HTML mails in the VM presentation buffer."
-    (shr-render-region start (1- end))
-    (put-text-property start end 'text-rendered-by-shr t))
-     
+  (shr-render-region start (1- end))
+  (put-text-property start end 'text-rendered-by-shr t))
+
 ;; has to be done indirectly
 ;; Fake emacs-w3m, though we actually use shr
-     (defalias 'vm-mime-display-internal-emacs-w3m-text/html  'vm-mime-display-internal-shr-text/html)
+(defalias 'vm-mime-display-internal-emacs-w3m-text/html  'vm-mime-display-internal-shr-text/html)
 
 (defun vm-chromium ()
-       "Run Chromium on current link."
-       (interactive)
-       (let ((url (browse-url-url-at-point)))
-         (unless url (error "No link here."))
-         (dtk-stop)
-         (browse-url-chrome url)
-         (message "Opening url with Chrome")))
-
-     
+  "Run Chromium on current link."
+  (interactive)
+  (let ((url (browse-url-url-at-point)))
+    (unless url (error "No link here."))
+    (dtk-stop)
+    (browse-url-chrome url)
+    (message "Opening url with Chrome")))
 
 (defcustom emacspeak-vm-use-raman-settings t
   "Should VM  use the customizations used by the author of Emacspeak."
@@ -706,7 +704,6 @@ settings to match what the author of Emacspeak uses."
 text using pdftotext."
   :type 'string
   :group 'emacspeak-vm)
-
 
 (defcustom emacspeak-vm-cal2text
   (expand-file-name "cal2text" emacspeak-etc-directory)

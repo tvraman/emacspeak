@@ -58,7 +58,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
 (require 'emacspeak-preamble)
-;(require 'eww)
+                                        ;(require 'eww)
 (require 'dom-addons)
 (require 'gweb)
 (require 'g-utils)
@@ -119,7 +119,6 @@
 ;;}}}
 ;;{{{ define resources
 
-
 (defun emacspeak-url-template-define (name template
                                            &optional generators post-action
                                            documentation fetcher
@@ -150,7 +149,6 @@ dont-url-encode if true then url arguments are not url-encoded "
     :documentation documentation
     :fetcher fetcher
     :dont-url-encode dont-url-encode)))
-
 
 (defun emacspeak-url-template-load (file)
   "Load URL template resources from specified location."
@@ -232,7 +230,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "BBC World News Summary"
  #'emacspeak-feeds-opml-display)
 (declare-function emacspeak-xslt-view-xml "emacspeak-xslt" (style url &optional unescape-charent))
-
 
 (emacspeak-url-template-define
  "BBC Podcast Directory"
@@ -382,7 +379,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Dictionary Lookup"
  #'(lambda (url)
      (emacspeak-xslt-without-xsl
-         (browse-url url))))
+      (browse-url url))))
 
 ;;}}}
 ;;{{{ NY Times
@@ -445,8 +442,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  'emacspeak-url-template-setup-content-filter
  "Display tech news from CNET"
  #'emacspeak-feeds-rss-display)
-
-
 
 ;;}}}
 ;;{{{ yahoo daily news
@@ -898,7 +893,6 @@ Format is stationid+AM/FM."
 ;;}}}
 ;;{{{ GitHub Search
 
-
 (declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
 (emacspeak-url-template-define
  "GitHub Search"
@@ -1225,7 +1219,6 @@ template."
 ;;}}}
 ;;{{{ Washington Post
 
-
 (emacspeak-url-template-define
  "Washington Post"
  "https://www.washingtonpost.com/"
@@ -1252,18 +1245,16 @@ template."
 
 (declare-function shr-url-at-point "shr" (image-url))
 
-
-
 (emacspeak-url-template-define
  "Reddit At Point."
  "" nil nil
  "Open RSS Feed for Reddit URL under point."
  #'(lambda (_url)
      (let ((url
-             (or
-              (shr-url-at-point nil)
-              (browse-url-url-at-point)
-              (read-from-minibuffer "URL:"))))
+            (or
+             (shr-url-at-point nil)
+             (browse-url-url-at-point)
+             (read-from-minibuffer "URL:"))))
        (cl-assert url t "No URL under point.")
        (cl-assert
         (string-match "https://www.reddit.com" url) t
@@ -1305,7 +1296,6 @@ template."
  "Display Hacker News Front Page"
  #'emacspeak-feeds-rss-display)
 
-
 (emacspeak-url-template-define
  "Hacker  News Search"
  "https://hnrss.org/newest?q=%s"
@@ -1313,7 +1303,6 @@ template."
  nil
  "Display Hacker News Front Page"
  #'emacspeak-feeds-rss-display)
-
 
 ;;}}}
 ;;{{{CIA World Fact Book:
@@ -1343,22 +1332,21 @@ template."
 
 ;;}}}
 
-
 ;;{{{cricinfo print rule
 
 (emacspeak-url-template-define
  "Cricinfo Print"
  "_" ; place holder
-  nil nil 
+ nil nil 
  "Printer friendly   link on Cricinfo"
  #'(lambda (_u)
      (add-hook
-   'emacspeak-eww-post-process-hook
-   #'(lambda nil
-       (search-forward "\n\n")
-       (dtk-set-punctuations-to-some)
-       (emacspeak-speak-rest-of-buffer))
-   'at-end)
+      'emacspeak-eww-post-process-hook
+      #'(lambda nil
+          (search-forward "\n\n")
+          (dtk-set-punctuations-to-some)
+          (emacspeak-speak-rest-of-buffer))
+      'at-end)
      (browse-url
       (replace-regexp-in-string
        "ci/content/\\(.*\\)\\.html*"

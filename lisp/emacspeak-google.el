@@ -59,8 +59,6 @@
 (require 'emacspeak-preamble)
 (require 'gweb)
 
-
-
 ;;}}}
 ;;{{{ Data Structures
 
@@ -135,7 +133,7 @@ This variable is buffer-local.")
       (setq
        emacspeak-google-toolbelt
        (list
-;; video vid: 1/0
+        ;; video vid: 1/0
         (make-emacspeak-google-tool
          :name "video"
          :param "vid"
@@ -143,7 +141,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbm
          :value 0)
-;; Recent
+        ;; Recent
         (make-emacspeak-google-tool
          :name "recent"
          :param "rcnt"
@@ -151,7 +149,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;; Duration restrict for video
+        ;; Duration restrict for video
         (make-emacspeak-google-tool
          :name "video-duration"
          :param "dur"
@@ -159,7 +157,7 @@ This variable is buffer-local.")
          :default "m"
          :value "m"
          :type 'tbs)
-;; Recipes
+        ;; Recipes
         (make-emacspeak-google-tool
          :name "recipes"
          :param "rcp"
@@ -167,7 +165,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;; places/local:
+        ;; places/local:
         (make-emacspeak-google-tool
          :name "places"
          :param "plcs"
@@ -175,7 +173,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;; patents
+        ;; patents
         (make-emacspeak-google-tool
          :name "patents"
          :param "pts"
@@ -183,7 +181,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;; discussions/forums
+        ;; discussions/forums
         (make-emacspeak-google-tool
          :name "group-discussions"
          :param "dsc"
@@ -200,7 +198,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
 
-;; Blog mode
+        ;; Blog mode
         (make-emacspeak-google-tool
          :name "blog"
          :param "blg"
@@ -208,7 +206,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;; Books mode
+        ;; Books mode
         (make-emacspeak-google-tool
          :name "books"
          :param "bks"
@@ -216,7 +214,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbm
          :value 0)
-;; epub
+        ;; epub
         (make-emacspeak-google-tool
          :name "books-format"
          :param "bft"
@@ -224,7 +222,7 @@ This variable is buffer-local.")
          :default "e"
          :type 'tbs
          :value "e")
-;; Books viewability
+        ;; Books viewability
         (make-emacspeak-google-tool
          :name "books-viewability"
          :param "bkv"
@@ -232,7 +230,7 @@ This variable is buffer-local.")
          :default "a"
          :value "a"
          :type 'tbs)
-;; Book Type
+        ;; Book Type
         (make-emacspeak-google-tool
          :name "books-type"
          :param "bkt"
@@ -240,7 +238,7 @@ This variable is buffer-local.")
          :default "b"
          :value "b"
          :type 'tbs)
-;; Forums Mode
+        ;; Forums Mode
         (make-emacspeak-google-tool
          :name "forums"
          :param "frm"
@@ -248,7 +246,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;; News Mode
+        ;; News Mode
         (make-emacspeak-google-tool
          :name "news"
          :param "nws"
@@ -256,7 +254,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;; Reviews
+        ;; Reviews
         (make-emacspeak-google-tool
          :name "reviews"
          :param "rvw"
@@ -264,7 +262,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;; Web History Visited
+        ;; Web History Visited
         (make-emacspeak-google-tool
          :name "web-history-visited"
          :param "whv"
@@ -272,7 +270,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;; Web History Not Visited
+        ;; Web History Not Visited
         (make-emacspeak-google-tool
          :name "web-history-not-visited"
          :param "whnv"
@@ -280,7 +278,7 @@ This variable is buffer-local.")
          :range '(0 1)
          :default 0
          :value 0)
-;; Images
+        ;; Images
         (make-emacspeak-google-tool
          :name "images"
          :param "isch"
@@ -288,7 +286,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;; Structured Snippets
+        ;; Structured Snippets
         (make-emacspeak-google-tool
          :name "structured-snippets"
          :param "sts"
@@ -296,7 +294,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;; sort by date
+        ;; sort by date
         (make-emacspeak-google-tool
          :name "sort-by-date"
          :param "std"
@@ -304,7 +302,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-;; Timeline
+        ;; Timeline
         (make-emacspeak-google-tool
          :name "timeline"
          :param "tl"
@@ -312,7 +310,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;; Timeline Low
+        ;; Timeline Low
         (make-emacspeak-google-tool
          :name "timeline-low"
          :param "tll"
@@ -320,7 +318,7 @@ This variable is buffer-local.")
          :range "YYYY/MM"
          :default ""
          :value "")
-;; Date Filter
+        ;; Date Filter
         (make-emacspeak-google-tool
          :name "date-filter"
          :param "qdr"
@@ -328,7 +326,7 @@ This variable is buffer-local.")
          :default ""
          :type 'tbs
          :value "")
-;; Timeline High
+        ;; Timeline High
         (make-emacspeak-google-tool
          :name "timeline-high"
          :param "tlh"
@@ -336,7 +334,7 @@ This variable is buffer-local.")
          :default ""
          :type 'tbs
          :value "")
-;; more:commercial promotion with prices
+        ;; more:commercial promotion with prices
         (make-emacspeak-google-tool
          :name "commercial"
          :param "cpk"
@@ -344,7 +342,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;; verbatim/literal search
+        ;; verbatim/literal search
         (make-emacspeak-google-tool
          :name "literal"
          :param "li"
@@ -352,7 +350,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;; shopping
+        ;; shopping
         (make-emacspeak-google-tool
          :name "Shopping"
          :param "shop"
@@ -367,7 +365,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;; less:commercial (demotion)
+        ;; less:commercial (demotion)
         (make-emacspeak-google-tool
          :name "non-commercial"
          :param "cdcpk"
@@ -375,7 +373,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbs
          :value 0)
-;; soc
+        ;; soc
         (make-emacspeak-google-tool
          :name "social"
          :param "sa"
@@ -413,7 +411,7 @@ This variable is buffer-local.")
   (let ((cache
          (eval
           `#'(lambda nil
-              (setq emacspeak-google-query ,query)))))
+               (setq emacspeak-google-query ,query)))))
     (add-hook 'emacspeak-eww-post-process-hook cache 'at-end)))
 
 (defun emacspeak-google-cache-toolbelt(belt)
@@ -421,16 +419,14 @@ This variable is buffer-local.")
   (cl-declare (special emacspeak-google-toolbelt))
   (let ((cache
          (eval 
-                 `#'(lambda nil
-                   (setq emacspeak-google-toolbelt' ,belt)))))
+          `#'(lambda nil
+               (setq emacspeak-google-toolbelt' ,belt)))))
     (add-hook 'emacspeak-eww-post-process-hook cache 'at-end)))
-
 
 ;;}}}
 ;;{{{  google tools
 
 (declare-function eww-current-url "eww" nil)
-
 
 (defun emacspeak-google-who-links-to-this-page ()
   "Perform a google search to locate documents that link to the
@@ -440,14 +436,12 @@ current page."
    (format "link:%s"
            (eww-current-url))))
 
-
 (defun emacspeak-google-extract-from-cache ()
   "Extract current  page from the Google cache. "
   (interactive)
   (browse-url
    (format "http://webcache.googleusercontent.com/search?q=cache:%s"
            (shr-url-at-point nil))))
-
 
 (defun emacspeak-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
@@ -460,7 +454,6 @@ current page."
 
 (defvar emacspeak-google-related-uri
   "http://www.google.com/search?hl=en&num=25&q=related:")
-
 
 (defun emacspeak-google-similar-to-this-page (url)
   "Ask Google to find documents similar to this one."
@@ -504,13 +497,13 @@ current page."
                (cond
                 ((and (listp range)
                       (= 2 (length range)))
-;; toggle value
+                 ;; toggle value
                  (setf (emacspeak-google-tool-value tool)
                        (if (equal value (cl-first range))
                            (cl-second range)
                          (cl-first range))))
                 ((listp range)
-;; Prompt using completion
+                 ;; Prompt using completion
                  (setf  (emacspeak-google-tool-value tool)
                         (completing-read
                          "Set tool to: "
@@ -566,7 +559,6 @@ current page."
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 (declare-function shr-url-at-point "shr" (image-url))
 
-
 (defun emacspeak-google-open-link ()
   "Open Google link under point."
   (interactive)
@@ -608,7 +600,7 @@ current page."
 ;;{{{  keymap
 
 (define-prefix-command  'emacspeak-google-command
-  'emacspeak-google-keymap)
+                        'emacspeak-google-keymap)
 (cl-declaim (special emacspeak-google-keymap))
 (cl-loop
  for k in

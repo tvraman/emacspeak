@@ -119,17 +119,17 @@
   "speak."
   (with-current-buffer pianobar-buffer
     (define-key pianobar-key-map "l"
-      'pianobar-love-current-song)
+                'pianobar-love-current-song)
     (define-key pianobar-key-map "t"
-      'emacspeak-pianobar-electric-mode-toggle)
+                'emacspeak-pianobar-electric-mode-toggle)
     (define-key pianobar-key-map (ems-kbd "RET") 'emacspeak-pianobar-send-raw)
     (define-key pianobar-key-map [right] 'pianobar-next-song)
     (dotimes (i 10)
       (define-key pianobar-key-map    (format "%s" i)   'emacspeak-pianobar-switch-to-preset))
     (dotimes (i 25)
       (define-key pianobar-key-map
-        (format "%c" (+ i 65))
-        'emacspeak-pianobar-switch-to-preset))
+                  (format "%c" (+ i 65))
+                  'emacspeak-pianobar-switch-to-preset))
     (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
     (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
     (define-key  pianobar-key-map "," 'emacspeak-pianobar-previous-preset)
@@ -137,7 +137,7 @@
     (define-key  pianobar-key-map "<" 'emacspeak-pianobar-previous-preset)
     (define-key  pianobar-key-map">" 'emacspeak-pianobar-next-preset)
     (define-key pianobar-key-map "("
-      'emacspeak-pianobar-volume-down)
+                'emacspeak-pianobar-volume-down)
     (define-key pianobar-key-map [prior] 'emacspeak-pianobar-volume-down)
     (define-key pianobar-key-map ")" 'emacspeak-pianobar-volume-up)
     (define-key pianobar-key-map [next] 'emacspeak-pianobar-volume-up)
@@ -191,7 +191,6 @@
 
 (defvar emacspeak-pianobar-electric-mode t
   "Records if electric mode is on.")
-
 
 (defun emacspeak-pianobar-electric-mode-toggle ()
   "Toggle electric mode in pianobar buffer.
@@ -249,7 +248,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (cl-declare (special pianobar-key-map))
   (cond
    ((and (stringp key)
-          (string= "'" key))
+         (string= "'" key))
     (emacspeak-pianobar-hide-or-show)
     (emacspeak-speak-mode-line))
    ((lookup-key pianobar-key-map key)
