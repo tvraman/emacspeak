@@ -7,21 +7,5 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 56 --- Emacspeak 56 User Visible Changes
+* Emacspeak 57 --- Emacspeak 56 User Visible Changes
    
-** Speech-enable Package Annotate
-
-Module ~emacspeak-annotate~ speech-enables package ~annotate~.
-
-** Updated ELDoc Support 
-
-Eldoc support has been updated to speak available eldoc on user
-request via _C-,,_.
-** Updated ESpeak Server
-
-The ~espeak~ server has better support for language and dialect
-switching.
-
-** Updated Elpy Support
-
-Elpy support has been updated in package ~emacspeak-elpy~.
