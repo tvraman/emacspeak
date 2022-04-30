@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
-Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
+Copyright: (C) T. V. Raman, 2001 - 2022,   All Rights Reserved.
 License: GPL
 Description: Display all values of a specified attribute.
 Hard-wired to display attribute class by default.

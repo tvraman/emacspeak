@@ -2,7 +2,7 @@
 <!-- { introduction -->
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
-Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
+Copyright: (C) T. V. Raman, 2001 - 2022,   All Rights Reserved.
 License: GPL
 Description: Factor out nested tables to the end of document.
 Each nested table is replaced with an anchor that links to
