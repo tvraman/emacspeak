@@ -194,7 +194,7 @@ message area.  You can use command
       (erase-buffer)
       (setq default-directory directory)
       (ems-with-messages-silenced
-       (shell-command command output))
+        (shell-command command output))
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
@@ -300,8 +300,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
         (tts-with-punctuations
-         'all
-         (dtk-speak (buffer-substring (point) (point-max))))))
+            'all
+          (dtk-speak (buffer-substring (point) (point-max))))))
      (t (emacspeak-speak-line)))))
 
 ;;}}}
@@ -861,10 +861,10 @@ before-string, or after-string) is indicated with auditory icon
     (setq line
           (if emacspeak-show-point
               (ems-set-pause-temporarily
-               orig (1+ orig) 5
-               (ems-set-personality-temporarily
-                orig (1+ orig) voice-animate
-                (buffer-substring start end)))
+                  orig (1+ orig) 5
+                  (ems-set-personality-temporarily
+                      orig (1+ orig) voice-animate
+                      (buffer-substring start end)))
             (buffer-substring start end)))
     (when (and (null arg) emacspeak-speak-line-column-filter)
       (setq
@@ -966,8 +966,8 @@ Cues the start of a physical line with auditory icon `left'."
       (setq line
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
-                 orig (1+ orig)
-                 voice-animate (buffer-substring start end))
+                    orig (1+ orig)
+                    voice-animate (buffer-substring start end))
               (buffer-substring start end)))
       (dtk-speak line))))
 
@@ -1568,30 +1568,30 @@ Interactive prefix arg speaks buffer info."
             (when buffer-read-only
               (emacspeak-auditory-icon 'unmodified-object)))
           (tts-with-punctuations 'all
-                                 (dtk-speak
-                                  (concat
-                                   dir-info
-                                   (propertize (buffer-name) 'personality voice-lighten-medium)
-                                   (when window-count 
-                                     (propertize window-count 'personality voice-smoothen))
-                                   (when vc-mode 
-                                     (propertize (downcase vc-mode) 'personality voice-smoothen))
-                                   (when vc-state (format " %s " vc-state))
-                                   (when line-number-mode
-                                     (format "line %d" (emacspeak-get-current-line-number)))
-                                   (when column-number-mode
-                                     (format "column %d" (current-column)))
-                                   (propertize
-                                    (downcase
-                                     (format-mode-line mode-name)) 'personality voice-animate)
-                                   (emacspeak-get-current-percentage-verbously) 
-                                   global-info frame-info recursion-info))))))))))
+            (dtk-speak
+             (concat
+              dir-info
+              (propertize (buffer-name) 'personality voice-lighten-medium)
+              (when window-count 
+                (propertize window-count 'personality voice-smoothen))
+              (when vc-mode 
+                (propertize (downcase vc-mode) 'personality voice-smoothen))
+              (when vc-state (format " %s " vc-state))
+              (when line-number-mode
+                (format "line %d" (emacspeak-get-current-line-number)))
+              (when column-number-mode
+                (format "column %d" (current-column)))
+              (propertize
+               (downcase
+                (format-mode-line mode-name)) 'personality voice-animate)
+              (emacspeak-get-current-percentage-verbously) 
+              global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
   (tts-with-punctuations 'all
-                         (dtk-speak
-                          (buffer-name))))
+    (dtk-speak
+     (buffer-name))))
 
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
   "Speak the minor mode-information.
@@ -1819,13 +1819,13 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision."
        "mp3" nil "mplayer"
        (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
     (tts-with-punctuations
-     'some
-     (dtk-speak-and-echo
-      (concat
-       signature
-       (if speak-rev
-           (emacspeak-setup-get-revision)
-         (concat emacspeak-version " " (emacspeak-setup-get-revision))))))))
+        'some
+      (dtk-speak-and-echo
+       (concat
+        signature
+        (if speak-rev
+            (emacspeak-setup-get-revision)
+          (concat emacspeak-version " " (emacspeak-setup-get-revision))))))))
 
 (defun emacspeak-speak-current-kill (&optional count)
   "Speak the current kill.
@@ -1918,8 +1918,8 @@ location of the mark is indicated by an aural highlight. "
     (save-excursion
       (goto-char pos)
       (ems-set-personality-temporarily
-       pos (1+ pos) voice-animate
-       (setq line (ems--this-line)))
+          pos (1+ pos) voice-animate
+          (setq line (ems--this-line)))
       (dtk-speak
        (concat context line)))))
 
@@ -2317,40 +2317,40 @@ program, arguments specify the START and END of the rectangle."
 (defun emacspeak-speak-blinkpos-message (blinkpos)
   "Speak message about matching blinkpos."
   (ems-set-pause-temporarily
-   blinkpos (1+ blinkpos) 5
-   (ems-set-personality-temporarily
-    blinkpos (1+ blinkpos) voice-animate
-    (tts-with-punctuations
-     'all
-     (dtk-speak-and-echo
-      (concat
-       "Matches "
-       (cond
-        ;; Show what precedes the open in its line, if anything.
-        ((save-excursion
-           (skip-chars-backward " \t")
-           (not (bolp)))
-         (buffer-substring (line-beginning-position) (1+ blinkpos)))
-        ;; Show what follows the open in its line, if anything.
-        ((save-excursion
-           (forward-char 1)
-           (skip-chars-forward " \t")
-           (not (eolp)))
-         (buffer-substring blinkpos (line-end-position)))
-        ;; Otherwise show the previous nonblank line.
-        (t
-         (concat
-          (buffer-substring
-           (progn
-             (backward-char 1)
-             (skip-chars-backward "\n \t")
-             (line-beginning-position))
-           (progn (end-of-line)
+      blinkpos (1+ blinkpos) 5
+      (ems-set-personality-temporarily
+          blinkpos (1+ blinkpos) voice-animate
+          (tts-with-punctuations
+              'all
+            (dtk-speak-and-echo
+             (concat
+              "Matches "
+              (cond
+               ;; Show what precedes the open in its line, if anything.
+               ((save-excursion
                   (skip-chars-backward " \t")
-                  (point)))
-          ;; Replace the newline and other whitespace with `...'.
-          "..."
-          (buffer-substring blinkpos (1+ blinkpos)))))))))))
+                  (not (bolp)))
+                (buffer-substring (line-beginning-position) (1+ blinkpos)))
+               ;; Show what follows the open in its line, if anything.
+               ((save-excursion
+                  (forward-char 1)
+                  (skip-chars-forward " \t")
+                  (not (eolp)))
+                (buffer-substring blinkpos (line-end-position)))
+               ;; Otherwise show the previous nonblank line.
+               (t
+                (concat
+                 (buffer-substring
+                  (progn
+                    (backward-char 1)
+                    (skip-chars-backward "\n \t")
+                    (line-beginning-position))
+                  (progn (end-of-line)
+                         (skip-chars-backward " \t")
+                         (point)))
+                 ;; Replace the newline and other whitespace with `...'.
+                 "..."
+                 (buffer-substring blinkpos (1+ blinkpos)))))))))))
 
 ;; The only change to emacs' default blink-matching-paren is the
 ;; addition of the call to helper emacspeak-speak-blinkpos-message
