@@ -13,7 +13,7 @@ Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
 cost of Ownership makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
-announces  immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/55.0/emacspeak-55.0.tar.bz2][Emacspeak 56.0]]
+announces  immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/56.0/emacspeak-56.0.tar.bz2][Emacspeak 56.0]]
 (AgileDog) 🦮 --- a powerful audio desktop that leverages today's
 evolving Data, Social and Assistant-Oriented Internet cloud to enable
 working efficiently and effectively from anywhere!
