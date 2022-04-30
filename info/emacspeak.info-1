@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 25, 2022.
+last updated on April 30, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2878,7 +2878,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC-MODE.
-* emacspeak-actions::Emacspeak actions – callbacks that can be associated with portions of a buffer.
+* emacspeak-actions::Emacspeak actions –.
 * emacspeak-add-log::Speech-enable add-log.
 * emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio Content.
@@ -2889,7 +2889,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-auctex::Speech enable AucTeX – a powerful TeX/LaTeX authoring environment.
 * emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB – a powerful address manager.
-* emacspeak-bibtex::Speech enable bibtex – Supports maintaining bibliographies in bibtex format.
+* emacspeak-bibtex::Speech enable bibtex.
 * emacspeak-bookmark::Speech enable Emacs’ builtin bookmarks.
 * emacspeak-bookshare::Speech-enabled  BOOKSHARE client.
 * emacspeak-browse-kill-ring::browse-kill-ring  for emacspeak desktop.
@@ -2898,7 +2898,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-c::Speech enable CC-mode and friends – supports C, C++, Java.
 * emacspeak-calc::Speech enable the Emacs Calculator – a powerful symbolic algebra system.
 * emacspeak-calculator::Speech enable  desktop calculator.
-* emacspeak-calendar::Speech enable Emacs Calendar – maintain a diary and appointments.
+* emacspeak-calendar::Speech enable Emacs Calendar.
 * emacspeak-calibredb::Speech-enable CALIBREDB.
 * emacspeak-chess::Speech-enable CHESS.
 * emacspeak-cider::Speech-enable CIDER, A Clojure IDE.
@@ -2953,7 +2953,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-flyspell::Speech enable flyspell.
 * emacspeak-folding::Speech enable Folding Mode – enables structured editing.
 * emacspeak-forge::Speech-enable FORGE.
-* emacspeak-forms::Speech enable Emacs’ forms mode  – provides  a convenient database interface.
+* emacspeak-forms::Speech enable Emacs’ forms mode.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
