@@ -15,7 +15,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;; Copyright (c) 1995 -- 2021, T. V. Raman
+;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
 ;; 
 ;; This file is not part of GNU Emacs, but the same permissions apply.
