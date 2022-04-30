@@ -55,8 +55,10 @@
 ;; @item @kbd{'} Speaks entire board.
 ;; @end itemize
 ;; 
-;; Speaking cell neighbors uses appropriate clause boundaries to group  related cells --- neighbors are read left-to-right, top-to-bottom.
-;; Moving to the left/right edge of the board produces an appropriate auditory icon.
+;; Speaking cell neighbors uses appropriate clause boundaries to group
+;; related cells --- neighbors are read left-to-right, top-to-bottom.
+;; Moving to the left/right edge of the board produces an appropriate
+;; auditory icon.
 
 ;;; Code:
 

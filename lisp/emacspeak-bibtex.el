@@ -1,4 +1,4 @@
-;;; emacspeak-bibtex.el --- Speech enable bibtex -- Supports maintaining bibliographies in bibtex format  -*- lexical-binding: t; -*-
+;;; emacspeak-bibtex.el --- Speech enable bibtex -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extension for editing bibtex files 

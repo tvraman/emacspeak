@@ -1,4 +1,4 @@
-;;; emacspeak-actions.el --- Emacspeak actions -- callbacks that can be associated with portions of a buffer  -*- lexical-binding: t; -*-
+;;; emacspeak-actions.el --- Emacspeak actions --   -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Define emacspeak actions for various modes

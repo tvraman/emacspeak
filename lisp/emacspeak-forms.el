@@ -1,4 +1,4 @@
-;;; emacspeak-forms.el --- Speech enable Emacs' forms mode  -- provides  a convenient database interface  -*- lexical-binding: t; -*-
+;;; emacspeak-forms.el --- Speech enable Emacs' forms mode -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for forms-mode 
