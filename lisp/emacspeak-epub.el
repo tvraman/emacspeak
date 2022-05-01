@@ -583,7 +583,7 @@ Letters do not insert themselves; instead, they are commands.
   :group 'emacspeak-epub)
 
 (defvar emacspeak-epub-db-file
-  (expand-file-name ".bookshelf" emacspeak-epub-library-directory)
+  (expand-file-name ".bookshelf.bsf" emacspeak-epub-library-directory)
   "Cache of bookshelf metadata.")
 
 (defvar emacspeak-epub-db (make-hash-table :test  #'equal)
@@ -642,7 +642,7 @@ Interactive prefix arg `overwrite' will overwrite existing file."
   (cl-declare (special emacspeak-epub-bookshelf-directory))
   (setq name (format "%s.bsf" name))
   (let ((bookshelf
-         (expand-file-name ".bookshelf" emacspeak-epub-library-directory))
+         (expand-file-name ".bookshelf.bsf" emacspeak-epub-library-directory))
         (bsf (expand-file-name name emacspeak-epub-bookshelf-directory)))
     (when (and overwrite (file-exists-p bsf)) (delete-file bsf))
     (copy-file bookshelf bsf)
