@@ -252,7 +252,10 @@ configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory))
   (unless (featurep 'emacspeak)
     (tvr-time-load ;;; load emacspeak:
-        (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup"))))
+        (load ;; setenv EMACSPEAK_DIR if you want to load a different version
+         (expand-file-name
+          "lisp/emacspeak-setup"
+          (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
   (cl-pushnew (expand-file-name "tvr/" emacspeak-directory) load-path
               :test #'string-equal)
   (add-hook 'after-init-hook #'tvr-after-init)
