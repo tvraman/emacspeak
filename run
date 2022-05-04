@@ -3,6 +3,6 @@
 # Default to using  espeak unless DTK_PROGRAM is set.
 #
 :${DTK_PROGRAM} ? "Using ${DTK_PROGRAM}" : export DTK_PROGRAM="espeak"
-export EMACSPEAK_DIR=`pwd`
+export EMACSPEAK_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 emacs "$&"
 
