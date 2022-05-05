@@ -1,4 +1,4 @@
-;;; emacspeak-auctex.el --- Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment  -*- lexical-binding: t; -*-
+;;; emacspeak-auctex.el --- Speech enable AucTeX -- -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for auctex-mode
@@ -43,8 +43,9 @@
 ;;}}}
 ;;{{{  Introduction:
 ;;; Commentary:
-;; Speech-enables the AucTeX package.
-;; AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
+;; Speech-enables the AucTeX package.  AucTeX, now available from
+;; ELPA, has been my authoring environment of choice for writing LaTeX
+;; since 1991.
 ;;; Code:
 ;;}}}
 ;;{{{ voice locking:

@@ -52,7 +52,8 @@
 ;; @item  Speak the current s-expression when at the front of a sexp.
 ;; @item  Speak the current line with option @code{emacspeak-show-point}
 ;; turned on when at the end of an s-expression.
-;; @item  Produce auditory icon @code{left} or @code{right} to indicate point being at the beginning or end of current line.
+;; @item  Produce auditory icon @code{left} or @code{right}
+;; to indicate point being at the beginning or end of current line.
 ;; @item Indicate with an auditory icon if point did not move.
 ;; @end itemize
 

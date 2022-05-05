@@ -1,4 +1,4 @@
-;;; emacspeak-winring.el --- Speech enable WinRing -- Manage multiple Emacs window configurations  -*- lexical-binding: t; -*-
+;;; emacspeak-winring.el --- Speech enable WinRing -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to winring

@@ -1,4 +1,4 @@
-;;; emacspeak-gud.el --- Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB  -*- lexical-binding: t; -*-
+;;; emacspeak-gud.el --- Speech enable debugger interface   -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for gud interaction

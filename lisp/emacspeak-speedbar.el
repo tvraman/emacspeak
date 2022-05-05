@@ -1,4 +1,4 @@
-;;; emacspeak-speedbar.el --- Speech enable speedbar -- Tool for context-sensitive navigation  -*- lexical-binding: t; -*-
+;;; emacspeak-speedbar.el --- Speech enable speedbar - -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to speedbar
@@ -217,7 +217,6 @@ An automatically updating speedbar consumes resources.")
 
 ;;}}}
 ;;{{{  hooks
-(cl-declaim (special speedbar-mode-map))
 (cl-eval-when (load)
   )
 (defun emacspeak-speedbar-enter-hook ()
@@ -292,9 +291,6 @@ An automatically updating speedbar consumes resources.")
 ;;}}}
 ;;{{{ keys 
 (cl-declaim (special emacspeak-keymap))
-
-                                        ;(define-key emacspeak-keymap '[insert] 'emacspeak-speedbar-goto-speedbar)
-
 ;;}}}
 (provide 'emacspeak-speedbar)
 ;;{{{ end of file 

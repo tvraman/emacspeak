@@ -1,4 +1,4 @@
-;;; plain-voices.el --- Define various device independent voices in terms of Plain codes  -*- lexical-binding: t; -*-
+;;; plain-voices.el ---  No Voice lock voices   -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Module to set up Plain voices and personalities
 ;; Keywords: Voice, Personality, Plain
@@ -41,7 +41,8 @@
 
 ;;; Commentary:
 ;; This module defines the various voices used in voice-lock mode.
-;; This module is Plain  i.e. suitable for a device  for which you haven't yet implemented appropriate voice-locking controls
+;;  Module Plain is  suitable for a device for which you haven't yet
+;;  implemented appropriate voice-locking controls
 
 ;;}}}
 ;;{{{ required modules

@@ -1,4 +1,4 @@
-;;; emacspeak-message.el --- Speech enable Message -- Used to compose news postings and replies  -*- lexical-binding: t; -*-
+;;; emacspeak-message.el --- Speech enable Message   -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extensions for posting

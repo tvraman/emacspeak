@@ -1,4 +1,4 @@
-;;; emacspeak-calc.el --- Speech enable the Emacs Calculator -- a powerful symbolic algebra system  -*- lexical-binding: t; -*-
+;;; emacspeak-calc.el --- Speech enable  Emacs Calculator   -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;;; Description: 

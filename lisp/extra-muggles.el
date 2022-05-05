@@ -1,4 +1,4 @@
-;;; extra-muggles.el --- Additional Hydras For The Emacspeak Desktop  -*- lexical-binding: t; -*-
+;;; extra-muggles.el --- Additional Hydras -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
 ;; Keywords: Emacspeak,  Audio Desktop muggles
@@ -105,12 +105,11 @@
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
 
-;; Generate A Muggle:
-;; Take a name of a keymap (symbol)
-;; And generate an interactive command that can be bound to a key.
-;; Invoking that command temporarily activates the previously supplied keymap.
-;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
-;; Inspired by the Hydra package.
+;; Generate A Muggle: Take a name of a keymap (symbol) And generate an
+;; interactive command that can be bound to a key.  Invoking that
+;; command temporarily activates the previously supplied keymap.  That
+;; activated keymap remains active until the user presses a key that
+;; is not bound in that keymap.  Inspired by the Hydra package.
 
 (defun emacspeak-muggles-generate (k-map)
   "Generate a Muggle from specified k-map.
@@ -263,18 +262,7 @@ _d_: subtree
                       (:color blue :hint nil
                               :body-pre (emacspeak-hydra-body-pre "Info Summary")
                               :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-                      "
-Info-mode:
-
-  ^^_]_ forward  (next logical node)       ^^_l_ast (←)        _u_p (↑)                             _f_ollow reference       _T_OC
-  ^^_[_ backward (prev logical node)       ^^_r_eturn (→)      _m_enu (↓) (C-u for new window)      _i_ndex                  _d_irectory
-  ^^_n_ext (same level only)               ^^_H_istory         _g_oto (C-u for new window)          _,_ next index item      _c_opy node name
-  ^^_p_rev (same level only)               _<_/_t_op           _b_eginning of buffer                virtual _I_ndex          _C_lone buffer
-  regex _s_earch (_S_ case sensitive)      ^^_>_ final         _e_nd of buffer                      ^^                       _a_propos
-
-  _1_ .. _9_ Pick first .. ninth item in the node's menu.
-
-"
+                      "info mode"
                       ("]"   Info-forward-node)
                       ("["   Info-backward-node)
                       ("n"   Info-next)
