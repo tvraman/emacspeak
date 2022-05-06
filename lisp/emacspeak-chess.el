@@ -26,7 +26,7 @@
 ;; 
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNCHESS FOR A PARTICULAR PURPOSE.  See the
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 ;; 
 ;; You should have received a copy of the GNU General Public License
@@ -45,15 +45,14 @@
 ;; That package comes with a light-weight module that announces
 ;; moves.
 ;; 
-;; This module aims do do much more, including:
+;; This module aims to do much more, including:
 ;; @itemize @bullet
-;; @item Navigate the board along various axies with audio-formatted  output.
-;;  @item Browse games via  rich audio-formatted   output.
-;; @item Speech-enable all interactive commands  provided by the Chess
+;; @item Navigate the board along various axes with audio-formatted output.
+;; @item Browse games via rich audio-formatted output.
+;; @item Speech-enable all interactive commands provided by the Chess
 ;; package.
 ;; @item Enable various means of exploring the state of game, perhaps with
-;; a view to being able to spot patterns   from listening to the
-;; output.
+;; a view to being able to spot patterns from listening to the output.
 ;; @end itemize
 ;; @subsection Navigating And Examining The Board
 ;; The board can be navigated along the 8 compass directions.
@@ -144,6 +143,7 @@
 (defsubst emacspeak-chess-piece-name (char)
   "Return piece name."
   (cdr (assq (downcase char) emacspeak-chess-piece-names)))
+
 (defconst emacspeak-chess-whites
   '(?P ?R ?N ?B ?K ?Q)
   "White chess pieces.")
@@ -196,7 +196,7 @@
 
 (defun emacspeak-chess-speak-that-square (coord)
   "Speak square at specified coord."
-  (interactive "sCoord: ")
+  (interactive "Coord: ")
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
   (let ((index (chess-coord-to-index coord)))
     (cl-assert index t "Not  a valid square.")
@@ -219,7 +219,7 @@
 
 (defun emacspeak-chess-jump (coord)
   "Jump to square specified as coord."
-  (interactive "sCoord: ")
+  (interactive "Coord: ")
   (goto-char
    (chess-display-index-pos
     (current-buffer) (chess-coord-to-index coord)))
