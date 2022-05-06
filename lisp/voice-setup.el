@@ -142,7 +142,7 @@
    (t
     (require 'plain-voices)
     (plain-configure-tts)))
-  (load "voice-defs"))
+  (ems--fastload "voice-defs"))
 
 (defun voice-acss-from-speech-style (style)
   "Compute a  name for this STYLE.
