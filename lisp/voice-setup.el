@@ -125,6 +125,7 @@
   family average-pitch pitch-range stress richness)
 
 (defun voice-setup ()
+  (cl-declare (special dtk-program))
   (cond
    ((string-match "outloud" dtk-program)
     (require 'outloud-voices)
@@ -140,7 +141,8 @@
     (espeak-configure-tts))
    (t
     (require 'plain-voices)
-    (plain-configure-tts))))
+    (plain-configure-tts)))
+  (load "voice-defs"))
 
 (defun voice-acss-from-speech-style (style)
   "Compute a  name for this STYLE.
