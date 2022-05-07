@@ -1353,15 +1353,6 @@ dates.")
 ;;}}}
 ;;{{{ shell history:
 
-(defun emacspeak-wizards-shell-bind-keys ()
-  "Set up additional shell mode keys."
-  (cl-loop for b in
-           '(
-             ("\C-ch" emacspeak-wizards-refresh-shell-history)
-             ("\C-cr" comint-redirect-send-command))
-           do
-           (define-key shell-mode-map (cl-first b) (cl-second b))))
-
 ;;}}}
 ;;{{{ Organizing Shells: next, previous, tag
 
