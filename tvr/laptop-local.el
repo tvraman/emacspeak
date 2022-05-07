@@ -3,8 +3,8 @@
       mail-host-address "google.com"
       user-mail-address "raman@google.com")
 (xbacklight-black)
-(defvar touchpad-device "12"
-  "Device ID of touchpad.
+(defvar touchpad-device "10"
+  "Device ID of synaptics.
 Set by locating it via xinput list | grep -i touchpad ")
 
 (defun turn-off-touchpad (&optional frame)
