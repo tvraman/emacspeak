@@ -115,6 +115,7 @@ Produce timing information as the last step."
   (cl-loop
    for b in
    '(
+     ("C-c r" comint-redirect-send-command )
      ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
