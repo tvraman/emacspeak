@@ -47,7 +47,7 @@
 ;; 
 ;; This module aims do do much more, including:
 ;; @itemize @bullet
-;; @item Navigate the board along various axies with audio-formatted  output.
+;; @item Navigate the board along various axes with audio-formatted  output.
 ;;  @item Browse games via  rich audio-formatted   output.
 ;; @item Speech-enable all interactive commands  provided by the Chess
 ;; package.
