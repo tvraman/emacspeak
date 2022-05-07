@@ -45,7 +45,7 @@
 ;; That package comes with a light-weight module that announces
 ;; moves.
 ;; 
-;; This module aims do do much more, including:
+;; This module aims to do much more, including:
 ;; @itemize @bullet
 ;; @item Navigate the board along various axes with audio-formatted  output.
 ;;  @item Browse games via  rich audio-formatted   output.
