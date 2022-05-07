@@ -21,5 +21,5 @@ Set by locating it via xinput list | grep -i touchpad ")
     "xinput" "set-prop" touchpad-device "Device Enabled" "1")
   (message "Enabled touchpad"))
 
-(turn-off-touchpad)
+;(turn-off-touchpad)
 (provide 'laptop-local)
