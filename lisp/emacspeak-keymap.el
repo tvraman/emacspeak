@@ -372,7 +372,6 @@
    ("i" emacspeak-toggle-audio-indentation)
    ("k" emacspeak-toggle-character-echo)
    ("l" emacspeak-toggle-line-echo)
-   ("m"emacspeak-speak-set-mode-punctuations)
    ("n" dtk-toggle-speak-nonprinting-chars)
    ("o" dtk-toggle-strip-octals)
    ("p" dtk-set-punctuations)
