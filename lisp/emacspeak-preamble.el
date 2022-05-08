@@ -151,7 +151,7 @@
 ;;; Design:
 ;; Advice on funcall-interactively stores the name of the
 ;; interactive command being run.
-;; The defadvice macro is itself adviced to generate a locally bound
+;; The defadvice macro  itself has a defadvice  to generate a locally bound
 ;; predicate that ensures that ems-interactive-p is only called from
 ;; within emacspeak advice forms.
 ;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
