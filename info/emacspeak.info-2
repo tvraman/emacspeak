@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 30, 2022.
+last updated on May 7, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -9357,9 +9357,9 @@ File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voi
 12.225 plain-voices
 ===================
 
-This module defines the various voices used in voice-lock mode.  This
-module is Plain i.e.  suitable for a device for which you haven’t yet
-implemented appropriate voice-locking controls
+This module defines the various voices used in voice-lock mode.  Module
+Plain is suitable for a device for which you haven’t yet implemented
+appropriate voice-locking controls
 
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options

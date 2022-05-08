@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 30, 2022.
+last updated on May 7, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-annotate::Speech-enable ANNOTATE.
 * emacspeak-apt-sources::speech-enable APT’s sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode – a  Emacs interface to zip and friends.
-* emacspeak-auctex::Speech enable AucTeX – a powerful TeX/LaTeX authoring environment.
+* emacspeak-auctex::Speech enable AucTeX –.
 * emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB – a powerful address manager.
 * emacspeak-bibtex::Speech enable bibtex.
@@ -2896,7 +2896,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-bs::speech-enable bs buffer selection.
 * emacspeak-buff-menu::Speech enable Buffer Menu Mode – used to manage buffers.
 * emacspeak-c::Speech enable CC-mode and friends – supports C, C++, Java.
-* emacspeak-calc::Speech enable the Emacs Calculator – a powerful symbolic algebra system.
+* emacspeak-calc::Speech enable  Emacs Calculator.
 * emacspeak-calculator::Speech enable  desktop calculator.
 * emacspeak-calendar::Speech enable Emacs Calendar.
 * emacspeak-calibredb::Speech-enable CALIBREDB.
@@ -2963,7 +2963,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-google::Google Search Tools.
 * emacspeak-gridtext::Overlay Grids To filter columnar text.
 * emacspeak-gtags::Speech-enable GTAGS.
-* emacspeak-gud::Speech enable Emacs’ debugger interface –covers GDB, JDB, and PerlDB.
+* emacspeak-gud::Speech enable debugger interface.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
@@ -2991,7 +2991,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-man::Speech enable Man mode – Use this for UNIX Man pages.
 * emacspeak-markdown::Speech-enable MARKDOWN-mode.el.
 * emacspeak-maths::Audio-Formatted Mathematics.
-* emacspeak-message::Speech enable Message – Used to compose news postings and replies.
+* emacspeak-message::Speech enable Message.
 * emacspeak-metapost::speech-enable metapost mode.
 * emacspeak-midge::Speech-enable MIDI editor.
 * emacspeak-mines::Speech-enable MINES.
@@ -3045,7 +3045,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-solitaire::Speech enable Solitaire game.
 * emacspeak-sounds::Defines Emacspeak auditory icons.
 * emacspeak-speak::Implements core services.
-* emacspeak-speedbar::Speech enable speedbar – Tool for context-sensitive navigation.
+* emacspeak-speedbar::Speech enable speedbar -.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
@@ -3056,7 +3056,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-tabulate::Interpret tabulated information as a table.
 * emacspeak-tar::Speech enable Tar Mode – Manipulate tar archives from Emacs.
 * emacspeak-tcl::Speech enable TCL development environment.
-* emacspeak-tempo::Speech enable tempo – template library used for Java and HTML authoring.
+* emacspeak-tempo::Speech enable tempo.
 * emacspeak-tetris::Speech enable game of Tetris.
 * emacspeak-texinfo::Speech enable texinfo mode.
 * emacspeak-threes::Speech-enable THREES.
@@ -3078,7 +3078,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-webspace::Webspaces In Emacspeak.
 * emacspeak-widget::Speech enable Emacs’ native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
-* emacspeak-winring::Speech enable WinRing – Manage multiple Emacs window configurations.
+* emacspeak-winring::Speech enable WinRing.
 * emacspeak-wizards::Magic For Power Users.
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
@@ -3087,14 +3087,14 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-yaml::Speech-enable YAML.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * espeak-voices::Define  Espeak tags.
-* extra-muggles::Additional Hydras For The Emacspeak Desktop.
+* extra-muggles::Additional Hydras.
 * g-utils::Google Client Utilities.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
-* plain-voices::Define various device independent voices in terms of Plain codes.
+* plain-voices::No Voice lock voices.
 * soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
@@ -4742,8 +4742,8 @@ The Emacs Chess package provides a rich environment for playing and
 exploring Chess Games.  That package comes with a light-weight module
 that announces moves.
 
-   This module aims do do much more, including:
-   • Navigate the board along various axies with audio-formatted output.
+   This module aims to do much more, including:
+   • Navigate the board along various axes with audio-formatted output.
    • Browse games via rich audio-formatted output.
    • Speech-enable all interactive commands provided by the Chess
      package.

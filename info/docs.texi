@@ -23,7 +23,7 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-annotate::Speech-enable ANNOTATE.
 * emacspeak-apt-sources::speech-enable APT's sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode -- a  Emacs interface to zip and friends.
-* emacspeak-auctex::Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment.
+* emacspeak-auctex::Speech enable AucTeX --.
 * emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB -- a powerful address manager.
 * emacspeak-bibtex::Speech enable bibtex.
@@ -33,7 +33,7 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-bs::speech-enable bs buffer selection.
 * emacspeak-buff-menu::Speech enable Buffer Menu Mode -- used to manage buffers.
 * emacspeak-c::Speech enable CC-mode and friends -- supports C, C++, Java.
-* emacspeak-calc::Speech enable the Emacs Calculator -- a powerful symbolic algebra system.
+* emacspeak-calc::Speech enable  Emacs Calculator.
 * emacspeak-calculator::Speech enable  desktop calculator.
 * emacspeak-calendar::Speech enable Emacs Calendar.
 * emacspeak-calibredb::Speech-enable CALIBREDB.
@@ -100,7 +100,7 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-google::Google Search Tools.
 * emacspeak-gridtext::Overlay Grids To filter columnar text.
 * emacspeak-gtags::Speech-enable GTAGS.
-* emacspeak-gud::Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB.
+* emacspeak-gud::Speech enable debugger interface.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
@@ -128,7 +128,7 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-man::Speech enable Man mode -- Use this for UNIX Man pages.
 * emacspeak-markdown::Speech-enable MARKDOWN-mode.el.
 * emacspeak-maths::Audio-Formatted Mathematics.
-* emacspeak-message::Speech enable Message -- Used to compose news postings and replies.
+* emacspeak-message::Speech enable Message.
 * emacspeak-metapost::speech-enable metapost mode.
 * emacspeak-midge::Speech-enable MIDI editor.
 * emacspeak-mines::Speech-enable MINES.
@@ -182,7 +182,7 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-solitaire::Speech enable Solitaire game.
 * emacspeak-sounds::Defines Emacspeak auditory icons.
 * emacspeak-speak::Implements core services.
-* emacspeak-speedbar::Speech enable speedbar -- Tool for context-sensitive navigation.
+* emacspeak-speedbar::Speech enable speedbar -.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
@@ -193,7 +193,7 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-tabulate::Interpret tabulated information as a table.
 * emacspeak-tar::Speech enable Tar Mode -- Manipulate tar archives from Emacs.
 * emacspeak-tcl::Speech enable TCL development environment.
-* emacspeak-tempo::Speech enable tempo -- template library used for Java and HTML authoring.
+* emacspeak-tempo::Speech enable tempo.
 * emacspeak-tetris::Speech enable game of Tetris.
 * emacspeak-texinfo::Speech enable texinfo mode.
 * emacspeak-threes::Speech-enable THREES.
@@ -215,7 +215,7 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-webspace::Webspaces In Emacspeak.
 * emacspeak-widget::Speech enable Emacs' native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
-* emacspeak-winring::Speech enable WinRing -- Manage multiple Emacs window configurations.
+* emacspeak-winring::Speech enable WinRing.
 * emacspeak-wizards::Magic For Power Users.
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
@@ -224,14 +224,14 @@ This chapter documents a total of 1144 commands and 147 options.
 * emacspeak-yaml::Speech-enable YAML.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * espeak-voices::Define  Espeak tags.
-* extra-muggles::Additional Hydras For The Emacspeak Desktop.
+* extra-muggles::Additional Hydras.
 * g-utils::Google Client Utilities.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
-* plain-voices::Define various device independent voices in terms of Plain codes.
+* plain-voices::No Voice lock voices.
 * soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
@@ -1358,8 +1358,9 @@ Speak the size of the file on current line
 @node emacspeak-auctex
 @section emacspeak-auctex
 
-Speech-enables the AucTeX package.
-AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
+Speech-enables the AucTeX package.  AucTeX, now available from
+ELPA, has been my authoring environment of choice for writing LaTeX
+since 1991.
 
 @subsection Emacspeak-Auctex Commands
 
@@ -2210,9 +2211,9 @@ exploring Chess Games.
 That package comes with a light-weight module that announces
 moves.
 
-This module aims do do much more, including:
+This module aims to do much more, including:
 @itemize @bullet
-@item Navigate the board along various axies with audio-formatted  output.
+@item Navigate the board along various axes with audio-formatted  output.
  @item Browse games via  rich audio-formatted   output.
 @item Speech-enable all interactive commands  provided by the Chess
 package.
@@ -7698,7 +7699,8 @@ type of spoken feedback that is produced. All navigation commands  produce the f
 @item  Speak the current s-expression when at the front of a sexp.
 @item  Speak the current line with option @code{emacspeak-show-point}
 turned on when at the end of an s-expression.
-@item  Produce auditory icon @code{left} or @code{right} to indicate point being at the beginning or end of current line.
+@item  Produce auditory icon @code{left} or @code{right}
+to indicate point being at the beginning or end of current line.
 @item Indicate with an auditory icon if point did not move.
 @end itemize
 
@@ -18415,7 +18417,8 @@ Default speech rate.
 @section plain-voices
 
 This module defines the various voices used in voice-lock mode.
-This module is Plain  i.e. suitable for a device  for which you haven't yet implemented appropriate voice-locking controls
+ Module Plain is  suitable for a device for which you haven't yet
+ implemented appropriate voice-locking controls
 
 @node soundscape
 @section soundscape
