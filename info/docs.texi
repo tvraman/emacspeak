@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1144 commands and 147 options.
+This chapter documents a total of 1143 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -262,6 +262,13 @@ default values, Press @kbd{C-j}.
 
 @subsubsection amixer
 @deffn {Command} amixer  (&optional refresh)
+@table @kbd
+@item C-e (
+@kindex C-e (
+@item <fn> (
+@kindex <fn> (
+@end table
+
 @findex amixer
 
 @format
@@ -10944,45 +10951,25 @@ Speak number of stones remaining.
 @node emacspeak-sounds
 @section emacspeak-sounds
 
-This module provides the interface for generating auditory icons in emacspeak.
-Design goal:
-1) Auditory icons should be used to provide additional feedback,
-not as a gimmick.
-2) The interface should be usable at all times without the icons:
-e.g. when on a machine without a sound card.
-3) General principle for when to use an icon:
-Convey information about events taking place in parallel.
-For instance, if making a selection automatically moves the current focus
-to the next choice,
-We speak the next choice, while indicating the fact that something was selected with a sound cue.
- This interface will assume the availability of a shell command "play"
-that can take one or more sound files and play them.
-This module will also provide a mapping between names in the elisp world and actual sound files.
-Modules that wish to use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes
-architecture for  auditory icons.
-Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
+This module provides the interface for generating auditory icons in
+emacspeak.  Design goal: 1) Auditory icons should be used to
+provide additional feedback, not as a gimmick.  2) The interface
+should be usable at all times without the icons: e.g. when on a
+machine without a sound card.  3) General principle for when to use
+an icon: Convey information about events taking place in parallel.
+For instance, if making a selection automatically moves the current
+focus to the next choice, We speak the next choice, while
+indicating the fact that something was selected with a sound cue.
+This interface will assume the availability of a shell command
+"play" that can take one or more sound files and play them.  This
+module will also provide a mapping between names in the elisp world
+and actual sound files.  Modules that wish to use auditory icons
+should use these names, instead of actual file names.  As of
+Emacspeak 13.0, this module defines a themes architecture for
+auditory icons.  Sound files corresponding to a given theme are
+found in appropriate subdirectories of emacspeak-sounds-directory
 
 @subsection Emacspeak-Sounds Commands
-
-@subsubsection emacspeak-audio-setup
-@deffn {Command} emacspeak-audio-setup  (&optional prefix)
-@table @kbd
-@item C-e (
-@kindex C-e (
-@item <fn> (
-@kindex <fn> (
-@end table
-
-@findex emacspeak-audio-setup
-
-@format
-Call amixer  command.
-
-(fn &optional PREFIX)
-@end format
-@end deffn
 
 @subsubsection emacspeak-sounds-select-theme
 @deffn {Command} emacspeak-sounds-select-theme  (theme)

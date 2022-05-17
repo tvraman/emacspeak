@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 8, 2022.
+last updated on May 16, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -3776,18 +3776,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 12.174.1 Emacspeak-Sounds Commands
 ----------------------------------
 
-12.174.1.1 emacspeak-audio-setup
-................................
-
- -- Command: emacspeak-audio-setup (&optional prefix)
-     ‘C-e (’
-     ‘<fn> (’
-
-     Call amixer  command.
-
-     (fn &optional PREFIX)
-
-12.174.1.2 emacspeak-sounds-select-theme
+12.174.1.1 emacspeak-sounds-select-theme
 ........................................
 
  -- Command: emacspeak-sounds-select-theme (theme)
@@ -3798,7 +3787,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      (fn THEME)
 
-12.174.1.3 emacspeak-toggle-auditory-icons
+12.174.1.2 emacspeak-toggle-auditory-icons
 ..........................................
 
  -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
