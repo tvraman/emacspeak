@@ -155,6 +155,7 @@ Use Custom to customize where possible. "
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
   (prefer-coding-system 'utf-8-emacs)
+  (global-set-key [remap dabbrev-expand] 'hippie-expand)
   (cl-loop ;;; global key-bindings
    for key in
    '(
