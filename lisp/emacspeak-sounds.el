@@ -87,20 +87,6 @@ Use Serve when working with remote speech servers.")
     (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
-;;{{{ Setup Audio 
-
-(declare-function amixer "amixer" (&optional refresh))
-
-(defun emacspeak-audio-setup (&optional prefix)
-  "Call amixer  command."
-  (interactive "P")
-  (cond
-   ((executable-find "amixer")
-    (emacspeak-auditory-icon 'close-object)
-    (funcall-interactively #'amixer prefix))
-   (t (error "amixer not found."))))
-
-;;}}}
 ;;{{{  Setup sound themes
 (cl-declaim (special emacspeak-sounds-directory))
 (defvar emacspeak-default-sound
