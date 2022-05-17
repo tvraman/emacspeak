@@ -104,7 +104,7 @@
   (let ((cells
          (split-string
           (buffer-substring (line-beginning-position) (line-end-position)))))
-    (emacspeak-play-auditory-icon-list (mapcar #'emacspeak-solitaire-cell-to-icon cells))))
+    (mapcar #'emacspeak-auditory-icon (mapcar #'emacspeak-solitaire-cell-to-icon cells))))
 
 (defun emacspeak-solitaire-show-column ()
   "Audio format current column."
