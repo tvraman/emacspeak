@@ -39,25 +39,23 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;; This module provides the interface for generating auditory icons in emacspeak.
-;; Design goal:
-;; 1) Auditory icons should be used to provide additional feedback,
-;; not as a gimmick.
-;; 2) The interface should be usable at all times without the icons:
-;; e.g. when on a machine without a sound card.
-;; 3) General principle for when to use an icon:
-;; Convey information about events taking place in parallel.
-;; For instance, if making a selection automatically moves the current focus
-;; to the next choice,
-;; We speak the next choice, while indicating the fact that something was selected with a sound cue.
-;;  This interface will assume the availability of a shell command "play"
-;; that can take one or more sound files and play them.
-;; This module will also provide a mapping between names in the elisp world and actual sound files.
-;; Modules that wish to use auditory icons should use these names, instead of actual file names.
-;; As of Emacspeak 13.0, this module defines a themes
-;; architecture for  auditory icons.
-;; Sound files corresponding to a given theme are found in
-;; appropriate subdirectories of emacspeak-sounds-directory
+;; This module provides the interface for generating auditory icons in
+;; emacspeak.  Design goal: 1) Auditory icons should be used to
+;; provide additional feedback, not as a gimmick.  2) The interface
+;; should be usable at all times without the icons: e.g. when on a
+;; machine without a sound card.  3) General principle for when to use
+;; an icon: Convey information about events taking place in parallel.
+;; For instance, if making a selection automatically moves the current
+;; focus to the next choice, We speak the next choice, while
+;; indicating the fact that something was selected with a sound cue.
+;; This interface will assume the availability of a shell command
+;; "play" that can take one or more sound files and play them.  This
+;; module will also provide a mapping between names in the elisp world
+;; and actual sound files.  Modules that wish to use auditory icons
+;; should use these names, instead of actual file names.  As of
+;; Emacspeak 13.0, this module defines a themes architecture for
+;; auditory icons.  Sound files corresponding to a given theme are
+;; found in appropriate subdirectories of emacspeak-sounds-directory
 
 ;;}}}
 ;;{{{ required modules
@@ -68,12 +66,10 @@
 ;;}}}
 ;;{{{  state of auditory icons
 
-(defvar emacspeak-use-auditory-icons t
+(defvar-local emacspeak-use-auditory-icons t
   "Control auditory icons.
 Use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons].")
-
-(make-variable-buffer-local 'emacspeak-use-auditory-icons)
 
 ;;}}}
 ;;{{{  setup play function
@@ -92,6 +88,7 @@ Use Serve when working with remote speech servers.")
 
 ;;}}}
 ;;{{{ Setup Audio 
+
 (declare-function amixer "amixer" (&optional refresh))
 
 (defun emacspeak-audio-setup (&optional prefix)
@@ -214,9 +211,6 @@ Do not set this by hand;
                                (emacspeak-get-sound-filename sound-name))))
 
 ;;}}}
-;;{{{  native player (
-
-;;}}}
 ;;{{{  serve an auditory icon
 
 (defun emacspeak-serve-auditory-icon (sound-name)
@@ -253,21 +247,6 @@ Do not set this by hand;
   "Name of SoX executable.")
 
 ;;}}}
-;;{{{ Play icon list:
-
-;; For now this is like emacspeak-play-auditory-icon,
-;; i.e. won't work via the speech server,
-;; and consequently not for Emacspeak  on a remote machine.
-
-(defun emacspeak-play-auditory-icon-list (icon-list)
-  "Play list of icons."
-  (cl-declare (special emacspeak-play-program
-                       emacspeak-sounds-directory))
-  (let ((default-directory  emacspeak-sounds-directory))
-    (apply #'start-process "APlay" nil emacspeak-play-program
-           (mapcar #'emacspeak-get-sound-filename icon-list))))
-
-;;}}}
 ;;{{{  toggle auditory icons
 
 ;; This is the main entry point to this module:
@@ -291,9 +270,6 @@ Optional interactive PREFIX arg toggles global value."
            (if prefix "" "locally"))
   (when emacspeak-use-auditory-icons
     (emacspeak-auditory-icon 'on)))
-
-;;}}}
-;;{{{  flush sound driver
 
 ;;}}}
 ;;{{{ emacspeak-prompts:
