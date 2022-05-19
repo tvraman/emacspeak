@@ -211,7 +211,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak line. Speak  (visual) line if
 `visual-line-mode' is  on, and
-indicate  point  by an aural highlight, and  moving to
+indicate  point  by an aural highlight.   Moving to
 beginning or end of a physical line produces an  auditory icon."
      (when (ems-interactive-p)
        (cond
