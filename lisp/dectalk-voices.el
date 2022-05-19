@@ -1,4 +1,4 @@
-;;; dectalk-voices.el --- Define various device independent voices in terms of Dectalk codes  -*- lexical-binding: t; -*-
+;;; dectalk-voices.el --- Dectalk Voice  Codes-*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module to set up Dectalk voices and personalities
@@ -348,18 +348,21 @@ and TABLE gives the values along that dimension."
   "Define NAME to be a Dectalk voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
          (command
-          (concat "["
-                  (dectalk-get-family-code family)
-                  (when (or (acss-average-pitch style)
-                            (acss-pitch-range style)
-                            (acss-stress style)
-                            (acss-richness style))
-                    (concat " :dv "
-                            (dectalk-get-average-pitch-code (acss-average-pitch style) family)
-                            (dectalk-get-pitch-range-code (acss-pitch-range style) family)
-                            (dectalk-get-stress-code (acss-stress style) family)
-                            (dectalk-get-richness-code (acss-richness style) family)))
-                  "]")))
+          (concat
+           "["
+           (dectalk-get-family-code family)
+           (when (or (acss-average-pitch style)
+                     (acss-pitch-range style)
+                     (acss-stress style)
+                     (acss-richness style))
+             (concat
+              " :dv "
+              (dectalk-get-average-pitch-code
+               (acss-average-pitch style) family)
+              (dectalk-get-pitch-range-code (acss-pitch-range style) family)
+              (dectalk-get-stress-code (acss-stress style) family)
+              (dectalk-get-richness-code (acss-richness style) family)))
+           "]")))
     (dectalk-define-voice name command)))
 
 ;;}}}
@@ -373,7 +376,8 @@ and TABLE gives the values along that dimension."
   (setq tts-default-voice 'paul)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-get-voice-command 'dectalk-get-voice-command)
-  (fset 'tts-define-voice-from-speech-style 'dectalk-define-voice-from-speech-style)
+  (fset
+   'tts-define-voice-from-speech-style 'dectalk-define-voice-from-speech-style)
   (setq tts-default-speech-rate dectalk-default-speech-rate)
   (set-default 'tts-default-speech-rate dectalk-default-speech-rate)
   (setq dtk-speech-rate-step 50
