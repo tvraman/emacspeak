@@ -7,5 +7,9 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 57 --- Emacspeak 56 User Visible Changes
+* Emacspeak 58 --- Emacspeak 56 User Visible Changes
    
+** Speech-Enable ffap: find-file-at-point
+
+Speech-enable commands from ~ffap.el~
+
