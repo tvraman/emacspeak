@@ -149,6 +149,7 @@ emacspeak-evil.elc \
 emacspeak-eww.elc \
 emacspeak-extras.elc \
 emacspeak-feeds.elc \
+emacspeak-ffap.elc \
 emacspeak-filtertext.elc \
 emacspeak-flycheck.elc \
 emacspeak-flymake.elc \
