@@ -585,6 +585,7 @@
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("d" sdcv-search-input)
     ("e" eww)
+    ("f" ffap)
     ("g" rg)
     ("l" eww-open-file)
     ("m" magit-status)
