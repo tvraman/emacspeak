@@ -274,11 +274,11 @@
 ;; @end itemize
 
 ;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
-;; @kbd{M-LEFT} and @kbd{M-RIGHT},
-;; to speak the current, previous and next table cell
-;; respectively. The latter commands also move to the cell being
-;; spoken.  You can get  a sense of the table's size via @kbd{M-,}
-;; which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
+;; @kbd{M-LEFT} and @kbd{M-RIGHT}, to speak the current, previous and
+;; next table cell respectively. The latter commands also move to the
+;; cell being spoken.  You can get a sense of the table's size via
+;; @kbd{M-,} which speaks the number of rows and cells in the
+;; table. This works for plain tables, not nested tables; for nested
 ;; tables, first have then @emph{unnested} using one of the XSLT
 ;; transforms like @code{sort-tables}.
 
