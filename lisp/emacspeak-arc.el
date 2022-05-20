@@ -1,4 +1,4 @@
-;;; emacspeak-arc.el --- Speech enable archive-mode -- a  Emacs interface to zip and friends  -*- lexical-binding: t; -*-
+;;; emacspeak-arc.el --- Speech enable archive-mode -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to archive mode

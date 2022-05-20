@@ -40,10 +40,10 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;; HELM ==  Smart narrowing/selection in emacs
-;; This module speech-enables Helm interaction.
-;; See tvr/helm-prepare.el in the GitHub repository for my  helm setup.
-;; that file provides convenient emacspeak-centric keybindings for Helm interaction.
+;; HELM == Smart narrowing/selection in emacs This module
+;; speech-enables Helm interaction.  See tvr/helm-prepare.el in the
+;; GitHub repository for my helm setup.  that file provides convenient
+;; emacspeak-centric keybindings for Helm interaction.
 
 ;;; Code:
 
@@ -72,16 +72,11 @@
   (emacspeak-auditory-icon 'complete)
   (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
-                                        ;(add-hook 'helm-before-initialize-hook #'emacspeak-helm-before-initialize-hook)
                                         ;(add-hook
                                         ;'helm-minibuffer-set-up-hook
-                                        ;#'(lambda nil (emacspeak-auditory-icon 'open-object)))
-
 (defun emacspeak-helm-cleanup-hook ()
   "Restore Emacspeak's minibuffer setup hook."
   (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
-
-                                        ;(add-hook 'helm-cleanup-hook #'emacspeak-helm-cleanup-hook)
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
