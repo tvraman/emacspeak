@@ -9,7 +9,7 @@ This chapter documents a total of 1143 commands and 147 options.
 @menu
 * amixer::Control AMixer from Emacs.
 * cd-tool::Play  CDs from Emacs.
-* dectalk-voices::Define various device independent voices in terms of Dectalk codes.
+* dectalk-voices::Dectalk Voice  Codes.
 * dom-addons::dom.el addons.
 * dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
@@ -22,7 +22,7 @@ This chapter documents a total of 1143 commands and 147 options.
 * emacspeak-analog::Speech-enable analog -- a log viewer.
 * emacspeak-annotate::Speech-enable ANNOTATE.
 * emacspeak-apt-sources::speech-enable APT's sources.list file editor.
-* emacspeak-arc::Speech enable archive-mode -- a  Emacs interface to zip and friends.
+* emacspeak-arc::Speech enable archive-mode.
 * emacspeak-auctex::Speech enable AucTeX --.
 * emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB -- a powerful address manager.
@@ -84,6 +84,7 @@ This chapter documents a total of 1143 commands and 147 options.
 * emacspeak-eww::Speech-enable EWW Browser.
 * emacspeak-extras::Speech-enable EXTRAS.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
+* emacspeak-ffap::Speech-enable FFAP.
 * emacspeak-filtertext::Utilities to filter text.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.
@@ -205,7 +206,7 @@ This chapter documents a total of 1143 commands and 147 options.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-vertico::Speech-enable Vertico.
-* emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
+* emacspeak-view::Speech enable View mode -.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-vterm::Speech-enable VTERM.
 * emacspeak-vuiet::Speech-enable VUIET.
@@ -4953,11 +4954,11 @@ Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
 @end itemize
 
 Emacspeak EWW supports table navigation via keys @kbd{M-.},
-@kbd{M-LEFT} and @kbd{M-RIGHT},
-to speak the current, previous and next table cell
-respectively. The latter commands also move to the cell being
-spoken.  You can get  a sense of the table's size via @kbd{M-,}
-which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
+@kbd{M-LEFT} and @kbd{M-RIGHT}, to speak the current, previous and
+next table cell respectively. The latter commands also move to the
+cell being spoken.  You can get a sense of the table's size via
+@kbd{M-,} which speaks the number of rows and cells in the
+table. This works for plain tables, not nested tables; for nested
 tables, first have then @emph{unnested} using one of the XSLT
 transforms like @code{sort-tables}.
 
@@ -6303,6 +6304,11 @@ Location of Awesome RSS
 
 @end defvar
 
+@node emacspeak-ffap
+@section emacspeak-ffap
+
+FFAP ==  Find file at point and friends
+
 @node emacspeak-filtertext
 @section emacspeak-filtertext
 
@@ -7222,10 +7228,10 @@ Speech-enable package haskell-mode
 @node emacspeak-helm
 @section emacspeak-helm
 
-HELM ==  Smart narrowing/selection in emacs
-This module speech-enables Helm interaction.
-See tvr/helm-prepare.el in the GitHub repository for my  helm setup.
-that file provides convenient emacspeak-centric keybindings for Helm interaction.
+HELM == Smart narrowing/selection in emacs This module
+speech-enables Helm interaction.  See tvr/helm-prepare.el in the
+GitHub repository for my helm setup.  that file provides convenient
+emacspeak-centric keybindings for Helm interaction.
 
 @node emacspeak-hide
 @section emacspeak-hide

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 18, 2022.
+last updated on May 20, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2872,7 +2872,7 @@ documentation, then read *Note emacspeak-eww::.
 
 * amixer::Control AMixer from Emacs.
 * cd-tool::Play  CDs from Emacs.
-* dectalk-voices::Define various device independent voices in terms of Dectalk codes.
+* dectalk-voices::Dectalk Voice  Codes.
 * dom-addons::dom.el addons.
 * dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
@@ -2885,7 +2885,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-analog::Speech-enable analog – a log viewer.
 * emacspeak-annotate::Speech-enable ANNOTATE.
 * emacspeak-apt-sources::speech-enable APT’s sources.list file editor.
-* emacspeak-arc::Speech enable archive-mode – a  Emacs interface to zip and friends.
+* emacspeak-arc::Speech enable archive-mode.
 * emacspeak-auctex::Speech enable AucTeX –.
 * emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB – a powerful address manager.
@@ -2947,6 +2947,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-eww::Speech-enable EWW Browser.
 * emacspeak-extras::Speech-enable EXTRAS.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
+* emacspeak-ffap::Speech-enable FFAP.
 * emacspeak-filtertext::Utilities to filter text.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.
@@ -3068,7 +3069,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-vertico::Speech-enable Vertico.
-* emacspeak-view::Speech enable View mode – Efficient browsing of read-only content.
+* emacspeak-view::Speech enable View mode -.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-vterm::Speech-enable VTERM.
 * emacspeak-vuiet::Speech-enable VUIET.
@@ -8130,7 +8131,7 @@ Infrequently used wizards archived for posterity.
      emacspeak-wizards-tramp-open-location bound to C-x @ h C-t.
 
 
-File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-filtertext,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-ffap,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
 
 12.77 emacspeak-feeds
 =====================
@@ -8240,9 +8241,17 @@ This module provides Feeds support for Emacspeak
      Location of Awesome RSS
 
 
-File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-flycheck,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-filtertext,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
 
-12.78 emacspeak-filtertext
+12.78 emacspeak-ffap
+====================
+
+FFAP == Find file at point and friends
+
+
+File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-flycheck,  Prev: emacspeak-ffap,  Up: Emacspeak Commands And Options
+
+12.79 emacspeak-filtertext
 ==========================
 
 It is often useful to view the results of filtering large amounts of
@@ -8255,10 +8264,10 @@ application of filters C: Provides commands for reverting to the
 original unfiltered text D: Provides commands for saving results from
 intermediate filters.
 
-12.78.1 Emacspeak-Filtertext Commands
+12.79.1 Emacspeak-Filtertext Commands
 -------------------------------------
 
-12.78.1.1 emacspeak-filtertext
+12.79.1.1 emacspeak-filtertext
 ..............................
 
  -- Command: emacspeak-filtertext (start end)
@@ -8269,7 +8278,7 @@ intermediate filters.
 
      (fn START END)
 
-12.78.1.2 emacspeak-filtertext-mode
+12.79.1.2 emacspeak-filtertext-mode
 ...................................
 
  -- Command: emacspeak-filtertext-mode
@@ -8286,7 +8295,7 @@ intermediate filters.
      this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final
      or penultimate step during initialization.
 
-12.78.1.3 emacspeak-filtertext-revert
+12.79.1.3 emacspeak-filtertext-revert
 .....................................
 
  -- Command: emacspeak-filtertext-revert
@@ -8296,7 +8305,7 @@ intermediate filters.
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
 
-12.79 emacspeak-flycheck
+12.80 emacspeak-flycheck
 ========================
 
 FLYCHECK == On-the-fly checking.
@@ -8304,7 +8313,7 @@ FLYCHECK == On-the-fly checking.
 
 File: emacspeak.info,  Node: emacspeak-flymake,  Next: emacspeak-flyspell,  Prev: emacspeak-flycheck,  Up: Emacspeak Commands And Options
 
-12.80 emacspeak-flymake
+12.81 emacspeak-flymake
 =======================
 
 Speech-enable flymake
@@ -8312,7 +8321,7 @@ Speech-enable flymake
 
 File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev: emacspeak-flymake,  Up: Emacspeak Commands And Options
 
-12.81 emacspeak-flyspell
+12.82 emacspeak-flyspell
 ========================
 
 This module speech enables flyspell.  it loads flyspell-correct if
@@ -8327,7 +8336,7 @@ details.
    Use Customization emacspeak-flyspell-correct to pick between ido,
 popup and helm.
 
-12.81.1 emacspeak-flyspell Options
+12.82.1 emacspeak-flyspell Options
 ----------------------------------
 
  -- Variable: User Option emacspeak-flyspell-correct
@@ -8336,7 +8345,7 @@ popup and helm.
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
 
-12.82 emacspeak-folding
+12.83 emacspeak-folding
 =======================
 
 Folding mode turns emacs into a folding editor.  Folding mode is what I
@@ -8347,7 +8356,7 @@ Think of a fold as a container.
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
 
-12.83 emacspeak-forge
+12.84 emacspeak-forge
 =====================
 
 FORGE == Work with Github, Gitlab etc from inside magit.  This module
@@ -8356,15 +8365,15 @@ speech-enables magit/forge.
 
 File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-geiser,  Prev: emacspeak-forge,  Up: Emacspeak Commands And Options
 
-12.84 emacspeak-forms
+12.85 emacspeak-forms
 =====================
 
 Provide additional advice to forms-mode
 
-12.84.1 Emacspeak-Forms Commands
+12.85.1 Emacspeak-Forms Commands
 --------------------------------
 
-12.84.1.1 emacspeak-forms-find-file
+12.85.1.1 emacspeak-forms-find-file
 ...................................
 
  -- Command: emacspeak-forms-find-file (filename)
@@ -8373,21 +8382,21 @@ Provide additional advice to forms-mode
 
      (fn FILENAME)
 
-12.84.1.2 emacspeak-forms-flush-unwanted-records
+12.85.1.2 emacspeak-forms-flush-unwanted-records
 ................................................
 
  -- Command: emacspeak-forms-flush-unwanted-records
 
      Prompt for pattern and flush matching lines
 
-12.84.1.3 emacspeak-forms-rerun-filter
+12.85.1.3 emacspeak-forms-rerun-filter
 ......................................
 
  -- Command: emacspeak-forms-rerun-filter
 
      Rerun filter –allows us to nuke more matching records
 
-12.84.1.4 emacspeak-forms-speak-field
+12.85.1.4 emacspeak-forms-speak-field
 .....................................
 
  -- Command: emacspeak-forms-speak-field
@@ -8395,14 +8404,14 @@ Provide additional advice to forms-mode
      Speak current form field name and value.
      Assumes that point is at the front of a field value.
 
-12.84.1.5 emacspeak-forms-summarize-current-position
+12.85.1.5 emacspeak-forms-summarize-current-position
 ....................................................
 
  -- Command: emacspeak-forms-summarize-current-position
 
      Summarize current position in list of records
 
-12.84.1.6 emacspeak-forms-summarize-current-record
+12.85.1.6 emacspeak-forms-summarize-current-record
 ..................................................
 
  -- Command: emacspeak-forms-summarize-current-record
@@ -8412,7 +8421,7 @@ Provide additional advice to forms-mode
 
 File: emacspeak.info,  Node: emacspeak-geiser,  Next: emacspeak-gh-explorer,  Prev: emacspeak-forms,  Up: Emacspeak Commands And Options
 
-12.85 emacspeak-geiser
+12.86 emacspeak-geiser
 ======================
 
 geiser.el — GNU Emacs and Scheme talk to each other This module
@@ -8423,23 +8432,23 @@ And also for interacting with Guile.
 
 File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  Prev: emacspeak-geiser,  Up: Emacspeak Commands And Options
 
-12.86 emacspeak-gh-explorer
+12.87 emacspeak-gh-explorer
 ===========================
 
 GH-EXPLORER == GitHub Explorer This module speech-enables Github
 Explorer.
 
-12.86.1 Emacspeak-Gh-Explorer Commands
+12.87.1 Emacspeak-Gh-Explorer Commands
 --------------------------------------
 
-12.86.1.1 emacspeak-gh-explorer-next
+12.87.1.1 emacspeak-gh-explorer-next
 ....................................
 
  -- Command: emacspeak-gh-explorer-next
 
      Move forward and speak current entry.
 
-12.86.1.2 emacspeak-gh-explorer-previous
+12.87.1.2 emacspeak-gh-explorer-previous
 ........................................
 
  -- Command: emacspeak-gh-explorer-previous
@@ -8449,7 +8458,7 @@ Explorer.
 
 File: emacspeak.info,  Node: emacspeak-gnuplot,  Next: emacspeak-gnus,  Prev: emacspeak-gh-explorer,  Up: Emacspeak Commands And Options
 
-12.87 emacspeak-gnuplot
+12.88 emacspeak-gnuplot
 =======================
 
 This module speech-enables gnuplot-mode an Emacs add-on that enables
@@ -8459,7 +8468,7 @@ mathematical functions for inclusion in documents.
 
 File: emacspeak.info,  Node: emacspeak-gnus,  Next: emacspeak-go-mode,  Prev: emacspeak-gnuplot,  Up: Emacspeak Commands And Options
 
-12.88 emacspeak-gnus
+12.89 emacspeak-gnus
 ====================
 
 This module advises gnus to speak.  Updating support in 2014 (Emacspeak
@@ -8469,31 +8478,31 @@ to listen to news: You can read news mostly by using the four arrow
 keys.  By default all article headers are hidden, so you hear the real
 news.
 
-12.88.1 Emacspeak-Gnus Commands
+12.89.1 Emacspeak-Gnus Commands
 -------------------------------
 
-12.88.1.1 emacspeak-gnus-personal-gmail-last-week
+12.89.1.1 emacspeak-gnus-personal-gmail-last-week
 .................................................
 
  -- Command: emacspeak-gnus-personal-gmail-last-week
 
      Look for mail addressed personally in the last week.
 
-12.88.1.2 emacspeak-gnus-personal-gmail-recent
+12.89.1.2 emacspeak-gnus-personal-gmail-recent
 ..............................................
 
  -- Command: emacspeak-gnus-personal-gmail-recent
 
      Look for mail addressed personally in the last day.
 
-12.88.1.3 emacspeak-gnus-summary-catchup-quietly-and-exit
+12.89.1.3 emacspeak-gnus-summary-catchup-quietly-and-exit
 .........................................................
 
  -- Command: emacspeak-gnus-summary-catchup-quietly-and-exit
 
      Catch up on all articles in current group.
 
-12.88.2 emacspeak-gnus Options
+12.89.2 emacspeak-gnus Options
 ------------------------------
 
  -- Variable: User Option emacspeak-gnus-large-article
@@ -8507,7 +8516,7 @@ news.
 
 File: emacspeak.info,  Node: emacspeak-go-mode,  Next: emacspeak-gomoku,  Prev: emacspeak-gnus,  Up: Emacspeak Commands And Options
 
-12.89 emacspeak-go-mode
+12.90 emacspeak-go-mode
 =======================
 
 GO-MODE == Go Language support in emacs
@@ -8515,22 +8524,22 @@ GO-MODE == Go Language support in emacs
 
 File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-google,  Prev: emacspeak-go-mode,  Up: Emacspeak Commands And Options
 
-12.90 emacspeak-gomoku
+12.91 emacspeak-gomoku
 ======================
 
 Auditory interface to gomoku
 
-12.90.1 Emacspeak-Gomoku Commands
+12.91.1 Emacspeak-Gomoku Commands
 ---------------------------------
 
-12.90.1.1 emacspeak-gomoku-display-statistics
+12.91.1.1 emacspeak-gomoku-display-statistics
 .............................................
 
  -- Command: emacspeak-gomoku-display-statistics
 
      Display statistics from previous games
 
-12.90.1.2 emacspeak-gomoku-goto-x-y
+12.91.1.2 emacspeak-gomoku-goto-x-y
 ...................................
 
  -- Command: emacspeak-gomoku-goto-x-y (x y)
@@ -8539,56 +8548,56 @@ Auditory interface to gomoku
 
      (fn X Y)
 
-12.90.1.3 emacspeak-gomoku-show-current-column
+12.91.1.3 emacspeak-gomoku-show-current-column
 ..............................................
 
  -- Command: emacspeak-gomoku-show-current-column
 
      Aurally display current column
 
-12.90.1.4 emacspeak-gomoku-show-current-negative-diagonal
+12.91.1.4 emacspeak-gomoku-show-current-negative-diagonal
 .........................................................
 
  -- Command: emacspeak-gomoku-show-current-negative-diagonal
 
      Aurally display current negative sloped diagonal
 
-12.90.1.5 emacspeak-gomoku-show-current-positive-diagonal
+12.91.1.5 emacspeak-gomoku-show-current-positive-diagonal
 .........................................................
 
  -- Command: emacspeak-gomoku-show-current-positive-diagonal
 
      Aurally display current positively sloped diagonal
 
-12.90.1.6 emacspeak-gomoku-show-current-row
+12.91.1.6 emacspeak-gomoku-show-current-row
 ...........................................
 
  -- Command: emacspeak-gomoku-show-current-row
 
      Aurally display current row
 
-12.90.1.7 emacspeak-gomoku-speak-emacs-previous-move
+12.91.1.7 emacspeak-gomoku-speak-emacs-previous-move
 ....................................................
 
  -- Command: emacspeak-gomoku-speak-emacs-previous-move
 
      Speak emacs’ previous move
 
-12.90.1.8 emacspeak-gomoku-speak-humans-previous-move
+12.91.1.8 emacspeak-gomoku-speak-humans-previous-move
 .....................................................
 
  -- Command: emacspeak-gomoku-speak-humans-previous-move
 
      Speak human’ previous move
 
-12.90.1.9 emacspeak-gomoku-speak-number-of-moves
+12.91.1.9 emacspeak-gomoku-speak-number-of-moves
 ................................................
 
  -- Command: emacspeak-gomoku-speak-number-of-moves
 
      Speak number of moves so far
 
-12.90.1.10 emacspeak-gomoku-speak-square
+12.91.1.10 emacspeak-gomoku-speak-square
 ........................................
 
  -- Command: emacspeak-gomoku-speak-square
