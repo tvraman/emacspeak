@@ -631,8 +631,6 @@
 (defcustom emacspeak-ctl-z-keys 
   '(
     ("SPC" flyspell-mode)
-    (";" embark-act)
-    ("." embark-dwim)
     ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("c" calibredb)
     ("d" magit-dispatch)
