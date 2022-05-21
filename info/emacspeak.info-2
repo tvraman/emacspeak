@@ -4274,8 +4274,8 @@ of emacspeak from becoming dependent on the speech server modules
      with auditory icon ellipses. Presence of additional
      presentational overlays (created via property display,
      before-string, or after-string) is indicated with auditory icon
-     ‘more’.  These can then be spoken using command
-     C-e C-M-l.
+     ‘left’, ‘right’, or ‘more’ as appropriate.  These can then be
+     spoken using command C-e C-M-l.
 
      (fn &optional ARG)
 
