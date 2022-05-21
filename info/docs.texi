@@ -116,7 +116,7 @@ This chapter documents a total of 1143 commands and 147 options.
 * emacspeak-ispell::Speech enable Ispell -- Emacs' interactive spell checker.
 * emacspeak-ivy::Speech-enable IVY.
 * emacspeak-jabber::Speech-Enable jabber.
-* emacspeak-jdee::Speech enable JDEE -- An integrated Java Development Environment.
+* emacspeak-jdee::Speech enable JDEE.
 * emacspeak-js2::Speech-enable JS2.
 * emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
 * emacspeak-kmacro::Speech-enable kbd macro interface.

@@ -809,8 +809,8 @@ created by command `emacspeak-hide-or-expose-block' are indicated
 with auditory icon ellipses. Presence of additional
 presentational overlays (created via property display,
 before-string, or after-string) is indicated with auditory icon
-`more'.  These can then be spoken using command
-\\[emacspeak-speak-overlay-properties]."
+`left', `right', or `more' as appropriate.  These can then be
+spoken using command \\[emacspeak-speak-overlay-properties]."
   (interactive "P")
   (cl-declare (special
                voice-animate voice-indent linum-mode
@@ -875,7 +875,12 @@ before-string, or after-string) is indicated with auditory icon
     (when (or (invisible-p end)
               (get-text-property start 'emacspeak-hidden-block))
       (emacspeak-auditory-icon 'ellipses))
-    (when (or display before after) (emacspeak-auditory-icon 'more))
+    (when (or display before after)
+      (emacspeak-auditory-icon
+       (cond
+        (before 'left)
+        (after 'right)
+        (t 'more))))
     (cond
      ;; C1..C5
      ((string-equal "" line)
@@ -946,7 +951,7 @@ before-string, or after-string) is indicated with auditory icon
        (cond
         (before 'left)
         (after 'right)
-        (t 'ellipses)))
+        (t 'more)))
       (dtk-speak result)))))
 
 
