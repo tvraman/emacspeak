@@ -919,9 +919,8 @@ before-string, or after-string) is indicated with auditory icon
             (setq line (concat linenum line)))
           (dtk-speak line)))))))
 
-(defun emacspeak-speak-overlay-properties ()
-  "Speak display, before-string or after-string property if any."
-  (interactive)
+(defun ems--display-props-get ()
+  "Return  speakable display, before-string or after-string property if any."
   (let ((before (get-char-property (point) 'before-string))
         (after (get-char-property (point) 'after-string))
         (display (get-char-property (point) 'display))
@@ -931,6 +930,14 @@ before-string, or after-string) is indicated with auditory icon
            (when (stringp display) display)
            (when (stringp before) before)
            (when (stringp after) after)))
+    result))
+
+(defun emacspeak-speak-overlay-properties ()
+  "Speak display, before-string or after-string property if any."
+  (interactive)
+  (let ((before (get-char-property (point) 'before-string))
+        (after (get-char-property (point) 'after-string))
+        (result (ems--display-props-get)))
     (cond
      ((or (null result) (= 0 (length result)))
       (message "No speakable overlay properties here."))
@@ -941,6 +948,8 @@ before-string, or after-string) is indicated with auditory icon
         (after 'right)
         (t 'ellipses)))
       (dtk-speak result)))))
+
+
 
 (defun emacspeak-speak-visual-line ()
   "Speaks current visual line.

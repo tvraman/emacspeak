@@ -308,12 +308,10 @@
 
 (defun emacspeak-magit-blame-speak ()
   "Summarize current blame chunk."
-  (let ((o (cl-first (overlays-at (point)))))
-    (when o
       (dtk-speak
        (concat
         (buffer-substring (line-beginning-position) (line-end-position))
-        (overlay-get o 'before-string))))))
+        (ems--display-props-get))))
 
 (cl-loop
  for f in
