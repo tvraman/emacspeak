@@ -308,10 +308,11 @@
 
 (defun emacspeak-magit-blame-speak ()
   "Summarize current blame chunk."
-      (dtk-speak
-       (concat
-        (buffer-substring (line-beginning-position) (line-end-position))
-        (ems--display-props-get))))
+  (emacspeak-auditory-icon 'left)
+  (dtk-speak
+   (concat
+    (buffer-substring (line-beginning-position) (line-end-position))
+    (ems--display-props-get))))
 
 (cl-loop
  for f in
