@@ -2104,7 +2104,7 @@ was spoken.  Any other key continues to speak the buffer."
 The message is also placed in the kill ring for convenient yanking "
   (interactive "P")
   (cl-declare (special emacspeak-last-message))
-  (when  (called-interactively-p 'interactive)
+  (when  (and emacspeak-last-message (called-interactively-p 'interactive))
     (kill-new emacspeak-last-message))
   (cond
    (from-message-cache (dtk-speak emacspeak-last-message))
