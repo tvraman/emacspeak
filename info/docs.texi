@@ -11702,7 +11702,7 @@ with auditory icon ellipses. Presence of additional
 presentational overlays (created via property display,
 before-string, or after-string) is indicated with auditory icon
 ‘left’, ‘right’, or ‘more’ as appropriate.  These can then be
-spoken using command C-e C-M-l.
+spoken using command C-e M-l.
 
 (fn &optional ARG)
 @end format
@@ -11907,10 +11907,10 @@ Useful to listen to a buffer without switching  contexts.
 @subsubsection emacspeak-speak-overlay-properties
 @deffn {Command} emacspeak-speak-overlay-properties   
 @table @kbd
-@item C-e C-M-l
-@kindex C-e C-M-l
-@item <fn> C-M-l
-@kindex <fn> C-M-l
+@item C-e M-l
+@kindex C-e M-l
+@item <fn> M-l
+@kindex <fn> M-l
 @end table
 
 @findex emacspeak-speak-overlay-properties
@@ -15727,13 +15727,6 @@ To leave, press C-g.
 
 @subsubsection emacspeak-link-current-file
 @deffn {Command} emacspeak-link-current-file   
-@table @kbd
-@item C-e M-l
-@kindex C-e M-l
-@item <fn> M-l
-@kindex <fn> M-l
-@end table
-
 @findex emacspeak-link-current-file
 
 @format

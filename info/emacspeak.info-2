@@ -4275,7 +4275,7 @@ of emacspeak from becoming dependent on the speech server modules
      presentational overlays (created via property display,
      before-string, or after-string) is indicated with auditory icon
      ‘left’, ‘right’, or ‘more’ as appropriate.  These can then be
-     spoken using command C-e C-M-l.
+     spoken using command C-e M-l.
 
      (fn &optional ARG)
 
@@ -4418,8 +4418,8 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-speak-overlay-properties
-     ‘C-e C-M-l’
-     ‘<fn> C-M-l’
+     ‘C-e M-l’
+     ‘<fn> M-l’
 
      Speak display, before-string or after-string property if any.
 
@@ -7309,8 +7309,6 @@ Contains various wizards for the Emacspeak desktop.
 ......................................
 
  -- Command: emacspeak-link-current-file
-     ‘C-e M-l’
-     ‘<fn> M-l’
 
      Link (hard link) file visited in current buffer to new location.
      Prompts for the new location and preserves modification time
