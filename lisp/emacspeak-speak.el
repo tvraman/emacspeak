@@ -952,6 +952,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
        (cond
         (before 'left)
         (after 'right)
+        (displayt 'center)
         (t 'more)))
       (dtk-speak result)))))
 
