@@ -942,6 +942,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
   (interactive)
   (let ((before (get-char-property (point) 'before-string))
         (after (get-char-property (point) 'after-string))
+        (display (get-char-property (point) 'display))
         (result (ems--display-props-get)))
     (cond
      ((or (null result) (= 0 (length result)))
