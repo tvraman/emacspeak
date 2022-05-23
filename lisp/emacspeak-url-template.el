@@ -347,7 +347,10 @@ dont-url-encode if true then url arguments are not url-encoded "
   (?n "nyse")
   (?o "nasdaq")
   (error "O: nasdaq N: nyse")))))
- nil
+ #'(lambda nil
+     (emacspeak-auditory-icon 'open-object)
+     (search-forward "Most Active")
+     (emacspeak-speak-rest-of-buffer))
  "Lookup ticker on Google Finance.")
 
 (emacspeak-url-template-define
