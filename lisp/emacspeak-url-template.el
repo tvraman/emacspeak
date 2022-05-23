@@ -338,7 +338,15 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "Finance  Google"
  "https://finance.google.com/quote/%s"
- (list "Ticker:Exchange ")
+ (list
+  #'(lambda nil
+      (format
+   "%s:%s"
+   (read-from-minibuffer "ticker:")
+   (cl-case (read-char "o,n")
+  (?n "nyse")
+  (?o "nasdaq")
+  (error "O: nasdaq N: nyse")))))
  nil
  "Lookup ticker on Google Finance.")
 
