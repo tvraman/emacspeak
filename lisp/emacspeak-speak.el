@@ -953,8 +953,8 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
        (cond
         (before 'left)
         (after 'right)
-        (display 'center)
-        (t 'more)))
+        (display 'more)
+        (t 'warn-user)))
       (dtk-speak result)))))
 
 
