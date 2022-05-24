@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 21, 2022.
+last updated on May 23, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2878,7 +2878,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC-MODE.
-* emacspeak-actions::Emacspeak actions –.
+* emacspeak-actions::Emacspeak actions.
 * emacspeak-add-log::Speech-enable add-log.
 * emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio Content.

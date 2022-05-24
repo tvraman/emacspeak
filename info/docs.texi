@@ -15,7 +15,7 @@ This chapter documents a total of 1143 commands and 147 options.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC-MODE.
-* emacspeak-actions::Emacspeak actions --.
+* emacspeak-actions::Emacspeak actions.
 * emacspeak-add-log::Speech-enable add-log.
 * emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio Content.
