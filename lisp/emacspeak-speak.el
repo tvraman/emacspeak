@@ -940,21 +940,18 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
 (defun emacspeak-speak-overlay-properties ()
   "Speak display, before-string or after-string property if any."
   (interactive)
-  (let ((before (get-char-property (point) 'before-string))
-        (after (get-char-property (point) 'after-string))
-        (display (get-char-property (point) 'display))
+  (let ((icon
+         (cond
+          ((get-char-property (point) 'before-string) 'left)
+          ((get-char-property (point) 'after-string) 'right)
+          ((get-char-property (point) 'display) 'more)))
         (result (ems--display-props-get)))
     (cond
      ((or (null result) (= 0 (length result)))
       (emacspeak-auditory-icon 'warn-user)
       (message "No speakable overlay properties here."))
      (t
-      (emacspeak-auditory-icon
-       (cond
-        (before 'left)
-        (after 'right)
-        (display 'more)
-        (t 'warn-user)))
+      (emacspeak-auditory-icon icon)
       (dtk-speak result)))))
 
 
