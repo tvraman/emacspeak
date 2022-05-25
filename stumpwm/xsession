@@ -2,22 +2,20 @@
 export ALSA_DEFAULT=default
 . ${HOME}/.bash_profile
 export SSH_ASKPASS=/usr/local/bin/e-askpass.sh
+export GNUBBY_PROMPT=/usr/local/bin/e-gnubbyprompt.sh
 export XLIB_SKIP_ARGB_VISUALS=1
-eval  `ssh-agent -s`
 setxkbmap -option ctrl:nocaps -option compose:rctrl
 xmodmap $HOME/.xmodmap 
-#xcape  # -t 125 #-e 'Control_L=Escape'
 pidof ibus && ibus exit
+#$HOME/emacs/lisp/emacspeak/tvr/xcape.sh
 xset b 100 440
 xset dpms
 xset dpms 30 60 180
 xrdb -merge $HOME/.Xresources &
-xautolock -detectsleep -time 60  -locker  "/usr/local/bin/emslock" &
+#xautolock -detectsleep -time 60  -locker  "/usr/local/bin/emslock" &
 xterm  -title Retriever &
 export LISP=sbcl
 ${HOME}/bin/export_x_info &
-espeak "Launching Window Manager" &
-#dbus-launch --exit-with-session /usr/local/bin/stumpwm
-exec /usr/local/bin/stumpwm 
-#dbus-launch --exit-with-session emacs 
- #exec gnome-session
+espeak-ng "Launching Window Manager" &
+ssh-agent dbus-launch --exit-with-session /usr/local/bin/stumpwm
+
