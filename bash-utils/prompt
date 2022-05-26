@@ -1,4 +1,5 @@
 # Set up prompts for bash: -*- mode: sh -*-
+export PROMPT_COMMAND=prompt
 SOUNDDIR=${EMACSPEAK_DIR}/sounds/pan-chimes
 EBASH=${EMACSPEAK_DIR}/bash-utils
 SUCCESS=$SOUNDDIR/item.wav
@@ -9,7 +10,6 @@ function prompt () {
     0) aplay -N -q   ${SUCCESS}  1>&- 2>&-;;
     *) aplay  -N -q  ${FAIL} 1>&- 2>&-  ;;
   esac
-  if [ $TERM == "xterm" -o $TERM == "xterm-256color" ]; then ${EBASH}/esr `pwd`; fi
 }
 
-export PROMPT_COMMAND=prompt
+
