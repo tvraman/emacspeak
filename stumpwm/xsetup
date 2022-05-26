@@ -4,9 +4,8 @@ export ALSA_DEFAULT=default
 export SSH_ASKPASS=/usr/local/bin/e-askpass.sh
 export GNUBBY_PROMPT=/usr/local/bin/e-gnubbyprompt.sh
 export XLIB_SKIP_ARGB_VISUALS=1
-setxkbmap -option ctrl:nocaps -option compose:rctrl
 xmodmap $HOME/.xmodmap 
-pidof ibus && ibus exit
+pidof ibus-daemon && pkill ibus-daemon
 pidof ibus-daemon && ibus-daemon exit
 #$HOME/emacs/lisp/emacspeak/tvr/xcape.sh
 xset b 100 440

@@ -1,3 +1,9 @@
 ! swap escape and backquote
  keycode 49 = Escape asciitilde
 keycode 9=grave asciitilde
+!
+       ! caps_lock is control _l
+       !
+       remove Lock = Caps_Lock
+       keysym Caps_Lock = Control_L
+       add Control = Control_L
