@@ -1,0 +1,538 @@
+# $Id: .asoundrc,v 1.3 2012/03/08 19:19:31 raman Exp raman $
+# Simpler asoundrc for pulse and  the future pipewire world:
+# {{{crossfeed (bs2b):
+
+# See /usr/share/doc/bs2b-ladspa/asound.conf.example for inspiration
+
+pcm.crossfeed {
+hint.description "Crossfeed output using  bs2b ladspa plugin."
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [
+            {
+                label bs2b
+                input {
+                    #Defaults: 725Hz crossover frequency and 4.5dB rolloff
+                    controls [ 725 4.5 ]
+                }
+            }]
+    }
+}
+
+# }}}
+# {{{An amp device:
+pcm.amp {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [
+            {
+                label amp_stereo
+                input {
+                    #double volume 
+                    controls [ 2  ]
+                }
+            }]
+    }
+}
+
+
+# }}}
+# {{{tap_reverb:
+
+pcm.tap_reverb {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label tap_reverb
+                    input {
+                        controls [1800 0 -17 1 1 1 1 4] # Ambiance
+                    }
+                }]
+    }
+}
+
+# }}}
+# {{{autopan:
+
+pcm.autopan {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label tap_autopan
+                    input {controls [0.016 75 2 ]}
+                }
+                 {
+                     label tap_autopan
+                     input {controls [0.06 33 2]}
+                 }]
+    }
+}
+
+# }}}
+# {{{reverb_crossfeed
+
+#tap_reverb -> bs2b
+pcm.reverb_crossfeed {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default"
+        path "/usr/lib/ladspa/"
+        plugins [
+            {label tap_reverb #ambiance thick (hd)
+             input {controls [2400 0 -14 1 1 1 1 4]}
+            }
+            {label bs2b
+             input {controls [ 725 4.5 ]}
+            }]
+    }
+}
+
+# }}}
+# {{{autopan_crossfeed
+
+#autopan -> crossfeed
+pcm.autopan_crossfeed {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default"
+        path "/usr/lib/ladspa/"
+        plugins [
+            {label bs2b
+             input {controls [ 725 4.5 ]}
+            }
+            {
+                label tap_autopan
+                input {
+                    controls [0.066 66 2.5 ]
+                }
+            }
+            {
+                label tap_autopan
+                input {
+                    controls [0.0166 100 2.5 ]
+                }
+            }
+        ]
+    }
+}
+
+# }}}
+# {{{tts_crossfeed:
+
+pcm.tts_crossfeed{
+    type upmix
+    slave. pcm "crossfeed"
+}
+
+# }}}
+# {{{tts_reverb:
+
+pcm.tts_reverb {
+    type upmix
+    slave. pcm "tap_reverb"
+}
+
+# }}}
+# {{{tts_reverb_crossfeed:
+
+pcm.tts_reverb_crossfeed {
+    type upmix
+    slave. pcm "reverb_crossfeed"
+}
+
+# }}}
+# {{{tts_autopan_crossfeed:
+
+pcm.tts_autopan_crossfeed {
+    type upmix
+    slave. pcm "autopan_crossfeed"
+}
+
+# }}}
+# {{{tts_autopan:
+
+pcm.tts_autopan {
+    type upmix
+    slave.pcm "autopan"
+}
+
+# }}}
+# {{{A Soft left device:
+
+pcm.soft_left {
+    type plug
+    slave.pcm {
+        type route
+        slave.pcm "default"
+        ttable {
+            0.0 =  0.35
+            0.1 = 0.03
+            1.0 =  0.35
+            1.1 = 0.03
+        }
+    }
+} 
+
+# }}}
+# {{{TTS Mono:
+
+#  The Route plugin routes audio among channels using a TTable .
+#TTable is a transfer table.
+# Matrix of Source->Destination values
+# Unspecified entries default to 0.
+# Format: Source.Destination = Value
+
+pcm.tts_mono_right {
+    type plug
+    slave.pcm {
+        type route
+        slave.pcm "pulse" 
+        ttable {
+            0.0 =  0.03
+            0.1 = 1
+            1.0 =  0.03
+            1.1 = 1
+        }
+    }
+}
+
+pcm.tts_mono_left {
+    type plug
+    slave.pcm {
+        type route
+        slave.pcm "pulse"
+        ttable {
+            0.0 =  1
+            0.1 = 0.03
+            1.0 =  1
+            1.1 = 0.03
+        }
+    }
+}
+
+pcm.tts_mono_mid_left {
+    type plug
+    slave.pcm {
+        type route
+        slave.pcm "pulse"
+        ttable {
+            0.0 =  0.66
+            0.1 = 0.33
+            1.0 =  0.66
+            1.1 = 0.33
+        }
+    }
+}
+
+#quarters
+pcm.tts_mono_quarter_left {
+    type plug
+    slave.pcm {
+        type route
+        slave.pcm "pulse"
+        ttable {
+            0.0 =  0.75
+            0.1 = 0.25
+            1.0 =  0.75
+            1.1 = 0.25
+        }
+    }
+}
+
+pcm.tts_mono_quarter_right {
+    type plug
+    slave.pcm {
+        type route
+        slave.pcm "pulse"
+        ttable {
+            0.0 =  0.25
+            0.1 = 0.75
+            1.0 =  0.25
+            1.1 = 0.75
+        }
+    }
+}
+
+# }}}
+# {{{ HRTF Devices Using Zam Plugin:
+
+# Notes:
+#  Zam Plugins from https://github.com/zamaudio/zam-plugins.git
+# Azimuth:   Clockwise: -90..270 --- 0 is North.
+# Elevation: -45 .. 90
+
+pcm.tts_a45_e45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [45 45 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a135_e45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [135 45 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a225_e45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [225 45 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_am45_e45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [-45 45 2.5 ]}
+                }
+                ]
+    }
+}
+
+# negative Elevation:
+
+pcm.tts_a45_em45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [45 -45 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a135_em45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [135 -45 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a225_em45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [225 -45 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_am45_em45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [-45 -45 2.5 ]}
+                }
+                ]
+    }
+}
+
+#0 azimuth, various elevations:
+
+pcm.tts_a0_em45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 -45 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a0_e45 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 45 2.5 ]}
+                }
+                ]
+    }
+}
+
+
+pcm.tts_a0_e90 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 90 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a0_em30 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 -30 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a0_em15 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 -15 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a0_e15 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 15 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a0_e30 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 30 2.5 ]}
+                }
+                ]
+    }
+}
+
+pcm.tts_a0_e60 {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label ZamHeadX2
+                    input {controls [0 60 2.5 ]}
+                }
+                ]
+    }
+}
+
+# }}}
+# {{{Equal:
+
+ctl.equal {type equal}
+
+pcm.equal{
+    type plug;
+    slave.pcm{
+        type equal
+        slave.pcm "default"
+    }
+}
+
+# }}}
+# {{{Save2File:
+# outloud produces save.wav channels 1, rate 11025 format S16_LE
+# aplay -r 11025 -f s16_le save.wav
+pcm.save2file {
+    type file
+    slave.pcm "default"
+    file "save.wav"
+}
+
+# }}}
+# {{{end of file
+
+# local variables:
+# mode: sh
+# folded-file: t
+# end:
+
+# }}}

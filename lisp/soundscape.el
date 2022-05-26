@@ -224,10 +224,12 @@ Default is to return NullAgent if name not found."
              #'start-process
              "Boodler" nil
              "nice" "-n"  "19" soundscape-player
-             `(,@soundscape-manager-options
-               "--device"
-               ,soundscape-device
-               ,scape)))
+             ;; Add --device only if not using default device:
+             (if (string= soundscape-device "default")
+                 `(,@soundscape-manager-options ,scape)
+               `(,@soundscape-manager-options
+                 "--device" ,soundscape-device
+                 ,scape))))
       (when (process-live-p proc) (puthash scape proc soundscape-processes)))))
 
 (defun soundscape-stop (scape)
@@ -436,13 +438,19 @@ Optional interactive prefix arg restarts the listener."
         #'start-process
         "SoundscapeListener" " *Soundscapes*"
         "nice" "-n"  "19" soundscape-player
-        `(,@soundscape-manager-options
-          "--device"
-          ,soundscape-device
-          "--listen" "--port" ,soundscape--remote
-          "org.emacspeak.listen/SoundscapePanel"
-          ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
-                    soundscape-default-theme))))
+        ;; Add --device only if not using default device:
+        (if (string= soundscape-device "default")
+            `(,@soundscape-manager-options
+              "--listen" "--port" ,soundscape--remote
+              "org.emacspeak.listen/SoundscapePanel"
+              ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
+                        soundscape-default-theme))
+          `(,@soundscape-manager-options
+            "--device" ,soundscape-device
+            "--listen" "--port" ,soundscape--remote
+            "org.emacspeak.listen/SoundscapePanel"
+            ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
+                      soundscape-default-theme)))))
       (set-process-sentinel soundscape-listener-process #'soundscape-sentinel)
       (accept-process-output))
      (t soundscape-listener-process))))
