@@ -1,0 +1,15 @@
+audacious-plugins
+bs2b-ladspa
+calf-ladspa
+caps
+gstreamer1.0-plugins-bad
+ladspalist
+ladspa-sdk
+libasound2-doc
+libfluidsynth-dev
+lsp-plugins-ladspa
+pulseaudio
+swh-plugins
+tap-plugins-doc
+tap-plugins
+wah-plugins
