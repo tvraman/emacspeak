@@ -9,7 +9,7 @@ function prompt () {
     0) aplay -N -q   ${SUCCESS}  1>&- 2>&-;;
     *) aplay  -N -q  ${FAIL} 1>&- 2>&-  ;;
   esac
-  if [ $TERM == "dumb" -o $TERM == "emacs" ]; then ${EBASH}/emnotify `pwd`; fi
+  if [ $TERM == "xterm" ]; then ${EBASH}/emnotify `pwd`; fi
 }
 
 export PROMPT_COMMAND=prompt
