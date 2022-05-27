@@ -1,119 +1,94 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>Using UNIX With Speech Output --- 1994 (Emacspeak User’s
-  Manual — 2nd Edition.)</title>
-  <meta name="description" content=
-  "Using UNIX With Speech Output --- 1994 (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "Using UNIX With Speech Output --- 1994 (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-At-Twenty.html" rel="up" title=
-  "Emacspeak At Twenty" />
-  <link href=
-  "Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html" rel=
-  "next" title="Key Enabler --- Emacs And Lisp Advice" />
-  <link href="Turning-Twenty.html" rel="prev" title=
-  "Turning Twenty" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Using UNIX With Speech Output  ---  1994 (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="Using UNIX With Speech Output  ---  1994 (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="Using UNIX With Speech Output  ---  1994 (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-At-Twenty.html" rel="up" title="Emacspeak At Twenty">
+<link href="Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html" rel="next" title="Key Enabler  ---  Emacs And Lisp Advice">
+<link href="Turning-Twenty.html" rel="prev" title="Turning Twenty">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id=
-  "Using-UNIX-With-Speech-Output-_002d_002d_002d-1994">
-    <div class="header">
-      <p>Next: <a href=
-      "Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html"
-      accesskey="n" rel="next">Key Enabler — Emacs And Lisp
-      Advice</a>, Previous: <a href="Turning-Twenty.html"
-      accesskey="p" rel="prev">Turning Twenty</a>, Up: <a href=
-      "Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak
-      At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents"
-      title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id=
-    "Using-UNIX-With-Speech-Output-_002d_002d_002d-1994-1"></span>
-    <h3 class="section">15.2 Using UNIX With Speech Output —
-    1994</h3>
-    <p>As a graduate student at <a href=
-    "http://www.cs.cornell.edu/info/people/raman/raman.html">Cornell</a>,
-    I accessed my Unix workstation (SunOS) from an Intel 486 PC
-    running IBM Screen-Reader. There was no means of directly using
-    a UNIX box at the time; after graduating, I continued doing the
-    same for about six months at Digital Research in Cambridge —
-    the only difference being that my desktop workstation was now a
-    DEC-Alpha. Throughout this time, Emacs was my environment of
-    choice for everything from software development and Internet
-    access to writing documents.</p>
-    <p>In fall of 1994, I wanted to start using a laptop running
-    Linux; a colleague (Dave Wecker) was retiring his 386mhz laptop
-    that already had Linux on it and I decided to inherit it. But
-    there was only one problem — until then I had always accessed a
-    UNIX machine from a secondary PC running a screen-reader —
-    something that would clearly make no sense with a laptop!</p>
-    <p>Another colleague, Win Treese, had pointed out the
-    interesting possibilities presented by package
-    <strong>advice</strong> in Emacs 19.23 — a few weeks earlier,
-    he had sent around a small snippet of code that magically
-    modified Emacs’ version-control primitive to first create an
-    <em>RCS</em> directory if none existed before adding a file to
-    version control. When I speculated about using the Linux
-    laptop, Dave remarked — you live in Emacs anyway — why dont you
-    just make it talk!</p>
-    <p>Connecting the dots, I decided to write myself a tool that
-    augmented Emacs’ default behavior to <em>speak</em> — within
-    about 4 hours, version 0.01 of Emacspeak was up and
-    running.</p>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href=
-    "Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html">Key
-    Enabler — Emacs And Lisp Advice</a>, Previous: <a href=
-    "Turning-Twenty.html">Turning Twenty</a>, Up: <a href=
-    "Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp;
-    [<a href="index.html#SEC_Contents" title="Table of contents"
-    rel="contents">Contents</a>][<a href="Concept-Index.html"
-    title="Index" rel="index">Index</a>]</p>
-  </div>
+
+<body lang="en">
+<div class="section" id="Using-UNIX-With-Speech-Output-_002d_002d_002d-1994">
+<div class="header">
+<p>
+Next: <a href="Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html" accesskey="n" rel="next">Key Enabler  &mdash;  Emacs And Lisp Advice</a>, Previous: <a href="Turning-Twenty.html" accesskey="p" rel="prev">Turning Twenty</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Using-UNIX-With-Speech-Output-_002d_002d_002d-1994-1"></span><h3 class="section">15.2 Using UNIX With Speech Output  &mdash;   1994</h3>
+
+<p>As a graduate student at <a href="http://www.cs.cornell.edu/info/people/raman/raman.html">Cornell</a>, I accessed my Unix workstation
+(SunOS) from an Intel 486 PC running IBM Screen-Reader. There
+ was no means of directly using a UNIX box at the time; after
+ graduating, I continued doing the same for about six months at
+ Digital Research in Cambridge  &mdash;  the only difference being that
+ my desktop workstation was now a DEC-Alpha. Throughout this
+ time, Emacs was my environment of choice for everything from
+ software development and Internet access to writing documents.
+</p>
+
+<p>In fall of 1994, I wanted to start using a laptop running Linux;
+a colleague (Dave Wecker) was retiring his 386mhz laptop that
+already had Linux on it and I decided to inherit it. But there
+was only one problem  &mdash;  until then I had always accessed a UNIX
+machine from a secondary PC running a screen-reader  &mdash;  something
+that would clearly make no sense with a laptop!
+</p>
+<p>Another colleague, Win Treese, had pointed out the interesting
+possibilities presented by package <strong>advice</strong> in Emacs 19.23  &mdash;  a
+few weeks earlier, he had sent around a small snippet of code
+that magically modified Emacs&rsquo; version-control primitive to first
+create an <em>RCS</em> directory if none existed before adding a file to
+version control. When I speculated about using the Linux laptop,
+Dave remarked  &mdash;  you live in Emacs anyway  &mdash;  why dont you just make
+it talk!
+</p>
+<p>Connecting the dots, I decided to write myself a tool that
+augmented Emacs&rsquo; default behavior to <em>speak</em>  &mdash;  within about 4
+hours, version 0.01 of Emacspeak was up and running.
+</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html">Key Enabler  &mdash;  Emacs And Lisp Advice</a>, Previous: <a href="Turning-Twenty.html">Turning Twenty</a>, Up: <a href="Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

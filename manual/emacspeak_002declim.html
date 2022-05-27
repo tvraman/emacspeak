@@ -1,78 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-eclim (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-eclim (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-eclim (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dediff.html" rel="next" title=
-  "emacspeak-ediff" />
-  <link href="emacspeak_002decb.html" rel="prev" title=
-  "emacspeak-ecb" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-eclim (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-eclim (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-eclim (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dediff.html" rel="next" title="emacspeak-ediff">
+<link href="emacspeak_002decb.html" rel="prev" title="emacspeak-ecb">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002declim">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dediff.html" accesskey="n"
-      rel="next">emacspeak-ediff</a>, Previous: <a href=
-      "emacspeak_002decb.html" accesskey="p" rel=
-      "prev">emacspeak-ecb</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002declim-1"></span>
-    <h3 class="section">12.53 emacspeak-eclim</h3>
-    <p>ECLIM == Eclipse/Vim integration. http://www.eclim.org turns
-    Eclipse into a headless server that can be called from other
-    programs. Package Emacs-Eclim connects Emacs to Eclim. Package
-    emacspeak-eclim speech-enables emacs-eclim.</p>
-  </div>
+
+<body lang="en">
+<div class="section" id="emacspeak_002declim">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dediff.html" accesskey="n" rel="next">emacspeak-ediff</a>, Previous: <a href="emacspeak_002decb.html" accesskey="p" rel="prev">emacspeak-ecb</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002declim-1"></span><h3 class="section">12.53 emacspeak-eclim</h3>
+
+<p>ECLIM ==  Eclipse/Vim integration.
+http://www.eclim.org turns Eclipse into a headless server that can be called from other programs.
+Package Emacs-Eclim connects Emacs to Eclim.
+Package emacspeak-eclim speech-enables emacs-eclim.
+</p>
+</div>
+
+
+
 </body>
 </html>

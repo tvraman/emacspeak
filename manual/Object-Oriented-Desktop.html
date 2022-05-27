@@ -1,85 +1,71 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>Object Oriented Desktop (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "Object Oriented Desktop (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "Object Oriented Desktop (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Audio-Desktop.html" rel="up" title="Audio Desktop" />
-  <link href="Context_002dSensitive-Interaction.html" rel="next"
-  title="Context-Sensitive Interaction" />
-  <link href="Desktop-Objects.html" rel="prev" title=
-  "Desktop Objects" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Object Oriented Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="Object Oriented Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="Object Oriented Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Audio-Desktop.html" rel="up" title="Audio Desktop">
+<link href="Context_002dSensitive-Interaction.html" rel="next" title="Context-Sensitive Interaction">
+<link href="Desktop-Objects.html" rel="prev" title="Desktop Objects">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="Object-Oriented-Desktop">
-    <div class="header">
-      <p>Next: <a href="Context_002dSensitive-Interaction.html"
-      accesskey="n" rel="next">Emacspeak Specializes Aural
-      Interaction</a>, Previous: <a href="Desktop-Objects.html"
-      accesskey="p" rel="prev">Objects Making Up The Emacspeak
-      Desktop</a>, Up: <a href="Audio-Desktop.html" accesskey="u"
-      rel="up">The Emacspeak Audio Desktop.</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="An-Object_002dOriented-Desktop"></span>
-    <h3 class="section">7.2 An Object-Oriented
-    Desktop</h3><span id="index-Object_002dOriented-Desktop"></span>
-    <p>The basic “buffer object” can be specialized by Emacs
-    applications to provide optimal interaction. This kind of
-    specialization makes the Emacs environment an object-oriented
-    environment; thus, the basic conversational gesture of “move to
-    the next statement” can be assigned behavior that is
-    appropriate to the content that the user is currently
-    navigating. As an example of such specialization, Emacs
-    provides “specialized modes” for working with English text,
-    programming languages, markup source e.g. <acronym title=
-    "Hypertext Markup Language">HTML</acronym> (Hypertext Markup
-    Language) or LaTeX documents and so on.</p>
-  </div>
+
+<body lang="en">
+<div class="section" id="Object-Oriented-Desktop">
+<div class="header">
+<p>
+Next: <a href="Context_002dSensitive-Interaction.html" accesskey="n" rel="next">Emacspeak Specializes Aural Interaction</a>, Previous: <a href="Desktop-Objects.html" accesskey="p" rel="prev">Objects Making Up The Emacspeak Desktop</a>, Up: <a href="Audio-Desktop.html" accesskey="u" rel="up">The Emacspeak Audio Desktop.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="An-Object_002dOriented-Desktop"></span><h3 class="section">7.2 An Object-Oriented Desktop</h3>
+<span id="index-Object_002dOriented-Desktop"></span>
+
+<p>The basic &ldquo;buffer object&rdquo; can be specialized by Emacs applications
+to provide optimal interaction.  This kind of specialization makes the
+Emacs environment an object-oriented environment; thus, the basic
+conversational gesture of &ldquo;move to the next statement&rdquo; can be
+assigned behavior that is appropriate to the content that the user is
+currently navigating.  As an example of such specialization, Emacs
+provides &ldquo;specialized modes&rdquo; for working with English text,
+programming languages, markup source e.g. <acronym title="Hypertext
+Markup Language">HTML</acronym> (Hypertext
+Markup Language) or LaTeX documents and so on.
+</p>
+</div>
+
+
+
 </body>
 </html>

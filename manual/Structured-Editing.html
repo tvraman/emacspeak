@@ -1,120 +1,99 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>Structured Editing (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "Structured Editing (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "Structured Editing (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacs-Packages.html" rel="up" title=
-  "Emacs Packages" />
-  <link href="Browsing-Structure.html" rel="next" title=
-  "Browsing Structure" />
-  <link href="Document-Authoring.html" rel="prev" title=
-  "Document Authoring" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Structured Editing (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="Structured Editing (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="Structured Editing (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacs-Packages.html" rel="up" title="Emacs Packages">
+<link href="Browsing-Structure.html" rel="next" title="Browsing Structure">
+<link href="Document-Authoring.html" rel="prev" title="Document Authoring">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="Structured-Editing">
-    <div class="header">
-      <p>Next: <a href="Browsing-Structure.html" accesskey="n" rel=
-      "next">Browsing Structure</a>, Previous: <a href=
-      "Document-Authoring.html" accesskey="p" rel="prev">Document
-      Authoring</a>, Up: <a href="Emacs-Packages.html" accesskey=
-      "u" rel="up">Emacs Packages.</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="Structured-Editing-And-Templates"></span>
-    <h3 class="section">10.2 Structured Editing And Templates</h3>
-    <p>Editing documents based on the inherent structure present in
-    the electronic encoding can be very efficient when using spoken
-    interaction. We described mode <em>AUCTeX</em> — a specialized
-    interface to authoring LaTeX documents as a special instance of
-    such structured editing in see <a href=
-    "Document-Authoring.html">Document Authoring</a>.</p>
-    <p>The Emacspeak desktop allows the user to efficiently author
-    and maintain an electronic document based either on the
-    structure present in the markup (as in the case of mode AUCTeX)
-    or on special outlining constructs that allow the user to
-    impose a desired logical structure on the document. This
-    section describes the effect of speech-enabling such editing
-    tools and points out the advantages in using these in a speech
-    oriented interface.</p>
-    <p>Template-based authoring — a technique that allows the user
-    to create a document by inserting contents into appropriate
-    positions in a predefined template — goes hand in hand with
-    such structured editing. Finally, structured editing can vastly
-    simplify the creation and maintenance of structured data, for
-    example, the data present in a UNIX password file. Such data
-    files are in fact nothing more than a collection of database
-    records, where each record (or line) consists of a set of
-    fields delimited by a special character. Maintaining such files
-    without exploiting the underlying structure often tends to be
-    error prone. We describe editing modes that can exploit such
-    record structure to provide a fluent editing interface.
-    Finally, we outline a speech-enabled interface to a spreadsheet
-    application as a complex instance of such structured data
-    editing.</p>
-    <ul class="section-toc">
-      <li><a href="Outline-Editing.html" accesskey="1">Outline
-      Editing</a></li>
-      <li><a href="Template_002dbased-Authoring.html" accesskey=
-      "2">Template-based Authoring</a></li>
-      <li><a href="Maintaining-Structured-Data.html" accesskey=
-      "3">Maintaining Structured Data</a></li>
-    </ul>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href="Browsing-Structure.html">Browsing
-    Structure</a>, Previous: <a href=
-    "Document-Authoring.html">Document Authoring</a>, Up: <a href=
-    "Emacs-Packages.html">Emacs Packages.</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+
+<body lang="en">
+<div class="section" id="Structured-Editing">
+<div class="header">
+<p>
+Next: <a href="Browsing-Structure.html" accesskey="n" rel="next">Browsing Structure</a>, Previous: <a href="Document-Authoring.html" accesskey="p" rel="prev">Document Authoring</a>, Up: <a href="Emacs-Packages.html" accesskey="u" rel="up">Emacs Packages.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Structured-Editing-And-Templates"></span><h3 class="section">10.2 Structured Editing And Templates</h3>
+
+
+<p>Editing documents based on the inherent structure present in the
+electronic encoding can be very efficient when using spoken
+interaction.  We described mode <em>AUCTeX</em>  &mdash; a specialized
+interface to authoring LaTeX documents as a special instance of such
+structured editing in see <a href="Document-Authoring.html">Document Authoring</a>.
+</p>
+<p>The Emacspeak desktop allows the user to efficiently author and
+maintain an electronic document based either on the structure present
+in the markup (as in the case of mode AUCTeX) or on special outlining
+constructs that allow the user to impose a desired logical structure
+on the document.  This section describes the effect of speech-enabling
+such editing tools and points out the advantages in using these in a
+speech oriented interface.
+</p>
+<p>Template-based authoring  &mdash; a technique that allows the user to
+create a document by inserting contents into appropriate positions in
+a predefined template  &mdash; goes hand in hand with such structured
+editing.  Finally, structured editing can vastly simplify the creation
+and maintenance of structured data, for example, the data present in a
+UNIX password file.  Such data files are in fact nothing more than a
+collection of database records, where each record (or line) consists
+of a set of fields delimited by a special character.  Maintaining such
+files without exploiting the underlying structure often tends to be
+error prone.  We describe editing modes that can exploit such record
+structure to provide a fluent editing interface.  Finally, we outline
+a speech-enabled interface to a spreadsheet application as a complex
+instance of such structured data editing.
+</p>
+
+<ul class="section-toc">
+<li><a href="Outline-Editing.html" accesskey="1">Outline Editing</a></li>
+<li><a href="Template_002dbased-Authoring.html" accesskey="2">Template-based Authoring</a></li>
+<li><a href="Maintaining-Structured-Data.html" accesskey="3">Maintaining Structured Data</a></li>
+</ul>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Browsing-Structure.html">Browsing Structure</a>, Previous: <a href="Document-Authoring.html">Document Authoring</a>, Up: <a href="Emacs-Packages.html">Emacs Packages.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

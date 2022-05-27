@@ -1,118 +1,103 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>Overview (Emacspeak User’s Manual — 2nd Edition.)</title>
-  <meta name="description" content=
-  "Overview (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "Overview (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Basic-Usage.html" rel="up" title="Basic Usage" />
-  <link href="Working.html" rel="next" title="Working" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Overview (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="Overview (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="Overview (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Basic-Usage.html" rel="up" title="Basic Usage">
+<link href="Working.html" rel="next" title="Working">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="Overview">
-    <div class="header">
-      <p>Next: <a href="Working.html" accesskey="n" rel=
-      "next">Using Emacs Buffers</a>, Up: <a href=
-      "Basic-Usage.html" accesskey="u" rel="up">Basic Usage.</a>
-      &nbsp; [<a href="index.html#SEC_Contents" title=
-      "Table of contents" rel="contents">Contents</a>][<a href=
-      "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="Emacspeak-Overview"></span>
-    <h3 class="section">6.1 Emacspeak Overview</h3>
-    <p>Emacspeak provides a small number of core services around
-    which the remainder of the audio interface is constructed.
-    These essential features of the software are briefly outlined
-    in the following paragraphs; the commands by which they can be
-    controlled will be described later in the manual.</p>
-    <p>Apart from providing a fluent spoken interface to all of
-    Emacs’ basic editing functions, Emacspeak also includes
-    software modules which add speech feedback to a range of
-    applications that can be run from within Emacs. In this sense,
-    Emacspeak amounts to much more than a talking text editor;
-    indeed, it can more aptly be characterized as a true “audio
-    desktop”, in which speech is treated as a first-class output
-    modality.</p>
-    <p>Emacspeak implements a special minor mode, known as “voice
-    lock mode” (see <a href="Voice_002dlock.html">Voice Lock
-    Mode</a>) which uses distinct speech characteristics to provide
-    aural highlighting of specific textual constructs, such as
-    comments in program code, quoted strings and reserved words See
-    <a href="Voice-Lock.html">Voice Lock</a>. This facility is
-    further extended when Emacspeak is used with the
-    <code>EWW</code> and <code>W3</code> Web browsers, to enable
-    the semantic and structural distinctions captured by the HTML
-    markup to be communicated efficiently See <a href=
-    "Web-Browsing.html">Web Browsing</a>.</p>
-    <p>It is often desirable to exercise control over the
-    pronunciation of a word (E.G. a technical term or a reserved
-    word in a programming language) within specific contexts.
-    Emacspeak maintains pronunciation dictionaries for this
-    purpose, which may be customized by the user. Moreover,
-    individual dictionaries can be activated selectively, depending
-    for example on the current major mode or the name of the file
-    which is being visited See <a href=
-    "emacspeak_002dpronounce.html">emacspeak-pronounce</a>.</p>
-    <p>In addition to spoken feedback, Emacspeak can generate
-    “auditory icons” — short sound cues which alert the user to
-    significant events, for example the opening or deletion of a
-    file, the completion of an action, the arrival of an electronic
-    mail message or the creation of a completion buffer. Sound cues
-    act as a supplement to the spoken interface, and are especially
-    valuable to the experienced user in facilitating rapid
-    interaction. Note that in order to support auditory icons, the
-    computer must be equipped with sound hardware for which the
-    operating system has been correctly configured See <a href=
-    "emacspeak_002dsounds.html">emacspeak-sounds</a>.</p>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href="Working.html">Using Emacs Buffers</a>, Up:
-    <a href="Basic-Usage.html">Basic Usage.</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+
+<body lang="en">
+<div class="section" id="Overview">
+<div class="header">
+<p>
+Next: <a href="Working.html" accesskey="n" rel="next">Using Emacs Buffers</a>, Up: <a href="Basic-Usage.html" accesskey="u" rel="up">Basic Usage.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Emacspeak-Overview"></span><h3 class="section">6.1 Emacspeak Overview</h3>
+
+<p>Emacspeak provides a small number of core services around which the
+remainder of the audio interface is constructed.  These essential
+features of the software are briefly outlined in the following
+paragraphs; the commands by which they can be controlled will be
+described later in the manual.
+</p>
+<p>Apart from providing a fluent spoken interface to all of Emacs&rsquo; basic
+editing functions, Emacspeak also includes software modules which add
+speech feedback to a range of applications that can be run from within
+Emacs. In this sense, Emacspeak amounts to much more than a talking
+text editor; indeed, it can more aptly be characterized as a true
+&ldquo;audio desktop&rdquo;, in which speech is treated as a first-class output modality.
+</p>
+<p>Emacspeak implements a special minor mode, known as &ldquo;voice lock mode&rdquo;
+(see <a href="Voice_002dlock.html">Voice Lock Mode</a>) which uses distinct speech characteristics to
+provide aural highlighting of specific textual constructs, such as
+comments in program code, quoted strings and reserved words See <a href="Voice-Lock.html">Voice Lock</a>. This facility is further extended when Emacspeak is used with the
+<code>EWW</code> and <code>W3</code> Web browsers, to enable the semantic and
+structural distinctions captured by the HTML markup to be communicated
+efficiently See <a href="Web-Browsing.html">Web Browsing</a>.
+</p>
+<p>It is often desirable to exercise control over the pronunciation of a
+word (E.G. a technical term or a reserved word in a programming
+language) within specific contexts. Emacspeak maintains pronunciation
+dictionaries for this purpose, which may be customized by the
+user. Moreover, individual dictionaries can be activated selectively,
+depending for example on the current major mode or the name of the
+file which is being visited See <a href="emacspeak_002dpronounce.html">emacspeak-pronounce</a>.
+</p>
+<p>In addition to spoken feedback, Emacspeak can generate &ldquo;auditory
+icons&rdquo;  &mdash; short sound cues which alert the user to significant
+events, for example the opening or deletion of a file, the completion
+of an action, the arrival of an electronic mail message or the
+creation of a completion buffer. Sound cues act as a supplement to the
+spoken interface, and are especially valuable to the experienced user
+in facilitating rapid interaction. Note that in order to support
+auditory icons, the computer must be equipped with sound hardware for
+which the operating system has been correctly configured
+See <a href="emacspeak_002dsounds.html">emacspeak-sounds</a>.
+</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Working.html">Using Emacs Buffers</a>, Up: <a href="Basic-Usage.html">Basic Usage.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

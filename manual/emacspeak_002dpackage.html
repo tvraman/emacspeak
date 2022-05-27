@@ -1,156 +1,111 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-package (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-package (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-package (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dparadox.html" rel="next" title=
-  "emacspeak-paradox" />
-  <link href="emacspeak_002doutline.html" rel="prev" title=
-  "emacspeak-outline" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-package (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-package (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-package (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dparadox.html" rel="next" title="emacspeak-paradox">
+<link href="emacspeak_002doutline.html" rel="prev" title="emacspeak-outline">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dpackage">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dparadox.html" accesskey="n"
-      rel="next">emacspeak-paradox</a>, Previous: <a href=
-      "emacspeak_002doutline.html" accesskey="p" rel=
-      "prev">emacspeak-outline</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dpackage-1"></span>
-    <h3 class="section">12.140 emacspeak-package</h3>
-    <p>PACKAGE == package.el Manage Emacs packages. This module
-    speech-enables package.el with a few convenience commands.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dPackage-Commands" accesskey=
-      "1">Emacspeak-Package Commands</a></li>
-    </ul>
-    <div class="subsection" id="Emacspeak_002dPackage-Commands">
-      <h4 class="subsection">12.140.1 Emacspeak-Package
-      Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dpackage_002dnext_002dline"
-        accesskey="1">emacspeak-package-next-line</a></li>
-        <li><a href="#emacspeak_002dpackage_002dprevious_002dline"
-        accesskey="2">emacspeak-package-previous-line</a></li>
-        <li><a href="#emacspeak_002dpackage_002dsummarize_002dline"
-        accesskey="3">emacspeak-package-summarize-line</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dpackage_002dnext_002dline">
-        <h4 class="subsubsection">12.140.1.1
-        emacspeak-package-next-line</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dpackage_002dnext_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-package-next-line</strong>
-          <a href='#index-emacspeak_002dpackage_002dnext_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dpackage_002dnext_002dline-1"></span>
-            <div class="format">
-              <pre class="format">Move to next line and speak it.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dpackage_002dprevious_002dline">
-        <h4 class="subsubsection">12.140.1.2
-        emacspeak-package-previous-line</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dpackage_002dprevious_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-package-previous-line</strong>
-          <a href=
-          '#index-emacspeak_002dpackage_002dprevious_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dpackage_002dprevious_002dline-1"></span>
-            <div class="format">
-              <pre class="format">Move to next line and speak it.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dpackage_002dsummarize_002dline">
-        <h4 class="subsubsection">12.140.1.3
-        emacspeak-package-summarize-line</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dpackage_002dsummarize_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-package-summarize-line</strong>
-          <a href=
-          '#index-emacspeak_002dpackage_002dsummarize_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dpackage_002dsummarize_002dline-1"></span>
-            <div class="format">
-              <pre class="format">Succinct Summary.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
+
+<body lang="en">
+<div class="section" id="emacspeak_002dpackage">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dparadox.html" accesskey="n" rel="next">emacspeak-paradox</a>, Previous: <a href="emacspeak_002doutline.html" accesskey="p" rel="prev">emacspeak-outline</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dpackage-1"></span><h3 class="section">12.140 emacspeak-package</h3>
+
+<p>PACKAGE == package.el
+Manage Emacs packages.
+This module speech-enables package.el with a few convenience commands.
+</p>
+<ul class="section-toc">
+<li><a href="#Emacspeak_002dPackage-Commands" accesskey="1">Emacspeak-Package Commands</a></li>
+</ul>
+<div class="subsection" id="Emacspeak_002dPackage-Commands">
+<h4 class="subsection">12.140.1 Emacspeak-Package Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dpackage_002dnext_002dline" accesskey="1">emacspeak-package-next-line</a></li>
+<li><a href="#emacspeak_002dpackage_002dprevious_002dline" accesskey="2">emacspeak-package-previous-line</a></li>
+<li><a href="#emacspeak_002dpackage_002dsummarize_002dline" accesskey="3">emacspeak-package-summarize-line</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dpackage_002dnext_002dline">
+<h4 class="subsubsection">12.140.1.1 emacspeak-package-next-line</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dpackage_002dnext_002dline"><span class="category">Command: </span><span><strong>emacspeak-package-next-line</strong><a href='#index-emacspeak_002dpackage_002dnext_002dline' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dpackage_002dnext_002dline-1"></span>
+
+<div class="format">
+<pre class="format">Move to next line and speak it.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dpackage_002dprevious_002dline">
+<h4 class="subsubsection">12.140.1.2 emacspeak-package-previous-line</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dpackage_002dprevious_002dline"><span class="category">Command: </span><span><strong>emacspeak-package-previous-line</strong><a href='#index-emacspeak_002dpackage_002dprevious_002dline' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dpackage_002dprevious_002dline-1"></span>
+
+<div class="format">
+<pre class="format">Move to next line and speak it.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dpackage_002dsummarize_002dline">
+<h4 class="subsubsection">12.140.1.3 emacspeak-package-summarize-line</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dpackage_002dsummarize_002dline"><span class="category">Command: </span><span><strong>emacspeak-package-summarize-line</strong><a href='#index-emacspeak_002dpackage_002dsummarize_002dline' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dpackage_002dsummarize_002dline-1"></span>
+
+<div class="format">
+<pre class="format">Succinct Summary.
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
 </body>
 </html>

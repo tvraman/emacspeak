@@ -1,473 +1,310 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-threes (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-threes (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-threes (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dtide.html" rel="next" title=
-  "emacspeak-tide" />
-  <link href="emacspeak_002dtexinfo.html" rel="prev" title=
-  "emacspeak-texinfo" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-threes (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-threes (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-threes (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dtide.html" rel="next" title="emacspeak-tide">
+<link href="emacspeak_002dtexinfo.html" rel="prev" title="emacspeak-texinfo">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dthrees">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dtide.html" accesskey="n" rel=
-      "next">emacspeak-tide</a>, Previous: <a href=
-      "emacspeak_002dtexinfo.html" accesskey="p" rel=
-      "prev">emacspeak-texinfo</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dthrees-1"></span>
-    <h3 class="section">12.191 emacspeak-threes</h3>
-    <p>THREES == threes game. This module speech-enable the game.
-    <a href=
-    "https://en.wikipedia.org/wiki/Threes">https://en.wikipedia.org/wiki/Threes</a>
-    for history of the game and details of game play. This module
-    adds additional convenience keybindings to the default
-    arrow-key bindings implemented in threes.el. In addition, this
-    module implements commands that speak the board as well as
-    getting a column-specific view of the board.</p>
-    <dl compact="compact">
-      <dt><span><kbd>f</kbd></span></dt>
-      <dd>
-        <p>Move right</p>
-      </dd>
-      <dt><span><kbd>b</kbd></span></dt>
-      <dd>
-        <p>Move left</p>
-      </dd>
-      <dt><span><kbd>n</kbd></span></dt>
-      <dd>
-        <p>Move down</p>
-      </dd>
-      <dt><span><kbd>p</kbd></span></dt>
-      <dd>
-        <p>Move up</p>
-      </dd>
-      <dt><span><kbd>SPC</kbd></span></dt>
-      <dd>
-        <p>Speak the board</p>
-      </dd>
-      <dt><span><kbd>/</kbd></span></dt>
-      <dd>
-        <p>Speak board by column.</p>
-      </dd>
-      <dt><span><kbd>.</kbd></span></dt>
-      <dd>
-        <p>Speak current score.</p>
-      </dd>
-      <dt><span><kbd>,</kbd></span></dt>
-      <dd>
-        <p>Speak number of zeros on the board.</p>
-      </dd>
-      <dt><span><kbd>s</kbd></span></dt>
-      <dd>
-        <p>Save current state</p>
-      </dd>
-      <dt><span><kbd>u</kbd></span></dt>
-      <dd>
-        <p>Pop state from stack</p>
-      </dd>
-      <dt><span><kbd>?</kbd></span></dt>
-      <dd>
-        <p>Speak next tile</p>
-      </dd>
-    </dl>
-    <p>The updated board is spoken after each turn. The next
-    upcoming tile is spoken after the current state of the board.
-    You can use <kbd>SPC</kbd> and <kbd>/</kbd> to review the
-    board.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dThrees-Commands" accesskey=
-      "1">Emacspeak-Threes Commands</a></li>
-    </ul>
-    <div class="subsection" id="Emacspeak_002dThrees-Commands">
-      <h4 class="subsection">12.191.1 Emacspeak-Threes
-      Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dthrees_002d0" accesskey=
-        "1">emacspeak-threes-0</a></li>
-        <li><a href="#emacspeak_002dthrees_002d1" accesskey=
-        "2">emacspeak-threes-1</a></li>
-        <li><a href="#emacspeak_002dthrees_002d2" accesskey=
-        "3">emacspeak-threes-2</a></li>
-        <li><a href="#emacspeak_002dthrees_002d3" accesskey=
-        "4">emacspeak-threes-3</a></li>
-        <li><a href="#emacspeak_002dthrees_002dexport" accesskey=
-        "5">emacspeak-threes-export</a></li>
-        <li><a href="#emacspeak_002dthrees_002dimport" accesskey=
-        "6">emacspeak-threes-import</a></li>
-        <li><a href="#emacspeak_002dthrees_002dpop_002dstate"
-        accesskey="7">emacspeak-threes-pop-state</a></li>
-        <li><a href="#emacspeak_002dthrees_002dprune_002dstack"
-        accesskey="8">emacspeak-threes-prune-stack</a></li>
-        <li><a href="#emacspeak_002dthrees_002dpush_002dstate"
-        accesskey="9">emacspeak-threes-push-state</a></li>
-        <li><a href=
-        "#emacspeak_002dthrees_002dscore">emacspeak-threes-score</a></li>
-        <li><a href=
-        "#emacspeak_002dthrees_002dspeak_002dboard">emacspeak-threes-speak-board</a></li>
-        <li><a href=
-        "#emacspeak_002dthrees_002dspeak_002dempty_002dcount">emacspeak-threes-speak-empty-count</a></li>
-        <li><a href=
-        "#emacspeak_002dthrees_002dspeak_002dnext">emacspeak-threes-speak-next</a></li>
-        <li><a href=
-        "#emacspeak_002dthrees_002dspeak_002dtransposed_002dboard">emacspeak-threes-speak-transposed-board</a></li>
-      </ul>
-      <div class="subsubsection" id="emacspeak_002dthrees_002d0">
-        <h4 class="subsubsection">12.191.1.1
-        emacspeak-threes-0</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002d0"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-threes-0</strong> <a href=
-          '#index-emacspeak_002dthrees_002d0' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dthrees_002d0-1"></span>
-            <div class="format">
-              <pre class="format">Set next tile.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id="emacspeak_002dthrees_002d1">
-        <h4 class="subsubsection">12.191.1.2
-        emacspeak-threes-1</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002d1"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-threes-1</strong> <a href=
-          '#index-emacspeak_002dthrees_002d1' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dthrees_002d1-1"></span>
-            <div class="format">
-              <pre class="format">Set next tile.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id="emacspeak_002dthrees_002d2">
-        <h4 class="subsubsection">12.191.1.3
-        emacspeak-threes-2</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002d2"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-threes-2</strong> <a href=
-          '#index-emacspeak_002dthrees_002d2' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dthrees_002d2-1"></span>
-            <div class="format">
-              <pre class="format">Set next tile.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id="emacspeak_002dthrees_002d3">
-        <h4 class="subsubsection">12.191.1.4
-        emacspeak-threes-3</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002d3"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-threes-3</strong> <a href=
-          '#index-emacspeak_002dthrees_002d3' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dthrees_002d3-1"></span>
-            <div class="format">
-              <pre class="format">Set next tile.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dexport">
-        <h4 class="subsubsection">12.191.1.5
-        emacspeak-threes-export</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dexport">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-export</strong>
-          <em>(&amp;optional prompt)</em> <a href=
-          '#index-emacspeak_002dthrees_002dexport' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dexport-1"></span>
-            <div class="format">
-              <pre class="format">Exports game stack to a file.
+
+<body lang="en">
+<div class="section" id="emacspeak_002dthrees">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dtide.html" accesskey="n" rel="next">emacspeak-tide</a>, Previous: <a href="emacspeak_002dtexinfo.html" accesskey="p" rel="prev">emacspeak-texinfo</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dthrees-1"></span><h3 class="section">12.191 emacspeak-threes</h3>
+
+<p>THREES == threes game. This module speech-enable the
+game. <a href="https://en.wikipedia.org/wiki/Threes">https://en.wikipedia.org/wiki/Threes</a> for history of
+the game and details of game play. This module adds additional convenience keybindings to
+the default arrow-key bindings implemented in threes.el. In
+addition, this module  implements commands that speak the board as well as
+getting a column-specific view of the board.
+</p>
+<dl compact="compact">
+<dt><span><kbd>f</kbd></span></dt>
+<dd><p>Move right
+</p></dd>
+<dt><span><kbd>b</kbd></span></dt>
+<dd><p>Move left
+</p></dd>
+<dt><span><kbd>n</kbd></span></dt>
+<dd><p>Move down
+</p></dd>
+<dt><span><kbd>p</kbd></span></dt>
+<dd><p>Move up
+</p></dd>
+<dt><span><kbd>SPC</kbd></span></dt>
+<dd><p>Speak the board
+</p></dd>
+<dt><span><kbd>/</kbd></span></dt>
+<dd><p>Speak board by column.
+</p></dd>
+<dt><span><kbd>.</kbd></span></dt>
+<dd><p>Speak current score.
+</p></dd>
+<dt><span><kbd>,</kbd></span></dt>
+<dd><p>Speak  number of zeros on the board.
+</p></dd>
+<dt><span><kbd>s</kbd></span></dt>
+<dd><p>Save current state
+</p></dd>
+<dt><span><kbd>u</kbd></span></dt>
+<dd><p>Pop state from stack
+</p></dd>
+<dt><span><kbd>?</kbd></span></dt>
+<dd><p>Speak next tile
+</p></dd>
+</dl>
+<p>The updated board is spoken after each turn.
+The next upcoming tile is spoken after the  current state of the board.
+You can use <kbd>SPC</kbd> and <kbd>/</kbd> to review the board.
+</p>
+<ul class="section-toc">
+<li><a href="#Emacspeak_002dThrees-Commands" accesskey="1">Emacspeak-Threes Commands</a></li>
+</ul>
+<div class="subsection" id="Emacspeak_002dThrees-Commands">
+<h4 class="subsection">12.191.1 Emacspeak-Threes Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dthrees_002d0" accesskey="1">emacspeak-threes-0</a></li>
+<li><a href="#emacspeak_002dthrees_002d1" accesskey="2">emacspeak-threes-1</a></li>
+<li><a href="#emacspeak_002dthrees_002d2" accesskey="3">emacspeak-threes-2</a></li>
+<li><a href="#emacspeak_002dthrees_002d3" accesskey="4">emacspeak-threes-3</a></li>
+<li><a href="#emacspeak_002dthrees_002dexport" accesskey="5">emacspeak-threes-export</a></li>
+<li><a href="#emacspeak_002dthrees_002dimport" accesskey="6">emacspeak-threes-import</a></li>
+<li><a href="#emacspeak_002dthrees_002dpop_002dstate" accesskey="7">emacspeak-threes-pop-state</a></li>
+<li><a href="#emacspeak_002dthrees_002dprune_002dstack" accesskey="8">emacspeak-threes-prune-stack</a></li>
+<li><a href="#emacspeak_002dthrees_002dpush_002dstate" accesskey="9">emacspeak-threes-push-state</a></li>
+<li><a href="#emacspeak_002dthrees_002dscore">emacspeak-threes-score</a></li>
+<li><a href="#emacspeak_002dthrees_002dspeak_002dboard">emacspeak-threes-speak-board</a></li>
+<li><a href="#emacspeak_002dthrees_002dspeak_002dempty_002dcount">emacspeak-threes-speak-empty-count</a></li>
+<li><a href="#emacspeak_002dthrees_002dspeak_002dnext">emacspeak-threes-speak-next</a></li>
+<li><a href="#emacspeak_002dthrees_002dspeak_002dtransposed_002dboard">emacspeak-threes-speak-transposed-board</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dthrees_002d0">
+<h4 class="subsubsection">12.191.1.1 emacspeak-threes-0</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002d0"><span class="category">Command: </span><span><strong>emacspeak-threes-0</strong><a href='#index-emacspeak_002dthrees_002d0' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002d0-1"></span>
+
+<div class="format">
+<pre class="format">Set next tile.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002d1">
+<h4 class="subsubsection">12.191.1.2 emacspeak-threes-1</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002d1"><span class="category">Command: </span><span><strong>emacspeak-threes-1</strong><a href='#index-emacspeak_002dthrees_002d1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002d1-1"></span>
+
+<div class="format">
+<pre class="format">Set next tile.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002d2">
+<h4 class="subsubsection">12.191.1.3 emacspeak-threes-2</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002d2"><span class="category">Command: </span><span><strong>emacspeak-threes-2</strong><a href='#index-emacspeak_002dthrees_002d2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002d2-1"></span>
+
+<div class="format">
+<pre class="format">Set next tile.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002d3">
+<h4 class="subsubsection">12.191.1.4 emacspeak-threes-3</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002d3"><span class="category">Command: </span><span><strong>emacspeak-threes-3</strong><a href='#index-emacspeak_002dthrees_002d3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002d3-1"></span>
+
+<div class="format">
+<pre class="format">Set next tile.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dexport">
+<h4 class="subsubsection">12.191.1.5 emacspeak-threes-export</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dexport"><span class="category">Command: </span><span><strong>emacspeak-threes-export</strong> <em>(&amp;optional prompt)</em><a href='#index-emacspeak_002dthrees_002dexport' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dexport-1"></span>
+
+<div class="format">
+<pre class="format">Exports game stack to a file.
 Optional interactive prefix arg prompts for a file.
 Note that the file is overwritten silently.
 
 (fn &amp;optional PROMPT)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dimport">
-        <h4 class="subsubsection">12.191.1.6
-        emacspeak-threes-import</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dimport">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-import</strong>
-          <em>(&amp;optional prompt)</em> <a href=
-          '#index-emacspeak_002dthrees_002dimport' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dimport-1"></span>
-            <div class="format">
-              <pre class="format">Import game.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dimport">
+<h4 class="subsubsection">12.191.1.6 emacspeak-threes-import</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dimport"><span class="category">Command: </span><span><strong>emacspeak-threes-import</strong> <em>(&amp;optional prompt)</em><a href='#index-emacspeak_002dthrees_002dimport' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dimport-1"></span>
+
+<div class="format">
+<pre class="format">Import game.
 Optional interactive prefix arg prompts for a filename.
 
 (fn &amp;optional PROMPT)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dpop_002dstate">
-        <h4 class="subsubsection">12.191.1.7
-        emacspeak-threes-pop-state</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dpop_002dstate">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-pop-state</strong>
-          <a href='#index-emacspeak_002dthrees_002dpop_002dstate'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dpop_002dstate-1"></span>
-            <div class="format">
-              <pre class="format">Reset state from stack.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dprune_002dstack">
-        <h4 class="subsubsection">12.191.1.8
-        emacspeak-threes-prune-stack</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dprune_002dstack">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-prune-stack</strong>
-          <em>(drop)</em> <a href=
-          '#index-emacspeak_002dthrees_002dprune_002dstack' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dprune_002dstack-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Prune game stack to specified length.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dpop_002dstate">
+<h4 class="subsubsection">12.191.1.7 emacspeak-threes-pop-state</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dpop_002dstate"><span class="category">Command: </span><span><strong>emacspeak-threes-pop-state</strong><a href='#index-emacspeak_002dthrees_002dpop_002dstate' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dpop_002dstate-1"></span>
+
+<div class="format">
+<pre class="format">Reset state from stack.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dprune_002dstack">
+<h4 class="subsubsection">12.191.1.8 emacspeak-threes-prune-stack</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dprune_002dstack"><span class="category">Command: </span><span><strong>emacspeak-threes-prune-stack</strong> <em>(drop)</em><a href='#index-emacspeak_002dthrees_002dprune_002dstack' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dprune_002dstack-1"></span>
+
+<div class="format">
+<pre class="format">Prune game stack to specified length.
 
 (fn DROP)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dpush_002dstate">
-        <h4 class="subsubsection">12.191.1.9
-        emacspeak-threes-push-state</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dpush_002dstate">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-push-state</strong>
-          <a href='#index-emacspeak_002dthrees_002dpush_002dstate'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dpush_002dstate-1"></span>
-            <div class="format">
-              <pre class="format">Push current game state on stack.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dscore">
-        <h4 class="subsubsection">12.191.1.10
-        emacspeak-threes-score</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dscore">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-score</strong> <a href=
-          '#index-emacspeak_002dthrees_002dscore' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dscore-1"></span>
-            <div class="format">
-              <pre class="format">Speak the score.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dspeak_002dboard">
-        <h4 class="subsubsection">12.191.1.11
-        emacspeak-threes-speak-board</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dspeak_002dboard">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-speak-board</strong>
-          <a href='#index-emacspeak_002dthrees_002dspeak_002dboard'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dspeak_002dboard-1"></span>
-            <div class="format">
-              <pre class="format">Speak the board.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dspeak_002dempty_002dcount">
-        <h4 class="subsubsection">12.191.1.12
-        emacspeak-threes-speak-empty-count</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dthrees_002dspeak_002dempty_002dcount">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-speak-empty-count</strong>
-          <a href=
-          '#index-emacspeak_002dthrees_002dspeak_002dempty_002dcount'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dspeak_002dempty_002dcount-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Speak number of cells that are non-empty.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dspeak_002dnext">
-        <h4 class="subsubsection">12.191.1.13
-        emacspeak-threes-speak-next</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dthrees_002dspeak_002dnext">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-speak-next</strong>
-          <a href='#index-emacspeak_002dthrees_002dspeak_002dnext'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dspeak_002dnext-1"></span>
-            <div class="format">
-              <pre class="format">Speak upcoming tile.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dthrees_002dspeak_002dtransposed_002dboard">
-        <h4 class="subsubsection">12.191.1.14
-        emacspeak-threes-speak-transposed-board</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dthrees_002dspeak_002dtransposed_002dboard">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-threes-speak-transposed-board</strong>
-          <a href=
-          '#index-emacspeak_002dthrees_002dspeak_002dtransposed_002dboard'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dthrees_002dspeak_002dtransposed_002dboard-1">
-            </span>
-            <div class="format">
-              <pre class="format">Speak the board by columns.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dtide.html">emacspeak-tide</a>,
-    Previous: <a href=
-    "emacspeak_002dtexinfo.html">emacspeak-texinfo</a>, Up:
-    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dpush_002dstate">
+<h4 class="subsubsection">12.191.1.9 emacspeak-threes-push-state</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dpush_002dstate"><span class="category">Command: </span><span><strong>emacspeak-threes-push-state</strong><a href='#index-emacspeak_002dthrees_002dpush_002dstate' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dpush_002dstate-1"></span>
+
+<div class="format">
+<pre class="format">Push current game state on stack.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dscore">
+<h4 class="subsubsection">12.191.1.10 emacspeak-threes-score</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dscore"><span class="category">Command: </span><span><strong>emacspeak-threes-score</strong><a href='#index-emacspeak_002dthrees_002dscore' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dscore-1"></span>
+
+<div class="format">
+<pre class="format">Speak the score.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dspeak_002dboard">
+<h4 class="subsubsection">12.191.1.11 emacspeak-threes-speak-board</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dspeak_002dboard"><span class="category">Command: </span><span><strong>emacspeak-threes-speak-board</strong><a href='#index-emacspeak_002dthrees_002dspeak_002dboard' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dspeak_002dboard-1"></span>
+
+<div class="format">
+<pre class="format">Speak the board.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dspeak_002dempty_002dcount">
+<h4 class="subsubsection">12.191.1.12 emacspeak-threes-speak-empty-count</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dspeak_002dempty_002dcount"><span class="category">Command: </span><span><strong>emacspeak-threes-speak-empty-count</strong><a href='#index-emacspeak_002dthrees_002dspeak_002dempty_002dcount' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dspeak_002dempty_002dcount-1"></span>
+
+<div class="format">
+<pre class="format">Speak number of cells that are non-empty.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dspeak_002dnext">
+<h4 class="subsubsection">12.191.1.13 emacspeak-threes-speak-next</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dspeak_002dnext"><span class="category">Command: </span><span><strong>emacspeak-threes-speak-next</strong><a href='#index-emacspeak_002dthrees_002dspeak_002dnext' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dspeak_002dnext-1"></span>
+
+<div class="format">
+<pre class="format">Speak upcoming tile.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dthrees_002dspeak_002dtransposed_002dboard">
+<h4 class="subsubsection">12.191.1.14 emacspeak-threes-speak-transposed-board</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dthrees_002dspeak_002dtransposed_002dboard"><span class="category">Command: </span><span><strong>emacspeak-threes-speak-transposed-board</strong><a href='#index-emacspeak_002dthrees_002dspeak_002dtransposed_002dboard' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dthrees_002dspeak_002dtransposed_002dboard-1"></span>
+
+<div class="format">
+<pre class="format">Speak the board by columns.
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dtide.html">emacspeak-tide</a>, Previous: <a href="emacspeak_002dtexinfo.html">emacspeak-texinfo</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

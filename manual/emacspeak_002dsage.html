@@ -1,184 +1,127 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-sage (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-sage (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-sage (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dsdcv.html" rel="next" title=
-  "emacspeak-sdcv" />
-  <link href="emacspeak_002drust_002dmode.html" rel="prev" title=
-  "emacspeak-rust-mode" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-sage (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-sage (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-sage (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dsdcv.html" rel="next" title="emacspeak-sdcv">
+<link href="emacspeak_002drust_002dmode.html" rel="prev" title="emacspeak-rust-mode">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dsage">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dsdcv.html" accesskey="n" rel=
-      "next">emacspeak-sdcv</a>, Previous: <a href=
-      "emacspeak_002drust_002dmode.html" accesskey="p" rel=
-      "prev">emacspeak-rust-mode</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dsage-1"></span>
-    <h3 class="section">12.163 emacspeak-sage</h3>
-    <p>Speech-enable <code>sage-shell-mode</code>. This is a major
-    mode for interacting with <code>sage</code>, <a href=
-    "http://www.sagemath.org/">http://www.sagemath.org/</a> An
-    Open-source Mathematical Software System.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dSage-Commands" accesskey=
-      "1">Emacspeak-Sage Commands</a></li>
-    </ul>
-    <div class="subsection" id="Emacspeak_002dSage-Commands">
-      <h4 class="subsection">12.163.1 Emacspeak-Sage Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dsage_002ddescribe_002dsymbol"
-        accesskey="1">emacspeak-sage-describe-symbol</a></li>
-        <li><a href="#emacspeak_002dsage_002dget_002doutput"
-        accesskey="2">emacspeak-sage-get-output</a></li>
-        <li><a href=
-        "#emacspeak_002dsage_002dget_002doutput_002das_002dlatex"
-        accesskey="3">emacspeak-sage-get-output-as-latex</a></li>
-        <li><a href="#emacspeak_002dsage_002dspeak_002doutput"
-        accesskey="4">emacspeak-sage-speak-output</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dsage_002ddescribe_002dsymbol">
-        <h4 class="subsubsection">12.163.1.1
-        emacspeak-sage-describe-symbol</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dsage_002ddescribe_002dsymbol">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-sage-describe-symbol</strong>
-          <em>(s)</em> <a href=
-          '#index-emacspeak_002dsage_002ddescribe_002dsymbol'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dsage_002ddescribe_002dsymbol-1"></span>
-            <div class="format">
-              <pre class="format">Describe Sage symbol at point.
+
+<body lang="en">
+<div class="section" id="emacspeak_002dsage">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dsdcv.html" accesskey="n" rel="next">emacspeak-sdcv</a>, Previous: <a href="emacspeak_002drust_002dmode.html" accesskey="p" rel="prev">emacspeak-rust-mode</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dsage-1"></span><h3 class="section">12.163 emacspeak-sage</h3>
+
+<p>Speech-enable <code>sage-shell-mode</code>.
+This is a major mode for interacting with <code>sage</code>,
+ <a href="http://www.sagemath.org/">http://www.sagemath.org/</a>
+An Open-source  Mathematical Software System.
+</p>
+<ul class="section-toc">
+<li><a href="#Emacspeak_002dSage-Commands" accesskey="1">Emacspeak-Sage Commands</a></li>
+</ul>
+<div class="subsection" id="Emacspeak_002dSage-Commands">
+<h4 class="subsection">12.163.1 Emacspeak-Sage Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dsage_002ddescribe_002dsymbol" accesskey="1">emacspeak-sage-describe-symbol</a></li>
+<li><a href="#emacspeak_002dsage_002dget_002doutput" accesskey="2">emacspeak-sage-get-output</a></li>
+<li><a href="#emacspeak_002dsage_002dget_002doutput_002das_002dlatex" accesskey="3">emacspeak-sage-get-output-as-latex</a></li>
+<li><a href="#emacspeak_002dsage_002dspeak_002doutput" accesskey="4">emacspeak-sage-speak-output</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dsage_002ddescribe_002dsymbol">
+<h4 class="subsubsection">12.163.1.1 emacspeak-sage-describe-symbol</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dsage_002ddescribe_002dsymbol"><span class="category">Command: </span><span><strong>emacspeak-sage-describe-symbol</strong> <em>(s)</em><a href='#index-emacspeak_002dsage_002ddescribe_002dsymbol' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dsage_002ddescribe_002dsymbol-1"></span>
+
+<div class="format">
+<pre class="format">Describe Sage symbol at point.
 
 (fn S)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dsage_002dget_002doutput">
-        <h4 class="subsubsection">12.163.1.2
-        emacspeak-sage-get-output</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dsage_002dget_002doutput">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-sage-get-output</strong> <a href=
-          '#index-emacspeak_002dsage_002dget_002doutput' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dsage_002dget_002doutput-1"></span>
-            <div class="format">
-              <pre class="format">Return most recent Sage output
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dsage_002dget_002doutput_002das_002dlatex">
-        <h4 class="subsubsection">12.163.1.3
-        emacspeak-sage-get-output-as-latex</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dsage_002dget_002doutput_002das_002dlatex">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-sage-get-output-as-latex</strong>
-          <a href=
-          '#index-emacspeak_002dsage_002dget_002doutput_002das_002dlatex'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dsage_002dget_002doutput_002das_002dlatex-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Return most recent Sage output as LaTeX markup.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dsage_002dspeak_002doutput">
-        <h4 class="subsubsection">12.163.1.4
-        emacspeak-sage-speak-output</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dsage_002dspeak_002doutput">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-sage-speak-output</strong>
-          <a href='#index-emacspeak_002dsage_002dspeak_002doutput'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dsage_002dspeak_002doutput-1"></span>
-            <div class="format">
-              <pre class="format">Speak last output from Sage.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dsage_002dget_002doutput">
+<h4 class="subsubsection">12.163.1.2 emacspeak-sage-get-output</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dsage_002dget_002doutput"><span class="category">Command: </span><span><strong>emacspeak-sage-get-output</strong><a href='#index-emacspeak_002dsage_002dget_002doutput' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dsage_002dget_002doutput-1"></span>
+
+<div class="format">
+<pre class="format">Return most recent Sage output
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dsage_002dget_002doutput_002das_002dlatex">
+<h4 class="subsubsection">12.163.1.3 emacspeak-sage-get-output-as-latex</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dsage_002dget_002doutput_002das_002dlatex"><span class="category">Command: </span><span><strong>emacspeak-sage-get-output-as-latex</strong><a href='#index-emacspeak_002dsage_002dget_002doutput_002das_002dlatex' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dsage_002dget_002doutput_002das_002dlatex-1"></span>
+
+<div class="format">
+<pre class="format">Return most recent Sage output as LaTeX markup.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dsage_002dspeak_002doutput">
+<h4 class="subsubsection">12.163.1.4 emacspeak-sage-speak-output</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dsage_002dspeak_002doutput"><span class="category">Command: </span><span><strong>emacspeak-sage-speak-output</strong><a href='#index-emacspeak_002dsage_002dspeak_002doutput' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dsage_002dspeak_002doutput-1"></span>
+
+<div class="format">
+<pre class="format">Speak last output from Sage.
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
 </body>
 </html>

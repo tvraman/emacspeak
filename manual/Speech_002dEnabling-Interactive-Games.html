@@ -1,99 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>Speech-Enabling Interactive Games (Emacspeak User’s Manual
-  — 2nd Edition.)</title>
-  <meta name="description" content=
-  "Speech-Enabling Interactive Games (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "Speech-Enabling Interactive Games (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Conversational-Gestures-For-The-Audio-Desktop.html"
-  rel="up" title="Conversational Gestures For The Audio Desktop" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Speech-Enabling Interactive Games (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="Speech-Enabling Interactive Games (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="Speech-Enabling Interactive Games (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Conversational-Gestures-For-The-Audio-Desktop.html" rel="up" title="Conversational Gestures For The Audio Desktop">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="subsection" id=
-  "Speech_002dEnabling-Interactive-Games">
-    <div class="header">
-      <p>Up: <a href=
-      "Conversational-Gestures-For-The-Audio-Desktop.html"
-      accesskey="u" rel="up">Conversational Gestures For The Audio
-      Desktop</a> &nbsp; [<a href="index.html#SEC_Contents" title=
-      "Table of contents" rel="contents">Contents</a>][<a href=
-      "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="Speech_002dEnabling-Interactive-Games-1"></span>
-    <h4 class="subsection">15.9.1 Speech-Enabling Interactive
-    Games</h4>
-    <p>So in 1997, I went the next step in asking — given access to
-    the underlying information, is it possible to build effective
-    eyes-free interaction to highly interactive tasks? I picked
-    <strong>Tetris</strong> as a means of exploring this space, the
-    result was an Emacspeak extension to speech-enable module
-    <strong>tetris.el</strong>. The details of what was learned
-    were published as a paper in Assets 98, and expanded as a
-    chapter on Conversational Gestures in my book on Auditory
-    Interfaces; that book was in a sense a culmination of stepping
-    back and gaining a sense of perspective of what I had build
-    during this period. The work on Conversational Gestures also
-    helped in formalizing the abstract user interface layer that
-    formed part of the <a href=
-    "http://www.w3.org/MarkUp/Forms/">XForms</a> work at the
-    W3C.</p>
-    <p>Speech-enabling games for effective eyes-free interaction
-    has proven highly educational. Interactive games are typically
-    built to challenge the user, and if the eyes-free interface is
-    inefficient, you just won’t play the game — contrast this with
-    a task that you <strong>must</strong> perform, where you’re
-    likely to make do with a sub-optimal interface. Over the years,
-    Emacspeak has come to include eyes-free interfaces to several
-    games including <a href=
-    "http://en.wikipedia.org/wiki/Tetris">Tetris</a>, <a href=
-    "http://en.wikipedia.org/wiki/2048_(video_game)">Sudoku</a>,
-    and of late the popular <a href=
-    "http://en.wikipedia.org/wiki/2048_(video_game)">2048 game</a>.
-    Each of these have in turn contributed to enhancing the
-    interaction model in Emacspeak, and those innovations typically
-    make their way to the rest of the environment.</p>
-  </div>
+
+<body lang="en">
+<div class="subsection" id="Speech_002dEnabling-Interactive-Games">
+<div class="header">
+<p>
+Up: <a href="Conversational-Gestures-For-The-Audio-Desktop.html" accesskey="u" rel="up">Conversational Gestures For The Audio Desktop</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Speech_002dEnabling-Interactive-Games-1"></span><h4 class="subsection">15.9.1 Speech-Enabling Interactive Games</h4>
+
+<p>So in 1997, I went the next step in asking  &mdash;  given access to the
+underlying information, is it possible to build effective
+eyes-free interaction to highly interactive tasks? I picked
+<strong>Tetris</strong> as a means of exploring this space, the result was an
+Emacspeak extension to speech-enable module <strong>tetris.el</strong>. The
+details of what was learned were published as a paper in Assets
+98, and expanded as a chapter on Conversational Gestures in my
+book on Auditory Interfaces; that book was in a sense a
+culmination of stepping back and gaining a sense of perspective
+of what I had build during this period. The work on
+Conversational Gestures also helped in formalizing the abstract
+user interface layer that formed part of the
+<a href="http://www.w3.org/MarkUp/Forms/">XForms</a> work at the W3C.
+</p>
+<p>Speech-enabling games for effective eyes-free interaction has
+proven highly educational. Interactive games are typically built
+to challenge the user, and if the eyes-free interface is
+inefficient, you just won&rsquo;t play the game  &mdash;  contrast this with a
+task that you <strong>must</strong> perform, where you&rsquo;re likely to make do with
+a sub-optimal interface. Over the years, Emacspeak has come to
+include eyes-free interfaces to several games including <a href="http://en.wikipedia.org/wiki/Tetris">Tetris</a>,
+<a href="http://en.wikipedia.org/wiki/2048_(video_game)">Sudoku</a>, and of late the popular <a href="http://en.wikipedia.org/wiki/2048_(video_game)">2048 game</a>. Each of these have in
+turn contributed to enhancing the interaction model in Emacspeak,
+and those innovations typically make their way to the rest of the
+environment.
+</p>
+</div>
+
+
+
 </body>
 </html>

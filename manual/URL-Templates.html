@@ -1,400 +1,239 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>URL Templates (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "URL Templates (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "URL Templates (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="xbacklight.html" rel="prev" title="xbacklight" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>URL Templates (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="URL Templates (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="URL Templates (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="xbacklight.html" rel="prev" title="xbacklight">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="URL-Templates">
-    <div class="header">
-      <p>Previous: <a href="xbacklight.html" accesskey="p" rel=
-      "prev">xbacklight</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="URL-Templates-1"></span>
-    <h3 class="section">12.235 URL Templates</h3>
-    <p>This section documents a total of 74 URL Templates.</p>
-    <p>All of these URL templates can be invoked via command
-    <kbd>M-x emacspeak-url-template-fetch</kbd> normally bound to
-    <kbd>C-e u &lt;fn&gt; u</kbd>. This command prompts for the
-    name of the template, and completion is available via Emacs’
-    minibuffer completion. Each URL template carries out the
-    following steps:</p>
-    <ul>
-      <li>Prompt for the relevant information.</li>
-      <li>Fetch the resulting URL using an appropriate
-      fetcher.</li>
-      <li>Set up the resulting resource with appropriate
-      customizations.</li>
-    </ul>
-    <ol>
-      <li>
-        <b>AQI From Wunderground</b>
-        <p>Air quality from Wunderground</p>
-      </li>
-      <li>
-        <b>Air Traffic Control</b>
-        <p>Find live streams for Air Traffic Control.</p>
-      </li>
-      <li>
-        <b>Airport conditions</b>
-        <p>Display airport conditions from the FAA.</p>
-      </li>
-      <li>
-        <b>Amazon Product Details By ASIN</b>
-        <p>Retrieve product details from Amazon by either ISBN or
-        ASIN.</p>
-      </li>
-      <li>
-        <b>Anonymize Google Search</b>
-        <p>Logout from Google to do an anonymous search.</p>
-      </li>
-      <li>
-        <b>ArchWiki Search</b>
-        <p>Search Linux ArchWiki</p>
-      </li>
-      <li>
-        <b>BBC Podcast Directory</b>
-        <p>BBC PodCast Directory</p>
-      </li>
-      <li>
-        <b>BBC World News Summary</b>
-        <p>BBC World News Summary</p>
-      </li>
-      <li>
-        <b>Baseball Box Scores</b>
-        <p>Display baseball Play By Play.</p>
-      </li>
-      <li>
-        <b>Baseball Game Details</b>
-        <p>Display baseball Play By Play.</p>
-      </li>
-      <li>
-        <b>Baseball Game Index</b>
-        <p>Display baseball Play By Play.</p>
-      </li>
-      <li>
-        <b>Baseball Highlights</b>
-        <p>Display baseball Video Highlights.</p>
-      </li>
-      <li>
-        <b>Baseball scores</b>
-        <p>Display baseball scores.</p>
-      </li>
-      <li>
-        <b>Bing News</b>
-        <p>Bing News results as RSS feed.</p>
-      </li>
-      <li>
-        <b>Bing Search</b>
-        <p>Bing results as RSS feed.</p>
-      </li>
-      <li>
-        <b>Bloomberg Stock Lookup</b>
-        <p>Lookup Stock Quote information on Bloomberg. Ticker is
-        of the form goog:us</p>
-      </li>
-      <li>
-        <b>CIA World Fact Book</b>
-        <p>Open CIA World Fact Book For Specified Country.</p>
-      </li>
-      <li>
-        <b>CNBC Using EAF</b>
-        <p>Play CNBC Using EAF</p>
-      </li>
-      <li>
-        <b>CNN Content</b>
-        <p>Filter down to CNN content area.</p>
-      </li>
-      <li>
-        <b>CNN Headlines</b>
-        <p>News Headlines From CNN</p>
-      </li>
-      <li>
-        <b>CNN Market Data</b>
-        <p>Market data filtered from CNN Money</p>
-      </li>
-      <li>
-        <b>Cricinfo Print</b>
-        <p>Printer friendly link on Cricinfo</p>
-      </li>
-      <li>
-        <b>Dictionary Lookup</b>
-        <p>Dictionary Lookup</p>
-      </li>
-      <li>
-        <b>Finance Google</b>
-        <p>Lookup ticker on Google Finance.</p>
-      </li>
-      <li>
-        <b>Finance Summary From Google</b>
-        <p>Display top stocks from Google Finance.</p>
-      </li>
-      <li>
-        <b>FreeSound</b>
-        <p>Search FreeSound.</p>
-      </li>
-      <li>
-        <b>GitHub Search</b>
-        <p>Perform a GitHub Search.</p>
-      </li>
-      <li>
-        <b>GoLang Browse</b>
-        <p>Browse GoLang package documentation.</p>
-      </li>
-      <li>
-        <b>GoLang Lookup</b>
-        <p>Lookup GoLang package documentation.</p>
-      </li>
-      <li>
-        <b>GoLang Search</b>
-        <p>Search GoLang package documentation.</p>
-      </li>
-      <li>
-        <b>Google Basic</b>
-        <p>Light-weight Google search.</p>
-      </li>
-      <li>
-        <b>Google News Search</b>
-        <p>Search Google news.</p>
-      </li>
-      <li>
-        <b>Google Scholar</b>
-        <p>Google Scholar Search</p>
-      </li>
-      <li>
-        <b>Google Trends</b>
-        <p>Google Trends</p>
-      </li>
-      <li>
-        <b>Google Weather</b>
-        <p>Light-weight Google search.</p>
-      </li>
-      <li>
-        <b>Guardian RSS Feeds Directory</b>
-        <p>Guardian Feeds Directory</p>
-      </li>
-      <li>
-        <b>Hacker News Frontpage</b>
-        <p>Display Hacker News Front Page</p>
-      </li>
-      <li>
-        <b>Hacker News Search</b>
-        <p>Display Hacker News Front Page</p>
-      </li>
-      <li>
-        <b>Hoogle Haskell API Search</b>
-        <p>Haskell API Search against a local server.</p>
-      </li>
-      <li>
-        <b>MLB Scorecard</b>
-        <p>Show MLB Scorecard.</p>
-      </li>
-      <li>
-        <b>MLB standings</b>
-        <p>Display MLB standings.</p>
-      </li>
-      <li>
-        <b>Money Headlines From CNN</b>
-        <p>Money Headlines From CNN</p>
-      </li>
-      <li>
-        <b>NBA standings</b>
-        <p>Display NBA standings.</p>
-      </li>
-      <li>
-        <b>NLS Bard Bookshelf</b>
-        <p>NLS Bard Catalog: Most Popular. Login once before using
-        this template.</p>
-      </li>
-      <li>
-        <b>NLS Bard Popular</b>
-        <p>NLS Bard Catalog: Most Popular. Login once before using
-        this template.</p>
-      </li>
-      <li>
-        <b>NLS Bard Recent</b>
-        <p>NLS Bard Catalog: Recently Added. Login once before
-        using this template.</p>
-      </li>
-      <li>
-        <b>NLS Bard Search</b>
-        <p>Search NLS Bard Catalog. Login once before using this
-        template.</p>
-      </li>
-      <li>
-        <b>NY Times Mobile</b>
-        <p>NYTimes Mobile Site</p>
-      </li>
-      <li>
-        <b>Old Time Radio</b>
-        <p>This months Old Time Radio Programming</p>
-      </li>
-      <li>
-        <b>OpenLibrary</b>
-        <p>Open Library Search</p>
-      </li>
-      <li>
-        <b>Patent Search From Google</b>
-        <p>Perform patent search via Google</p>
-      </li>
-      <li>
-        <b>RadioTime Browser</b>
-        <p>RadioTime Entry point.</p>
-      </li>
-      <li>
-        <b>RadioTime Categories</b>
-        <p>RadioTime Categories .</p>
-      </li>
-      <li>
-        <b>RadioTime Search</b>
-        <p>RadioTime Search.</p>
-      </li>
-      <li>
-        <b>Reddit At Point.</b>
-        <p>Open RSS Feed for Reddit URL under point.</p>
-      </li>
-      <li>
-        <b>Reddit By Topic.</b>
-        <p>Open RSS Feed for Reddit Topic.</p>
-      </li>
-      <li>
-        <b>Reddit Front Page.</b>
-        <p>Open Feed for Reddit Front Page.</p>
-      </li>
-      <li>
-        <b>Reddit Search.</b>
-        <p>Reddit Search Results Feed.</p>
-      </li>
-      <li>
-        <b>Seeking Alpha Stock Search</b>
-        <p>Seeking Alpha search.</p>
-      </li>
-      <li>
-        <b>Sign in to Google</b>
-        <p>Login to Google.</p>
-      </li>
-      <li>
-        <b>StreamWorld Radio</b>
-        <p>Play radio stream. Example: kcbsFM. Format is
-        stationid+AM/FM.</p>
-      </li>
-      <li>
-        <b>Tech News From CNet</b>
-        <p>Display tech news from CNET</p>
-      </li>
-      <li>
-        <b>TuneIn Radio</b>
-        <p>Translate StreamId to playable stream.</p>
-      </li>
-      <li>
-        <b>Washington Post</b>
-        <p>Washington Post Contents</p>
-      </li>
-      <li>
-        <b>Wiki Data Search</b>
-        <p>Search WikiData.</p>
-      </li>
-      <li>
-        <b>WordNet Search</b>
-        <p>Look up term in WordNet.</p>
-      </li>
-      <li>
-        <b>Yahoo RSSNews</b>
-        <p>News From Yahoo As RSS.</p>
-      </li>
-      <li>
-        <b>html Google News Search</b>
-        <p>Search Google news.</p>
-      </li>
-      <li>
-        <b>sourceforge Download</b>
-        <p>Download specified file.</p>
-      </li>
-      <li>
-        <b>sourceforge browse mirrors</b>
-        <p>Retrieve download page at Sourceforge for specified
-        project.</p>
-      </li>
-      <li>
-        <b>sourceforge project</b>
-        <p>Open specified project page at SourceForge.</p>
-      </li>
-      <li>
-        <b>w3c IRC Logs</b>
-        <p>Use this to pull up the archived logs from the W3C IRC.
-        You need to know the exact name of the channel.</p>
-      </li>
-      <li>
-        <b>w3c Lists</b>
-        <p>Use this to pull up the archived mail from the W3C list.
-        You need to know the exact name of the list.</p>
-      </li>
-      <li>
-        <b>world CNN Content</b>
-        <p>Filter down to CNN content area.</p>
-      </li>
-    </ol>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Previous: <a href="xbacklight.html">xbacklight</a>, Up:
-    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+
+<body lang="en">
+<div class="section" id="URL-Templates">
+<div class="header">
+<p>
+Previous: <a href="xbacklight.html" accesskey="p" rel="prev">xbacklight</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="URL-Templates-1"></span><h3 class="section">12.235 URL Templates</h3>
+
+<p>This section documents a total of 74 URL Templates.
+</p>
+<p>All of these URL templates can be invoked via command
+ <kbd>M-x emacspeak-url-template-fetch</kbd> normally bound to
+ <kbd>C-e u &lt;fn&gt; u</kbd>.
+This command prompts for the name of the template, and completion
+ is available via Emacs&rsquo; minibuffer completion.
+Each URL template carries out the following steps:
+</p><ul>
+<li> Prompt for the relevant information.
+</li><li> Fetch the resulting URL using an appropriate fetcher.
+</li><li> Set up the resulting resource with appropriate
+ customizations.
+</li></ul>
+<ol>
+<li> <b>AQI From Wunderground</b>
+
+<p>Air quality from Wunderground</p></li><li> <b>Air Traffic Control</b>
+
+<p>Find live streams for Air Traffic Control.</p></li><li> <b>Airport conditions</b>
+
+<p>Display airport conditions from the FAA.</p></li><li> <b>Amazon Product Details By ASIN</b>
+
+<p>Retrieve product details from Amazon by either ISBN or ASIN.</p></li><li> <b>Anonymize Google Search</b>
+
+<p>Logout from Google to do an anonymous search.</p></li><li> <b>ArchWiki Search</b>
+
+<p>Search Linux ArchWiki</p></li><li> <b>BBC Podcast Directory</b>
+
+<p>BBC PodCast Directory</p></li><li> <b>BBC World News Summary</b>
+
+<p>BBC World News Summary</p></li><li> <b>Baseball Box Scores</b>
+
+<p>Display baseball Play By Play.</p></li><li> <b>Baseball Game Details</b>
+
+<p>Display baseball Play By Play.</p></li><li> <b>Baseball Game Index</b>
+
+<p>Display baseball Play By Play.</p></li><li> <b>Baseball Highlights</b>
+
+<p>Display baseball Video Highlights.</p></li><li> <b>Baseball scores</b>
+
+<p>Display baseball scores.</p></li><li> <b>Bing News</b>
+
+<p>Bing News results as RSS feed.</p></li><li> <b>Bing Search</b>
+
+<p>Bing results as RSS feed.</p></li><li> <b>Bloomberg Stock  Lookup</b>
+
+<p>Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us</p></li><li> <b>CIA World Fact Book</b>
+
+<p>Open CIA World Fact Book For Specified Country.</p></li><li> <b>CNBC Using EAF</b>
+
+<p>Play CNBC Using EAF</p></li><li> <b>CNN Content</b>
+
+<p>Filter down to CNN content area.</p></li><li> <b>CNN Headlines</b>
+
+<p>News Headlines From CNN</p></li><li> <b>CNN Market Data </b>
+
+<p>Market data filtered from CNN Money</p></li><li> <b>Cricinfo Print</b>
+
+<p>Printer friendly   link on Cricinfo</p></li><li> <b>Dictionary Lookup</b>
+
+<p>Dictionary Lookup</p></li><li> <b>Finance  Google</b>
+
+<p>Lookup ticker on Google Finance.</p></li><li> <b>Finance Summary From Google</b>
+
+<p>Display top stocks  from Google Finance.</p></li><li> <b>FreeSound</b>
+
+<p>Search FreeSound.</p></li><li> <b>GitHub Search</b>
+
+<p>Perform a GitHub Search.</p></li><li> <b>GoLang Browse</b>
+
+<p>Browse GoLang package documentation.</p></li><li> <b>GoLang Lookup</b>
+
+<p>Lookup GoLang package documentation.</p></li><li> <b>GoLang Search</b>
+
+<p>Search GoLang package documentation.</p></li><li> <b>Google Basic</b>
+
+<p>Light-weight Google search.</p></li><li> <b>Google News Search</b>
+
+<p>Search Google news.</p></li><li> <b>Google Scholar</b>
+
+<p>Google Scholar Search</p></li><li> <b>Google Trends</b>
+
+<p>Google Trends</p></li><li> <b>Google Weather</b>
+
+<p>Light-weight Google search.</p></li><li> <b>Guardian RSS Feeds Directory</b>
+
+<p>Guardian Feeds  Directory</p></li><li> <b>Hacker  News Frontpage</b>
+
+<p>Display Hacker News Front Page</p></li><li> <b>Hacker  News Search</b>
+
+<p>Display Hacker News Front Page</p></li><li> <b>Hoogle Haskell API Search</b>
+
+<p>Haskell API Search against a local server.</p></li><li> <b>MLB Scorecard</b>
+
+<p>Show MLB Scorecard.</p></li><li> <b>MLB standings</b>
+
+<p>Display MLB standings.</p></li><li> <b>Money Headlines From CNN</b>
+
+<p>Money Headlines From CNN</p></li><li> <b>NBA  standings</b>
+
+<p>Display NBA standings.</p></li><li> <b>NLS Bard Bookshelf</b>
+
+<p>NLS Bard Catalog: Most Popular. Login once before using this
+template.</p></li><li> <b>NLS Bard Popular</b>
+
+<p>NLS Bard Catalog: Most Popular. Login once before using this
+template.</p></li><li> <b>NLS Bard Recent</b>
+
+<p>NLS Bard Catalog: Recently Added. Login once before using this
+template.</p></li><li> <b>NLS Bard Search</b>
+
+<p>Search NLS Bard Catalog. Login once before using this template.</p></li><li> <b>NY Times Mobile</b>
+
+<p>NYTimes Mobile Site</p></li><li> <b>Old Time Radio</b>
+
+<p>This months Old Time Radio Programming</p></li><li> <b>OpenLibrary</b>
+
+<p>Open Library Search</p></li><li> <b>Patent Search From Google</b>
+
+<p>Perform patent search via Google</p></li><li> <b>RadioTime Browser</b>
+
+<p>RadioTime Entry point.</p></li><li> <b>RadioTime Categories</b>
+
+<p>RadioTime Categories .</p></li><li> <b>RadioTime Search</b>
+
+<p>RadioTime Search.</p></li><li> <b>Reddit At Point.</b>
+
+<p>Open RSS Feed for Reddit URL under point.</p></li><li> <b>Reddit By Topic.</b>
+
+<p>Open RSS Feed for Reddit Topic.</p></li><li> <b>Reddit Front Page.</b>
+
+<p>Open  Feed for Reddit  Front Page.</p></li><li> <b>Reddit Search.</b>
+
+<p>Reddit Search Results Feed.</p></li><li> <b>Seeking Alpha Stock Search</b>
+
+<p>Seeking Alpha search.</p></li><li> <b>Sign in to Google</b>
+
+<p>Login to Google.</p></li><li> <b>StreamWorld Radio</b>
+
+<p>Play radio stream.
+Example: kcbsFM.
+Format is stationid+AM/FM.</p></li><li> <b>Tech News From CNet</b>
+
+<p>Display tech news from CNET</p></li><li> <b>TuneIn Radio</b>
+
+<p>Translate StreamId to playable stream.</p></li><li> <b>Washington Post</b>
+
+<p>Washington Post Contents</p></li><li> <b>Wiki Data Search</b>
+
+<p>Search WikiData.</p></li><li> <b>WordNet Search</b>
+
+<p>Look up term in WordNet.</p></li><li> <b>Yahoo RSSNews</b>
+
+<p>News  From Yahoo As RSS.</p></li><li> <b>html Google News Search</b>
+
+<p>Search Google news.</p></li><li> <b>sourceforge Download</b>
+
+<p>Download specified file.</p></li><li> <b>sourceforge browse mirrors</b>
+
+<p>Retrieve download page at Sourceforge for specified project.</p></li><li> <b>sourceforge project</b>
+
+<p>Open specified project page at SourceForge.</p></li><li> <b>w3c IRC Logs</b>
+
+<p>Use this to pull up the
+archived logs from the W3C IRC. You need to know the exact
+name of the channel.</p></li><li> <b>w3c Lists</b>
+
+<p>Use this to pull up the
+archived mail from the W3C list. You need to know the exact
+name of the list.</p></li><li> <b>world CNN Content</b>
+
+<p>Filter down to CNN content area.
+</p>
+</li></ol>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="xbacklight.html">xbacklight</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

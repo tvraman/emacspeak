@@ -1,398 +1,271 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>voice-defs (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "voice-defs (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "voice-defs (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="voice_002dsetup.html" rel="next" title=
-  "voice-setup" />
-  <link href="toy_002dbraille.html" rel="prev" title=
-  "toy-braille" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>voice-defs (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="voice-defs (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="voice-defs (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="voice_002dsetup.html" rel="next" title="voice-setup">
+<link href="toy_002dbraille.html" rel="prev" title="toy-braille">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="voice_002ddefs">
-    <div class="header">
-      <p>Next: <a href="voice_002dsetup.html" accesskey="n" rel=
-      "next">voice-setup</a>, Previous: <a href=
-      "toy_002dbraille.html" accesskey="p" rel=
-      "prev">toy-braille</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="voice_002ddefs-1"></span>
-    <h3 class="section">12.232 voice-defs</h3>
-    <p>Contains just the voice definitions. Voices are defined
-    using the macro <code>defvoice</code> from module
-    voice-setup.</p>
-    <ul class="section-toc">
-      <li><a href="#An-Overview-Of-Voice-Design" accesskey="1">An
-      Overview Of Voice Design</a></li>
-      <li><a href="#Creating-Distinct-Voices-Via-Aural-CSS"
-      accesskey="2">Creating Distinct Voices Via Aural CSS</a></li>
-      <li><a href="#Things-to-note" accesskey="3">Things to
-      note</a></li>
-      <li><a href="#voice_002ddefs-Options" accesskey=
-      "4">voice-defs Options</a></li>
-    </ul>
-    <div class="subsection" id="An-Overview-Of-Voice-Design">
-      <h4 class="subsection">12.232.1 An Overview Of Voice
-      Design</h4>
-      <p>Aural CSS defines 4 primary device-independent dimensions.
-      Average-Pitch, Pitch-Range, Stress, and Richness. There are
-      ten possible values along each dimension (0..9), giving a
-      total of 10,000 possible settings.</p>
-      <p>Engine-specific modules such as dectalk-voices and
-      outloud-voices map these dimensions to device-specific
-      parameters and are responsible for generating the final
-      device-specific codes.</p>
-    </div>
-    <div class="subsection" id=
-    "Creating-Distinct-Voices-Via-Aural-CSS">
-      <h4 class="subsection">12.232.2 Creating Distinct Voices Via
-      Aural CSS</h4>
-      <p>Along each dimension, a setting of 5 is mapped to the
-      default setting for the voice as implemented by a given
-      engine. Values on either side of 5 produce opposing effects.
-      This module defines the following effects, which can be
-      conceptualized as pairs.</p>
-      <ol type="A" start="1">
-        <li>bolden , lighten</li>
-        <li>animate, monotone</li>
-        <li>brighten, smoothen</li>
-      </ol>
-      <p>In addition, we define <code>bolden-and-animate</code> as
-      an auditory analog of <code>bold-italic</code>. The two
-      additional voices <code>indent</code> and
-      <code>annotate</code> predate the above and are retained as
-      two <em>softer</em> voices. Finally, there are 4
-      <em>overlay</em> voices, corresponding to the 4 dimensions;
-      these each set one of the dimensions to <code>8</code>. Thus,
-      we have a total of 25 unique voices defined in this
-      module.</p>
-    </div>
-    <div class="subsection" id="Things-to-note">
-      <h4 class="subsection">12.232.3 Things to note</h4>
-      <ul>
-        <li>These voices are designed to be distinctive when used
-        in a given utterance.</li>
-        <li>Non-goal — to be able to identify each distinct voice
-        in isolation.</li>
-        <li>Audio-formatting is designed to set apart different
-        types of content so that when used in context, one can
-        easily pick-out distinct parts of the utterance.</li>
-      </ul>
-    </div>
-    <div class="subsection" id="voice_002ddefs-Options">
-      <h4 class="subsection">12.232.4 voice-defs Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-122"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-animate-extra-settings</em>
-        <a href='#index-User-Option-122' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-animate-extra</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-123"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-animate-medium-settings</em>
-        <a href='#index-User-Option-123' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-animate-medium</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-124"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-animate-settings</em> <a href=
-        '#index-User-Option-124' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-animate</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-125"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-annotate-settings</em> <a href=
-        '#index-User-Option-125' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-annotate</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-126"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-bolden-and-animate-settings</em>
-        <a href='#index-User-Option-126' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-bolden-and-animate</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-127"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-bolden-extra-settings</em>
-        <a href='#index-User-Option-127' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-bolden-extra</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-128"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-bolden-medium-settings</em>
-        <a href='#index-User-Option-128' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-bolden-medium</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-129"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-bolden-settings</em> <a href=
-        '#index-User-Option-129' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-bolden</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-130"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-brighten-extra-settings</em>
-        <a href='#index-User-Option-130' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-brighten-extra</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-131"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-brighten-medium-settings</em>
-        <a href='#index-User-Option-131' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-brighten-medium</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-132"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-brighten-settings</em> <a href=
-        '#index-User-Option-132' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-brighten</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-133"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-indent-settings</em> <a href=
-        '#index-User-Option-133' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-indent</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-134"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-lighten-extra-settings</em>
-        <a href='#index-User-Option-134' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-lighten-extra</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-135"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-lighten-medium-settings</em>
-        <a href='#index-User-Option-135' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-lighten-medium</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-136"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-lighten-settings</em> <a href=
-        '#index-User-Option-136' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-lighten</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-137"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-monotone-extra-settings</em>
-        <a href='#index-User-Option-137' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-monotone-extra</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-138"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-monotone-medium-settings</em>
-        <a href='#index-User-Option-138' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-monotone-medium</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-139"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-monotone-settings</em> <a href=
-        '#index-User-Option-139' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-monotone</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-140"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-overlay-0-settings</em> <a href=
-        '#index-User-Option-140' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-overlay-0</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-141"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-overlay-1-settings</em> <a href=
-        '#index-User-Option-141' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-overlay-1</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-142"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-overlay-2-settings</em> <a href=
-        '#index-User-Option-142' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-overlay-2</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-143"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-overlay-3-settings</em> <a href=
-        '#index-User-Option-143' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-overlay-3</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-144"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-smoothen-extra-settings</em>
-        <a href='#index-User-Option-144' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-smoothen-extra</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-145"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-smoothen-medium-settings</em>
-        <a href='#index-User-Option-145' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-smoothen-medium</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-146"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>voice-smoothen-settings</em> <a href=
-        '#index-User-Option-146' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Settings for voice-smoothen</p>
-        </dd>
-      </dl>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href="voice_002dsetup.html">voice-setup</a>,
-    Previous: <a href="toy_002dbraille.html">toy-braille</a>, Up:
-    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+
+<body lang="en">
+<div class="section" id="voice_002ddefs">
+<div class="header">
+<p>
+Next: <a href="voice_002dsetup.html" accesskey="n" rel="next">voice-setup</a>, Previous: <a href="toy_002dbraille.html" accesskey="p" rel="prev">toy-braille</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="voice_002ddefs-1"></span><h3 class="section">12.232 voice-defs</h3>
+
+<p>Contains just the voice definitions. Voices are defined using the
+macro <code>defvoice</code> from  module voice-setup.
+</p><ul class="section-toc">
+<li><a href="#An-Overview-Of-Voice-Design" accesskey="1">An Overview Of Voice Design</a></li>
+<li><a href="#Creating-Distinct-Voices-Via-Aural-CSS" accesskey="2">Creating  Distinct Voices  Via Aural CSS</a></li>
+<li><a href="#Things-to-note" accesskey="3">Things to note</a></li>
+<li><a href="#voice_002ddefs-Options" accesskey="4">voice-defs Options</a></li>
+</ul>
+<div class="subsection" id="An-Overview-Of-Voice-Design">
+<h4 class="subsection">12.232.1 An Overview Of Voice Design</h4>
+
+<p>Aural CSS defines 4 primary device-independent dimensions.
+Average-Pitch, Pitch-Range, Stress, and Richness. There are ten
+possible values along each dimension (0..9), giving a total of
+10,000 possible settings.
+</p>
+<p>Engine-specific modules such as dectalk-voices and outloud-voices
+map these dimensions to device-specific parameters and are
+responsible for generating the final device-specific codes.
+</p></div>
+<div class="subsection" id="Creating-Distinct-Voices-Via-Aural-CSS">
+<h4 class="subsection">12.232.2 Creating  Distinct Voices  Via Aural CSS</h4>
+<p>Along each dimension, a setting of 5 is mapped to the default
+setting for the voice as implemented by a given engine. Values on
+either side of  5 produce opposing effects.
+This module  defines the following effects, which can be
+conceptualized as pairs.
+</p><ol type="A" start="1">
+<li> bolden , lighten
+</li><li> animate, monotone
+</li><li> brighten, smoothen
+</li></ol>
+<p>In addition, we define <code>bolden-and-animate</code> as an auditory
+analog of <code>bold-italic</code>.
+The two additional voices <code>indent</code> and <code>annotate</code>
+predate the above and are retained  as two <em>softer</em> voices.
+Finally, there are 4 <em>overlay</em> voices, corresponding  to the
+4 dimensions; these each set one of the dimensions to <code>8</code>.
+Thus, we have a total of 25 unique voices defined in this module.
+</p></div>
+<div class="subsection" id="Things-to-note">
+<h4 class="subsection">12.232.3 Things to note</h4>
+<ul>
+<li> These voices are designed to be distinctive when used in  a given
+utterance.
+</li><li> Non-goal &mdash;  to be able to identify each distinct voice in
+isolation.
+</li><li> Audio-formatting is designed to set apart different types of
+content so that when used in context, one can easily pick-out
+distinct parts of the utterance.
+</li></ul>
+
+</div>
+<div class="subsection" id="voice_002ddefs-Options">
+<h4 class="subsection">12.232.4 voice-defs Options</h4>
+
+<dl class="def">
+<dt id="index-User-Option-122"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-animate-extra-settings</em><a href='#index-User-Option-122' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-animate-extra
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-123"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-animate-medium-settings</em><a href='#index-User-Option-123' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-animate-medium
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-124"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-animate-settings</em><a href='#index-User-Option-124' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-animate
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-125"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-annotate-settings</em><a href='#index-User-Option-125' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-annotate
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-126"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-and-animate-settings</em><a href='#index-User-Option-126' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-bolden-and-animate
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-127"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-extra-settings</em><a href='#index-User-Option-127' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-bolden-extra
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-128"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-medium-settings</em><a href='#index-User-Option-128' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-bolden-medium
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-129"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-settings</em><a href='#index-User-Option-129' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-bolden
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-130"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-brighten-extra-settings</em><a href='#index-User-Option-130' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-brighten-extra
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-131"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-brighten-medium-settings</em><a href='#index-User-Option-131' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-brighten-medium
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-132"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-brighten-settings</em><a href='#index-User-Option-132' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-brighten
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-133"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-indent-settings</em><a href='#index-User-Option-133' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-indent
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-134"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-lighten-extra-settings</em><a href='#index-User-Option-134' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-lighten-extra
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-135"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-lighten-medium-settings</em><a href='#index-User-Option-135' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-lighten-medium
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-136"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-lighten-settings</em><a href='#index-User-Option-136' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-lighten
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-137"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-monotone-extra-settings</em><a href='#index-User-Option-137' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-monotone-extra
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-138"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-monotone-medium-settings</em><a href='#index-User-Option-138' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-monotone-medium
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-139"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-monotone-settings</em><a href='#index-User-Option-139' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-monotone
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-140"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-0-settings</em><a href='#index-User-Option-140' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-overlay-0
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-141"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-1-settings</em><a href='#index-User-Option-141' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-overlay-1
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-142"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-2-settings</em><a href='#index-User-Option-142' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-overlay-2
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-143"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-3-settings</em><a href='#index-User-Option-143' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-overlay-3
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-144"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-smoothen-extra-settings</em><a href='#index-User-Option-144' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-smoothen-extra
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-145"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-smoothen-medium-settings</em><a href='#index-User-Option-145' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-smoothen-medium
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-146"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-smoothen-settings</em><a href='#index-User-Option-146' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Settings for voice-smoothen
+</p>
+</dd></dl>
+
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="voice_002dsetup.html">voice-setup</a>, Previous: <a href="toy_002dbraille.html">toy-braille</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

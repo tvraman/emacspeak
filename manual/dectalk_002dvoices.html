@@ -1,122 +1,100 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>dectalk-voices (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "dectalk-voices (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "dectalk-voices (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="dom_002daddons.html" rel="next" title="dom-addons" />
-  <link href="cd_002dtool.html" rel="prev" title="cd-tool" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>dectalk-voices (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="dectalk-voices (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="dectalk-voices (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="dom_002daddons.html" rel="next" title="dom-addons">
+<link href="cd_002dtool.html" rel="prev" title="cd-tool">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="dectalk_002dvoices">
-    <div class="header">
-      <p>Next: <a href="dom_002daddons.html" accesskey="n" rel=
-      "next">dom-addons</a>, Previous: <a href="cd_002dtool.html"
-      accesskey="p" rel="prev">cd-tool</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="dectalk_002dvoices-1"></span>
-    <h3 class="section">12.3 dectalk-voices</h3>
-    <p>This module defines the various voices used in voice-lock
-    mode. This module is Dectalk specific.</p>
-    <ul class="section-toc">
-      <li><a href="#Dectalk_002dVoices-Commands" accesskey=
-      "1">Dectalk-Voices Commands</a></li>
-      <li><a href="#dectalk_002dvoices-Options" accesskey=
-      "2">dectalk-voices Options</a></li>
-    </ul>
-    <div class="subsection" id="Dectalk_002dVoices-Commands">
-      <h4 class="subsection">12.3.1 Dectalk-Voices Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#dectalk" accesskey="1">dectalk</a></li>
-      </ul>
-      <div class="subsubsection" id="dectalk">
-        <h4 class="subsubsection">12.3.1.1 dectalk</h4>
-        <dl class="def">
-          <dt id="index-dectalk"><span class=
-          "category">Command:</span> <span><strong>dectalk</strong>
-          <a href='#index-dectalk' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-C_002dd'><span><kbd>C-e d
-              C-d</kbd> <a href='#index-C_002de-d-C_002dd' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-C_002dd'>
-              <span><kbd>&lt;fn&gt; d C-d</kbd> <a href=
-              '#index-_003cfn_003e-d-C_002dd' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dectalk-1"></span>
-            <div class="format">
-              <pre class="format">Dectalk TTS.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-    <div class="subsection" id="dectalk_002dvoices-Options">
-      <h4 class="subsection">12.3.2 dectalk-voices Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-2"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dectalk-default-speech-rate</em>
-        <a href='#index-User-Option-2' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Default speech rate .</p>
-        </dd>
-      </dl>
-    </div>
-  </div>
+
+<body lang="en">
+<div class="section" id="dectalk_002dvoices">
+<div class="header">
+<p>
+Next: <a href="dom_002daddons.html" accesskey="n" rel="next">dom-addons</a>, Previous: <a href="cd_002dtool.html" accesskey="p" rel="prev">cd-tool</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="dectalk_002dvoices-1"></span><h3 class="section">12.3 dectalk-voices</h3>
+
+<p>This module defines the various voices used in voice-lock mode.
+This module is Dectalk specific.
+</p>
+<ul class="section-toc">
+<li><a href="#Dectalk_002dVoices-Commands" accesskey="1">Dectalk-Voices Commands</a></li>
+<li><a href="#dectalk_002dvoices-Options" accesskey="2">dectalk-voices Options</a></li>
+</ul>
+<div class="subsection" id="Dectalk_002dVoices-Commands">
+<h4 class="subsection">12.3.1 Dectalk-Voices Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#dectalk" accesskey="1">dectalk</a></li>
+</ul>
+<div class="subsubsection" id="dectalk">
+<h4 class="subsubsection">12.3.1.1 dectalk</h4>
+<dl class="def">
+<dt id="index-dectalk"><span class="category">Command: </span><span><strong>dectalk</strong><a href='#index-dectalk' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-C_002de-d-C_002dd'><span><kbd>C-e d C-d</kbd><a href='#index-C_002de-d-C_002dd' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-_003cfn_003e-d-C_002dd'><span><kbd>&lt;fn&gt; d C-d</kbd><a href='#index-_003cfn_003e-d-C_002dd' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-dectalk-1"></span>
+
+<div class="format">
+<pre class="format">Dectalk TTS.
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+<div class="subsection" id="dectalk_002dvoices-Options">
+<h4 class="subsection">12.3.2 dectalk-voices Options</h4>
+
+<dl class="def">
+<dt id="index-User-Option-2"><span class="category">Variable: </span><span><strong>User Option</strong> <em>dectalk-default-speech-rate</em><a href='#index-User-Option-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default speech rate . 
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+
 </body>
 </html>

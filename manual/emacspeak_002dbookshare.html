@@ -1,927 +1,538 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-bookshare (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-bookshare (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-bookshare (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dbrowse_002dkill_002dring.html" rel=
-  "next" title="emacspeak-browse-kill-ring" />
-  <link href="emacspeak_002dbookmark.html" rel="prev" title=
-  "emacspeak-bookmark" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-bookshare (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-bookshare (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-bookshare (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dbrowse_002dkill_002dring.html" rel="next" title="emacspeak-browse-kill-ring">
+<link href="emacspeak_002dbookmark.html" rel="prev" title="emacspeak-bookmark">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dbookshare">
-    <div class="header">
-      <p>Next: <a href=
-      "emacspeak_002dbrowse_002dkill_002dring.html" accesskey="n"
-      rel="next">emacspeak-browse-kill-ring</a>, Previous: <a href=
-      "emacspeak_002dbookmark.html" accesskey="p" rel=
-      "prev">emacspeak-bookmark</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dbookshare-1"></span>
-    <h3 class="section">12.22 emacspeak-bookshare</h3>
-    <p>BOOKSHARE == http://www.bookshare.org provides book access
-    to print-disabled users. It provides a simple Web API
-    http://developer.bookshare.org This module implements an
-    Emacspeak Bookshare client.</p>
-    <ul class="section-toc">
-      <li><a href="#requirements" accesskey=
-      "1">requirements</a></li>
-      <li><a href="#Usage" accesskey="2">Usage</a></li>
-      <li><a href="#Sample-Interaction" accesskey="3">Sample
-      Interaction</a></li>
-      <li><a href="#Emacspeak_002dBookshare-Commands" accesskey=
-      "4">Emacspeak-Bookshare Commands</a></li>
-      <li><a href="#emacspeak_002dbookshare-Options" accesskey=
-      "5">emacspeak-bookshare Options</a></li>
-    </ul>
-    <div class="subsection" id="requirements">
-      <h4 class="subsection">12.22.1 requirements</h4>
-      <ul>
-        <li>You need to get your own API key</li>
-        <li>You need Emacs built with libxml2 support</li>
-      </ul>
-    </div>
-    <div class="subsection" id="Usage">
-      <h4 class="subsection">12.22.2 Usage</h4>
-      <p>The main entry point is command
-      <code>emacspeak-bookshare</code> bound to <kbd>C-e C-b</kbd>.
-      This creates a special <em>Bookshare Interaction</em> buffer
-      that is placed in <em>emacspeak-bookshare-mode</em>. Se the
-      help for that mode on detailed usage instructions and
-      key-bindings.</p>
-    </div>
-    <div class="subsection" id="Sample-Interaction">
-      <h4 class="subsection">12.22.3 Sample Interaction</h4>
-      <p>Assuming you have correctly setup your API key:</p>
-      <ul>
-        <li>Customize group <code>emacspeak-bookshare</code> by
-        pressing <kbd>C-h G</kbd>.</li>
-        <li>Press <kbd>C-e C-b</kbd> to open or switch to the
-        Bookshare buffer.</li>
-        <li>Perform a search <kbd>a</kbd> or <kbd>t</kbd> for
-        author or title search.</li>
-        <li>You will be prompted for your Bookshare password if
-        this is the first time.</li>
-        <li>The password will be saved to your configured
-        <code>auth-source</code> — usually
-        <code>~/.authinfo.gpg</code>. You can also use
-        <code>password-store[.]</code></li>
-        <li>The results of the search appear in the Bookshare
-        buffer. Audio formatting and auditory icons convey if a
-        result is already available locally.</li>
-        <li>If not available locally, press <kbd>D</kbd> to
-        download the content.</li>
-        <li>Press <kbd>U</kbd> to unpack the downloaded
-        content.</li>
-        <li>Press <kbd>e</kbd> to display the entire book.</li>
-        <li>Press <kbd>c</kbd> to display the table of
-        contents.</li>
-        <li>Now, use all of EWW See <a href=
-        "emacspeak_002deww.html">emacspeak-eww</a> extensions and
-        profit!</li>
-      </ul>
-    </div>
-    <div class="subsection" id="Emacspeak_002dBookshare-Commands">
-      <h4 class="subsection">12.22.4 Emacspeak-Bookshare
-      Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dbookshare-2" accesskey=
-        "1">emacspeak-bookshare</a></li>
-        <li><a href="#emacspeak_002dbookshare_002daction"
-        accesskey="2">emacspeak-bookshare-action</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dauthor_002dsearch" accesskey=
-        "3">emacspeak-bookshare-author-search</a></li>
-        <li><a href="#emacspeak_002dbookshare_002dbrowse"
-        accesskey="4">emacspeak-bookshare-browse</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dbrowse_002dlatest" accesskey=
-        "5">emacspeak-bookshare-browse-latest</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dbrowse_002dpopular"
-        accesskey="6">emacspeak-bookshare-browse-popular</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddebugInfo_002dhandler"
-        accesskey=
-        "7">emacspeak-bookshare-debugInfo-handler</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002daudio"
-        accesskey="8">emacspeak-bookshare-download-audio</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint"
-        accesskey=
-        "9">emacspeak-bookshare-download-audio-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002dbrf">emacspeak-bookshare-download-brf</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint">
-        emacspeak-bookshare-download-brf-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002ddaisy">emacspeak-bookshare-download-daisy</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint">
-        emacspeak-bookshare-download-daisy-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002depub_002d3">emacspeak-bookshare-download-epub-3</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint">
-        emacspeak-bookshare-download-epub-3-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002ddownload_002dinternal">emacspeak-bookshare-download-internal</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002deww">emacspeak-bookshare-eww</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dexpand_002dat_002dpoint">emacspeak-bookshare-expand-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dextract_002dand_002dview">emacspeak-bookshare-extract-and-view</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dextract_002dxml">emacspeak-bookshare-extract-xml</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dflush_002dlines">emacspeak-bookshare-flush-lines</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dfulltext">emacspeak-bookshare-fulltext</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dfulltext_002dsearch">emacspeak-bookshare-fulltext-search</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dget_002dmore_002dresults">emacspeak-bookshare-get-more-results</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002did_002dsearch">emacspeak-bookshare-id-search</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002disbn_002dsearch">emacspeak-bookshare-isbn-search</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dlist_002dpreferences">emacspeak-bookshare-list-preferences</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dmode">emacspeak-bookshare-mode</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dnext_002dresult">emacspeak-bookshare-next-result</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dperiodical_002dlist">emacspeak-bookshare-periodical-list</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dprevious_002dresult">emacspeak-bookshare-previous-result</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dset_002dpreference">emacspeak-bookshare-set-preference</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dsince_002dsearch">emacspeak-bookshare-since-search</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dtitle_002dsearch">emacspeak-bookshare-title-search</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dtoc">emacspeak-bookshare-toc</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dtoc_002dat_002dpoint">emacspeak-bookshare-toc-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dunpack_002dat_002dpoint">emacspeak-bookshare-unpack-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002durl_002dexecutor">emacspeak-bookshare-url-executor</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dversion_002dhandler">emacspeak-bookshare-version-handler</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dview">emacspeak-bookshare-view</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dview_002dat_002dpoint">emacspeak-bookshare-view-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002dbookshare_002dview_002dpage_002drange">emacspeak-bookshare-view-page-range</a></li>
-      </ul>
-      <div class="subsubsection" id="emacspeak_002dbookshare-2">
-        <h4 class="subsubsection">12.22.4.1
-        emacspeak-bookshare</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-bookshare</strong> <a href=
-          '#index-emacspeak_002dbookshare' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-C_002db'><span><kbd>C-e
-              C-b</kbd> <a href='#index-C_002de-C_002db' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-C_002db'>
-              <span><kbd>&lt;fn&gt; C-b</kbd> <a href=
-              '#index-_003cfn_003e-C_002db' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-emacspeak_002dbookshare-1"></span>
-            <div class="format">
-              <pre class="format">Bookshare  Interaction.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002daction">
-        <h4 class="subsubsection">12.22.4.2
-        emacspeak-bookshare-action</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002daction">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-action</strong>
-          <a href='#index-emacspeak_002dbookshare_002daction'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002daction-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Call action specified by  invoking key.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dauthor_002dsearch">
-        <h4 class="subsubsection">12.22.4.3
-        emacspeak-bookshare-author-search</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dauthor_002dsearch">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-author-search</strong>
-          <em>(query &amp;optional category)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dauthor_002dsearch'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dauthor_002dsearch-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Perform a Bookshare author search.
+
+<body lang="en">
+<div class="section" id="emacspeak_002dbookshare">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dbrowse_002dkill_002dring.html" accesskey="n" rel="next">emacspeak-browse-kill-ring</a>, Previous: <a href="emacspeak_002dbookmark.html" accesskey="p" rel="prev">emacspeak-bookmark</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dbookshare-1"></span><h3 class="section">12.22 emacspeak-bookshare</h3>
+
+<p>BOOKSHARE == http://www.bookshare.org
+provides book access to print-disabled users.
+It provides a simple Web  API http://developer.bookshare.org
+This module implements an Emacspeak Bookshare client.
+</p><ul class="section-toc">
+<li><a href="#requirements" accesskey="1">requirements</a></li>
+<li><a href="#Usage" accesskey="2">Usage</a></li>
+<li><a href="#Sample-Interaction" accesskey="3">Sample Interaction</a></li>
+<li><a href="#Emacspeak_002dBookshare-Commands" accesskey="4">Emacspeak-Bookshare Commands</a></li>
+<li><a href="#emacspeak_002dbookshare-Options" accesskey="5">emacspeak-bookshare Options</a></li>
+</ul>
+<div class="subsection" id="requirements">
+<h4 class="subsection">12.22.1 requirements</h4>
+<ul>
+<li> You need to get your own API key
+</li><li> You need Emacs built with libxml2 support
+</li></ul>
+
+</div>
+<div class="subsection" id="Usage">
+<h4 class="subsection">12.22.2 Usage</h4>
+<p>The main entry point is command <code>emacspeak-bookshare</code> bound to <kbd>C-e C-b</kbd>.
+This creates a special <em>Bookshare Interaction</em> buffer that is
+placed in <em>emacspeak-bookshare-mode</em>.
+Se the help for that mode on detailed usage instructions and key-bindings.
+</p>
+</div>
+<div class="subsection" id="Sample-Interaction">
+<h4 class="subsection">12.22.3 Sample Interaction</h4>
+
+<p>Assuming you have correctly setup your API key:
+</p><ul>
+<li> Customize group <code>emacspeak-bookshare</code> by pressing <kbd>C-h G</kbd>.
+</li><li> Press <kbd>C-e C-b</kbd> to open or switch to the Bookshare buffer.
+</li><li> Perform a search <kbd>a</kbd> or <kbd>t</kbd> for author or title search.
+</li><li> You will be prompted for your Bookshare password if this is
+the first time.
+</li><li> The password will be saved to your configured
+<code>auth-source</code> &mdash; usually <code>~/.authinfo.gpg</code>.
+You can also use <code>password-store[.]</code>
+</li><li> The results of the search appear in the Bookshare buffer.
+Audio formatting and auditory icons convey if  a result is already available locally.
+</li><li> If not available locally, press <kbd>D</kbd> to download the content.
+</li><li> Press <kbd>U</kbd> to unpack the downloaded content.
+</li><li> Press <kbd>e</kbd> to  display the entire book.
+</li><li> Press <kbd>c</kbd> to display the table of contents.
+</li><li> Now, use all of EWW  See <a href="emacspeak_002deww.html">emacspeak-eww</a> extensions  and profit!
+</li></ul>
+
+</div>
+<div class="subsection" id="Emacspeak_002dBookshare-Commands">
+<h4 class="subsection">12.22.4 Emacspeak-Bookshare Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dbookshare-2" accesskey="1">emacspeak-bookshare</a></li>
+<li><a href="#emacspeak_002dbookshare_002daction" accesskey="2">emacspeak-bookshare-action</a></li>
+<li><a href="#emacspeak_002dbookshare_002dauthor_002dsearch" accesskey="3">emacspeak-bookshare-author-search</a></li>
+<li><a href="#emacspeak_002dbookshare_002dbrowse" accesskey="4">emacspeak-bookshare-browse</a></li>
+<li><a href="#emacspeak_002dbookshare_002dbrowse_002dlatest" accesskey="5">emacspeak-bookshare-browse-latest</a></li>
+<li><a href="#emacspeak_002dbookshare_002dbrowse_002dpopular" accesskey="6">emacspeak-bookshare-browse-popular</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddebugInfo_002dhandler" accesskey="7">emacspeak-bookshare-debugInfo-handler</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002daudio" accesskey="8">emacspeak-bookshare-download-audio</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint" accesskey="9">emacspeak-bookshare-download-audio-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002dbrf">emacspeak-bookshare-download-brf</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint">emacspeak-bookshare-download-brf-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002ddaisy">emacspeak-bookshare-download-daisy</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint">emacspeak-bookshare-download-daisy-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002depub_002d3">emacspeak-bookshare-download-epub-3</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint">emacspeak-bookshare-download-epub-3-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002ddownload_002dinternal">emacspeak-bookshare-download-internal</a></li>
+<li><a href="#emacspeak_002dbookshare_002deww">emacspeak-bookshare-eww</a></li>
+<li><a href="#emacspeak_002dbookshare_002dexpand_002dat_002dpoint">emacspeak-bookshare-expand-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002dextract_002dand_002dview">emacspeak-bookshare-extract-and-view</a></li>
+<li><a href="#emacspeak_002dbookshare_002dextract_002dxml">emacspeak-bookshare-extract-xml</a></li>
+<li><a href="#emacspeak_002dbookshare_002dflush_002dlines">emacspeak-bookshare-flush-lines</a></li>
+<li><a href="#emacspeak_002dbookshare_002dfulltext">emacspeak-bookshare-fulltext</a></li>
+<li><a href="#emacspeak_002dbookshare_002dfulltext_002dsearch">emacspeak-bookshare-fulltext-search</a></li>
+<li><a href="#emacspeak_002dbookshare_002dget_002dmore_002dresults">emacspeak-bookshare-get-more-results</a></li>
+<li><a href="#emacspeak_002dbookshare_002did_002dsearch">emacspeak-bookshare-id-search</a></li>
+<li><a href="#emacspeak_002dbookshare_002disbn_002dsearch">emacspeak-bookshare-isbn-search</a></li>
+<li><a href="#emacspeak_002dbookshare_002dlist_002dpreferences">emacspeak-bookshare-list-preferences</a></li>
+<li><a href="#emacspeak_002dbookshare_002dmode">emacspeak-bookshare-mode</a></li>
+<li><a href="#emacspeak_002dbookshare_002dnext_002dresult">emacspeak-bookshare-next-result</a></li>
+<li><a href="#emacspeak_002dbookshare_002dperiodical_002dlist">emacspeak-bookshare-periodical-list</a></li>
+<li><a href="#emacspeak_002dbookshare_002dprevious_002dresult">emacspeak-bookshare-previous-result</a></li>
+<li><a href="#emacspeak_002dbookshare_002dset_002dpreference">emacspeak-bookshare-set-preference</a></li>
+<li><a href="#emacspeak_002dbookshare_002dsince_002dsearch">emacspeak-bookshare-since-search</a></li>
+<li><a href="#emacspeak_002dbookshare_002dtitle_002dsearch">emacspeak-bookshare-title-search</a></li>
+<li><a href="#emacspeak_002dbookshare_002dtoc">emacspeak-bookshare-toc</a></li>
+<li><a href="#emacspeak_002dbookshare_002dtoc_002dat_002dpoint">emacspeak-bookshare-toc-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002dunpack_002dat_002dpoint">emacspeak-bookshare-unpack-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002durl_002dexecutor">emacspeak-bookshare-url-executor</a></li>
+<li><a href="#emacspeak_002dbookshare_002dversion_002dhandler">emacspeak-bookshare-version-handler</a></li>
+<li><a href="#emacspeak_002dbookshare_002dview">emacspeak-bookshare-view</a></li>
+<li><a href="#emacspeak_002dbookshare_002dview_002dat_002dpoint">emacspeak-bookshare-view-at-point</a></li>
+<li><a href="#emacspeak_002dbookshare_002dview_002dpage_002drange">emacspeak-bookshare-view-page-range</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dbookshare-2">
+<h4 class="subsubsection">12.22.4.1 emacspeak-bookshare</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare"><span class="category">Command: </span><span><strong>emacspeak-bookshare</strong><a href='#index-emacspeak_002dbookshare' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-C_002de-C_002db'><span><kbd>C-e C-b</kbd><a href='#index-C_002de-C_002db' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-_003cfn_003e-C_002db'><span><kbd>&lt;fn&gt; C-b</kbd><a href='#index-_003cfn_003e-C_002db' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dbookshare-1"></span>
+
+<div class="format">
+<pre class="format">Bookshare  Interaction.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002daction">
+<h4 class="subsubsection">12.22.4.2 emacspeak-bookshare-action</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002daction"><span class="category">Command: </span><span><strong>emacspeak-bookshare-action</strong><a href='#index-emacspeak_002dbookshare_002daction' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002daction-1"></span>
+
+<div class="format">
+<pre class="format">Call action specified by  invoking key.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dauthor_002dsearch">
+<h4 class="subsubsection">12.22.4.3 emacspeak-bookshare-author-search</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dauthor_002dsearch"><span class="category">Command: </span><span><strong>emacspeak-bookshare-author-search</strong> <em>(query &amp;optional category)</em><a href='#index-emacspeak_002dbookshare_002dauthor_002dsearch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dauthor_002dsearch-1"></span>
+
+<div class="format">
+<pre class="format">Perform a Bookshare author search.
 Interactive prefix arg filters search by category.
 
 (fn QUERY &amp;optional CATEGORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dbrowse">
-        <h4 class="subsubsection">12.22.4.4
-        emacspeak-bookshare-browse</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002dbrowse">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-browse</strong>
-          <a href='#index-emacspeak_002dbookshare_002dbrowse'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dbrowse-1"></span>
-            <div class="format">
-              <pre class="format">Browse Bookshare.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dbrowse_002dlatest">
-        <h4 class="subsubsection">12.22.4.5
-        emacspeak-bookshare-browse-latest</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dbrowse_002dlatest">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-browse-latest</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dbrowse_002dlatest'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dbrowse_002dlatest-1">
-            </span>
-            <div class="format">
-              <pre class="format">Return latest books.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dbrowse_002dpopular">
-        <h4 class="subsubsection">12.22.4.6
-        emacspeak-bookshare-browse-popular</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dbrowse_002dpopular">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-browse-popular</strong>
-          <em>(&amp;optional category)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dbrowse_002dpopular'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dbrowse_002dpopular-1">
-            </span>
-            <div class="format">
-              <pre class="format">Browse popular books.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dbrowse">
+<h4 class="subsubsection">12.22.4.4 emacspeak-bookshare-browse</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dbrowse"><span class="category">Command: </span><span><strong>emacspeak-bookshare-browse</strong><a href='#index-emacspeak_002dbookshare_002dbrowse' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dbrowse-1"></span>
+
+<div class="format">
+<pre class="format">Browse Bookshare.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dbrowse_002dlatest">
+<h4 class="subsubsection">12.22.4.5 emacspeak-bookshare-browse-latest</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dbrowse_002dlatest"><span class="category">Command: </span><span><strong>emacspeak-bookshare-browse-latest</strong><a href='#index-emacspeak_002dbookshare_002dbrowse_002dlatest' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dbrowse_002dlatest-1"></span>
+
+<div class="format">
+<pre class="format">Return latest books.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dbrowse_002dpopular">
+<h4 class="subsubsection">12.22.4.6 emacspeak-bookshare-browse-popular</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dbrowse_002dpopular"><span class="category">Command: </span><span><strong>emacspeak-bookshare-browse-popular</strong> <em>(&amp;optional category)</em><a href='#index-emacspeak_002dbookshare_002dbrowse_002dpopular' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dbrowse_002dpopular-1"></span>
+
+<div class="format">
+<pre class="format">Browse popular books.
 Optional interactive prefix arg prompts for a category to use as a filter.
 
 (fn &amp;optional CATEGORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddebugInfo_002dhandler">
-        <h4 class="subsubsection">12.22.4.7
-        emacspeak-bookshare-debugInfo-handler</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddebugInfo_002dhandler">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-debugInfo-handler</strong>
-          <em>(&amp;rest arguments)</em> <a href=
-          '#index-emacspeak_002dbookshare_002ddebugInfo_002dhandler'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddebugInfo_002dhandler-1">
-            </span>
-            <div class="format">
-              <pre class="format">Do nothing and return nil.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddebugInfo_002dhandler">
+<h4 class="subsubsection">12.22.4.7 emacspeak-bookshare-debugInfo-handler</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddebugInfo_002dhandler"><span class="category">Command: </span><span><strong>emacspeak-bookshare-debugInfo-handler</strong> <em>(&amp;rest arguments)</em><a href='#index-emacspeak_002dbookshare_002ddebugInfo_002dhandler' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddebugInfo_002dhandler-1"></span>
+
+<div class="format">
+<pre class="format">Do nothing and return nil.
 This function accepts any number of ARGUMENTS, but ignores them.
 Also see ‘always’.
 
 (fn &amp;rest ARGUMENTS)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002daudio">
-        <h4 class="subsubsection">12.22.4.8
-        emacspeak-bookshare-download-audio</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002daudio">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-audio</strong>
-          <em>(id target)</em> <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002daudio'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002daudio-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download audio format of specified book to target location.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002daudio">
+<h4 class="subsubsection">12.22.4.8 emacspeak-bookshare-download-audio</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002daudio"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-audio</strong> <em>(id target)</em><a href='#index-emacspeak_002dbookshare_002ddownload_002daudio' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002daudio-1"></span>
+
+<div class="format">
+<pre class="format">Download audio format of specified book to target location.
 
 (fn ID TARGET)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.9
-        emacspeak-bookshare-download-audio-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-audio-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download audio version of book under point.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.9 emacspeak-bookshare-download-audio-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-audio-at-point</strong><a href='#index-emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002daudio_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">Download audio version of book under point.
 Target location is generated from author and title.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002dbrf">
-        <h4 class="subsubsection">12.22.4.10
-        emacspeak-bookshare-download-brf</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002dbrf">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-brf</strong>
-          <em>(id target)</em> <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002dbrf'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002dbrf-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Download Daisy format of specified book to target location.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002dbrf">
+<h4 class="subsubsection">12.22.4.10 emacspeak-bookshare-download-brf</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002dbrf"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-brf</strong> <em>(id target)</em><a href='#index-emacspeak_002dbookshare_002ddownload_002dbrf' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002dbrf-1"></span>
+
+<div class="format">
+<pre class="format">Download Daisy format of specified book to target location.
 
 (fn ID TARGET)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.11
-        emacspeak-bookshare-download-brf-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-brf-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download Braille version of book under point.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.11 emacspeak-bookshare-download-brf-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-brf-at-point</strong><a href='#index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">Download Braille version of book under point.
 Target location is generated from author and title.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002ddaisy">
-        <h4 class="subsubsection">12.22.4.12
-        emacspeak-bookshare-download-daisy</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002ddaisy">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-daisy</strong>
-          <em>(id target)</em> <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002ddaisy'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002ddaisy-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download Daisy format of specified book to target location.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002ddaisy">
+<h4 class="subsubsection">12.22.4.12 emacspeak-bookshare-download-daisy</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002ddaisy"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-daisy</strong> <em>(id target)</em><a href='#index-emacspeak_002dbookshare_002ddownload_002ddaisy' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002ddaisy-1"></span>
+
+<div class="format">
+<pre class="format">Download Daisy format of specified book to target location.
 
 (fn ID TARGET)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.13
-        emacspeak-bookshare-download-daisy-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-daisy-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download Daisy version of book under point.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.13 emacspeak-bookshare-download-daisy-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-daisy-at-point</strong><a href='#index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">Download Daisy version of book under point.
 Target location is generated from author and title.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002depub_002d3">
-        <h4 class="subsubsection">12.22.4.14
-        emacspeak-bookshare-download-epub-3</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002depub_002d3">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-epub-3</strong>
-          <em>(id target)</em> <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002depub_002d3'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002depub_002d3-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download epub-3 format of specified book to target location.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002depub_002d3">
+<h4 class="subsubsection">12.22.4.14 emacspeak-bookshare-download-epub-3</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002depub_002d3"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-epub-3</strong> <em>(id target)</em><a href='#index-emacspeak_002dbookshare_002ddownload_002depub_002d3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002depub_002d3-1"></span>
+
+<div class="format">
+<pre class="format">Download epub-3 format of specified book to target location.
 
 (fn ID TARGET)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.15
-        emacspeak-bookshare-download-epub-3-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-epub-3-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download epub-3 version of book under point.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.15 emacspeak-bookshare-download-epub-3-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-epub-3-at-point</strong><a href='#index-emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002depub_002d3_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">Download epub-3 version of book under point.
 Target location is generated from author and title.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002ddownload_002dinternal">
-        <h4 class="subsubsection">12.22.4.16
-        emacspeak-bookshare-download-internal</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002ddownload_002dinternal">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-download-internal</strong>
-          <em>(url target)</em> <a href=
-          '#index-emacspeak_002dbookshare_002ddownload_002dinternal'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002ddownload_002dinternal-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Download content  to target location.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002ddownload_002dinternal">
+<h4 class="subsubsection">12.22.4.16 emacspeak-bookshare-download-internal</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002ddownload_002dinternal"><span class="category">Command: </span><span><strong>emacspeak-bookshare-download-internal</strong> <em>(url target)</em><a href='#index-emacspeak_002dbookshare_002ddownload_002dinternal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002ddownload_002dinternal-1"></span>
+
+<div class="format">
+<pre class="format">Download content  to target location.
 
 (fn URL TARGET)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002deww">
-        <h4 class="subsubsection">12.22.4.17
-        emacspeak-bookshare-eww</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002deww">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-eww</strong>
-          <em>(directory)</em> <a href=
-          '#index-emacspeak_002dbookshare_002deww' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002deww-1"></span>
-            <div class="format">
-              <pre class="format">Render  book using EWW
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002deww">
+<h4 class="subsubsection">12.22.4.17 emacspeak-bookshare-eww</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002deww"><span class="category">Command: </span><span><strong>emacspeak-bookshare-eww</strong> <em>(directory)</em><a href='#index-emacspeak_002dbookshare_002deww' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002deww-1"></span>
+
+<div class="format">
+<pre class="format">Render  book using EWW
 
 (fn DIRECTORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dexpand_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.18
-        emacspeak-bookshare-expand-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-expand-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Expand entry at point by retrieving metadata.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dexpand_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.18 emacspeak-bookshare-expand-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-expand-at-point</strong><a href='#index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">Expand entry at point by retrieving metadata.
 Once retrieved, memoize to avoid multiple retrievals.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dextract_002dand_002dview">
-        <h4 class="subsubsection">12.22.4.19
-        emacspeak-bookshare-extract-and-view</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dextract_002dand_002dview">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-extract-and-view</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dextract_002dand_002dview'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dextract_002dand_002dview-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Extract content referred to by link under point, and render via the browser.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dextract_002dand_002dview">
+<h4 class="subsubsection">12.22.4.19 emacspeak-bookshare-extract-and-view</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dextract_002dand_002dview"><span class="category">Command: </span><span><strong>emacspeak-bookshare-extract-and-view</strong> <em>(url)</em><a href='#index-emacspeak_002dbookshare_002dextract_002dand_002dview' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dextract_002dand_002dview-1"></span>
+
+<div class="format">
+<pre class="format">Extract content referred to by link under point, and render via the browser.
 
 (fn URL)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dextract_002dxml">
-        <h4 class="subsubsection">12.22.4.20
-        emacspeak-bookshare-extract-xml</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dextract_002dxml">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-extract-xml</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dextract_002dxml'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dextract_002dxml-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Extract content referred to by link under point, and return an XML buffer.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dextract_002dxml">
+<h4 class="subsubsection">12.22.4.20 emacspeak-bookshare-extract-xml</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dextract_002dxml"><span class="category">Command: </span><span><strong>emacspeak-bookshare-extract-xml</strong> <em>(url)</em><a href='#index-emacspeak_002dbookshare_002dextract_002dxml' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dextract_002dxml-1"></span>
+
+<div class="format">
+<pre class="format">Extract content referred to by link under point, and return an XML buffer.
 
 (fn URL)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dflush_002dlines">
-        <h4 class="subsubsection">12.22.4.21
-        emacspeak-bookshare-flush-lines</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dflush_002dlines">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-flush-lines</strong>
-          <em>(regexp)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dflush_002dlines'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dflush_002dlines-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Flush lines matching regexp in Bookshare buffer.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dflush_002dlines">
+<h4 class="subsubsection">12.22.4.21 emacspeak-bookshare-flush-lines</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dflush_002dlines"><span class="category">Command: </span><span><strong>emacspeak-bookshare-flush-lines</strong> <em>(regexp)</em><a href='#index-emacspeak_002dbookshare_002dflush_002dlines' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dflush_002dlines-1"></span>
+
+<div class="format">
+<pre class="format">Flush lines matching regexp in Bookshare buffer.
 
 (fn REGEXP)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dfulltext">
-        <h4 class="subsubsection">12.22.4.22
-        emacspeak-bookshare-fulltext</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002dfulltext">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-fulltext</strong>
-          <em>(directory)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dfulltext' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dfulltext-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Display fulltext contents of  book in specified directory.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dfulltext">
+<h4 class="subsubsection">12.22.4.22 emacspeak-bookshare-fulltext</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dfulltext"><span class="category">Command: </span><span><strong>emacspeak-bookshare-fulltext</strong> <em>(directory)</em><a href='#index-emacspeak_002dbookshare_002dfulltext' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dfulltext-1"></span>
+
+<div class="format">
+<pre class="format">Display fulltext contents of  book in specified directory.
 Useful for fulltext search in a book.
 
 (fn DIRECTORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dfulltext_002dsearch">
-        <h4 class="subsubsection">12.22.4.23
-        emacspeak-bookshare-fulltext-search</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dfulltext_002dsearch">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-fulltext-search</strong>
-          <em>(query)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dfulltext_002dsearch'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dfulltext_002dsearch-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Perform a Bookshare fulltext search.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dfulltext_002dsearch">
+<h4 class="subsubsection">12.22.4.23 emacspeak-bookshare-fulltext-search</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dfulltext_002dsearch"><span class="category">Command: </span><span><strong>emacspeak-bookshare-fulltext-search</strong> <em>(query)</em><a href='#index-emacspeak_002dbookshare_002dfulltext_002dsearch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dfulltext_002dsearch-1"></span>
+
+<div class="format">
+<pre class="format">Perform a Bookshare fulltext search.
 
 (fn QUERY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dget_002dmore_002dresults">
-        <h4 class="subsubsection">12.22.4.24
-        emacspeak-bookshare-get-more-results</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dget_002dmore_002dresults">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-get-more-results</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dget_002dmore_002dresults'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dget_002dmore_002dresults-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Get next page of results for last query.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002did_002dsearch">
-        <h4 class="subsubsection">12.22.4.25
-        emacspeak-bookshare-id-search</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002did_002dsearch">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-id-search</strong>
-          <em>(query)</em> <a href=
-          '#index-emacspeak_002dbookshare_002did_002dsearch' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002did_002dsearch-1"></span>
-            <div class="format">
-              <pre class="format">Perform a Bookshare id search.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dget_002dmore_002dresults">
+<h4 class="subsubsection">12.22.4.24 emacspeak-bookshare-get-more-results</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dget_002dmore_002dresults"><span class="category">Command: </span><span><strong>emacspeak-bookshare-get-more-results</strong><a href='#index-emacspeak_002dbookshare_002dget_002dmore_002dresults' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dget_002dmore_002dresults-1"></span>
+
+<div class="format">
+<pre class="format">Get next page of results for last query.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002did_002dsearch">
+<h4 class="subsubsection">12.22.4.25 emacspeak-bookshare-id-search</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002did_002dsearch"><span class="category">Command: </span><span><strong>emacspeak-bookshare-id-search</strong> <em>(query)</em><a href='#index-emacspeak_002dbookshare_002did_002dsearch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002did_002dsearch-1"></span>
+
+<div class="format">
+<pre class="format">Perform a Bookshare id search.
 
 (fn QUERY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002disbn_002dsearch">
-        <h4 class="subsubsection">12.22.4.26
-        emacspeak-bookshare-isbn-search</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002disbn_002dsearch">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-isbn-search</strong>
-          <em>(query)</em> <a href=
-          '#index-emacspeak_002dbookshare_002disbn_002dsearch'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002disbn_002dsearch-1"></span>
-            <div class="format">
-              <pre class="format">Perform a Bookshare isbn search.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002disbn_002dsearch">
+<h4 class="subsubsection">12.22.4.26 emacspeak-bookshare-isbn-search</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002disbn_002dsearch"><span class="category">Command: </span><span><strong>emacspeak-bookshare-isbn-search</strong> <em>(query)</em><a href='#index-emacspeak_002dbookshare_002disbn_002dsearch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002disbn_002dsearch-1"></span>
+
+<div class="format">
+<pre class="format">Perform a Bookshare isbn search.
 
 (fn QUERY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dlist_002dpreferences">
-        <h4 class="subsubsection">12.22.4.27
-        emacspeak-bookshare-list-preferences</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dlist_002dpreferences">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-list-preferences</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dlist_002dpreferences'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dlist_002dpreferences-1">
-            </span>
-            <div class="format">
-              <pre class="format">Return preference list.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dmode">
-        <h4 class="subsubsection">12.22.4.28
-        emacspeak-bookshare-mode</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002dmode">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-mode</strong> <a href=
-          '#index-emacspeak_002dbookshare_002dmode' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dmode-1"></span>
-            <div class="format">
-              <pre class=
-              "format">A Bookshare front-end for the Emacspeak desktop.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dlist_002dpreferences">
+<h4 class="subsubsection">12.22.4.27 emacspeak-bookshare-list-preferences</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dlist_002dpreferences"><span class="category">Command: </span><span><strong>emacspeak-bookshare-list-preferences</strong><a href='#index-emacspeak_002dbookshare_002dlist_002dpreferences' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dlist_002dpreferences-1"></span>
+
+<div class="format">
+<pre class="format">Return preference list.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dmode">
+<h4 class="subsubsection">12.22.4.28 emacspeak-bookshare-mode</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dmode"><span class="category">Command: </span><span><strong>emacspeak-bookshare-mode</strong><a href='#index-emacspeak_002dbookshare_002dmode' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dmode-1"></span>
+
+<div class="format">
+<pre class="format">A Bookshare front-end for the Emacspeak desktop.
 
 The Emacspeak Bookshare front-end is launched by command
 emacspeak-bookshare bound to C-e C-b
 
 This command switches to a special buffer that has Bookshare
-commands bounds to single keystrokes– see the key-binding list at
+commands bounds to single keystrokes&ndash; see the key-binding list at
 the end of this description. Use Emacs online help facility to
 look up help on these commands.
 
@@ -939,431 +550,266 @@ d Date Search
 b Browse
 
 Key             Binding
-——————————————————————————-
-SPC             emacspeak-bookshare-expand-at-point
-+               emacspeak-bookshare-action
-/               emacspeak-bookshare-action
-3               emacspeak-bookshare-download-epub-3-at-point
-A               emacspeak-bookshare-download-audio-at-point
-B               emacspeak-bookshare-download-brf-at-point
-C               emacspeak-bookshare-fulltext
-D               emacspeak-bookshare-download-daisy-at-point
-E               emacspeak-bookshare-eww
-I               emacspeak-bookshare-action
-P               emacspeak-bookshare-action
-S               emacspeak-bookshare-action
-U               emacspeak-bookshare-unpack-at-point
-V               emacspeak-bookshare-view-at-point
-[               backward-page
-]               forward-page
-a               emacspeak-bookshare-action
-b               emacspeak-bookshare-browse
-c               emacspeak-bookshare-toc-at-point
-d               emacspeak-bookshare-action
-e               emacspeak-bookshare-eww
-f               emacspeak-bookshare-flush-lines
-i               emacspeak-bookshare-action
-j               next-line
-k               previous-line
-l .. m          emacspeak-bookshare-action
-n               emacspeak-bookshare-next-result
-p               emacspeak-bookshare-previous-result
-q               bury-buffer
-s .. t          emacspeak-bookshare-action
-v               emacspeak-bookshare-view
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+SPC		emacspeak-bookshare-expand-at-point
++		emacspeak-bookshare-action
+/		emacspeak-bookshare-action
+3		emacspeak-bookshare-download-epub-3-at-point
+A		emacspeak-bookshare-download-audio-at-point
+B		emacspeak-bookshare-download-brf-at-point
+C		emacspeak-bookshare-fulltext
+D		emacspeak-bookshare-download-daisy-at-point
+E		emacspeak-bookshare-eww
+I		emacspeak-bookshare-action
+P		emacspeak-bookshare-action
+S		emacspeak-bookshare-action
+U		emacspeak-bookshare-unpack-at-point
+V		emacspeak-bookshare-view-at-point
+[		backward-page
+]		forward-page
+a		emacspeak-bookshare-action
+b		emacspeak-bookshare-browse
+c		emacspeak-bookshare-toc-at-point
+d		emacspeak-bookshare-action
+e		emacspeak-bookshare-eww
+f		emacspeak-bookshare-flush-lines
+i		emacspeak-bookshare-action
+j		next-line
+k		previous-line
+l .. m		emacspeak-bookshare-action
+n		emacspeak-bookshare-next-result
+p		emacspeak-bookshare-previous-result
+q		bury-buffer
+s .. t		emacspeak-bookshare-action
+v		emacspeak-bookshare-view
 
-M-n             emacspeak-bookshare-next-result
-M-p             emacspeak-bookshare-previous-result
+M-n		emacspeak-bookshare-next-result
+M-p		emacspeak-bookshare-previous-result
 
 In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the
 final or penultimate step during initialization.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dnext_002dresult">
-        <h4 class="subsubsection">12.22.4.29
-        emacspeak-bookshare-next-result</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dnext_002dresult">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-next-result</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dnext_002dresult'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dnext_002dresult-1"></span>
-            <div class="format">
-              <pre class="format">Move to next result.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dperiodical_002dlist">
-        <h4 class="subsubsection">12.22.4.30
-        emacspeak-bookshare-periodical-list</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dperiodical_002dlist">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-periodical-list</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dperiodical_002dlist'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dperiodical_002dlist-1">
-            </span>
-            <div class="format">
-              <pre class="format">Return list of periodicals.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dprevious_002dresult">
-        <h4 class="subsubsection">12.22.4.31
-        emacspeak-bookshare-previous-result</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dprevious_002dresult">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-previous-result</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dprevious_002dresult'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dprevious_002dresult-1">
-            </span>
-            <div class="format">
-              <pre class="format">Move to previous result.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dset_002dpreference">
-        <h4 class="subsubsection">12.22.4.32
-        emacspeak-bookshare-set-preference</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dset_002dpreference">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-set-preference</strong>
-          <em>(preference-id value)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dset_002dpreference'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dset_002dpreference-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Set preference preference-id to value.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dnext_002dresult">
+<h4 class="subsubsection">12.22.4.29 emacspeak-bookshare-next-result</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dnext_002dresult"><span class="category">Command: </span><span><strong>emacspeak-bookshare-next-result</strong><a href='#index-emacspeak_002dbookshare_002dnext_002dresult' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dnext_002dresult-1"></span>
+
+<div class="format">
+<pre class="format">Move to next result.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dperiodical_002dlist">
+<h4 class="subsubsection">12.22.4.30 emacspeak-bookshare-periodical-list</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dperiodical_002dlist"><span class="category">Command: </span><span><strong>emacspeak-bookshare-periodical-list</strong><a href='#index-emacspeak_002dbookshare_002dperiodical_002dlist' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dperiodical_002dlist-1"></span>
+
+<div class="format">
+<pre class="format">Return list of periodicals.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dprevious_002dresult">
+<h4 class="subsubsection">12.22.4.31 emacspeak-bookshare-previous-result</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dprevious_002dresult"><span class="category">Command: </span><span><strong>emacspeak-bookshare-previous-result</strong><a href='#index-emacspeak_002dbookshare_002dprevious_002dresult' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dprevious_002dresult-1"></span>
+
+<div class="format">
+<pre class="format">Move to previous result.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dset_002dpreference">
+<h4 class="subsubsection">12.22.4.32 emacspeak-bookshare-set-preference</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dset_002dpreference"><span class="category">Command: </span><span><strong>emacspeak-bookshare-set-preference</strong> <em>(preference-id value)</em><a href='#index-emacspeak_002dbookshare_002dset_002dpreference' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dset_002dpreference-1"></span>
+
+<div class="format">
+<pre class="format">Set preference preference-id to value.
 
 (fn PREFERENCE-ID VALUE)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dsince_002dsearch">
-        <h4 class="subsubsection">12.22.4.33
-        emacspeak-bookshare-since-search</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dsince_002dsearch">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-since-search</strong>
-          <em>(query &amp;optional category)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dsince_002dsearch'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dsince_002dsearch-1"></span>
-            <div class="format">
-              <pre class="format">Perform a Bookshare date  search.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dsince_002dsearch">
+<h4 class="subsubsection">12.22.4.33 emacspeak-bookshare-since-search</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dsince_002dsearch"><span class="category">Command: </span><span><strong>emacspeak-bookshare-since-search</strong> <em>(query &amp;optional category)</em><a href='#index-emacspeak_002dbookshare_002dsince_002dsearch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dsince_002dsearch-1"></span>
+
+<div class="format">
+<pre class="format">Perform a Bookshare date  search.
 Optional interactive prefix arg filters by category.
 
 (fn QUERY &amp;optional CATEGORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dtitle_002dsearch">
-        <h4 class="subsubsection">12.22.4.34
-        emacspeak-bookshare-title-search</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dtitle_002dsearch">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-title-search</strong>
-          <em>(query &amp;optional category)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dtitle_002dsearch'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dtitle_002dsearch-1"></span>
-            <div class="format">
-              <pre class="format">Perform a Bookshare title search.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dtitle_002dsearch">
+<h4 class="subsubsection">12.22.4.34 emacspeak-bookshare-title-search</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dtitle_002dsearch"><span class="category">Command: </span><span><strong>emacspeak-bookshare-title-search</strong> <em>(query &amp;optional category)</em><a href='#index-emacspeak_002dbookshare_002dtitle_002dsearch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dtitle_002dsearch-1"></span>
+
+<div class="format">
+<pre class="format">Perform a Bookshare title search.
 Interactive prefix arg filters search by category.
 
 (fn QUERY &amp;optional CATEGORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dtoc">
-        <h4 class="subsubsection">12.22.4.35
-        emacspeak-bookshare-toc</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002dtoc">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-toc</strong>
-          <em>(directory)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dtoc' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dtoc-1"></span>
-            <div class="format">
-              <pre class=
-              "format">View TOC for book in specified directory.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dtoc">
+<h4 class="subsubsection">12.22.4.35 emacspeak-bookshare-toc</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dtoc"><span class="category">Command: </span><span><strong>emacspeak-bookshare-toc</strong> <em>(directory)</em><a href='#index-emacspeak_002dbookshare_002dtoc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dtoc-1"></span>
+
+<div class="format">
+<pre class="format">View TOC for book in specified directory.
 
 (fn DIRECTORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dtoc_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.36
-        emacspeak-bookshare-toc-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-toc-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class="format">View TOC for book at point.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dtoc_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.36 emacspeak-bookshare-toc-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-toc-at-point</strong><a href='#index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">View TOC for book at point.
 Make sure it’s downloaded and unpacked first.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dunpack_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.37
-        emacspeak-bookshare-unpack-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-unpack-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Unpack downloaded content if necessary.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002durl_002dexecutor">
-        <h4 class="subsubsection">12.22.4.38
-        emacspeak-bookshare-url-executor</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002durl_002dexecutor">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-url-executor</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002dbookshare_002durl_002dexecutor'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002durl_002dexecutor-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Custom URL executor for use in Bookshare TOC.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dunpack_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.37 emacspeak-bookshare-unpack-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-unpack-at-point</strong><a href='#index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">Unpack downloaded content if necessary.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002durl_002dexecutor">
+<h4 class="subsubsection">12.22.4.38 emacspeak-bookshare-url-executor</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002durl_002dexecutor"><span class="category">Command: </span><span><strong>emacspeak-bookshare-url-executor</strong> <em>(url)</em><a href='#index-emacspeak_002dbookshare_002durl_002dexecutor' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002durl_002dexecutor-1"></span>
+
+<div class="format">
+<pre class="format">Custom URL executor for use in Bookshare TOC.
 
 (fn URL)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dversion_002dhandler">
-        <h4 class="subsubsection">12.22.4.39
-        emacspeak-bookshare-version-handler</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dversion_002dhandler">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-version-handler</strong>
-          <em>(&amp;rest arguments)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dversion_002dhandler'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dversion_002dhandler-1">
-            </span>
-            <div class="format">
-              <pre class="format">Do nothing and return nil.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dversion_002dhandler">
+<h4 class="subsubsection">12.22.4.39 emacspeak-bookshare-version-handler</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dversion_002dhandler"><span class="category">Command: </span><span><strong>emacspeak-bookshare-version-handler</strong> <em>(&amp;rest arguments)</em><a href='#index-emacspeak_002dbookshare_002dversion_002dhandler' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dversion_002dhandler-1"></span>
+
+<div class="format">
+<pre class="format">Do nothing and return nil.
 This function accepts any number of ARGUMENTS, but ignores them.
 Also see ‘always’.
 
 (fn &amp;rest ARGUMENTS)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dview">
-        <h4 class="subsubsection">12.22.4.40
-        emacspeak-bookshare-view</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dbookshare_002dview">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-view</strong>
-          <em>(directory)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dview' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dview-1"></span>
-            <div class="format">
-              <pre class="format">View book in specified directory.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dview">
+<h4 class="subsubsection">12.22.4.40 emacspeak-bookshare-view</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dview"><span class="category">Command: </span><span><strong>emacspeak-bookshare-view</strong> <em>(directory)</em><a href='#index-emacspeak_002dbookshare_002dview' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dview-1"></span>
+
+<div class="format">
+<pre class="format">View book in specified directory.
 
 (fn DIRECTORY)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dview_002dat_002dpoint">
-        <h4 class="subsubsection">12.22.4.41
-        emacspeak-bookshare-view-at-point</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dview_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-view-at-point</strong>
-          <a href=
-          '#index-emacspeak_002dbookshare_002dview_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dview_002dat_002dpoint-1">
-            </span>
-            <div class="format">
-              <pre class="format">View book at point.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dview_002dat_002dpoint">
+<h4 class="subsubsection">12.22.4.41 emacspeak-bookshare-view-at-point</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dview_002dat_002dpoint"><span class="category">Command: </span><span><strong>emacspeak-bookshare-view-at-point</strong><a href='#index-emacspeak_002dbookshare_002dview_002dat_002dpoint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dview_002dat_002dpoint-1"></span>
+
+<div class="format">
+<pre class="format">View book at point.
 Make sure it’s downloaded and unpacked first.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dbookshare_002dview_002dpage_002drange">
-        <h4 class="subsubsection">12.22.4.42
-        emacspeak-bookshare-view-page-range</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dbookshare_002dview_002dpage_002drange">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-bookshare-view-page-range</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002dbookshare_002dview_002dpage_002drange'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dbookshare_002dview_002dpage_002drange-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Play pages in specified page range from URL.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dbookshare_002dview_002dpage_002drange">
+<h4 class="subsubsection">12.22.4.42 emacspeak-bookshare-view-page-range</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dbookshare_002dview_002dpage_002drange"><span class="category">Command: </span><span><strong>emacspeak-bookshare-view-page-range</strong> <em>(url)</em><a href='#index-emacspeak_002dbookshare_002dview_002dpage_002drange' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dbookshare_002dview_002dpage_002drange-1"></span>
+
+<div class="format">
+<pre class="format">Play pages in specified page range from URL.
 
 (fn URL)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-    <div class="subsection" id="emacspeak_002dbookshare-Options">
-      <h4 class="subsection">12.22.5 emacspeak-bookshare
-      Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-19"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-bookshare-api-key</em>
-        <a href='#index-User-Option-19' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Web API key for this application. See
-          http://developer.bookshare.org/docs for details on how to
-          get an API key.</p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-20"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-bookshare-directory</em>
-        <a href='#index-User-Option-20' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Customize this to the root of where books are
-          organized.</p>
-        </dd>
-      </dl>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002dbrowse_002dkill_002dring.html">emacspeak-browse-kill-ring</a>,
-    Previous: <a href=
-    "emacspeak_002dbookmark.html">emacspeak-bookmark</a>, Up:
-    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+<div class="subsection" id="emacspeak_002dbookshare-Options">
+<h4 class="subsection">12.22.5 emacspeak-bookshare Options</h4>
+
+<dl class="def">
+<dt id="index-User-Option-19"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-bookshare-api-key</em><a href='#index-User-Option-19' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Web API  key for this application.
+See http://developer.bookshare.org/docs for details on how to get
+  an API key. 
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-20"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-bookshare-directory</em><a href='#index-User-Option-20' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Customize this to the root of where books are organized.
+</p>
+</dd></dl>
+
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dbrowse_002dkill_002dring.html">emacspeak-browse-kill-ring</a>, Previous: <a href="emacspeak_002dbookmark.html">emacspeak-bookmark</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

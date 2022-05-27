@@ -1,324 +1,200 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-proced (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-proced (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-proced (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dproject.html" rel="next" title=
-  "emacspeak-project" />
-  <link href="emacspeak_002dpopup.html" rel="prev" title=
-  "emacspeak-popup" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-proced (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-proced (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-proced (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dproject.html" rel="next" title="emacspeak-project">
+<link href="emacspeak_002dpopup.html" rel="prev" title="emacspeak-popup">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dproced">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dproject.html" accesskey="n"
-      rel="next">emacspeak-project</a>, Previous: <a href=
-      "emacspeak_002dpopup.html" accesskey="p" rel=
-      "prev">emacspeak-popup</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dproced-1"></span>
-    <h3 class="section">12.145 emacspeak-proced</h3>
-    <p>PROCED == Process Editor A new Task Manager for Emacs.
-    Proced is part of emacs 23.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dProced-Commands" accesskey=
-      "1">Emacspeak-Proced Commands</a></li>
-    </ul>
-    <div class="subsection" id="Emacspeak_002dProced-Commands">
-      <h4 class="subsection">12.145.1 Emacspeak-Proced
-      Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dproced_002djump_002dto_002dprocess"
-        accesskey="1">emacspeak-proced-jump-to-process</a></li>
-        <li><a href="#emacspeak_002dproced_002dnext_002dfield"
-        accesskey="2">emacspeak-proced-next-field</a></li>
-        <li><a href="#emacspeak_002dproced_002dnext_002dline"
-        accesskey="3">emacspeak-proced-next-line</a></li>
-        <li><a href="#emacspeak_002dproced_002dprevious_002dfield"
-        accesskey="4">emacspeak-proced-previous-field</a></li>
-        <li><a href="#emacspeak_002dproced_002dprevious_002dline"
-        accesskey="5">emacspeak-proced-previous-line</a></li>
-        <li><a href="#emacspeak_002dproced_002dspeak_002dargs"
-        accesskey="6">emacspeak-proced-speak-args</a></li>
-        <li><a href="#emacspeak_002dproced_002dspeak_002dfield"
-        accesskey="7">emacspeak-proced-speak-field</a></li>
-        <li><a href=
-        "#emacspeak_002dproced_002dspeak_002dthat_002dfield"
-        accesskey="8">emacspeak-proced-speak-that-field</a></li>
-        <li><a href=
-        "#emacspeak_002dproced_002dspeak_002dthis_002dfield"
-        accesskey="9">emacspeak-proced-speak-this-field</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002djump_002dto_002dprocess">
-        <h4 class="subsubsection">12.145.1.1
-        emacspeak-proced-jump-to-process</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dproced_002djump_002dto_002dprocess">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-jump-to-process</strong>
-          <em>(name)</em> <a href=
-          '#index-emacspeak_002dproced_002djump_002dto_002dprocess'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002djump_002dto_002dprocess-1">
-            </span>
-            <div class="format">
-              <pre class="format">Jump to process by name.
+
+<body lang="en">
+<div class="section" id="emacspeak_002dproced">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dproject.html" accesskey="n" rel="next">emacspeak-project</a>, Previous: <a href="emacspeak_002dpopup.html" accesskey="p" rel="prev">emacspeak-popup</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dproced-1"></span><h3 class="section">12.145 emacspeak-proced</h3>
+
+<p>PROCED ==  Process Editor
+A new Task Manager for Emacs.
+Proced is part of emacs 23.
+</p>
+<ul class="section-toc">
+<li><a href="#Emacspeak_002dProced-Commands" accesskey="1">Emacspeak-Proced Commands</a></li>
+</ul>
+<div class="subsection" id="Emacspeak_002dProced-Commands">
+<h4 class="subsection">12.145.1 Emacspeak-Proced Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dproced_002djump_002dto_002dprocess" accesskey="1">emacspeak-proced-jump-to-process</a></li>
+<li><a href="#emacspeak_002dproced_002dnext_002dfield" accesskey="2">emacspeak-proced-next-field</a></li>
+<li><a href="#emacspeak_002dproced_002dnext_002dline" accesskey="3">emacspeak-proced-next-line</a></li>
+<li><a href="#emacspeak_002dproced_002dprevious_002dfield" accesskey="4">emacspeak-proced-previous-field</a></li>
+<li><a href="#emacspeak_002dproced_002dprevious_002dline" accesskey="5">emacspeak-proced-previous-line</a></li>
+<li><a href="#emacspeak_002dproced_002dspeak_002dargs" accesskey="6">emacspeak-proced-speak-args</a></li>
+<li><a href="#emacspeak_002dproced_002dspeak_002dfield" accesskey="7">emacspeak-proced-speak-field</a></li>
+<li><a href="#emacspeak_002dproced_002dspeak_002dthat_002dfield" accesskey="8">emacspeak-proced-speak-that-field</a></li>
+<li><a href="#emacspeak_002dproced_002dspeak_002dthis_002dfield" accesskey="9">emacspeak-proced-speak-this-field</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dproced_002djump_002dto_002dprocess">
+<h4 class="subsubsection">12.145.1.1 emacspeak-proced-jump-to-process</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002djump_002dto_002dprocess"><span class="category">Command: </span><span><strong>emacspeak-proced-jump-to-process</strong> <em>(name)</em><a href='#index-emacspeak_002dproced_002djump_002dto_002dprocess' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002djump_002dto_002dprocess-1"></span>
+
+<div class="format">
+<pre class="format">Jump to process by name.
 
 (fn NAME)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dnext_002dfield">
-        <h4 class="subsubsection">12.145.1.2
-        emacspeak-proced-next-field</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dproced_002dnext_002dfield">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-next-field</strong>
-          <a href='#index-emacspeak_002dproced_002dnext_002dfield'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dnext_002dfield-1"></span>
-            <div class="format">
-              <pre class="format">Navigate to next field.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dnext_002dline">
-        <h4 class="subsubsection">12.145.1.3
-        emacspeak-proced-next-line</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dproced_002dnext_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-next-line</strong>
-          <a href='#index-emacspeak_002dproced_002dnext_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dnext_002dline-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move to next line and speak a summary.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dprevious_002dfield">
-        <h4 class="subsubsection">12.145.1.4
-        emacspeak-proced-previous-field</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dproced_002dprevious_002dfield">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-previous-field</strong>
-          <a href=
-          '#index-emacspeak_002dproced_002dprevious_002dfield'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dprevious_002dfield-1"></span>
-            <div class="format">
-              <pre class="format">Navigate to previous field.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dprevious_002dline">
-        <h4 class="subsubsection">12.145.1.5
-        emacspeak-proced-previous-line</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dproced_002dprevious_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-previous-line</strong>
-          <a href=
-          '#index-emacspeak_002dproced_002dprevious_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dprevious_002dline-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move to next line and speak a summary.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dspeak_002dargs">
-        <h4 class="subsubsection">12.145.1.6
-        emacspeak-proced-speak-args</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dproced_002dspeak_002dargs">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-speak-args</strong>
-          <a href='#index-emacspeak_002dproced_002dspeak_002dargs'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dspeak_002dargs-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Speak command  invocation  for this process.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dspeak_002dfield">
-        <h4 class="subsubsection">12.145.1.7
-        emacspeak-proced-speak-field</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dproced_002dspeak_002dfield">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-speak-field</strong>
-          <em>(field-name)</em> <a href=
-          '#index-emacspeak_002dproced_002dspeak_002dfield' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dspeak_002dfield-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Speak value of specified field in current line.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dnext_002dfield">
+<h4 class="subsubsection">12.145.1.2 emacspeak-proced-next-field</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dnext_002dfield"><span class="category">Command: </span><span><strong>emacspeak-proced-next-field</strong><a href='#index-emacspeak_002dproced_002dnext_002dfield' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dnext_002dfield-1"></span>
+
+<div class="format">
+<pre class="format">Navigate to next field.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dnext_002dline">
+<h4 class="subsubsection">12.145.1.3 emacspeak-proced-next-line</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dnext_002dline"><span class="category">Command: </span><span><strong>emacspeak-proced-next-line</strong><a href='#index-emacspeak_002dproced_002dnext_002dline' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dnext_002dline-1"></span>
+
+<div class="format">
+<pre class="format">Move to next line and speak a summary.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dprevious_002dfield">
+<h4 class="subsubsection">12.145.1.4 emacspeak-proced-previous-field</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dprevious_002dfield"><span class="category">Command: </span><span><strong>emacspeak-proced-previous-field</strong><a href='#index-emacspeak_002dproced_002dprevious_002dfield' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dprevious_002dfield-1"></span>
+
+<div class="format">
+<pre class="format">Navigate to previous field.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dprevious_002dline">
+<h4 class="subsubsection">12.145.1.5 emacspeak-proced-previous-line</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dprevious_002dline"><span class="category">Command: </span><span><strong>emacspeak-proced-previous-line</strong><a href='#index-emacspeak_002dproced_002dprevious_002dline' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dprevious_002dline-1"></span>
+
+<div class="format">
+<pre class="format">Move to next line and speak a summary.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dspeak_002dargs">
+<h4 class="subsubsection">12.145.1.6 emacspeak-proced-speak-args</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dspeak_002dargs"><span class="category">Command: </span><span><strong>emacspeak-proced-speak-args</strong><a href='#index-emacspeak_002dproced_002dspeak_002dargs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dspeak_002dargs-1"></span>
+
+<div class="format">
+<pre class="format">Speak command  invocation  for this process.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dspeak_002dfield">
+<h4 class="subsubsection">12.145.1.7 emacspeak-proced-speak-field</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dspeak_002dfield"><span class="category">Command: </span><span><strong>emacspeak-proced-speak-field</strong> <em>(field-name)</em><a href='#index-emacspeak_002dproced_002dspeak_002dfield' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dspeak_002dfield-1"></span>
+
+<div class="format">
+<pre class="format">Speak value of specified field in current line.
 
 (fn FIELD-NAME)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dspeak_002dthat_002dfield">
-        <h4 class="subsubsection">12.145.1.8
-        emacspeak-proced-speak-that-field</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dproced_002dspeak_002dthat_002dfield">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-speak-that-field</strong>
-          <a href=
-          '#index-emacspeak_002dproced_002dspeak_002dthat_002dfield'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dspeak_002dthat_002dfield-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Speak desired field via single keystroke.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dproced_002dspeak_002dthis_002dfield">
-        <h4 class="subsubsection">12.145.1.9
-        emacspeak-proced-speak-this-field</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dproced_002dspeak_002dthis_002dfield">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-proced-speak-this-field</strong>
-          <em>(&amp;optional position)</em> <a href=
-          '#index-emacspeak_002dproced_002dspeak_002dthis_002dfield'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dproced_002dspeak_002dthis_002dfield-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Speak field at specified column — defaults to current column.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dspeak_002dthat_002dfield">
+<h4 class="subsubsection">12.145.1.8 emacspeak-proced-speak-that-field</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dspeak_002dthat_002dfield"><span class="category">Command: </span><span><strong>emacspeak-proced-speak-that-field</strong><a href='#index-emacspeak_002dproced_002dspeak_002dthat_002dfield' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dspeak_002dthat_002dfield-1"></span>
+
+<div class="format">
+<pre class="format">Speak desired field via single keystroke.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dproced_002dspeak_002dthis_002dfield">
+<h4 class="subsubsection">12.145.1.9 emacspeak-proced-speak-this-field</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dproced_002dspeak_002dthis_002dfield"><span class="category">Command: </span><span><strong>emacspeak-proced-speak-this-field</strong> <em>(&amp;optional position)</em><a href='#index-emacspeak_002dproced_002dspeak_002dthis_002dfield' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dproced_002dspeak_002dthis_002dfield-1"></span>
+
+<div class="format">
+<pre class="format">Speak field at specified column &mdash; defaults to current column.
 
 (fn &amp;optional POSITION)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002dproject.html">emacspeak-project</a>, Previous:
-    <a href="emacspeak_002dpopup.html">emacspeak-popup</a>, Up:
-    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dproject.html">emacspeak-project</a>, Previous: <a href="emacspeak_002dpopup.html">emacspeak-popup</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

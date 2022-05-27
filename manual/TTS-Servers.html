@@ -1,302 +1,281 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>TTS Servers (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "TTS Servers (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "TTS Servers (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="index.html" rel="up" title="Top" />
-  <link href="Emacspeak-At-Twenty.html" rel="next" title=
-  "Emacspeak At Twenty" />
-  <link href="Emacspeak-Keyboard-Commands.html" rel="prev" title=
-  "Emacspeak Keyboard Commands" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>TTS Servers (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="TTS Servers (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="TTS Servers (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="Emacspeak-At-Twenty.html" rel="next" title="Emacspeak At Twenty">
+<link href="Emacspeak-Keyboard-Commands.html" rel="prev" title="Emacspeak Keyboard Commands">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="chapter" id="TTS-Servers">
-    <div class="header">
-      <p>Next: <a href="Emacspeak-At-Twenty.html" accesskey="n"
-      rel="next">Emacspeak At Twenty.</a>, Previous: <a href=
-      "Emacspeak-Keyboard-Commands.html" accesskey="p" rel=
-      "prev">Emacspeak Keyboard Commands.</a>, Up: <a href=
-      "index.html" accesskey="u" rel="up">Emacspeak</a> &nbsp;
-      [<a href="index.html#SEC_Contents" title="Table of contents"
-      rel="contents">Contents</a>][<a href="Concept-Index.html"
-      title="Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="TTS-Servers-1"></span>
-    <h2 class="chapter">14 TTS Servers</h2>
-    <p>Emacspeak produces spoken output by communicating with one
-    of many speech servers. This section documents the
-    communication protocol between the client application i.e.
-    Emacspeak, and the <acronym title=
-    "Text to Speech">TTS</acronym> (Text to Speech) server. This
-    section is primarily intended for developers wishing to:</p>
-    <ul>
-      <li>Create new speech servers that comply with this
-      communication protocol</li>
-      <li>Developers of other client applications who wish to use
-      the various Emacspeak speech servers.</li>
-    </ul>
-    <p>For additional notes on how to log and view <acronym title=
-    "Text to Speech">TTS</acronym> server commands when developing
-    a speech server, see <a href=
-    "http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html">
-    http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html</a>.</p>
-    <ul class="section-toc">
-      <li><a href="#High_002dlevel-Overview" accesskey=
-      "1">High-level Overview</a></li>
-    </ul>
-    <div class="section" id="High_002dlevel-Overview">
-      <h3 class="section">14.1 High-level Overview</h3>
-      <p>The <acronym title="Text to Speech">TTS</acronym> server
-      reads commands from standard input, and script
-      <em>speech-server</em> can be used to cause a <acronym title=
-      "Text to Speech">TTS</acronym> server to communicate via a
-      <acronym>TCP</acronym> socket. Speech server commands are
-      used by the client application to make specific requests of
-      the server; the server listens for these requests in a
-      non-blocking read loop and executes requests as they become
-      available. Requests can be classified as follows:</p>
-      <ul>
-        <li>Commands that send text to be spoken.</li>
-        <li>Commands that set <em>state</em> of the <acronym title=
-        "Text to Speech">TTS</acronym> server.</li>
-      </ul>
-      <p>All commands are of the form</p>
-      <div class="example">
-        <pre class="example">commandWord {arguments}
-</pre>
-      </div>
-      <p>The braces are optional if the command argument contains
-      no white space. The speech server maintains a <em>current
-      state</em> that determines various characteristics of spoken
-      output such as speech rate, punctuations mode etc. (see set
-      of commands that manipulate speech state for complete list).
-      The client application <em>queues</em> The text and
-      non-speech audio output to be produced before asking the
-      server to <em>dispatch</em> the set of queued requests, i.e.
-      start producing output.</p>
-      <p>Once the server has been asked to produce output, it
-      removes items from the front of the queue, sends the
-      requisite commands to the underlying <acronym title=
-      "Text to Speech">TTS</acronym> engine, and waits for the
-      engine to acknowledge that the request has been completely
-      processed. This is a non-blocking operation, i.e., if the
-      client application generates additional requests, these are
-      processed <em>immediately</em>.</p>
-      <p>The above design allows the Emacspeak <acronym title=
-      "Text to Speech">TTS</acronym> server to be <em>highly</em>
-      responsive; Client applications can queue large amounts of
-      text (typically queued a clause at a time to achieve the best
-      prosody), ask the <acronym title=
-      "Text to Speech">TTS</acronym> server to start speaking, and
-      interrupt the spoken output at any time.</p>
-      <ul class="section-toc">
-        <li><a href="#Commands-That-Queue-Output_002e" accesskey=
-        "1">Commands That Queue Output.</a></li>
-        <li><a href="#Commands-That-Set-State" accesskey=
-        "2">Commands That Set State</a></li>
-      </ul>
-      <div class="subsection" id="Commands-That-Queue-Output_002e">
-        <h4 class="subsection">14.1.1 Commands That Queue
-        Output.</h4>
-        <p>This section documents commands that either produce
-        spoken output, or queue output to be produced on demand.
-        Commands that place the request on the queue are clearly
-        marked.</p>
-        <div class="example">
-          <pre class="example">version
-</pre>
-        </div>
-        <p>Speaks the <em>version</em> of the <acronym title=
-        "Text to Speech">TTS</acronym> engine. Produces output
-        immediately.</p>
-        <div class="example">
-          <pre class="example">tts_say text
-</pre>
-        </div>
-        <p>Speaks the specified <em>text</em> immediately. The text
-        is not pre-processed in any way, contrast this with the
-        primary way of speaking text which is to queue text before
-        asking the server to process the queue.</p>
-        <p>Note that this command needs to handle the special
-        syntax for morpheme boundaries ‘<samp>[*]</samp>’. The
-        ‘<samp>[*]</samp>’ syntax is specific to the Dectalk family
-        of synthesizers; servers for other <acronym title=
-        "Text to Speech">TTS</acronym> engines need to map this
-        pattern to the engine-specific code for each engine. As an
-        example, see <samp>servers/outloud</samp> A morpheme
-        boundary results in synthesizing compound words such as
-        <em>left bracket</em> with the right intonation; using a
-        space would result in that phrase being synthesized as two
-        separate words.</p>
-        <div class="example">
-          <pre class="example">l c
-</pre>
-        </div>
-        <p>Speak <em>c</em> a single character, as a letter. The
-        character is spoken immediately. This command uses the
-        <acronym title="Text to Speech">TTS</acronym> engine’s
-        capability to speak a single character with the ability to
-        flush speech <em>immediately</em>. Client applications
-        wishing to produce character-at-a-time output, e.g., when
-        providing character echo during keyboard input should use
-        this command.</p>
-        <div class="example">
-          <pre class="example">d
-</pre>
-        </div>
-        <p>This command is used to <em>dispatch</em> all queued
-        requests. It was renamed to a single character command
-        (like many of the commonly used <acronym title=
-        "Text to Speech">TTS</acronym> server commands) to work
-        more effectively over slow (9600) dialup lines. The effect
-        of calling this command is for the <acronym title=
-        "Text to Speech">TTS</acronym> server to start processing
-        items that have been queued via earlier requests.</p>
-        <div class="example">
-          <pre class="example">s
-</pre>
-        </div>
-        <p>Stop speech <em>immediately</em>. Spoken output is
-        interrupted, and all pending requests are flushed from the
-        queue.</p>
-        <div class="example">
-          <pre class="example">q text
-</pre>
-        </div>
-        <p>Queues text to be spoken. No spoken output is produced
-        until a <em>dispatch</em> request is received via execution
-        of command <em>d</em>.</p>
-        <div class="example">
-          <pre class="example">c codes
-</pre>
-        </div>
-        <p>Queues synthesis codes to be sent to the <acronym title=
-        "Text to Speech">TTS</acronym> engine. Codes are sent to
-        the engine with no further transformation or processing.
-        The codes are inserted into the output queue and will be
-        dispatched to the <acronym title=
-        "Text to Speech">TTS</acronym> engine at the appropriate
-        point in the output stream.</p>
-        <div class="example">
-          <pre class="example">a filename
-</pre>
-        </div>
-        <p>Cues the audio file identified by filename for
-        playing.</p>
-        <div class="example">
-          <pre class="example">t freq length
-</pre>
-        </div>
-        <p>Queues a tone to be played at the specified frequency
-        and having the specified length. Frequency is specified in
-        hertz and length is specified in milliseconds.</p>
-        <div class="example">
-          <pre class="example">sh duration
-</pre>
-        </div>
-        <p>Queues the specified duration of silence. Silence is
-        specified in milliseconds.</p>
-      </div>
-      <div class="subsection" id="Commands-That-Set-State">
-        <h4 class="subsection">14.1.2 Commands That Set State</h4>
-        <div class="example">
-          <pre class="example">tts_reset
-</pre>
-        </div>
-        <p>Reset <acronym title="Text to Speech">TTS</acronym>
-        engine to default settings.</p>
-        <div class="example">
-          <pre class="example">tts_set_punctuations mode
-</pre>
-        </div>
-        <p>Sets <acronym title="Text to Speech">TTS</acronym>
-        engine to the specified punctuation mode. Typically,
-        <acronym title="Text to Speech">TTS</acronym> servers
-        provide at least three modes:</p>
-        <ul>
-          <li>None: Do not speak punctuation characters.</li>
-          <li>Some: Speak some punctuation characters. Used for
-          English prose.</li>
-          <li>All: Speak out <em>all</em> punctuation characters;
-          useful in programming modes.</li>
-        </ul>
-        <div class="example">
-          <pre class="example">tts_set_speech_rate rate
-</pre>
-        </div>
-        <p>Sets speech rate. The interpretation of this value is
-        typically engine specific.</p>
-        <div class="example">
-          <pre class="example">tts_set_character_scale factor
-</pre>
-        </div>
-        <p>Scale factor applied to speech rate when speaking
-        individual characters.Thus, setting speech rate to 500 and
-        character scale to 1.2 will cause command <em>l</em> to use
-        a speech rate of <em>500 * 1.2 = 600</em>.</p>
-        <div class="example">
-          <pre class="example">tts_split_caps flag
-</pre>
-        </div>
-        <p>Set state of <em>split caps</em> processing. Turn this
-        on to speak mixed-case (<acronym>AKA</acronym> Camel Case)
-        identifiers.</p>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href="Emacspeak-At-Twenty.html">Emacspeak At
-    Twenty.</a>, Previous: <a href=
-    "Emacspeak-Keyboard-Commands.html">Emacspeak Keyboard
-    Commands.</a>, Up: <a href="index.html">Emacspeak</a> &nbsp;
-    [<a href="index.html#SEC_Contents" title="Table of contents"
-    rel="contents">Contents</a>][<a href="Concept-Index.html"
-    title="Index" rel="index">Index</a>]</p>
-  </div>
+
+<body lang="en">
+<div class="chapter" id="TTS-Servers">
+<div class="header">
+<p>
+Next: <a href="Emacspeak-At-Twenty.html" accesskey="n" rel="next">Emacspeak At Twenty.</a>, Previous: <a href="Emacspeak-Keyboard-Commands.html" accesskey="p" rel="prev">Emacspeak Keyboard Commands.</a>, Up: <a href="index.html" accesskey="u" rel="up">Emacspeak</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="TTS-Servers-1"></span><h2 class="chapter">14 TTS Servers</h2>
+
+<p>Emacspeak produces spoken output by communicating with one of many
+speech servers.  This section documents the communication protocol
+between the client application i.e. Emacspeak, and the <acronym title="Text to Speech">TTS</acronym> (Text to Speech) server. This section is primarily intended for
+developers wishing to:
+</p>
+<ul>
+<li> Create new speech servers that comply with this communication protocol
+
+</li><li> Developers of other client applications who wish to use the various
+Emacspeak speech servers.
+</li></ul>
+
+<p>For additional notes on how to log and view <acronym title="Text to Speech">TTS</acronym> server commands when
+developing a speech server, see
+<a href="http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html">http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html</a>.
+</p>
+<ul class="section-toc">
+<li><a href="#High_002dlevel-Overview" accesskey="1">High-level Overview</a></li>
+</ul>
+<div class="section" id="High_002dlevel-Overview">
+<h3 class="section">14.1 High-level Overview</h3>
+
+<p>The <acronym title="Text to Speech">TTS</acronym> server reads commands from standard input, and script
+<em>speech-server</em> can be used to cause a <acronym title="Text to Speech">TTS</acronym> server to communicate
+via a <acronym>TCP</acronym> socket. Speech server commands are used by the client
+application to make specific requests of the server; the server
+listens for these requests in a non-blocking read loop and executes
+requests as they become available. Requests can be classified as
+follows:
+</p>
+<ul>
+<li> Commands that send text to be spoken.
+
+</li><li> Commands that set <em>state</em> of the <acronym title="Text to Speech">TTS</acronym> server.
+</li></ul>
+
+<p>All commands are of the form
+</p>
+<div class="example">
+<pre class="example">commandWord {arguments}
+</pre></div>
+
+<p>The braces are optional if the command argument contains no white
+space.  The speech server maintains a <em>current state</em> that
+determines various characteristics of spoken output such as speech
+rate, punctuations mode etc. (see set of commands that manipulate
+speech state for complete list).  The client application <em>queues</em>
+The text and non-speech audio output to be produced before asking the
+server to <em>dispatch</em> the set of queued requests, i.e. start
+producing output.
+</p>
+<p>Once the server has been asked to produce output, it removes items
+from the front of the queue, sends the requisite commands to the
+underlying <acronym title="Text to Speech">TTS</acronym> engine, and waits for the engine to acknowledge that
+the request has been completely processed. This is a non-blocking
+operation, i.e., if the client application generates additional
+requests, these are processed <em>immediately</em>.
+</p>
+<p>The above design allows the Emacspeak <acronym title="Text to Speech">TTS</acronym> server to be <em>highly</em>
+responsive; Client applications can queue large amounts of text
+(typically queued a clause at a time to achieve the best prosody), ask
+the <acronym title="Text to Speech">TTS</acronym> server to start speaking, and interrupt the spoken output at
+any time.
+</p>
+<ul class="section-toc">
+<li><a href="#Commands-That-Queue-Output_002e" accesskey="1">Commands That Queue Output.</a></li>
+<li><a href="#Commands-That-Set-State" accesskey="2">Commands That Set State</a></li>
+</ul>
+<div class="subsection" id="Commands-That-Queue-Output_002e">
+<h4 class="subsection">14.1.1 Commands That Queue Output.</h4>
+
+<p>This section documents commands that either produce spoken output, or
+queue output to be produced on demand.  Commands that place the
+request on the queue are clearly marked.
+</p>
+<div class="example">
+<pre class="example">version
+</pre></div>
+
+<p>Speaks the <em>version</em> of the <acronym title="Text to Speech">TTS</acronym> engine. Produces output
+immediately.
+</p>
+<div class="example">
+<pre class="example">tts_say text
+</pre></div>
+
+<p>Speaks the specified <em>text</em> immediately. The text is not
+pre-processed in any way, contrast this with the primary way of
+speaking text which is to queue text before asking the server to
+process the queue.
+</p>
+<p>Note that this command needs to handle the special syntax for morpheme
+boundaries &lsquo;<samp>[*]</samp>&rsquo;.  The &lsquo;<samp>[*]</samp>&rsquo; syntax is specific to the
+Dectalk family of synthesizers; servers for other <acronym title="Text to Speech">TTS</acronym> engines need to
+map this pattern to the engine-specific code for each engine. As an
+example, see <samp>servers/outloud</samp> A morpheme boundary results in
+synthesizing compound words such as <em>left bracket</em> with the right
+intonation; using a space would result in that phrase being
+synthesized as two separate words.
+</p>
+<div class="example">
+<pre class="example">l c
+</pre></div>
+
+<p>Speak <em>c</em> a single character, as a letter.  The character is
+spoken immediately. This command uses the <acronym title="Text to Speech">TTS</acronym> engine&rsquo;s capability to
+speak a single character with the ability to flush speech
+<em>immediately</em>.  Client applications wishing to produce
+character-at-a-time output, e.g., when providing character echo during
+keyboard input should use this command.
+</p>
+<div class="example">
+<pre class="example">d
+</pre></div>
+
+<p>This command is used to <em>dispatch</em> all queued requests.  It was
+renamed to a single character command (like many of the commonly used
+<acronym title="Text to Speech">TTS</acronym> server commands) to work more effectively over slow (9600) dialup
+lines.  The effect of calling this command is for the <acronym title="Text to Speech">TTS</acronym> server to
+start processing items that have been queued via earlier requests.
+</p>
+<div class="example">
+<pre class="example">s
+</pre></div>
+
+<p>Stop speech <em>immediately</em>.  Spoken output is interrupted, and all
+pending requests are flushed from the queue.
+</p>
+<div class="example">
+<pre class="example">q text
+</pre></div>
+
+<p>Queues text to be spoken. No spoken output is produced until a
+<em>dispatch</em> request is received via execution of command <em>d</em>.
+</p>
+
+<div class="example">
+<pre class="example">c codes
+</pre></div>
+
+<p>Queues synthesis codes to be sent to the <acronym title="Text to Speech">TTS</acronym> engine.  Codes are sent
+to the engine with no further transformation or processing.  The codes
+are inserted into the output queue and will be dispatched to the <acronym title="Text to Speech">TTS</acronym>
+engine at the appropriate point in the output stream.
+</p>
+<div class="example">
+<pre class="example">a filename
+</pre></div>
+
+<p>Cues the audio file identified by filename for playing.
+</p>
+<div class="example">
+<pre class="example">t freq length
+</pre></div>
+
+<p>Queues a tone to be played at the specified frequency and having the
+specified length.  Frequency is specified in hertz and length is
+specified in milliseconds.
+</p>
+<div class="example">
+<pre class="example">sh duration
+</pre></div>
+
+<p>Queues the specified duration of silence. Silence is specified in
+milliseconds.
+</p>
+</div>
+<div class="subsection" id="Commands-That-Set-State">
+<h4 class="subsection">14.1.2 Commands That Set State</h4>
+
+<div class="example">
+<pre class="example">tts_reset
+</pre></div>
+
+<p>Reset <acronym title="Text to Speech">TTS</acronym> engine to default settings.
+</p>
+<div class="example">
+<pre class="example">tts_set_punctuations mode
+</pre></div>
+
+<p>Sets <acronym title="Text to Speech">TTS</acronym> engine to the specified punctuation
+mode. Typically, <acronym title="Text to Speech">TTS</acronym> servers provide at least three modes:
+</p>
+<ul>
+<li> None: Do not speak punctuation characters.
+
+</li><li> Some: Speak some punctuation characters. Used for English prose.
+
+</li><li> All: Speak out <em>all</em> punctuation characters; useful in
+programming modes.
+</li></ul>
+
+<div class="example">
+<pre class="example">tts_set_speech_rate rate
+</pre></div>
+
+<p>Sets speech rate. The interpretation of this value is typically
+engine specific.
+</p>
+<div class="example">
+<pre class="example">tts_set_character_scale factor
+</pre></div>
+
+<p>Scale factor applied to speech rate when speaking individual
+characters.Thus, setting speech rate to 500 and character scale to 1.2
+will cause command <em>l</em> to use a speech rate of
+<em>500 * 1.2 = 600</em>.
+</p>
+<div class="example">
+<pre class="example">tts_split_caps flag
+</pre></div>
+
+<p>Set state of <em>split caps</em> processing. Turn this on to speak
+mixed-case (<acronym>AKA</acronym> Camel Case) identifiers.
+</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a>, Previous: <a href="Emacspeak-Keyboard-Commands.html">Emacspeak Keyboard Commands.</a>, Up: <a href="index.html">Emacspeak</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

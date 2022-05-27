@@ -1,405 +1,271 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-maths (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-maths (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-maths (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dmessage.html" rel="next" title=
-  "emacspeak-message" />
-  <link href="emacspeak_002dmarkdown.html" rel="prev" title=
-  "emacspeak-markdown" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-maths (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-maths (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-maths (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dmessage.html" rel="next" title="emacspeak-message">
+<link href="emacspeak_002dmarkdown.html" rel="prev" title="emacspeak-markdown">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dmaths">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dmessage.html" accesskey="n"
-      rel="next">emacspeak-message</a>, Previous: <a href=
-      "emacspeak_002dmarkdown.html" accesskey="p" rel=
-      "prev">emacspeak-markdown</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dmaths-1"></span>
-    <h3 class="section">12.122 emacspeak-maths</h3>
-    <ul class="section-toc">
-      <li><a href="#Setup" accesskey="1">Setup</a></li>
-      <li><a href="#Technical-Overview" accesskey="2">Technical
-      Overview</a></li>
-      <li><a href="#Emacspeak_002dMaths-Commands" accesskey=
-      "3">Emacspeak-Maths Commands</a></li>
-    </ul>
-    <div class="subsection" id="Setup">
-      <h4 class="subsection">12.122.1 Setup</h4>
-      <p>Do not try what follows until you have read
-      js/node/README.org and successfully set up nvm (Node Version
-      Manager) as described there.</p>
-    </div>
-    <div class="subsection" id="Technical-Overview">
-      <h4 class="subsection">12.122.2 Technical Overview</h4>
-      <p>Spoken mathematics on the emacspeak audio desktop. Use a
-      NodeJS based speech-rule-engine for Mathematics as the
-      backend for processing mathematical markup. The result of
-      this processing is an annotated S-expression that is rendered
-      via Emacspeak’s speech facilities. Annotations follow Aural
-      CSS as implemented in Emacspeak, This allows us to map these
-      expressions to aural properties supported by specific TTS
-      engines.</p>
-      <p>Start the server/client: M-x emacspeak-maths-start. Once
-      the server and client are started, you can browse any number
-      of math expressions using the emacspeak-maths-navigator
-      defined in module See <a href=
-      "#emacspeak_002dmaths">emacspeak-maths</a> as described
-      below.</p>
-      <p>Note: In general, once everything is configured correctly,
-      using the maths navigator automatically starts the server and
-      client. Invoke the Navigator using <kbd>s-spc</kbd> — this is
-      the &lt;windows&gt; key on Linux laptops. Linux. Now you can
-      use these keys:</p>
-      <ul>
-        <li>Show Output &lt;o&gt; Switch to output buffer and quit
-        Maths Navigator</li>
-        <li>Enter: &lt;SPC&gt; Enter a LaTeX expression.</li>
-        <li>Smart-Enter: &lt;enter&gt; Enter the guessed expression
-        with no prompting.</li>
-        <li>Alt-Text &lt;a&gt; Process alt-text under point as
-        LaTeX.</li>
-        <li>Down &lt;down&gt; Move down a level.</li>
-        <li>Up &lt;up&gt; Move up a level.</li>
-        <li>Left &lt;left&gt; Move left.</li>
-        <li>Right &lt;right&gt; Move right.</li>
-        <li>Exit &lt;any other key&gt; Exit navigator.</li>
-      </ul>
-      <p>The current expression is spoken after each of the above
-      commands. It is also displayed in a special buffer *Spoken
-      Math*. That buffer holds all previously generated output, And
-      Emacs commands forward-page and backward-page can be used to
-      move through each chunk of output.</p>
-    </div>
-    <div class="subsection" id="Emacspeak_002dMaths-Commands">
-      <h4 class="subsection">12.122.3 Emacspeak-Maths Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dmaths_002ddepth" accesskey=
-        "1">emacspeak-maths-depth</a></li>
-        <li><a href="#emacspeak_002dmaths_002ddown" accesskey=
-        "2">emacspeak-maths-down</a></li>
-        <li><a href="#emacspeak_002dmaths_002denter" accesskey=
-        "3">emacspeak-maths-enter</a></li>
-        <li><a href="#emacspeak_002dmaths_002denter_002dguess"
-        accesskey="4">emacspeak-maths-enter-guess</a></li>
-        <li><a href="#emacspeak_002dmaths_002dflush_002doutput"
-        accesskey="5">emacspeak-maths-flush-output</a></li>
-        <li><a href="#emacspeak_002dmaths_002dleft" accesskey=
-        "6">emacspeak-maths-left</a></li>
-        <li><a href="#emacspeak_002dmaths_002drestart" accesskey=
-        "7">emacspeak-maths-restart</a></li>
-        <li><a href="#emacspeak_002dmaths_002dright" accesskey=
-        "8">emacspeak-maths-right</a></li>
-        <li><a href="#emacspeak_002dmaths_002droot" accesskey=
-        "9">emacspeak-maths-root</a></li>
-        <li><a href=
-        "#emacspeak_002dmaths_002dshutdown">emacspeak-maths-shutdown</a></li>
-        <li><a href=
-        "#emacspeak_002dmaths_002dspeak_002dalt">emacspeak-maths-speak-alt</a></li>
-        <li><a href=
-        "#emacspeak_002dmaths_002dspoken_002dmode">emacspeak-maths-spoken-mode</a></li>
-        <li><a href=
-        "#emacspeak_002dmaths_002dstart">emacspeak-maths-start</a></li>
-        <li><a href=
-        "#emacspeak_002dmaths_002dswitch_002dto_002doutput">emacspeak-maths-switch-to-output</a></li>
-        <li><a href=
-        "#emacspeak_002dmaths_002dup">emacspeak-maths-up</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002ddepth">
-        <h4 class="subsubsection">12.122.3.1
-        emacspeak-maths-depth</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002ddepth"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-depth</strong> <a href=
-          '#index-emacspeak_002dmaths_002ddepth' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002ddepth-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move depth in current Math expression. (auto-generated)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id="emacspeak_002dmaths_002ddown">
-        <h4 class="subsubsection">12.122.3.2
-        emacspeak-maths-down</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002ddown"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-down</strong> <a href=
-          '#index-emacspeak_002dmaths_002ddown' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dmaths_002ddown-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move down in current Math expression. (auto-generated)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002denter">
-        <h4 class="subsubsection">12.122.3.3
-        emacspeak-maths-enter</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002denter"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-enter</strong>
-          <em>(latex)</em> <a href=
-          '#index-emacspeak_002dmaths_002denter' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002denter-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Send a LaTeX expression to Maths server,
+
+<body lang="en">
+<div class="section" id="emacspeak_002dmaths">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dmessage.html" accesskey="n" rel="next">emacspeak-message</a>, Previous: <a href="emacspeak_002dmarkdown.html" accesskey="p" rel="prev">emacspeak-markdown</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dmaths-1"></span><h3 class="section">12.122 emacspeak-maths</h3>
+
+<ul class="section-toc">
+<li><a href="#Setup" accesskey="1">Setup</a></li>
+<li><a href="#Technical-Overview" accesskey="2">Technical Overview</a></li>
+<li><a href="#Emacspeak_002dMaths-Commands" accesskey="3">Emacspeak-Maths Commands</a></li>
+</ul>
+<div class="subsection" id="Setup">
+<h4 class="subsection">12.122.1 Setup</h4>
+<p>Do not try what follows until you have read  js/node/README.org
+and successfully set up nvm (Node Version Manager) as described there.
+</p></div>
+<div class="subsection" id="Technical-Overview">
+<h4 class="subsection">12.122.2 Technical Overview</h4>
+<p>Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
+based speech-rule-engine for Mathematics as the backend for
+processing mathematical markup. The result of this processing is
+an annotated S-expression that is rendered via Emacspeak&rsquo;s speech
+facilities. Annotations follow Aural CSS as implemented in
+Emacspeak, This allows us to map these expressions to aural
+properties supported by specific TTS engines.
+</p>
+<p>Start  the server/client: M-x emacspeak-maths-start. Once the server
+and client are started, you can browse any number of math
+expressions using the emacspeak-maths-navigator defined in module
+See <a href="#emacspeak_002dmaths">emacspeak-maths</a> as described below.
+</p>
+<p>Note: In general, once everything is configured correctly, using
+the maths navigator automatically starts the server and
+client. Invoke the Navigator using <kbd>s-spc</kbd> &mdash; this is the &lt;windows&gt;
+key on Linux laptops.
+Linux. Now you can use these keys:
+</p><ul>
+<li> Show Output &lt;o&gt; Switch to output buffer and quit Maths Navigator
+</li><li> Enter: &lt;SPC&gt;
+Enter a LaTeX expression.
+</li><li> Smart-Enter: &lt;enter&gt; Enter the guessed expression with no prompting.
+</li><li> Alt-Text &lt;a&gt; Process alt-text
+under point as LaTeX.
+</li><li> Down &lt;down&gt; Move down a level.
+</li><li> Up &lt;up&gt; Move up a level.
+</li><li> Left &lt;left&gt; Move left.
+</li><li> Right
+&lt;right&gt; Move right.
+</li><li> Exit &lt;any other key&gt; Exit
+navigator.
+
+</li></ul>
+<p>The current expression is spoken after
+each of the above commands. It is also displayed in a special
+buffer *Spoken Math*. That buffer holds all previously generated
+output, And Emacs commands forward-page and backward-page can be
+used to move through each chunk of output.
+</p>
+</div>
+<div class="subsection" id="Emacspeak_002dMaths-Commands">
+<h4 class="subsection">12.122.3 Emacspeak-Maths Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dmaths_002ddepth" accesskey="1">emacspeak-maths-depth</a></li>
+<li><a href="#emacspeak_002dmaths_002ddown" accesskey="2">emacspeak-maths-down</a></li>
+<li><a href="#emacspeak_002dmaths_002denter" accesskey="3">emacspeak-maths-enter</a></li>
+<li><a href="#emacspeak_002dmaths_002denter_002dguess" accesskey="4">emacspeak-maths-enter-guess</a></li>
+<li><a href="#emacspeak_002dmaths_002dflush_002doutput" accesskey="5">emacspeak-maths-flush-output</a></li>
+<li><a href="#emacspeak_002dmaths_002dleft" accesskey="6">emacspeak-maths-left</a></li>
+<li><a href="#emacspeak_002dmaths_002drestart" accesskey="7">emacspeak-maths-restart</a></li>
+<li><a href="#emacspeak_002dmaths_002dright" accesskey="8">emacspeak-maths-right</a></li>
+<li><a href="#emacspeak_002dmaths_002droot" accesskey="9">emacspeak-maths-root</a></li>
+<li><a href="#emacspeak_002dmaths_002dshutdown">emacspeak-maths-shutdown</a></li>
+<li><a href="#emacspeak_002dmaths_002dspeak_002dalt">emacspeak-maths-speak-alt</a></li>
+<li><a href="#emacspeak_002dmaths_002dspoken_002dmode">emacspeak-maths-spoken-mode</a></li>
+<li><a href="#emacspeak_002dmaths_002dstart">emacspeak-maths-start</a></li>
+<li><a href="#emacspeak_002dmaths_002dswitch_002dto_002doutput">emacspeak-maths-switch-to-output</a></li>
+<li><a href="#emacspeak_002dmaths_002dup">emacspeak-maths-up</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dmaths_002ddepth">
+<h4 class="subsubsection">12.122.3.1 emacspeak-maths-depth</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002ddepth"><span class="category">Command: </span><span><strong>emacspeak-maths-depth</strong><a href='#index-emacspeak_002dmaths_002ddepth' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002ddepth-1"></span>
+
+<div class="format">
+<pre class="format">Move depth in current Math expression. (auto-generated)
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002ddown">
+<h4 class="subsubsection">12.122.3.2 emacspeak-maths-down</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002ddown"><span class="category">Command: </span><span><strong>emacspeak-maths-down</strong><a href='#index-emacspeak_002dmaths_002ddown' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002ddown-1"></span>
+
+<div class="format">
+<pre class="format">Move down in current Math expression. (auto-generated)
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002denter">
+<h4 class="subsubsection">12.122.3.3 emacspeak-maths-enter</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002denter"><span class="category">Command: </span><span><strong>emacspeak-maths-enter</strong> <em>(latex)</em><a href='#index-emacspeak_002dmaths_002denter' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002denter-1"></span>
+
+<div class="format">
+<pre class="format">Send a LaTeX expression to Maths server,
  guess  based on context. 
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002denter_002dguess">
-        <h4 class="subsubsection">12.122.3.4
-        emacspeak-maths-enter-guess</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002denter_002dguess">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-maths-enter-guess</strong>
-          <a href='#index-emacspeak_002dmaths_002denter_002dguess'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002denter_002dguess-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Send the guessed  LaTeX expression to Maths server. 
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002dflush_002doutput">
-        <h4 class="subsubsection">12.122.3.5
-        emacspeak-maths-flush-output</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dflush_002doutput">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-maths-flush-output</strong>
-          <a href='#index-emacspeak_002dmaths_002dflush_002doutput'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002dflush_002doutput-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Flush client buffer if things go out of sync.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id="emacspeak_002dmaths_002dleft">
-        <h4 class="subsubsection">12.122.3.6
-        emacspeak-maths-left</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dleft"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-left</strong> <a href=
-          '#index-emacspeak_002dmaths_002dleft' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dmaths_002dleft-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move left in current Math expression. (auto-generated)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002drestart">
-        <h4 class="subsubsection">12.122.3.7
-        emacspeak-maths-restart</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002drestart">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-maths-restart</strong> <a href=
-          '#index-emacspeak_002dmaths_002drestart' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002drestart-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Restart Node math-server if running. Otherwise starts a new one.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002dright">
-        <h4 class="subsubsection">12.122.3.8
-        emacspeak-maths-right</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dright"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-right</strong> <a href=
-          '#index-emacspeak_002dmaths_002dright' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002dright-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move right in current Math expression. (auto-generated)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id="emacspeak_002dmaths_002droot">
-        <h4 class="subsubsection">12.122.3.9
-        emacspeak-maths-root</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002droot"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-root</strong> <a href=
-          '#index-emacspeak_002dmaths_002droot' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dmaths_002droot-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move root in current Math expression. (auto-generated)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002dshutdown">
-        <h4 class="subsubsection">12.122.3.10
-        emacspeak-maths-shutdown</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dshutdown">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-maths-shutdown</strong> <a href=
-          '#index-emacspeak_002dmaths_002dshutdown' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002dshutdown-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Shutdown client and server processes.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002dspeak_002dalt">
-        <h4 class="subsubsection">12.122.3.11
-        emacspeak-maths-speak-alt</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dspeak_002dalt">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-maths-speak-alt</strong> <a href=
-          '#index-emacspeak_002dmaths_002dspeak_002dalt' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002dspeak_002dalt-1"></span>
-            <div class="format">
-              <pre class="format">Speak alt text as Maths.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002denter_002dguess">
+<h4 class="subsubsection">12.122.3.4 emacspeak-maths-enter-guess</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002denter_002dguess"><span class="category">Command: </span><span><strong>emacspeak-maths-enter-guess</strong><a href='#index-emacspeak_002dmaths_002denter_002dguess' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002denter_002dguess-1"></span>
+
+<div class="format">
+<pre class="format">Send the guessed  LaTeX expression to Maths server. 
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dflush_002doutput">
+<h4 class="subsubsection">12.122.3.5 emacspeak-maths-flush-output</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dflush_002doutput"><span class="category">Command: </span><span><strong>emacspeak-maths-flush-output</strong><a href='#index-emacspeak_002dmaths_002dflush_002doutput' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dflush_002doutput-1"></span>
+
+<div class="format">
+<pre class="format">Flush client buffer if things go out of sync.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dleft">
+<h4 class="subsubsection">12.122.3.6 emacspeak-maths-left</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dleft"><span class="category">Command: </span><span><strong>emacspeak-maths-left</strong><a href='#index-emacspeak_002dmaths_002dleft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dleft-1"></span>
+
+<div class="format">
+<pre class="format">Move left in current Math expression. (auto-generated)
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002drestart">
+<h4 class="subsubsection">12.122.3.7 emacspeak-maths-restart</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002drestart"><span class="category">Command: </span><span><strong>emacspeak-maths-restart</strong><a href='#index-emacspeak_002dmaths_002drestart' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002drestart-1"></span>
+
+<div class="format">
+<pre class="format">Restart Node math-server if running. Otherwise starts a new one.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dright">
+<h4 class="subsubsection">12.122.3.8 emacspeak-maths-right</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dright"><span class="category">Command: </span><span><strong>emacspeak-maths-right</strong><a href='#index-emacspeak_002dmaths_002dright' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dright-1"></span>
+
+<div class="format">
+<pre class="format">Move right in current Math expression. (auto-generated)
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002droot">
+<h4 class="subsubsection">12.122.3.9 emacspeak-maths-root</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002droot"><span class="category">Command: </span><span><strong>emacspeak-maths-root</strong><a href='#index-emacspeak_002dmaths_002droot' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002droot-1"></span>
+
+<div class="format">
+<pre class="format">Move root in current Math expression. (auto-generated)
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dshutdown">
+<h4 class="subsubsection">12.122.3.10 emacspeak-maths-shutdown</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dshutdown"><span class="category">Command: </span><span><strong>emacspeak-maths-shutdown</strong><a href='#index-emacspeak_002dmaths_002dshutdown' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dshutdown-1"></span>
+
+<div class="format">
+<pre class="format">Shutdown client and server processes.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dspeak_002dalt">
+<h4 class="subsubsection">12.122.3.11 emacspeak-maths-speak-alt</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dspeak_002dalt"><span class="category">Command: </span><span><strong>emacspeak-maths-speak-alt</strong><a href='#index-emacspeak_002dmaths_002dspeak_002dalt' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dspeak_002dalt-1"></span>
+
+<div class="format">
+<pre class="format">Speak alt text as Maths.
 For use on Wikipedia pages  for example.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002dspoken_002dmode">
-        <h4 class="subsubsection">12.122.3.12
-        emacspeak-maths-spoken-mode</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dspoken_002dmode">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-maths-spoken-mode</strong>
-          <a href='#index-emacspeak_002dmaths_002dspoken_002dmode'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002dspoken_002dmode-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Special mode for interacting with Spoken Math.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dspoken_002dmode">
+<h4 class="subsubsection">12.122.3.12 emacspeak-maths-spoken-mode</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dspoken_002dmode"><span class="category">Command: </span><span><strong>emacspeak-maths-spoken-mode</strong><a href='#index-emacspeak_002dmaths_002dspoken_002dmode' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dspoken_002dmode-1"></span>
+
+<div class="format">
+<pre class="format">Special mode for interacting with Spoken Math.
 
 This mode is used by the special buffer that displays spoken math
 returned from the Node server.
@@ -408,96 +274,66 @@ see the key-binding list at the end of this description.
 Emacs online help facility to look up help on these commands.
 
 Key             Binding
-——————————————————————————-
-[               backward-page
-]               forward-page
-h               emacspeak-maths-left
-j               emacspeak-maths-down
-k               emacspeak-maths-up
-l               emacspeak-maths-right
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+[		backward-page
+]		forward-page
+h		emacspeak-maths-left
+j		emacspeak-maths-down
+k		emacspeak-maths-up
+l		emacspeak-maths-right
 
 In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as
 the final or penultimate step during initialization.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002dstart">
-        <h4 class="subsubsection">12.122.3.13
-        emacspeak-maths-start</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dstart"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-start</strong> <a href=
-          '#index-emacspeak_002dmaths_002dstart' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002dstart-1"></span>
-            <div class="format">
-              <pre class="format">Start Maths server bridge.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmaths_002dswitch_002dto_002doutput">
-        <h4 class="subsubsection">12.122.3.14
-        emacspeak-maths-switch-to-output</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dmaths_002dswitch_002dto_002doutput">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-maths-switch-to-output</strong>
-          <a href=
-          '#index-emacspeak_002dmaths_002dswitch_002dto_002doutput'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmaths_002dswitch_002dto_002doutput-1">
-            </span>
-            <div class="format">
-              <pre class="format">Switch to output buffer.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id="emacspeak_002dmaths_002dup">
-        <h4 class="subsubsection">12.122.3.15
-        emacspeak-maths-up</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmaths_002dup"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-maths-up</strong> <a href=
-          '#index-emacspeak_002dmaths_002dup' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id="index-emacspeak_002dmaths_002dup-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Move up in current Math expression. (auto-generated)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002dmessage.html">emacspeak-message</a>, Previous:
-    <a href="emacspeak_002dmarkdown.html">emacspeak-markdown</a>,
-    Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dstart">
+<h4 class="subsubsection">12.122.3.13 emacspeak-maths-start</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dstart"><span class="category">Command: </span><span><strong>emacspeak-maths-start</strong><a href='#index-emacspeak_002dmaths_002dstart' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dstart-1"></span>
+
+<div class="format">
+<pre class="format">Start Maths server bridge.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dswitch_002dto_002doutput">
+<h4 class="subsubsection">12.122.3.14 emacspeak-maths-switch-to-output</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dswitch_002dto_002doutput"><span class="category">Command: </span><span><strong>emacspeak-maths-switch-to-output</strong><a href='#index-emacspeak_002dmaths_002dswitch_002dto_002doutput' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dswitch_002dto_002doutput-1"></span>
+
+<div class="format">
+<pre class="format">Switch to output buffer.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmaths_002dup">
+<h4 class="subsubsection">12.122.3.15 emacspeak-maths-up</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmaths_002dup"><span class="category">Command: </span><span><strong>emacspeak-maths-up</strong><a href='#index-emacspeak_002dmaths_002dup' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmaths_002dup-1"></span>
+
+<div class="format">
+<pre class="format">Move up in current Math expression. (auto-generated)
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dmessage.html">emacspeak-message</a>, Previous: <a href="emacspeak_002dmarkdown.html">emacspeak-markdown</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

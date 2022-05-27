@@ -1,175 +1,122 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-twittering (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-twittering (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-twittering (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dtypo.html" rel="next" title=
-  "emacspeak-typo" />
-  <link href="emacspeak_002dtransient.html" rel="prev" title=
-  "emacspeak-transient" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-twittering (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-twittering (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-twittering (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dtypo.html" rel="next" title="emacspeak-typo">
+<link href="emacspeak_002dtransient.html" rel="prev" title="emacspeak-transient">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dtwittering">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dtypo.html" accesskey="n" rel=
-      "next">emacspeak-typo</a>, Previous: <a href=
-      "emacspeak_002dtransient.html" accesskey="p" rel=
-      "prev">emacspeak-transient</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dtwittering-1"></span>
-    <h3 class="section">12.195 emacspeak-twittering</h3>
-    <p>module twittering-mode.el is found on the emacs wiki This
-    module speech-enables twittering-mode which works using oauth
-    for authentication. Note: As of Thu Sep 2 08:11:25 PDT 2010
-    twit.el is broken.</p>
-    <p>Advises interactive functions to speak</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dTwittering-Commands" accesskey=
-      "1">Emacspeak-Twittering Commands</a></li>
-    </ul>
-    <div class="subsection" id="Emacspeak_002dTwittering-Commands">
-      <h4 class="subsection">12.195.1 Emacspeak-Twittering
-      Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl"
-        accesskey=
-        "1">emacspeak-twittering-jump-to-following-url</a></li>
-        <li><a href=
-        "#emacspeak_002dtwittering_002dspeak_002dthis_002dtweet"
-        accesskey=
-        "2">emacspeak-twittering-speak-this-tweet</a></li>
-        <li><a href="#emacspeak_002dtwittering_002dtwarc"
-        accesskey="3">emacspeak-twittering-twarc</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl">
-        <h4 class="subsubsection">12.195.1.1
-        emacspeak-twittering-jump-to-following-url</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-twittering-jump-to-following-url</strong>
-          <a href=
-          '#index-emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Move to and open closest URI  following point.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dtwittering_002dspeak_002dthis_002dtweet">
-        <h4 class="subsubsection">12.195.1.2
-        emacspeak-twittering-speak-this-tweet</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dtwittering_002dspeak_002dthis_002dtweet">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-twittering-speak-this-tweet</strong>
-          <em>(&amp;optional copy-as-kill)</em> <a href=
-          '#index-emacspeak_002dtwittering_002dspeak_002dthis_002dtweet'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dtwittering_002dspeak_002dthis_002dtweet-1">
-            </span>
-            <div class="format">
-              <pre class="format">Speak tweet under point.
+
+<body lang="en">
+<div class="section" id="emacspeak_002dtwittering">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dtypo.html" accesskey="n" rel="next">emacspeak-typo</a>, Previous: <a href="emacspeak_002dtransient.html" accesskey="p" rel="prev">emacspeak-transient</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dtwittering-1"></span><h3 class="section">12.195 emacspeak-twittering</h3>
+
+<p>module twittering-mode.el  is found on  the emacs wiki
+This module speech-enables twittering-mode which works using
+ oauth for authentication.
+Note: As of Thu Sep  2 08:11:25 PDT 2010
+twit.el is broken.
+</p>
+<p>Advises interactive functions to speak
+</p>
+<ul class="section-toc">
+<li><a href="#Emacspeak_002dTwittering-Commands" accesskey="1">Emacspeak-Twittering Commands</a></li>
+</ul>
+<div class="subsection" id="Emacspeak_002dTwittering-Commands">
+<h4 class="subsection">12.195.1 Emacspeak-Twittering Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl" accesskey="1">emacspeak-twittering-jump-to-following-url</a></li>
+<li><a href="#emacspeak_002dtwittering_002dspeak_002dthis_002dtweet" accesskey="2">emacspeak-twittering-speak-this-tweet</a></li>
+<li><a href="#emacspeak_002dtwittering_002dtwarc" accesskey="3">emacspeak-twittering-twarc</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl">
+<h4 class="subsubsection">12.195.1.1 emacspeak-twittering-jump-to-following-url</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl"><span class="category">Command: </span><span><strong>emacspeak-twittering-jump-to-following-url</strong><a href='#index-emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dtwittering_002djump_002dto_002dfollowing_002durl-1"></span>
+
+<div class="format">
+<pre class="format">Move to and open closest URI  following point.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dtwittering_002dspeak_002dthis_002dtweet">
+<h4 class="subsubsection">12.195.1.2 emacspeak-twittering-speak-this-tweet</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dtwittering_002dspeak_002dthis_002dtweet"><span class="category">Command: </span><span><strong>emacspeak-twittering-speak-this-tweet</strong> <em>(&amp;optional copy-as-kill)</em><a href='#index-emacspeak_002dtwittering_002dspeak_002dthis_002dtweet' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dtwittering_002dspeak_002dthis_002dtweet-1"></span>
+
+<div class="format">
+<pre class="format">Speak tweet under point.
 With interactive prefix arg ‘copy-as-kill’, copy it to kill ring as well.
 
 (fn &amp;optional COPY-AS-KILL)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dtwittering_002dtwarc">
-        <h4 class="subsubsection">12.195.1.3
-        emacspeak-twittering-twarc</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dtwittering_002dtwarc">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-twittering-twarc</strong>
-          <em>(&amp;optional whose)</em> <a href=
-          '#index-emacspeak_002dtwittering_002dtwarc' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dtwittering_002dtwarc-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Download data using credentials  for signed-in user.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dtwittering_002dtwarc">
+<h4 class="subsubsection">12.195.1.3 emacspeak-twittering-twarc</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dtwittering_002dtwarc"><span class="category">Command: </span><span><strong>emacspeak-twittering-twarc</strong> <em>(&amp;optional whose)</em><a href='#index-emacspeak_002dtwittering_002dtwarc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dtwittering_002dtwarc-1"></span>
+
+<div class="format">
+<pre class="format">Download data using credentials  for signed-in user.
 Interactive prefix arg ‘whose’ prompts for a username whose
 timeline we download. 
 
 (fn &amp;optional WHOSE)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
 </body>
 </html>

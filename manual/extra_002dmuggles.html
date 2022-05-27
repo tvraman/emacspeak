@@ -1,608 +1,477 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>extra-muggles (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "extra-muggles (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "extra-muggles (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="g_002dutils.html" rel="next" title="g-utils" />
-  <link href="espeak_002dvoices.html" rel="prev" title=
-  "espeak-voices" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>extra-muggles (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="extra-muggles (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="extra-muggles (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="g_002dutils.html" rel="next" title="g-utils">
+<link href="espeak_002dvoices.html" rel="prev" title="espeak-voices">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="extra_002dmuggles">
-    <div class="header">
-      <p>Next: <a href="g_002dutils.html" accesskey="n" rel=
-      "next">g-utils</a>, Previous: <a href=
-      "espeak_002dvoices.html" accesskey="p" rel=
-      "prev">espeak-voices</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="extra_002dmuggles-1"></span>
-    <h3 class="section">12.219 extra-muggles</h3>
-    <p>MUGGLES == Emacspeak spells for power-users. These are extra
-    hydras that I dont use very often, And are being moved here
-    from emacspeak-muggles to save time at startup.</p>
-    <p>This module implements no new functionality — contrast with
-    emacspeak-wizards. Instead, it uses package hydra to provide
-    convenience key-bindings that access existing Emacspeak
-    functionality. You need to install package Hydra first:
-    ‘<samp>M-x package-install hydra</samp>’.</p>
-    <p>Note that on newer versions of Emacs, loading this module
-    will attempt to automatically install package hydra if it is
-    not found.</p>
-    <ul class="section-toc">
-      <li><a href="#Using-Hydras-1" accesskey="1">Using
-      Hydras</a></li>
-      <li><a href="#Extra-Muggles" accesskey="2">Extra
-      Muggles</a></li>
-      <li><a href="#Extra_002dMuggles-Commands" accesskey=
-      "3">Extra-Muggles Commands</a></li>
-    </ul>
-    <div class="subsection" id="Using-Hydras-1">
-      <h4 class="subsection">12.219.1 Using Hydras</h4>
-      <p>See the high-level documentation for the Hydra package by
-      executing <kbd>C-h C-j</kbd> hydra <kbd>RET</kbd>. The
-      documentation in this section uses the same terminology as
-      shown in the hydra package documentation.</p>
-    </div>
-    <div class="subsection" id="Extra-Muggles">
-      <h4 class="subsection">12.219.2 Extra Muggles</h4>
-      <ul>
-        <li>View-Mode: <kbd>C-. v</kbd> Temporarily behave like
-        view-mode.</li>
-        <li>SmartParens: <kbd>C-c ,</kbd> Smart Parens</li>
-        <li>m-player: <kbd>s-m</kbd> Emacspeak-M-Player
-        Commands</li>
-        <li>m-player: <kbd>s-;</kbd> Emacspeak-M-Player muggle</li>
-        <li>pianobar: <kbd>s-'</kbd> Emacspeak-M-pianobar
-        Commands</li>
-        <li>origami: C-, / Origami bindings.</li>
-        <li>outliner: &lt;C-c .&gt; Bindings from
-        outline-minor-mode.</li>
-        <li>Info-Summary: &lt;?&gt; in Info Info Summary
-        Muggle</li>
-        <li>Vuiet Explorer: <kbd>C-; v</kbd> Vuiet Music Explorer
-        and Player</li>
-      </ul>
-      <p>Emacspeak automatically speaks Hydra hints when displayed.
-      To silence all Hydra hints, set hydra-is-helpful to nil. To
-      temporarily silence speaking of Hydra hints, Muggles can bind
-      command <code>emacspeak-hydra-toggle-talkative</code>. As an
-      example, Muggle ‘<samp>ViewMode</samp>’ binds <code>s</code>
-      to this command.</p>
-    </div>
-    <div class="subsection" id="Extra_002dMuggles-Commands">
-      <h4 class="subsection">12.219.3 Extra-Muggles Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd"
-        accesskey=
-        "1">emacspeak-muggles-emacspeak-m-player-mode-map-cmd</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dinfo_002dsummary_002fbody"
-        accesskey="2">emacspeak-muggles-info-summary/body</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dm_002dplayer_002fbody"
-        accesskey="3">emacspeak-muggles-m-player/body</a></li>
-        <li><a href="#emacspeak_002dmuggles_002doutliner_002fbody"
-        accesskey="4">emacspeak-muggles-outliner/body</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd"
-        accesskey=
-        "5">emacspeak-muggles-pianobar-key-map-cmd</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dsmartparens_002fbody"
-        accesskey="6">emacspeak-muggles-smartparens/body</a></li>
-        <li><a href="#emacspeak_002dmuggles_002dview_002fbody"
-        accesskey="7">emacspeak-muggles-view/body</a></li>
-        <li><a href="#emacspeak_002dorigami_002fbody" accesskey=
-        "8">emacspeak-origami/body</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd">
-        <h4 class="subsubsection">12.219.3.1
-        emacspeak-muggles-emacspeak-m-player-mode-map-cmd</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-emacspeak-m-player-mode-map-cmd</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-s_002dm'><span><kbd>s-m</kbd> <a href=
-              '#index-s_002dm' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Temporarily use keymap emacspeak-m-player-mode-map
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmuggles_002dinfo_002dsummary_002fbody">
-        <h4 class="subsubsection">12.219.3.2
-        emacspeak-muggles-info-summary/body</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-info-summary/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Call the body in the "emacspeak-muggles-info-summary" hydra.
+
+<body lang="en">
+<div class="section" id="extra_002dmuggles">
+<div class="header">
+<p>
+Next: <a href="g_002dutils.html" accesskey="n" rel="next">g-utils</a>, Previous: <a href="espeak_002dvoices.html" accesskey="p" rel="prev">espeak-voices</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="extra_002dmuggles-1"></span><h3 class="section">12.219 extra-muggles</h3>
+
+<p>MUGGLES ==  Emacspeak spells for power-users.
+These are extra hydras that I dont use very often,
+And are being moved here from emacspeak-muggles to save time at
+startup.
+</p>
+<p>This module implements no new functionality &mdash; contrast with
+emacspeak-wizards.  Instead, it uses package hydra to provide
+convenience key-bindings that access existing Emacspeak
+functionality.
+You need to install package Hydra first:
+&lsquo;<samp>M-x package-install  hydra</samp>&rsquo;.
+</p>
+<p>Note that on newer versions of Emacs, loading this module will
+attempt to automatically install package hydra if it is not found.
+</p><ul class="section-toc">
+<li><a href="#Using-Hydras-1" accesskey="1">Using Hydras</a></li>
+<li><a href="#Extra-Muggles" accesskey="2">Extra Muggles</a></li>
+<li><a href="#Extra_002dMuggles-Commands" accesskey="3">Extra-Muggles Commands</a></li>
+</ul>
+<div class="subsection" id="Using-Hydras-1">
+<h4 class="subsection">12.219.1 Using Hydras</h4>
+<p>See the high-level documentation for the Hydra package by executing
+<kbd>C-h C-j </kbd> hydra <kbd>RET</kbd>.
+The documentation in this section uses the same terminology as
+shown in the hydra package documentation.
+</p>
+</div>
+<div class="subsection" id="Extra-Muggles">
+<h4 class="subsection">12.219.2 Extra Muggles</h4>
+
+<ul>
+<li> View-Mode: <kbd>C-. v</kbd> Temporarily behave like view-mode.
+</li><li> SmartParens: <kbd>C-c ,</kbd> Smart Parens
+</li><li> m-player: <kbd>s-m</kbd> Emacspeak-M-Player Commands
+</li><li> m-player: <kbd>s-;</kbd> Emacspeak-M-Player muggle
+</li><li> pianobar: <kbd>s-'</kbd> Emacspeak-M-pianobar Commands
+</li><li> origami: C-, / Origami   bindings.
+</li><li> outliner: &lt;C-c .&gt; Bindings from outline-minor-mode.
+</li><li> Info-Summary: &lt;?&gt; in Info Info Summary Muggle
+</li><li> Vuiet Explorer: <kbd>C-; v</kbd> Vuiet Music Explorer and Player
+</li></ul>
+
+<p>Emacspeak automatically speaks Hydra hints when displayed.
+To silence all Hydra hints, set hydra-is-helpful to nil.  To
+temporarily silence speaking of Hydra hints, Muggles can bind
+command <code>emacspeak-hydra-toggle-talkative</code>.  As an
+example, Muggle &lsquo;<samp>ViewMode</samp>&rsquo; binds <code>s</code> to this command.
+</p>
+</div>
+<div class="subsection" id="Extra_002dMuggles-Commands">
+<h4 class="subsection">12.219.3 Extra-Muggles Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd" accesskey="1">emacspeak-muggles-emacspeak-m-player-mode-map-cmd</a></li>
+<li><a href="#emacspeak_002dmuggles_002dinfo_002dsummary_002fbody" accesskey="2">emacspeak-muggles-info-summary/body</a></li>
+<li><a href="#emacspeak_002dmuggles_002dm_002dplayer_002fbody" accesskey="3">emacspeak-muggles-m-player/body</a></li>
+<li><a href="#emacspeak_002dmuggles_002doutliner_002fbody" accesskey="4">emacspeak-muggles-outliner/body</a></li>
+<li><a href="#emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd" accesskey="5">emacspeak-muggles-pianobar-key-map-cmd</a></li>
+<li><a href="#emacspeak_002dmuggles_002dsmartparens_002fbody" accesskey="6">emacspeak-muggles-smartparens/body</a></li>
+<li><a href="#emacspeak_002dmuggles_002dview_002fbody" accesskey="7">emacspeak-muggles-view/body</a></li>
+<li><a href="#emacspeak_002dorigami_002fbody" accesskey="8">emacspeak-origami/body</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd">
+<h4 class="subsubsection">12.219.3.1 emacspeak-muggles-emacspeak-m-player-mode-map-cmd</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd"><span class="category">Command: </span><span><strong>emacspeak-muggles-emacspeak-m-player-mode-map-cmd</strong><a href='#index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-s_002dm'><span><kbd>s-m</kbd><a href='#index-s_002dm' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd-1"></span>
+
+<div class="format">
+<pre class="format">Temporarily use keymap emacspeak-m-player-mode-map
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmuggles_002dinfo_002dsummary_002fbody">
+<h4 class="subsubsection">12.219.3.2 emacspeak-muggles-info-summary/body</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody"><span class="category">Command: </span><span><strong>emacspeak-muggles-info-summary/body</strong><a href='#index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody-1"></span>
+
+<div class="format">
+<pre class="format">Call the body in the &quot;emacspeak-muggles-info-summary&quot; hydra.
 
 The heads for the associated hydra are:
 
-"]":    ‘Info-forward-node’,
-"[":    ‘Info-backward-node’,
-"n":    ‘Info-next’,
-"p":    ‘Info-prev’,
-"s":    ‘Info-search’,
-"S":    ‘Info-search-case-sensitively’,
-"l":    ‘Info-history-back’,
-"r":    ‘Info-history-forward’,
-"H":    ‘Info-history’,
-"t":    ‘Info-top-node’,
-"&lt;":    ‘Info-top-node’,
-"&gt;":    ‘Info-final-node’,
-"u":    ‘Info-up’,
-"^":    ‘Info-up’,
-"m":    ‘Info-menu’,
-"g":    ‘Info-goto-node’,
-"b":    ‘beginning-of-buffer’,
-"e":    ‘end-of-buffer’,
-"f":    ‘Info-follow-reference’,
-"i":    ‘Info-index’,
-",":    ‘Info-index-next’,
-"I":    ‘Info-virtual-index’,
-"T":    ‘Info-toc’,
-"d":    ‘Info-directory’,
-"c":    ‘Info-copy-current-node-name’,
-"C":    ‘clone-buffer’,
-"a":    ‘info-apropos’,
-"1":    ‘Info-nth-menu-item’,
-"2":    ‘Info-nth-menu-item’,
-"3":    ‘Info-nth-menu-item’,
-"4":    ‘Info-nth-menu-item’,
-"5":    ‘Info-nth-menu-item’,
-"6":    ‘Info-nth-menu-item’,
-"7":    ‘Info-nth-menu-item’,
-"8":    ‘Info-nth-menu-item’,
-"9":    ‘Info-nth-menu-item’,
-"?":    ‘Info-summary’,
-"h":    ‘Info-help’,
-"q":    ‘quit-window’,
-"C-g":    nil
+&quot;]&quot;:    ‘Info-forward-node’,
+&quot;[&quot;:    ‘Info-backward-node’,
+&quot;n&quot;:    ‘Info-next’,
+&quot;p&quot;:    ‘Info-prev’,
+&quot;s&quot;:    ‘Info-search’,
+&quot;S&quot;:    ‘Info-search-case-sensitively’,
+&quot;l&quot;:    ‘Info-history-back’,
+&quot;r&quot;:    ‘Info-history-forward’,
+&quot;H&quot;:    ‘Info-history’,
+&quot;t&quot;:    ‘Info-top-node’,
+&quot;&lt;&quot;:    ‘Info-top-node’,
+&quot;&gt;&quot;:    ‘Info-final-node’,
+&quot;u&quot;:    ‘Info-up’,
+&quot;^&quot;:    ‘Info-up’,
+&quot;m&quot;:    ‘Info-menu’,
+&quot;g&quot;:    ‘Info-goto-node’,
+&quot;b&quot;:    ‘beginning-of-buffer’,
+&quot;e&quot;:    ‘end-of-buffer’,
+&quot;f&quot;:    ‘Info-follow-reference’,
+&quot;i&quot;:    ‘Info-index’,
+&quot;,&quot;:    ‘Info-index-next’,
+&quot;I&quot;:    ‘Info-virtual-index’,
+&quot;T&quot;:    ‘Info-toc’,
+&quot;d&quot;:    ‘Info-directory’,
+&quot;c&quot;:    ‘Info-copy-current-node-name’,
+&quot;C&quot;:    ‘clone-buffer’,
+&quot;a&quot;:    ‘info-apropos’,
+&quot;1&quot;:    ‘Info-nth-menu-item’,
+&quot;2&quot;:    ‘Info-nth-menu-item’,
+&quot;3&quot;:    ‘Info-nth-menu-item’,
+&quot;4&quot;:    ‘Info-nth-menu-item’,
+&quot;5&quot;:    ‘Info-nth-menu-item’,
+&quot;6&quot;:    ‘Info-nth-menu-item’,
+&quot;7&quot;:    ‘Info-nth-menu-item’,
+&quot;8&quot;:    ‘Info-nth-menu-item’,
+&quot;9&quot;:    ‘Info-nth-menu-item’,
+&quot;?&quot;:    ‘Info-summary’,
+&quot;h&quot;:    ‘Info-help’,
+&quot;q&quot;:    ‘quit-window’,
+&quot;C-g&quot;:    nil
 
 The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmuggles_002dm_002dplayer_002fbody">
-        <h4 class="subsubsection">12.219.3.3
-        emacspeak-muggles-m-player/body</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-m-player/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dm_002dplayer_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-s_002d_003b'><span><kbd>s-;</kbd>
-              <a href='#index-s_002d_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Call the body in the "emacspeak-muggles-m-player" hydra.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmuggles_002dm_002dplayer_002fbody">
+<h4 class="subsubsection">12.219.3.3 emacspeak-muggles-m-player/body</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmuggles_002dm_002dplayer_002fbody"><span class="category">Command: </span><span><strong>emacspeak-muggles-m-player/body</strong><a href='#index-emacspeak_002dmuggles_002dm_002dplayer_002fbody' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-s_002d_003b'><span><kbd>s-;</kbd><a href='#index-s_002d_003b' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dmuggles_002dm_002dplayer_002fbody-1"></span>
+
+<div class="format">
+<pre class="format">Call the body in the &quot;emacspeak-muggles-m-player&quot; hydra.
 
 The heads for the associated hydra are:
 
-";":    ‘emacspeak-m-player’,
-"+":    ‘emacspeak-m-player-volume-up’,
-",":    ‘emacspeak-m-player-backward-10s’,
-"%":    ‘emacspeak-m-player-display-percent’,
-"-":    ‘emacspeak-m-player-volume-down’,
-".":    ‘emacspeak-m-player-forward-10s’,
-"&lt;":    ‘emacspeak-m-player-backward-1min’,
-"&lt;down&gt;":    ‘emacspeak-m-player-forward-1min’,
-"&lt;end&gt;":    ‘emacspeak-m-player-end-of-track’,
-"&lt;home&gt;":    ‘emacspeak-m-player-beginning-of-track’,
-"&lt;left&gt;":    ‘emacspeak-m-player-backward-10s’,
-"&lt;next&gt;":    ‘emacspeak-m-player-forward-10min’,
-"&lt;prior&gt;":    ‘emacspeak-m-player-backward-10min’,
-"&lt;right&gt;":    ‘emacspeak-m-player-forward-10s’,
-"&lt;up&gt;":    ‘emacspeak-m-player-backward-1min’,
-"=":    ‘emacspeak-m-player-volume-up’,
-"&gt;":    ‘emacspeak-m-player-forward-1min’,
-"?":    ‘emacspeak-m-player-display-position’,
-"C":    ‘emacspeak-m-player-clear-filters’,
-"C-m":    ‘emacspeak-m-player-load’,
-"DEL":    ‘emacspeak-m-player-reset-speed’,
-"M-l":    ‘emacspeak-m-player-load-playlist’,
-"O":    ‘emacspeak-m-player-reset-options’,
-"P":    ‘emacspeak-m-player-apply-reverb-preset’,
-"Q":    ‘emacspeak-m-player-quit’,
-"R":    ‘emacspeak-m-player-edit-reverb’,
-"S":    ‘emacspeak-amark-save’,
-"SPC":    ‘emacspeak-m-player-pause’,
-"[":    ‘emacspeak-m-player-slower’,
-"]":    ‘emacspeak-m-player-faster’,
-"a":    ‘emacspeak-m-player-amark-add’,
-"b":    ‘emacspeak-m-player-balance’,
-"c":    ‘emacspeak-m-player-slave-command’,
-"d":    ‘emacspeak-m-player-delete-filter’,
-"e":    ‘emacspeak-m-player-add-equalizer’,
-"f":    ‘emacspeak-m-player-add-filter’,
-"g":    ‘emacspeak-m-player-seek-absolute’,
-"j":    ‘emacspeak-m-player-amark-jump’,
-"l":    ‘emacspeak-m-player-get-length’,
-"m":    ‘emacspeak-m-player-mode-line’,
-"n":    ‘emacspeak-m-player-next-track’,
-"o":    ‘emacspeak-m-player-customize-options’,
-"p":    ‘emacspeak-m-player-previous-track’,
-"q":    ‘bury-buffer’,
-"r":    ‘emacspeak-m-player-seek-relative’,
-"s":    ‘emacspeak-m-player-scale-speed’,
-"t":    ‘emacspeak-m-player-play-tracks-jump’,
-"u":    ‘emacspeak-m-player-url’,
-"v":    ‘emacspeak-m-player-volume-change’,
-"(":    ‘emacspeak-m-player-left-channel’,
-")":    ‘emacspeak-m-player-right-channel’,
-"{":    ‘emacspeak-m-player-half-speed’,
-"}":    ‘emacspeak-m-player-double-speed’
+&quot;;&quot;:    ‘emacspeak-m-player’,
+&quot;+&quot;:    ‘emacspeak-m-player-volume-up’,
+&quot;,&quot;:    ‘emacspeak-m-player-backward-10s’,
+&quot;%&quot;:    ‘emacspeak-m-player-display-percent’,
+&quot;-&quot;:    ‘emacspeak-m-player-volume-down’,
+&quot;.&quot;:    ‘emacspeak-m-player-forward-10s’,
+&quot;&lt;&quot;:    ‘emacspeak-m-player-backward-1min’,
+&quot;&lt;down&gt;&quot;:    ‘emacspeak-m-player-forward-1min’,
+&quot;&lt;end&gt;&quot;:    ‘emacspeak-m-player-end-of-track’,
+&quot;&lt;home&gt;&quot;:    ‘emacspeak-m-player-beginning-of-track’,
+&quot;&lt;left&gt;&quot;:    ‘emacspeak-m-player-backward-10s’,
+&quot;&lt;next&gt;&quot;:    ‘emacspeak-m-player-forward-10min’,
+&quot;&lt;prior&gt;&quot;:    ‘emacspeak-m-player-backward-10min’,
+&quot;&lt;right&gt;&quot;:    ‘emacspeak-m-player-forward-10s’,
+&quot;&lt;up&gt;&quot;:    ‘emacspeak-m-player-backward-1min’,
+&quot;=&quot;:    ‘emacspeak-m-player-volume-up’,
+&quot;&gt;&quot;:    ‘emacspeak-m-player-forward-1min’,
+&quot;?&quot;:    ‘emacspeak-m-player-display-position’,
+&quot;C&quot;:    ‘emacspeak-m-player-clear-filters’,
+&quot;C-m&quot;:    ‘emacspeak-m-player-load’,
+&quot;DEL&quot;:    ‘emacspeak-m-player-reset-speed’,
+&quot;M-l&quot;:    ‘emacspeak-m-player-load-playlist’,
+&quot;O&quot;:    ‘emacspeak-m-player-reset-options’,
+&quot;P&quot;:    ‘emacspeak-m-player-apply-reverb-preset’,
+&quot;Q&quot;:    ‘emacspeak-m-player-quit’,
+&quot;R&quot;:    ‘emacspeak-m-player-edit-reverb’,
+&quot;S&quot;:    ‘emacspeak-amark-save’,
+&quot;SPC&quot;:    ‘emacspeak-m-player-pause’,
+&quot;[&quot;:    ‘emacspeak-m-player-slower’,
+&quot;]&quot;:    ‘emacspeak-m-player-faster’,
+&quot;a&quot;:    ‘emacspeak-m-player-amark-add’,
+&quot;b&quot;:    ‘emacspeak-m-player-balance’,
+&quot;c&quot;:    ‘emacspeak-m-player-slave-command’,
+&quot;d&quot;:    ‘emacspeak-m-player-delete-filter’,
+&quot;e&quot;:    ‘emacspeak-m-player-add-equalizer’,
+&quot;f&quot;:    ‘emacspeak-m-player-add-filter’,
+&quot;g&quot;:    ‘emacspeak-m-player-seek-absolute’,
+&quot;j&quot;:    ‘emacspeak-m-player-amark-jump’,
+&quot;l&quot;:    ‘emacspeak-m-player-get-length’,
+&quot;m&quot;:    ‘emacspeak-m-player-mode-line’,
+&quot;n&quot;:    ‘emacspeak-m-player-next-track’,
+&quot;o&quot;:    ‘emacspeak-m-player-customize-options’,
+&quot;p&quot;:    ‘emacspeak-m-player-previous-track’,
+&quot;q&quot;:    ‘bury-buffer’,
+&quot;r&quot;:    ‘emacspeak-m-player-seek-relative’,
+&quot;s&quot;:    ‘emacspeak-m-player-scale-speed’,
+&quot;t&quot;:    ‘emacspeak-m-player-play-tracks-jump’,
+&quot;u&quot;:    ‘emacspeak-m-player-url’,
+&quot;v&quot;:    ‘emacspeak-m-player-volume-change’,
+&quot;(&quot;:    ‘emacspeak-m-player-left-channel’,
+&quot;)&quot;:    ‘emacspeak-m-player-right-channel’,
+&quot;{&quot;:    ‘emacspeak-m-player-half-speed’,
+&quot;}&quot;:    ‘emacspeak-m-player-double-speed’
 
 The body can be accessed via ‘emacspeak-muggles-m-player/body’.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmuggles_002doutliner_002fbody">
-        <h4 class="subsubsection">12.219.3.4
-        emacspeak-muggles-outliner/body</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dmuggles_002doutliner_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-outliner/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002doutliner_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002e-o'><span><kbd>C-. o</kbd>
-              <a href='#index-C_002d_002e-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002d_0027-o'><span><kbd>C-' o</kbd>
-              <a href='#index-C_002d_0027-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-s-o'><span><kbd>C-x @ s
-              o</kbd> <a href='#index-C_002dx-_0040-s-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002doutliner_002fbody-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Call the body in the "emacspeak-muggles-outliner" hydra.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmuggles_002doutliner_002fbody">
+<h4 class="subsubsection">12.219.3.4 emacspeak-muggles-outliner/body</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmuggles_002doutliner_002fbody"><span class="category">Command: </span><span><strong>emacspeak-muggles-outliner/body</strong><a href='#index-emacspeak_002dmuggles_002doutliner_002fbody' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-C_002d_002e-o'><span><kbd>C-. o</kbd><a href='#index-C_002d_002e-o' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002d_0027-o'><span><kbd>C-' o</kbd><a href='#index-C_002d_0027-o' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002dx-_0040-s-o'><span><kbd>C-x @ s o</kbd><a href='#index-C_002dx-_0040-s-o' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dmuggles_002doutliner_002fbody-1"></span>
+
+<div class="format">
+<pre class="format">Call the body in the &quot;emacspeak-muggles-outliner&quot; hydra.
 
 The heads for the associated hydra are:
 
-"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
-"q":    ‘outline-hide-sublevels’,
-"t":    ‘outline-hide-body’,
-"o":    ‘outline-hide-other’,
-"c":    ‘outline-hide-entry’,
-"l":    ‘outline-hide-leaves’,
-"d":    ‘outline-hide-subtree’,
-"a":    ‘outline-show-all’,
-"e":    ‘outline-show-entry’,
-"i":    ‘outline-show-children’,
-"k":    ‘outline-show-branches’,
-"s":    ‘outline-show-subtree’,
-"u":    ‘outline-up-heading’,
-"n":    ‘outline-next-visible-heading’,
-"p":    ‘outline-previous-visible-heading’,
-"f":    ‘outline-forward-same-level’,
-"b":    ‘outline-backward-same-level’,
-"z":    nil
+&quot;?&quot;:    ‘(emacspeak-hydra-self-help &quot;emacspeak-muggles-outliner&quot;)’,
+&quot;q&quot;:    ‘outline-hide-sublevels’,
+&quot;t&quot;:    ‘outline-hide-body’,
+&quot;o&quot;:    ‘outline-hide-other’,
+&quot;c&quot;:    ‘outline-hide-entry’,
+&quot;l&quot;:    ‘outline-hide-leaves’,
+&quot;d&quot;:    ‘outline-hide-subtree’,
+&quot;a&quot;:    ‘outline-show-all’,
+&quot;e&quot;:    ‘outline-show-entry’,
+&quot;i&quot;:    ‘outline-show-children’,
+&quot;k&quot;:    ‘outline-show-branches’,
+&quot;s&quot;:    ‘outline-show-subtree’,
+&quot;u&quot;:    ‘outline-up-heading’,
+&quot;n&quot;:    ‘outline-next-visible-heading’,
+&quot;p&quot;:    ‘outline-previous-visible-heading’,
+&quot;f&quot;:    ‘outline-forward-same-level’,
+&quot;b&quot;:    ‘outline-backward-same-level’,
+&quot;z&quot;:    nil
 
 The body can be accessed via ‘emacspeak-muggles-outliner/body’.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd">
-        <h4 class="subsubsection">12.219.3.5
-        emacspeak-muggles-pianobar-key-map-cmd</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-pianobar-key-map-cmd</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-s_002d_0027'><span><kbd>s-'</kbd>
-              <a href='#index-s_002d_0027' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Temporarily use keymap pianobar-key-map
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmuggles_002dsmartparens_002fbody">
-        <h4 class="subsubsection">12.219.3.6
-        emacspeak-muggles-smartparens/body</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dmuggles_002dsmartparens_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-smartparens/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dsmartparens_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002dc-_002c'><span><kbd>C-c ,</kbd>
-              <a href='#index-C_002dc-_002c' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dsmartparens_002fbody-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Call the body in the "emacspeak-muggles-smartparens" hydra.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd">
+<h4 class="subsubsection">12.219.3.5 emacspeak-muggles-pianobar-key-map-cmd</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd"><span class="category">Command: </span><span><strong>emacspeak-muggles-pianobar-key-map-cmd</strong><a href='#index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-s_002d_0027'><span><kbd>s-'</kbd><a href='#index-s_002d_0027' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd-1"></span>
+
+<div class="format">
+<pre class="format">Temporarily use keymap pianobar-key-map
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmuggles_002dsmartparens_002fbody">
+<h4 class="subsubsection">12.219.3.6 emacspeak-muggles-smartparens/body</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmuggles_002dsmartparens_002fbody"><span class="category">Command: </span><span><strong>emacspeak-muggles-smartparens/body</strong><a href='#index-emacspeak_002dmuggles_002dsmartparens_002fbody' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-C_002dc-_002c'><span><kbd>C-c ,</kbd><a href='#index-C_002dc-_002c' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dmuggles_002dsmartparens_002fbody-1"></span>
+
+<div class="format">
+<pre class="format">Call the body in the &quot;emacspeak-muggles-smartparens&quot; hydra.
 
 The heads for the associated hydra are:
 
-"’":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
-"(":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
-"&lt;down&gt;":    ‘sp-splice-sexp-killing-forward’,
-"&lt;left&gt;":    ‘sp-forward-barf-sexp’,
-"&lt;right&gt;":    ‘sp-forward-slurp-sexp’,
-"&lt;up&gt;":    ‘sp-splice-sexp-killing-backward’,
-"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-smartparens")’,
-"C-&lt;left&gt;":    ‘sp-backward-barf-sexp’,
-"C-&lt;right&gt;":    ‘sp-backward-slurp-sexp’,
-"R":    ‘sp-splice-sexp’,
-""":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
-"a":    ‘beginning-of-defun’,
-"b":    ‘sp-backward-sexp’,
-"c":    ‘sp-convolute-sexp’,
-"d":    ‘sp-down-sexp’,
-"e":    ‘end-of-defun’,
-"f":    ‘sp-forward-sexp’,
-"i":    ‘sp-indent-defun’,
-"j":    ‘sp-join-sexp’,
-"k":    ‘sp-kill-sexp’,
-"n":    ‘sp-next-sexp’,
-"p":    ‘sp-previous-sexp’,
-"r":    ‘sp-splice-sexp-killing-around’,
-"s":    ‘sp-split-sexp’,
-"t":    ‘sp-transpose-sexp’,
-"u":    ‘sp-backward-up-sexp’,
-"w":    ‘sp-copy-sexp’,
-"{":    ‘#’(lambda (_) (interactive "P") (sp-wrap-with-pair "{"))’
+&quot;’&quot;:    ‘#’(lambda (_) (interactive &quot;P&quot;) (sp-wrap-with-pair &quot;’&quot;))’,
+&quot;(&quot;:    ‘#’(lambda (_) (interactive &quot;P&quot;) (sp-wrap-with-pair &quot;(&quot;))’,
+&quot;&lt;down&gt;&quot;:    ‘sp-splice-sexp-killing-forward’,
+&quot;&lt;left&gt;&quot;:    ‘sp-forward-barf-sexp’,
+&quot;&lt;right&gt;&quot;:    ‘sp-forward-slurp-sexp’,
+&quot;&lt;up&gt;&quot;:    ‘sp-splice-sexp-killing-backward’,
+&quot;?&quot;:    ‘(emacspeak-hydra-self-help &quot;emacspeak-muggles-smartparens&quot;)’,
+&quot;C-&lt;left&gt;&quot;:    ‘sp-backward-barf-sexp’,
+&quot;C-&lt;right&gt;&quot;:    ‘sp-backward-slurp-sexp’,
+&quot;R&quot;:    ‘sp-splice-sexp’,
+&quot;&quot;&quot;:    ‘#’(lambda (_) (interactive &quot;P&quot;) (sp-wrap-with-pair &quot;\&quot;&quot;))’,
+&quot;a&quot;:    ‘beginning-of-defun’,
+&quot;b&quot;:    ‘sp-backward-sexp’,
+&quot;c&quot;:    ‘sp-convolute-sexp’,
+&quot;d&quot;:    ‘sp-down-sexp’,
+&quot;e&quot;:    ‘end-of-defun’,
+&quot;f&quot;:    ‘sp-forward-sexp’,
+&quot;i&quot;:    ‘sp-indent-defun’,
+&quot;j&quot;:    ‘sp-join-sexp’,
+&quot;k&quot;:    ‘sp-kill-sexp’,
+&quot;n&quot;:    ‘sp-next-sexp’,
+&quot;p&quot;:    ‘sp-previous-sexp’,
+&quot;r&quot;:    ‘sp-splice-sexp-killing-around’,
+&quot;s&quot;:    ‘sp-split-sexp’,
+&quot;t&quot;:    ‘sp-transpose-sexp’,
+&quot;u&quot;:    ‘sp-backward-up-sexp’,
+&quot;w&quot;:    ‘sp-copy-sexp’,
+&quot;{&quot;:    ‘#’(lambda (_) (interactive &quot;P&quot;) (sp-wrap-with-pair &quot;{&quot;))’
 
 The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dmuggles_002dview_002fbody">
-        <h4 class="subsubsection">12.219.3.7
-        emacspeak-muggles-view/body</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmuggles_002dview_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-view/body</strong>
-          <a href='#index-emacspeak_002dmuggles_002dview_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002e-v'><span><kbd>C-. v</kbd>
-              <a href='#index-C_002d_002e-v' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002d_0027-v'><span><kbd>C-' v</kbd>
-              <a href='#index-C_002d_0027-v' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-s-v'><span><kbd>C-x @ s
-              v</kbd> <a href='#index-C_002dx-_0040-s-v' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dview_002fbody-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Call the body in the "emacspeak-muggles-view" hydra.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dmuggles_002dview_002fbody">
+<h4 class="subsubsection">12.219.3.7 emacspeak-muggles-view/body</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dmuggles_002dview_002fbody"><span class="category">Command: </span><span><strong>emacspeak-muggles-view/body</strong><a href='#index-emacspeak_002dmuggles_002dview_002fbody' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-C_002d_002e-v'><span><kbd>C-. v</kbd><a href='#index-C_002d_002e-v' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002d_0027-v'><span><kbd>C-' v</kbd><a href='#index-C_002d_0027-v' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002dx-_0040-s-v'><span><kbd>C-x @ s v</kbd><a href='#index-C_002dx-_0040-s-v' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dmuggles_002dview_002fbody-1"></span>
+
+<div class="format">
+<pre class="format">Call the body in the &quot;emacspeak-muggles-view&quot; hydra.
 
 The heads for the associated hydra are:
 
-"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-view")’,
-"$":    ‘set-selective-display’,
-"%":    ‘View-goto-percent’,
-"’":    ‘register-to-point’,
-"(":    ‘backward-sexp’,
-")":    ‘forward-sexp’,
-".":    ‘set-mark-command’,
-"/":    ‘View-search-regexp-forward’,
-"&lt;":    ‘beginning-of-buffer’,
-"&lt;return&gt;":    nil,
-"=":    ‘what-line’,
-"&gt;":    ‘end-of-buffer’,
-"@":    ‘View-back-to-mark’,
-"A":    ‘beginning-of-defun’,
-"DEL":    ‘View-scroll-page-backward’,
-"E":    ‘end-of-defun’,
-"J":    ‘(emacspeak-hide-or-expose-block ’all)’,
-"SPC":    ‘View-scroll-page-forward’,
-"[":    ‘backward-page’,
-"\":    ‘View-search-regexp-backward’,
-"]":    ‘forward-page’,
-"a":    ‘move-beginning-of-line’,
-"b":    ‘backward-word’,
-"c":    ‘emacspeak-speak-char’,
-"d":    ‘View-scroll-half-page-forward’,
-"e":    ‘move-end-of-line’,
-"f":    ‘forward-word’,
-"g":    ‘goto-line’,
-"h":    ‘backward-char’,
-"i":    ‘emacspeak-speak-mode-line’,
-"j":    ‘next-line’,
-"k":    ‘previous-line’,
-"l":    ‘forward-char’,
-"m":    ‘point-to-register’,
-"n":    ‘View-search-last-regexp-forward’,
-"p":    ‘View-search-last-regexp-backward’,
-"q":    nil,
-"r":    ‘copy-to-register’,
-"s":    ‘emacspeak-hydra-toggle-talkative’,
-"t":    ‘(recenter 0)’,
-"u":    ‘View-scroll-half-page-backward’,
-"w":    ‘emacspeak-speak-word’,
-"x":    ‘exchange-point-and-mark’,
-"y":    ‘kill-ring-save’,
-"{":    ‘backward-paragraph’,
-"}":    ‘forward-paragraph’
+&quot;?&quot;:    ‘(emacspeak-hydra-self-help &quot;emacspeak-muggles-view&quot;)’,
+&quot;$&quot;:    ‘set-selective-display’,
+&quot;%&quot;:    ‘View-goto-percent’,
+&quot;’&quot;:    ‘register-to-point’,
+&quot;(&quot;:    ‘backward-sexp’,
+&quot;)&quot;:    ‘forward-sexp’,
+&quot;.&quot;:    ‘set-mark-command’,
+&quot;/&quot;:    ‘View-search-regexp-forward’,
+&quot;&lt;&quot;:    ‘beginning-of-buffer’,
+&quot;&lt;return&gt;&quot;:    nil,
+&quot;=&quot;:    ‘what-line’,
+&quot;&gt;&quot;:    ‘end-of-buffer’,
+&quot;@&quot;:    ‘View-back-to-mark’,
+&quot;A&quot;:    ‘beginning-of-defun’,
+&quot;DEL&quot;:    ‘View-scroll-page-backward’,
+&quot;E&quot;:    ‘end-of-defun’,
+&quot;J&quot;:    ‘(emacspeak-hide-or-expose-block ’all)’,
+&quot;SPC&quot;:    ‘View-scroll-page-forward’,
+&quot;[&quot;:    ‘backward-page’,
+&quot;\&quot;:    ‘View-search-regexp-backward’,
+&quot;]&quot;:    ‘forward-page’,
+&quot;a&quot;:    ‘move-beginning-of-line’,
+&quot;b&quot;:    ‘backward-word’,
+&quot;c&quot;:    ‘emacspeak-speak-char’,
+&quot;d&quot;:    ‘View-scroll-half-page-forward’,
+&quot;e&quot;:    ‘move-end-of-line’,
+&quot;f&quot;:    ‘forward-word’,
+&quot;g&quot;:    ‘goto-line’,
+&quot;h&quot;:    ‘backward-char’,
+&quot;i&quot;:    ‘emacspeak-speak-mode-line’,
+&quot;j&quot;:    ‘next-line’,
+&quot;k&quot;:    ‘previous-line’,
+&quot;l&quot;:    ‘forward-char’,
+&quot;m&quot;:    ‘point-to-register’,
+&quot;n&quot;:    ‘View-search-last-regexp-forward’,
+&quot;p&quot;:    ‘View-search-last-regexp-backward’,
+&quot;q&quot;:    nil,
+&quot;r&quot;:    ‘copy-to-register’,
+&quot;s&quot;:    ‘emacspeak-hydra-toggle-talkative’,
+&quot;t&quot;:    ‘(recenter 0)’,
+&quot;u&quot;:    ‘View-scroll-half-page-backward’,
+&quot;w&quot;:    ‘emacspeak-speak-word’,
+&quot;x&quot;:    ‘exchange-point-and-mark’,
+&quot;y&quot;:    ‘kill-ring-save’,
+&quot;{&quot;:    ‘backward-paragraph’,
+&quot;}&quot;:    ‘forward-paragraph’
 
 The body can be accessed via ‘emacspeak-muggles-view/body’.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorigami_002fbody">
-        <h4 class="subsubsection">12.219.3.8
-        emacspeak-origami/body</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dorigami_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-origami/body</strong> <a href=
-          '#index-emacspeak_002dorigami_002fbody' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002c-_002f'><span><kbd>C-,
-              /</kbd> <a href='#index-C_002d_002c-_002f' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-a-_002f'><span><kbd>C-x @
-              a /</kbd> <a href='#index-C_002dx-_0040-a-_002f'
-              class='copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dorigami_002fbody-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Call the body in the "emacspeak-origami" hydra.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorigami_002fbody">
+<h4 class="subsubsection">12.219.3.8 emacspeak-origami/body</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorigami_002fbody"><span class="category">Command: </span><span><strong>emacspeak-origami/body</strong><a href='#index-emacspeak_002dorigami_002fbody' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-C_002d_002c-_002f'><span><kbd>C-, /</kbd><a href='#index-C_002d_002c-_002f' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002dx-_0040-a-_002f'><span><kbd>C-x @ a /</kbd><a href='#index-C_002dx-_0040-a-_002f' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dorigami_002fbody-1"></span>
+
+<div class="format">
+<pre class="format">Call the body in the &quot;emacspeak-origami&quot; hydra.
 
 The heads for the associated hydra are:
 
-"o":    ‘origami-open-node’,
-"c":    ‘origami-close-node’,
-"n":    ‘origami-next-fold’,
-"p":    ‘origami-previous-fold’,
-"f":    ‘origami-forward-toggle-node’,
-"a":    ‘origami-toggle-all-nodes’
+&quot;o&quot;:    ‘origami-open-node’,
+&quot;c&quot;:    ‘origami-close-node’,
+&quot;n&quot;:    ‘origami-next-fold’,
+&quot;p&quot;:    ‘origami-previous-fold’,
+&quot;f&quot;:    ‘origami-forward-toggle-node’,
+&quot;a&quot;:    ‘origami-toggle-all-nodes’
 
 The body can be accessed via ‘emacspeak-origami/body’.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href="g_002dutils.html">g-utils</a>, Previous:
-    <a href="espeak_002dvoices.html">espeak-voices</a>, Up:
-    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="g_002dutils.html">g-utils</a>, Previous: <a href="espeak_002dvoices.html">espeak-voices</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

@@ -1,392 +1,233 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>emacspeak-org (Emacspeak User’s Manual — 2nd
-  Edition.)</title>
-  <meta name="description" content=
-  "emacspeak-org (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="keywords" content=
-  "emacspeak-org (Emacspeak User’s Manual — 2nd Edition.)" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta name="viewport" content=
-  "width=device-width,initial-scale=1" />
-  <link href="index.html" rel="start" title="Top" />
-  <link href="Concept-Index.html" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
-  "Emacspeak Commands And Options" />
-  <link href="emacspeak_002dorgalist.html" rel="next" title=
-  "emacspeak-orgalist" />
-  <link href="emacspeak_002docr.html" rel="prev" title=
-  "emacspeak-ocr" />
-  <style type="text/css">
-  /*<![CDATA[*/
-  <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <link rel="stylesheet" type="text/css" href=
-  "http://www.w3.org/StyleSheets/Core/Modernist" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>emacspeak-org (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+
+<meta name="description" content="emacspeak-org (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="keywords" content="emacspeak-org (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dorgalist.html" rel="next" title="emacspeak-orgalist">
+<link href="emacspeak_002docr.html" rel="prev" title="emacspeak-ocr">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
+
+
 </head>
-<body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dorg">
-    <div class="header">
-      <p>Next: <a href="emacspeak_002dorgalist.html" accesskey="n"
-      rel="next">emacspeak-orgalist</a>, Previous: <a href=
-      "emacspeak_002docr.html" accesskey="p" rel=
-      "prev">emacspeak-ocr</a>, Up: <a href=
-      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
-      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
-      "index.html#SEC_Contents" title="Table of contents" rel=
-      "contents">Contents</a>][<a href="Concept-Index.html" title=
-      "Index" rel="index">Index</a>]</p>
-    </div>
-    <hr />
-    <span id="emacspeak_002dorg-1"></span>
-    <h3 class="section">12.136 emacspeak-org</h3>
-    <p>Speech-enable org — Org allows you to keep organized notes
-    and todo lists. Homepage:
-    http://www.astro.uva.nl/~dominik/Tools/org/ or
-    http://orgmode.org/</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dOrg-Commands" accesskey=
-      "1">Emacspeak-Org Commands</a></li>
-      <li><a href="#emacspeak_002dorg-Options" accesskey=
-      "2">emacspeak-org Options</a></li>
-    </ul>
-    <div class="subsection" id="Emacspeak_002dOrg-Commands">
-      <h4 class="subsection">12.136.1 Emacspeak-Org Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dorg_002dcapture_002dlink"
-        accesskey="1">emacspeak-org-capture-link</a></li>
-        <li><a href="#emacspeak_002dorg_002dpopup_002dinput"
-        accesskey="2">emacspeak-org-popup-input</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dpopup_002dinput_002dbuffer"
-        accesskey="3">emacspeak-org-popup-input-buffer</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"
-        accesskey=
-        "4">emacspeak-org-table-speak-both-headers-and-element</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader"
-        accesskey=
-        "5">emacspeak-org-table-speak-column-header</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"
-        accesskey=
-        "6">emacspeak-org-table-speak-column-header-and-element</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dtable_002dspeak_002dcoordinates"
-        accesskey=
-        "7">emacspeak-org-table-speak-coordinates</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement"
-        accesskey=
-        "8">emacspeak-org-table-speak-current-element</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader"
-        accesskey="9">emacspeak-org-table-speak-row-header</a></li>
-        <li><a href=
-        "#emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
-        emacspeak-org-table-speak-row-header-and-element</a></li>
-      </ul>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dcapture_002dlink">
-        <h4 class="subsubsection">12.136.1.1
-        emacspeak-org-capture-link</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dorg_002dcapture_002dlink">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-capture-link</strong>
-          <em>(&amp;optional open)</em> <a href=
-          '#index-emacspeak_002dorg_002dcapture_002dlink' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002e-h'><span><kbd>C-. h</kbd>
-              <a href='#index-C_002d_002e-h' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002d_0027-h'><span><kbd>C-' h</kbd>
-              <a href='#index-C_002d_0027-h' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-s-h'><span><kbd>C-x @ s
-              h</kbd> <a href='#index-C_002dx-_0040-s-h' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dorg_002dcapture_002dlink-1"></span>
-            <div class="format">
-              <pre class=
-              "format">Capture hyperlink to current context.
+
+<body lang="en">
+<div class="section" id="emacspeak_002dorg">
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dorgalist.html" accesskey="n" rel="next">emacspeak-orgalist</a>, Previous: <a href="emacspeak_002docr.html" accesskey="p" rel="prev">emacspeak-ocr</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="emacspeak_002dorg-1"></span><h3 class="section">12.136 emacspeak-org</h3>
+
+<p>Speech-enable org &mdash;
+ Org allows you to keep organized notes and todo lists.
+Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
+or http://orgmode.org/
+</p>
+<ul class="section-toc">
+<li><a href="#Emacspeak_002dOrg-Commands" accesskey="1">Emacspeak-Org Commands</a></li>
+<li><a href="#emacspeak_002dorg-Options" accesskey="2">emacspeak-org Options</a></li>
+</ul>
+<div class="subsection" id="Emacspeak_002dOrg-Commands">
+<h4 class="subsection">12.136.1 Emacspeak-Org Commands</h4>
+
+<ul class="section-toc">
+<li><a href="#emacspeak_002dorg_002dcapture_002dlink" accesskey="1">emacspeak-org-capture-link</a></li>
+<li><a href="#emacspeak_002dorg_002dpopup_002dinput" accesskey="2">emacspeak-org-popup-input</a></li>
+<li><a href="#emacspeak_002dorg_002dpopup_002dinput_002dbuffer" accesskey="3">emacspeak-org-popup-input-buffer</a></li>
+<li><a href="#emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement" accesskey="4">emacspeak-org-table-speak-both-headers-and-element</a></li>
+<li><a href="#emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader" accesskey="5">emacspeak-org-table-speak-column-header</a></li>
+<li><a href="#emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement" accesskey="6">emacspeak-org-table-speak-column-header-and-element</a></li>
+<li><a href="#emacspeak_002dorg_002dtable_002dspeak_002dcoordinates" accesskey="7">emacspeak-org-table-speak-coordinates</a></li>
+<li><a href="#emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement" accesskey="8">emacspeak-org-table-speak-current-element</a></li>
+<li><a href="#emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader" accesskey="9">emacspeak-org-table-speak-row-header</a></li>
+<li><a href="#emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement">emacspeak-org-table-speak-row-header-and-element</a></li>
+</ul>
+<div class="subsubsection" id="emacspeak_002dorg_002dcapture_002dlink">
+<h4 class="subsubsection">12.136.1.1 emacspeak-org-capture-link</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dcapture_002dlink"><span class="category">Command: </span><span><strong>emacspeak-org-capture-link</strong> <em>(&amp;optional open)</em><a href='#index-emacspeak_002dorg_002dcapture_002dlink' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-C_002d_002e-h'><span><kbd>C-. h</kbd><a href='#index-C_002d_002e-h' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002d_0027-h'><span><kbd>C-' h</kbd><a href='#index-C_002d_0027-h' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002dx-_0040-s-h'><span><kbd>C-x @ s h</kbd><a href='#index-C_002dx-_0040-s-h' class='copiable-anchor'> &para;</a></span></dt>
+</dl>
+
+<span id="index-emacspeak_002dorg_002dcapture_002dlink-1"></span>
+
+<div class="format">
+<pre class="format">Capture hyperlink to current context.
 To use this command, first do ‘customize-variable’
 ‘org-capture-template’ and assign letter ‘h’ to a template that
 creates the hyperlink on capture.  Optional interactive prefix
 arg just opens the file
 
 (fn &amp;optional OPEN)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dpopup_002dinput">
-        <h4 class="subsubsection">12.136.1.2
-        emacspeak-org-popup-input</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dorg_002dpopup_002dinput">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-popup-input</strong> <a href=
-          '#index-emacspeak_002dorg_002dpopup_002dinput' class=
-          'copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dpopup_002dinput-1"></span>
-            <div class="format">
-              <pre class="format">Pops up an org input area.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dpopup_002dinput_002dbuffer">
-        <h4 class="subsubsection">12.136.1.3
-        emacspeak-org-popup-input-buffer</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dpopup_002dinput_002dbuffer">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-popup-input-buffer</strong>
-          <em>(mode)</em> <a href=
-          '#index-emacspeak_002dorg_002dpopup_002dinput_002dbuffer'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dpopup_002dinput_002dbuffer-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Provide an input buffer in a specified mode.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dpopup_002dinput">
+<h4 class="subsubsection">12.136.1.2 emacspeak-org-popup-input</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dpopup_002dinput"><span class="category">Command: </span><span><strong>emacspeak-org-popup-input</strong><a href='#index-emacspeak_002dorg_002dpopup_002dinput' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dpopup_002dinput-1"></span>
+
+<div class="format">
+<pre class="format">Pops up an org input area.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dpopup_002dinput_002dbuffer">
+<h4 class="subsubsection">12.136.1.3 emacspeak-org-popup-input-buffer</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dpopup_002dinput_002dbuffer"><span class="category">Command: </span><span><strong>emacspeak-org-popup-input-buffer</strong> <em>(mode)</em><a href='#index-emacspeak_002dorg_002dpopup_002dinput_002dbuffer' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dpopup_002dinput_002dbuffer-1"></span>
+
+<div class="format">
+<pre class="format">Provide an input buffer in a specified mode.
 
 (fn MODE)
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
-        <h4 class="subsubsection">12.136.1.4
-        emacspeak-org-table-speak-both-headers-and-element</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-table-speak-both-headers-and-element</strong>
-          <a href=
-          '#index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-1">
-            </span>
-            <div class="format">
-              <pre class="format">echoes both row and col headers.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader">
-        <h4 class="subsubsection">12.136.1.5
-        emacspeak-org-table-speak-column-header</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-table-speak-column-header</strong>
-          <a href=
-          '#index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader-1">
-            </span>
-            <div class="format">
-              <pre class="format">echoes column header
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
-        <h4 class="subsubsection">12.136.1.6
-        emacspeak-org-table-speak-column-header-and-element</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-table-speak-column-header-and-element</strong>
-          <a href=
-          '#index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-1">
-            </span>
-            <div class="format">
-              <pre class="format">echoes col header and element
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dtable_002dspeak_002dcoordinates">
-        <h4 class="subsubsection">12.136.1.7
-        emacspeak-org-table-speak-coordinates</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-table-speak-coordinates</strong>
-          <a href=
-          '#index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates-1">
-            </span>
-            <div class="format">
-              <pre class="format">echoes coordinates
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement">
-        <h4 class="subsubsection">12.136.1.8
-        emacspeak-org-table-speak-current-element</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-table-speak-current-element</strong>
-          <a href=
-          '#index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement-1">
-            </span>
-            <div class="format">
-              <pre class="format">echoes current table element
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader">
-        <h4 class="subsubsection">12.136.1.9
-        emacspeak-org-table-speak-row-header</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-table-speak-row-header</strong>
-          <a href=
-          '#index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader-1">
-            </span>
-            <div class="format">
-              <pre class="format">echoes row header
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
-        <h4 class="subsubsection">12.136.1.10
-        emacspeak-org-table-speak-row-header-and-element</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-org-table-speak-row-header-and-element</strong>
-          <a href=
-          '#index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement-1">
-            </span>
-            <div class="format">
-              <pre class="format">echoes row header and element
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-    </div>
-    <div class="subsection" id="emacspeak_002dorg-Options">
-      <h4 class="subsection">12.136.2 emacspeak-org Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-71"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong>
-        <em>emacspeak-org-table-after-movement-function</em>
-        <a href='#index-User-Option-71' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>The function to call after moving in a table</p>
-        </dd>
-      </dl>
-    </div>
-  </div>
-  <hr />
-  <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002dorgalist.html">emacspeak-orgalist</a>, Previous:
-    <a href="emacspeak_002docr.html">emacspeak-ocr</a>, Up:
-    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
-    Commands And Options</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href="Concept-Index.html" title=
-    "Index" rel="index">Index</a>]</p>
-  </div>
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
+<h4 class="subsubsection">12.136.1.4 emacspeak-org-table-speak-both-headers-and-element</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"><span class="category">Command: </span><span><strong>emacspeak-org-table-speak-both-headers-and-element</strong><a href='#index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-1"></span>
+
+<div class="format">
+<pre class="format">echoes both row and col headers.
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader">
+<h4 class="subsubsection">12.136.1.5 emacspeak-org-table-speak-column-header</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader"><span class="category">Command: </span><span><strong>emacspeak-org-table-speak-column-header</strong><a href='#index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader-1"></span>
+
+<div class="format">
+<pre class="format">echoes column header
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
+<h4 class="subsubsection">12.136.1.6 emacspeak-org-table-speak-column-header-and-element</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"><span class="category">Command: </span><span><strong>emacspeak-org-table-speak-column-header-and-element</strong><a href='#index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-1"></span>
+
+<div class="format">
+<pre class="format">echoes col header and element
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dtable_002dspeak_002dcoordinates">
+<h4 class="subsubsection">12.136.1.7 emacspeak-org-table-speak-coordinates</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates"><span class="category">Command: </span><span><strong>emacspeak-org-table-speak-coordinates</strong><a href='#index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates-1"></span>
+
+<div class="format">
+<pre class="format">echoes coordinates
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement">
+<h4 class="subsubsection">12.136.1.8 emacspeak-org-table-speak-current-element</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement"><span class="category">Command: </span><span><strong>emacspeak-org-table-speak-current-element</strong><a href='#index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement-1"></span>
+
+<div class="format">
+<pre class="format">echoes current table element
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader">
+<h4 class="subsubsection">12.136.1.9 emacspeak-org-table-speak-row-header</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader"><span class="category">Command: </span><span><strong>emacspeak-org-table-speak-row-header</strong><a href='#index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader-1"></span>
+
+<div class="format">
+<pre class="format">echoes row header
+</pre></div>
+</dd></dl>
+
+</div>
+<div class="subsubsection" id="emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
+<h4 class="subsubsection">12.136.1.10 emacspeak-org-table-speak-row-header-and-element</h4>
+<dl class="def">
+<dt id="index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement"><span class="category">Command: </span><span><strong>emacspeak-org-table-speak-row-header-and-element</strong><a href='#index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement-1"></span>
+
+<div class="format">
+<pre class="format">echoes row header and element
+</pre></div>
+</dd></dl>
+
+</div>
+</div>
+<div class="subsection" id="emacspeak_002dorg-Options">
+<h4 class="subsection">12.136.2 emacspeak-org Options</h4>
+
+<dl class="def">
+<dt id="index-User-Option-71"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-org-table-after-movement-function</em><a href='#index-User-Option-71' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The function to call after moving in a table
+</p>
+</dd></dl>
+
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dorgalist.html">emacspeak-orgalist</a>, Previous: <a href="emacspeak_002docr.html">emacspeak-ocr</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>
