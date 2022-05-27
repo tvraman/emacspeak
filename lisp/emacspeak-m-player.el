@@ -724,7 +724,7 @@ necessary."
     ;; dispatch command twice to avoid flakiness in mplayer
     (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n")
     (let* ((output (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n") )
-           (lines (split-string output "\n" 'omit-nulls))
+           (lines (when output (split-string output "\n" 'omit-nulls)))
            (fields
             (cl-loop
              for l in lines
