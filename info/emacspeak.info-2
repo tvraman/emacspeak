@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 23, 2022.
+last updated on May 27, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -2191,7 +2191,7 @@ terminology as shown in the hydra package documentation.
 12.128.2 Implemented Muggles
 ----------------------------
 
-   • Brightness: ‘print’ Control display brightness using xbacklight.
+   • Brightness: ‘print’ Control display brightness using light.
    • Navigate: ‘s-n’ Navigate with ease.
    • org-mode structure nav: ‘C-c C-SPC’ Navigation for org-mode.
    • org-mode tables: ‘C-c t’ Table UI for org-mode tables.
@@ -2221,15 +2221,15 @@ binds ‘s’ to this command.
      The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
-     "s":    ‘xbacklight-set’,
-     "g":    ‘xbacklight-get’,
+     "s":    ‘light-set’,
+     "g":    ‘light-get’,
      "t":    ‘emacspeak-hydra-toggle-talkative’,
-     "<print>":    ‘xbacklight-black’,
-     "0":    ‘xbacklight-black’,
-     "1":    ‘xbacklight-white’,
-     "d":    ‘xbacklight-decrement’,
-     "i":    ‘xbacklight-increment’,
-     "SPC":    ‘xbacklight-increment’
+     "<print>":    ‘light-black’,
+     "0":    ‘light-black’,
+     "1":    ‘light-white’,
+     "d":    ‘light-decrement’,
+     "i":    ‘light-increment’,
+     "SPC":    ‘light-increment’
 
      The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 

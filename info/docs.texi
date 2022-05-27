@@ -9254,7 +9254,7 @@ shown in the hydra package documentation.
 @subsection Implemented Muggles
 
 @itemize
-@item Brightness: @kbd{print} Control display brightness using xbacklight.
+@item Brightness: @kbd{print} Control display brightness using light.
 @item Navigate: @kbd{s-n} Navigate with ease.
 @item  org-mode structure nav: @kbd{C-c C-SPC}  Navigation  for org-mode.
 @item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
@@ -9289,15 +9289,15 @@ Call the body in the "emacspeak-muggles-brightness" hydra.
 The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
-"s":    ‘xbacklight-set’,
-"g":    ‘xbacklight-get’,
+"s":    ‘light-set’,
+"g":    ‘light-get’,
 "t":    ‘emacspeak-hydra-toggle-talkative’,
-"<print>":    ‘xbacklight-black’,
-"0":    ‘xbacklight-black’,
-"1":    ‘xbacklight-white’,
-"d":    ‘xbacklight-decrement’,
-"i":    ‘xbacklight-increment’,
-"SPC":    ‘xbacklight-increment’
+"<print>":    ‘light-black’,
+"0":    ‘light-black’,
+"1":    ‘light-white’,
+"d":    ‘light-decrement’,
+"i":    ‘light-increment’,
+"SPC":    ‘light-increment’
 
 The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 @end format
