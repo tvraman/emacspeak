@@ -59,7 +59,7 @@
 ;; @subsection Implemented Muggles
 
 ;; @itemize
-;; @item Brightness: @kbd{print} Control display brightness using xbacklight.
+;; @item Brightness: @kbd{print} Control display brightness using light.
 ;; @item Navigate: @kbd{s-n} Navigate with ease.
 ;; @item  org-mode structure nav: @kbd{C-c C-SPC}  Navigation  for org-mode.
 ;; @item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
@@ -130,15 +130,15 @@
             :post emacspeak-hydra-post)
            "Brightness "
            ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
-           ("s" xbacklight-set "set")
-           ("g" xbacklight-get "Get")
+           ("s" light-set "set")
+           ("g" light-get "Get")
            ("t" emacspeak-hydra-toggle-talkative)
-           ("<print>" xbacklight-black "black")
-           ("0" xbacklight-black "black")
-           ("1" xbacklight-white  "white")
-           ("d" xbacklight-decrement "dimmer")
-           ("i" xbacklight-increment "brighter")
-           ("SPC" xbacklight-increment "brighter")))
+           ("<print>" light-black "black")
+           ("0" light-black "black")
+           ("1" light-white  "white")
+           ("d" light-decrement "dimmer")
+           ("i" light-increment "brighter")
+           ("SPC" light-increment "brighter")))
 
 ;;}}}
 ;;{{{ Org Mode Structure Navigation:
