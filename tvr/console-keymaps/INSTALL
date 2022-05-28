@@ -6,10 +6,10 @@ sudo apt-get install console-data
 cp emacspeak.enc.gz /usr/share/keymaps/i386/include/emacspeak.enc.gz 
 cp emacspeak.kmap.gz /usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz 
 echo "Loading Emacspeak friendly keymaps."
-loadkeys /usr/share/keymaps/i386/qwerty/emacs2.kmap.gz
-loadkeys /usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz
+sudo loadkeys /usr/share/keymaps/i386/qwerty/emacs2.kmap.gz
+sudo loadkeys /usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz
 echo "Copying customized rc.local for future boots."
-sudo cp /etc/rc.local /etc/rc.local.bak$$
+
 sudo cp ./rc.local  /etc/
 sudo chmod 755 /etc/rc.local
 echo "All done. "
