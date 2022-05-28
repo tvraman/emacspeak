@@ -162,7 +162,6 @@ Stop apps that use the network."
 
 (defun emacspeak-dbus-resume-signal-handler()
   "Resume handler"
-  (tts-restart)
   (run-hooks 'emacspeak-dbus-resume-hook))
 
 (defun emacspeak-dbus-screensaver-check ()
@@ -235,18 +234,19 @@ already disabled."
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
   (ems-with-messages-silenced
-   (emacspeak-prompt "waking-up")
-   (when (featurep 'light) (light-black))
-   (amixer-restore amixer-alsactl-config-file)
-   (when (featurep 'soundscape) (soundscape-restart))
-   (start-process  "xset" nil "xset" "b" "100" "440")
-   (when
-       (dbus-call-method
-        :session
-        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-        "org.gnome.ScreenSaver" "GetActive")
-     (emacspeak-prompt "pwd")
-     (emacspeak-auditory-icon 'help))))
+    (tts-restart)
+    (emacspeak-prompt "waking-up")
+    (when (featurep 'light) (light-black))
+    (amixer-restore amixer-alsactl-config-file)
+    (when (featurep 'soundscape) (soundscape-restart))
+    (start-process  "xset" nil "xset" "b" "100" "440")
+    (when
+        (dbus-call-method
+         :session
+         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+         "org.gnome.ScreenSaver" "GetActive")
+      (emacspeak-prompt "pwd")
+      (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
