@@ -236,7 +236,7 @@ already disabled."
   (cl-declare (special amixer-alsactl-config-file))
   (ems-with-messages-silenced
    (emacspeak-prompt "waking-up")
-   (when (featurep 'xbacklight) (xbacklight-black))
+   (when (featurep 'light) (light-black))
    (amixer-restore amixer-alsactl-config-file)
    (when (featurep 'soundscape) (soundscape-restart))
    (start-process  "xset" nil "xset" "b" "100" "440")
