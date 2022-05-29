@@ -1899,14 +1899,15 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
              "cloud-notify"
            dtk-program))
         (new-process nil))
-    (setenv "ALSA_DEFAULT" device)
-    (setq new-process (dtk-make-process "Notify"))
-    (when
-        (memq (process-status new-process) '(run open))
-      (when (and dtk-notify-process (process-live-p dtk-notify-process))
-        (delete-process dtk-notify-process))
-      (setenv "ALSA_DEFAULT" save-device)
-      (setq dtk-notify-process new-process))))
+    (when tts-notification-device
+      (setenv "ALSA_DEFAULT" device)
+      (setq new-process (dtk-make-process "Notify"))
+      (when
+          (memq (process-status new-process) '(run open))
+        (when (and dtk-notify-process (process-live-p dtk-notify-process))
+          (delete-process dtk-notify-process))
+        (setenv "ALSA_DEFAULT" save-device)
+        (setq dtk-notify-process new-process)))))
 
 (defun dtk-notify-using-voice (voice text &optional dont-log)
   "Use voice VOICE to speak text TEXT on notification stream."
