@@ -1,0 +1,11 @@
+* Pulseaudio Configuration 
+
+I have these files in ~/.config/pulse on my new laptop.
+* default.pa
+
+** Use BS2B Sink As Default
+
+This is optimized for headphone listening.
+
+  1. Create a bs2b sink
+  2. Make that sink the default sink for all clients
