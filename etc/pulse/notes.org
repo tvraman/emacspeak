@@ -1,0 +1,11 @@
+* Pulseaudio Resources 
+
+
+
+- [[https://askubuntu.com/questions/43950/how-can-i-apply-a-ladspa-plugin-to-a-pulseaudio-stream][How can I apply a LADSPA plugin to a PulseAudio stream? - Ask Ubuntu]]
+- [[https://www.freedesktop.org/wiki/Software/PulseAudio/][PulseAudio]]
+- [[https://askubuntu.com/questions/71863/how-to-change-pulseaudio-sink-with-pacmd-set-default-sink-during-playback][How to change pulseaudio sink with "pacmd set-default-sink" during playback? - Ask Ubuntu]]
+- [[https://wiki.archlinux.org/title/PulseAudio/Examples][PulseAudio/Examples - ArchWiki]]
+- [[https://gavv.net/articles/pulseaudio-under-the-hood/][PulseAudio under the hood]]
+- [[https://wiki.debian.org/PulseAudio][PulseAudio - Debian Wiki]]
+- [[https://unix.stackexchange.com/questions/65246/change-pulseaudio-input-output-from-shell][audio - Change PulseAudio Input/Output from Shell? - Unix & Linux Stack Exchange]]
