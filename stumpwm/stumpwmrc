@@ -3,7 +3,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 (in-package :stumpwm)
-;;; {Variables:
+;;{{{Variables:
 ;;; Avoid focus getting stolen due to activity.
 
 (setq *deny-raise-request* t)
@@ -30,25 +30,24 @@
                "sounds/pan-chimes/on.wav")
   "On icon.")
 
-;;; }
-;;; {Prefix key matches my screen setup:
+;;}}}
+;;{{{Prefix key matches my screen setup:
 
 (set-prefix-key (kbd "C-\\"))
 
-;;; }
-;;; {TTS
+;;}}}
+;;{{{TTS
 
 (load
  (concatenate 'string
               *emacspeak-dir*
               "/"
               "stumpwm/tts.lisp"))
-(setq *tts-engine* 
-(concatenate 'string *emacspeak-dir* "/" "servers/outloud"))
+(setq *tts-engine* *tts-outloud*)
 (tts-say "TTS: Ready to talk! ")
 
-;;; }
-;;; {Speak Actions:
+;;}}}
+;;{{{Speak Actions:
 
 
 (defun speak-window-change (new old)
@@ -89,15 +88,15 @@
       #'concatenate  'string
       (mapcar #'stumpwm::uncolorify messages)))))
 
-;;; }
-;;; {Attach Handlers:
+;;}}}
+;;{{{Attach Handlers:
 
 (setq  *focus-window-hook* (list 'speak-window-change))
 (setq *new-window-hook* (list 'speak-this-window))
 (setq *message-hook* (list 'speak-messages))
 
-;;; }
-;;; {Lock screen C-t D
+;;}}}
+;;{{{Lock screen C-t D
 
 (defparameter *my-lock-command*
   "exec ~/bin/xlock ")
@@ -109,8 +108,8 @@
 
 (define-key *root-map* (kbd "D") "lock-screen")
 
-;;; }
-;;; {Chrome:
+;;}}}
+;;{{{Chrome:
 
 (defcommand chrome ()
   ()
@@ -120,8 +119,13 @@
 (define-key *root-map* (kbd "g") "chrome")
 
 
-;;; }
-;;; {Emacs local variables
+;;}}}
+;;{{{ end-session:
+(add-to-load-path #p "/home/raman/sourceforge/stumpwm-contrib/util/end-session/")
+(load-module "end-session")
+;;}}}
+
+;;{{{Emacs local variables
 
 ;;; local variables:
 ;;; mode: stumpwm
@@ -129,5 +133,5 @@
 ;;; folded-file: t
 ;;; end:
 
-;;; }
+;;}}}
 
