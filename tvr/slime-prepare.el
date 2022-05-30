@@ -12,4 +12,4 @@
   (setq
    slime-lisp-implementations
    `((sbcl ("sbcl" "--core"
-            ,(expand-file-name "sbcl-core-for-slime" user-emacs-directory))))))
+            ,(expand-file-name "sbcl.core-for-slime" user-emacs-directory))))))
