@@ -43,7 +43,8 @@
               *emacspeak-dir*
               "/"
               "stumpwm/tts.lisp"))
-(setq *tts-engine* *tts-outloud*)
+(setq *tts-engine* 
+(concatenate 'string *emacspeak-dir* "/" "servers/outloud"))
 (tts-say "TTS: Ready to talk! ")
 
 ;;; }
