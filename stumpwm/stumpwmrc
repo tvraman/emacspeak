@@ -4,15 +4,11 @@
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 (in-package :stumpwm)
 ;;; {Variables:
-
 ;;; Avoid focus getting stolen due to activity.
 
 (setq *deny-raise-request* t)
-
-(defvar *emacspeak-dir*
-  "/home/raman/emacs/lisp/emacspeak"
+(defvar *emacspeak-dir* "/home/raman/emacs/lisp/emacspeak"
   "Root directory of Emacspeak installation.")
-
 (defvar *tts-window-icon*
   (concatenate 'string
                *emacspeak-dir*
@@ -59,7 +55,7 @@
   (declare (special *tts-window-icon*))
   (when new
     (tts-serve-icon *tts-window-icon*)
-    (tts-speak (format nil "~a Window" (window-name new)))))
+    (tts-speak (window-name new))))
 
 (defun speak-this-window (window)
   "Speak this window  information."
@@ -69,16 +65,12 @@
   "Speak current window  information."
   (tts-speak (window-name (current-window))))
 
-(defvar *tts-speak-messages* nil
-  "Switch messages on and off.
-Off by default to avoid a stumpwm crash on startup.
-Use C-\ t to turn it on.")
+(defvar *tts-speak-messages* t
+  "Switch messages on and off.")
 
 (defcommand  tts-toggle-speak-messages ()
   ()
   "Toggle state of speak messages switch."
-  (declare (special *tts-speak-messages* *tts-on-icon*
-                    *tts-off-icon*))
   (setq *tts-speak-messages* (not *tts-speak-messages*))
   (tts-serve-icon
    (if *tts-speak-messages*
@@ -91,20 +83,23 @@ Use C-\ t to turn it on.")
   "Speak messages, a list of lines."
   (declare (special *tts-speak-messages*))
   (when *tts-speak-messages*
-    (tts-speak-list (mapcar #'stumpwm::uncolorify messages))))
+    (tts-speak
+     (apply
+      #'concatenate  'string
+      (mapcar #'stumpwm::uncolorify messages)))))
 
 ;;; }
 ;;; {Attach Handlers:
 
 (setq  *focus-window-hook* (list 'speak-window-change))
 (setq *new-window-hook* (list 'speak-this-window))
-                        (setq *message-hook* (list 'speak-messages))
+(setq *message-hook* (list 'speak-messages))
 
 ;;; }
 ;;; {Lock screen C-t D
 
 (defparameter *my-lock-command*
-  "exec emlock")
+  "exec ~/bin/xlock ")
 
 (defcommand lock-screen ()
   ()
@@ -123,13 +118,6 @@ Use C-\ t to turn it on.")
 
 (define-key *root-map* (kbd "g") "chrome")
 
-(sb-ext:run-program
-        "/usr/local/bin/play" 
-        (list
-         (concatenate
-          'string
-          *emacspeak-dir*
-          "/sounds/prompts/launch-wm.mp3")))
 
 ;;; }
 ;;; {Emacs local variables
@@ -138,7 +126,6 @@ Use C-\ t to turn it on.")
 ;;; mode: stumpwm
 ;;; mode: folding
 ;;; folded-file: t
-;;; stumpwm-mode: t
 ;;; end:
 
 ;;; }
