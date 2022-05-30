@@ -123,6 +123,7 @@
 ;;{{{ end-session:
 (add-to-load-path #p "/home/raman/sourceforge/stumpwm-contrib/util/end-session/")
 (load-module "end-session")
+(define-key *root-map* (kbd "L") "logout")
 ;;}}}
 
 ;;{{{Emacs local variables
