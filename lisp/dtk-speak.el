@@ -1895,15 +1895,17 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 
 (defsubst dtk-get-notify-device ()
   "Returns name of sound device for use as the notification stream.
-Designed to work with ALSA and Pulseaudio"
+Designed to work with ALSA and Pulseaudio."
   (cl-declare (special tts-notification-device))
-  (or tts-notification-device (getenv "ALSA_DEFAULT")))
+  (or
+   tts-notification-device
+   (tts-notification-from-env)))
 
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
   (cl-declare (special dtk-notify-process))
-  (let ((save-device (getenv "ALSA_DEFAULT"))
+  (let ((process-environment (copy-sequence process-environment))
         (device (dtk-get-notify-device))
         (dtk-program
          (if
@@ -1911,14 +1913,17 @@ Designed to work with ALSA and Pulseaudio"
              "cloud-notify"
            dtk-program))
         (new-process nil))
-      (setenv "ALSA_DEFAULT" device)
-      (setq new-process (dtk-make-process "Notify"))
-      (when
-          (memq (process-status new-process) '(run open))
-        (when (and dtk-notify-process (process-live-p dtk-notify-process))
-          (delete-process dtk-notify-process))
-        (setenv "ALSA_DEFAULT" save-device)
-        (setq dtk-notify-process new-process))))
+    (setq process-environment
+          (cond
+           ((> (length (shell-command-to-string "pidof pulseaudio")) 0)
+            (setenv-internal process-environment"PULSE_SINK" device t))
+           (t (setenv-internal process-environment"ALSA_DEFAULT" device t))))
+    (setq new-process (dtk-make-process "Notify"))
+    (when
+        (memq (process-status new-process) '(run open))
+      (when (and dtk-notify-process (process-live-p dtk-notify-process))
+        (delete-process dtk-notify-process))
+      (setq dtk-notify-process new-process))))
 
 (defun dtk-notify-using-voice (voice text &optional dont-log)
   "Use voice VOICE to speak text TEXT on notification stream."
