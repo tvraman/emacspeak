@@ -125,7 +125,27 @@
 (load-module "end-session")
 (define-key *root-map* (kbd "L") "logout")
 ;;}}}
+;;{{{orca if you need it:
+(defvar *orca-running-p* nil
+  "Is orca running?")
 
+(defcommand  toggle-orca ()
+             ()
+             "Toggle state of orca."
+             (cond
+              (*orca-running-p*
+               (stumpwm:run-shell-command "pkill orca&")
+               (setq *orca-running-p* nil))
+              (t  (stumpwm:run-shell-command "orca -r &")
+                  (setq *orca-running-p* t)))
+             (tts-serve-icon
+              (if *orca-running-p*
+                  *tts-on-icon*
+                *tts-off-icon*)))
+
+(define-key *root-map* (kbd "O") "toggle-orca")
+
+;;}}}
 ;;{{{Emacs local variables
 
 ;;; local variables:
