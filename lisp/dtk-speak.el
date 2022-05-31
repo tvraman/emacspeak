@@ -1893,20 +1893,28 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (cl-declare (special dtk-notify-process))
   (let ((save-device (getenv "ALSA_DEFAULT"))
         (device (dtk-get-notify-alsa-device))
+        (pa-device
+         (and
+          (> (length (shell-command-to-string "pidof pulseaudio")) 0)
+          (shell-command-to-string
+           "pacmd list-sinks | grep tts_right | cut -d ':' -f 2")))
         (dtk-program
          (if
              (string-match "cloud" dtk-program)
              "cloud-notify"
            dtk-program))
         (new-process nil))
-      (setenv "ALSA_DEFAULT" device)
-      (setq new-process (dtk-make-process "Notify"))
-      (when
-          (memq (process-status new-process) '(run open))
-        (when (and dtk-notify-process (process-live-p dtk-notify-process))
-          (delete-process dtk-notify-process))
-        (setenv "ALSA_DEFAULT" save-device)
-        (setq dtk-notify-process new-process))))
+    (setenv "ALSA_DEFAULT" device)
+    (when pa-device
+      (setq pa-device (substring pa-device 1 -1))
+      (setenv "PULSE_SINK" pa-device ))
+    (setq new-process (dtk-make-process "Notify"))
+    (when
+        (memq (process-status new-process) '(run open))
+      (when (and dtk-notify-process (process-live-p dtk-notify-process))
+        (delete-process dtk-notify-process))
+      (setenv "ALSA_DEFAULT" save-device)
+      (setq dtk-notify-process new-process))))
 
 (defun dtk-notify-using-voice (voice text &optional dont-log)
   "Use voice VOICE to speak text TEXT on notification stream."
