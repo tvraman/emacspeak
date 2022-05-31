@@ -648,7 +648,7 @@ specifies the current pronunciation mode --- See
     (goto-char (point-min))))
 
 (defun dtk-handle-repeating-patterns (mode)
-  "Handle repeating patterns by replacing them with 'aw <length> char-names'"
+  "Handle repeating patterns by replacing them with \='aw <length> char-names'"
   (cl-declare (special dtk-cleanup-repeats))
   (goto-char (point-min))
   (mapc
@@ -1537,10 +1537,9 @@ program. Port defaults to dtk-local-server-port"
 ;;}}}
 ;;{{{  initialize the speech process
 
-(defcustom tts-notification-device
-  (eval-when-compile
-    (or
-     (getenv "ALSA_NOTIFY")
+(defsubst tts-notification-from-env ()
+  "Compute tts-notification device from env."
+  (or
         (cl-first
          (split-string
           (shell-command-to-string
@@ -1550,7 +1549,11 @@ program. Port defaults to dtk-local-server-port"
   (split-string
    (shell-command-to-string
     "pacmd list-sinks | grep tts | cut -f 2 -d ':'")))
- 1 -1)))
+ 1 -1))
+  )
+
+(defcustom tts-notification-device
+  (eval-when-compile (tts-notification-from-env))
   "Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream."
   :type '(choice

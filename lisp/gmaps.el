@@ -258,7 +258,7 @@ coordinates via geocoding."
 
 (defun gmaps-directions-url (origin destination mode)
   "Return URL   for getting directions from origin to destination.
-Parameters 'origin' and 'destination' are  be url-encoded."
+Parameters \='origin' and \='destination' are  be url-encoded."
   (cl-declare (special gmaps-directions-base))
   (format gmaps-directions-base  origin destination
           mode (float-time)))
