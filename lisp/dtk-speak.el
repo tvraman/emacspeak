@@ -1882,8 +1882,9 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'emacspeak-auditory-icon icon))))
 
-(defsubst dtk-get-notify-alsa-device ()
-  "Returns name of Alsa device for use as the notification stream."
+(defsubst dtk-get-notify-device ()
+  "Returns name of sound device for use as the notification stream.
+Designed to work with ALSA and Pulseaudio"
   (cl-declare (special tts-notification-device))
   (or tts-notification-device (getenv "ALSA_DEFAULT")))
 
@@ -1892,7 +1893,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (interactive)
   (cl-declare (special dtk-notify-process))
   (let ((save-device (getenv "ALSA_DEFAULT"))
-        (device (dtk-get-notify-alsa-device))
+        (device (dtk-get-notify-device))
         (dtk-program
          (if
              (string-match "cloud" dtk-program)
