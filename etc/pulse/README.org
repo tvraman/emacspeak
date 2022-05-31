@@ -9,3 +9,8 @@ This is optimized for headphone listening.
 
   1. Create a bs2b sink
   2. Make that sink the default sink for all clients
+
+** Sinks For Emacspeak Notifications 
+
+emacspeak sends speech notifications to the right ear by default.
+Enable this by creating devices ~tts_left~ and  ~tts_right~.
