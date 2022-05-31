@@ -1539,11 +1539,19 @@ program. Port defaults to dtk-local-server-port"
 
 (defcustom tts-notification-device
   (eval-when-compile
-    (or (getenv "ALSA_NOTIFY")
+    (or
+     (getenv "ALSA_NOTIFY")
         (cl-first
          (split-string
-          (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
-  "Virtual ALSA device to use for notifications stream.
+          (shell-command-to-string
+           "aplay -L 2>/dev/null | grep mono")))
+        (substring
+ (cl-first
+  (split-string
+   (shell-command-to-string
+    "pacmd list-sinks | grep tts | cut -f 2 -d ':'")))
+ 1 -1)))
+  "Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream."
   :type '(choice
           (const :tag "None" nil)
