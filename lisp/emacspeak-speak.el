@@ -1911,8 +1911,8 @@ Argument STRING specifies the alphanumeric phone number."
   "Speak the line containing the mark.
 With no argument, speaks the line containing the mark--this is
 where \\[exchange-point-and-mark] would
-jump.  Numeric prefix arg \='COUNT' speaks line containing mark \='n'
-where \='n' is one less than the number of times one has to jump
+jump.  Numeric prefix arg  `COUNT' speaks line containing mark  `n'
+where  `n' is one less than the number of times one has to jump
 using `set-mark-command' to get to this marked position.  The
 location of the mark is indicated by an aural highlight. "
   (interactive "p")
@@ -2248,8 +2248,8 @@ Argument PROMPT specifies the prompt to display."
 
 (defun emacspeak-speak-buffer-interactively ()
   "Speak the start of, rest of, or the entire buffer.
-\='s' to speak the start.
-\='r' to speak the rest.
+ `s' to speak the start.
+ `r' to speak the rest.
 any other key to speak entire buffer."
   (interactive)
   (emacspeak-speak-buffer
@@ -2257,8 +2257,8 @@ any other key to speak entire buffer."
 
 (defun emacspeak-speak-help-interactively ()
   "Speak the start of, rest of, or the entire help.
-\='s' to speak the start.
-\='r' to speak the rest.
+ `s' to speak the start.
+ `r' to speak the rest.
 any other key to speak entire help."
   (interactive)
   (emacspeak-speak-help
@@ -2266,8 +2266,8 @@ any other key to speak entire help."
 
 (defun emacspeak-speak-line-interactively ()
   "Speak the start of, rest of, or the entire line.
-\='s' to speak the start.
-\='r' to speak the rest.
+ `s' to speak the start.
+ `r' to speak the rest.
 any other key to speak entire line."
   (interactive)
   (emacspeak-speak-line
@@ -2275,8 +2275,8 @@ any other key to speak entire line."
 
 (defun emacspeak-speak-paragraph-interactively ()
   "Speak the start of, rest of, or the entire paragraph.
-\='s' to speak the start.
-\='r' to speak the rest.
+ `s' to speak the start.
+ `r' to speak the rest.
 any other key to speak entire paragraph."
   (interactive)
   (emacspeak-speak-paragraph
@@ -2284,8 +2284,8 @@ any other key to speak entire paragraph."
 
 (defun emacspeak-speak-page-interactively ()
   "Speak the start of, rest of, or the entire page.
-\='s' to speak the start.
-\='r' to speak the rest.
+ `s' to speak the start.
+ `r' to speak the rest.
 any other key to speak entire page."
   (interactive)
   (emacspeak-speak-page
@@ -2293,8 +2293,8 @@ any other key to speak entire page."
 
 (defun emacspeak-speak-word-interactively ()
   "Speak the start of, rest of, or the entire word.
-\='s' to speak the start.
-\='r' to speak the rest.
+ `s' to speak the start.
+ `r' to speak the rest.
 any other key to speak entire word."
   (interactive)
   (emacspeak-speak-word
@@ -2302,8 +2302,8 @@ any other key to speak entire word."
 
 (defun emacspeak-speak-sexp-interactively ()
   "Speak the start of, rest of, or the entire sexp.
-\='s' to speak the start.
-\='r' to speak the rest.
+ `s' to speak the start.
+ `r' to speak the rest.
 any other key to speak entire sexp."
   (interactive)
   (emacspeak-speak-sexp

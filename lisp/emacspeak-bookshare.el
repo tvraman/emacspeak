@@ -266,7 +266,7 @@ Bookshare docs.")
 
 (defun emacspeak-bookshare-api-call (operation operand &optional no-auth)
   "Make a Bookshare API  call and get the result.
-Optional argument \='no-auth says we dont need a user auth."
+Optional argument `no-auth' says we dont need a user auth."
   (cl-declare (special emacspeak-bookshare-last-action-uri))
   (setq emacspeak-bookshare-last-action-uri
         (emacspeak-bookshare-rest-endpoint operation operand no-auth))

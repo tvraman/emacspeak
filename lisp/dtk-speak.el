@@ -648,7 +648,7 @@ specifies the current pronunciation mode --- See
     (goto-char (point-min))))
 
 (defun dtk-handle-repeating-patterns (mode)
-  "Handle repeating patterns by replacing them with \='aw <length> char-names'"
+  "Handle repeating patterns by replacing them with  `aw <length> char-names'"
   (cl-declare (special dtk-cleanup-repeats))
   (goto-char (point-min))
   (mapc
