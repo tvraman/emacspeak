@@ -236,7 +236,6 @@ already disabled."
   (ems-with-messages-silenced
     (tts-restart)
     (emacspeak-prompt "waking-up")
-    (when (featurep 'light) (light-black))
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
     (start-process  "xset" nil "xset" "b" "100" "440")
@@ -246,7 +245,8 @@ already disabled."
          "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
          "org.gnome.ScreenSaver" "GetActive")
       (emacspeak-prompt "pwd")
-      (emacspeak-auditory-icon 'help))))
+      (emacspeak-auditory-icon 'help))
+    (when (featurep 'light) (light-black))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
