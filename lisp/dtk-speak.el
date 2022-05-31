@@ -1477,7 +1477,7 @@ Set by \\[dtk-set-punctuations].")
   "Checks if this tts-engine can support multiple streams."
   (cl-declare (special tts-notification-device))
   (and
-   (member tts-engine '("outloud"  "cloud-outloud"))
+   (member tts-engine '("outloud"  "cloud-outloud" "espeak"  "cloud-espeak"))
    (not (string= tts-notification-device "default"))))
 
 (defun dtk-cloud ()
