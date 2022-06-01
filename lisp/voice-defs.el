@@ -164,7 +164,8 @@
    (variable-pitch voice-animate-medium)
    (variable-pitch-text  voice-animate-extra)
    (warning voice-brighten)
-   ))
+   (battery-load-low voice-lighten)
+   (battery-load-critical voice-bolden)))
 
 ;;}}}
 (provide 'voice-defs)
