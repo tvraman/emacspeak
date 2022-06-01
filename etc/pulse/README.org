@@ -27,4 +27,5 @@ Enable this by creating devices ~tts_left~ and  ~tts_right~.
 
   1.   Unplugging headphones  leaves speaker muted and
      vice-versa. After plugging/unplugging headphones, press _C-e ( C-j_
-     in emacspeak if necessary.
+     in emacspeak if necessary. See asound.state here for my
+     sound-card; I place it in _~/.emacs.d~ for emacspeak to find it.
