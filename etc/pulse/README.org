@@ -1,3 +1,8 @@
+* Introduction 
+
+This is on my Thinkpad X1 Carbon V9. 
+Things may be different on other laptops and soundcards.
+
 * Pulseaudio Configuration 
 
 I have these files in ~/.config/pulse on my new laptop.
@@ -14,3 +19,12 @@ This is optimized for headphone listening.
 
 emacspeak sends speech notifications to the right ear by default.
 Enable this by creating devices ~tts_left~ and  ~tts_right~.
+
+
+* Issues And Workarounds
+
+** Speaker Vs Headphone 
+
+  1.   Unplugging headphones  leaves speaker muted and
+     vice-versa. After plugging/unplugging headphones, press _C-e ( C-j_
+     in emacspeak if necessary.
