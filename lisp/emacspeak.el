@@ -412,11 +412,11 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (dtk-initialize)
   (emacspeak-pronounce-load-dictionaries)
-  (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
+  (funcall #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-setup-programming-modes)
   (setq line-number-mode nil column-number-mode nil)
-  (make-thread #'emacspeak-prepare-emacs)
+  (funcall #'emacspeak-prepare-emacs)
   (global-visual-line-mode -1)
   (transient-mark-mode -1)
   (setenv "EMACSPEAK_DIR" emacspeak-directory)

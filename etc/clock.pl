@@ -2,7 +2,6 @@
 
 use strict;
 $ENV{LADSPA_PATH} = "/usr/lib/ladspa";
-$ENV{XDG_RUNTIME_DIR}="/run/user/`id -u`";
 # Update  sounds location  to match your installation:
 my $sounds="$ENV{HOME}/emacs/lisp/emacspeak/sounds/clock";
 my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
