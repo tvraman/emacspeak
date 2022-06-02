@@ -210,6 +210,14 @@ static size_t alsa_configure(void) {
   assert(err >= 0);
 
   //>
+  //<buffer_size:
+
+  err = snd_pcm_hw_params_set_buffer_size(AHandle, params, 882000);
+  if (err < 0) {
+    fprintf(stderr, "Could not set requested buffer size");
+    exit(EXIT_FAILURE);
+  }
+  //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access(AHandle, params,
                                      SND_PCM_ACCESS_RW_INTERLEAVED);
