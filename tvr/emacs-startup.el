@@ -164,8 +164,6 @@ Use Custom to customize where possible. "
      ("<f5>" find-file)
      ("C-c <tab>"  hs-toggle-hiding)
      ("M--" undo-only)
-     ("M-." embark-dwim)
-     ("M-;" embark-act)
      ("M-/" dabbrev-expand)
      ("M-C-c" calendar)
      ("M-C-j" imenu)
