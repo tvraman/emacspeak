@@ -212,7 +212,7 @@ static size_t alsa_configure(void) {
   //>
   //<buffer_size:
 
-  err = snd_pcm_hw_params_set_buffer_size(AHandle, params, 882000);
+  err = snd_pcm_hw_params_set_buffer_size(AHandle, params, 220500);
   if (err < 0) {
     fprintf(stderr, "Could not set requested buffer size");
     exit(EXIT_FAILURE);
