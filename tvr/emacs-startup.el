@@ -84,7 +84,7 @@ Produce timing information as the last step."
 ;; Put psession startup on a separate thread:
 
 (defadvice psession--restore-objects-from-directory (around ems pre act comp)
-  (make-thread ad-do-it))
+  ad-do-it)
 (defadvice psession--restore-some-buffers (around ems pre act comp)
   (make-thread ad-do-it))
 
@@ -193,7 +193,7 @@ Use Custom to customize where possible. "
     (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
-  (make-thread #'(lambda nil (load "eww")))
+  (funcall #'(lambda nil (load "eww")))
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
