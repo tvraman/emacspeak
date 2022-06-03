@@ -2887,16 +2887,17 @@ but quickly switch to a window by name."
 (defvar emacspeak-battery-prev nil
   "Previous battery status.")
 
+
 (defun emacspeak-battery-alarm (data)
   "Battery alarm when critical."
-  (when (and emacspeak-battery-prev
-             (equal (alist-get ?L data) \"off-line\")
-             (< (string-to-number (alist-get ?p data)) 10)
-             (>= (string-to-number (alist-get ?p emacspeak-battery-prev)) 10))
-    (emacspeak-prompt "battery-low"))
-  (setq emacspeak-battery-prev data))"
-
-(add-to-list 'battery-update-functions 'emacspeak-battery-alarm
+  (when
+      (and emacspeak-battery-prev
+           (string=  (alist-get ?L data) "off-line")
+           (< (string-to-number (alist-get ?p data)) 10)
+           (>= (string-to-number (alist-get ?p emacspeak-battery-prev)) 10))
+    (emacspeak-prompt "battery-low")
+    (setq emacspeak-battery-prev data)))
+(add-to-list 'battery-update-functions 'emacspeak-battery-alarm)
 ;;}}}
 (provide 'emacspeak-speak)
 ;;{{{ end of file
