@@ -2883,10 +2883,9 @@ but quickly switch to a window by name."
 
 ;;}}}
 ;;{{{Battery:
-
+(require 'battery "battery" 'no-error)
 (defvar emacspeak-battery-prev nil
   "Previous battery status.")
-
 
 (defun emacspeak-battery-alarm (data)
   "Battery alarm when critical."
@@ -2897,7 +2896,8 @@ but quickly switch to a window by name."
            (>= (string-to-number (alist-get ?p emacspeak-battery-prev)) 10))
     (emacspeak-prompt "battery-low")
     (setq emacspeak-battery-prev data)))
-(add-to-list 'battery-update-functions 'emacspeak-battery-alarm)
+(when (boundp 'battery-update-functions)
+  (add-to-list 'battery-update-functions 'emacspeak-battery-alarm))
 ;;}}}
 (provide 'emacspeak-speak)
 ;;{{{ end of file
