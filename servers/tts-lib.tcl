@@ -351,8 +351,6 @@ if [info exists pulse] {
 } else {
     set tts(play) "/usr/bin/aplay -q"
 }
-
-# aplay device options:
     
     #optional debuggin output
     if {[info exists env(DTK_DEBUG)] } {
