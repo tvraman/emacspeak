@@ -346,7 +346,7 @@ proc tts_initialize {} {
     set backup(-1) ""
     #play program
     
-    if [info exists ::env(PULSE_SERVER)] {
+    if { [info exists ::env(PULSE_SERVER)] || [file exists /usr/bin/paplay]} {
     set tts(play) "/usr/bin/paplay"
 } else {
     set tts(play) "/usr/bin/aplay -q"
