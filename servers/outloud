@@ -457,7 +457,6 @@ if {[info exists env(ECIINI)] &&  ![file exists $env(ECIINI)] } {
     set env(ECIINI) $tclTTS/eci.ini
 }
 load $tclTTS/atcleci.so
-set pulse [exec pidof pulseaudio]
 
 synth {`v1 Via Voice using Alsa.}
 
