@@ -74,8 +74,8 @@
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
 #define ECILIBRARYNAME "libibmeci.so"
-// alsa buffer_size   allocating 1024 16 bit samples, 0.092880 seconds of audio.
-#define ATCL_BUFFER_SIZE 524288
+// alsa buffer_size   for 512 16 bit samples, 0.046440 seconds of audio.
+#define ATCL_BUFFER_SIZE 262144
 //>
 //< alsa: globals and defines
 
