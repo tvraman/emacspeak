@@ -512,18 +512,6 @@ if {[info exists server_p]} {
 set servers [file normalize [file dirname $argv0]]
 set tclTTS $servers/native-espeak
 load $tclTTS/tclespeak[info sharedlibextension]
-if {[file exists /proc/asound]} {
-    set pulse [exec pidof pulseaudio]
-if [info exists pulse] {
-    set tts(play) "/usr/bin/paplay"
-} else {
-    set tts(play) "/usr/bin/aplay -q"
-}
-
-} elseif {[info exists ::env(PULSE_SERVER)] && [file exists /usr/bin/paplay]} {
-# WSLg and other systems with remote sound
-    set tts(play) /usr/bin/paplay
-}
 
 # Get the list of voice variants available so you can call for en-us:whisper
 # and not en-us:en-us+whisper
