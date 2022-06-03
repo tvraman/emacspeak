@@ -345,8 +345,8 @@ proc tts_initialize {} {
     set queue(-1) ""
     set backup(-1) ""
     #play program
-    set pulse [exec pidof pulseaudio]
-if [info exists pulse] {
+    
+    if [info exists ::env(PULSE_SERVER)] {
     set tts(play) "/usr/bin/paplay"
 } else {
     set tts(play) "/usr/bin/aplay -q"
