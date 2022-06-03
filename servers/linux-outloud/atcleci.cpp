@@ -74,7 +74,8 @@
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
 #define ECILIBRARYNAME "libibmeci.so"
-
+// Get 2048 16 bit samples, 0.185760 seconds of audio per buffer
+#define ATCL_BUFFER_SIZE 1048576
 //>
 //< alsa: globals and defines
 
@@ -212,7 +213,7 @@ static size_t alsa_configure(void) {
   //>
   //<buffer_size:
 
-  err = snd_pcm_hw_params_set_buffer_size(AHandle, params, 262548);
+  err = snd_pcm_hw_params_set_buffer_size(AHandle, params, ATCL_BUFFER_SIZE);
   if (err < 0) {
     fprintf(stderr, "Could not set requested buffer size");
     exit(EXIT_FAILURE);
