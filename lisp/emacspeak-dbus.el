@@ -245,8 +245,8 @@ already disabled."
          "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
          "org.gnome.ScreenSaver" "GetActive")
       (emacspeak-prompt "pwd")
-      (emacspeak-auditory-icon 'help))
-    (when (featurep 'light) (light-black))))
+      (emacspeak-auditory-icon 'help)
+      (when (featurep 'light) (light-black)))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
