@@ -1,8 +1,7 @@
 #!/bin/bash
 # Description: Headless Chrome
-set -x
-
-
+#set -x
+export PULSE_SINK=tts_left
 pidof Xvfb ||  nice -n 15 Xvfb -ac :5 -screen 0 800x200x16 &
 export DISPLAY=:5
-nice -n 19 google-chrome-unstable  --remote-debugging-port=9222 "$@"  2>&1 > /dev/null &
+nice -n 19 google-chrome   "$@"
