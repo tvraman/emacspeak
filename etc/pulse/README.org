@@ -1,7 +1,10 @@
 * Introduction 
 
 This is on my Thinkpad X1 Carbon V9. 
-Things may be different on other laptops and soundcards.
+Things may be different on other laptops and soundcards. Make sure you
+dont have any  _.asoundrc_ lying around in your home directory when
+using Pulseaudio.
+
 
 * Pulseaudio Configuration 
 
@@ -25,7 +28,15 @@ Enable this by creating devices ~tts_left~ and  ~tts_right~.
 
 ** Speaker Vs Headphone 
 
-  1.   Unplugging headphones  leaves speaker muted and
+  1.   Unplugging headphones  initially left  speaker muted and
      vice-versa. After plugging/unplugging headphones, press _C-e ( C-j_
      in emacspeak if necessary. See asound.state here for my
      sound-card; I place it in _~/.emacs.d~ for emacspeak to find it.
+
+** Outloud TTS And Latency 
+
+  1. The default latency assigned by Pulseaudio to alsa->pulse devices
+     is not optimal.
+  2. To work-around this issue, recompile the Emacspeak linux-outloud
+     speech server which has been updated with ALSA configuration
+     logic to request lower latency.
