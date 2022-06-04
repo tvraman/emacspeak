@@ -59,10 +59,6 @@
   (concatenate 'string   *emacspeak* "servers/outloud")
   "Outloud tcl server")
 
-(defvar *tts-32-outloud*
-  (concatenate 'string   *emacspeak* "servers/32-outloud")
-  "Outloud tcl server")
-
 (defvar *tts-engine* *tts-dtk*
   "Default TTS  engine. User settable.")
 
