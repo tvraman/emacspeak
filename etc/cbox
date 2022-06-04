@@ -2,6 +2,6 @@
 # Description: Headless Chrome
 #set -x
 export PULSE_SINK=tts_left
-pidof Xvfb ||  nice -n 15 Xvfb -ac :5 -screen 0 800x200x16 &
+pidof Xvfb ||  nice -n 19 Xvfb -ac :5 -screen 0 800x200x16 &
 export DISPLAY=:5
-nice -n 19 google-chrome   "$@"
+nice -n 19 google-chrome   "$@" 2>&1 > /dev/null
