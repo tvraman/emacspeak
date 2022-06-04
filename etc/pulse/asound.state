@@ -45,8 +45,8 @@ state.sofhdadsp {
 	control.4 {
 		iface MIXER
 		name 'Bass Speaker Playback Switch'
-		value.0 true
-		value.1 true
+		value.0 false
+		value.1 false
 		comment {
 			access 'read write'
 			type BOOLEAN
