@@ -119,7 +119,6 @@ This moves them into the Spam folder."
   (cl-declare (special file-xoauth2-creds-location))
   (kill-buffer (find-file-noselect file-xoauth2-creds-location)))
 (when (keymapp emacspeak-ctl-z-keymap )
-  
   (define-key emacspeak-ctl-z-keymap "u" 'tvr-unlock-xoauth))
 (setq mm-file-name-rewrite-functions
                 '(mm-file-name-trim-whitespace
