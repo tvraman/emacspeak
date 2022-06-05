@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 27, 2022.
+last updated on June 5, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -4074,8 +4074,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> B’
 
      Speak the start of, rest of, or the entire buffer.
-     ’s’ to speak the start.
-     ’r’ to speak the rest.
+      ‘s’ to speak the start.
+      ‘r’ to speak the rest.
      any other key to speak entire buffer.
 
 12.176.1.26 emacspeak-speak-char
@@ -4156,9 +4156,9 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the line containing the mark.
      With no argument, speaks the line containing the mark–this is
-     where ‘exchange-point-and-mark’ C-x C-x would
-     jump.  Numeric prefix arg ’COUNT’ speaks line containing mark ’n’
-     where ’n’ is one less than the number of times one has to jump
+     where C-x C-x would
+     jump.  Numeric prefix arg  ‘COUNT’ speaks line containing mark  ‘n’
+     where  ‘n’ is one less than the number of times one has to jump
      using ‘set-mark-command’ to get to this marked position.  The
      location of the mark is indicated by an aural highlight.
 
@@ -4249,8 +4249,8 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-help-interactively
 
      Speak the start of, rest of, or the entire help.
-     ’s’ to speak the start.
-     ’r’ to speak the rest.
+      ‘s’ to speak the start.
+      ‘r’ to speak the rest.
      any other key to speak entire help.
 
 12.176.1.43 emacspeak-speak-line
@@ -4287,8 +4287,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> L’
 
      Speak the start of, rest of, or the entire line.
-     ’s’ to speak the start.
-     ’r’ to speak the rest.
+      ‘s’ to speak the start.
+      ‘r’ to speak the rest.
      any other key to speak entire line.
 
 12.176.1.45 emacspeak-speak-line-set-column-filter
@@ -4444,8 +4444,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> ]’
 
      Speak the start of, rest of, or the entire page.
-     ’s’ to speak the start.
-     ’r’ to speak the rest.
+      ‘s’ to speak the start.
+      ‘r’ to speak the rest.
      any other key to speak entire page.
 
 12.176.1.58 emacspeak-speak-paragraph
@@ -4469,8 +4469,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> P’
 
      Speak the start of, rest of, or the entire paragraph.
-     ’s’ to speak the start.
-     ’r’ to speak the rest.
+      ‘s’ to speak the start.
+      ‘r’ to speak the rest.
      any other key to speak entire paragraph.
 
 12.176.1.60 emacspeak-speak-preceding-char
@@ -4619,8 +4619,8 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-sexp-interactively
 
      Speak the start of, rest of, or the entire sexp.
-     ’s’ to speak the start.
-     ’r’ to speak the rest.
+      ‘s’ to speak the start.
+      ‘r’ to speak the rest.
      any other key to speak entire sexp.
 
 12.176.1.72 emacspeak-speak-skim-buffer
@@ -4734,8 +4734,8 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-word-interactively
 
      Speak the start of, rest of, or the entire word.
-     ’s’ to speak the start.
-     ’r’ to speak the rest.
+      ‘s’ to speak the start.
+      ‘r’ to speak the rest.
      any other key to speak entire word.
 
 12.176.1.83 emacspeak-speak-world-clock

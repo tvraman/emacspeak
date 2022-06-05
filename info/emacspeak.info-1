@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 27, 2022.
+last updated on June 5, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3633,8 +3633,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Toggle tones.
 
  -- Variable: User Option tts-notification-device
-     Virtual ALSA device to use for notifications stream.  Set to nil to
-     disable a separate Notification stream.
+     Virtual sound device to use for notifications stream.  Set to nil
+     to disable a separate Notification stream.
 
 
 File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-2048,  Prev: dtk-speak,  Up: Emacspeak Commands And Options

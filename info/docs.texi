@@ -999,7 +999,7 @@ Toggle tones.
 @end defvar
 
 @defvar {User Option} tts-notification-device
-Virtual ALSA device to use for notifications stream.
+Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream.
 
 @end defvar
@@ -11413,8 +11413,8 @@ put in the kill ring for convenience.
 
 @format
 Speak the start of, rest of, or the entire buffer.
-’s’ to speak the start.
-’r’ to speak the rest.
+ ‘s’ to speak the start.
+ ‘r’ to speak the rest.
 any other key to speak entire buffer.
 @end format
 @end deffn
@@ -11536,9 +11536,9 @@ arg to give to command yank.
 @format
 Speak the line containing the mark.
 With no argument, speaks the line containing the mark--this is
-where ‘exchange-point-and-mark’ C-x C-x would
-jump.  Numeric prefix arg ’COUNT’ speaks line containing mark ’n’
-where ’n’ is one less than the number of times one has to jump
+where C-x C-x would
+jump.  Numeric prefix arg  ‘COUNT’ speaks line containing mark  ‘n’
+where  ‘n’ is one less than the number of times one has to jump
 using ‘set-mark-command’ to get to this marked position.  The
 location of the mark is indicated by an aural highlight. 
 
@@ -11669,8 +11669,8 @@ Negative prefix arg speaks from start of buffer to point.
 
 @format
 Speak the start of, rest of, or the entire help.
-’s’ to speak the start.
-’r’ to speak the rest.
+ ‘s’ to speak the start.
+ ‘r’ to speak the rest.
 any other key to speak entire help.
 @end format
 @end deffn
@@ -11721,8 +11721,8 @@ spoken using command C-e M-l.
 
 @format
 Speak the start of, rest of, or the entire line.
-’s’ to speak the start.
-’r’ to speak the rest.
+ ‘s’ to speak the start.
+ ‘r’ to speak the rest.
 any other key to speak entire line.
 @end format
 @end deffn
@@ -11953,8 +11953,8 @@ Negative prefix arg will read from start of current page to point.
 
 @format
 Speak the start of, rest of, or the entire page.
-’s’ to speak the start.
-’r’ to speak the rest.
+ ‘s’ to speak the start.
+ ‘r’ to speak the rest.
 any other key to speak entire page.
 @end format
 @end deffn
@@ -11992,8 +11992,8 @@ Negative prefix arg will read from start of current paragraph to point.
 
 @format
 Speak the start of, rest of, or the entire paragraph.
-’s’ to speak the start.
-’r’ to speak the rest.
+ ‘s’ to speak the start.
+ ‘r’ to speak the rest.
 any other key to speak entire paragraph.
 @end format
 @end deffn
@@ -12213,8 +12213,8 @@ Negative prefix arg speaks from start of sexp to point.
 
 @format
 Speak the start of, rest of, or the entire sexp.
-’s’ to speak the start.
-’r’ to speak the rest.
+ ‘s’ to speak the start.
+ ‘r’ to speak the rest.
 any other key to speak entire sexp.
 @end format
 @end deffn
@@ -12387,8 +12387,8 @@ spelled out  instead of being spoken.
 
 @format
 Speak the start of, rest of, or the entire word.
-’s’ to speak the start.
-’r’ to speak the rest.
+ ‘s’ to speak the start.
+ ‘r’ to speak the rest.
 any other key to speak entire word.
 @end format
 @end deffn
