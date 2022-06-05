@@ -215,7 +215,7 @@ static size_t alsa_configure(void) {
 
   err = snd_pcm_hw_params_set_buffer_size(AHandle, params, ATCL_BUFFER_SIZE);
   if (err < 0) {
-    fprintf(stderr, "Will use ALSA/Pulse defaults, \n");
+    fprintf(stderr, "Will use ALSA/Pulse defaults.\n");
   }
   //>
   //<Access Mode:
