@@ -35,6 +35,119 @@
   </openSearch:startIndex>
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
+  <entry>
+<id>tag:blogger.com,1999:blog-20280042.post-7788048593133633886
+</id>
+<published>2022-06-05T09:38:00.003-07:00
+</published>
+<updated>2022-06-05T09:38:42.788-07:00
+</updated>
+<title type='text'>Emacspeak: The Complete Audio Desktop Under Pulseaudio
+</title>
+<content type='html'>&lt;div id=&quot;content&quot; class=&quot;content&quot;&gt;
+&lt;h1 class=&quot;title&quot;&gt;Emacspeak: The Complete Audio Desktop Under Pulseaudio&lt;/h1&gt;
+&lt;div id=&quot;outline-container-orgfabf488&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;orgfabf488&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Executive Summary&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;p&gt;
+Porting  Emacspeak sound environment to Pulseaudio.
+&lt;/p&gt;
+
+&lt;p&gt;
+Until now, emacspeak features that enhance the auditory display have
+relied exclusively on ALSA and avoided Pulseaudio all together. As
+Pulseaudio improves, and  simultaneously gets harder to get rid of, I
+recently ported the required features to work under Pulseaudio, see
+below for details.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;outline-container-org0ab1466&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org0ab1466&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Summary Of Auditory Display Enhancements&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;Notifications, e.g., &lt;i&gt;speaking the time&lt;/i&gt;, &lt;i&gt;incoming IM messages&lt;/i&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+etc. are spoken on a separate notification stream.
+&lt;/p&gt;
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;The above normally plays on the right ear, but enhanced with a
+&lt;i&gt;binaural&lt;/i&gt; effect.&lt;/li&gt;
+&lt;li&gt;This can be configured to be on the left ear when running
+Emacspeak remotely on a cloud-top.&lt;/li&gt;
+&lt;li&gt;A &lt;i&gt;Bauer Stereo To Binaural&lt;/i&gt; &lt;a href=&quot;https://www.google.com/search?num=25&amp;amp;lite=90586&amp;amp;q=bs2b+bauer+Stereo+To+Binaural&quot;&gt;(BS2B)&lt;/a&gt;
+filter is applied to all
+output streams to provide an enhanced headphones listening experience.&lt;/li&gt;
+&lt;li&gt;The &lt;i&gt;outloud&lt;/i&gt; server has been updated to request  lower latency
+from Pulse; Pulseaudio defaults are too high for highly responsive
+TTS.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+For details on Emacspeak&#39;s enhancement to the auditory display, see
+prior articles listed in the &lt;i&gt;References&lt;/i&gt; section.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-orgc514147&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;orgc514147&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Configuring Pulseaudio To Enhance The Auditory Display&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+&lt;p&gt;
+All of these features have been available until now by installing a
+custom &lt;code&gt;.asoundrc&lt;/code&gt;; these are now available under Pulseaudio by
+installing a &lt;code&gt;.config/pulse/default.pa&lt;/code&gt; in the user&#39;s home directory.
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+cp EMACSPEAK_DIR/etc/pulse/default.pa ~/.config/pulse; pulseaudio -k
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+The above is a one-time operation that sets up the audio environment
+&amp;#x2014; see &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/etc/pulse/README.org#L42&quot;&gt;etc/pulse/README.org&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-orgd96e5b7&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;orgd96e5b7&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; References&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2016/02/augmented-headphone-listening-on-linux.html&quot;&gt;Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html&quot;&gt;Soundscapes On The Emacspeak Audio Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2016/11/follow-up-soundscapes-on-emacspeak.html&quot;&gt;Follow-Up: Soundscapes on the emacspeak Audio Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html&quot;&gt;A Ladspa Work-Bench For The Emacspeak Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2015/11/generating-spatialized-auditory-icons.html&quot;&gt;Generating Spatialized Auditory Icons Using MPlayer And Ladspa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on.html&quot;&gt;Listening To Multiple Media Streams On The Emacspeak Audio Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2015/11/using-multiple-tts-streams-on-emacspeak.html&quot;&gt;Using Multiple TTS Streams On The emacspeak Audio Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emacspeak.blogspot.com/2015/02/enhanced-audio-on-emacspeak-desktop.html&quot;&gt;Enhanced Audio On The Emacspeak Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;
+&lt;p class=&quot;date&quot;&gt;Date: 2022-06-05 Sun 00:00&lt;/p&gt;
+&lt;p class=&quot;author&quot;&gt;Author: T.V Raman&lt;/p&gt;
+&lt;p class=&quot;date&quot;&gt;Created: 2022-06-05 Sun 09:16&lt;/p&gt;
+&lt;p class=&quot;validation&quot;&gt;&lt;a href=&quot;https://validator.w3.org/check?uri=referer&quot;&gt;Validate&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;		
+</content>
+<link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/7788048593133633886'/>
+<link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/7788048593133633886'/>
+<link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2022/06/emacspeak-complete-audio-desktop-under.html' title='Emacspeak: The Complete Audio Desktop Under Pulseaudio'/>
+<author>
+<name>T. V. Raman
+</name>
+<uri>http://www.blogger.com/profile/03589687652590194428
+</uri>
+<email>noreply@blogger.com
+</email>
+<gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+</author>
+</entry>
 <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-3241933033602334317</id><published>
       2022-04-30T10:16:00.002-07:00
