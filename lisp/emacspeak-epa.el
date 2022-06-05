@@ -90,8 +90,7 @@
      "speak. "
      (ems-with-messages-silenced
       ad-do-it
-      (when (ems-interactive-p)
-        (emacspeak-auditory-icon 'task-done))))))
+      (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done))))))
 
 (add-hook
  'epa-key-list-mode-hook
