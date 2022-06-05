@@ -31,7 +31,7 @@ function remote () {
     ENGINE=$3
     $SDIR/$SERVER  2222 $SDIR/$ENGINE  &
     #notification stream listens on 3333
-    (export ALSA_DEFAULT="tts_mono_left";PULSE_SINK="tts_left"; $SDIR/$SERVER 3333 $SDIR/$ENGINE &)
+    (PULSE_SINK="tts_left"; $SDIR/$SERVER 3333 $SDIR/$ENGINE &)
     chime
     # Open SSH Connection
     ssh   -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
@@ -45,6 +45,6 @@ function rtts () {
     ENGINE=outloud
     $SDIR/$SERVER  2222 $SDIR/$ENGINE  &
     #notification stream listens on 3333
-    (export ALSA_DEFAULT="tts_mono_left"; $SDIR/$SERVER 3333 $SDIR/$ENGINE &)
+    (export PULSE_SINK="tts_left"; $SDIR/$SERVER 3333 $SDIR/$ENGINE &)
     chime
 }
