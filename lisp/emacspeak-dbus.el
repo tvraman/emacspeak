@@ -235,7 +235,8 @@ already disabled."
   (cl-declare (special amixer-alsactl-config-file))
   (ems-with-messages-silenced
     (tts-restart)
-    (emacspeak-prompt "waking-up")
+    (ems-with-environment '(("PULSE_SINK" . "tts_left"))
+                          (emacspeak-prompt "waking-up"))
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
     (when (featurep 'light) (light-black))
@@ -370,7 +371,8 @@ already disabled."
         (if lock
             (progn (emacspeak-screen-saver))
           (progn
-            (emacspeak-prompt "success")
+            (ems-with-environment '(("PULSE_SINK" . "tts_right"))
+                                  (emacspeak-prompt "success"))
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
             (when
                 (window-configuration-p emacspeak-screen-saver-saved-configuration)
