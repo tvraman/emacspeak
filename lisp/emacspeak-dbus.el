@@ -238,15 +238,14 @@ already disabled."
     (emacspeak-prompt "waking-up")
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
-    (start-process  "xset" nil "xset" "b" "100" "440")
+    (when (featurep 'light) (light-black))
     (when
         (dbus-call-method
          :session
          "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
          "org.gnome.ScreenSaver" "GetActive")
       (emacspeak-prompt "pwd")
-      (emacspeak-auditory-icon 'help)
-      (when (featurep 'light) (light-black)))))
+      (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
@@ -342,7 +341,7 @@ already disabled."
   (emacspeak-dbus-screensaver-check)
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-prompt "locking-up")
-  (when (featurep 'xbacklight) (xbacklight-black))
+  (when (featurep 'light) (light-black))
   (dbus-call-method
    :session
    "org.gnome.ScreenSaver"
