@@ -1747,11 +1747,23 @@ unless   `dtk-quiet' is set to t. "
            (inhibit-message t))
        ,@body)))
 
+(defmacro ems-with-environment (env-alist &rest body)
+  "Evaluate body  an updated `ENV'.
+Argument ` env-alist' is an alist of shell env-var/env-value pairs."
+  (declare (indent 0) (debug t))
+  `(progn
+     (let ((process-environment process-environment))
+       (cl-loop
+        for b in ,env-alist do
+        (setq process-environment
+              (setenv-internal process-environment (car a) (car b) t)))
+       ,@body)))
+
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it."
   (ems-with-messages-silenced
-   (dtk-speak message)
-   (message "%s" message)))
+    (dtk-speak message)
+    (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.
