@@ -1756,7 +1756,7 @@ Argument ` env-alist' is an alist of shell env-var/env-value pairs."
        (cl-loop
         for b in ,env-alist do
         (setq process-environment
-              (setenv-internal process-environment (car a) (car b) t)))
+              (setenv-internal process-environment (car b) (cdr b) t)))
        ,@body)))
 
 (defun dtk-speak-and-echo (message)
