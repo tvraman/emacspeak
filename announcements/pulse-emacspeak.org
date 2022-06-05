@@ -1,0 +1,66 @@
+* Executive Summary 
+
+Porting  Emacspeak sound environment to Pulseaudio.
+
+Until now, emacspeak features that enhance the auditory display have
+relied exclusively on ALSA and avoided Pulseaudio all together. As
+Pulseaudio improves, and  simultaneously gets harder to get rid of, I
+recently ported the required features to work under Pulseaudio, see
+below for details.
+* Summary Of Auditory Display Enhancements 
+
+  - Notifications, e.g., /speaking the time/, /incoming IM messages/
+  etc. are spoken on a separate notification stream.
+  - The above normally plays on the right ear, but enhanced with a
+    /binaural/ effect.
+  - This can be configured to be on the left ear when running
+    Emacspeak remotely on a cloud-top.
+  - A /Bauer Stereo To Binaural/ [[https://www.google.com/search?num=25&lite=90586&q=bs2b+bauer+Stereo+To+Binaural][(BS2B)]]
+    filter is applied to all
+    output streams to provide an enhanced headphones listening experience.
+  - The /outloud/ server has been updated to request  lower latency
+    from Pulse; Pulseaudio defaults are too high for highly responsive
+    TTS.
+
+For details on Emacspeak's enhancement to the auditory display, see
+prior articles listed in the /References/ section.
+
+* Configuring Pulseaudio To Enhance The Auditory Display
+
+
+All of these features have been available until now by installing a
+custom ~.asoundrc~; these are now available under Pulseaudio by
+installing a ~.config/pulse/default.pa~ in the user's home directory.
+
+: cp EMACSPEAK_DIR/etc/pulse/default.pa ~/.config/pulse; pulseaudio -k
+
+The above is a one-time operation that sets up the audio environment
+--- see [[https://github.com/tvraman/emacspeak/blob/master/etc/pulse/README.org#L42][etc/pulse/README.org]].
+
+* References
+
+  1. [[https://emacspeak.blogspot.com/2016/02/augmented-headphone-listening-on-linux.html][Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop]]
+  2. [[https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html][Soundscapes On The Emacspeak Audio Desktop]]
+  3. [[https://emacspeak.blogspot.com/2016/11/follow-up-soundscapes-on-emacspeak.html][Follow-Up: Soundscapes on the emacspeak Audio Desktop]]
+  4. [[https://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html][A Ladspa Work-Bench For The Emacspeak Desktop]]
+  5. [[https://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on.html][Listening To Multiple Media Streams On The Emacspeak Audio Desktop]]
+  6. [[https://emacspeak.blogspot.com/2015/11/using-multiple-tts-streams-on-emacspeak.html][Using Multiple TTS Streams On The emacspeak Audio Desktop]]
+  7. [[https://emacspeak.blogspot.com/2015/02/enhanced-audio-on-emacspeak-desktop.html][Enhanced Audio On The Emacspeak Desktop]]
+
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Emacspeak: The Complete Audio Desktop Under Pulseaudio
+#+date: <2022-06-05 Sun>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 29.0.50 (Org mode 9.5.3)
+#+cite_export:
