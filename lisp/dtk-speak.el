@@ -1751,13 +1751,12 @@ unless   `dtk-quiet' is set to t. "
   "Evaluate body  an updated `ENV'.
 Argument ` env-alist' is an alist of shell env-var/env-value pairs."
   (declare (indent 0) (debug t))
-  `(progn
-     (let ((process-environment process-environment))
-       (cl-loop
-        for b in ,env-alist do
-        (setq process-environment
-              (setenv-internal process-environment (car b) (cdr b) t)))
-       ,@body)))
+  `(let ((process-environment (copy-sequence process-environment)))
+        (cl-loop
+         for b in ,env-alist do
+         (setq process-environment
+               (setenv-internal process-environment (car b) (cdr b) t)))
+        ,@body))
 
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it."
