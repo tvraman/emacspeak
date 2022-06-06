@@ -80,7 +80,7 @@ mac for MAC TTS (default on Mac)")
 ;; Importing dtk-interp by inclusion:
 
 ;;{{{ macros
-
+;;;###autoload
 (defmacro tts-with-punctuations (setting &rest body)
   "Set punctuation  and exec   body."
   (declare (indent 1) (debug t))
@@ -1747,7 +1747,7 @@ unless   `dtk-quiet' is set to t. "
      (let ((emacspeak-speak-messages nil)
            (inhibit-message t))
        ,@body)))
-
+;;;###autoload
 (defmacro ems-with-environment (env-alist &rest body)
   "Evaluate body  an updated `ENV'.
 Argument ` env-alist' is an alist of shell env-var/env-value pairs."
