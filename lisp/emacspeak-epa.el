@@ -72,6 +72,7 @@
 (cl-loop
  for f in
  '(
+   epa-progress-callback-function
    epa-mail-verify epa-mail-import-keys
    epa-file-select-keys epa-insert-keys
    epa-verify-region epa-verify-file epa-verify-cleartext-in-region
