@@ -101,7 +101,9 @@ This moves them into the Spam folder."
   "Unlock xoauth creds if gpg-agent has timed out."
   (interactive )
   (cl-declare (special file-xoauth2-creds-location))
-  (kill-buffer (find-file-noselect file-xoauth2-creds-location)))
+  (kill-buffer (find-file-noselect file-xoauth2-creds-location))
+  (emacspeak-auditory-icon 'task-done))
+
 (when (keymapp emacspeak-ctl-z-keymap )
   
   (define-key emacspeak-ctl-z-keymap "u" 'tvr-unlock-xoauth))
