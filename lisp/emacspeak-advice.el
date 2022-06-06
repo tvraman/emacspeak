@@ -1062,6 +1062,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
    (t ad-do-it))
   ad-return-value)
 
+(defadvice vc-refresh-state (around emacspeak pre act comp)
+  "Silence messages"
+  (ems-with-messages-silence ad-do-it))
+
 (defadvice vc-next-action (around emacspeak pre act comp)
   "speak."
   (cond
