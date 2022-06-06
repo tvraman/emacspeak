@@ -1738,6 +1738,7 @@ unless   `dtk-quiet' is set to t. "
           (unless (eobp) (dtk-audio-format (point) (point-max))))))
     (dtk-force)))
 
+;;;###autoload
 (defmacro ems-with-messages-silenced (&rest body)
   "Evaluate body  after temporarily silencing messages."
   (declare (indent 0) (debug t))
