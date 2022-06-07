@@ -272,7 +272,8 @@ Optional interactive PREFIX arg toggles global value."
                                  emacspeak-prompts-directory)))
     (cl-assert (file-exists-p file) t  "File does not exist")
     (when emacspeak-m-player-program
-      (call-process emacspeak-m-player-program nil  0 nil  file))))
+      (ems-with-environment '(("PULSE_SINK"))
+        (call-process emacspeak-m-player-program nil  0 nil  file)))))
 
 ;;}}}
 (provide  'emacspeak-sounds)
