@@ -1,14 +1,25 @@
 #    -*- mode: org -*-
-The enjoyment of one's tools is an essential ingredient of successful work.
- -- Donald E. Knuth
+The tools we use have a profound (and devious) influence on our thinking habits, and, therefore, on our thinking abilities.
+
+  --Edsger W. Dijkstra"
+
 
 Emacspeak News --History Of User-Visible Changes
 
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 58 --- Emacspeak 56 User Visible Changes
-   
+* Emacspeak 57 --- Emacspeak 57 User Visible Changes
+** Module light.el    
+
+Module light.el enables brightness changes for OLED displays ---
+alternative to xbacklight.el
+
+** Emacspeak Auditory Display Under Pulseaudio 
+
+[[https://emacspeak.blogspot.com/2022/06/emacspeak-complete-audio-desktop-under.html][Emacspeak auditory display]] features work under Pulseaudio.
+
+
 ** Speech-Enable ffap: find-file-at-point
 
 Speech-enable commands from ~ffap.el~
