@@ -57,13 +57,11 @@
   (interactive)
   (cl-declare (special light-cmd))
   (when light-cmd
-    (let ((value (shell-command-to-string (format "%s " light-cmd))))
+    (let ((value (read (shell-command-to-string (format "%s " light-cmd)))))
       (cond
-       ((= 0 (length value)) (message "Light not supported."))
-       ((numberp (read value))
-        (message "Brightness is %d" (round  (read value)))
-        (read value))
-       (t (message "Brightness is %s" value))))))
+       ((numberp value)
+        (message "Brightness is %d" (round  value))
+        value)))))
 
 ;;;###autoload
 (defun light-set (brightness)
