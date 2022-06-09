@@ -3160,7 +3160,7 @@ before brightness is checked.")
   (unless (zerop (light-get))
     (emacspeak-auditory-icon 'alert-user)
     (message "Brightness %s." (light-get))))
-
+;;;###autoload
 (defun emacspeak-brightness-alert-toggle ()
   "Toggle brightness alert."
   (interactive)
