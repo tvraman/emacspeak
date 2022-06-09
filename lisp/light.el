@@ -60,7 +60,8 @@
     (let ((value (read (shell-command-to-string (format "%s " light-cmd)))))
       (cond
        ((numberp value)
-        (message "Brightness is %d" (round  value))
+        (when (called-interactively-p 'interactive)
+          (message "Brightness is %d" (round  value)))
         value)))))
 
 ;;;###autoload
