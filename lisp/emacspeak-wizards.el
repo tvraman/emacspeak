@@ -3143,7 +3143,7 @@ Optional interactive prefix arg deletes it."
 
 ;;}}}
 ;;{{{Brightness Alert:
-
+;;;###autoload
 (define-minor-mode emacspeak-brightness-alert-mode
   "Alert if display comes on."
   :lighter ""
