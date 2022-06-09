@@ -55,6 +55,7 @@
 (eval-when-compile
   (require 'subr-x)
   (require 'derived)
+  (require 'light)
   (require 'let-alist))
 (require 'emacspeak-preamble)
 (require 'color)
@@ -3139,6 +3140,42 @@ Optional interactive prefix arg deletes it."
          (t (kill-ring-save (1+ orig) (1- (point)))
             (emacspeak-auditory-icon 'mark-object)))
         (dtk-speak (car kill-ring))))))
+
+;;}}}
+;;{{{Brightness Alert:
+
+;; Watch for screen brightness changes and let user know if screen
+;; comes on:
+
+(defvar emacspeak-brightness-alert-delay 0.1
+  "Number of seconds of idle time
+before brightness is checked.")
+
+(defvar emacspeak-brightness-idle-timer nil
+  "Idle timer that runs our brightness alert.")
+
+(defun emacspeak-brightness-alert ()
+  "Check  brightness and alert."
+  (cl-declare (special emacspeak-brightness-off))
+  (unless (zerop (light-get))
+    (emacspeak-auditory-icon 'alert-user)
+    (message "Brightness %s." (light-get))))
+
+(defun emacspeak-brightness-alert-toggle ()
+  "Toggle brightness alert."
+  (interactive)
+  (cl-declare (special emacspeak-brightness-idle-timer))
+  (cond
+   ((null emacspeak-brightness-idle-timer)
+    (setq emacspeak-brightness-idle-timer
+          (run-with-idle-timer
+           emacspeak-brightness-alert-delay  t
+           #'emacspeak-brightness-alert)))
+   (t (cancel-timer emacspeak-brightness-idle-timer)
+      (setq emacspeak-brightness-idle-timer nil)))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon
+     (if emacspeak-brightness-idle-timer 'on 'off))))
 
 ;;}}}
 (provide 'emacspeak-wizards)

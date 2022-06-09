@@ -61,7 +61,8 @@
       (cond
        ((= 0 (length value)) (message "Light not supported."))
        ((numberp (read value))
-        (message "Brightness is %d" (round  (read value))))
+        (message "Brightness is %d" (round  (read value)))
+        (read value))
        (t (message "Brightness is %s" value))))))
 
 ;;;###autoload
