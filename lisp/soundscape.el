@@ -548,11 +548,9 @@ Optional interactive prefix arg `force' skips optimization checks."
   (when (process-live-p soundscape-remote-control)
     (process-send-string soundscape-remote-control "soundscape 0\n")))
 
-(defcustom soundscape-idle-delay 0.1
+(defvar soundscape-idle-delay 0.1
   "Number of seconds of idle time
-before soundscapes are synchronized with current mode."
-  :type 'float
-  :group 'soundscape)
+before soundscapes are synchronized with current mode.")
 
 ;;;###autoload
 (defun soundscape-toggle ()
