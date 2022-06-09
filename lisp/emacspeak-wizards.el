@@ -3143,13 +3143,6 @@ Optional interactive prefix arg deletes it."
 
 ;;}}}
 ;;{{{Brightness Alert:
-;;;###autoload
-(define-minor-mode emacspeak-brightness-alert-mode
-  "Alert if display comes on."
-  :lighter ""
-  (if emacspeak-brightness-idle-timer
-      (emacspeak-brightness-alert-toggle)
-    (emacspeak-brightness-alert-toggle)))
 
 ;; Watch for screen brightness changes and let user know if screen
 ;; comes on:
