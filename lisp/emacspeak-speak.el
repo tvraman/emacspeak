@@ -621,7 +621,9 @@ emacspeak-speak-filter-table)\n" k v)))
 (defun emacspeak-speak-lookup-persistent-filter (key)
   "Lookup a filter setting we may have persisted."
   (cl-declare (special emacspeak-speak-filter-table))
-  (gethash (intern key) emacspeak-speak-filter-table))
+  (or
+   (gethash (intern key) emacspeak-speak-filter-table)
+   (list (list 0 (current-column)))))
 
 (defun emacspeak-speak-set-persistent-filter (key value)
   "Persist filter setting for future use."
