@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 147 options.
+This chapter documents a total of 1146 commands and 146 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -11775,6 +11775,15 @@ directory.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-load-filter-settings
+@deffn {Command} emacspeak-speak-load-filter-settings   
+@findex emacspeak-speak-load-filter-settings
+
+@format
+Load emacspeak filter settings.
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-message-again
 @deffn {Command} emacspeak-speak-message-again  (&optional from-message-cache)
 @table @kbd
@@ -11995,6 +12004,15 @@ Speak the start of, rest of, or the entire paragraph.
  ‘s’ to speak the start.
  ‘r’ to speak the rest.
 any other key to speak entire paragraph.
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-persist-filter-settings
+@deffn {Command} emacspeak-speak-persist-filter-settings   
+@findex emacspeak-speak-persist-filter-settings
+
+@format
+Persist emacspeak filter settings for future sessions.
 @end format
 @end deffn
 
@@ -15630,6 +15648,15 @@ Contains various wizards for the Emacspeak desktop.
 
 @subsection Emacspeak-Wizards Commands
 
+@subsubsection emacspeak-brightness-alert-toggle
+@deffn {Command} emacspeak-brightness-alert-toggle   
+@findex emacspeak-brightness-alert-toggle
+
+@format
+Toggle brightness alert.
+@end format
+@end deffn
+
 @subsubsection emacspeak-copy-current-file
 @deffn {Command} emacspeak-copy-current-file   
 @table @kbd
@@ -18608,12 +18635,6 @@ Soundscape data directory.
 
 @defvar {User Option} soundscape-device
 Alsa sound device to use for soundscapes.
-
-@end defvar
-
-@defvar {User Option} soundscape-idle-delay
-Number of seconds of idle time
-before soundscapes are synchronized with current mode.
 
 @end defvar
 
