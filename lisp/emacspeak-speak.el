@@ -633,6 +633,7 @@ emacspeak-speak-filter-table)\n" k v)))
 
 (defun emacspeak-speak-persist-filter-settings ()
   "Persist emacspeak filter settings for future sessions."
+  (interactive)
   (cl-declare (special emacspeak-speak-filter-persistent-store
                        emacspeak-speak-filter-table))
   (emacspeak--persist-variable
@@ -641,6 +642,7 @@ emacspeak-speak-filter-table)\n" k v)))
 
 (defun emacspeak-speak-load-filter-settings ()
   "Load emacspeak filter settings."
+  (interactive)
   (cl-declare (special emacspeak-speak-filter-persistent-store
                        emacspeak-speak-filter-table
                        emacspeak-speak-filters-loaded-p))
