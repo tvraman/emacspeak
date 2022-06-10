@@ -3,7 +3,7 @@
 # Use per app volume 
 #flat-volumes = no
 
-load-module module-stream-restore restore_device=false
+
 
 # A bs2b (binaural for headphones) sink:
 
