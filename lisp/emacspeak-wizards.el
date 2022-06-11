@@ -3154,11 +3154,18 @@ before brightness is checked.")
 (defvar emacspeak-brightness-idle-timer nil
   "Idle timer that runs our brightness alert.")
 
+(defcustom emacspeak-brightness-auto-black nil
+  "Set to T to automatically turn display black."
+  :type 'boolean
+  :group 'emacspeak-wizards)
+
+
 (defun emacspeak-brightness-alert ()
   "Check  brightness and alert."
-  (cl-declare (special emacspeak-brightness-off))
+  (cl-declare (special emacspeak-brightness-auto-black))
   (unless (zerop (light-get))
     (emacspeak-auditory-icon 'alert-user)
+    (when emacspeak-brightness-auto-black (light-black))
     (message "Brightness %s." (light-get))))
 ;;;###autoload
 (defun emacspeak-brightness-alert-toggle ()
