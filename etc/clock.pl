@@ -1,7 +1,12 @@
 #!/usr/bin/perl -w #chime the time
+# To install, first search for xxxxx and  update appropriately.
 
 use strict;
 $ENV{LADSPA_PATH} = "/usr/lib/ladspa";
+# update xxxxx below for the loged-in user.
+
+$ENV{XDG_RUNTIME_DIR}="/run/user/xxxxx";
+
 # Update  sounds location  to match your installation:
 my $sounds="$ENV{HOME}/emacs/lisp/emacspeak/sounds/clock";
 my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
@@ -22,7 +27,5 @@ if ($min == 0 ) {
     my $c = $chimes{$min}[$hour % 4];
     $chime = "$sounds/$c";
 }
-# If ladspa not available, use next line.
-#qx(mplayer -af bs2b $chime  2>&1  >/dev/null);
-qx(mplayer -af bs2b,ladspa=tap_reverb:tap_reverb:5000:-4:-18:1:1:1:1:6 $chime  2>&1  >/dev/null);
-
+# update xxxxx below for logged-in user:
+qx(XDG_RUNTIME_DIR=/run/user/xxxxx; mplayer -volume 70 -af bs2b,ladspa=tap_reverb:tap_reverb:5000:-4:-18:1:1:1:1:6 $chime  2>&1  >/dev/null);
