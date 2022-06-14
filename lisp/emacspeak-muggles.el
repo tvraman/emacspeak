@@ -121,24 +121,26 @@
 (global-set-key
  (ems-kbd "<print>")
  (defhydra emacspeak-muggles-brightness
-           (:body-pre
-            (progn
-              (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-              (emacspeak-hydra-body-pre "brightness"))
-            :hint nil
-            :pre emacspeak-hydra-pre
-            :post emacspeak-hydra-post)
-           "Brightness "
-           ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
-           ("s" light-set "set")
-           ("g" light-get "Get")
-           ("t" emacspeak-hydra-toggle-talkative)
-           ("<print>" light-black "black")
-           ("0" light-black "black")
-           ("1" light-white  "white")
-           ("d" light-decrement "dimmer")
-           ("i" light-increment "brighter")
-           ("SPC" light-increment "brighter")))
+   (:body-pre
+    (progn
+      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+      (emacspeak-hydra-body-pre "brightness"))
+    :hint nil
+    :pre emacspeak-hydra-pre
+    :post emacspeak-hydra-post)
+   "Brightness "
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
+   ("b" emacspeak-brightness-alert-toggle "Alert" )
+   ("B" emacspeak-brightness-autoblack-toggle "Autoblack" )
+   ("s" light-set "set")
+   ("g" light-get "Get")
+   ("t" emacspeak-hydra-toggle-talkative)
+   ("<print>" light-black "black")
+   ("0" light-black "black")
+   ("1" light-white  "white")
+   ("d" light-decrement "dimmer")
+   ("i" light-increment "brighter")
+   ("SPC" light-increment "brighter")))
 
 ;;}}}
 ;;{{{ Org Mode Structure Navigation:
