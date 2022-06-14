@@ -87,7 +87,7 @@
   "Provide auditory icon.
 Also turn on hydra-is-helpful if it was turned off."
   (setq hydra-is-helpful t)
-  (call-interactively #'dtk-stop)
+  (dtk-stop)
   (when emacspeak-use-auditory-icons
     (emacspeak-play-auditory-icon 'close-object)))
 
@@ -96,11 +96,11 @@ Also turn on hydra-is-helpful if it was turned off."
 
 ;; We use plain messages:
 
-;; FIXME: Move into the `emacspeak' function so that Emacs is not affected
-;; when we're merely loading this file.
-(setq hydra-head-format "%s "
-      hydra-hint-display-type nil
-      hydra-hint-display-type #'message)
+(when (featurep 'emacspeak)
+  (setq
+   hydra-head-format "%s "
+   hydra-hint-display-type nil
+   hydra-hint-display-type #'message))
 
 (defun emacspeak-hydra-self-help (name)
   "Speak hint for specified Hydra."
