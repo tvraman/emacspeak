@@ -3181,6 +3181,8 @@ before brightness is checked.")
    (t (cancel-timer emacspeak-brightness-idle-timer)
       (setq emacspeak-brightness-idle-timer nil)))
   (when (called-interactively-p 'interactive)
+    (message "turned %s brightness alert"
+             (if emacspeak-brightness-idle-timer "off" "on"))
     (emacspeak-auditory-icon
      (if emacspeak-brightness-idle-timer 'on 'off))))
 
@@ -3192,6 +3194,8 @@ before brightness is checked.")
   (cl-declare (special emacspeak-brightness-autoblack))
   (setq emacspeak-brightness-autoblack (not emacspeak-brightness-autoblack))
   (when (called-interactively-p 'interactive)
+    (message "Turned %s autoblack"
+             (if emacspeak-brightness-autoblack ' "on" "off"))
     (emacspeak-auditory-icon
      (if emacspeak-brightness-autoblack 'on 'off))))
 
