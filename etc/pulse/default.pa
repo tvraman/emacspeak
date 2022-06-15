@@ -1,7 +1,7 @@
 # default.pa ---   -*- mode: conf; -*-
 .include /etc/pulse/default.pa
 # Use per app volume 
-#flat-volumes = no
+flat-volumes = no
 
 
 
