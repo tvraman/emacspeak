@@ -70,7 +70,9 @@
   (interactive "sBrightness: ")
   (cl-declare (special light-cmd))
   (when light-cmd
-    (start-process "Light" nil light-cmd "-S" brightness)))
+    (start-process "Light" nil light-cmd "-S" brightness)
+    (when (called-interactively-p 'interactive)
+      (message "Set brightness to %s" brightness))))
 
 (defvar light-step  "10"
   "Step-size used when incrementing and decrementing brightness.")
@@ -79,25 +81,33 @@
 (defun light-increment ()
   "Increase brightness."
   (interactive)
-  (start-process "Light" nil  light-cmd "-A" light-step))
+  (start-process "Light" nil  light-cmd "-A" light-step)
+  (when (called-interactively-p 'interactive)
+    (message "Increased brightness")))
 
 ;;;###autoload
 (defun light-decrement ()
   "Decrease brightness."
   (interactive)
-  (start-process "Light" nil light-cmd  "-U" light-step))
+  (start-process "Light" nil light-cmd  "-U" light-step)
+  (when (called-interactively-p 'interactive)
+    (message "decreased brightness")))
 
 ;;;###autoload
 (defun light-black ()
   "Black screen."
   (interactive)
-  (light-set "0"))
+  (light-set "0")
+  (when (called-interactively-p 'interactive)
+    (message "Turned screen black")))
 
 ;;;###autoload
 (defun light-white ()
   "White screen."
   (interactive)
-  (light-set "100"))
+  (light-set "100")
+  (when (called-interactively-p 'interactive)
+    (message "Full brightness")))
 
 ;;}}}
 (provide 'light)
