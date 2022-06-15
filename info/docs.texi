@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1146 commands and 146 options.
+This chapter documents a total of 1147 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -9289,6 +9289,8 @@ Call the body in the "emacspeak-muggles-brightness" hydra.
 The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
+"b":    ‘emacspeak-brightness-alert-toggle’,
+"B":    ‘emacspeak-brightness-autoblack-toggle’,
 "s":    ‘light-set’,
 "g":    ‘light-get’,
 "t":    ‘emacspeak-hydra-toggle-talkative’,
@@ -15657,6 +15659,15 @@ Toggle brightness alert.
 @end format
 @end deffn
 
+@subsubsection emacspeak-brightness-autoblack-toggle
+@deffn {Command} emacspeak-brightness-autoblack-toggle   
+@findex emacspeak-brightness-autoblack-toggle
+
+@format
+Toggle brightness autoblack.
+@end format
+@end deffn
+
 @subsubsection emacspeak-copy-current-file
 @deffn {Command} emacspeak-copy-current-file   
 @table @kbd
@@ -17445,6 +17456,11 @@ Buffer menu filtered by  mode of current-buffer.
 @end deffn
 
 @subsection emacspeak-wizards Options
+
+@defvar {User Option} emacspeak-brightness-autoblack
+Set to T to automatically turn display black.
+
+@end defvar
 
 @defvar {User Option} emacspeak-iex-api-key
 Web API  key for IEX Finance access.
