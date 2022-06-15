@@ -116,7 +116,7 @@
           (regexp-opt
            '("amixer" "cd-tool"
              "dectalk" "dtk" "espeak" "mac-"
-             "emacspeak" "xbacklight" "extra-muggles"
+             "emacspeak" "xbacklight" "light" "extra-muggles"
              "g-"    "gm-" "gmap"  "gweb"
              "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match command names.")
