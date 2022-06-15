@@ -17,7 +17,7 @@ last updated on June 14, 2022.
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
 
-12.233 voice-setup
+12.234 voice-setup
 ==================
 
 A voice is to audio as a font is to a visual display.  A personality is
@@ -36,7 +36,7 @@ words will be spoken in ‘voice-keyword-personality’.
 is on, the voices of the current line are updated with every insertion
 or deletion.
 
-12.233.1 Voice-Lock And Aural CSS
+12.234.1 Voice-Lock And Aural CSS
 ---------------------------------
 
 The CSS Speech Style Sheet specification defines a number of abstract
@@ -69,10 +69,10 @@ map ACSS dimensions to engine-specific codes.  Emacspeak modules use
 voice-setup-add-map when defining face->personality mappings.  For use
 from other modules.
 
-12.233.2 Voice-Setup Commands
+12.234.2 Voice-Setup Commands
 -----------------------------
 
-12.233.2.1 voice-lock-mode
+12.234.2.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -97,14 +97,14 @@ from other modules.
 
      (fn &optional ARG)
 
-12.233.2.2 voice-lock-mode–turn-on
+12.234.2.2 voice-lock-mode–turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
 
      Turn on Voice Lock mode .
 
-12.233.2.3 voice-setup-toggle-silence-personality
+12.234.2.3 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
@@ -113,7 +113,7 @@ from other modules.
 
      Toggle audibility of personality under point  .
 
-12.233.3 voice-setup Options
+12.234.3 voice-setup Options
 ----------------------------
 
  -- Variable: User Option voice-lock-mode-hook
@@ -124,7 +124,7 @@ from other modules.
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
 
-12.234 xbacklight
+12.235 xbacklight
 =================
 
 Provide an emacs front-end to xbacklight.  This is a tool that controls
@@ -134,38 +134,38 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-12.234.1 Xbacklight Commands
+12.235.1 Xbacklight Commands
 ----------------------------
 
-12.234.1.1 xbacklight-black
+12.235.1.1 xbacklight-black
 ...........................
 
  -- Command: xbacklight-black
 
      Black screen.
 
-12.234.1.2 xbacklight-decrement
+12.235.1.2 xbacklight-decrement
 ...............................
 
  -- Command: xbacklight-decrement
 
      Decrease brightness.
 
-12.234.1.3 xbacklight-get
+12.235.1.3 xbacklight-get
 .........................
 
  -- Command: xbacklight-get
 
      Get  brightness level.
 
-12.234.1.4 xbacklight-increment
+12.235.1.4 xbacklight-increment
 ...............................
 
  -- Command: xbacklight-increment
 
      Increase brightness.
 
-12.234.1.5 xbacklight-set
+12.235.1.5 xbacklight-set
 .........................
 
  -- Command: xbacklight-set (brightness)
@@ -174,7 +174,7 @@ package-install hydra
 
      (fn BRIGHTNESS)
 
-12.234.1.6 xbacklight-white
+12.235.1.6 xbacklight-white
 ...........................
 
  -- Command: xbacklight-white
@@ -184,7 +184,7 @@ package-install hydra
 
 File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
 
-12.235 URL Templates
+12.236 URL Templates
 ====================
 
 This section documents a total of 74 URL Templates.

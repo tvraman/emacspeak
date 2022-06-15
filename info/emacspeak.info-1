@@ -3093,6 +3093,7 @@ documentation, then read *Note emacspeak-eww::.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
+* light::Control Display Brightness From Emacs.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.

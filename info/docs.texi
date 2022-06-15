@@ -230,6 +230,7 @@ This chapter documents a total of 1153 commands and 147 options.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
+* light::Control Display Brightness From Emacs.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.
@@ -18394,6 +18395,75 @@ e		ladspa-edit-control
 n		next-line
 p		previous-line
 
+@end format
+@end deffn
+
+@node light
+@section light
+
+Provide an emacs front-end to light.
+This is a tool that controls the brightness on laptops.
+To install light,
+sudo apt-get install light
+Install light setuid (sudo chmod u+s /usr/bin/light)
+This module  is most   easily used in conjunction with  hydra:
+M-x package-install hydra
+
+@subsection Light Commands
+
+@subsubsection light-black
+@deffn {Command} light-black   
+@findex light-black
+
+@format
+Black screen.
+@end format
+@end deffn
+
+@subsubsection light-decrement
+@deffn {Command} light-decrement   
+@findex light-decrement
+
+@format
+Decrease brightness.
+@end format
+@end deffn
+
+@subsubsection light-get
+@deffn {Command} light-get   
+@findex light-get
+
+@format
+Get  brightness level.
+@end format
+@end deffn
+
+@subsubsection light-increment
+@deffn {Command} light-increment   
+@findex light-increment
+
+@format
+Increase brightness.
+@end format
+@end deffn
+
+@subsubsection light-set
+@deffn {Command} light-set  (brightness)
+@findex light-set
+
+@format
+Set brightness.
+
+(fn BRIGHTNESS)
+@end format
+@end deffn
+
+@subsubsection light-white
+@deffn {Command} light-white   
+@findex light-white
+
+@format
+White screen.
 @end format
 @end deffn
 

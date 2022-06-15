@@ -9257,7 +9257,7 @@ Implements the Google Maps API
      coordinates via geocoding.
 
 
-File: emacspeak.info,  Node: ladspa,  Next: mac-voices,  Prev: gmaps,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: ladspa,  Next: light,  Prev: gmaps,  Up: Emacspeak Commands And Options
 
 12.223 ladspa
 =============
@@ -9328,15 +9328,73 @@ invada-studio-plugins-ladspa fil-plugins
 
 
 
-File: emacspeak.info,  Node: mac-voices,  Next: outloud-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: light,  Next: mac-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
 
-12.224 mac-voices
+12.224 light
+============
+
+Provide an emacs front-end to light.  This is a tool that controls the
+brightness on laptops.  To install light, sudo apt-get install light
+Install light setuid (sudo chmod u+s /usr/bin/light) This module is most
+easily used in conjunction with hydra: M-x package-install hydra
+
+12.224.1 Light Commands
+-----------------------
+
+12.224.1.1 light-black
+......................
+
+ -- Command: light-black
+
+     Black screen.
+
+12.224.1.2 light-decrement
+..........................
+
+ -- Command: light-decrement
+
+     Decrease brightness.
+
+12.224.1.3 light-get
+....................
+
+ -- Command: light-get
+
+     Get  brightness level.
+
+12.224.1.4 light-increment
+..........................
+
+ -- Command: light-increment
+
+     Increase brightness.
+
+12.224.1.5 light-set
+....................
+
+ -- Command: light-set (brightness)
+
+     Set brightness.
+
+     (fn BRIGHTNESS)
+
+12.224.1.6 light-white
+......................
+
+ -- Command: light-white
+
+     White screen.
+
+
+File: emacspeak.info,  Node: mac-voices,  Next: outloud-voices,  Prev: light,  Up: Emacspeak Commands And Options
+
+12.225 mac-voices
 =================
 
 This module defines the various voices used in voice-lock mode by Mac
 TTS.
 
-12.224.1 mac-voices Options
+12.225.1 mac-voices Options
 ---------------------------
 
  -- Variable: User Option mac-default-speech-rate
@@ -9345,16 +9403,16 @@ TTS.
 
 File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
 
-12.225 outloud-voices
+12.226 outloud-voices
 =====================
 
 Interface to outloud server.  This module is IBM ViaVoice Outloud
 specific.
 
-12.225.1 Outloud-Voices Commands
+12.226.1 Outloud-Voices Commands
 --------------------------------
 
-12.225.1.1 outloud
+12.226.1.1 outloud
 ..................
 
  -- Command: outloud (&optional device)
@@ -9365,7 +9423,7 @@ specific.
 
      (fn &optional DEVICE)
 
-12.225.2 outloud-voices Options
+12.226.2 outloud-voices Options
 -------------------------------
 
  -- Variable: User Option outloud-default-speech-rate
@@ -9374,7 +9432,7 @@ specific.
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
 
-12.226 plain-voices
+12.227 plain-voices
 ===================
 
 This module defines the various voices used in voice-lock mode.  Module
@@ -9384,7 +9442,7 @@ appropriate voice-locking controls
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
-12.227 soundscape
+12.228 soundscape
 =================
 
 Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
@@ -9421,10 +9479,10 @@ that is loaded using ‘(soundscape-load soundscape-default-theme)’.
 Emacs modes that provide similar functionality e.g., communication ==
 email, IM, ...  map to the same _mood_.
 
-12.227.1 Soundscape Commands
+12.228.1 Soundscape Commands
 ----------------------------
 
-12.227.1.1 soundscape
+12.228.1.1 soundscape
 .....................
 
  -- Command: soundscape (scape)
@@ -9436,14 +9494,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.227.1.2 soundscape-kill
+12.228.1.2 soundscape-kill
 ..........................
 
  -- Command: soundscape-kill
 
      Stop all running soundscapes.
 
-12.227.1.3 soundscape-listener
+12.228.1.3 soundscape-listener
 ..............................
 
  -- Command: soundscape-listener (&optional restart)
@@ -9454,14 +9512,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional RESTART)
 
-12.227.1.4 soundscape-listener-shutdown
+12.228.1.4 soundscape-listener-shutdown
 .......................................
 
  -- Command: soundscape-listener-shutdown
 
      Shutdown listener.
 
-12.227.1.5 soundscape-remote
+12.228.1.5 soundscape-remote
 ............................
 
  -- Command: soundscape-remote (names)
@@ -9470,7 +9528,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn NAMES)
 
-12.227.1.6 soundscape-restart
+12.228.1.6 soundscape-restart
 .............................
 
  -- Command: soundscape-restart (&optional prompt)
@@ -9484,7 +9542,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional PROMPT)
 
-12.227.1.7 soundscape-stop
+12.228.1.7 soundscape-stop
 ..........................
 
  -- Command: soundscape-stop (scape)
@@ -9493,14 +9551,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.227.1.8 soundscape-theme
+12.228.1.8 soundscape-theme
 ...........................
 
  -- Command: soundscape-theme
 
      Shows default theme in a special buffer.
 
-12.227.1.9 soundscape-toggle
+12.228.1.9 soundscape-toggle
 ............................
 
  -- Command: soundscape-toggle
@@ -9511,7 +9569,7 @@ email, IM, ...  map to the same _mood_.
      Toggle automatic SoundScapes.
      Run command M-x soundscape-theme to see the default mode->mood mapping.
 
-12.227.1.10 soundscape-update-mood
+12.228.1.10 soundscape-update-mood
 ..................................
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
@@ -9525,7 +9583,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional PROMPT-MODE)
 
-12.227.2 soundscape Options
+12.228.2 soundscape Options
 ---------------------------
 
  -- Variable: User Option soundscape-data
@@ -9541,7 +9599,7 @@ email, IM, ...  map to the same _mood_.
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
 
-12.228 sox
+12.229 sox
 ==========
 
 This module defines a convenient speech-enabled interface for editing
@@ -9558,10 +9616,10 @@ ladspa.el.  To use ladspa effects with SoX, you need a relatively new
 build of Sox; The stock SoX that is package for Debian/Ubuntu does not
 always work.  This module can be used independent of Emacspeak.
 
-12.228.1 Sox Commands
+12.229.1 Sox Commands
 ---------------------
 
-12.228.1.1 sox-add-effect
+12.229.1.1 sox-add-effect
 .........................
 
  -- Command: sox-add-effect (name)
@@ -9570,7 +9628,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.228.1.2 sox-delete-effect-at-point
+12.229.1.2 sox-delete-effect-at-point
 .....................................
 
  -- Command: sox-delete-effect-at-point
@@ -9581,14 +9639,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.228.1.3 sox-edit-effect-at-point
+12.229.1.3 sox-edit-effect-at-point
 ...................................
 
  -- Command: sox-edit-effect-at-point
 
      Edit effect at point.
 
-12.228.1.4 sox-mode
+12.229.1.4 sox-mode
 ...................
 
  -- Command: sox-mode
@@ -9600,7 +9658,7 @@ always work.  This module can be used independent of Emacspeak.
      penultimate step during initialization.
 
 
-12.228.1.5 sox-open-file
+12.229.1.5 sox-open-file
 ........................
 
  -- Command: sox-open-file (snd-file)
@@ -9611,14 +9669,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SND-FILE)
 
-12.228.1.6 sox-play
+12.229.1.6 sox-play
 ...................
 
  -- Command: sox-play
 
      Play sound .
 
-12.228.1.7 sox-refresh
+12.229.1.7 sox-refresh
 ......................
 
  -- Command: sox-refresh
@@ -9629,7 +9687,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.228.1.8 sox-save
+12.229.1.8 sox-save
 ...................
 
  -- Command: sox-save (save-file)
@@ -9638,7 +9696,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SAVE-FILE)
 
-12.228.1.9 sox-set-effect
+12.229.1.9 sox-set-effect
 .........................
 
  -- Command: sox-set-effect (name)
@@ -9647,14 +9705,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.228.1.10 sox-show-timestamp
+12.229.1.10 sox-show-timestamp
 ..............................
 
  -- Command: sox-show-timestamp
 
      Show timestamp   in stream.
 
-12.228.1.11 sox-stop
+12.229.1.11 sox-stop
 ....................
 
  -- Command: sox-stop
@@ -9664,13 +9722,13 @@ always work.  This module can be used independent of Emacspeak.
 
 File: emacspeak.info,  Node: sox-gen,  Next: tetris,  Prev: sox,  Up: Emacspeak Commands And Options
 
-12.229 sox-gen
+12.230 sox-gen
 ==============
 
 Provides binaural audio along with pre-defined themes.  This module can
 be used independent of Emacspeak.
 
-12.229.1 Binaural Beats Using SoX
+12.230.1 Binaural Beats Using SoX
 ---------------------------------
 
 A binaural beat is an auditory illusion perceived when two different
@@ -9698,7 +9756,7 @@ binaural beat sequences by customizing
  -- Variable: User Option sox-binaural-gain-offset to a positive value
    — default is 0.
 
-12.229.1.1 High-Level Commands For Pre-Defined Binaural Beats
+12.230.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
 
 These commands can be called directly to play one of the predefined
@@ -9733,10 +9791,10 @@ binaural beats.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
-12.229.2 Sox-Gen Commands
+12.230.2 Sox-Gen Commands
 -------------------------
 
-12.229.2.1 sox-beats-binaural
+12.230.2.1 sox-beats-binaural
 .............................
 
  -- Command: sox-beats-binaural (length beat-spec-list gain)
@@ -9746,7 +9804,7 @@ binaural beats.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 
-12.229.2.2 sox-binaural
+12.230.2.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
@@ -9757,7 +9815,7 @@ binaural beats.
 
      (fn NAME DURATION)
 
-12.229.2.3 sox-chakras
+12.230.2.3 sox-chakras
 ......................
 
  -- Command: sox-chakras (theme duration)
@@ -9767,7 +9825,7 @@ binaural beats.
 
      (fn THEME DURATION)
 
-12.229.2.4 sox-relax
+12.230.2.4 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -9776,7 +9834,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.229.2.5 sox-rev-up
+12.230.2.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -9785,7 +9843,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.229.2.6 sox-slide-binaural
+12.230.2.6 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -9794,7 +9852,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-12.229.2.7 sox-tone-binaural
+12.230.2.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -9804,7 +9862,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.229.2.8 sox-tone-slide-binaural
+12.230.2.8 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -9815,7 +9873,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-12.229.2.9 sox-turn-down
+12.230.2.9 sox-turn-down
 ........................
 
  -- Command: sox-turn-down (length)
@@ -9824,7 +9882,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.229.2.10 sox-wind-down
+12.230.2.10 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -9833,7 +9891,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.229.3 sox-gen Options
+12.230.3 sox-gen Options
 ------------------------
 
  -- Variable: User Option sox-binaural-gain-offset
@@ -9847,13 +9905,13 @@ binaural beats.
 
 File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: sox-gen,  Up: Emacspeak Commands And Options
 
-12.230 tetris
+12.231 tetris
 =============
 
 
 File: emacspeak.info,  Node: toy-braille,  Next: voice-defs,  Prev: tetris,  Up: Emacspeak Commands And Options
 
-12.231 toy-braille
+12.232 toy-braille
 ==================
 
 This is a bit of toy code to write in braille.  To try this, load this
@@ -9880,13 +9938,13 @@ configured).
 
 File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: toy-braille,  Up: Emacspeak Commands And Options
 
-12.232 voice-defs
+12.233 voice-defs
 =================
 
 Contains just the voice definitions.  Voices are defined using the macro
 ‘defvoice’ from module voice-setup.
 
-12.232.1 An Overview Of Voice Design
+12.233.1 An Overview Of Voice Design
 ------------------------------------
 
 Aural CSS defines 4 primary device-independent dimensions.
@@ -9898,7 +9956,7 @@ possible settings.
 these dimensions to device-specific parameters and are responsible for
 generating the final device-specific codes.
 
-12.232.2 Creating Distinct Voices Via Aural CSS
+12.233.2 Creating Distinct Voices Via Aural CSS
 -----------------------------------------------
 
 Along each dimension, a setting of 5 is mapped to the default setting
@@ -9915,7 +9973,7 @@ there are 4 _overlay_ voices, corresponding to the 4 dimensions; these
 each set one of the dimensions to ‘8’.  Thus, we have a total of 25
 unique voices defined in this module.
 
-12.232.3 Things to note
+12.233.3 Things to note
 -----------------------
 
    • These voices are designed to be distinctive when used in a given
@@ -9925,7 +9983,7 @@ unique voices defined in this module.
      content so that when used in context, one can easily pick-out
      distinct parts of the utterance.
 
-12.232.4 voice-defs Options
+12.233.4 voice-defs Options
 ---------------------------
 
  -- Variable: User Option voice-animate-extra-settings
