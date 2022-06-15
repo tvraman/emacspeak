@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1147 commands and 147 options.
+This chapter documents a total of 1153 commands and 147 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
