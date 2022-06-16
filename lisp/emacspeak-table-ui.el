@@ -265,12 +265,20 @@ Full List Of Keybindings:
           "%s"
           (emacspeak-table-column-header-element
            emacspeak-table
-           (emacspeak-table-current-column emacspeak-table)))))
+           (emacspeak-table-current-column emacspeak-table))))
+        (content nil))
     (put-text-property 0 (length head) 'face 'italic head)
-    (dtk-speak-and-echo
-     (concat
-      head
-      (format " %s" (emacspeak-table-current-element emacspeak-table))))))
+    (setq content
+          (string-trim
+           (concat
+            head
+            (format " %s" (emacspeak-table-current-element
+                           emacspeak-table)))))
+    (cond
+     ((zerop (length content))
+      (dtk-speak-list "blank")
+      (sox-sin 0.1 400))
+     (t (dtk-speak-and-echo content)))))
 
 (defun emacspeak-table-speak-both-headers-and-element ()
   "Speak  both row and column header and table element"
