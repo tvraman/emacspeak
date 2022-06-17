@@ -182,6 +182,7 @@ emacspeak-ispell.elc \
 emacspeak-ivy.elc \
 emacspeak-jabber.elc \
 emacspeak-jdee.elc \
+emacspeak-journalctl.elc \
 emacspeak-js2.elc \
 emacspeak-kmacro.elc  \
 emacspeak-librivox.elc \
