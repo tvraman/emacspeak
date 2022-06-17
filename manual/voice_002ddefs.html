@@ -49,7 +49,7 @@ ul.no-bullet {list-style: none}
 Next: <a href="voice_002dsetup.html" accesskey="n" rel="next">voice-setup</a>, Previous: <a href="toy_002dbraille.html" accesskey="p" rel="prev">toy-braille</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="voice_002ddefs-1"></span><h3 class="section">12.233 voice-defs</h3>
+<span id="voice_002ddefs-1"></span><h3 class="section">12.234 voice-defs</h3>
 
 <p>Contains just the voice definitions. Voices are defined using the
 macro <code>defvoice</code> from  module voice-setup.
@@ -60,7 +60,7 @@ macro <code>defvoice</code> from  module voice-setup.
 <li><a href="#voice_002ddefs-Options" accesskey="4">voice-defs Options</a></li>
 </ul>
 <div class="subsection" id="An-Overview-Of-Voice-Design">
-<h4 class="subsection">12.233.1 An Overview Of Voice Design</h4>
+<h4 class="subsection">12.234.1 An Overview Of Voice Design</h4>
 
 <p>Aural CSS defines 4 primary device-independent dimensions.
 Average-Pitch, Pitch-Range, Stress, and Richness. There are ten
@@ -72,7 +72,7 @@ map these dimensions to device-specific parameters and are
 responsible for generating the final device-specific codes.
 </p></div>
 <div class="subsection" id="Creating-Distinct-Voices-Via-Aural-CSS">
-<h4 class="subsection">12.233.2 Creating  Distinct Voices  Via Aural CSS</h4>
+<h4 class="subsection">12.234.2 Creating  Distinct Voices  Via Aural CSS</h4>
 <p>Along each dimension, a setting of 5 is mapped to the default
 setting for the voice as implemented by a given engine. Values on
 either side of  5 produce opposing effects.
@@ -92,7 +92,7 @@ Finally, there are 4 <em>overlay</em> voices, corresponding  to the
 Thus, we have a total of 25 unique voices defined in this module.
 </p></div>
 <div class="subsection" id="Things-to-note">
-<h4 class="subsection">12.233.3 Things to note</h4>
+<h4 class="subsection">12.234.3 Things to note</h4>
 <ul>
 <li> These voices are designed to be distinctive when used in  a given
 utterance.
@@ -105,7 +105,7 @@ distinct parts of the utterance.
 
 </div>
 <div class="subsection" id="voice_002ddefs-Options">
-<h4 class="subsection">12.233.4 voice-defs Options</h4>
+<h4 class="subsection">12.234.4 voice-defs Options</h4>
 
 <dl class="def">
 <dt id="index-User-Option-122"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-animate-extra-settings</em><a href='#index-User-Option-122' class='copiable-anchor'> &para;</a></span></dt>
