@@ -117,6 +117,7 @@ This chapter documents a total of 1153 commands and 147 options.
 * emacspeak-ivy::Speech-enable IVY.
 * emacspeak-jabber::Speech-Enable jabber.
 * emacspeak-jdee::Speech enable JDEE.
+* emacspeak-journalctl::Speech-enable JOURNALCTL.
 * emacspeak-js2::Speech-enable JS2.
 * emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
@@ -7549,6 +7550,12 @@ Set to T if you want to hear presence alerts.
 Speech enable Java IDE.
 The Java IDE --JDEE-- can be found at
 http://sunsite.auc.dk/jdee/
+
+@node emacspeak-journalctl
+@section emacspeak-journalctl
+
+JOURNALCTL ==  SystemD Journal From emacs
+See https://github.com/SebastianMeisel/journalctl-mode
 
 @node emacspeak-js2
 @section emacspeak-js2
