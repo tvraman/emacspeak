@@ -7,7 +7,7 @@ flat-volumes = no
 
 # A bs2b (binaural for headphones) sink:
 
-load-module module-ladspa-sink sink_name=binaural  master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,6.5
+load-module module-ladspa-sink sink_name=binaural sink_master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,6.5
 
 # Use binaural as the default sink:
 #set-default-sink  binaural 
