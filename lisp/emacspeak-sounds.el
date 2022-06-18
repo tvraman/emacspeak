@@ -107,7 +107,9 @@ Use Serve when working with remote speech servers.")
         file-ext))
 
 (defcustom emacspeak-sounds-default-theme
-  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
+  (if (string= emacspeak-play-program (executable-find "pactl"))
+      (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)
+      (expand-file-name "pan-chimes/" emacspeak-sounds-directory))
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
   :group 'emacspeak)
