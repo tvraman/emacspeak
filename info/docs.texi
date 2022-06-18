@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1153 commands and 147 options.
+This chapter documents a total of 1153 commands and 146 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -11026,11 +11026,6 @@ Optional interactive PREFIX arg toggles global value.
 
 @subsection emacspeak-sounds Options
 
-@defvar {User Option} emacspeak-play-args
-Set this to nil if using paplay from pulseaudio.
-
-@end defvar
-
 @defvar {User Option} emacspeak-play-program
 Play program.
 
@@ -19479,7 +19474,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 74 URL Templates.
+This section documents a total of 75 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -19565,7 +19560,7 @@ Google Scholar Search@item @b{Google Trends}
 
 Google Trends@item @b{Google Weather}
 
-Light-weight Google search.@item @b{Guardian RSS Feeds Directory}
+Light-weight Google weather.@item @b{Guardian RSS Feeds Directory}
 
 Guardian Feeds  Directory@item @b{Hacker  News Frontpage}
 
@@ -19642,7 +19637,9 @@ Download specified file.@item @b{sourceforge browse mirrors}
 
 Retrieve download page at Sourceforge for specified project.@item @b{sourceforge project}
 
-Open specified project page at SourceForge.@item @b{w3c IRC Logs}
+Open specified project page at SourceForge.@item @b{stock market from google}
+
+Light-weight stock market summary from Google.@item @b{w3c IRC Logs}
 
 Use this to pull up the
 archived logs from the W3C IRC. You need to know the exact

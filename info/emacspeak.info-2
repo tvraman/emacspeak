@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 17, 2022.
+last updated on June 18, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -3812,9 +3812,6 @@ appropriate subdirectories of emacspeak-sounds-directory
 
 12.176.2 emacspeak-sounds Options
 ---------------------------------
-
- -- Variable: User Option emacspeak-play-args
-     Set this to nil if using paplay from pulseaudio.
 
  -- Variable: User Option emacspeak-play-program
      Play program.

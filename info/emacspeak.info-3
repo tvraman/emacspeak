@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 17, 2022.
+last updated on June 18, 2022.
 
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
@@ -187,7 +187,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.237 URL Templates
 ====================
 
-This section documents a total of 74 URL Templates.
+This section documents a total of 75 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -303,7 +303,7 @@ out the following steps:
      Google Trends
   35. Google Weather
 
-     Light-weight Google search.
+     Light-weight Google weather.
   36. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
@@ -415,15 +415,18 @@ out the following steps:
   71. sourceforge project
 
      Open specified project page at SourceForge.
-  72. w3c IRC Logs
+  72. stock market from google
+
+     Light-weight stock market summary from Google.
+  73. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  73. w3c Lists
+  74. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  74. world CNN Content
+  75. world CNN Content
 
      Filter down to CNN content area.
 
