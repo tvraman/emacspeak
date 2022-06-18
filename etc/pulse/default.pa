@@ -1,10 +1,6 @@
 # default.pa ---   -*- mode: conf; -*-
 .include /etc/pulse/default.pa
 # Use per app volume 
-flat-volumes = no
-
-
-
 # A bs2b (binaural for headphones) sink:
 
 load-module module-ladspa-sink sink_name=binaural  master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,6.5
@@ -19,3 +15,4 @@ load-module module-remap-sink sink_name=tts_left  master=binaural channels=2 mas
 # X11 Bell:
 load-module module-x11-bell
 load-sample bell-window-system /usr/share/sounds/freedesktop/stereo/bell.oga
+load-sample-dir-lazy  /home/raman/emacs/lisp/emacspeak/sounds/pan-chimes
