@@ -121,13 +121,9 @@ Use Serve when working with remote speech servers.")
           (string-match val (executable-find "pactl"))
         (setq emacspeak-play-args "play-sample"))))
 
-(defcustom emacspeak-sounds-default-theme
-  (if (string= emacspeak-play-program (executable-find "pactl"))
-      (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)
-      (expand-file-name "pan-chimes/" emacspeak-sounds-directory))
-  "Default theme for auditory icons. "
-  :type '(directory :tag "Sound Theme Directory")
-  :group 'emacspeak)
+(defvar emacspeak-sounds-default-theme
+      (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
+  "Default theme for auditory icons. ")
 
 (defvar emacspeak-sounds-current-theme
   emacspeak-sounds-default-theme
