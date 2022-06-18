@@ -3147,11 +3147,11 @@ Optional interactive prefix arg deletes it."
 ;; Watch for screen brightness changes and let user know if screen
 ;; comes on:
 
-(defvar emacspeak-brightness-alert-delay 0.1
+(defvar emacspeak-brightness-alert-delay 60
   "Number of seconds of idle time
 before brightness is checked.")
 
-(defvar emacspeak-brightness-idle-timer nil
+(defvar emacspeak-brightness-timer nil
   "Idle timer that runs our brightness alert.")
 
 (defcustom emacspeak-brightness-autoblack nil
@@ -3171,20 +3171,20 @@ before brightness is checked.")
 (defun emacspeak-brightness-alert-toggle ()
   "Toggle brightness alert."
   (interactive)
-  (cl-declare (special emacspeak-brightness-idle-timer))
+  (cl-declare (special emacspeak-brightness-timer))
   (cond
-   ((null emacspeak-brightness-idle-timer)
-    (setq emacspeak-brightness-idle-timer
-          (run-with-idle-timer
+   ((null emacspeak-brightness-timer)
+    (setq emacspeak-brightness-timer
+          (run-at-time
            emacspeak-brightness-alert-delay  t
            #'emacspeak-brightness-alert)))
-   (t (cancel-timer emacspeak-brightness-idle-timer)
-      (setq emacspeak-brightness-idle-timer nil)))
+   (t (cancel-timer emacspeak-brightness-timer)
+      (setq emacspeak-brightness-timer nil)))
   (when (called-interactively-p 'interactive)
     (message "turned %s brightness alert"
-             (if emacspeak-brightness-idle-timer "off" "on"))
+             (if emacspeak-brightness-timer "off" "on"))
     (emacspeak-auditory-icon
-     (if emacspeak-brightness-idle-timer 'on 'off))))
+     (if emacspeak-brightness-timer 'on 'off))))
 
 
 ;;;###autoload
