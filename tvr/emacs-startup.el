@@ -197,6 +197,7 @@ Use Custom to customize where possible. "
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
   (add-hook 'prog-mode-hook 'format-all-mode)
+  (emacspeak-sounds-select-theme "ogg-chimes/")
   (when (executable-find "light")
     (emacspeak-brightness-alert-toggle))
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))

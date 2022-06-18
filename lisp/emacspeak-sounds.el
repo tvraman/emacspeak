@@ -172,7 +172,8 @@ Do not set this by hand;
     (error "Theme %s is not installed" theme))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-sounds-define-theme-if-necessary theme)
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-auditory-icon 'select-object)
+  t)
 
 (defun emacspeak-get-sound-filename (sound-name)
   "Get name of  file that produces  auditory icon SOUND-NAME."
