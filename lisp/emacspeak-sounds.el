@@ -174,13 +174,17 @@ Do not set this by hand;
   (cl-declare (special emacspeak-sounds-themes-table
                        emacspeak-sounds-current-theme))
   (let ((f
-         (format
-          "%s%s"
-          sound-name (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))))
-    (unless (string= emacspeak-play-program "/usr/bin/pactl")
-      (setq f (expand-file-name sound-name emacspeak-sounds-current-theme)))
+         (expand-file-name
+          (format "%s%s"
+                  sound-name
+                  (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
+          emacspeak-sounds-current-theme)))
     (cond
-     ((file-exists-p (expand-file-name f emacspeak-sounds-current-theme)) f)
+     ((and
+       (string= emacspeak-play-program (executable-find "pactl"))
+       f)
+      (car (last (file-name-split f))))
+     ((file-exists-p f) f)
      (t
       (let ((emacspeak-use-auditory-icons nil))
         (message "Icon %s not defined." sound-name))
@@ -226,7 +230,7 @@ Do not set this by hand;
         (start-process
          emacspeak-play-program nil emacspeak-play-program
          emacspeak-play-args
-             (emacspeak-get-sound-filename sound-name))
+         (emacspeak-get-sound-filename sound-name))
       (start-process
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-get-sound-filename sound-name)))))
