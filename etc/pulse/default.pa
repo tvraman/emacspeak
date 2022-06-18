@@ -15,4 +15,4 @@ load-module module-remap-sink sink_name=tts_left  master=binaural channels=2 mas
 # X11 Bell:
 load-module module-x11-bell
 load-sample bell-window-system /usr/share/sounds/freedesktop/stereo/bell.oga
-load-sample-dir-lazy  /home/raman/emacs/lisp/emacspeak/sounds/pan-chimes
+load-sample-dir-lazy  /home/raman/emacs/lisp/emacspeak/sounds/ogg-chimes
