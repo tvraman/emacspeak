@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1153 commands and 146 options.
+This chapter documents a total of 1153 commands and 145 options.
 
 @menu
 * amixer::Control AMixer from Emacs.
@@ -11028,11 +11028,6 @@ Optional interactive PREFIX arg toggles global value.
 
 @defvar {User Option} emacspeak-play-program
 Play program.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sounds-default-theme
-Default theme for auditory icons. 
 
 @end defvar
 

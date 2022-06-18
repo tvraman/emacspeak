@@ -3816,9 +3816,6 @@ appropriate subdirectories of emacspeak-sounds-directory
  -- Variable: User Option emacspeak-play-program
      Play program.
 
- -- Variable: User Option emacspeak-sounds-default-theme
-     Default theme for auditory icons.
-
 
 File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: emacspeak-sounds,  Up: Emacspeak Commands And Options
 
