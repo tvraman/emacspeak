@@ -118,7 +118,14 @@ Use Serve when working with remote speech servers.")
    (executable-find "play"))
   "Play program."
   :group 'emacspeak
-  :type 'string)
+  :type 'string
+  :set
+  #'(lambda(sym val)
+      (cl-declare (special emacspeak-play-args))
+      (set-default sym val)
+      (when
+          (string-match val (executable-find "pactl"))
+        (setq emacspeak-play-args "play-sample"))))
 
 (defvar emacspeak-sounds-current-theme
   emacspeak-sounds-default-theme
@@ -213,12 +220,9 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  Play an icon
 
-(defcustom emacspeak-play-args nil
-  
-  "Set this to nil if using paplay from pulseaudio."
-  :type '(choice (string :tag "Arguments" "-q")
-                 (const :tag "None" nil))
-  :group 'emacspeak)
+(defvar emacspeak-play-args nil
+  "Set this to nil if using paplay from pulseaudio.
+Automatically set to `play-sample' if using pactl.")
 
 (defun emacspeak-play-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME."
