@@ -1,4 +1,4 @@
-;;; amixer.el --- Control AMixer from Emacs  -*- lexical-binding: t; -*-
+;;; amixer.el --- Set Audio Volume from Emacs  -*- lexical-binding: t; -*-
 ;;
 ;; Emacs front-end to AMixer
 ;;{{{  Copyright:
