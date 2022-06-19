@@ -80,7 +80,7 @@ play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
 Use Serve when working with remote speech servers.")
-
+;;;###autoload
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (when emacspeak-use-auditory-icons
@@ -106,6 +106,30 @@ Use Serve when working with remote speech servers.")
   (setf (gethash  theme-name emacspeak-sounds-themes-table)
         file-ext))
 
+(defun emacspeak-get-sound-filename (sound-name)
+  "Get name of  file that produces  auditory icon SOUND-NAME."
+  (cl-declare (special emacspeak-sounds-themes-table
+                       emacspeak-sounds-current-theme))
+  (let ((f
+         (expand-file-name
+          (format "%s%s"
+                  sound-name
+                  (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
+          emacspeak-sounds-current-theme)))
+    (cond
+     ((and
+       (string= emacspeak-play-program (executable-find "pactl"))
+       f)
+      (car (last (file-name-split f))))
+     ((file-exists-p f) f)
+     (t
+      (let ((emacspeak-use-auditory-icons nil))
+        (message "Icon %s not defined." sound-name))
+      emacspeak-default-sound))))
+
+
+
+;;;###autoload
 (defcustom emacspeak-play-program
   (or
    (executable-find "pactl")
@@ -113,32 +137,36 @@ Use Serve when working with remote speech servers.")
    (executable-find "aplay")
    (executable-find "play"))
   "Play program."
-  :group 'emacspeak
   :type
-  '(string
-    (choice
-     (const :tag "Alsa" "aplay")
-     (const :tag "Pulseaudio Basic" "paplay")
-     (const :tag "Pulseaudio Advanced" "pactl")
-     (const :tag "SoX" "play")))
+  '(choice
+    (const :tag "Alsa" "/usr/bin/aplay")
+    (const :tag "PulseBasic" "/usr/bin/paplay")
+    (const  :tag "PulseAdvanced" "/usr/bin/pactl")
+    (const  :tag "SoX" "/usr/bin/play"))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args))
       (set-default sym val)
       (cond
        ((string-match (executable-find "pactl") val)
-        (setq emacspeak-play-args "play-sample")
-        (emacspeak-sounds-select-theme "ogg-chimes/"))
+        (setq emacspeak-play-args "play-sample"))
        ((string-match (executable-find "paplay") val)
         (setq emacspeak-play-args "play-sample"))
        ((string-match (executable-find "aplay") val)
-        (setq emacspeak-play-args nil)
-        (emacspeak-sounds-select-theme "pan-chimes/"))
+        (setq emacspeak-play-args nil))
        ((string-match (executable-find "play") val)
-        (setq emacspeak-play-args nil)))))
+        (setq emacspeak-play-args nil))))
+  :group 'emacspeak
+  )
+
+(cl-eval-when '(load)
+  (cond
+   ((string-match "pactl" emacspeak-play-program)
+    (emacspeak-sounds-select-theme "ogg-chimes/"))
+   (t (emacspeak-sounds-select-theme "pan-chimes/"))))
 
 (defvar emacspeak-sounds-default-theme
-      (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
+  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
   "Default theme for auditory icons. ")
 
 (defvar emacspeak-sounds-current-theme
@@ -172,6 +200,7 @@ Do not set this by hand;
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
 
+;;;###autoload
 (defun emacspeak-sounds-select-theme  (theme)
   "Select theme for auditory icons."
   (interactive
@@ -191,26 +220,6 @@ Do not set this by hand;
   (emacspeak-auditory-icon 'select-object)
   t)
 
-(defun emacspeak-get-sound-filename (sound-name)
-  "Get name of  file that produces  auditory icon SOUND-NAME."
-  (cl-declare (special emacspeak-sounds-themes-table
-                       emacspeak-sounds-current-theme))
-  (let ((f
-         (expand-file-name
-          (format "%s%s"
-                  sound-name
-                  (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
-          emacspeak-sounds-current-theme)))
-    (cond
-     ((and
-       (string= emacspeak-play-program (executable-find "pactl"))
-       f)
-      (car (last (file-name-split f))))
-     ((file-exists-p f) f)
-     (t
-      (let ((emacspeak-use-auditory-icons nil))
-        (message "Icon %s not defined." sound-name))
-      emacspeak-default-sound))))
 
 ;;}}}
 ;;{{{  queue an auditory icon
