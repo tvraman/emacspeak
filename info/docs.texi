@@ -7,7 +7,7 @@
 This chapter documents a total of 1153 commands and 145 options.
 
 @menu
-* amixer::Control AMixer from Emacs.
+* amixer::Set Audio Volume from Emacs.
 * cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Dectalk Voice  Codes.
 * dom-addons::dom.el addons.

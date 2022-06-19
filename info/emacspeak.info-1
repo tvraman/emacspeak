@@ -2870,7 +2870,7 @@ documentation, then read *Note emacspeak-eww::.
 
 * Menu:
 
-* amixer::Control AMixer from Emacs.
+* amixer::Set Audio Volume from Emacs.
 * cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Dectalk Voice  Codes.
 * dom-addons::dom.el addons.
