@@ -108,18 +108,30 @@ Use Serve when working with remote speech servers.")
 
 (defcustom emacspeak-play-program
   (or
+   (executable-find "pactl")
+    (executable-find "paplay")
    (executable-find "aplay")
    (executable-find "play"))
   "Play program."
   :group 'emacspeak
-  :type 'string
+  :type '(choice
+          (const :tag "Alsa" "aplay")
+          (const :tag "Pulseaudio Basic" "paplay")
+          (const :tag "Pulseaudio Advanced" "pactl")
+          (const :tag "SoX" "play"))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args))
       (set-default sym val)
-      (when
-          (string-match val (executable-find "pactl"))
-        (setq emacspeak-play-args "play-sample"))))
+      (cond
+       ((string-match (executable-find "pactl") val)
+        (setq emacspeak-play-args "play-sample"))
+       ((string-match (executable-find "paplay") val)
+        (setq emacspeak-play-args "play-sample"))
+       ((string-match (executable-find "aplay") val)
+        (setq emacspeak-play-args nil))
+       ((string-match (executable-find "play") val)
+        (setq emacspeak-play-args nil)))))
 
 (defvar emacspeak-sounds-default-theme
       (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
