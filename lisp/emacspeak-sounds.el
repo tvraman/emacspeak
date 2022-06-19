@@ -109,16 +109,18 @@ Use Serve when working with remote speech servers.")
 (defcustom emacspeak-play-program
   (or
    (executable-find "pactl")
-    (executable-find "paplay")
+   (executable-find "paplay")
    (executable-find "aplay")
    (executable-find "play"))
   "Play program."
   :group 'emacspeak
-  :type '(choice
-          (const :tag "Alsa" "aplay")
-          (const :tag "Pulseaudio Basic" "paplay")
-          (const :tag "Pulseaudio Advanced" "pactl")
-          (const :tag "SoX" "play"))
+  :type
+  '(string
+    (choice
+     (const :tag "Alsa" "aplay")
+     (const :tag "Pulseaudio Basic" "paplay")
+     (const :tag "Pulseaudio Advanced" "pactl")
+     (const :tag "SoX" "play")))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args))
