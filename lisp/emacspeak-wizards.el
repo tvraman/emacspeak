@@ -3161,12 +3161,13 @@ before brightness is checked.")
 
 
 (defun emacspeak-brightness-alert ()
-  "Check  brightness and alert."
+  "Check  brightness, alert and autoblack if set."
   (cl-declare (special emacspeak-brightness-autoblack))
   (unless (zerop (light-get))
     (emacspeak-auditory-icon 'alert-user)
     (when emacspeak-brightness-autoblack (light-black))
     (message "Brightness %s." (light-get))))
+
 ;;;###autoload
 (defun emacspeak-brightness-alert-toggle ()
   "Toggle brightness alert."
