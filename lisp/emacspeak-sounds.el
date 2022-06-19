@@ -162,7 +162,7 @@ Use Serve when working with remote speech servers.")
   (emacspeak-sounds-define-theme-if-necessary theme)
   t)
 
-;;;###autoload
+
 (defcustom emacspeak-play-program
   (or
    (executable-find "pactl")
@@ -173,8 +173,8 @@ Use Serve when working with remote speech servers.")
   :type
   '(choice
     (const :tag "Alsa" "/usr/bin/aplay")
-    (const :tag "PulseBasic" "/usr/bin/paplay")
-    (const  :tag "PulseAdvanced" "/usr/bin/pactl")
+    (const :tag "Pulse Basic" "/usr/bin/paplay")
+    (const  :tag "Pulse Advanced" "/usr/bin/pactl")
     (const  :tag "SoX" "/usr/bin/play"))
   :set
   #'(lambda(sym val)
