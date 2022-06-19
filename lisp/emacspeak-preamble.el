@@ -198,7 +198,7 @@ FN-NAME to our stored value of ems--interactive-fn-name."
 
 ;; Internal function  used to efficiently load files.
 
-(defsubst ems--fastload (file)
+(defun ems--fastload (file)
   "Load file efficiently."
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
