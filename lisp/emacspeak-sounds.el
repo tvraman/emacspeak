@@ -178,17 +178,20 @@ Use Serve when working with remote speech servers.")
     (const  :tag "SoX" "/usr/bin/play"))
   :set
   #'(lambda(sym val)
-      (cl-declare (special emacspeak-play-args))
+      (cl-declare (special emacspeak-play-args
+                           emacspeak-sounds-current-theme))
       (set-default sym val)
       (cond
        ((string= (executable-find "pactl") val)
         (setq emacspeak-play-args "play-sample")
-        (emacspeak-sounds-select-theme "ogg-chimes/"))
+        (setq emacspeak-sounds-current-theme
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
        ((string= (executable-find "paplay") val)
         (setq emacspeak-play-args "play-sample"))
        ((string= (executable-find "aplay") val)
         (setq emacspeak-play-args nil)
-        (emacspeak-sounds-select-theme "pan-chimes/"))
+        (setq emacspeak-sounds-current-theme
+              (expand-file-name "pan-chimes/" emacspeak-sounds-directory)))
        ((string= (executable-find "play") val)
         (setq emacspeak-play-args nil))))
   :group 'emacspeak
