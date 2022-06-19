@@ -3183,7 +3183,7 @@ before brightness is checked.")
       (setq emacspeak-brightness-timer nil)))
   (when (called-interactively-p 'interactive)
     (message "turned %s brightness alert"
-             (if emacspeak-brightness-timer "off" "on"))
+             (if emacspeak-brightness-timer "on" "off"))
     (emacspeak-auditory-icon
      (if emacspeak-brightness-timer 'on 'off))))
 
