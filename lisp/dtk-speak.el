@@ -1501,8 +1501,7 @@ Set by \\[dtk-set-punctuations].")
   "Engine we use  for our local TTS  server."
   :type '(choice
           (const :tag "Dectalk Express" "dtk-exp")
-          (const :tag "Viavoice Outloud" "outloud")
-          (const :tag "32Bit ViaVoice on 64Bit Linux" "32-outloud"))
+          (const :tag "Viavoice Outloud" "outloud"))
   :group 'dtk)
 
 (defun dtk-local-server (program &optional prompt-port)
