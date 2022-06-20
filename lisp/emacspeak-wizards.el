@@ -3163,10 +3163,11 @@ before brightness is checked.")
 (defun emacspeak-brightness-alert ()
   "Check  brightness, alert and autoblack if set."
   (cl-declare (special emacspeak-brightness-autoblack))
-  (unless (zerop (light-get))
-    (emacspeak-auditory-icon 'alert-user)
-    (when emacspeak-brightness-autoblack (light-black))
-    (message "Brightness %s." (light-get))))
+  (with-local-quit
+    (unless (zerop (light-get))
+      (emacspeak-auditory-icon 'alert-user)
+      (when emacspeak-brightness-autoblack (light-black))
+      (message "Brightness %s." (light-get)))))
 
 ;;;###autoload
 (defun emacspeak-brightness-alert-toggle ()
@@ -3177,8 +3178,7 @@ before brightness is checked.")
    ((null emacspeak-brightness-timer)
     (setq emacspeak-brightness-timer
           (run-at-time
-           emacspeak-brightness-alert-delay  t
-           #'emacspeak-brightness-alert)))
+           t  emacspeak-brightness-alert-delay 'emacspeak-brightness-alert)))
    (t (cancel-timer emacspeak-brightness-timer)
       (setq emacspeak-brightness-timer nil)))
   (when (called-interactively-p 'interactive)
