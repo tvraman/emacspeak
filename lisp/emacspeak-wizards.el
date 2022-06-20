@@ -3147,7 +3147,7 @@ Optional interactive prefix arg deletes it."
 ;; Watch for screen brightness changes and let user know if screen
 ;; comes on:
 
-(defvar emacspeak-brightness-alert-delay 60
+(defvar emacspeak-brightness-alert-delay 30
   "Number of seconds of idle time
 before brightness is checked.")
 
