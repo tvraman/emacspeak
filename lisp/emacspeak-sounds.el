@@ -127,6 +127,9 @@ Use Serve when working with remote speech servers.")
     (cond
      ((and
        (string= emacspeak-play-program (executable-find "pactl"))
+       (string=
+        emacspeak-sounds-current-theme
+        (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
        f)
       (car (last (file-name-split f))))
      ((file-exists-p f) f)
@@ -165,10 +168,10 @@ Use Serve when working with remote speech servers.")
 
 (defcustom emacspeak-play-program
   (or
-   (executable-find "pactl")
    (executable-find "aplay")
    (executable-find "paplay")
-   (executable-find "play"))
+   (executable-find "play")
+   (executable-find "pactl"))
   "Play program."
   :type
   '(choice
