@@ -3178,7 +3178,7 @@ before brightness is checked.")
    ((null emacspeak-brightness-timer)
     (setq emacspeak-brightness-timer
           (run-at-time
-           t  emacspeak-brightness-alert-delay 'emacspeak-brightness-alert)))
+           emacspeak-brightness-alert-delay  t 'emacspeak-brightness-alert)))
    (t (cancel-timer emacspeak-brightness-timer)
       (setq emacspeak-brightness-timer nil)))
   (when (called-interactively-p 'interactive)
