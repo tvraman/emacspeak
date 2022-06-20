@@ -190,15 +190,14 @@ Use Serve when working with remote speech servers.")
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
        ((string= (executable-find "paplay") val)
-        (setq emacspeak-play-args "play-sample"))
+        (setq emacspeak-play-args nil))
        ((string= (executable-find "aplay") val)
         (setq emacspeak-play-args nil)
         (setq emacspeak-sounds-current-theme
               (expand-file-name "pan-chimes/" emacspeak-sounds-directory)))
        ((string= (executable-find "play") val)
         (setq emacspeak-play-args nil))))
-  :group 'emacspeak
-  )
+  :group 'emacspeak)
   
 (defvar emacspeak-sounds-default-theme
   (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
