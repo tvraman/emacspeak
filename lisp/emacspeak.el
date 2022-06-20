@@ -418,6 +418,9 @@ commands and options for details."
   (emacspeak-setup-programming-modes)
   (setq line-number-mode nil column-number-mode nil)
   (funcall #'emacspeak-prepare-emacs)
+  (mapc #'load
+        (directory-files-recursively
+         emacspeak-sounds-directory "define-theme.el"))
   (global-visual-line-mode -1)
   (transient-mark-mode -1)
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
