@@ -198,20 +198,12 @@ Use Serve when working with remote speech servers.")
        ((string= (executable-find "play") val)
         (setq emacspeak-play-args nil))))
   :group 'emacspeak)
-  
-(defvar emacspeak-sounds-default-theme
-  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
-  "Default theme for auditory icons. ")
 
 (defvar emacspeak-sounds-current-theme
-  emacspeak-sounds-default-theme
+  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
   "Name of current theme for auditory icons.
 Do not set this by hand;
 --use command \\[emacspeak-sounds-select-theme].")
-
-
-
-
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
