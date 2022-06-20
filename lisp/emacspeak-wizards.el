@@ -798,7 +798,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
 
 ;;}}}
 ;;{{{ tramp wizard
-;;;###autoload
+
 (defcustom emacspeak-wizards-tramp-locations nil
   "Tramp locations used by Emacspeak tramp wizard.
 Locations added here via custom can be opened using command
