@@ -194,7 +194,7 @@ FN-NAME to our stored value of ems--interactive-fn-name."
    (format "From %s: Unexpected call!" ems--interactive-fn-name)))
 
 ;;}}}
-;;{{{defsubst: ems--fastload:
+;;{{{defun: ems--fastload:
 
 ;; Internal function  used to efficiently load files.
 
