@@ -131,7 +131,7 @@ Use Serve when working with remote speech servers.")
         emacspeak-sounds-current-theme
         (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
        f)
-      (concat (file-name-base f) ".ogg"))
+      (file-name-nondirectory f))
      ((file-exists-p f) f)
      (t
       (let ((emacspeak-use-auditory-icons nil))
