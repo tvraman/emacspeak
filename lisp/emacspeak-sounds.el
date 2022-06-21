@@ -155,7 +155,10 @@ Use Serve when working with remote speech servers.")
      (read-directory-name "Theme: " emacspeak-sounds-directory))))
   (cl-declare (special emacspeak-sounds-current-theme
                        emacspeak-sounds-themes-table
+                       emacspeak-play-program
                        emacspeak-sounds-directory))
+  (when (string= emacspeak-play-program (executable-find "pactl"))
+    (error "Only ogg-chimes with Pulse Advanced."))
   (setq theme (expand-file-name theme emacspeak-sounds-directory))
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
