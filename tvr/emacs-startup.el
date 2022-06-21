@@ -222,7 +222,8 @@ Use Custom to customize where possible. "
   "TVR:text-mode"
   (auto-fill-mode)
   (emacspeak-pronounce-toggle-use-of-dictionaries t)
-;; company-wordfreq setup:
+  (setq auto-correct-predicate #'(lambda () t))
+  ;; company-wordfreq setup:
   (setq-local company-backends '(company-wordfreq))
   (setq-local company-transformers nil)
   (abbrev-mode)
