@@ -129,8 +129,7 @@ Use Serve when working with remote speech servers.")
        (string= emacspeak-play-program (executable-find "pactl"))
        (string=
         emacspeak-sounds-current-theme
-        (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
-       f)
+        (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
       (file-name-nondirectory f))
      ((file-exists-p f) f)
      (t
