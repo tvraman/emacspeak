@@ -457,29 +457,41 @@ Uses a 5ms fade-in and fade-out. "
  voice, using the syntax language:voice , where language can be
  omitted."
   (interactive "sEnter language: \n")
-  (cl-declare (special dtk-speak-server-initialized))
+  (cl-declare (special dtk-speak-server-initialized dtk-speaker-process))
   (when dtk-speak-server-initialized
+    (unless (eq dtk-speaker-process (dtk-notify-process))
+      (let ((dtk-speaker-process (dtk-notify-process)))
+        (dtk-interp-language lang nil)))
     (dtk-interp-language lang (called-interactively-p 'interactive))))
 
 (defun dtk-set-next-language ()
   "Switch to  next  language"
   (interactive)
-  (cl-declare (special dtk-speak-server-initialized))
+  (cl-declare (special dtk-speak-server-initialized dtk-speaker-process))
   (when dtk-speak-server-initialized
+    (unless (eq dtk-speaker-process (dtk-notify-process))
+      (let ((dtk-speaker-process (dtk-notify-process)))
+        (dtk-interp-next-language nil)))
     (dtk-interp-next-language (called-interactively-p 'interactive))))
 
 (defun dtk-set-previous-language ()
   "Switch to  previous  language"
   (interactive)
-  (cl-declare (special dtk-speak-server-initialized))
+  (cl-declare (special dtk-speak-server-initialized dtk-speake-process))
   (when dtk-speak-server-initialized
+    (unless (eq dtk-speaker-process (dtk-notify-process))
+      (let ((dtk-speaker-process (dtk-notify-process)))
+        (dtk-interp-previous-language nil)))
     (dtk-interp-previous-language (called-interactively-p 'interactive))))
 
 (defun dtk-set-preferred-language (alias lang)
   "Set language by alias."
   (interactive "s")
-  (cl-declare (special dtk-speak-server-initialized))
+  (cl-declare (special dtk-speak-server-initialized dtk-speaker-process))
   (when dtk-speak-server-initialized
+    (unless (eq dtk-speaker-process (dtk-notify-process))
+      (let ((dtk-speaker-process (dtk-notify-process)))
+        (dtk-interp-preferred-language alias lang)))
     (dtk-interp-preferred-language alias lang)))
 
 ;; helper function:
