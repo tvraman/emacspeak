@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 18, 2022.
+last updated on June 21, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -3768,26 +3768,36 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 =======================
 
 This module provides the interface for generating auditory icons in
-emacspeak.  Design goal: 1) Auditory icons should be used to provide
-additional feedback, not as a gimmick.  2) The interface should be
-usable at all times without the icons: e.g.  when on a machine without a
-sound card.  3) General principle for when to use an icon: Convey
-information about events taking place in parallel.  For instance, if
-making a selection automatically moves the current focus to the next
-choice, We speak the next choice, while indicating the fact that
-something was selected with a sound cue.  This interface will assume the
-availability of a shell command "play" that can take one or more sound
-files and play them.  This module will also provide a mapping between
-names in the elisp world and actual sound files.  Modules that wish to
-use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes architecture for
-auditory icons.  Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
+emacspeak.
 
-12.176.1 Emacspeak-Sounds Commands
+12.176.1 Design goal:
+---------------------
+
+   • Auditory icons should be used to provide additional feedback, not
+     as a gimmick.
+   • The interface should be usable at all times without the icons.
+   • General principle for when to use an icon: Convey information about
+     events taking place in parallel.
+   • For instance, if making a selection automatically moves the current
+     focus to the next choice, We speak the next choice, while
+     indicating the fact that something was selected with a auditory
+     icon.
+   • This interface will assume the availability of a shell command
+     "play" that can take one or more sound files and play them.
+   • This module provides a mapping between names in the elisp world and
+     actual sound files.
+   • Modules that wish to use auditory icons should use these names,
+     instead of actual file names.
+   • As of Emacspeak 13.0, this module defines a themes architecture for
+     auditory icons.  Sound files corresponding to a given theme are
+     found in appropriate subdirectories of emacspeak-sounds-directory.
+   • The auditory icon player is configure via custom option
+     ‘emacspeak-play-program’.
+
+12.176.2 Emacspeak-Sounds Commands
 ----------------------------------
 
-12.176.1.1 emacspeak-sounds-select-theme
+12.176.2.1 emacspeak-sounds-select-theme
 ........................................
 
  -- Command: emacspeak-sounds-select-theme (theme)
@@ -3798,7 +3808,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      (fn THEME)
 
-12.176.1.2 emacspeak-toggle-auditory-icons
+12.176.2.2 emacspeak-toggle-auditory-icons
 ..........................................
 
  -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
@@ -3810,7 +3820,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      (fn &optional PREFIX)
 
-12.176.2 emacspeak-sounds Options
+12.176.3 emacspeak-sounds Options
 ---------------------------------
 
  -- Variable: User Option emacspeak-play-program

@@ -10968,22 +10968,32 @@ Speak number of stones remaining.
 @section emacspeak-sounds
 
 This module provides the interface for generating auditory icons in
-emacspeak.  Design goal: 1) Auditory icons should be used to
-provide additional feedback, not as a gimmick.  2) The interface
-should be usable at all times without the icons: e.g. when on a
-machine without a sound card.  3) General principle for when to use
+emacspeak.
+@subsection Design goal:
+
+@itemize
+@item   Auditory icons should be used to
+provide additional feedback, not as a gimmick.
+@item   The interface
+should be usable at all times without the icons.
+@item   General principle for when to use
 an icon: Convey information about events taking place in parallel.
-For instance, if making a selection automatically moves the current
+@item  For instance, if making a selection automatically moves the current
 focus to the next choice, We speak the next choice, while
-indicating the fact that something was selected with a sound cue.
-This interface will assume the availability of a shell command
-"play" that can take one or more sound files and play them.  This
-module will also provide a mapping between names in the elisp world
-and actual sound files.  Modules that wish to use auditory icons
-should use these names, instead of actual file names.  As of
+indicating the fact that something was selected with a auditory icon.
+@item  This interface will assume the availability of a shell command
+"play" that can take one or more sound files and play them.
+@item This
+module provides  a mapping between names in the elisp world
+and actual sound files.
+@item Modules that wish to use auditory icons
+should use these names, instead of actual file names.
+@item As of
 Emacspeak 13.0, this module defines a themes architecture for
 auditory icons.  Sound files corresponding to a given theme are
-found in appropriate subdirectories of emacspeak-sounds-directory
+found in appropriate subdirectories of emacspeak-sounds-directory.
+@item The auditory icon player is configure via custom option @code{emacspeak-play-program}.
+@end itemize
 
 @subsection Emacspeak-Sounds Commands
 
@@ -19469,7 +19479,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 75 URL Templates.
+This section documents a total of 74 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -19632,9 +19642,7 @@ Download specified file.@item @b{sourceforge browse mirrors}
 
 Retrieve download page at Sourceforge for specified project.@item @b{sourceforge project}
 
-Open specified project page at SourceForge.@item @b{stock market from google}
-
-Light-weight stock market summary from Google.@item @b{w3c IRC Logs}
+Open specified project page at SourceForge.@item @b{w3c IRC Logs}
 
 Use this to pull up the
 archived logs from the W3C IRC. You need to know the exact
