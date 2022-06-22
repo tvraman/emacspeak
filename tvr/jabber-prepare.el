@@ -5,6 +5,10 @@
   (setq fsm-debug nil)
   (setq jabber-mode-line-string
         (list " " 'jabber-mode-line-presence))
+  (setq tls-program
+        '("gnutls-cli --insecure --x509cafile %t -p %p %h --protocols
+ssl3"
+          "gnutls-cli --x509cafile %t -p %p %h --protocols ssl3"))
   (setq
    jabber-network-server "talk.google.com"
    jabber-account-list
