@@ -54,7 +54,7 @@
 ;; focus to the next choice, We speak the next choice, while
 ;; indicating the fact that something was selected with a auditory icon.
 ;;@item  This interface will assume the availability of a shell command
-;; "play" that can take one or more sound files and play them.
+;; @code{play} that can take one or more sound files and play them.
 ;; @item This
 ;; module provides  a mapping between names in the elisp world
 ;; and actual sound files.

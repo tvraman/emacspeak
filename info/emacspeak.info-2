@@ -3783,7 +3783,7 @@ emacspeak.
      indicating the fact that something was selected with a auditory
      icon.
    • This interface will assume the availability of a shell command
-     "play" that can take one or more sound files and play them.
+     ‘play’ that can take one or more sound files and play them.
    • This module provides a mapping between names in the elisp world and
      actual sound files.
    • Modules that wish to use auditory icons should use these names,
