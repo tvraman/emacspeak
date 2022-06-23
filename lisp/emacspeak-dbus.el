@@ -224,9 +224,10 @@ already disabled."
   (cl-declare (special dtk-quiet))
   (let ((dtk-quiet t))
     (ems-with-messages-silenced
-     (save-some-buffers t)
-     (start-process "fuser" nil  "fuser"
-                    "-k" "/dev/snd/*"))))
+      (emacspeak-dbus-screensaver-check)
+      (save-some-buffers t)
+      (start-process "fuser" nil  "fuser"
+                     "-k" "/dev/snd/*"))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 
