@@ -240,7 +240,8 @@ already disabled."
                           (emacspeak-prompt "waking-up"))
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
-    (when (featurep 'light) (light-black))
+    (when (featurep 'light)
+      (run-with-timer  30 nil #'light-black))
     (when
         (dbus-call-method
          :session
