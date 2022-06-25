@@ -241,7 +241,7 @@ already disabled."
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
     (when (featurep 'light)
-      (run-with-timer  30 nil #'light-black))
+      (run-with-timer  10 nil #'light-black))
     (when
         (dbus-call-method
          :session
