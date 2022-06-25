@@ -185,6 +185,7 @@
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
 ;; One-finger use on laptop:
 (global-set-key (ems-kbd "<XF86WakeUp>")  'emacspeak-prefix-command)
+(global-set-key (ems-kbd "<XF86AudioPlay>")  'emacspeak-silence)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (ems-kbd "C-t")  'emacspeak-table-submap-command)
 
