@@ -300,6 +300,17 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-rest-of-buffer))
  "Light-weight Google weather.")
+(emacspeak-url-template-define
+ "US Stock Market From Google "
+ "https://www.google.com/search?num=25&lite=90586&q=US+Stock+Market+Summary"
+ nil
+ #'(lambda nil
+     (search-forward "Search Tools")
+     (forward-line 1)
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-rest-of-buffer))
+ "Light-weight Google US Stock Markets.")
+
 
 ;;}}}
 ;;{{{ Calendar Mobile:
