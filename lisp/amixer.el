@@ -5,19 +5,19 @@
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
@@ -28,7 +28,7 @@
 ;;; Commentary:
 ;; Provide an emacs front-end to amixer,
 ;; the sound mixer in ALSA that is used to configure the audio device.
-;; 
+;;
 ;; The main entry point is command @code{emacspeak-audio-setup} bound
 ;; to @kbd{C-e)}. When called for the first time, this command
 ;; builds up a database of available controls on the default audio
@@ -313,27 +313,17 @@ Interactive prefix arg refreshes cache."
 (defun amixer-volume-up ()
   "Raise Master volume 5%."
   (interactive)
-  (unless (executable-find "amixer")
-    (error "amixer not found."))
   (let ((emacspeak-speak-messages nil)
-           (inhibit-message t))
-       (shell-command
-   (format
-    "%s set 'Master' 5%%\+"
-    (executable-find "amixer")))))
+        (inhibit-message t))
+    (shell-command (format "%s set 'Master' 5%%\+" amixer-program))))
 
-;;;###autoload 
+;;;###autoload
 (defun amixer-volume-down ()
   "Lower Mastervolume 5%."
   (interactive)
-  (unless (executable-find "amixer")
-    (error "amixer not found."))
   (let ((emacspeak-speak-messages nil)
-           (inhibit-message t))
-       (shell-command
-   (format
-    "%s set 'Master' 5%%\-"
-    (executable-find "amixer")))))
+        (inhibit-message t))
+    (shell-command (format "%s set 'Master' 5%%\-" amixer-program))))
 
 ;;}}}
 (provide 'amixer)
