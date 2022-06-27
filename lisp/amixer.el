@@ -307,6 +307,29 @@ Interactive prefix arg refreshes cache."
              amixer-alsactl-config-file)))
 
 ;;}}}
+;;{{{Raise/Lower Volume Using pactl:
+
+;;;###autoload
+(defun amixer-volume-up ()
+  "Raise volume 5% on default PA sink."
+  (interactive)
+  (unless (executable-find "pactl")
+    (error "pactl not found."))
+  (shell-command
+   (format "%s set-sink-volume @DEFAULT_SINK@  \+5%%"
+           (executable-find "pactl"))))
+
+;;;###autoload 
+(defun amixer-volume-down ()
+  "Lower volume 5% on default PA sink."
+  (interactive)
+  (unless (executable-find "pactl")
+    (error "pactl not found."))
+  (shell-command
+   (format "%s set-sink-volume @DEFAULT_SINK@  -5%%"
+           (executable-find "pactl"))))
+
+;;}}}
 (provide 'amixer)
 ;;{{{ end of file
 

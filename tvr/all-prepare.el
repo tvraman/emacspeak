@@ -167,6 +167,9 @@ This moves them into the Spam folder."
   (setq fsm-debug nil)
   (setq jabber-mode-line-string
         (list " " 'jabber-mode-line-presence))
+  (setq tls-program
+        '("gnutls-cli --x509cafile %t -p %p %h"))
+  
   (setq
    jabber-network-server "talk.google.com"
    jabber-account-list
