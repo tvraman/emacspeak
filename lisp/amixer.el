@@ -315,9 +315,11 @@ Interactive prefix arg refreshes cache."
   (interactive)
   (unless (executable-find "pactl")
     (error "pactl not found."))
-  (shell-command
+  (let ((emacspeak-speak-messages nil)
+           (inhibit-message t))
+       (shell-command
    (format "%s set-sink-volume @DEFAULT_SINK@  \+5%%"
-           (executable-find "pactl"))))
+           (executable-find "pactl")))))
 
 ;;;###autoload 
 (defun amixer-volume-down ()
@@ -325,9 +327,11 @@ Interactive prefix arg refreshes cache."
   (interactive)
   (unless (executable-find "pactl")
     (error "pactl not found."))
-  (shell-command
+  (let ((emacspeak-speak-messages nil)
+           (inhibit-message t))
+       (shell-command
    (format "%s set-sink-volume @DEFAULT_SINK@  -5%%"
-           (executable-find "pactl"))))
+           (executable-find "pactl")))))
 
 ;;}}}
 (provide 'amixer)
