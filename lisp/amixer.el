@@ -311,27 +311,29 @@ Interactive prefix arg refreshes cache."
 
 ;;;###autoload
 (defun amixer-volume-up ()
-  "Raise volume 5% on default PA sink."
+  "Raise Master volume 5%."
   (interactive)
-  (unless (executable-find "pactl")
-    (error "pactl not found."))
+  (unless (executable-find "amixer")
+    (error "amixer not found."))
   (let ((emacspeak-speak-messages nil)
            (inhibit-message t))
        (shell-command
-   (format "%s set-sink-volume @DEFAULT_SINK@  \+5%%"
-           (executable-find "pactl")))))
+   (format
+    "amixer set 'Master' 5%%\+"
+    (executable-find "amixer")))))
 
 ;;;###autoload 
 (defun amixer-volume-down ()
-  "Lower volume 5% on default PA sink."
+  "Lower Mastervolume 5%."
   (interactive)
-  (unless (executable-find "pactl")
-    (error "pactl not found."))
+  (unless (executable-find "amixer")
+    (error "amixer not found."))
   (let ((emacspeak-speak-messages nil)
            (inhibit-message t))
        (shell-command
-   (format "%s set-sink-volume @DEFAULT_SINK@  -5%%"
-           (executable-find "pactl")))))
+   (format
+    "amixer set 'Master' 5%%\-"
+    (executable-find "amixer")))))
 
 ;;}}}
 (provide 'amixer)
