@@ -319,7 +319,7 @@ Interactive prefix arg refreshes cache."
            (inhibit-message t))
        (shell-command
    (format
-    "amixer set 'Master' 5%%\+"
+    "%s set 'Master' 5%%\+"
     (executable-find "amixer")))))
 
 ;;;###autoload 
@@ -332,7 +332,7 @@ Interactive prefix arg refreshes cache."
            (inhibit-message t))
        (shell-command
    (format
-    "amixer set 'Master' 5%%\-"
+    "%s set 'Master' 5%%\-"
     (executable-find "amixer")))))
 
 ;;}}}
