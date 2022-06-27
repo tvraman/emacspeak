@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 21, 2022.
+last updated on June 26, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -4048,6 +4048,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-silence
      ‘<silence>’
+     ‘<XF86AudioPlay>’
 
      Silence is golden. Stop speech, and pause/resume any media
      streams. Runs ‘emacspeak-silence-hook’ which can be used to

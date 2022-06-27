@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1153 commands and 145 options.
+This chapter documents a total of 1155 commands and 145 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -288,6 +288,34 @@ Interactive prefix arg refreshes cache.
 
 @format
 Persist  amixer.
+@end format
+@end deffn
+
+@subsubsection amixer-volume-down
+@deffn {Command} amixer-volume-down   
+@table @kbd
+@item <XF86AudioLowerVolume>
+@kindex <XF86AudioLowerVolume>
+@end table
+
+@findex amixer-volume-down
+
+@format
+Lower volume 5% on default PA sink.
+@end format
+@end deffn
+
+@subsubsection amixer-volume-up
+@deffn {Command} amixer-volume-up   
+@table @kbd
+@item <XF86AudioRaiseVolume>
+@kindex <XF86AudioRaiseVolume>
+@end table
+
+@findex amixer-volume-up
+
+@format
+Raise volume 5% on default PA sink.
 @end format
 @end deffn
 
@@ -11357,6 +11385,8 @@ Run shell command COMMANDAND speak its output.
 @table @kbd
 @item <silence>
 @kindex <silence>
+@item <XF86AudioPlay>
+@kindex <XF86AudioPlay>
 @end table
 
 @findex emacspeak-silence
