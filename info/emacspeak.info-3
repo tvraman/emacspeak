@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 26, 2022.
+last updated on June 27, 2022.
 
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
@@ -187,7 +187,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.237 URL Templates
 ====================
 
-This section documents a total of 74 URL Templates.
+This section documents a total of 75 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -391,39 +391,42 @@ out the following steps:
   63. TuneIn Radio
 
      Translate StreamId to playable stream.
-  64. Washington Post
+  64. US Stock Market From Google
+
+     Light-weight Google US Stock Markets.
+  65. Washington Post
 
      Washington Post Contents
-  65. Wiki Data Search
+  66. Wiki Data Search
 
      Search WikiData.
-  66. WordNet Search
+  67. WordNet Search
 
      Look up term in WordNet.
-  67. Yahoo RSSNews
+  68. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  68. html Google News Search
+  69. html Google News Search
 
      Search Google news.
-  69. sourceforge Download
+  70. sourceforge Download
 
      Download specified file.
-  70. sourceforge browse mirrors
+  71. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  71. sourceforge project
+  72. sourceforge project
 
      Open specified project page at SourceForge.
-  72. w3c IRC Logs
+  73. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  73. w3c Lists
+  74. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  74. world CNN Content
+  75. world CNN Content
 
      Filter down to CNN content area.
 

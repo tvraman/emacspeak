@@ -301,7 +301,7 @@ Persist  amixer.
 @findex amixer-volume-down
 
 @format
-Lower volume 5% on default PA sink.
+Lower Mastervolume 5%.
 @end format
 @end deffn
 
@@ -315,7 +315,7 @@ Lower volume 5% on default PA sink.
 @findex amixer-volume-up
 
 @format
-Raise volume 5% on default PA sink.
+Raise Master volume 5%.
 @end format
 @end deffn
 
@@ -19509,7 +19509,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 74 URL Templates.
+This section documents a total of 75 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -19656,7 +19656,9 @@ Format is stationid+AM/FM.@item @b{Tech News From CNet}
 
 Display tech news from CNET@item @b{TuneIn Radio}
 
-Translate StreamId to playable stream.@item @b{Washington Post}
+Translate StreamId to playable stream.@item @b{US Stock Market From Google }
+
+Light-weight Google US Stock Markets.@item @b{Washington Post}
 
 Washington Post Contents@item @b{Wiki Data Search}
 
