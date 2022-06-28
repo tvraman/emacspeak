@@ -409,15 +409,16 @@ command."
   "Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press \\[keyboard-quit]."
   (interactive)
-  (let ((continue t)
-        (dtk-stop-immediately nil))
-    (while continue
-      (call-interactively 'describe-key-briefly)
-      (sit-for 1)
-      (when (and (numberp last-input-event)
-                 (= last-input-event 7))
-        (setq continue nil)))
-    (message "Leaving learn mode ")))
+  (ems-with-messages-silenced
+    (let ((continue t)
+          (dtk-stop-immediately nil))
+      (while continue
+        (call-interactively 'describe-key-briefly)
+        (sit-for 1)
+        (when (and (numberp last-input-event)
+                   (= last-input-event 7))
+          (setq continue nil)))
+      (message "Leaving learn mode "))))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
