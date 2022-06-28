@@ -189,8 +189,8 @@
 ;; One-finger use on laptop:
 (global-set-key (ems-kbd "<XF86WakeUp>")  'emacspeak-prefix-command)
 (global-set-key (ems-kbd "<XF86AudioPlay>")  'emacspeak-silence)
-(global-set-key (ems-kbd "<XF86AudioRaiseVolume>")  'amixer-volume-up)
-(global-set-key (ems-kbd "<XF86AudioLowerVolume>")  'amixer-volume-down)
+(global-set-key (ems-kbd "C-<f1>")  'amixer-volume-up)
+(global-set-key (ems-kbd "C-<f2>")  'amixer-volume-down)
 
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (ems-kbd "C-t")  'emacspeak-table-submap-command)
