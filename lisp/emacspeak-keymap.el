@@ -647,6 +647,7 @@
     ("d" magit-dispatch)
     ("e" emacspeak-wizards-eww-buffer-list)
     ("f" magit-file-dispatch)
+    ("l" locate)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
     ("r" restart-emacs)
