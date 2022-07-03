@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 27, 2022.
+last updated on July 3, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3152,6 +3152,7 @@ To reset all controls to their default values, Press ‘C-j’.
 
  -- Command: amixer-volume-down
      ‘<XF86AudioLowerVolume>’
+     ‘C-<f2>’
 
      Lower Mastervolume 5%.
 
@@ -3160,6 +3161,7 @@ To reset all controls to their default values, Press ‘C-j’.
 
  -- Command: amixer-volume-up
      ‘<XF86AudioRaiseVolume>’
+     ‘C-<f1>’
 
      Raise Master volume 5%.
 

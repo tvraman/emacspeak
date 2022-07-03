@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 27, 2022.
+last updated on July 3, 2022.
 
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
@@ -1784,7 +1784,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <silence>:                             emacspeak-speak.    (line  222)
 * <XF86AudioLowerVolume>:                amixer.             (line   44)
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  223)
-* <XF86AudioRaiseVolume>:                amixer.             (line   52)
+* <XF86AudioRaiseVolume>:                amixer.             (line   53)
 * C-' ,:                                 emacspeak-wizards.  (line 1033)
 * C-' .:                                 emacspeak-wizards.  (line 1012)
 * C-' a:                                 emacspeak-wizards.  (line  558)
@@ -1845,16 +1845,18 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; C-.:                               emacspeak-wizards.  (line  422)
 * C-; C-a:                               emacspeak-wizards.  (line 1115)
 * C-; C-j:                               emacspeak-wizards.  (line 1031)
+* C-; C-l:                               emacspeak-librivox. (line   32)
 * C-; C-t:                               emacspeak-extras.   (line  140)
 * C-; DEL:                               emacspeak-wizards.  (line 1073)
 * C-; e:                                 gmaps.              (line   16)
 * C-; h:                                 emacspeak-m-player. (line  324)
 * C-; k:                                 emacspeak-google.   (line   28)
-* C-; l:                                 emacspeak-librivox. (line   32)
 * C-; n:                                 emacspeak-wizards.  (line  421)
 * C-; p:                                 emacspeak-wizards.  (line  433)
 * C-; r:                                 emacspeak-wizards.  (line  569)
 * C-; w:                                 emacspeak-wizards.  (line  849)
+* C-<f1>:                                amixer.             (line   54)
+* C-<f2>:                                amixer.             (line   45)
 * C-<left>:                              emacspeak-wizards.  (line  109)
 * C-<right>:                             emacspeak-wizards.  (line   98)
 * C-<up>:                                emacspeak-speak.    (line   87)
@@ -2256,12 +2258,12 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h C-.:                           emacspeak-wizards.  (line  424)
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1116)
 * C-x @ h C-j:                           emacspeak-wizards.  (line 1037)
+* C-x @ h C-l:                           emacspeak-librivox. (line   33)
 * C-x @ h C-t:                           emacspeak-extras.   (line  141)
 * C-x @ h DEL:                           emacspeak-wizards.  (line 1074)
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h h:                             emacspeak-m-player. (line  325)
 * C-x @ h k:                             emacspeak-google.   (line   29)
-* C-x @ h l:                             emacspeak-librivox. (line   33)
 * C-x @ h n:                             emacspeak-wizards.  (line  423)
 * C-x @ h p:                             emacspeak-wizards.  (line  435)
 * C-x @ h r:                             emacspeak-wizards.  (line  570)

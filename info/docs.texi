@@ -296,6 +296,8 @@ Persist  amixer.
 @table @kbd
 @item <XF86AudioLowerVolume>
 @kindex <XF86AudioLowerVolume>
+@item C-<f2>
+@kindex C-<f2>
 @end table
 
 @findex amixer-volume-down
@@ -310,6 +312,8 @@ Lower Mastervolume 5%.
 @table @kbd
 @item <XF86AudioRaiseVolume>
 @kindex <XF86AudioRaiseVolume>
+@item C-<f1>
+@kindex C-<f1>
 @end table
 
 @findex amixer-volume-up
@@ -7663,10 +7667,10 @@ for accessing the book.
 @subsubsection emacspeak-librivox
 @deffn {Command} emacspeak-librivox  (search-type)
 @table @kbd
-@item C-; l
-@kindex C-; l
-@item C-x @@ h l
-@kindex C-x @@ h l
+@item C-; C-l
+@kindex C-; C-l
+@item C-x @@ h C-l
+@kindex C-x @@ h C-l
 @end table
 
 @findex emacspeak-librivox
