@@ -8,10 +8,10 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4544 $ |
 ;; Location undetermined
-;; 
+;;
 
 ;;}}}
 ;;{{{  Copyright:
@@ -19,19 +19,19 @@
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
@@ -90,11 +90,11 @@
     (cl-loop
      for word in (split-string string) do
      (let ((key nil))
-       (cond 
-        ((string-match mod+angle-reg word)  ;;; modifier+-<key> 
+       (cond
+        ((string-match mod+angle-reg word)  ;;; modifier+-<key>
          (setq key
                (list
-                (intern 
+                (intern
                  (concat ;;; strip < and >
                   (substring word (match-beginning 1) (match-end 1))
                   (substring word (match-beginning 3) (match-end 3)))))))
@@ -107,7 +107,7 @@
              (cl-incf prefix 2) ;;; strip modifier
              (cl-callf substring word 2)) ;;; end while modifiers
            (when-let (c (assoc word ems--kbd-char-table)) (setq word (cdr c)))
-           (cond ;;; apply modifiers 
+           (cond ;;; apply modifiers
             ((= bits 0) (setq key word)) ;;; no modifier bits
             ((/= (length word) 1)
              (error "%s: Prefix must precede a character, not %s" string word))
@@ -118,7 +118,7 @@
                    (list (+ bits (- ?\C-\^@)
                             (logand (aref word 0) 31)))))
             (t (setq key (list (+ bits (aref word 0)))))))))
-       ;; push key on to the result vector 
+       ;; push key on to the result vector
        (when key (cl-callf vconcat res key))))
     res))
 
@@ -138,7 +138,7 @@
   (cl-loop
    for binding in bindings
    do
-   (define-key keymap (ems-kbd (cl-first binding)) (cl-second binding)))) 
+   (define-key keymap (ems-kbd (cl-first binding)) (cl-second binding))))
 
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command  or keymap that can be bound to a key."
@@ -183,7 +183,6 @@
 (define-prefix-command  'emacspeak-table-submap-command 'emacspeak-table-submap)
 
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
-
 
 ;;; Special keys:
 ;; One-finger use on laptop:
@@ -424,11 +423,12 @@
 ;;}}}
 ;;{{{ emacspeak under X windows
 
-;; Get hyper, alt and super like on the console:
+;; Get hyper, alt, super, and multi:
 (global-set-key (ems-kbd "C-,") 'emacspeak-alt-keymap)
-(global-set-key  (ems-kbd "C-'") 'emacspeak-super-keymap)
 (global-set-key  (ems-kbd "C-.") 'emacspeak-super-keymap)
 (global-set-key  (ems-kbd "C-;") 'emacspeak-hyper-keymap)
+(global-set-key  (ems-kbd "C-'") 'emacspeak-multi-keymap)
+
 ;; Our very own silence key on the console
 (global-set-key '[silence] 'emacspeak-silence)
 
@@ -441,21 +441,21 @@
 
 (define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
 
-(defcustom emacspeak-personal-keys 
+(defcustom emacspeak-personal-keys
   '(
     ("," emacspeak-wizards-shell-directory-set)
     ("," emacspeak-wizards-shell-toggle)
     ("." emacspeak-wizards-shell-directory-reset)
     ("0" emacspeak-wizards-shell-by-key)
-    ("1" emacspeak-wizards-shell-by-key) 
-    ("2" emacspeak-wizards-shell-by-key) 
-    ("3" emacspeak-wizards-shell-by-key) 
-    ("4" emacspeak-wizards-shell-by-key) 
-    ("5" emacspeak-wizards-shell-by-key) 
-    ("6" emacspeak-wizards-shell-by-key) 
-    ("7" emacspeak-wizards-shell-by-key) 
-    ("8" emacspeak-wizards-shell-by-key) 
-    ("9" emacspeak-wizards-shell-by-key) 
+    ("1" emacspeak-wizards-shell-by-key)
+    ("2" emacspeak-wizards-shell-by-key)
+    ("3" emacspeak-wizards-shell-by-key)
+    ("4" emacspeak-wizards-shell-by-key)
+    ("5" emacspeak-wizards-shell-by-key)
+    ("6" emacspeak-wizards-shell-by-key)
+    ("7" emacspeak-wizards-shell-by-key)
+    ("8" emacspeak-wizards-shell-by-key)
+    ("9" emacspeak-wizards-shell-by-key)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("C" emacspeak-wizards-colors)
     (";" emacspeak-m-player-loop)
@@ -482,7 +482,7 @@
     ("|" emacspeak-wizards-squeeze-blanks)
     ("" desktop-clear)
 
-    ) 
+    )
   "Key bindings for  C-e x. "
   :group 'emacspeak
   :type '(repeat
@@ -503,7 +503,7 @@
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
 
 ;;}}}
-;;{{{ Create personal ctl-x map 
+;;{{{ Create personal ctl-x map
 
 (defvar  emacspeak-personal-ctlx-keymap nil
   "Emacspeak personal-ctlx keymap")
@@ -531,103 +531,7 @@
 (define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
 
 ;;}}}
-;;{{{ Create a super keymap that users can put personal commands
-
-(defvar  emacspeak-super-keymap nil
-  "Emacspeak super keymap")
-
-(define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
-
-(defcustom emacspeak-super-keys 
-  '(
-    ("SPC"  emacspeak-wizards-scratch)
-    ("," emacspeak-wizards-shell-toggle)
-    ("." emacspeak-wizards-shell-directory-reset)
-    ("C-n" emacspeak-wizards-google-headlines)
-    ("R" emacspeak-webspace-feed-reader)
-    ("a" emacspeak-wizards-execute-asynchronously)
-    ("c" calculator)
-    ("d" emacspeak-dired-downloads)
-    ("e" elfeed)
-    ("f" flyspell-mode)
-    ("h" emacspeak-org-capture-link)
-    ("l" emacspeak-m-player-locate-media)
-    ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
-    ("n" emacspeak-wizards-google-news)
-    ("p" proced)
-    ("q" emacspeak-wizards-iex-show-quote)
-    ("r" soundscape-restart)
-    ("s" soundscape)
-    ("t" soundscape-toggle)
-    ("u" soundscape-update-mood)
-    ("w" define-word))
-  "Super key bindings. "
-  :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Super Keymap"
-          (list
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
-  :set
-  #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-super-keymap  val)
-      (set-default sym
-                   (sort
-                    val
-                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
-(global-set-key "\C-x@s" 'emacspeak-super-keymap)
-
-;;}}}
-;;{{{ Create a alt keymap that users can put personal commands
-
-(defvar  emacspeak-alt-keymap nil "Emacspeak alt keymap")
-
-(define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
-
-(defcustom emacspeak-alt-keys 
-  '(
-    ("," eldoc)
-    ("a" emacspeak-feeds-atom-display)
-    ("b" sox-binaural)
-    ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
-    ("d" sdcv-search-input)
-    ("e" eww)
-    ("f" ffap)
-    ("g" rg)
-    ("l" eww-open-file)
-    ("m" magit-status)
-    ("o" emacspeak-feeds-opml-display)
-    ("p" emacspeak-wizards-pdf-open)
-    ("q" emacspeak-wizards-iex-show-price)
-    ("r" emacspeak-feeds-rss-display)
-    ("s" emacspeak-wizards-tune-in-radio-search)
-    ("t" emacspeak-wizards-tune-in-radio-browse)
-    ("u" emacspeak-m-player-url)
-    ("v" visual-line-mode)
-    ("y" emacspeak-m-player-youtube-player)
-    ("SPC" emacspeak-eww-smart-tabs)
-    ) 
-  "Alt key bindings. "
-  :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Alt Keymap"
-          (list
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
-  :set #'(lambda (sym val)
-           (emacspeak-keymap-bindings-update emacspeak-alt-keymap val)
-           (set-default sym
-                        (sort
-                         val
-                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
-(global-set-key "\C-x@a" 'emacspeak-alt-keymap)
-
-;;}}}
-;;{{{ Create a C-z keymap that is customizable 
+;;{{{ Create a C-z keymap that is customizable
 
 ;; 2020: Suspending emacs with C-z is something I've not done in 30
 ;; years.
@@ -638,7 +542,7 @@
 
 (define-prefix-command 'emacspeak-ctl-z-keymap   'emacspeak-ctl-z-keymap)
 
-(defcustom emacspeak-ctl-z-keys 
+(defcustom emacspeak-ctl-z-keys
   '(
     ("SPC" flyspell-mode)
     ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
@@ -679,7 +583,7 @@
 
 (define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
 
-(defcustom emacspeak-hyper-keys 
+(defcustom emacspeak-hyper-keys
   '(
     ("DEL" emacspeak-wizards-snarf-sexp)
     ("C-," emacspeak-wizards-cycle-to-previous-buffer)
@@ -738,6 +642,148 @@
 (global-set-key "\C-x@h" 'emacspeak-hyper-keymap)
 
 ;;}}}
+;;{{{ Create a super keymap that users can put personal commands
+
+(defvar  emacspeak-super-keymap nil
+  "Emacspeak super keymap")
+
+(define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
+
+(defcustom emacspeak-super-keys
+  '(
+    ("SPC"  emacspeak-wizards-scratch)
+    ("," emacspeak-wizards-shell-toggle)
+    ("." emacspeak-wizards-shell-directory-reset)
+    ("C-n" emacspeak-wizards-google-headlines)
+    ("R" emacspeak-webspace-feed-reader)
+    ("a" emacspeak-wizards-execute-asynchronously)
+    ("c" calculator)
+    ("d" emacspeak-dired-downloads)
+    ("e" elfeed)
+    ("f" flyspell-mode)
+    ("h" emacspeak-org-capture-link)
+    ("l" emacspeak-m-player-locate-media)
+    ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+    ("n" emacspeak-wizards-google-news)
+    ("p" proced)
+    ("q" emacspeak-wizards-iex-show-quote)
+    ("r" soundscape-restart)
+    ("s" soundscape)
+    ("t" soundscape-toggle)
+    ("u" soundscape-update-mood)
+    ("w" define-word))
+  "Super key bindings. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Super Keymap"
+          (list
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set
+  #'(lambda (sym val)
+      (emacspeak-keymap-bindings-update emacspeak-super-keymap  val)
+      (set-default sym
+                   (sort
+                    val
+                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+(global-set-key "\C-x@s" 'emacspeak-super-keymap)
+
+;;}}}
+;;{{{ Create an  alt keymap that users can put personal commands
+
+(defvar  emacspeak-alt-keymap nil "Emacspeak alt keymap")
+
+(define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
+
+(defcustom emacspeak-alt-keys
+  '(
+    ("," eldoc)
+    ("a" emacspeak-feeds-atom-display)
+    ("b" sox-binaural)
+    ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+    ("d" sdcv-search-input)
+    ("e" eww)
+    ("f" ffap)
+    ("g" rg)
+    ("l" eww-open-file)
+    ("m" magit-status)
+    ("o" emacspeak-feeds-opml-display)
+    ("p" emacspeak-wizards-pdf-open)
+    ("q" emacspeak-wizards-iex-show-price)
+    ("r" emacspeak-feeds-rss-display)
+    ("s" emacspeak-wizards-tune-in-radio-search)
+    ("t" emacspeak-wizards-tune-in-radio-browse)
+    ("u" emacspeak-m-player-url)
+    ("v" visual-line-mode)
+    ("y" emacspeak-m-player-youtube-player)
+    ("SPC" emacspeak-eww-smart-tabs)
+    )
+  "Alt key bindings. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Alt Keymap"
+          (list
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
+           (emacspeak-keymap-bindings-update emacspeak-alt-keymap val)
+           (set-default sym
+                        (sort
+                         val
+                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+(global-set-key "\C-x@a" 'emacspeak-alt-keymap)
+
+;;}}}
+;;{{{ Create a multi keymap that users can put personal commands
+
+(defvar  emacspeak-multi-keymap nil "Emacspeak multi keymap")
+
+(define-prefix-command 'emacspeak-multi-keymap   'emacspeak-multi-keymap)
+
+(defcustom emacspeak-multi-keys
+  '(
+    ("," eldoc)
+    ("a" emacspeak-feeds-atom-display)
+    ("b" sox-binaural)
+    ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+    ("d" sdcv-search-input)
+    ("e" eww)
+    ("f" ffap)
+    ("g" rg)
+    ("l" eww-open-file)
+    ("m" magit-status)
+    ("o" emacspeak-feeds-opml-display)
+    ("p" emacspeak-wizards-pdf-open)
+    ("q" emacspeak-wizards-iex-show-price)
+    ("r" emacspeak-feeds-rss-display)
+    ("s" emacspeak-wizards-tune-in-radio-search)
+    ("t" emacspeak-wizards-tune-in-radio-browse)
+    ("u" emacspeak-m-player-url)
+    ("v" visual-line-mode)
+    ("y" emacspeak-m-player-youtube-player)
+    ("SPC" emacspeak-eww-smart-tabs)
+    )
+  "Multi key bindings. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Multi Keymap"
+          (list
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
+           (emacspeak-keymap-bindings-update emacspeak-multi-keymap val)
+           (set-default sym
+                        (sort
+                         val
+                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+;;}}}
+
 ;;{{{ Helper: recover end-of-line
 
 (defun emacspeak-keymap-recover-eol ()
