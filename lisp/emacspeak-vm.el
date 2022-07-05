@@ -534,12 +534,12 @@ Leave point at front of decoded attachment."
    #'(lambda (_url) " Link ")))
  (emacspeak-pronounce-add-dictionary-entry
   mode
-  emacspeak-speak-rfc-3339-datetime-pattern
-  (cons #'re-search-forward #'emacspeak-speak-decode-rfc-3339-datetime))
+  emacspeak-pronounce-rfc-3339-datetime-pattern
+  (cons #'re-search-forward #'emacspeak-pronounce-decode-rfc-3339-datetime))
  (emacspeak-pronounce-add-dictionary-entry
   mode
-  emacspeak-speak-iso-datetime-pattern
-  (cons #'re-search-forward #'emacspeak-speak-decode-iso-datetime)))
+  emacspeak-pronounce-iso-datetime-pattern
+  (cons #'re-search-forward #'emacspeak-pronounce-decode-iso-datetime)))
 
 ;;}}}
 ;;{{{ advice button motion
