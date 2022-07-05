@@ -757,7 +757,31 @@
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 ;;}}}
+;;{{{Windows Key As One More Map
+(defcustom emacspeak-windows-keys
+  '(
+    )
+  "Key bindings on the windows  key. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak windows Keys"
+          (list
+           :tag "Key Binding"
+           (string :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set
+  #'(lambda (sym val)
+      (when val
+        (cl-loop
+         for binding in values do
+         (global-set-key (concat "s-" (cl-first binding)) (cl-second binding))))
+      (set-default
+       sym
+       (sort
+        val
+        #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
+;;}}}
 ;;{{{ Helper: recover end-of-line
 
 (defun emacspeak-keymap-recover-eol ()
