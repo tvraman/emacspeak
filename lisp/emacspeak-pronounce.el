@@ -688,7 +688,7 @@ specified pronunciation dictionary key."
 ;; Date: yyyy-mm-dd:
 
 (defvar emacspeak-pronounce-date-yyyy-mm-dd-pattern
-  "[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?[0-9]\\{2\\}-[0-9]\\{2\\}"
+  "[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}"
   "Pattern that matches dates of the form yy-mm-dd.")
 
 
