@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1155 commands and 146 options.
+This chapter documents a total of 1154 commands and 146 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -2611,15 +2611,6 @@ comint == command interaction.
 Advice comint and friends to speak.
 
 @subsection Emacspeak-Comint Commands
-
-@subsubsection emacspeak-completion-pick-completion
-@deffn {Command} emacspeak-completion-pick-completion   
-@findex emacspeak-completion-pick-completion
-
-@format
-Pick completion.
-@end format
-@end deffn
 
 @subsubsection emacspeak-toggle-comint-autospeak
 @deffn {Command} emacspeak-toggle-comint-autospeak  (&optional prefix)
@@ -9523,7 +9514,6 @@ The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
 "C-f":    ‘(call-interactively #’folding-mode)’,
-"C":    ‘(call-interactively #’flycheck-mode)’,
 "F":    ‘(call-interactively #’flyspell-mode)’,
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
@@ -16318,12 +16308,8 @@ updating custom settings for a specific package or group of packages.
 @kindex C-z n
 @item C-; n
 @kindex C-; n
-@item C-; C-.
-@kindex C-; C-.
 @item C-x @@ h n
 @kindex C-x @@ h n
-@item C-x @@ h C-.
-@kindex C-x @@ h C-.
 @end table
 
 @findex emacspeak-wizards-cycle-to-next-buffer
@@ -16340,12 +16326,8 @@ Cycles to next buffer having same mode.
 @kindex C-z p
 @item C-; p
 @kindex C-; p
-@item C-; C-,
-@kindex C-; C-,
 @item C-x @@ h p
 @kindex C-x @@ h p
-@item C-x @@ h C-,
-@kindex C-x @@ h C-,
 @end table
 
 @findex emacspeak-wizards-cycle-to-previous-buffer
@@ -16756,13 +16738,6 @@ Quick Quote: Just stock price from IEXCloud.
 
 @subsubsection emacspeak-wizards-iex-show-quote
 @deffn {Command} emacspeak-wizards-iex-show-quote  (&optional refresh)
-@table @kbd
-@item C-. q
-@kindex C-. q
-@item C-x @@ s q
-@kindex C-x @@ s q
-@end table
-
 @findex emacspeak-wizards-iex-show-quote
 
 @format

@@ -2866,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1155 commands and 146 options.
+   This chapter documents a total of 1154 commands and 146 options.
 
 * Menu:
 
@@ -5071,14 +5071,7 @@ comint == command interaction.  Advice comint and friends to speak.
 12.36.1 Emacspeak-Comint Commands
 ---------------------------------
 
-12.36.1.1 emacspeak-completion-pick-completion
-..............................................
-
- -- Command: emacspeak-completion-pick-completion
-
-     Pick completion.
-
-12.36.1.2 emacspeak-toggle-comint-autospeak
+12.36.1.1 emacspeak-toggle-comint-autospeak
 ...........................................
 
  -- Command: emacspeak-toggle-comint-autospeak (&optional prefix)
@@ -5088,7 +5081,7 @@ comint == command interaction.  Advice comint and friends to speak.
 
      (fn &optional PREFIX)
 
-12.36.1.3 emacspeak-toggle-comint-output-monitor
+12.36.1.2 emacspeak-toggle-comint-output-monitor
 ................................................
 
  -- Command: emacspeak-toggle-comint-output-monitor (&optional prefix)
@@ -5098,7 +5091,7 @@ comint == command interaction.  Advice comint and friends to speak.
      Toggle  Emacspeak comint monitor.
      Interactive PREFIX arg means toggle the global default value.
 
-12.36.1.4 emacspeak-toggle-inaudible-or-comint-autospeak
+12.36.1.3 emacspeak-toggle-inaudible-or-comint-autospeak
 ........................................................
 
  -- Command: emacspeak-toggle-inaudible-or-comint-autospeak

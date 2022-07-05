@@ -2388,7 +2388,6 @@ binds ‘s’ to this command.
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
      "C-f":    ‘(call-interactively #’folding-mode)’,
-     "C":    ‘(call-interactively #’flycheck-mode)’,
      "F":    ‘(call-interactively #’flyspell-mode)’,
      "a":    ‘(call-interactively #’abbrev-mode)’,
      "d":    ‘(call-interactively #’toggle-debug-on-error)’,
@@ -7689,9 +7688,7 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-cycle-to-next-buffer
      ‘C-z n’
      ‘C-; n’
-     ‘C-; C-.’
      ‘C-x @ h n’
-     ‘C-x @ h C-.’
 
      Cycles to next buffer having same mode.
 
@@ -7701,9 +7698,7 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-cycle-to-previous-buffer
      ‘C-z p’
      ‘C-; p’
-     ‘C-; C-,’
      ‘C-x @ h p’
-     ‘C-x @ h C-,’
 
      Cycles to previous buffer having same mode.
 
@@ -8010,8 +8005,6 @@ Contains various wizards for the Emacspeak desktop.
 ............................................
 
  -- Command: emacspeak-wizards-iex-show-quote (&optional refresh)
-     ‘C-. q’
-     ‘C-x @ s q’
 
      Show portfolio  data from cache.
      Optional interactive prefix arg forces cache refresh.
