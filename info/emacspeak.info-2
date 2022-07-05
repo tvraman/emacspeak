@@ -8486,8 +8486,6 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
      ‘C-z b’
      ‘C-. m’
-     ‘C-, c’
-     ‘C-x @ a c’
      ‘C-x @ s m’
 
      Buffer menu filtered by  mode of current-buffer.

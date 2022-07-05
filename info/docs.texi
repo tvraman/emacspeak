@@ -17438,10 +17438,6 @@ Buffer menu filtered by  m-player mode.
 @kindex C-z b
 @item C-. m
 @kindex C-. m
-@item C-, c
-@kindex C-, c
-@item C-x @@ a c
-@kindex C-x @@ a c
 @item C-x @@ s m
 @kindex C-x @@ s m
 @end table
