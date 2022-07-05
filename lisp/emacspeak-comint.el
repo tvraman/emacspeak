@@ -59,25 +59,6 @@
 ;;}}}
 ;;{{{ comint
 
-(defun emacspeak-completion-pick-completion ()
-  "Pick completion."
-  (interactive)
-  (cl-declare (special completion-reference-buffer))
-  (let ((completion-ignore-case t))
-    (choose-completion-string (emacspeak-get-current-completion) completion-reference-buffer))
-  (emacspeak-auditory-icon 'select-object)
-  (cond
-   ((not (or
-          (window-minibuffer-p)
-          (one-window-p)
-          (window-dedicated-p (selected-window))))
-    (delete-window)
-    (bury-buffer "*Completions*")
-    (other-window 1))
-   (t
-    (kill-buffer "*Completions*")))
-  (emacspeak-speak-line))
-
 (defcustom emacspeak-comint-autospeak t
   "Speak comint output.
 Use \\[emacspeak-toggle-comint-autospeak] to toggle this setting."

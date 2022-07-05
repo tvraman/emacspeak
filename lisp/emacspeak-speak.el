@@ -2574,8 +2574,6 @@ char, or dont move. "
 (define-key completion-list-mode-map (ems-kbd "<backspace>") 'previous-completion)
 (define-key completion-list-mode-map " " 'next-completion)
 (define-key completion-list-mode-map "\C-m" 'choose-completion)
-(define-key completion-list-mode-map
-            "\M-\C-m" 'emacspeak-completion-pick-completion)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (cl-loop for char across chars
