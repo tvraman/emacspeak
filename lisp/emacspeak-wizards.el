@@ -1607,7 +1607,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (let ((prev (emacspeak-wizards-buffer-cycle-previous major-mode)))
     (cond
      (prev
-      (funcall-interactively #'pop-to-buffer prev))
+      (funcall-interactively #'switch-to-buffer prev))
      (t (error "No previous buffer in mode %s" major-mode)))))
 
 ;;;###autoload
@@ -1617,7 +1617,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
     (cond
      (next (bury-buffer)
-           (funcall-interactively #'pop-to-buffer next))
+           (funcall-interactively #'switch-to-buffer next))
      (t (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
