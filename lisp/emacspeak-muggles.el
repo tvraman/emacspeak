@@ -103,7 +103,7 @@
   (require 'xbacklight)
   (require 'view)
   (require 'emacspeak-m-player))
-(require 'flycheck nil t) ;; Don't burp if absent during compilation.
+;; Don't burp if absent during compilation.
 (declare-function org-table-previous-row "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-current-element
                   "emacspeak-org" nil)
@@ -241,7 +241,6 @@
                    :post emacspeak-hydra-post)
            "
 _C-f_ turn-on-folding-mmode:       %`folding-mode
-_C_flycheck-mode: %`flycheck-mode
 _e_emacspeak-m-player-toggle-extrastereo: \
 %(member \"extrastereo\" emacspeak-m-player-custom-filters)
 _F_ flyspell-mode:       %`flyspell-mode
@@ -258,7 +257,6 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 "
            ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
            ("C-f" (call-interactively #'folding-mode))
-           ("C" (call-interactively #'flycheck-mode))
            ("F" (call-interactively #'flyspell-mode))
            ("a" (call-interactively #'abbrev-mode))
            ("d" (call-interactively #'toggle-debug-on-error))
