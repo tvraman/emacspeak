@@ -707,7 +707,6 @@
     ("f" ffap)
     ("g" rg)
     ("l" eww-open-file)
-    ("m" magit-status)
     ("o" emacspeak-feeds-opml-display)
     ("p" emacspeak-wizards-pdf-open)
     ("q" emacspeak-wizards-iex-show-price)
