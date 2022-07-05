@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1154 commands and 146 options.
+This chapter documents a total of 1155 commands and 146 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -9514,17 +9514,14 @@ The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
 "C-f":    ‘(call-interactively #’folding-mode)’,
-"F":    ‘(call-interactively #’flyspell-mode)’,
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
-"f":    ‘(call-interactively #’auto-fill-mode)’,
+"F":    ‘(call-interactively #’flyspell-mode)’,
 "e":    ‘(call-interactively #’emacspeak-m-player-toggle-extrastereo)’,
+"f":    ‘(call-interactively #’auto-fill-mode)’,
 "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-"i":    ‘(call-interactively #’ido-everywhere)’,
-"I":    ‘(call-interactively #’flx-ido-mode)’,
 "p":    ‘emacspeak-muggles-lispy-or-sp’,
-"t":    ‘(call-interactively #’toggle-truncate-lines)’,
 "u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
 "q":    nil
 
@@ -17298,6 +17295,15 @@ Tie the next n  words.
 
 @format
 Toggle pronunciation of mm-dd-yyyy dates.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
+@deffn {Command} emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer   
+@findex emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
+
+@format
+Toggle pronunciation of yyyy-mm-dd dates.
 @end format
 @end deffn
 

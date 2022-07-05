@@ -2388,17 +2388,14 @@ binds ‘s’ to this command.
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
      "C-f":    ‘(call-interactively #’folding-mode)’,
-     "F":    ‘(call-interactively #’flyspell-mode)’,
      "a":    ‘(call-interactively #’abbrev-mode)’,
      "d":    ‘(call-interactively #’toggle-debug-on-error)’,
-     "f":    ‘(call-interactively #’auto-fill-mode)’,
+     "F":    ‘(call-interactively #’flyspell-mode)’,
      "e":    ‘(call-interactively #’emacspeak-m-player-toggle-extrastereo)’,
+     "f":    ‘(call-interactively #’auto-fill-mode)’,
      "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
      "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-     "i":    ‘(call-interactively #’ido-everywhere)’,
-     "I":    ‘(call-interactively #’flx-ido-mode)’,
      "p":    ‘emacspeak-muggles-lispy-or-sp’,
-     "t":    ‘(call-interactively #’toggle-truncate-lines)’,
      "u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
      "q":    nil
 
@@ -8392,14 +8389,21 @@ Contains various wizards for the Emacspeak desktop.
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.212.1.104 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.212.1.104 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
+................................................................
+
+ -- Command: emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
+
+     Toggle pronunciation of yyyy-mm-dd dates.
+
+12.212.1.105 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.212.1.105 emacspeak-wizards-tune-in-radio-browse
+12.212.1.106 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -8411,7 +8415,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.212.1.106 emacspeak-wizards-tune-in-radio-search
+12.212.1.107 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -8420,7 +8424,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.212.1.107 emacspeak-wizards-units
+12.212.1.108 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -8429,14 +8433,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units.
 
-12.212.1.108 emacspeak-wizards-vc-n
+12.212.1.109 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.212.1.109 emacspeak-wizards-vc-view-mode
+12.212.1.110 emacspeak-wizards-vc-view-mode
 ...........................................
 
  -- Command: emacspeak-wizards-vc-view-mode
@@ -8451,7 +8455,7 @@ Contains various wizards for the Emacspeak desktop.
      run, this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as
      the final or penultimate step during initialization.
 
-12.212.1.110 emacspeak-wizards-vc-viewer
+12.212.1.111 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -8462,14 +8466,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.212.1.111 emacspeak-wizards-vc-viewer-refresh
+12.212.1.112 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.212.1.112 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.212.1.113 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
@@ -8478,7 +8482,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  m-player mode.
 
-12.212.1.113 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.212.1.114 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
