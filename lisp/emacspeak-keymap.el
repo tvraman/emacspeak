@@ -774,7 +774,9 @@
       (when val
         (cl-loop
          for binding in values do
-         (global-set-key (concat "s-" (cl-first binding)) (cl-second binding))))
+         (global-set-key
+          (global-set-key (event-apply-modifier (cl-first binding) 'super 23 "s-")
+                          (cl-second binding)))))
       (set-default
        sym
        (sort
