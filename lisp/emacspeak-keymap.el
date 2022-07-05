@@ -712,6 +712,7 @@
     ("t" emacspeak-wizards-tune-in-radio-browse)
     ("u" emacspeak-m-player-url)
     ("v" visual-line-mode)
+    ("w" define-word)
     ("y" emacspeak-m-player-youtube-player)
     ("SPC" emacspeak-eww-smart-tabs)
     )
