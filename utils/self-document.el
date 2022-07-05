@@ -248,7 +248,7 @@
     (insert (format "%s\n"
                     (or doc
                         (format "###%s: Not Documented\n" o))))
-    (insert (format "\nDefault Value: @verb{|%s|}\n" value))
+    (insert (format "\nDefault Value: @code{@verb{|%s|}}\n" value))
     (insert "\n@end defvar\n\n")))
 
 (defun self-document-module-options (self)

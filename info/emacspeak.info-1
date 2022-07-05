@@ -3171,7 +3171,7 @@ To reset all controls to their default values, Press ‘C-j’.
  -- Variable: User Option amixer-device
      ALSA Control Device.
 
-     Default Value: default
+     Default Value: ‘default’
 
 
 File: emacspeak.info,  Node: cd-tool,  Next: dectalk-voices,  Prev: amixer,  Up: Emacspeak Commands And Options
@@ -3216,7 +3216,7 @@ is a cd to wav converter.
  -- Variable: User Option cd-tool-start-command
      Name of cdstart command; most likely either "cdstart" or "cdplay".
 
-     Default Value: cdstart
+     Default Value: ‘cdstart’
 
 
 File: emacspeak.info,  Node: dectalk-voices,  Next: dom-addons,  Prev: cd-tool,  Up: Emacspeak Commands And Options
@@ -3245,7 +3245,7 @@ module is Dectalk specific.
  -- Variable: User Option dectalk-default-speech-rate
      Default speech rate .
 
-     Default Value: 225
+     Default Value: ‘225’
 
 
 File: emacspeak.info,  Node: dom-addons,  Next: dtk-speak,  Prev: dectalk-voices,  Up: Emacspeak Commands And Options
@@ -3623,12 +3623,12 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
  -- Variable: User Option dtk-allcaps-prefix
      Prefix used to indicate AllCaps
 
-     Default Value:  acc 
+     Default Value: ‘ acc ’
 
  -- Variable: User Option dtk-caps-prefix
      Prefix used to indicate capitalization
 
-     Default Value: cap
+     Default Value: ‘cap’
 
  -- Variable: User Option dtk-cleanup-repeats
      List of repeating patterns to clean up.  Use
@@ -3637,56 +3637,57 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      More than 3 consecutive occurrences of a pattern is replaced with a
      repeat count.
 
-     Default Value: (.  . _ - = / + * : ; % \/ /\ { } ~ $ ) # <> ^ < >)
+     Default Value:
+     ‘(.  . _ - = / + * : ; % \/ /\ { } ~ $ ) # <> ^ < >)’
 
  -- Variable: User Option dtk-cloud-server
      Set this to your preferred cloud TTS server.
 
-     Default Value: cloud-outloud
+     Default Value: ‘cloud-outloud’
 
  -- Variable: User Option dtk-local-engine
      Engine we use for our local TTS server.
 
-     Default Value: outloud
+     Default Value: ‘outloud’
 
  -- Variable: User Option dtk-speech-rate-base
      Value of lowest speech rate.
 
-     Default Value: 50
+     Default Value: ‘50’
 
  -- Variable: User Option dtk-speech-rate-step
      Speech rate step used by ‘dtk-set-predefined-speech-rate’.
 
-     Default Value: 8
+     Default Value: ‘8’
 
  -- Variable: User Option dtk-unicode-character-replacement-alist
      Replacements for characters.
 
      Default Value:
-     ((150 . -) (9473 . -) (9475 . |) (176 .  degrees ) (8451 . Degree C) (8457 . Degree F ) (8220 . ") (8221 . ") (8902 . *) (173 . -) (8216 . `) (8217 . ') (8208 . -) (8211 .  -- ) (8212 .  --- ) (8202 .  ) (65279 .  ) (8204 . ) (8203 .  ) (8201 .  ) (8213 . ----) (8214 . ||) (8230 . ...) (8226 .  bullet ) (149 .  ... ) (8482 . TM) (64256 . ff) (64257 . fi) (64258 . fl) (64259 . ffi) (64260 . Ffl))
+     ‘((150 . -) (9473 . -) (9475 . |) (176 .  degrees ) (8451 . Degree C) (8457 . Degree F ) (8220 . ") (8221 . ") (8902 . *) (173 . -) (8216 . `) (8217 . ') (8208 . -) (8211 .  -- ) (8212 .  --- ) (8202 .  ) (65279 .  ) (8204 . ) (8203 .  ) (8201 .  ) (8213 . ----) (8214 . ||) (8230 . ...) (8226 .  bullet ) (149 .  ... ) (8482 . TM) (64256 . ff) (64257 . fi) (64258 . fl) (64259 . ffi) (64260 . Ffl))’
 
  -- Variable: User Option dtk-unicode-name-transformation-rules-alist
      Alist of character name transformation rules.
 
      Default Value:
-     ((BOX DRAWING lambda (_ignored) .) (^Mathematical Sans-Serif\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^greek\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^latin\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^DEVANAGARI \(sign\|vowel sign\|letter\)? \(.*\)$ lambda (s) (match-string 2 s)))
+     ‘((BOX DRAWING lambda (_ignored) .) (^Mathematical Sans-Serif\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^greek\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^latin\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^DEVANAGARI \(sign\|vowel sign\|letter\)? \(.*\)$ lambda (s) (match-string 2 s)))’
 
  -- Variable: User Option dtk-unicode-untouched-charsets
      Characters of these charsets are ignored by
      dtk-unicode-replace-chars.
 
-     Default Value: (ascii latin-iso8859-1)
+     Default Value: ‘(ascii latin-iso8859-1)’
 
  -- Variable: User Option dtk-use-tones
      Toggle tones.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option tts-notification-device
      Virtual sound device to use for notifications stream.  Set to nil
      to disable a separate Notification stream.
 
-     Default Value: tts_right
+     Default Value: ‘tts_right’
 
 
 File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-2048,  Prev: dtk-speak,  Up: Emacspeak Commands And Options
@@ -3706,12 +3707,12 @@ system.
  -- Variable: User Option emacspeak-play-emacspeak-startup-icon
      If set to T, emacspeak plays its icon as it launches.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-soundscapes
      Whether we should turn on soundscapes.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-2048,  Next: emacspeak-abc-mode,  Prev: emacspeak,  Up: Emacspeak Commands And Options
@@ -3872,12 +3873,12 @@ forms not needed in Emacs 22.
  -- Variable: User Option emacspeak-speak-messages-filter
      List of strings used to filter spoken messages.
 
-     Default Value: (psession)
+     Default Value: ‘(psession)’
 
  -- Variable: User Option emacspeak-speak-tooltips
      Enable to get tooltips spoken.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-amark,  Next: emacspeak-analog,  Prev: emacspeak-advice,  Up: Emacspeak Commands And Options
@@ -4617,12 +4618,12 @@ Assuming you have correctly setup your API key:
      http://developer.bookshare.org/docs for details on how to get an
      API key.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-bookshare-directory
      Customize this to the root of where books are organized.
 
-     Default Value: /home/raman/books/book-share
+     Default Value: ‘/home/raman/books/book-share’
 
 
 File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
@@ -5153,7 +5154,7 @@ comint == command interaction.  Advice comint and friends to speak.
      Speak comint output.  Use M-x emacspeak-toggle-comint-autospeak to
      toggle this setting.
 
-     Default Value: t
+     Default Value: ‘t’
 
 
 File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-comint,  Up: Emacspeak Commands And Options
@@ -6471,27 +6472,27 @@ table of contents.
  -- Variable: User Option emacspeak-epub-bookshelf-directory
      Directory where we keep .bsf files defining various bookshelves.
 
-     Default Value: /home/raman/EBooks/bsf/
+     Default Value: ‘/home/raman/EBooks/bsf/’
 
  -- Variable: User Option emacspeak-epub-calibre-root-dir
      Root of Calibre library.
 
-     Default Value: /home/raman/EBooks/calibre
+     Default Value: ‘/home/raman/EBooks/calibre’
 
  -- Variable: User Option emacspeak-epub-gutenberg-mirror
      Base URL for Gutenberg mirror.
 
-     Default Value: http://www.gutenberg.org/ebooks/
+     Default Value: ‘http://www.gutenberg.org/ebooks/’
 
  -- Variable: User Option emacspeak-epub-gutenberg-suffix
      Suffix of book type we retrieve.
 
-     Default Value: .epub.noimages
+     Default Value: ‘.epub.noimages’
 
  -- Variable: User Option emacspeak-epub-library-directory
      Directory under which we store Epubs.
 
-     Default Value: /home/raman/EBooks/
+     Default Value: ‘/home/raman/EBooks/’
 
 
 File: emacspeak.info,  Node: emacspeak-erc,  Next: emacspeak-eshell,  Prev: emacspeak-epub,  Up: Emacspeak Commands And Options
@@ -6571,17 +6572,17 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
      Set to T if you dont want to see notification messages from the
      server.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option emacspeak-erc-my-nick
      My IRC nick.
 
-     Default Value:
+     Default Value: ‘’
 
  -- Variable: User Option emacspeak-erc-speak-all-participants
      Speak all things said if t.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-eshell,  Next: emacspeak-ess,  Prev: emacspeak-erc,  Up: Emacspeak Commands And Options
@@ -8033,12 +8034,12 @@ prefix arg to delete a previously created eww-mark.
      Turn this on to make section navigation autospeak.  This also
      reverses the meaning of the prefix-arg to section nav commands.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option emacspeak-eww-inhibit-images
      Turn this on to avoid rendering images.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-feeds,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -8200,19 +8201,19 @@ Infrequently used wizards archived for posterity.
      provides a convenient mechanism for exchanging information between
      different Emacs sessions.
 
-     Default Value: /home/raman/.emacspeak//clipboard
+     Default Value: ‘/home/raman/.emacspeak//clipboard’
 
  -- Variable: User Option emacspeak-curl-cookie-store
      Cookie store used by Curl.
 
-     Default Value: /home/raman/.curl-cookies
+     Default Value: ‘/home/raman/.curl-cookies’
 
  -- Variable: User Option emacspeak-wizards-tramp-locations
      Tramp locations used by Emacspeak tramp wizard.  Locations added
      here via custom can be opened using command
      emacspeak-wizards-tramp-open-location bound to C-x @ h C-t.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-ffap,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -8322,12 +8323,12 @@ This module provides Feeds support for Emacspeak
      saved-feeds on exit.
 
      Default Value:
-     ((BBC News http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml rss) (BBC Podcast Directory http://www.bbc.co.uk/podcasts.opml opml) (CNet Tech News http://feeds.feedburner.com/cnet/tcoc rss) (Wired News http://www.wired.com/news_drop/netcenter/netcenter.rdf rss))
+     ‘((BBC News http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml rss) (BBC Podcast Directory http://www.bbc.co.uk/podcasts.opml opml) (CNet Tech News http://feeds.feedburner.com/cnet/tcoc rss) (Wired News http://www.wired.com/news_drop/netcenter/netcenter.rdf rss))’
 
  -- Variable: User Option emacspeak-feeds-awesome-rss
      Location of Awesome RSS
 
-     Default Value: /home/raman/sourceforge/awesome-rss-feeds/
+     Default Value: ‘/home/raman/sourceforge/awesome-rss-feeds/’
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-filtertext,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -8431,7 +8432,7 @@ popup and helm.
  -- Variable: User Option emacspeak-flyspell-correct
      Correction style to use with flyspell.
 
-     Default Value: flyspell-correct-ido
+     Default Value: ‘flyspell-correct-ido’
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -8601,10 +8602,10 @@ news.
      be considered to be a large article.  A large article is not spoken
      all at once; instead you hear only the first screenful.
 
-     Default Value: 100
+     Default Value: ‘100’
 
  -- Variable: User Option emacspeak-gnus-punctuation-mode
      Pronunciation mode to use for gnus buffers.
 
-     Default Value: all
+     Default Value: ‘all’
 

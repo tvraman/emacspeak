@@ -449,12 +449,12 @@ e.g.  blog search are tbm=
  -- Variable: User Option emacspeak-google-kg-key
      API Key for Google Knowledge Graph.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-google-tts-default-language
      Default language used for Google TTS.
 
-     Default Value: en-us
+     Default Value: ‘en-us’
 
 
 File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-gtags,  Prev: emacspeak-google,  Up: Emacspeak Commands And Options
@@ -663,7 +663,7 @@ to 3 using Custom so you dont hear the entire list.
  -- Variable: User Option emacspeak-ido-typing-delay
      How long we wait before speaking completions.
 
-     Default Value: 0.15
+     Default Value: ‘0.15’
 
 
 File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
@@ -736,7 +736,7 @@ This module speech-enables the Emacs Info Reader.
      values are: screenfull – speak the displayed screen node – speak
      the entire node.
 
-     Default Value: node
+     Default Value: ‘node’
 
 
 File: emacspeak.info,  Node: emacspeak-ispell,  Next: emacspeak-ivy,  Prev: emacspeak-info,  Up: Emacspeak Commands And Options
@@ -762,7 +762,7 @@ corrections with C-r and C-s.
      Emacspeak will not speak the choices if there are more than this
      many available corrections.
 
-     Default Value: 10
+     Default Value: ‘10’
 
 
 File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options
@@ -835,7 +835,7 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
  -- Variable: User Option emacspeak-jabber-speak-presence-alerts
      Set to T if you want to hear presence alerts.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-journalctl,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -880,46 +880,46 @@ found on laptops is denoted <fn>
      Alt key bindings.
 
      Default Value:
-     ((, eldoc) (SPC emacspeak-eww-smart-tabs) (a emacspeak-feeds-atom-display) (b sox-binaural) (d sdcv-search-input) (e eww) (f ffap) (g rg) (l eww-open-file) (o emacspeak-feeds-opml-display) (p emacspeak-wizards-pdf-open) (q emacspeak-wizards-iex-show-price) (r emacspeak-feeds-rss-display) (s emacspeak-wizards-tune-in-radio-search) (t emacspeak-wizards-tune-in-radio-browse) (u emacspeak-m-player-url) (v visual-line-mode) (w define-word) (y emacspeak-m-player-youtube-player))
+     ‘((, eldoc) (SPC emacspeak-eww-smart-tabs) (a emacspeak-feeds-atom-display) (b sox-binaural) (d sdcv-search-input) (e eww) (f ffap) (g rg) (l eww-open-file) (o emacspeak-feeds-opml-display) (p emacspeak-wizards-pdf-open) (q emacspeak-wizards-iex-show-price) (r emacspeak-feeds-rss-display) (s emacspeak-wizards-tune-in-radio-search) (t emacspeak-wizards-tune-in-radio-browse) (u emacspeak-m-player-url) (v visual-line-mode) (w define-word) (y emacspeak-m-player-youtube-player))’
 
  -- Variable: User Option emacspeak-ctl-z-keys
      CTL-z keymap.
 
      Default Value:
-     ((SPC flyspell-mode) (b emacspeak-wizards-view-buffers-filtered-by-this-mode) (c calibredb) (d magit-dispatch) (e emacspeak-wizards-eww-buffer-list) (f magit-file-dispatch) (l locate) (n emacspeak-wizards-cycle-to-next-buffer) (p emacspeak-wizards-cycle-to-previous-buffer) (r restart-emacs) (s magit-status) (z suspend-frame))
+     ‘((SPC flyspell-mode) (b emacspeak-wizards-view-buffers-filtered-by-this-mode) (c calibredb) (d magit-dispatch) (e emacspeak-wizards-eww-buffer-list) (f magit-file-dispatch) (l locate) (n emacspeak-wizards-cycle-to-next-buffer) (p emacspeak-wizards-cycle-to-previous-buffer) (r restart-emacs) (s magit-status) (z suspend-frame))’
 
  -- Variable: User Option emacspeak-hyper-keys
      Hyper-Key bindings.
 
      Default Value:
-     ((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. next-buffer) (/ emacspeak-websearch-google-with-toolbelt) (: emacspeak-wizards-view-buffers-filtered-by-m-player-mode) (; emacspeak-m-player-using-openal) (C-a emacspeak-wizards-term) (C-b eww-list-bookmarks) (C-d dictionary-search) (C-e eshell) (C-j emacspeak-wizards-shell-toggle) (C-l emacspeak-librivox) (C-o eaf-open-browser) (C-t emacspeak-wizards-tramp-open-location) (DEL emacspeak-wizards-snarf-sexp) (TAB hippie-expand) (b eww-list-buffers) (c browse-url-chrome) (d magit-dispatch) (e gmaps) (f magit-file-dispatch) (g gnus) (h emacspeak-m-player-from-history) (k emacspeak-google-knowledge-search) (l locate) (m vm) (n emacspeak-wizards-cycle-to-next-buffer) (o find-file) (p emacspeak-wizards-cycle-to-previous-buffer) (r emacspeak-wizards-find-file-as-root) (s magit-status) (t twit) (u list-unicode-display) (w emacspeak-wizards-noaa-weather) (y yas-expand))
+     ‘((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. next-buffer) (/ emacspeak-websearch-google-with-toolbelt) (: emacspeak-wizards-view-buffers-filtered-by-m-player-mode) (; emacspeak-m-player-using-openal) (C-a emacspeak-wizards-term) (C-b eww-list-bookmarks) (C-d dictionary-search) (C-e eshell) (C-j emacspeak-wizards-shell-toggle) (C-l emacspeak-librivox) (C-o eaf-open-browser) (C-t emacspeak-wizards-tramp-open-location) (DEL emacspeak-wizards-snarf-sexp) (TAB hippie-expand) (b eww-list-buffers) (c browse-url-chrome) (d magit-dispatch) (e gmaps) (f magit-file-dispatch) (g gnus) (h emacspeak-m-player-from-history) (k emacspeak-google-knowledge-search) (l locate) (m vm) (n emacspeak-wizards-cycle-to-next-buffer) (o find-file) (p emacspeak-wizards-cycle-to-previous-buffer) (r emacspeak-wizards-find-file-as-root) (s magit-status) (t twit) (u list-unicode-display) (w emacspeak-wizards-noaa-weather) (y yas-expand))’
 
  -- Variable: User Option emacspeak-multi-keys
      Multi key bindings.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-personal-ctlx-keys
      Key bindings for use with C-e C-x.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-personal-keys
      Key bindings for C-e x.
 
      Default Value:
-     ((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (SPC emacspeak-jabber-speak-recent-message) (a emacspeak-wizards-alpha-vantage-quotes) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (j emacspeak-jabber-popup-roster) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (r jabber-activity-switch-to) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) (
+     ‘((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (SPC emacspeak-jabber-speak-recent-message) (a emacspeak-wizards-alpha-vantage-quotes) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (j emacspeak-jabber-popup-roster) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (r jabber-activity-switch-to) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) (
      @end defvar
      
      @defvar {User Option} emacspeak-super-keys
      Super key bindings. 
      
-     Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (f flyspell-mode) (h emacspeak-org-capture-link) (l emacspeak-m-player-locate-media) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))
+     Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (f flyspell-mode) (h emacspeak-org-capture-link) (l emacspeak-m-player-locate-media) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))’
 
  -- Variable: User Option emacspeak-windows-keys
      Key bindings on the windows key.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-kmacro,  Next: emacspeak-librivox,  Prev: emacspeak-keymap,  Up: Emacspeak Commands And Options
@@ -1015,7 +1015,7 @@ accessing the book.
  -- Variable: User Option emacspeak-librivox-local-cache
      Location where we cache LIBRIVOX playlists.
 
-     Default Value: /home/raman/.emacspeak/librivox
+     Default Value: ‘/home/raman/.emacspeak/librivox’
 
 
 File: emacspeak.info,  Node: emacspeak-lispy,  Next: emacspeak-lua,  Prev: emacspeak-librivox,  Up: Emacspeak Commands And Options
@@ -1929,22 +1929,22 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Variable: User Option emacspeak-m-player-clips
      Directory where we store clips.
 
-     Default Value: /home/raman/mp3/clips
+     Default Value: ‘/home/raman/mp3/clips’
 
  -- Variable: User Option emacspeak-m-player-custom-filters
      Additional filters to apply to streams.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-m-player-program
      Media player program.
 
-     Default Value: /usr/local/bin/mplayer
+     Default Value: ‘/usr/local/bin/mplayer’
 
  -- Variable: User Option emacspeak-media-location-bindings
      Map keys to launch MPlayer on a directory.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-magit,  Next: emacspeak-make-mode,  Prev: emacspeak-m-player,  Up: Emacspeak Commands And Options
@@ -2187,7 +2187,7 @@ advice for posting message commands
  -- Variable: User Option emacspeak-message-punctuation-mode
      Pronunciation mode to use for message buffers.
 
-     Default Value: all
+     Default Value: ‘all’
 
 
 File: emacspeak.info,  Node: emacspeak-metapost,  Next: emacspeak-midge,  Prev: emacspeak-message,  Up: Emacspeak Commands And Options
@@ -2905,67 +2905,67 @@ an OCR engine that can take acquired images and produce text.
  -- Variable: User Option emacspeak-ocr-compress-image
      Command used to compress the scanned tiff file.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-ocr-compress-image-options
      Options used for compressing tiff image.
 
-     Default Value: -c g3 
+     Default Value: ‘-c g3 ’
 
  -- Variable: User Option emacspeak-ocr-compress-photo-options
      Options used when created JPEG from scanned photographs.
 
-     Default Value: -optimize -progressive
+     Default Value: ‘-optimize -progressive’
 
  -- Variable: User Option emacspeak-ocr-engine
      OCR engine to process acquired image.
 
-     Default Value: /home/raman/emacs/lisp/emacspeak/etc/tesseract.pl
+     Default Value: ‘/home/raman/emacs/lisp/emacspeak/etc/tesseract.pl’
 
  -- Variable: User Option emacspeak-ocr-engine-options
      Command line options to pass to OCR engine.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-ocr-image-extension
      Filename extension used for acquired image.
 
-     Default Value: .tif
+     Default Value: ‘.tif’
 
  -- Variable: User Option emacspeak-ocr-jpeg-metadata-writer
      Program to add metadata to JPEG files.
 
-     Default Value: wrjpgcom
+     Default Value: ‘wrjpgcom’
 
  -- Variable: User Option emacspeak-ocr-keep-uncompressed-image
      If set to T, uncompressed image is not removed.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-ocr-photo-compress
      Program to create JPEG compressed images.
 
-     Default Value: cjpeg
+     Default Value: ‘cjpeg’
 
  -- Variable: User Option emacspeak-ocr-scan-image
      Name of image acquisition program.
 
-     Default Value: scanimage
+     Default Value: ‘scanimage’
 
  -- Variable: User Option emacspeak-ocr-scan-image-options
      Command line options to pass to image acquisition program.
 
-     Default Value: --resolution 300 --mode lineart --format=tiff
+     Default Value: ‘--resolution 300 --mode lineart --format=tiff’
 
  -- Variable: User Option emacspeak-ocr-scan-photo-options
      Options used when scanning in photographs.
 
-     Default Value: --mode color --format=pnm
+     Default Value: ‘--mode color --format=pnm’
 
  -- Variable: User Option emacspeak-ocr-working-directory
      Directory where images and OCR results will be placed.
 
-     Default Value: /home/raman/.emacspeak/ocr/
+     Default Value: ‘/home/raman/.emacspeak/ocr/’
 
 
 File: emacspeak.info,  Node: emacspeak-org,  Next: emacspeak-orgalist,  Prev: emacspeak-ocr,  Up: Emacspeak Commands And Options
@@ -3066,7 +3066,7 @@ http://orgmode.org/
  -- Variable: User Option emacspeak-org-table-after-movement-function
      The function to call after moving in a table
 
-     Default Value: emacspeak-org-table-speak-current-element
+     Default Value: ‘emacspeak-org-table-speak-current-element’
 
 
 File: emacspeak.info,  Node: emacspeak-orgalist,  Next: emacspeak-origami,  Prev: emacspeak-org,  Up: Emacspeak Commands And Options
@@ -3551,19 +3551,19 @@ given file.
      Namespace URIs.
 
      Default Value:
-     ((http://www.w3.org/2005/Atom .  atom ) (http://www.w3.org/1999/02/22-rdf-syntax-ns# . RDF Syntax) (http://www.w3.org/2002/06/xhtml2 .  xhtml2 ) (http://www.w3.org/2003/XInclude . XInclude) (http://www.w3.org/1999/XSL/Transform .  XSLT ) (http://www.w3.org/2002/xforms .  XForms ) (http://www.w3.org/2001/xml-events .  XEvents ) (http://www.w3.org/2001/vxml .  vxml ) (http://www.w3.org/2001/XMLSchema-instance .  XSI ) (http://www.w3.org/2001/XMLSchema .  XSD ) (http://www.w3.org/1999/xhtml .  xhtml ) (http://purl.org/dc/elements/1.1/ . DC) (http://search.yahoo.com/mrss/ . media))
+     ‘((http://www.w3.org/2005/Atom .  atom ) (http://www.w3.org/1999/02/22-rdf-syntax-ns# . RDF Syntax) (http://www.w3.org/2002/06/xhtml2 .  xhtml2 ) (http://www.w3.org/2003/XInclude . XInclude) (http://www.w3.org/1999/XSL/Transform .  XSLT ) (http://www.w3.org/2002/xforms .  XForms ) (http://www.w3.org/2001/xml-events .  XEvents ) (http://www.w3.org/2001/vxml .  vxml ) (http://www.w3.org/2001/XMLSchema-instance .  XSI ) (http://www.w3.org/2001/XMLSchema .  XSD ) (http://www.w3.org/1999/xhtml .  xhtml ) (http://purl.org/dc/elements/1.1/ . DC) (http://search.yahoo.com/mrss/ . media))’
 
  -- Variable: User Option emacspeak-pronounce-dictionaries-file
      File that holds emacspeak pronunciations.
 
-     Default Value: /home/raman/.emacspeak/.dictionary
+     Default Value: ‘/home/raman/.emacspeak/.dictionary’
 
  -- Variable: User Option
           emacspeak-pronounce-internet-smileys-pronunciations
      Smileys
 
      Default Value:
-     ((:-) .  smile ) (;) .  half-wink ) (:) .  grin ) (:-( .  frown ) (:( .  sigh ) (:-I .  shrug ) (:-> .  sarcastic smile ) (>:-> .  devillish smile ) (>;-> .  lewd smile ) (;-) .  wink ))
+     ‘((:-) .  smile ) (;) .  half-wink ) (:) .  grin ) (:-( .  frown ) (:( .  sigh ) (:-I .  shrug ) (:-> .  sarcastic smile ) (>:-> .  devillish smile ) (>;-> .  lewd smile ) (;-) .  wink ))’
 
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
@@ -3998,7 +3998,7 @@ emacspeak.
  -- Variable: User Option emacspeak-play-program
      Play program.
 
-     Default Value: /usr/bin/aplay
+     Default Value: ‘/usr/bin/aplay’
 
 
 File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: emacspeak-sounds,  Up: Emacspeak Commands And Options
@@ -5095,72 +5095,72 @@ of emacspeak from becoming dependent on the speech server modules
      ‘emacspeak-toggle-audio-indentation’ bound to C-e d i to toggle
      this setting.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-character-echo
      If t, then emacspeak echoes characters as you type.  You can use
      C-e d k to toggle this setting.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option emacspeak-line-echo
      If t, then emacspeak echoes lines as you type.  You can use C-e d l
      to set this option.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-mail-alert
      If t, emacspeak will alert you about newly arrived mail with an
      auditory icon when displaying the mode line.  You can use command
      ‘emacspeak-toggle-mail-alert’ bound to C-e M-m to set this option.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option emacspeak-mail-alert-interval
      Interval in seconds between mail alerts for the same pending
      message.
 
-     Default Value: 300
+     Default Value: ‘300’
 
  -- Variable: User Option emacspeak-mail-spool-file
      Mail spool file examined to alert you about newly arrived mail.
 
-     Default Value: /var/mail/raman
+     Default Value: ‘/var/mail/raman’
 
  -- Variable: User Option emacspeak-silence-hook
      Functions run after emacspeak-silence is called.
 
      Default Value:
-     (emacspeak-m-player-pause-or-resume emacspeak-emms-pause-or-resume)
+     ‘(emacspeak-m-player-pause-or-resume emacspeak-emms-pause-or-resume)’
 
  -- Variable: User Option emacspeak-speak-filter-persistent-store
      File where emacspeak filters are persisted.
 
-     Default Value: /home/raman/.emacspeak/.filters
+     Default Value: ‘/home/raman/.emacspeak/.filters’
 
  -- Variable: User Option emacspeak-speak-messages
      Option indicating if messages are spoken.  If nil, emacspeak will
      not speak messages as they are echoed to the message area.  You can
      use command ‘emacspeak-toggle-speak-messages’ bound to C-e q.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option emacspeak-speak-time-format-string
      Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
 
-     Default Value: %H:%M   on %A, %B %_e, %Y 
+     Default Value: ‘%H:%M   on %A, %B %_e, %Y ’
 
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.
 
-     Default Value: /usr/share/zoneinfo/
+     Default Value: ‘/usr/share/zoneinfo/’
 
  -- Variable: User Option emacspeak-word-echo
      If t, then emacspeak echoes words as you type.  You can use C-e d w
      to toggle this option.
 
-     Default Value: t
+     Default Value: ‘t’
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -6621,30 +6621,30 @@ headers and cited messages
      Executable that converts calendar invitations on standard input to
      plain text.
 
-     Default Value: /home/raman/emacs/lisp/emacspeak/etc/cal2text
+     Default Value: ‘/home/raman/emacs/lisp/emacspeak/etc/cal2text’
 
  -- Variable: User Option emacspeak-vm-customize-mime-settings
      Non-nil will cause Emacspeak to configure VM mime settings to match
      what the author of Emacspeak uses.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option emacspeak-vm-pdf2text
      Executable that converts PDF on standard input to plain text using
      pdftotext.
 
-     Default Value: /home/raman/emacs/lisp/emacspeak/etc/pdf2text
+     Default Value: ‘/home/raman/emacs/lisp/emacspeak/etc/pdf2text’
 
  -- Variable: User Option emacspeak-vm-use-raman-settings
      Should VM use the customizations used by the author of Emacspeak.
 
-     Default Value: t
+     Default Value: ‘t’
 
  -- Variable: User Option emacspeak-vm-voice-loc
      Set this to T if you want messages automatically voice locked.
      Note that some badly formed mime messages cause trouble.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-vterm,  Next: emacspeak-vuiet,  Prev: emacspeak-vm,  Up: Emacspeak Commands And Options
@@ -7136,7 +7136,7 @@ browse-url to handle Web pages.
  -- Variable: User Option emacspeak-we-filters-rename-buffer
      Set to T if you want the buffer name to contain the applied filter.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-webspace,  Prev: emacspeak-we,  Up: Emacspeak Commands And Options
@@ -7404,7 +7404,7 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
  -- Variable: User Option emacspeak-webspace-feeds
      Feeds to use in Headline Ticker.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-windmove,  Prev: emacspeak-webspace,  Up: Emacspeak Commands And Options
@@ -8714,56 +8714,56 @@ Contains various wizards for the Emacspeak desktop.
  -- Variable: User Option emacspeak-brightness-autoblack
      Set to T to automatically turn display black.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-iex-api-key
      Web API key for IEX Finance access.  See IEX Login Console at
      https://iexcloud.io/cloud-login/ for how to get an API key.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-speak-telephone-directory
      File holding telephone directory.  This is just a text file, and we
      use grep to search it.
 
-     Default Value: /home/raman/.emacspeak/tel-dir
+     Default Value: ‘/home/raman/.emacspeak/tel-dir’
 
  -- Variable: User Option emacspeak-wizards-alpha-vantage-api-key
      API Key used to retrieve stock data from alpha-vantage.  Visit
      https://www.alphavantage.co/support/#api-key to get your key.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-wizards-find-switches-widget
      Widget to get find switch.
 
      Default Value:
-     (cons :tag Find Expression (menu-choice :tag Find (string :tag Test) (const -name) (const -iname) (const -path) (const -ipath) (const -regexp) (const -iregexp) (const -exec) (const -ok) (const -newer) (const -anewer) (const -cnewer) (const -used) (const -user) (const -uid) (const -nouser) (const -nogroup) (const -perm) (const -fstype) (const -lname) (const -ilname) (const -empty) (const -prune) (const -or) (const -not) (const -inum) (const -atime) (const -ctime) (const -mtime) (const -amin) (const -mmin) (const -cmin) (const -size) (const -type) (const -maxdepth) (const -mindepth) (const -mount) (const -noleaf) (const -xdev)) (string :tag Value))
+     ‘(cons :tag Find Expression (menu-choice :tag Find (string :tag Test) (const -name) (const -iname) (const -path) (const -ipath) (const -regexp) (const -iregexp) (const -exec) (const -ok) (const -newer) (const -anewer) (const -cnewer) (const -used) (const -user) (const -uid) (const -nouser) (const -nogroup) (const -perm) (const -fstype) (const -lname) (const -ilname) (const -empty) (const -prune) (const -or) (const -not) (const -inum) (const -atime) (const -ctime) (const -mtime) (const -amin) (const -mmin) (const -cmin) (const -size) (const -type) (const -maxdepth) (const -mindepth) (const -mount) (const -noleaf) (const -xdev)) (string :tag Value))’
 
  -- Variable: User Option emacspeak-wizards-pdf-to-text-options
      options to Command for running pdftotext.
 
-     Default Value: -layout
+     Default Value: ‘-layout’
 
  -- Variable: User Option emacspeak-wizards-personal-portfolio
      Set this to the stock tickers you want to check.  Default is GAFA.
      Tickers are separated by white-space and are automatically sorted
      in lexical order with duplicates removed when saving.
 
-     Default Value: aapl
+     Default Value: ‘aapl
      amzn
      fb
-     goog
+     goog’
 
  -- Variable: User Option emacspeak-wizards-project-shells
      List of shell-name/initial-directory pairs.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option emacspeak-wizards-remote-workstation
      Name of remote workstation.
 
-     Default Value:
+     Default Value: ‘’
 
 
 File: emacspeak.info,  Node: emacspeak-woman,  Next: emacspeak-xkcd,  Prev: emacspeak-wizards,  Up: Emacspeak Commands And Options
@@ -8896,7 +8896,7 @@ ESpeak TTS engine.
  -- Variable: User Option espeak-default-speech-rate
      Default speech rate for eSpeak.
 
-     Default Value: 175
+     Default Value: ‘175’
 
 
 File: emacspeak.info,  Node: extra-muggles,  Next: g-utils,  Prev: espeak-voices,  Up: Emacspeak Commands And Options
@@ -9247,29 +9247,29 @@ gblogger etc.
  -- Variable: User Option g-atom-view-xsl
      XSLT transform to convert Atom feed to HTML.
 
-     Default Value: /home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl
+     Default Value: ‘/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl’
 
  -- Variable: User Option g-cookie-jar
      Cookie jar used for Google services.  Customize this to live on
      your local disk.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option g-curl-common-options
      Common options to pass to all Curl invocations.
 
      Default Value:
-     --http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1
+     ‘--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1’
 
  -- Variable: User Option g-curl-debug
      Set to T to see Curl stderr output.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option g-xslt-program
      XSLT Processor.
 
-     Default Value: xsltproc
+     Default Value: ‘xsltproc’
 
 
 File: emacspeak.info,  Node: gm-nnir,  Next: gmaps,  Prev: g-utils,  Up: Emacspeak Commands And Options
@@ -9500,13 +9500,13 @@ Implements the Google Maps API
      Maps API key — goto https://code.google.com/apis/console to get
      one.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
  -- Variable: User Option gmaps-my-address
      Location address.  Setting this updates gmaps-my-location
      coordinates via geocoding.
 
-     Default Value: nil
+     Default Value: ‘nil’
 
 
 File: emacspeak.info,  Node: ladspa,  Next: light,  Prev: gmaps,  Up: Emacspeak Commands And Options
@@ -9652,7 +9652,7 @@ TTS.
  -- Variable: User Option mac-default-speech-rate
      Default speech rate for mac.
 
-     Default Value: 225
+     Default Value: ‘225’
 
 
 File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
@@ -9683,7 +9683,7 @@ specific.
  -- Variable: User Option outloud-default-speech-rate
      Default speech rate.
 
-     Default Value: 50
+     Default Value: ‘50’
 
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
@@ -9841,18 +9841,18 @@ email, IM, ...  map to the same _mood_.
  -- Variable: User Option soundscape-data
      Soundscape data directory.
 
-     Default Value: /home/raman/.boodler/Collection
+     Default Value: ‘/home/raman/.boodler/Collection’
 
  -- Variable: User Option soundscape-device
      Alsa sound device to use for soundscapes.
 
-     Default Value: default
+     Default Value: ‘default’
 
  -- Variable: User Option soundscape-manager-options
      User customizable options list passed to boodler.  Defaults specify
      alsa as the output and set master volume
 
-     Default Value: (-m 0.3)
+     Default Value: ‘(-m 0.3)’
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options

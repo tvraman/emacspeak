@@ -193,13 +193,13 @@ binaural beats.
      User specified offset that is added to default gain when generating
      tones using SoX, e.g., for binaural beats.
 
-     Default Value: 0
+     Default Value: ‘0’
 
  -- Variable: User Option sox-binaural-slider-scale
      Scale factor used to compute slide duration when moving from one
      binaural beat to another.
 
-     Default Value: 5.0
+     Default Value: ‘5.0’
 
 
 File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: sox-gen,  Up: Emacspeak Commands And Options
@@ -288,127 +288,127 @@ unique voices defined in this module.
  -- Variable: User Option voice-animate-extra-settings
      Settings for voice-animate-extra
 
-     Default Value: (nil nil 8 8 8)
+     Default Value: ‘(nil nil 8 8 8)’
 
  -- Variable: User Option voice-animate-medium-settings
      Settings for voice-animate-medium
 
-     Default Value: (nil nil 7 7 7)
+     Default Value: ‘(nil nil 7 7 7)’
 
  -- Variable: User Option voice-animate-settings
      Settings for voice-animate
 
-     Default Value: (nil nil 6 6 6)
+     Default Value: ‘(nil nil 6 6 6)’
 
  -- Variable: User Option voice-annotate-settings
      Settings for voice-annotate
 
-     Default Value: (nil nil 4 0 4)
+     Default Value: ‘(nil nil 4 0 4)’
 
  -- Variable: User Option voice-bolden-and-animate-settings
      Settings for voice-bolden-and-animate
 
-     Default Value: (nil 3 8 8 8)
+     Default Value: ‘(nil 3 8 8 8)’
 
  -- Variable: User Option voice-bolden-extra-settings
      Settings for voice-bolden-extra
 
-     Default Value: (nil 1 nil 8)
+     Default Value: ‘(nil 1 nil 8)’
 
  -- Variable: User Option voice-bolden-medium-settings
      Settings for voice-bolden-medium
 
-     Default Value: (nil 2 nil 7)
+     Default Value: ‘(nil 2 nil 7)’
 
  -- Variable: User Option voice-bolden-settings
      Settings for voice-bolden
 
-     Default Value: (nil 3 nil 6)
+     Default Value: ‘(nil 3 nil 6)’
 
  -- Variable: User Option voice-brighten-extra-settings
      Settings for voice-brighten-extra
 
-     Default Value: (nil nil nil 3 8)
+     Default Value: ‘(nil nil nil 3 8)’
 
  -- Variable: User Option voice-brighten-medium-settings
      Settings for voice-brighten-medium
 
-     Default Value: (nil nil nil 4 7)
+     Default Value: ‘(nil nil nil 4 7)’
 
  -- Variable: User Option voice-brighten-settings
      Settings for voice-brighten
 
-     Default Value: (nil nil nil 5 6)
+     Default Value: ‘(nil nil nil 5 6)’
 
  -- Variable: User Option voice-indent-settings
      Settings for voice-indent
 
-     Default Value: (nil nil 3 1 3)
+     Default Value: ‘(nil nil 3 1 3)’
 
  -- Variable: User Option voice-lighten-extra-settings
      Settings for voice-lighten-extra
 
-     Default Value: (nil 9 nil 4)
+     Default Value: ‘(nil 9 nil 4)’
 
  -- Variable: User Option voice-lighten-medium-settings
      Settings for voice-lighten-medium
 
-     Default Value: (nil 7 nil 3)
+     Default Value: ‘(nil 7 nil 3)’
 
  -- Variable: User Option voice-lighten-settings
      Settings for voice-lighten
 
-     Default Value: (nil 6 nil 2)
+     Default Value: ‘(nil 6 nil 2)’
 
  -- Variable: User Option voice-monotone-extra-settings
      Settings for voice-monotone-extra
 
-     Default Value: (nil nil 0 0)
+     Default Value: ‘(nil nil 0 0)’
 
  -- Variable: User Option voice-monotone-medium-settings
      Settings for voice-monotone-medium
 
-     Default Value: (nil nil 2 2)
+     Default Value: ‘(nil nil 2 2)’
 
  -- Variable: User Option voice-monotone-settings
      Settings for voice-monotone
 
-     Default Value: (nil nil 4 4)
+     Default Value: ‘(nil nil 4 4)’
 
  -- Variable: User Option voice-overlay-0-settings
      Settings for voice-overlay-0
 
-     Default Value: (nil 8 nil nil nil nil)
+     Default Value: ‘(nil 8 nil nil nil nil)’
 
  -- Variable: User Option voice-overlay-1-settings
      Settings for voice-overlay-1
 
-     Default Value: (nil nil 8 nil nil nil)
+     Default Value: ‘(nil nil 8 nil nil nil)’
 
  -- Variable: User Option voice-overlay-2-settings
      Settings for voice-overlay-2
 
-     Default Value: (nil nil nil 8 nil nil)
+     Default Value: ‘(nil nil nil 8 nil nil)’
 
  -- Variable: User Option voice-overlay-3-settings
      Settings for voice-overlay-3
 
-     Default Value: (nil nil nil nil 8 nil)
+     Default Value: ‘(nil nil nil nil 8 nil)’
 
  -- Variable: User Option voice-smoothen-extra-settings
      Settings for voice-smoothen-extra
 
-     Default Value: (nil nil nil 0 2)
+     Default Value: ‘(nil nil nil 0 2)’
 
  -- Variable: User Option voice-smoothen-medium-settings
      Settings for voice-smoothen-medium
 
-     Default Value: (nil nil nil 2 4)
+     Default Value: ‘(nil nil nil 2 4)’
 
  -- Variable: User Option voice-smoothen-settings
      Settings for voice-smoothen
 
-     Default Value: (nil nil nil 4 6)
+     Default Value: ‘(nil nil nil 4 6)’
 
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
@@ -517,7 +517,7 @@ from other modules.
      result if this variable is not bound.  ‘add-hook’ automatically
      binds it.  (This is true for all hook variables.)
 
-     Default Value: (voice-lock-mode-set-explicitly)
+     Default Value: ‘(voice-lock-mode-set-explicitly)’
 
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
