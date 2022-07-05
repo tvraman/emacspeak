@@ -746,26 +746,6 @@
 
 (defcustom emacspeak-multi-keys
   '(
-    ("," eldoc)
-    ("a" emacspeak-feeds-atom-display)
-    ("b" sox-binaural)
-    ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
-    ("d" sdcv-search-input)
-    ("e" eww)
-    ("f" ffap)
-    ("g" rg)
-    ("l" eww-open-file)
-    ("m" magit-status)
-    ("o" emacspeak-feeds-opml-display)
-    ("p" emacspeak-wizards-pdf-open)
-    ("q" emacspeak-wizards-iex-show-price)
-    ("r" emacspeak-feeds-rss-display)
-    ("s" emacspeak-wizards-tune-in-radio-search)
-    ("t" emacspeak-wizards-tune-in-radio-browse)
-    ("u" emacspeak-m-player-url)
-    ("v" visual-line-mode)
-    ("y" emacspeak-m-player-youtube-player)
-    ("SPC" emacspeak-eww-smart-tabs)
     )
   "Multi key bindings. "
   :group 'emacspeak
