@@ -243,12 +243,12 @@
   "Document this option."
   (let ((doc (sd-texinfo-escape
               (documentation-property  o 'variable-documentation)))
-        (value (documentation-property  o 'standard-value)))
+        (value (symbol-value  o)))
     (insert (format "\n\n@defvar {User Option} %s\n" o))
     (insert (format "%s\n"
                     (or doc
                         (format "###%s: Not Documented\n" o))))
-    (insert (format "\nDefault Value: %s\n" value))
+    (insert (format "\nDefault Value: @verb{|%s|}\n" value))
     (insert "\n@end defvar\n\n")))
 
 (defun self-document-module-options (self)

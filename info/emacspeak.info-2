@@ -15,6 +15,97 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on July 5, 2022.
 
 
+File: emacspeak.info,  Node: emacspeak-go-mode,  Next: emacspeak-gomoku,  Prev: emacspeak-gnus,  Up: Emacspeak Commands And Options
+
+12.90 emacspeak-go-mode
+=======================
+
+GO-MODE == Go Language support in emacs
+
+
+File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-google,  Prev: emacspeak-go-mode,  Up: Emacspeak Commands And Options
+
+12.91 emacspeak-gomoku
+======================
+
+Auditory interface to gomoku
+
+12.91.1 Emacspeak-Gomoku Commands
+---------------------------------
+
+12.91.1.1 emacspeak-gomoku-display-statistics
+.............................................
+
+ -- Command: emacspeak-gomoku-display-statistics
+
+     Display statistics from previous games
+
+12.91.1.2 emacspeak-gomoku-goto-x-y
+...................................
+
+ -- Command: emacspeak-gomoku-goto-x-y (x y)
+
+     Prompt for and go to that square.
+
+     (fn X Y)
+
+12.91.1.3 emacspeak-gomoku-show-current-column
+..............................................
+
+ -- Command: emacspeak-gomoku-show-current-column
+
+     Aurally display current column
+
+12.91.1.4 emacspeak-gomoku-show-current-negative-diagonal
+.........................................................
+
+ -- Command: emacspeak-gomoku-show-current-negative-diagonal
+
+     Aurally display current negative sloped diagonal
+
+12.91.1.5 emacspeak-gomoku-show-current-positive-diagonal
+.........................................................
+
+ -- Command: emacspeak-gomoku-show-current-positive-diagonal
+
+     Aurally display current positively sloped diagonal
+
+12.91.1.6 emacspeak-gomoku-show-current-row
+...........................................
+
+ -- Command: emacspeak-gomoku-show-current-row
+
+     Aurally display current row
+
+12.91.1.7 emacspeak-gomoku-speak-emacs-previous-move
+....................................................
+
+ -- Command: emacspeak-gomoku-speak-emacs-previous-move
+
+     Speak emacs’ previous move
+
+12.91.1.8 emacspeak-gomoku-speak-humans-previous-move
+.....................................................
+
+ -- Command: emacspeak-gomoku-speak-humans-previous-move
+
+     Speak human’ previous move
+
+12.91.1.9 emacspeak-gomoku-speak-number-of-moves
+................................................
+
+ -- Command: emacspeak-gomoku-speak-number-of-moves
+
+     Speak number of moves so far
+
+12.91.1.10 emacspeak-gomoku-speak-square
+........................................
+
+ -- Command: emacspeak-gomoku-speak-square
+
+     Speak coordinates and state of square at point
+
+
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
 
 12.92 emacspeak-google
@@ -358,8 +449,12 @@ e.g.  blog search are tbm=
  -- Variable: User Option emacspeak-google-kg-key
      API Key for Google Knowledge Graph.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-google-tts-default-language
      Default language used for Google TTS.
+
+     Default Value: en-us
 
 
 File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-gtags,  Prev: emacspeak-google,  Up: Emacspeak Commands And Options
@@ -568,6 +663,8 @@ to 3 using Custom so you dont hear the entire list.
  -- Variable: User Option emacspeak-ido-typing-delay
      How long we wait before speaking completions.
 
+     Default Value: 0.15
+
 
 File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
 
@@ -639,6 +736,8 @@ This module speech-enables the Emacs Info Reader.
      values are: screenfull – speak the displayed screen node – speak
      the entire node.
 
+     Default Value: node
+
 
 File: emacspeak.info,  Node: emacspeak-ispell,  Next: emacspeak-ivy,  Prev: emacspeak-info,  Up: Emacspeak Commands And Options
 
@@ -662,6 +761,8 @@ corrections with C-r and C-s.
  -- Variable: User Option emacspeak-ispell-max-choices
      Emacspeak will not speak the choices if there are more than this
      many available corrections.
+
+     Default Value: 10
 
 
 File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options
@@ -734,6 +835,8 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
  -- Variable: User Option emacspeak-jabber-speak-presence-alerts
      Set to T if you want to hear presence alerts.
 
+     Default Value: nil
+
 
 File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-journalctl,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
 
@@ -776,23 +879,47 @@ found on laptops is denoted <fn>
  -- Variable: User Option emacspeak-alt-keys
      Alt key bindings.
 
+     Default Value:
+     ((, eldoc) (SPC emacspeak-eww-smart-tabs) (a emacspeak-feeds-atom-display) (b sox-binaural) (d sdcv-search-input) (e eww) (f ffap) (g rg) (l eww-open-file) (o emacspeak-feeds-opml-display) (p emacspeak-wizards-pdf-open) (q emacspeak-wizards-iex-show-price) (r emacspeak-feeds-rss-display) (s emacspeak-wizards-tune-in-radio-search) (t emacspeak-wizards-tune-in-radio-browse) (u emacspeak-m-player-url) (v visual-line-mode) (w define-word) (y emacspeak-m-player-youtube-player))
+
  -- Variable: User Option emacspeak-ctl-z-keys
      CTL-z keymap.
+
+     Default Value:
+     ((SPC flyspell-mode) (b emacspeak-wizards-view-buffers-filtered-by-this-mode) (c calibredb) (d magit-dispatch) (e emacspeak-wizards-eww-buffer-list) (f magit-file-dispatch) (l locate) (n emacspeak-wizards-cycle-to-next-buffer) (p emacspeak-wizards-cycle-to-previous-buffer) (r restart-emacs) (s magit-status) (z suspend-frame))
 
  -- Variable: User Option emacspeak-hyper-keys
      Hyper-Key bindings.
 
+     Default Value:
+     ((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. next-buffer) (/ emacspeak-websearch-google-with-toolbelt) (: emacspeak-wizards-view-buffers-filtered-by-m-player-mode) (; emacspeak-m-player-using-openal) (C-a emacspeak-wizards-term) (C-b eww-list-bookmarks) (C-d dictionary-search) (C-e eshell) (C-j emacspeak-wizards-shell-toggle) (C-l emacspeak-librivox) (C-o eaf-open-browser) (C-t emacspeak-wizards-tramp-open-location) (DEL emacspeak-wizards-snarf-sexp) (TAB hippie-expand) (b eww-list-buffers) (c browse-url-chrome) (d magit-dispatch) (e gmaps) (f magit-file-dispatch) (g gnus) (h emacspeak-m-player-from-history) (k emacspeak-google-knowledge-search) (l locate) (m vm) (n emacspeak-wizards-cycle-to-next-buffer) (o find-file) (p emacspeak-wizards-cycle-to-previous-buffer) (r emacspeak-wizards-find-file-as-root) (s magit-status) (t twit) (u list-unicode-display) (w emacspeak-wizards-noaa-weather) (y yas-expand))
+
  -- Variable: User Option emacspeak-multi-keys
      Multi key bindings.
+
+     Default Value: nil
 
  -- Variable: User Option emacspeak-personal-ctlx-keys
      Key bindings for use with C-e C-x.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-personal-keys
      Key bindings for C-e x.
 
- -- Variable: User Option emacspeak-super-keys
-     Super key bindings.
+     Default Value:
+     ((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (SPC emacspeak-jabber-speak-recent-message) (a emacspeak-wizards-alpha-vantage-quotes) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (j emacspeak-jabber-popup-roster) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (r jabber-activity-switch-to) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) (
+     @end defvar
+     
+     @defvar {User Option} emacspeak-super-keys
+     Super key bindings. 
+     
+     Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (f flyspell-mode) (h emacspeak-org-capture-link) (l emacspeak-m-player-locate-media) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))
+
+ -- Variable: User Option emacspeak-windows-keys
+     Key bindings on the windows key.
+
+     Default Value: nil
 
 
 File: emacspeak.info,  Node: emacspeak-kmacro,  Next: emacspeak-librivox,  Prev: emacspeak-keymap,  Up: Emacspeak Commands And Options
@@ -887,6 +1014,8 @@ accessing the book.
 
  -- Variable: User Option emacspeak-librivox-local-cache
      Location where we cache LIBRIVOX playlists.
+
+     Default Value: /home/raman/.emacspeak/librivox
 
 
 File: emacspeak.info,  Node: emacspeak-lispy,  Next: emacspeak-lua,  Prev: emacspeak-librivox,  Up: Emacspeak Commands And Options
@@ -1800,14 +1929,22 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Variable: User Option emacspeak-m-player-clips
      Directory where we store clips.
 
+     Default Value: /home/raman/mp3/clips
+
  -- Variable: User Option emacspeak-m-player-custom-filters
      Additional filters to apply to streams.
+
+     Default Value: nil
 
  -- Variable: User Option emacspeak-m-player-program
      Media player program.
 
+     Default Value: /usr/local/bin/mplayer
+
  -- Variable: User Option emacspeak-media-location-bindings
      Map keys to launch MPlayer on a directory.
+
+     Default Value: nil
 
 
 File: emacspeak.info,  Node: emacspeak-magit,  Next: emacspeak-make-mode,  Prev: emacspeak-m-player,  Up: Emacspeak Commands And Options
@@ -2049,6 +2186,8 @@ advice for posting message commands
 
  -- Variable: User Option emacspeak-message-punctuation-mode
      Pronunciation mode to use for message buffers.
+
+     Default Value: all
 
 
 File: emacspeak.info,  Node: emacspeak-metapost,  Next: emacspeak-midge,  Prev: emacspeak-message,  Up: Emacspeak Commands And Options
@@ -2766,41 +2905,67 @@ an OCR engine that can take acquired images and produce text.
  -- Variable: User Option emacspeak-ocr-compress-image
      Command used to compress the scanned tiff file.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-ocr-compress-image-options
      Options used for compressing tiff image.
+
+     Default Value: -c g3 
 
  -- Variable: User Option emacspeak-ocr-compress-photo-options
      Options used when created JPEG from scanned photographs.
 
+     Default Value: -optimize -progressive
+
  -- Variable: User Option emacspeak-ocr-engine
      OCR engine to process acquired image.
+
+     Default Value: /home/raman/emacs/lisp/emacspeak/etc/tesseract.pl
 
  -- Variable: User Option emacspeak-ocr-engine-options
      Command line options to pass to OCR engine.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-ocr-image-extension
      Filename extension used for acquired image.
+
+     Default Value: .tif
 
  -- Variable: User Option emacspeak-ocr-jpeg-metadata-writer
      Program to add metadata to JPEG files.
 
+     Default Value: wrjpgcom
+
  -- Variable: User Option emacspeak-ocr-keep-uncompressed-image
      If set to T, uncompressed image is not removed.
+
+     Default Value: nil
 
  -- Variable: User Option emacspeak-ocr-photo-compress
      Program to create JPEG compressed images.
 
+     Default Value: cjpeg
+
  -- Variable: User Option emacspeak-ocr-scan-image
      Name of image acquisition program.
+
+     Default Value: scanimage
 
  -- Variable: User Option emacspeak-ocr-scan-image-options
      Command line options to pass to image acquisition program.
 
+     Default Value: --resolution 300 --mode lineart --format=tiff
+
  -- Variable: User Option emacspeak-ocr-scan-photo-options
      Options used when scanning in photographs.
 
+     Default Value: --mode color --format=pnm
+
  -- Variable: User Option emacspeak-ocr-working-directory
      Directory where images and OCR results will be placed.
+
+     Default Value: /home/raman/.emacspeak/ocr/
 
 
 File: emacspeak.info,  Node: emacspeak-org,  Next: emacspeak-orgalist,  Prev: emacspeak-ocr,  Up: Emacspeak Commands And Options
@@ -2900,6 +3065,8 @@ http://orgmode.org/
 
  -- Variable: User Option emacspeak-org-table-after-movement-function
      The function to call after moving in a table
+
+     Default Value: emacspeak-org-table-speak-current-element
 
 
 File: emacspeak.info,  Node: emacspeak-orgalist,  Next: emacspeak-origami,  Prev: emacspeak-org,  Up: Emacspeak Commands And Options
@@ -3383,12 +3550,20 @@ given file.
           emacspeak-pronounce-common-xml-namespace-uri-pronunciations
      Namespace URIs.
 
+     Default Value:
+     ((http://www.w3.org/2005/Atom .  atom ) (http://www.w3.org/1999/02/22-rdf-syntax-ns# . RDF Syntax) (http://www.w3.org/2002/06/xhtml2 .  xhtml2 ) (http://www.w3.org/2003/XInclude . XInclude) (http://www.w3.org/1999/XSL/Transform .  XSLT ) (http://www.w3.org/2002/xforms .  XForms ) (http://www.w3.org/2001/xml-events .  XEvents ) (http://www.w3.org/2001/vxml .  vxml ) (http://www.w3.org/2001/XMLSchema-instance .  XSI ) (http://www.w3.org/2001/XMLSchema .  XSD ) (http://www.w3.org/1999/xhtml .  xhtml ) (http://purl.org/dc/elements/1.1/ . DC) (http://search.yahoo.com/mrss/ . media))
+
  -- Variable: User Option emacspeak-pronounce-dictionaries-file
      File that holds emacspeak pronunciations.
+
+     Default Value: /home/raman/.emacspeak/.dictionary
 
  -- Variable: User Option
           emacspeak-pronounce-internet-smileys-pronunciations
      Smileys
+
+     Default Value:
+     ((:-) .  smile ) (;) .  half-wink ) (:) .  grin ) (:-( .  frown ) (:( .  sigh ) (:-I .  shrug ) (:-> .  sarcastic smile ) (>:-> .  devillish smile ) (>;-> .  lewd smile ) (;-) .  wink ))
 
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
@@ -3822,6 +3997,8 @@ emacspeak.
 
  -- Variable: User Option emacspeak-play-program
      Play program.
+
+     Default Value: /usr/bin/aplay
 
 
 File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: emacspeak-sounds,  Up: Emacspeak Commands And Options
@@ -4918,47 +5095,72 @@ of emacspeak from becoming dependent on the speech server modules
      ‘emacspeak-toggle-audio-indentation’ bound to C-e d i to toggle
      this setting.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-character-echo
      If t, then emacspeak echoes characters as you type.  You can use
      C-e d k to toggle this setting.
 
+     Default Value: t
+
  -- Variable: User Option emacspeak-line-echo
      If t, then emacspeak echoes lines as you type.  You can use C-e d l
      to set this option.
+
+     Default Value: nil
 
  -- Variable: User Option emacspeak-mail-alert
      If t, emacspeak will alert you about newly arrived mail with an
      auditory icon when displaying the mode line.  You can use command
      ‘emacspeak-toggle-mail-alert’ bound to C-e M-m to set this option.
 
+     Default Value: t
+
  -- Variable: User Option emacspeak-mail-alert-interval
      Interval in seconds between mail alerts for the same pending
      message.
 
+     Default Value: 300
+
  -- Variable: User Option emacspeak-mail-spool-file
      Mail spool file examined to alert you about newly arrived mail.
+
+     Default Value: /var/mail/raman
 
  -- Variable: User Option emacspeak-silence-hook
      Functions run after emacspeak-silence is called.
 
+     Default Value:
+     (emacspeak-m-player-pause-or-resume emacspeak-emms-pause-or-resume)
+
  -- Variable: User Option emacspeak-speak-filter-persistent-store
      File where emacspeak filters are persisted.
+
+     Default Value: /home/raman/.emacspeak/.filters
 
  -- Variable: User Option emacspeak-speak-messages
      Option indicating if messages are spoken.  If nil, emacspeak will
      not speak messages as they are echoed to the message area.  You can
      use command ‘emacspeak-toggle-speak-messages’ bound to C-e q.
 
+     Default Value: t
+
  -- Variable: User Option emacspeak-speak-time-format-string
      Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
 
+     Default Value: %H:%M   on %A, %B %_e, %Y 
+
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.
+
+     Default Value: /usr/share/zoneinfo/
 
  -- Variable: User Option emacspeak-word-echo
      If t, then emacspeak echoes words as you type.  You can use C-e d w
      to toggle this option.
+
+     Default Value: t
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -6419,20 +6621,30 @@ headers and cited messages
      Executable that converts calendar invitations on standard input to
      plain text.
 
+     Default Value: /home/raman/emacs/lisp/emacspeak/etc/cal2text
+
  -- Variable: User Option emacspeak-vm-customize-mime-settings
      Non-nil will cause Emacspeak to configure VM mime settings to match
      what the author of Emacspeak uses.
+
+     Default Value: t
 
  -- Variable: User Option emacspeak-vm-pdf2text
      Executable that converts PDF on standard input to plain text using
      pdftotext.
 
+     Default Value: /home/raman/emacs/lisp/emacspeak/etc/pdf2text
+
  -- Variable: User Option emacspeak-vm-use-raman-settings
      Should VM use the customizations used by the author of Emacspeak.
+
+     Default Value: t
 
  -- Variable: User Option emacspeak-vm-voice-loc
      Set this to T if you want messages automatically voice locked.
      Note that some badly formed mime messages cause trouble.
+
+     Default Value: nil
 
 
 File: emacspeak.info,  Node: emacspeak-vterm,  Next: emacspeak-vuiet,  Prev: emacspeak-vm,  Up: Emacspeak Commands And Options
@@ -6924,6 +7136,8 @@ browse-url to handle Web pages.
  -- Variable: User Option emacspeak-we-filters-rename-buffer
      Set to T if you want the buffer name to contain the applied filter.
 
+     Default Value: nil
+
 
 File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-webspace,  Prev: emacspeak-we,  Up: Emacspeak Commands And Options
 
@@ -7189,6 +7403,8 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
  -- Variable: User Option emacspeak-webspace-feeds
      Feeds to use in Headline Ticker.
+
+     Default Value: nil
 
 
 File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-windmove,  Prev: emacspeak-webspace,  Up: Emacspeak Commands And Options
@@ -8498,34 +8714,56 @@ Contains various wizards for the Emacspeak desktop.
  -- Variable: User Option emacspeak-brightness-autoblack
      Set to T to automatically turn display black.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-iex-api-key
      Web API key for IEX Finance access.  See IEX Login Console at
      https://iexcloud.io/cloud-login/ for how to get an API key.
+
+     Default Value: nil
 
  -- Variable: User Option emacspeak-speak-telephone-directory
      File holding telephone directory.  This is just a text file, and we
      use grep to search it.
 
+     Default Value: /home/raman/.emacspeak/tel-dir
+
  -- Variable: User Option emacspeak-wizards-alpha-vantage-api-key
      API Key used to retrieve stock data from alpha-vantage.  Visit
      https://www.alphavantage.co/support/#api-key to get your key.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-wizards-find-switches-widget
      Widget to get find switch.
 
+     Default Value:
+     (cons :tag Find Expression (menu-choice :tag Find (string :tag Test) (const -name) (const -iname) (const -path) (const -ipath) (const -regexp) (const -iregexp) (const -exec) (const -ok) (const -newer) (const -anewer) (const -cnewer) (const -used) (const -user) (const -uid) (const -nouser) (const -nogroup) (const -perm) (const -fstype) (const -lname) (const -ilname) (const -empty) (const -prune) (const -or) (const -not) (const -inum) (const -atime) (const -ctime) (const -mtime) (const -amin) (const -mmin) (const -cmin) (const -size) (const -type) (const -maxdepth) (const -mindepth) (const -mount) (const -noleaf) (const -xdev)) (string :tag Value))
+
  -- Variable: User Option emacspeak-wizards-pdf-to-text-options
      options to Command for running pdftotext.
+
+     Default Value: -layout
 
  -- Variable: User Option emacspeak-wizards-personal-portfolio
      Set this to the stock tickers you want to check.  Default is GAFA.
      Tickers are separated by white-space and are automatically sorted
      in lexical order with duplicates removed when saving.
 
+     Default Value: aapl
+     amzn
+     fb
+     goog
+
  -- Variable: User Option emacspeak-wizards-project-shells
      List of shell-name/initial-directory pairs.
 
+     Default Value: nil
+
  -- Variable: User Option emacspeak-wizards-remote-workstation
      Name of remote workstation.
+
+     Default Value:
 
 
 File: emacspeak.info,  Node: emacspeak-woman,  Next: emacspeak-xkcd,  Prev: emacspeak-wizards,  Up: Emacspeak Commands And Options
@@ -8657,6 +8895,8 @@ ESpeak TTS engine.
 
  -- Variable: User Option espeak-default-speech-rate
      Default speech rate for eSpeak.
+
+     Default Value: 175
 
 
 File: emacspeak.info,  Node: extra-muggles,  Next: g-utils,  Prev: espeak-voices,  Up: Emacspeak Commands And Options
@@ -9007,18 +9247,29 @@ gblogger etc.
  -- Variable: User Option g-atom-view-xsl
      XSLT transform to convert Atom feed to HTML.
 
+     Default Value: /home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl
+
  -- Variable: User Option g-cookie-jar
      Cookie jar used for Google services.  Customize this to live on
      your local disk.
 
+     Default Value: nil
+
  -- Variable: User Option g-curl-common-options
      Common options to pass to all Curl invocations.
+
+     Default Value:
+     --http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1
 
  -- Variable: User Option g-curl-debug
      Set to T to see Curl stderr output.
 
+     Default Value: nil
+
  -- Variable: User Option g-xslt-program
      XSLT Processor.
+
+     Default Value: xsltproc
 
 
 File: emacspeak.info,  Node: gm-nnir,  Next: gmaps,  Prev: g-utils,  Up: Emacspeak Commands And Options
@@ -9249,9 +9500,13 @@ Implements the Google Maps API
      Maps API key — goto https://code.google.com/apis/console to get
      one.
 
+     Default Value: nil
+
  -- Variable: User Option gmaps-my-address
      Location address.  Setting this updates gmaps-my-location
      coordinates via geocoding.
+
+     Default Value: nil
 
 
 File: emacspeak.info,  Node: ladspa,  Next: light,  Prev: gmaps,  Up: Emacspeak Commands And Options
@@ -9397,6 +9652,8 @@ TTS.
  -- Variable: User Option mac-default-speech-rate
      Default speech rate for mac.
 
+     Default Value: 225
+
 
 File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
 
@@ -9425,6 +9682,8 @@ specific.
 
  -- Variable: User Option outloud-default-speech-rate
      Default speech rate.
+
+     Default Value: 50
 
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
@@ -9582,12 +9841,18 @@ email, IM, ...  map to the same _mood_.
  -- Variable: User Option soundscape-data
      Soundscape data directory.
 
+     Default Value: /home/raman/.boodler/Collection
+
  -- Variable: User Option soundscape-device
      Alsa sound device to use for soundscapes.
+
+     Default Value: default
 
  -- Variable: User Option soundscape-manager-options
      User customizable options list passed to boodler.  Defaults specify
      alsa as the output and set master volume
+
+     Default Value: (-m 0.3)
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -9711,346 +9976,4 @@ always work.  This module can be used independent of Emacspeak.
  -- Command: sox-stop
 
      Stop currently playing  sound from current context.
-
-
-File: emacspeak.info,  Node: sox-gen,  Next: tetris,  Prev: sox,  Up: Emacspeak Commands And Options
-
-12.231 sox-gen
-==============
-
-Provides binaural audio along with pre-defined themes.  This module can
-be used independent of Emacspeak.
-
-12.231.1 Binaural Beats Using SoX
----------------------------------
-
-A binaural beat is an auditory illusion perceived when two different
-pure-tone sine waves, both with frequencies lower than 1500 Hz, with
-less than a 40 Hz difference between them, are presented to a listener
-dichotically (one through each ear).  For example, if a 530 Hz pure tone
-is presented to a subject’s right ear, while a 520 Hz pure tone is
-presented to the subject’s left ear, the listener will perceive the
-auditory illusion of a third tone, in addition to the two pure-tones
-presented to each ear.  The third sound is called a binaural beat, and
-in this example would have a perceived pitch correlating to a frequency
-of 10 Hz, that being the difference between the 530 Hz and 520 Hz pure
-tones presented to each ear.  For more details, see
-<https://en.wikipedia.org/wiki/Binaural_beats>.
-
-   This module implements a set of user-facing commands for generating
-binaural beats.  The commands are organized from high-level commands
-that play predefined binaural beats to lower-level commands that can be
-used to create new effect sequences.
-
-   All binaural beat sequences are played with a relatively low gain —
-they are designed to be heard in the background and when effective blend
-fully into the background.  You can increase the overall volume of all
-binaural beat sequences by customizing
- -- Variable: User Option sox-binaural-gain-offset to a positive value
-   — default is 0.
-
-12.231.1.1 High-Level Commands For Pre-Defined Binaural Beats
-.............................................................
-
-These commands can be called directly to play one of the predefined
-binaural beats.
-
-   • ‘sox-rev-up’: A set of binaural beats designed for use at the start
-     of the day.  Transitions from _Dream_ -> _Think_ ->_Act_ ->
-     _Focus_.
-   • ‘sox-wind-down’: A set of binaural beats for winding down at the
-     end of the day.  This can be thought of as the reverse of
-     ‘sox-rev-up’ and the sequence transitions from _Act_ -> _Think_ ->
-     _Dream_ ->_Sleep_.
-   • ‘sox-turn-down’: Designed for falling asleep.  This sequence starts
-     with a short period of _Dream_ before moving to _Sleep_.
-   • ‘sox-relax’: A variant of the previous sequence, ‘sox-relax’ spends
-     equal time in _Dream_ and _Sleep_.
-   • ‘sox-binaural’: Provide a completion-based front-end to playing any
-     one of the predefined binaural effects (_Delta_, _Theta_, _Alpha_,
-     _Beta_, or _Gamma_.  The previously defined sequences are built up
-     using these effects.
-   • ‘sox-beats-binaural’: Plays a collection of binaural beats,
-     prompting for carrier and beat frequencies for each tone.  The
-     predefined sequences listed earlier were created after first
-     generating experimental beat-sequences using this command.
-   • ‘sox-slide-binaural’: Prompts for two binaural effects (see above)
-     and generates a binaural beat that _slides_ from the first effect
-     to the second over a specified duration.
-   • ‘sox-chakras’: Pick amongst one of a predefined set of sequences
-     designed for _Chakra_ meditation.
-   • ‘sox-tone-binaural’: Generate a simple binaural beat with a single
-     carrier frequency.
-   • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
-     binaural beat to another.
-
-12.231.2 Sox-Gen Commands
--------------------------
-
-12.231.2.1 sox-beats-binaural
-.............................
-
- -- Command: sox-beats-binaural (length beat-spec-list gain)
-
-     Play binaural audio with beat-spec specifying the various tones.
-     Param ‘beat-spec-list’ is a list of ‘(carrier beat) tuples.
-
-     (fn LENGTH BEAT-SPEC-LIST GAIN)
-
-12.231.2.2 sox-binaural
-.......................
-
- -- Command: sox-binaural (name duration)
-     ‘C-, b’
-     ‘C-x @ a b’
-
-     Play specified binaural effect.
-
-     (fn NAME DURATION)
-
-12.231.2.3 sox-chakras
-......................
-
- -- Command: sox-chakras (theme duration)
-
-     Play each chakra for specified duration.
-     Parameter ‘theme’ specifies variant.
-
-     (fn THEME DURATION)
-
-12.231.2.4 sox-relax
-....................
-
- -- Command: sox-relax (length)
-
-     Play relax set of  binaural beats for ‘length’ seconds.
-
-     (fn LENGTH)
-
-12.231.2.5 sox-rev-up
-.....................
-
- -- Command: sox-rev-up (length)
-
-     Play rev-up set of  binaural beats for ‘length’ seconds.
-
-     (fn LENGTH)
-
-12.231.2.6 sox-slide-binaural
-.............................
-
- -- Command: sox-slide-binaural (name-1 name-2 duration)
-
-     Play specified binaural slide from ‘name-1’ to ‘name-2’.
-
-     (fn NAME-1 NAME-2 DURATION)
-
-12.231.2.7 sox-tone-binaural
-............................
-
- -- Command: sox-tone-binaural (length freq beat gain)
-
-     Play binaural audio with carrier frequency ‘freq’, beat ‘beat’, and
-     gain ‘gain’.
-
-     (fn LENGTH FREQ BEAT GAIN)
-
-12.231.2.8 sox-tone-slide-binaural
-..................................
-
- -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
-          gain)
-
-     Play binaural audio with carrier frequency ‘freq’, beat
-     ‘beat-start’ -> ‘beat-end’, and gain ‘gain’.
-
-     (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
-
-12.231.2.9 sox-turn-down
-........................
-
- -- Command: sox-turn-down (length)
-
-     Play turn-down set of  binaural beats for ‘length’ seconds.
-
-     (fn LENGTH)
-
-12.231.2.10 sox-wind-down
-.........................
-
- -- Command: sox-wind-down (length)
-
-     Play wind-down set of  binaural beats for ‘length’ seconds.
-
-     (fn LENGTH)
-
-12.231.3 sox-gen Options
-------------------------
-
- -- Variable: User Option sox-binaural-gain-offset
-     User specified offset that is added to default gain when generating
-     tones using SoX, e.g., for binaural beats.
-
- -- Variable: User Option sox-binaural-slider-scale
-     Scale factor used to compute slide duration when moving from one
-     binaural beat to another.
-
-
-File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: sox-gen,  Up: Emacspeak Commands And Options
-
-12.232 tetris
-=============
-
-
-File: emacspeak.info,  Node: toy-braille,  Next: voice-defs,  Prev: tetris,  Up: Emacspeak Commands And Options
-
-12.233 toy-braille
-==================
-
-This is a bit of toy code to write in braille.  To try this, load this
-file (‘M-x load-file path/to/toy-braille.el’), then do:
-
-   M-: (get-toy-braille-string "just a test")
-
-   That’s just a toy, meant as an excuse and maybe a tool to learn a bit
-of braille, nothing more.
-
-   Unicode fonts are needed.
-
-   You can try:
-
-   M-: (set-default-font "-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*")
-
-   or
-
-   M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
-
-   (it will only work if the relative font is installed and properly
-configured).
-
-
-File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: toy-braille,  Up: Emacspeak Commands And Options
-
-12.234 voice-defs
-=================
-
-Contains just the voice definitions.  Voices are defined using the macro
-‘defvoice’ from module voice-setup.
-
-12.234.1 An Overview Of Voice Design
-------------------------------------
-
-Aural CSS defines 4 primary device-independent dimensions.
-Average-Pitch, Pitch-Range, Stress, and Richness.  There are ten
-possible values along each dimension (0..9), giving a total of 10,000
-possible settings.
-
-   Engine-specific modules such as dectalk-voices and outloud-voices map
-these dimensions to device-specific parameters and are responsible for
-generating the final device-specific codes.
-
-12.234.2 Creating Distinct Voices Via Aural CSS
------------------------------------------------
-
-Along each dimension, a setting of 5 is mapped to the default setting
-for the voice as implemented by a given engine.  Values on either side
-of 5 produce opposing effects.  This module defines the following
-effects, which can be conceptualized as pairs.
-  A. bolden , lighten
-  B. animate, monotone
-  C. brighten, smoothen
-   In addition, we define ‘bolden-and-animate’ as an auditory analog of
-‘bold-italic’.  The two additional voices ‘indent’ and ‘annotate’
-predate the above and are retained as two _softer_ voices.  Finally,
-there are 4 _overlay_ voices, corresponding to the 4 dimensions; these
-each set one of the dimensions to ‘8’.  Thus, we have a total of 25
-unique voices defined in this module.
-
-12.234.3 Things to note
------------------------
-
-   • These voices are designed to be distinctive when used in a given
-     utterance.
-   • Non-goal — to be able to identify each distinct voice in isolation.
-   • Audio-formatting is designed to set apart different types of
-     content so that when used in context, one can easily pick-out
-     distinct parts of the utterance.
-
-12.234.4 voice-defs Options
----------------------------
-
- -- Variable: User Option voice-animate-extra-settings
-     Settings for voice-animate-extra
-
- -- Variable: User Option voice-animate-medium-settings
-     Settings for voice-animate-medium
-
- -- Variable: User Option voice-animate-settings
-     Settings for voice-animate
-
- -- Variable: User Option voice-annotate-settings
-     Settings for voice-annotate
-
- -- Variable: User Option voice-bolden-and-animate-settings
-     Settings for voice-bolden-and-animate
-
- -- Variable: User Option voice-bolden-extra-settings
-     Settings for voice-bolden-extra
-
- -- Variable: User Option voice-bolden-medium-settings
-     Settings for voice-bolden-medium
-
- -- Variable: User Option voice-bolden-settings
-     Settings for voice-bolden
-
- -- Variable: User Option voice-brighten-extra-settings
-     Settings for voice-brighten-extra
-
- -- Variable: User Option voice-brighten-medium-settings
-     Settings for voice-brighten-medium
-
- -- Variable: User Option voice-brighten-settings
-     Settings for voice-brighten
-
- -- Variable: User Option voice-indent-settings
-     Settings for voice-indent
-
- -- Variable: User Option voice-lighten-extra-settings
-     Settings for voice-lighten-extra
-
- -- Variable: User Option voice-lighten-medium-settings
-     Settings for voice-lighten-medium
-
- -- Variable: User Option voice-lighten-settings
-     Settings for voice-lighten
-
- -- Variable: User Option voice-monotone-extra-settings
-     Settings for voice-monotone-extra
-
- -- Variable: User Option voice-monotone-medium-settings
-     Settings for voice-monotone-medium
-
- -- Variable: User Option voice-monotone-settings
-     Settings for voice-monotone
-
- -- Variable: User Option voice-overlay-0-settings
-     Settings for voice-overlay-0
-
- -- Variable: User Option voice-overlay-1-settings
-     Settings for voice-overlay-1
-
- -- Variable: User Option voice-overlay-2-settings
-     Settings for voice-overlay-2
-
- -- Variable: User Option voice-overlay-3-settings
-     Settings for voice-overlay-3
-
- -- Variable: User Option voice-smoothen-extra-settings
-     Settings for voice-smoothen-extra
-
- -- Variable: User Option voice-smoothen-medium-settings
-     Settings for voice-smoothen-medium
-
- -- Variable: User Option voice-smoothen-settings
-     Settings for voice-smoothen
 
