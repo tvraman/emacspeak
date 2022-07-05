@@ -84,9 +84,7 @@
   (emacspeak-auditory-icon 'progress))
 
 (defun emacspeak-hydra-post ()
-  "Provide auditory icon.
-Also turn on hydra-is-helpful if it was turned off."
-  (setq hydra-is-helpful t)
+  "Provide auditory icon. "
   (dtk-stop)
   (when emacspeak-use-auditory-icons
     (emacspeak-play-auditory-icon 'close-object)))
