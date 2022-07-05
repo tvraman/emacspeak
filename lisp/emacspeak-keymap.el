@@ -586,8 +586,6 @@
 (defcustom emacspeak-hyper-keys
   '(
     ("DEL" emacspeak-wizards-snarf-sexp)
-    ("C-," emacspeak-wizards-cycle-to-previous-buffer)
-    ("C-." emacspeak-wizards-cycle-to-next-buffer)
     ("C-l" emacspeak-librivox)
     ("'" emacspeak-m-player-using-hrtf)
     ("," previous-buffer)
