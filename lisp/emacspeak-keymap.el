@@ -767,16 +767,19 @@
           :tag "Emacspeak windows Keys"
           (list
            :tag "Key Binding"
-           (string :tag "Key")
+           (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
       (when val
         (cl-loop
          for binding in values do
-         (global-set-key
-          (global-set-key (event-apply-modifier (cl-first binding) 'super 23 "s-")
-                          (cl-second binding)))))
+          (global-set-key
+           (vector
+            (event-apply-modifier
+             (cl-first binding) 
+             'super 23 "s-"))
+                          (cl-second binding))))
       (set-default
        sym
        (sort
