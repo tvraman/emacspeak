@@ -699,7 +699,6 @@
     ("," eldoc)
     ("a" emacspeak-feeds-atom-display)
     ("b" sox-binaural)
-    ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("d" sdcv-search-input)
     ("e" eww)
     ("f" ffap)
