@@ -444,7 +444,6 @@
 (defcustom emacspeak-personal-keys
   '(
     ("," emacspeak-wizards-shell-directory-set)
-    ("," emacspeak-wizards-shell-toggle)
     ("." emacspeak-wizards-shell-directory-reset)
     ("0" emacspeak-wizards-shell-by-key)
     ("1" emacspeak-wizards-shell-by-key)
@@ -650,7 +649,6 @@
 (defcustom emacspeak-super-keys
   '(
     ("SPC"  emacspeak-wizards-scratch)
-    ("," emacspeak-wizards-shell-toggle)
     ("." emacspeak-wizards-shell-directory-reset)
     ("C-n" emacspeak-wizards-google-headlines)
     ("R" emacspeak-webspace-feed-reader)
