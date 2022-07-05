@@ -236,14 +236,6 @@ Interactive PREFIX arg means toggle the global default value. ")
  'shell-mode-hook
  #'(lambda ()
      (emacspeak-pronounce-add-buffer-local-dictionary-entry
-      emacspeak-pronounce-date-mm-dd-yyyy-pattern
-      (cons #'re-search-forward
- 'emacspeak-pronounce-mm-dd-yyyy-date))))
-
-(add-hook
- 'shell-mode-hook
- #'(lambda ()
-     (emacspeak-pronounce-add-buffer-local-dictionary-entry
       emacspeak-pronounce-date-yyyy-mm-dd-pattern
       (cons #'re-search-forward
  'emacspeak-pronounce-yyyy-mm-dd-date))))
