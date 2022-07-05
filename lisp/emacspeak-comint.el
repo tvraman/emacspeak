@@ -143,11 +143,6 @@ Interactive PREFIX arg means toggle the global default value. ")
          'emacspeak-pronounce-sha-checksum))
   (emacspeak-pronounce-add-dictionary-entry
    'comint-mode
-   emacspeak-pronounce-rfc-3339-datetime-pattern
-   (cons 're-search-forward
-         'emacspeak-pronounce-decode-rfc-3339-datetime))
-  (emacspeak-pronounce-add-dictionary-entry
-   'comint-mode
    emacspeak-pronounce-date-mm-dd-yyyy-pattern
    (cons 're-search-forward
          'emacspeak-pronounce-mm-dd-yyyy-date))
@@ -156,6 +151,11 @@ Interactive PREFIX arg means toggle the global default value. ")
    emacspeak-pronounce-date-yyyy-mm-dd-pattern
    (cons 're-search-forward
          'emacspeak-pronounce-yyyy-mm-dd-date))
+  (emacspeak-pronounce-add-dictionary-entry
+   'comint-mode
+   emacspeak-pronounce-rfc-3339-datetime-pattern
+   (cons 're-search-forward
+         'emacspeak-pronounce-decode-rfc-3339-datetime))
   (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
