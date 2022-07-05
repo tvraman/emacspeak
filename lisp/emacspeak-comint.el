@@ -232,8 +232,15 @@ Interactive PREFIX arg means toggle the global default value. ")
   (cons 're-search-forward
         'emacspeak-pronounce-uuid)))
 
-(add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
+(add-hook
+ 'shell-mode-hook
+ #'(lambda ()
+     (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      emacspeak-pronounce-date-mm-dd-yyyy-pattern
+      (cons #'re-search-forward
+ 'emacspeak-pronounce-mm-dd-yyyy-date))))
 
+(add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 (defadvice shell-dirstack-message (around emacspeak pre act comp)
   "Silence messages"
   (ems-with-messages-silenced
