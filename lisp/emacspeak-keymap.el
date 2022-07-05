@@ -782,7 +782,7 @@
        sym
        (sort
         val
-        #'(lambda (a b) (string-lessp (car a) (car b)))))))
+        #'(lambda (a b) (< (car a) (car b)))))))
 
 ;;}}}
 ;;{{{ Helper: recover end-of-line
