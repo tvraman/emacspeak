@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1155 commands and 145 options.
+This chapter documents a total of 1155 commands and 146 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -2913,8 +2913,6 @@ Open CSV file on current dired line.
 @table @kbd
 @item C-. d
 @kindex C-. d
-@item C-' d
-@kindex C-' d
 @item C-x @@ s d
 @kindex C-x @@ s d
 @end table
@@ -7619,6 +7617,11 @@ Hyper-Key bindings.
 
 @end defvar
 
+@defvar {User Option} emacspeak-multi-keys
+Multi key bindings. 
+
+@end defvar
+
 @defvar {User Option} emacspeak-personal-ctlx-keys
 Key bindings for use with C-e C-x. 
 
@@ -8224,8 +8227,6 @@ Load playlist.
 @table @kbd
 @item C-. l
 @kindex C-. l
-@item C-' l
-@kindex C-' l
 @item C-x @@ s l
 @kindex C-x @@ s l
 @end table
@@ -10017,8 +10018,6 @@ or http://orgmode.org/
 @table @kbd
 @item C-. h
 @kindex C-. h
-@item C-' h
-@kindex C-' h
 @item C-x @@ s h
 @kindex C-x @@ s h
 @end table
@@ -15500,8 +15499,6 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 @table @kbd
 @item C-. R
 @kindex C-. R
-@item C-' R
-@kindex C-' R
 @item C-x @@ s R
 @kindex C-x @@ s R
 @end table
@@ -16508,8 +16505,6 @@ Update exec-path from shell path.
 @table @kbd
 @item C-. a
 @kindex C-. a
-@item C-' a
-@kindex C-' a
 @item C-x @@ s a
 @kindex C-x @@ s a
 @end table
@@ -16657,8 +16652,6 @@ Generate a widget-enabled finder wizard.
 @table @kbd
 @item C-. C-n
 @kindex C-. C-n
-@item C-' C-n
-@kindex C-' C-n
 @item C-x @@ s C-n
 @kindex C-x @@ s C-n
 @end table
@@ -16675,8 +16668,6 @@ Display just the headlines from Google News.
 @table @kbd
 @item C-. n
 @kindex C-. n
-@item C-' n
-@kindex C-' n
 @item C-x @@ s n
 @kindex C-x @@ s n
 @end table
@@ -16768,8 +16759,6 @@ Quick Quote: Just stock price from IEXCloud.
 @table @kbd
 @item C-. q
 @kindex C-. q
-@item C-' q
-@kindex C-' q
 @item C-x @@ s q
 @kindex C-x @@ s q
 @end table
@@ -17021,8 +17010,6 @@ Works best when you already are ssh-impel-ed in and have a talking
 @table @kbd
 @item C-. SPC
 @kindex C-. SPC
-@item C-' SPC
-@kindex C-' SPC
 @item C-x @@ s SPC
 @kindex C-x @@ s SPC
 @end table
@@ -17144,8 +17131,6 @@ Prompts for and runs shell command on current file.
 @table @kbd
 @item C-. .
 @kindex C-. .
-@item C-' .
-@kindex C-' .
 @item C-e x .
 @kindex C-e x .
 @item <fn> x .
@@ -17179,18 +17164,16 @@ Define current directory as this shell’s project directory.
 @kindex C-; C-j
 @item C-. ,
 @kindex C-. ,
-@item C-' ,
-@kindex C-' ,
 @item <fn> <f11>
 @kindex <fn> <f11>
 @item C-e x ,
 @kindex C-e x ,
 @item <fn> x ,
 @kindex <fn> x ,
-@item C-x @@ h C-j
-@kindex C-x @@ h C-j
 @item C-x @@ s ,
 @kindex C-x @@ s ,
+@item C-x @@ h C-j
+@kindex C-x @@ h C-j
 @end table
 
 @findex emacspeak-wizards-shell-toggle
@@ -17480,8 +17463,6 @@ Buffer menu filtered by  m-player mode.
 @kindex C-z b
 @item C-. m
 @kindex C-. m
-@item C-' m
-@kindex C-' m
 @item C-, c
 @kindex C-, c
 @item C-x @@ a c
@@ -17868,8 +17849,6 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 @table @kbd
 @item C-. o
 @kindex C-. o
-@item C-' o
-@kindex C-' o
 @item C-x @@ s o
 @kindex C-x @@ s o
 @end table
@@ -17970,8 +17949,6 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 @table @kbd
 @item C-. v
 @kindex C-. v
-@item C-' v
-@kindex C-' v
 @item C-x @@ s v
 @kindex C-x @@ s v
 @end table
@@ -18613,8 +18590,6 @@ communication == email, IM, ... map to  the same @emph{mood}.
 @table @kbd
 @item C-. s
 @kindex C-. s
-@item C-' s
-@kindex C-' s
 @item C-x @@ s s
 @kindex C-x @@ s s
 @end table
@@ -18675,8 +18650,6 @@ Activate scapes named ‘names’ --- a list of strings.
 @table @kbd
 @item C-. r
 @kindex C-. r
-@item C-' r
-@kindex C-' r
 @item C-x @@ s r
 @kindex C-x @@ s r
 @end table
@@ -18717,8 +18690,6 @@ Shows default theme in a special buffer.
 @table @kbd
 @item C-. t
 @kindex C-. t
-@item C-' t
-@kindex C-' t
 @item C-x @@ s t
 @kindex C-x @@ s t
 @end table
@@ -18736,8 +18707,6 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 @table @kbd
 @item C-. u
 @kindex C-. u
-@item C-' u
-@kindex C-' u
 @item C-x @@ s u
 @kindex C-x @@ s u
 @end table

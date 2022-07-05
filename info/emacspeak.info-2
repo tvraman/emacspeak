@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 3, 2022.
+last updated on July 4, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev: emacspeak-gomoku,  Up: Emacspeak Commands And Options
@@ -782,6 +782,9 @@ found on laptops is denoted <fn>
  -- Variable: User Option emacspeak-hyper-keys
      Hyper-Key bindings.
 
+ -- Variable: User Option emacspeak-multi-keys
+     Multi key bindings.
+
  -- Variable: User Option emacspeak-personal-ctlx-keys
      Key bindings for use with C-e C-x.
 
@@ -1291,7 +1294,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-locate-media (pattern)
      ‘C-. l’
-     ‘C-' l’
      ‘C-x @ s l’
 
      Locate media matching  pattern.  The results can be
@@ -2822,7 +2824,6 @@ http://orgmode.org/
 
  -- Command: emacspeak-org-capture-link (&optional open)
      ‘C-. h’
-     ‘C-' h’
      ‘C-x @ s h’
 
      Capture hyperlink to current context.
@@ -7107,7 +7108,6 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
  -- Command: emacspeak-webspace-feed-reader (&optional refresh)
      ‘C-. R’
-     ‘C-' R’
      ‘C-x @ s R’
 
      Display Feed Reader Feed list in a WebSpace buffer.
@@ -7825,7 +7825,6 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-execute-asynchronously (key)
      ‘C-. a’
-     ‘C-' a’
      ‘C-x @ s a’
 
      Read key-sequence, then execute its command on a new thread.
@@ -7937,7 +7936,6 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-google-headlines
      ‘C-. C-n’
-     ‘C-' C-n’
      ‘C-x @ s C-n’
 
      Display just the headlines from Google News.
@@ -7947,7 +7945,6 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-google-news
      ‘C-. n’
-     ‘C-' n’
      ‘C-x @ s n’
 
      Clean up news.google.com.
@@ -8014,7 +8011,6 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-iex-show-quote (&optional refresh)
      ‘C-. q’
-     ‘C-' q’
      ‘C-x @ s q’
 
      Show portfolio  data from cache.
@@ -8200,7 +8196,6 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-scratch
      ‘C-. SPC’
-     ‘C-' SPC’
      ‘C-x @ s SPC’
 
      Switch to *scratch* buffer, creating it if necessary.
@@ -8279,7 +8274,6 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-shell-directory-reset
      ‘C-. .’
-     ‘C-' .’
      ‘C-e x .’
      ‘<fn> x .’
      ‘C-x @ s .’
@@ -8300,12 +8294,11 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-e <f11>’
      ‘C-; C-j’
      ‘C-. ,’
-     ‘C-' ,’
      ‘<fn> <f11>’
      ‘C-e x ,’
      ‘<fn> x ,’
-     ‘C-x @ h C-j’
      ‘C-x @ s ,’
+     ‘C-x @ h C-j’
 
      Switch to  shell  and cd to
        directory of the previously current buffer.
@@ -8500,7 +8493,6 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
      ‘C-z b’
      ‘C-. m’
-     ‘C-' m’
      ‘C-, c’
      ‘C-x @ a c’
      ‘C-x @ s m’
@@ -8851,7 +8843,6 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-outliner/body
      ‘C-. o’
-     ‘C-' o’
      ‘C-x @ s o’
 
      Call the body in the "emacspeak-muggles-outliner" hydra.
@@ -8933,7 +8924,6 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-view/body
      ‘C-. v’
-     ‘C-' v’
      ‘C-x @ s v’
 
      Call the body in the "emacspeak-muggles-view" hydra.
@@ -9501,7 +9491,6 @@ email, IM, ...  map to the same _mood_.
 
  -- Command: soundscape (scape)
      ‘C-. s’
-     ‘C-' s’
      ‘C-x @ s s’
 
      Play soundscape.
@@ -9547,7 +9536,6 @@ email, IM, ...  map to the same _mood_.
 
  -- Command: soundscape-restart (&optional prompt)
      ‘C-. r’
-     ‘C-' r’
      ‘C-x @ s r’
 
      Restart Soundscape  environment.
@@ -9577,7 +9565,6 @@ email, IM, ...  map to the same _mood_.
 
  -- Command: soundscape-toggle
      ‘C-. t’
-     ‘C-' t’
      ‘C-x @ s t’
 
      Toggle automatic SoundScapes.
@@ -9588,7 +9575,6 @@ email, IM, ...  map to the same _mood_.
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
      ‘C-. u’
-     ‘C-' u’
      ‘C-x @ s u’
 
      Update mood/scape mapping for current  mode.
