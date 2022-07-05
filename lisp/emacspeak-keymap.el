@@ -758,26 +758,25 @@
 
 ;;}}}
 ;;{{{Windows Key As One More Map
-(defcustom emacspeak-windows-keys
-  '(
-    )
+(defcustom emacspeak-windows-keys nil
   "Key bindings on the windows  key. "
   :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak windows Keys"
-          (list
-           :tag "Key Binding"
-           (character :tag "Key")
-           (ems-interactive-command :tag "Command")))
+  :type
+  '(repeat
+    :tag "Emacspeak windows Keys"
+    (list
+     :tag "Key Binding"
+     (character :tag "Key")
+     (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
       (when val
         (cl-loop
          for binding in val do
-          (global-set-key
-           (vector
-            (event-apply-modifier (cl-first binding) 'super 23 "s-"))
-                          (cl-second binding))))
+         (global-set-key
+          (vector
+           (event-apply-modifier (cl-first binding) 'super 23 "s-"))
+          (cl-second binding))))
       (set-default
        sym
        (sort
