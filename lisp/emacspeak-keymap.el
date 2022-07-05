@@ -670,7 +670,7 @@
     ("s" soundscape)
     ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
-    ("w" define-word))
+    )
   "Super key bindings. "
   :group 'emacspeak
   :type '(repeat
