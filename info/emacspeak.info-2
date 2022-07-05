@@ -8277,6 +8277,8 @@ Contains various wizards for the Emacspeak desktop.
 .................................................
 
  -- Command: emacspeak-wizards-shell-directory-set
+     ‘C-e x ,’
+     ‘<fn> x ,’
 
      Define current directory as this shell’s project directory.
 
@@ -8286,11 +8288,7 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-shell-toggle
      ‘C-e <f11>’
      ‘C-; C-j’
-     ‘C-. ,’
      ‘<fn> <f11>’
-     ‘C-e x ,’
-     ‘<fn> x ,’
-     ‘C-x @ s ,’
      ‘C-x @ h C-j’
 
      Switch to  shell  and cd to
