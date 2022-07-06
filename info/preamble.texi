@@ -17,8 +17,7 @@ The manual is divided into the following chapters:
 * Voice Lock: Voice Lock.
 * Using Online Help: Using Online Help.
 * Emacs Packages:  Emacs Packages.
-* Running Terminal Based Applications: Running Terminal Based
-* Applications.
+* Running Terminal Based Applications: Running Terminal Based Applications.
 * Emacspeak Keymaps: Emacspeak Keymaps
 * Emacspeak Commands And Options:  Emacspeak Commands And Options.
 * Emacspeak Keyboard Commands: Emacspeak Keyboard Commands.
