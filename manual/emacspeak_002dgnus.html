@@ -49,7 +49,7 @@ ul.no-bullet {list-style: none}
 Next: <a href="emacspeak_002dgo_002dmode.html" accesskey="n" rel="next">emacspeak-go-mode</a>, Previous: <a href="emacspeak_002dgnuplot.html" accesskey="p" rel="prev">emacspeak-gnuplot</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="emacspeak_002dgnus-1"></span><h3 class="section">12.89 emacspeak-gnus</h3>
+<span id="emacspeak_002dgnus-1"></span><h3 class="section">13.89 emacspeak-gnus</h3>
 
 <p>This module advises gnus to speak.
 Updating support in 2014 (Emacspeak is nearly 20 years old)
@@ -63,7 +63,7 @@ By default all article headers are hidden, so you hear the real news.
 <li><a href="#emacspeak_002dgnus-Options" accesskey="2">emacspeak-gnus Options</a></li>
 </ul>
 <div class="subsection" id="Emacspeak_002dGnus-Commands">
-<h4 class="subsection">12.89.1 Emacspeak-Gnus Commands</h4>
+<h4 class="subsection">13.89.1 Emacspeak-Gnus Commands</h4>
 
 <ul class="section-toc">
 <li><a href="#emacspeak_002dgnus_002dpersonal_002dgmail_002dlast_002dweek" accesskey="1">emacspeak-gnus-personal-gmail-last-week</a></li>
@@ -71,7 +71,7 @@ By default all article headers are hidden, so you hear the real news.
 <li><a href="#emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit" accesskey="3">emacspeak-gnus-summary-catchup-quietly-and-exit</a></li>
 </ul>
 <div class="subsubsection" id="emacspeak_002dgnus_002dpersonal_002dgmail_002dlast_002dweek">
-<h4 class="subsubsection">12.89.1.1 emacspeak-gnus-personal-gmail-last-week</h4>
+<h4 class="subsubsection">13.89.1.1 emacspeak-gnus-personal-gmail-last-week</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dgnus_002dpersonal_002dgmail_002dlast_002dweek"><span class="category">Command: </span><span><strong>emacspeak-gnus-personal-gmail-last-week</strong><a href='#index-emacspeak_002dgnus_002dpersonal_002dgmail_002dlast_002dweek' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dgnus_002dpersonal_002dgmail_002dlast_002dweek-1"></span>
@@ -83,7 +83,7 @@ By default all article headers are hidden, so you hear the real news.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dgnus_002dpersonal_002dgmail_002drecent">
-<h4 class="subsubsection">12.89.1.2 emacspeak-gnus-personal-gmail-recent</h4>
+<h4 class="subsubsection">13.89.1.2 emacspeak-gnus-personal-gmail-recent</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dgnus_002dpersonal_002dgmail_002drecent"><span class="category">Command: </span><span><strong>emacspeak-gnus-personal-gmail-recent</strong><a href='#index-emacspeak_002dgnus_002dpersonal_002dgmail_002drecent' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dgnus_002dpersonal_002dgmail_002drecent-1"></span>
@@ -95,7 +95,7 @@ By default all article headers are hidden, so you hear the real news.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit">
-<h4 class="subsubsection">12.89.1.3 emacspeak-gnus-summary-catchup-quietly-and-exit</h4>
+<h4 class="subsubsection">13.89.1.3 emacspeak-gnus-summary-catchup-quietly-and-exit</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit"><span class="category">Command: </span><span><strong>emacspeak-gnus-summary-catchup-quietly-and-exit</strong><a href='#index-emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit-1"></span>
@@ -108,7 +108,7 @@ By default all article headers are hidden, so you hear the real news.
 </div>
 </div>
 <div class="subsection" id="emacspeak_002dgnus-Options">
-<h4 class="subsection">12.89.2 emacspeak-gnus Options</h4>
+<h4 class="subsection">13.89.2 emacspeak-gnus Options</h4>
 
 <dl class="def">
 <dt id="index-User-Option-38"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-gnus-large-article</em><a href='#index-User-Option-38' class='copiable-anchor'> &para;</a></span></dt>
@@ -117,11 +117,15 @@ emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful.
 </p>
+<p>Default Value: <code><tt>100</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-39"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-gnus-punctuation-mode</em><a href='#index-User-Option-39' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Pronunciation mode to use for gnus buffers.
+</p>
+<p>Default Value: <code><tt>all</tt></code>
 </p>
 </dd></dl>
 

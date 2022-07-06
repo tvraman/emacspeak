@@ -49,7 +49,7 @@ ul.no-bullet {list-style: none}
 Next: <a href="voice_002dsetup.html" accesskey="n" rel="next">voice-setup</a>, Previous: <a href="toy_002dbraille.html" accesskey="p" rel="prev">toy-braille</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="voice_002ddefs-1"></span><h3 class="section">12.234 voice-defs</h3>
+<span id="voice_002ddefs-1"></span><h3 class="section">13.234 voice-defs</h3>
 
 <p>Contains just the voice definitions. Voices are defined using the
 macro <code>defvoice</code> from  module voice-setup.
@@ -60,7 +60,7 @@ macro <code>defvoice</code> from  module voice-setup.
 <li><a href="#voice_002ddefs-Options" accesskey="4">voice-defs Options</a></li>
 </ul>
 <div class="subsection" id="An-Overview-Of-Voice-Design">
-<h4 class="subsection">12.234.1 An Overview Of Voice Design</h4>
+<h4 class="subsection">13.234.1 An Overview Of Voice Design</h4>
 
 <p>Aural CSS defines 4 primary device-independent dimensions.
 Average-Pitch, Pitch-Range, Stress, and Richness. There are ten
@@ -72,7 +72,7 @@ map these dimensions to device-specific parameters and are
 responsible for generating the final device-specific codes.
 </p></div>
 <div class="subsection" id="Creating-Distinct-Voices-Via-Aural-CSS">
-<h4 class="subsection">12.234.2 Creating  Distinct Voices  Via Aural CSS</h4>
+<h4 class="subsection">13.234.2 Creating  Distinct Voices  Via Aural CSS</h4>
 <p>Along each dimension, a setting of 5 is mapped to the default
 setting for the voice as implemented by a given engine. Values on
 either side of  5 produce opposing effects.
@@ -92,7 +92,7 @@ Finally, there are 4 <em>overlay</em> voices, corresponding  to the
 Thus, we have a total of 25 unique voices defined in this module.
 </p></div>
 <div class="subsection" id="Things-to-note">
-<h4 class="subsection">12.234.3 Things to note</h4>
+<h4 class="subsection">13.234.3 Things to note</h4>
 <ul>
 <li> These voices are designed to be distinctive when used in  a given
 utterance.
@@ -105,11 +105,13 @@ distinct parts of the utterance.
 
 </div>
 <div class="subsection" id="voice_002ddefs-Options">
-<h4 class="subsection">12.234.4 voice-defs Options</h4>
+<h4 class="subsection">13.234.4 voice-defs Options</h4>
 
 <dl class="def">
 <dt id="index-User-Option-121"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-animate-extra-settings</em><a href='#index-User-Option-121' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-animate-extra
+</p>
+<p>Default Value: <code><tt>(nil nil 8 8 8)</tt></code>
 </p>
 </dd></dl>
 
@@ -117,11 +119,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-122"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-animate-medium-settings</em><a href='#index-User-Option-122' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-animate-medium
 </p>
+<p>Default Value: <code><tt>(nil nil 7 7 7)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-123"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-animate-settings</em><a href='#index-User-Option-123' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-animate
+</p>
+<p>Default Value: <code><tt>(nil nil 6 6 6)</tt></code>
 </p>
 </dd></dl>
 
@@ -129,11 +135,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-124"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-annotate-settings</em><a href='#index-User-Option-124' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-annotate
 </p>
+<p>Default Value: <code><tt>(nil nil 4 0 4)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-125"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-and-animate-settings</em><a href='#index-User-Option-125' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-bolden-and-animate
+</p>
+<p>Default Value: <code><tt>(nil 3 8 8 8)</tt></code>
 </p>
 </dd></dl>
 
@@ -141,11 +151,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-126"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-extra-settings</em><a href='#index-User-Option-126' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-bolden-extra
 </p>
+<p>Default Value: <code><tt>(nil 1 nil 8)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-127"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-medium-settings</em><a href='#index-User-Option-127' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-bolden-medium
+</p>
+<p>Default Value: <code><tt>(nil 2 nil 7)</tt></code>
 </p>
 </dd></dl>
 
@@ -153,11 +167,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-128"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-bolden-settings</em><a href='#index-User-Option-128' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-bolden
 </p>
+<p>Default Value: <code><tt>(nil 3 nil 6)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-129"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-brighten-extra-settings</em><a href='#index-User-Option-129' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-brighten-extra
+</p>
+<p>Default Value: <code><tt>(nil nil nil 3 8)</tt></code>
 </p>
 </dd></dl>
 
@@ -165,11 +183,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-130"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-brighten-medium-settings</em><a href='#index-User-Option-130' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-brighten-medium
 </p>
+<p>Default Value: <code><tt>(nil nil nil 4 7)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-131"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-brighten-settings</em><a href='#index-User-Option-131' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-brighten
+</p>
+<p>Default Value: <code><tt>(nil nil nil 5 6)</tt></code>
 </p>
 </dd></dl>
 
@@ -177,11 +199,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-132"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-indent-settings</em><a href='#index-User-Option-132' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-indent
 </p>
+<p>Default Value: <code><tt>(nil nil 3 1 3)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-133"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-lighten-extra-settings</em><a href='#index-User-Option-133' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-lighten-extra
+</p>
+<p>Default Value: <code><tt>(nil 9 nil 4)</tt></code>
 </p>
 </dd></dl>
 
@@ -189,11 +215,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-134"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-lighten-medium-settings</em><a href='#index-User-Option-134' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-lighten-medium
 </p>
+<p>Default Value: <code><tt>(nil 7 nil 3)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-135"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-lighten-settings</em><a href='#index-User-Option-135' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-lighten
+</p>
+<p>Default Value: <code><tt>(nil 6 nil 2)</tt></code>
 </p>
 </dd></dl>
 
@@ -201,11 +231,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-136"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-monotone-extra-settings</em><a href='#index-User-Option-136' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-monotone-extra
 </p>
+<p>Default Value: <code><tt>(nil nil 0 0)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-137"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-monotone-medium-settings</em><a href='#index-User-Option-137' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-monotone-medium
+</p>
+<p>Default Value: <code><tt>(nil nil 2 2)</tt></code>
 </p>
 </dd></dl>
 
@@ -213,11 +247,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-138"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-monotone-settings</em><a href='#index-User-Option-138' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-monotone
 </p>
+<p>Default Value: <code><tt>(nil nil 4 4)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-139"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-0-settings</em><a href='#index-User-Option-139' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-overlay-0
+</p>
+<p>Default Value: <code><tt>(nil 8 nil nil nil nil)</tt></code>
 </p>
 </dd></dl>
 
@@ -225,11 +263,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-140"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-1-settings</em><a href='#index-User-Option-140' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-overlay-1
 </p>
+<p>Default Value: <code><tt>(nil nil 8 nil nil nil)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-141"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-2-settings</em><a href='#index-User-Option-141' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-overlay-2
+</p>
+<p>Default Value: <code><tt>(nil nil nil 8 nil nil)</tt></code>
 </p>
 </dd></dl>
 
@@ -237,11 +279,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-142"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-overlay-3-settings</em><a href='#index-User-Option-142' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-overlay-3
 </p>
+<p>Default Value: <code><tt>(nil nil nil nil 8 nil)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-143"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-smoothen-extra-settings</em><a href='#index-User-Option-143' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-smoothen-extra
+</p>
+<p>Default Value: <code><tt>(nil nil nil 0 2)</tt></code>
 </p>
 </dd></dl>
 
@@ -249,11 +295,15 @@ distinct parts of the utterance.
 <dt id="index-User-Option-144"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-smoothen-medium-settings</em><a href='#index-User-Option-144' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-smoothen-medium
 </p>
+<p>Default Value: <code><tt>(nil nil nil 2 4)</tt></code>
+</p>
 </dd></dl>
 
 <dl class="def">
 <dt id="index-User-Option-145"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-smoothen-settings</em><a href='#index-User-Option-145' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Settings for voice-smoothen
+</p>
+<p>Default Value: <code><tt>(nil nil nil 4 6)</tt></code>
 </p>
 </dd></dl>
 
