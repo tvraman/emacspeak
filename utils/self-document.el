@@ -313,6 +313,7 @@
 ;;}}}
 ;;{{{Document Keybindings For Various Prefix Maps:
 
+(cl-declaim (special emacspeak-prefix))
 (defvar sd-emacspeak-prefixes
   (list emacspeak-prefix
         (kbd "C-;") (kbd "C-'") (kbd "C-.") (kbd "C-,")
@@ -320,7 +321,8 @@
   "Key prefixes  for which we generate a help section.")
 
 (defun sd-describe-keys (buffer)
-  "Generate a Texinfo section in `buffer' listing commands bound to prefix in `sd-emacspeak-prefixes'."
+  "Generate a Texinfo section in `buffer' listing commands bound
+ to prefix in `sd-emacspeak-prefixes'."
   (cl-declare (special sd-emacspeak-prefixes))
   (with-current-buffer buffer
     (insert "@section Commands Organized By Keymaps\n")
@@ -456,6 +458,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
     (with-current-buffer output
       (erase-buffer)
       (texinfo-mode)
+      (insert "@node Emacspeak Keymaps\n @chapter Emacspeak Keymaps\n\n ")
       (cl-loop
        for keymap in self-document-keymap-list do
        (setq title (format "Emacspeak Keybindings On %s" (symbol-name keymap)))

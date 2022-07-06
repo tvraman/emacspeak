@@ -48,6 +48,7 @@ and  was last updated on @today{}.
 @include online-help.texi
 @include packages.texi
 @include eterm.texi
+@include keys.texi
 @include docs.texi
 @include keyboard.texi
 @include tts-server.texi
