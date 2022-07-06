@@ -15,355 +15,9 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on July 5, 2022.
 
 
-File: emacspeak.info,  Node: ladspa,  Next: light,  Prev: gmaps,  Up: Emacspeak Commands And Options
-
-13.224 ladspa
-=============
-
-This module uses tools from the Ladspa SDK to expose Ladspa plugins in a
-consistent way to elisp.  The goal is to make it easy to inspect Ladspa
-Plugins, And invoke them easily from Ladspa host applications such as
-MPlayer.  See
-<http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html>
-Some Ladspa Packages that provide plugins: sudo apt-get install
-zam-plugins wah-plugins vco-plugins tap-plugins swh-plugins rev-plugins
-mcp-plugins liquidsoap-plugin-ladspa ladspa-foo-plugins
-invada-studio-plugins-ladspa fil-plugins
-
-13.224.1 Ladspa Commands
-------------------------
-
-13.224.1.1 ladspa
-.................
-
- -- Command: ladspa (&optional refresh)
-
-     Ladspa workbench.
-
-     (fn &optional REFRESH)
-
-13.224.1.2 ladspa-analyse-plugin-at-point
-.........................................
-
- -- Command: ladspa-analyse-plugin-at-point
-
-     Analyse plugin at point.
-
-13.224.1.3 ladspa-edit-control
-..............................
-
- -- Command: ladspa-edit-control
-
-     Edit Ladspa control  at point by prompting for control values.
-
-13.224.1.4 ladspa-instantiate
-.............................
-
- -- Command: ladspa-instantiate
-
-     Instantiate plugin at point by prompting for control values.
-
-13.224.1.5 ladspa-mode
-......................
-
- -- Command: ladspa-mode
-
-     A Ladspa workbench for the Emacspeak desktop.
-
-     In addition to any hooks its parent mode ‘special-mode’ might have
-     run, this mode runs the hook ‘ladspa-mode-hook’, as the final or
-     penultimate step during initialization.
-
-     Key             Binding
-     ——————————————————————————-
-     RET		ladspa-instantiate
-     SPC		ladspa-analyse-plugin-at-point
-     a		emacspeak-m-player-add-ladspa
-     d		emacspeak-m-player-delete-ladspa
-     e		ladspa-edit-control
-     n		next-line
-     p		previous-line
-
-
-
-File: emacspeak.info,  Node: light,  Next: mac-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
-
-13.225 light
-============
-
-Provide an emacs front-end to light.  This is a tool that controls the
-brightness on laptops.  To install light, sudo apt-get install light
-Install light setuid (sudo chmod u+s /usr/bin/light) This module is most
-easily used in conjunction with hydra: M-x package-install hydra
-
-13.225.1 Light Commands
------------------------
-
-13.225.1.1 light-black
-......................
-
- -- Command: light-black
-
-     Black screen.
-
-13.225.1.2 light-decrement
-..........................
-
- -- Command: light-decrement
-
-     Decrease brightness.
-
-13.225.1.3 light-get
-....................
-
- -- Command: light-get
-
-     Get  brightness level.
-
-13.225.1.4 light-increment
-..........................
-
- -- Command: light-increment
-
-     Increase brightness.
-
-13.225.1.5 light-set
-....................
-
- -- Command: light-set (brightness)
-
-     Set brightness.
-
-     (fn BRIGHTNESS)
-
-13.225.1.6 light-white
-......................
-
- -- Command: light-white
-
-     White screen.
-
-
-File: emacspeak.info,  Node: mac-voices,  Next: outloud-voices,  Prev: light,  Up: Emacspeak Commands And Options
-
-13.226 mac-voices
-=================
-
-This module defines the various voices used in voice-lock mode by Mac
-TTS.
-
-13.226.1 mac-voices Options
----------------------------
-
- -- Variable: User Option mac-default-speech-rate
-     Default speech rate for mac.
-
-     Default Value: ‘225’
-
-
-File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
-
-13.227 outloud-voices
-=====================
-
-Interface to outloud server.  This module is IBM ViaVoice Outloud
-specific.
-
-13.227.1 Outloud-Voices Commands
---------------------------------
-
-13.227.1.1 outloud
-..................
-
- -- Command: outloud (&optional device)
-     ‘C-e d C-o’
-     ‘<fn> d C-o’
-
-     Start Outloud.
-
-     (fn &optional DEVICE)
-
-13.227.2 outloud-voices Options
--------------------------------
-
- -- Variable: User Option outloud-default-speech-rate
-     Default speech rate.
-
-     Default Value: ‘50’
-
-
-File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
-
-13.228 plain-voices
-===================
-
-This module defines the various voices used in voice-lock mode.  Module
-Plain is suitable for a device for which you haven’t yet implemented
-appropriate voice-locking controls
-
-
-File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
-
-13.229 soundscape
-=================
-
-Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
-acoustic environment.  Boodler at <http://boodler.org> is a Python-based
-SoundScape generator.  To use this module, first install boodler.  Then
-install the soundscape packages (*.boop) files available at
-<http://boodler.org/lib>.  Make sure boodler works and produces audio in
-your environment.  finally install the Boodler packages from
-emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
-emacspeak/scapes; make ’
-
-   When boodler is set up and all packages installed, copy file
-emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
-lists all installed SoundScapes.  Directory emacspeak/scapes also
-contains additional Boodler Agents and SoundScapes that I have created
-for use with Emacspeak.
-
-   Module soundscape.el defines Emacs conveniences for running
-Soundscapes.  Main Entry Points:
-
-   • M-x soundscape-toggle – Enables or disables automatic SoundScapes.
-   • M-x soundscape – runs a named SoundScape
-   • M-x soundscape-stop – Stops a specified running Soundscape.
-   • M-x soundscape-kill – Kills all running Soundscapes.
-
-   When automatic Soundscapes are enabled, SoundScapes are started and
-stopped based on the current major mode.  Active Soundscape are
-displayed as part of the minor-mode-alist.  Command
-emacspeak-speak-minor-mode-line can be used to have this spoken.
-
-   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
-current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
-that is loaded using ‘(soundscape-load soundscape-default-theme)’.
-Emacs modes that provide similar functionality e.g., communication ==
-email, IM, ...  map to the same _mood_.
-
-13.229.1 Soundscape Commands
-----------------------------
-
-13.229.1.1 soundscape
-.....................
-
- -- Command: soundscape (scape)
-     ‘C-. s’
-     ‘C-x @ s s’
-
-     Play soundscape.
-
-     (fn SCAPE)
-
-13.229.1.2 soundscape-kill
-..........................
-
- -- Command: soundscape-kill
-
-     Stop all running soundscapes.
-
-13.229.1.3 soundscape-listener
-..............................
-
- -- Command: soundscape-listener (&optional restart)
-
-     Start  a Soundscape listener.
-     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
-     Optional interactive prefix arg restarts the listener.
-
-     (fn &optional RESTART)
-
-13.229.1.4 soundscape-listener-shutdown
-.......................................
-
- -- Command: soundscape-listener-shutdown
-
-     Shutdown listener.
-
-13.229.1.5 soundscape-remote
-............................
-
- -- Command: soundscape-remote (names)
-
-     Activate scapes named ‘names’ — a list of strings.
-
-     (fn NAMES)
-
-13.229.1.6 soundscape-restart
-.............................
-
- -- Command: soundscape-restart (&optional prompt)
-     ‘C-. r’
-     ‘C-x @ s r’
-
-     Restart Soundscape  environment.
-     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
-     The  is then saved to soundscape-device for future use.
-
-     (fn &optional PROMPT)
-
-13.229.1.7 soundscape-stop
-..........................
-
- -- Command: soundscape-stop (scape)
-
-     Stop running Soundscape.
-
-     (fn SCAPE)
-
-13.229.1.8 soundscape-theme
-...........................
-
- -- Command: soundscape-theme
-
-     Shows default theme in a special buffer.
-
-13.229.1.9 soundscape-toggle
-............................
-
- -- Command: soundscape-toggle
-     ‘C-. t’
-     ‘C-x @ s t’
-
-     Toggle automatic SoundScapes.
-     Run command M-x soundscape-theme to see the default mode->mood mapping.
-
-13.229.1.10 soundscape-update-mood
-..................................
-
- -- Command: soundscape-update-mood (&optional prompt-mode)
-     ‘C-. u’
-     ‘C-x @ s u’
-
-     Update mood/scape mapping for current  mode.
-     The  updated mapping is not persisted.
-     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
-
-     (fn &optional PROMPT-MODE)
-
-13.229.2 soundscape Options
----------------------------
-
- -- Variable: User Option soundscape-data
-     Soundscape data directory.
-
-     Default Value: ‘/home/raman/.boodler/Collection’
-
- -- Variable: User Option soundscape-device
-     Alsa sound device to use for soundscapes.
-
-     Default Value: ‘default’
-
- -- Variable: User Option soundscape-manager-options
-     User customizable options list passed to boodler.  Defaults specify
-     alsa as the output and set master volume
-
-     Default Value: ‘(-m 0.3)’
-
-
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
 
-13.230 sox
+12.230 sox
 ==========
 
 This module defines a convenient speech-enabled interface for editing
@@ -380,10 +34,10 @@ ladspa.el.  To use ladspa effects with SoX, you need a relatively new
 build of Sox; The stock SoX that is package for Debian/Ubuntu does not
 always work.  This module can be used independent of Emacspeak.
 
-13.230.1 Sox Commands
+12.230.1 Sox Commands
 ---------------------
 
-13.230.1.1 sox-add-effect
+12.230.1.1 sox-add-effect
 .........................
 
  -- Command: sox-add-effect (name)
@@ -392,7 +46,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-13.230.1.2 sox-delete-effect-at-point
+12.230.1.2 sox-delete-effect-at-point
 .....................................
 
  -- Command: sox-delete-effect-at-point
@@ -403,14 +57,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-13.230.1.3 sox-edit-effect-at-point
+12.230.1.3 sox-edit-effect-at-point
 ...................................
 
  -- Command: sox-edit-effect-at-point
 
      Edit effect at point.
 
-13.230.1.4 sox-mode
+12.230.1.4 sox-mode
 ...................
 
  -- Command: sox-mode
@@ -422,7 +76,7 @@ always work.  This module can be used independent of Emacspeak.
      penultimate step during initialization.
 
 
-13.230.1.5 sox-open-file
+12.230.1.5 sox-open-file
 ........................
 
  -- Command: sox-open-file (snd-file)
@@ -433,14 +87,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SND-FILE)
 
-13.230.1.6 sox-play
+12.230.1.6 sox-play
 ...................
 
  -- Command: sox-play
 
      Play sound .
 
-13.230.1.7 sox-refresh
+12.230.1.7 sox-refresh
 ......................
 
  -- Command: sox-refresh
@@ -451,7 +105,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-13.230.1.8 sox-save
+12.230.1.8 sox-save
 ...................
 
  -- Command: sox-save (save-file)
@@ -460,7 +114,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SAVE-FILE)
 
-13.230.1.9 sox-set-effect
+12.230.1.9 sox-set-effect
 .........................
 
  -- Command: sox-set-effect (name)
@@ -469,14 +123,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-13.230.1.10 sox-show-timestamp
+12.230.1.10 sox-show-timestamp
 ..............................
 
  -- Command: sox-show-timestamp
 
      Show timestamp   in stream.
 
-13.230.1.11 sox-stop
+12.230.1.11 sox-stop
 ....................
 
  -- Command: sox-stop
@@ -486,13 +140,13 @@ always work.  This module can be used independent of Emacspeak.
 
 File: emacspeak.info,  Node: sox-gen,  Next: tetris,  Prev: sox,  Up: Emacspeak Commands And Options
 
-13.231 sox-gen
+12.231 sox-gen
 ==============
 
 Provides binaural audio along with pre-defined themes.  This module can
 be used independent of Emacspeak.
 
-13.231.1 Binaural Beats Using SoX
+12.231.1 Binaural Beats Using SoX
 ---------------------------------
 
 A binaural beat is an auditory illusion perceived when two different
@@ -520,7 +174,7 @@ binaural beat sequences by customizing
  -- Variable: User Option sox-binaural-gain-offset to a positive value
    — default is 0.
 
-13.231.1.1 High-Level Commands For Pre-Defined Binaural Beats
+12.231.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
 
 These commands can be called directly to play one of the predefined
@@ -555,10 +209,10 @@ binaural beats.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
-13.231.2 Sox-Gen Commands
+12.231.2 Sox-Gen Commands
 -------------------------
 
-13.231.2.1 sox-beats-binaural
+12.231.2.1 sox-beats-binaural
 .............................
 
  -- Command: sox-beats-binaural (length beat-spec-list gain)
@@ -568,7 +222,7 @@ binaural beats.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 
-13.231.2.2 sox-binaural
+12.231.2.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
@@ -579,7 +233,7 @@ binaural beats.
 
      (fn NAME DURATION)
 
-13.231.2.3 sox-chakras
+12.231.2.3 sox-chakras
 ......................
 
  -- Command: sox-chakras (theme duration)
@@ -589,7 +243,7 @@ binaural beats.
 
      (fn THEME DURATION)
 
-13.231.2.4 sox-relax
+12.231.2.4 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -598,7 +252,7 @@ binaural beats.
 
      (fn LENGTH)
 
-13.231.2.5 sox-rev-up
+12.231.2.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -607,7 +261,7 @@ binaural beats.
 
      (fn LENGTH)
 
-13.231.2.6 sox-slide-binaural
+12.231.2.6 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -616,7 +270,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-13.231.2.7 sox-tone-binaural
+12.231.2.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -626,7 +280,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-13.231.2.8 sox-tone-slide-binaural
+12.231.2.8 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -637,7 +291,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-13.231.2.9 sox-turn-down
+12.231.2.9 sox-turn-down
 ........................
 
  -- Command: sox-turn-down (length)
@@ -646,7 +300,7 @@ binaural beats.
 
      (fn LENGTH)
 
-13.231.2.10 sox-wind-down
+12.231.2.10 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -655,7 +309,7 @@ binaural beats.
 
      (fn LENGTH)
 
-13.231.3 sox-gen Options
+12.231.3 sox-gen Options
 ------------------------
 
  -- Variable: User Option sox-binaural-gain-offset
@@ -673,13 +327,13 @@ binaural beats.
 
 File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: sox-gen,  Up: Emacspeak Commands And Options
 
-13.232 tetris
+12.232 tetris
 =============
 
 
 File: emacspeak.info,  Node: toy-braille,  Next: voice-defs,  Prev: tetris,  Up: Emacspeak Commands And Options
 
-13.233 toy-braille
+12.233 toy-braille
 ==================
 
 This is a bit of toy code to write in braille.  To try this, load this
@@ -706,13 +360,13 @@ configured).
 
 File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: toy-braille,  Up: Emacspeak Commands And Options
 
-13.234 voice-defs
+12.234 voice-defs
 =================
 
 Contains just the voice definitions.  Voices are defined using the macro
 ‘defvoice’ from module voice-setup.
 
-13.234.1 An Overview Of Voice Design
+12.234.1 An Overview Of Voice Design
 ------------------------------------
 
 Aural CSS defines 4 primary device-independent dimensions.
@@ -724,7 +378,7 @@ possible settings.
 these dimensions to device-specific parameters and are responsible for
 generating the final device-specific codes.
 
-13.234.2 Creating Distinct Voices Via Aural CSS
+12.234.2 Creating Distinct Voices Via Aural CSS
 -----------------------------------------------
 
 Along each dimension, a setting of 5 is mapped to the default setting
@@ -741,7 +395,7 @@ there are 4 _overlay_ voices, corresponding to the 4 dimensions; these
 each set one of the dimensions to ‘8’.  Thus, we have a total of 25
 unique voices defined in this module.
 
-13.234.3 Things to note
+12.234.3 Things to note
 -----------------------
 
    • These voices are designed to be distinctive when used in a given
@@ -751,7 +405,7 @@ unique voices defined in this module.
      content so that when used in context, one can easily pick-out
      distinct parts of the utterance.
 
-13.234.4 voice-defs Options
+12.234.4 voice-defs Options
 ---------------------------
 
  -- Variable: User Option voice-animate-extra-settings
@@ -882,7 +536,7 @@ unique voices defined in this module.
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
 
-13.235 voice-setup
+12.235 voice-setup
 ==================
 
 A voice is to audio as a font is to a visual display.  A personality is
@@ -901,7 +555,7 @@ words will be spoken in ‘voice-keyword-personality’.
 is on, the voices of the current line are updated with every insertion
 or deletion.
 
-13.235.1 Voice-Lock And Aural CSS
+12.235.1 Voice-Lock And Aural CSS
 ---------------------------------
 
 The CSS Speech Style Sheet specification defines a number of abstract
@@ -934,10 +588,10 @@ map ACSS dimensions to engine-specific codes.  Emacspeak modules use
 voice-setup-add-map when defining face->personality mappings.  For use
 from other modules.
 
-13.235.2 Voice-Setup Commands
+12.235.2 Voice-Setup Commands
 -----------------------------
 
-13.235.2.1 voice-lock-mode
+12.235.2.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -962,14 +616,14 @@ from other modules.
 
      (fn &optional ARG)
 
-13.235.2.2 voice-lock-mode–turn-on
+12.235.2.2 voice-lock-mode–turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
 
      Turn on Voice Lock mode .
 
-13.235.2.3 voice-setup-toggle-silence-personality
+12.235.2.3 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
@@ -978,7 +632,7 @@ from other modules.
 
      Toggle audibility of personality under point  .
 
-13.235.3 voice-setup Options
+12.235.3 voice-setup Options
 ----------------------------
 
  -- Variable: User Option voice-lock-mode-hook
@@ -991,7 +645,7 @@ from other modules.
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
 
-13.236 xbacklight
+12.236 xbacklight
 =================
 
 Provide an emacs front-end to xbacklight.  This is a tool that controls
@@ -1001,38 +655,38 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-13.236.1 Xbacklight Commands
+12.236.1 Xbacklight Commands
 ----------------------------
 
-13.236.1.1 xbacklight-black
+12.236.1.1 xbacklight-black
 ...........................
 
  -- Command: xbacklight-black
 
      Black screen.
 
-13.236.1.2 xbacklight-decrement
+12.236.1.2 xbacklight-decrement
 ...............................
 
  -- Command: xbacklight-decrement
 
      Decrease brightness.
 
-13.236.1.3 xbacklight-get
+12.236.1.3 xbacklight-get
 .........................
 
  -- Command: xbacklight-get
 
      Get  brightness level.
 
-13.236.1.4 xbacklight-increment
+12.236.1.4 xbacklight-increment
 ...............................
 
  -- Command: xbacklight-increment
 
      Increase brightness.
 
-13.236.1.5 xbacklight-set
+12.236.1.5 xbacklight-set
 .........................
 
  -- Command: xbacklight-set (brightness)
@@ -1041,7 +695,7 @@ package-install hydra
 
      (fn BRIGHTNESS)
 
-13.236.1.6 xbacklight-white
+12.236.1.6 xbacklight-white
 ...........................
 
  -- Command: xbacklight-white
@@ -1051,7 +705,7 @@ package-install hydra
 
 File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
 
-13.237 URL Templates
+12.237 URL Templates
 ====================
 
 This section documents a total of 75 URL Templates.
@@ -1298,7 +952,217 @@ out the following steps:
      Filter down to CNN content area.
 
 
-File: emacspeak.info,  Node: Emacspeak Keyboard Commands,  Next: TTS Servers,  Prev: Emacspeak Commands And Options,  Up: Top
+File: emacspeak.info,  Node: Running Terminal Based Applications,  Next: Emacspeak Keyboard Commands,  Prev: Emacspeak Commands And Options,  Up: Top
+
+13 Running Terminal Based Applications.
+***************************************
+
+You can use the terminal emulator mode to run arbitrary terminal-based
+programs from within Emacs.  You open a terminal emulator buffer using
+‘M-x term’, with an extra carriage return to accept the default shell
+(such as ‘bash’).  (Incidentally, don’t confuse this command with ‘M-x
+terminal-emulator’, which starts an older terminal emulator mode not
+supported by Emacspeak.)
+
+   Three kinds of commands are used within the terminal emulator.
+Normal term commands use a prefix of ‘C-c’.  The emacspeak commands for
+eterm mode use a prefix of ‘C-t’.  Anything else is a normal shell
+command.
+
+   There are two sub-modes of term mode: char sub-mode and line
+sub-mode.  In char sub-mode, emacspeak will only speak the final chunk
+of output — typically the last line displayed.  Each character typed
+(except ‘term-escape-char‘) is sent immediately.  Use char sub-mode for
+screen oriented programs like ‘vi’ or ‘pine’.
+
+   In line sub-mode, program output is spoken if user option
+‘eterm-autospeak’ is turned on.  When you type a return at the end of
+the buffer, that line is sent as input, while return not at end copies
+the rest of the line to the end and sends it.  When using terminal line
+mode with option ‘eterm-autospeak’ turned on, speech feedback is similar
+to that obtained in regular ‘shell-mode’ buffers.
+
+   The default is char sub-mode.  You can switch to line sub-mode with
+‘C-c C-j’ (recall that control J is a linefeed), and back to char
+sub-mode with ‘C-c C-k’ (think of character spelled with a K).
+
+   Note: Use char-mode with the terminal emulator for running
+screen-oriented programs like Lynx or Pine.  For regular shell
+interaction just use ‘M-x shell’ instead of using the terminal emulator.
+
+13.1 Char Sub-mode of Term Mode
+===============================
+
+In char sub-mode of term, each character you type is sent directly to
+the inferior process without intervention from emacs, except for the
+escape character (usually ‘C-c’).
+
+   Here are some of the useful commands for the char sub-mode.  Note
+that the usual commands for killing a buffer or switching buffers do not
+work in this mode, so new key bindings are supplied.  The first five
+commands are different ways of leaving this mode.
+
+‘C-c C-j’
+‘M-x term-line-mode’
+     Switch to line sub-mode of term mode.
+
+‘C-c o’
+‘M-x other-window’
+     Select the next window on this frame.  All windows on current frame
+     are arranged in a cyclic order.  This command selects the next
+     window in that order.  If there are no other windows, this command
+     does nothing.
+
+‘C-c C-f’
+‘M-x find-file’
+     Switch to a buffer visiting a file, creating one if none already
+     exists.
+
+‘C-c 0’
+‘M-x delete-window’
+     Remove current window from the display.
+
+‘C-c k’
+‘M-x kill-buffer’
+     Kill the current buffer.
+
+‘C-c C-x C-c’
+‘M-x save-buffers-kill-emacs’
+     Offer to save each buffer, then kill this Emacs process.
+
+‘C-c C-d’
+‘M-x list-directory’
+     Display a list of files in or matching DIRNAME, a la ‘ls’.  DIRNAME
+     is globbed by the shell if necessary.  Prefix arg (‘C-u’) means
+     supply -l switch to ‘ls’.  The list appears in a second window.
+
+‘C-c 1’
+‘M-x delete-other-windows’
+     Delete all other windows in the frame, making the current window
+     fill its frame.
+
+‘C-c C-c’
+‘M-x term-send-raw’
+     Send the last character typed through the terminal-emulator without
+     any interpretation.
+
+‘C-c (’
+‘M-x start-kbd-macro’
+     Record subsequent keyboard input, defining a keyboard macro.  The
+     commands are recorded even as they are executed.  Use ‘C-c )’ to
+     finish recording and make the macro available.  Use ‘M-x
+     name-last-kbd-macro’ to give it a permanent name.  Prefix arg
+     (‘C-u’) means append to last macro defined; This begins by
+     re-executing that macro as if you had typed it again.
+
+‘C-c )’
+‘M-x end-kbd-macro’
+     Finish defining a keyboard macro.  The definition was started by
+     ‘C-c (’.  The macro is now available for use via ‘C-c e’, or it can
+     be given a name with ‘M-x name-last-kbd-macro’ and then invoked
+     under that name.
+
+‘C-c e’
+‘M-x call-last-kbd-macro’
+     Call the last keyboard macro that you defined with ‘C-c (’.  A
+     prefix argument serves as a repeat count.  Zero means repeat until
+     error.
+
+   You can get a list of all the key sequences with a C-c prefix by
+typing ‘C-c C-h’ while in this sub-mode.  Some of those commands are
+only available in the char sub-mode, while others are generally
+available.
+
+13.2 Line Sub-mode of Term Mode
+===============================
+
+In line sub-mode of term mode, emacs editing commands work normally,
+until you type <RETURN> which sends the current line to the inferior
+process.
+
+   Here are some of the useful commands for the line sub-mode of the
+term mode.  In addition, the usual commands for handling a buffer work
+in this mode (‘C-x o’ to switch windows, ‘C-x k’ to kill a buffer, ‘C-x
+f’ to find a file, and so forth).
+
+‘C-c C-k’
+‘M-x term-char-mode’
+     Switch to char sub-mode of term mode.
+
+‘C-c C-z’
+‘M-x term-stop-subjob’
+     Stop the current subjob.  Resume the subjob in the foreground with
+     the ordinary command ‘fg’, or run it in the background with ‘bg’.
+     WARNING: if there is no current subjob, you can end up suspending
+     the top-level process running in the buffer.  If you accidentally
+     do this, use ‘M-x term-continue-subjob’ to resume the process.
+     (This is not a problem with most shells, including ‘bash’, since
+     they ignore this signal.)
+
+‘C-c C-\’
+‘M-x term-quit-subjob’
+     Send quit signal to the current subjob.
+
+‘C-c C-c’
+‘M-x term-interrupt-subjob’
+     Interrupt the current subjob.
+
+‘C-c C-w’
+‘M-x backward-kill-word’
+     Kill characters backward until encountering the end of a word.
+
+‘C-c C-u’
+‘M-x term-kill-input’
+     Kill all text from last stuff output by interpreter to point.
+
+‘C-c C-a’
+‘M-x term-bol’
+     Goes to the beginning of line, then skips past the prompt, if any.
+     If a prefix argument is given (‘C-u’), then no prompt skip — go
+     straight to column 0.
+
+‘C-c C-d’
+‘M-x term-send-eof’
+     Send an end of file character (EOF) to the current buffer’s
+     process.
+
+   You can get a list of all the key sequences with a ‘C-c’ prefix by
+typing ‘C-c C-h’ while in this sub-mode.  Some of those commands are
+only available in the line sub-mode, while others are generally
+available.
+
+13.3 Eterm Mode Commands
+========================
+
+The eterm mode maintains a pointer, which is not necessarily the same as
+the terminal’s cursor.  It is intended to be used in eterm’s char
+submode.  In char submode, ‘C-t ,’ (that’s control-t followed by comma)
+will tell you where the eterm pointer is.  ‘C-t C-i’ will tell you where
+the terminal’s cursor is.  The top left corner of the window is "row 0
+column 0".
+
+   The eterm pointer can be moved with ‘C-t <’ (to the top of the
+screen), ‘C-t >’ (to the bottom of the screen), ‘C-t n’ (to the next
+line), ‘C-t p’ (to the previous line), and ‘C-t .’ (to the cursor).
+Each of these also speaks the line the pointer moves to.  You can also
+search forward with ‘C-t s’.
+
+   These commands speak without moving the pointer: ‘C-t l’ (current
+line), ‘C-t w’ (current word), ‘C-t c’ (current character), and ‘C-t
+<SPACE>’ (from eterm pointer to cursor).
+
+   You may enter review mode with ‘C-t q’.  In review mode, you can
+search the buffer and speak its contents, without disturbing the
+terminal.  Commands for moving the pointer are similar to normal editing
+commands, but without a control key: ‘n’ and ‘p’ for next and previous
+line, ‘f’ and ‘b’ for forward and back by characters, ‘<’ and ‘>’ for
+the beginning or end of the buffer.  ‘c’, ‘w’, and ‘l’ speak the current
+character, word, and line.  ‘s’ searches forward (not incrementally).  A
+comma speaks the pointer location.  A period moves the pointer to the
+terminal cursor.  Return to normal term mode by typing ‘q’.
+
+
+File: emacspeak.info,  Node: Emacspeak Keyboard Commands,  Next: TTS Servers,  Prev: Running Terminal Based Applications,  Up: Top
 
 14 Emacspeak Keyboard Commands.
 *******************************
@@ -2743,9 +2607,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line  112)
 * C-c k:                                 Running Terminal Based Applications.
                                                              (line   72)
-* C-c o:                                 Running Terminal Based Applications.
+* C-c o:                                 emacspeak-muggles.  (line  204)
+* C-c o <1>:                             Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  204)
 * C-e cap M:                             Status Information. (line   18)
 * C-e cap R:                             Reading.            (line   69)
 * C-e !:                                 emacspeak-speak.    (line  770)

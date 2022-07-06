@@ -47,9 +47,9 @@ and  was last updated on @today{}.
 @include voices.texi
 @include online-help.texi
 @include packages.texi
-@include eterm.texi
 @include keys.texi
 @include docs.texi
+@include eterm.texi
 @include keyboard.texi
 @include tts-server.texi
 @include inc-turning-twenty.texi
