@@ -376,6 +376,7 @@
 (defun self-document-all-modules()
   "Generate documentation for all modules."
   (cl-declare (special self-document-map))
+  (self-document-all-keymaps)
   (let ((file-name-handler-alist nil)
         (output (find-file-noselect "docs.texi"))
         (keys nil))
