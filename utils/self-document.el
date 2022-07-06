@@ -311,6 +311,31 @@
     (when (self-document-options self)(self-document-module-options self)))))
 
 ;;}}}
+;;{{{Document Keybindings For Various Prefix Maps:
+
+(defvar sd-emacspeak-prefixes
+  (list emacspeak-prefix
+        (kbd "C-;") (kbd "C-'") (kbd "C-.") (kbd "C-,")
+        (kbd "C-z") (kbd "C-e x") (kbd "C-e C-x"))
+  "Key prefixes  for which we generate a help section.")
+
+(defun sd-describe-keys ()
+  "Generate a Texinfo section listing commands bound to prefix in `sd-emacspeak-prefixes'."
+  (cl-declare (special sd-emacspeak-prefixes))
+  (with-current-buffer (get-buffer-create "foo")
+    (insert "@section Commands Organized By Keymaps\n")
+    (insert "@node Commands Organized By Keymaps\n\n")
+    (cl-loop
+     for prefix in sd-emacspeak-prefixes
+     do
+     (insert
+      (format "@subsection Commands on prefix %s" (key-description prefix)))
+     (insert "\n\n@code{@verb{|")
+      (describe-buffer-bindings (current-buffer) prefix)
+      (insert "|}}\n")
+     )))
+
+;;}}}
 ;;{{{ Iterate over all modules
 
 (declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
