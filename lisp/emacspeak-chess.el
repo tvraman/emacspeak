@@ -811,17 +811,16 @@ specifies index of move, default is final index."
 (provide 'chess-emacspeak)
 ;;}}}
 ;;{{{Emacspeak Setup:
-;; Forward Declaration to help documentation builder.
+;; Forward Declaration
 (defvar chess-default-modules nil)
 
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
-  (cl-declare (special chess-default-modules chess-display-mode-map))
-  (cl-pushnew 'chess-emacspeak chess-default-modules)
+  (cl-declare (special chess-display-mode-map))
   (cl-loop
    for binding in
    '(
-     ( ";" emacspeak-chess-speak-this-square)
+     (";" emacspeak-chess-speak-this-square)
      ("v" emacspeak-chess-view-prefix)
      ("<up>" emacspeak-chess-north)
      ("<down>" emacspeak-chess-south)
@@ -841,6 +840,7 @@ specifies index of move, default is final index."
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
 
+(cl-pushnew 'chess-emacspeak chess-default-modules)
 ;;}}}
 (provide 'emacspeak-chess)
 ;;{{{ end of file
