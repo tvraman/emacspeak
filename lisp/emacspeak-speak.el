@@ -1401,10 +1401,10 @@ which-func without turning that mode on.  "
              "with narrowing in effect. ")))
 (voice-setup-set-voice-for-face 'header-line 'voice-bolden)
 
-(defun emacspeak--sox-multiwindow (corners)
-  "Takes `window-edges' and plays a sound cuew."
-  (let
-      ((tr 0)
+(defun emacspeak--sox-multiwindow ()
+  "Use `window-edges' and plays a sound cuew."
+  (let ((corners (window-edges))
+       (tr 0)
        (mr (/ (frame-height) 2))
        (br (1- (frame-height)))
        (lc 0)
@@ -1489,7 +1489,7 @@ Interactive prefix arg speaks buffer info."
              (when (or (eq major-mode 'shell-mode)
                        (eq major-mode 'comint-mode))
                (abbreviate-file-name default-directory))))
-        (when (> window-count 1) (emacspeak--sox-multiwindow (window-edges)))
+        (when (> window-count 1) (emacspeak--sox-multiwindow))
         (setq window-count ;;; int->string
               (if (> window-count 1) (format " %s " window-count) nil))
         (cond
@@ -1575,7 +1575,7 @@ Displays name of current buffer.")
    (header-line-format
     (let ((window-count (length (window-list))))
       (emacspeak-auditory-icon 'item)
-      (when (> window-count 1) (emacspeak--sox-multiwindow (window-edges)))
+      (when (> window-count 1) (emacspeak--sox-multiwindow))
       (dtk-speak (format-mode-line header-line-format))))
    (t (dtk-speak "No header line."))))
 
@@ -2784,7 +2784,7 @@ displayed buffers."
           (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))
       (t (mapcar #'buffer-name (mapcar #'window-buffer window-list)))))
-    (emacspeak--sox-multiwindow (window-edges))
+    (emacspeak--sox-multiwindow )
     (dtk-speak (concat description (mapconcat #'identity windows " ")))))
 
 (defun emacspeak-select-window-by-name (buffer-name)
