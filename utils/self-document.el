@@ -319,10 +319,10 @@
         (kbd "C-z") (kbd "C-e x") (kbd "C-e C-x"))
   "Key prefixes  for which we generate a help section.")
 
-(defun sd-describe-keys ()
-  "Generate a Texinfo section listing commands bound to prefix in `sd-emacspeak-prefixes'."
+(defun sd-describe-keys (buffer)
+  "Generate a Texinfo section in `buffer' listing commands bound to prefix in `sd-emacspeak-prefixes'."
   (cl-declare (special sd-emacspeak-prefixes))
-  (with-current-buffer (get-buffer-create "foo")
+  (with-current-buffer buffer
     (insert "@section Commands Organized By Keymaps\n")
     (insert "@node Commands Organized By Keymaps\n\n")
     (cl-loop
@@ -427,7 +427,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
     emacspeak-keymap emacspeak-dtk-submap
     emacspeak-hyper-keymap emacspeak-super-keymap emacspeak-alt-keymap
     emacspeak-personal-keymap emacspeak-personal-ctlx-keymap
-    )
+    emacspeak-multi-keymap)
 "List of keymaps that we document.")
 
 (defun self-document-keymap (keymap)
@@ -457,7 +457,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
       (texinfo-mode)
       (cl-loop
        for keymap in self-document-keymap-list do
-       (setq title (format "Emacspeak Keybindings from %s" (symbol-name keymap)))
+       (setq title (format "Emacspeak Keybindings On %s" (symbol-name keymap)))
        (insert (format "\n@node %s\n @section %s\n\n" title title))
        (self-document-keymap (symbol-value keymap)))
       (shell-command-on-region          ; squeeze blanks
