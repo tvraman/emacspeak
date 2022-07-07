@@ -1297,7 +1297,7 @@ Produce an auditory icon if possible."
  '(other-frame other-window
                next-window-any-frame previous-window-any-frame
                switch-to-prev-buffer switch-to-next-buffer
-               switch-to-buffer switch-to-buffer-other-window
+               switch-to-buffer switch-to-buffer-other-window bury-buffer
                next-buffer previous-buffer
                switch-to-buffer-other-frame)
  do
