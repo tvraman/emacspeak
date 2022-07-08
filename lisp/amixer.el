@@ -310,20 +310,25 @@ Interactive prefix arg refreshes cache."
 ;;{{{Raise/Lower Volume Using pactl:
 
 ;;;###autoload
-(defun amixer-volume-up ()
-  "Raise Master volume 5%."
-  (interactive)
+(defun amixer-volume-up (by)
+  "Raise Master volume 5%.
+Interactive prefix arg `BY' reads percentage as a number"
+  (interactive "nBy:")
   (let ((emacspeak-speak-messages nil)
         (inhibit-message t))
-    (shell-command (format "%s set 'Master' 5%%\+" amixer-program))))
+    (shell-command (format "%s set 'Master' %d%%\+"
+                           amixer-program (or by 5)))))
 
 ;;;###autoload
 (defun amixer-volume-down ()
-  "Lower Mastervolume 5%."
-  (interactive)
+  "Lower Master volume 5%.
+Interactive prefix arg `BY' reads percentage as a number."
+  (interactive "nBy:")
   (let ((emacspeak-speak-messages nil)
         (inhibit-message t))
-    (shell-command (format "%s set 'Master' 5%%\-" amixer-program))))
+    (shell-command
+     (format "%s set 'Master' %d%%\-"
+             amixer-program (or by 5)))))
 
 ;;}}}
 (provide 'amixer)
