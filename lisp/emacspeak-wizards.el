@@ -2170,8 +2170,7 @@ P: Show live price for current stock."
      (format "Stock Quotes From IEXTrading"))
     (put-text-property
      (point-min) (point-max)
-     'keymap ems--wizards-iex-quotes-keymap)
-    (funcall-interactively #'emacspeak-table-goto 1 2)))
+     'keymap ems--wizards-iex-quotes-keymap)))
 
 (defun emacspeak-wizards-iex-show-tops ()
   "Uses tops/last end-point to show brief portfolio quotes."
