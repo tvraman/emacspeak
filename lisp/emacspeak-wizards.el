@@ -2034,7 +2034,7 @@ for how to get  an API key. "
   :group 'emacspeak-wizards)
 
 (defvar emacspeak-wizards-iex-quotes-row-filter
-  '(0  "closed at " 2)
+  '(0  " at " 2 " change " 9 "percent")
   "Template used to audio-format  rows.")
 
 (defvar emacspeak-wizards-iex-portfolio-file
