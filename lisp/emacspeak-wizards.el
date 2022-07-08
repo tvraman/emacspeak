@@ -2072,8 +2072,7 @@ Parameter `action' specifies relative URL. '"
 Uses symbols set in `emacspeak-wizards-personal-portfolio '.
 Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (cl-declare (special emacspeak-wizards-iex-portfolio-file g-curl-program
-                       emacspeak-wizards-personal-portfolio
-                       emacspeak-wizards-iex-cache))
+                       emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((symbols
           (mapconcat
            #'identity
