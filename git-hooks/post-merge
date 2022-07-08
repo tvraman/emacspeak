@@ -3,5 +3,6 @@
 # Run make config  followed by make after an update 
 
 make qq
-make outloud 
+make outloud
+make espeak
 cd tvr && make
