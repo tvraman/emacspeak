@@ -2015,6 +2015,7 @@ access to the various functions provided by alpha-vantage."
 
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
+
 ;; Moving from iextrading to iexcloud.
 ;; This service is the new iextrading, but needs an API key.
 ;; The service still has a free tier that should be sufficient for
@@ -2142,7 +2143,7 @@ P: Show live price for current stock."
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
-           "lastTrade" "Open" "Low" "High" "Close"
+           "lastTrade"
            "52WeekLow" "52WeekHigh"
            "MarketCap" "PERatio"
            "Previous Close" "Change" "Change %"])
@@ -2153,8 +2154,7 @@ P: Show live price for current stock."
             #'vector
             (let-alist r
               (list
-               .companyName .symbol
-               .latestPrice .open .low .high .close
+               .companyName .symbol .latestPrice
                .week52Low .week52High
                .marketCap .peRatio
                .previousClose .change .changePercent))))
