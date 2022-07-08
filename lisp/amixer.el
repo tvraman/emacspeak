@@ -308,27 +308,41 @@ Interactive prefix arg refreshes cache."
 
 ;;}}}
 ;;{{{Raise/Lower Volume Using pactl:
+(defcustom amixer-volume-step 5
+  "Step-size for volume change."
+  :type 'integer
+  :group 'emacspeak)
+
 
 ;;;###autoload
-(defun amixer-volume-up (by)
-  "Raise Master volume 5%.
-Interactive prefix arg `BY' reads percentage as a number"
-  (interactive "nBy:")
+(defun amixer-volume-up (prompt)
+  "Raise Master volume by amixer-volume-step.
+Interactive prefix arg `PROMPT' reads percentage as a number"
+  (interactive "P")
+  (cl-declare (special amixer-volume-step))
   (let ((emacspeak-speak-messages nil)
         (inhibit-message t))
-    (shell-command (format "%s set 'Master' %d%%\+"
-                           amixer-program (or by 5)))))
+    (shell-command
+     (format "%s set 'Master' %d%%\+"
+             amixer-program
+             (if prompt
+                 (read-number "Volume Step:")
+               amixer-volume-step)))))
 
 ;;;###autoload
-(defun amixer-volume-down ()
-  "Lower Master volume 5%.
-Interactive prefix arg `BY' reads percentage as a number."
-  (interactive "nBy:")
+(defun amixer-volume-down (prompt)
+  "Lower Master volume by amixer-volume-step.
+Interactive prefix arg `PROMPT' reads percentage as a number"
+  (interactive "P")
+  (cl-declare (special amixer-volume-step))
   (let ((emacspeak-speak-messages nil)
         (inhibit-message t))
     (shell-command
      (format "%s set 'Master' %d%%\-"
-             amixer-program (or by 5)))))
+             amixer-program
+             (if prompt
+                 (read-number "Volume Step:")
+               amixer-volume-step)))))
 
 ;;}}}
 (provide 'amixer)
