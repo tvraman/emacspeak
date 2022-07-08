@@ -2033,10 +2033,7 @@ for how to get  an API key. "
   :group 'emacspeak-wizards)
 
 (defvar emacspeak-wizards-iex-quotes-row-filter
-  '(0 " ask  " 2
-      " trading between   " 4 " and  " 5
-      " PE is " 10
-      " For a market cap of " 9)
+  '(0  "closed at " 2)
   "Template used to audio-format  rows.")
 
 (defvar emacspeak-wizards-iex-portfolio-file
