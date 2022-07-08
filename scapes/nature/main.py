@@ -612,10 +612,10 @@ class Nightscape(agent.Agent):
     def run(self):
         doNature(self)
         for i in xrange(10):
-            y = 1 + i * 0.025
+            y = 1 + i * 0.015
             nc = self.new_channel_pan(
-                stereo.compose(stereo.scalexy(1.25), stereo.shiftxy(0, y)))
-            ag = Crickets(0.0, 10.0, 0.1, 0.7, 1.4)
+                stereo.compose(stereo.scalexy(1.15), stereo.shiftxy(0, y)))
+            ag = Crickets(0.0, 10.0, 0.1, 0.7, 1.2)
             self.sched_agent(ag, 0, nc)
 
 
