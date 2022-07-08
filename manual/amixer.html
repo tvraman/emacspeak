@@ -110,16 +110,19 @@ Interactive prefix arg refreshes cache.
 <div class="subsubsection" id="amixer_002dvolume_002ddown">
 <h4 class="subsubsection">12.1.1.3 amixer-volume-down</h4>
 <dl class="def">
-<dt id="index-amixer_002dvolume_002ddown"><span class="category">Command: </span><span><strong>amixer-volume-down</strong><a href='#index-amixer_002dvolume_002ddown' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-amixer_002dvolume_002ddown"><span class="category">Command: </span><span><strong>amixer-volume-down</strong> <em>(prompt)</em><a href='#index-amixer_002dvolume_002ddown' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
 <dt id='index-_003cXF86AudioLowerVolume_003e'><span><kbd>&lt;XF86AudioLowerVolume&gt;</kbd><a href='#index-_003cXF86AudioLowerVolume_003e' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-C_002d_003cf2_003e'><span><kbd>C-&lt;f2&gt;</kbd><a href='#index-C_002d_003cf2_003e' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002d_003cf1_003e'><span><kbd>C-&lt;f1&gt;</kbd><a href='#index-C_002d_003cf1_003e' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
 <span id="index-amixer_002dvolume_002ddown-1"></span>
 
 <div class="format">
-<pre class="format">Lower Mastervolume 5%.
+<pre class="format">Lower Master volume by amixer-volume-step.
+Interactive prefix arg ‘PROMPT’ reads percentage as a number
+
+(fn PROMPT)
 </pre></div>
 </dd></dl>
 
@@ -127,16 +130,19 @@ Interactive prefix arg refreshes cache.
 <div class="subsubsection" id="amixer_002dvolume_002dup">
 <h4 class="subsubsection">12.1.1.4 amixer-volume-up</h4>
 <dl class="def">
-<dt id="index-amixer_002dvolume_002dup"><span class="category">Command: </span><span><strong>amixer-volume-up</strong><a href='#index-amixer_002dvolume_002dup' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-amixer_002dvolume_002dup"><span class="category">Command: </span><span><strong>amixer-volume-up</strong> <em>(prompt)</em><a href='#index-amixer_002dvolume_002dup' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
 <dt id='index-_003cXF86AudioRaiseVolume_003e'><span><kbd>&lt;XF86AudioRaiseVolume&gt;</kbd><a href='#index-_003cXF86AudioRaiseVolume_003e' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-C_002d_003cf1_003e'><span><kbd>C-&lt;f1&gt;</kbd><a href='#index-C_002d_003cf1_003e' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-C_002d_003cf2_003e'><span><kbd>C-&lt;f2&gt;</kbd><a href='#index-C_002d_003cf2_003e' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
 <span id="index-amixer_002dvolume_002dup-1"></span>
 
 <div class="format">
-<pre class="format">Raise Master volume 5%.
+<pre class="format">Raise Master volume by amixer-volume-step.
+Interactive prefix arg ‘PROMPT’ reads percentage as a number
+
+(fn PROMPT)
 </pre></div>
 </dd></dl>
 
@@ -150,6 +156,14 @@ Interactive prefix arg refreshes cache.
 <dd><p>ALSA Control Device.
 </p>
 <p>Default Value: <code><tt>default</tt></code>
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-User-Option-1"><span class="category">Variable: </span><span><strong>User Option</strong> <em>amixer-volume-step</em><a href='#index-User-Option-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Step-size for volume change.
+</p>
+<p>Default Value: <code><tt>5</tt></code>
 </p>
 </dd></dl>
 
