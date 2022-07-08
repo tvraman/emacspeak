@@ -416,10 +416,10 @@ commands and options for details."
         (directory-files-recursively
          emacspeak-sounds-directory "define-theme.el"))
   (emacspeak-pronounce-load-dictionaries)
-  (funcall #'(lambda () (ems--fastload "emacspeak-advice")))
+  (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)
   (setq line-number-mode nil column-number-mode nil)
-  (funcall #'emacspeak-prepare-emacs)
+  (make-thread #'emacspeak-prepare-emacs)
   (global-visual-line-mode -1)
   (transient-mark-mode -1)
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
