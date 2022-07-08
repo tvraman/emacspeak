@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1155 commands and 147 options.
+This chapter documents a total of 1155 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -292,34 +292,40 @@ Persist  amixer.
 @end deffn
 
 @subsubsection amixer-volume-down
-@deffn {Command} amixer-volume-down   
+@deffn {Command} amixer-volume-down  (prompt)
 @table @kbd
 @item <XF86AudioLowerVolume>
 @kindex <XF86AudioLowerVolume>
-@item C-<f2>
-@kindex C-<f2>
+@item C-<f1>
+@kindex C-<f1>
 @end table
 
 @findex amixer-volume-down
 
 @format
-Lower Mastervolume 5%.
+Lower Master volume by amixer-volume-step.
+Interactive prefix arg ‘PROMPT’ reads percentage as a number
+
+(fn PROMPT)
 @end format
 @end deffn
 
 @subsubsection amixer-volume-up
-@deffn {Command} amixer-volume-up   
+@deffn {Command} amixer-volume-up  (prompt)
 @table @kbd
 @item <XF86AudioRaiseVolume>
 @kindex <XF86AudioRaiseVolume>
-@item C-<f1>
-@kindex C-<f1>
+@item C-<f2>
+@kindex C-<f2>
 @end table
 
 @findex amixer-volume-up
 
 @format
-Raise Master volume 5%.
+Raise Master volume by amixer-volume-step.
+Interactive prefix arg ‘PROMPT’ reads percentage as a number
+
+(fn PROMPT)
 @end format
 @end deffn
 
@@ -329,6 +335,13 @@ Raise Master volume 5%.
 ALSA Control Device.
 
 Default Value: @code{@verb{|default|}}
+
+@end defvar
+
+@defvar {User Option} amixer-volume-step
+Step-size for volume change.
+
+Default Value: @code{@verb{|5|}}
 
 @end defvar
 

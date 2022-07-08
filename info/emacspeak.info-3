@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 7, 2022.
+last updated on July 8, 2022.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2515,7 +2515,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <silence>:                             emacspeak-speak.    (line  222)
 * <XF86AudioLowerVolume>:                amixer.             (line   44)
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  223)
-* <XF86AudioRaiseVolume>:                amixer.             (line   53)
+* <XF86AudioRaiseVolume>:                amixer.             (line   56)
 * C-, /:                                 extra-muggles.      (line  319)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
@@ -2563,8 +2563,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; p:                                 emacspeak-wizards.  (line  431)
 * C-; r:                                 emacspeak-wizards.  (line  564)
 * C-; w:                                 emacspeak-wizards.  (line  839)
-* C-<f1>:                                amixer.             (line   54)
-* C-<f2>:                                amixer.             (line   45)
+* C-<f1>:                                amixer.             (line   45)
+* C-<f2>:                                amixer.             (line   57)
 * C-<left>:                              emacspeak-wizards.  (line  109)
 * C-<right>:                             emacspeak-wizards.  (line   98)
 * C-<up>:                                emacspeak-speak.    (line   87)
