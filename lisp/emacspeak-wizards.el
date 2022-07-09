@@ -1503,7 +1503,7 @@ of the source buffer."
            (buffer (gethash key emacspeak-wizards--shells-table)))
       (when ;  source determines target directory
                (or (eq major-mode 'dired-mode) buffer-file-name)
-        (ems--shell-pushd-if-needed directory buffer))
+        (unless prefix (ems--shell-pushd-if-needed directory buffer)))
       (funcall-interactively #'pop-to-buffer buffer)))))
 
 (defcustom emacspeak-wizards-project-shells nil
