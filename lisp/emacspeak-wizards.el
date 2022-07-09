@@ -2035,7 +2035,10 @@ for how to get  an API key. "
   :group 'emacspeak-wizards)
 
 (defvar emacspeak-wizards-iex-quotes-row-filter
-  '(0  " at " 5 " change " 11"percent")
+  '(0 " ask  " 2
+      " trading between   " 4 " and  " 5
+      " PE is " 10
+      " For a market cap of " 9)
   "Template used to audio-format  rows.")
 
 (defvar emacspeak-wizards-iex-portfolio-file
@@ -2144,7 +2147,7 @@ P: Show live price for current stock."
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
-            "Open" "Low" "High" "Close"
+           "lastTrade" "Open" "Low" "High" "Close"
            "52WeekLow" "52WeekHigh"
            "MarketCap" "PERatio"
            "Previous Close" "Change" "Change %"])
@@ -2156,7 +2159,7 @@ P: Show live price for current stock."
             (let-alist r
               (list
                .companyName .symbol
-               .open .low .high .close
+               .latestPrice .open .low .high .close
                .week52Low .week52High
                .marketCap .peRatio
                .previousClose .change .changePercent))))
@@ -2172,7 +2175,8 @@ P: Show live price for current stock."
      (format "Stock Quotes From IEXTrading"))
     (put-text-property
      (point-min) (point-max)
-     'keymap ems--wizards-iex-quotes-keymap)))
+     'keymap ems--wizards-iex-quotes-keymap)
+    (funcall-interactively #'emacspeak-table-goto 1 2)))
 
 (defun emacspeak-wizards-iex-show-tops ()
   "Uses tops/last end-point to show brief portfolio quotes."
