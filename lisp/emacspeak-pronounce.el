@@ -78,7 +78,7 @@ Split using pattern given by `SPLIT' and format using `TEMPLATE'."
       values
       (cons
        (cond
-        ((stringp v) (format " %s " b))
+        ((stringp v) (format " %s " v))
         ((and (numberp v) (< v (length fields)))
          (propertize (nth v fields) 'personality voice-smoothen))
         (t (error "bad template?")))
