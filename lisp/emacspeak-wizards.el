@@ -165,6 +165,7 @@ Prompts for the new location and preserves modification time
   existing file being overwritten."
   (interactive)
   (cl-declare (special emacspeak-copy-file-location-history
+                       minibuffer-history
                        emacspeak-copy-associated-location))
   (let ((file (or (buffer-file-name)
                   (error "Current buffer is not visiting any file")))
@@ -2034,7 +2035,7 @@ for how to get  an API key. "
   :group 'emacspeak-wizards)
 
 (defvar emacspeak-wizards-iex-quotes-row-filter
-  '(0  " at " 2 " change " 9 "percent")
+  '(0  " at " 5 " change " 11"percent")
   "Template used to audio-format  rows.")
 
 (defvar emacspeak-wizards-iex-portfolio-file
@@ -2143,7 +2144,7 @@ P: Show live price for current stock."
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
-           "lastTrade"
+            "Open" "Low" "High" "Close"
            "52WeekLow" "52WeekHigh"
            "MarketCap" "PERatio"
            "Previous Close" "Change" "Change %"])
@@ -2154,7 +2155,8 @@ P: Show live price for current stock."
             #'vector
             (let-alist r
               (list
-               .companyName .symbol .latestPrice
+               .companyName .symbol
+               .open .low .high .close
                .week52Low .week52High
                .marketCap .peRatio
                .previousClose .change .changePercent))))
