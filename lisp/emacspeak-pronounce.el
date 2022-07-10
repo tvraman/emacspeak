@@ -81,12 +81,9 @@ Split using pattern given by `SPLIT' and format using `TEMPLATE'."
         ((stringp v) (format " %s " v))
         ((and (numberp v) (< v (length fields)))
          (propertize (nth v fields) 'personality voice-smoothen))
-        ((and (listp v) (= 2 (length v))
-              (symbolp (nth 0 v)) (fboundp (nth 0 v))
-              (numberp (nth 1 v)))
-         (funcall
-          (nth 0 v)
-          (nth (nth 1 v) fields)))
+        ((and
+          (listp v) (symbolp (nth 0 v)) (fboundp (nth 0 v)))
+         (apply (nth 0 v) (cdr fields)))
         (t (error "bad template?")))
        values)))
     (mapconcat #'identity (nreverse values) " ")))
