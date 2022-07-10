@@ -69,7 +69,12 @@
 
 (defun ems--pronounce-string-template (str split template)
   "Return an audio formatted representation of string `STR'.
-Split using pattern given by `SPLIT' and format using `TEMPLATE'."
+Split using pattern given by `SPLIT' and format using `TEMPLATE'.
+Template is a list:
+Number: Select element at position n from splits.
+String: Return it as is.
+(func number number ...): Apply func treating rest of the list as
+  indices into splits."
   (let ((fields (split-string str split))
         (values nil))
     (cl-loop
