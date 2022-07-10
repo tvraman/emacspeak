@@ -88,7 +88,10 @@ String: Return it as is.
          (propertize (nth v fields) 'personality voice-smoothen))
         ((and
           (listp v) (symbolp (nth 0 v)) (fboundp (nth 0 v)))
-         (apply (nth 0 v) (cdr fields)))
+         (apply (nth 0 v)
+                (cl-loop
+                 for k in (cdr v)
+                 collect (nth k fields))))
         (t (error "bad template?")))
        values)))
     (mapconcat #'identity (nreverse values) " ")))
