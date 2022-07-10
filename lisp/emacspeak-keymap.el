@@ -658,7 +658,7 @@
     ("e" elfeed)
     ("f" flyspell-mode)
     ("h" emacspeak-org-capture-link)
-    ("l" emacspeak-m-player-locate-media)
+    ("l" emacspeak-wizards-locate-content)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("n" emacspeak-wizards-google-news)
     ("p" proced)
@@ -740,7 +740,7 @@
 
 (defcustom emacspeak-multi-keys
   '(
-    ("l" emacspeak-wizards-locate-content) ("h" emacspeak-m-player-browse-history)
+    ("l" emacspeak-m-player-locate-media) ("h" emacspeak-m-player-browse-history)
     )
   "Multi key bindings. "
   :group 'emacspeak
