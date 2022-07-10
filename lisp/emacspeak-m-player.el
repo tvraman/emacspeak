@@ -1155,7 +1155,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (insert "<ol>\n")
     (cl-loop
      for u in emacspeak-m-player-media-history do
-     (insert (format "<li><a href='%s'>%s</a></li>\n" u u)))
+     (insert (format "<li><a href='%s'>%s</a></li>\n" (car u) (car u))))
     (insert "</ol>\n")
     (call-interactively #'browse-url-of-buffer)))
 
