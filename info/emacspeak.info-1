@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 8, 2022.
+last updated on July 10, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3377,6 +3377,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  P
 11.8 Emacspeak Keybindings On emacspeak-multi-keymap
 ====================================================
 
+‘h’
+     emacspeak-m-player-browse-history
+
 
 File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Running Terminal Based Applications,  Prev: Emacspeak Keymaps,  Up: Top
 
@@ -3412,7 +3415,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1155 commands and 148 options.
+   This chapter documents a total of 1156 commands and 148 options.
 
 * Menu:
 
@@ -9001,13 +9004,4 @@ Folding mode turns emacs into a folding editor.  Folding mode is what I
 use: emacs 19 comes with similar packages, e.g.  allout.el This module
 defines some advice forms that make folding mode a pleasure to use.
 Think of a fold as a container.
-
-
-File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
-
-12.84 emacspeak-forge
-=====================
-
-FORGE == Work with Github, Gitlab etc from inside magit.  This module
-speech-enables magit/forge.
 

@@ -738,4 +738,7 @@
  @section Emacspeak Keybindings On emacspeak-multi-keymap
 
 @table @kbd
+@item h
+ emacspeak-m-player-browse-history
+
 @end table
