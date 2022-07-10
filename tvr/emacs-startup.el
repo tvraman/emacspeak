@@ -196,7 +196,7 @@ Use Custom to customize where possible. "
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
-  ;(emacspeak-sounds-select-theme "ogg-chimes/")
+  (require 'dired-x)
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
 
 (defun tvr-after-init ()

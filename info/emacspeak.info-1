@@ -3380,6 +3380,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  P
 ‘h’
      emacspeak-m-player-browse-history
 
+‘l’
+     emacspeak-wizards-locate-content
+
 
 File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Running Terminal Based Applications,  Prev: Emacspeak Keymaps,  Up: Top
 
@@ -3415,7 +3418,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1156 commands and 148 options.
+   This chapter documents a total of 1157 commands and 148 options.
 
 * Menu:
 

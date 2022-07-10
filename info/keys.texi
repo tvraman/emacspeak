@@ -741,4 +741,7 @@
 @item h
  emacspeak-m-player-browse-history
 
+@item l
+ emacspeak-wizards-locate-content
+
 @end table

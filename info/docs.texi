@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1156 commands and 148 options.
+This chapter documents a total of 1157 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -7722,7 +7722,7 @@ Default Value: @code{@verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffe
 @defvar {User Option} emacspeak-multi-keys
 Multi key bindings. 
 
-Default Value: @code{@verb{|((h emacspeak-m-player-browse-history))|}}
+Default Value: @code{@verb{|((h emacspeak-m-player-browse-history) (l emacspeak-wizards-locate-content))|}}
 
 @end defvar
 
@@ -17020,6 +17020,23 @@ Show price for symbol in current row
 
 @format
 Run Lacheck on current buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-locate-content
+@deffn {Command} emacspeak-wizards-locate-content  (pattern)
+@table @kbd
+@item C-' l
+@kindex C-' l
+@end table
+
+@findex emacspeak-wizards-locate-content
+
+@format
+Locate content matching  pattern.  The results can be
+ opened by M-x emacspeak-dired-open-this-file locally bound to C-RET .
+
+(fn PATTERN)
 @end format
 @end deffn
 

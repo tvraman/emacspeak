@@ -3228,7 +3228,46 @@ before brightness is checked.")
      (if emacspeak-brightness-autoblack 'on 'off))))
 
 ;;}}}
+;;{{{ Content Locator:
+
+;; Content locate wizard:
+;; Like  m-player-locate-media but for documents (tex,html, org, pdf
+
+(defvar emacspeak-wizards-content-extensions
+  (eval-when-compile
+    (let
+        ((ext
+          '("tex" "org" "html" "pdf")))
+      (concat
+       "\\."
+       (regexp-opt
+        (nconc ext (mapcar #'upcase ext))
+        'parens)
+       "$")))
+  "Content extensions.")
+
+(defun emacspeak-wizards-locate-content (pattern)
+  "Locate content matching  pattern.  The results can be
+ opened by \\[emacspeak-dired-open-this-file] locally bound to C-RET ."
+  (interactive "sSearch Pattern: ")
+  (cl-declare  (special emacspeak-wizards-content-extensions
+                        locate-command locate-make-command-line))
+  (let ((inhibit-read-only t)
+        (locate-make-command-line #'(lambda (s) (list locate-command "-i" "--regexp" s))))
+    (locate-with-filter
+     (mapconcat #'identity
+                (split-string pattern)
+                "[ '/\"_.,-]")
+     emacspeak-wizards-content-extensions)
+    (goto-char (point-min))
+    (emacspeak-auditory-icon 'open-object)
+    (rename-buffer (format "Content  matching %s" pattern))
+    (emacspeak-speak-mode-line)))
+
+;;}}}
+
 (provide 'emacspeak-wizards)
+
 ;;{{{ end of file
 
 ;; local variables:
