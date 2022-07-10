@@ -740,7 +740,7 @@
 
 (defcustom emacspeak-multi-keys
   '(
-    ("h" emacspeak-m-player-browse-history)
+    ("l" emacspeak-wizards-locate-content) ("h" emacspeak-m-player-browse-history)
     )
   "Multi key bindings. "
   :group 'emacspeak
