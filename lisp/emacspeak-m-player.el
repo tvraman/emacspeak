@@ -1146,6 +1146,19 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (apply #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
    (t (error "Not enough history"))))
 
+
+(defun emacspeak-m-player-browse-history ()
+  "Create a  media history browser from media-history."
+  (interactive )
+  (cl-declare (special emacspeak-m-player-media-history))
+  (with-temp-buffer
+    (insert "<ol>\n")
+    (cl-loop
+     for u in emacspeak-m-player-media-history do
+     (insert (format "<li><a href='%s'>%s</a></li>\n" u u)))
+    (insert "</ol>\n")
+    (call-interactively #'browse-url-of-buffer)))
+
 ;;}}}
 ;;{{{ Reset Options:
 

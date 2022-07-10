@@ -740,6 +740,7 @@
 
 (defcustom emacspeak-multi-keys
   '(
+    ("h" emacspeak-m-player-browse-history)
     )
   "Multi key bindings. "
   :group 'emacspeak
