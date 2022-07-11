@@ -79,9 +79,7 @@ String: Return it as is.
         (values nil))
     (cl-loop
      for  v in template do
-     (setq
-      values
-      (cons
+      (push
        (cond
         ((stringp v) (format " %s " v))
         ((and (numberp v) (< v (length fields)))
@@ -94,7 +92,7 @@ String: Return it as is.
                  for k in (cdr v)
                  collect (nth k fields))))
         (t (error "bad template?")))
-       values)))
+       values))
     (mapconcat #'identity (nreverse values) " ")))
 
 ;;}}}
