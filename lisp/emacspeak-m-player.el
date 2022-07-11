@@ -1143,7 +1143,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (cond
    ((and emacspeak-m-player-media-history
          (> (length emacspeak-m-player-media-history) posn))
-    (apply #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
+    (funcall #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
    (t (error "Not enough history"))))
 
 
@@ -1155,8 +1155,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (insert "<ol>\n")
     (cl-loop
      for u in emacspeak-m-player-media-history do
-     (insert (format "<li><a href='%s'>%s</a></li>\n" (car u)
-                     (file-name-base (car u)))))
+     (insert (format "<li><a href='%s'>%s</a></li>\n"
+                     u (file-name-base  u))))
     (insert "</ol>\n")
     (call-interactively #'browse-url-of-buffer)))
 
