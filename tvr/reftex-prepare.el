@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: nil; -*-
-;(load-library "reftex")
+(load-library "reftex")
 (eval-after-load "reftex"
 `(progn
 (setq reftex-enable-partial-scans t)
