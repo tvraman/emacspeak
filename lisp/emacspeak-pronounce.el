@@ -74,7 +74,7 @@ Template is a list:
 Number: Select element at position n from splits.
 String: Return it as is.
 (func number number ...): Apply func treating rest of the list as
-  indices into splits."
+  positions into splits."
   (let ((fields (split-string str split))
         (values nil))
     (cl-loop
