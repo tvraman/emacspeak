@@ -79,15 +79,8 @@
 
 '(
 notmuch-cycle-notmuch-buffers
-notmuch-help
 notmuch-jump-search
 notmuch-message-mode
-notmuch-mua-kill-buffer
-notmuch-mua-mail
-notmuch-mua-new-mail
-notmuch-mua-send
-notmuch-mua-send-and-exit
-notmuch-mua-send-common
 notmuch-poll
 notmuch-poll-and-refresh-this-buffer
 notmuch-refresh-all-buffers
@@ -249,7 +242,6 @@ notmuch-unthreaded
 notmuch-unthreaded-from-search-current-query
 notmuch-unthreaded-from-show-current-query
 notmuch-unthreaded-from-tree-current-query
-notmuch-version
 )
 (cl-loop
  for f in 
@@ -277,6 +269,15 @@ notmuch-version
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
+;;}}}
+;;{{{MUA:
+
+'(notmuch-mua-kill-buffer
+notmuch-mua-mail
+notmuch-mua-new-mail
+notmuch-mua-send
+notmuch-mua-send-and-exit
+notmuch-mua-send-common)
 
 ;;}}}
 (provide 'emacspeak-notmuch)
