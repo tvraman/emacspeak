@@ -3165,7 +3165,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
      emacspeak-org-capture-link
 
 ‘l’
-     emacspeak-m-player-locate-media
+     emacspeak-wizards-locate-content
 
 ‘m’
      emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -3381,7 +3381,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  P
      emacspeak-m-player-browse-history
 
 ‘l’
-     emacspeak-wizards-locate-content
+     emacspeak-m-player-locate-media
 
 
 File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Running Terminal Based Applications,  Prev: Emacspeak Keymaps,  Up: Top
@@ -3555,6 +3555,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-navi-mode::Speech-enable NAVI-MODE.
 * emacspeak-net-utils::Speech enable net-utils.
 * emacspeak-newsticker::Speech-enable newsticker.
+* emacspeak-notmuch::Speech-enable NOTMUCH.
 * emacspeak-nov::Speech-enable NOV.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.

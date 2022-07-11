@@ -140,6 +140,7 @@ This chapter documents a total of 1157 commands and 148 options.
 * emacspeak-navi-mode::Speech-enable NAVI-MODE.
 * emacspeak-net-utils::Speech enable net-utils.
 * emacspeak-newsticker::Speech-enable newsticker.
+* emacspeak-notmuch::Speech-enable NOTMUCH.
 * emacspeak-nov::Speech-enable NOV.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
@@ -7722,7 +7723,7 @@ Default Value: @code{@verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffe
 @defvar {User Option} emacspeak-multi-keys
 Multi key bindings. 
 
-Default Value: @code{@verb{|((h emacspeak-m-player-browse-history) (l emacspeak-wizards-locate-content))|}}
+Default Value: @code{@verb{|((h emacspeak-m-player-browse-history) (l emacspeak-m-player-locate-media))|}}
 
 @end defvar
 
@@ -7743,7 +7744,7 @@ Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacsp
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (f flyspell-mode) (h emacspeak-org-capture-link) (l emacspeak-m-player-locate-media) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))|}}
+Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (f flyspell-mode) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))|}}
 
 @end defvar
 
@@ -8358,10 +8359,8 @@ Load playlist.
 @subsubsection emacspeak-m-player-locate-media
 @deffn {Command} emacspeak-m-player-locate-media  (pattern)
 @table @kbd
-@item C-. l
-@kindex C-. l
-@item C-x @@ s l
-@kindex C-x @@ s l
+@item C-' l
+@kindex C-' l
 @end table
 
 @findex emacspeak-m-player-locate-media
@@ -9746,6 +9745,11 @@ This module speech enables net-utils
 Newsticker provides a continuously updating newsticker using
 RSS
 Provides functionality similar to amphetadesk --but in pure elisp
+
+@node emacspeak-notmuch
+@section emacspeak-notmuch
+
+NOTMUCH ==  Emacs interface to notmuch mail
 
 @node emacspeak-nov
 @section emacspeak-nov
@@ -17026,8 +17030,10 @@ Run Lacheck on current buffer.
 @subsubsection emacspeak-wizards-locate-content
 @deffn {Command} emacspeak-wizards-locate-content  (pattern)
 @table @kbd
-@item C-' l
-@kindex C-' l
+@item C-. l
+@kindex C-. l
+@item C-x @@ s l
+@kindex C-x @@ s l
 @end table
 
 @findex emacspeak-wizards-locate-content

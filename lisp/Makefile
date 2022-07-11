@@ -203,6 +203,7 @@ emacspeak-muse.elc \
 emacspeak-navi-mode.elc \
 emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
+emacspeak-notmuch.elc \
 emacspeak-nov.elc \
 emacspeak-nxml.elc \
 emacspeak-ocr.elc \

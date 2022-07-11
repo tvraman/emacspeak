@@ -526,7 +526,7 @@
  emacspeak-org-capture-link
 
 @item l
- emacspeak-m-player-locate-media
+ emacspeak-wizards-locate-content
 
 @item m
  emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -742,6 +742,6 @@
  emacspeak-m-player-browse-history
 
 @item l
- emacspeak-wizards-locate-content
+ emacspeak-m-player-locate-media
 
 @end table
