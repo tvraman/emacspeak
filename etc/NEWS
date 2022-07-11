@@ -10,6 +10,12 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 57 --- Emacspeak 57 User Visible Changes
+** Speech-Enable NotMuch 
+
+Module ~emacspeak-notmuch~ speech-enables the Emacs Mail Interface to
+~NotMuch~.
+
+
 ** Module light.el    
 
 Module light.el enables brightness changes for OLED displays ---
