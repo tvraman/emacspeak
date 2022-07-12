@@ -1141,7 +1141,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (cl-declare (special emacspeak-m-player-media-history))
   (setq emacspeak-m-player-media-history
         (cl-remove-if
-         #'(lambda (u) (string= u url))
+         #'(lambda(u) (string= u url))
          emacspeak-m-player-media-history)))
 
 (defun emacspeak-m-player-from-history (posn)
@@ -1164,8 +1164,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (insert "<ol>\n")
     (cl-loop
      for u in emacspeak-m-player-media-history do
-     (insert (format "<li><a href='%s'>%s</a></li>\n"
-                     u (file-name-base  u))))
+     (insert (format "<li><a href='%s'>%s: %s</a></li>\n"
+                     u (url-host (url-generic-parse-url u)) (file-name-base  u))))
     (insert "</ol>\n")
     (call-interactively #'browse-url-of-buffer)))
 
