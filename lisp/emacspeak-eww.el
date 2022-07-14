@@ -2085,7 +2085,6 @@ arg `delete', delete that mark instead."
 (defun emacspeak-eww-marks-list ()
   "List EWW Marks."
   (interactive)
-  (interactive "P")
   (cl-declare (special emacspeak-eww-marks))
   (let ((buffer (get-buffer-create "*EWW Marks*"))
         (inhibit-read-only t))
