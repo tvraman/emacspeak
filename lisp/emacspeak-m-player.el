@@ -1453,8 +1453,10 @@ flat classical club dance full-bass full-bass-and-treble
 ;; yt player using mplayer is broken  due to xml manifests
 
 ;;;###autoload
-(defun emacspeak-m-player-youtube-player (url)
-  "Use youtube-dl and mplayer to stream  audio from Youtube. "
+(defun emacspeak-m-player-youtube-player (url &optional mpv)
+  "Use youtube-dl and mplayer to stream  audio from Youtube.
+ Optional interactive prefix arg uses mpv instead --- that works with
+manifest xml files."
   (interactive
    (list
     (emacspeak-eww-read-url)
@@ -1472,7 +1474,10 @@ flat classical club dance full-bass full-bass-and-treble
                    url)))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (kill-new u)
-    (emacspeak-m-player u)))
+    (if mpv
+        (async-shell-command
+         (format "mpv '%s'" u))
+        (emacspeak-m-player u))))
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-live (url)
