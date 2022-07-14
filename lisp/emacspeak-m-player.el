@@ -1475,8 +1475,8 @@ manifest xml files."
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (kill-new u)
     (if mpv
-        (async-shell-command
-         (format "mpv '%s'" u))
+        (async-shell-command ; mpv knows yt-dl magic:
+         (format "mpv --no-video '%s'" url))
         (emacspeak-m-player u))))
 
 ;;;###autoload
