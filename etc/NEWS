@@ -24,6 +24,9 @@ alternative to xbacklight.el
 ** Emacspeak Auditory Display Under Pulseaudio 
 
 [[https://emacspeak.blogspot.com/2022/06/emacspeak-complete-audio-desktop-under.html][Emacspeak auditory display]] features work under Pulseaudio.
+** Emacspeak Speciality Browsers 
+
+Interactive browsers for EWW Marks, Media History.
 
 ** Speech-Enable ~journalctl-mode~
 
