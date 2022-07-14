@@ -2115,11 +2115,7 @@ arg `delete', delete that mark instead."
   (delete nil
           (list
            (expand-file-name "nmpv" emacspeak-etc-directory)(executable-find "mpv")
-           (expand-file-name "cbox" emacspeak-etc-directory)
-           (expand-file-name "cbox-left" emacspeak-etc-directory)
-           (expand-file-name "cbox-right" emacspeak-etc-directory)
-           (expand-file-name "cbox-amp" emacspeak-etc-directory)
-           (executable-find "youtube-dl")))
+           (expand-file-name "cbox" emacspeak-etc-directory)))
   "Shell commands we permit on URL under point.")
 
 (defun emacspeak-eww-shell-command-on-url-at-point (&optional prefix)
