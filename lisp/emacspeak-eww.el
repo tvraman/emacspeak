@@ -2087,12 +2087,15 @@ arg `delete', delete that mark instead."
   (interactive)
   (interactive "P")
   (cl-declare (special emacspeak-eww-marks))
-  (let ((buffer (get-buffer-create "*EWW Marks*")))
+  (let ((buffer (get-buffer-create "*EWW Marks*"))
+        (inhibit-read-only t))
     (with-current-buffer buffer
+      (special-mode)
+      (erase-buffer)
+      (setq buffer-undo-list t)
       (cl-loop for k being the hash-keys of emacspeak-eww-marks do
                (insert (format "%s\n" k)))
       (goto-char (point-min)))
-    
     (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}

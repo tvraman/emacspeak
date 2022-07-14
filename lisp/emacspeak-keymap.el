@@ -796,7 +796,7 @@
 
 ;;}}}
 ;;{{{ Global Bindings From Other Modules:
-
+(global-set-key (ems-kbd "C-x r C-e") 'emacspeak-eww-marks-list)
 (global-set-key (ems-kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
