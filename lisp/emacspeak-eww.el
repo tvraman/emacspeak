@@ -2114,7 +2114,7 @@ arg `delete', delete that mark instead."
 (defvar emacspeak-eww-url-shell-commands
   (delete nil
           (list
-           (executable-find "mpv")
+           (expand-file-name "nmpv" emacspeak-etc-directory)(executable-find "mpv")
            (expand-file-name "cbox" emacspeak-etc-directory)
            (expand-file-name "cbox-left" emacspeak-etc-directory)
            (expand-file-name "cbox-right" emacspeak-etc-directory)

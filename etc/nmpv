@@ -1,0 +1,3 @@
+#!/bin/sh
+# Custom mpv script 
+mpv --no-video "$@"
