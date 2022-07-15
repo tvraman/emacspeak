@@ -813,12 +813,18 @@ results, default is 1."
         (params nil)
         (playlist nil)
         (channel nil))
-    (setq params
-          (mapcar
-           #'      (lambda         (s) (split-string s "="))
-           (split-string (url-filename u) "&")))
-    (setq playlist (cadr (assoc "list" params)))
-    (setq channel (cadr (assoc "channel" params)))
+    (when (string-match "list=" url)
+      (setq params
+            (mapcar
+             #'      (lambda         (s) (split-string s "="))
+             (split-string (url-filename u) "&")))
+      (setq playlist (cadr (assoc "list" params))))
+    (when (string-match "channel" url)
+      (setq channel
+            (substring url
+                       (+ (string-match "channel" url)
+                        (length "channel/")))
+            ))
     (cond
      (playlist
       (kill-new (format pl playlist))
