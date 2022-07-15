@@ -512,9 +512,13 @@
   #'(lambda ()
       (let ((url (shr-url-at-point nil)))
         (cond
+         ((and url ;;; google  Result
+               (stringp url)
+               (string-prefix-p (emacspeak-google-result-url-prefix) url))
+          (emacspeak-google-canonicalize-result-url url))
          ((and url (stringp url))url)
          (t (error "No URL under point.")))))
-  "EWW Url At point.")
+  "EWW Url At point that also handle google specialities.")
 
 (add-hook
  'eww-mode-hook
@@ -1838,6 +1842,33 @@ The %s is automatically spoken if there is no user activity."
                  (funcall #'emacspeak-eww-next-element s)
                  (emacspeak-speak-region start (point)))
              (error nil))))))))
+
+
+(cl-loop
+ for f in
+ '(url-retrieve-internal  url-truncate-url-for-viewing eww)
+ do
+ (eval
+  `
+  (defadvice ,f (before cleanup-url  pre act comp)
+    "Canonicalize Google search URLs."
+    (let ((u (ad-get-arg 0)))
+      (cond
+       ((and u (stringp u)
+             (string-prefix-p (emacspeak-google-result-url-prefix) u))
+        (ad-set-arg 0 (emacspeak-google-canonicalize-result-url
+ u))))))))
+
+(defadvice shr-copy-url (around emacspeak pre act comp)
+  "Canonicalize Google URLs"
+  ad-do-it
+  (when (ems-interactive-p)
+    (let ((u (car kill-ring)))
+      (when
+          (and u (stringp u)
+               (string-prefix-p (emacspeak-google-result-url-prefix) u))
+        (kill-new  (emacspeak-google-canonicalize-result-url u))))))
+
 
 ;;}}}
 ;;{{{ Speech-enable EWW buffer list:

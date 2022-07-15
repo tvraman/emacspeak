@@ -1451,6 +1451,8 @@ flat classical club dance full-bass full-bass-and-treble
 
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 ;; yt player using mplayer is broken  due to xml manifests
+(declare-function
+ emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional mpv)
@@ -1475,9 +1477,9 @@ manifest xml files."
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (kill-new u)
     (if mpv
-        (async-shell-command ; mpv knows yt-dl magic:
+        (async-shell-command            ; mpv knows yt-dl magic:
          (format "mpv --no-video '%s'" url))
-        (emacspeak-m-player u))))
+      (emacspeak-m-player u))))
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-live (url)
@@ -1490,7 +1492,7 @@ manifest xml files."
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
   (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
-    )
+    (setq url (emacspeak-google-canonicalize-result-url url)))
   (let ((emacspeak-m-player-options
          (append emacspeak-m-player-options (list "-loop" "0")))
         (u

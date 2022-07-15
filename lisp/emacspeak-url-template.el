@@ -241,7 +241,9 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ Google Trends:
-
+(declare-function
+ emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
+(declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 (emacspeak-url-template-define
  "Google Trends"
  "https://www.google.com/trends/hottrends/atom/feed?pn=p1"
@@ -1273,11 +1275,15 @@ template."
  "" nil nil
  "Open RSS Feed for Reddit URL under point."
  #'(lambda (_url)
-     (let ((url
-            (or
-             (shr-url-at-point nil)
-             (browse-url-url-at-point)
-             (read-from-minibuffer "URL:"))))
+     (let* ((u
+             (or
+              (shr-url-at-point nil)
+              (browse-url-url-at-point)
+              (read-from-minibuffer "URL:")))
+            (url
+             (if (string-prefix-p (emacspeak-google-result-url-prefix) u)
+                 (emacspeak-google-canonicalize-result-url u)
+               u)))
        (cl-assert url t "No URL under point.")
        (cl-assert
         (string-match "https://www.reddit.com" url) t
