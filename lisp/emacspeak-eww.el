@@ -2118,14 +2118,17 @@ arg `delete', delete that mark instead."
            (expand-file-name "cbox" emacspeak-etc-directory)))
   "Shell commands we permit on URL under point.")
 
-(defun emacspeak-eww-shell-command-on-url-at-point (&optional prefix)
+(defun emacspeak-eww-shell-command-on-url-at-point ()
   "Run specified shell command on URL at point. "
-  (interactive "P")
+  (interactive)
   (cl-declare (special emacspeak-eww-url-shell-commands))
-  (cl-assert (shr-url-at-point prefix) t "No URL at point.")
-  (let ((url (shr-url-at-point prefix))
+  (let ((url
+         (or (shr-url-at-point nil)
+             (browse-url-url-at-point)))
         (cmd
-         (completing-read "Shell Command: " emacspeak-eww-url-shell-commands)))
+         (completing-read "Shell Command: "
+                          emacspeak-eww-url-shell-commands)))
+    (cl-assert url t "No url found")
     (async-shell-command (format "%s '%s'" cmd url))
     (emacspeak-auditory-icon 'task-done)))
 ;;}}}
