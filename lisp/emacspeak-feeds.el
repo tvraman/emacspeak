@@ -253,6 +253,7 @@ feeds."
    (list
     (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-rss-view-xsl))
+  (emacspeak-auditory-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 
 ;;;###autoload
@@ -267,6 +268,7 @@ feeds."
   "Display ATOM feed."
   (interactive (list (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-atom-view-xsl))
+  (emacspeak-auditory-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
 ;;}}}
