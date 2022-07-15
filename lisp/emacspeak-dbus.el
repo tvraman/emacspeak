@@ -375,8 +375,8 @@ already disabled."
           (progn
             (ems-with-environment
               '(("PULSE_SINK" . "tts_right"))
-              (emacspeak-prompt "success"))
-            (light-black)
+              (emacspeak-prompt "success")
+              (light-black))
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
             (when
                 (window-configuration-p emacspeak-screen-saver-saved-configuration)
