@@ -828,10 +828,10 @@ results, default is 1."
     (cond
      (playlist
       (kill-new (format pl playlist))
-      (funcall-interactively #'emacspeak-feeds-rss-display (format pl playlist)))
+      (funcall-interactively #'emacspeak-feeds-atom-display (format pl playlist)))
      (channel
       (kill-new (format ch channel))
-      (funcall-interactively #'emacspeak-feeds-rss-display (format ch channel)))
+      (funcall-interactively #'emacspeak-feeds-atom-display (format ch channel)))
      (t (error "URL is not a channel or playlist.")))))
 
 ;;}}}
