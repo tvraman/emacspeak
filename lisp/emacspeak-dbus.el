@@ -234,14 +234,14 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
+  (emacspeak-prompt "resume")
   (ems-with-messages-silenced
     (tts-restart)
     (ems-with-environment '(("PULSE_SINK" . "tts_left"))
                           (emacspeak-prompt "waking-up"))
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
-    (when (featurep 'light)
-      (run-with-timer  60 nil #'light-black))
+    (when (featurep 'light) (light-black))
     (when
         (dbus-call-method
          :session
