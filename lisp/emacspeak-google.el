@@ -802,6 +802,33 @@ results, default is 1."
       (browse-url-of-buffer))))
 
 ;;}}}
+;;{{{youtube to rss:
+
+(defun emacspeak-google-yt-to-rss (url) 
+  "Turn YT Channel or Playlist url into an RSS feed and open it."
+  (interactive "sURL:")
+  (let ((pl "https://www.youtube.com/feeds/videos.xml?playlist_id=%s")
+        (ch  "https://www.youtube.com/feeds/videos.xml?channel_id=%s")
+        (u (url-generic-parse-url url))
+        (params nil)
+        (playlist nil)
+        (channel nil))
+    (setq params
+          (mapcar
+           #'      (lambda         (s) (split-string s "="))
+           (split-string (url-filename u) "&")))
+    (setq playlist (cadr (assoc "list" params)))
+    (setq channel (cadr (assoc "channel" params)))
+    (cond
+     (playlist
+      (kill-new (format pl playlist))
+      (funcall-interactively #'emacspeak-feeds-rss-display (format pl playlist)))
+     (channel
+      (kill-new (format ch channel))
+      (funcall-interactively #'emacspeak-feeds-rss-display (format ch channel)))
+     (t (error "URL is not a channel or playlist.")))))
+
+;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
 
