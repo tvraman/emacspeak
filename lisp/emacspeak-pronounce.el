@@ -817,6 +817,46 @@ with Git among other things."
 ;;}}}
 ;;{{{ helper function --decode ISO date-time 
 
+
+(defun ems-speak-rfc-3339-tz-offset (rfc-3339)
+  "Return offset in seconds from UTC given an RFC-3339 time.
+  Timezone spec is of the form -08:00 or +05:30 or [zZ] for UTC.
+Value returned is compatible with `encode-time'."
+  (cond
+   ((string-match "[zZ]" (substring rfc-3339 -1))
+    t)
+   (t                                ;compute positive/negative offset
+                                        ;in seconds
+    (let ((fields
+           (mapcar
+            'read
+            (split-string (substring rfc-3339 -5) ":"))))
+      (*
+       (if (string-match "-" (substring rfc-3339 -6))
+           -60
+         60)
+       (+ (* 60 (cl-first fields))
+          (cl-second fields)))))))
+
+
+(defun emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
+  "Return a speakable string description."
+  (cl-declare (special emacspeak-speak-time-format-string))
+  (let ((year (read (substring rfc-3339 0 4)))
+        (month (read (substring rfc-3339 5 7)))
+        (day (read (substring rfc-3339 8 10)))
+        (hour (read (substring rfc-3339 11 13)))
+        (minute (read (substring rfc-3339 14 16)))
+        (second (read (substring rfc-3339 17 19)))
+        (tz (ems-speak-rfc-3339-tz-offset rfc-3339)))
+    ;; create the decoded date-time
+    (condition-case nil
+        (format-time-string emacspeak-speak-time-format-string
+                            (encode-time second minute hour day month
+                                         year tz))
+      (error rfc-3339))))
+
+
 (defvar emacspeak-pronounce-iso-datetime-pattern
   "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)Z?"
   "Regexp pattern that matches ISO date-time.")
