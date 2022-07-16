@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1157 commands and 148 options.
+This chapter documents a total of 1160 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -5302,6 +5302,20 @@ are available are cued by an auditory icon on the header line.
 @end format
 @end deffn
 
+@subsubsection emacspeak-eww-marks-list
+@deffn {Command} emacspeak-eww-marks-list   
+@table @kbd
+@item C-x r C-e
+@kindex C-x r C-e
+@end table
+
+@findex emacspeak-eww-marks-list
+
+@format
+List EWW Marks.
+@end format
+@end deffn
+
 @subsubsection emacspeak-eww-marks-load
 @deffn {Command} emacspeak-eww-marks-load   
 @findex emacspeak-eww-marks-load
@@ -5855,14 +5869,11 @@ Restore buffer to pre-filtered canonical state.
 @end deffn
 
 @subsubsection emacspeak-eww-shell-command-on-url-at-point
-@deffn {Command} emacspeak-eww-shell-command-on-url-at-point  (&optional prefix)
+@deffn {Command} emacspeak-eww-shell-command-on-url-at-point   
 @findex emacspeak-eww-shell-command-on-url-at-point
 
 @format
-Run specified shell command on URL at point.
-Warning: Running shell script cbox through this fails mysteriously.
-
-(fn &optional PREFIX)
+Run specified shell command on URL at point. 
 @end format
 @end deffn
 
@@ -7236,6 +7247,22 @@ current page.
 @end format
 @end deffn
 
+@subsubsection emacspeak-google-yt-feed
+@deffn {Command} emacspeak-google-yt-feed  (url)
+@table @kbd
+@item C-' y
+@kindex C-' y
+@end table
+
+@findex emacspeak-google-yt-feed
+
+@format
+Turn YT Channel or Playlist url into an RSS feed and open it.
+
+(fn URL)
+@end format
+@end deffn
+
 @subsection emacspeak-google Options
 
 @defvar {User Option} emacspeak-google-kg-key
@@ -7723,7 +7750,7 @@ Default Value: @code{@verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffe
 @defvar {User Option} emacspeak-multi-keys
 Multi key bindings. 
 
-Default Value: @code{@verb{|((h emacspeak-m-player-browse-history) (l emacspeak-m-player-locate-media))|}}
+Default Value: @code{@verb{|((h emacspeak-m-player-browse-history) (l emacspeak-m-player-locate-media) (y emacspeak-google-yt-feed))|}}
 
 @end defvar
 
@@ -8588,6 +8615,17 @@ Quit.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-remove-from-media-history
+@deffn {Command} emacspeak-m-player-remove-from-media-history  (url)
+@findex emacspeak-m-player-remove-from-media-history
+
+@format
+Remove URL from media history
+
+(fn URL)
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-reset-options
 @deffn {Command} emacspeak-m-player-reset-options   
 @findex emacspeak-m-player-reset-options
@@ -8873,7 +8911,7 @@ Use youtube-dl and mplayer to live-stream   from Youtube.
 @end deffn
 
 @subsubsection emacspeak-m-player-youtube-player
-@deffn {Command} emacspeak-m-player-youtube-player  (url &optional best)
+@deffn {Command} emacspeak-m-player-youtube-player  (url &optional mpv)
 @table @kbd
 @item C-, y
 @kindex C-, y
@@ -8885,10 +8923,10 @@ Use youtube-dl and mplayer to live-stream   from Youtube.
 
 @format
 Use youtube-dl and mplayer to stream  audio from Youtube.
-Default picks lowest quality ---
-Optional prefix arg ‘best’ chooses highest.
+ Optional interactive prefix arg uses mpv instead --- that works with
+manifest xml files.
 
-(fn URL &optional BEST)
+(fn URL &optional MPV)
 @end format
 @end deffn
 

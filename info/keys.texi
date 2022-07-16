@@ -744,4 +744,7 @@
 @item l
  emacspeak-m-player-locate-media
 
+@item y
+ emacspeak-google-yt-feed
+
 @end table
