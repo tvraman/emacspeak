@@ -806,7 +806,7 @@ results, default is 1."
 
 (defun emacspeak-google-yt-feed (url) 
   "Turn YT Channel or Playlist url into an RSS feed and open it."
-  (interactive "sURL:")
+  (interactive (list (emacspeak-eww-read-url)))
   (let ((r "https://www.youtube.com/feeds/videos.xml?%s=%s")
         (u (url-generic-parse-url url))
         (params nil)
