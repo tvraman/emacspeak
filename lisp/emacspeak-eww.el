@@ -1861,13 +1861,15 @@ The %s is automatically spoken if there is no user activity."
 
 (defadvice shr-copy-url (around emacspeak pre act comp)
   "Canonicalize Google URLs"
-  ad-do-it
-  (when (ems-interactive-p)
-    (let ((u (car kill-ring)))
-      (when
-          (and u (stringp u)
-               (string-prefix-p (emacspeak-google-result-url-prefix) u))
-        (kill-new  (emacspeak-google-canonicalize-result-url u))))))
+  (ems-with-messages-silenced
+    ad-do-it
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'delete-object)
+      (let ((u (car kill-ring)))
+        (when
+            (and u (stringp u)
+                 (string-prefix-p (emacspeak-google-result-url-prefix) u))
+          (kill-new  (emacspeak-google-canonicalize-result-url u)))))))
 
 
 ;;}}}
