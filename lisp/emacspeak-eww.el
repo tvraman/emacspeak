@@ -1869,7 +1869,8 @@ The %s is automatically spoken if there is no user activity."
         (when
             (and u (stringp u)
                  (string-prefix-p (emacspeak-google-result-url-prefix) u))
-          (kill-new  (emacspeak-google-canonicalize-result-url u)))))))
+          (kill-new  (emacspeak-google-canonicalize-result-url u))))
+      (emacspeak-speak-current-kill))))
 
 
 ;;}}}
