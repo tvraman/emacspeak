@@ -8481,9 +8481,12 @@ prefix arg to delete a previously created eww-mark.
 12.75.9.53 emacspeak-eww-shell-command-on-url-at-point
 ......................................................
 
- -- Command: emacspeak-eww-shell-command-on-url-at-point
+ -- Command: emacspeak-eww-shell-command-on-url-at-point (&optional
+          prompt)
 
      Run specified shell command on URL at point.
+
+     (fn &optional PROMPT)
 
 12.75.9.54 emacspeak-eww-smart-tabs
 ...................................

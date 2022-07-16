@@ -5869,11 +5869,13 @@ Restore buffer to pre-filtered canonical state.
 @end deffn
 
 @subsubsection emacspeak-eww-shell-command-on-url-at-point
-@deffn {Command} emacspeak-eww-shell-command-on-url-at-point   
+@deffn {Command} emacspeak-eww-shell-command-on-url-at-point  (&optional prompt)
 @findex emacspeak-eww-shell-command-on-url-at-point
 
 @format
 Run specified shell command on URL at point. 
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 

@@ -15,6 +15,16 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on July 15, 2022.
 
 
+File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
+
+12.229 plain-voices
+===================
+
+This module defines the various voices used in voice-lock mode.  Module
+Plain is suitable for a device for which you haven’t yet implemented
+appropriate voice-locking controls
+
+
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
 12.230 soundscape
@@ -2687,7 +2697,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, q:                                 emacspeak-wizards.  (line  728)
 * C-, r:                                 emacspeak-feeds.    (line   94)
 * C-, s:                                 emacspeak-wizards.  (line 1168)
-* C-, SPC:                               emacspeak-eww.      (line  882)
+* C-, SPC:                               emacspeak-eww.      (line  885)
 * C-, t:                                 emacspeak-wizards.  (line 1156)
 * C-, u:                                 emacspeak-m-player. (line  716)
 * C-, y:                                 emacspeak-m-player. (line  799)
@@ -3114,7 +3124,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a q:                             emacspeak-wizards.  (line  729)
 * C-x @ a r:                             emacspeak-feeds.    (line   95)
 * C-x @ a s:                             emacspeak-wizards.  (line 1169)
-* C-x @ a SPC:                           emacspeak-eww.      (line  883)
+* C-x @ a SPC:                           emacspeak-eww.      (line  886)
 * C-x @ a t:                             emacspeak-wizards.  (line 1157)
 * C-x @ a u:                             emacspeak-m-player. (line  717)
 * C-x @ a y:                             emacspeak-m-player. (line  800)

@@ -9896,13 +9896,3 @@ specific.
 
      Default Value: ‘50’
 
-
-File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
-
-12.229 plain-voices
-===================
-
-This module defines the various voices used in voice-lock mode.  Module
-Plain is suitable for a device for which you haven’t yet implemented
-appropriate voice-locking controls
-
