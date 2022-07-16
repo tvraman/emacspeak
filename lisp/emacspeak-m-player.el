@@ -1453,6 +1453,7 @@ flat classical club dance full-bass full-bass-and-treble
 ;; yt player using mplayer is broken  due to xml manifests
 (declare-function
  emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
+(declare-function mpv-start "mpv" (&rest args))
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional mpv)
@@ -1466,20 +1467,21 @@ manifest xml files."
   (cl-declare (special emacspeak-m-player-youtube-dl))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
+  (when mpv (cl-assert  (require 'mpv) t "mpv not found"))
   (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
     (setq url (emacspeak-google-canonicalize-result-url url)))
-  (let ((u
-         (string-trim
-          (shell-command-to-string
-           (format "%s --youtube-skip-dash-manifest    -g '%s' 2> /dev/null"
-                   emacspeak-m-player-youtube-dl
-                   url)))))
-    (when (= 0 (length  u)) (error "Error retrieving Media URL "))
-    (kill-new u)
-    (if mpv
-        (async-shell-command            ; mpv knows yt-dl magic:
-         (format "mpv --no-video '%s'" url))
-      (emacspeak-m-player u))))
+  (cond
+   (mpv (mpv-start url))
+   (t
+    (let ((u
+           (string-trim
+            (shell-command-to-string
+             (format "%s --youtube-skip-dash-manifest    -g '%s' 2> /dev/null"
+                     emacspeak-m-player-youtube-dl
+                     url)))))
+      (when (= 0 (length  u)) (error "Error retrieving Media URL "))
+      (kill-new u)
+        (emacspeak-m-player u)))))
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-live (url)
