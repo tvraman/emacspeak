@@ -1456,10 +1456,9 @@ flat classical club dance full-bass full-bass-and-treble
 (declare-function mpv-start "mpv" (&rest args))
 
 ;;;###autoload
-(defun emacspeak-m-player-youtube-player (url &optional mpv)
-  "Use youtube-dl and mplayer to stream  audio from Youtube.
- Optional interactive prefix arg uses mpv instead --- that works with
-manifest xml files."
+(defun emacspeak-m-player-youtube-player (url &optional prefix)
+  "Use youtube-dl  to stream  using mpv.
+ Optional interactive prefix arg uses mplayer  instead. "
   (interactive
    (list
     (emacspeak-eww-read-url)
@@ -1467,11 +1466,11 @@ manifest xml files."
   (cl-declare (special emacspeak-m-player-youtube-dl))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
-  (when mpv (cl-assert  (require 'mpv) t "mpv not found"))
+  (unless prefix (cl-assert  (require 'mpv) t "mpv not found"))
   (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
     (setq url (emacspeak-google-canonicalize-result-url url)))
   (cond
-   (mpv (mpv-start url))
+   ((not prefix) (mpv-start url))
    (t
     (let ((u
            (string-trim
