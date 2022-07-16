@@ -1,0 +1,7 @@
+# Youtube Utils
+# turn yt playlist into an m3 playlist
+# usage: yt2m3u url name
+function yt2m3u (){
+  youtube-dl -j $1 --flat-playlist | jq -r '.id' | \
+  sed 's_^_https://youtu.be/_' > $2.m3u
+}
