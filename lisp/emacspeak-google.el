@@ -807,8 +807,7 @@ results, default is 1."
 (defun emacspeak-google-yt-to-rss (url) 
   "Turn YT Channel or Playlist url into an RSS feed and open it."
   (interactive "sURL:")
-  (let ((pl "https://www.youtube.com/feeds/videos.xml?playlist_id=%s")
-        (ch  "https://www.youtube.com/feeds/videos.xml?channel_id=%s")
+  (let ((r "https://www.youtube.com/feeds/videos.xml?%s=%s")
         (u (url-generic-parse-url url))
         (params nil)
         (playlist nil)
@@ -823,15 +822,14 @@ results, default is 1."
       (setq channel
             (substring url
                        (+ (string-match "channel" url)
-                        (length "channel/")))
-            ))
+                        (length "channel/")))))
     (cond
      (playlist
-      (kill-new (format pl playlist))
-      (funcall-interactively #'emacspeak-feeds-atom-display (format pl playlist)))
+      (kill-new (format r "playlist_id" playlist))
+      (funcall-interactively #'emacspeak-feeds-atom-display (format r "playlist_id" playlist)))
      (channel
-      (kill-new (format ch channel))
-      (funcall-interactively #'emacspeak-feeds-atom-display (format ch channel)))
+      (kill-new (format r "channel_id" channel))
+      (funcall-interactively #'emacspeak-feeds-atom-display (format r "channel_id" channel)))
      (t (error "URL is not a channel or playlist.")))))
 
 ;;}}}
