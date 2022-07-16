@@ -804,7 +804,7 @@ results, default is 1."
 ;;}}}
 ;;{{{youtube to rss:
 
-(defun emacspeak-google-yt-to-rss (url) 
+(defun emacspeak-google-yt-feed (url) 
   "Turn YT Channel or Playlist url into an RSS feed and open it."
   (interactive "sURL:")
   (let ((r "https://www.youtube.com/feeds/videos.xml?%s=%s")
