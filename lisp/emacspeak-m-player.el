@@ -1466,11 +1466,12 @@ flat classical club dance full-bass full-bass-and-treble
   (cl-declare (special emacspeak-m-player-youtube-dl))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
-  (unless prefix (cl-assert  (require 'mpv) t "mpv not found"))
   (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
     (setq url (emacspeak-google-canonicalize-result-url url)))
   (cond
-   ((not prefix) (mpv-start url))
+   ((not prefix)
+    (require 'mpv)
+    (mpv-start url))
    (t
     (let ((u
            (string-trim
