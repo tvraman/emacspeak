@@ -1314,8 +1314,7 @@ Indicate change of selection with an auditory icon
   "Icon."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'tick-tick)
-    (emacspeak-speak-mode-line))
-  )
+    (emacspeak-speak-mode-line)))
 
 (defadvice display-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
