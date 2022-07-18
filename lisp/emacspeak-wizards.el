@@ -2036,7 +2036,8 @@ for how to get  an API key. "
 
 (defvar emacspeak-wizards-iex-quotes-row-filter
   '(0 " ask  " 2
-      ;" trading between   " 4 " and  " 5
+                                        ;" trading between   " 4 " and  " 5
+      " 52 week range " 7 " to " 8
       " PE is " 10
       " For a market cap of " 9)
   "Template used to audio-format  rows.")
