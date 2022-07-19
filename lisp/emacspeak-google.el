@@ -817,7 +817,10 @@ results, default is 1."
             (mapcar
              #'      (lambda         (s) (split-string s "="))
              (split-string (url-filename u) "&")))
-      (setq playlist (cadr (assoc "list" params))))
+      (setq playlist
+            (or 
+             (cadr (assoc "list" params))
+             (cadr (assoc "/playlist?list" params)))))
     (when (string-match "channel" url)
       (setq channel
             (substring url
