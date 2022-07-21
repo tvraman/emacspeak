@@ -5312,7 +5312,7 @@ are available are cued by an auditory icon on the header line.
 @findex emacspeak-eww-marks-list
 
 @format
-List EWW Marks.
+List EWW Marks as actionable buttons.
 @end format
 @end deffn
 
@@ -8913,7 +8913,7 @@ Use youtube-dl and mplayer to live-stream   from Youtube.
 @end deffn
 
 @subsubsection emacspeak-m-player-youtube-player
-@deffn {Command} emacspeak-m-player-youtube-player  (url &optional mpv)
+@deffn {Command} emacspeak-m-player-youtube-player  (url &optional prefix)
 @table @kbd
 @item C-, y
 @kindex C-, y
@@ -8924,11 +8924,10 @@ Use youtube-dl and mplayer to live-stream   from Youtube.
 @findex emacspeak-m-player-youtube-player
 
 @format
-Use youtube-dl and mplayer to stream  audio from Youtube.
- Optional interactive prefix arg uses mpv instead --- that works with
-manifest xml files.
+Use youtube-dl  to stream  using mpv.
+ Optional interactive prefix arg uses mplayer  instead. 
 
-(fn URL &optional MPV)
+(fn URL &optional PREFIX)
 @end format
 @end deffn
 
