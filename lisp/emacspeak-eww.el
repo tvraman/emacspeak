@@ -2127,7 +2127,11 @@ arg `delete', delete that mark instead."
       (erase-buffer)
       (setq buffer-undo-list t)
       (cl-loop for k being the hash-keys of emacspeak-eww-marks do
-               (insert (format "%s\n" k)))
+               (insert-text-button
+                (format "%s" k)
+                'action
+                #'(lambda (b) (emacspeak-eww-open-mark (button-label b))))
+               (insert "\n"))
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buffer)))
 
