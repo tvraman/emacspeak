@@ -1137,7 +1137,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 
 (defun emacspeak-m-player-remove-from-media-history (url) 
   "Remove URL from media history"
-  (interactive "sURL:")
+  (interactive (list (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-m-player-media-history))
   (setq emacspeak-m-player-media-history
         (cl-remove-if
