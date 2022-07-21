@@ -2117,7 +2117,7 @@ arg `delete', delete that mark instead."
   "Idle timer for saving EWW marks.")
 
 (defun emacspeak-eww-marks-list ()
-  "List EWW Marks."
+  "List EWW Marks as actionable buttons."
   (interactive)
   (cl-declare (special emacspeak-eww-marks))
   (let ((buffer (get-buffer-create "*EWW Marks*"))
@@ -2126,12 +2126,12 @@ arg `delete', delete that mark instead."
       (special-mode)
       (erase-buffer)
       (setq buffer-undo-list t)
-      (cl-loop for k being the hash-keys of emacspeak-eww-marks do
-               (insert-text-button
-                (format "%s" k)
-                'action
-                #'(lambda (b) (emacspeak-eww-open-mark (button-label b))))
-               (insert "\n"))
+      (cl-loop
+       for k being the hash-keys of emacspeak-eww-marks do
+       (insert-text-button
+        (format "%s" k)
+        'action #'(lambda (b) (emacspeak-eww-open-mark (button-label b))))
+       (insert "\n"))
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buffer)))
 
