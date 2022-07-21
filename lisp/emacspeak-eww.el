@@ -2116,7 +2116,7 @@ arg `delete', delete that mark instead."
   (run-at-time 3600 3600  #'emacspeak-eww-marks-save)
   "Idle timer for saving EWW marks.")
 
-(defun emacspeak-eww-marks-list ()
+(defun emacspeak-eww-marks-browse ()
   "List EWW Marks as actionable buttons."
   (interactive)
   (cl-declare (special emacspeak-eww-marks))
