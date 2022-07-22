@@ -996,9 +996,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
               (not emacspeak-m-player-cue-info))
         (when  emacspeak-m-player-cue-info
           (emacspeak-auditory-icon
-           (if emacspeak-m-player-cue-info 'on 'off))
-          (message "ICY messages  turned %s."
-                   (if emacspeak-m-player-cue-info "on" "off"))))
+           (if emacspeak-m-player-cue-info 'on 'off))))
       (dtk-speak-and-echo (format "%s" (or info  "No Stream Info"))))))
 
 (defun emacspeak-m-player-get-length ()
