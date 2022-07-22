@@ -2120,7 +2120,7 @@ arg `delete', delete that mark instead."
   "List EWW Marks as actionable buttons."
   (interactive)
   (cl-declare (special emacspeak-eww-marks))
-  (let ((buffer (get-buffer-create "*EWW Marks*"))
+  (let ((buffer (get-buffer-create "EWW Marks"))
         (inhibit-read-only t))
     (with-current-buffer buffer
       (special-mode)
