@@ -992,14 +992,14 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (let* ((m (emacspeak-m-player-metadata-info  emacspeak-m-player-metadata))
            (info (and m (cl-second (split-string m "=")))))
       (when toggle-cue
-        (setq emacspeak-m-player-cue-info (not emacspeak-m-player-cue-info)))
-      (if  emacspeak-m-player-cue-info
-          (progn
-            (emacspeak-auditory-icon
-             (if emacspeak-m-player-cue-info 'on 'off))
-            (message "ICY messages  turned %s."
-                     (if emacspeak-m-player-cue-info "on" "off")))
-        (message"%s" (format "%s" (or info  "No Stream Info")))))))
+        (setq emacspeak-m-player-cue-info
+              (not emacspeak-m-player-cue-info))
+        (when  emacspeak-m-player-cue-info
+          (emacspeak-auditory-icon
+           (if emacspeak-m-player-cue-info 'on 'off))
+          (message "ICY messages  turned %s."
+                   (if emacspeak-m-player-cue-info "on" "off"))))
+      (dtk-speak-and-echo (format "%s" (or info  "No Stream Info"))))))
 
 (defun emacspeak-m-player-get-length ()
   "Display length of track."

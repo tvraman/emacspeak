@@ -5302,14 +5302,14 @@ are available are cued by an auditory icon on the header line.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eww-marks-list
-@deffn {Command} emacspeak-eww-marks-list   
+@subsubsection emacspeak-eww-marks-browse
+@deffn {Command} emacspeak-eww-marks-browse   
 @table @kbd
 @item C-x r C-e
 @kindex C-x r C-e
 @end table
 
-@findex emacspeak-eww-marks-list
+@findex emacspeak-eww-marks-browse
 
 @format
 List EWW Marks as actionable buttons.

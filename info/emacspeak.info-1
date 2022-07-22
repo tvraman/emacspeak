@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 21, 2022.
+last updated on July 22, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -8013,10 +8013,10 @@ prefix arg to delete a previously created eww-mark.
      Display Link tags of type rel.  Web pages for which alternate links
      are available are cued by an auditory icon on the header line.
 
-12.75.9.9 emacspeak-eww-marks-list
-..................................
+12.75.9.9 emacspeak-eww-marks-browse
+....................................
 
- -- Command: emacspeak-eww-marks-list
+ -- Command: emacspeak-eww-marks-browse
      ‘C-x r C-e’
 
      List EWW Marks as actionable buttons.
