@@ -448,6 +448,7 @@ If a dynamic playlist exists, just use it."
              (emacspeak-m-player-slave-command (format "get_meta_%s" f))
              "="))))
     emacspeak-m-player-metadata))
+
 (defvar emacspeak-m-player-cue-info nil
   "Set to T if  ICY info cued automatically.")
 
@@ -992,12 +993,12 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
            (info (and m (cl-second (split-string m "=")))))
       (when toggle-cue
         (setq emacspeak-m-player-cue-info (not emacspeak-m-player-cue-info)))
-      (when (or toggle-cue (called-interactively-p 'interactive)
-                (progn
-                  (emacspeak-auditory-icon
-                   (if emacspeak-m-player-cue-info 'on 'off))
-                  (message "ICY messages  turned %s."
-                           (if emacspeak-m-player-cue-info "on" "off"))))
+      (if toggle-cue
+          (progn
+            (emacspeak-auditory-icon
+             (if emacspeak-m-player-cue-info 'on 'off))
+            (message "ICY messages  turned %s."
+                     (if emacspeak-m-player-cue-info "on" "off")))
         (message"%s" (format "%s" (or info  "No Stream Info")))))))
 
 (defun emacspeak-m-player-get-length ()
