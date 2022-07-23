@@ -77,6 +77,7 @@
     (cl-loop
      for b in
      '(("SPC" mpv-pause)
+       (";" mpv-play)
        ("n" mpv-playlist-next)
        ("p" mpv-playlist-prev)
        ("<left>" mpv-seek-backward)
