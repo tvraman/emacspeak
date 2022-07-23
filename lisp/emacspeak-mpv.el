@@ -38,8 +38,9 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; MPV ==   Media Player
-;;; Speech-enable package mpv from melpa
+;; MPV ==   Media Player
+;; Enables seamless playback of Youtube content among others.
+;; Binds mpv commands on C-e C-; as the  prefix key.
 
 ;;; Code:
 
