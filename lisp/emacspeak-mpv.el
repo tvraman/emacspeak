@@ -59,8 +59,8 @@
  '(mpv-kill mpv-pause mpv-play
             mpv-playlist-next mpv-playlist-prev
             mpv-revert-seek mpv-seek mpv-seek-backward mpv-seek-forward
-            mpv-seek-to-position-at-point mpv-speed-decrease mpv-speed-increase mpv-speed-set m
-            pv-volume-decrease mpv-volume-increase mpv-volume-set
+            mpv-seek-to-position-at-point mpv-speed-decrease mpv-speed-increase mpv-speed-set 
+            mpv-volume-decrease mpv-volume-increase mpv-volume-set
             ) do
               `(eval
                 (defadvice ,f (after emacspeak-auditory-icon pre act
