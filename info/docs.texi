@@ -9453,7 +9453,8 @@ Speak number of uncovered cells.
 @section emacspeak-mpv
 
 MPV ==   Media Player
-Speech-enable package mpv from melpa
+Enables seamless playback of Youtube content among others.
+Binds mpv commands on C-e C-; as the  prefix key.
 
 @node emacspeak-mspools
 @section emacspeak-mspools

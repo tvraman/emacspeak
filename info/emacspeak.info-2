@@ -2503,7 +2503,8 @@ File: emacspeak.info,  Node: emacspeak-mpv,  Next: emacspeak-mspools,  Prev: ema
 12.128 emacspeak-mpv
 ====================
 
-MPV == Media Player Speech-enable package mpv from melpa
+MPV == Media Player Enables seamless playback of Youtube content among
+others.  Binds mpv commands on C-e C-; as the prefix key.
 
 
 File: emacspeak.info,  Node: emacspeak-mspools,  Next: emacspeak-muggles,  Prev: emacspeak-mpv,  Up: Emacspeak Commands And Options
