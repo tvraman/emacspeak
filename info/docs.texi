@@ -134,6 +134,7 @@ This chapter documents a total of 1160 commands and 148 options.
 * emacspeak-metapost::speech-enable metapost mode.
 * emacspeak-midge::Speech-enable MIDI editor.
 * emacspeak-mines::Speech-enable MINES.
+* emacspeak-mpv::Speech-enable MPV.
 * emacspeak-mspools::Speech enable MSpools -- Monitor multiple mail drops.
 * emacspeak-muggles::Convenience Hydras.
 * emacspeak-muse::Speech-enable Muse.
@@ -9447,6 +9448,12 @@ Speak neighboring cells in sorted order.
 Speak number of uncovered cells.
 @end format
 @end deffn
+
+@node emacspeak-mpv
+@section emacspeak-mpv
+
+MPV ==   Media Player
+Speech-enable package mpv from melpa
 
 @node emacspeak-mspools
 @section emacspeak-mspools

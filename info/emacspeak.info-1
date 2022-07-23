@@ -3552,6 +3552,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-metapost::speech-enable metapost mode.
 * emacspeak-midge::Speech-enable MIDI editor.
 * emacspeak-mines::Speech-enable MINES.
+* emacspeak-mpv::Speech-enable MPV.
 * emacspeak-mspools::Speech enable MSpools – Monitor multiple mail drops.
 * emacspeak-muggles::Convenience Hydras.
 * emacspeak-muse::Speech-enable Muse.
