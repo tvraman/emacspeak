@@ -1141,7 +1141,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (setq emacspeak-m-player-media-history
         (cl-remove-if
          #'(lambda(u) (string= u url))
-         emacspeak-m-player-media-history)))
+         emacspeak-m-player-media-history))
+  (message "Media History: %d" (length emacspeak-m-player-media-history)))
 
 (defun emacspeak-m-player-from-history (posn)
   "Play media from position `posn'media-history. "
