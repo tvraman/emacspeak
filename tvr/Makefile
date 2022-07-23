@@ -10,7 +10,7 @@ laptop-local.elc touchpad-disable.elc   slime-prepare.elc   \
 org-prepare.elc jabber-prepare.elc  all-prepare.elc 
 
 ALL= vm-prepare.el gnus-gmail-prepare.el jabber-prepare.el  \
-	sp-prepare.el lispy-prepare.el slime-prepare.el org-prepare.el 
+	sp-prepare.el lispy-prepare.el slime-prepare.el org-prepare.el  kbd-macros.el
 
 all: all-prepare.elc emacs-startup.elc setup
 
