@@ -189,6 +189,7 @@ emacspeak-librivox.elc \
 emacspeak-lispy.elc \
 emacspeak-lua.elc \
 emacspeak-m-player.elc \
+emacspeak-mpv.elc \
 emacspeak-magit.elc \
 emacspeak-make-mode.elc \
 emacspeak-man.elc \
