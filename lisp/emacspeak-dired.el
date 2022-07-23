@@ -116,7 +116,7 @@
   (emacspeak-dired-setup-keys))
 (cl-loop
  for  f in
- '(dired ido-dired
+ '(dired ido-dired dired-jump
          dired-other-window dired-other-frame)
  do
  (eval
@@ -146,7 +146,6 @@
    dired-tree-up dired-tree-down dired-up-directory
    dired-next-marked-file dired-prev-marked-file
    dired-next-dirline dired-prev-dirline
-   dired-jump
    )
  do
  (eval
