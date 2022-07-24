@@ -2824,6 +2824,7 @@ but quickly switch to a window by name."
   (add-to-list 'battery-update-functions 'emacspeak-battery-alarm))
 ;;}}}
 ;;{{{Repeat Mode:
+;; See https://karthinks.com/software/it-bears-repeating/
 
 (defvar emacspeak-repeat-was-active nil
   "Cache repeat-progress")
