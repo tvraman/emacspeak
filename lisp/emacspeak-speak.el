@@ -2833,11 +2833,11 @@ but quickly switch to a window by name."
   (cl-declare (special repeat-in-progress emacspeak-repeat-was-active))
   (cond
    ((and repeat-in-progress (not emacspeak-repeat-was-active))
+    (setq emacspeak-repeat-was-active t)
     (emacspeak-auditory-icon 'repeat-start))
    ((and (not repeat-in-progress)  emacspeak-repeat-was-active)
     (setq emacspeak-repeat-was-active nil)
-    (emacspeak-auditory-icon 'repeat-end))
-   ((and (not repeat-in-progress)  (not emacspeak-repeat-was-active)))))
+    (emacspeak-auditory-icon 'repeat-end))))
 
 (add-hook 'post-command-hook 'emacspeak-repeat-check-hook 'at-end)
 
