@@ -217,7 +217,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive)
   (cl-declare (special pianobar-buffer emacspeak-comint-autospeak))
   (condition-case nil
-      (unless (featurep 'pianobar) (require 'pianobar))
+      (require 'pianobar)
     (error "Pianobar not installed."))
   (cond
    ((and  (buffer-live-p (get-buffer pianobar-buffer))
@@ -300,7 +300,17 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (pianobar-send-string (format "%s\n" string)))
 
 ;;}}}
+;;{{{repeat-mode  support
+(put 'emacspeak-pianobar-command 'repeat-map 'pianobar-key-map)
+(put 'emacspeak-pianobar 'repeat-map 'pianobar-key-map)
 
+(map-keymap
+ (lambda (_key cmd)
+   (when (symbolp cmd)
+     (put cmd 'repeat-map 'pianobar-key-mapb)))
+ pianobar-key-map)
+
+;;}}}
 (provide 'emacspeak-pianobar)
 ;; reload pianobar to fix our vol-change commands.
 (load "pianobar")
