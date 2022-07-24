@@ -84,9 +84,9 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
 (require 'ansi-color)
 (require 'emacspeak-comint)
+(require 'pianobar)
 ;;}}}
 ;;{{{ Pianobar Fixups:
 
@@ -216,9 +216,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   "Start or control Emacspeak Pianobar player."
   (interactive)
   (cl-declare (special pianobar-buffer emacspeak-comint-autospeak))
-  (condition-case nil
-      (require 'pianobar)
-    (error "Pianobar not installed."))
+  (require 'pianobar)
   (cond
    ((and  (buffer-live-p (get-buffer pianobar-buffer))
           (processp (get-buffer-process pianobar-buffer))
@@ -301,14 +299,15 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 
 ;;}}}
 ;;{{{repeat-mode  support
+
 (put 'emacspeak-pianobar-command 'repeat-map 'pianobar-key-map)
 (put 'emacspeak-pianobar 'repeat-map 'pianobar-key-map)
-
-(map-keymap
- (lambda (_key cmd)
-   (when (symbolp cmd)
-     (put cmd 'repeat-map 'pianobar-key-mapb)))
- pianobar-key-map)
+(when (and (boundp 'pianobar-key-map) pianobar-key-map)
+  (map-keymap
+   (lambda (_key cmd)
+     (when (symbolp cmd)
+       (put cmd 'repeat-map 'pianobar-key-mapb)))
+   pianobar-key-map))
 
 ;;}}}
 (provide 'emacspeak-pianobar)
