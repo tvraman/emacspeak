@@ -97,11 +97,15 @@ Use Serve when working with remote speech servers.")
 
 ;;}}}
 ;;{{{  Setup sound themes
+
+(defvar emacspeak-sounds-current-theme
+  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
+  "Name of current theme for auditory icons.
+Do not set this by hand;
+--use command \\[emacspeak-sounds-select-theme].")
 (cl-declaim (special emacspeak-sounds-directory))
 (defvar emacspeak-default-sound
-  (expand-file-name
-   "button.wav"
-   emacspeak-sounds-current-theme)
+  (expand-file-name "button.wav" emacspeak-sounds-current-theme)
   "Fallback icon.")
 
 (defvar emacspeak-sounds-themes-table
@@ -220,12 +224,6 @@ Use Serve when working with remote speech servers.")
        ((string= (executable-find "play") val)
         (setq emacspeak-play-args nil))))
   :group 'emacspeak)
-
-(defvar emacspeak-sounds-current-theme
-  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
-  "Name of current theme for auditory icons.
-Do not set this by hand;
---use command \\[emacspeak-sounds-select-theme].")
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
