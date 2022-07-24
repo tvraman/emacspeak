@@ -2840,7 +2840,19 @@ but quickly switch to a window by name."
     (emacspeak-auditory-icon 'repeat-end))
    (repeat-in-progress (emacspeak-auditory-icon 'repeat-active))))
 
+
+;; For now this doesn't work:
+(defun emacspeak-repeat-mode-hook ()
+  "Add or remove emacspeak-repeat-check-hook from post-command-hook"
+  (cl-declare (special repeat-mode))
+  (cond
+   (repeat-mode
+    (add-hook 'post-command-hook 'emacspeak-repeat-check-hook 'at-end))
+   (t (remove-hook 'post-command-hook 'emacspeak-repeat-check-hook))))
+
+;; So let's add it unconditionally for now:
 (add-hook 'post-command-hook 'emacspeak-repeat-check-hook 'at-end)
+
 
 
 ;;}}}
