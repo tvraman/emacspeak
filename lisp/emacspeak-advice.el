@@ -1172,7 +1172,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defadvice describe-mode (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (message "Displayed mode help in help window")
+    (message "Displayed mode help")
+    (emacspeak-auditory-icon 'help)))
+
+
+(defadvice describe-repeat-maps (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (message "Displayed  repeat-mode  help")
     (emacspeak-auditory-icon 'help)))
 
 (cl-loop
