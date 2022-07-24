@@ -10,6 +10,17 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 57 --- Emacspeak 57 User Visible Changes
+
+** Emacs Repeat-Mode
+
+Emacspeak now leverages Emacs 28 feature ~repeat-mode~  for its media
+player commands.
+
+** Speech-Enable Repeat-Mode
+
+When ~repeat-mode~ is active, invoking a command that supports
+repeat-mode produces auditory icons ~repeat-start~, ~repeat-active~
+and ~repeat-end~.
 ** Speech-Enable NotMuch 
 
 Module ~emacspeak-notmuch~ speech-enables the Emacs Mail Interface to
