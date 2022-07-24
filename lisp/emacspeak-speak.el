@@ -689,7 +689,8 @@ current local  value to the result.")
   "^[^[:alnum:]]+$"
   "Pattern to match lines of special chars.
 This is a regular expression that matches lines containing only
-non-alphanumeric characters for the current locale.  emacspeak will generate a tone
+non-alphanumeric characters for the current locale.
+emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
 to some.")
 
