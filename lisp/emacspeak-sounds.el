@@ -175,10 +175,11 @@ Use Serve when working with remote speech servers.")
     (error "Theme %s is not installed" theme))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-sounds-define-theme-if-necessary theme)
-  (when (string= (executable-find "pactl" emacspeak-play-program)
-                 (shell-command
+  (when (string= (executable-find "pactl") emacspeak-play-program)
+    (shell-command
                   (format "%s load-sample-dir-lazy %s"
-                          (executable-find "pacmd") theme))))
+                          (executable-find "pacmd") theme))
+    )
   t)
 
 
@@ -272,7 +273,9 @@ Automatically set to `play-sample' if using pactl.")
       (start-process
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-get-sound-filename sound-name)))))
+
 (defvar emacspeak-sox (executable-find "sox")
+  
   "Name of SoX executable.")
 
 ;;}}}
