@@ -164,13 +164,10 @@ Use Serve when working with remote speech servers.")
                        emacspeak-sounds-themes-table
                        emacspeak-play-program emacspeak-sounds-directory))
   (when
-      (and 
-       (string= emacspeak-play-program (executable-find "pactl"))
-       (not
-        (member theme
-                (mapcar
-                 #'(lambda (th) (expand-file-name th emacspeak-sounds-directory))
-                 '("ogg-3d/" "ogg-chimes/")))))
+      (and (string= emacspeak-play-program (executable-find "pactl"))
+           (not
+            (member (file-relative-name theme emacspeak-sounds-directory)
+                    '("ogg-3d/" "ogg-chimes/"))))
     (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
@@ -181,8 +178,7 @@ Use Serve when working with remote speech servers.")
   (when (string= (executable-find "pactl" emacspeak-play-program)
                  (shell-command
                   (format "%s load-sample-dir-lazy %s"
-                          (executable-find "pacmd")
-                          theme))))
+                          (executable-find "pacmd") theme))))
   t)
 
 
