@@ -183,13 +183,9 @@ This is set to nil when playing Internet  streams.")
     (setq buffer-undo-list t)))
 
 
-(define-prefix-command 'emacspeak-media-prefix 'emacspeak-m-player-mode-map )
-(global-set-key (ems-kbd "C-' ;")'emacspeak-media-prefix)
-(map-keymap
- (lambda (_key cmd)
-   (when (symbolp cmd)
-     (put cmd 'repeat-map 'emacspeak-m-player-mode-map)))
- emacspeak-m-player-mode-map)
+
+
+
 
 ;;}}}
 ;;{{{Dynamic playlist:
@@ -372,7 +368,8 @@ Controls media playback when already playing.
              (cl-declare  (special emacspeak-m-player-current-directory))
              (setq emacspeak-m-player-current-directory ,directory)
              (emacspeak-m-player-accelerator ,directory)))))
-    (global-set-key key command)))
+    (global-set-key key command)
+    (put command 'repeat-map 'emacspeak-m-player-mode-map)))
 
 (defvar emacspeak-m-player-accelerator-p nil
   "Flag set by accelerators. Let-binding this causes default-directory
@@ -1414,6 +1411,16 @@ flat classical club dance full-bass full-bass-and-treble
 
 (cl-loop for k in emacspeak-m-player-bindings do
          (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
+
+(put 'emacspeak-multimedia 'repeat-map  'emacspeak-m-player-mode-map)
+(put 'emacspeak-m-player-using-openal 'repeat-map  'emacspeak-m-player-mode-map)
+(put 'emacspeak-m-player-volume-set 'repeat-map  'emacspeak-m-player-mode-map)
+(map-keymap
+ (lambda (_key cmd)
+   (when (symbolp cmd)
+     (put cmd 'repeat-map 'emacspeak-m-player-mode-map)))
+ emacspeak-m-player-mode-map)
+
 
 (defun emacspeak-m-player-volume-set (&optional arg)
   "Set Volume in steps from 1 to 9."
