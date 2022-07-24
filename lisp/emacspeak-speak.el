@@ -2839,8 +2839,8 @@ but quickly switch to a window by name."
     (setq emacspeak-repeat-was-active nil)
     (emacspeak-auditory-icon 'repeat-end))
    (repeat-in-progress (emacspeak-auditory-icon 'repeat-active))))
-(when (and (boundp 'repeat-mode ) repeat-mode )
-  (add-hook 'post-command-hook 'emacspeak-repeat-check-hook 'at-end))
+
+(add-hook 'post-command-hook 'emacspeak-repeat-check-hook 'at-end)
 
 
 ;;}}}
