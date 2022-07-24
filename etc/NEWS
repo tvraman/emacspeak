@@ -43,6 +43,10 @@ Interactive browsers for EWW Marks, Media History.
 
 Speech-enable package ~journalctl-mode~ to work with SystemD
 JournalCTL.
+** Sounds Themes Using OGG
+
+This is especially useful when using pulseaudio's ~pactl~ as the
+auditory icon program.
 
 ** Speech-Enable ffap: find-file-at-point
 
