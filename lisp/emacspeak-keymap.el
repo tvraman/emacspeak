@@ -740,10 +740,9 @@
 
 (defcustom emacspeak-multi-keys
   '(
-    ("l" emacspeak-m-player-locate-media) ("h"
-                                           emacspeak-m-player-browse-history)
-    ("y" emacspeak-google-yt-feed)
-    )
+    ("l" emacspeak-m-player-locate-media)
+    ("h" emacspeak-m-player-browse-history)
+    ("y" emacspeak-google-yt-feed))
   "Multi key bindings. "
   :group 'emacspeak
   :type '(repeat
