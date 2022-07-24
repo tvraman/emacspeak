@@ -182,6 +182,15 @@ This is set to nil when playing Internet  streams.")
     (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata))
     (setq buffer-undo-list t)))
 
+
+(define-prefix-command 'emacspeak-media-prefix 'emacspeak-m-player-mode-map )
+(global-set-key (ems-kbd "C-' ;")'emacspeak-media-prefix)
+(map-keymap
+ (lambda (_key cmd)
+   (when (symbolp cmd)
+     (put cmd 'repeat-map 'emacspeak-m-player-mode-map)))
+ emacspeak-m-player-mode-map)
+
 ;;}}}
 ;;{{{Dynamic playlist:
 
