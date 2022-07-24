@@ -1,1 +1,0 @@
-  -   Add icons for repeat-start, repeat-end and repeat-active 
