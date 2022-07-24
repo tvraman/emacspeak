@@ -100,8 +100,8 @@ Use Serve when working with remote speech servers.")
 (cl-declaim (special emacspeak-sounds-directory))
 (defvar emacspeak-default-sound
   (expand-file-name
-   "classic/button.wav"
-   emacspeak-sounds-directory)
+   "button.wav"
+   emacspeak-sounds-current-theme)
   "Fallback icon.")
 
 (defvar emacspeak-sounds-themes-table
