@@ -94,6 +94,15 @@
 
 (define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
 ;;}}}
+;;{{{repeatable:
+
+(map-keymap
+ (lambda (_key cmd)
+   (when (symbolp cmd)
+     (put cmd 'repeat-map 'emacspeak-mpv-keymap)))
+ emacspeak-mpv-keymap)
+
+;;}}}
 (provide 'emacspeak-mpv)
 ;;{{{ end of file
 
