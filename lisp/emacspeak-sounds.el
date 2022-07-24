@@ -159,8 +159,7 @@ Use Serve when working with remote speech servers.")
   "Select theme for auditory icons."
   (interactive
    (list
-    (expand-file-name
-     (read-directory-name "Theme: " emacspeak-sounds-directory))))
+    (expand-file-name (read-directory-name "Theme: " emacspeak-sounds-directory))))
   (cl-declare (special emacspeak-sounds-current-theme
                        emacspeak-sounds-themes-table
                        emacspeak-play-program emacspeak-sounds-directory))
@@ -169,9 +168,9 @@ Use Serve when working with remote speech servers.")
        (string= emacspeak-play-program (executable-find "pactl"))
        (not
         (member theme
-              (mapcar
-               #'(lambda (th) (expand-file-name th emacspeak-sounds-directory))
-               '("ogg-3d/" "ogg-chimes/")))))
+                (mapcar
+                 #'(lambda (th) (expand-file-name th emacspeak-sounds-directory))
+                 '("ogg-3d/" "ogg-chimes/")))))
     (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
@@ -179,6 +178,11 @@ Use Serve when working with remote speech servers.")
     (error "Theme %s is not installed" theme))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-sounds-define-theme-if-necessary theme)
+  (when (string= (executable-find "pactl" emacspeak-play-program)
+                 (shell-command
+                  (format "%s load-sample-dir-lazy %s"
+                          (executable-find "pacmd")
+                          theme))))
   t)
 
 
