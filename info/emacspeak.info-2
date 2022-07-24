@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 23, 2022.
+last updated on July 24, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -2504,7 +2504,9 @@ File: emacspeak.info,  Node: emacspeak-mpv,  Next: emacspeak-mspools,  Prev: ema
 ====================
 
 MPV == Media Player Enables seamless playback of Youtube content among
-others.  Binds mpv commands on C-e C-; as the prefix key.
+others.  Binds mpv commands on C-e C-; as the prefix key.  This
+leverages Emacs’ repeat-mode functionality, so successive mpv commands
+require only one initial ress of C-e C-;.
 
 
 File: emacspeak.info,  Node: emacspeak-mspools,  Next: emacspeak-muggles,  Prev: emacspeak-mpv,  Up: Emacspeak Commands And Options
