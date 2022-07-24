@@ -41,6 +41,8 @@
 ;; MPV ==   Media Player
 ;; Enables seamless playback of Youtube content among others.
 ;; Binds mpv commands on C-e C-; as the  prefix key.
+;; This leverages Emacs' repeat-mode functionality, so successive mpv
+;; commands require only one initial ress of C-e C-;.
 
 ;;; Code:
 
