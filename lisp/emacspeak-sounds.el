@@ -136,15 +136,20 @@ Use Serve when working with remote speech servers.")
     (cond
      ((and
        (string= emacspeak-play-program (executable-find "pactl"))
-       (string=
-        emacspeak-sounds-current-theme
-        (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
+       (or
+        (string=
+         emacspeak-sounds-current-theme
+         (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
+        (string=
+         emacspeak-sounds-current-theme
+         (expand-file-name "ogg-3d/" emacspeak-sounds-directory))))
       (file-name-nondirectory f))
      ((file-exists-p f) f)
      (t
       (let ((emacspeak-use-auditory-icons nil))
         (message "Icon %s not defined." sound-name))
       emacspeak-default-sound))))
+
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
   (cond
