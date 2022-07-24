@@ -299,15 +299,17 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 
 ;;}}}
 ;;{{{repeat-mode  support
-
-(put 'emacspeak-pianobar-command 'repeat-map 'pianobar-key-map)
-(put 'emacspeak-pianobar 'repeat-map 'pianobar-key-map)
-(when (and (boundp 'pianobar-key-map) pianobar-key-map)
-  (map-keymap
-   (lambda (_key cmd)
-     (when (symbolp cmd)
-       (put cmd 'repeat-map 'pianobar-key-mapb)))
-   pianobar-key-map))
+(eval-after-load
+    "pianobar"
+  (progn
+    (put 'emacspeak-pianobar-command 'repeat-map 'pianobar-key-map)
+    (put 'emacspeak-pianobar 'repeat-map 'pianobar-key-map)
+    (when (and (boundp 'pianobar-key-map) pianobar-key-map)
+      (map-keymap
+       (lambda (_key cmd)
+         (when (symbolp cmd)
+           (put cmd 'repeat-map 'pianobar-key-mapb)))
+       pianobar-key-map))))
 
 ;;}}}
 (provide 'emacspeak-pianobar)
