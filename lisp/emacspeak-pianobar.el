@@ -86,7 +86,7 @@
 (require 'emacspeak-preamble)
 (require 'ansi-color)
 (require 'emacspeak-comint)
-(require 'pianobar)
+;(require 'pianobar)
 ;;}}}
 ;;{{{ Pianobar Fixups:
 
