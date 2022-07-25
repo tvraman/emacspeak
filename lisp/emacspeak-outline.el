@@ -265,16 +265,26 @@ except that the outline section is  spoken"
 
 (defun emacspeak-outline-setup-keys ()
   "Bind keys in outline minor mode map"
-  (cl-declare (special outline-mode-prefix-map))
-  (define-key outline-mode-prefix-map "p"
-              'emacspeak-outline-speak-previous-heading)
-  (define-key outline-mode-prefix-map "n"
-              'emacspeak-outline-speak-next-heading)
-  (define-key outline-mode-prefix-map "b"
-              'emacspeak-outline-speak-backward-heading)
-  (define-key outline-mode-prefix-map "f"
-              'emacspeak-outline-speak-forward-heading)
-  (define-key outline-mode-prefix-map " " 'emacspeak-outline-speak-this-heading))
+  (cl-declare (special outline-mode-prefix-map
+                       outline-navigation-repeat-map))
+  (unless (boundp 'outline-navigation-repeat-map)
+    (setq outline-navigation-repeat-map (make-sparse-keymap)))
+  (cl-loop
+   for map in
+   '(outline-navigation-repeat-map outline-mode-prefix-map)
+   do
+   (define-key map "p" 'emacspeak-outline-speak-previous-heading)
+   (define-key map "n" 'emacspeak-outline-speak-next-heading)
+   (define-key map "b" 'emacspeak-outline-speak-backward-heading)
+   (define-key map "f" 'emacspeak-outline-speak-forward-heading)
+   (define-key map " " 'emacspeak-outline-speak-this-heading))
+  (mapc
+   #'(lambda (cmd)
+       (put cmd 'repeat-map 'outline-navigation-repeat-map))
+   '(emacspeak-outline-speak-next-heading
+     emacspeak-outline-speak-backward-heading
+     emacspeak-outline-speak-forward-heading
+     emacspeak-outline-speak-this-heading)))
 
 (add-hook 'outline-mode-hook 'emacspeak-outline-setup-keys)
 (add-hook 'outline-minor-mode-hook 'emacspeak-outline-setup-keys)
