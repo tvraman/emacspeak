@@ -2485,6 +2485,8 @@ With interactive prefix arg, move to the start of the table."
   (browse-url-chrome url))
 
 ;;}}}
+ repeat support:
+(put 'emacspeak-eww-play-media-at-point 'repeat-map  'emacspeak-m-player-mode-map)
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
