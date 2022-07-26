@@ -269,13 +269,13 @@ except that the outline section is  spoken"
                        outline-navigation-repeat-map))
   (cl-loop
  for map in
- '(outline-mode-prefix-map outline-navigation-repeat-map)
+ (list outline-mode-prefix-map outline-navigation-repeat-map)
  do
-  (define-key (symbol-value map) "p" 'emacspeak-outline-speak-previous-heading)
-  (define-key (symbol-value map) "n" 'emacspeak-outline-speak-next-heading)
-  (define-key (symbol-value map) "b" 'emacspeak-outline-speak-backward-heading)
-  (define-key (symbol-value map) "f" 'emacspeak-outline-speak-forward-heading)
-  (define-key (symbol-value map) " " 'emacspeak-outline-speak-this-heading))
+  (define-key map "p" 'emacspeak-outline-speak-previous-heading)
+  (define-key map "n" 'emacspeak-outline-speak-next-heading)
+  (define-key map "b" 'emacspeak-outline-speak-backward-heading)
+  (define-key map "f" 'emacspeak-outline-speak-forward-heading)
+  (define-key map " " 'emacspeak-outline-speak-this-heading))
   
   (mapc
    #'(lambda (cmd)
