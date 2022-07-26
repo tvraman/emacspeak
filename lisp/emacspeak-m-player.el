@@ -1411,7 +1411,7 @@ flat classical club dance full-bass full-bass-and-treble
 
 (cl-loop for k in emacspeak-m-player-bindings do
          (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
-
+(put 'emacspeak-m-player-shuffle 'repeat-map  'emacspeak-m-player-mode-map)
 (put 'emacspeak-multimedia 'repeat-map  'emacspeak-m-player-mode-map)
 (put 'emacspeak-m-player-using-openal 'repeat-map  'emacspeak-m-player-mode-map)
 (put 'emacspeak-m-player-volume-set 'repeat-map  'emacspeak-m-player-mode-map)
