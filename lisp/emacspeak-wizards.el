@@ -834,8 +834,8 @@ Location is specified by name."
   "Emacspeak Finder\n\n")
 
 
-(defcustom emacspeak-wizards-find-switches-widget
-  '(("-name" "filename"))
+(defcustom  emacspeak-wizards-find-switches-widget
+  '(("-name" .  "filename"))
   "List of find switches with their arguments.
 Each element of the list is a cons cell describing a find option 
 where the car is the option name, --name,
@@ -846,7 +846,6 @@ where the car is the option name, --name,
      :tag "Find Switch"
      (choice
       :tag "Find"
-      (string :tag "Test")
       (const "-name")
       (const "-iname")
       (const "-path")
