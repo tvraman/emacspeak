@@ -559,7 +559,7 @@ If on a directory, speak the total duration of all mp3 files under
 ;;}}}
 ;;{{{Smarter replacement for find-dired wizard:
 
-(defvar emacspeak-dired-find-switches
+(defvar ems--find-switches
   '(
     "name" "iname" "path" "ipath" "regexp" "iregexp" "exec" "ok"
     "newer" "anewer" "cnewer" "used" "user" "uid" "nouser"
@@ -573,7 +573,7 @@ If on a directory, speak the total duration of all mp3 files under
 (defun emacspeak-find-dired ()
   "Prompt for find-dired arguments using context and completion."
   (interactive)
-  (cl-declare (special emacspeak-dired-find-switches))
+  (cl-declare (special ems--find-switches))
   (let ((directory (read-directory-name "Directory:"))
         (arg nil)
         (f-args nil))
@@ -581,15 +581,10 @@ If on a directory, speak the total duration of all mp3 files under
         (not
          (string=
           ""
-          (setq arg
-                (completing-read
-                 "Switch:" emacspeak-dired-find-switches nil nil nil nil "" ))))
+          (setq arg (completing-read "Switch:" ems--find-switches nil t))))
       (cl-pushnew (concat "-" arg) f-args :test #'string=)
       (cl-pushnew (read-string "Value:") f-args))
-    (funcall-interactively
-     #'find-dired
-     directory
-     (mapconcat #'identity (nreverse f-args) " "))))
+    (find-dired directory (mapconcat #'identity (nreverse f-args) " "))))
 
 
 ;;}}}
