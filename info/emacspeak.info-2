@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 24, 2022.
+last updated on July 26, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -2507,6 +2507,18 @@ MPV == Media Player Enables seamless playback of Youtube content among
 others.  Binds mpv commands on C-e C-; as the prefix key.  This
 leverages Emacs’ repeat-mode functionality, so successive mpv commands
 require only one initial ress of C-e C-;.
+
+12.128.1 Emacspeak-Mpv Commands
+-------------------------------
+
+12.128.1.1 emacspeak-mpv-position
+.................................
+
+ -- Command: emacspeak-mpv-position
+     ‘C-e C-; .’
+     ‘<fn> C-; .’
+
+     Show position and duration.
 
 
 File: emacspeak.info,  Node: emacspeak-mspools,  Next: emacspeak-muggles,  Prev: emacspeak-mpv,  Up: Emacspeak Commands And Options
@@ -9874,35 +9886,4 @@ TTS.
      Default speech rate for mac.
 
      Default Value: ‘225’
-
-
-File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
-
-12.229 outloud-voices
-=====================
-
-Interface to outloud server.  This module is IBM ViaVoice Outloud
-specific.
-
-12.229.1 Outloud-Voices Commands
---------------------------------
-
-12.229.1.1 outloud
-..................
-
- -- Command: outloud (&optional device)
-     ‘C-e d C-o’
-     ‘<fn> d C-o’
-
-     Start Outloud.
-
-     (fn &optional DEVICE)
-
-12.229.2 outloud-voices Options
--------------------------------
-
- -- Variable: User Option outloud-default-speech-rate
-     Default speech rate.
-
-     Default Value: ‘50’
 

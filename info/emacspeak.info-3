@@ -12,7 +12,38 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 24, 2022.
+last updated on July 26, 2022.
+
+
+File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
+
+12.229 outloud-voices
+=====================
+
+Interface to outloud server.  This module is IBM ViaVoice Outloud
+specific.
+
+12.229.1 Outloud-Voices Commands
+--------------------------------
+
+12.229.1.1 outloud
+..................
+
+ -- Command: outloud (&optional device)
+     ‘C-e d C-o’
+     ‘<fn> d C-o’
+
+     Start Outloud.
+
+     (fn &optional DEVICE)
+
+12.229.2 outloud-voices Options
+-------------------------------
+
+ -- Variable: User Option outloud-default-speech-rate
+     Default speech rate.
+
+     Default Value: ‘50’
 
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
@@ -2451,6 +2482,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> c:                                emacspeak-speak.    (line  274)
 * <fn> C:                                emacspeak-wizards.  (line   46)
 * <fn> C-.:                              emacspeak-speak.    (line  394)
+* <fn> C-; .:                            emacspeak-mpv.      (line   20)
 * <fn> C-<left>:                         emacspeak-wizards.  (line  147)
 * <fn> C-<return>:                       emacspeak-speak.    (line  833)
 * <fn> C-<right>:                        emacspeak-wizards.  (line  121)
@@ -2831,6 +2863,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e c <1>:                             emacspeak-speak.    (line  273)
 * C-e C:                                 emacspeak-wizards.  (line   45)
 * C-e C-.:                               emacspeak-speak.    (line  393)
+* C-e C-; .:                             emacspeak-mpv.      (line   19)
 * C-e C-<left>:                          emacspeak-wizards.  (line  146)
 * C-e C-<return>:                        emacspeak-speak.    (line  832)
 * C-e C-<right>:                         emacspeak-wizards.  (line  120)

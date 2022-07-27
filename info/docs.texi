@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 148 options.
+This chapter documents a total of 1161 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -9457,6 +9457,24 @@ Enables seamless playback of Youtube content among others.
 Binds mpv commands on C-e C-; as the  prefix key.
 This leverages Emacs' repeat-mode functionality, so successive mpv
 commands require only one initial ress of C-e C-;.
+
+@subsection Emacspeak-Mpv Commands
+
+@subsubsection emacspeak-mpv-position
+@deffn {Command} emacspeak-mpv-position   
+@table @kbd
+@item C-e C-; .
+@kindex C-e C-; .
+@item <fn> C-; .
+@kindex <fn> C-; .
+@end table
+
+@findex emacspeak-mpv-position
+
+@format
+Show position and duration.
+@end format
+@end deffn
 
 @node emacspeak-mspools
 @section emacspeak-mspools
