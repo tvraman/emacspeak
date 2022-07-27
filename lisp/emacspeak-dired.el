@@ -579,16 +579,16 @@ If on a directory, speak the total duration of all mp3 files under
         (f-args nil))
     (while
         (not
-         (zerop
-          (length
-           (setq arg
-                 (completing-read
-                  "Switch:" emacspeak-dired-find-switches
-                  nil nil nil nil "" )))))
+         (string=
+          ""
+          (setq arg
+                (completing-read
+                 "Switch:" emacspeak-dired-find-switches nil nil nil nil "" ))))
       (cl-pushnew (concat "-" arg) f-args :test #'string=)
       (cl-pushnew (read-string "Value:") f-args))
     (funcall-interactively
-     #'find-dired directory
+     #'find-dired
+     directory
      (mapconcat #'identity (nreverse f-args) " "))))
 
 
