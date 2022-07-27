@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1161 commands and 148 options.
+This chapter documents a total of 1159 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3135,6 +3135,22 @@ Speak the header line of the dired buffer.
 
 @format
 Speaks the target of the symlink on the current line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-find-dired
+@deffn {Command} emacspeak-find-dired   
+@table @kbd
+@item C-e C-f
+@kindex C-e C-f
+@item <fn> C-f
+@kindex <fn> C-f
+@end table
+
+@findex emacspeak-find-dired
+
+@format
+Prompt for find-dired arguments using context and completion.
 @end format
 @end deffn
 
@@ -16854,32 +16870,6 @@ Moves to the shortest line when called interactively.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-finder-find
-@deffn {Command} emacspeak-wizards-finder-find  (directory)
-@findex emacspeak-wizards-finder-find
-
-@format
-Run find-dired on specified switches after prompting for the
-directory to where find is to be launched.
-
-(fn DIRECTORY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-finder-mode
-@deffn {Command} emacspeak-wizards-finder-mode   
-@findex emacspeak-wizards-finder-mode
-
-@format
-Emacspeak Finder
-
-In addition to any hooks its parent mode ‘special-mode’ might have
-run, this mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as
-the final or penultimate step during initialization.
-
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-frame-colors
 @deffn {Command} emacspeak-wizards-frame-colors   
 @findex emacspeak-wizards-frame-colors
@@ -16911,15 +16901,6 @@ Optional interactive prefix arg ext says this comes from an
 external package.
 
 (fn F &optional EXT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-generate-finder
-@deffn {Command} emacspeak-wizards-generate-finder   
-@findex emacspeak-wizards-generate-finder
-
-@format
-Generate a widget-enabled finder wizard.
 @end format
 @end deffn
 
@@ -17802,13 +17783,6 @@ API Key  used to retrieve stock data from alpha-vantage.
 Visit https://www.alphavantage.co/support/#api-key to get your key.
 
 Default Value: @code{@verb{|nil|}}
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-find-switches-widget
-Widget to get find switch.
-
-Default Value: @code{@verb{|(cons :tag Find Expression (menu-choice :tag Find (string :tag Test) (const -name) (const -iname) (const -path) (const -ipath) (const -regexp) (const -iregexp) (const -exec) (const -ok) (const -newer) (const -anewer) (const -cnewer) (const -used) (const -user) (const -uid) (const -nouser) (const -nogroup) (const -perm) (const -fstype) (const -lname) (const -ilname) (const -empty) (const -prune) (const -or) (const -not) (const -inum) (const -atime) (const -ctime) (const -mtime) (const -amin) (const -mmin) (const -cmin) (const -size) (const -type) (const -maxdepth) (const -mindepth) (const -mount) (const -noleaf) (const -xdev)) (string :tag Value))|}}
 
 @end defvar
 

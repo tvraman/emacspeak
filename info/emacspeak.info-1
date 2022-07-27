@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 26, 2022.
+last updated on July 27, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2744,6 +2744,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-e’
      end-of-line
 
+‘C-f’
+     emacspeak-find-dired
+
 ‘C-j’
      emacspeak-hide-speak-block-sans-prefix
 
@@ -3421,7 +3424,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1161 commands and 148 options.
+   This chapter documents a total of 1159 commands and 147 options.
 
 * Menu:
 
@@ -6105,7 +6108,16 @@ buffer Voicification is used to indicate directories, marked files etc.
 
      Speaks the target of the symlink on the current line.
 
-12.48.1.20 emacspeak-locate-play-results-as-playlist
+12.48.1.20 emacspeak-find-dired
+...............................
+
+ -- Command: emacspeak-find-dired
+     ‘C-e C-f’
+     ‘<fn> C-f’
+
+     Prompt for find-dired arguments using context and completion.
+
+12.48.1.21 emacspeak-locate-play-results-as-playlist
 ....................................................
 
  -- Command: emacspeak-locate-play-results-as-playlist (&optional
@@ -9008,15 +9020,4 @@ popup and helm.
      Correction style to use with flyspell.
 
      Default Value: ‘flyspell-correct-ido’
-
-
-File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
-
-12.83 emacspeak-folding
-=======================
-
-Folding mode turns emacs into a folding editor.  Folding mode is what I
-use: emacs 19 comes with similar packages, e.g.  allout.el This module
-defines some advice forms that make folding mode a pleasure to use.
-Think of a fold as a container.
 

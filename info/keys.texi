@@ -105,6 +105,9 @@
 @item C-e
  end-of-line
 
+@item C-f
+ emacspeak-find-dired
+
 @item C-j
  emacspeak-hide-speak-block-sans-prefix
 
