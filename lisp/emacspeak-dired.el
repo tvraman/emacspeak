@@ -576,7 +576,7 @@ If on a directory, speak the total duration of all mp3 files under
   (cl-declare (special emacspeak-dired-find-switches))
   (let ((directory (read-directory-name "Directory:"))
         (arg nil)
-        (args nil))
+        (f-args nil))
     (while
         (not
          (zerop
@@ -585,13 +585,11 @@ If on a directory, speak the total duration of all mp3 files under
                  (completing-read
                   "Switch:" emacspeak-dired-find-switches
                   nil nil nil nil "" )))))
-      (cl-pushnew (concat "-" arg) args :test #'string=)
-      (cl-pushnew (read-string "Value:") args))
-    (funcall-interactively #'find-dired directory
-                           (mapconcat
-                            #'identity
-                            (nreverse args)
-                            " "))))
+      (cl-pushnew (concat "-" arg) f-args :test #'string=)
+      (cl-pushnew (read-string "Value:") f-args))
+    (funcall-interactively
+     #'find-dired directory
+     (mapconcat #'identity (nreverse f-args) " "))))
 
 
 ;;}}}
