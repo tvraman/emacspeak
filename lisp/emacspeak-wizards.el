@@ -922,8 +922,8 @@ where the car is the option name, --name,
       (widget-insert "Emacspeak Finder\n\n")
       (widget-create 
        :value emacspeak-wizards-find-switches-widget
-                     :notify notify
-                     emacspeak-wizards-find-switches-widget)
+       ;:notify notify
+       emacspeak-wizards-find-switches-widget)
       (widget-insert "\n")
       (widget-create 'push-button
                      :tag "Find Matching Files"
