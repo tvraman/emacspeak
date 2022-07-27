@@ -277,6 +277,7 @@
    ("C-c" emacspeak-clipboard-copy)
    ("C-d" emacspeak-toggle-show-point)
    ("C-e" end-of-line)
+   ("C-f" emacspeak-find-dired)
    ("f" emacspeak-speak-buffer-filename)
    ("C-i" emacspeak-open-info)
    ("C-j" emacspeak-hide-speak-block-sans-prefix)

@@ -573,11 +573,18 @@ If on a directory, speak the total duration of all mp3 files under
 (defun emacspeak-find-dired ()
   "Prompt for find-dired arguments using context and completion."
   (interactive)
+  (cl-declare (special emacspeak-dired-find-switches))
   (let ((directory (read-directory-name "Directory:"))
         (arg nil)
         (args nil))
     (while
-        (not (zerop (length (setq arg (completing-read "Switch:" emacspeak-dired-find-switches)))))
+        (not
+         (zerop
+          (length
+           (setq arg
+                 (completing-read
+                  "Switch:" emacspeak-dired-find-switches
+                  nil nil nil nil "" )))))
       (cl-pushnew (concat "-" arg) args :test #'string=)
       (cl-pushnew (read-string "Value:") args))
     (funcall-interactively #'find-dired directory
