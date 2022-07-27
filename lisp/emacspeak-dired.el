@@ -557,6 +557,25 @@ If on a directory, speak the total duration of all mp3 files under
   (funcall-interactively 'dired (expand-file-name "~/Downloads") "-alt"))
 
 ;;}}}
+;;{{{Smarter replacement for find-dired wizard:
+;;;###autoload
+(defun emacspeak-find-dired ()
+  "Prompt for find-dired arguments using context and completion."
+  (interactive)
+  (let ((directory (read-directory-name "Directory:"))
+        (arg nil)
+        (args nil))
+    (while
+        (not (zerop (length (setq arg (read-string "Option:")))))
+     (cl-pushnew arg args :test #'string=))
+    (funcall-interactively #'find-dired directory
+                           (mapconcat
+                            #'identity
+                            (nreverse args)
+                            " "))))
+
+
+;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
 
