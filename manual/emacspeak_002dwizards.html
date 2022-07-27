@@ -116,12 +116,9 @@ Next: <a href="emacspeak_002dwoman.html" accesskey="n" rel="next">emacspeak-woma
 <li><a href="#emacspeak_002dwizards_002dfind_002dlongest_002dline_002din_002dregion">emacspeak-wizards-find-longest-line-in-region</a></li>
 <li><a href="#emacspeak_002dwizards_002dfind_002dlongest_002dparagraph_002din_002dregion">emacspeak-wizards-find-longest-paragraph-in-region</a></li>
 <li><a href="#emacspeak_002dwizards_002dfind_002dshortest_002dline_002din_002dregion">emacspeak-wizards-find-shortest-line-in-region</a></li>
-<li><a href="#emacspeak_002dwizards_002dfinder_002dfind">emacspeak-wizards-finder-find</a></li>
-<li><a href="#emacspeak_002dwizards_002dfinder_002dmode">emacspeak-wizards-finder-mode</a></li>
 <li><a href="#emacspeak_002dwizards_002dframe_002dcolors">emacspeak-wizards-frame-colors</a></li>
 <li><a href="#emacspeak_002dwizards_002dfree_002dgeo_002dip">emacspeak-wizards-free-geo-ip</a></li>
 <li><a href="#emacspeak_002dwizards_002dgen_002dfn_002ddecl">emacspeak-wizards-gen-fn-decl</a></li>
-<li><a href="#emacspeak_002dwizards_002dgenerate_002dfinder">emacspeak-wizards-generate-finder</a></li>
 <li><a href="#emacspeak_002dwizards_002dgoogle_002dheadlines">emacspeak-wizards-google-headlines</a></li>
 <li><a href="#emacspeak_002dwizards_002dgoogle_002dnews">emacspeak-wizards-google-news</a></li>
 <li><a href="#emacspeak_002dwizards_002dhow_002dmany_002dmatches">emacspeak-wizards-how-many-matches</a></li>
@@ -1145,40 +1142,8 @@ Moves to the shortest line when called interactively.
 </dd></dl>
 
 </div>
-<div class="subsubsection" id="emacspeak_002dwizards_002dfinder_002dfind">
-<h4 class="subsubsection">12.214.1.56 emacspeak-wizards-finder-find</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dwizards_002dfinder_002dfind"><span class="category">Command: </span><span><strong>emacspeak-wizards-finder-find</strong> <em>(directory)</em><a href='#index-emacspeak_002dwizards_002dfinder_002dfind' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dwizards_002dfinder_002dfind-1"></span>
-
-<div class="format">
-<pre class="format">Run find-dired on specified switches after prompting for the
-directory to where find is to be launched.
-
-(fn DIRECTORY)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dwizards_002dfinder_002dmode">
-<h4 class="subsubsection">12.214.1.57 emacspeak-wizards-finder-mode</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dwizards_002dfinder_002dmode"><span class="category">Command: </span><span><strong>emacspeak-wizards-finder-mode</strong><a href='#index-emacspeak_002dwizards_002dfinder_002dmode' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dwizards_002dfinder_002dmode-1"></span>
-
-<div class="format">
-<pre class="format">Emacspeak Finder
-
-In addition to any hooks its parent mode ‘special-mode’ might have
-run, this mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as
-the final or penultimate step during initialization.
-
-</pre></div>
-</dd></dl>
-
-</div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dframe_002dcolors">
-<h4 class="subsubsection">12.214.1.58 emacspeak-wizards-frame-colors</h4>
+<h4 class="subsubsection">12.214.1.56 emacspeak-wizards-frame-colors</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dframe_002dcolors"><span class="category">Command: </span><span><strong>emacspeak-wizards-frame-colors</strong><a href='#index-emacspeak_002dwizards_002dframe_002dcolors' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dframe_002dcolors-1"></span>
@@ -1190,7 +1155,7 @@ the final or penultimate step during initialization.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dfree_002dgeo_002dip">
-<h4 class="subsubsection">12.214.1.59 emacspeak-wizards-free-geo-ip</h4>
+<h4 class="subsubsection">12.214.1.57 emacspeak-wizards-free-geo-ip</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dfree_002dgeo_002dip"><span class="category">Command: </span><span><strong>emacspeak-wizards-free-geo-ip</strong> <em>(&amp;optional reverse-geocode)</em><a href='#index-emacspeak_002dwizards_002dfree_002dgeo_002dip' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dfree_002dgeo_002dip-1"></span>
@@ -1205,7 +1170,7 @@ Optional interactive prefix arg reverse-geocodes using Google Maps.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dgen_002dfn_002ddecl">
-<h4 class="subsubsection">12.214.1.60 emacspeak-wizards-gen-fn-decl</h4>
+<h4 class="subsubsection">12.214.1.58 emacspeak-wizards-gen-fn-decl</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dgen_002dfn_002ddecl"><span class="category">Command: </span><span><strong>emacspeak-wizards-gen-fn-decl</strong> <em>(f &amp;optional ext)</em><a href='#index-emacspeak_002dwizards_002dgen_002dfn_002ddecl' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dgen_002dfn_002ddecl-1"></span>
@@ -1220,20 +1185,8 @@ external package.
 </dd></dl>
 
 </div>
-<div class="subsubsection" id="emacspeak_002dwizards_002dgenerate_002dfinder">
-<h4 class="subsubsection">12.214.1.61 emacspeak-wizards-generate-finder</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dwizards_002dgenerate_002dfinder"><span class="category">Command: </span><span><strong>emacspeak-wizards-generate-finder</strong><a href='#index-emacspeak_002dwizards_002dgenerate_002dfinder' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dwizards_002dgenerate_002dfinder-1"></span>
-
-<div class="format">
-<pre class="format">Generate a widget-enabled finder wizard.
-</pre></div>
-</dd></dl>
-
-</div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dgoogle_002dheadlines">
-<h4 class="subsubsection">12.214.1.62 emacspeak-wizards-google-headlines</h4>
+<h4 class="subsubsection">12.214.1.59 emacspeak-wizards-google-headlines</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dgoogle_002dheadlines"><span class="category">Command: </span><span><strong>emacspeak-wizards-google-headlines</strong><a href='#index-emacspeak_002dwizards_002dgoogle_002dheadlines' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1250,7 +1203,7 @@ external package.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dgoogle_002dnews">
-<h4 class="subsubsection">12.214.1.63 emacspeak-wizards-google-news</h4>
+<h4 class="subsubsection">12.214.1.60 emacspeak-wizards-google-news</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dgoogle_002dnews"><span class="category">Command: </span><span><strong>emacspeak-wizards-google-news</strong><a href='#index-emacspeak_002dwizards_002dgoogle_002dnews' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1267,7 +1220,7 @@ external package.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dhow_002dmany_002dmatches">
-<h4 class="subsubsection">12.214.1.64 emacspeak-wizards-how-many-matches</h4>
+<h4 class="subsubsection">12.214.1.61 emacspeak-wizards-how-many-matches</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dhow_002dmany_002dmatches"><span class="category">Command: </span><span><strong>emacspeak-wizards-how-many-matches</strong> <em>(start end &amp;optional prefix)</em><a href='#index-emacspeak_002dwizards_002dhow_002dmany_002dmatches' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1290,7 +1243,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dshow_002dfinancials">
-<h4 class="subsubsection">12.214.1.65 emacspeak-wizards-iex-show-financials</h4>
+<h4 class="subsubsection">12.214.1.62 emacspeak-wizards-iex-show-financials</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dfinancials"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-show-financials</strong> <em>(symbol &amp;optional refresh)</em><a href='#index-emacspeak_002dwizards_002diex_002dshow_002dfinancials' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dshow_002dfinancials-1"></span>
@@ -1306,7 +1259,7 @@ Optional interactive prefix arg refreshes cache.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dshow_002dmetadata">
-<h4 class="subsubsection">12.214.1.66 emacspeak-wizards-iex-show-metadata</h4>
+<h4 class="subsubsection">12.214.1.63 emacspeak-wizards-iex-show-metadata</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dmetadata"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-show-metadata</strong><a href='#index-emacspeak_002dwizards_002diex_002dshow_002dmetadata' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dshow_002dmetadata-1"></span>
@@ -1318,7 +1271,7 @@ Optional interactive prefix arg refreshes cache.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dshow_002dnews">
-<h4 class="subsubsection">12.214.1.67 emacspeak-wizards-iex-show-news</h4>
+<h4 class="subsubsection">12.214.1.64 emacspeak-wizards-iex-show-news</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dnews"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-show-news</strong> <em>(symbol &amp;optional refresh)</em><a href='#index-emacspeak_002dwizards_002diex_002dshow_002dnews' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dshow_002dnews-1"></span>
@@ -1334,7 +1287,7 @@ Optional interactive prefix arg refreshes cache.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dshow_002dprice">
-<h4 class="subsubsection">12.214.1.68 emacspeak-wizards-iex-show-price</h4>
+<h4 class="subsubsection">12.214.1.65 emacspeak-wizards-iex-show-price</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dprice"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-show-price</strong> <em>(symbol)</em><a href='#index-emacspeak_002dwizards_002diex_002dshow_002dprice' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1353,7 +1306,7 @@ Optional interactive prefix arg refreshes cache.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dshow_002dquote">
-<h4 class="subsubsection">12.214.1.69 emacspeak-wizards-iex-show-quote</h4>
+<h4 class="subsubsection">12.214.1.66 emacspeak-wizards-iex-show-quote</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dquote"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-show-quote</strong> <em>(&amp;optional refresh)</em><a href='#index-emacspeak_002dwizards_002diex_002dshow_002dquote' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dshow_002dquote-1"></span>
@@ -1375,7 +1328,7 @@ P: Show live price for current stock.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dshow_002dtops">
-<h4 class="subsubsection">12.214.1.70 emacspeak-wizards-iex-show-tops</h4>
+<h4 class="subsubsection">12.214.1.67 emacspeak-wizards-iex-show-tops</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dtops"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-show-tops</strong><a href='#index-emacspeak_002dwizards_002diex_002dshow_002dtops' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dshow_002dtops-1"></span>
@@ -1387,7 +1340,7 @@ P: Show live price for current stock.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dthis_002dfinancials">
-<h4 class="subsubsection">12.214.1.71 emacspeak-wizards-iex-this-financials</h4>
+<h4 class="subsubsection">12.214.1.68 emacspeak-wizards-iex-this-financials</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dthis_002dfinancials"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-this-financials</strong><a href='#index-emacspeak_002dwizards_002diex_002dthis_002dfinancials' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dthis_002dfinancials-1"></span>
@@ -1399,7 +1352,7 @@ P: Show live price for current stock.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dthis_002dnews">
-<h4 class="subsubsection">12.214.1.72 emacspeak-wizards-iex-this-news</h4>
+<h4 class="subsubsection">12.214.1.69 emacspeak-wizards-iex-this-news</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dthis_002dnews"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-this-news</strong><a href='#index-emacspeak_002dwizards_002diex_002dthis_002dnews' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dthis_002dnews-1"></span>
@@ -1411,7 +1364,7 @@ P: Show live price for current stock.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002diex_002dthis_002dprice">
-<h4 class="subsubsection">12.214.1.73 emacspeak-wizards-iex-this-price</h4>
+<h4 class="subsubsection">12.214.1.70 emacspeak-wizards-iex-this-price</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002diex_002dthis_002dprice"><span class="category">Command: </span><span><strong>emacspeak-wizards-iex-this-price</strong><a href='#index-emacspeak_002dwizards_002diex_002dthis_002dprice' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002diex_002dthis_002dprice-1"></span>
@@ -1423,7 +1376,7 @@ P: Show live price for current stock.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile">
-<h4 class="subsubsection">12.214.1.74 emacspeak-wizards-lacheck-buffer-file</h4>
+<h4 class="subsubsection">12.214.1.71 emacspeak-wizards-lacheck-buffer-file</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile"><span class="category">Command: </span><span><strong>emacspeak-wizards-lacheck-buffer-file</strong><a href='#index-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile-1"></span>
@@ -1435,7 +1388,7 @@ P: Show live price for current stock.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dlocate_002dcontent">
-<h4 class="subsubsection">12.214.1.75 emacspeak-wizards-locate-content</h4>
+<h4 class="subsubsection">12.214.1.72 emacspeak-wizards-locate-content</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dlocate_002dcontent"><span class="category">Command: </span><span><strong>emacspeak-wizards-locate-content</strong> <em>(pattern)</em><a href='#index-emacspeak_002dwizards_002dlocate_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1455,7 +1408,7 @@ P: Show live price for current stock.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dmlb_002dstandings">
-<h4 class="subsubsection">12.214.1.76 emacspeak-wizards-mlb-standings</h4>
+<h4 class="subsubsection">12.214.1.73 emacspeak-wizards-mlb-standings</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dmlb_002dstandings"><span class="category">Command: </span><span><strong>emacspeak-wizards-mlb-standings</strong> <em>(&amp;optional raw)</em><a href='#index-emacspeak_002dwizards_002dmlb_002dstandings' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dmlb_002dstandings-1"></span>
@@ -1470,7 +1423,7 @@ Optional interactive prefix arg shows  unprocessed results.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dmove_002dand_002dspeak">
-<h4 class="subsubsection">12.214.1.77 emacspeak-wizards-move-and-speak</h4>
+<h4 class="subsubsection">12.214.1.74 emacspeak-wizards-move-and-speak</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dmove_002dand_002dspeak"><span class="category">Command: </span><span><strong>emacspeak-wizards-move-and-speak</strong> <em>(command count)</em><a href='#index-emacspeak_002dwizards_002dmove_002dand_002dspeak' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dmove_002dand_002dspeak-1"></span>
@@ -1489,7 +1442,7 @@ command.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dnba_002dstandings">
-<h4 class="subsubsection">12.214.1.78 emacspeak-wizards-nba-standings</h4>
+<h4 class="subsubsection">12.214.1.75 emacspeak-wizards-nba-standings</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dnba_002dstandings"><span class="category">Command: </span><span><strong>emacspeak-wizards-nba-standings</strong> <em>(&amp;optional raw)</em><a href='#index-emacspeak_002dwizards_002dnba_002dstandings' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dnba_002dstandings-1"></span>
@@ -1504,7 +1457,7 @@ Optional interactive prefix arg shows  unprocessed results.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dnext_002dbullet">
-<h4 class="subsubsection">12.214.1.79 emacspeak-wizards-next-bullet</h4>
+<h4 class="subsubsection">12.214.1.76 emacspeak-wizards-next-bullet</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dnext_002dbullet"><span class="category">Command: </span><span><strong>emacspeak-wizards-next-bullet</strong><a href='#index-emacspeak_002dwizards_002dnext_002dbullet' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dnext_002dbullet-1"></span>
@@ -1516,7 +1469,7 @@ Optional interactive prefix arg shows  unprocessed results.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dnext_002dinteractive_002ddefun">
-<h4 class="subsubsection">12.214.1.80 emacspeak-wizards-next-interactive-defun</h4>
+<h4 class="subsubsection">12.214.1.77 emacspeak-wizards-next-interactive-defun</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun"><span class="category">Command: </span><span><strong>emacspeak-wizards-next-interactive-defun</strong><a href='#index-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun-1"></span>
@@ -1528,7 +1481,7 @@ Optional interactive prefix arg shows  unprocessed results.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dnoaa_002dweather">
-<h4 class="subsubsection">12.214.1.81 emacspeak-wizards-noaa-weather</h4>
+<h4 class="subsubsection">12.214.1.78 emacspeak-wizards-noaa-weather</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dnoaa_002dweather"><span class="category">Command: </span><span><strong>emacspeak-wizards-noaa-weather</strong> <em>(&amp;optional ask)</em><a href='#index-emacspeak_002dwizards_002dnoaa_002dweather' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1554,7 +1507,7 @@ weather for ‘gmaps-my-address’.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002doccur_002dheader_002dlines">
-<h4 class="subsubsection">12.214.1.82 emacspeak-wizards-occur-header-lines</h4>
+<h4 class="subsubsection">12.214.1.79 emacspeak-wizards-occur-header-lines</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002doccur_002dheader_002dlines"><span class="category">Command: </span><span><strong>emacspeak-wizards-occur-header-lines</strong> <em>(&amp;optional prefix)</em><a href='#index-emacspeak_002dwizards_002doccur_002dheader_002dlines' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1577,7 +1530,7 @@ prompts for and sets value of the file local pattern.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dpdf_002dopen">
-<h4 class="subsubsection">12.214.1.83 emacspeak-wizards-pdf-open</h4>
+<h4 class="subsubsection">12.214.1.80 emacspeak-wizards-pdf-open</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dpdf_002dopen"><span class="category">Command: </span><span><strong>emacspeak-wizards-pdf-open</strong> <em>(filename &amp;optional ask-pwd)</em><a href='#index-emacspeak_002dwizards_002dpdf_002dopen' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1597,7 +1550,7 @@ Optional interactive prefix arg ask-pwd prompts for password.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dprevious_002dbullet">
-<h4 class="subsubsection">12.214.1.84 emacspeak-wizards-previous-bullet</h4>
+<h4 class="subsubsection">12.214.1.81 emacspeak-wizards-previous-bullet</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dprevious_002dbullet"><span class="category">Command: </span><span><strong>emacspeak-wizards-previous-bullet</strong><a href='#index-emacspeak_002dwizards_002dprevious_002dbullet' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dprevious_002dbullet-1"></span>
@@ -1609,7 +1562,7 @@ Optional interactive prefix arg ask-pwd prompts for password.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dquote">
-<h4 class="subsubsection">12.214.1.85 emacspeak-wizards-quote</h4>
+<h4 class="subsubsection">12.214.1.82 emacspeak-wizards-quote</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dquote"><span class="category">Command: </span><span><strong>emacspeak-wizards-quote</strong> <em>(&amp;optional refresh)</em><a href='#index-emacspeak_002dwizards_002dquote' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1636,7 +1589,7 @@ t   :  tops/last
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dremote_002dframe">
-<h4 class="subsubsection">12.214.1.86 emacspeak-wizards-remote-frame</h4>
+<h4 class="subsubsection">12.214.1.83 emacspeak-wizards-remote-frame</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dremote_002dframe"><span class="category">Command: </span><span><strong>emacspeak-wizards-remote-frame</strong><a href='#index-emacspeak_002dwizards_002dremote_002dframe' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1656,7 +1609,7 @@ Works best when you already are ssh-impel-ed in and have a talking
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dscratch">
-<h4 class="subsubsection">12.214.1.87 emacspeak-wizards-scratch</h4>
+<h4 class="subsubsection">12.214.1.84 emacspeak-wizards-scratch</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dscratch"><span class="category">Command: </span><span><strong>emacspeak-wizards-scratch</strong><a href='#index-emacspeak_002dwizards_002dscratch' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1673,7 +1626,7 @@ Works best when you already are ssh-impel-ed in and have a talking
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dset_002dcolors">
-<h4 class="subsubsection">12.214.1.88 emacspeak-wizards-set-colors</h4>
+<h4 class="subsubsection">12.214.1.85 emacspeak-wizards-set-colors</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dset_002dcolors"><span class="category">Command: </span><span><strong>emacspeak-wizards-set-colors</strong><a href='#index-emacspeak_002dwizards_002dset_002dcolors' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dset_002dcolors-1"></span>
@@ -1685,7 +1638,7 @@ Works best when you already are ssh-impel-ed in and have a talking
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshell">
-<h4 class="subsubsection">12.214.1.89 emacspeak-wizards-shell</h4>
+<h4 class="subsubsection">12.214.1.86 emacspeak-wizards-shell</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshell"><span class="category">Command: </span><span><strong>emacspeak-wizards-shell</strong> <em>(&amp;optional prefix)</em><a href='#index-emacspeak_002dwizards_002dshell' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dshell-1"></span>
@@ -1704,7 +1657,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshell_002dby_002dkey">
-<h4 class="subsubsection">12.214.1.90 emacspeak-wizards-shell-by-key</h4>
+<h4 class="subsubsection">12.214.1.87 emacspeak-wizards-shell-by-key</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshell_002dby_002dkey"><span class="category">Command: </span><span><strong>emacspeak-wizards-shell-by-key</strong> <em>(&amp;optional prefix)</em><a href='#index-emacspeak_002dwizards_002dshell_002dby_002dkey' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1749,7 +1702,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile">
-<h4 class="subsubsection">12.214.1.91 emacspeak-wizards-shell-command-on-current-file</h4>
+<h4 class="subsubsection">12.214.1.88 emacspeak-wizards-shell-command-on-current-file</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile"><span class="category">Command: </span><span><strong>emacspeak-wizards-shell-command-on-current-file</strong> <em>(command)</em><a href='#index-emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1768,7 +1721,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshell_002ddirectory_002dreset">
-<h4 class="subsubsection">12.214.1.92 emacspeak-wizards-shell-directory-reset</h4>
+<h4 class="subsubsection">12.214.1.89 emacspeak-wizards-shell-directory-reset</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshell_002ddirectory_002dreset"><span class="category">Command: </span><span><strong>emacspeak-wizards-shell-directory-reset</strong><a href='#index-emacspeak_002dwizards_002dshell_002ddirectory_002dreset' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1787,7 +1740,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshell_002ddirectory_002dset">
-<h4 class="subsubsection">12.214.1.93 emacspeak-wizards-shell-directory-set</h4>
+<h4 class="subsubsection">12.214.1.90 emacspeak-wizards-shell-directory-set</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshell_002ddirectory_002dset"><span class="category">Command: </span><span><strong>emacspeak-wizards-shell-directory-set</strong><a href='#index-emacspeak_002dwizards_002dshell_002ddirectory_002dset' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1804,7 +1757,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshell_002dtoggle">
-<h4 class="subsubsection">12.214.1.94 emacspeak-wizards-shell-toggle</h4>
+<h4 class="subsubsection">12.214.1.91 emacspeak-wizards-shell-toggle</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshell_002dtoggle"><span class="category">Command: </span><span><strong>emacspeak-wizards-shell-toggle</strong><a href='#index-emacspeak_002dwizards_002dshell_002dtoggle' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1824,7 +1777,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshow_002deval_002dresult">
-<h4 class="subsubsection">12.214.1.95 emacspeak-wizards-show-eval-result</h4>
+<h4 class="subsubsection">12.214.1.92 emacspeak-wizards-show-eval-result</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshow_002deval_002dresult"><span class="category">Command: </span><span><strong>emacspeak-wizards-show-eval-result</strong> <em>(form)</em><a href='#index-emacspeak_002dwizards_002dshow_002deval_002dresult' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1842,7 +1795,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshow_002dface">
-<h4 class="subsubsection">12.214.1.96 emacspeak-wizards-show-face</h4>
+<h4 class="subsubsection">12.214.1.93 emacspeak-wizards-show-face</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshow_002dface"><span class="category">Command: </span><span><strong>emacspeak-wizards-show-face</strong> <em>(face)</em><a href='#index-emacspeak_002dwizards_002dshow_002dface' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dshow_002dface-1"></span>
@@ -1856,7 +1809,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dshow_002dmemory_002dused">
-<h4 class="subsubsection">12.214.1.97 emacspeak-wizards-show-memory-used</h4>
+<h4 class="subsubsection">12.214.1.94 emacspeak-wizards-show-memory-used</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dshow_002dmemory_002dused"><span class="category">Command: </span><span><strong>emacspeak-wizards-show-memory-used</strong><a href='#index-emacspeak_002dwizards_002dshow_002dmemory_002dused' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dshow_002dmemory_002dused-1"></span>
@@ -1868,7 +1821,7 @@ of the source buffer.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dsnarf_002dsexp">
-<h4 class="subsubsection">12.214.1.98 emacspeak-wizards-snarf-sexp</h4>
+<h4 class="subsubsection">12.214.1.95 emacspeak-wizards-snarf-sexp</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dsnarf_002dsexp"><span class="category">Command: </span><span><strong>emacspeak-wizards-snarf-sexp</strong> <em>(&amp;optional delete)</em><a href='#index-emacspeak_002dwizards_002dsnarf_002dsexp' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1888,7 +1841,7 @@ Optional interactive prefix arg deletes it.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dspeak_002diso_002ddatetime">
-<h4 class="subsubsection">12.214.1.99 emacspeak-wizards-speak-iso-datetime</h4>
+<h4 class="subsubsection">12.214.1.96 emacspeak-wizards-speak-iso-datetime</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dspeak_002diso_002ddatetime"><span class="category">Command: </span><span><strong>emacspeak-wizards-speak-iso-datetime</strong> <em>(iso)</em><a href='#index-emacspeak_002dwizards_002dspeak_002diso_002ddatetime' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dspeak_002diso_002ddatetime-1"></span>
@@ -1902,7 +1855,7 @@ Optional interactive prefix arg deletes it.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dsqueeze_002dblanks">
-<h4 class="subsubsection">12.214.1.100 emacspeak-wizards-squeeze-blanks</h4>
+<h4 class="subsubsection">12.214.1.97 emacspeak-wizards-squeeze-blanks</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dsqueeze_002dblanks"><span class="category">Command: </span><span><strong>emacspeak-wizards-squeeze-blanks</strong> <em>(start end)</em><a href='#index-emacspeak_002dwizards_002dsqueeze_002dblanks' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1921,7 +1874,7 @@ Optional interactive prefix arg deletes it.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg">
-<h4 class="subsubsection">12.214.1.101 emacspeak-wizards-swap-fg-and-bg</h4>
+<h4 class="subsubsection">12.214.1.98 emacspeak-wizards-swap-fg-and-bg</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg"><span class="category">Command: </span><span><strong>emacspeak-wizards-swap-fg-and-bg</strong><a href='#index-emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1939,7 +1892,7 @@ Optional interactive prefix arg deletes it.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dterm">
-<h4 class="subsubsection">12.214.1.102 emacspeak-wizards-term</h4>
+<h4 class="subsubsection">12.214.1.99 emacspeak-wizards-term</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dterm"><span class="category">Command: </span><span><strong>emacspeak-wizards-term</strong> <em>(create)</em><a href='#index-emacspeak_002dwizards_002dterm' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -1961,7 +1914,7 @@ term if needed.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword">
-<h4 class="subsubsection">12.214.1.103 emacspeak-wizards-tex-tie-current-word</h4>
+<h4 class="subsubsection">12.214.1.100 emacspeak-wizards-tex-tie-current-word</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword"><span class="category">Command: </span><span><strong>emacspeak-wizards-tex-tie-current-word</strong> <em>(n)</em><a href='#index-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword-1"></span>
@@ -1975,7 +1928,7 @@ term if needed.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer">
-<h4 class="subsubsection">12.214.1.104 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</h4>
+<h4 class="subsubsection">12.214.1.101 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer"><span class="category">Command: </span><span><strong>emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</strong><a href='#index-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer-1"></span>
@@ -1987,7 +1940,7 @@ term if needed.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer">
-<h4 class="subsubsection">12.214.1.105 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer</h4>
+<h4 class="subsubsection">12.214.1.102 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer"><span class="category">Command: </span><span><strong>emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer</strong><a href='#index-emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer-1"></span>
@@ -1999,7 +1952,7 @@ term if needed.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer">
-<h4 class="subsubsection">12.214.1.106 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</h4>
+<h4 class="subsubsection">12.214.1.103 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer"><span class="category">Command: </span><span><strong>emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</strong><a href='#index-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer-1"></span>
@@ -2011,7 +1964,7 @@ term if needed.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse">
-<h4 class="subsubsection">12.214.1.107 emacspeak-wizards-tune-in-radio-browse</h4>
+<h4 class="subsubsection">12.214.1.104 emacspeak-wizards-tune-in-radio-browse</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse"><span class="category">Command: </span><span><strong>emacspeak-wizards-tune-in-radio-browse</strong> <em>(&amp;optional category)</em><a href='#index-emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -2031,7 +1984,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch">
-<h4 class="subsubsection">12.214.1.108 emacspeak-wizards-tune-in-radio-search</h4>
+<h4 class="subsubsection">12.214.1.105 emacspeak-wizards-tune-in-radio-search</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch"><span class="category">Command: </span><span><strong>emacspeak-wizards-tune-in-radio-search</strong><a href='#index-emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -2048,7 +2001,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dunits">
-<h4 class="subsubsection">12.214.1.109 emacspeak-wizards-units</h4>
+<h4 class="subsubsection">12.214.1.106 emacspeak-wizards-units</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dunits"><span class="category">Command: </span><span><strong>emacspeak-wizards-units</strong><a href='#index-emacspeak_002dwizards_002dunits' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -2065,7 +2018,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dvc_002dn">
-<h4 class="subsubsection">12.214.1.110 emacspeak-wizards-vc-n</h4>
+<h4 class="subsubsection">12.214.1.107 emacspeak-wizards-vc-n</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dvc_002dn"><span class="category">Command: </span><span><strong>emacspeak-wizards-vc-n</strong><a href='#index-emacspeak_002dwizards_002dvc_002dn' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dvc_002dn-1"></span>
@@ -2077,7 +2030,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dvc_002dview_002dmode">
-<h4 class="subsubsection">12.214.1.111 emacspeak-wizards-vc-view-mode</h4>
+<h4 class="subsubsection">12.214.1.108 emacspeak-wizards-vc-view-mode</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dvc_002dview_002dmode"><span class="category">Command: </span><span><strong>emacspeak-wizards-vc-view-mode</strong><a href='#index-emacspeak_002dwizards_002dvc_002dview_002dmode' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dvc_002dview_002dmode-1"></span>
@@ -2097,7 +2050,7 @@ the final or penultimate step during initialization.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dvc_002dviewer">
-<h4 class="subsubsection">12.214.1.112 emacspeak-wizards-vc-viewer</h4>
+<h4 class="subsubsection">12.214.1.109 emacspeak-wizards-vc-viewer</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dvc_002dviewer"><span class="category">Command: </span><span><strong>emacspeak-wizards-vc-viewer</strong> <em>(console)</em><a href='#index-emacspeak_002dwizards_002dvc_002dviewer' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -2116,7 +2069,7 @@ the final or penultimate step during initialization.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dvc_002dviewer_002drefresh">
-<h4 class="subsubsection">12.214.1.113 emacspeak-wizards-vc-viewer-refresh</h4>
+<h4 class="subsubsection">12.214.1.110 emacspeak-wizards-vc-viewer-refresh</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dvc_002dviewer_002drefresh"><span class="category">Command: </span><span><strong>emacspeak-wizards-vc-viewer-refresh</strong><a href='#index-emacspeak_002dwizards_002dvc_002dviewer_002drefresh' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-emacspeak_002dwizards_002dvc_002dviewer_002drefresh-1"></span>
@@ -2128,7 +2081,7 @@ the final or penultimate step during initialization.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode">
-<h4 class="subsubsection">12.214.1.114 emacspeak-wizards-view-buffers-filtered-by-m-player-mode</h4>
+<h4 class="subsubsection">12.214.1.111 emacspeak-wizards-view-buffers-filtered-by-m-player-mode</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode"><span class="category">Command: </span><span><strong>emacspeak-wizards-view-buffers-filtered-by-m-player-mode</strong><a href='#index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -2145,7 +2098,7 @@ the final or penultimate step during initialization.
 
 </div>
 <div class="subsubsection" id="emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode">
-<h4 class="subsubsection">12.214.1.115 emacspeak-wizards-view-buffers-filtered-by-this-mode</h4>
+<h4 class="subsubsection">12.214.1.112 emacspeak-wizards-view-buffers-filtered-by-this-mode</h4>
 <dl class="def">
 <dt id="index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode"><span class="category">Command: </span><span><strong>emacspeak-wizards-view-buffers-filtered-by-this-mode</strong><a href='#index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode' class='copiable-anchor'> &para;</a></span></dt>
 <dd><dl compact="compact">
@@ -2204,15 +2157,7 @@ Visit https://www.alphavantage.co/support/#api-key to get your key.
 </dd></dl>
 
 <dl class="def">
-<dt id="index-User-Option-101"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-find-switches-widget</em><a href='#index-User-Option-101' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Widget to get find switch.
-</p>
-<p>Default Value: <code><tt>(cons :tag Find Expression (menu-choice :tag Find (string :tag Test) (const -name) (const -iname) (const -path) (const -ipath) (const -regexp) (const -iregexp) (const -exec) (const -ok) (const -newer) (const -anewer) (const -cnewer) (const -used) (const -user) (const -uid) (const -nouser) (const -nogroup) (const -perm) (const -fstype) (const -lname) (const -ilname) (const -empty) (const -prune) (const -or) (const -not) (const -inum) (const -atime) (const -ctime) (const -mtime) (const -amin) (const -mmin) (const -cmin) (const -size) (const -type) (const -maxdepth) (const -mindepth) (const -mount) (const -noleaf) (const -xdev)) (string :tag Value))</tt></code>
-</p>
-</dd></dl>
-
-<dl class="def">
-<dt id="index-User-Option-102"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-pdf-to-text-options</em><a href='#index-User-Option-102' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-User-Option-101"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-pdf-to-text-options</em><a href='#index-User-Option-101' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>options to Command for running pdftotext.
 </p>
 <p>Default Value: <code><tt>-layout</tt></code>
@@ -2220,7 +2165,7 @@ Visit https://www.alphavantage.co/support/#api-key to get your key.
 </dd></dl>
 
 <dl class="def">
-<dt id="index-User-Option-103"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-personal-portfolio</em><a href='#index-User-Option-103' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-User-Option-102"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-personal-portfolio</em><a href='#index-User-Option-102' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set this to the stock tickers you want to check. Default is
 GAFA. Tickers are separated by white-space and are automatically
 sorted in lexical order with duplicates removed when saving.
@@ -2233,7 +2178,7 @@ goog</tt></code>
 </dd></dl>
 
 <dl class="def">
-<dt id="index-User-Option-104"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-project-shells</em><a href='#index-User-Option-104' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-User-Option-103"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-project-shells</em><a href='#index-User-Option-103' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>List of shell-name/initial-directory pairs.
 </p>
 <p>Default Value: <code><tt>nil</tt></code>
@@ -2241,7 +2186,7 @@ goog</tt></code>
 </dd></dl>
 
 <dl class="def">
-<dt id="index-User-Option-105"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-remote-workstation</em><a href='#index-User-Option-105' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-User-Option-104"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-wizards-remote-workstation</em><a href='#index-User-Option-104' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Name of remote workstation.
 </p>
 <p>Default Value: <code><tt></tt></code>

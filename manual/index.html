@@ -46,7 +46,7 @@ ul.no-bullet {list-style: none}
 
 
 <p>This manual documents <strong>Emacspeak, The Complete Audio Desktop</strong>
-and  was last updated on July 26, 2022.
+and  was last updated on July 27, 2022.
 </p>
 
 <div class="top" id="Top">
@@ -530,7 +530,8 @@ Next: <a href="Copyright.html" accesskey="n" rel="next">Copyright</a> &nbsp; [<a
         <li><a id="toc-emacspeak_002ddired_002dspeak_002dfile_002dsize" href="emacspeak_002ddired.html#emacspeak_002ddired_002dspeak_002dfile_002dsize">12.48.1.17 emacspeak-dired-speak-file-size</a></li>
         <li><a id="toc-emacspeak_002ddired_002dspeak_002dheader_002dline" href="emacspeak_002ddired.html#emacspeak_002ddired_002dspeak_002dheader_002dline">12.48.1.18 emacspeak-dired-speak-header-line</a></li>
         <li><a id="toc-emacspeak_002ddired_002dspeak_002dsymlink_002dtarget" href="emacspeak_002ddired.html#emacspeak_002ddired_002dspeak_002dsymlink_002dtarget">12.48.1.19 emacspeak-dired-speak-symlink-target</a></li>
-        <li><a id="toc-emacspeak_002dlocate_002dplay_002dresults_002das_002dplaylist" href="emacspeak_002ddired.html#emacspeak_002dlocate_002dplay_002dresults_002das_002dplaylist">12.48.1.20 emacspeak-locate-play-results-as-playlist</a></li>
+        <li><a id="toc-emacspeak_002dfind_002ddired" href="emacspeak_002ddired.html#emacspeak_002dfind_002ddired">12.48.1.20 emacspeak-find-dired</a></li>
+        <li><a id="toc-emacspeak_002dlocate_002dplay_002dresults_002das_002dplaylist" href="emacspeak_002ddired.html#emacspeak_002dlocate_002dplay_002dresults_002das_002dplaylist">12.48.1.21 emacspeak-locate-play-results-as-playlist</a></li>
       </ul></li>
     </ul></li>
     <li><a id="toc-emacspeak_002ddismal-1" href="emacspeak_002ddismal.html">12.49 emacspeak-dismal</a>
@@ -1949,66 +1950,63 @@ Next: <a href="Copyright.html" accesskey="n" rel="next">Copyright</a> &nbsp; [<a
         <li><a id="toc-emacspeak_002dwizards_002dfind_002dlongest_002dline_002din_002dregion" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dfind_002dlongest_002dline_002din_002dregion">12.214.1.53 emacspeak-wizards-find-longest-line-in-region</a></li>
         <li><a id="toc-emacspeak_002dwizards_002dfind_002dlongest_002dparagraph_002din_002dregion" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dfind_002dlongest_002dparagraph_002din_002dregion">12.214.1.54 emacspeak-wizards-find-longest-paragraph-in-region</a></li>
         <li><a id="toc-emacspeak_002dwizards_002dfind_002dshortest_002dline_002din_002dregion" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dfind_002dshortest_002dline_002din_002dregion">12.214.1.55 emacspeak-wizards-find-shortest-line-in-region</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dfinder_002dfind" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dfinder_002dfind">12.214.1.56 emacspeak-wizards-finder-find</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dfinder_002dmode" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dfinder_002dmode">12.214.1.57 emacspeak-wizards-finder-mode</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dframe_002dcolors" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dframe_002dcolors">12.214.1.58 emacspeak-wizards-frame-colors</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dfree_002dgeo_002dip" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dfree_002dgeo_002dip">12.214.1.59 emacspeak-wizards-free-geo-ip</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dgen_002dfn_002ddecl" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dgen_002dfn_002ddecl">12.214.1.60 emacspeak-wizards-gen-fn-decl</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dgenerate_002dfinder" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dgenerate_002dfinder">12.214.1.61 emacspeak-wizards-generate-finder</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dgoogle_002dheadlines" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dgoogle_002dheadlines">12.214.1.62 emacspeak-wizards-google-headlines</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dgoogle_002dnews" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dgoogle_002dnews">12.214.1.63 emacspeak-wizards-google-news</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dhow_002dmany_002dmatches" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dhow_002dmany_002dmatches">12.214.1.64 emacspeak-wizards-how-many-matches</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dfinancials" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dfinancials">12.214.1.65 emacspeak-wizards-iex-show-financials</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dmetadata" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dmetadata">12.214.1.66 emacspeak-wizards-iex-show-metadata</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dnews" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dnews">12.214.1.67 emacspeak-wizards-iex-show-news</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dprice" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dprice">12.214.1.68 emacspeak-wizards-iex-show-price</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dquote" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dquote">12.214.1.69 emacspeak-wizards-iex-show-quote</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dtops" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dtops">12.214.1.70 emacspeak-wizards-iex-show-tops</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dthis_002dfinancials" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dthis_002dfinancials">12.214.1.71 emacspeak-wizards-iex-this-financials</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dthis_002dnews" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dthis_002dnews">12.214.1.72 emacspeak-wizards-iex-this-news</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002diex_002dthis_002dprice" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dthis_002dprice">12.214.1.73 emacspeak-wizards-iex-this-price</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile">12.214.1.74 emacspeak-wizards-lacheck-buffer-file</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dlocate_002dcontent" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dlocate_002dcontent">12.214.1.75 emacspeak-wizards-locate-content</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dmlb_002dstandings" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dmlb_002dstandings">12.214.1.76 emacspeak-wizards-mlb-standings</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dmove_002dand_002dspeak" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dmove_002dand_002dspeak">12.214.1.77 emacspeak-wizards-move-and-speak</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dnba_002dstandings" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnba_002dstandings">12.214.1.78 emacspeak-wizards-nba-standings</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dnext_002dbullet" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnext_002dbullet">12.214.1.79 emacspeak-wizards-next-bullet</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnext_002dinteractive_002ddefun">12.214.1.80 emacspeak-wizards-next-interactive-defun</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dnoaa_002dweather" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnoaa_002dweather">12.214.1.81 emacspeak-wizards-noaa-weather</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002doccur_002dheader_002dlines" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002doccur_002dheader_002dlines">12.214.1.82 emacspeak-wizards-occur-header-lines</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dpdf_002dopen" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dpdf_002dopen">12.214.1.83 emacspeak-wizards-pdf-open</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dprevious_002dbullet" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dprevious_002dbullet">12.214.1.84 emacspeak-wizards-previous-bullet</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dquote" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dquote">12.214.1.85 emacspeak-wizards-quote</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dremote_002dframe" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dremote_002dframe">12.214.1.86 emacspeak-wizards-remote-frame</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dscratch" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dscratch">12.214.1.87 emacspeak-wizards-scratch</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dset_002dcolors" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dset_002dcolors">12.214.1.88 emacspeak-wizards-set-colors</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshell" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell">12.214.1.89 emacspeak-wizards-shell</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshell_002dby_002dkey" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002dby_002dkey">12.214.1.90 emacspeak-wizards-shell-by-key</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile">12.214.1.91 emacspeak-wizards-shell-command-on-current-file</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshell_002ddirectory_002dreset" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002ddirectory_002dreset">12.214.1.92 emacspeak-wizards-shell-directory-reset</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshell_002ddirectory_002dset" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002ddirectory_002dset">12.214.1.93 emacspeak-wizards-shell-directory-set</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshell_002dtoggle" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002dtoggle">12.214.1.94 emacspeak-wizards-shell-toggle</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshow_002deval_002dresult" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshow_002deval_002dresult">12.214.1.95 emacspeak-wizards-show-eval-result</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshow_002dface" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshow_002dface">12.214.1.96 emacspeak-wizards-show-face</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dshow_002dmemory_002dused" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshow_002dmemory_002dused">12.214.1.97 emacspeak-wizards-show-memory-used</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dsnarf_002dsexp" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dsnarf_002dsexp">12.214.1.98 emacspeak-wizards-snarf-sexp</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dspeak_002diso_002ddatetime" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dspeak_002diso_002ddatetime">12.214.1.99 emacspeak-wizards-speak-iso-datetime</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dsqueeze_002dblanks" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dsqueeze_002dblanks">12.214.1.100 emacspeak-wizards-squeeze-blanks</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg">12.214.1.101 emacspeak-wizards-swap-fg-and-bg</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dterm" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dterm">12.214.1.102 emacspeak-wizards-term</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword">12.214.1.103 emacspeak-wizards-tex-tie-current-word</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer">12.214.1.104 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer">12.214.1.105 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer">12.214.1.106 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse">12.214.1.107 emacspeak-wizards-tune-in-radio-browse</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch">12.214.1.108 emacspeak-wizards-tune-in-radio-search</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dunits" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dunits">12.214.1.109 emacspeak-wizards-units</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dvc_002dn" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dn">12.214.1.110 emacspeak-wizards-vc-n</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dvc_002dview_002dmode" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dview_002dmode">12.214.1.111 emacspeak-wizards-vc-view-mode</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dvc_002dviewer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dviewer">12.214.1.112 emacspeak-wizards-vc-viewer</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dvc_002dviewer_002drefresh" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dviewer_002drefresh">12.214.1.113 emacspeak-wizards-vc-viewer-refresh</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode">12.214.1.114 emacspeak-wizards-view-buffers-filtered-by-m-player-mode</a></li>
-        <li><a id="toc-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode">12.214.1.115 emacspeak-wizards-view-buffers-filtered-by-this-mode</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dframe_002dcolors" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dframe_002dcolors">12.214.1.56 emacspeak-wizards-frame-colors</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dfree_002dgeo_002dip" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dfree_002dgeo_002dip">12.214.1.57 emacspeak-wizards-free-geo-ip</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dgen_002dfn_002ddecl" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dgen_002dfn_002ddecl">12.214.1.58 emacspeak-wizards-gen-fn-decl</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dgoogle_002dheadlines" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dgoogle_002dheadlines">12.214.1.59 emacspeak-wizards-google-headlines</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dgoogle_002dnews" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dgoogle_002dnews">12.214.1.60 emacspeak-wizards-google-news</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dhow_002dmany_002dmatches" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dhow_002dmany_002dmatches">12.214.1.61 emacspeak-wizards-how-many-matches</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dfinancials" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dfinancials">12.214.1.62 emacspeak-wizards-iex-show-financials</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dmetadata" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dmetadata">12.214.1.63 emacspeak-wizards-iex-show-metadata</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dnews" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dnews">12.214.1.64 emacspeak-wizards-iex-show-news</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dprice" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dprice">12.214.1.65 emacspeak-wizards-iex-show-price</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dquote" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dquote">12.214.1.66 emacspeak-wizards-iex-show-quote</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dshow_002dtops" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dshow_002dtops">12.214.1.67 emacspeak-wizards-iex-show-tops</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dthis_002dfinancials" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dthis_002dfinancials">12.214.1.68 emacspeak-wizards-iex-this-financials</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dthis_002dnews" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dthis_002dnews">12.214.1.69 emacspeak-wizards-iex-this-news</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002diex_002dthis_002dprice" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002diex_002dthis_002dprice">12.214.1.70 emacspeak-wizards-iex-this-price</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile">12.214.1.71 emacspeak-wizards-lacheck-buffer-file</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dlocate_002dcontent" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dlocate_002dcontent">12.214.1.72 emacspeak-wizards-locate-content</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dmlb_002dstandings" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dmlb_002dstandings">12.214.1.73 emacspeak-wizards-mlb-standings</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dmove_002dand_002dspeak" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dmove_002dand_002dspeak">12.214.1.74 emacspeak-wizards-move-and-speak</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dnba_002dstandings" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnba_002dstandings">12.214.1.75 emacspeak-wizards-nba-standings</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dnext_002dbullet" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnext_002dbullet">12.214.1.76 emacspeak-wizards-next-bullet</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnext_002dinteractive_002ddefun">12.214.1.77 emacspeak-wizards-next-interactive-defun</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dnoaa_002dweather" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dnoaa_002dweather">12.214.1.78 emacspeak-wizards-noaa-weather</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002doccur_002dheader_002dlines" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002doccur_002dheader_002dlines">12.214.1.79 emacspeak-wizards-occur-header-lines</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dpdf_002dopen" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dpdf_002dopen">12.214.1.80 emacspeak-wizards-pdf-open</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dprevious_002dbullet" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dprevious_002dbullet">12.214.1.81 emacspeak-wizards-previous-bullet</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dquote" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dquote">12.214.1.82 emacspeak-wizards-quote</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dremote_002dframe" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dremote_002dframe">12.214.1.83 emacspeak-wizards-remote-frame</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dscratch" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dscratch">12.214.1.84 emacspeak-wizards-scratch</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dset_002dcolors" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dset_002dcolors">12.214.1.85 emacspeak-wizards-set-colors</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshell" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell">12.214.1.86 emacspeak-wizards-shell</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshell_002dby_002dkey" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002dby_002dkey">12.214.1.87 emacspeak-wizards-shell-by-key</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile">12.214.1.88 emacspeak-wizards-shell-command-on-current-file</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshell_002ddirectory_002dreset" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002ddirectory_002dreset">12.214.1.89 emacspeak-wizards-shell-directory-reset</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshell_002ddirectory_002dset" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002ddirectory_002dset">12.214.1.90 emacspeak-wizards-shell-directory-set</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshell_002dtoggle" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshell_002dtoggle">12.214.1.91 emacspeak-wizards-shell-toggle</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshow_002deval_002dresult" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshow_002deval_002dresult">12.214.1.92 emacspeak-wizards-show-eval-result</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshow_002dface" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshow_002dface">12.214.1.93 emacspeak-wizards-show-face</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dshow_002dmemory_002dused" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dshow_002dmemory_002dused">12.214.1.94 emacspeak-wizards-show-memory-used</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dsnarf_002dsexp" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dsnarf_002dsexp">12.214.1.95 emacspeak-wizards-snarf-sexp</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dspeak_002diso_002ddatetime" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dspeak_002diso_002ddatetime">12.214.1.96 emacspeak-wizards-speak-iso-datetime</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dsqueeze_002dblanks" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dsqueeze_002dblanks">12.214.1.97 emacspeak-wizards-squeeze-blanks</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg">12.214.1.98 emacspeak-wizards-swap-fg-and-bg</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dterm" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dterm">12.214.1.99 emacspeak-wizards-term</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword">12.214.1.100 emacspeak-wizards-tex-tie-current-word</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer">12.214.1.101 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtoggle_002dyyyy_002dmm_002ddd_002ddate_002dpronouncer">12.214.1.102 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer">12.214.1.103 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse">12.214.1.104 emacspeak-wizards-tune-in-radio-browse</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch">12.214.1.105 emacspeak-wizards-tune-in-radio-search</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dunits" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dunits">12.214.1.106 emacspeak-wizards-units</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dvc_002dn" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dn">12.214.1.107 emacspeak-wizards-vc-n</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dvc_002dview_002dmode" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dview_002dmode">12.214.1.108 emacspeak-wizards-vc-view-mode</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dvc_002dviewer" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dviewer">12.214.1.109 emacspeak-wizards-vc-viewer</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dvc_002dviewer_002drefresh" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dvc_002dviewer_002drefresh">12.214.1.110 emacspeak-wizards-vc-viewer-refresh</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode">12.214.1.111 emacspeak-wizards-view-buffers-filtered-by-m-player-mode</a></li>
+        <li><a id="toc-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode" href="emacspeak_002dwizards.html#emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode">12.214.1.112 emacspeak-wizards-view-buffers-filtered-by-this-mode</a></li>
       </ul></li>
       <li><a id="toc-emacspeak_002dwizards-Options" href="emacspeak_002dwizards.html#emacspeak_002dwizards-Options">12.214.2 emacspeak-wizards Options</a></li>
     </ul></li>
