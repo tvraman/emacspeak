@@ -920,10 +920,8 @@ where the car is the option name, --name,
       (set-buffer buffer)
       (widget-insert "\n")
       (widget-insert "Emacspeak Finder\n\n")
-      (widget-create 'repeat
-                     :help-echo "Find Criteria"
-                     :tag "Find Criteria"
-                     :value value
+      (widget-create 
+       :value emacspeak-wizards-find-switches-widget
                      :notify notify
                      emacspeak-wizards-find-switches-widget)
       (widget-insert "\n")
