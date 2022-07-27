@@ -835,50 +835,57 @@ Location is specified by name."
 
 
 (defcustom emacspeak-wizards-find-switches-widget
-  '(cons
-    (choice
-     :tag "Find"
-     (string :tag "Test")
-     (const "-name")
-     (const "-iname")
-     (const "-path")
-     (const "-ipath")
-     (const "-regexp")
-     (const "-iregexp")
-     (const "-exec")
-     (const "-ok")
-     (const "-newer")
-     (const "-anewer")
-     (const "-cnewer")
-     (const "-used")
-     (const "-user")
-     (const "-uid")
-     (const "-nouser")
-     (const "-nogroup")
-     (const "-perm")
-     (const "-fstype")
-     (const "-lname")
-     (const "-ilname")
-     (const "-empty")
-     (const "-prune")
-     (const "-or")
-     (const "-not")
-     (const "-inum")
-     (const "-atime")
-     (const "-ctime")
-     (const "-mtime")
-     (const "-amin")
-     (const "-mmin")
-     (const "-cmin")
-     (const "-size")
-     (const "-type")
-     (const "-maxdepth")
-     (const "-mindepth")
-     (const "-mount")
-     (const "-noleaf")
-     (const "-xdev"))
-    (string :tag "Value"))
-  "Widget to get find switch."
+  '(("-name" "filename"))
+  "List of find switches with their arguments.
+Each element of the list is a cons cell describing a find option 
+where the car is the option name, --name,
+  and the CDR is an option value."
+  :type
+  '(repeat
+    (cons
+     :tag "Find Switch"
+     (choice
+      :tag "Find"
+      (string :tag "Test")
+      (const "-name")
+      (const "-iname")
+      (const "-path")
+      (const "-ipath")
+      (const "-regexp")
+      (const "-iregexp")
+      (const "-exec")
+      (const "-ok")
+      (const "-newer")
+      (const "-anewer")
+      (const "-cnewer")
+      (const "-used")
+      (const "-user")
+      (const "-uid")
+      (const "-nouser")
+      (const "-nogroup")
+      (const "-perm")
+      (const "-fstype")
+      (const "-lname")
+      (const "-ilname")
+      (const "-empty")
+      (const "-prune")
+      (const "-or")
+      (const "-not")
+      (const "-inum")
+      (const "-atime")
+      (const "-ctime")
+      (const "-mtime")
+      (const "-amin")
+      (const "-mmin")
+      (const "-cmin")
+      (const "-size")
+      (const "-type")
+      (const "-maxdepth")
+      (const "-mindepth")
+      (const "-mount")
+      (const "-noleaf")
+      (const "-xdev"))
+     (string :tag "Option Value")))
   :group 'emacspeak-wizards)
 
 (defvar-local emacspeak-wizards-finder-args nil
