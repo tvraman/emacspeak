@@ -74,7 +74,19 @@
 
 
 ;;}}}
+;;{{{Additional Interactive Commands :
+
+(defun emacspeak-mpv-position ()
+  "Show position and duration."
+  (interactive)
+  (message "%s of %s"
+           (mpv-get-playback-position) (mpv-get-duration)))
+
+;;}}}
 ;;{{{Keymap:
+
+(declare-function mpv-get-playback-position "mpv" nil)
+(declare-function mpv-get-duration "mpv" nil)
 
 (defvar emacspeak-mpv-keymap
   (let ((map (make-sparse-keymap)))
@@ -89,6 +101,7 @@
        ("k" mpv-kill)
        ("<up>" mpv-volume-increase)
        ("<down>" mpv-volume-decrease)
+       ("." emacspeak-mpv-position)
        ) do
      (define-key map (ems-kbd (cl-first b)) (cl-second b)))
     map)
