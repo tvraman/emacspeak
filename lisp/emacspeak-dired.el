@@ -567,7 +567,7 @@ If on a directory, speak the total duration of all mp3 files under
     "or" "not" "inum" "atime" "ctime" "mtime" "amin" "mmin"
     "cmin" "size" "type" "maxdepth" "mindepth" "mount" "noleaf" "xdev"
     )
-"Find switches")
+  "Find switches")
 
 ;;;###autoload
 (defun emacspeak-find-dired ()
@@ -575,9 +575,8 @@ If on a directory, speak the total duration of all mp3 files under
   (interactive)
   (cl-declare (special ems--find-switches))
   (let ((directory (read-directory-name "Directory:"))
-        (arg "")
-        (f-args nil))
-    (setq arg (completing-read "Switch:" ems--find-switches nil t))
+        (f-args nil)
+        (arg (completing-read "Switch:" ems--find-switches nil t)))
     (while (not (string= "" arg))
       (cl-pushnew (concat "-" arg) f-args :test #'string=)
       (cl-pushnew (read-string "Value:") f-args)
