@@ -575,15 +575,13 @@ If on a directory, speak the total duration of all mp3 files under
   (interactive)
   (cl-declare (special ems--find-switches))
   (let ((directory (read-directory-name "Directory:"))
-        (arg nil)
+        (arg "")
         (f-args nil))
-    (while
-        (not
-         (string=
-          ""
-          (setq arg (completing-read "Switch:" ems--find-switches nil t))))
+    (setq arg (completing-read "Switch:" ems--find-switches nil t))
+    (while (not (string= "" arg))
       (cl-pushnew (concat "-" arg) f-args :test #'string=)
-      (cl-pushnew (read-string "Value:") f-args))
+      (cl-pushnew (read-string "Value:") f-args)
+      (setq arg (completing-read "Switch:" ems--find-switches nil t)))
     (find-dired directory (mapconcat #'identity (nreverse f-args) " "))))
 
 
