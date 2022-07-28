@@ -181,7 +181,7 @@
   "Cache of the last Transient buffer contents.")
 
 (defadvice transient--show (after emacspeak pre act comp)
-  "Setq up cache."
+  "Set up cache."
   (when (window-live-p transient--window)
     (with-current-buffer (window-buffer transient--window)
       (setq emacspeak-transient-cache
