@@ -7790,7 +7790,7 @@ Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacsp
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (f flyspell-mode) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))|}}
+Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))|}}
 
 @end defvar
 
@@ -11629,13 +11629,6 @@ but quickly switch to a window by name.
 
 @subsubsection emacspeak-shell-command
 @deffn {Command} emacspeak-shell-command  (command)
-@table @kbd
-@item C-e $
-@kindex C-e $
-@item <fn> $
-@kindex <fn> $
-@end table
-
 @findex emacspeak-shell-command
 
 @format

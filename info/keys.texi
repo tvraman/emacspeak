@@ -13,7 +13,7 @@
  emacspeak-speak-sexp
 
 @item $
- emacspeak-shell-command
+ flyspell-mode
 
 @item %
  emacspeak-speak-current-percentage
@@ -521,9 +521,6 @@
 
 @item e
  elfeed
-
-@item f
- flyspell-mode
 
 @item h
  emacspeak-org-capture-link
