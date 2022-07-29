@@ -847,7 +847,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   `(defadvice ,f (before emacspeak pre act comp)
      "Speak prompt"
      (ems-with-messages-silenced
-       (let ((prompt (ad-get-arg 0)))
+       (let ((prompt (ad-get-arg 0))
+             (dtk-stop-immediately nil))
          (emacspeak-auditory-icon 'item)
          (setq emacspeak-last-message prompt)
          (setq emacspeak-read-char-prompt-cache prompt)
