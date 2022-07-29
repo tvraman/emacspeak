@@ -245,7 +245,7 @@
  '(
    ("!" emacspeak-speak-run-shell-command)
    ("#" emacspeak-gridtext)
-   ("$" emacspeak-shell-command)
+   ("$" flyspell-mode)
    ("%" emacspeak-speak-current-percentage)
    ("&" emacspeak-wizards-shell-command-on-current-file)
    ("'" emacspeak-pianobar)
@@ -657,7 +657,6 @@
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
-    ("f" flyspell-mode)
     ("h" emacspeak-org-capture-link)
     ("l" emacspeak-wizards-locate-content)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
