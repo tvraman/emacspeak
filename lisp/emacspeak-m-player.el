@@ -1503,6 +1503,7 @@ flat classical club dance full-bass full-bass-and-treble
       (kill-new u)
         (emacspeak-m-player u)))))
 
+(put 'emacspeak-m-player-youtube-player 'repeat-map 'emacspeak-mpv-keymap)
 ;;;###autoload
 (defun emacspeak-m-player-youtube-live (url)
   "Use youtube-dl and mplayer to live-stream   from Youtube. "
