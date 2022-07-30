@@ -7625,7 +7625,7 @@ i.e. you can move through corrections with C-r and C-s.
 Emacspeak will not speak the choices if there are more than this
 many available corrections.
 
-Default Value: @code{@verb{|10|}}
+Default Value: @code{@verb{|8|}}
 
 @end defvar
 

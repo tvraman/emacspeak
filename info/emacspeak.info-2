@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 28, 2022.
+last updated on July 30, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -947,7 +947,7 @@ corrections with C-r and C-s.
      Emacspeak will not speak the choices if there are more than this
      many available corrections.
 
-     Default Value: ‘10’
+     Default Value: ‘8’
 
 
 File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emacspeak-ispell,  Up: Emacspeak Commands And Options
