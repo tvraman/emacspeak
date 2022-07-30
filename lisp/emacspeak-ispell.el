@@ -71,7 +71,7 @@
   "Spell checking group."
   :group  'emacspeak)
 
-(defcustom emacspeak-ispell-max-choices 5
+(defcustom emacspeak-ispell-max-choices 8
   "Emacspeak will not speak the choices if there are more than this
 many available corrections."
   :type 'number
