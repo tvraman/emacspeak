@@ -854,9 +854,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (setq emacspeak-read-char-prompt-cache prompt)
          (tts-with-punctuations
              'all
-           (dtk-speak
-            (or prompt
-                (substring ,(symbol-name f) 5)))))))))
+           (dtk-notify-speak (or prompt "key"))))))))
 
 (defadvice read-char-choice (before emacspeak pre act comp)
   "Speak the prompt. "
