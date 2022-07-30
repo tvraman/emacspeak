@@ -79,7 +79,7 @@
 (defun emacspeak-mpv-position ()
   "Show position and duration."
   (interactive)
-  (message "%s of %s"
+  (message "%.2f of %.2f"
            (mpv-get-playback-position) (mpv-get-duration)))
 
 ;;}}}
