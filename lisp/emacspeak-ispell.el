@@ -77,6 +77,14 @@ many available corrections."
   :type 'number
   :group 'emacspeak-ispell)
 
+
+(defadvice ispell-show-choices (after emacspeak-m-player-mode-map pre
+                                      act comp)
+  "Speak choices"
+  (let ((dtk-stop-immediately nil))
+    (with-current-buffer (get-buffer-create ispell-choices-buffer)
+      (emacspeak-speak-buffer))))
+
 (defadvice ispell-command-loop (before emacspeak pre act comp)
   "Speak the line containing the incorrect word.
  Then speak the possible corrections. "
@@ -87,8 +95,8 @@ many available corrections."
         (end (ad-get-arg 4)))
     (setq line
           (ems-set-personality-temporarily
-           start end voice-bolden
-           (buffer-substring (line-beginning-position) (line-end-position))))
+              start end voice-bolden
+              (buffer-substring (line-beginning-position) (line-end-position))))
     (with-temp-buffer
       (setq voice-lock-mode t)
       (setq buffer-undo-list t)
