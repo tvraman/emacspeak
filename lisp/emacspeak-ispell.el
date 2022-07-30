@@ -71,19 +71,14 @@
   "Spell checking group."
   :group  'emacspeak)
 
-(defcustom emacspeak-ispell-max-choices 10
+(defcustom emacspeak-ispell-max-choices 5
   "Emacspeak will not speak the choices if there are more than this
 many available corrections."
   :type 'number
   :group 'emacspeak-ispell)
 
 
-(defadvice ispell-show-choices (after emacspeak-m-player-mode-map pre
-                                      act comp)
-  "Speak choices"
-  (let ((dtk-stop-immediately nil))
-    (with-current-buffer (get-buffer-create ispell-choices-buffer)
-      (emacspeak-speak-buffer))))
+
 
 (defadvice ispell-command-loop (before emacspeak pre act comp)
   "Speak the line containing the incorrect word.
