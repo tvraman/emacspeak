@@ -328,7 +328,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
              (if prompt
                  (read-number "Volume Step:")
                amixer-volume-step)))
-    (emacspeak-auditory-icon 'off)))
+    (emacspeak-auditory-icon 'right)))
 
 ;;;###autoload
 (defun amixer-volume-down (prompt)
@@ -344,7 +344,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
              (if prompt
                  (read-number "Volume Step:")
                amixer-volume-step)))
-    (emacspeak-auditory-icon 'on)))
+    (emacspeak-auditory-icon 'left)))
 
 ;;}}}
 (provide 'amixer)
