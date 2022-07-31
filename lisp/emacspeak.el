@@ -429,7 +429,17 @@ commands and options for details."
   (emacspeak-play-startup-icon))
 
 ;;}}}
+;;{{{pulseaudio-control:
+(with-eval-after-load "pulseaudio-control"
+  (pulseaudio-control-default-keybindings)
+  (cl-declaim (special pulseaudio-control-map))
+  (map-keymap
+   (lambda (_key cmd)
+     (when (symbolp cmd)
+       (put cmd 'repeat-map 'pulseaudio-control-map)))
+   pulseaudio-control-map))
 
+;;}}}
 (provide 'emacspeak)
 ;;{{{ end of file
 
