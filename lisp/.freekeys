@@ -1,0 +1,58 @@
+Free keys with prefix C-e in buffer Audio Desktop (major mode: shell-mode)
+
+With no modifier (27 free)
+=========================
+C-e i     C-e E     C-e J     C-e S     C-e Y     C-e -     C-e ,     C-e >     
+C-e y     C-e F     C-e K     C-e U     C-e Z     C-e {     C-e .     C-e `     
+C-e z     C-e G     C-e O     C-e X     C-e *     C-e }     C-e <     C-e ~     
+C-e D     C-e H     C-e Q     
+
+With modifier C (49 free)
+=========================
+C-e C-g     C-e C-P     C-e C-6     C-e C-%     C-e C-]     C-e C-|     
+C-e C-h     C-e C-R     C-e C-7     C-e C-^     C-e C-{     C-e C-,     
+C-e C-n     C-e C-Z     C-e C-8     C-e C-&     C-e C-}     C-e C-/     
+C-e C-p     C-e C-1     C-e C-9     C-e C-*     C-e C-;     C-e C-<     
+C-e C-r     C-e C-2     C-e C-0     C-e C-(     C-e C-'     C-e C->     
+C-e C-z     C-e C-3     C-e C-!     C-e C-)     C-e C-\     C-e C-?     
+C-e C-G     C-e C-4     C-e C-#     C-e C--     C-e C-:     C-e C-`     
+C-e C-H     C-e C-5     C-e C-$     C-e C-=     C-e C-"     C-e C-~     
+C-e C-N     
+
+With modifier M (76 free)
+=========================
+C-e M-a     C-e M-B     C-e M-O     C-e M-2     C-e M-^     C-e M-\     
+C-e M-e     C-e M-C     C-e M-P     C-e M-3     C-e M-&     C-e M-:     
+C-e M-f     C-e M-D     C-e M-Q     C-e M-4     C-e M-*     C-e M-"     
+C-e M-g     C-e M-E     C-e M-R     C-e M-5     C-e M-(     C-e M-|     
+C-e M-j     C-e M-F     C-e M-S     C-e M-6     C-e M-)     C-e M-,     
+C-e M-k     C-e M-G     C-e M-T     C-e M-7     C-e M--     C-e M-.     
+C-e M-n     C-e M-H     C-e M-U     C-e M-8     C-e M-=     C-e M-/     
+C-e M-o     C-e M-I     C-e M-V     C-e M-9     C-e M-[     C-e M-<     
+C-e M-r     C-e M-J     C-e M-W     C-e M-0     C-e M-]     C-e M->     
+C-e M-x     C-e M-K     C-e M-X     C-e M-!     C-e M-{     C-e M-?     
+C-e M-y     C-e M-L     C-e M-Y     C-e M-@     C-e M-}     C-e M-`     
+C-e M-z     C-e M-M     C-e M-Z     C-e M-#     C-e M-'     C-e M-~     
+C-e M-A     C-e M-N     C-e M-1     C-e M-$     
+
+With modifier C-M (89 free)
+=========================
+C-e C-M-a     C-e C-M-t     C-e C-M-M     C-e C-M-5     C-e C-M-]     
+C-e C-M-b     C-e C-M-u     C-e C-M-N     C-e C-M-6     C-e C-M-{     
+C-e C-M-c     C-e C-M-v     C-e C-M-O     C-e C-M-7     C-e C-M-}     
+C-e C-M-d     C-e C-M-w     C-e C-M-P     C-e C-M-8     C-e C-M-;     
+C-e C-M-e     C-e C-M-x     C-e C-M-Q     C-e C-M-9     C-e C-M-'     
+C-e C-M-f     C-e C-M-y     C-e C-M-R     C-e C-M-0     C-e C-M-\     
+C-e C-M-g     C-e C-M-z     C-e C-M-S     C-e C-M-!     C-e C-M-:     
+C-e C-M-h     C-e C-M-A     C-e C-M-T     C-e C-M-#     C-e C-M-"     
+C-e C-M-i     C-e C-M-B     C-e C-M-U     C-e C-M-$     C-e C-M-|     
+C-e C-M-j     C-e C-M-C     C-e C-M-V     C-e C-M-%     C-e C-M-,     
+C-e C-M-l     C-e C-M-D     C-e C-M-W     C-e C-M-^     C-e C-M-.     
+C-e C-M-m     C-e C-M-E     C-e C-M-X     C-e C-M-&     C-e C-M-/     
+C-e C-M-n     C-e C-M-F     C-e C-M-Y     C-e C-M-*     C-e C-M-<     
+C-e C-M-o     C-e C-M-G     C-e C-M-Z     C-e C-M-(     C-e C-M->     
+C-e C-M-p     C-e C-M-H     C-e C-M-1     C-e C-M-)     C-e C-M-?     
+C-e C-M-q     C-e C-M-I     C-e C-M-2     C-e C-M--     C-e C-M-`     
+C-e C-M-r     C-e C-M-J     C-e C-M-3     C-e C-M-=     C-e C-M-~     
+C-e C-M-s     C-e C-M-L     C-e C-M-4     C-e C-M-[     
+
