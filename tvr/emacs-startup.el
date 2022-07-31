@@ -196,6 +196,7 @@ Use Custom to customize where possible. "
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
+  (require 'pulseaudio-control)
   (require 'dired-x)
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
 
