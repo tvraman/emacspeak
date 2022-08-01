@@ -132,6 +132,8 @@
    (font-lock-comment-face voice-monotone-extra)
    (font-lock-constant-face voice-lighten)
    (font-lock-doc-face voice-monotone-extra)
+   (shortdoc-heading voice-bolden-medium)
+   (shortdoc-section voice-lighten)
    (font-lock-doc-markup-face voice-monotone)
    (font-lock-function-name-face voice-bolden)
    (font-lock-keyword-face voice-animate-extra)
