@@ -299,6 +299,8 @@ Argument `feed' is a feed structure (label url type)."
    (list
     (let ((completion-ignore-case t))
       (completing-read "Feed:" emacspeak-feeds nil 'must-match))))
+  (add-hook 'emacspeak-eww-post-process-hook
+            #'(lambda nil (emacspeak-auditory-icon 'open-object)))
   (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds) 'speak))
 
 ;;}}}
