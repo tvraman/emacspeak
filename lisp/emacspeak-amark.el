@@ -156,7 +156,10 @@ given name, it is updated with path and position."
 (defun emacspeak-amark-browse ()
   "Browse  nearest amarks file."
   (interactive)
-  (let ((amarks (emacspeak-amark-load))
+  (let ((amarks
+         (or 
+          (emacspeak-amark-load)
+          (error "No Amarks here")))
         (buff (get-buffer-create "*Amarks Browser"))
         (inhibit-read-only t))
     (with-current-buffer buff
