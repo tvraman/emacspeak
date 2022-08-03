@@ -153,6 +153,7 @@ given name, it is updated with path and position."
     default-directory))
   (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
 
+;;;###autoload
 (defun emacspeak-amark-browse ()
   "Browse  nearest amarks file."
   (interactive)
