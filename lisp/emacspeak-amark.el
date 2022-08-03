@@ -147,14 +147,18 @@ given name, it is updated with path and position."
 
 (defun emacspeak-amark-play (amark)
   "Play amark using m-player."
-  (emacspeak-multimedia (emacspeak-amark-path  amark))
+  (emacspeak-m-player
+   (expand-file-name
+    (emacspeak-amark-path  amark)
+    default-directory))
   (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
 
 (defun emacspeak-amark-browse ()
   "Browse  nearest amarks file."
   (interactive)
   (let ((amarks (emacspeak-amark-load))
-        (buff (get-buffer-create "*Amarks Browser")))
+        (buff (get-buffer-create "*Amarks Browser"))
+        (inhibit-read-only t))
     (with-current-buffer buff
       (special-mode)
       (erase-buffer)
@@ -168,8 +172,9 @@ given name, it is updated with path and position."
        (insert
         (format
          "%s\t%s\n" (emacspeak-amark-name m) (emacspeak-amark-position m))))
-      (goto-char (point-min))
-      (funcall-interactively #'switch-to-buffer buff))))
+      (goto-char (point-min)))
+    
+    (funcall-interactively #'switch-to-buffer buff)))
 
 ;;}}}
 (provide  'emacspeak-amark)
