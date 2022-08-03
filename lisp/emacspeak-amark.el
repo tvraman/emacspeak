@@ -200,8 +200,10 @@ given name, it is updated with path and position."
         'action
         #'(lambda (b) (emacspeak-amark-play (button-get b 'mark))))
        (insert "\n"))
-      (goto-char (point-min)))
+      (goto-char (point-min))
+      (forward-button 1))
     (funcall-interactively #'switch-to-buffer buff)))
+
 (put 'emacspeak-amark-browse 'repeat-map 'emacspeak-m-player-mode-map)
 ;;}}}
 (provide  'emacspeak-amark)
