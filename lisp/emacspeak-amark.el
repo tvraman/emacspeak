@@ -154,6 +154,7 @@ given name, it is updated with path and position."
   (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
 
 ;;;###autoload
+
 (defun emacspeak-amark-browse ()
   "Browse  nearest amarks file."
   (interactive)
@@ -173,7 +174,13 @@ given name, it is updated with path and position."
        for m in amarks do
        (insert
         (format
-         "%s\t%s\t" (emacspeak-amark-name m) (emacspeak-amark-position m)))
+         "%s\t" (emacspeak-amark-name m)))
+       (insert-text-button
+        "Delete\t" 
+        'mark m
+        'action
+        #'(lambda (b) (emacspeak-amark-delete (button-get b 'mark))))
+       (insert (format "%s\t" (emacspeak-amark-position m)))
        (insert-text-button
         (format "%s" (abbreviate-file-name (emacspeak-amark-path m)))
         'mark m
