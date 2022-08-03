@@ -601,6 +601,7 @@
     ("TAB" hippie-expand)
     ("C-o" eaf-open-browser)
     ("C-t" emacspeak-wizards-tramp-open-location)
+    ("" emacspeak-amark-browse)
     ("b" eww-list-buffers)
     ("c" browse-url-chrome)
     ("d" magit-dispatch)
