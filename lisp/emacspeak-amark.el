@@ -157,6 +157,7 @@ given name, it is updated with path and position."
 (defun emacspeak-amark-browse ()
   "Browse  nearest amarks file."
   (interactive)
+  (cl-declare (special emacspeak-amark-list))
   (let ((amarks
          (or 
           (emacspeak-amark-load)
@@ -166,6 +167,7 @@ given name, it is updated with path and position."
     (with-current-buffer buff
       (special-mode)
       (erase-buffer)
+      (setq emacspeak-amark-list amarks)
       (setq buffer-undo-list t)
       (cl-loop
        for m in amarks do
