@@ -72,6 +72,7 @@
 
 ;;}}}
 ;;{{{ AMark Functions:
+
 (defun emacspeak-amark-names ()
   "Return list of  amark names."
   (cl-declare (special emacspeak-amark-list))
@@ -138,6 +139,37 @@ given name, it is updated with path and position."
           (setq l (read buff))
           (kill-buffer buff))
         (setq emacspeak-amark-list l)))))
+
+;;}}}
+;;{{{Browse Amarks:
+
+(declare-function emacspeak-m-player-seek-absolute "emacspeak-m-player" (pos))
+
+(defun emacspeak-amark-play (amark)
+  "Play amark using m-player."
+  (emacspeak-multimedia (emacspeak-amark-path  amark))
+  (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
+
+(defun emacspeak-amark-browse ()
+  "Browse  nearest amarks file."
+  (interactive)
+  (let ((amarks (emacspeak-amark-load))
+        (buff (get-buffer-create "*Amarks Browser")))
+    (with-current-buffer buff
+      (special-mode)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (cl-loop
+       for m in amarks do
+       (insert-text-button
+        (format "%s: " (abbreviate-file-name (emacspeak-amark-path m)))
+        'action
+        #'(lambda (_b) (emacspeak-amark-play m)))
+       (insert
+        (format
+         "%s\t%s\n" (emacspeak-amark-name m) (emacspeak-amark-position m))))
+      (goto-char (point-min))
+      (funcall-interactively #'switch-to-buffer buff))))
 
 ;;}}}
 (provide  'emacspeak-amark)
