@@ -202,6 +202,7 @@ given name, it is updated with path and position."
         'action
         #'(lambda (b) (emacspeak-amark-play (button-get b 'mark))))
        (insert "\n"))
+      (emacspeak-speak-load-directory-settings)
       (goto-char (point-min))
       (forward-button 1))
     (funcall-interactively #'switch-to-buffer buff)))
