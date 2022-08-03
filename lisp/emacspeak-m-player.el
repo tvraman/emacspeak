@@ -545,8 +545,8 @@ dynamic playlist. "
       (unless emacspeak-m-player-url-p  ; not a URL
         (when resource
           (setq resource (expand-file-name resource))
-          (setq emacspeak-m-player-current-directory
-                (file-name-directory resource)))
+          (emacspeak-speak-load-directory-settings)
+          (setq emacspeak-m-player-current-directory (file-name-directory resource)))
         (unless emacspeak-m-player-dynamic-playlist
           (if   (file-directory-p resource)
               (setq file-list (emacspeak-m-player-directory-files resource))
