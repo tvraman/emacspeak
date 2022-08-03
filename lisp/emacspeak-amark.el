@@ -202,7 +202,7 @@ given name, it is updated with path and position."
        (insert "\n"))
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buff)))
-
+(put 'emacspeak-amark-browse 'repeat-map 'emacspeak-m-player-mode-map)
 ;;}}}
 (provide  'emacspeak-amark)
 ;;{{{  emacs local variables
