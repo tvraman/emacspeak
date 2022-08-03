@@ -171,15 +171,15 @@ given name, it is updated with path and position."
       (setq buffer-undo-list t)
       (cl-loop
        for m in amarks do
+       (insert
+        (format
+         "%s\t%s\t" (emacspeak-amark-name m) (emacspeak-amark-position m)))
        (insert-text-button
-        (format "%s: "
-                (abbreviate-file-name (emacspeak-amark-path m)))
+        (format "%s" (abbreviate-file-name (emacspeak-amark-path m)))
         'mark m
         'action
         #'(lambda (b) (emacspeak-amark-play (button-get b 'mark))))
-       (insert
-        (format
-         "%s\t%s\n" (emacspeak-amark-name m) (emacspeak-amark-position m))))
+       (insert "\n"))
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buff)))
 
