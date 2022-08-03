@@ -153,8 +153,21 @@ given name, it is updated with path and position."
     default-directory))
   (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
 
-;;;###autoload
+(defun emacspeak-amark-delete (amark)
+  "Delete Amark and save."
+  (cl-declare (special emacspeak-amark-list))
+  (setq emacspeak-amark-list
+        (cl-remove-if
+         #'(lambda(m)
+             (string=
+              (emacspeak-amark-name m)
+              (emacspeak-amark-name amark)))
+         emacspeak-amark-list))
+  (emacspeak-amark-save)
+  (emacspeak-amark-browse)
+  (message "Updated amarks"))
 
+;;;###autoload
 (defun emacspeak-amark-browse ()
   "Browse  nearest amarks file."
   (interactive)
