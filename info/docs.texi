@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1159 commands and 147 options.
+This chapter documents a total of 1160 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -1313,6 +1313,22 @@ bookmarks in audio content. If there is an existing amark of the
 given name, it is updated with path and position.
 
 (fn PATH NAME POSITION)
+@end format
+@end deffn
+
+@subsubsection emacspeak-amark-browse
+@deffn {Command} emacspeak-amark-browse   
+@table @kbd
+@item C-; a
+@kindex C-; a
+@item C-x @@ h a
+@kindex C-x @@ h a
+@end table
+
+@findex emacspeak-amark-browse
+
+@format
+Browse  nearest amarks file.
 @end format
 @end deffn
 
@@ -7762,7 +7778,7 @@ Default Value: @code{@verb{|((SPC flyspell-mode) (b emacspeak-wizards-view-buffe
 @defvar {User Option} emacspeak-hyper-keys
 Hyper-Key bindings. 
 
-Default Value: @code{@verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. next-buffer) (/ emacspeak-websearch-google-with-toolbelt) (: emacspeak-wizards-view-buffers-filtered-by-m-player-mode) (; emacspeak-m-player-using-openal) (C-a emacspeak-wizards-term) (C-b eww-list-bookmarks) (C-d dictionary-search) (C-e eshell) (C-j emacspeak-wizards-shell-toggle) (C-l emacspeak-librivox) (C-o eaf-open-browser) (C-t emacspeak-wizards-tramp-open-location) (DEL emacspeak-wizards-snarf-sexp) (TAB hippie-expand) (b eww-list-buffers) (c browse-url-chrome) (d magit-dispatch) (e gmaps) (f magit-file-dispatch) (g gnus) (h emacspeak-m-player-from-history) (k emacspeak-google-knowledge-search) (l locate) (m vm) (n emacspeak-wizards-cycle-to-next-buffer) (o find-file) (p emacspeak-wizards-cycle-to-previous-buffer) (r emacspeak-wizards-find-file-as-root) (s magit-status) (t twit) (u list-unicode-display) (w emacspeak-wizards-noaa-weather) (y yas-expand))|}}
+Default Value: @code{@verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. next-buffer) (/ emacspeak-websearch-google-with-toolbelt) (: emacspeak-wizards-view-buffers-filtered-by-m-player-mode) (; emacspeak-m-player-using-openal) (C-a emacspeak-wizards-term) (C-b eww-list-bookmarks) (C-d dictionary-search) (C-e eshell) (C-j emacspeak-wizards-shell-toggle) (C-l emacspeak-librivox) (C-o eaf-open-browser) (C-t emacspeak-wizards-tramp-open-location) (DEL emacspeak-wizards-snarf-sexp) (TAB hippie-expand) (a emacspeak-amark-browse) (b eww-list-buffers) (c browse-url-chrome) (d magit-dispatch) (e gmaps) (f magit-file-dispatch) (g gnus) (h emacspeak-m-player-from-history) (k emacspeak-google-knowledge-search) (l locate) (m vm) (n emacspeak-wizards-cycle-to-next-buffer) (o find-file) (p emacspeak-wizards-cycle-to-previous-buffer) (r emacspeak-wizards-find-file-as-root) (s magit-status) (t twit) (u list-unicode-display) (w emacspeak-wizards-noaa-weather) (y yas-expand))|}}
 
 @end defvar
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 30, 2022.
+last updated on August 3, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3074,6 +3074,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘TAB’
      hippie-expand
 
+‘a’
+     emacspeak-amark-browse
+
 ‘b’
      eww-list-buffers
 
@@ -3421,7 +3424,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1159 commands and 147 options.
+   This chapter documents a total of 1160 commands and 147 options.
 
 * Menu:
 
@@ -4475,7 +4478,16 @@ and friends to set and jump to bookmarks.
 
      (fn PATH NAME POSITION)
 
-12.12.1.2 emacspeak-amark-find
+12.12.1.2 emacspeak-amark-browse
+................................
+
+ -- Command: emacspeak-amark-browse
+     ‘C-; a’
+     ‘C-x @ h a’
+
+     Browse  nearest amarks file.
+
+12.12.1.3 emacspeak-amark-find
 ..............................
 
  -- Command: emacspeak-amark-find (name)
@@ -4484,7 +4496,7 @@ and friends to set and jump to bookmarks.
 
      (fn NAME)
 
-12.12.1.3 emacspeak-amark-save
+12.12.1.4 emacspeak-amark-save
 ..............................
 
  -- Command: emacspeak-amark-save
