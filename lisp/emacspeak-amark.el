@@ -180,6 +180,8 @@ given name, it is updated with path and position."
         (inhibit-read-only t))
     (with-current-buffer buff
       (special-mode)
+      (local-set-key "p" 'backward-button)
+      (local-set-key "n" 'forward-button)
       (erase-buffer)
       (setq emacspeak-amark-list amarks)
       (setq buffer-undo-list t)
@@ -204,7 +206,7 @@ given name, it is updated with path and position."
       (forward-button 1))
     (funcall-interactively #'switch-to-buffer buff)))
 
-(put 'emacspeak-amark-browse 'repeat-map 'emacspeak-m-player-mode-map)
+
 ;;}}}
 (provide  'emacspeak-amark)
 ;;{{{  emacs local variables
