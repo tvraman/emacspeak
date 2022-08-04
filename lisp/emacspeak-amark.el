@@ -181,6 +181,7 @@ given name, it is updated with path and position."
         (inhibit-read-only t))
     (with-current-buffer buff
       (special-mode)
+      (cd default-directory)
       (local-set-key "p" 'backward-button)
       (local-set-key "n" 'forward-button)
       (erase-buffer)
