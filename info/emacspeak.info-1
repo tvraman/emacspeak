@@ -4457,12 +4457,12 @@ File: emacspeak.info,  Node: emacspeak-amark,  Next: emacspeak-analog,  Prev: em
 12.12 emacspeak-amark
 =====================
 
-Structure emacspeak-amark holds a bookmark into an mp3 file path: fully
-qualified pathname to file being marked name: Bookmark tag Position:
-time offset from start
+Structure emacspeak-amark holds a bookmark into an mp3 file path:
+filename containing marked name: Bookmark tag Position: time offset from
+start
 
-   This library will be used from emacspeak-m-player, emacspeak-mplayer
-and friends to set and jump to bookmarks.
+   This library will be used from emacspeak-m-player, to set and jump to
+bookmarks.
 
 12.12.1 Emacspeak-Amark Commands
 --------------------------------
