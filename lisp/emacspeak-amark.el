@@ -188,6 +188,10 @@ given name, it is updated with path and position."
       (setq buffer-undo-list t)
       (cl-loop
        for m in amarks do
+       (insert-text-button
+        (format "%s" (emacspeak-amark-path m))
+        'mark m
+        'action #'(lambda (b) (emacspeak-amark-play (button-get b 'mark))))
        (insert (format "%s\t" (emacspeak-amark-name m)))
        (insert-text-button
         "Delete\t"
@@ -195,10 +199,6 @@ given name, it is updated with path and position."
         'action
         #'(lambda (b) (emacspeak-amark-delete (button-get b 'mark))))
        (insert (format "%s\t" (emacspeak-amark-position m)))
-       (insert-text-button
-        (format "%s" (emacspeak-amark-path m))
-        'mark m
-        'action #'(lambda (b) (emacspeak-amark-play (button-get b 'mark))))
        (insert "\n"))
       (emacspeak-speak-load-directory-settings)
       (goto-char (point-min))
