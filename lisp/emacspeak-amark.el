@@ -43,24 +43,25 @@
 ;;; Commentary:
 
 ;; Structure emacspeak-amark holds a bookmark into an mp3 file
-;; path: fully qualified pathname  to file being marked
+;; path:  filename containing  marked
 ;; name: Bookmark tag
 ;; Position: time offset from start 
 
-;; ; This library will be used from emacspeak-m-player,
-;;emacspeak-mplayer and friends to set and jump to bookmarks.
+;;  This library will be used from emacspeak-m-player,
+;; to set and jump to bookmarks.
 ;;; Code:
+
 ;;}}}
 ;;{{{  Required modules
+
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-sounds)
 ;;}}}
 ;;{{{ Structure:
 
 (cl-defstruct emacspeak-amark
-  path                                  ; fully qualified pathname
-  name                                  ; Bookmark tag
+  path                                  ; filename
+  name                                  ; Bookmark name
   position                              ; Offset in ms from start
   )
 
