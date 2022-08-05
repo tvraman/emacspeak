@@ -318,6 +318,31 @@ already disabled."
         (message "Removed device  %s" device)
         (emacspeak-play-auditory-icon 'off)))
    (dbus-register-signal
+    :system ; properties 
+    "org.freedesktop.UPower" "/org/freedesktop/UPower"
+    "org.freedesktop.DBus.Properties" "PropertyChanged"
+    #'(lambda(state)
+        (emacspeak-play-auditory-icon 'on)
+        (message "Battery State:  %s" state)))))
+
+(defun emacspeak-dbus-upower-register()
+  "Register signal handlers for UPower  InterfacesAdded signal."
+  (list
+   (dbus-register-signal ; DeviceAdded
+    :system
+    "org.freedesktop.UPower" "/org/freedesktop/UPower"
+    "org.freedesktop.UPower" "DeviceAdded"
+    #'(lambda(device)
+        (emacspeak-play-auditory-icon 'on)
+        (message "Added device %s" device)))
+   (dbus-register-signal
+    :system
+    "org.freedesktop.UPower" "/org/freedesktop/UPower"
+    "org.freedesktop.UPower" "DeviceRemoved"
+    #'(lambda(device)
+        (message "Removed device  %s" device)
+        (emacspeak-play-auditory-icon 'off)))
+   (dbus-register-signal
     :system
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.DBus.Properties.PropertiesChanged" "OnBattery"
