@@ -612,7 +612,6 @@ the sense of the filter. "
     (when (buffer-file-name)
       (emacspeak-speak-set-persistent-filter (buffer-file-name) filter)))
    (t
-    (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
 ;;}}}
