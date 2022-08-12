@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 3, 2022.
+last updated on August 12, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3742,7 +3742,7 @@ To reset all controls to their default values, Press ‘C-j’.
  -- Variable: User Option amixer-volume-step
      Step-size for volume change.
 
-     Default Value: ‘5’
+     Default Value: ‘2’
 
 
 File: emacspeak.info,  Node: cd-tool,  Next: dectalk-voices,  Prev: amixer,  Up: Emacspeak Commands And Options
