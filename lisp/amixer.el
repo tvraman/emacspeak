@@ -308,7 +308,7 @@ Interactive prefix arg refreshes cache."
 
 ;;}}}
 ;;{{{Raise/Lower Volume Using pactl:
-(defcustom amixer-volume-step 5
+(defcustom amixer-volume-step 2
   "Step-size for volume change."
   :type 'integer
   :group 'emacspeak)
