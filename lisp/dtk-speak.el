@@ -1758,17 +1758,6 @@ unless   `dtk-quiet' is set to t. "
      (let ((emacspeak-speak-messages nil)
            (inhibit-message t))
        ,@body)))
-;;;###autoload
-(defmacro ems-with-environment (env-alist &rest body)
-  "Evaluate body  an updated `ENV'.
-Argument ` env-alist' is an alist of shell env-var/env-value pairs."
-  (declare (indent 0) (debug t))
-  `(let ((process-environment (copy-sequence process-environment)))
-        (cl-loop
-         for b in ,env-alist do
-         (setq process-environment
-               (setenv-internal process-environment (car b) (cdr b) t)))
-        ,@body))
 
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it."
