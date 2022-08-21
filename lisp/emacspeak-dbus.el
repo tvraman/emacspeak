@@ -237,8 +237,9 @@ already disabled."
   (emacspeak-prompt "resume")
   (ems-with-messages-silenced
     (tts-restart)
-    (ems-with-environment '(("PULSE_SINK" . "tts_left"))
-                          (emacspeak-prompt "waking-up"))
+    (with-environment-variables
+        (("PULSE_SINK"  "tts_left"))
+      (emacspeak-prompt "waking-up"))
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
     (when (featurep 'light) (light-black))
@@ -299,31 +300,6 @@ already disabled."
 
 (defvar emacspeak-dbus-upower-registration nil
   "List holding storage (UPower) registration.")
-
-(defun emacspeak-dbus-upower-register()
-  "Register signal handlers for UPower  InterfacesAdded signal."
-  (list
-   (dbus-register-signal ; DeviceAdded
-    :system
-    "org.freedesktop.UPower" "/org/freedesktop/UPower"
-    "org.freedesktop.UPower" "DeviceAdded"
-    #'(lambda(device)
-        (emacspeak-play-auditory-icon 'on)
-        (message "Added device %s" device)))
-   (dbus-register-signal
-    :system
-    "org.freedesktop.UPower" "/org/freedesktop/UPower"
-    "org.freedesktop.UPower" "DeviceRemoved"
-    #'(lambda(device)
-        (message "Removed device  %s" device)
-        (emacspeak-play-auditory-icon 'off)))
-   (dbus-register-signal
-    :system ; properties 
-    "org.freedesktop.UPower" "/org/freedesktop/UPower"
-    "org.freedesktop.DBus.Properties" "PropertyChanged"
-    #'(lambda(state)
-        (emacspeak-play-auditory-icon 'on)
-        (message "Battery State:  %s" state)))))
 
 (defun emacspeak-dbus-upower-register()
   "Register signal handlers for UPower  InterfacesAdded signal."
@@ -405,8 +381,8 @@ already disabled."
         (if lock
             (progn (emacspeak-screen-saver))
           (progn
-            (ems-with-environment
-              '(("PULSE_SINK" . "tts_right"))
+            (with-environment-variables
+                (("PULSE_SINK"  "tts_right"))
               (emacspeak-prompt "success")
               (light-black))
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
