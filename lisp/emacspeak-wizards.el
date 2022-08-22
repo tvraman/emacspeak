@@ -1224,9 +1224,9 @@ dates.")
   "Run units."
   (interactive)
   (cl-declare (special emacspeak-comint-autospeak))
-  (let ((process-environment '("PAGER=cat")))
-    (make-comint "units" "units"
-                 nil "--verbose"))
+  (with-environment-variables
+      (("PAGER" "cat"))
+      (make-comint "units" "units" nil "--verbose"))
   (switch-to-buffer "*units*")
   (emacspeak-auditory-icon 'select-object)
   (goto-char (point-max))
@@ -2882,21 +2882,22 @@ Works best when you already are ssh-impel-ed in and have a talking
   (cl-assert
    (> (length emacspeak-wizards-remote-workstation) 0) t
    "Set emacspeak-wizards-remote-workstation first.")
-  (let((process-environment '("TERM=xterm" ))
-       (title
-        `((name .
-                ,(format
-                  "%s:Emacs"
-                  (cl-first
-                   (split-string
-                    emacspeak-wizards-remote-workstation "\\.")))))))
-    (start-process
-     "REmacs" "*REmacs*" "ssh"
-     "-Y" ;;; forward Trusted X11
-     emacspeak-wizards-remote-workstation
-     "emacsclient" "-c"
-     "-a" "''"
-     "-F" (shell-quote-argument (prin1-to-string title)))))
+  (let ((title
+         `((name .
+                 ,(format
+                   "%s:Emacs"
+                   (cl-first
+                    (split-string
+                     emacspeak-wizards-remote-workstation "\\.")))))))
+    (with-environment-variables
+        (("TERM" "xterm"))
+        (start-process
+         "REmacs" "*REmacs*" "ssh"
+         "-Y" ;;; forward Trusted X11
+         emacspeak-wizards-remote-workstation
+         "emacsclient" "-c"
+         "-a" "''"
+         "-F" (shell-quote-argument (prin1-to-string title))))))
 
 ;;}}}
 ;;{{{ describe-voice at point:
