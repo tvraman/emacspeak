@@ -518,7 +518,6 @@ dynamic playlist. "
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
   (let ((buffer (get-buffer-create "*M-Player*"))
-        (alsa-device (getenv "ALSA_DEFAULT"))
         (process-connection-type nil)
         (playlist-p
          (when resource
@@ -552,10 +551,6 @@ dynamic playlist. "
               (setq file-list (emacspeak-m-player-directory-files resource))
             (setq file-list (list resource)))))
       (setq emacspeak-m-player-dynamic-playlist nil) ; consume it
-      (when (and alsa-device (not (string= alsa-device "default")))
-        (setq options
-              (nconc options
-                     (list "-ao" (format "alsa:device=%s" alsa-device)))))
       (setq options
             (cond
              ((and play-list  (listp play-list)(< 4   (car play-list)))
