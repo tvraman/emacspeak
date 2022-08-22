@@ -1917,20 +1917,12 @@ Designed to work with ALSA and Pulseaudio."
   "Initialize notification TTS stream."
   (interactive)
   (cl-declare (special dtk-notify-process))
-  (let ((process-environment (copy-sequence process-environment))
-        (device (dtk-get-notify-device))
-        (dtk-program
-         (if
-             (string-match "cloud" dtk-program)
-             "cloud-notify"
-           dtk-program))
+  (let ((dtk-program
+         (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
         (new-process nil))
-    (setq process-environment
-          (cond
-           ((> (length (shell-command-to-string "pidof pulseaudio")) 0)
-            (setenv-internal process-environment"PULSE_SINK" device t))
-           (t (setenv-internal process-environment"ALSA_DEFAULT" device t))))
-    (setq new-process (dtk-make-process "Notify"))
+    (with-environment-variables
+        (("PULSE_SINK" "tts_right"))
+      (setq  new-process (dtk-make-process "Notify")))
     (when
         (memq (process-status new-process) '(run open))
       (when (and dtk-notify-process (process-live-p dtk-notify-process))
