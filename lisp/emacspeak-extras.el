@@ -345,9 +345,8 @@ Interactive  arguments specify filename pattern and search pattern."
          (buffer (generate-new-buffer bufname)))
     (save-current-buffer
       (set-buffer buffer)
-      (let ((process-environment (copy-sequence process-environment)))
-        ;; Prevent any attempt to use display terminal fanciness.
-        (setenv "TERM" "dumb")
+      (with-environment-variables
+          (("TERM" "dumb"))
         (set-process-sentinel
          (start-process pod2man-program buffer "sh" "-c"
                         (format (cperl-pod2man-build-command) pod2man-args))
