@@ -93,7 +93,7 @@
     (cl-loop
      for b in
      '(("SPC" mpv-pause)
-       (";" mpv-play)
+       (";" emacspeak-mpv-play-url)
        ("n" mpv-playlist-next)
        ("p" mpv-playlist-prev)
        ("<left>" mpv-seek-backward)
@@ -106,6 +106,18 @@
      (define-key map (ems-kbd (cl-first b)) (cl-second b)))
     map)
   "MPV Keymap")
+
+(declare-function emacspeak-eww-read-url "emacspeak-eww" nil)
+
+;;;###autoload
+(defun emacspeak-mpv-play-url (url &optional left-channel)
+  "Play URL using mpv. Prefix arg plays on left channel.."
+  (interactive
+   (list (emacspeak-eww-read-url) current-prefix-arg ))
+  (if left-channel
+      (with-environment-variables (("PULSE_SINK" "tts_left"))
+        (mpv-play-url url))
+    (mpv-play-url url)))
 
 (define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
 (global-set-key (kbd "s-;") emacspeak-mpv-keymap)
