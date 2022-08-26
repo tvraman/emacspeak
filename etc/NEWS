@@ -15,6 +15,9 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 57 --- Emacspeak 57 User Visible Changes
+** MPV
+
+Use mpv for playing Youtube streams 
 
 ** Emacs Repeat-Mode
 
