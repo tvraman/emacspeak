@@ -108,7 +108,7 @@
   "MPV Keymap")
 
 (define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
-(global-set-key (kbd "s-m") emacspeak-mpv-keymap)
+(global-set-key (kbd "s-;") emacspeak-mpv-keymap)
 ;;}}}
 ;;{{{repeatable:
 
