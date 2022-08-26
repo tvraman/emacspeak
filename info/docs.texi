@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 147 options.
+This chapter documents a total of 1161 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -9491,6 +9491,24 @@ This leverages Emacs' repeat-mode functionality, so successive mpv
 commands require only one initial ress of C-e C-;.
 
 @subsection Emacspeak-Mpv Commands
+
+@subsubsection emacspeak-mpv-play-url
+@deffn {Command} emacspeak-mpv-play-url  (url &optional left-channel)
+@table @kbd
+@item C-e C-; ;
+@kindex C-e C-; ;
+@item <fn> C-; ;
+@kindex <fn> C-; ;
+@end table
+
+@findex emacspeak-mpv-play-url
+
+@format
+Play URL using mpv. Prefix arg plays on left channel..
+
+(fn URL &optional LEFT-CHANNEL)
+@end format
+@end deffn
 
 @subsubsection emacspeak-mpv-position
 @deffn {Command} emacspeak-mpv-position   
