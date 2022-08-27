@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 26, 2022.
+last updated on August 27, 2022.
 
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
@@ -867,7 +867,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.239 URL Templates
 ====================
 
-This section documents a total of 75 URL Templates.
+This section documents a total of 74 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -899,214 +899,211 @@ out the following steps:
   7. BBC Podcast Directory
 
      BBC PodCast Directory
-  8. BBC World News Summary
-
-     BBC World News Summary
-  9. Baseball Box Scores
+  8. Baseball Box Scores
 
      Display baseball Play By Play.
-  10. Baseball Game Details
+  9. Baseball Game Details
 
      Display baseball Play By Play.
-  11. Baseball Game Index
+  10. Baseball Game Index
 
      Display baseball Play By Play.
-  12. Baseball Highlights
+  11. Baseball Highlights
 
      Display baseball Video Highlights.
-  13. Baseball scores
+  12. Baseball scores
 
      Display baseball scores.
-  14. Bing News
+  13. Bing News
 
      Bing News results as RSS feed.
-  15. Bing Search
+  14. Bing Search
 
      Bing results as RSS feed.
-  16. Bloomberg Stock Lookup
+  15. Bloomberg Stock Lookup
 
      Lookup Stock Quote information on Bloomberg.  Ticker is of the form
      goog:us
-  17. CIA World Fact Book
+  16. CIA World Fact Book
 
      Open CIA World Fact Book For Specified Country.
-  18. CNBC Using EAF
+  17. CNBC Using EAF
 
      Play CNBC Using EAF
-  19. CNN Content
+  18. CNN Content
 
      Filter down to CNN content area.
-  20. CNN Headlines
+  19. CNN Headlines
 
      News Headlines From CNN
-  21. CNN Market Data
+  20. CNN Market Data
 
      Market data filtered from CNN Money
-  22. Cricinfo Print
+  21. Cricinfo Print
 
      Printer friendly link on Cricinfo
-  23. Dictionary Lookup
+  22. Dictionary Lookup
 
      Dictionary Lookup
-  24. Finance Google
+  23. Finance Google
 
      Lookup ticker on Google Finance.
-  25. Finance Summary From Google
+  24. Finance Summary From Google
 
      Display top stocks from Google Finance.
-  26. FreeSound
+  25. FreeSound
 
      Search FreeSound.
-  27. GitHub Search
+  26. GitHub Search
 
      Perform a GitHub Search.
-  28. GoLang Browse
+  27. GoLang Browse
 
      Browse GoLang package documentation.
-  29. GoLang Lookup
+  28. GoLang Lookup
 
      Lookup GoLang package documentation.
-  30. GoLang Search
+  29. GoLang Search
 
      Search GoLang package documentation.
-  31. Google Basic
+  30. Google Basic
 
      Light-weight Google search.
-  32. Google News Search
+  31. Google News Search
 
      Search Google news.
-  33. Google Scholar
+  32. Google Scholar
 
      Google Scholar Search
-  34. Google Trends
+  33. Google Trends
 
      Google Trends
-  35. Google Weather
+  34. Google Weather
 
      Light-weight Google weather.
-  36. Guardian RSS Feeds Directory
+  35. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  37. Hacker News Frontpage
+  36. Hacker News Frontpage
 
      Display Hacker News Front Page
-  38. Hacker News Search
+  37. Hacker News Search
 
      Display Hacker News Front Page
-  39. Hoogle Haskell API Search
+  38. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  40. MLB Scorecard
+  39. MLB Scorecard
 
      Show MLB Scorecard.
-  41. MLB standings
+  40. MLB standings
 
      Display MLB standings.
-  42. Money Headlines From CNN
+  41. Money Headlines From CNN
 
      Money Headlines From CNN
-  43. NBA standings
+  42. NBA standings
 
      Display NBA standings.
-  44. NLS Bard Bookshelf
+  43. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  45. NLS Bard Popular
+  44. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  46. NLS Bard Recent
+  45. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  47. NLS Bard Search
+  46. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  48. NY Times Mobile
+  47. NY Times Mobile
 
      NYTimes Mobile Site
-  49. Old Time Radio
+  48. Old Time Radio
 
      This months Old Time Radio Programming
-  50. OpenLibrary
+  49. OpenLibrary
 
      Open Library Search
-  51. Patent Search From Google
+  50. Patent Search From Google
 
      Perform patent search via Google
-  52. RadioTime Browser
+  51. RadioTime Browser
 
      RadioTime Entry point.
-  53. RadioTime Categories
+  52. RadioTime Categories
 
      RadioTime Categories .
-  54. RadioTime Search
+  53. RadioTime Search
 
      RadioTime Search.
-  55. Reddit At Point.
+  54. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  56. Reddit By Topic.
+  55. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  57. Reddit Front Page.
+  56. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  58. Reddit Search.
+  57. Reddit Search.
 
      Reddit Search Results Feed.
-  59. Seeking Alpha Stock Search
+  58. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  60. Sign in to Google
+  59. Sign in to Google
 
      Login to Google.
-  61. StreamWorld Radio
+  60. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  62. Tech News From CNet
+  61. Tech News From CNet
 
      Display tech news from CNET
-  63. TuneIn Radio
+  62. TuneIn Radio
 
      Translate StreamId to playable stream.
-  64. US Stock Market From Google
+  63. US Stock Market From Google
 
      Light-weight Google US Stock Markets.
-  65. Washington Post
+  64. Washington Post
 
      Washington Post Contents
-  66. Wiki Data Search
+  65. Wiki Data Search
 
      Search WikiData.
-  67. WordNet Search
+  66. WordNet Search
 
      Look up term in WordNet.
-  68. Yahoo RSSNews
+  67. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  69. html Google News Search
+  68. html Google News Search
 
      Search Google news.
-  70. sourceforge Download
+  69. sourceforge Download
 
      Download specified file.
-  71. sourceforge browse mirrors
+  70. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  72. sourceforge project
+  71. sourceforge project
 
      Open specified project page at SourceForge.
-  73. w3c IRC Logs
+  72. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  74. w3c Lists
+  73. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  75. world CNN Content
+  74. world CNN Content
 
      Filter down to CNN content area.
 

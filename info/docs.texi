@@ -19878,7 +19878,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 75 URL Templates.
+This section documents a total of 74 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -19908,9 +19908,7 @@ Logout from Google to do an anonymous search.@item @b{ArchWiki Search}
 
 Search Linux ArchWiki@item @b{BBC Podcast Directory}
 
-BBC PodCast Directory@item @b{BBC World News Summary}
-
-BBC World News Summary@item @b{Baseball Box Scores}
+BBC PodCast Directory@item @b{Baseball Box Scores}
 
 Display baseball Play By Play.@item @b{Baseball Game Details}
 
