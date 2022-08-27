@@ -223,12 +223,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ bbc
 
-(emacspeak-url-template-define
- "BBC World News Summary"
- "http://opml.radiotime.com/Tune.ashx?c=pbrowse&id=p193595"
- nil nil
- "BBC World News Summary"
- #'emacspeak-feeds-opml-display)
 (declare-function emacspeak-xslt-view-xml "emacspeak-xslt" (style url &optional unescape-charent))
 
 (emacspeak-url-template-define
