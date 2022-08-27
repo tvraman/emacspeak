@@ -98,6 +98,16 @@
     (write-line (format nil "q {~a}" text) i)
     (force-output i)))
 
+
+(defun tts-rate (rate)
+  "Set speech rate"
+  (unless (and  *tts-process*
+                (sb-ext:process-alive-p *tts-process*))
+    (tts-open))
+  (let ((i (sb-ext:process-input *tts-process*)))
+    (write-line (format nil "tts_set_speech_rate {~a}" rate) i)
+    (force-output i)))
+
 (defun tts-force ()
   "Speak all queued text."
   (let ((i (sb-ext:process-input *tts-process*)))
