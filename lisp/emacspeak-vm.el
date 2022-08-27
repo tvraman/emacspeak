@@ -649,15 +649,14 @@ Leave point at front of decoded attachment."
   (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist
         '(
-          ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")))
+          ("utf-8" "iso-8859-1" )))
   (setq vm-mime-default-face-charsets t)
   (setq vm-frame-per-folder nil
         vm-frame-per-composition nil
         vm-frame-per-edit nil
         vm-frame-per-help nil
         vm-frame-per-summary nil)
-  (setq vm-index-file-suffix ".idx"
-        vm-primary-inbox "~/mbox"
+  (setq vm-primary-inbox "~/mbox"
         vm-folder-directory "~/Mail/"
         vm-crash-box "mbox.crash"
         vm-forwarding-subject-format "[%s]"
