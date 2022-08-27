@@ -94,6 +94,7 @@
      for b in
      '(("SPC" mpv-pause)
        (";" emacspeak-mpv-play-url)
+       ("s" mpv-seek)
        ("n" mpv-playlist-next)
        ("p" mpv-playlist-prev)
        ("<left>" mpv-seek-backward)
