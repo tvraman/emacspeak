@@ -112,7 +112,7 @@
 
 ;;;###autoload
 (defun emacspeak-mpv-play-url (url &optional left-channel)
-  "Play URL using mpv. Prefix arg plays on left channel.."
+  "Play URL using mpv;  Prefix arg plays on left channel."
   (interactive
    (list (emacspeak-eww-read-url) current-prefix-arg ))
   (if left-channel
