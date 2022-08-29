@@ -913,12 +913,14 @@ The time position can also be specified as HH:MM:SS."
 (defun emacspeak-m-player-volume-up ()
   "Volume up."
   (interactive)
-  (emacspeak-m-player-dispatch "volume 1"))
+  (emacspeak-m-player-dispatch "volume 1")
+  (emacspeak-auditory-icon 'right))
 
 (defun emacspeak-m-player-volume-down ()
   "Volume down."
   (interactive)
-  (emacspeak-m-player-dispatch "volume -1"))
+  (emacspeak-m-player-dispatch "volume -1")
+  (emacspeak-auditory-icon 'left))
 
 (defvar-local emacspeak-m-player-active-filters nil
   "Active filters.")
