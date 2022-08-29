@@ -64,7 +64,7 @@
    mpv-playlist-next mpv-playlist-prev
    mpv-revert-seek mpv-seek mpv-seek-backward mpv-seek-forward
    mpv-seek-to-position-at-point mpv-speed-decrease mpv-speed-increase mpv-speed-set 
-   mpv-volume-decrease mpv-volume-increase mpv-volume-set)
+   mpv-volume-set)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -72,6 +72,16 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)))))
 
+(defadvice mpv-volume-increase (after emacspeak pre act comp)
+  "Icon."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'right)))
+
+
+(defadvice mpv-volume-decrease (after emacspeak pre act comp)
+  "Icon."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'left)))
 
 ;;}}}
 ;;{{{Additional Interactive Commands :
