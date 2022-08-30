@@ -124,24 +124,21 @@ given name, it is updated with path and position."
 
 ;;;###autoload
 (defun emacspeak-amark-load (&optional dir)
-  "Locate AMarks file from `dir' current  directory is default, and load it."
+  "Load AMarks file from  DIR ---current  directory is default."
   (cl-declare (special emacspeak-amark-list
                        emacspeak-amark-file))
-  (or dir (setq dir default-directory))
   (let ((buff nil)
-        (l nil)
-        (where
-         (locate-dominating-file dir emacspeak-amark-file)))
-    (cond
-     ((null where))
-     (t
+        (file (expand-file-name emacspeak-amark-file (or dir
+                                                      default-directory)))
+        (l nil ))
+    (when (file-exists-p file)
       (setq buff
-            (find-file-noselect (expand-file-name emacspeak-amark-file where)))
+            (find-file-noselect file))
       (with-current-buffer buff
         (goto-char (point-min))
         (setq l (read buff))
-        (kill-buffer buff))
-      (setq emacspeak-amark-list l)))))
+        (kill-buffer buff)))
+    (setq emacspeak-amark-list l)))
 
 (defun emacspeak-amark-delete (amark)
   "Delete Amark and save."
