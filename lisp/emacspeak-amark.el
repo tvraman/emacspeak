@@ -129,7 +129,7 @@ given name, it is updated with path and position."
                        emacspeak-amark-file))
   (let ((buff nil)
         (file (expand-file-name emacspeak-amark-file (or dir
-                                                      default-directory)))
+                                                         default-directory)))
         (l nil ))
     (when (file-exists-p file)
       (setq buff
@@ -138,7 +138,8 @@ given name, it is updated with path and position."
         (goto-char (point-min))
         (setq l (read buff))
         (kill-buffer buff)))
-    (setq emacspeak-amark-list l)))
+    ;;  clean up stale marks 
+    (setq emacspeak-amark-list (cl-remove-if-not #'file-exists-p l :key #'emacspeak-amark-path))))
 
 (defun emacspeak-amark-delete (amark)
   "Delete Amark and save."
