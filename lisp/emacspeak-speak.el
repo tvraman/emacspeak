@@ -2054,9 +2054,10 @@ The message is also placed in the kill ring for convenient yanking "
 
 
 (defun emacspeak-speak-windowful ()
-  "Line to top, then Speak window contents in their entirety."
+  "Line to top, then Speak window contents."
   (interactive)
   (recenter 0)
+  (emacspeak-auditory-icon 'scroll)
   (dtk-speak (emacspeak-get-window-contents)))
 
 (defun emacspeak-speak-window-information ()
