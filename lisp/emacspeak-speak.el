@@ -2052,6 +2052,12 @@ The message is also placed in the kill ring for convenient yanking "
      (window-start (selected-window))
      (window-end (selected-window)  'update ))))
 
+
+(defun emacspeak-speak-whole-window ()
+  "Speak window contents in their entirety."
+  (interactive)
+  (dtk-speak (emacspeak-get-window-contents)))
+
 (defun emacspeak-speak-window-information ()
   "Speaks information about current window."
   (interactive)

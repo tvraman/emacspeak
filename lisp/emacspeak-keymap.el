@@ -249,6 +249,7 @@
    ("%" emacspeak-speak-current-percentage)
    ("&" emacspeak-wizards-shell-command-on-current-file)
    ("'" emacspeak-pianobar)
+   ("." emacspeak-speak-whole-window)
    ("(" amixer)
    (")" emacspeak-sounds-select-theme)
    ("C-<return>" emacspeak-speak-skim-buffer)
