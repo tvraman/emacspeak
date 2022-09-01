@@ -12693,22 +12693,6 @@ which-func without turning that mode on.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-whole-window
-@deffn {Command} emacspeak-speak-whole-window   
-@table @kbd
-@item C-e .
-@kindex C-e .
-@item <fn> .
-@kindex <fn> .
-@end table
-
-@findex emacspeak-speak-whole-window
-
-@format
-Line to top, then Speak window contents in their entirety.
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-window-information
 @deffn {Command} emacspeak-speak-window-information   
 @table @kbd
@@ -12722,6 +12706,22 @@ Line to top, then Speak window contents in their entirety.
 
 @format
 Speaks information about current window.
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-windowful
+@deffn {Command} emacspeak-speak-windowful   
+@table @kbd
+@item C-e .
+@kindex C-e .
+@item <fn> .
+@kindex <fn> .
+@end table
+
+@findex emacspeak-speak-windowful
+
+@format
+Line to top, then Speak window contents in their entirety.
 @end format
 @end deffn
 

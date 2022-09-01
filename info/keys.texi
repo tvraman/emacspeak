@@ -31,7 +31,7 @@
  emacspeak-sounds-select-theme
 
 @item .
- emacspeak-speak-whole-window
+ emacspeak-speak-windowful
 
 @item /
  emacspeak-speak-this-buffer-other-window-display

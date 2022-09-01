@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 31, 2022.
+last updated on September 1, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -5149,16 +5149,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speak which function we are on.  Uses which-function from
      which-func without turning that mode on.
 
-12.179.1.82 emacspeak-speak-whole-window
-........................................
-
- -- Command: emacspeak-speak-whole-window
-     ‘C-e .’
-     ‘<fn> .’
-
-     Line to top, then Speak window contents in their entirety.
-
-12.179.1.83 emacspeak-speak-window-information
+12.179.1.82 emacspeak-speak-window-information
 ..............................................
 
  -- Command: emacspeak-speak-window-information
@@ -5166,6 +5157,15 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> C-w’
 
      Speaks information about current window.
+
+12.179.1.83 emacspeak-speak-windowful
+.....................................
+
+ -- Command: emacspeak-speak-windowful
+     ‘C-e .’
+     ‘<fn> .’
+
+     Line to top, then Speak window contents in their entirety.
 
 12.179.1.84 emacspeak-speak-word
 ................................
