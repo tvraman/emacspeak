@@ -12705,7 +12705,7 @@ which-func without turning that mode on.
 @findex emacspeak-speak-whole-window
 
 @format
-Speak window contents in their entirety.
+Line to top, then Speak window contents in their entirety.
 @end format
 @end deffn
 

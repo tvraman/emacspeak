@@ -5156,7 +5156,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e .’
      ‘<fn> .’
 
-     Speak window contents in their entirety.
+     Line to top, then Speak window contents in their entirety.
 
 12.179.1.83 emacspeak-speak-window-information
 ..............................................
