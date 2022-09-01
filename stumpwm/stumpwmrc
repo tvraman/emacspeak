@@ -99,19 +99,6 @@
 (setq *message-hook* (list 'speak-messages))
 
 ;;}}}
-;;{{{Lock screen C-t D
-
-(defparameter *my-lock-command*
-  "exec ~/bin/xlock ")
-
-(defcommand lock-screen ()
-  ()
-  "Lock my screen."
-  (eval-command *my-lock-command*))
-
-(define-key *root-map* (kbd "D") "lock-screen")
-
-;;}}}
 ;;{{{Chrome:
 
 (defcommand chrome ()
