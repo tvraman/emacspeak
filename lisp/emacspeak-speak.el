@@ -2053,7 +2053,7 @@ The message is also placed in the kill ring for convenient yanking "
      (window-end (selected-window)  'update ))))
 
 
-(defun emacspeak-speak-whole-window ()
+(defun emacspeak-speak-windowful ()
   "Line to top, then Speak window contents in their entirety."
   (interactive)
   (recenter 0)
