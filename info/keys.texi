@@ -30,6 +30,9 @@
 @item )
  emacspeak-sounds-select-theme
 
+@item .
+ emacspeak-speak-whole-window
+
 @item /
  emacspeak-speak-this-buffer-other-window-display
 

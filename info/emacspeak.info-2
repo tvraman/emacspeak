@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 27, 2022.
+last updated on August 31, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -2529,7 +2529,7 @@ require only one initial ress of C-e C-;.
      ‘C-e C-; ;’
      ‘<fn> C-; ;’
 
-     Play URL using mpv. Prefix arg plays on left channel..
+     Play URL using mpv;  Prefix arg plays on left channel.
 
      (fn URL &optional LEFT-CHANNEL)
 
@@ -5149,7 +5149,16 @@ of emacspeak from becoming dependent on the speech server modules
      Speak which function we are on.  Uses which-function from
      which-func without turning that mode on.
 
-12.179.1.82 emacspeak-speak-window-information
+12.179.1.82 emacspeak-speak-whole-window
+........................................
+
+ -- Command: emacspeak-speak-whole-window
+     ‘C-e .’
+     ‘<fn> .’
+
+     Speak window contents in their entirety.
+
+12.179.1.83 emacspeak-speak-window-information
 ..............................................
 
  -- Command: emacspeak-speak-window-information
@@ -5158,7 +5167,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speaks information about current window.
 
-12.179.1.83 emacspeak-speak-word
+12.179.1.84 emacspeak-speak-word
 ................................
 
  -- Command: emacspeak-speak-word (&optional arg)
@@ -5173,7 +5182,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.84 emacspeak-speak-word-interactively
+12.179.1.85 emacspeak-speak-word-interactively
 ..............................................
 
  -- Command: emacspeak-speak-word-interactively
@@ -5183,7 +5192,7 @@ of emacspeak from becoming dependent on the speech server modules
       ‘r’ to speak the rest.
      any other key to speak entire word.
 
-12.179.1.85 emacspeak-speak-world-clock
+12.179.1.86 emacspeak-speak-world-clock
 .......................................
 
  -- Command: emacspeak-speak-world-clock (zone &optional set)
@@ -5193,14 +5202,14 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn ZONE &optional SET)
 
-12.179.1.86 emacspeak-switch-to-reference-buffer
+12.179.1.87 emacspeak-switch-to-reference-buffer
 ................................................
 
  -- Command: emacspeak-switch-to-reference-buffer
 
      Switch back to buffer that generated completions.
 
-12.179.1.87 emacspeak-toggle-action-mode
+12.179.1.88 emacspeak-toggle-action-mode
 ........................................
 
  -- Command: emacspeak-toggle-action-mode (&optional prefix)
@@ -5209,7 +5218,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.88 emacspeak-toggle-audio-indentation
+12.179.1.89 emacspeak-toggle-audio-indentation
 ..............................................
 
  -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
@@ -5224,7 +5233,7 @@ of emacspeak from becoming dependent on the speech server modules
      line’s indentation.  Specifying ‘speak’
      results in the number of initial spaces being spoken.
 
-12.179.1.89 emacspeak-toggle-character-echo
+12.179.1.90 emacspeak-toggle-character-echo
 ...........................................
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
@@ -5235,14 +5244,14 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.90 emacspeak-toggle-header-line
+12.179.1.91 emacspeak-toggle-header-line
 ........................................
 
  -- Command: emacspeak-toggle-header-line
 
      Toggle Emacspeak’s default header line.
 
-12.179.1.91 emacspeak-toggle-line-echo
+12.179.1.92 emacspeak-toggle-line-echo
 ......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
@@ -5253,7 +5262,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.92 emacspeak-toggle-mail-alert
+12.179.1.93 emacspeak-toggle-mail-alert
 .......................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
@@ -5266,7 +5275,7 @@ of emacspeak from becoming dependent on the speech server modules
      Turning on this option results in Emacspeak producing an auditory icon
      indicating the arrival  of new mail when displaying the mode line.
 
-12.179.1.93 emacspeak-toggle-show-point
+12.179.1.94 emacspeak-toggle-show-point
 .......................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
@@ -5277,7 +5286,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.94 emacspeak-toggle-speak-line-invert-filter
+12.179.1.95 emacspeak-toggle-speak-line-invert-filter
 .....................................................
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
@@ -5289,7 +5298,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.95 emacspeak-toggle-speak-messages
+12.179.1.96 emacspeak-toggle-speak-messages
 ...........................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
@@ -5298,7 +5307,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle  state of whether emacspeak echoes messages.
 
-12.179.1.96 emacspeak-toggle-word-echo
+12.179.1.97 emacspeak-toggle-word-echo
 ......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
@@ -5309,7 +5318,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.97 emacspeak-view-notifications
+12.179.1.98 emacspeak-view-notifications
 ........................................
 
  -- Command: emacspeak-view-notifications
@@ -5319,7 +5328,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display notifications.
 
-12.179.1.98 emacspeak-zap-tts
+12.179.1.99 emacspeak-zap-tts
 .............................
 
  -- Command: emacspeak-zap-tts

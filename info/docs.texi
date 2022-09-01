@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1161 commands and 147 options.
+This chapter documents a total of 1162 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -9504,7 +9504,7 @@ commands require only one initial ress of C-e C-;.
 @findex emacspeak-mpv-play-url
 
 @format
-Play URL using mpv. Prefix arg plays on left channel..
+Play URL using mpv;  Prefix arg plays on left channel.
 
 (fn URL &optional LEFT-CHANNEL)
 @end format
@@ -12690,6 +12690,22 @@ Useful to do this before you listen to an entire buffer.
 @format
 Speak which function we are on.  Uses which-function from
 which-func without turning that mode on.  
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-whole-window
+@deffn {Command} emacspeak-speak-whole-window   
+@table @kbd
+@item C-e .
+@kindex C-e .
+@item <fn> .
+@kindex <fn> .
+@end table
+
+@findex emacspeak-speak-whole-window
+
+@format
+Speak window contents in their entirety.
 @end format
 @end deffn
 
