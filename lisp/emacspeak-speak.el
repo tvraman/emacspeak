@@ -2054,7 +2054,7 @@ The message is also placed in the kill ring for convenient yanking "
 
 
 (defun emacspeak-speak-whole-window ()
-  "Speak window contents in their entirety."
+  "Line to top, then Speak window contents in their entirety."
   (interactive)
   (recenter 0)
   (dtk-speak (emacspeak-get-window-contents)))
