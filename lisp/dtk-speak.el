@@ -910,8 +910,7 @@ this pattern if previously added.    "
       (cl-declare (special ,switch))
       (cond
        (prefix
-        (setq-default ,switch
-                      (not (default-value ',switch)))
+        (setq-default ,switch (not ,switch))
         (setq ,switch (default-value ',switch)))
        (t (make-local-variable ',switch)
           (setq ,switch (not ,switch))))

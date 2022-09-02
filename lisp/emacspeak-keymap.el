@@ -353,8 +353,7 @@
  (emacspeak-keymap-update emacspeak-keymap binding))
 
 (dotimes (i 10)
-  (define-key emacspeak-keymap   (format "%s" i)
-              'emacspeak-speak-predefined-window))
+  (define-key emacspeak-keymap   (format "%s" i) 'emacspeak-speak-predefined-window))
 
 (cl-loop
  for binding in
@@ -385,6 +384,7 @@
    ("n" dtk-toggle-speak-nonprinting-chars)
    ("o" dtk-toggle-strip-octals)
    ("p" dtk-set-punctuations)
+   ("q" dtk-toggle-quiet)
    ("r" dtk-set-rate)
    ("s" dtk-toggle-split-caps)
    ("v" voice-lock-mode)

@@ -325,7 +325,7 @@ Optional interactive prefix arg prompts for a filename."
    (cond
     ((< i  count)
      (aset *2048-board* i
-           (lsh 2 (random (random count)))))
+           (ash 2 (random (random count)))))
     (t (aset *2048-board* i 0))))
   (emacspeak-2048-speak-board))
 
