@@ -5165,7 +5165,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e .’
      ‘<fn> .’
 
-     Line to top, then Speak window contents in their entirety.
+     Line to top, then Speak window contents.
 
 12.179.1.84 emacspeak-speak-word
 ................................
@@ -9911,14 +9911,4 @@ specific.
      Default speech rate.
 
      Default Value: ‘50’
-
-
-File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
-
-12.230 plain-voices
-===================
-
-This module defines the various voices used in voice-lock mode.  Module
-Plain is suitable for a device for which you haven’t yet implemented
-appropriate voice-locking controls
 

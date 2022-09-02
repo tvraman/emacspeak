@@ -849,6 +849,13 @@ Interactive PREFIX arg makes the new setting global.
 
 @subsubsection dtk-toggle-quiet
 @deffn {Command} dtk-toggle-quiet  (&optional prefix)
+@table @kbd
+@item C-e d q
+@kindex C-e d q
+@item <fn> d q
+@kindex <fn> d q
+@end table
+
 @findex dtk-toggle-quiet
 
 @format
@@ -12721,7 +12728,7 @@ Speaks information about current window.
 @findex emacspeak-speak-windowful
 
 @format
-Line to top, then Speak window contents in their entirety.
+Line to top, then Speak window contents.
 @end format
 @end deffn
 

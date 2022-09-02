@@ -369,6 +369,9 @@
 @item p
  dtk-set-punctuations
 
+@item q
+ dtk-toggle-quiet
+
 @item r
  dtk-set-rate
 

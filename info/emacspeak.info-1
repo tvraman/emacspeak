@@ -3008,6 +3008,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-dtk-submap,  Nex
 ‘p’
      dtk-set-punctuations
 
+‘q’
+     dtk-toggle-quiet
+
 ‘r’
      dtk-set-rate
 
@@ -4101,6 +4104,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 ..........................
 
  -- Command: dtk-toggle-quiet (&optional prefix)
+     ‘C-e d q’
+     ‘<fn> d q’
 
      Toggles state of  dtk-quiet.
      Turning on this switch silences speech.  Optional interactive

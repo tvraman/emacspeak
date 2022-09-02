@@ -15,6 +15,16 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on September 1, 2022.
 
 
+File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
+
+12.230 plain-voices
+===================
+
+This module defines the various voices used in voice-lock mode.  Module
+Plain is suitable for a device for which you haven’t yet implemented
+appropriate voice-locking controls
+
+
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
 12.231 soundscape
@@ -2455,7 +2465,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-M-SPC:                          emacspeak-speak.    (line  841)
 * <fn> C-o:                              emacspeak-ocr.      (line   19)
 * <fn> C-q:                              emacspeak-comint.   (line   37)
-* <fn> C-s:                              dtk-speak.          (line  350)
+* <fn> C-s:                              dtk-speak.          (line  352)
 * <fn> C-SPC:                            emacspeak-speak.    (line  340)
 * <fn> C-t #:                            emacspeak-table-ui. (line  403)
 * <fn> C-t ,:                            emacspeak-table-ui. (line   66)
@@ -2529,17 +2539,18 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> d L:                              dtk-speak.          (line   39)
 * <fn> d l:                              emacspeak-speak.    (line 1014)
 * <fn> d N:                              dtk-speak.          (line  131)
-* <fn> d n:                              dtk-speak.          (line  283)
-* <fn> d o:                              dtk-speak.          (line  316)
+* <fn> d n:                              dtk-speak.          (line  285)
+* <fn> d o:                              dtk-speak.          (line  318)
 * <fn> d P:                              dtk-speak.          (line  181)
 * <fn> d p:                              dtk-speak.          (line  190)
+* <fn> d q:                              dtk-speak.          (line  274)
 * <fn> d R:                              dtk-speak.          (line   71)
 * <fn> d r:                              dtk-speak.          (line  224)
 * <fn> d RET:                            dtk-speak.          (line  106)
 * <fn> d S:                              dtk-speak.          (line  118)
-* <fn> d s:                              dtk-speak.          (line  294)
-* <fn> d SPC:                            dtk-speak.          (line  307)
-* <fn> d V:                              dtk-speak.          (line  359)
+* <fn> d s:                              dtk-speak.          (line  296)
+* <fn> d SPC:                            dtk-speak.          (line  309)
+* <fn> d V:                              dtk-speak.          (line  361)
 * <fn> d v:                              voice-setup.        (line   64)
 * <fn> d w:                              emacspeak-speak.    (line 1070)
 * <fn> d z:                              emacspeak-speak.    (line 1091)
@@ -2844,7 +2855,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-p:                               Reading.            (line  143)
 * C-e C-q:                               emacspeak-comint.   (line   36)
 * C-e C-s:                               Miscellaneous.      (line   26)
-* C-e C-s <1>:                           dtk-speak.          (line  349)
+* C-e C-s <1>:                           dtk-speak.          (line  351)
 * C-e C-SPC:                             emacspeak-speak.    (line  338)
 * C-e C-t #:                             emacspeak-table-ui. (line  402)
 * C-e C-t ,:                             emacspeak-table-ui. (line   65)
@@ -2935,13 +2946,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d m:                               Speech Output Control.
                                                              (line   50)
 * C-e d N:                               dtk-speak.          (line  130)
-* C-e d n:                               dtk-speak.          (line  282)
-* C-e d o:                               dtk-speak.          (line  315)
+* C-e d n:                               dtk-speak.          (line  284)
+* C-e d o:                               dtk-speak.          (line  317)
 * C-e d p:                               Speech Output Control.
                                                              (line   43)
 * C-e d P:                               dtk-speak.          (line  180)
 * C-e d p <1>:                           dtk-speak.          (line  189)
 * C-e d q:                               Miscellaneous.      (line   17)
+* C-e d q <1>:                           dtk-speak.          (line  273)
 * C-e d r:                               Speech Output Control.
                                                              (line   16)
 * C-e d R:                               dtk-speak.          (line   70)
@@ -2951,11 +2963,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d s:                               Speech Output Control.
                                                              (line   58)
 * C-e d S:                               dtk-speak.          (line  117)
-* C-e d s <1>:                           dtk-speak.          (line  293)
+* C-e d s <1>:                           dtk-speak.          (line  295)
 * C-e d <SPACE>:                         Miscellaneous.      (line   55)
-* C-e d SPC:                             dtk-speak.          (line  306)
+* C-e d SPC:                             dtk-speak.          (line  308)
 * C-e d t:                               Miscellaneous.      (line   79)
-* C-e d V:                               dtk-speak.          (line  358)
+* C-e d V:                               dtk-speak.          (line  360)
 * C-e d v:                               voice-setup.        (line   63)
 * C-e d w:                               Controlling Echo.   (line   25)
 * C-e d w <1>:                           emacspeak-speak.    (line 1069)
