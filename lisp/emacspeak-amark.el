@@ -168,40 +168,33 @@ given name, it is updated with path and position."
 
 ;;;###autoload
 (defun emacspeak-amark-browse ()
-  "Browse  nearest amarks file."
+  "Browse   amarks  in current directory."
   (interactive)
-  (cl-declare (special emacspeak-amark-list))
-  (let ((amarks
-         (or
-          (emacspeak-amark-load)
-          (error "No Amarks here")))
+  (let ((amarks (or (emacspeak-amark-load) (error "No Amarks here")))
         (buff (get-buffer-create "*Amarks Browser"))
         (inhibit-read-only t))
     (with-current-buffer buff
       (special-mode)
-      (cd default-directory)
       (local-set-key "p" 'backward-button)
       (local-set-key "n" 'forward-button)
       (erase-buffer)
-      (setq emacspeak-amark-list amarks)
       (setq buffer-undo-list t)
       (cl-loop
        for m in amarks do
-       (insert (format "%s\t" (emacspeak-amark-name m)))
        (insert-text-button
-        (format "%s" (emacspeak-amark-path m))
+        (format "%s\t" (emacspeak-amark-name m))
         'mark m
         'action #'(lambda (b) (emacspeak-amark-play (button-get b 'mark))))
+       (insert (format "%s\t" (emacspeak-amark-path m) ))
        (insert-text-button
         "Delete\t"
         'mark m
         'action
         #'(lambda (b) (emacspeak-amark-delete (button-get b 'mark))))
-       (insert (format "%s\t" (emacspeak-amark-position m)))
-       (insert "\n"))
+       (insert (format "%s\n" (emacspeak-amark-position m)))
+       )
       (emacspeak-speak-load-directory-settings)
-      (goto-char (point-min))
-      (forward-button 1))
+      (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buff)))
 
 ;;}}}
