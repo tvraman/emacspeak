@@ -180,7 +180,12 @@ given name, it is updated with path and position."
       (erase-buffer)
       (setq buffer-undo-list t)
       (cl-loop
-       for m in amarks do
+       for m in
+       (sort
+        amarks
+        #'(lambda (a b)
+            (string-lessp (emacspeak-amark-name a) (emacspeak-amark-name b ))))
+       do
        (insert-text-button
         (format "%s\t" (emacspeak-amark-name m))
         'mark m
