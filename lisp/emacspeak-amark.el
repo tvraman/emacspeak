@@ -187,12 +187,10 @@ given name, it is updated with path and position."
         'action #'(lambda (b) (emacspeak-amark-play (button-get b 'mark))))
        (insert (format "%s\t" (emacspeak-amark-path m) ))
        (insert-text-button
-        "Delete\t"
+        "Delete\n"
         'mark m
         'action
-        #'(lambda (b) (emacspeak-amark-delete (button-get b 'mark))))
-       (insert (format "%s\n" (emacspeak-amark-position m)))
-       )
+        #'(lambda (b) (emacspeak-amark-delete (button-get b 'mark)))))
       (emacspeak-speak-load-directory-settings)
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buff)))
