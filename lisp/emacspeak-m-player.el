@@ -883,7 +883,7 @@ The time position can also be specified as HH:MM:SS."
   (interactive)
   (emacspeak-m-player-dispatch "pause"))
 
-(defvar ems--m-player-mark "LastStopped"
+(defvar ems--m-player-mark "00-LastStopped"
   "Name used to  mark position where we stopped.")
 
 (defun emacspeak-m-player-quit ()
