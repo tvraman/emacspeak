@@ -125,11 +125,10 @@ given name, it is updated with path and position."
 ;;;###autoload
 (defun emacspeak-amark-load (&optional dir)
   "Load AMarks file from  DIR ---current  directory is default."
-  (cl-declare (special emacspeak-amark-list
-                       emacspeak-amark-file))
+  (cl-declare (special emacspeak-amark-list emacspeak-amark-file))
   (let ((buff nil)
-        (file (expand-file-name emacspeak-amark-file (or dir
-                                                         default-directory)))
+        (file (expand-file-name emacspeak-amark-file
+                                (or dir default-directory)))
         (l nil ))
     (when (file-exists-p file)
       (setq buff
@@ -139,7 +138,11 @@ given name, it is updated with path and position."
         (setq l (read buff))
         (kill-buffer buff)))
     ;;  clean up stale marks 
-    (setq emacspeak-amark-list (cl-remove-if-not #'file-exists-p l :key #'emacspeak-amark-path))))
+    (setq emacspeak-amark-list
+          (sort
+           (cl-remove-if-not #'file-exists-p l :key #'emacspeak-amark-path)
+           #'(lambda (a b) ;; predicate for sort
+               (string-lessp (emacspeak-amark-name a) (emacspeak-amark-name b )))))))
 
 (defun emacspeak-amark-delete (amark)
   "Delete Amark and save."
@@ -181,10 +184,7 @@ given name, it is updated with path and position."
       (setq buffer-undo-list t)
       (cl-loop
        for m in
-       (sort
-        amarks
-        #'(lambda (a b)
-            (string-lessp (emacspeak-amark-name a) (emacspeak-amark-name b ))))
+       amarks
        do
        (insert-text-button
         (format "%s\t" (emacspeak-amark-name m))
