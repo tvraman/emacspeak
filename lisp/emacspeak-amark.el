@@ -173,11 +173,13 @@ given name, it is updated with path and position."
 (defun emacspeak-amark-browse ()
   "Browse   amarks  in current directory."
   (interactive)
+  (cl-declare (special emacspeak-amark-list))
   (let ((amarks (or (emacspeak-amark-load) (error "No Amarks here")))
         (buff (get-buffer-create "*Amarks Browser"))
         (inhibit-read-only t))
     (with-current-buffer buff
       (special-mode)
+      (setq emacspeak-amark-list amarks)
       (local-set-key "p" 'backward-button)
       (local-set-key "n" 'forward-button)
       (erase-buffer)
