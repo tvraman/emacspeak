@@ -148,12 +148,7 @@ given name, it is updated with path and position."
   "Delete Amark and save."
   (cl-declare (special emacspeak-amark-list))
   (setq emacspeak-amark-list
-        (cl-remove-if
-         #'(lambda(m)
-             (string=
-              (emacspeak-amark-name m)
-              (emacspeak-amark-name amark)))
-         emacspeak-amark-list))
+        (remove amark emacspeak-amark-list))
   (emacspeak-amark-save)
   (emacspeak-amark-browse)
   (message "Updated amarks"))
