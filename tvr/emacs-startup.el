@@ -48,6 +48,7 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
+(require 'json)
 (defvar tvr-site-lib
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
