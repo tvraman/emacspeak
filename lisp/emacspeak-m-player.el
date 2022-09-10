@@ -371,6 +371,9 @@ Controls media playback when already playing.
     (global-set-key key command)
     (put command 'repeat-map 'emacspeak-m-player-mode-map)))
 
+;;; disable repeat when media stopped:
+(put 'emacspeak-m-player-quit  'repeat-map nil)
+
 (defvar emacspeak-m-player-accelerator-p nil
   "Flag set by accelerators. Let-binding this causes default-directory
  to be ignored when guessing directory.")
