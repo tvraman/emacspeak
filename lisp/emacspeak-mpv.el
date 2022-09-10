@@ -140,7 +140,8 @@
    (when (symbolp cmd)
      (put cmd 'repeat-map 'emacspeak-mpv-keymap)))
  emacspeak-mpv-keymap)
-
+;;; Turn off repeat-mode on stop:
+(put 'mpv-kill  'repeat-map nil)
 ;;}}}
 (provide 'emacspeak-mpv)
 ;;{{{ end of file
