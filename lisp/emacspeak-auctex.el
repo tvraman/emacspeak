@@ -212,7 +212,8 @@ the opening line of the newly inserted environment. "
                (cl-declare (special imenu-generic-expression
                                     imenu-create-index-function))
                (require 'imenu)
-               (setq imenu-create-index-function 'imenu-default-create-index-function)
+               (setq imenu-create-index-function
+                     'imenu-default-create-index-function)
                (setq imenu-generic-expression
                      '(
                        (nil
