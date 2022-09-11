@@ -1,341 +1,515 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Emacspeak Commands And Options (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Emacspeak Commands And Options (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Emacspeak Commands And Options (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html" rel="up" title="Top">
-<link href="Running-Terminal-Based-Applications.html" rel="next" title="Running Terminal Based Applications">
-<link href="Emacspeak-Keymaps.html" rel="prev" title="Emacspeak Keymaps">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Emacspeak Commands And Options (Emacspeak User’s Manual —
+  2nd Edition.)</title>
+  <meta name="description" content=
+  "Emacspeak Commands And Options (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Emacspeak Commands And Options (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html" rel="up" title="Top" />
+  <link href="Running-Terminal-Based-Applications.html" rel="next"
+  title="Running Terminal Based Applications" />
+  <link href="Emacspeak-Keymaps.html" rel="prev" title=
+  "Emacspeak Keymaps" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="chapter" id="Emacspeak-Commands-And-Options">
-<div class="header">
-<p>
-Next: <a href="Running-Terminal-Based-Applications.html" accesskey="n" rel="next">Running Terminal Based Applications.</a>, Previous: <a href="Emacspeak-Keymaps.html" accesskey="p" rel="prev">Emacspeak Keymaps</a>, Up: <a href="index.html" accesskey="u" rel="up">Emacspeak</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-
-<span id="Emacspeak-Commands-And-Options-1"></span><h2 class="chapter">12 Emacspeak Commands And Options</h2>
-
-<span id="Overview-3"></span><h3 class="heading">Overview</h3>
-
-<p>This chapter documents the various Emacspeak modules and is
-auto-generated from the Emacspeak source code.  It is meant to be a
-complete reference to the emacspeak implementation while also
-providing high-level usage summaries of some of the larger Emacspeak
-modules.
-</p>
-<p>Each section provides a high-level overview of that module, followed by
-detailed description of the commands and options defined in that module.
-</p>
-<p>Emacspeak modules can be classified as follows:
-</p><ol>
-<li> Modules that interface with various TTS engines,
-e.g. <code>espeak-voices</code> and <code>dectalk-voices</code>.
-
-</li><li> Modules that implement core Emacspeak functionality, e.g.,
-<code>emacspeak-speak</code>, <code>emacspeak-keymap</code>, <code>voice-lock</code> and
-<code>emacspeak-advice</code>.
-
-</li><li> Emacspeak extensions that speech-enable various emacs packages, these
-are all named using the convention <code>emacspeak-<var>&lt;packagename&gt;</var></code>.
-</li></ol>
-
-<p>The first two of the above are mostly of interest when extending
-Emacspeak, or to learn how things are implemented.  The third category
-is useful in understanding how emacspeak works with a given package;
-thus, when learning to use the Emacs Web Browser (<acronym title="Emacs Web
-Wowser">EWW</acronym>), read
-the <acronym title="Emacs Web
-Wowser">EWW</acronym> documentation, then read See <a href="emacspeak_002deww.html">emacspeak-eww</a>.
-</p>
-<p>This chapter documents a total of 1162 commands and 147 options.
-</p>
-
-<ul class="section-toc">
-<li><a href="amixer.html" accesskey="1">amixer</a></li>
-<li><a href="cd_002dtool.html" accesskey="2">cd-tool</a></li>
-<li><a href="dectalk_002dvoices.html" accesskey="3">dectalk-voices</a></li>
-<li><a href="dom_002daddons.html" accesskey="4">dom-addons</a></li>
-<li><a href="dtk_002dspeak.html" accesskey="5">dtk-speak</a></li>
-<li><a href="emacspeak.html" accesskey="6">emacspeak</a></li>
-<li><a href="emacspeak_002d2048.html" accesskey="7">emacspeak-2048</a></li>
-<li><a href="emacspeak_002dabc_002dmode.html" accesskey="8">emacspeak-abc-mode</a></li>
-<li><a href="emacspeak_002dactions.html" accesskey="9">emacspeak-actions</a></li>
-<li><a href="emacspeak_002dadd_002dlog.html">emacspeak-add-log</a></li>
-<li><a href="emacspeak_002dadvice.html">emacspeak-advice</a></li>
-<li><a href="emacspeak_002damark.html">emacspeak-amark</a></li>
-<li><a href="emacspeak_002danalog.html">emacspeak-analog</a></li>
-<li><a href="emacspeak_002dannotate.html">emacspeak-annotate</a></li>
-<li><a href="emacspeak_002dapt_002dsources.html">emacspeak-apt-sources</a></li>
-<li><a href="emacspeak_002darc.html">emacspeak-arc</a></li>
-<li><a href="emacspeak_002dauctex.html">emacspeak-auctex</a></li>
-<li><a href="emacspeak_002dbbc.html">emacspeak-bbc</a></li>
-<li><a href="emacspeak_002dbbdb.html">emacspeak-bbdb</a></li>
-<li><a href="emacspeak_002dbibtex.html">emacspeak-bibtex</a></li>
-<li><a href="emacspeak_002dbookmark.html">emacspeak-bookmark</a></li>
-<li><a href="emacspeak_002dbookshare.html">emacspeak-bookshare</a></li>
-<li><a href="emacspeak_002dbrowse_002dkill_002dring.html">emacspeak-browse-kill-ring</a></li>
-<li><a href="emacspeak_002dbs.html">emacspeak-bs</a></li>
-<li><a href="emacspeak_002dbuff_002dmenu.html">emacspeak-buff-menu</a></li>
-<li><a href="emacspeak_002dc.html">emacspeak-c</a></li>
-<li><a href="emacspeak_002dcalc.html">emacspeak-calc</a></li>
-<li><a href="emacspeak_002dcalculator.html">emacspeak-calculator</a></li>
-<li><a href="emacspeak_002dcalendar.html">emacspeak-calendar</a></li>
-<li><a href="emacspeak_002dcalibredb.html">emacspeak-calibredb</a></li>
-<li><a href="emacspeak_002dchess.html">emacspeak-chess</a></li>
-<li><a href="emacspeak_002dcider.html">emacspeak-cider</a></li>
-<li><a href="emacspeak_002dciel.html">emacspeak-ciel</a></li>
-<li><a href="emacspeak_002dclojure.html">emacspeak-clojure</a></li>
-<li><a href="emacspeak_002dcmuscheme.html">emacspeak-cmuscheme</a></li>
-<li><a href="emacspeak_002dcomint.html">emacspeak-comint</a></li>
-<li><a href="emacspeak_002dcompany.html">emacspeak-company</a></li>
-<li><a href="emacspeak_002dcompile.html">emacspeak-compile</a></li>
-<li><a href="emacspeak_002dcperl.html">emacspeak-cperl</a></li>
-<li><a href="emacspeak_002dcrossword.html">emacspeak-crossword</a></li>
-<li><a href="emacspeak_002dcustom.html">emacspeak-custom</a></li>
-<li><a href="emacspeak_002ddbus.html">emacspeak-dbus</a></li>
-<li><a href="emacspeak_002ddeadgrep.html">emacspeak-deadgrep</a></li>
-<li><a href="emacspeak_002ddebugger.html">emacspeak-debugger</a></li>
-<li><a href="emacspeak_002ddesktop.html">emacspeak-desktop</a></li>
-<li><a href="emacspeak_002ddictionary.html">emacspeak-dictionary</a></li>
-<li><a href="emacspeak_002ddiff_002dmode.html">emacspeak-diff-mode</a></li>
-<li><a href="emacspeak_002ddired.html">emacspeak-dired</a></li>
-<li><a href="emacspeak_002ddismal.html">emacspeak-dismal</a></li>
-<li><a href="emacspeak_002ddumb_002djump.html">emacspeak-dumb-jump</a></li>
-<li><a href="emacspeak_002deaf.html">emacspeak-eaf</a></li>
-<li><a href="emacspeak_002decb.html">emacspeak-ecb</a></li>
-<li><a href="emacspeak_002declim.html">emacspeak-eclim</a></li>
-<li><a href="emacspeak_002dediff.html">emacspeak-ediff</a></li>
-<li><a href="emacspeak_002deglot.html">emacspeak-eglot</a></li>
-<li><a href="emacspeak_002dein.html">emacspeak-ein</a></li>
-<li><a href="emacspeak_002delfeed.html">emacspeak-elfeed</a></li>
-<li><a href="emacspeak_002delisp_002drefs.html">emacspeak-elisp-refs</a></li>
-<li><a href="emacspeak_002delpher.html">emacspeak-elpher</a></li>
-<li><a href="emacspeak_002delpy.html">emacspeak-elpy</a></li>
-<li><a href="emacspeak_002delscreen.html">emacspeak-elscreen</a></li>
-<li><a href="emacspeak_002demms.html">emacspeak-emms</a></li>
-<li><a href="emacspeak_002denriched.html">emacspeak-enriched</a></li>
-<li><a href="emacspeak_002dentertain.html">emacspeak-entertain</a></li>
-<li><a href="emacspeak_002depa.html">emacspeak-epa</a></li>
-<li><a href="emacspeak_002deperiodic.html">emacspeak-eperiodic</a></li>
-<li><a href="emacspeak_002depub.html">emacspeak-epub</a></li>
-<li><a href="emacspeak_002derc.html">emacspeak-erc</a></li>
-<li><a href="emacspeak_002deshell.html">emacspeak-eshell</a></li>
-<li><a href="emacspeak_002dess.html">emacspeak-ess</a></li>
-<li><a href="emacspeak_002detable.html">emacspeak-etable</a></li>
-<li><a href="emacspeak_002determ.html">emacspeak-eterm</a></li>
-<li><a href="emacspeak_002deudc.html">emacspeak-eudc</a></li>
-<li><a href="emacspeak_002devil.html">emacspeak-evil</a></li>
-<li><a href="emacspeak_002deww.html">emacspeak-eww</a></li>
-<li><a href="emacspeak_002dextras.html">emacspeak-extras</a></li>
-<li><a href="emacspeak_002dfeeds.html">emacspeak-feeds</a></li>
-<li><a href="emacspeak_002dffap.html">emacspeak-ffap</a></li>
-<li><a href="emacspeak_002dfiltertext.html">emacspeak-filtertext</a></li>
-<li><a href="emacspeak_002dflycheck.html">emacspeak-flycheck</a></li>
-<li><a href="emacspeak_002dflymake.html">emacspeak-flymake</a></li>
-<li><a href="emacspeak_002dflyspell.html">emacspeak-flyspell</a></li>
-<li><a href="emacspeak_002dfolding.html">emacspeak-folding</a></li>
-<li><a href="emacspeak_002dforge.html">emacspeak-forge</a></li>
-<li><a href="emacspeak_002dforms.html">emacspeak-forms</a></li>
-<li><a href="emacspeak_002dgeiser.html">emacspeak-geiser</a></li>
-<li><a href="emacspeak_002dgh_002dexplorer.html">emacspeak-gh-explorer</a></li>
-<li><a href="emacspeak_002dgnuplot.html">emacspeak-gnuplot</a></li>
-<li><a href="emacspeak_002dgnus.html">emacspeak-gnus</a></li>
-<li><a href="emacspeak_002dgo_002dmode.html">emacspeak-go-mode</a></li>
-<li><a href="emacspeak_002dgomoku.html">emacspeak-gomoku</a></li>
-<li><a href="emacspeak_002dgoogle.html">emacspeak-google</a></li>
-<li><a href="emacspeak_002dgridtext.html">emacspeak-gridtext</a></li>
-<li><a href="emacspeak_002dgtags.html">emacspeak-gtags</a></li>
-<li><a href="emacspeak_002dgud.html">emacspeak-gud</a></li>
-<li><a href="emacspeak_002dhaskell.html">emacspeak-haskell</a></li>
-<li><a href="emacspeak_002dhelm.html">emacspeak-helm</a></li>
-<li><a href="emacspeak_002dhide.html">emacspeak-hide</a></li>
-<li><a href="emacspeak_002dhide_002dlines.html">emacspeak-hide-lines</a></li>
-<li><a href="emacspeak_002dhideshow.html">emacspeak-hideshow</a></li>
-<li><a href="emacspeak_002dhydra.html">emacspeak-hydra</a></li>
-<li><a href="emacspeak_002dibuffer.html">emacspeak-ibuffer</a></li>
-<li><a href="emacspeak_002dido.html">emacspeak-ido</a></li>
-<li><a href="emacspeak_002diedit.html">emacspeak-iedit</a></li>
-<li><a href="emacspeak_002dindium.html">emacspeak-indium</a></li>
-<li><a href="emacspeak_002dinfo.html">emacspeak-info</a></li>
-<li><a href="emacspeak_002dispell.html">emacspeak-ispell</a></li>
-<li><a href="emacspeak_002divy.html">emacspeak-ivy</a></li>
-<li><a href="emacspeak_002djabber.html">emacspeak-jabber</a></li>
-<li><a href="emacspeak_002djdee.html">emacspeak-jdee</a></li>
-<li><a href="emacspeak_002djournalctl.html">emacspeak-journalctl</a></li>
-<li><a href="emacspeak_002djs2.html">emacspeak-js2</a></li>
-<li><a href="emacspeak_002dkeymap.html">emacspeak-keymap</a></li>
-<li><a href="emacspeak_002dkmacro.html">emacspeak-kmacro</a></li>
-<li><a href="emacspeak_002dlibrivox.html">emacspeak-librivox</a></li>
-<li><a href="emacspeak_002dlispy.html">emacspeak-lispy</a></li>
-<li><a href="emacspeak_002dlua.html">emacspeak-lua</a></li>
-<li><a href="emacspeak_002dm_002dplayer.html">emacspeak-m-player</a></li>
-<li><a href="emacspeak_002dmagit.html">emacspeak-magit</a></li>
-<li><a href="emacspeak_002dmake_002dmode.html">emacspeak-make-mode</a></li>
-<li><a href="emacspeak_002dman.html">emacspeak-man</a></li>
-<li><a href="emacspeak_002dmarkdown.html">emacspeak-markdown</a></li>
-<li><a href="emacspeak_002dmaths.html">emacspeak-maths</a></li>
-<li><a href="emacspeak_002dmessage.html">emacspeak-message</a></li>
-<li><a href="emacspeak_002dmetapost.html">emacspeak-metapost</a></li>
-<li><a href="emacspeak_002dmidge.html">emacspeak-midge</a></li>
-<li><a href="emacspeak_002dmines.html">emacspeak-mines</a></li>
-<li><a href="emacspeak_002dmpv.html">emacspeak-mpv</a></li>
-<li><a href="emacspeak_002dmspools.html">emacspeak-mspools</a></li>
-<li><a href="emacspeak_002dmuggles.html">emacspeak-muggles</a></li>
-<li><a href="emacspeak_002dmuse.html">emacspeak-muse</a></li>
-<li><a href="emacspeak_002dnavi_002dmode.html">emacspeak-navi-mode</a></li>
-<li><a href="emacspeak_002dnet_002dutils.html">emacspeak-net-utils</a></li>
-<li><a href="emacspeak_002dnewsticker.html">emacspeak-newsticker</a></li>
-<li><a href="emacspeak_002dnotmuch.html">emacspeak-notmuch</a></li>
-<li><a href="emacspeak_002dnov.html">emacspeak-nov</a></li>
-<li><a href="emacspeak_002dnxml.html">emacspeak-nxml</a></li>
-<li><a href="emacspeak_002docr.html">emacspeak-ocr</a></li>
-<li><a href="emacspeak_002dorg.html">emacspeak-org</a></li>
-<li><a href="emacspeak_002dorgalist.html">emacspeak-orgalist</a></li>
-<li><a href="emacspeak_002dorigami.html">emacspeak-origami</a></li>
-<li><a href="emacspeak_002doutline.html">emacspeak-outline</a></li>
-<li><a href="emacspeak_002dpackage.html">emacspeak-package</a></li>
-<li><a href="emacspeak_002dparadox.html">emacspeak-paradox</a></li>
-<li><a href="emacspeak_002dperl.html">emacspeak-perl</a></li>
-<li><a href="emacspeak_002dpianobar.html">emacspeak-pianobar</a></li>
-<li><a href="emacspeak_002dpopup.html">emacspeak-popup</a></li>
-<li><a href="emacspeak_002dproced.html">emacspeak-proced</a></li>
-<li><a href="emacspeak_002dproject.html">emacspeak-project</a></li>
-<li><a href="emacspeak_002dprojectile.html">emacspeak-projectile</a></li>
-<li><a href="emacspeak_002dpronounce.html">emacspeak-pronounce</a></li>
-<li><a href="emacspeak_002dpy.html">emacspeak-py</a></li>
-<li><a href="emacspeak_002dpydoc.html">emacspeak-pydoc</a></li>
-<li><a href="emacspeak_002dpython.html">emacspeak-python</a></li>
-<li><a href="emacspeak_002dracer.html">emacspeak-racer</a></li>
-<li><a href="emacspeak_002dracket.html">emacspeak-racket</a></li>
-<li><a href="emacspeak_002dre_002dbuilder.html">emacspeak-re-builder</a></li>
-<li><a href="emacspeak_002dreftex.html">emacspeak-reftex</a></li>
-<li><a href="emacspeak_002drelated.html">emacspeak-related</a></li>
-<li><a href="emacspeak_002drg.html">emacspeak-rg</a></li>
-<li><a href="emacspeak_002drmail.html">emacspeak-rmail</a></li>
-<li><a href="emacspeak_002drpm_002dspec.html">emacspeak-rpm-spec</a></li>
-<li><a href="emacspeak_002drst.html">emacspeak-rst</a></li>
-<li><a href="emacspeak_002druby.html">emacspeak-ruby</a></li>
-<li><a href="emacspeak_002drust_002dmode.html">emacspeak-rust-mode</a></li>
-<li><a href="emacspeak_002dsage.html">emacspeak-sage</a></li>
-<li><a href="emacspeak_002dsdcv.html">emacspeak-sdcv</a></li>
-<li><a href="emacspeak_002dselectrum.html">emacspeak-selectrum</a></li>
-<li><a href="emacspeak_002dses.html">emacspeak-ses</a></li>
-<li><a href="emacspeak_002dsetup.html">emacspeak-setup</a></li>
-<li><a href="emacspeak_002dsgml_002dmode.html">emacspeak-sgml-mode</a></li>
-<li><a href="emacspeak_002dsh_002dscript.html">emacspeak-sh-script</a></li>
-<li><a href="emacspeak_002dshx.html">emacspeak-shx</a></li>
-<li><a href="emacspeak_002dslime.html">emacspeak-slime</a></li>
-<li><a href="emacspeak_002dsmart_002dwindow.html">emacspeak-smart-window</a></li>
-<li><a href="emacspeak_002dsmartparens.html">emacspeak-smartparens</a></li>
-<li><a href="emacspeak_002dsolitaire.html">emacspeak-solitaire</a></li>
-<li><a href="emacspeak_002dsounds.html">emacspeak-sounds</a></li>
-<li><a href="emacspeak_002dspeak.html">emacspeak-speak</a></li>
-<li><a href="emacspeak_002dspeedbar.html">emacspeak-speedbar</a></li>
-<li><a href="emacspeak_002dsql.html">emacspeak-sql</a></li>
-<li><a href="emacspeak_002dsudoku.html">emacspeak-sudoku</a></li>
-<li><a href="emacspeak_002dsupercite.html">emacspeak-supercite</a></li>
-<li><a href="emacspeak_002dsyslog.html">emacspeak-syslog</a></li>
-<li><a href="emacspeak_002dtab_002dbar.html">emacspeak-tab-bar</a></li>
-<li><a href="emacspeak_002dtable.html">emacspeak-table</a></li>
-<li><a href="emacspeak_002dtable_002dui.html">emacspeak-table-ui</a></li>
-<li><a href="emacspeak_002dtabulate.html">emacspeak-tabulate</a></li>
-<li><a href="emacspeak_002dtar.html">emacspeak-tar</a></li>
-<li><a href="emacspeak_002dtcl.html">emacspeak-tcl</a></li>
-<li><a href="emacspeak_002dtempo.html">emacspeak-tempo</a></li>
-<li><a href="emacspeak_002dtetris.html">emacspeak-tetris</a></li>
-<li><a href="emacspeak_002dtexinfo.html">emacspeak-texinfo</a></li>
-<li><a href="emacspeak_002dthrees.html">emacspeak-threes</a></li>
-<li><a href="emacspeak_002dtide.html">emacspeak-tide</a></li>
-<li><a href="emacspeak_002dtodo_002dmode.html">emacspeak-todo-mode</a></li>
-<li><a href="emacspeak_002dtransient.html">emacspeak-transient</a></li>
-<li><a href="emacspeak_002dtwittering.html">emacspeak-twittering</a></li>
-<li><a href="emacspeak_002dtypo.html">emacspeak-typo</a></li>
-<li><a href="emacspeak_002durl_002dtemplate.html">emacspeak-url-template</a></li>
-<li><a href="emacspeak_002dvdiff.html">emacspeak-vdiff</a></li>
-<li><a href="emacspeak_002dvertico.html">emacspeak-vertico</a></li>
-<li><a href="emacspeak_002dview.html">emacspeak-view</a></li>
-<li><a href="emacspeak_002dvm.html">emacspeak-vm</a></li>
-<li><a href="emacspeak_002dvterm.html">emacspeak-vterm</a></li>
-<li><a href="emacspeak_002dvuiet.html">emacspeak-vuiet</a></li>
-<li><a href="emacspeak_002dwdired.html">emacspeak-wdired</a></li>
-<li><a href="emacspeak_002dwe.html">emacspeak-we</a></li>
-<li><a href="emacspeak_002dwebsearch.html">emacspeak-websearch</a></li>
-<li><a href="emacspeak_002dwebspace.html">emacspeak-webspace</a></li>
-<li><a href="emacspeak_002dwidget.html">emacspeak-widget</a></li>
-<li><a href="emacspeak_002dwindmove.html">emacspeak-windmove</a></li>
-<li><a href="emacspeak_002dwinring.html">emacspeak-winring</a></li>
-<li><a href="emacspeak_002dwizards.html">emacspeak-wizards</a></li>
-<li><a href="emacspeak_002dwoman.html">emacspeak-woman</a></li>
-<li><a href="emacspeak_002dxkcd.html">emacspeak-xkcd</a></li>
-<li><a href="emacspeak_002dxref.html">emacspeak-xref</a></li>
-<li><a href="emacspeak_002dxslt.html">emacspeak-xslt</a></li>
-<li><a href="emacspeak_002dyaml.html">emacspeak-yaml</a></li>
-<li><a href="emacspeak_002dyasnippet.html">emacspeak-yasnippet</a></li>
-<li><a href="espeak_002dvoices.html">espeak-voices</a></li>
-<li><a href="extra_002dmuggles.html">extra-muggles</a></li>
-<li><a href="g_002dutils.html">g-utils</a></li>
-<li><a href="gm_002dnnir.html">gm-nnir</a></li>
-<li><a href="gmaps.html">gmaps</a></li>
-<li><a href="ladspa.html">ladspa</a></li>
-<li><a href="light.html">light</a></li>
-<li><a href="mac_002dvoices.html">mac-voices</a></li>
-<li><a href="outloud_002dvoices.html">outloud-voices</a></li>
-<li><a href="plain_002dvoices.html">plain-voices</a></li>
-<li><a href="soundscape.html">soundscape</a></li>
-<li><a href="sox.html">sox</a></li>
-<li><a href="sox_002dgen.html">sox-gen</a></li>
-<li><a href="tetris.html">tetris</a></li>
-<li><a href="toy_002dbraille.html">toy-braille</a></li>
-<li><a href="voice_002ddefs.html">voice-defs</a></li>
-<li><a href="voice_002dsetup.html">voice-setup</a></li>
-<li><a href="xbacklight.html">xbacklight</a></li>
-<li><a href="URL-Templates.html">URL Templates</a></li>
-</ul>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Running-Terminal-Based-Applications.html">Running Terminal Based Applications.</a>, Previous: <a href="Emacspeak-Keymaps.html">Emacspeak Keymaps</a>, Up: <a href="index.html">Emacspeak</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="chapter" id="Emacspeak-Commands-And-Options">
+    <div class="header">
+      <p>Next: <a href="Running-Terminal-Based-Applications.html"
+      accesskey="n" rel="next">Running Terminal Based
+      Applications.</a>, Previous: <a href="Emacspeak-Keymaps.html"
+      accesskey="p" rel="prev">Emacspeak Keymaps</a>, Up: <a href=
+      "index.html" accesskey="u" rel="up">Emacspeak</a> &nbsp;
+      [<a href="index.html#SEC_Contents" title="Table of contents"
+      rel="contents">Contents</a>][<a href="Concept-Index.html"
+      title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Emacspeak-Commands-And-Options-1"></span>
+    <h2 class="chapter">12 Emacspeak Commands And
+    Options</h2><span id="Overview-3"></span>
+    <h3 class="heading">Overview</h3>
+    <p>This chapter documents the various Emacspeak modules and is
+    auto-generated from the Emacspeak source code. It is meant to
+    be a complete reference to the emacspeak implementation while
+    also providing high-level usage summaries of some of the larger
+    Emacspeak modules.</p>
+    <p>Each section provides a high-level overview of that module,
+    followed by detailed description of the commands and options
+    defined in that module.</p>
+    <p>Emacspeak modules can be classified as follows:</p>
+    <ol>
+      <li>Modules that interface with various TTS engines, e.g.
+      <code>espeak-voices</code> and
+      <code>dectalk-voices</code>.</li>
+      <li>Modules that implement core Emacspeak functionality,
+      e.g., <code>emacspeak-speak</code>,
+      <code>emacspeak-keymap</code>, <code>voice-lock</code> and
+      <code>emacspeak-advice</code>.</li>
+      <li>Emacspeak extensions that speech-enable various emacs
+      packages, these are all named using the convention
+      <code>emacspeak-<var>&lt;packagename&gt;</var></code>.</li>
+    </ol>
+    <p>The first two of the above are mostly of interest when
+    extending Emacspeak, or to learn how things are implemented.
+    The third category is useful in understanding how emacspeak
+    works with a given package; thus, when learning to use the
+    Emacs Web Browser (<acronym title=
+    "Emacs Web Wowser">EWW</acronym>), read the <acronym title=
+    "Emacs Web Wowser">EWW</acronym> documentation, then read See
+    <a href="emacspeak_002deww.html">emacspeak-eww</a>.</p>
+    <p>This chapter documents a total of 1162 commands and 147
+    options.</p>
+    <ul class="section-toc">
+      <li><a href="amixer.html" accesskey="1">amixer</a></li>
+      <li><a href="cd_002dtool.html" accesskey="2">cd-tool</a></li>
+      <li><a href="dectalk_002dvoices.html" accesskey=
+      "3">dectalk-voices</a></li>
+      <li><a href="dom_002daddons.html" accesskey=
+      "4">dom-addons</a></li>
+      <li><a href="dtk_002dspeak.html" accesskey=
+      "5">dtk-speak</a></li>
+      <li><a href="emacspeak.html" accesskey="6">emacspeak</a></li>
+      <li><a href="emacspeak_002d2048.html" accesskey=
+      "7">emacspeak-2048</a></li>
+      <li><a href="emacspeak_002dabc_002dmode.html" accesskey=
+      "8">emacspeak-abc-mode</a></li>
+      <li><a href="emacspeak_002dactions.html" accesskey=
+      "9">emacspeak-actions</a></li>
+      <li><a href=
+      "emacspeak_002dadd_002dlog.html">emacspeak-add-log</a></li>
+      <li><a href=
+      "emacspeak_002dadvice.html">emacspeak-advice</a></li>
+      <li><a href=
+      "emacspeak_002damark.html">emacspeak-amark</a></li>
+      <li><a href=
+      "emacspeak_002danalog.html">emacspeak-analog</a></li>
+      <li><a href=
+      "emacspeak_002dannotate.html">emacspeak-annotate</a></li>
+      <li><a href=
+      "emacspeak_002dapt_002dsources.html">emacspeak-apt-sources</a></li>
+      <li><a href="emacspeak_002darc.html">emacspeak-arc</a></li>
+      <li><a href=
+      "emacspeak_002dauctex.html">emacspeak-auctex</a></li>
+      <li><a href="emacspeak_002dbbc.html">emacspeak-bbc</a></li>
+      <li><a href="emacspeak_002dbbdb.html">emacspeak-bbdb</a></li>
+      <li><a href=
+      "emacspeak_002dbibtex.html">emacspeak-bibtex</a></li>
+      <li><a href=
+      "emacspeak_002dbookmark.html">emacspeak-bookmark</a></li>
+      <li><a href=
+      "emacspeak_002dbookshare.html">emacspeak-bookshare</a></li>
+      <li><a href=
+      "emacspeak_002dbrowse_002dkill_002dring.html">emacspeak-browse-kill-ring</a></li>
+      <li><a href="emacspeak_002dbs.html">emacspeak-bs</a></li>
+      <li><a href=
+      "emacspeak_002dbuff_002dmenu.html">emacspeak-buff-menu</a></li>
+      <li><a href="emacspeak_002dc.html">emacspeak-c</a></li>
+      <li><a href="emacspeak_002dcalc.html">emacspeak-calc</a></li>
+      <li><a href=
+      "emacspeak_002dcalculator.html">emacspeak-calculator</a></li>
+      <li><a href=
+      "emacspeak_002dcalendar.html">emacspeak-calendar</a></li>
+      <li><a href=
+      "emacspeak_002dcalibredb.html">emacspeak-calibredb</a></li>
+      <li><a href=
+      "emacspeak_002dchess.html">emacspeak-chess</a></li>
+      <li><a href=
+      "emacspeak_002dcider.html">emacspeak-cider</a></li>
+      <li><a href="emacspeak_002dciel.html">emacspeak-ciel</a></li>
+      <li><a href=
+      "emacspeak_002dclojure.html">emacspeak-clojure</a></li>
+      <li><a href=
+      "emacspeak_002dcmuscheme.html">emacspeak-cmuscheme</a></li>
+      <li><a href=
+      "emacspeak_002dcomint.html">emacspeak-comint</a></li>
+      <li><a href=
+      "emacspeak_002dcompany.html">emacspeak-company</a></li>
+      <li><a href=
+      "emacspeak_002dcompile.html">emacspeak-compile</a></li>
+      <li><a href=
+      "emacspeak_002dcperl.html">emacspeak-cperl</a></li>
+      <li><a href=
+      "emacspeak_002dcrossword.html">emacspeak-crossword</a></li>
+      <li><a href=
+      "emacspeak_002dcustom.html">emacspeak-custom</a></li>
+      <li><a href="emacspeak_002ddbus.html">emacspeak-dbus</a></li>
+      <li><a href=
+      "emacspeak_002ddeadgrep.html">emacspeak-deadgrep</a></li>
+      <li><a href=
+      "emacspeak_002ddebugger.html">emacspeak-debugger</a></li>
+      <li><a href=
+      "emacspeak_002ddesktop.html">emacspeak-desktop</a></li>
+      <li><a href=
+      "emacspeak_002ddictionary.html">emacspeak-dictionary</a></li>
+      <li><a href=
+      "emacspeak_002ddiff_002dmode.html">emacspeak-diff-mode</a></li>
+      <li><a href=
+      "emacspeak_002ddired.html">emacspeak-dired</a></li>
+      <li><a href=
+      "emacspeak_002ddismal.html">emacspeak-dismal</a></li>
+      <li><a href=
+      "emacspeak_002ddumb_002djump.html">emacspeak-dumb-jump</a></li>
+      <li><a href="emacspeak_002deaf.html">emacspeak-eaf</a></li>
+      <li><a href="emacspeak_002decb.html">emacspeak-ecb</a></li>
+      <li><a href=
+      "emacspeak_002declim.html">emacspeak-eclim</a></li>
+      <li><a href=
+      "emacspeak_002dediff.html">emacspeak-ediff</a></li>
+      <li><a href=
+      "emacspeak_002deglot.html">emacspeak-eglot</a></li>
+      <li><a href="emacspeak_002dein.html">emacspeak-ein</a></li>
+      <li><a href=
+      "emacspeak_002delfeed.html">emacspeak-elfeed</a></li>
+      <li><a href=
+      "emacspeak_002delisp_002drefs.html">emacspeak-elisp-refs</a></li>
+      <li><a href=
+      "emacspeak_002delpher.html">emacspeak-elpher</a></li>
+      <li><a href="emacspeak_002delpy.html">emacspeak-elpy</a></li>
+      <li><a href=
+      "emacspeak_002delscreen.html">emacspeak-elscreen</a></li>
+      <li><a href="emacspeak_002demms.html">emacspeak-emms</a></li>
+      <li><a href=
+      "emacspeak_002denriched.html">emacspeak-enriched</a></li>
+      <li><a href=
+      "emacspeak_002dentertain.html">emacspeak-entertain</a></li>
+      <li><a href="emacspeak_002depa.html">emacspeak-epa</a></li>
+      <li><a href=
+      "emacspeak_002deperiodic.html">emacspeak-eperiodic</a></li>
+      <li><a href="emacspeak_002depub.html">emacspeak-epub</a></li>
+      <li><a href="emacspeak_002derc.html">emacspeak-erc</a></li>
+      <li><a href=
+      "emacspeak_002deshell.html">emacspeak-eshell</a></li>
+      <li><a href="emacspeak_002dess.html">emacspeak-ess</a></li>
+      <li><a href=
+      "emacspeak_002detable.html">emacspeak-etable</a></li>
+      <li><a href=
+      "emacspeak_002determ.html">emacspeak-eterm</a></li>
+      <li><a href="emacspeak_002deudc.html">emacspeak-eudc</a></li>
+      <li><a href="emacspeak_002devil.html">emacspeak-evil</a></li>
+      <li><a href="emacspeak_002deww.html">emacspeak-eww</a></li>
+      <li><a href=
+      "emacspeak_002dextras.html">emacspeak-extras</a></li>
+      <li><a href=
+      "emacspeak_002dfeeds.html">emacspeak-feeds</a></li>
+      <li><a href="emacspeak_002dffap.html">emacspeak-ffap</a></li>
+      <li><a href=
+      "emacspeak_002dfiltertext.html">emacspeak-filtertext</a></li>
+      <li><a href=
+      "emacspeak_002dflycheck.html">emacspeak-flycheck</a></li>
+      <li><a href=
+      "emacspeak_002dflymake.html">emacspeak-flymake</a></li>
+      <li><a href=
+      "emacspeak_002dflyspell.html">emacspeak-flyspell</a></li>
+      <li><a href=
+      "emacspeak_002dfolding.html">emacspeak-folding</a></li>
+      <li><a href=
+      "emacspeak_002dforge.html">emacspeak-forge</a></li>
+      <li><a href=
+      "emacspeak_002dforms.html">emacspeak-forms</a></li>
+      <li><a href=
+      "emacspeak_002dgeiser.html">emacspeak-geiser</a></li>
+      <li><a href=
+      "emacspeak_002dgh_002dexplorer.html">emacspeak-gh-explorer</a></li>
+      <li><a href=
+      "emacspeak_002dgnuplot.html">emacspeak-gnuplot</a></li>
+      <li><a href="emacspeak_002dgnus.html">emacspeak-gnus</a></li>
+      <li><a href=
+      "emacspeak_002dgo_002dmode.html">emacspeak-go-mode</a></li>
+      <li><a href=
+      "emacspeak_002dgomoku.html">emacspeak-gomoku</a></li>
+      <li><a href=
+      "emacspeak_002dgoogle.html">emacspeak-google</a></li>
+      <li><a href=
+      "emacspeak_002dgridtext.html">emacspeak-gridtext</a></li>
+      <li><a href=
+      "emacspeak_002dgtags.html">emacspeak-gtags</a></li>
+      <li><a href="emacspeak_002dgud.html">emacspeak-gud</a></li>
+      <li><a href=
+      "emacspeak_002dhaskell.html">emacspeak-haskell</a></li>
+      <li><a href="emacspeak_002dhelm.html">emacspeak-helm</a></li>
+      <li><a href="emacspeak_002dhide.html">emacspeak-hide</a></li>
+      <li><a href=
+      "emacspeak_002dhide_002dlines.html">emacspeak-hide-lines</a></li>
+      <li><a href=
+      "emacspeak_002dhideshow.html">emacspeak-hideshow</a></li>
+      <li><a href=
+      "emacspeak_002dhydra.html">emacspeak-hydra</a></li>
+      <li><a href=
+      "emacspeak_002dibuffer.html">emacspeak-ibuffer</a></li>
+      <li><a href="emacspeak_002dido.html">emacspeak-ido</a></li>
+      <li><a href=
+      "emacspeak_002diedit.html">emacspeak-iedit</a></li>
+      <li><a href=
+      "emacspeak_002dindium.html">emacspeak-indium</a></li>
+      <li><a href="emacspeak_002dinfo.html">emacspeak-info</a></li>
+      <li><a href=
+      "emacspeak_002dispell.html">emacspeak-ispell</a></li>
+      <li><a href="emacspeak_002divy.html">emacspeak-ivy</a></li>
+      <li><a href=
+      "emacspeak_002djabber.html">emacspeak-jabber</a></li>
+      <li><a href="emacspeak_002djdee.html">emacspeak-jdee</a></li>
+      <li><a href=
+      "emacspeak_002djournalctl.html">emacspeak-journalctl</a></li>
+      <li><a href="emacspeak_002djs2.html">emacspeak-js2</a></li>
+      <li><a href=
+      "emacspeak_002dkeymap.html">emacspeak-keymap</a></li>
+      <li><a href=
+      "emacspeak_002dkmacro.html">emacspeak-kmacro</a></li>
+      <li><a href=
+      "emacspeak_002dlibrivox.html">emacspeak-librivox</a></li>
+      <li><a href=
+      "emacspeak_002dlispy.html">emacspeak-lispy</a></li>
+      <li><a href="emacspeak_002dlua.html">emacspeak-lua</a></li>
+      <li><a href=
+      "emacspeak_002dm_002dplayer.html">emacspeak-m-player</a></li>
+      <li><a href=
+      "emacspeak_002dmagit.html">emacspeak-magit</a></li>
+      <li><a href=
+      "emacspeak_002dmake_002dmode.html">emacspeak-make-mode</a></li>
+      <li><a href="emacspeak_002dman.html">emacspeak-man</a></li>
+      <li><a href=
+      "emacspeak_002dmarkdown.html">emacspeak-markdown</a></li>
+      <li><a href=
+      "emacspeak_002dmaths.html">emacspeak-maths</a></li>
+      <li><a href=
+      "emacspeak_002dmessage.html">emacspeak-message</a></li>
+      <li><a href=
+      "emacspeak_002dmetapost.html">emacspeak-metapost</a></li>
+      <li><a href=
+      "emacspeak_002dmidge.html">emacspeak-midge</a></li>
+      <li><a href=
+      "emacspeak_002dmines.html">emacspeak-mines</a></li>
+      <li><a href="emacspeak_002dmpv.html">emacspeak-mpv</a></li>
+      <li><a href=
+      "emacspeak_002dmspools.html">emacspeak-mspools</a></li>
+      <li><a href=
+      "emacspeak_002dmuggles.html">emacspeak-muggles</a></li>
+      <li><a href="emacspeak_002dmuse.html">emacspeak-muse</a></li>
+      <li><a href=
+      "emacspeak_002dnavi_002dmode.html">emacspeak-navi-mode</a></li>
+      <li><a href=
+      "emacspeak_002dnet_002dutils.html">emacspeak-net-utils</a></li>
+      <li><a href=
+      "emacspeak_002dnewsticker.html">emacspeak-newsticker</a></li>
+      <li><a href=
+      "emacspeak_002dnotmuch.html">emacspeak-notmuch</a></li>
+      <li><a href="emacspeak_002dnov.html">emacspeak-nov</a></li>
+      <li><a href="emacspeak_002dnxml.html">emacspeak-nxml</a></li>
+      <li><a href="emacspeak_002docr.html">emacspeak-ocr</a></li>
+      <li><a href="emacspeak_002dorg.html">emacspeak-org</a></li>
+      <li><a href=
+      "emacspeak_002dorgalist.html">emacspeak-orgalist</a></li>
+      <li><a href=
+      "emacspeak_002dorigami.html">emacspeak-origami</a></li>
+      <li><a href=
+      "emacspeak_002doutline.html">emacspeak-outline</a></li>
+      <li><a href=
+      "emacspeak_002dpackage.html">emacspeak-package</a></li>
+      <li><a href=
+      "emacspeak_002dparadox.html">emacspeak-paradox</a></li>
+      <li><a href="emacspeak_002dperl.html">emacspeak-perl</a></li>
+      <li><a href=
+      "emacspeak_002dpianobar.html">emacspeak-pianobar</a></li>
+      <li><a href=
+      "emacspeak_002dpopup.html">emacspeak-popup</a></li>
+      <li><a href=
+      "emacspeak_002dproced.html">emacspeak-proced</a></li>
+      <li><a href=
+      "emacspeak_002dproject.html">emacspeak-project</a></li>
+      <li><a href=
+      "emacspeak_002dprojectile.html">emacspeak-projectile</a></li>
+      <li><a href=
+      "emacspeak_002dpronounce.html">emacspeak-pronounce</a></li>
+      <li><a href="emacspeak_002dpy.html">emacspeak-py</a></li>
+      <li><a href=
+      "emacspeak_002dpydoc.html">emacspeak-pydoc</a></li>
+      <li><a href=
+      "emacspeak_002dpython.html">emacspeak-python</a></li>
+      <li><a href=
+      "emacspeak_002dracer.html">emacspeak-racer</a></li>
+      <li><a href=
+      "emacspeak_002dracket.html">emacspeak-racket</a></li>
+      <li><a href=
+      "emacspeak_002dre_002dbuilder.html">emacspeak-re-builder</a></li>
+      <li><a href=
+      "emacspeak_002dreftex.html">emacspeak-reftex</a></li>
+      <li><a href=
+      "emacspeak_002drelated.html">emacspeak-related</a></li>
+      <li><a href="emacspeak_002drg.html">emacspeak-rg</a></li>
+      <li><a href=
+      "emacspeak_002drmail.html">emacspeak-rmail</a></li>
+      <li><a href=
+      "emacspeak_002drpm_002dspec.html">emacspeak-rpm-spec</a></li>
+      <li><a href="emacspeak_002drst.html">emacspeak-rst</a></li>
+      <li><a href="emacspeak_002druby.html">emacspeak-ruby</a></li>
+      <li><a href=
+      "emacspeak_002drust_002dmode.html">emacspeak-rust-mode</a></li>
+      <li><a href="emacspeak_002dsage.html">emacspeak-sage</a></li>
+      <li><a href="emacspeak_002dsdcv.html">emacspeak-sdcv</a></li>
+      <li><a href=
+      "emacspeak_002dselectrum.html">emacspeak-selectrum</a></li>
+      <li><a href="emacspeak_002dses.html">emacspeak-ses</a></li>
+      <li><a href=
+      "emacspeak_002dsetup.html">emacspeak-setup</a></li>
+      <li><a href=
+      "emacspeak_002dsgml_002dmode.html">emacspeak-sgml-mode</a></li>
+      <li><a href=
+      "emacspeak_002dsh_002dscript.html">emacspeak-sh-script</a></li>
+      <li><a href="emacspeak_002dshx.html">emacspeak-shx</a></li>
+      <li><a href=
+      "emacspeak_002dslime.html">emacspeak-slime</a></li>
+      <li><a href=
+      "emacspeak_002dsmart_002dwindow.html">emacspeak-smart-window</a></li>
+      <li><a href=
+      "emacspeak_002dsmartparens.html">emacspeak-smartparens</a></li>
+      <li><a href=
+      "emacspeak_002dsolitaire.html">emacspeak-solitaire</a></li>
+      <li><a href=
+      "emacspeak_002dsounds.html">emacspeak-sounds</a></li>
+      <li><a href=
+      "emacspeak_002dspeak.html">emacspeak-speak</a></li>
+      <li><a href=
+      "emacspeak_002dspeedbar.html">emacspeak-speedbar</a></li>
+      <li><a href="emacspeak_002dsql.html">emacspeak-sql</a></li>
+      <li><a href=
+      "emacspeak_002dsudoku.html">emacspeak-sudoku</a></li>
+      <li><a href=
+      "emacspeak_002dsupercite.html">emacspeak-supercite</a></li>
+      <li><a href=
+      "emacspeak_002dsyslog.html">emacspeak-syslog</a></li>
+      <li><a href=
+      "emacspeak_002dtab_002dbar.html">emacspeak-tab-bar</a></li>
+      <li><a href=
+      "emacspeak_002dtable.html">emacspeak-table</a></li>
+      <li><a href=
+      "emacspeak_002dtable_002dui.html">emacspeak-table-ui</a></li>
+      <li><a href=
+      "emacspeak_002dtabulate.html">emacspeak-tabulate</a></li>
+      <li><a href="emacspeak_002dtar.html">emacspeak-tar</a></li>
+      <li><a href="emacspeak_002dtcl.html">emacspeak-tcl</a></li>
+      <li><a href=
+      "emacspeak_002dtempo.html">emacspeak-tempo</a></li>
+      <li><a href=
+      "emacspeak_002dtetris.html">emacspeak-tetris</a></li>
+      <li><a href=
+      "emacspeak_002dtexinfo.html">emacspeak-texinfo</a></li>
+      <li><a href=
+      "emacspeak_002dthrees.html">emacspeak-threes</a></li>
+      <li><a href="emacspeak_002dtide.html">emacspeak-tide</a></li>
+      <li><a href=
+      "emacspeak_002dtodo_002dmode.html">emacspeak-todo-mode</a></li>
+      <li><a href=
+      "emacspeak_002dtransient.html">emacspeak-transient</a></li>
+      <li><a href=
+      "emacspeak_002dtwittering.html">emacspeak-twittering</a></li>
+      <li><a href="emacspeak_002dtypo.html">emacspeak-typo</a></li>
+      <li><a href=
+      "emacspeak_002durl_002dtemplate.html">emacspeak-url-template</a></li>
+      <li><a href=
+      "emacspeak_002dvdiff.html">emacspeak-vdiff</a></li>
+      <li><a href=
+      "emacspeak_002dvertico.html">emacspeak-vertico</a></li>
+      <li><a href="emacspeak_002dview.html">emacspeak-view</a></li>
+      <li><a href="emacspeak_002dvm.html">emacspeak-vm</a></li>
+      <li><a href=
+      "emacspeak_002dvterm.html">emacspeak-vterm</a></li>
+      <li><a href=
+      "emacspeak_002dvuiet.html">emacspeak-vuiet</a></li>
+      <li><a href=
+      "emacspeak_002dwdired.html">emacspeak-wdired</a></li>
+      <li><a href="emacspeak_002dwe.html">emacspeak-we</a></li>
+      <li><a href=
+      "emacspeak_002dwebsearch.html">emacspeak-websearch</a></li>
+      <li><a href=
+      "emacspeak_002dwebspace.html">emacspeak-webspace</a></li>
+      <li><a href=
+      "emacspeak_002dwidget.html">emacspeak-widget</a></li>
+      <li><a href=
+      "emacspeak_002dwindmove.html">emacspeak-windmove</a></li>
+      <li><a href=
+      "emacspeak_002dwinring.html">emacspeak-winring</a></li>
+      <li><a href=
+      "emacspeak_002dwizards.html">emacspeak-wizards</a></li>
+      <li><a href=
+      "emacspeak_002dwoman.html">emacspeak-woman</a></li>
+      <li><a href="emacspeak_002dxkcd.html">emacspeak-xkcd</a></li>
+      <li><a href="emacspeak_002dxref.html">emacspeak-xref</a></li>
+      <li><a href="emacspeak_002dxslt.html">emacspeak-xslt</a></li>
+      <li><a href="emacspeak_002dyaml.html">emacspeak-yaml</a></li>
+      <li><a href=
+      "emacspeak_002dyasnippet.html">emacspeak-yasnippet</a></li>
+      <li><a href="espeak_002dvoices.html">espeak-voices</a></li>
+      <li><a href="extra_002dmuggles.html">extra-muggles</a></li>
+      <li><a href="g_002dutils.html">g-utils</a></li>
+      <li><a href="gm_002dnnir.html">gm-nnir</a></li>
+      <li><a href="gmaps.html">gmaps</a></li>
+      <li><a href="ladspa.html">ladspa</a></li>
+      <li><a href="light.html">light</a></li>
+      <li><a href="mac_002dvoices.html">mac-voices</a></li>
+      <li><a href="outloud_002dvoices.html">outloud-voices</a></li>
+      <li><a href="plain_002dvoices.html">plain-voices</a></li>
+      <li><a href="soundscape.html">soundscape</a></li>
+      <li><a href="sox.html">sox</a></li>
+      <li><a href="sox_002dgen.html">sox-gen</a></li>
+      <li><a href="tetris.html">tetris</a></li>
+      <li><a href="toy_002dbraille.html">toy-braille</a></li>
+      <li><a href="voice_002ddefs.html">voice-defs</a></li>
+      <li><a href="voice_002dsetup.html">voice-setup</a></li>
+      <li><a href="xbacklight.html">xbacklight</a></li>
+      <li><a href="URL-Templates.html">URL Templates</a></li>
+    </ul>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "Running-Terminal-Based-Applications.html">Running Terminal
+    Based Applications.</a>, Previous: <a href=
+    "Emacspeak-Keymaps.html">Emacspeak Keymaps</a>, Up: <a href=
+    "index.html">Emacspeak</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

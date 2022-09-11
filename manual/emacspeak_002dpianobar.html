@@ -1,239 +1,366 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>emacspeak-pianobar (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="emacspeak-pianobar (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="emacspeak-pianobar (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dpopup.html" rel="next" title="emacspeak-popup">
-<link href="emacspeak_002dperl.html" rel="prev" title="emacspeak-perl">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-pianobar (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-pianobar (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-pianobar (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="emacspeak_002dpopup.html" rel="next" title=
+  "emacspeak-popup" />
+  <link href="emacspeak_002dperl.html" rel="prev" title=
+  "emacspeak-perl" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="emacspeak_002dpianobar">
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dpopup.html" accesskey="n" rel="next">emacspeak-popup</a>, Previous: <a href="emacspeak_002dperl.html" accesskey="p" rel="prev">emacspeak-perl</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="emacspeak_002dpianobar-1"></span><h3 class="section">12.146 emacspeak-pianobar</h3>
-
-<ul class="section-toc">
-<li><a href="#PIANOBAR-_003d_003d-Pandora-Client-for-Emacs" accesskey="1">PIANOBAR ==  Pandora Client for Emacs</a></li>
-<li><a href="#Emacspeak-Usage_003a" accesskey="2">Emacspeak Usage:</a></li>
-<li><a href="#Emacspeak_002dPianobar-Commands" accesskey="3">Emacspeak-Pianobar Commands</a></li>
-</ul>
-<div class="subsection" id="PIANOBAR-_003d_003d-Pandora-Client-for-Emacs">
-<h4 class="subsection">12.146.1 PIANOBAR ==  Pandora Client for Emacs</h4>
-<p>pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian:
-sudo apt-get install pianobar
-</p>
-<p>Pianobar Is a stand-alone client for Pandora Radio. pianobar.el
-available on the Emacs Wiki at
-http://www.emacswiki.org/emacs/pianobar.el Provides access to
-Pandora Radio via pianobar from the comfort of Emacs. This module
-speech-enables Pianobar and enhances it for the Complete Audio
-Desktop.
-</p>
-</div>
-<div class="subsection" id="Emacspeak-Usage_003a">
-<h4 class="subsection">12.146.2 Emacspeak Usage:</h4>
-
-<p>Emacspeak implements command emacspeak-pianobar, a light-weight
-wrapper on top of pianobar. Emacspeak binds this command to
-<code>C-e '</code>.
- Command emacspeak-pianobar is designed to let you
-launch Pandora channels and switch tracks/channels without moving
-away from your primary tasks such as editing code or
-reading/composing email. Toward this end, launching command
-emacspeak-pianobar the first time initializes the
-<code>*pianobar*</code> buffer and launches command <code>pianobar</code>;
-but focus  remains   in your current buffer. Pianobar can be
-controlled with single keystrokes while in  the pianobar  buffer
-&mdash; switch to   using <code>C-e ''</code>. The most
-useful keys are <code>right</code> for skipping tracks, <code>up</code> and
-<code>down</code> for switching channels etc.; see the keys bound in
-<code>pianobar-key-map</code> for a complete list. Pressing <code>C-e '</code>
-in  the <code>*pianobar*</code> buffer  buries the
-<code>*pianobar*</code>. From here on, Pianobar can be controlled
-by pressing the Pianobar prefix key (<code>C-e '</code>) followed by
-keys from <code>pianobar-key-map</code>.
-</p>
-</div>
-<div class="subsection" id="Emacspeak_002dPianobar-Commands">
-<h4 class="subsection">12.146.3 Emacspeak-Pianobar Commands</h4>
-
-<ul class="section-toc">
-<li><a href="#emacspeak_002dpianobar-2" accesskey="1">emacspeak-pianobar</a></li>
-<li><a href="#emacspeak_002dpianobar_002dcommand" accesskey="2">emacspeak-pianobar-command</a></li>
-<li><a href="#emacspeak_002dpianobar_002delectric_002dmode_002dtoggle" accesskey="3">emacspeak-pianobar-electric-mode-toggle</a></li>
-<li><a href="#emacspeak_002dpianobar_002dnext_002dpreset" accesskey="4">emacspeak-pianobar-next-preset</a></li>
-<li><a href="#emacspeak_002dpianobar_002dprevious_002dpreset" accesskey="5">emacspeak-pianobar-previous-preset</a></li>
-<li><a href="#emacspeak_002dpianobar_002dsend_002draw" accesskey="6">emacspeak-pianobar-send-raw</a></li>
-<li><a href="#emacspeak_002dpianobar_002dswitch_002dto_002dpreset" accesskey="7">emacspeak-pianobar-switch-to-preset</a></li>
-<li><a href="#emacspeak_002dpianobar_002dvolume_002ddown" accesskey="8">emacspeak-pianobar-volume-down</a></li>
-<li><a href="#emacspeak_002dpianobar_002dvolume_002dup" accesskey="9">emacspeak-pianobar-volume-up</a></li>
-</ul>
-<div class="subsubsection" id="emacspeak_002dpianobar-2">
-<h4 class="subsubsection">12.146.3.1 emacspeak-pianobar</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar"><span class="category">Command: </span><span><strong>emacspeak-pianobar</strong><a href='#index-emacspeak_002dpianobar' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002de-_0027'><span><kbd>C-e '</kbd><a href='#index-C_002de-_0027' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-_003cfn_003e-_0027'><span><kbd>&lt;fn&gt; '</kbd><a href='#index-_003cfn_003e-_0027' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-emacspeak_002dpianobar-1"></span>
-
-<div class="format">
-<pre class="format">Start or control Emacspeak Pianobar player.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002dcommand">
-<h4 class="subsubsection">12.146.3.2 emacspeak-pianobar-command</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002dcommand"><span class="category">Command: </span><span><strong>emacspeak-pianobar-command</strong> <em>(key)</em><a href='#index-emacspeak_002dpianobar_002dcommand' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002dcommand-1"></span>
-
-<div class="format">
-<pre class="format">Invoke Pianobar  commands.
+<body lang="en" xml:lang="en">
+  <div class="section" id="emacspeak_002dpianobar">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dpopup.html" accesskey="n"
+      rel="next">emacspeak-popup</a>, Previous: <a href=
+      "emacspeak_002dperl.html" accesskey="p" rel=
+      "prev">emacspeak-perl</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dpianobar-1"></span>
+    <h3 class="section">12.146 emacspeak-pianobar</h3>
+    <ul class="section-toc">
+      <li><a href="#PIANOBAR-_003d_003d-Pandora-Client-for-Emacs"
+      accesskey="1">PIANOBAR == Pandora Client for Emacs</a></li>
+      <li><a href="#Emacspeak-Usage_003a" accesskey="2">Emacspeak
+      Usage:</a></li>
+      <li><a href="#Emacspeak_002dPianobar-Commands" accesskey=
+      "3">Emacspeak-Pianobar Commands</a></li>
+    </ul>
+    <div class="subsection" id=
+    "PIANOBAR-_003d_003d-Pandora-Client-for-Emacs">
+      <h4 class="subsection">12.146.1 PIANOBAR == Pandora Client
+      for Emacs</h4>
+      <p>pianobar git://github.com/PromyLOPh/pianobar.git
+      Ubuntu/Debian: sudo apt-get install pianobar</p>
+      <p>Pianobar Is a stand-alone client for Pandora Radio.
+      pianobar.el available on the Emacs Wiki at
+      http://www.emacswiki.org/emacs/pianobar.el Provides access to
+      Pandora Radio via pianobar from the comfort of Emacs. This
+      module speech-enables Pianobar and enhances it for the
+      Complete Audio Desktop.</p>
+    </div>
+    <div class="subsection" id="Emacspeak-Usage_003a">
+      <h4 class="subsection">12.146.2 Emacspeak Usage:</h4>
+      <p>Emacspeak implements command emacspeak-pianobar, a
+      light-weight wrapper on top of pianobar. Emacspeak binds this
+      command to <code>C-e '</code>. Command emacspeak-pianobar is
+      designed to let you launch Pandora channels and switch
+      tracks/channels without moving away from your primary tasks
+      such as editing code or reading/composing email. Toward this
+      end, launching command emacspeak-pianobar the first time
+      initializes the <code>*pianobar*</code> buffer and launches
+      command <code>pianobar</code>; but focus remains in your
+      current buffer. Pianobar can be controlled with single
+      keystrokes while in the pianobar buffer — switch to using
+      <code>C-e ''</code>. The most useful keys are
+      <code>right</code> for skipping tracks, <code>up</code> and
+      <code>down</code> for switching channels etc.; see the keys
+      bound in <code>pianobar-key-map</code> for a complete list.
+      Pressing <code>C-e '</code> in the <code>*pianobar*</code>
+      buffer buries the <code>*pianobar*</code>. From here on,
+      Pianobar can be controlled by pressing the Pianobar prefix
+      key (<code>C-e '</code>) followed by keys from
+      <code>pianobar-key-map</code>.</p>
+    </div>
+    <div class="subsection" id="Emacspeak_002dPianobar-Commands">
+      <h4 class="subsection">12.146.3 Emacspeak-Pianobar
+      Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002dpianobar-2" accesskey=
+        "1">emacspeak-pianobar</a></li>
+        <li><a href="#emacspeak_002dpianobar_002dcommand"
+        accesskey="2">emacspeak-pianobar-command</a></li>
+        <li><a href=
+        "#emacspeak_002dpianobar_002delectric_002dmode_002dtoggle"
+        accesskey=
+        "3">emacspeak-pianobar-electric-mode-toggle</a></li>
+        <li><a href="#emacspeak_002dpianobar_002dnext_002dpreset"
+        accesskey="4">emacspeak-pianobar-next-preset</a></li>
+        <li><a href=
+        "#emacspeak_002dpianobar_002dprevious_002dpreset"
+        accesskey="5">emacspeak-pianobar-previous-preset</a></li>
+        <li><a href="#emacspeak_002dpianobar_002dsend_002draw"
+        accesskey="6">emacspeak-pianobar-send-raw</a></li>
+        <li><a href=
+        "#emacspeak_002dpianobar_002dswitch_002dto_002dpreset"
+        accesskey="7">emacspeak-pianobar-switch-to-preset</a></li>
+        <li><a href="#emacspeak_002dpianobar_002dvolume_002ddown"
+        accesskey="8">emacspeak-pianobar-volume-down</a></li>
+        <li><a href="#emacspeak_002dpianobar_002dvolume_002dup"
+        accesskey="9">emacspeak-pianobar-volume-up</a></li>
+      </ul>
+      <div class="subsubsection" id="emacspeak_002dpianobar-2">
+        <h4 class="subsubsection">12.146.3.1
+        emacspeak-pianobar</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dpianobar"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-pianobar</strong> <a href=
+          '#index-emacspeak_002dpianobar' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-_0027'><span><kbd>C-e '</kbd>
+              <a href='#index-C_002de-_0027' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-_0027'>
+              <span><kbd>&lt;fn&gt; '</kbd> <a href=
+              '#index-_003cfn_003e-_0027' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-emacspeak_002dpianobar-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Start or control Emacspeak Pianobar player.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002dcommand">
+        <h4 class="subsubsection">12.146.3.2
+        emacspeak-pianobar-command</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dpianobar_002dcommand">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-command</strong>
+          <em>(key)</em> <a href=
+          '#index-emacspeak_002dpianobar_002dcommand' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002dcommand-1"></span>
+            <div class="format">
+              <pre class="format">Invoke Pianobar  commands.
 
 (fn KEY)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002delectric_002dmode_002dtoggle">
-<h4 class="subsubsection">12.146.3.3 emacspeak-pianobar-electric-mode-toggle</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002delectric_002dmode_002dtoggle"><span class="category">Command: </span><span><strong>emacspeak-pianobar-electric-mode-toggle</strong><a href='#index-emacspeak_002dpianobar_002delectric_002dmode_002dtoggle' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002delectric_002dmode_002dtoggle-1"></span>
-
-<div class="format">
-<pre class="format">Toggle electric mode in pianobar buffer.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002delectric_002dmode_002dtoggle">
+        <h4 class="subsubsection">12.146.3.3
+        emacspeak-pianobar-electric-mode-toggle</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dpianobar_002delectric_002dmode_002dtoggle">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-electric-mode-toggle</strong>
+          <a href=
+          '#index-emacspeak_002dpianobar_002delectric_002dmode_002dtoggle'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002delectric_002dmode_002dtoggle-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Toggle electric mode in pianobar buffer.
 If electric mode is on, keystrokes invoke pianobar commands directly.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002dnext_002dpreset">
-<h4 class="subsubsection">12.146.3.4 emacspeak-pianobar-next-preset</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002dnext_002dpreset"><span class="category">Command: </span><span><strong>emacspeak-pianobar-next-preset</strong><a href='#index-emacspeak_002dpianobar_002dnext_002dpreset' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002dnext_002dpreset-1"></span>
-
-<div class="format">
-<pre class="format">Switch to next preset.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002dprevious_002dpreset">
-<h4 class="subsubsection">12.146.3.5 emacspeak-pianobar-previous-preset</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002dprevious_002dpreset"><span class="category">Command: </span><span><strong>emacspeak-pianobar-previous-preset</strong><a href='#index-emacspeak_002dpianobar_002dprevious_002dpreset' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002dprevious_002dpreset-1"></span>
-
-<div class="format">
-<pre class="format">Switch to previous preset.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002dsend_002draw">
-<h4 class="subsubsection">12.146.3.6 emacspeak-pianobar-send-raw</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002dsend_002draw"><span class="category">Command: </span><span><strong>emacspeak-pianobar-send-raw</strong> <em>(string)</em><a href='#index-emacspeak_002dpianobar_002dsend_002draw' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002dsend_002draw-1"></span>
-
-<div class="format">
-<pre class="format">Send raw string with newline added to pianobar.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002dnext_002dpreset">
+        <h4 class="subsubsection">12.146.3.4
+        emacspeak-pianobar-next-preset</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dpianobar_002dnext_002dpreset">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-next-preset</strong>
+          <a href=
+          '#index-emacspeak_002dpianobar_002dnext_002dpreset'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002dnext_002dpreset-1"></span>
+            <div class="format">
+              <pre class="format">Switch to next preset.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002dprevious_002dpreset">
+        <h4 class="subsubsection">12.146.3.5
+        emacspeak-pianobar-previous-preset</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dpianobar_002dprevious_002dpreset">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-previous-preset</strong>
+          <a href=
+          '#index-emacspeak_002dpianobar_002dprevious_002dpreset'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002dprevious_002dpreset-1">
+            </span>
+            <div class="format">
+              <pre class="format">Switch to previous preset.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002dsend_002draw">
+        <h4 class="subsubsection">12.146.3.6
+        emacspeak-pianobar-send-raw</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dpianobar_002dsend_002draw">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-send-raw</strong>
+          <em>(string)</em> <a href=
+          '#index-emacspeak_002dpianobar_002dsend_002draw' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002dsend_002draw-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Send raw string with newline added to pianobar.
 
 (fn STRING)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002dswitch_002dto_002dpreset">
-<h4 class="subsubsection">12.146.3.7 emacspeak-pianobar-switch-to-preset</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002dswitch_002dto_002dpreset"><span class="category">Command: </span><span><strong>emacspeak-pianobar-switch-to-preset</strong><a href='#index-emacspeak_002dpianobar_002dswitch_002dto_002dpreset' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002dswitch_002dto_002dpreset-1"></span>
-
-<div class="format">
-<pre class="format">Switch to one of the  presets.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002dvolume_002ddown">
-<h4 class="subsubsection">12.146.3.8 emacspeak-pianobar-volume-down</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002dvolume_002ddown"><span class="category">Command: </span><span><strong>emacspeak-pianobar-volume-down</strong><a href='#index-emacspeak_002dpianobar_002dvolume_002ddown' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002dvolume_002ddown-1"></span>
-
-<div class="format">
-<pre class="format">Decrease volume
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dpianobar_002dvolume_002dup">
-<h4 class="subsubsection">12.146.3.9 emacspeak-pianobar-volume-up</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dpianobar_002dvolume_002dup"><span class="category">Command: </span><span><strong>emacspeak-pianobar-volume-up</strong><a href='#index-emacspeak_002dpianobar_002dvolume_002dup' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dpianobar_002dvolume_002dup-1"></span>
-
-<div class="format">
-<pre class="format">Increase volume
-</pre></div>
-</dd></dl>
-
-</div>
-</div>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dpopup.html">emacspeak-popup</a>, Previous: <a href="emacspeak_002dperl.html">emacspeak-perl</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002dswitch_002dto_002dpreset">
+        <h4 class="subsubsection">12.146.3.7
+        emacspeak-pianobar-switch-to-preset</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dpianobar_002dswitch_002dto_002dpreset">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-switch-to-preset</strong>
+          <a href=
+          '#index-emacspeak_002dpianobar_002dswitch_002dto_002dpreset'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002dswitch_002dto_002dpreset-1">
+            </span>
+            <div class="format">
+              <pre class="format">Switch to one of the  presets.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002dvolume_002ddown">
+        <h4 class="subsubsection">12.146.3.8
+        emacspeak-pianobar-volume-down</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dpianobar_002dvolume_002ddown">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-volume-down</strong>
+          <a href=
+          '#index-emacspeak_002dpianobar_002dvolume_002ddown'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002dvolume_002ddown-1"></span>
+            <div class="format">
+              <pre class="format">Decrease volume
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dpianobar_002dvolume_002dup">
+        <h4 class="subsubsection">12.146.3.9
+        emacspeak-pianobar-volume-up</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dpianobar_002dvolume_002dup">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-pianobar-volume-up</strong>
+          <a href='#index-emacspeak_002dpianobar_002dvolume_002dup'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dpianobar_002dvolume_002dup-1"></span>
+            <div class="format">
+              <pre class="format">Increase volume
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dpopup.html">emacspeak-popup</a>, Previous:
+    <a href="emacspeak_002dperl.html">emacspeak-perl</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

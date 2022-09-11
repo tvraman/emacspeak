@@ -1,89 +1,110 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Emacs Packages (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Emacs Packages (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Emacs Packages (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html" rel="up" title="Top">
-<link href="Emacspeak-Keymaps.html" rel="next" title="Emacspeak Keymaps">
-<link href="Using-Online-Help.html" rel="prev" title="Using Online Help">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Emacs Packages (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Emacs Packages (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Emacs Packages (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html" rel="up" title="Top" />
+  <link href="Emacspeak-Keymaps.html" rel="next" title=
+  "Emacspeak Keymaps" />
+  <link href="Using-Online-Help.html" rel="prev" title=
+  "Using Online Help" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="chapter" id="Emacs-Packages">
-<div class="header">
-<p>
-Next: <a href="Emacspeak-Keymaps.html" accesskey="n" rel="next">Emacspeak Keymaps</a>, Previous: <a href="Using-Online-Help.html" accesskey="p" rel="prev">Using Online Help With Emacspeak.</a>, Up: <a href="index.html" accesskey="u" rel="up">Emacspeak</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Emacs-Packages_002e"></span><h2 class="chapter">10 Emacs Packages.</h2>
-
-<span id="index-Emacs-Packages"></span>
-
-<p>Emacs  &mdash; The extensible, self-documenting editor, derives its
-functionality from its powerful extension mechanism.  This extension
-mechanism is used to implement many user-level applications such as mail
-readers, web browsers, software development environments and so on.
-This chapter gives directions on how to locate the right Emacs package
-for addressing specific tasks.  The chapter is organized into logical
-sections that each pertain to a specific class of tasks; in individual
-subsections within a section give a brief overview of particular Emacs
-packages that have been speech-enabled.
-</p>
-<p>For a categorized list of speech-enabled applications on theEmacspeak
-desktop, see <a href="http://emacspeak.sf.net/applications.html">http://emacspeak.sf.net/applications.html</a>.  In
-Emacs 24 and later, you can use Emacs&rsquo; builtin package manager to
-install and update packages.
-</p>
-
-<ul class="section-toc">
-<li><a href="Document-Authoring.html" accesskey="1">Document Authoring</a></li>
-<li><a href="Structured-Editing.html" accesskey="2">Structured Editing And Templates</a></li>
-<li><a href="Browsing-Structure.html" accesskey="3">Browsing Structure</a></li>
-<li><a href="Web-Browsing.html" accesskey="4">Web Browsing</a></li>
-<li><a href="Messaging.html" accesskey="5">Messaging</a></li>
-<li><a href="Editing-Code.html" accesskey="6">Editing Code</a></li>
-<li><a href="Development-Environment.html" accesskey="7">Development Environment</a></li>
-<li><a href="Desktop-Management.html" accesskey="8">Desktop Management</a></li>
-<li><a href="Personal-Information-Management.html" accesskey="9">Personal Information Management</a></li>
-<li><a href="Desktop-Applications.html">Desktop Applications</a></li>
-</ul>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="chapter" id="Emacs-Packages">
+    <div class="header">
+      <p>Next: <a href="Emacspeak-Keymaps.html" accesskey="n" rel=
+      "next">Emacspeak Keymaps</a>, Previous: <a href=
+      "Using-Online-Help.html" accesskey="p" rel="prev">Using
+      Online Help With Emacspeak.</a>, Up: <a href="index.html"
+      accesskey="u" rel="up">Emacspeak</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Emacs-Packages_002e"></span>
+    <h2 class="chapter">10 Emacs Packages.</h2><span id=
+    "index-Emacs-Packages"></span>
+    <p>Emacs — The extensible, self-documenting editor, derives its
+    functionality from its powerful extension mechanism. This
+    extension mechanism is used to implement many user-level
+    applications such as mail readers, web browsers, software
+    development environments and so on. This chapter gives
+    directions on how to locate the right Emacs package for
+    addressing specific tasks. The chapter is organized into
+    logical sections that each pertain to a specific class of
+    tasks; in individual subsections within a section give a brief
+    overview of particular Emacs packages that have been
+    speech-enabled.</p>
+    <p>For a categorized list of speech-enabled applications on
+    theEmacspeak desktop, see <a href=
+    "http://emacspeak.sf.net/applications.html">http://emacspeak.sf.net/applications.html</a>.
+    In Emacs 24 and later, you can use Emacs’ builtin package
+    manager to install and update packages.</p>
+    <ul class="section-toc">
+      <li><a href="Document-Authoring.html" accesskey="1">Document
+      Authoring</a></li>
+      <li><a href="Structured-Editing.html" accesskey=
+      "2">Structured Editing And Templates</a></li>
+      <li><a href="Browsing-Structure.html" accesskey="3">Browsing
+      Structure</a></li>
+      <li><a href="Web-Browsing.html" accesskey="4">Web
+      Browsing</a></li>
+      <li><a href="Messaging.html" accesskey="5">Messaging</a></li>
+      <li><a href="Editing-Code.html" accesskey="6">Editing
+      Code</a></li>
+      <li><a href="Development-Environment.html" accesskey=
+      "7">Development Environment</a></li>
+      <li><a href="Desktop-Management.html" accesskey="8">Desktop
+      Management</a></li>
+      <li><a href="Personal-Information-Management.html" accesskey=
+      "9">Personal Information Management</a></li>
+      <li><a href="Desktop-Applications.html">Desktop
+      Applications</a></li>
+    </ul>
+  </div>
 </body>
 </html>

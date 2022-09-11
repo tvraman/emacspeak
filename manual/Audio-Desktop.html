@@ -1,105 +1,120 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Audio Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Audio Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Audio Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html" rel="up" title="Top">
-<link href="Voice-Lock.html" rel="next" title="Voice Lock">
-<link href="Basic-Usage.html" rel="prev" title="Basic Usage">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Audio Desktop (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Audio Desktop (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Audio Desktop (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html" rel="up" title="Top" />
+  <link href="Voice-Lock.html" rel="next" title="Voice Lock" />
+  <link href="Basic-Usage.html" rel="prev" title="Basic Usage" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="chapter" id="Audio-Desktop">
-<div class="header">
-<p>
-Next: <a href="Voice-Lock.html" accesskey="n" rel="next">Voice Lock</a>, Previous: <a href="Basic-Usage.html" accesskey="p" rel="prev">Basic Usage.</a>, Up: <a href="index.html" accesskey="u" rel="up">Emacspeak</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="The-Emacspeak-Audio-Desktop_002e"></span><h2 class="chapter">7 The Emacspeak Audio Desktop.</h2>
-<span id="index-Audio-Desktop"></span>
-
-<p>This chapter describes the Emacspeak audio desktop and gives tips and
-tricks for making use of many of Emacs&rsquo; powerful features.
-</p>
-<p>The desktop is the work area where you organize the tools of your
-trade and the information objects relevant to your current activities.
-In the conventional world of visual <acronym title="Graphical User
-Interface">GUI</acronym> (Graphical User
-Interface)-based computing, these tools and information objects
-manifest themselves as a collection of icons organized in a
-two-dimensional work-area  &mdash; this organization is designed to
-place frequently used objects within easy reach.
-</p>
-<p>Notice that organizing one&rsquo;s work area in terms of visual icons
-arranged in a two-dimensional area where such an organization is
-optimized for the available &ldquo;conversational gestures&rdquo; of pointing and
-clicking is an artifact of visual interaction.
-</p>
-<p>In the spirit of a truly speech-enabled application, Emacspeak does
-not simply provide you spoken access to a particular presentation of
-your work environment that was initially designed with the &ldquo;sign
-language&rdquo; of visual interaction in mind.  Instead, Emacspeak enables
-you to work with documents and other information objects in a manner
-that is optimized to aural, eyes-free interaction.  A necessary
-consequence of this setup is that users accustomed to the purely
-visual manifestation of today&rsquo;s electronic desktop do not immediately
-perceive the Emacspeak environment as an electronic desktop.  This
-section of the manual hopes to introduce you to a work-style that
-encourages a different perspective on how one interacts with the
-computer in performing day-to-day computing tasks.
-</p>
-<p>The end result in my case has been a marked increase in personal
-productivity.
-</p>
-
-
-<ul class="section-toc">
-<li><a href="Desktop-Objects.html" accesskey="1">Objects Making Up The Emacspeak Desktop</a></li>
-<li><a href="Object-Oriented-Desktop.html" accesskey="2">An Object-Oriented Desktop</a></li>
-<li><a href="Context_002dSensitive-Interaction.html" accesskey="3">Emacspeak Specializes Aural Interaction</a></li>
-</ul>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Voice-Lock.html">Voice Lock</a>, Previous: <a href="Basic-Usage.html">Basic Usage.</a>, Up: <a href="index.html">Emacspeak</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="chapter" id="Audio-Desktop">
+    <div class="header">
+      <p>Next: <a href="Voice-Lock.html" accesskey="n" rel=
+      "next">Voice Lock</a>, Previous: <a href="Basic-Usage.html"
+      accesskey="p" rel="prev">Basic Usage.</a>, Up: <a href=
+      "index.html" accesskey="u" rel="up">Emacspeak</a> &nbsp;
+      [<a href="index.html#SEC_Contents" title="Table of contents"
+      rel="contents">Contents</a>][<a href="Concept-Index.html"
+      title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="The-Emacspeak-Audio-Desktop_002e"></span>
+    <h2 class="chapter">7 The Emacspeak Audio
+    Desktop.</h2><span id="index-Audio-Desktop"></span>
+    <p>This chapter describes the Emacspeak audio desktop and gives
+    tips and tricks for making use of many of Emacs’ powerful
+    features.</p>
+    <p>The desktop is the work area where you organize the tools of
+    your trade and the information objects relevant to your current
+    activities. In the conventional world of visual <acronym title=
+    "Graphical User Interface">GUI</acronym> (Graphical User
+    Interface)-based computing, these tools and information objects
+    manifest themselves as a collection of icons organized in a
+    two-dimensional work-area — this organization is designed to
+    place frequently used objects within easy reach.</p>
+    <p>Notice that organizing one’s work area in terms of visual
+    icons arranged in a two-dimensional area where such an
+    organization is optimized for the available “conversational
+    gestures” of pointing and clicking is an artifact of visual
+    interaction.</p>
+    <p>In the spirit of a truly speech-enabled application,
+    Emacspeak does not simply provide you spoken access to a
+    particular presentation of your work environment that was
+    initially designed with the “sign language” of visual
+    interaction in mind. Instead, Emacspeak enables you to work
+    with documents and other information objects in a manner that
+    is optimized to aural, eyes-free interaction. A necessary
+    consequence of this setup is that users accustomed to the
+    purely visual manifestation of today’s electronic desktop do
+    not immediately perceive the Emacspeak environment as an
+    electronic desktop. This section of the manual hopes to
+    introduce you to a work-style that encourages a different
+    perspective on how one interacts with the computer in
+    performing day-to-day computing tasks.</p>
+    <p>The end result in my case has been a marked increase in
+    personal productivity.</p>
+    <ul class="section-toc">
+      <li><a href="Desktop-Objects.html" accesskey="1">Objects
+      Making Up The Emacspeak Desktop</a></li>
+      <li><a href="Object-Oriented-Desktop.html" accesskey="2">An
+      Object-Oriented Desktop</a></li>
+      <li><a href="Context_002dSensitive-Interaction.html"
+      accesskey="3">Emacspeak Specializes Aural
+      Interaction</a></li>
+    </ul>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href="Voice-Lock.html">Voice Lock</a>, Previous:
+    <a href="Basic-Usage.html">Basic Usage.</a>, Up: <a href=
+    "index.html">Emacspeak</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

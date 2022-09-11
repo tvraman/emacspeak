@@ -1,97 +1,124 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Accessing Media Streams (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Accessing Media Streams (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Accessing Media Streams (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-At-Twenty.html" rel="up" title="Emacspeak At Twenty">
-<link href="EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html" rel="next" title="EBooks ---  Ubiquitous Access To Books">
-<link href="Conversational-Gestures-For-The-Audio-Desktop.html" rel="prev" title="Conversational Gestures For The Audio Desktop">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Accessing Media Streams (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Accessing Media Streams (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Accessing Media Streams (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-At-Twenty.html" rel="up" title=
+  "Emacspeak At Twenty" />
+  <link href=
+  "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html" rel=
+  "next" title="EBooks --- Ubiquitous Access To Books" />
+  <link href="Conversational-Gestures-For-The-Audio-Desktop.html"
+  rel="prev" title=
+  "Conversational Gestures For The Audio Desktop" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Accessing-Media-Streams">
-<div class="header">
-<p>
-Next: <a href="EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html" accesskey="n" rel="next">EBooks &mdash;    Ubiquitous Access To Books</a>, Previous: <a href="Conversational-Gestures-For-The-Audio-Desktop.html" accesskey="p" rel="prev">Conversational Gestures For The Audio Desktop</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Accessing-Media-Streams-1"></span><h3 class="section">16.10 Accessing Media Streams</h3>
-
-<p>Streaming real-time audio on the Internet became a reality with
-the advent of RealAudio in 1995; soon there were a large number
-of media streams available on the Internet ranging from music
-streams to live radio stations. But there was an interesting
-twist  &mdash;  for the most part, all of these media streams expected
-one to look at the screen, even though the primary content was
-purely audio (streaming video hadn&rsquo;t arrived yet!). Starting in
-1996, Emacspeak started including a variety of eyes-free
-front-ends for accessing media streams. Initially, this was
-achieved by building a wrapper around <strong>trplayer</strong>  &mdash;  a headless
-version of RealPlayer; later I built Emacspeak module
-<strong>emacspeak-m-player</strong> for interfacing with package <strong>mplayer</strong>. A
-key aspect of streaming media integration in emacspeak is that
-one can launch and control streams without ever switching away
-from one&rsquo;s primary task; thus, you can continue to type email or
-edit code while seamlessly launching and controlling media
-streams. Over the years, Emacspeak has come to integrate with
-Emacs packages like <strong>emms</strong> as well as providing wrappers for
-<strong>mplayer</strong> and <strong>alsaplayer</strong>  &mdash;  collectively, these let you
-efficiently launch all types of media streams, including
-streaming video, without having to explicitly switch context.
-</p>
-
-<p>In the mid-90&rsquo;s, Emacspeak started including a directory of media
-links to some of the more popular radio stations  &mdash;  primarily as a
-means of helping users getting started  &mdash;  Emacs&rsquo; ability to
-rapidly complete directory and file-names turned out to be the
-most effective means of quickly launching everything from
-streaming radio stations to audio books. And even better  &mdash;  as the
-Emacs community develops better and smarter ways of navigating
-the filesystem using completions, e.g., package <strong>ido</strong>, these
-types of actions become even more efficient!
-</p>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html">EBooks &mdash;    Ubiquitous Access To Books</a>, Previous: <a href="Conversational-Gestures-For-The-Audio-Desktop.html">Conversational Gestures For The Audio Desktop</a>, Up: <a href="Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id="Accessing-Media-Streams">
+    <div class="header">
+      <p>Next: <a href=
+      "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html"
+      accesskey="n" rel="next">EBooks — Ubiquitous Access To
+      Books</a>, Previous: <a href=
+      "Conversational-Gestures-For-The-Audio-Desktop.html"
+      accesskey="p" rel="prev">Conversational Gestures For The
+      Audio Desktop</a>, Up: <a href="Emacspeak-At-Twenty.html"
+      accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp;
+      [<a href="index.html#SEC_Contents" title="Table of contents"
+      rel="contents">Contents</a>][<a href="Concept-Index.html"
+      title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Accessing-Media-Streams-1"></span>
+    <h3 class="section">16.10 Accessing Media Streams</h3>
+    <p>Streaming real-time audio on the Internet became a reality
+    with the advent of RealAudio in 1995; soon there were a large
+    number of media streams available on the Internet ranging from
+    music streams to live radio stations. But there was an
+    interesting twist — for the most part, all of these media
+    streams expected one to look at the screen, even though the
+    primary content was purely audio (streaming video hadn’t
+    arrived yet!). Starting in 1996, Emacspeak started including a
+    variety of eyes-free front-ends for accessing media streams.
+    Initially, this was achieved by building a wrapper around
+    <strong>trplayer</strong> — a headless version of RealPlayer;
+    later I built Emacspeak module
+    <strong>emacspeak-m-player</strong> for interfacing with
+    package <strong>mplayer</strong>. A key aspect of streaming
+    media integration in emacspeak is that one can launch and
+    control streams without ever switching away from one’s primary
+    task; thus, you can continue to type email or edit code while
+    seamlessly launching and controlling media streams. Over the
+    years, Emacspeak has come to integrate with Emacs packages like
+    <strong>emms</strong> as well as providing wrappers for
+    <strong>mplayer</strong> and <strong>alsaplayer</strong> —
+    collectively, these let you efficiently launch all types of
+    media streams, including streaming video, without having to
+    explicitly switch context.</p>
+    <p>In the mid-90’s, Emacspeak started including a directory of
+    media links to some of the more popular radio stations —
+    primarily as a means of helping users getting started — Emacs’
+    ability to rapidly complete directory and file-names turned out
+    to be the most effective means of quickly launching everything
+    from streaming radio stations to audio books. And even better —
+    as the Emacs community develops better and smarter ways of
+    navigating the filesystem using completions, e.g., package
+    <strong>ido</strong>, these types of actions become even more
+    efficient!</p>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html">EBooks
+    — Ubiquitous Access To Books</a>, Previous: <a href=
+    "Conversational-Gestures-For-The-Audio-Desktop.html">Conversational
+    Gestures For The Audio Desktop</a>, Up: <a href=
+    "Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href="Concept-Index.html"
+    title="Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

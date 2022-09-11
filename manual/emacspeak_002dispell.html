@@ -1,87 +1,104 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>emacspeak-ispell (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="emacspeak-ispell (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="emacspeak-ispell (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002divy.html" rel="next" title="emacspeak-ivy">
-<link href="emacspeak_002dinfo.html" rel="prev" title="emacspeak-info">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-ispell (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-ispell (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-ispell (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="emacspeak_002divy.html" rel="next" title=
+  "emacspeak-ivy" />
+  <link href="emacspeak_002dinfo.html" rel="prev" title=
+  "emacspeak-info" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="emacspeak_002dispell">
-<div class="header">
-<p>
-Next: <a href="emacspeak_002divy.html" accesskey="n" rel="next">emacspeak-ivy</a>, Previous: <a href="emacspeak_002dinfo.html" accesskey="p" rel="prev">emacspeak-info</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="emacspeak_002dispell-1"></span><h3 class="section">12.107 emacspeak-ispell</h3>
-
-<p>This module speech enables ispell.
-Implementation note: This is hard because of how  ispell.el is written
-Namely, all of the work is done by one huge hairy function.
-This makes advising it hard.
-The ispell commands work well with Emacspeak as long as the list of correction choices are few.
-For interactively moving through corrections, install package flyspell-correct from MELPA
-(package-install &quot;flyspell-correct&quot;)
-Then use M-x flyspell-mode.
-Package flyspell is speech-enabled by Emacspeak module emacspeak-flyspell
-And that module sets up flyspell-correct to use IDO-style completion,
-i.e. you can move through corrections with C-r and C-s.
-</p>
-<ul class="section-toc">
-<li><a href="#emacspeak_002dispell-Options" accesskey="1">emacspeak-ispell Options</a></li>
-</ul>
-<div class="subsection" id="emacspeak_002dispell-Options">
-<h4 class="subsection">12.107.1 emacspeak-ispell Options</h4>
-
-<dl class="def">
-<dt id="index-User-Option-45"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-ispell-max-choices</em><a href='#index-User-Option-45' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Emacspeak will not speak the choices if there are more than this
-many available corrections.
-</p>
-<p>Default Value: <code><tt>8</tt></code>
-</p>
-</dd></dl>
-
-</div>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id="emacspeak_002dispell">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002divy.html" accesskey="n" rel=
+      "next">emacspeak-ivy</a>, Previous: <a href=
+      "emacspeak_002dinfo.html" accesskey="p" rel=
+      "prev">emacspeak-info</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dispell-1"></span>
+    <h3 class="section">12.107 emacspeak-ispell</h3>
+    <p>This module speech enables ispell. Implementation note: This
+    is hard because of how ispell.el is written Namely, all of the
+    work is done by one huge hairy function. This makes advising it
+    hard. The ispell commands work well with Emacspeak as long as
+    the list of correction choices are few. For interactively
+    moving through corrections, install package flyspell-correct
+    from MELPA (package-install "flyspell-correct") Then use M-x
+    flyspell-mode. Package flyspell is speech-enabled by Emacspeak
+    module emacspeak-flyspell And that module sets up
+    flyspell-correct to use IDO-style completion, i.e. you can move
+    through corrections with C-r and C-s.</p>
+    <ul class="section-toc">
+      <li><a href="#emacspeak_002dispell-Options" accesskey=
+      "1">emacspeak-ispell Options</a></li>
+    </ul>
+    <div class="subsection" id="emacspeak_002dispell-Options">
+      <h4 class="subsection">12.107.1 emacspeak-ispell Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-45"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ispell-max-choices</em>
+        <a href='#index-User-Option-45' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Emacspeak will not speak the choices if there are more
+          than this many available corrections.</p>
+          <p>Default Value: <code><tt>8</tt></code></p>
+        </dd>
+      </dl>
+    </div>
+  </div>
 </body>
 </html>

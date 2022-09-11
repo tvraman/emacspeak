@@ -1,88 +1,110 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-At-Twenty.html" rel="up" title="Emacspeak At Twenty">
-<link href="Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html" rel="next" title="Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols">
-<link href="EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html" rel="prev" title="EBooks ---  Ubiquitous Access To Books">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Leveraging Computational Tools --- From SQL And R To
+  IPython Notebooks (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Leveraging Computational Tools --- From SQL And R To IPython Notebooks (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Leveraging Computational Tools --- From SQL And R To IPython Notebooks (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-At-Twenty.html" rel="up" title=
+  "Emacspeak At Twenty" />
+  <link href=
+  "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html"
+  rel="next" title=
+  "Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols" />
+  <link href=
+  "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html" rel=
+  "prev" title="EBooks --- Ubiquitous Access To Books" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks">
-<div class="header">
-<p>
-Next: <a href="Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html" accesskey="n" rel="next">Social Web   &mdash;  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols</a>, Previous: <a href="EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html" accesskey="p" rel="prev">EBooks &mdash;    Ubiquitous Access To Books</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks-1"></span><h3 class="section">16.12 Leveraging Computational Tools  &mdash;   From SQL And R To IPython Notebooks</h3>
-
-<p>The ability to invoke external processes and interface with them
-via a simple read-eval-loop (REPL) is perhaps one of Emacs&rsquo;
-strongest extension points. This means that a wide variety of
-computational tools become immediately available for embedding
-within the Emacs environment  &mdash;  a facility that has been widely
-exploited by the Emacs community. Over the years, Emacspeak has
-leveraged many of these facilities to provide a well-integrated
-auditory interface.
-</p>
-<p>Starting from a tight code, eval, test form of iterative
-programming as encouraged by Lisp. Applied to languages like
-Python and Ruby to exploratory computational tools such as R for
-data analysis and SQL for database interaction, the Emacspeak
-Audio Desktop has come to encompass a collection of rich
-computational tools that provide an efficient eyes-free
-experience.
-</p>
-
-<p>In this context, module <strong>ein</strong>  &mdash;  Emacs IPython Notebooks  &mdash; 
-provides another excellent example of an Emacs tool that helps
-interface seamlessly with others in the technical domain. IPython
-Notebooks provide an easy means of reaching a large audience when
-publishing technical material with interactive computational
-content; module <strong>ein</strong> brings the power and convenience of Emacs &rsquo;
-editing facilities when developing the content. Speech-enabling
-package <strong>ein</strong> is a major win since editing program source code
-in an eyes-free environment is far smoother in Emacs than in a
-browser-based editor.
-</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id=
+  "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks">
+    <div class="header">
+      <p>Next: <a href=
+      "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html"
+      accesskey="n" rel="next">Social Web — EMail, Instant
+      Messaging, Blogging And Tweeting Using Open Protocols</a>,
+      Previous: <a href=
+      "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html"
+      accesskey="p" rel="prev">EBooks — Ubiquitous Access To
+      Books</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey=
+      "u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id=
+    "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks-1"></span>
+    <h3 class="section">16.12 Leveraging Computational Tools — From
+    SQL And R To IPython Notebooks</h3>
+    <p>The ability to invoke external processes and interface with
+    them via a simple read-eval-loop (REPL) is perhaps one of
+    Emacs’ strongest extension points. This means that a wide
+    variety of computational tools become immediately available for
+    embedding within the Emacs environment — a facility that has
+    been widely exploited by the Emacs community. Over the years,
+    Emacspeak has leveraged many of these facilities to provide a
+    well-integrated auditory interface.</p>
+    <p>Starting from a tight code, eval, test form of iterative
+    programming as encouraged by Lisp. Applied to languages like
+    Python and Ruby to exploratory computational tools such as R
+    for data analysis and SQL for database interaction, the
+    Emacspeak Audio Desktop has come to encompass a collection of
+    rich computational tools that provide an efficient eyes-free
+    experience.</p>
+    <p>In this context, module <strong>ein</strong> — Emacs IPython
+    Notebooks — provides another excellent example of an Emacs tool
+    that helps interface seamlessly with others in the technical
+    domain. IPython Notebooks provide an easy means of reaching a
+    large audience when publishing technical material with
+    interactive computational content; module <strong>ein</strong>
+    brings the power and convenience of Emacs ’ editing facilities
+    when developing the content. Speech-enabling package
+    <strong>ein</strong> is a major win since editing program
+    source code in an eyes-free environment is far smoother in
+    Emacs than in a browser-based editor.</p>
+  </div>
 </body>
 </html>

@@ -1,74 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Speech System (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Speech System (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Speech System (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Basic-Usage.html" rel="up" title="Basic Usage">
-<link href="Voice_002dlock.html" rel="next" title="Voice-lock">
-<link href="Reading.html" rel="prev" title="Reading">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Speech System (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Speech System (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Speech System (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Basic-Usage.html" rel="up" title="Basic Usage" />
+  <link href="Voice_002dlock.html" rel="next" title="Voice-lock" />
+  <link href="Reading.html" rel="prev" title="Reading" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Speech-System">
-<div class="header">
-<p>
-Next: <a href="Voice_002dlock.html" accesskey="n" rel="next">Voice Lock Mode</a>, Previous: <a href="Reading.html" accesskey="p" rel="prev">Reading Without Moving</a>, Up: <a href="Basic-Usage.html" accesskey="u" rel="up">Basic Usage.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-
-
-<span id="Speech-System-Commands"></span><h3 class="section">6.4 Speech System Commands</h3>
-
-<span id="index-TTS"></span>
-<span id="index-speech-system"></span>
-<span id="index-speech-settings"></span>
-
-<p>This section documents Emacspeak&rsquo;s  various user commands for controlling the
-text to speech (<acronym>TTS</acronym>) system.
-</p>
-
-<ul class="section-toc">
-<li><a href="Controlling-Echo.html" accesskey="1">Character, Word And Line Echo.</a></li>
-<li><a href="Speech-Output-Control.html" accesskey="2">Setting  TTS Characteristics.</a></li>
-<li><a href="Miscellaneous.html" accesskey="3">Miscellaneous Speech Commands</a></li>
-</ul>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id="Speech-System">
+    <div class="header">
+      <p>Next: <a href="Voice_002dlock.html" accesskey="n" rel=
+      "next">Voice Lock Mode</a>, Previous: <a href="Reading.html"
+      accesskey="p" rel="prev">Reading Without Moving</a>, Up:
+      <a href="Basic-Usage.html" accesskey="u" rel="up">Basic
+      Usage.</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+      "Table of contents" rel="contents">Contents</a>][<a href=
+      "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Speech-System-Commands"></span>
+    <h3 class="section">6.4 Speech System Commands</h3><span id=
+    "index-TTS"></span> <span id="index-speech-system"></span>
+    <span id="index-speech-settings"></span>
+    <p>This section documents Emacspeak’s various user commands for
+    controlling the text to speech (<acronym>TTS</acronym>)
+    system.</p>
+    <ul class="section-toc">
+      <li><a href="Controlling-Echo.html" accesskey="1">Character,
+      Word And Line Echo.</a></li>
+      <li><a href="Speech-Output-Control.html" accesskey=
+      "2">Setting TTS Characteristics.</a></li>
+      <li><a href="Miscellaneous.html" accesskey="3">Miscellaneous
+      Speech Commands</a></li>
+    </ul>
+  </div>
 </body>
 </html>

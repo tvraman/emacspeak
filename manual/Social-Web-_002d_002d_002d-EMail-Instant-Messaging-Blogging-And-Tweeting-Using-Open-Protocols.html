@@ -1,115 +1,155 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Social Web --- EMail Instant Messaging Blogging And
+  Tweeting Using Open Protocols (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-At-Twenty.html" rel="up" title=
+  "Emacspeak At Twenty" />
+  <link href=
+  "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html"
+  rel="next" title=
+  "The RESTful Web --- Web Wizards And URL Templates For Faster Access" />
+  <link href=
+  "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks.html"
+  rel="prev" title=
+  "Leveraging Computational Tools --- From SQL And R To IPython Notebooks" />
 
-<meta name="description" content="Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-At-Twenty.html" rel="up" title="Emacspeak At Twenty">
-<link href="The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html" rel="next" title="The RESTful Web  ---  Web Wizards And URL Templates For Faster Access">
-<link href="Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks.html" rel="prev" title="Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols">
-<div class="header">
-<p>
-Next: <a href="The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html" accesskey="n" rel="next">The RESTful Web  &mdash;   Web Wizards And URL Templates For Faster Access</a>, Previous: <a href="Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks.html" accesskey="p" rel="prev">Leveraging Computational Tools  &mdash;   From SQL And R To IPython Notebooks</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Social-Web-_002d_002d_002d-EMail_002c-Instant-Messaging_002c-Blogging-And-Tweeting-Using-Open-Protocols"></span><h3 class="section">16.13 Social Web   &mdash;  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols</h3>
-
-<p>The ability to process large amounts of email and electronic news
-has always been a feature of Emacs. I started using package <strong>vm</strong>
-for email in 1990, along with <strong>gnus</strong> for Usenet access many years
-before developing Emacspeak. So these were the first major
-packages that Emacspeak speech-enabled. Being able to access the
-underlying data structures used to visually render email messages
-and Usenet articles enabled Emacspeak to produce rich, succinct
-auditory output  &mdash;  this vastly increased my ability to consume and
-organize large amounts of information. Toward the turn of the
-century, instant messaging arrived in the mainstream  &mdash;  package
-<strong>tnt</strong> provided an Emacs implementation of a chat client that
-could communicate with users on the then popular AOL Instant
-Messenger platform. At the time, I worked at IBM Research, and
-inspired by package <strong>tnt</strong>, I created an Emacs client called
-<strong>ChatterBox</strong> using the Lotus Sametime API  &mdash;  this enabled me to
-communicate with colleagues at work from the comfort of
-Emacs. Packages like <strong>vm</strong>, <strong>gnus</strong>, <strong>tnt</strong> and <strong>ChatterBox</strong> provide
-an interesting example of how availability of a clean underlying
-API to a specific service or content stream can encourage the
-creation of efficient (and different) user interfaces. The
-touchstone of such successful implementations is a simple test  &mdash; 
-can the user of a specific interface tell if the person whom he
-is communicating with is also using the same interface? In each
-of the examples enumerated above, a user at one end of the
-communication chain cannot tell, and in fact shouldn&rsquo;t be able to
-tell what client the user at the other end is using. Contrast
-this with closed services that have an inherent <em>lock-in</em> model
-e.g., proprietary word processors that use undocumented
-serialization formats  &mdash;  for a fun read, see this write-up on
-<a href="http://emacspeak.sourceforge.net/publications/colored-paper.html">Universe Of Fancy Colored Paper</a>.
-</p>
-
-<p>Today, my personal choice for instant messaging is the open
-Jabber platform. I connect to Jabber via Emacs package
-<strong>emacs-jabber</strong> and with Emacspeak providing a light-weight
-wrapper for generating the eyes-free interface, I can communicate
-seamlessly with colleagues and friends around the world.
-</p>
-<p>As the Web evolved to encompass ever-increasing swathes of
-communication functionality that had already been available on
-the Internet, we saw the world move from Usenet groups to <strong>Blogs</strong>
- &mdash;  I remember initially dismissing the blogging phenomenon as just
-a re-invention of Usenet in the early days. However, mainstream
-users flocked to Blogging, and I later realized that blogging as
-a publishing platform brought along interesting features that
-made communicating and publishing information <strong>much</strong> easier. In
-2005, I joined Google; during the winter holidays that year, I
-implemented a light-weight client for Blogger that became the
-start of Emacs package <strong>g-client</strong>  &mdash;  this package provides Emacs
-wrappers for Google services that provide a RESTful API.
-</p>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html">The RESTful Web  &mdash;   Web Wizards And URL Templates For Faster Access</a>, Previous: <a href="Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks.html">Leveraging Computational Tools  &mdash;   From SQL And R To IPython Notebooks</a>, Up: <a href="Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id=
+  "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols">
+    <div class="header">
+      <p>Next: <a href=
+      "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html"
+      accesskey="n" rel="next">The RESTful Web — Web Wizards And
+      URL Templates For Faster Access</a>, Previous: <a href=
+      "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks.html"
+      accesskey="p" rel="prev">Leveraging Computational Tools —
+      From SQL And R To IPython Notebooks</a>, Up: <a href=
+      "Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak
+      At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents"
+      title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id=
+    "Social-Web-_002d_002d_002d-EMail_002c-Instant-Messaging_002c-Blogging-And-Tweeting-Using-Open-Protocols"></span>
+    <h3 class="section">16.13 Social Web — EMail, Instant
+    Messaging, Blogging And Tweeting Using Open Protocols</h3>
+    <p>The ability to process large amounts of email and electronic
+    news has always been a feature of Emacs. I started using
+    package <strong>vm</strong> for email in 1990, along with
+    <strong>gnus</strong> for Usenet access many years before
+    developing Emacspeak. So these were the first major packages
+    that Emacspeak speech-enabled. Being able to access the
+    underlying data structures used to visually render email
+    messages and Usenet articles enabled Emacspeak to produce rich,
+    succinct auditory output — this vastly increased my ability to
+    consume and organize large amounts of information. Toward the
+    turn of the century, instant messaging arrived in the
+    mainstream — package <strong>tnt</strong> provided an Emacs
+    implementation of a chat client that could communicate with
+    users on the then popular AOL Instant Messenger platform. At
+    the time, I worked at IBM Research, and inspired by package
+    <strong>tnt</strong>, I created an Emacs client called
+    <strong>ChatterBox</strong> using the Lotus Sametime API — this
+    enabled me to communicate with colleagues at work from the
+    comfort of Emacs. Packages like <strong>vm</strong>,
+    <strong>gnus</strong>, <strong>tnt</strong> and
+    <strong>ChatterBox</strong> provide an interesting example of
+    how availability of a clean underlying API to a specific
+    service or content stream can encourage the creation of
+    efficient (and different) user interfaces. The touchstone of
+    such successful implementations is a simple test — can the user
+    of a specific interface tell if the person whom he is
+    communicating with is also using the same interface? In each of
+    the examples enumerated above, a user at one end of the
+    communication chain cannot tell, and in fact shouldn’t be able
+    to tell what client the user at the other end is using.
+    Contrast this with closed services that have an inherent
+    <em>lock-in</em> model e.g., proprietary word processors that
+    use undocumented serialization formats — for a fun read, see
+    this write-up on <a href=
+    "http://emacspeak.sourceforge.net/publications/colored-paper.html">
+    Universe Of Fancy Colored Paper</a>.</p>
+    <p>Today, my personal choice for instant messaging is the open
+    Jabber platform. I connect to Jabber via Emacs package
+    <strong>emacs-jabber</strong> and with Emacspeak providing a
+    light-weight wrapper for generating the eyes-free interface, I
+    can communicate seamlessly with colleagues and friends around
+    the world.</p>
+    <p>As the Web evolved to encompass ever-increasing swathes of
+    communication functionality that had already been available on
+    the Internet, we saw the world move from Usenet groups to
+    <strong>Blogs</strong> — I remember initially dismissing the
+    blogging phenomenon as just a re-invention of Usenet in the
+    early days. However, mainstream users flocked to Blogging, and
+    I later realized that blogging as a publishing platform brought
+    along interesting features that made communicating and
+    publishing information <strong>much</strong> easier. In 2005, I
+    joined Google; during the winter holidays that year, I
+    implemented a light-weight client for Blogger that became the
+    start of Emacs package <strong>g-client</strong> — this package
+    provides Emacs wrappers for Google services that provide a
+    RESTful API.</p>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html">
+    The RESTful Web — Web Wizards And URL Templates For Faster
+    Access</a>, Previous: <a href=
+    "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks.html">
+    Leveraging Computational Tools — From SQL And R To IPython
+    Notebooks</a>, Up: <a href="Emacspeak-At-Twenty.html">Emacspeak
+    At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

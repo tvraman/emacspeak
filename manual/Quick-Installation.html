@@ -1,142 +1,162 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Quick Installation (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Quick Installation (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Quick Installation (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Installation.html" rel="up" title="Installation">
-<link href="Building-And-Testing-The-Speech-Server.html" rel="next" title="Building And Testing The Speech Server">
-<link href="Obtaining-Emacspeak.html" rel="prev" title="Obtaining Emacspeak">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Quick Installation (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Quick Installation (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Quick Installation (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Installation.html" rel="up" title="Installation" />
+  <link href="Building-And-Testing-The-Speech-Server.html" rel=
+  "next" title="Building And Testing The Speech Server" />
+  <link href="Obtaining-Emacspeak.html" rel="prev" title=
+  "Obtaining Emacspeak" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Quick-Installation">
-<div class="header">
-<p>
-Next: <a href="Building-And-Testing-The-Speech-Server.html" accesskey="n" rel="next">Building And Testing The Speech Server</a>, Previous: <a href="Obtaining-Emacspeak.html" accesskey="p" rel="prev">Obtaining Emacspeak</a>, Up: <a href="Installation.html" accesskey="u" rel="up">Installation Instructions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Quick-Installation-1"></span><h3 class="section">5.2 Quick Installation</h3>
-
-<p>Here are the quick installation instructions.  See the next section
-for detailed installation instructions.
-</p>
-<p>Packages for Linux distributions such as Debian typically become
-available on the WWW a few weeks or months after a new version is
-released.  The instructions below are for building and installing
-Emacspeak from the source distribution.  If you install one of the
-prepackaged distributions, use the install instructions that come
-with that package.
-</p>
-<ul>
-<li> Obtain the source code  &mdash; either by downloading the tar.bz2 file
-for the latest release  &mdash; or by cloning the git repository.
-
-<div class="example">
-<pre class="example">git clone https://github.com/tvraman/emacspeak
-</pre></div>
-
-</li><li> Change to the <code>emacspeak</code> directory.
-
-</li><li> Type &lsquo;<samp>make config</samp>&rsquo; to configure the sources.
-
-</li><li> Type &lsquo;<samp>make</samp>&rsquo; to compile the files.
-
-</li><li> Next, decide which text-to-speech engine you will be using, and
-proceed to install that engine.  Your choices are:
-
-<ul>
-<li> Open Source ESpeak on Linux.  Install the ESpeak packages for your
-system, then compile the Emacspeak ESpeak server by doing:
-
-<div class="example">
-<pre class="example">cd servers/native-espeak
+<body lang="en" xml:lang="en">
+  <div class="section" id="Quick-Installation">
+    <div class="header">
+      <p>Next: <a href=
+      "Building-And-Testing-The-Speech-Server.html" accesskey="n"
+      rel="next">Building And Testing The Speech Server</a>,
+      Previous: <a href="Obtaining-Emacspeak.html" accesskey="p"
+      rel="prev">Obtaining Emacspeak</a>, Up: <a href=
+      "Installation.html" accesskey="u" rel="up">Installation
+      Instructions</a> &nbsp; [<a href="index.html#SEC_Contents"
+      title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Quick-Installation-1"></span>
+    <h3 class="section">5.2 Quick Installation</h3>
+    <p>Here are the quick installation instructions. See the next
+    section for detailed installation instructions.</p>
+    <p>Packages for Linux distributions such as Debian typically
+    become available on the WWW a few weeks or months after a new
+    version is released. The instructions below are for building
+    and installing Emacspeak from the source distribution. If you
+    install one of the prepackaged distributions, use the install
+    instructions that come with that package.</p>
+    <ul>
+      <li>Obtain the source code — either by downloading the
+      tar.bz2 file for the latest release — or by cloning the git
+      repository.
+        <div class="example">
+          <pre class=
+          "example">git clone https://github.com/tvraman/emacspeak
+</pre>
+        </div>
+      </li>
+      <li>Change to the <code>emacspeak</code> directory.</li>
+      <li>Type ‘<samp>make config</samp>’ to configure the
+      sources.</li>
+      <li>Type ‘<samp>make</samp>’ to compile the files.</li>
+      <li>Next, decide which text-to-speech engine you will be
+      using, and proceed to install that engine. Your choices are:
+        <ul>
+          <li>Open Source ESpeak on Linux. Install the ESpeak
+          packages for your system, then compile the Emacspeak
+          ESpeak server by doing:
+            <div class="example">
+              <pre class="example">cd servers/native-espeak
 make
-</pre></div>
-
-</li><li> ViaVoice Outloud (AKA Eloquent).  You need to purchase this engine
-from the voxin site.  That purchase will give you install-ready
-packages for installing the speech engine as well as Emacspeak.  See
-<a href="https://voxin.oralux.net/rss.xml">https://voxin.oralux.net/rss.xml</a> for the latest packages, and
-<a href="https://voxin.oralux.net">https://voxin.oralux.net</a> for the main Voxin Web site.
-
-</li><li> On the Mac, you can use the builtin Mac TTS engine  &mdash; emacspeak
-comes with a speech server for that TTS engine written in Python.
-</li></ul>
-
-</li><li> Having installed and configured the TTS engine of your choice, and
-having built the associated speech server, set Emacspeak up to use that
-engine by setting environment variable <code>DTK_PROGRAM</code>.  If using <code>bash</code>
-as your shell, add the line
-
-<div class="example">
-<pre class="example">export DTK_PROGRAM=<var>&lt;engine-name&gt;</var>
-</pre></div>
-
-<p>to your <code>.bash_profile</code>.
-</p>
-<p>As an example, to use ESpeak, add
-</p>
-<div class="example">
-<pre class="example">export DTK_PROGRAM=espeak
-</pre></div>
-
-</li><li> Run it by adding the line
-
-<div class="example lisp">
-<pre class="lisp">(load-file &quot;<var>&lt;emacspeak-dir&gt;</var>/lisp/emacspeak-setup.el&quot;)
-</pre></div>
-
-<p>to the top of your .emacs file.
-</p>
-<p>In the above, <var>&lt;emacspeak-dir&gt;</var> refers to the directory where you
-unpacked the sources.
-</p></li></ul>
-
-<p>See the next section for details on building and testing the speech
-server.
-</p>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Building-And-Testing-The-Speech-Server.html">Building And Testing The Speech Server</a>, Previous: <a href="Obtaining-Emacspeak.html">Obtaining Emacspeak</a>, Up: <a href="Installation.html">Installation Instructions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+</pre>
+            </div>
+          </li>
+          <li>ViaVoice Outloud (AKA Eloquent). You need to purchase
+          this engine from the voxin site. That purchase will give
+          you install-ready packages for installing the speech
+          engine as well as Emacspeak. See <a href=
+          "https://voxin.oralux.net/rss.xml">https://voxin.oralux.net/rss.xml</a>
+          for the latest packages, and <a href=
+          "https://voxin.oralux.net">https://voxin.oralux.net</a>
+          for the main Voxin Web site.</li>
+          <li>On the Mac, you can use the builtin Mac TTS engine —
+          emacspeak comes with a speech server for that TTS engine
+          written in Python.</li>
+        </ul>
+      </li>
+      <li>Having installed and configured the TTS engine of your
+      choice, and having built the associated speech server, set
+      Emacspeak up to use that engine by setting environment
+      variable <code>DTK_PROGRAM</code>. If using <code>bash</code>
+      as your shell, add the line
+        <div class="example">
+          <pre class=
+          "example">export DTK_PROGRAM=<var>&lt;engine-name&gt;</var>
+</pre>
+        </div>
+        <p>to your <code>.bash_profile</code>.</p>
+        <p>As an example, to use ESpeak, add</p>
+        <div class="example">
+          <pre class="example">export DTK_PROGRAM=espeak
+</pre>
+        </div>
+      </li>
+      <li>Run it by adding the line
+        <div class="example lisp">
+          <pre class=
+          "lisp">(load-file "<var>&lt;emacspeak-dir&gt;</var>/lisp/emacspeak-setup.el")
+</pre>
+        </div>
+        <p>to the top of your .emacs file.</p>
+        <p>In the above, <var>&lt;emacspeak-dir&gt;</var> refers to
+        the directory where you unpacked the sources.</p>
+      </li>
+    </ul>
+    <p>See the next section for details on building and testing the
+    speech server.</p>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "Building-And-Testing-The-Speech-Server.html">Building And
+    Testing The Speech Server</a>, Previous: <a href=
+    "Obtaining-Emacspeak.html">Obtaining Emacspeak</a>, Up:
+    <a href="Installation.html">Installation Instructions</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

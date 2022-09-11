@@ -1,200 +1,315 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>emacspeak-erc (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="emacspeak-erc (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="emacspeak-erc (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002deshell.html" rel="next" title="emacspeak-eshell">
-<link href="emacspeak_002depub.html" rel="prev" title="emacspeak-epub">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-erc (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-erc (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-erc (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="emacspeak_002deshell.html" rel="next" title=
+  "emacspeak-eshell" />
+  <link href="emacspeak_002depub.html" rel="prev" title=
+  "emacspeak-epub" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="emacspeak_002derc">
-<div class="header">
-<p>
-Next: <a href="emacspeak_002deshell.html" accesskey="n" rel="next">emacspeak-eshell</a>, Previous: <a href="emacspeak_002depub.html" accesskey="p" rel="prev">emacspeak-epub</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="emacspeak_002derc-1"></span><h3 class="section">12.68 emacspeak-erc</h3>
-
-<p>erc.el is a modern Emacs client for IRC including color
-and font locking support.
-erc.el - an Emacs IRC client (by Alexander L. Belikoff)
-http://www.cs.cmu.edu/~berez/irc/erc.el
-</p>
-<ul class="section-toc">
-<li><a href="#Emacspeak_002dErc-Commands" accesskey="1">Emacspeak-Erc Commands</a></li>
-<li><a href="#emacspeak_002derc-Options" accesskey="2">emacspeak-erc Options</a></li>
-</ul>
-<div class="subsection" id="Emacspeak_002dErc-Commands">
-<h4 class="subsection">12.68.1 Emacspeak-Erc Commands</h4>
-
-<ul class="section-toc">
-<li><a href="#emacspeak_002derc_002dadd_002dname_002dto_002dmonitor" accesskey="1">emacspeak-erc-add-name-to-monitor</a></li>
-<li><a href="#emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor" accesskey="2">emacspeak-erc-delete-name-from-monitor</a></li>
-<li><a href="#emacspeak_002derc_002dsetup_002dcricket_002drules" accesskey="3">emacspeak-erc-setup-cricket-rules</a></li>
-<li><a href="#emacspeak_002derc_002dtoggle_002dmy_002dmonitor" accesskey="4">emacspeak-erc-toggle-my-monitor</a></li>
-<li><a href="#emacspeak_002derc_002dtoggle_002droom_002dmonitor" accesskey="5">emacspeak-erc-toggle-room-monitor</a></li>
-<li><a href="#emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants" accesskey="6">emacspeak-erc-toggle-speak-all-participants</a></li>
-</ul>
-<div class="subsubsection" id="emacspeak_002derc_002dadd_002dname_002dto_002dmonitor">
-<h4 class="subsubsection">12.68.1.1 emacspeak-erc-add-name-to-monitor</h4>
-<dl class="def">
-<dt id="index-emacspeak_002derc_002dadd_002dname_002dto_002dmonitor"><span class="category">Command: </span><span><strong>emacspeak-erc-add-name-to-monitor</strong> <em>(name &amp;optional quiten-pronunciation)</em><a href='#index-emacspeak_002derc_002dadd_002dname_002dto_002dmonitor' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002derc_002dadd_002dname_002dto_002dmonitor-1"></span>
-
-<div class="format">
-<pre class="format">Add people to monitor in this room.
+<body lang="en" xml:lang="en">
+  <div class="section" id="emacspeak_002derc">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002deshell.html" accesskey="n"
+      rel="next">emacspeak-eshell</a>, Previous: <a href=
+      "emacspeak_002depub.html" accesskey="p" rel=
+      "prev">emacspeak-epub</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002derc-1"></span>
+    <h3 class="section">12.68 emacspeak-erc</h3>
+    <p>erc.el is a modern Emacs client for IRC including color and
+    font locking support. erc.el - an Emacs IRC client (by
+    Alexander L. Belikoff)
+    http://www.cs.cmu.edu/~berez/irc/erc.el</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dErc-Commands" accesskey=
+      "1">Emacspeak-Erc Commands</a></li>
+      <li><a href="#emacspeak_002derc-Options" accesskey=
+      "2">emacspeak-erc Options</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dErc-Commands">
+      <h4 class="subsection">12.68.1 Emacspeak-Erc Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002derc_002dadd_002dname_002dto_002dmonitor"
+        accesskey="1">emacspeak-erc-add-name-to-monitor</a></li>
+        <li><a href=
+        "#emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor"
+        accesskey=
+        "2">emacspeak-erc-delete-name-from-monitor</a></li>
+        <li><a href=
+        "#emacspeak_002derc_002dsetup_002dcricket_002drules"
+        accesskey="3">emacspeak-erc-setup-cricket-rules</a></li>
+        <li><a href=
+        "#emacspeak_002derc_002dtoggle_002dmy_002dmonitor"
+        accesskey="4">emacspeak-erc-toggle-my-monitor</a></li>
+        <li><a href=
+        "#emacspeak_002derc_002dtoggle_002droom_002dmonitor"
+        accesskey="5">emacspeak-erc-toggle-room-monitor</a></li>
+        <li><a href=
+        "#emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants"
+        accesskey=
+        "6">emacspeak-erc-toggle-speak-all-participants</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002derc_002dadd_002dname_002dto_002dmonitor">
+        <h4 class="subsubsection">12.68.1.1
+        emacspeak-erc-add-name-to-monitor</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002derc_002dadd_002dname_002dto_002dmonitor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-erc-add-name-to-monitor</strong>
+          <em>(name &amp;optional quiten-pronunciation)</em>
+          <a href=
+          '#index-emacspeak_002derc_002dadd_002dname_002dto_002dmonitor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002derc_002dadd_002dname_002dto_002dmonitor-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso’s name.
 
 (fn NAME &amp;optional QUITEN-PRONUNCIATION)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor">
-<h4 class="subsubsection">12.68.1.2 emacspeak-erc-delete-name-from-monitor</h4>
-<dl class="def">
-<dt id="index-emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor"><span class="category">Command: </span><span><strong>emacspeak-erc-delete-name-from-monitor</strong> <em>(name)</em><a href='#index-emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor-1"></span>
-
-<div class="format">
-<pre class="format">Remove name to monitor in this room.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor">
+        <h4 class="subsubsection">12.68.1.2
+        emacspeak-erc-delete-name-from-monitor</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-erc-delete-name-from-monitor</strong>
+          <em>(name)</em> <a href=
+          '#index-emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002derc_002ddelete_002dname_002dfrom_002dmonitor-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Remove name to monitor in this room.
 
 (fn NAME)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002derc_002dsetup_002dcricket_002drules">
-<h4 class="subsubsection">12.68.1.3 emacspeak-erc-setup-cricket-rules</h4>
-<dl class="def">
-<dt id="index-emacspeak_002derc_002dsetup_002dcricket_002drules"><span class="category">Command: </span><span><strong>emacspeak-erc-setup-cricket-rules</strong><a href='#index-emacspeak_002derc_002dsetup_002dcricket_002drules' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002derc_002dsetup_002dcricket_002drules-1"></span>
-
-<div class="format">
-<pre class="format">Set up #cricket channels.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002derc_002dtoggle_002dmy_002dmonitor">
-<h4 class="subsubsection">12.68.1.4 emacspeak-erc-toggle-my-monitor</h4>
-<dl class="def">
-<dt id="index-emacspeak_002derc_002dtoggle_002dmy_002dmonitor"><span class="category">Command: </span><span><strong>emacspeak-erc-toggle-my-monitor</strong> <em>(&amp;optional prefix)</em><a href='#index-emacspeak_002derc_002dtoggle_002dmy_002dmonitor' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002derc_002dtoggle_002dmy_002dmonitor-1"></span>
-
-<div class="format">
-<pre class="format">Toggle state of ERC  monitor of my messages.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002derc_002dsetup_002dcricket_002drules">
+        <h4 class="subsubsection">12.68.1.3
+        emacspeak-erc-setup-cricket-rules</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002derc_002dsetup_002dcricket_002drules">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-erc-setup-cricket-rules</strong>
+          <a href=
+          '#index-emacspeak_002derc_002dsetup_002dcricket_002drules'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002derc_002dsetup_002dcricket_002drules-1">
+            </span>
+            <div class="format">
+              <pre class="format">Set up #cricket channels.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002derc_002dtoggle_002dmy_002dmonitor">
+        <h4 class="subsubsection">12.68.1.4
+        emacspeak-erc-toggle-my-monitor</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002derc_002dtoggle_002dmy_002dmonitor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-erc-toggle-my-monitor</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002derc_002dtoggle_002dmy_002dmonitor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002derc_002dtoggle_002dmy_002dmonitor-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Toggle state of ERC  monitor of my messages.
 Interactive PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002derc_002dtoggle_002droom_002dmonitor">
-<h4 class="subsubsection">12.68.1.5 emacspeak-erc-toggle-room-monitor</h4>
-<dl class="def">
-<dt id="index-emacspeak_002derc_002dtoggle_002droom_002dmonitor"><span class="category">Command: </span><span><strong>emacspeak-erc-toggle-room-monitor</strong> <em>(&amp;optional prefix)</em><a href='#index-emacspeak_002derc_002dtoggle_002droom_002dmonitor' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002derc_002dtoggle_002droom_002dmonitor-1"></span>
-
-<div class="format">
-<pre class="format">Toggle state of ERC room monitor.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002derc_002dtoggle_002droom_002dmonitor">
+        <h4 class="subsubsection">12.68.1.5
+        emacspeak-erc-toggle-room-monitor</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002derc_002dtoggle_002droom_002dmonitor">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-erc-toggle-room-monitor</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002derc_002dtoggle_002droom_002dmonitor'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002derc_002dtoggle_002droom_002dmonitor-1">
+            </span>
+            <div class="format">
+              <pre class="format">Toggle state of ERC room monitor.
 Interactive 
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants">
-<h4 class="subsubsection">12.68.1.6 emacspeak-erc-toggle-speak-all-participants</h4>
-<dl class="def">
-<dt id="index-emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants"><span class="category">Command: </span><span><strong>emacspeak-erc-toggle-speak-all-participants</strong> <em>(&amp;optional prefix)</em><a href='#index-emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants-1"></span>
-
-<div class="format">
-<pre class="format">Toggle state of ERC speak all participants..
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants">
+        <h4 class="subsubsection">12.68.1.6
+        emacspeak-erc-toggle-speak-all-participants</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-erc-toggle-speak-all-participants</strong>
+          <em>(&amp;optional prefix)</em> <a href=
+          '#index-emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002derc_002dtoggle_002dspeak_002dall_002dparticipants-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Toggle state of ERC speak all participants..
 Interactive 
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
-</pre></div>
-</dd></dl>
-
-</div>
-</div>
-<div class="subsection" id="emacspeak_002derc-Options">
-<h4 class="subsection">12.68.2 emacspeak-erc Options</h4>
-
-<dl class="def">
-<dt id="index-User-Option-28"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-erc-ignore-notices</em><a href='#index-User-Option-28' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Set to T if you dont want to see notification  messages from the
-server.
-</p>
-<p>Default Value: <code><tt>t</tt></code>
-</p>
-</dd></dl>
-
-<dl class="def">
-<dt id="index-User-Option-29"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-erc-my-nick</em><a href='#index-User-Option-29' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>My IRC nick.
-</p>
-<p>Default Value: <code><tt></tt></code>
-</p>
-</dd></dl>
-
-<dl class="def">
-<dt id="index-User-Option-30"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-erc-speak-all-participants</em><a href='#index-User-Option-30' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Speak all things said if t.
-</p>
-<p>Default Value: <code><tt>nil</tt></code>
-</p>
-</dd></dl>
-
-</div>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002deshell.html">emacspeak-eshell</a>, Previous: <a href="emacspeak_002depub.html">emacspeak-epub</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="subsection" id="emacspeak_002derc-Options">
+      <h4 class="subsection">12.68.2 emacspeak-erc Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-28"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-erc-ignore-notices</em>
+        <a href='#index-User-Option-28' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Set to T if you dont want to see notification messages
+          from the server.</p>
+          <p>Default Value: <code><tt>t</tt></code></p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-29"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-erc-my-nick</em> <a href=
+        '#index-User-Option-29' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>My IRC nick.</p>
+          <p>Default Value:</p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-30"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong>
+        <em>emacspeak-erc-speak-all-participants</em> <a href=
+        '#index-User-Option-30' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Speak all things said if t.</p>
+          <p>Default Value: <code><tt>nil</tt></code></p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002deshell.html">emacspeak-eshell</a>, Previous:
+    <a href="emacspeak_002depub.html">emacspeak-epub</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

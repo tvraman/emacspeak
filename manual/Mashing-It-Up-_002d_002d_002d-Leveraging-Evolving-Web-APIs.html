@@ -1,107 +1,139 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Mashing It Up  ---  Leveraging Evolving Web APIs (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Mashing It Up --- Leveraging Evolving Web APIs (Emacspeak
+  User’s Manual — 2nd Edition.)</title>
+  <meta name="description" content=
+  "Mashing It Up --- Leveraging Evolving Web APIs (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Mashing It Up --- Leveraging Evolving Web APIs (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-At-Twenty.html" rel="up" title=
+  "Emacspeak At Twenty" />
+  <link href="Conclusion-_002d_002d_002d-Turning-Twenty.html" rel=
+  "next" title="Conclusion --- Turning Twenty" />
+  <link href=
+  "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html"
+  rel="prev" title=
+  "The RESTful Web --- Web Wizards And URL Templates For Faster Access" />
 
-<meta name="description" content="Mashing It Up  ---  Leveraging Evolving Web APIs (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Mashing It Up  ---  Leveraging Evolving Web APIs (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-At-Twenty.html" rel="up" title="Emacspeak At Twenty">
-<link href="Conclusion-_002d_002d_002d-Turning-Twenty.html" rel="next" title="Conclusion ---  Turning Twenty">
-<link href="The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html" rel="prev" title="The RESTful Web  ---  Web Wizards And URL Templates For Faster Access">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs">
-<div class="header">
-<p>
-Next: <a href="Conclusion-_002d_002d_002d-Turning-Twenty.html" accesskey="n" rel="next">Conclusion &mdash; Turning Twenty</a>, Previous: <a href="The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html" accesskey="p" rel="prev">The RESTful Web  &mdash;   Web Wizards And URL Templates For Faster Access</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs-1"></span><h3 class="section">16.15 Mashing It Up  &mdash;   Leveraging Evolving Web APIs</h3>
-
-<p>The next step in this evolution came with the arrival of richer
-Web APIs  &mdash;  especially ones that defined a clean client/server
-separation. In this respect, the world of Web APIs is a somewhat
-mixed bag in that many Web sites equate a Web API with a JS-based
-API that can be exclusively invoked from within a Web-Browser
-run-time. The issue with that type of API binding is that the
-only runtime that is supported is a full-blown Web browser; but
-the arrival of native mobile apps has actually proven a net
-positive in encouraging sites to create a cleaner
-separation. Emacspeak has leveraged these APIs to create
-Emacspeak front-ends to many useful services, here are a few:
-</p>
-<ol>
-<li> Minibuffer completion for Google Search using Google Suggest
-to provide completions.
-</li><li> Librivox for browsing  and playing free audio books.
-</li><li> NPR  for browsing and playing NPR archived programs.
-</li><li> BBC for playing a wide variety of streaming content
-available from the BBC.
-</li><li> A Google Maps front-end that  provides instantaneous access
-to directions and Places search.
-</li><li> Access to Twitter via package <strong>twittering-mode</strong>.
-</li></ol>
-
-
-<p>And a lot more than will fit this margin! This is an example of
-generalizing the concept of a mashup as seen on the Web with
-respect to creating hybrid applications by bringing together a
-collection of different Web APIs. Another way to think of such
-separation is to view an application as a <strong>head</strong> and a <strong>body</strong>  &mdash; 
-where the <strong>head</strong> is a specific user interface, with the <strong>body</strong>
-implementing the application logic. A cleanly defined separation
-between the <strong>head</strong> and <strong>body</strong> allows one to attach <em>different</em>
-user interfaces i.e., <strong>heads</strong> to the given <strong>body</strong> without any
-loss of functionality, or the need to re-implement the entire
-application. Modern platforms like Android enable such separation
-via an
-<a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a>
-mechanism. The Web platform as originally defined around URLs is
-actually well-suited to this type of separation  &mdash;  though the full
-potential of this design pattern remains to be fully realized
-given today&rsquo;s tight association of the Web to the Web Browser.
-</p>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Conclusion-_002d_002d_002d-Turning-Twenty.html">Conclusion &mdash; Turning Twenty</a>, Previous: <a href="The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html">The RESTful Web  &mdash;   Web Wizards And URL Templates For Faster Access</a>, Up: <a href="Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id=
+  "Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs">
+    <div class="header">
+      <p>Next: <a href=
+      "Conclusion-_002d_002d_002d-Turning-Twenty.html" accesskey=
+      "n" rel="next">Conclusion — Turning Twenty</a>, Previous:
+      <a href=
+      "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html"
+      accesskey="p" rel="prev">The RESTful Web — Web Wizards And
+      URL Templates For Faster Access</a>, Up: <a href=
+      "Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak
+      At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents"
+      title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id=
+    "Mashing-It-Up-_002d_002d_002d-Leveraging-Evolving-Web-APIs-1"></span>
+    <h3 class="section">16.15 Mashing It Up — Leveraging Evolving
+    Web APIs</h3>
+    <p>The next step in this evolution came with the arrival of
+    richer Web APIs — especially ones that defined a clean
+    client/server separation. In this respect, the world of Web
+    APIs is a somewhat mixed bag in that many Web sites equate a
+    Web API with a JS-based API that can be exclusively invoked
+    from within a Web-Browser run-time. The issue with that type of
+    API binding is that the only runtime that is supported is a
+    full-blown Web browser; but the arrival of native mobile apps
+    has actually proven a net positive in encouraging sites to
+    create a cleaner separation. Emacspeak has leveraged these APIs
+    to create Emacspeak front-ends to many useful services, here
+    are a few:</p>
+    <ol>
+      <li>Minibuffer completion for Google Search using Google
+      Suggest to provide completions.</li>
+      <li>Librivox for browsing and playing free audio books.</li>
+      <li>NPR for browsing and playing NPR archived programs.</li>
+      <li>BBC for playing a wide variety of streaming content
+      available from the BBC.</li>
+      <li>A Google Maps front-end that provides instantaneous
+      access to directions and Places search.</li>
+      <li>Access to Twitter via package
+      <strong>twittering-mode</strong>.</li>
+    </ol>
+    <p>And a lot more than will fit this margin! This is an example
+    of generalizing the concept of a mashup as seen on the Web with
+    respect to creating hybrid applications by bringing together a
+    collection of different Web APIs. Another way to think of such
+    separation is to view an application as a <strong>head</strong>
+    and a <strong>body</strong> — where the <strong>head</strong>
+    is a specific user interface, with the <strong>body</strong>
+    implementing the application logic. A cleanly defined
+    separation between the <strong>head</strong> and
+    <strong>body</strong> allows one to attach <em>different</em>
+    user interfaces i.e., <strong>heads</strong> to the given
+    <strong>body</strong> without any loss of functionality, or the
+    need to re-implement the entire application. Modern platforms
+    like Android enable such separation via an <a href=
+    "http://developer.android.com/reference/android/content/Intent.html">
+    Intent</a> mechanism. The Web platform as originally defined
+    around URLs is actually well-suited to this type of separation
+    — though the full potential of this design pattern remains to
+    be fully realized given today’s tight association of the Web to
+    the Web Browser.</p>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "Conclusion-_002d_002d_002d-Turning-Twenty.html">Conclusion —
+    Turning Twenty</a>, Previous: <a href=
+    "The-RESTful-Web-_002d_002d_002d-Web-Wizards-And-URL-Templates-For-Faster-Access.html">
+    The RESTful Web — Web Wizards And URL Templates For Faster
+    Access</a>, Up: <a href="Emacspeak-At-Twenty.html">Emacspeak At
+    Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

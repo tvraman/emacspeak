@@ -1,255 +1,394 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>emacspeak-feeds (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="emacspeak-feeds (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="emacspeak-feeds (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dffap.html" rel="next" title="emacspeak-ffap">
-<link href="emacspeak_002dextras.html" rel="prev" title="emacspeak-extras">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-feeds (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-feeds (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-feeds (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="emacspeak_002dffap.html" rel="next" title=
+  "emacspeak-ffap" />
+  <link href="emacspeak_002dextras.html" rel="prev" title=
+  "emacspeak-extras" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="emacspeak_002dfeeds">
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dffap.html" accesskey="n" rel="next">emacspeak-ffap</a>, Previous: <a href="emacspeak_002dextras.html" accesskey="p" rel="prev">emacspeak-extras</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="emacspeak_002dfeeds-1"></span><h3 class="section">12.77 emacspeak-feeds</h3>
-
-<p>This module provides Feeds support for Emacspeak
-</p>
-<ul class="section-toc">
-<li><a href="#Emacspeak_002dFeeds-Commands" accesskey="1">Emacspeak-Feeds Commands</a></li>
-<li><a href="#emacspeak_002dfeeds-Options" accesskey="2">emacspeak-feeds Options</a></li>
-</ul>
-<div class="subsection" id="Emacspeak_002dFeeds-Commands">
-<h4 class="subsection">12.77.1 Emacspeak-Feeds Commands</h4>
-
-<ul class="section-toc">
-<li><a href="#emacspeak_002dfeeds_002dadd_002dfeed" accesskey="1">emacspeak-feeds-add-feed</a></li>
-<li><a href="#emacspeak_002dfeeds_002darchive_002dfeeds" accesskey="2">emacspeak-feeds-archive-feeds</a></li>
-<li><a href="#emacspeak_002dfeeds_002datom_002ddisplay" accesskey="3">emacspeak-feeds-atom-display</a></li>
-<li><a href="#emacspeak_002dfeeds_002dawesome_002drss" accesskey="4">emacspeak-feeds-awesome-rss</a></li>
-<li><a href="#emacspeak_002dfeeds_002dbrowse" accesskey="5">emacspeak-feeds-browse</a></li>
-<li><a href="#emacspeak_002dfeeds_002dfastload_002dfeeds" accesskey="6">emacspeak-feeds-fastload-feeds</a></li>
-<li><a href="#emacspeak_002dfeeds_002dopml_002ddisplay" accesskey="7">emacspeak-feeds-opml-display</a></li>
-<li><a href="#emacspeak_002dfeeds_002drestore_002dfeeds" accesskey="8">emacspeak-feeds-restore-feeds</a></li>
-<li><a href="#emacspeak_002dfeeds_002drss_002ddisplay" accesskey="9">emacspeak-feeds-rss-display</a></li>
-</ul>
-<div class="subsubsection" id="emacspeak_002dfeeds_002dadd_002dfeed">
-<h4 class="subsubsection">12.77.1.1 emacspeak-feeds-add-feed</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002dadd_002dfeed"><span class="category">Command: </span><span><strong>emacspeak-feeds-add-feed</strong> <em>(title url type)</em><a href='#index-emacspeak_002dfeeds_002dadd_002dfeed' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002de-M_002du'><span><kbd>C-e M-u</kbd><a href='#index-C_002de-M_002du' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-_003cfn_003e-M_002du'><span><kbd>&lt;fn&gt; M-u</kbd><a href='#index-_003cfn_003e-M_002du' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-emacspeak_002dfeeds_002dadd_002dfeed-1"></span>
-
-<div class="format">
-<pre class="format">Add specified feed to our feed store.
+<body lang="en" xml:lang="en">
+  <div class="section" id="emacspeak_002dfeeds">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dffap.html" accesskey="n" rel=
+      "next">emacspeak-ffap</a>, Previous: <a href=
+      "emacspeak_002dextras.html" accesskey="p" rel=
+      "prev">emacspeak-extras</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dfeeds-1"></span>
+    <h3 class="section">12.77 emacspeak-feeds</h3>
+    <p>This module provides Feeds support for Emacspeak</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dFeeds-Commands" accesskey=
+      "1">Emacspeak-Feeds Commands</a></li>
+      <li><a href="#emacspeak_002dfeeds-Options" accesskey=
+      "2">emacspeak-feeds Options</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dFeeds-Commands">
+      <h4 class="subsection">12.77.1 Emacspeak-Feeds Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002dfeeds_002dadd_002dfeed"
+        accesskey="1">emacspeak-feeds-add-feed</a></li>
+        <li><a href="#emacspeak_002dfeeds_002darchive_002dfeeds"
+        accesskey="2">emacspeak-feeds-archive-feeds</a></li>
+        <li><a href="#emacspeak_002dfeeds_002datom_002ddisplay"
+        accesskey="3">emacspeak-feeds-atom-display</a></li>
+        <li><a href="#emacspeak_002dfeeds_002dawesome_002drss"
+        accesskey="4">emacspeak-feeds-awesome-rss</a></li>
+        <li><a href="#emacspeak_002dfeeds_002dbrowse" accesskey=
+        "5">emacspeak-feeds-browse</a></li>
+        <li><a href="#emacspeak_002dfeeds_002dfastload_002dfeeds"
+        accesskey="6">emacspeak-feeds-fastload-feeds</a></li>
+        <li><a href="#emacspeak_002dfeeds_002dopml_002ddisplay"
+        accesskey="7">emacspeak-feeds-opml-display</a></li>
+        <li><a href="#emacspeak_002dfeeds_002drestore_002dfeeds"
+        accesskey="8">emacspeak-feeds-restore-feeds</a></li>
+        <li><a href="#emacspeak_002dfeeds_002drss_002ddisplay"
+        accesskey="9">emacspeak-feeds-rss-display</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002dadd_002dfeed">
+        <h4 class="subsubsection">12.77.1.1
+        emacspeak-feeds-add-feed</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002dadd_002dfeed">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-add-feed</strong>
+          <em>(title url type)</em> <a href=
+          '#index-emacspeak_002dfeeds_002dadd_002dfeed' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-M_002du'><span><kbd>C-e
+              M-u</kbd> <a href='#index-C_002de-M_002du' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-M_002du'>
+              <span><kbd>&lt;fn&gt; M-u</kbd> <a href=
+              '#index-_003cfn_003e-M_002du' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dfeeds_002dadd_002dfeed-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Add specified feed to our feed store.
 
 (fn TITLE URL TYPE)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002darchive_002dfeeds">
-<h4 class="subsubsection">12.77.1.2 emacspeak-feeds-archive-feeds</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002darchive_002dfeeds"><span class="category">Command: </span><span><strong>emacspeak-feeds-archive-feeds</strong><a href='#index-emacspeak_002dfeeds_002darchive_002dfeeds' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dfeeds_002darchive_002dfeeds-1"></span>
-
-<div class="format">
-<pre class="format">Archive list of subscribed fees to personal resource directory.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002darchive_002dfeeds">
+        <h4 class="subsubsection">12.77.1.2
+        emacspeak-feeds-archive-feeds</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002darchive_002dfeeds">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-archive-feeds</strong>
+          <a href=
+          '#index-emacspeak_002dfeeds_002darchive_002dfeeds' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dfeeds_002darchive_002dfeeds-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Archive list of subscribed fees to personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002datom_002ddisplay">
-<h4 class="subsubsection">12.77.1.3 emacspeak-feeds-atom-display</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002datom_002ddisplay"><span class="category">Command: </span><span><strong>emacspeak-feeds-atom-display</strong> <em>(feed-url)</em><a href='#index-emacspeak_002dfeeds_002datom_002ddisplay' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002d_002c-a'><span><kbd>C-, a</kbd><a href='#index-C_002d_002c-a' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-C_002dx-_0040-a-a'><span><kbd>C-x @ a a</kbd><a href='#index-C_002dx-_0040-a-a' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-emacspeak_002dfeeds_002datom_002ddisplay-1"></span>
-
-<div class="format">
-<pre class="format">Display ATOM feed.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002datom_002ddisplay">
+        <h4 class="subsubsection">12.77.1.3
+        emacspeak-feeds-atom-display</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002datom_002ddisplay">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-atom-display</strong>
+          <em>(feed-url)</em> <a href=
+          '#index-emacspeak_002dfeeds_002datom_002ddisplay' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002c-a'><span><kbd>C-, a</kbd>
+              <a href='#index-C_002d_002c-a' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-a'><span><kbd>C-x @ a
+              a</kbd> <a href='#index-C_002dx-_0040-a-a' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dfeeds_002datom_002ddisplay-1"></span>
+            <div class="format">
+              <pre class="format">Display ATOM feed.
 
 (fn FEED-URL)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002dawesome_002drss">
-<h4 class="subsubsection">12.77.1.4 emacspeak-feeds-awesome-rss</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002dawesome_002drss"><span class="category">Command: </span><span><strong>emacspeak-feeds-awesome-rss</strong><a href='#index-emacspeak_002dfeeds_002dawesome_002drss' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dfeeds_002dawesome_002drss-1"></span>
-
-<div class="format">
-<pre class="format">Display Awesome RSS OPML file read with completion.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002dawesome_002drss">
+        <h4 class="subsubsection">12.77.1.4
+        emacspeak-feeds-awesome-rss</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002dawesome_002drss">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-awesome-rss</strong>
+          <a href='#index-emacspeak_002dfeeds_002dawesome_002drss'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dfeeds_002dawesome_002drss-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Display Awesome RSS OPML file read with completion.
 See etc/fixup-awesome-rss  for first-time  for instructions.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002dbrowse">
-<h4 class="subsubsection">12.77.1.5 emacspeak-feeds-browse</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002dbrowse"><span class="category">Command: </span><span><strong>emacspeak-feeds-browse</strong> <em>(feed)</em><a href='#index-emacspeak_002dfeeds_002dbrowse' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002de-C_002du'><span><kbd>C-e C-u</kbd><a href='#index-C_002de-C_002du' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-_003cfn_003e-C_002du'><span><kbd>&lt;fn&gt; C-u</kbd><a href='#index-_003cfn_003e-C_002du' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-emacspeak_002dfeeds_002dbrowse-1"></span>
-
-<div class="format">
-<pre class="format">Browse   feed.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002dbrowse">
+        <h4 class="subsubsection">12.77.1.5
+        emacspeak-feeds-browse</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002dbrowse">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-browse</strong>
+          <em>(feed)</em> <a href=
+          '#index-emacspeak_002dfeeds_002dbrowse' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-C_002du'><span><kbd>C-e
+              C-u</kbd> <a href='#index-C_002de-C_002du' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002du'>
+              <span><kbd>&lt;fn&gt; C-u</kbd> <a href=
+              '#index-_003cfn_003e-C_002du' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dfeeds_002dbrowse-1"></span>
+            <div class="format">
+              <pre class="format">Browse   feed.
 
 (fn FEED)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002dfastload_002dfeeds">
-<h4 class="subsubsection">12.77.1.6 emacspeak-feeds-fastload-feeds</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002dfastload_002dfeeds"><span class="category">Command: </span><span><strong>emacspeak-feeds-fastload-feeds</strong><a href='#index-emacspeak_002dfeeds_002dfastload_002dfeeds' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dfeeds_002dfastload_002dfeeds-1"></span>
-
-<div class="format">
-<pre class="format">Fast load list of feeds from archive.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002dfastload_002dfeeds">
+        <h4 class="subsubsection">12.77.1.6
+        emacspeak-feeds-fastload-feeds</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dfeeds_002dfastload_002dfeeds">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-fastload-feeds</strong>
+          <a href=
+          '#index-emacspeak_002dfeeds_002dfastload_002dfeeds'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dfeeds_002dfastload_002dfeeds-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Fast load list of feeds from archive.
 This directly updates emacspeak-feeds from the archive, rather
 than adding those entries to the current set of subscribed
 feeds.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002dopml_002ddisplay">
-<h4 class="subsubsection">12.77.1.7 emacspeak-feeds-opml-display</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002dopml_002ddisplay"><span class="category">Command: </span><span><strong>emacspeak-feeds-opml-display</strong> <em>(feed-url)</em><a href='#index-emacspeak_002dfeeds_002dopml_002ddisplay' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002d_002c-o'><span><kbd>C-, o</kbd><a href='#index-C_002d_002c-o' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-C_002dx-_0040-a-o'><span><kbd>C-x @ a o</kbd><a href='#index-C_002dx-_0040-a-o' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-emacspeak_002dfeeds_002dopml_002ddisplay-1"></span>
-
-<div class="format">
-<pre class="format">Display OPML feed.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002dopml_002ddisplay">
+        <h4 class="subsubsection">12.77.1.7
+        emacspeak-feeds-opml-display</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002dopml_002ddisplay">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-opml-display</strong>
+          <em>(feed-url)</em> <a href=
+          '#index-emacspeak_002dfeeds_002dopml_002ddisplay' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002c-o'><span><kbd>C-, o</kbd>
+              <a href='#index-C_002d_002c-o' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-o'><span><kbd>C-x @ a
+              o</kbd> <a href='#index-C_002dx-_0040-a-o' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dfeeds_002dopml_002ddisplay-1"></span>
+            <div class="format">
+              <pre class="format">Display OPML feed.
 
 (fn FEED-URL)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002drestore_002dfeeds">
-<h4 class="subsubsection">12.77.1.8 emacspeak-feeds-restore-feeds</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002drestore_002dfeeds"><span class="category">Command: </span><span><strong>emacspeak-feeds-restore-feeds</strong><a href='#index-emacspeak_002dfeeds_002drestore_002dfeeds' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dfeeds_002drestore_002dfeeds-1"></span>
-
-<div class="format">
-<pre class="format">Restore list of subscribed fees from  personal resource directory.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002drestore_002dfeeds">
+        <h4 class="subsubsection">12.77.1.8
+        emacspeak-feeds-restore-feeds</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002drestore_002dfeeds">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-restore-feeds</strong>
+          <a href=
+          '#index-emacspeak_002dfeeds_002drestore_002dfeeds' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dfeeds_002drestore_002dfeeds-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfeeds_002drss_002ddisplay">
-<h4 class="subsubsection">12.77.1.9 emacspeak-feeds-rss-display</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfeeds_002drss_002ddisplay"><span class="category">Command: </span><span><strong>emacspeak-feeds-rss-display</strong> <em>(feed-url)</em><a href='#index-emacspeak_002dfeeds_002drss_002ddisplay' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002d_002c-r'><span><kbd>C-, r</kbd><a href='#index-C_002d_002c-r' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-C_002dx-_0040-a-r'><span><kbd>C-x @ a r</kbd><a href='#index-C_002dx-_0040-a-r' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-emacspeak_002dfeeds_002drss_002ddisplay-1"></span>
-
-<div class="format">
-<pre class="format">Display RSS feed.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfeeds_002drss_002ddisplay">
+        <h4 class="subsubsection">12.77.1.9
+        emacspeak-feeds-rss-display</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfeeds_002drss_002ddisplay">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-feeds-rss-display</strong>
+          <em>(feed-url)</em> <a href=
+          '#index-emacspeak_002dfeeds_002drss_002ddisplay' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_002c-r'><span><kbd>C-, r</kbd>
+              <a href='#index-C_002d_002c-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-r'><span><kbd>C-x @ a
+              r</kbd> <a href='#index-C_002dx-_0040-a-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dfeeds_002drss_002ddisplay-1"></span>
+            <div class="format">
+              <pre class="format">Display RSS feed.
 
 (fn FEED-URL)
-</pre></div>
-</dd></dl>
-
-</div>
-</div>
-<div class="subsection" id="emacspeak_002dfeeds-Options">
-<h4 class="subsection">12.77.2 emacspeak-feeds Options</h4>
-
-<dl class="def">
-<dt id="index-User-Option-36"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-feeds</em><a href='#index-User-Option-36' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Table of RSS/Atom feeds.
-The feed list is persisted to file saved-feeds on exit.
-</p>
-<p>Default Value: <code><tt>((BBC News http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml rss) (BBC Podcast Directory http://www.bbc.co.uk/podcasts.opml opml) (CNet Tech News http://feeds.feedburner.com/cnet/tcoc rss) (Wired News http://www.wired.com/news_drop/netcenter/netcenter.rdf rss))</tt></code>
-</p>
-</dd></dl>
-
-<dl class="def">
-<dt id="index-User-Option-37"><span class="category">Variable: </span><span><strong>User Option</strong> <em>emacspeak-feeds-awesome-rss</em><a href='#index-User-Option-37' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Location of Awesome RSS
-</p>
-<p>Default Value: <code><tt>/home/raman/sourceforge/awesome-rss-feeds/</tt></code>
-</p>
-</dd></dl>
-
-</div>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dffap.html">emacspeak-ffap</a>, Previous: <a href="emacspeak_002dextras.html">emacspeak-extras</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="subsection" id="emacspeak_002dfeeds-Options">
+      <h4 class="subsection">12.77.2 emacspeak-feeds Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-36"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-feeds</em> <a href=
+        '#index-User-Option-36' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Table of RSS/Atom feeds. The feed list is persisted to
+          file saved-feeds on exit.</p>
+          <p>Default Value: <code><tt>((BBC News
+          http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml
+          rss) (BBC Podcast Directory
+          http://www.bbc.co.uk/podcasts.opml opml) (CNet Tech News
+          http://feeds.feedburner.com/cnet/tcoc rss) (Wired News
+          http://www.wired.com/news_drop/netcenter/netcenter.rdf
+          rss))</tt></code></p>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-37"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-feeds-awesome-rss</em>
+        <a href='#index-User-Option-37' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Location of Awesome RSS</p>
+          <p>Default Value:
+          <code><tt>/home/raman/sourceforge/awesome-rss-feeds/</tt></code></p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dffap.html">emacspeak-ffap</a>,
+    Previous: <a href=
+    "emacspeak_002dextras.html">emacspeak-extras</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html">Emacspeak Commands And
+    Options</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

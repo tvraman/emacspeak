@@ -1,122 +1,146 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Conversational Gestures For The Audio Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Conversational Gestures For The Audio Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Conversational Gestures For The Audio Desktop (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-At-Twenty.html" rel="up" title="Emacspeak At Twenty">
-<link href="Accessing-Media-Streams.html" rel="next" title="Accessing Media Streams">
-<link href="Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html" rel="prev" title="Audio Formatting  ---  Generalizing Aural CSS">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Conversational Gestures For The Audio Desktop (Emacspeak
+  User’s Manual — 2nd Edition.)</title>
+  <meta name="description" content=
+  "Conversational Gestures For The Audio Desktop (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Conversational Gestures For The Audio Desktop (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-At-Twenty.html" rel="up" title=
+  "Emacspeak At Twenty" />
+  <link href="Accessing-Media-Streams.html" rel="next" title=
+  "Accessing Media Streams" />
+  <link href=
+  "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html"
+  rel="prev" title="Audio Formatting --- Generalizing Aural CSS" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Conversational-Gestures-For-The-Audio-Desktop">
-<div class="header">
-<p>
-Next: <a href="Accessing-Media-Streams.html" accesskey="n" rel="next">Accessing Media Streams</a>, Previous: <a href="Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html" accesskey="p" rel="prev">Audio Formatting  &mdash;   Generalizing Aural CSS</a>, Up: <a href="Emacspeak-At-Twenty.html" accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Conversational-Gestures-For-The-Audio-Desktop-1"></span><h3 class="section">16.9 Conversational Gestures For The Audio Desktop</h3>
-
-<p>By 1996, Emacspeak was the only piece of adaptive technology I
-used; in fall of 1995, I had moved to Adobe Systems from DEC
-Research to focus on enhancing the Portable Document Format (PDF)
-to make PDF content repurposable. Between 1996 and 1998, I was
-primarily focused on electronic document formats  &mdash;  I took this
-opportunity to step back and evaluate what I had built as an
-auditory interface within Emacspeak. This retrospect proved
-extremely useful in gaining a sense of perspective and led to
-formalizing the high-level concept of <em>Conversational Gestures</em>
-and structured browsing/searching as a means of thinking about
-user interfaces.
-</p>
-<p>By now, Emacspeak was a complete environment  &mdash;  I formalized what
-it provided under the moniker <em>Complete Audio Desktop</em>. The fully
-integrated user experience allowed me to move forward with
-respect to defining interaction models that were highly optimized
-to eyes-free interaction  &mdash;  as an example, see how Emacspeak
-interfaces with modes like <strong>dired</strong> (Directory Editor) for
-browsing and manipulating the filesystem, or <strong>proced</strong> (Process
-Editor) for browsing and manipulating running processes. Emacs&rsquo;
-integration with <strong>ispell</strong> for spell checking, as well as its
-various completion facilities ranging from minibuffer completion
-to other forms of dynamic completion while typing text provided
-more opportunities for creating innovative forms of eyes-free
-interaction. With respect to what had gone before (and is still
-par for the course as far as traditional screen-readers are
-concerned), these types of highly dynamic interfaces present a
-challenge. For example, consider handling a completion interface
-using a screen-reader that is speaking the visual display. There
-is a significant challenge in deciding <em>what to speak</em> e.g., when
-presented with a list of completions, the currently typed text,
-and the default completion, which of these should you speak, and
-in what order? The problem gets harder when you consider that the
-underlying semantics of these items is generally not available
-from examining the visual presentation in a consistent manner. By
-having direct access to the underlying information being
-presented, Emacspeak had a leg up with respect to addressing the
-higher-level question  &mdash;  when you do have access to this
-information, how do you present it effectively in an eyes-free
-environment? For this and many other cases of dynamic
-interaction, a combination of audio formatting, auditory icons,
-and the ability to synthesize succinct messages from a
-combination of information items  &mdash;  rather than having to forcibly
-speak each item as it is rendered visually provided for highly
-efficient eyes-free interaction.
-</p>
-
-<p>This was also when I stepped back to build out Emacspeak&rsquo;s table
-browsing facilities  &mdash;  see the online Emacspeak documentation for
-details on Emacspeak&rsquo;s table browsing functionality which
-continues to remain one of the richest collection of end-user
-affordances for working with two-dimensional data.
-</p>
-
-
-<ul class="section-toc">
-<li><a href="Speech_002dEnabling-Interactive-Games.html" accesskey="1">Speech-Enabling Interactive Games</a></li>
-</ul>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Accessing-Media-Streams.html">Accessing Media Streams</a>, Previous: <a href="Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html">Audio Formatting  &mdash;   Generalizing Aural CSS</a>, Up: <a href="Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id=
+  "Conversational-Gestures-For-The-Audio-Desktop">
+    <div class="header">
+      <p>Next: <a href="Accessing-Media-Streams.html" accesskey="n"
+      rel="next">Accessing Media Streams</a>, Previous: <a href=
+      "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html"
+      accesskey="p" rel="prev">Audio Formatting — Generalizing
+      Aural CSS</a>, Up: <a href="Emacspeak-At-Twenty.html"
+      accesskey="u" rel="up">Emacspeak At Twenty.</a> &nbsp;
+      [<a href="index.html#SEC_Contents" title="Table of contents"
+      rel="contents">Contents</a>][<a href="Concept-Index.html"
+      title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id=
+    "Conversational-Gestures-For-The-Audio-Desktop-1"></span>
+    <h3 class="section">16.9 Conversational Gestures For The Audio
+    Desktop</h3>
+    <p>By 1996, Emacspeak was the only piece of adaptive technology
+    I used; in fall of 1995, I had moved to Adobe Systems from DEC
+    Research to focus on enhancing the Portable Document Format
+    (PDF) to make PDF content repurposable. Between 1996 and 1998,
+    I was primarily focused on electronic document formats — I took
+    this opportunity to step back and evaluate what I had built as
+    an auditory interface within Emacspeak. This retrospect proved
+    extremely useful in gaining a sense of perspective and led to
+    formalizing the high-level concept of <em>Conversational
+    Gestures</em> and structured browsing/searching as a means of
+    thinking about user interfaces.</p>
+    <p>By now, Emacspeak was a complete environment — I formalized
+    what it provided under the moniker <em>Complete Audio
+    Desktop</em>. The fully integrated user experience allowed me
+    to move forward with respect to defining interaction models
+    that were highly optimized to eyes-free interaction — as an
+    example, see how Emacspeak interfaces with modes like
+    <strong>dired</strong> (Directory Editor) for browsing and
+    manipulating the filesystem, or <strong>proced</strong>
+    (Process Editor) for browsing and manipulating running
+    processes. Emacs’ integration with <strong>ispell</strong> for
+    spell checking, as well as its various completion facilities
+    ranging from minibuffer completion to other forms of dynamic
+    completion while typing text provided more opportunities for
+    creating innovative forms of eyes-free interaction. With
+    respect to what had gone before (and is still par for the
+    course as far as traditional screen-readers are concerned),
+    these types of highly dynamic interfaces present a challenge.
+    For example, consider handling a completion interface using a
+    screen-reader that is speaking the visual display. There is a
+    significant challenge in deciding <em>what to speak</em> e.g.,
+    when presented with a list of completions, the currently typed
+    text, and the default completion, which of these should you
+    speak, and in what order? The problem gets harder when you
+    consider that the underlying semantics of these items is
+    generally not available from examining the visual presentation
+    in a consistent manner. By having direct access to the
+    underlying information being presented, Emacspeak had a leg up
+    with respect to addressing the higher-level question — when you
+    do have access to this information, how do you present it
+    effectively in an eyes-free environment? For this and many
+    other cases of dynamic interaction, a combination of audio
+    formatting, auditory icons, and the ability to synthesize
+    succinct messages from a combination of information items —
+    rather than having to forcibly speak each item as it is
+    rendered visually provided for highly efficient eyes-free
+    interaction.</p>
+    <p>This was also when I stepped back to build out Emacspeak’s
+    table browsing facilities — see the online Emacspeak
+    documentation for details on Emacspeak’s table browsing
+    functionality which continues to remain one of the richest
+    collection of end-user affordances for working with
+    two-dimensional data.</p>
+    <ul class="section-toc">
+      <li><a href="Speech_002dEnabling-Interactive-Games.html"
+      accesskey="1">Speech-Enabling Interactive Games</a></li>
+    </ul>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href="Accessing-Media-Streams.html">Accessing Media
+    Streams</a>, Previous: <a href=
+    "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html">Audio
+    Formatting — Generalizing Aural CSS</a>, Up: <a href=
+    "Emacspeak-At-Twenty.html">Emacspeak At Twenty.</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href="Concept-Index.html"
+    title="Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

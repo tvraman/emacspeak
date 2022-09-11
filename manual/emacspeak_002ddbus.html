@@ -1,199 +1,298 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>emacspeak-dbus (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="emacspeak-dbus (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="emacspeak-dbus (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002ddeadgrep.html" rel="next" title="emacspeak-deadgrep">
-<link href="emacspeak_002dcustom.html" rel="prev" title="emacspeak-custom">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-dbus (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-dbus (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-dbus (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="emacspeak_002ddeadgrep.html" rel="next" title=
+  "emacspeak-deadgrep" />
+  <link href="emacspeak_002dcustom.html" rel="prev" title=
+  "emacspeak-custom" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="emacspeak_002ddbus">
-<div class="header">
-<p>
-Next: <a href="emacspeak_002ddeadgrep.html" accesskey="n" rel="next">emacspeak-deadgrep</a>, Previous: <a href="emacspeak_002dcustom.html" accesskey="p" rel="prev">emacspeak-custom</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="emacspeak_002ddbus-1"></span><h3 class="section">12.42 emacspeak-dbus</h3>
-
-<p>Loading this module sets  up Emacspeak to respond to DBus notifications.
-This module needs to be loaded explicitly from the user&rsquo;s init file
-after emacspeak has been started.
-</p>
-<ul class="section-toc">
-<li><a href="#Overview-1" accesskey="1">Overview</a></li>
-<li><a href="#Emacspeak_002dDbus-Commands" accesskey="2">Emacspeak-Dbus Commands</a></li>
-</ul>
-<div class="subsection" id="Overview-1">
-<h4 class="subsection">12.42.1 Overview</h4>
-
-<p>This module provides integration via DBus  for the following:
-</p><ul>
-<li> Respond to network coming up or going down
-&mdash; <code>(nm-enable)</code>.
-</li><li> Respond to screen getting locked/unlocked by gnome-screen-saver
-&mdash; <code>(emacspeak-dbus-watch-screen-lock)</code>.
-</li><li> Respond to laptop  going to sleep or waking up
-&mdash;  <code>(emacspeak-dbus-sleep-enable)</code>.
-</li><li> Respond to insertion/ejection of removable storage
-&mdash; <code>(emacspeak-dbus-udisks-enable)</code>.
-</li><li> Watch for power devices
-&mdash; <code>(emacspeak-dbus-upower-enable)</code>.
-</li><li> An interactive command  <code>emacspeak-dbus-lock-screen</code>
-bound to <kbd>C-, C-d</kbd> to lock the screen using DBus.
-Note: this key-binding is available only if this module is loaded.
-</li></ul>
-<p>Add calls to the desired functions from the above list
-to the emacs startup file after  this module has been loaded.
-See relevant hooks for customizing behavior.
-Note that each of the  sleep/wake-up, UDisks2   and network/up-down
-can be separately enabled/disabled, and the actions customized
-via appropriately named hook functions.
-</p>
-</div>
-<div class="subsection" id="Emacspeak_002dDbus-Commands">
-<h4 class="subsection">12.42.2 Emacspeak-Dbus Commands</h4>
-
-<ul class="section-toc">
-<li><a href="#emacspeak_002ddbus_002dlock_002dscreen" accesskey="1">emacspeak-dbus-lock-screen</a></li>
-<li><a href="#emacspeak_002ddbus_002dsleep_002ddisable" accesskey="2">emacspeak-dbus-sleep-disable</a></li>
-<li><a href="#emacspeak_002ddbus_002dsleep_002denable" accesskey="3">emacspeak-dbus-sleep-enable</a></li>
-<li><a href="#emacspeak_002ddbus_002dudisks_002ddisable" accesskey="4">emacspeak-dbus-udisks-disable</a></li>
-<li><a href="#emacspeak_002ddbus_002dudisks_002denable" accesskey="5">emacspeak-dbus-udisks-enable</a></li>
-<li><a href="#emacspeak_002ddbus_002dupower_002ddisable" accesskey="6">emacspeak-dbus-upower-disable</a></li>
-<li><a href="#emacspeak_002ddbus_002dupower_002denable" accesskey="7">emacspeak-dbus-upower-enable</a></li>
-<li><a href="#emacspeak_002dscreen_002dsaver_002dmode" accesskey="8">emacspeak-screen-saver-mode</a></li>
-</ul>
-<div class="subsubsection" id="emacspeak_002ddbus_002dlock_002dscreen">
-<h4 class="subsubsection">12.42.2.1 emacspeak-dbus-lock-screen</h4>
-<dl class="def">
-<dt id="index-emacspeak_002ddbus_002dlock_002dscreen"><span class="category">Command: </span><span><strong>emacspeak-dbus-lock-screen</strong><a href='#index-emacspeak_002ddbus_002dlock_002dscreen' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002ddbus_002dlock_002dscreen-1"></span>
-
-<div class="format">
-<pre class="format">Lock screen using DBus.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002ddbus_002dsleep_002ddisable">
-<h4 class="subsubsection">12.42.2.2 emacspeak-dbus-sleep-disable</h4>
-<dl class="def">
-<dt id="index-emacspeak_002ddbus_002dsleep_002ddisable"><span class="category">Command: </span><span><strong>emacspeak-dbus-sleep-disable</strong><a href='#index-emacspeak_002ddbus_002dsleep_002ddisable' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002ddbus_002dsleep_002ddisable-1"></span>
-
-<div class="format">
-<pre class="format">Disable integration with login1 daemon. Does nothing if
+<body lang="en" xml:lang="en">
+  <div class="section" id="emacspeak_002ddbus">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002ddeadgrep.html" accesskey="n"
+      rel="next">emacspeak-deadgrep</a>, Previous: <a href=
+      "emacspeak_002dcustom.html" accesskey="p" rel=
+      "prev">emacspeak-custom</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002ddbus-1"></span>
+    <h3 class="section">12.42 emacspeak-dbus</h3>
+    <p>Loading this module sets up Emacspeak to respond to DBus
+    notifications. This module needs to be loaded explicitly from
+    the user’s init file after emacspeak has been started.</p>
+    <ul class="section-toc">
+      <li><a href="#Overview-1" accesskey="1">Overview</a></li>
+      <li><a href="#Emacspeak_002dDbus-Commands" accesskey=
+      "2">Emacspeak-Dbus Commands</a></li>
+    </ul>
+    <div class="subsection" id="Overview-1">
+      <h4 class="subsection">12.42.1 Overview</h4>
+      <p>This module provides integration via DBus for the
+      following:</p>
+      <ul>
+        <li>Respond to network coming up or going down —
+        <code>(nm-enable)</code>.</li>
+        <li>Respond to screen getting locked/unlocked by
+        gnome-screen-saver —
+        <code>(emacspeak-dbus-watch-screen-lock)</code>.</li>
+        <li>Respond to laptop going to sleep or waking up —
+        <code>(emacspeak-dbus-sleep-enable)</code>.</li>
+        <li>Respond to insertion/ejection of removable storage —
+        <code>(emacspeak-dbus-udisks-enable)</code>.</li>
+        <li>Watch for power devices —
+        <code>(emacspeak-dbus-upower-enable)</code>.</li>
+        <li>An interactive command
+        <code>emacspeak-dbus-lock-screen</code> bound to <kbd>C-,
+        C-d</kbd> to lock the screen using DBus. Note: this
+        key-binding is available only if this module is
+        loaded.</li>
+      </ul>
+      <p>Add calls to the desired functions from the above list to
+      the emacs startup file after this module has been loaded. See
+      relevant hooks for customizing behavior. Note that each of
+      the sleep/wake-up, UDisks2 and network/up-down can be
+      separately enabled/disabled, and the actions customized via
+      appropriately named hook functions.</p>
+    </div>
+    <div class="subsection" id="Emacspeak_002dDbus-Commands">
+      <h4 class="subsection">12.42.2 Emacspeak-Dbus Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002ddbus_002dlock_002dscreen"
+        accesskey="1">emacspeak-dbus-lock-screen</a></li>
+        <li><a href="#emacspeak_002ddbus_002dsleep_002ddisable"
+        accesskey="2">emacspeak-dbus-sleep-disable</a></li>
+        <li><a href="#emacspeak_002ddbus_002dsleep_002denable"
+        accesskey="3">emacspeak-dbus-sleep-enable</a></li>
+        <li><a href="#emacspeak_002ddbus_002dudisks_002ddisable"
+        accesskey="4">emacspeak-dbus-udisks-disable</a></li>
+        <li><a href="#emacspeak_002ddbus_002dudisks_002denable"
+        accesskey="5">emacspeak-dbus-udisks-enable</a></li>
+        <li><a href="#emacspeak_002ddbus_002dupower_002ddisable"
+        accesskey="6">emacspeak-dbus-upower-disable</a></li>
+        <li><a href="#emacspeak_002ddbus_002dupower_002denable"
+        accesskey="7">emacspeak-dbus-upower-enable</a></li>
+        <li><a href="#emacspeak_002dscreen_002dsaver_002dmode"
+        accesskey="8">emacspeak-screen-saver-mode</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002ddbus_002dlock_002dscreen">
+        <h4 class="subsubsection">12.42.2.1
+        emacspeak-dbus-lock-screen</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002ddbus_002dlock_002dscreen">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dbus-lock-screen</strong>
+          <a href='#index-emacspeak_002ddbus_002dlock_002dscreen'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddbus_002dlock_002dscreen-1"></span>
+            <div class="format">
+              <pre class="format">Lock screen using DBus.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002ddbus_002dsleep_002ddisable">
+        <h4 class="subsubsection">12.42.2.2
+        emacspeak-dbus-sleep-disable</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002ddbus_002dsleep_002ddisable">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dbus-sleep-disable</strong>
+          <a href='#index-emacspeak_002ddbus_002dsleep_002ddisable'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddbus_002dsleep_002ddisable-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Disable integration with login1 daemon. Does nothing if
 already disabled.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002ddbus_002dsleep_002denable">
-<h4 class="subsubsection">12.42.2.3 emacspeak-dbus-sleep-enable</h4>
-<dl class="def">
-<dt id="index-emacspeak_002ddbus_002dsleep_002denable"><span class="category">Command: </span><span><strong>emacspeak-dbus-sleep-enable</strong><a href='#index-emacspeak_002ddbus_002dsleep_002denable' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002ddbus_002dsleep_002denable-1"></span>
-
-<div class="format">
-<pre class="format">Enable integration with Login1. Does nothing if already enabled.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002ddbus_002dudisks_002ddisable">
-<h4 class="subsubsection">12.42.2.4 emacspeak-dbus-udisks-disable</h4>
-<dl class="def">
-<dt id="index-emacspeak_002ddbus_002dudisks_002ddisable"><span class="category">Command: </span><span><strong>emacspeak-dbus-udisks-disable</strong><a href='#index-emacspeak_002ddbus_002dudisks_002ddisable' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002ddbus_002dudisks_002ddisable-1"></span>
-
-<div class="format">
-<pre class="format">Disable integration with UDisks2 daemon. Does nothing if
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002ddbus_002dsleep_002denable">
+        <h4 class="subsubsection">12.42.2.3
+        emacspeak-dbus-sleep-enable</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002ddbus_002dsleep_002denable">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dbus-sleep-enable</strong>
+          <a href='#index-emacspeak_002ddbus_002dsleep_002denable'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddbus_002dsleep_002denable-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Enable integration with Login1. Does nothing if already enabled.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002ddbus_002dudisks_002ddisable">
+        <h4 class="subsubsection">12.42.2.4
+        emacspeak-dbus-udisks-disable</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002ddbus_002dudisks_002ddisable">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dbus-udisks-disable</strong>
+          <a href=
+          '#index-emacspeak_002ddbus_002dudisks_002ddisable' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddbus_002dudisks_002ddisable-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Disable integration with UDisks2 daemon. Does nothing if
 already disabled.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002ddbus_002dudisks_002denable">
-<h4 class="subsubsection">12.42.2.5 emacspeak-dbus-udisks-enable</h4>
-<dl class="def">
-<dt id="index-emacspeak_002ddbus_002dudisks_002denable"><span class="category">Command: </span><span><strong>emacspeak-dbus-udisks-enable</strong><a href='#index-emacspeak_002ddbus_002dudisks_002denable' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002ddbus_002dudisks_002denable-1"></span>
-
-<div class="format">
-<pre class="format">Enable integration with UDisks2. Does nothing if already enabled.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002ddbus_002dupower_002ddisable">
-<h4 class="subsubsection">12.42.2.6 emacspeak-dbus-upower-disable</h4>
-<dl class="def">
-<dt id="index-emacspeak_002ddbus_002dupower_002ddisable"><span class="category">Command: </span><span><strong>emacspeak-dbus-upower-disable</strong><a href='#index-emacspeak_002ddbus_002dupower_002ddisable' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002ddbus_002dupower_002ddisable-1"></span>
-
-<div class="format">
-<pre class="format">Disable integration with UPower daemon. Does nothing if
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002ddbus_002dudisks_002denable">
+        <h4 class="subsubsection">12.42.2.5
+        emacspeak-dbus-udisks-enable</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002ddbus_002dudisks_002denable">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dbus-udisks-enable</strong>
+          <a href='#index-emacspeak_002ddbus_002dudisks_002denable'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddbus_002dudisks_002denable-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Enable integration with UDisks2. Does nothing if already enabled.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002ddbus_002dupower_002ddisable">
+        <h4 class="subsubsection">12.42.2.6
+        emacspeak-dbus-upower-disable</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002ddbus_002dupower_002ddisable">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dbus-upower-disable</strong>
+          <a href=
+          '#index-emacspeak_002ddbus_002dupower_002ddisable' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddbus_002dupower_002ddisable-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Disable integration with UPower daemon. Does nothing if
 already disabled.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002ddbus_002dupower_002denable">
-<h4 class="subsubsection">12.42.2.7 emacspeak-dbus-upower-enable</h4>
-<dl class="def">
-<dt id="index-emacspeak_002ddbus_002dupower_002denable"><span class="category">Command: </span><span><strong>emacspeak-dbus-upower-enable</strong><a href='#index-emacspeak_002ddbus_002dupower_002denable' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002ddbus_002dupower_002denable-1"></span>
-
-<div class="format">
-<pre class="format">Enable integration with UPower. Does nothing if already enabled.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dscreen_002dsaver_002dmode">
-<h4 class="subsubsection">12.42.2.8 emacspeak-screen-saver-mode</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dscreen_002dsaver_002dmode"><span class="category">Command: </span><span><strong>emacspeak-screen-saver-mode</strong><a href='#index-emacspeak_002dscreen_002dsaver_002dmode' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dscreen_002dsaver_002dmode-1"></span>
-
-<div class="format">
-<pre class="format">A light-weight mode for the ‘*Emacspeak Screen Saver *’ buffer.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002ddbus_002dupower_002denable">
+        <h4 class="subsubsection">12.42.2.7
+        emacspeak-dbus-upower-enable</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002ddbus_002dupower_002denable">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-dbus-upower-enable</strong>
+          <a href='#index-emacspeak_002ddbus_002dupower_002denable'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002ddbus_002dupower_002denable-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Enable integration with UPower. Does nothing if already enabled.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dscreen_002dsaver_002dmode">
+        <h4 class="subsubsection">12.42.2.8
+        emacspeak-screen-saver-mode</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dscreen_002dsaver_002dmode">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-screen-saver-mode</strong>
+          <a href='#index-emacspeak_002dscreen_002dsaver_002dmode'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dscreen_002dsaver_002dmode-1"></span>
+            <div class="format">
+              <pre class=
+              "format">A light-weight mode for the ‘*Emacspeak Screen Saver *’ buffer.
 This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape.
 
@@ -201,19 +300,23 @@ In addition to any hooks its parent mode ‘special-mode’ might have
 run, this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as
 the final or penultimate step during initialization.
 
-</pre></div>
-</dd></dl>
-
-</div>
-</div>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002ddeadgrep.html">emacspeak-deadgrep</a>, Previous: <a href="emacspeak_002dcustom.html">emacspeak-custom</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002ddeadgrep.html">emacspeak-deadgrep</a>, Previous:
+    <a href="emacspeak_002dcustom.html">emacspeak-custom</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

@@ -1,144 +1,192 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>emacspeak-filtertext (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="emacspeak-filtertext (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="emacspeak-filtertext (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dflycheck.html" rel="next" title="emacspeak-flycheck">
-<link href="emacspeak_002dffap.html" rel="prev" title="emacspeak-ffap">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-filtertext (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-filtertext (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-filtertext (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="emacspeak_002dflycheck.html" rel="next" title=
+  "emacspeak-flycheck" />
+  <link href="emacspeak_002dffap.html" rel="prev" title=
+  "emacspeak-ffap" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="emacspeak_002dfiltertext">
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dflycheck.html" accesskey="n" rel="next">emacspeak-flycheck</a>, Previous: <a href="emacspeak_002dffap.html" accesskey="p" rel="prev">emacspeak-ffap</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="emacspeak_002dfiltertext-1"></span><h3 class="section">12.79 emacspeak-filtertext</h3>
-
-<p>It is often useful  to view the results of filtering
-large amounts of text.;;; Typically you do this with
-various combinations of grep and friends.
-When doing so it requires explicit effort to not destroy
-the original text being filtered.
-This module provides a textfilter utility that:
-A) Copies over the selected text to a special filtertext
-buffer
-B) Implements a filtertext mode for that buffer that
-allows easy application of filters
-C: Provides commands for reverting to the original
-unfiltered text
-D: Provides commands for saving results from
-intermediate filters.
-</p>
-<ul class="section-toc">
-<li><a href="#Emacspeak_002dFiltertext-Commands" accesskey="1">Emacspeak-Filtertext Commands</a></li>
-</ul>
-<div class="subsection" id="Emacspeak_002dFiltertext-Commands">
-<h4 class="subsection">12.79.1 Emacspeak-Filtertext Commands</h4>
-
-<ul class="section-toc">
-<li><a href="#emacspeak_002dfiltertext-2" accesskey="1">emacspeak-filtertext</a></li>
-<li><a href="#emacspeak_002dfiltertext_002dmode" accesskey="2">emacspeak-filtertext-mode</a></li>
-<li><a href="#emacspeak_002dfiltertext_002drevert" accesskey="3">emacspeak-filtertext-revert</a></li>
-</ul>
-<div class="subsubsection" id="emacspeak_002dfiltertext-2">
-<h4 class="subsubsection">12.79.1.1 emacspeak-filtertext</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfiltertext"><span class="category">Command: </span><span><strong>emacspeak-filtertext</strong> <em>(start end)</em><a href='#index-emacspeak_002dfiltertext' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002de-_005e'><span><kbd>C-e ^</kbd><a href='#index-C_002de-_005e' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-_003cfn_003e-_005e'><span><kbd>&lt;fn&gt; ^</kbd><a href='#index-_003cfn_003e-_005e' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-emacspeak_002dfiltertext-1"></span>
-
-<div class="format">
-<pre class="format">Copy over text in region to special filtertext buffer to  filter text. 
+<body lang="en" xml:lang="en">
+  <div class="section" id="emacspeak_002dfiltertext">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dflycheck.html" accesskey="n"
+      rel="next">emacspeak-flycheck</a>, Previous: <a href=
+      "emacspeak_002dffap.html" accesskey="p" rel=
+      "prev">emacspeak-ffap</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002dfiltertext-1"></span>
+    <h3 class="section">12.79 emacspeak-filtertext</h3>
+    <p>It is often useful to view the results of filtering large
+    amounts of text.;;; Typically you do this with various
+    combinations of grep and friends. When doing so it requires
+    explicit effort to not destroy the original text being
+    filtered. This module provides a textfilter utility that: A)
+    Copies over the selected text to a special filtertext buffer B)
+    Implements a filtertext mode for that buffer that allows easy
+    application of filters C: Provides commands for reverting to
+    the original unfiltered text D: Provides commands for saving
+    results from intermediate filters.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dFiltertext-Commands" accesskey=
+      "1">Emacspeak-Filtertext Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dFiltertext-Commands">
+      <h4 class="subsection">12.79.1 Emacspeak-Filtertext
+      Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#emacspeak_002dfiltertext-2" accesskey=
+        "1">emacspeak-filtertext</a></li>
+        <li><a href="#emacspeak_002dfiltertext_002dmode" accesskey=
+        "2">emacspeak-filtertext-mode</a></li>
+        <li><a href="#emacspeak_002dfiltertext_002drevert"
+        accesskey="3">emacspeak-filtertext-revert</a></li>
+      </ul>
+      <div class="subsubsection" id="emacspeak_002dfiltertext-2">
+        <h4 class="subsubsection">12.79.1.1
+        emacspeak-filtertext</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfiltertext"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-filtertext</strong> <em>(start
+          end)</em> <a href='#index-emacspeak_002dfiltertext'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-_005e'><span><kbd>C-e ^</kbd>
+              <a href='#index-C_002de-_005e' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-_005e'>
+              <span><kbd>&lt;fn&gt; ^</kbd> <a href=
+              '#index-_003cfn_003e-_005e' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dfiltertext-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Copy over text in region to special filtertext buffer to  filter text. 
 
 (fn START END)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfiltertext_002dmode">
-<h4 class="subsubsection">12.79.1.2 emacspeak-filtertext-mode</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfiltertext_002dmode"><span class="category">Command: </span><span><strong>emacspeak-filtertext-mode</strong><a href='#index-emacspeak_002dfiltertext_002dmode' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dfiltertext_002dmode-1"></span>
-
-<div class="format">
-<pre class="format">Major mode for FilterText interaction. 
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfiltertext_002dmode">
+        <h4 class="subsubsection">12.79.1.2
+        emacspeak-filtertext-mode</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfiltertext_002dmode">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-filtertext-mode</strong> <a href=
+          '#index-emacspeak_002dfiltertext_002dmode' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dfiltertext_002dmode-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Major mode for FilterText interaction. 
 
 Key             Binding
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
-=		keep-lines
-^		flush-lines
-r		emacspeak-filtertext-revert
+——————————————————————————-
+=               keep-lines
+^               flush-lines
+r               emacspeak-filtertext-revert
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
 this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final
 or penultimate step during initialization.
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002dfiltertext_002drevert">
-<h4 class="subsubsection">12.79.1.3 emacspeak-filtertext-revert</h4>
-<dl class="def">
-<dt id="index-emacspeak_002dfiltertext_002drevert"><span class="category">Command: </span><span><strong>emacspeak-filtertext-revert</strong><a href='#index-emacspeak_002dfiltertext_002drevert' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002dfiltertext_002drevert-1"></span>
-
-<div class="format">
-<pre class="format">Revert to original text.
-</pre></div>
-</dd></dl>
-
-</div>
-</div>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dflycheck.html">emacspeak-flycheck</a>, Previous: <a href="emacspeak_002dffap.html">emacspeak-ffap</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dfiltertext_002drevert">
+        <h4 class="subsubsection">12.79.1.3
+        emacspeak-filtertext-revert</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dfiltertext_002drevert">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-filtertext-revert</strong>
+          <a href='#index-emacspeak_002dfiltertext_002drevert'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dfiltertext_002drevert-1"></span>
+            <div class="format">
+              <pre class="format">Revert to original text.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dflycheck.html">emacspeak-flycheck</a>, Previous:
+    <a href="emacspeak_002dffap.html">emacspeak-ffap</a>, Up:
+    <a href="Emacspeak-Commands-And-Options.html">Emacspeak
+    Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

@@ -1,123 +1,194 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>emacspeak-arc (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="emacspeak-arc (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="emacspeak-arc (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dauctex.html" rel="next" title="emacspeak-auctex">
-<link href="emacspeak_002dapt_002dsources.html" rel="prev" title="emacspeak-apt-sources">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-arc (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-arc (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-arc (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="emacspeak_002dauctex.html" rel="next" title=
+  "emacspeak-auctex" />
+  <link href="emacspeak_002dapt_002dsources.html" rel="prev" title=
+  "emacspeak-apt-sources" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="emacspeak_002darc">
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dauctex.html" accesskey="n" rel="next">emacspeak-auctex</a>, Previous: <a href="emacspeak_002dapt_002dsources.html" accesskey="p" rel="prev">emacspeak-apt-sources</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="emacspeak_002darc-1"></span><h3 class="section">12.16 emacspeak-arc</h3>
-
-<p>Auditory interface to archive mode
-This lets Emacs manipulate package files such as .zip and .jar files.
-</p>
-<ul class="section-toc">
-<li><a href="#Emacspeak_002dArc-Commands" accesskey="1">Emacspeak-Arc Commands</a></li>
-</ul>
-<div class="subsection" id="Emacspeak_002dArc-Commands">
-<h4 class="subsection">12.16.1 Emacspeak-Arc Commands</h4>
-
-<ul class="section-toc">
-<li><a href="#emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime" accesskey="1">emacspeak-arc-speak-file-modification-time</a></li>
-<li><a href="#emacspeak_002darc_002dspeak_002dfile_002dname" accesskey="2">emacspeak-arc-speak-file-name</a></li>
-<li><a href="#emacspeak_002darc_002dspeak_002dfile_002dpermissions" accesskey="3">emacspeak-arc-speak-file-permissions</a></li>
-<li><a href="#emacspeak_002darc_002dspeak_002dfile_002dsize" accesskey="4">emacspeak-arc-speak-file-size</a></li>
-</ul>
-<div class="subsubsection" id="emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime">
-<h4 class="subsubsection">12.16.1.1 emacspeak-arc-speak-file-modification-time</h4>
-<dl class="def">
-<dt id="index-emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime"><span class="category">Command: </span><span><strong>emacspeak-arc-speak-file-modification-time</strong><a href='#index-emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime-1"></span>
-
-<div class="format">
-<pre class="format">Speak modification time of the file on current line
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002darc_002dspeak_002dfile_002dname">
-<h4 class="subsubsection">12.16.1.2 emacspeak-arc-speak-file-name</h4>
-<dl class="def">
-<dt id="index-emacspeak_002darc_002dspeak_002dfile_002dname"><span class="category">Command: </span><span><strong>emacspeak-arc-speak-file-name</strong><a href='#index-emacspeak_002darc_002dspeak_002dfile_002dname' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002darc_002dspeak_002dfile_002dname-1"></span>
-
-<div class="format">
-<pre class="format">Speak the name of the file on current line
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002darc_002dspeak_002dfile_002dpermissions">
-<h4 class="subsubsection">12.16.1.3 emacspeak-arc-speak-file-permissions</h4>
-<dl class="def">
-<dt id="index-emacspeak_002darc_002dspeak_002dfile_002dpermissions"><span class="category">Command: </span><span><strong>emacspeak-arc-speak-file-permissions</strong><a href='#index-emacspeak_002darc_002dspeak_002dfile_002dpermissions' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002darc_002dspeak_002dfile_002dpermissions-1"></span>
-
-<div class="format">
-<pre class="format">Speak permissions of file current entry 
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="emacspeak_002darc_002dspeak_002dfile_002dsize">
-<h4 class="subsubsection">12.16.1.4 emacspeak-arc-speak-file-size</h4>
-<dl class="def">
-<dt id="index-emacspeak_002darc_002dspeak_002dfile_002dsize"><span class="category">Command: </span><span><strong>emacspeak-arc-speak-file-size</strong><a href='#index-emacspeak_002darc_002dspeak_002dfile_002dsize' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-emacspeak_002darc_002dspeak_002dfile_002dsize-1"></span>
-
-<div class="format">
-<pre class="format">Speak the size of the file on current line
-</pre></div>
-</dd></dl>
-
-</div>
-</div>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id="emacspeak_002darc">
+    <div class="header">
+      <p>Next: <a href="emacspeak_002dauctex.html" accesskey="n"
+      rel="next">emacspeak-auctex</a>, Previous: <a href=
+      "emacspeak_002dapt_002dsources.html" accesskey="p" rel=
+      "prev">emacspeak-apt-sources</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="emacspeak_002darc-1"></span>
+    <h3 class="section">12.16 emacspeak-arc</h3>
+    <p>Auditory interface to archive mode This lets Emacs
+    manipulate package files such as .zip and .jar files.</p>
+    <ul class="section-toc">
+      <li><a href="#Emacspeak_002dArc-Commands" accesskey=
+      "1">Emacspeak-Arc Commands</a></li>
+    </ul>
+    <div class="subsection" id="Emacspeak_002dArc-Commands">
+      <h4 class="subsection">12.16.1 Emacspeak-Arc Commands</h4>
+      <ul class="section-toc">
+        <li><a href=
+        "#emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime"
+        accesskey=
+        "1">emacspeak-arc-speak-file-modification-time</a></li>
+        <li><a href=
+        "#emacspeak_002darc_002dspeak_002dfile_002dname" accesskey=
+        "2">emacspeak-arc-speak-file-name</a></li>
+        <li><a href=
+        "#emacspeak_002darc_002dspeak_002dfile_002dpermissions"
+        accesskey="3">emacspeak-arc-speak-file-permissions</a></li>
+        <li><a href=
+        "#emacspeak_002darc_002dspeak_002dfile_002dsize" accesskey=
+        "4">emacspeak-arc-speak-file-size</a></li>
+      </ul>
+      <div class="subsubsection" id=
+      "emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime">
+        <h4 class="subsubsection">12.16.1.1
+        emacspeak-arc-speak-file-modification-time</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-arc-speak-file-modification-time</strong>
+          <a href=
+          '#index-emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002darc_002dspeak_002dfile_002dmodification_002dtime-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak modification time of the file on current line
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002darc_002dspeak_002dfile_002dname">
+        <h4 class="subsubsection">12.16.1.2
+        emacspeak-arc-speak-file-name</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002darc_002dspeak_002dfile_002dname">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-arc-speak-file-name</strong>
+          <a href=
+          '#index-emacspeak_002darc_002dspeak_002dfile_002dname'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002darc_002dspeak_002dfile_002dname-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak the name of the file on current line
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002darc_002dspeak_002dfile_002dpermissions">
+        <h4 class="subsubsection">12.16.1.3
+        emacspeak-arc-speak-file-permissions</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002darc_002dspeak_002dfile_002dpermissions">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-arc-speak-file-permissions</strong>
+          <a href=
+          '#index-emacspeak_002darc_002dspeak_002dfile_002dpermissions'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002darc_002dspeak_002dfile_002dpermissions-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak permissions of file current entry 
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002darc_002dspeak_002dfile_002dsize">
+        <h4 class="subsubsection">12.16.1.4
+        emacspeak-arc-speak-file-size</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002darc_002dspeak_002dfile_002dsize">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-arc-speak-file-size</strong>
+          <a href=
+          '#index-emacspeak_002darc_002dspeak_002dfile_002dsize'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002darc_002dspeak_002dfile_002dsize-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Speak the size of the file on current line
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

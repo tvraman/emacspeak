@@ -1,76 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Audio Formatting And Aural CSS (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Audio Formatting And Aural CSS (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Audio Formatting And Aural CSS (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Background.html" rel="up" title="Background">
-<link href="Auditory-Icons.html" rel="next" title="Auditory Icons">
-<link href="Speech_002dEnabling-Applications.html" rel="prev" title="Speech-Enabling Applications">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Audio Formatting And Aural CSS (Emacspeak User’s Manual —
+  2nd Edition.)</title>
+  <meta name="description" content=
+  "Audio Formatting And Aural CSS (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Audio Formatting And Aural CSS (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Background.html" rel="up" title="Background" />
+  <link href="Auditory-Icons.html" rel="next" title=
+  "Auditory Icons" />
+  <link href="Speech_002dEnabling-Applications.html" rel="prev"
+  title="Speech-Enabling Applications" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="Audio-Formatting-And-Aural-CSS">
-<div class="header">
-<p>
-Next: <a href="Auditory-Icons.html" accesskey="n" rel="next">Auditory Icons</a>, Previous: <a href="Speech_002dEnabling-Applications.html" accesskey="p" rel="prev">Speech-Enabling Applications</a>, Up: <a href="Background.html" accesskey="u" rel="up">Background</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Audio-Formatting-And-Aural-CSS-1"></span><h3 class="section">3.2 Audio Formatting And Aural CSS</h3>
-
-<p>AsTeR introduced the notion of <em>audio formatting</em> a concept
-analogous to the well-understood notion of visual formatting.  The work
-on AsTeR coincided with the Web being at its infancy.  As the Web
-evolved to acquire Cascaded Style Sheets (<acronym>CSS</acronym>), ideas from AsTeR were
-used to define Aural CSS as an appendix to CSS1 in 1995.  Emacspeak
-proved an ideal platform to prototype the ideas within Aural CSS
- &mdash; first within the Emacs/W3 browser.  Around this time, Emacs
-itself evolved to support multiple fonts and <em>font-locking</em> to
-implement syntax coloring for various types of content.  Emacspeak
-applied the ideas of audio formatting to create the auditory analog of
-<em>font-lock</em>  &mdash; Emacspeak calls this <em>voice locking</em>.
-</p>
-<p>Voice locking in Emacspeak continues to be a unique feature among
-systems that provide auditory feedback.  Later in 1997, Emacspeak&rsquo;s
-implementation was overhauled to use Aural CSS for all aspects of
-voice-locking, rather than just for Web content.
-</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="section" id="Audio-Formatting-And-Aural-CSS">
+    <div class="header">
+      <p>Next: <a href="Auditory-Icons.html" accesskey="n" rel=
+      "next">Auditory Icons</a>, Previous: <a href=
+      "Speech_002dEnabling-Applications.html" accesskey="p" rel=
+      "prev">Speech-Enabling Applications</a>, Up: <a href=
+      "Background.html" accesskey="u" rel="up">Background</a>
+      &nbsp; [<a href="index.html#SEC_Contents" title=
+      "Table of contents" rel="contents">Contents</a>][<a href=
+      "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Audio-Formatting-And-Aural-CSS-1"></span>
+    <h3 class="section">3.2 Audio Formatting And Aural CSS</h3>
+    <p>AsTeR introduced the notion of <em>audio formatting</em> a
+    concept analogous to the well-understood notion of visual
+    formatting. The work on AsTeR coincided with the Web being at
+    its infancy. As the Web evolved to acquire Cascaded Style
+    Sheets (<acronym>CSS</acronym>), ideas from AsTeR were used to
+    define Aural CSS as an appendix to CSS1 in 1995. Emacspeak
+    proved an ideal platform to prototype the ideas within Aural
+    CSS — first within the Emacs/W3 browser. Around this time,
+    Emacs itself evolved to support multiple fonts and
+    <em>font-locking</em> to implement syntax coloring for various
+    types of content. Emacspeak applied the ideas of audio
+    formatting to create the auditory analog of <em>font-lock</em>
+    — Emacspeak calls this <em>voice locking</em>.</p>
+    <p>Voice locking in Emacspeak continues to be a unique feature
+    among systems that provide auditory feedback. Later in 1997,
+    Emacspeak’s implementation was overhauled to use Aural CSS for
+    all aspects of voice-locking, rather than just for Web
+    content.</p>
+  </div>
 </body>
 </html>

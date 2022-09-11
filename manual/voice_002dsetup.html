@@ -1,136 +1,161 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>voice-setup (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="voice-setup (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="voice-setup (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html" rel="up" title="Emacspeak Commands And Options">
-<link href="xbacklight.html" rel="next" title="xbacklight">
-<link href="voice_002ddefs.html" rel="prev" title="voice-defs">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>voice-setup (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "voice-setup (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "voice-setup (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="xbacklight.html" rel="next" title="xbacklight" />
+  <link href="voice_002ddefs.html" rel="prev" title="voice-defs" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="section" id="voice_002dsetup">
-<div class="header">
-<p>
-Next: <a href="xbacklight.html" accesskey="n" rel="next">xbacklight</a>, Previous: <a href="voice_002ddefs.html" accesskey="p" rel="prev">voice-defs</a>, Up: <a href="Emacspeak-Commands-And-Options.html" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="voice_002dsetup-1"></span><h3 class="section">12.237 voice-setup</h3>
-
-<p>A voice is to audio as a font is to a visual display.
-A personality is to audio as a face is to a visual display.
-</p>
-<p>Voice-lock-mode is a minor mode that causes your comments to be
-spoken in one personality, strings in another, reserved words in another,
-documentation strings in another, and so on.
-</p>
-<p>Comments will be spoken in &lsquo;voice-comment-personality&rsquo;.
-Strings will be spoken in &lsquo;voice-string-personality&rsquo;.
-Function  (in their defining forms) will be
- spoken in &lsquo;voice-function-name-personality&rsquo;.
-Reserved words will be spoken in &lsquo;voice-keyword-personality&rsquo;.
-</p>
-<p>To audio-format  text , use M-x voice-lock-mode.
-When this minor mode is on, the voices of the current line are
-updated with every insertion or deletion.
-</p>
-<ul class="section-toc">
-<li><a href="#Voice_002dLock-And-Aural-CSS" accesskey="1">Voice-Lock And Aural CSS</a></li>
-<li><a href="#Voice_002dSetup-Commands" accesskey="2">Voice-Setup Commands</a></li>
-<li><a href="#voice_002dsetup-Options" accesskey="3">voice-setup Options</a></li>
-</ul>
-<div class="subsection" id="Voice_002dLock-And-Aural-CSS">
-<h4 class="subsection">12.237.1 Voice-Lock And Aural CSS</h4>
-<p>The CSS Speech Style Sheet specification defines a number of
-abstract device independent voice properties.
-A setting conforming to the CSS speech specification can be
-represented in elisp as a structure.
-</p>
-<p>We will refer to this structure as a &quot;speech style&quot;.  This
-structure needs to be mapped to device dependent codes to produce
-the desired effect.  This module forms a bridge between emacs
-packages    that wish to implement audio formatting
-and Emacspeak&rsquo;s TTS module.  Emacspeak produces voice
-change effects by examining the value of text-property
-&rsquo;personality&rsquo;, as well as the face/font at point.
-</p>
-<p>Think of a buffer of formatted text along with the text-property
-&rsquo;personality appropriately set as a &quot;aural display list&quot;.  Module
-voice-setup.el help applications like EWW produce audio-formatted
-output by calling function voice-acss-from-speech-style with
-a &quot;speech-style&quot; &ndash;a structure as defined in this module and get
-back a symbol that they assign to the value of property
-&rsquo;personality.  Emacspeak&rsquo;s rendering engine then does the needful
-at the time speech is produced.  Function
-voice-acss-from-speech-style does the following: Takes as
-input a &quot;speech style&quot; (1) Computes a symbol that will be used to
-refer to this specific speech style.  (2) Examines emacspeak&rsquo;s
-internal voice table to see if this speech style has a voice
-already defined.  If so it returns immediately.  Otherwise, it
-does the additional work of defining a -voice for future use.  See
-its use in this module to see how voices are defined independent
-of a given TTS engine.  How faces map to voices: TTS engine
-specific modules e.g., dectalk-voices.el and outloud-voices.el map
-ACSS dimensions to engine-specific codes.  Emacspeak modules use
-voice-setup-add-map when defining face-&gt;personality mappings.  For
-use from other modules.
-</p>
-</div>
-<div class="subsection" id="Voice_002dSetup-Commands">
-<h4 class="subsection">12.237.2 Voice-Setup Commands</h4>
-
-<ul class="section-toc">
-<li><a href="#voice_002dlock_002dmode" accesskey="1">voice-lock-mode</a></li>
-<li><a href="#voice_002dlock_002dmode_002d_002dturn_002don" accesskey="2">voice-lock-mode&ndash;turn-on</a></li>
-<li><a href="#voice_002dsetup_002dtoggle_002dsilence_002dpersonality" accesskey="3">voice-setup-toggle-silence-personality</a></li>
-</ul>
-<div class="subsubsection" id="voice_002dlock_002dmode">
-<h4 class="subsubsection">12.237.2.1 voice-lock-mode</h4>
-<dl class="def">
-<dt id="index-voice_002dlock_002dmode"><span class="category">Command: </span><span><strong>voice-lock-mode</strong> <em>(&amp;optional arg)</em><a href='#index-voice_002dlock_002dmode' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002de-d-v'><span><kbd>C-e d v</kbd><a href='#index-C_002de-d-v' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-_003cfn_003e-d-v'><span><kbd>&lt;fn&gt; d v</kbd><a href='#index-_003cfn_003e-d-v' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-voice_002dlock_002dmode-1"></span>
-
-<div class="format">
-<pre class="format">Toggle voice lock mode.
+<body lang="en" xml:lang="en">
+  <div class="section" id="voice_002dsetup">
+    <div class="header">
+      <p>Next: <a href="xbacklight.html" accesskey="n" rel=
+      "next">xbacklight</a>, Previous: <a href=
+      "voice_002ddefs.html" accesskey="p" rel=
+      "prev">voice-defs</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="voice_002dsetup-1"></span>
+    <h3 class="section">12.237 voice-setup</h3>
+    <p>A voice is to audio as a font is to a visual display. A
+    personality is to audio as a face is to a visual display.</p>
+    <p>Voice-lock-mode is a minor mode that causes your comments to
+    be spoken in one personality, strings in another, reserved
+    words in another, documentation strings in another, and so
+    on.</p>
+    <p>Comments will be spoken in ‘voice-comment-personality’.
+    Strings will be spoken in ‘voice-string-personality’. Function
+    (in their defining forms) will be spoken in
+    ‘voice-function-name-personality’. Reserved words will be
+    spoken in ‘voice-keyword-personality’.</p>
+    <p>To audio-format text , use M-x voice-lock-mode. When this
+    minor mode is on, the voices of the current line are updated
+    with every insertion or deletion.</p>
+    <ul class="section-toc">
+      <li><a href="#Voice_002dLock-And-Aural-CSS" accesskey=
+      "1">Voice-Lock And Aural CSS</a></li>
+      <li><a href="#Voice_002dSetup-Commands" accesskey=
+      "2">Voice-Setup Commands</a></li>
+      <li><a href="#voice_002dsetup-Options" accesskey=
+      "3">voice-setup Options</a></li>
+    </ul>
+    <div class="subsection" id="Voice_002dLock-And-Aural-CSS">
+      <h4 class="subsection">12.237.1 Voice-Lock And Aural CSS</h4>
+      <p>The CSS Speech Style Sheet specification defines a number
+      of abstract device independent voice properties. A setting
+      conforming to the CSS speech specification can be represented
+      in elisp as a structure.</p>
+      <p>We will refer to this structure as a "speech style". This
+      structure needs to be mapped to device dependent codes to
+      produce the desired effect. This module forms a bridge
+      between emacs packages that wish to implement audio
+      formatting and Emacspeak’s TTS module. Emacspeak produces
+      voice change effects by examining the value of text-property
+      ’personality’, as well as the face/font at point.</p>
+      <p>Think of a buffer of formatted text along with the
+      text-property ’personality appropriately set as a "aural
+      display list". Module voice-setup.el help applications like
+      EWW produce audio-formatted output by calling function
+      voice-acss-from-speech-style with a "speech-style" –a
+      structure as defined in this module and get back a symbol
+      that they assign to the value of property ’personality.
+      Emacspeak’s rendering engine then does the needful at the
+      time speech is produced. Function
+      voice-acss-from-speech-style does the following: Takes as
+      input a "speech style" (1) Computes a symbol that will be
+      used to refer to this specific speech style. (2) Examines
+      emacspeak’s internal voice table to see if this speech style
+      has a voice already defined. If so it returns immediately.
+      Otherwise, it does the additional work of defining a -voice
+      for future use. See its use in this module to see how voices
+      are defined independent of a given TTS engine. How faces map
+      to voices: TTS engine specific modules e.g.,
+      dectalk-voices.el and outloud-voices.el map ACSS dimensions
+      to engine-specific codes. Emacspeak modules use
+      voice-setup-add-map when defining face-&gt;personality
+      mappings. For use from other modules.</p>
+    </div>
+    <div class="subsection" id="Voice_002dSetup-Commands">
+      <h4 class="subsection">12.237.2 Voice-Setup Commands</h4>
+      <ul class="section-toc">
+        <li><a href="#voice_002dlock_002dmode" accesskey=
+        "1">voice-lock-mode</a></li>
+        <li><a href="#voice_002dlock_002dmode_002d_002dturn_002don"
+        accesskey="2">voice-lock-mode–turn-on</a></li>
+        <li><a href=
+        "#voice_002dsetup_002dtoggle_002dsilence_002dpersonality"
+        accesskey=
+        "3">voice-setup-toggle-silence-personality</a></li>
+      </ul>
+      <div class="subsubsection" id="voice_002dlock_002dmode">
+        <h4 class="subsubsection">12.237.2.1 voice-lock-mode</h4>
+        <dl class="def">
+          <dt id="index-voice_002dlock_002dmode"><span class=
+          "category">Command:</span>
+          <span><strong>voice-lock-mode</strong> <em>(&amp;optional
+          arg)</em> <a href='#index-voice_002dlock_002dmode' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-d-v'><span><kbd>C-e d v</kbd>
+              <a href='#index-C_002de-d-v' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-v'><span><kbd>&lt;fn&gt;
+              d v</kbd> <a href='#index-_003cfn_003e-d-v' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id="index-voice_002dlock_002dmode-1"></span>
+            <div class="format">
+              <pre class="format">Toggle voice lock mode.
 
 This is a minor mode.  If called interactively, toggle the
 ‘Voice-Lock mode’ mode.  If the prefix argument is positive,
@@ -147,62 +172,91 @@ The mode’s hook is called both when the mode is enabled and when
 it is disabled.
 
 (fn &amp;optional ARG)
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="voice_002dlock_002dmode_002d_002dturn_002don">
-<h4 class="subsubsection">12.237.2.2 voice-lock-mode&ndash;turn-on</h4>
-<dl class="def">
-<dt id="index-voice_002dlock_002dmode_002d_002dturn_002don"><span class="category">Command: </span><span><strong>voice-lock-mode--turn-on</strong><a href='#index-voice_002dlock_002dmode_002d_002dturn_002don' class='copiable-anchor'> &para;</a></span></dt>
-<dd><span id="index-voice_002dlock_002dmode_002d_002dturn_002don-1"></span>
-
-<div class="format">
-<pre class="format">Turn on Voice Lock mode .
-</pre></div>
-</dd></dl>
-
-</div>
-<div class="subsubsection" id="voice_002dsetup_002dtoggle_002dsilence_002dpersonality">
-<h4 class="subsubsection">12.237.2.3 voice-setup-toggle-silence-personality</h4>
-<dl class="def">
-<dt id="index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality"><span class="category">Command: </span><span><strong>voice-setup-toggle-silence-personality</strong><a href='#index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality' class='copiable-anchor'> &para;</a></span></dt>
-<dd><dl compact="compact">
-<dt id='index-C_002de-M_002dq'><span><kbd>C-e M-q</kbd><a href='#index-C_002de-M_002dq' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-_003cfn_003e-M_002dq'><span><kbd>&lt;fn&gt; M-q</kbd><a href='#index-_003cfn_003e-M_002dq' class='copiable-anchor'> &para;</a></span></dt>
-</dl>
-
-<span id="index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality-1"></span>
-
-<div class="format">
-<pre class="format">Toggle audibility of personality under point  . 
-</pre></div>
-</dd></dl>
-
-</div>
-</div>
-<div class="subsection" id="voice_002dsetup-Options">
-<h4 class="subsection">12.237.3 voice-setup Options</h4>
-
-<dl class="def">
-<dt id="index-User-Option-146"><span class="category">Variable: </span><span><strong>User Option</strong> <em>voice-lock-mode-hook</em><a href='#index-User-Option-146' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Hook run after entering or leaving ‘voice-lock-mode’.
-No problems result if this variable is not bound.
-‘add-hook’ automatically binds it.  (This is true for all hook variables.)
-</p>
-<p>Default Value: <code><tt>(voice-lock-mode-set-explicitly)</tt></code>
-</p>
-</dd></dl>
-
-</div>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="xbacklight.html">xbacklight</a>, Previous: <a href="voice_002ddefs.html">voice-defs</a>, Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "voice_002dlock_002dmode_002d_002dturn_002don">
+        <h4 class="subsubsection">12.237.2.2
+        voice-lock-mode–turn-on</h4>
+        <dl class="def">
+          <dt id=
+          "index-voice_002dlock_002dmode_002d_002dturn_002don">
+          <span class="category">Command:</span>
+          <span><strong>voice-lock-mode--turn-on</strong> <a href=
+          '#index-voice_002dlock_002dmode_002d_002dturn_002don'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-voice_002dlock_002dmode_002d_002dturn_002don-1"></span>
+            <div class="format">
+              <pre class="format">Turn on Voice Lock mode .
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "voice_002dsetup_002dtoggle_002dsilence_002dpersonality">
+        <h4 class="subsubsection">12.237.2.3
+        voice-setup-toggle-silence-personality</h4>
+        <dl class="def">
+          <dt id=
+          "index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality">
+          <span class="category">Command:</span>
+          <span><strong>voice-setup-toggle-silence-personality</strong>
+          <a href=
+          '#index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-M_002dq'><span><kbd>C-e
+              M-q</kbd> <a href='#index-C_002de-M_002dq' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-M_002dq'>
+              <span><kbd>&lt;fn&gt; M-q</kbd> <a href=
+              '#index-_003cfn_003e-M_002dq' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Toggle audibility of personality under point  . 
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="subsection" id="voice_002dsetup-Options">
+      <h4 class="subsection">12.237.3 voice-setup Options</h4>
+      <dl class="def">
+        <dt id="index-User-Option-146"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>voice-lock-mode-hook</em> <a href=
+        '#index-User-Option-146' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Hook run after entering or leaving ‘voice-lock-mode’.
+          No problems result if this variable is not bound.
+          ‘add-hook’ automatically binds it. (This is true for all
+          hook variables.)</p>
+          <p>Default Value:
+          <code><tt>(voice-lock-mode-set-explicitly)</tt></code></p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <hr />
+  <div class="header">
+    <p>Next: <a href="xbacklight.html">xbacklight</a>, Previous:
+    <a href="voice_002ddefs.html">voice-defs</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html">Emacspeak Commands And
+    Options</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>

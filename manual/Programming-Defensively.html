@@ -1,80 +1,89 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Programming Defensively (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)</title>
-
-<meta name="description" content="Programming Defensively (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="keywords" content="Programming Defensively (Emacspeak User&rsquo;s Manual &mdash; 2nd Edition.)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="index.html" rel="start" title="Top">
-<link href="Concept-Index.html" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-And-Software-Development.html" rel="up" title="Emacspeak And Software Development">
-<style type="text/css">
-<!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
--->
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/Modernist">
-
-
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>Programming Defensively (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "Programming Defensively (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "Programming Defensively (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-And-Software-Development.html" rel="up"
+  title="Emacspeak And Software Development" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span:hover a.copiable-anchor {visibility: visible}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
-
-<body lang="en">
-<div class="subsection" id="Programming-Defensively">
-<div class="header">
-<p>
-Up: <a href="Emacspeak-And-Software-Development.html" accesskey="u" rel="up">Emacspeak And Software Development</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<span id="Programming-Defensively-1"></span><h4 class="subsection">16.5.1 Programming Defensively</h4>
-
-<p>As an aside, note that all of Emacspeak has been developed over
-the last 20 years with Emacspeak being the only adaptive
-technology on my system. This has led to  some interesting design
-consequences, primary among them being  a strong education in
-<strong>programming defensively</strong>.  Here are some other key features of
-the Emacspeak code-base:
-</p>
-<ol>
-<li> The code-base is extremely <strong>bushy</strong> rather than deeply
-hierarchical  &mdash;  this means that when a module breaks, it does
-not affect the rest of the system.
-</li><li> Separation of concerns with respect to the various layers, a
-tightly knit  core speech library  interfaces  with  any one
-of many  speech servers  running as an external process.
-</li><li> Audio formatting is abstracted by using the formalism
-defined in Aural CSS.
-</li><li> Emacspeak integrates with Emacs&rsquo; user interface conventions
-by taking over a single prefix key <strong>C-e</strong> with <em>all</em>
-Emacspeak commands accessed through that single keymap.
-This helps embedding Emacspeak functionality into a large
-variety of third party modules without any loss of functionality.
-</li></ol>
-
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <div class="subsection" id="Programming-Defensively">
+    <div class="header">
+      <p>Up: <a href="Emacspeak-And-Software-Development.html"
+      accesskey="u" rel="up">Emacspeak And Software Development</a>
+      &nbsp; [<a href="index.html#SEC_Contents" title=
+      "Table of contents" rel="contents">Contents</a>][<a href=
+      "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <span id="Programming-Defensively-1"></span>
+    <h4 class="subsection">16.5.1 Programming Defensively</h4>
+    <p>As an aside, note that all of Emacspeak has been developed
+    over the last 20 years with Emacspeak being the only adaptive
+    technology on my system. This has led to some interesting
+    design consequences, primary among them being a strong
+    education in <strong>programming defensively</strong>. Here are
+    some other key features of the Emacspeak code-base:</p>
+    <ol>
+      <li>The code-base is extremely <strong>bushy</strong> rather
+      than deeply hierarchical — this means that when a module
+      breaks, it does not affect the rest of the system.</li>
+      <li>Separation of concerns with respect to the various
+      layers, a tightly knit core speech library interfaces with
+      any one of many speech servers running as an external
+      process.</li>
+      <li>Audio formatting is abstracted by using the formalism
+      defined in Aural CSS.</li>
+      <li>Emacspeak integrates with Emacs’ user interface
+      conventions by taking over a single prefix key
+      <strong>C-e</strong> with <em>all</em> Emacspeak commands
+      accessed through that single keymap. This helps embedding
+      Emacspeak functionality into a large variety of third party
+      modules without any loss of functionality.</li>
+    </ol>
+  </div>
 </body>
 </html>
