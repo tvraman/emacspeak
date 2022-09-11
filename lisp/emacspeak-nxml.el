@@ -134,11 +134,13 @@
 
 ;;}}}
 ;;{{{ pronunciations 
-(cl-declaim (special emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
+(cl-declaim (special
+             emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
 
 ;; nxml mode inherits from xml mode
-(emacspeak-pronounce-augment-pronunciations 'xml-mode
-                                            emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
+(emacspeak-pronounce-augment-pronunciations
+ 'xml-mode
+ emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
 (emacspeak-pronounce-add-super 'xml-mode 'nxml-mode)
 
 ;;}}}
