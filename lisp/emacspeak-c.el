@@ -1,4 +1,4 @@
-;;; emacspeak-c.el --- Speech enable CC-mode and friends -- supports C, C++, Java  -*- lexical-binding: t; -*-
+;;; emacspeak-c.el --- Speech enable C, C++     -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for C and C++ mode
@@ -52,8 +52,10 @@
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(declare-function c-beginning-of-statement "cc-cmds" (&optional count lim sentence-flag))
-(declare-function c-end-of-statement "cc-cmds" (&optional count lim sentence-flag))
+(declare-function
+ c-beginning-of-statement "cc-cmds" (&optional count lim sentence-flag))
+(declare-function
+ c-end-of-statement "cc-cmds" (&optional count lim sentence-flag))
 
 ;;}}}
 ;;{{{ advice electric deletion
@@ -253,7 +255,8 @@ function definition's argument list and the function opening brace")
    '(knr-argdecl            . "  subsequent lines in a K&R
 C argument declaration")
    '(inexpr-class . "Anonymous inner class")
-   '(topmost-intro          . "  the first line in a topmost construct definition")
+   '(topmost-intro          .
+                            "  First line in a topmost construct definition")
    '(topmost-intro-cont     . "  topmost definition continuation lines")
    '(member-init-intro      . "  first line in a member initialization list")
    '(member-init-cont       . "  subsequent member initialization list lines")
@@ -266,20 +269,23 @@ C argument declaration")
 static array list")
    '(brace-entry-open       . "  first line in an enum or static array list")
    '(brace-list-intro       . "  first line in an enum or static array list")
-   '(brace-list-entry       . "  subsequent lines in an enum or static array list")
+   '(brace-list-entry
+     . "  subsequent lines in an enum or static array list")
    '(statement              . "  a C (or like) statement")
    '(statement-cont         . "  a continuation of a C (or like) statement")
    '(statement-block-intro  . "  the first line in a new statement block")
    '(statement-case-intro   . "  the first line in a case block")
-   '(statement-case-open    . "  the first line in a case block starting with brace")
-   '(substatement           . "  the first line after an if/while/for/do/else")
+   '(statement-case-open
+     . "  the first line in a case block starting with brace")
+   '(substatement
+     . "  the first line after an if/while/for/do/else")
    '(substatement-open      . "  the brace that opens a substatement block")
    '(case-label             . "  a `case' or `default' label")
    '(access-label           . "  C++ private/protected/public access label")
    '(label                  . "  any ordinary label")
    '(do-while-closure       . "  the `while' that ends a do/while construct")
    '(else-clause            . "  the `else' of an if/else construct")
-   '(comment-intro          . "  a line containing only a comment introduction")
+   '(comment-intro          . "  Line containing only a comment introduction")
    '(arglist-intro          . "  the first line in an argument list")
    '(arglist-cont           . "  subsequent argument list lines when no
                            arguments follow on the same line as the
@@ -289,11 +295,14 @@ static array list")
                            line as the arglist opening paren")
    '(arglist-close          . "  the solo close paren of an argument list")
    '(stream-op              . "  lines continuing a stream operator construct")
-   '(inclass                . "  the construct is nested inside a class definition")
+   '(inclass                .
+                            "Construct is nested inside a class definition")
    '(cpp-macro              . "  the start of a cpp macro")
    '(friend                 . "  a C++ friend declaration")
-   '(objc-method-intro      . "  the first line of an Objective-C method definition")
-   '(objc-method-args-cont  . "  lines continuing an Objective-C method definition")
+   '(objc-method-intro      .
+                            "  First line of an Objective-C method definition")
+   '(objc-method-args-cont
+     . "  lines continuing an Objective-C method definition")
    '(objc-method-call-cont  . "  lines continuing an Objective-C method call")
    '(extern-lang-open       . "  brace that opens an external language block")
    '(extern-lang-close      . "  brace that closes an external language block")

@@ -1,4 +1,4 @@
-;;; emacspeak-bs.el --- speech-enable bs buffer selection  -*- lexical-binding: t; -*-
+;;; emacspeak-bs.el --- speech-enable bs -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable bs
