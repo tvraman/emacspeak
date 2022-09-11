@@ -1,4 +1,4 @@
-;;; emacspeak-rmail.el --- Speech enable RMail -- Emacs' default mail agent  -*- lexical-binding: t; -*-
+;;; emacspeak-rmail.el --- Speech enable RMail -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extension for rmail
