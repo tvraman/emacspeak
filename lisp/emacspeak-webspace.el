@@ -1,4 +1,4 @@
-;;; emacspeak-webspace.el --- Webspaces In Emacspeak  -*- lexical-binding: t; -*-
+;;; emacspeak-webspace.el --- Webspaces -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: WebSpace provides smart updates from the Web.
@@ -59,7 +59,8 @@
 ;;}}}
 ;;{{{ WebSpace Mode:
 
-;; Define a derived-mode called WebSpace that is generally useful for hypetext display.
+;; Define a derived-mode called WebSpace that is generally useful for
+;; hypetext display.
 
 (define-derived-mode emacspeak-webspace-mode special-mode
   "Webspace Interaction"
@@ -111,7 +112,7 @@
   (emacspeak-webspace-act-on-link 'browse-url))
 
 (defun emacspeak-webspace-filter ()
-  "Open headline at point by following its link property and filter for content."
+  "Open headline at point and filter for content."
   (interactive)
   (let ((link (get-text-property (point) 'link)))
     (if link
@@ -132,7 +133,8 @@ Generates auditory and visual display."
   (dtk-speak (format-mode-line header-line-format))
   (emacspeak-auditory-icon 'progress))
 
-;;;###autoload(define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
+;;;###autoload
+(define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
 (cl-declaim (special emacspeak-webspace-keymap))
 
@@ -159,7 +161,7 @@ Generates auditory and visual display."
 (defvar emacspeak-webspace-headlines-period '(0 1800 0)
   "How often we fetch from a feed.")
 (defun emacspeak-webspace-feed-titles (feed-url)
-  "Return a list of the form `((title url)...) given an RSS/Atom  feed  URL."
+  "Return a list  `((title url)...) given an RSS/Atom  feed  URL."
   (cl-declare (special emacspeak-xslt-directory emacspeak-xslt-program
                        g-curl-program g-curl-common-options))
   (with-temp-buffer
@@ -185,7 +187,8 @@ Newly found headlines are inserted into the ring within our feedstore."
          (new-titles nil))
     (when                     ; check if we need to add from this feed
         (or (null last-update)          ;  at most every half hour
-            (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
+            (time-less-p
+             emacspeak-webspace-headlines-period  (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
       (setq new-titles (emacspeak-webspace-feed-titles feed))
       (when (listp new-titles)
@@ -209,16 +212,19 @@ Newly found headlines are inserted into the ring within our feedstore."
 (defun emacspeak-webspace-headlines-populate ()
   "populate fs with headlines from all feeds."
   (cl-declare (special emacspeak-webspace-headlines))
-  (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+  (dotimes (_i (length (emacspeak-webspace-fs-feeds
+                        emacspeak-webspace-headlines)))
     (condition-case nil
-        (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))
+        (emacspeak-webspace-headlines-fetch
+         (emacspeak-webspace-fs-next emacspeak-webspace-headlines))
       (error nil))))
 
 (defun emacspeak-webspace-headlines-refresh ()
   "Update headlines."
   (cl-declare (special emacspeak-webspace-headlines))
   (with-local-quit
-    (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
+    (emacspeak-webspace-headlines-fetch
+     (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
   (emacspeak-auditory-icon 'progress)
   t)
 
@@ -237,7 +243,9 @@ Updated headlines found in emacspeak-webspace-headlines."
            3600
            t 'emacspeak-webspace-headlines-populate))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)
-    (setf (emacspeak-webspace-fs-slow-timer emacspeak-webspace-headlines) slow-timer)))
+    (setf
+     (emacspeak-webspace-fs-slow-timer emacspeak-webspace-headlines)
+     slow-timer)))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
@@ -262,7 +270,9 @@ Updated headlines found in emacspeak-webspace-headlines."
   (interactive)
   (cl-declare (special emacspeak-webspace-headlines
                        emacspeak-webspace-feeds))
-  (cl-assert emacspeak-webspace-feeds t "First add some feeds to emacspeak-webspace-feeds.")
+  (cl-assert
+   emacspeak-webspace-feeds
+   t "First add some feeds to emacspeak-webspace-feeds.")
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
@@ -294,7 +304,9 @@ Updated headlines found in emacspeak-webspace-headlines."
       (put-text-property (point-min) (point) 'face font-lock-doc-face)
       (cl-loop
        for h in
-       (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+       (delq nil
+             (ring-elements
+              (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
        and position  from 1
        do
        (insert (format "\n%d\t" position))
@@ -358,7 +370,8 @@ Optional interactive prefix arg forces a refresh."
   (interactive "P")
   (cl-declare (special emacspeak-webspace-reader-buffer))
   (when (or refresh
-            (not (buffer-live-p (get-buffer emacspeak-webspace-reader-buffer))))
+            (not (buffer-live-p (get-buffer
+                                 emacspeak-webspace-reader-buffer))))
     (emacspeak-webspace-feed-reader-create))
   (switch-to-buffer emacspeak-webspace-reader-buffer)
   (goto-char (point-min))
