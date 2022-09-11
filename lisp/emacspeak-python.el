@@ -1,4 +1,4 @@
-;;; emacspeak-python.el --- Speech enable Python development environment  -*- lexical-binding: t; -*-
+;;; emacspeak-python.el --- Speech enable Python -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Auditory interface to python mode
@@ -136,10 +136,13 @@
  for f in
  '(
    python-nav-up-list python-nav-if-name-main python-nav-forward-statement
-   python-nav-forward-sexp-safe python-nav-forward-sexp python-nav-forward-defun
+   python-nav-forward-sexp-safe python-nav-forward-sexp
+   python-nav-forward-defun
    python-nav-forward-block python-nav-end-of-statement python-nav-end-of-defun
-   python-nav-end-of-block python-nav-beginning-of-statement python-nav-beginning-of-block
-   python-nav-backward-up-list python-nav-backward-statement python-nav-backward-sexp-safe
+   python-nav-end-of-block python-nav-beginning-of-statement
+   python-nav-beginning-of-block
+   python-nav-backward-up-list python-nav-backward-statement
+   python-nav-backward-sexp-safe
    python-nav-backward-sexp python-nav-backward-defun python-nav-backward-block
    )
  do
