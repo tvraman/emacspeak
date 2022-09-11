@@ -1,4 +1,4 @@
-;;; emacspeak-ediff.el --- Speech enable Emacs interface to diff and merge  -*- lexical-binding: t; -*-
+;;; emacspeak-ediff.el --- Speech enable  ediff -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for ediff
@@ -173,7 +173,8 @@
      (cl-declare (special ediff-mode-map voice-lock-mode))
      (setq voice-lock-mode t
            ediff-window-setup-function 'ediff-setup-windows-plain)
-     (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)))
+     (define-key
+      ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)))
 
 ;;}}}
 ;;{{{ Speak an ediff difference:
