@@ -122,27 +122,31 @@ cap C   Save clip to disk
 (defun cd-tool-get-clip-command (&optional save)
   "Query for and return an appropriate CD clip command"
   (cl-declare (special cd-tool-clipper cd-tool-clip-track-history
-                       cd-tool-clip-skip-history cd-tool-clip-duration-history))
+                       cd-tool-clip-skip-history
+                       cd-tool-clip-duration-history))
   (let ((filename (when save
                     (read-file-name
                      "File name to save clip to: ")))
-        (track (read-from-minibuffer(format
-                                     "Track to clip%s: "
-                                     (if save  "to file" ""))
-                                    (car cd-tool-clip-track-history) ;INITIAL-CONTENTS
-                                    nil ;KEYMAP
-                                    nil ; READ
-                                    cd-tool-clip-track-history))
-        (skip (read-from-minibuffer"Skip sectors: "
-                                   (car cd-tool-clip-skip-history) ;INITIAL-CONTENTS
-                                   nil  ;KEYMAP
-                                   nil  ; READ
-                                   cd-tool-clip-skip-history))
-        (duration  (read-from-minibuffer"Duration: "
-                                        (car cd-tool-clip-duration-history) ;INITIAL-CONTENTS
-                                        nil ;KEYMAP
-                                        nil ; READ
-                                        cd-tool-clip-duration-history)))
+        (track
+         (read-from-minibuffer(format
+                               "Track to clip%s: "
+                               (if save  "to file" ""))
+                              (car cd-tool-clip-track-history) 
+                              nil                              ;KEYMAP
+                              nil                              ; READ
+                              cd-tool-clip-track-history))
+        (skip
+         (read-from-minibuffer"Skip sectors: "
+                              (car cd-tool-clip-skip-history) ;INITIAL-CONTENTS
+                              nil                             ;KEYMAP
+                              nil                             ; READ
+                              cd-tool-clip-skip-history))
+        (duration
+         (read-from-minibuffer"Duration: "
+                              (car cd-tool-clip-duration-history) 
+                              nil           ;KEYMAP
+                              nil           ; READ
+                              cd-tool-clip-duration-history)))
     (cl-pushnew track cd-tool-clip-track-history :test #'string=)
     (cl-pushnew  skip cd-tool-clip-skip-history :test #'string=)
     (cl-pushnew duration cd-tool-clip-duration-history :test #'string=)
