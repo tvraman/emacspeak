@@ -220,6 +220,7 @@ Use Custom to customize where possible. "
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
+  (cl-declare (special auto-correct-predicate))
   (auto-fill-mode)
   (emacspeak-pronounce-toggle-use-of-dictionaries t)
   (setq auto-correct-predicate #'(lambda () t))
