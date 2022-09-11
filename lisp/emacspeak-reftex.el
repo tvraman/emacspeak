@@ -1,4 +1,4 @@
-;;; emacspeak-reftex.el --- speech enable reftex, Cross-References In La)TeX -*- lexical-binding: t; -*-
+;;; emacspeak-reftex.el --- speech enable reftex -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech enable
