@@ -1,4 +1,4 @@
-;;; emacspeak-compile.el --- Speech enable  navigation of  compile errors, grep matches  -*- lexical-binding: t; -*-
+;;; emacspeak-compile.el --- Speech enable compile -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extensions to  the compile package 
 ;; Keywords: Emacspeak compile
@@ -43,7 +43,6 @@
 ;;; Commentary:
 
 ;; This module makes compiling code from inside Emacs speech friendly.
-;; It is an example of how a little amount of code can make Emacspeak even better.
 ;;; Code:
 
 ;;}}}

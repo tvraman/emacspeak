@@ -1,4 +1,4 @@
-;;; emacspeak-outline.el --- Speech enable Outline --   Browsing  Structured Documents  -*- lexical-binding: t; -*-
+;;; emacspeak-outline.el --- Speech enable Outline -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for outline-mode
