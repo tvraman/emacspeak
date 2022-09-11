@@ -72,7 +72,7 @@ Added element goes inside the HTML head if any."
     dom))
 
 (defun dom-html-from-nodes (nodes &optional base)
-  "Make  an HTML DOM having nodes as children unless nodes is an HTML document."
+  "An HTML DOM with nodes as children unless nodes is an HTML document."
   (let ((dom
          (cond
           ((not (eq 'html (dom-tag nodes)))
@@ -110,8 +110,10 @@ ATTRIBUTE would typically be `class', `id' or the like."
            (dom-elements-by-matchlist child attribute match-list))
           when matches append matches))
         (attr (dom-attr dom attribute)))
-    (if (and attr
-             (cl-find-if #'(lambda (match) (string-match match attr)) match-list))
+    (if
+        (and attr
+             (cl-find-if
+              #'(lambda (match) (string-match match attr)) match-list))
         (cons dom matches)
       matches)))
 
