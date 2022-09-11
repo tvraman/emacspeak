@@ -282,7 +282,9 @@ Optional interactive prefix arg prompts for a filename."
 
 ;;}}}
 ;;{{{ Setup
-(declare-function emacspeak-pronounce-define-local-pronunciation "emacspeak-pronounce" (word pron))
+(declare-function
+ emacspeak-pronounce-define-local-pronunciation
+ "emacspeak-pronounce" (word pron))
 
 (defun emacspeak-2048-setup ()
   "Emacspeak setup for 2048."
