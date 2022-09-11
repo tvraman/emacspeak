@@ -1,4 +1,4 @@
-;;; emacspeak-tar.el --- Speech enable Tar Mode -- Manipulate tar archives from Emacs  -*- lexical-binding: t; -*-
+;;; emacspeak-tar.el --- Speech enable Tar Mode -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Auditory interface to tar mode
