@@ -73,7 +73,7 @@
   (let
       ((command
         (format
-         "%s --stream --url='%s' --modes=flashaaclow,hlsaaclow --type=radio > %s &"
+         "%s --stream --url='%s' --type=radio > %s &"
          emacspeak-bbc-get-iplayer url emacspeak-bbc-iplayer-handle)))
     (unless (file-exists-p emacspeak-bbc-iplayer-handle)
       (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
@@ -89,7 +89,7 @@
   (let
       ((command
         (format
-         "%s --stream --pid='%s' --modes=flashaaclow,hlsaaclow --type=radio > %s &"
+         "%s --stream --pid='%s' --type=radio > %s &"
          emacspeak-bbc-get-iplayer pid emacspeak-bbc-iplayer-handle)))
     (unless (file-exists-p emacspeak-bbc-iplayer-handle)
       (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
@@ -108,7 +108,9 @@
 (defun emacspeak-bbc-schedule ()
   "Browse BBC Schedule from get_iplayer radio cache"
   (interactive)
-  (funcall-interactively #'emacspeak-forms-find-file (expand-file-name "forms/get-iplayer.el" emacspeak-etc-directory)))
+  (funcall-interactively
+   #'emacspeak-forms-find-file
+   (expand-file-name "forms/get-iplayer.el" emacspeak-etc-directory)))
 
 ;;}}}
 (provide 'emacspeak-bbc)
