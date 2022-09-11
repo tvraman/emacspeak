@@ -1,4 +1,4 @@
-;;; emacspeak-browse-kill-ring.el --- browse-kill-ring  for emacspeak desktop  -*- lexical-binding: t; -*-
+;;; emacspeak-browse-kill-ring.el --- kill-ring -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for BROWSE-KILL-RING
@@ -41,7 +41,7 @@
 ;;{{{  Introduction:
 ;;; Commentary:
 ;; Browse the kill ring using 
-;; browse-kill-ring.el - interactively insert items from kill-ring (by Colin Walters)
+;; browse-kill-ring.el - interactively insert items from kill-ring 
 ;;; Code:
 ;;}}}
 ;;{{{ required modules
