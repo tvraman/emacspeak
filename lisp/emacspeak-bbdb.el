@@ -1,4 +1,4 @@
-;;; emacspeak-bbdb.el --- Speech enable BBDB -- a powerful address manager  -*- lexical-binding: t; -*-
+;;; emacspeak-bbdb.el --- Speech enable BBDB -*- lexical-binding: t; -*-
 
 ;;
 ;; $Author: tv.raman.tv $ 
