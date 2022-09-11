@@ -193,7 +193,9 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-key 2 'biblio)
 
 (defvar emacspeak-websearch-biblio-uri
-  "http://liinwww.ira.uka.de/searchbib/index?partial=on&case=on&results=citation&maxnum=200&query="
+  (concat
+ "http://liinwww.ira.uka.de/searchbib/index"
+"?partial=on&case=on&results=citation&maxnum=200&query=")
   "URI to search the Computer Science Bibliographies.")
 
 (defun emacspeak-websearch-biblio-search (query)
@@ -213,7 +215,9 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;{{{ CiteSeer Citation index
 
 (defvar emacspeak-websearch-citeseer-uri
-  "https://citeseerx.ist.psu.edu/search?t=doc&sort=rlv&s2=Semantic+Scholar&submit=Search&q=%s"
+  (concat
+   "https://citeseerx.ist.psu.edu/search"
+"?t=doc&sort=rlv&s2=Semantic+Scholar&submit=Search&q=%s") 
   "URI for searching CiteSeer index. ")
 
 (emacspeak-websearch-set-searcher
@@ -339,10 +343,12 @@ ARGS specifies additional arguments to SPEAKER if any."
 `flag' prompts for additional search options. Second interactive
 prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   (interactive (list (gweb-google-autocomplete) current-prefix-arg))
-  (cl-declare (special emacspeak-google-query
-                       emacspeak-google-toolbelt
-                       ems--websearch-google-filter
-                       emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
+  (cl-declare (special
+               emacspeak-google-query
+               emacspeak-google-toolbelt
+               ems--websearch-google-filter
+               emacspeak-websearch-google-options
+               emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
         (search-url nil)
@@ -387,9 +393,11 @@ Optional prefix arg prompts for toolbelt options."
    (list
     (gweb-google-autocomplete "AGoogle: ")
     current-prefix-arg))
-  (cl-declare (special emacspeak-eww-masquerade
-                       ems--websearch-google-filter
-                       emacspeak-websearch-accessible-google-url emacspeak-google-toolbelt))
+  (cl-declare (special
+               emacspeak-eww-masquerade
+               ems--websearch-google-filter
+               emacspeak-websearch-accessible-google-url
+               emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade t)
         (toolbelt (emacspeak-google-toolbelt)))
@@ -426,8 +434,11 @@ Optional prefix arg prompts for toolbelt options."
   (cl-declare (special calendar-mark-ring))
   (let ((query (emacspeak-websearch-read-query "Google for: "))
         (from (read (calendar-astro-date-string (calendar-cursor-to-date t))))
-        (to (read (calendar-astro-date-string (or (car calendar-mark-ring)
-                                                  (error "No mark set in this buffer"))))))
+        (to
+         (read
+          (calendar-astro-date-string
+           (or (car calendar-mark-ring)
+               (error "No mark set"))))))
     (emacspeak-websearch-google
      (concat
       (url-hexify-string query)
