@@ -1,4 +1,4 @@
-;;; emacspeak-python.el --- Speech enable Python development environment  -*- lexical-binding: t; -*-
+;;; emacspeak-python.el --- Speech enable Python -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Auditory interface to python mode
@@ -249,7 +249,8 @@ Provide contextual feedback when closing blocks"
    py-beginning-of-block-current-column
    py-beginning-of-block-or-clause py-beginning-of-class
    py-beginning-of-class-bol
-   py-beginning-of-clause-bol py-beginning-of-comment py-beginning-of-declarations
+   py-beginning-of-clause-bol py-beginning-of-comment
+   py-beginning-of-declarations
    py-beginning-of-decorator py-beginning-of-decorator-bol
    py-beginning-of-expression py-beginning-of-line
    py-beginning-of-list-pps
@@ -322,7 +323,8 @@ Provide contextual feedback when closing blocks"
 
    Possible completions are:
    py-narrow-to-block  py-narrow-to-block-or-clause    py-narrow-to-class
-   py-narrow-to-clause         py-narrow-to-def        py-narrow-to-def-or-class
+   py-narrow-to-clause         py-narrow-to-def
+   py-narrow-to-def-or-class
    py-narrow-to-statement
    )
  do
