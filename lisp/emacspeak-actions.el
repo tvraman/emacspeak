@@ -58,8 +58,8 @@
 
 (defun emacspeak-activate-match-blinker ()
   "Setup action on right parens.
-The defined   emacspeak action   causes
-emacspeak to show the matching paren when the cursor moves across a right paren."
+The defined   emacspeak action   
+shows the matching paren when the cursor moves across a right paren."
   (save-current-buffer
     (goto-char (point-min))
     (with-silent-modifications

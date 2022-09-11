@@ -1,4 +1,4 @@
-;;; emacspeak-abc-mode.el --- Speech-enable ABC-MODE  -*- lexical-binding: t; -*-
+;;; emacspeak-abc-mode.el --- Speech-enable ABC  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ABC-MODE An Emacs Interface to abc-mode
 ;; Keywords: Emacspeak,  Audio Desktop abc-mode
