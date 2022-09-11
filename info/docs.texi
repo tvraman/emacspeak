@@ -78,7 +78,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-eshell::Speech-enable EShell - Emacs Shell.
 * emacspeak-ess::Speech-enable ESS: Emacs Speaks Statistics.
 * emacspeak-etable::Speech enable table.el.
-* emacspeak-eterm::Speech enable eterm -- Emacs' terminal emulator  term.el.
+* emacspeak-eterm::Speech enable eterm.
 * emacspeak-eudc::Speech enable  LDAP directory client.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
@@ -95,7 +95,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
-* emacspeak-gnus::Speech enable GNUS -- Fluent spoken access to imap, usenet.
+* emacspeak-gnus::Speech enable Gnus.
 * emacspeak-go-mode::Speech-enable GO-MODE.
 * emacspeak-gomoku::Speech enable the game of Gomoku.
 * emacspeak-google::Google Search Tools.
@@ -104,7 +104,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-gud::Speech enable debugger interface.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
-* emacspeak-hide::hide and expose text blocks.
+* emacspeak-hide::Hide/Expose Text blocks.
 * emacspeak-hide-lines::Speech-enable HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
@@ -113,7 +113,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-iedit::Speech-enable IEDIT.
 * emacspeak-indium::Speech-enable INDIUM, A Javascript IDE.
 * emacspeak-info::Speech enable Info -- Emacs' online documentation viewer.
-* emacspeak-ispell::Speech enable Ispell -- Emacs' interactive spell checker.
+* emacspeak-ispell::Speech enable Ispell.
 * emacspeak-ivy::Speech-enable IVY.
 * emacspeak-jabber::Speech-Enable jabber.
 * emacspeak-jdee::Speech enable JDEE.
@@ -164,10 +164,10 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-racer::Speech-enable RACER.
 * emacspeak-racket::Speech-enable RACKET.
 * emacspeak-re-builder::speech-enable re-builder.
-* emacspeak-reftex::speech enable reftex, Cross-References In La)TeX.
+* emacspeak-reftex::speech enable reftex.
 * emacspeak-related::Speech-enable RELATED buffer switching.
 * emacspeak-rg::Speech-enable RG.
-* emacspeak-rmail::Speech enable RMail -- Emacs' default mail agent.
+* emacspeak-rmail::Speech enable RMail.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
@@ -198,7 +198,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-tar::Speech enable Tar Mode.
 * emacspeak-tcl::Speech enable TCL development environment.
 * emacspeak-tempo::Speech enable tempo.
-* emacspeak-tetris::Speech enable game of Tetris.
+* emacspeak-tetris::Tetris.
 * emacspeak-texinfo::Speech enable texinfo mode.
 * emacspeak-threes::Speech-enable THREES.
 * emacspeak-tide::Speech-enable TIDE.
@@ -217,7 +217,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-we::Transform WebUsing XSLT.
 * emacspeak-websearch::search utilities.
 * emacspeak-webspace::Webspaces.
-* emacspeak-widget::Speech enable Emacs' native GUI widget library.
+* emacspeak-widget::Speech enable widgets.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing.
 * emacspeak-wizards::Magic For Power Users.
@@ -240,7 +240,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
-* tetris::implementation of Tetris for Emacs.
+* tetris::Tetris for Emacs.
 * toy-braille::
 * voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
@@ -4821,10 +4821,10 @@ Yank contents of  an eterm window at point.
 
 @format
 Toggle state of eterm autospeak.
-When eterm autospeak is turned on and the terminal is in line mode,
-all output to the terminal is automatically spoken.
-  Interactive prefix arg means toggle  the global default value, and then set the
-  current local  value to the result. 
+When eterm autospeak is turned on and the terminal is in line
+mode, all output to the terminal is automatically spoken.
+Interactive prefix arg means toggle the global default value, and
+then set the current local value to the result.
 @end format
 @end deffn
 
@@ -7463,6 +7463,8 @@ Hide or expose all blocks.
 Hide or expose a block of text.
  Optional interactive prefix arg causes all blocks in current
 buffer to be hidden or exposed.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -7632,17 +7634,17 @@ Default Value: @code{@verb{|node|}}
 @node emacspeak-ispell
 @section emacspeak-ispell
 
-This module speech enables ispell.
-Implementation note: This is hard because of how  ispell.el is written
-Namely, all of the work is done by one huge hairy function.
-This makes advising it hard.
-The ispell commands work well with Emacspeak as long as the list of correction choices are few.
-For interactively moving through corrections, install package flyspell-correct from MELPA
-(package-install "flyspell-correct")
-Then use M-x flyspell-mode.
-Package flyspell is speech-enabled by Emacspeak module emacspeak-flyspell
-And that module sets up flyspell-correct to use IDO-style completion,
-i.e. you can move through corrections with C-r and C-s.
+This module speech enables ispell.  Implementation note: This is
+hard because of how ispell.el is written Namely, all of the work is
+done by one huge hairy function.  This makes advising it hard.  The
+ispell commands work well with Emacspeak as long as the list of
+correction choices are few.  For interactively moving through
+corrections, install package flyspell-correct from MELPA
+(package-install "flyspell-correct") Then use M-x flyspell-mode.
+Package flyspell is speech-enabled by Emacspeak module
+emacspeak-flyspell And that module sets up flyspell-correct to use
+IDO-style completion, i.e. you can move through corrections with
+C-r and C-s.
 
 @subsection emacspeak-ispell Options
 

@@ -3505,7 +3505,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-eshell::Speech-enable EShell - Emacs Shell.
 * emacspeak-ess::Speech-enable ESS: Emacs Speaks Statistics.
 * emacspeak-etable::Speech enable table.el.
-* emacspeak-eterm::Speech enable eterm – Emacs’ terminal emulator  term.el.
+* emacspeak-eterm::Speech enable eterm.
 * emacspeak-eudc::Speech enable  LDAP directory client.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
@@ -3522,7 +3522,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
-* emacspeak-gnus::Speech enable GNUS – Fluent spoken access to imap, usenet.
+* emacspeak-gnus::Speech enable Gnus.
 * emacspeak-go-mode::Speech-enable GO-MODE.
 * emacspeak-gomoku::Speech enable the game of Gomoku.
 * emacspeak-google::Google Search Tools.
@@ -3531,7 +3531,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-gud::Speech enable debugger interface.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
-* emacspeak-hide::hide and expose text blocks.
+* emacspeak-hide::Hide/Expose Text blocks.
 * emacspeak-hide-lines::Speech-enable HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
@@ -3540,7 +3540,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-iedit::Speech-enable IEDIT.
 * emacspeak-indium::Speech-enable INDIUM, A Javascript IDE.
 * emacspeak-info::Speech enable Info – Emacs’ online documentation viewer.
-* emacspeak-ispell::Speech enable Ispell – Emacs’ interactive spell checker.
+* emacspeak-ispell::Speech enable Ispell.
 * emacspeak-ivy::Speech-enable IVY.
 * emacspeak-jabber::Speech-Enable jabber.
 * emacspeak-jdee::Speech enable JDEE.
@@ -3591,10 +3591,10 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-racer::Speech-enable RACER.
 * emacspeak-racket::Speech-enable RACKET.
 * emacspeak-re-builder::speech-enable re-builder.
-* emacspeak-reftex::speech enable reftex, Cross-References In La)TeX.
+* emacspeak-reftex::speech enable reftex.
 * emacspeak-related::Speech-enable RELATED buffer switching.
 * emacspeak-rg::Speech-enable RG.
-* emacspeak-rmail::Speech enable RMail – Emacs’ default mail agent.
+* emacspeak-rmail::Speech enable RMail.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
@@ -3625,7 +3625,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-tar::Speech enable Tar Mode.
 * emacspeak-tcl::Speech enable TCL development environment.
 * emacspeak-tempo::Speech enable tempo.
-* emacspeak-tetris::Speech enable game of Tetris.
+* emacspeak-tetris::Tetris.
 * emacspeak-texinfo::Speech enable texinfo mode.
 * emacspeak-threes::Speech-enable THREES.
 * emacspeak-tide::Speech-enable TIDE.
@@ -3644,7 +3644,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-we::Transform WebUsing XSLT.
 * emacspeak-websearch::search utilities.
 * emacspeak-webspace::Webspaces.
-* emacspeak-widget::Speech enable Emacs’ native GUI widget library.
+* emacspeak-widget::Speech enable widgets.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing.
 * emacspeak-wizards::Magic For Power Users.
@@ -3667,7 +3667,7 @@ documentation, then read *Note emacspeak-eww::.
 * soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
-* tetris::implementation of Tetris for Emacs.
+* tetris::Tetris for Emacs.
 * toy-braille::
 * voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
@@ -7596,10 +7596,10 @@ move around the terminal and have different parts spoken.
  -- Command: emacspeak-toggle-eterm-autospeak (&optional prefix)
 
      Toggle state of eterm autospeak.
-     When eterm autospeak is turned on and the terminal is in line mode,
-     all output to the terminal is automatically spoken.
-       Interactive prefix arg means toggle  the global default value, and then set the
-       current local  value to the result.
+     When eterm autospeak is turned on and the terminal is in line
+     mode, all output to the terminal is automatically spoken.
+     Interactive prefix arg means toggle the global default value, and
+     then set the current local value to the result.
 
 
 File: emacspeak.info,  Node: emacspeak-eudc,  Next: emacspeak-evil,  Prev: emacspeak-eterm,  Up: Emacspeak Commands And Options
@@ -9048,4 +9048,13 @@ Folding mode turns emacs into a folding editor.  Folding mode is what I
 use: emacs 19 comes with similar packages, e.g.  allout.el This module
 defines some advice forms for folding mode Think of a fold as a
 container.
+
+
+File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
+
+12.84 emacspeak-forge
+=====================
+
+FORGE == Work with Github, Gitlab etc from inside magit.  This module
+speech-enables magit/forge.
 
