@@ -44,10 +44,10 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-cmuscheme::Scheme support for emacspeak.
 * emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY-mode.
-* emacspeak-compile::Speech enable  navigation of  compile errors, grep matches.
+* emacspeak-compile::Speech enable compile.
 * emacspeak-cperl::Speech enable CPerl.
 * emacspeak-crossword::Speech-enable CROSSWORD.
-* emacspeak-custom::Speech enable interactive Emacs customization.
+* emacspeak-custom::Speech enable custom.
 * emacspeak-dbus::DBus On Emacspeak Desktop.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
 * emacspeak-debugger::Speech-enable DEBUG.
@@ -59,8 +59,8 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-eaf::Speech-enable EAF.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
-* emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
-* emacspeak-ediff::Speech enable Emacs interface to diff and merge.
+* emacspeak-eclim::Speech-enable ECLIM.
+* emacspeak-ediff::Speech enable  ediff.
 * emacspeak-eglot::Speech-enable EGLOT.
 * emacspeak-ein::Speech-enable EIN For IPython Notebooks.
 * emacspeak-elfeed::Speech-enable ELFEED, A Feed Reader.
@@ -89,7 +89,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.
 * emacspeak-flyspell::Speech enable flyspell.
-* emacspeak-folding::Speech enable Folding Mode -- enables structured editing.
+* emacspeak-folding::
 * emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs' forms mode.
 * emacspeak-geiser::Speech-enable GEISER.
@@ -148,7 +148,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-org::Speech-enable org.
 * emacspeak-orgalist::Speech-enable ORGALIST.
 * emacspeak-origami::Speech-enable ORIGAMI.
-* emacspeak-outline::Speech enable Outline --   Browsing  Structured Documents.
+* emacspeak-outline::Speech enable Outline.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
@@ -158,9 +158,9 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
 * emacspeak-pronounce::Emacspeak pronunciation dictionaries.
-* emacspeak-py::Speech enable Python development environment.
+* emacspeak-py::Speech enable Python.
 * emacspeak-pydoc::Speech-enable PYDOC.
-* emacspeak-python::Speech enable Python development environment.
+* emacspeak-python::Speech enable Python.
 * emacspeak-racer::Speech-enable RACER.
 * emacspeak-racket::Speech-enable RACKET.
 * emacspeak-re-builder::speech-enable re-builder.
@@ -194,8 +194,8 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
-* emacspeak-tabulate::Interpret tabulated information as a table.
-* emacspeak-tar::Speech enable Tar Mode -- Manipulate tar archives from Emacs.
+* emacspeak-tabulate::Handle table data.
+* emacspeak-tar::Speech enable Tar Mode.
 * emacspeak-tcl::Speech enable TCL development environment.
 * emacspeak-tempo::Speech enable tempo.
 * emacspeak-tetris::Speech enable game of Tetris.
@@ -214,9 +214,9 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-vterm::Speech-enable VTERM.
 * emacspeak-vuiet::Speech-enable VUIET.
 * emacspeak-wdired::Speech-enable wdired.
-* emacspeak-we::Transform Web Pages Using XSLT.
+* emacspeak-we::Transform WebUsing XSLT.
 * emacspeak-websearch::search utilities.
-* emacspeak-webspace::Webspaces In Emacspeak.
+* emacspeak-webspace::Webspaces.
 * emacspeak-widget::Speech enable Emacs' native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing.
@@ -2771,7 +2771,6 @@ feedback, and leaves it to other frontends on
 @section emacspeak-compile
 
 This module makes compiling code from inside Emacs speech friendly.
-It is an example of how a little amount of code can make Emacspeak even better.
 
 @subsection Emacspeak-Compile Commands
 
@@ -3422,7 +3421,8 @@ Clear search pattern during incremental search in tree buffers.
 @section emacspeak-eclim
 
 ECLIM ==  Eclipse/Vim integration.
-http://www.eclim.org turns Eclipse into a headless server that can be called from other programs.
+http://www.eclim.org turns Eclipse into a headless server
+that can be called from other programs.
 Package Emacs-Eclim connects Emacs to Eclim.
 Package emacspeak-eclim speech-enables emacs-eclim.
 
@@ -6586,7 +6586,7 @@ Default Value: @code{@verb{|flyspell-correct-ido|}}
 Folding mode turns emacs into a folding editor.
 Folding mode is what I use:
 emacs 19 comes with similar packages, e.g. allout.el
-This module defines some advice forms that make folding mode a pleasure to use.
+This module defines some advice forms for  folding mode
 Think of a fold as a container.
 
 @node emacspeak-forge
@@ -15868,7 +15868,7 @@ Optional interactive prefix arg forces a refresh.
 @findex emacspeak-webspace-filter
 
 @format
-Open headline at point by following its link property and filter for content.
+Open headline at point and filter for content.
 @end format
 @end deffn
 
