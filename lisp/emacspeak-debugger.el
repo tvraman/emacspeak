@@ -1,4 +1,4 @@
-;;; emacspeak-debugger.el --- Speech-enable DEBUGGER  -*- lexical-binding: t; -*-
+;;; emacspeak-debugger.el --- Speech-enable DEBUG -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable DEBUGGER An Emacs Interface to debugger
 ;; Keywords: Emacspeak,  Audio Desktop debugger

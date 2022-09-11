@@ -1,4 +1,4 @@
-;;; emacspeak-deadgrep.el --- Speech-enable DEADGREP  -*- lexical-binding: t; -*-
+;;; emacspeak-deadgrep.el --- Speech-enable DEADGREP -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable DEADGREP An Emacs Interface to deadgrep
 ;; Keywords: Emacspeak,  Audio Desktop deadgrep

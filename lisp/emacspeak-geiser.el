@@ -96,7 +96,8 @@
  '(
    geiser-compile-current-buffer geiser-compile-definition
    geiser-compile-definition-and-go geiser-compile-file geiser-eval-buffer
-   geiser-eval-buffer-and-go geiser-eval-definition geiser-eval-definition-and-go
+   geiser-eval-buffer-and-go geiser-eval-definition
+   geiser-eval-definition-and-go
    geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
    geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
    geiser-load-current-buffer geiser-load-file

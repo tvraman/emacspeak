@@ -1,4 +1,4 @@
-;;; emacspeak-flycheck.el --- Speech-enable FLYCHECK  -*- lexical-binding: t; -*-
+;;; emacspeak-flycheck.el --- Speech-enable FLYCHECK -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-flycheck.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable FLYCHECK An Emacs Interface to flycheck
