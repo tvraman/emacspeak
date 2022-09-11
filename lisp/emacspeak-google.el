@@ -489,9 +489,11 @@ current page."
              (let*
                  ((belt (emacspeak-google-toolbelt))
                   (tool
-                   (cl-find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
-                                                              ,(emacspeak-google-tool-name this-tool)))
-                               belt))
+                   (cl-find-if
+                    #'(lambda (tool)
+                        (string= (emacspeak-google-tool-name tool)
+                                      ,(emacspeak-google-tool-name this-tool)))
+                    belt))
                   (param (emacspeak-google-tool-param tool))
                   (value (emacspeak-google-tool-value tool))
                   (range (emacspeak-google-tool-range tool)))
@@ -582,7 +584,9 @@ current page."
   "URL for signing out of Google.")
 
 (defvar emacspeak-google-sign-in-url
-  "https://accounts.google.com/ServiceLogin?hl=en&continue=https://www.google.com/"
+  (concat
+ "https://accounts.google.com/ServiceLogin"
+"?hl=en&continue=https://www.google.com/")
   "URL for signing in to Google.")
 
 (defun emacspeak-google-sign-in ()
@@ -628,9 +632,10 @@ current page."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (cl-loop for f in
-         '(gmaps-driving-directions gmaps-bicycling-directions
-                                    gmaps-walking-directions gmaps-transit-directions
-                                    gmaps-places-nearby gmaps-places-search)
+         '(gmaps-driving-directions
+           gmaps-bicycling-directions
+           gmaps-walking-directions gmaps-transit-directions
+           gmaps-places-nearby gmaps-places-search)
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
@@ -656,7 +661,8 @@ current page."
     ad-do-it
     (emacspeak-speak-region  (point)
                              (or
-                              (next-single-property-change (point) 'place-details)
+                              (next-single-property-change
+                               (point) 'place-details)
                               (point-max))))
    (t ad-do-it))
   ad-return-value)
@@ -680,8 +686,9 @@ Optional interactive prefix arg `lang' specifies  language identifier."
    (list
     (read-from-minibuffer "Text: ")
     current-prefix-arg))
-  (cl-declare (special emacspeak-google-tts-default-language
-                       emacspeak-google-tts-rest-uri emacspeak-m-player-program))
+  (cl-declare (special
+               emacspeak-google-tts-default-language
+               emacspeak-google-tts-rest-uri emacspeak-m-player-program))
   (or lang (setq lang "en-us"))
   (unless (stringp lang) (setq lang (read-string  "Lang:")))
   (let ((url (format emacspeak-google-tts-rest-uri
@@ -709,7 +716,8 @@ Optional interactive prefix arg `lang' specifies  language identifier."
 ;;}}}
 ;;{{{ Google Knowledge Graph:
 
-;; Google Knowledge Graph Search API  |  Knowledge G https://developers.google.com/knowledge-graph/
+;; Google Knowledge Graph Search API  
+;;  G https://developers.google.com/knowledge-graph/
 
 (defcustom emacspeak-google-kg-key  nil
   "API Key for Google Knowledge Graph."
@@ -720,7 +728,9 @@ Optional interactive prefix arg `lang' specifies  language identifier."
   :group 'emacspeak-google)
 
 (defvar emacspeak-google-kg-rest-end-point
-  "https://kgsearch.googleapis.com/v1/entities:search?%s=%s&key=%s&indent=1&limit=%s"
+  (concat
+ "https://kgsearch.googleapis.com/v1/entities:search"
+"?%s=%s&key=%s&indent=1&limit=%s")
   "Rest end-point for KG Search.")
 
 (defun emacspeak-google-kg-id-uri (id)
@@ -830,10 +840,14 @@ results, default is 1."
     (cond
      (playlist
       (kill-new (format r "playlist_id" playlist))
-      (funcall-interactively #'emacspeak-feeds-atom-display (format r "playlist_id" playlist)))
+      (funcall-interactively
+       #'emacspeak-feeds-atom-display
+       (format r "playlist_id" playlist)))
      (channel
       (kill-new (format r "channel_id" channel))
-      (funcall-interactively #'emacspeak-feeds-atom-display (format r "channel_id" channel)))
+      (funcall-interactively
+       #'emacspeak-feeds-atom-display
+       (format r "channel_id" channel)))
      (t (error "URL is not a channel or playlist.")))))
 
 ;;}}}
