@@ -1,4 +1,4 @@
-;;; emacspeak-amark.el --- BookMarks For Audio Content  -*- lexical-binding: t; -*-
+;;; emacspeak-amark.el --- BookMarks For Audio -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-amarks.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description: Bookmarks for audio content like mp3
