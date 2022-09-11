@@ -329,19 +329,20 @@ the Emacspeak desktop.")
     (mapc
      #'(lambda (hook)
          (add-hook hook #'emacspeak-setup-programming-mode ))
-     '(etc-modules-conf-generic-mode-hook resolve-conf-generic-mode-hook
-                                          named-database-generic-mode-hook named-boot-generic-mode-hook
-                                          show-tabs-generic-mode-hook etc-sudoers-generic-mode-hook
-                                          etc-fstab-generic-mode-hook etc-passwd-generic-mode-hook
-                                          etc-services-generic-mode-hook inetd-conf-generic-mode-hook
-                                          mailrc-generic-mode-hook ansible-inventory-generic-mode-hook
-                                          alias-generic-mode-hook java-properties-generic-mode-hook
-                                          java-manifest-generic-mode-hook vrml-generic-mode-hook
-                                          prototype-generic-mode-hook mailagent-rules-generic-mode-hook
-                                          hosts-generic-mode-hook xmodmap-generic-mode-hook
-                                          x-resource-generic-mode-hook fvwm-generic-mode-hook
-                                          samba-generic-mode-hook apache-log-generic-mode-hook
-                                          apache-conf-generic-mode-hook default-generic-mode-hook)))
+     '(etc-modules-conf-generic-mode-hook
+       resolve-conf-generic-mode-hook
+       named-database-generic-mode-hook named-boot-generic-mode-hook
+       show-tabs-generic-mode-hook etc-sudoers-generic-mode-hook
+       etc-fstab-generic-mode-hook etc-passwd-generic-mode-hook
+       etc-services-generic-mode-hook inetd-conf-generic-mode-hook
+       mailrc-generic-mode-hook ansible-inventory-generic-mode-hook
+       alias-generic-mode-hook java-properties-generic-mode-hook
+       java-manifest-generic-mode-hook vrml-generic-mode-hook
+       prototype-generic-mode-hook mailagent-rules-generic-mode-hook
+       hosts-generic-mode-hook xmodmap-generic-mode-hook
+       x-resource-generic-mode-hook fvwm-generic-mode-hook
+       samba-generic-mode-hook apache-log-generic-mode-hook
+       apache-conf-generic-mode-hook default-generic-mode-hook)))
   (mapc
    #'(lambda (hook)
        (add-hook hook #'emacspeak-setup-programming-mode))
