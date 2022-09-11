@@ -104,10 +104,13 @@
               (make-gmaps--location
                :alias address
                :address .formatted_address
-               :zip (g-json-get 'short_name
-                                (cl-find-if ; component whose type contains postal_code
-                                 #'(lambda (v) (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
-                                 .address_components))
+               :zip
+               (g-json-get
+                'short_name
+                (cl-find-if ; component whose type contains postal_code
+                 #'(lambda (v)
+                     (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
+                 .address_components))
                :lat-lng .geometry.location)))
       (puthash  address result gmaps-location-table)
       (puthash  (gmaps--location-address result) result gmaps-location-table)
@@ -155,7 +158,7 @@
 
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
 
-;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html
+;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/
 
 (defvar gmaps-geocoder-base
   "https://maps.google.com/maps/api/geocode/json?"
@@ -211,7 +214,8 @@ Optional argument `raw-p' returns raw JSON  object."
       (g-json-get
        'short_name
        (cl-find-if  ; component whose type contains postal_code
-        #'(lambda (v) (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
+        #'(lambda (v)
+            (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
         (g-json-get ; from address_components at finest granularity
          'address_components
          (aref (gmaps-reverse-geocode location 'raw) 0))))
@@ -226,7 +230,8 @@ Optional argument `raw-p' returns raw JSON  object."
   nil
   "Postal Code --- automatically set by reverse geocoding gmaps-my-address")
 
-(declare-function  emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
+(declare-function
+ emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
 ;;;###autoload
 (defcustom gmaps-my-address
   nil
@@ -251,7 +256,8 @@ coordinates via geocoding."
 ;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gmaps-directions-base
   (concat 
-   "https://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
+   "https://maps.googleapis.com/maps/api/directions/json"
+   "?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
    (format "&key=%s" gmaps-api-key))
   
   "Base URL  end-point for talking to the Google Maps directions service.")
@@ -420,7 +426,8 @@ origin/destination may be returned as a lat,long string."
             (format "%s,%s"
                     (g-json-get 'lat place-location)
                     (g-json-get 'lng place-location)))
-           (t (url-hexify-string (read-from-minibuffer "Destination  Address: ")))))
+           (t
+            (url-hexify-string (read-from-minibuffer "Destination  Address: ")))))
     (list origin destination)))
 
 (defun gmaps-display-routes (routes)
@@ -713,8 +720,12 @@ Uses default radius. optional interactive prefix arg clears any active filters."
        (format "%s&%s&%s%s"
                (gmaps-places-url-base "nearbysearch" gmaps-api-key)
                (format "location=%s,%s"
-                       (g-json-get 'lat (gmaps--location-lat-lng gmaps-current-location))
-                       (g-json-get 'lng (gmaps--location-lat-lng gmaps-current-location)))
+                       (g-json-get
+                        'lat
+                        (gmaps--location-lat-lng gmaps-current-location))
+                       (g-json-get
+                        'lng
+                        (gmaps--location-lat-lng gmaps-current-location)))
                (format "radius=%s" gmaps-current-radius)
                (if gmaps-current-filter
                    (gmaps-places-filter-as-params gmaps-current-filter)
@@ -818,7 +829,8 @@ Optional  prefix arg clears any active filters."
 (defun gmaps-display-places-hours (hours)
   "Display opening/closing hours."
   (let* ((inhibit-read-only t)
-         (day-hours  (gmaps-hours-for-day hours (read-number "Week Day (0 for Sunday): ")))
+         (day-hours
+          (gmaps-hours-for-day hours (read-number "Week Day (0 for Sunday): ")))
          (start (next-single-property-change (point) 'open-hours))
          (end (next-single-property-change start 'open-hours)))
     (delete-region start end)
