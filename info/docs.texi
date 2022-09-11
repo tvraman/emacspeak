@@ -14,18 +14,18 @@ This chapter documents a total of 1162 commands and 147 options.
 * dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
-* emacspeak-abc-mode::Speech-enable ABC-MODE.
+* emacspeak-abc-mode::Speech-enable ABC.
 * emacspeak-actions::Emacspeak actions.
 * emacspeak-add-log::Speech-enable add-log.
 * emacspeak-advice::Advice Emacs Core.
-* emacspeak-amark::BookMarks For Audio Content.
-* emacspeak-analog::Speech-enable analog -- a log viewer.
-* emacspeak-annotate::Speech-enable ANNOTATE.
-* emacspeak-apt-sources::speech-enable APT's sources.list file editor.
+* emacspeak-amark::BookMarks For Audio.
+* emacspeak-analog::
+* emacspeak-annotate::Annotations.
+* emacspeak-apt-sources::speech-enable apt.
 * emacspeak-arc::Speech enable archive-mode.
 * emacspeak-auctex::Speech enable AucTeX --.
 * emacspeak-bbc::Light-Weight BBC Client.
-* emacspeak-bbdb::Speech enable BBDB -- a powerful address manager.
+* emacspeak-bbdb::Speech enable BBDB.
 * emacspeak-bibtex::Speech enable bibtex.
 * emacspeak-bookmark::Speech enable Emacs' builtin bookmarks.
 * emacspeak-bookshare::Speech-enabled  BOOKSHARE client.

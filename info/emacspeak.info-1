@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 10, 2022.
+last updated on September 11, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3441,18 +3441,18 @@ documentation, then read *Note emacspeak-eww::.
 * dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
-* emacspeak-abc-mode::Speech-enable ABC-MODE.
+* emacspeak-abc-mode::Speech-enable ABC.
 * emacspeak-actions::Emacspeak actions.
 * emacspeak-add-log::Speech-enable add-log.
 * emacspeak-advice::Advice Emacs Core.
-* emacspeak-amark::BookMarks For Audio Content.
-* emacspeak-analog::Speech-enable analog – a log viewer.
-* emacspeak-annotate::Speech-enable ANNOTATE.
-* emacspeak-apt-sources::speech-enable APT’s sources.list file editor.
+* emacspeak-amark::BookMarks For Audio.
+* emacspeak-analog::
+* emacspeak-annotate::Annotations.
+* emacspeak-apt-sources::speech-enable apt.
 * emacspeak-arc::Speech enable archive-mode.
 * emacspeak-auctex::Speech enable AucTeX –.
 * emacspeak-bbc::Light-Weight BBC Client.
-* emacspeak-bbdb::Speech enable BBDB – a powerful address manager.
+* emacspeak-bbdb::Speech enable BBDB.
 * emacspeak-bibtex::Speech enable bibtex.
 * emacspeak-bookmark::Speech enable Emacs’ builtin bookmarks.
 * emacspeak-bookshare::Speech-enabled  BOOKSHARE client.
