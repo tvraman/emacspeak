@@ -1,4 +1,4 @@
-;;; emacspeak-annotate.el --- Speech-enable ANNOTATE  -*- lexical-binding: t; -*-
+;;; emacspeak-annotate.el --- Annotations  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ANNOTATE An Emacs Interface to annotate
 ;; Keywords: Emacspeak,  Audio Desktop annotate
