@@ -1,4 +1,4 @@
-;;; emacspeak-eterm.el --- Speech enable eterm -- Emacs' terminal emulator  term.el  -*- lexical-binding: t; -*-
+;;; emacspeak-eterm.el --- Speech enable eterm -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech enable eterm.
@@ -95,8 +95,10 @@
   (define-key emacspeak-eterm-keymap '[right] 'emacspeak-eterm-pointer-right)
   (define-key emacspeak-eterm-keymap "a" 'emacspeak-eterm-pointer-to-left-edge)
   (define-key emacspeak-eterm-keymap "e" 'emacspeak-eterm-pointer-to-right-edge)
-  (define-key emacspeak-eterm-keymap "\M-b" 'emacspeak-eterm-pointer-backward-word)
-  (define-key emacspeak-eterm-keymap "\M-f"  'emacspeak-eterm-pointer-forward-word)
+  (define-key
+   emacspeak-eterm-keymap "\M-b" 'emacspeak-eterm-pointer-backward-word)
+  (define-key
+   emacspeak-eterm-keymap "\M-f"  'emacspeak-eterm-pointer-forward-word)
   (define-key emacspeak-eterm-keymap "." 'emacspeak-eterm-pointer-to-cursor)
   (define-key emacspeak-eterm-keymap "," 'emacspeak-eterm-speak-pointer)
   (define-key emacspeak-eterm-keymap "c" 'emacspeak-eterm-speak-pointer-char)
@@ -115,7 +117,6 @@
   (define-key emacspeak-eterm-keymap ">" 'emacspeak-eterm-pointer-to-bottom)
   (define-key emacspeak-eterm-keymap "g" 'emacspeak-eterm-goto-line)
   (define-key emacspeak-eterm-keymap "s" 'emacspeak-eterm-search-forward)
-                                        ;(define-key emacspeak-eterm-keymap "r" 'emacspeak-eterm-search-backward)
   (define-key emacspeak-eterm-keymap "y"
               'emacspeak-eterm-kill-ring-save-region)
   (define-key emacspeak-eterm-keymap "x"
@@ -132,7 +133,8 @@
   (define-key emacspeak-eterm-keymap "\C-f"
               'emacspeak-eterm-set-focus-window)
   (define-key emacspeak-eterm-keymap "A" 'emacspeak-eterm-toggle-filter-window)
-  (define-key emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
+  (define-key
+   emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
   (define-key emacspeak-eterm-keymap "\C-d" 'emacspeak-eterm-describe-window)
   (define-key emacspeak-eterm-keymap "\C-m" 'emacspeak-eterm-speak-window)
   (define-key emacspeak-eterm-keymap "r" 'emacspeak-eterm-toggle-review)
@@ -166,8 +168,10 @@ Useful when eterm is in review mode.")
     (define-key term-raw-map
                 (concat emacspeak-eterm-raw-prefix emacspeak-eterm-raw-prefix)
                 'emacspeak-eterm-maybe-send-raw)
-    (define-key term-raw-map
-                (concat emacspeak-eterm-prefix emacspeak-eterm-prefix) 'emacspeak-eterm-maybe-send-raw)
+    (define-key
+     term-raw-map
+     (concat emacspeak-eterm-prefix emacspeak-eterm-prefix)
+     'emacspeak-eterm-maybe-send-raw)
     (define-key emacspeak-eterm-keymap emacspeak-eterm-raw-prefix
                 term-raw-map)))
 
@@ -640,7 +644,8 @@ sent to the terminal as if it were typed by the user."
 ;; A window structure is of the form
 ;; [column row right-stretch left-stretch ]
 
-(defun emacspeak-eterm-make-window (top-left bottom-right right-stretch left-stretch)
+(defun emacspeak-eterm-make-window (top-left bottom-right
+                                             right-stretch left-stretch)
   (let ((win (make-vector 4  nil)))
     (aset win 0 top-left)
     (aset win 1 bottom-right)
@@ -668,8 +673,8 @@ Argument ID specifies the window."
                               (emacspeak-eterm-window-top-left window)))
             (bottom-right-row (cdr
                                (emacspeak-eterm-window-bottom-right window)))
-            (bottom-right-column (car
-                                  (emacspeak-eterm-window-bottom-right window))))
+            (bottom-right-column
+             (car (emacspeak-eterm-window-bottom-right window))))
       (not
        (or  (< row top-left-row)
             (> row bottom-right-row)
@@ -785,8 +790,9 @@ Argument ETERM-WINDOW specifies a predefined eterm window."
 A terminal window is recorded by the  positions of its top left
 and bottom right.")
 
-(defun emacspeak-eterm-record-window  (window-id top-left bottom-right
-                                                 &optional right-stretch left-stretch)
+(defun emacspeak-eterm-record-window  (window-id
+                                       top-left bottom-right
+                                       &optional right-stretch left-stretch)
   "Insert this window definition into the table of terminal windows.
 Argument WINDOW-ID specifies the window.
 Argument TOP-LEFT  specifies top-left of window.
@@ -827,7 +833,8 @@ eterm."
              "Your installation of Emacspeak only supports %d windows"
              emacspeak-eterm-maximum-windows)
   (let  ((top-left
-          (emacspeak-eterm-position-to-coordinates (marker-position emacspeak-eterm-marker)))
+          (emacspeak-eterm-position-to-coordinates
+           (marker-position emacspeak-eterm-marker)))
          (bottom-right
           (emacspeak-eterm-position-to-coordinates (marker-position
                                                     emacspeak-eterm-pointer)))
@@ -1047,10 +1054,10 @@ Use emacspeak-toggle-eterm-autospeak bound to
 (ems-generate-switcher 'emacspeak-toggle-eterm-autospeak
                        'emacspeak-eterm-autospeak
                        "Toggle state of eterm autospeak.
-When eterm autospeak is turned on and the terminal is in line mode,
-all output to the terminal is automatically spoken.
-  Interactive prefix arg means toggle  the global default value, and then set the
-  current local  value to the result. ")
+When eterm autospeak is turned on and the terminal is in line
+mode, all output to the terminal is automatically spoken.
+Interactive prefix arg means toggle the global default value, and
+then set the current local value to the result.")
 
 (defvar eterm-line-mode nil
   "T if eterm is in line mode.")
@@ -1064,7 +1071,7 @@ Do not set this by hand.
 Use emacspeak-eterm-toggle-pointer-mode bound to
 \\[emacspeak-eterm-toggle-pointer-mode].")
 
-(defun emacspeak-eterm-activity-in-window (window)
+(defun ems--activity-window (window)
   "T if terminal activity within bounds of window."
   (emacspeak-eterm-coordinate-within-window-p
    (cons (term-current-column) (term-current-row))
@@ -1084,12 +1091,14 @@ mode; i.e. you hear the output if emacspeak-eterm-autospeak is t.
 Do not set this variable by hand: See command
 emacspeak-toggle-eterm-autospeak bound to
 \\[emacspeak-toggle-eterm-autospeak]"
-  (cl-declare (special emacspeak-eterm-row emacspeak-eterm-column
-                       eterm-line-mode eterm-char-mode
-                       emacspeak-eterm-filter-window emacspeak-eterm-pointer-mode
-                       emacspeak-eterm-autospeak))
+  (cl-declare (special
+               emacspeak-eterm-row emacspeak-eterm-column
+               eterm-line-mode eterm-char-mode
+               emacspeak-eterm-filter-window emacspeak-eterm-pointer-mode
+               emacspeak-eterm-autospeak))
   (when (process-live-p (ad-get-arg 0))
-    (let ((emacspeak-eterm-window (get-buffer-window (process-buffer (ad-get-arg 0))))
+    (let ((emacspeak-eterm-window
+           (get-buffer-window (process-buffer (ad-get-arg 0))))
           (emacspeak-eterm-row (term-current-row))
           (emacspeak-eterm-column (term-current-column))
           (current-char (preceding-char))
@@ -1104,9 +1113,10 @@ emacspeak-toggle-eterm-autospeak bound to
       (when                        ; do something if in active area
           (and  emacspeak-eterm-autospeak
                 (window-live-p emacspeak-eterm-window)
-                (or  (not emacspeak-eterm-focus-window)
-                     (emacspeak-eterm-activity-in-window  emacspeak-eterm-focus-window)
-                     (emacspeak-eterm-activity-in-window  emacspeak-eterm-filter-window)))
+                (or
+                 (not emacspeak-eterm-focus-window)
+                     (ems--activity-window  emacspeak-eterm-focus-window)
+                     (ems--activity-window  emacspeak-eterm-filter-window)))
         (cond
          ((and eterm-char-mode
                emacspeak-eterm-filter-window
@@ -1135,7 +1145,7 @@ emacspeak-toggle-eterm-autospeak bound to
           (delete-char  1)
           (dtk-tone-deletion))
          ((and (= new-row emacspeak-eterm-row)
-               (= 1 (- new-column emacspeak-eterm-column))) ;you inserted a character:
+               (= 1 (- new-column emacspeak-eterm-column))) ; inserted a char:
           (if (eq 32 last-command-event)
               (save-excursion
                 (backward-char 2)
@@ -1195,7 +1205,7 @@ there is terminal activity.")
     (dtk-speak "Terminal character mode ")))
 
 ;;}}}
-;;{{{  Advice term functions that duplicate functionality of their comint counterparts
+;;{{{  Advice term functions 
 
 (defadvice term-next-input (after emacspeak pre act comp)
   "Speak the line. "

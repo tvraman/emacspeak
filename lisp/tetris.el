@@ -1,4 +1,4 @@
-;;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: nil; -*-
+;;; tetris.el ---  Tetris for Emacs  -*- lexical-binding: nil; -*-
 
 ;; Copyright (C) 1997, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
 ;;   2009, 2011  Free Software Foundation, Inc.
@@ -110,7 +110,6 @@ Element 0 is ignored.")
 ;; pointing to a file you don't want to clobber.
 (defvar tetris-score-file "tetris-scores"
   ;; anybody with a well-connected server want to host this?
-                                        ;(defvar tetris-score-file "/anonymous@ftp.pgt.com:/pub/cgw/tetris-scores"
   "File for holding high scores.")
 
 ;; ;;;;;;;;;;;;; display options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
