@@ -76,7 +76,8 @@
 ;;}}}
 ;;{{{ Advice:
 
-(defadvice              bbdb-delete-current-field-or-record (after emacspeak pre act comp)
+(defadvice              bbdb-delete-current-field-or-record
+    (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
