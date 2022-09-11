@@ -1,4 +1,4 @@
-;;; emacspeak-bookshare.el --- Speech-enabled  BOOKSHARE client  -*- lexical-binding: t; -*-
+;;; emacspeak-bookshare.el --- BOOKSHARE client  -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-bookshare.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable BOOKSHARE An Emacs Interface to bookshare
@@ -54,7 +54,8 @@
 ;; @end itemize
 ;; 
 ;; @subsection Usage
-;; The main entry point is command @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
+;; The main entry point is command
+;; @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
 ;; This creates a special @emph{Bookshare Interaction} buffer that is
 ;; placed in @emph{emacspeak-bookshare-mode}.
 ;; Se the help for that mode on detailed usage instructions and key-bindings.
@@ -72,7 +73,8 @@
 ;; @code{auth-source} --- usually @code{~/.authinfo.gpg}.
 ;; You can also use @code{password-store[.]}
 ;; @item The results of the search appear in the Bookshare buffer.
-;; Audio formatting and auditory icons convey if  a result is already available locally.
+;; Audio formatting and auditory icons convey 
+;; if  a result is already available locally.
 ;; @item If not available locally, press @kbd{D} to download the content.
 ;; @item Press @kbd{U} to unpack the downloaded content.
 ;; @item Press @kbd{e} to  display the entire book.
@@ -241,7 +243,8 @@ Optional argument `noauth' says no user auth needed."
   "Return  URL  end point for content download.
 Argument id specifies content. Argument fmt = 0 for Braille, 1
    for Daisy, 3 for epub-3,6 for audio."
-  (cl-declare (special emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
+  (cl-declare (special
+               emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
   (format "%s/%s/%s?api_key=%s"
           emacspeak-bookshare-api-base
           (format "download/content/%s/version/%s" id fmt)
@@ -675,7 +678,8 @@ b Browse
     (insert
      (mapconcat
       #'identity
-      (emacspeak-bookshare-destruct-rest-url emacspeak-bookshare-last-action-uri)
+      (emacspeak-bookshare-destruct-rest-url
+       emacspeak-bookshare-last-action-uri)
       " "))
     (add-text-properties  start (point)
                           (list 'uri emacspeak-bookshare-last-action-uri
@@ -693,7 +697,8 @@ b Browse
     (insert
      (mapconcat
       #'identity
-      (emacspeak-bookshare-destruct-rest-url emacspeak-bookshare-last-action-uri)
+      (emacspeak-bookshare-destruct-rest-url
+       emacspeak-bookshare-last-action-uri)
       " "))
     (add-text-properties  start (point)
                           (list 'uri emacspeak-bookshare-last-action-uri
@@ -819,19 +824,14 @@ b Browse
 ;;{{{  Property Accessors:
 
 ;;{{{ Generate Declarations:
-;; (cl-loop
-;;  for p in
-;;  '(author title id metadata target directory)
-;;  do
-;;  (declare-function (format "emacspeak-bookshare-get-%s"  p) "emacspeak-bookshare" nil))
-
 (declare-function emacspeak-bookshare-get-author    "emacspeak-bookshare" nil)
 
 (declare-function emacspeak-bookshare-get-title    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-id    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-metadata    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-target    "emacspeak-bookshare" nil)
-(declare-function emacspeak-bookshare-get-directory    "emacspeak-bookshare" nil)
+(declare-function emacspeak-bookshare-get-directory
+                  "emacspeak-bookshare" nil)
 
 ;; ;;}}}
 (cl-loop for p in
@@ -1314,8 +1314,10 @@ Useful for fulltext search in a book."
                                (when (eq major-mode 'dired-mode)
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
-  (cl-declare (special emacspeak-xslt-program emacspeak-bookshare-directory
-                       emacspeak-speak-directory-settings emacspeak-bookshare-this-book))
+  (cl-declare (special
+               emacspeak-xslt-program emacspeak-bookshare-directory
+               emacspeak-speak-directory-settings
+               emacspeak-bookshare-this-book))
   (unless (fboundp 'eww)
     (error "Your Emacs doesn't have EWW."))
   (let ((xsl (emacspeak-bookshare-xslt directory))
