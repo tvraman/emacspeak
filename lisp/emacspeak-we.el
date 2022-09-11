@@ -1,4 +1,4 @@
-;;; emacspeak-we.el --- Transform Web Pages Using XSLT  -*- lexical-binding: t; -*-
+;;; emacspeak-we.el --- Transform WebUsing XSLT  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Edit/Transform Web Pages using XSLT
@@ -262,7 +262,8 @@ from Web page -- default is the current page being viewed."
   (cl-declare (special emacspeak-we-xsl-filter
                        emacspeak-we-filters-rename-buffer))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (when emacspeak-we-filters-rename-buffer(emacspeak-we-rename-buffer (format "Filtered %s" path)))
+    (when emacspeak-we-filters-rename-buffer
+      (emacspeak-we-rename-buffer (format "Filtered %s" path)))
     (add-hook
      'emacspeak-eww-pre-process-hook
      (emacspeak-xslt-make-xsl-transformer emacspeak-we-xsl-filter params))
@@ -406,7 +407,8 @@ Default is to extract from current page."
    speak))
 
 ;;;###autoload
-(defun emacspeak-we-extract-tables-by-position-list (positions url &optional speak)
+(defun emacspeak-we-extract-tables-by-position-list (positions url
+                                                               &optional speak)
   "Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
  of nested tables found in the page."
@@ -470,7 +472,8 @@ Tables are specified by containing  match pattern
   "Caches class attribute values for current buffer.")
 
 (make-variable-buffer-local 'emacspeak-we-buffer-class-cache)
-(declare-function emacspeak-xslt-run "emacspeak-xslt" (xsl &optional start end))
+(declare-function
+ emacspeak-xslt-run "emacspeak-xslt" (xsl &optional start end))
 
 (defun emacspeak-we-build-class-cache ()
   "Build class cache and forward it to rendered page."
@@ -743,7 +746,8 @@ used as well."
   (interactive
    (list
     (cond
-     ((and (not current-prefix-arg)emacspeak-we-class-filter) emacspeak-we-class-filter)
+     ((and (not current-prefix-arg)emacspeak-we-class-filter)
+      emacspeak-we-class-filter)
      (t
       (setq emacspeak-we-class-filter
             (read-from-minibuffer
@@ -752,7 +756,8 @@ used as well."
              "article"))))
     (emacspeak-eww-read-url)
     current-prefix-arg))
-  (cl-declare (special emacspeak-we-class-filter emacspeak-we-url-rewrite-rule))
+  (cl-declare (special
+               emacspeak-we-class-filter emacspeak-we-url-rewrite-rule))
   (let ((redirect nil))
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
@@ -780,7 +785,8 @@ used as well."
   (interactive
    (list
     (cond
-     ((and (not current-prefix-arg)emacspeak-we-id-filter) emacspeak-we-id-filter)
+     ((and (not current-prefix-arg)emacspeak-we-id-filter)
+      emacspeak-we-id-filter)
      (t
       (setq emacspeak-we-id-filter
             (read-from-minibuffer "Id: "))))
@@ -853,9 +859,11 @@ XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
-  (cl-declare (special emacspeak-we-xpath-filter
-                       emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter-history
-                       emacspeak-we-url-rewrite-rule))
+  (cl-declare (special
+               emacspeak-we-xpath-filter
+               emacspeak-we-recent-xpath-filter
+               emacspeak-we-xpath-filter-history
+               emacspeak-we-url-rewrite-rule))
   (emacspeak-eww-browser-check)
   (let ((url (funcall emacspeak-eww-url-at-point))
         (redirect nil))
@@ -874,7 +882,9 @@ used as well."
              nil nil nil
              'emacspeak-we-xpath-filter-history
              emacspeak-we-recent-xpath-filter))
-      (cl-pushnew emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history :test #'string=)
+      (cl-pushnew
+       emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history
+       :test #'string=)
       (setq emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter))
     (emacspeak-we-xslt-filter emacspeak-we-xpath-filter
                               (or redirect url)
@@ -902,9 +912,11 @@ Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
-  (cl-declare (special emacspeak-we-class-filter
-                       emacspeak-we-recent-class-filter emacspeak-we-class-filter-history
-                       emacspeak-we-url-rewrite-rule))
+  (cl-declare (special
+               emacspeak-we-class-filter
+               emacspeak-we-recent-class-filter
+               emacspeak-we-class-filter-history
+               emacspeak-we-url-rewrite-rule))
   (emacspeak-eww-browser-check)
   (let ((url (funcall emacspeak-eww-url-at-point))
         (redirect nil))
@@ -922,7 +934,9 @@ used as well."
              nil nil nil
              'emacspeak-we-class-filter-history
              emacspeak-we-recent-class-filter))
-      (cl-pushnew emacspeak-we-class-filter emacspeak-we-class-filter-history :test #'string=)
+      (cl-pushnew
+       emacspeak-we-class-filter emacspeak-we-class-filter-history
+       :test #'string=)
       (setq emacspeak-we-recent-class-filter
             emacspeak-we-class-filter))
     (emacspeak-we-xslt-filter
