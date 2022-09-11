@@ -3454,12 +3454,12 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB.
 * emacspeak-bibtex::Speech enable bibtex.
-* emacspeak-bookmark::Speech enable Emacs’ builtin bookmarks.
-* emacspeak-bookshare::Speech-enabled  BOOKSHARE client.
-* emacspeak-browse-kill-ring::browse-kill-ring  for emacspeak desktop.
-* emacspeak-bs::speech-enable bs buffer selection.
-* emacspeak-buff-menu::Speech enable Buffer Menu Mode – used to manage buffers.
-* emacspeak-c::Speech enable CC-mode and friends – supports C, C++, Java.
+* emacspeak-bookmark::Speech enable bookmark.
+* emacspeak-bookshare::BOOKSHARE client.
+* emacspeak-browse-kill-ring::kill-ring.
+* emacspeak-bs::speech-enable bs.
+* emacspeak-buff-menu::Speech enable buff-menu.
+* emacspeak-c::Speech enable C, C++.
 * emacspeak-calc::Speech enable  Emacs Calculator.
 * emacspeak-calculator::Speech enable  desktop calculator.
 * emacspeak-calendar::Speech enable Emacs Calendar.
@@ -3472,12 +3472,12 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY-mode.
 * emacspeak-compile::Speech enable  navigation of  compile errors, grep matches.
-* emacspeak-cperl::Speech enable CPerl Mode.
+* emacspeak-cperl::Speech enable CPerl.
 * emacspeak-crossword::Speech-enable CROSSWORD.
 * emacspeak-custom::Speech enable interactive Emacs customization.
 * emacspeak-dbus::DBus On Emacspeak Desktop.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
-* emacspeak-debugger::Speech-enable DEBUGGER.
+* emacspeak-debugger::Speech-enable DEBUG.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
@@ -3531,7 +3531,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-gud::Speech enable debugger interface.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
-* emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
+* emacspeak-hide::hide and expose text blocks.
 * emacspeak-hide-lines::Speech-enable HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
@@ -5222,7 +5222,7 @@ File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  P
 ================================
 
 Browse the kill ring using browse-kill-ring.el - interactively insert
-items from kill-ring (by Colin Walters)
+items from kill-ring
 
 
 File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: emacspeak-browse-kill-ring,  Up: Emacspeak Commands And Options

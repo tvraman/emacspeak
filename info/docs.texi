@@ -27,12 +27,12 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB.
 * emacspeak-bibtex::Speech enable bibtex.
-* emacspeak-bookmark::Speech enable Emacs' builtin bookmarks.
-* emacspeak-bookshare::Speech-enabled  BOOKSHARE client.
-* emacspeak-browse-kill-ring::browse-kill-ring  for emacspeak desktop.
-* emacspeak-bs::speech-enable bs buffer selection.
-* emacspeak-buff-menu::Speech enable Buffer Menu Mode -- used to manage buffers.
-* emacspeak-c::Speech enable CC-mode and friends -- supports C, C++, Java.
+* emacspeak-bookmark::Speech enable bookmark.
+* emacspeak-bookshare::BOOKSHARE client.
+* emacspeak-browse-kill-ring::kill-ring.
+* emacspeak-bs::speech-enable bs.
+* emacspeak-buff-menu::Speech enable buff-menu.
+* emacspeak-c::Speech enable C, C++.
 * emacspeak-calc::Speech enable  Emacs Calculator.
 * emacspeak-calculator::Speech enable  desktop calculator.
 * emacspeak-calendar::Speech enable Emacs Calendar.
@@ -45,12 +45,12 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY-mode.
 * emacspeak-compile::Speech enable  navigation of  compile errors, grep matches.
-* emacspeak-cperl::Speech enable CPerl Mode.
+* emacspeak-cperl::Speech enable CPerl.
 * emacspeak-crossword::Speech-enable CROSSWORD.
 * emacspeak-custom::Speech enable interactive Emacs customization.
 * emacspeak-dbus::DBus On Emacspeak Desktop.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
-* emacspeak-debugger::Speech-enable DEBUGGER.
+* emacspeak-debugger::Speech-enable DEBUG.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
@@ -104,7 +104,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-gud::Speech enable debugger interface.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
-* emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
+* emacspeak-hide::hide and expose text blocks.
 * emacspeak-hide-lines::Speech-enable HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
@@ -1594,7 +1594,8 @@ This module implements an Emacspeak Bookshare client.
 @end itemize
 
 @subsection Usage
-The main entry point is command @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
+The main entry point is command
+@code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
 This creates a special @emph{Bookshare Interaction} buffer that is
 placed in @emph{emacspeak-bookshare-mode}.
 Se the help for that mode on detailed usage instructions and key-bindings.
@@ -1612,7 +1613,8 @@ the first time.
 @code{auth-source} --- usually @code{~/.authinfo.gpg}.
 You can also use @code{password-store[.]}
 @item The results of the search appear in the Bookshare buffer.
-Audio formatting and auditory icons convey if  a result is already available locally.
+Audio formatting and auditory icons convey
+if  a result is already available locally.
 @item If not available locally, press @kbd{D} to download the content.
 @item Press @kbd{U} to unpack the downloaded content.
 @item Press @kbd{e} to  display the entire book.
@@ -2155,7 +2157,7 @@ Default Value: @code{@verb{|/home/raman/books/book-share|}}
 @section emacspeak-browse-kill-ring
 
 Browse the kill ring using
-browse-kill-ring.el - interactively insert items from kill-ring (by Colin Walters)
+browse-kill-ring.el - interactively insert items from kill-ring
 
 @node emacspeak-bs
 @section emacspeak-bs
@@ -7461,8 +7463,6 @@ Hide or expose all blocks.
 Hide or expose a block of text.
  Optional interactive prefix arg causes all blocks in current
 buffer to be hidden or exposed.
-
-(fn &optional PREFIX)
 @end format
 @end deffn
 
