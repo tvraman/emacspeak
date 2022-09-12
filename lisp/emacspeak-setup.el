@@ -1,4 +1,4 @@
-;;; emacspeak-setup.el --- Setup Emacspeak environment --loaded to start Emacspeak  -*- lexical-binding: t; -*-
+;;; emacspeak-setup.el --- Setup Emacspeak -- -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  File for setting up and starting Emacspeak
