@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 11, 2022.
+last updated on September 13, 2022.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2261,7 +2261,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> 8:                                emacspeak-speak.    (line  698)
 * <fn> 9:                                emacspeak-speak.    (line  697)
 * <fn> ::                                emacspeak-m-player. (line  675)
-* <fn> ;:                                emacspeak-m-player. (line  812)
+* <fn> ;:                                emacspeak-m-player. (line  813)
 * <fn> <down>:                           emacspeak-speak.    (line  174)
 * <fn> <f11>:                            emacspeak-wizards.  (line 1005)
 * <fn> <f1>:                             emacspeak-wizards.  (line   75)
@@ -2539,7 +2539,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. d:                                 emacspeak-dired.    (line   25)
 * C-. h:                                 emacspeak-org.      (line   18)
 * C-. l:                                 emacspeak-wizards.  (line  762)
-* C-. m:                                 emacspeak-wizards.  (line 1207)
+* C-. m:                                 emacspeak-wizards.  (line 1205)
 * C-. n:                                 emacspeak-wizards.  (line  644)
 * C-. o:                                 extra-muggles.      (line  178)
 * C-. R:                                 emacspeak-webspace. (line   16)
@@ -2553,8 +2553,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; ':                                 emacspeak-m-player. (line  727)
 * C-; /:                                 emacspeak-websearch.
                                                              (line  115)
-* C-; ::                                 emacspeak-wizards.  (line 1197)
-* C-; ;:                                 emacspeak-m-player. (line  738)
+* C-; ::                                 emacspeak-m-player. (line  738)
+* C-; ;:                                 emacspeak-m-player. (line  812)
 * C-; a:                                 emacspeak-amark.    (line   34)
 * C-; C-a:                               emacspeak-wizards.  (line 1083)
 * C-; C-j:                               emacspeak-wizards.  (line 1004)
@@ -2968,8 +2968,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h ':                             emacspeak-m-player. (line  728)
 * C-x @ h /:                             emacspeak-websearch.
                                                              (line  116)
-* C-x @ h ::                             emacspeak-wizards.  (line 1198)
-* C-x @ h ;:                             emacspeak-m-player. (line  739)
+* C-x @ h ::                             emacspeak-m-player. (line  739)
+* C-x @ h ;:                             emacspeak-m-player. (line  814)
 * C-x @ h a:                             emacspeak-amark.    (line   35)
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1084)
 * C-x @ h C-j:                           emacspeak-wizards.  (line 1006)
@@ -2989,7 +2989,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s d:                             emacspeak-dired.    (line   26)
 * C-x @ s h:                             emacspeak-org.      (line   19)
 * C-x @ s l:                             emacspeak-wizards.  (line  763)
-* C-x @ s m:                             emacspeak-wizards.  (line 1208)
+* C-x @ s m:                             emacspeak-wizards.  (line 1206)
 * C-x @ s n:                             emacspeak-wizards.  (line  645)
 * C-x @ s o:                             extra-muggles.      (line  179)
 * C-x @ s R:                             emacspeak-webspace. (line   17)
@@ -3001,7 +3001,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s v:                             extra-muggles.      (line  260)
 * C-x r C-e:                             emacspeak-eww.      (line  410)
 * C-x r e:                               emacspeak-eww.      (line  645)
-* C-z b:                                 emacspeak-wizards.  (line 1206)
+* C-z b:                                 emacspeak-wizards.  (line 1204)
 * C-z e:                                 emacspeak-wizards.  (line  538)
 * C-z n:                                 emacspeak-wizards.  (line  420)
 * C-z p:                                 emacspeak-wizards.  (line  430)

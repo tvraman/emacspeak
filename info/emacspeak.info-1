@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 11, 2022.
+last updated on September 13, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3045,10 +3045,10 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
      emacspeak-websearch-google-with-toolbelt
 
 ‘:’
-     emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+     emacspeak-m-player-using-openal
 
 ‘;’
-     emacspeak-m-player-using-openal
+     emacspeak-multimedia
 
 ‘C-a’
      emacspeak-wizards-term
@@ -3603,7 +3603,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-sdcv::Speech-enable SDCV.
 * emacspeak-selectrum::Speech-enable SELECTRUM.
 * emacspeak-ses::Speech-enable ses spread-sheet.
-* emacspeak-setup::Setup Emacspeak environment –loaded to start Emacspeak.
+* emacspeak-setup::Setup Emacspeak –.
 * emacspeak-sgml-mode::Speech enable SGML mode.
 * emacspeak-sh-script::Speech enable  sh-script mode.
 * emacspeak-shx::Speech-enable SHX.

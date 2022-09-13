@@ -176,7 +176,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-sdcv::Speech-enable SDCV.
 * emacspeak-selectrum::Speech-enable SELECTRUM.
 * emacspeak-ses::Speech-enable ses spread-sheet.
-* emacspeak-setup::Setup Emacspeak environment --loaded to start Emacspeak.
+* emacspeak-setup::Setup Emacspeak --.
 * emacspeak-sgml-mode::Speech enable SGML mode.
 * emacspeak-sh-script::Speech enable  sh-script mode.
 * emacspeak-shx::Speech-enable SHX.
@@ -7789,7 +7789,7 @@ Default Value: @code{@verb{|((SPC flyspell-mode) (b emacspeak-wizards-view-buffe
 @defvar {User Option} emacspeak-hyper-keys
 Hyper-Key bindings. 
 
-Default Value: @code{@verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. next-buffer) (/ emacspeak-websearch-google-with-toolbelt) (: emacspeak-wizards-view-buffers-filtered-by-m-player-mode) (; emacspeak-m-player-using-openal) (C-a emacspeak-wizards-term) (C-b eww-list-bookmarks) (C-d dictionary-search) (C-e eshell) (C-j emacspeak-wizards-shell-toggle) (C-l emacspeak-librivox) (C-o eaf-open-browser) (C-t emacspeak-wizards-tramp-open-location) (DEL emacspeak-wizards-snarf-sexp) (TAB hippie-expand) (a emacspeak-amark-browse) (b eww-list-buffers) (c browse-url-chrome) (d magit-dispatch) (e gmaps) (f magit-file-dispatch) (g gnus) (h emacspeak-m-player-from-history) (k emacspeak-google-knowledge-search) (l locate) (m vm) (n emacspeak-wizards-cycle-to-next-buffer) (o find-file) (p emacspeak-wizards-cycle-to-previous-buffer) (r emacspeak-wizards-find-file-as-root) (s magit-status) (t twit) (u list-unicode-display) (w emacspeak-wizards-noaa-weather) (y yas-expand))|}}
+Default Value: @code{@verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. next-buffer) (/ emacspeak-websearch-google-with-toolbelt) (: emacspeak-m-player-using-openal) (; emacspeak-multimedia) (C-a emacspeak-wizards-term) (C-b eww-list-bookmarks) (C-d dictionary-search) (C-e eshell) (C-j emacspeak-wizards-shell-toggle) (C-l emacspeak-librivox) (C-o eaf-open-browser) (C-t emacspeak-wizards-tramp-open-location) (DEL emacspeak-wizards-snarf-sexp) (TAB hippie-expand) (a emacspeak-amark-browse) (b eww-list-buffers) (c browse-url-chrome) (d magit-dispatch) (e gmaps) (f magit-file-dispatch) (g gnus) (h emacspeak-m-player-from-history) (k emacspeak-google-knowledge-search) (l locate) (m vm) (n emacspeak-wizards-cycle-to-next-buffer) (o find-file) (p emacspeak-wizards-cycle-to-previous-buffer) (r emacspeak-wizards-find-file-as-root) (s magit-status) (t twit) (u list-unicode-display) (w emacspeak-wizards-noaa-weather) (y yas-expand))|}}
 
 @end defvar
 
@@ -8874,10 +8874,10 @@ This will work if the soundcard is set to 48000.
 @subsubsection emacspeak-m-player-using-openal
 @deffn {Command} emacspeak-m-player-using-openal  (resource &optional play-list)
 @table @kbd
-@item C-; ;
-@kindex C-; ;
-@item C-x @@ h ;
-@kindex C-x @@ h ;
+@item C-; :
+@kindex C-; :
+@item C-x @@ h :
+@kindex C-x @@ h :
 @end table
 
 @findex emacspeak-m-player-using-openal
@@ -8980,8 +8980,12 @@ Use youtube-dl  to stream  using mpv.
 @table @kbd
 @item C-e ;
 @kindex C-e ;
+@item C-; ;
+@kindex C-; ;
 @item <fn> ;
 @kindex <fn> ;
+@item C-x @@ h ;
+@kindex C-x @@ h ;
 @end table
 
 @findex emacspeak-multimedia
@@ -17773,13 +17777,6 @@ Refresh view of VC we’re viewing.
 
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-m-player-mode   
-@table @kbd
-@item C-; :
-@kindex C-; :
-@item C-x @@ h :
-@kindex C-x @@ h :
-@end table
-
 @findex emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 
 @format
