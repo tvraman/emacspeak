@@ -133,6 +133,29 @@
 ;;}}}
 ;;{{{ Structure Navigation:
 
+(defun emacspeak-org-speak-item  ()
+  "Speak item"
+  (interactive )
+  (unless (eq major-mode 'org-mode) (error "Not in an org buffer"))
+  (unless (org-at-item-p) (error "Not at an item"))
+  (save-excursion
+   (let ((start (org-beginning-of-item))
+         (end (org-end-of-item)))
+     (emacspeak-speak-region start end))))
+
+(cl-loop
+ for f in 
+ '(org-next-item org-previous-item)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-org-speak-item)))))
+
+
+
 (cl-loop
  for f in
  '(
@@ -146,7 +169,6 @@
    org-goto  org-goto-ret
    org-goto-left org-goto-right
    org-goto-quit
-   org-next-item org-previous-item
    org-metaleft org-metaright org-metaup org-metadown
    org-meta-return
    org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
@@ -489,7 +511,8 @@
  for f in
  '(
    org-occur org-beginning-of-line org-end-of-line
-   org-beginning-of-item org-beginning-of-item-list)
+   org-beginning-of-item org-beginning-of-item-list
+   org-end-of-item org-end-of-item-list)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
