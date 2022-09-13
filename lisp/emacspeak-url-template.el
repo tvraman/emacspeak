@@ -328,20 +328,6 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-we-extract-by-id "center_col" url 'speak)))
 
 ;;}}}
-;;{{{ seeking alpha stock search
-
-(emacspeak-url-template-define
- "Seeking Alpha Stock Search"
- "http://seekingalpha.com/search/?cx=001514237567335583750%%3Acdhc2yeo2ko&cof=FORID%%3A11%%3BNB%%3A1&q=%s"
- (list "Company:")
- nil
- "Seeking Alpha search."
-
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "content_section" url 'speak))
- )
-
-;;}}}
 ;;{{{ google finance
 
 (emacspeak-url-template-define
