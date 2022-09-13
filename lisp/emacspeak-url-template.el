@@ -1184,7 +1184,9 @@ template."
 
 (emacspeak-url-template-define
  "NLS Bard Popular"
- "https://nlsbard.loc.gov:443/nlsbardprod/search/most_popular/page/1/sort/s/srch/most_popular/local/0"
+ (concat
+  "https://nlsbard.loc.gov:443/"
+  "nlsbardprod/search/most_popular/page/1/sort/s/srch/most_popular/local/0")
  nil
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))
