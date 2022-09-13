@@ -592,6 +592,7 @@
     ("'" emacspeak-m-player-using-hrtf)
     ("," previous-buffer)
     ("." next-buffer)
+    (";" emacspeak-multimedia)
     (":" emacspeak-m-player-using-openal)
     ("/" emacspeak-websearch-google-with-toolbelt)
     ("C-a" emacspeak-wizards-term)
