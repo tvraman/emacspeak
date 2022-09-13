@@ -605,7 +605,6 @@ name of the list.")
 
 (emacspeak-url-template-define
  "MLB Scorecard"
-                                        ;"http://gd.mlb.com/components/game/mlb/%s/master_scoreboard.xml"
  "http://gd.mlb.com/components/game/mlb/%s/scoreboard.xml"
  (list
   #'(lambda nil
