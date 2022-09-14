@@ -1,4 +1,4 @@
-;;; emacspeak-dismal.el --- Speech enable Dismal -- An Emacs Spreadsheet program  -*- lexical-binding: t; -*-
+;;; emacspeak-dismal.el --- Speech enable Dismal -*- lexical-binding: t; -*-
 ;; Description: spread sheet extension
 ;; Keywords:emacspeak, audio interface to emacs spread sheets
 ;;{{{  LCD Archive entry: 
@@ -199,9 +199,10 @@ emacspeak-dismal-row-summarizer-list"
                          (format "%s"
                                  (emacspeak-dismal-cell-value
                                   dismal-current-row token)))
-                   (put-text-property  0   (length value)
-                                       'personality  emacspeak-dismal-value-personality 
-                                       value)
+                   (put-text-property
+                    0   (length value)
+                    'personality  emacspeak-dismal-value-personality 
+                    value)
                    value)
                   ((and (listp token)
                         (numberp (cl-first token))
@@ -211,9 +212,10 @@ emacspeak-dismal-row-summarizer-list"
                                  (emacspeak-dismal-cell-value
                                   (cl-first token)
                                   (cl-second token))))
-                   (put-text-property 0   (length value)
-                                      'personality emacspeak-dismal-value-personality 
-                                      value)
+                   (put-text-property
+                    0   (length value)
+                    'personality emacspeak-dismal-value-personality 
+                    value)
                    value)
                   (t  (format "%s" token)))))
            emacspeak-dismal-row-summarizer-list 
@@ -233,36 +235,37 @@ emacspeak-dismal-col-summarizer-list"
           (read-minibuffer "Specify summarizer as a vector:
 " "[")))
   (let ((summary nil))
-    (setq summary 
-          (mapconcat
-           #'(lambda (token)
-               (let ((value nil))
-                 (cond
-                  ((stringp token) token)
-                  ((numberp token)
-                   (setq value
-                         (format "%s"
-                                 (emacspeak-dismal-cell-value token
-                                                              dismal-current-col)))
-                   (put-text-property 0 (length value)
-                                      'personality
-                                      emacspeak-dismal-value-personality value)
-                   value)
-                  ((and (listp token)
-                        (numberp (cl-first token))
-                        (numberp (cl-second token)))
-                   (setq value
-                         (format "%s"
-                                 (emacspeak-dismal-cell-value
-                                  (cl-first token)
-                                  (cl-second token))))
-                   (put-text-property 0 (length value)
-                                      'personality
-                                      emacspeak-dismal-value-personality value)
-                   value)
-                  (t  (format "%s" token)))))
-           emacspeak-dismal-col-summarizer-list 
-           " "))
+    (setq
+     summary 
+     (mapconcat
+      #'(lambda (token)
+          (let ((value nil))
+            (cond
+             ((stringp token) token)
+             ((numberp token)
+              (setq value
+                    (format
+                     "%s"
+                     (emacspeak-dismal-cell-value token dismal-current-col)))
+              (put-text-property 0 (length value)
+                                 'personality
+                                 emacspeak-dismal-value-personality value)
+              value)
+             ((and (listp token)
+                   (numberp (cl-first token))
+                   (numberp (cl-second token)))
+              (setq value
+                    (format "%s"
+                            (emacspeak-dismal-cell-value
+                             (cl-first token)
+                             (cl-second token))))
+              (put-text-property 0 (length value)
+                                 'personality
+                                 emacspeak-dismal-value-personality value)
+              value)
+             (t  (format "%s" token)))))
+      emacspeak-dismal-col-summarizer-list 
+      " "))
     (dtk-speak summary)))
 
 (defun emacspeak-dismal-sheet-summarize  ()
@@ -326,20 +329,21 @@ emacspeak-dismal-sheet-summarizer-list"
   "Records if we have customized dismal.
 Checked by emacspeak specific dis-mode-hooks entry.")
 
-(add-hook 'dis-mode-hooks
-          #'(lambda nil
-              (cl-declare (special dismal-saved-variables dismal-map))
-              (define-key dismal-map (concat emacspeak-prefix "e")
-                          'dis-last-column)
-              (define-key dismal-map emacspeak-prefix 'emacspeak-prefix-command)
-              (unless emacspeak-dismal-already-customized-dismal
-                (setq emacspeak-dismal-already-customized-dismal t)
-                (push 'emacspeak-dismal-sheet-summarizer-list
-                      dismal-saved-variables)
-                (push 'emacspeak-dismal-row-summarizer-list
-                      dismal-saved-variables)
-                (push 'emacspeak-dismal-col-summarizer-list
-                      dismal-saved-variables))))
+(add-hook
+ 'dis-mode-hooks
+ #'(lambda nil
+     (cl-declare (special dismal-saved-variables dismal-map))
+     (define-key dismal-map (concat emacspeak-prefix "e")
+                 'dis-last-column)
+     (define-key dismal-map emacspeak-prefix 'emacspeak-prefix-command)
+     (unless emacspeak-dismal-already-customized-dismal
+       (setq emacspeak-dismal-already-customized-dismal t)
+       (push 'emacspeak-dismal-sheet-summarizer-list
+             dismal-saved-variables)
+       (push 'emacspeak-dismal-row-summarizer-list
+             dismal-saved-variables)
+       (push 'emacspeak-dismal-col-summarizer-list
+             dismal-saved-variables))))
 
 (add-hook
  'dis-mode-hooks
@@ -358,8 +362,10 @@ Checked by emacspeak specific dis-mode-hooks entry.")
      (define-key dismal-map "\M-m" 'emacspeak-dismal-row-summarize)
      (define-key dismal-map '[up] 'emacspeak-dismal-backward-row-and-summarize)
      (define-key dismal-map '[down] 'emacspeak-dismal-forward-row-and-summarize)
-     (define-key dismal-map '[left] 'emacspeak-dismal-backward-col-and-summarize)
-     (define-key dismal-map '[right] 'emacspeak-dismal-forward-col-and-summarize)))
+     (define-key
+      dismal-map '[left] 'emacspeak-dismal-backward-col-and-summarize)
+     (define-key
+      dismal-map '[right] 'emacspeak-dismal-forward-col-and-summarize)))
 
 ;;}}}
 ;;{{{  Advice some commands. 
