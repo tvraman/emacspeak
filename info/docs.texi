@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1162 commands and 147 options.
+This chapter documents a total of 1163 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -119,7 +119,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-jdee::Speech enable JDEE.
 * emacspeak-journalctl::Speech-enable JOURNALCTL.
 * emacspeak-js2::Speech-enable JS2.
-* emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
+* emacspeak-keymap::Setup   keybindings.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
@@ -127,7 +127,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-m-player::Control mplayer from Emacs.
 * emacspeak-magit::Speech-enable MAGIT: Git Client.
 * emacspeak-make-mode::Speech enable make-mode.
-* emacspeak-man::Speech enable Man mode -- Use this for UNIX Man pages.
+* emacspeak-man::Speech enable Man.
 * emacspeak-markdown::Speech-enable MARKDOWN-mode.el.
 * emacspeak-maths::Audio-Formatted Mathematics.
 * emacspeak-message::Speech enable Message.
@@ -135,7 +135,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-midge::Speech-enable MIDI editor.
 * emacspeak-mines::Speech-enable MINES.
 * emacspeak-mpv::Speech-enable MPV.
-* emacspeak-mspools::Speech enable MSpools -- Monitor multiple mail drops.
+* emacspeak-mspools::Speech enable MSpools.
 * emacspeak-muggles::Convenience Hydras.
 * emacspeak-muse::Speech-enable Muse.
 * emacspeak-navi-mode::Speech-enable NAVI-MODE.
@@ -154,7 +154,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-perl::Speech enable Perl Mode.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
-* emacspeak-proced::Speech-enable PROCED Task Manager.
+* emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
 * emacspeak-pronounce::Emacspeak pronunciation dictionaries.
@@ -206,7 +206,7 @@ This chapter documents a total of 1162 commands and 147 options.
 * emacspeak-transient::Speech-enable TRANSIENT.
 * emacspeak-twittering::Speech-enable Twittering-mode.
 * emacspeak-typo::Speech-enable TYPO.
-* emacspeak-url-template::Create library of URI templates.
+* emacspeak-url-template::URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-vertico::Speech-enable Vertico.
 * emacspeak-view::Speech enable View mode -.
@@ -10356,6 +10356,15 @@ Provide an input buffer in a specified mode.
 @end format
 @end deffn
 
+@subsubsection emacspeak-org-speak-item
+@deffn {Command} emacspeak-org-speak-item   
+@findex emacspeak-org-speak-item
+
+@format
+Speak item
+@end format
+@end deffn
+
 @subsubsection emacspeak-org-table-speak-both-headers-and-element
 @deffn {Command} emacspeak-org-table-speak-both-headers-and-element   
 @findex emacspeak-org-table-speak-both-headers-and-element
@@ -10420,6 +10429,13 @@ echoes row header and element
 @end deffn
 
 @subsection emacspeak-org Options
+
+@defvar {User Option} emacspeak-org-hotlist
+Emacspeak org hotlist location.
+
+Default Value: @code{@verb{|/home/raman/.org/hotlist.org|}}
+
+@end defvar
 
 @defvar {User Option} emacspeak-org-table-after-movement-function
 The function to call after moving in a table
@@ -17469,7 +17485,8 @@ Prompts for and runs shell command on current file.
 @findex emacspeak-wizards-shell-directory-reset
 
 @format
-Set current directory to this shell’s initial directory if one was defined.
+Set current directory to this shell’s initial directory if one was
+defined.  If not in a shell buffer, switch to our Home shell buffer.
 @end format
 @end deffn
 
@@ -19902,7 +19919,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 74 URL Templates.
+This section documents a total of 73 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20035,9 +20052,7 @@ Open RSS Feed for Reddit Topic.@item @b{Reddit Front Page.}
 
 Open  Feed for Reddit  Front Page.@item @b{Reddit Search.}
 
-Reddit Search Results Feed.@item @b{Seeking Alpha Stock Search}
-
-Seeking Alpha search.@item @b{Sign in to Google}
+Reddit Search Results Feed.@item @b{Sign in to Google}
 
 Login to Google.@item @b{StreamWorld Radio}
 

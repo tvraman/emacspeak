@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 13, 2022.
+last updated on September 14, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3430,7 +3430,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1162 commands and 147 options.
+   This chapter documents a total of 1163 commands and 148 options.
 
 * Menu:
 
@@ -3546,7 +3546,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-jdee::Speech enable JDEE.
 * emacspeak-journalctl::Speech-enable JOURNALCTL.
 * emacspeak-js2::Speech-enable JS2.
-* emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
+* emacspeak-keymap::Setup   keybindings.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
@@ -3554,7 +3554,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-m-player::Control mplayer from Emacs.
 * emacspeak-magit::Speech-enable MAGIT: Git Client.
 * emacspeak-make-mode::Speech enable make-mode.
-* emacspeak-man::Speech enable Man mode – Use this for UNIX Man pages.
+* emacspeak-man::Speech enable Man.
 * emacspeak-markdown::Speech-enable MARKDOWN-mode.el.
 * emacspeak-maths::Audio-Formatted Mathematics.
 * emacspeak-message::Speech enable Message.
@@ -3562,7 +3562,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-midge::Speech-enable MIDI editor.
 * emacspeak-mines::Speech-enable MINES.
 * emacspeak-mpv::Speech-enable MPV.
-* emacspeak-mspools::Speech enable MSpools – Monitor multiple mail drops.
+* emacspeak-mspools::Speech enable MSpools.
 * emacspeak-muggles::Convenience Hydras.
 * emacspeak-muse::Speech-enable Muse.
 * emacspeak-navi-mode::Speech-enable NAVI-MODE.
@@ -3581,7 +3581,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-perl::Speech enable Perl Mode.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
-* emacspeak-proced::Speech-enable PROCED Task Manager.
+* emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
 * emacspeak-pronounce::Emacspeak pronunciation dictionaries.
@@ -3633,7 +3633,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-transient::Speech-enable TRANSIENT.
 * emacspeak-twittering::Speech-enable Twittering-mode.
 * emacspeak-typo::Speech-enable TYPO.
-* emacspeak-url-template::Create library of URI templates.
+* emacspeak-url-template::URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-vertico::Speech-enable Vertico.
 * emacspeak-view::Speech enable View mode -.

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 13, 2022.
+last updated on September 14, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-geiser,  Prev: emacspeak-forge,  Up: Emacspeak Commands And Options
@@ -3236,49 +3236,56 @@ http://orgmode.org/
 
      (fn MODE)
 
-12.139.1.4 emacspeak-org-table-speak-both-headers-and-element
+12.139.1.4 emacspeak-org-speak-item
+...................................
+
+ -- Command: emacspeak-org-speak-item
+
+     Speak item
+
+12.139.1.5 emacspeak-org-table-speak-both-headers-and-element
 .............................................................
 
  -- Command: emacspeak-org-table-speak-both-headers-and-element
 
      echoes both row and col headers.
 
-12.139.1.5 emacspeak-org-table-speak-column-header
+12.139.1.6 emacspeak-org-table-speak-column-header
 ..................................................
 
  -- Command: emacspeak-org-table-speak-column-header
 
      echoes column header
 
-12.139.1.6 emacspeak-org-table-speak-column-header-and-element
+12.139.1.7 emacspeak-org-table-speak-column-header-and-element
 ..............................................................
 
  -- Command: emacspeak-org-table-speak-column-header-and-element
 
      echoes col header and element
 
-12.139.1.7 emacspeak-org-table-speak-coordinates
+12.139.1.8 emacspeak-org-table-speak-coordinates
 ................................................
 
  -- Command: emacspeak-org-table-speak-coordinates
 
      echoes coordinates
 
-12.139.1.8 emacspeak-org-table-speak-current-element
+12.139.1.9 emacspeak-org-table-speak-current-element
 ....................................................
 
  -- Command: emacspeak-org-table-speak-current-element
 
      echoes current table element
 
-12.139.1.9 emacspeak-org-table-speak-row-header
-...............................................
+12.139.1.10 emacspeak-org-table-speak-row-header
+................................................
 
  -- Command: emacspeak-org-table-speak-row-header
 
      echoes row header
 
-12.139.1.10 emacspeak-org-table-speak-row-header-and-element
+12.139.1.11 emacspeak-org-table-speak-row-header-and-element
 ............................................................
 
  -- Command: emacspeak-org-table-speak-row-header-and-element
@@ -3287,6 +3294,11 @@ http://orgmode.org/
 
 12.139.2 emacspeak-org Options
 ------------------------------
+
+ -- Variable: User Option emacspeak-org-hotlist
+     Emacspeak org hotlist location.
+
+     Default Value: ‘/home/raman/.org/hotlist.org’
 
  -- Variable: User Option emacspeak-org-table-after-movement-function
      The function to call after moving in a table
@@ -8699,7 +8711,8 @@ Contains various wizards for the Emacspeak desktop.
      ‘<fn> x .’
      ‘C-x @ s .’
 
-     Set current directory to this shell’s initial directory if one was defined.
+     Set current directory to this shell’s initial directory if one was
+     defined.  If not in a shell buffer, switch to our Home shell buffer.
 
 12.214.1.90 emacspeak-wizards-shell-directory-set
 .................................................
