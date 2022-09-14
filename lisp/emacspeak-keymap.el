@@ -1,4 +1,4 @@
-;;; emacspeak-keymap.el --- Setup  keymaps and keybindings provided by Emacspeak  -*- lexical-binding: t; -*-
+;;; emacspeak-keymap.el --- Setup   keybindings -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module for setting up emacspeak keybindings
@@ -181,7 +181,8 @@
 
 (define-prefix-command 'emacspeak-prefix-command 'emacspeak-keymap)
 (define-prefix-command  'emacspeak-dtk-submap-command 'emacspeak-dtk-submap)
-(define-prefix-command  'emacspeak-table-submap-command 'emacspeak-table-submap)
+(define-prefix-command  'emacspeak-table-submap-command
+                        'emacspeak-table-submap)
 
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
 
@@ -354,7 +355,8 @@
  (emacspeak-keymap-update emacspeak-keymap binding))
 
 (dotimes (i 10)
-  (define-key emacspeak-keymap   (format "%s" i) 'emacspeak-speak-predefined-window))
+  (define-key emacspeak-keymap
+              (format "%s" i) 'emacspeak-speak-predefined-window))
 
 (cl-loop
  for binding in
