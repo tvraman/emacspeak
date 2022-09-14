@@ -418,7 +418,7 @@ commands and options for details."
   (dtk-initialize)
   (mapc #'load
         (directory-files-recursively
-         emacspeak-sounds-directory "define-theme.el"))
+         emacspeak-sounds-directory "define-theme\\.el"))
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)

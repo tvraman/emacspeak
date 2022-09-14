@@ -340,7 +340,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
   (let ((emacspeak-speak-messages nil)
         (inhibit-message t))
     (shell-command
-     (format "%s set 'Master' %d%%\-"
+     (format "%s set 'Master' %d%%-"
              amixer-program
              (if prompt
                  (read-number "Volume Step:")
