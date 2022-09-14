@@ -1,4 +1,4 @@
-;;; soundscape.el -- Soundscapes for The Emacspeak Desktop  -*- lexical-binding: t; -*-
+;;; soundscape.el -- Soundscapes -*- lexical-binding: t; -*-
 ;; Description:  Soundscapes Using Boodler
 ;; Keywords: Emacspeak,  Audio Desktop Soundscapes
 ;;{{{  LCD Archive entry:
@@ -84,18 +84,13 @@
 ;; communication == email, IM, ... map to  the same @emph{mood}.
 ;;; Code:
 
-;; Automatic switching of soundscapes happens by sending a message to a UNIX domain socket in /tmp.
-;; This socket is created by Boodler on startup 
-;; ls /tmp/soundscape* to find the named pipe.
-;; To make sure the listener works correctly in your environment, 
-;;  try this in a shell:
-;; nc -U <name-of-socket>
-;; soundscape 1
-;; Above will switch to the first scape.
-;; soundscape 1 2 3 
-;; Will turn   on first three scapes.
-;; soundscape 0
-;;  Turns on null soundscape to give silence.
+;; Automatic switching of soundscapes happens by sending a message to
+;; a UNIX domain socket in /tmp.  This socket is created by Boodler on
+;; startup ls /tmp/soundscape* to find the named pipe.  To make sure
+;; the listener works correctly in your environment, try this in a
+;; shell: nc -U <name-of-socket> soundscape 1 Above will switch to the
+;; first scape.  soundscape 1 2 3 Will turn on first three scapes.
+;; soundscape 0 Turns on null soundscape to give silence.
 
 ;;}}}
 ;;{{{  Required modules
@@ -176,7 +171,8 @@ Defaults specify alsa as the output and set master volume"
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
   (cl-declare (special soundscape--catalog soundscape-list))
-  (when (null (file-exists-p soundscape-list)) (error "Soundscape Catalog missing."))
+  (when (null (file-exists-p soundscape-list))
+    (error "Soundscape Catalog missing."))
   (cond
    ((and soundscape--catalog (null refresh)) soundscape--catalog)
    (t
@@ -419,7 +415,8 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
   (soundscape-listener)
   (unless (member '(soundscape--auto (:eval (soundscape-current)))
                   minor-mode-alist)
-    (push   '(soundscape--auto (:eval (soundscape-current))) minor-mode-alist)))
+    (push   '(soundscape--auto (:eval (soundscape-current)))
+            minor-mode-alist)))
 
 ;;;###autoload
 (defun soundscape-listener  (&optional restart)
@@ -512,7 +509,8 @@ Optional interactive prefix arg `force' skips optimization checks."
   (let ((scapes (soundscape-for-mode mode)))
     (when (or force (not   (equal scapes soundscape--scapes)))
       (setq soundscape--scapes scapes)
-      (soundscape-remote (delq nil (mapcar #'soundscape-lookup-scape scapes))))))
+      (soundscape-remote
+       (delq nil (mapcar #'soundscape-lookup-scape scapes))))))
 
 (defvar soundscape--last-mode  nil
   "Caches last seen mode.")
