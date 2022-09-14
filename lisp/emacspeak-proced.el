@@ -1,4 +1,4 @@
-;;; emacspeak-proced.el --- Speech-enable PROCED Task Manager  -*- lexical-binding: t; -*-
+;;; emacspeak-proced.el --- Speech-enable PROCED -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable PROCED A Task manager for Emacs
@@ -178,8 +178,9 @@
   (interactive)
   (cl-declare (special emacspeak-proced-fields))
   (let ((tabs emacspeak-proced-fields))
-    (while (and tabs
-                (>= (current-column) (emacspeak-proced-field-start (car tabs))))
+    (while
+        (and tabs
+             (>= (current-column) (emacspeak-proced-field-start (car tabs))))
       (setq tabs (cdr tabs)))
     (cond
      ((null tabs) (error "On last field "))
@@ -198,8 +199,9 @@
   (let ((tabs emacspeak-proced-fields)
         (target nil))
     (forward-char -1)
-    (while (and tabs
-                (>= (current-column) (emacspeak-proced-field-start (car tabs))))
+    (while
+        (and tabs
+             (>= (current-column) (emacspeak-proced-field-start (car tabs))))
       (setq target (car tabs)
             tabs (cdr tabs)))
     (cond
@@ -222,12 +224,16 @@
         "Field: "
         (mapcar
          #'car
-         (cdr (assoc (get-text-property (point) 'proced-pid) proced-process-alist)))       nil t nil)))))
+         (cdr (assoc (get-text-property (point) 'proced-pid)
+                     proced-process-alist)))
+        nil t nil)))))
   (cl-declare (special proced-process-alist))
   (let ((value
          (cdr
-          (assoc field-name
-                 (assoc (get-text-property (point) 'proced-pid) proced-process-alist)))))
+          (assoc
+           field-name
+           (assoc (get-text-property (point) 'proced-pid)
+                  proced-process-alist)))))
     (message "%s: %s" field-name value)))
 
 (defun emacspeak-proced-add-keys ()
