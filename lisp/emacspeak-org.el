@@ -194,12 +194,16 @@
   "The function to call after moving in a table"
   :type
   '(choice
-    (const :tag "speak cell contents only" emacspeak-org-table-speak-current-element)
+    (const :tag "speak cell contents only"
+           emacspeak-org-table-speak-current-element)
     (const :tag "speak column header" emacspeak-org-table-speak-column-header)
     (const :tag "speak row header" emacspeak-org-table-speak-row-header)
-    (const :tag "speak cell contents and column header" emacspeak-org-table-speak-column-header-and-element)
-    (const :tag "speak cell contents and row header" emacspeak-org-table-speak-row-header-and-element)
-    (const :tag "speak column contents and both headers" emacspeak-org-table-speak-both-headers-and-element))
+    (const :tag "speak cell contents and column header"
+           emacspeak-org-table-speak-column-header-and-element)
+    (const :tag "speak cell contents and row header"
+           emacspeak-org-table-speak-row-header-and-element)
+    (const :tag "speak column contents and both headers"
+           emacspeak-org-table-speak-both-headers-and-element))
   :group 'emacspeak-org)
 
 ;; orgalist-mode defines structured navigators that in turn call org-cycle.
@@ -641,6 +645,15 @@ Before doing so, re-align the table if necessary."
 
 ;;}}}
 ;;{{{ Capture
+
+
+(defcustom emacspeak-org-hotlist  (expand-file-name
+                                   "~/.org/hotlist.org")
+  "Emacspeak org hotlist location."
+  :type 'file
+  :group 'emacspeak-org)
+
+
 ;;;###autoload
 (defun emacspeak-org-capture-link (&optional open)
   "Capture hyperlink to current context.
@@ -653,7 +666,7 @@ arg just opens the file"
   (require 'ol-eww)
   (cond
    (open
-    (funcall-interactively #'find-file (expand-file-name "~/.org/hotlist.org")))
+    (funcall-interactively #'find-file  emacspeak-org-hotlist))
    (t
     (org-store-link nil)
     (org-capture nil "h"))))
