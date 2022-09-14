@@ -11,7 +11,6 @@ etc/emacspeak.sh
 lisp/emacspeak-loaddefs.el
 lisp/TAGS
 info/TAGS
-lisp/g-client/g-loaddefs.el
 js/node/node_modules/
 js/node/auto/
 .tern-port
@@ -29,4 +28,3 @@ servers/native-espeak/tclespeak.so
 # ELPA-generated files
 /emacspeak-autoloads.el
 /emacspeak-pkg.el
-/lisp/emacspeak-autoloads.el
