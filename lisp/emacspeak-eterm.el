@@ -38,10 +38,9 @@
 
 ;;}}}
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;{{{ required packages:
+;;{{{  Introduction:
 
 ;;; Commentary:
-;;{{{  Introduction:
 ;; This module makes eterm talk.
 ;; Eterm is the new terminal emulator for Emacs.
 ;; Use of emacspeak with eterm really needs an info page.
@@ -50,9 +49,9 @@
 ;; To move around the terminal and have different parts spoken.
 
 ;;}}}
-;;
 ;;; Code:
-
+;;{{{ required packages:
+(require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'term)
