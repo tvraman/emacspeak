@@ -77,7 +77,8 @@ Interactive PREFIX arg means toggle  global default value. "
     (setq-default
      emacspeak-comint-autospeak
      (not (default-value 'emacspeak-comint-autospeak)))
-    (setq emacspeak-comint-autospeak (default-value 'emacspeak-comint-autospeak)))
+    (setq emacspeak-comint-autospeak
+          (default-value 'emacspeak-comint-autospeak)))
    (t (make-local-variable 'emacspeak-comint-autospeak)
       (setq emacspeak-comint-autospeak (not emacspeak-comint-autospeak))))
   (when (called-interactively-p 'interactive)
@@ -106,7 +107,7 @@ buffer is not current or its window live.")
 
 (make-variable-buffer-local 'emacspeak-comint-output-monitor)
 
-;;;###autoload (autoload 'emacspeak-toggle-comint-output-monitor "emacspeak-comint" t)
+;;;###autoload
 (ems-generate-switcher 'emacspeak-toggle-comint-output-monitor
                        'emacspeak-comint-output-monitor
                        "Toggle  Emacspeak comint monitor.
@@ -115,9 +116,11 @@ Interactive PREFIX arg means toggle the global default value. ")
 ;;;###autoload
 (defun emacspeak-comint-speech-setup ()
   "Speech setup."
-  (cl-declare (special comint-mode-map
-                       emacspeak-pronounce-sha-checksum-pattern emacspeak-pronounce-date-mm-dd-yyyy-pattern
-                       header-line-format emacspeak-use-header-line))
+  (cl-declare (special
+               comint-mode-map
+               emacspeak-pronounce-sha-checksum-pattern
+               emacspeak-pronounce-date-mm-dd-yyyy-pattern
+               header-line-format emacspeak-use-header-line))
   (setq buffer-undo-list t)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (when emacspeak-use-header-line
@@ -349,8 +352,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
            (not  (string-match "^\r" output)) ;;; skip invisible output 
            comint-last-output-start
            (or monitor (eq (window-buffer) buffer)))
-        (let
-            ((prompt-p
+        (let ((prompt-p
               (save-excursion
                 (goto-char comint-last-output-start)
                 (or (looking-at shell-prompt-pattern)
@@ -358,7 +360,9 @@ instead, always play an auditory icon when the shell prompt is displayed."
           (cond
            ( (and emacspeak-comint-autospeak (not prompt-p))
              (dtk-speak output))
-           ( prompt-p (when emacspeak-comint-autospeak (emacspeak-auditory-icon 'item))))))
+           ( prompt-p
+             (when emacspeak-comint-autospeak
+               (emacspeak-auditory-icon 'item))))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
@@ -518,7 +522,8 @@ instead, always play an auditory icon when the shell prompt is displayed."
         (emacspeak-auditory-icon 'delete-object)
         (emacspeak-speak-region pmark (point))))))
 
-(defadvice comint-dynamic-list-filename-completions (after emacspeak pre act comp)
+(defadvice comint-dynamic-list-filename-completions
+    (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-completions-if-available)))
