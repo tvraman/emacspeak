@@ -164,6 +164,8 @@ given name, it is updated with path and position."
   "Play amark using m-player."
   (emacspeak-m-player
    (expand-file-name (emacspeak-amark-path  amark) default-directory))
+  (sit-for 1)
+  (accept-process-output)
   (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
 
 ;;}}}
