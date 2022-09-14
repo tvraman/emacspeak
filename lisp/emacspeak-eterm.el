@@ -1070,7 +1070,7 @@ Do not set this by hand.
 Use emacspeak-eterm-toggle-pointer-mode bound to
 \\[emacspeak-eterm-toggle-pointer-mode].")
 
-(defun ems--activity-window (window)
+(defun emacspeak-eterm-activity-window (window)
   "T if terminal activity within bounds of window."
   (emacspeak-eterm-coordinate-within-window-p
    (cons (term-current-column) (term-current-row))
@@ -1114,8 +1114,8 @@ emacspeak-toggle-eterm-autospeak bound to
                 (window-live-p emacspeak-eterm-window)
                 (or
                  (not emacspeak-eterm-focus-window)
-                     (ems--activity-window  emacspeak-eterm-focus-window)
-                     (ems--activity-window  emacspeak-eterm-filter-window)))
+                     (emacspeak-eterm-activity-window  emacspeak-eterm-focus-window)
+                     (emacspeak-eterm-activity-window  emacspeak-eterm-filter-window)))
         (cond
          ((and eterm-char-mode
                emacspeak-eterm-filter-window
