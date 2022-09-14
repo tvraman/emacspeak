@@ -323,8 +323,7 @@ emacs -batch -q \
 
 emacspeak-loaddefs.el: 
 	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
-	-l ./emacspeak-autoload.el  \
-	-f emacspeak-auto-generate-autoloads
+	-f loaddefs-generate-batch  emacspeak-loaddefs.el .
 
 # }}}
 # {{{Development  target: indent, tags, relint 
