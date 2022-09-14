@@ -97,7 +97,9 @@
     (cond
      ((eq 'ladspa type)
       (insert
-       (mapconcat #'ladspa-control-value (ladspa-plugin-controls (sox-effect-params effect)) " ")))
+       (mapconcat
+        #'ladspa-control-value
+        (ladspa-plugin-controls (sox-effect-params effect)) " ")))
      (t
       (cl-loop
        for p in params do
