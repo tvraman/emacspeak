@@ -1398,13 +1398,20 @@ of the source buffer."
 
 ;;;###autoload
 (defun emacspeak-wizards-shell-directory-reset ()
-  "Set current directory to this shell's initial directory if one was defined."
+  "Set current directory to this shell's initial directory if one was
+defined.  If not in a shell buffer, switch to our Home shell buffer."
   (interactive)
   (cl-declare (special emacspeak-wizards--project-shell-directory))
-  (ems--shell-pushd-if-needed
-   emacspeak-wizards--project-shell-directory (current-buffer))
-  (emacspeak-auditory-icon 'item)
-  (message (abbreviate-file-name default-directory)))
+  (cond
+   ((and (eq major-mode 'shell-mode)
+         (process-live-p (get-buffer-process (current-buffer))))
+    (emacspeak-auditory-icon 'item)
+    (ems--shell-pushd-if-needed
+     emacspeak-wizards--project-shell-directory (current-buffer))
+    (message (abbreviate-file-name default-directory)))
+   (t
+    (funcall-interactively #'pop-to-buffer "Home"))))
+
 
 (defun emacspeak-wizards-shell-re-key (key buffer)
   "Re-key shell-buffer `buffer' to be accessed via key `key'. The old shell
