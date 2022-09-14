@@ -1,4 +1,4 @@
-;;; emacspeak-info.el --- Speech enable Info -- Emacs' online documentation viewer  -*- lexical-binding: t; -*-
+;;; emacspeak-info.el --- Speech enable Info -- -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable Emacs Info Reader.
 ;; Keywords:emacspeak, audio interface to emacs
@@ -228,8 +228,10 @@ node-spec."
     (save-excursion
       (while (and (null target)
                   (not (eobp)))
-        (goto-char (next-single-property-change (point)  'face nil (point-max)))
-        (when (memq (get-text-property (point) 'face) emacspeak-info--title-faces)
+        (goto-char
+         (next-single-property-change (point)  'face nil (point-max)))
+        (when
+            (memq (get-text-property (point) 'face) emacspeak-info--title-faces)
           (setq target (point)))))
     (cond
      (target
@@ -245,8 +247,10 @@ node-spec."
     (save-excursion
       (while (and (null target)
                   (not (bobp)))
-        (goto-char (previous-single-property-change (point)  'face nil (point-min)))
-        (when (memq (get-text-property (point) 'face) emacspeak-info--title-faces)
+        (goto-char
+         (previous-single-property-change (point)  'face nil (point-min)))
+        (when
+            (memq (get-text-property (point) 'face) emacspeak-info--title-faces)
           (setq target (line-beginning-position)))))
     (cond
      (target
