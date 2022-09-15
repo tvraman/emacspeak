@@ -1110,12 +1110,13 @@ emacspeak-toggle-eterm-autospeak bound to
       (setq new-row (term-current-row)
             new-column (term-current-column))
       (when                        ; do something if in active area
-          (and  emacspeak-eterm-autospeak
-                (window-live-p emacspeak-eterm-window)
-                (or
-                 (not emacspeak-eterm-focus-window)
-                     (emacspeak-eterm-activity-window  emacspeak-eterm-focus-window)
-                     (emacspeak-eterm-activity-window  emacspeak-eterm-filter-window)))
+          (and
+           emacspeak-eterm-autospeak
+           (window-live-p emacspeak-eterm-window)
+           (or
+            (not emacspeak-eterm-focus-window)
+            (emacspeak-eterm-activity-window  emacspeak-eterm-focus-window)
+            (emacspeak-eterm-activity-window  emacspeak-eterm-filter-window)))
         (cond
          ((and eterm-char-mode
                emacspeak-eterm-filter-window

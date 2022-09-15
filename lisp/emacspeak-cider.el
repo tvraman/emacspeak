@@ -1,4 +1,4 @@
-;;; emacspeak-cider.el --- Speech-enable CIDER, A Clojure IDE  -*- lexical-binding: t; -*-
+;;; emacspeak-cider.el --- Speech-enable CIDER -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable CIDER An Emacs Interface to cider
 ;; Keywords: Emacspeak,  Audio Desktop, cider

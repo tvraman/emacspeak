@@ -1,4 +1,4 @@
-;;; emacspeak-ecb.el --- speech-enable Emacs Class Browser  -*- lexical-binding: t; -*-
+;;; emacspeak-ecb.el --- speech-enable ECB -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak module for speech-enabling Emacs

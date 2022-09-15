@@ -1,4 +1,4 @@
-;;; emacspeak-ocr.el --- ocr Front-end for emacspeak desktop  -*- lexical-binding: t; -*-
+;;; emacspeak-ocr.el --- ocr Front-end desktop  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for OCR
@@ -300,7 +300,8 @@ See \\{emacspeak-ocr-mode-map}.
 (define-key emacspeak-ocr-mode-map "i" 'emacspeak-ocr-scan-image)
 (define-key emacspeak-ocr-mode-map "j" 'emacspeak-ocr-scan-photo)
 (define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
-(define-key emacspeak-ocr-mode-map "f" 'emacspeak-ocr-flipflop-and-recognize-image)
+(define-key emacspeak-ocr-mode-map
+            "f" 'emacspeak-ocr-flipflop-and-recognize-image)
 (define-key emacspeak-ocr-mode-map "n" 'emacspeak-ocr-name-document)
 (define-key emacspeak-ocr-mode-map "d" 'emacspeak-ocr-open-working-directory)
 (define-key emacspeak-ocr-mode-map "[" 'emacspeak-ocr-backward-page)
@@ -311,7 +312,8 @@ See \\{emacspeak-ocr-mode-map}.
             'emacspeak-ocr-read-current-page)
 (define-key emacspeak-ocr-mode-map "I"
             'emacspeak-ocr-set-scan-image-options)
-(define-key emacspeak-ocr-mode-map "C" 'emacspeak-ocr-set-compress-image-options)
+(define-key emacspeak-ocr-mode-map
+            "C" 'emacspeak-ocr-set-compress-image-options)
 (cl-loop for i from 1 to 9
          do
          (define-key emacspeak-ocr-mode-map
@@ -495,8 +497,8 @@ to an appropriately named file."
        (if (= emacspeak-ocr-current-page-number
               emacspeak-ocr-last-page-number)
            (point-max)
-         (aref emacspeak-ocr-page-positions (1+
-                                             emacspeak-ocr-current-page-number)))
+         (aref emacspeak-ocr-page-positions
+               (1+ emacspeak-ocr-current-page-number)))
        (emacspeak-ocr-get-page-name))
       (emacspeak-auditory-icon 'save-object))))
 
@@ -527,7 +529,9 @@ Prompts for image file if file corresponding to the expected
                        emacspeak-ocr-image-extension))
   (let ((inhibit-read-only t)
         (image-name
-         (if (file-exists-p (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension))
+         (if
+             (file-exists-p
+              (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension))
              (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension)
            (expand-file-name 
             (read-file-name "Image file to recognize: ")))))
@@ -573,7 +577,9 @@ corresponding to the expected `current page' is not found."
                        emacspeak-ocr-image-extension))
   (let ((inhibit-read-only t)
         (image-name
-         (if (file-exists-p (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension))
+         (if
+             (file-exists-p
+              (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension))
              (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension)
            (expand-file-name 
             (read-file-name "Image file to recognize: ")))))

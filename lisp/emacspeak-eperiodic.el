@@ -1,4 +1,4 @@
-;;; emacspeak-eperiodic.el --- Speech-enable Periodic Table  -*- lexical-binding: t; -*-
+;;; emacspeak-eperiodic.el --- Periodic Table -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak speech-enabler for Periodic Table
@@ -127,7 +127,8 @@
 (cl-declaim (special eperiodic-mode-map))
 (when (boundp 'eperiodic-mode-map)
   (define-key eperiodic-mode-map " " 'emacspeak-eperiodic-speak-current-element)
-  (define-key  eperiodic-mode-map "x" 'emacspeak-eperiodic-goto-property-section)
+  (define-key  eperiodic-mode-map
+               "x" 'emacspeak-eperiodic-goto-property-section)
   (define-key eperiodic-mode-map "n" 'emacspeak-eperiodic-next-line)
   (define-key eperiodic-mode-map "p" 'emacspeak-eperiodic-previous-line)
   (define-key eperiodic-mode-map "l"

@@ -1,4 +1,4 @@
-;;; emacspeak-emms.el --- Speech-enable EMMS Multimedia UI  -*- lexical-binding: t; -*-
+;;; emacspeak-emms.el --- Speech-enable EMMS -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech-enable EMMS
@@ -89,16 +89,17 @@
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'select-object)))))
 
-(cl-loop for f in
-         '(emms-playlist-first emms-playlist-last
-                               emms-playlist-mode-first emms-playlist-mode-last)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "speak."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
-               (emacspeak-speak-line)))))
+(cl-loop
+ for f in
+ '(emms-playlist-first emms-playlist-last
+                       emms-playlist-mode-first emms-playlist-mode-last)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 (cl-loop for f in
          '(emms-browser emms-browser-next-filter
                         emms-browser-previous-filter)

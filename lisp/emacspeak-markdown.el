@@ -1,4 +1,4 @@
-;;; emacspeak-markdown.el --- Speech-enable MARKDOWN-mode.el  -*- lexical-binding: t; -*-
+;;; emacspeak-markdown.el --- Speech-enable MARKDOWN -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-markdown.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable MARKDOWN An Emacs Interface to markdown

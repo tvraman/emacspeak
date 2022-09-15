@@ -1,4 +1,4 @@
-;;; emacspeak-smartparens.el --- Speech-enable SMARTPARENS  -*- lexical-binding: t; -*-
+;;; emacspeak-smartparens.el --- SMARTPARENS  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SMARTPARENS An Emacs Interface to smartparens
 ;; Keywords: Emacspeak,  Audio Desktop smartparens

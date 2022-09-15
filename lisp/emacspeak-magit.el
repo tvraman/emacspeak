@@ -1,4 +1,4 @@
-;;; emacspeak-magit.el --- Speech-enable MAGIT: Git Client  -*- lexical-binding: t; -*-
+;;; emacspeak-magit.el --- Speech-enable MAGIT -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-magit.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable MAGIT An Emacs Interface to magit
@@ -149,10 +149,11 @@
 
 ;;}}}
 ;;{{{ Pronunciations in Magit:
-(emacspeak-pronounce-add-dictionary-entry 'magit-mode
-                                          emacspeak-pronounce-sha-checksum-pattern
-                                          (cons 're-search-forward
-                                                'emacspeak-pronounce-sha-checksum))
+(emacspeak-pronounce-add-dictionary-entry
+ 'magit-mode
+ emacspeak-pronounce-sha-checksum-pattern
+ (cons 're-search-forward
+       'emacspeak-pronounce-sha-checksum))
 (emacspeak-pronounce-add-super 'magit-mode 'magit-commit-mode)
 (emacspeak-pronounce-add-super 'magit-mode 'magit-revision-mode)
 (emacspeak-pronounce-add-super 'magit-mode 'magit-log-mode)

@@ -64,6 +64,7 @@
 ;; @subsection Extra Muggles
 
 ;; @itemize
+;; @item  org-mode structure nav: @kbd{C-c C-SPC}  Navigation  for org-mode.
 ;; @item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
 ;; @item SmartParens: @kbd{C-c ,} Smart Parens
 ;; @item m-player: @kbd{s-m} Emacspeak-M-Player Commands
@@ -524,6 +525,31 @@ Also generates global keybindings if any."
                ("s" vuiet-stop)
                ("t" vuiet-play-track)
                ("u" vuiet-unlove-track)))))
+
+;;}}}
+;;{{{ Org Mode Structure Navigation:
+
+(with-eval-after-load "org"
+  (define-key
+   org-mode-map
+   (ems-kbd "C-c C-SPC")
+   (defhydra emacspeak-muggles-org-nav
+     (:body-pre
+      (progn
+        (emacspeak-hydra-toggle-talkative)
+        (emacspeak-hydra-body-pre "OrgNavView"))
+      :hint nil
+      :pre emacspeak-hydra-pre :post emacspeak-hydra-post
+      :color red :columns 3)
+     "Org Mode Navigate "
+     ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
+     ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
+     ("n" emacspeak-outline-speak-next-heading  "next heading")
+     ("p" emacspeak-outline-speak-previous-heading "prev heading")
+     ("f" org-forward-heading-same-level "next heading at same level")
+     ("b" org-backward-heading-same-level "prev heading at same level")
+     ("u" outline-up-heading "up heading")
+     ("g" org-goto "goto" :exit t))))
 
 ;;}}}
 (provide 'extra-muggles)

@@ -1,4 +1,4 @@
-;;; emacspeak-cmuscheme.el --- Scheme support for emacspeak  -*- lexical-binding: t; -*-
+;;; emacspeak-cmuscheme.el --- CMUScheme   -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable emacs for scheme and guile

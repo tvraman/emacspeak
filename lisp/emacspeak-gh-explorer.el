@@ -1,4 +1,4 @@
-;;; emacspeak-gh-explorer.el --- Speech-enable GH-EXPLORER  -*- lexical-binding: t; -*-
+;;; emacspeak-gh-explorer.el --- GH-EXPLORER  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable GH-EXPLORER An Emacs Interface to gh-explorer
 ;; Keywords: Emacspeak,  Audio Desktop gh-explorer

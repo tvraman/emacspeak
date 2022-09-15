@@ -1,4 +1,4 @@
-;;; emacspeak-calendar.el --- Speech enable Emacs Calendar -*- lexical-binding: t; -*-
+;;; emacspeak-calendar.el --- Speech enable Calendar -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extensions to speech enable the calendar.
@@ -39,9 +39,9 @@
 ;;}}}
 ;;{{{  Introduction:
 ;;; Commentary:
-;; This module speech enables the Emacs Calendar.
-;; Speech enabling is not the same as speaking the screen:
-;; This is an excellent example of the advantages of speech-enabled  interaction.
+;; This module speech enables the Emacs Calendar.  Speech enabling is
+;; not the same as speaking the screen: This is an excellent example
+;; of the advantages of speech-enabled interaction.
 ;;; Code:
 ;;}}}
 ;;{{{ required modules
@@ -144,8 +144,9 @@
           (set-buffer calendar-buffer)
           (calendar-cursor-to-visible-date date)
           (with-silent-modifications
-            (put-text-property  (1-(point)) (1+ (point))
-                                'personality   emacspeak-calendar-mark-personality))))))
+            (put-text-property
+             (1-(point)) (1+ (point))
+             'personality   emacspeak-calendar-mark-personality))))))
 
 (defvar emacspeak-calendar-mode-line-format
   '((calendar-date-string (calendar-current-date))  "Calendar")

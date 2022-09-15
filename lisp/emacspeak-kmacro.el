@@ -1,4 +1,4 @@
-;;; emacspeak-kmacro.el --- Speech-enable kbd macro interface  -*- lexical-binding: t; -*-
+;;; emacspeak-kmacro.el --- Speech-enable KMacros -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for KMACRO 

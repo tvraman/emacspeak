@@ -42,15 +42,13 @@
 
 ;;; Commentary:
 
-;; speech-enable ido.el
-;; This is an interesting task since most of the value-add
-;; provided by package ido.el  is visual feedback.
-;; Speech UI Challenge: What  is the most efficient means of
-;; conveying a dynamically updating set of choices?
-;; current strategy is to walk the list using c-s and c-r as
-;; provided by ido
-;; Set number matches shown (ido-max-prospects) to 3 using Custom so you dont hear
-;; the entire list.
+;; speech-enable ido.el This is an interesting task since most of the
+;; value-add provided by package ido.el is visual feedback.  Speech UI
+;; Challenge: What is the most efficient means of conveying a
+;; dynamically updating set of choices?  current strategy is to walk
+;; the list using c-s and c-r as provided by ido Set number matches
+;; shown (ido-max-prospects) to 3 using Custom so you dont hear the
+;; entire list.
 
 ;;; Code:
 
@@ -65,12 +63,12 @@
 ;;}}}
 ;;{{{ speech-enable feedback routines
 
-(defvar emacspeak-ido-cache-current-directory nil
+(defvar emacspeak-ido-cache nil
   "Cached value of ido-current-directory.")
 
 (defadvice ido-set-current-directory (before emacspeak pre act comp)
   "Cache previous value of ido-current-directory."
-  (setq emacspeak-ido-cache-current-directory ido-current-directory))
+  (setq emacspeak-ido-cache ido-current-directory))
 
 (defgroup emacspeak-ido nil
   "IDO Completions On The emacspeak Audio Desktop."
@@ -90,8 +88,9 @@
           (overlay-get ido--overlay 'after-string)
         (minibuffer-contents))
       (format " %d choices: "  (length ido-matches))
-      (if(or (null ido-current-directory)
-             (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
+      (if
+          (or (null ido-current-directory)
+              (string-equal ido-current-directory emacspeak-ido-cache))
           " "
         (format "In directory: %s"
                 (abbreviate-file-name ido-current-directory)))))))
@@ -212,10 +211,12 @@ The default value of 12 is too high for using ido effectively with speech. "
   "Setup additional  keybindings within ido."
   (cl-declare (special ido-common-completion-map))
   (when (boundp 'ido-common-completion-map)
-    (define-key  ido-common-completion-map  (ems-kbd "C-z") 'emacspeak-ctl-z-keymap)
+    (define-key  ido-common-completion-map
+                 (ems-kbd "C-z") 'emacspeak-ctl-z-keymap)
     (define-key ido-common-completion-map "\C-f" 'ido-enter-find-file)
     (define-key ido-common-completion-map "^" 'ido-up-directory)
-    (define-key ido-common-completion-map emacspeak-prefix 'emacspeak-prefix-command)
+    (define-key ido-common-completion-map
+                emacspeak-prefix 'emacspeak-prefix-command)
     (define-key ido-common-completion-map (ems-kbd "M-e")  'ido-edit-input)))
 
 (emacspeak-ido-keys)

@@ -1,4 +1,4 @@
-;;; emacspeak-gud.el --- Speech enable debugger interface   -*- lexical-binding: t; -*-
+;;; emacspeak-gud.el --- Speech enable debugger -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for gud interaction

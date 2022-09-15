@@ -1,4 +1,4 @@
-;;; emacspeak-smart-window.el --- Speech-enable SMART-WINDOW  -*- lexical-binding: t; -*-
+;;; emacspeak-smart-window.el --- SMART-WINDOW  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SMART-WINDOW An Emacs Interface to smart-window
 ;; Keywords: Emacspeak,  Audio Desktop smart-window

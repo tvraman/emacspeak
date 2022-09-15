@@ -1,4 +1,4 @@
-;;; Saved through ges-version 0.3.3dev at 2004-11-20 18:20  -*- lexical-binding: t; -*-
+
 ;; From: Marco Parrone <marc0@autistici.org>
 ;; Subject: toy-braille.el  ---  Code to get "toy" UCS braille strings
 ;; Keywords: Emacs, Unicode, UCS, toy, braille
@@ -6,7 +6,7 @@
 ;; Date: Mon, 12 Jul 2004 21:40:05 GMT
 ;; Organization: none
 
-;; toy-braille.el  ---  Code to get "toy" UCS braille strings.     -*- coding: utf-8 -*-
+;;; toy-braille.el  --- "toy" UCS braille strings.     -*- coding: utf-8 -*-
 
 ;; NO (C)  2004  Marco Parrone.
 ;; This file is placed into the Public Domain.
@@ -27,7 +27,8 @@
 
 ;; This is a bit of toy code to write in braille.
 ;;
-;; To try this, load this file (`M-x load-file path/to/toy-braille.el'), then do:
+;; To try this, load this file (`M-x load-file
+;; path/to/toy-braille.el'), then do:
 ;;
 ;;   M-: (get-toy-braille-string "just a test")
 ;;
@@ -44,7 +45,7 @@
 ;;
 ;;   M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
 ;;
-;; (it will only work if the relative font is installed and properly configured).
+;; (only works if the relative font is installed and properly configured).
 
 ;;; References:
 ;;

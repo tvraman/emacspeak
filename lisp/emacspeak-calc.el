@@ -1,4 +1,4 @@
-;;; emacspeak-calc.el --- Speech enable  Emacs Calculator   -*- lexical-binding: t; -*-
+;;; emacspeak-calc.el --- Speech enable Calc   -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;;; Description: 

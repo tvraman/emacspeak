@@ -45,8 +45,6 @@
 ;; Playing SuDoku using speech output.
 ;; Written to discover what type of feedback one needs for  this
 ;; task.
-;; See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
-
 ;;}}}
 ;;{{{  Required modules
 ;;; Code:
@@ -284,7 +282,8 @@ s   Sub-square Distribution.
              (let ((x (car cell))
                    (y (cadr  cell)))
                (when (= (sudoku-cell start-board x y) 0)
-                 (setq current-board (sudoku-change-cell current-board x y 0)))))
+                 (setq current-board
+                       (sudoku-change-cell current-board x y 0)))))
     (setq buffer-read-only nil)
     (erase-buffer)
     (sudoku-board-print current-board
@@ -363,8 +362,6 @@ s   Sub-square Distribution.
 
 (defadvice sudoku (after emacspeak pre act comp)
   "Speech-enable SuDoKu.
-See
-  http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
   for details."
   (when (ems-interactive-p)
     (dtk-set-punctuations 'some)
