@@ -1,4 +1,4 @@
-;;; emacspeak-preamble.el --- standard  include for Emacspeak modules  -*- lexical-binding: t; -*-
+;;; emacspeak-preamble.el --- standard  include -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak Preamble
@@ -42,7 +42,8 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
+(cl-pushnew
+ (file-name-directory load-file-name) load-path :test #'string-equal)
 
 (eval-when-compile (require 'subr-x))
 (require 'advice)
@@ -50,9 +51,6 @@
 
 ;;{{{  Define locations
 
-;; FIXME: Don't autoload variables unless there's a *really* clear need for it.
-
-;;;###autoload
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
@@ -104,7 +102,8 @@
   (eval-when-compile
     (let
         ((ext
-          '("mov" "wma" "wmv" "flv" "m4a" "m4b"  "flac" "aiff" "aac" "opus ""mkv"
+          '("mov" "wma" "wmv" "flv" "m4a" "m4b"  "flac"
+            "aiff" "aac" "opus ""mkv"
             "ogv" "oga""ogg" "mp3"  "mp4" "webm" "wav")))
       (concat
        "\\."
@@ -177,11 +176,11 @@ FN-NAME to our stored value of ems--interactive-fn-name."
     (macroexpand-all
      (macroexp-progn body)
      ;;  env with new definition
-     `((ems-interactive-p               
+     `((ems-interactive-p
+        ;; Reset the var to nil after consuming it to avoid  misfiring if
+                ;; fn-name calls itself recursively.
         . ,(lambda ()
              `(when (eq ems--interactive-fn-name ',fn-name)
-                ;; Reset the var to nil after consuming it to avoid  misfiring if
-                ;; fn-name calls itself recursively.
                 (setq ems--interactive-fn-name nil)
                 t)))
        . ,macroexpand-all-environment)))))
