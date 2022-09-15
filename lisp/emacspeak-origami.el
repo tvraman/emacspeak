@@ -131,7 +131,8 @@
 (defun emacspeak-origami-invisible-p ()
   "Check if point  is on  a closed or open node."
   (condition-case nil
-      (overlay-get (overlay-get (cl-first (overlays-at (point))) 'fold-overlay) 'invisible)
+      (overlay-get
+       (overlay-get (cl-first (overlays-at (point))) 'fold-overlay) 'invisible)
     (error nil)))
 
 (cl-loop

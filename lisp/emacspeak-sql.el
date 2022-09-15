@@ -67,12 +67,12 @@
     (forward-line 1)
     (emacspeak-speak-line)))
 
-(defadvice sqlplus-back-command (after emacspeak pre act
-                                       comp)"Move prompt appropriately,  and speak the line."
-                                       (when (ems-interactive-p)
-                                         (emacspeak-auditory-icon 'large-movement)
-                                         (forward-line 1)
-                                         (emacspeak-speak-line)))
+(defadvice sqlplus-back-command (after emacspeak pre act comp)
+  "Move prompt appropriately,  and speak the line."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (forward-line 1)
+    (emacspeak-speak-line)))
 
 (defadvice sqlplus-forward-command (after emacspeak pre act
                                           comp)

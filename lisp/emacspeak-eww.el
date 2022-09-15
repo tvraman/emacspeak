@@ -271,7 +271,8 @@
 ;; @item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
 ;; Speak number of rows and columns.
 ;; @item @kbd{C-t} emacspeak-eww-table-data @MDash{}
-;; Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
+;; Browse this table in Emacspeak's Table UI
+;;  @MDash{} @xref{emacspeak-table-ui}.
 ;; @end itemize
 
 ;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
@@ -458,7 +459,8 @@
 (require 'emacspeak-google)
 (declare-function emacspeak-epub-eww
                   "emacspeak-epub" (epub-file &optional broken-ncx))
-(declare-function emacspeak-m-player "emacspeak-m-player" (resource &optional play-list))
+(declare-function
+ emacspeak-m-player "emacspeak-m-player" (resource &optional play-list))
 
 ;;}}}
 ;;{{{ Helpers:
@@ -1999,7 +2001,8 @@ The %s is automatically spoken if there is no user activity."
            ((and (string-match "^file:///" (eww-current-url))
                  (not (string-match "^file:///tmp" (eww-current-url))))
             'local-file)
-           (t (error "EWW marks only work in Local EWW pages,EPub and Bookshare buffers.")))
+           (t
+            (error "EWW marks only work in  EPub  and Bookshare buffers.")))
           :book
           (or
            (bound-and-true-p emacspeak-bookshare-this-book)
@@ -2153,7 +2156,7 @@ arg `delete', delete that mark instead."
 (defvar emacspeak-eww-url-shell-commands
   (delete nil
           (list
-           (expand-file-name "nmpv" emacspeak-etc-directory)(executable-find "mpv")
+           (executable-find "mpv")
            (expand-file-name "cbox" emacspeak-etc-directory)))
   "Shell commands we permit on URL under point.")
 
@@ -2487,7 +2490,8 @@ With interactive prefix arg, move to the start of the table."
 
 ;;}}}
 ;;{{{Repeat Support:
-(put 'emacspeak-eww-play-media-at-point 'repeat-map  'emacspeak-m-player-mode-map)
+(put 'emacspeak-eww-play-media-at-point
+     'repeat-map  'emacspeak-m-player-mode-map)
 ;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file

@@ -43,11 +43,12 @@
 ;;; Commentary:
 ;; 
 ;; THREES == threes game. This module speech-enable the
-;; game. @url{https://en.wikipedia.org/wiki/Threes} for history of
-;; the game and details of game play. This module adds additional convenience keybindings to
-;; the default arrow-key bindings implemented in threes.el. In
-;; addition, this module  implements commands that speak the board as well as
-;; getting a column-specific view of the board.
+;; game. @url{https://en.wikipedia.org/wiki/Threes} for history of the
+;; game and details of game play. This module adds additional
+;; convenience keybindings to the default arrow-key bindings
+;; implemented in threes.el. In addition, this module implements
+;; commands that speak the board as well as getting a column-specific
+;; view of the board.
 ;; 
 ;; @table @kbd
 ;; @item  f
@@ -171,7 +172,8 @@
 
 (defun emacspeak-threes-setup ()
   "Set up additional key-bindings."
-  (cl-declare (special threes-mode-map))(define-key threes-mode-map "1" 'emacspeak-threes-1)
+  (cl-declare (special threes-mode-map))
+  (define-key threes-mode-map "1" 'emacspeak-threes-1)
   (define-key threes-mode-map "0" 'emacspeak-threes-0)
   (define-key threes-mode-map "2" 'emacspeak-threes-2)
   (define-key threes-mode-map "3" 'emacspeak-threes-3)

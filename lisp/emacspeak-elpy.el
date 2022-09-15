@@ -1,4 +1,4 @@
-;;; emacspeak-elpy.el --- Speech-enable ELPY, A Python IDE -*- lexical-binding: t; -*-
+;;; emacspeak-elpy.el --- Speech-enable ELPY -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ELPY An Emacs Interface to elpy
 ;; Keywords: Emacspeak,  Audio Desktop elpy
@@ -114,12 +114,13 @@
 
 (cl-loop
  for f in
- '(elpy-nav-backward-block elpy-nav-backward-indent
-                           elpy-nav-expand-to-indentation elpy-nav-forward-block
-                           elpy-nav-forward-indent
-                           elpy-nav-indent-shift-left elpy-nav-indent-shift-right
-                           elpy-open-and-indent-line-below elpy-open-and-indent-line-above
-                           elpy-nav-move-line-or-region-down elpy-nav-move-line-or-region-up)
+ '(
+   elpy-nav-backward-block elpy-nav-backward-indent
+   elpy-nav-expand-to-indentation elpy-nav-forward-block
+   elpy-nav-forward-indent
+   elpy-nav-indent-shift-left elpy-nav-indent-shift-right
+   elpy-open-and-indent-line-below elpy-open-and-indent-line-above
+   elpy-nav-move-line-or-region-down elpy-nav-move-line-or-region-up)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

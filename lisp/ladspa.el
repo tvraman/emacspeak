@@ -46,8 +46,6 @@
 ;; Ladspa plugins in a consistent way to elisp.
 ;; The goal is to make it easy to inspect Ladspa Plugins,
 ;; And invoke them easily from  Ladspa host applications such as MPlayer.
-;; See
-;; @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
 ;; Some Ladspa Packages that provide plugins:
 ;; sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins 
 ;; swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa 
@@ -101,7 +99,8 @@
     (setq ladspa-plugins nil)
     (cl-loop
      for d in (split-string ladspa-home ":" t) do
-     (setq ladspa-libs (nconc ladspa-libs (directory-files d  nil "\\.so\\'"))))
+     (setq ladspa-libs
+           (nconc ladspa-libs (directory-files d  nil "\\.so\\'"))))
     ladspa-libs)))
 
 ;;}}}
@@ -142,7 +141,8 @@
                    "%s   %s %s 2>/dev/null | grep  control "
                    ladspa-analyse library label))
                  "\n" 'omit-null))
-         (result (make-ladspa-plugin :library library :label label :desc desc)))
+         (result
+          (make-ladspa-plugin :library library :label label :desc desc)))
     (cl-loop for c in lines do
              (push (ladspa-control c) controls))
     (setf (ladspa-plugin-controls result) (reverse controls))
@@ -227,7 +227,8 @@ list of parsed ladspa-plugin structures, one per label."
     (insert
      (propertize (ladspa-plugin-desc p) 'face 'font-lock-string-face))
     (insert "\t")
-    (insert (propertize (ladspa-plugin-library p) 'face 'font-lock-constant-face))
+    (insert
+     (propertize (ladspa-plugin-library p) 'face 'font-lock-constant-face))
     (put-text-property start (point) 'ladspa p))
   (insert "\n"))
 
@@ -320,12 +321,15 @@ list of parsed ladspa-plugin structures, one per label."
       (let ((inhibit-read-only  t)
             (controls (ladspa-plugin-controls plugin))
             (buffer
-             (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
+             (get-buffer-create
+              (format "*%s*" (ladspa-plugin-label plugin)))))
         (ladspa-create plugin)
         (save-current-buffer
           (set-buffer buffer)
           (erase-buffer)
-          (insert (propertize (ladspa-plugin-desc plugin) 'face 'font-lock-string-face))
+          (insert
+           (propertize
+            (ladspa-plugin-desc plugin) 'face 'font-lock-string-face))
           (insert "\n")
           (cl-loop
            for c in controls  and i from 1 do
@@ -351,7 +355,9 @@ list of parsed ladspa-plugin structures, one per label."
           (setq header-line-format
                 (concat
                  "Ladspa: "
-                 (propertize (ladspa-plugin-label plugin) 'face 'font-lock-keyword-face))))
+                 (propertize
+                  (ladspa-plugin-label plugin)
+                  'face 'font-lock-keyword-face))))
         (funcall-interactively #'pop-to-buffer buffer))))))
 
 ;;}}}

@@ -121,8 +121,9 @@
                (emacspeak-speak-line)))))
 
 (cl-loop for f in
-         '(js2-mode-hide-comments js2-mode-hide-element
-                                  js2-mode-hide-functions js2-mode-hide-warnings-and-errors)
+         '(
+           js2-mode-hide-comments js2-mode-hide-element
+           js2-mode-hide-functions js2-mode-hide-warnings-and-errors)
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
@@ -146,19 +147,21 @@
                         ,(substring (symbol-name f)
                                     (length "js2-mode-show-")))))))
 
-(cl-loop for f in
-         '(js2-mode-toggle-warnings-and-errors
-           js2-mode-toggle-hide-functions
-           js2-mode-toggle-hide-comments                    js2-mode-toggle-element)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "speak."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'button)
-               (message "Toggled %s"
-                        ,(substring (symbol-name f)
-                                    (length "js2-mode-toggle-")))))))
+(cl-loop
+ for f in
+ '(
+   js2-mode-toggle-warnings-and-errors
+   js2-mode-toggle-hide-functions
+   js2-mode-toggle-hide-comments                    js2-mode-toggle-element)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)
+       (message "Toggled %s"
+                ,(substring (symbol-name f)
+                            (length "js2-mode-toggle-")))))))
 (defadvice js2-narrow-to-defun (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
