@@ -43,18 +43,24 @@
 
 ;;; Commentary:
 ;; LISPY == smart Navigation Of Lisp code This module speech-enables
-;; lispy.  @subsection Overview Lispy editing keeps delimiters
+;; lispy.
+;; @subsection Overview
+;; Lispy editing keeps delimiters
 ;; balanced and Lispy navigators reliably place point on either the
 ;; opening or closing delimiter of the current s-expression. Emacspeak
 ;; leverages this fact in the type of spoken feedback that is
-;; produced. All navigation commands produce the following: @itemize
+;; produced. All navigation commands produce the following:
+;; @itemize
 ;; @item Speak the current s-expression when at the front of a sexp.
 ;; @item Speak the current line with option
 ;; @code{emacspeak-show-point} turned on when at the end of an
-;; s-expression.  @item Produce auditory icon @code{left} or
+;; s-expression. 
+;;  @item Produce auditory icon @code{left} or
 ;; @code{right} to indicate point being at the beginning or end of
-;; current line.  @item Indicate with an auditory icon if point did
-;; not move.  @end itemize
+;; current line. 
+;; @item Indicate with an auditory icon if point did
+;; not move.
+;;   @end itemize
 
 ;;; Code:
 
