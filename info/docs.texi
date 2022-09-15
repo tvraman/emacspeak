@@ -181,7 +181,6 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-sh-script::Speech enable script.
 * emacspeak-shx::Speech-enable SHX.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
-* emacspeak-smart-window::SMART-WINDOW.
 * emacspeak-smartparens::SMARTPARENS.
 * emacspeak-solitaire::Solitaire.
 * emacspeak-sounds::auditory icons.
@@ -11234,11 +11233,6 @@ SLIME == Superior  Lisp Interaction Mode For Emacs
 Slime is a powerful IDE for developing in Common Lisp and Clojure.
 It's similar but more modern than package ILisp that I used as a
 graduate student when developing AsTeR.
-
-@node emacspeak-smart-window
-@section emacspeak-smart-window
-
-SMART-WINDOW ==  Smart Window switching for Emacs
 
 @node emacspeak-smartparens
 @section emacspeak-smartparens

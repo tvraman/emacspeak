@@ -3608,7 +3608,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-sh-script::Speech enable script.
 * emacspeak-shx::Speech-enable SHX.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
-* emacspeak-smart-window::SMART-WINDOW.
 * emacspeak-smartparens::SMARTPARENS.
 * emacspeak-solitaire::Solitaire.
 * emacspeak-sounds::auditory icons.
