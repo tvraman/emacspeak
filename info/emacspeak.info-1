@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 14, 2022.
+last updated on September 15, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3460,15 +3460,15 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-bs::speech-enable bs.
 * emacspeak-buff-menu::Speech enable buff-menu.
 * emacspeak-c::Speech enable C, C++.
-* emacspeak-calc::Speech enable  Emacs Calculator.
-* emacspeak-calculator::Speech enable  desktop calculator.
-* emacspeak-calendar::Speech enable Emacs Calendar.
+* emacspeak-calc::Speech enable Calc.
+* emacspeak-calculator::Extend calculator.
+* emacspeak-calendar::Speech enable Calendar.
 * emacspeak-calibredb::Speech-enable CALIBREDB.
 * emacspeak-chess::Speech-enable CHESS.
-* emacspeak-cider::Speech-enable CIDER, A Clojure IDE.
+* emacspeak-cider::Speech-enable CIDER.
 * emacspeak-ciel::Speech-enable CIEL.
 * emacspeak-clojure::Speech-enable CLOJURE Mode.
-* emacspeak-cmuscheme::Scheme support for emacspeak.
+* emacspeak-cmuscheme::CMUScheme.
 * emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY-mode.
 * emacspeak-compile::Speech enable compile.
@@ -3479,38 +3479,38 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
 * emacspeak-debugger::Speech-enable DEBUG.
 * emacspeak-desktop::Speech-enable desktop.
-* emacspeak-dictionary::speech-enable dictionaries.
+* emacspeak-dictionary::dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
 * emacspeak-dired::Speech enable Dired Mode.
-* emacspeak-dismal::Speech enable Dismal – An Emacs Spreadsheet program.
+* emacspeak-dismal::Speech enable Dismal.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-eaf::Speech-enable EAF.
-* emacspeak-ecb::speech-enable Emacs Class Browser.
+* emacspeak-ecb::speech-enable ECB.
 * emacspeak-eclim::Speech-enable ECLIM.
 * emacspeak-ediff::Speech enable  ediff.
 * emacspeak-eglot::Speech-enable EGLOT.
-* emacspeak-ein::Speech-enable EIN For IPython Notebooks.
-* emacspeak-elfeed::Speech-enable ELFEED, A Feed Reader.
+* emacspeak-ein::Speech-enable EIN.
+* emacspeak-elfeed::Speech-enable ELFEED.
 * emacspeak-elisp-refs::Speech-enable ELISP-REFS.
 * emacspeak-elpher::Speech-enable ELPHER.
-* emacspeak-elpy::Speech-enable ELPY, A Python IDE.
+* emacspeak-elpy::Speech-enable ELPY.
 * emacspeak-elscreen::Speech-enable ELSCREEN.
-* emacspeak-emms::Speech-enable EMMS Multimedia UI.
-* emacspeak-enriched::Audio Formatting for Emacs’ WYSIWYG RichText  mode.
+* emacspeak-emms::Speech-enable EMMS.
+* emacspeak-enriched::Audio FormatRichtext.
 * emacspeak-entertain::Speech enable misc games.
 * emacspeak-epa::Speech-enable EasyPG Assistant.
-* emacspeak-eperiodic::Speech-enable Periodic Table.
+* emacspeak-eperiodic::Periodic Table.
 * emacspeak-epub::epubs On emacspeak desktop.
-* emacspeak-erc::speech-enable erc irc client.
-* emacspeak-eshell::Speech-enable EShell - Emacs Shell.
-* emacspeak-ess::Speech-enable ESS: Emacs Speaks Statistics.
+* emacspeak-erc::speech-enable erc.
+* emacspeak-eshell::Speech-enable EShell.
+* emacspeak-ess::Speech-enable ESS.
 * emacspeak-etable::Speech enable table.el.
 * emacspeak-eterm::Speech enable eterm.
-* emacspeak-eudc::Speech enable  LDAP directory client.
+* emacspeak-eudc::Speech enable  LDAP.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
 * emacspeak-extras::Speech-enable EXTRAS.
-* emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
+* emacspeak-feeds::Atom, RSS.
 * emacspeak-ffap::Speech-enable FFAP.
 * emacspeak-filtertext::Utilities to filter text.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
@@ -3520,26 +3520,26 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs’ forms mode.
 * emacspeak-geiser::Speech-enable GEISER.
-* emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
+* emacspeak-gh-explorer::GH-EXPLORER.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
 * emacspeak-gnus::Speech enable Gnus.
 * emacspeak-go-mode::Speech-enable GO-MODE.
-* emacspeak-gomoku::Speech enable the game of Gomoku.
+* emacspeak-gomoku::Speech enable Gomoku.
 * emacspeak-google::Google Search Tools.
-* emacspeak-gridtext::Overlay Grids To filter columnar text.
+* emacspeak-gridtext::Filter columnar text.
 * emacspeak-gtags::Speech-enable GTAGS.
-* emacspeak-gud::Speech enable debugger interface.
+* emacspeak-gud::Speech enable debugger.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Hide/Expose Text blocks.
 * emacspeak-hide-lines::Speech-enable HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
-* emacspeak-ibuffer::speech-enable ibuffer buffer selection.
+* emacspeak-ibuffer::speech-enable ibuffer.
 * emacspeak-ido::speech-enable ido.
 * emacspeak-iedit::Speech-enable IEDIT.
-* emacspeak-indium::Speech-enable INDIUM, A Javascript IDE.
-* emacspeak-info::Speech enable Info – Emacs’ online documentation viewer.
+* emacspeak-indium::Speech-enable INDIUM.
+* emacspeak-info::Speech enable Info –.
 * emacspeak-ispell::Speech enable Ispell.
 * emacspeak-ivy::Speech-enable IVY.
 * emacspeak-jabber::Speech-Enable jabber.
@@ -3547,15 +3547,15 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-journalctl::Speech-enable JOURNALCTL.
 * emacspeak-js2::Speech-enable JS2.
 * emacspeak-keymap::Setup   keybindings.
-* emacspeak-kmacro::Speech-enable kbd macro interface.
+* emacspeak-kmacro::Speech-enable KMacros.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
 * emacspeak-lua::Speech-enable LUA.
-* emacspeak-m-player::Control mplayer from Emacs.
-* emacspeak-magit::Speech-enable MAGIT: Git Client.
+* emacspeak-m-player::mplayer Interaction.
+* emacspeak-magit::Speech-enable MAGIT.
 * emacspeak-make-mode::Speech enable make-mode.
 * emacspeak-man::Speech enable Man.
-* emacspeak-markdown::Speech-enable MARKDOWN-mode.el.
+* emacspeak-markdown::Speech-enable MARKDOWN.
 * emacspeak-maths::Audio-Formatted Mathematics.
 * emacspeak-message::Speech enable Message.
 * emacspeak-metapost::speech-enable metapost mode.
@@ -3571,7 +3571,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-notmuch::Speech-enable NOTMUCH.
 * emacspeak-nov::Speech-enable NOV.
 * emacspeak-nxml::Speech enable nxml mode.
-* emacspeak-ocr::ocr Front-end for emacspeak desktop.
+* emacspeak-ocr::ocr Front-end desktop.
 * emacspeak-org::Speech-enable org.
 * emacspeak-orgalist::Speech-enable ORGALIST.
 * emacspeak-origami::Speech-enable ORIGAMI.
@@ -3579,12 +3579,12 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
-* emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
+* emacspeak-pianobar::Speech-enable Pandora.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
-* emacspeak-pronounce::Emacspeak pronunciation dictionaries.
+* emacspeak-pronounce::pronunciations.
 * emacspeak-py::Speech enable Python.
 * emacspeak-pydoc::Speech-enable PYDOC.
 * emacspeak-python::Speech enable Python.
@@ -3592,10 +3592,10 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-racket::Speech-enable RACKET.
 * emacspeak-re-builder::speech-enable re-builder.
 * emacspeak-reftex::speech enable reftex.
-* emacspeak-related::Speech-enable RELATED buffer switching.
+* emacspeak-related::Speech-enable RELATED.
 * emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail.
-* emacspeak-rpm-spec::Speech enable rpm spec editor.
+* emacspeak-rpm-spec::Speech enable rpm spec.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
 * emacspeak-rust-mode::Speech-enable RUST-MODE.
@@ -3605,13 +3605,13 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-ses::Speech-enable ses spread-sheet.
 * emacspeak-setup::Setup Emacspeak –.
 * emacspeak-sgml-mode::Speech enable SGML mode.
-* emacspeak-sh-script::Speech enable  sh-script mode.
+* emacspeak-sh-script::Speech enable script.
 * emacspeak-shx::Speech-enable SHX.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
-* emacspeak-smart-window::Speech-enable SMART-WINDOW.
-* emacspeak-smartparens::Speech-enable SMARTPARENS.
-* emacspeak-solitaire::Speech enable Solitaire game.
-* emacspeak-sounds::Defines Emacspeak auditory icons.
+* emacspeak-smart-window::SMART-WINDOW.
+* emacspeak-smartparens::SMARTPARENS.
+* emacspeak-solitaire::Solitaire.
+* emacspeak-sounds::auditory icons.
 * emacspeak-speak::Implements core services.
 * emacspeak-speedbar::Speech enable speedbar -.
 * emacspeak-sql::Speech enable sql-mode.
@@ -3619,11 +3619,11 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-supercite::Speech enable supercite.
 * emacspeak-syslog::Speech-enable SYSLOG-MODE.
 * emacspeak-tab-bar::Speech-enable tab-bar.
-* emacspeak-table::Implements data model for table browsing.
+* emacspeak-table::Table data model.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Handle table data.
 * emacspeak-tar::Speech enable Tar Mode.
-* emacspeak-tcl::Speech enable TCL development environment.
+* emacspeak-tcl::Speech enable TCL.
 * emacspeak-tempo::Speech enable tempo.
 * emacspeak-tetris::Tetris.
 * emacspeak-texinfo::Speech enable texinfo mode.
@@ -3631,7 +3631,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-tide::Speech-enable TIDE.
 * emacspeak-todo-mode::speech-enable todo-mode.
 * emacspeak-transient::Speech-enable TRANSIENT.
-* emacspeak-twittering::Speech-enable Twittering-mode.
+* emacspeak-twittering::
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
@@ -3647,11 +3647,11 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-widget::Speech enable widgets.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing.
-* emacspeak-wizards::Magic For Power Users.
+* emacspeak-wizards::Magic.
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
 * emacspeak-xref::Speech-enable XREF.
-* emacspeak-xslt::Implements Emacspeak  xslt transform engine.
+* emacspeak-xslt::XSLT.
 * emacspeak-yaml::Speech-enable YAML.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * espeak-voices::Define  Espeak tags.
@@ -3664,14 +3664,14 @@ documentation, then read *Note emacspeak-eww::.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.
-* soundscape::Soundscapes for The Emacspeak Desktop.
+* soundscape::Soundscapes.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
 * tetris::Tetris for Emacs.
 * toy-braille::
 * voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
-* xbacklight::Control Display Brightness From Emacs.
+* xbacklight::Brightness.
 * URL Templates ::
 
 
@@ -8927,7 +8927,7 @@ This module provides Feeds support for Emacspeak
      saved-feeds on exit.
 
      Default Value:
-     ‘((BBC News http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml rss) (BBC Podcast Directory http://www.bbc.co.uk/podcasts.opml opml) (CNet Tech News http://feeds.feedburner.com/cnet/tcoc rss) (Wired News http://www.wired.com/news_drop/netcenter/netcenter.rdf rss))’
+     ‘((BBC Podcast Directory http://www.bbc.co.uk/podcasts.opml opml) (CNet Tech News http://feeds.feedburner.com/cnet/tcoc rss) (Wired News http://www.wired.com/news_drop/netcenter/netcenter.rdf rss))’
 
  -- Variable: User Option emacspeak-feeds-awesome-rss
      Location of Awesome RSS
@@ -9057,4 +9057,60 @@ File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: ema
 
 FORGE == Work with Github, Gitlab etc from inside magit.  This module
 speech-enables magit/forge.
+
+
+File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-geiser,  Prev: emacspeak-forge,  Up: Emacspeak Commands And Options
+
+12.85 emacspeak-forms
+=====================
+
+Provide additional advice to forms-mode
+
+12.85.1 Emacspeak-Forms Commands
+--------------------------------
+
+12.85.1.1 emacspeak-forms-find-file
+...................................
+
+ -- Command: emacspeak-forms-find-file (filename)
+
+     Visit a forms file
+
+     (fn FILENAME)
+
+12.85.1.2 emacspeak-forms-flush-unwanted-records
+................................................
+
+ -- Command: emacspeak-forms-flush-unwanted-records
+
+     Prompt for pattern and flush matching lines
+
+12.85.1.3 emacspeak-forms-rerun-filter
+......................................
+
+ -- Command: emacspeak-forms-rerun-filter
+
+     Rerun filter –allows us to nuke more matching records
+
+12.85.1.4 emacspeak-forms-speak-field
+.....................................
+
+ -- Command: emacspeak-forms-speak-field
+
+     Speak current form field name and value.
+     Assumes that point is at the front of a field value.
+
+12.85.1.5 emacspeak-forms-summarize-current-position
+....................................................
+
+ -- Command: emacspeak-forms-summarize-current-position
+
+     Summarize current position in list of records
+
+12.85.1.6 emacspeak-forms-summarize-current-record
+..................................................
+
+ -- Command: emacspeak-forms-summarize-current-record
+
+     Summarize current record
 

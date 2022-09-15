@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 14, 2022.
+last updated on September 15, 2022.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -354,7 +354,7 @@ of braille, nothing more.
 
    M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
 
-   (it will only work if the relative font is installed and properly
+   (only works if the relative font is installed and properly
 configured).
 
 
@@ -2509,7 +2509,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> N:                              emacspeak-speak.    (line 1082)
 * <help> TAB:                            emacspeak-info.     (line   39)
 * <help> \:                              emacspeak-wizards.  (line  347)
-* <print>:                               emacspeak-muggles.  (line   49)
+* <print>:                               emacspeak-muggles.  (line   48)
 * <silence>:                             emacspeak-speak.    (line  220)
 * <XF86AudioLowerVolume>:                amixer.             (line   44)
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  221)
@@ -2517,10 +2517,10 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' h:                                 emacspeak-m-player. (line  188)
 * C-' l:                                 emacspeak-m-player. (line  383)
 * C-' y:                                 emacspeak-google.   (line  343)
-* C-, /:                                 extra-muggles.      (line  319)
+* C-, /:                                 extra-muggles.      (line  340)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
-* C-, h:                                 emacspeak-muggles.  (line   74)
+* C-, h:                                 emacspeak-muggles.  (line   73)
 * C-, o:                                 emacspeak-feeds.    (line   75)
 * C-, p:                                 emacspeak-wizards.  (line  855)
 * C-, q:                                 emacspeak-wizards.  (line  699)
@@ -2538,15 +2538,15 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. l:                                 emacspeak-wizards.  (line  762)
 * C-. m:                                 emacspeak-wizards.  (line 1206)
 * C-. n:                                 emacspeak-wizards.  (line  644)
-* C-. o:                                 extra-muggles.      (line  178)
+* C-. o:                                 extra-muggles.      (line  199)
 * C-. R:                                 emacspeak-webspace. (line   16)
 * C-. r:                                 soundscape.         (line   93)
 * C-. s:                                 soundscape.         (line   48)
 * C-. SPC:                               emacspeak-wizards.  (line  905)
 * C-. t:                                 soundscape.         (line  122)
 * C-. u:                                 soundscape.         (line  132)
-* C-. v:                                 extra-muggles.      (line  259)
-* C-/:                                   emacspeak-muggles.  (line  229)
+* C-. v:                                 extra-muggles.      (line  280)
+* C-/:                                   emacspeak-muggles.  (line  208)
 * C-; ':                                 emacspeak-m-player. (line  727)
 * C-; /:                                 emacspeak-websearch.
                                                              (line  115)
@@ -2574,7 +2574,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
-* C-c ,:                                 extra-muggles.      (line  218)
+* C-c ,:                                 extra-muggles.      (line  239)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
@@ -2609,7 +2609,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line  112)
 * C-c k:                                 Running Terminal Based Applications.
                                                              (line   72)
-* C-c o:                                 emacspeak-muggles.  (line  204)
+* C-c o:                                 emacspeak-muggles.  (line  183)
 * C-c o <1>:                             Running Terminal Based Applications.
                                                              (line   56)
 * C-e cap M:                             Status Information. (line   18)
@@ -2948,11 +2948,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h N:                                 emacspeak-speak.    (line 1080)
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-h \:                                 emacspeak-wizards.  (line  345)
-* C-M-y:                                 emacspeak-muggles.  (line   96)
-* C-x @ a /:                             extra-muggles.      (line  320)
+* C-M-y:                                 emacspeak-muggles.  (line   95)
+* C-x @ a /:                             extra-muggles.      (line  341)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)
-* C-x @ a h:                             emacspeak-muggles.  (line   75)
+* C-x @ a h:                             emacspeak-muggles.  (line   74)
 * C-x @ a o:                             emacspeak-feeds.    (line   76)
 * C-x @ a p:                             emacspeak-wizards.  (line  856)
 * C-x @ a q:                             emacspeak-wizards.  (line  700)
@@ -2988,14 +2988,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s l:                             emacspeak-wizards.  (line  763)
 * C-x @ s m:                             emacspeak-wizards.  (line 1207)
 * C-x @ s n:                             emacspeak-wizards.  (line  645)
-* C-x @ s o:                             extra-muggles.      (line  179)
+* C-x @ s o:                             extra-muggles.      (line  200)
 * C-x @ s R:                             emacspeak-webspace. (line   17)
 * C-x @ s r:                             soundscape.         (line   94)
 * C-x @ s s:                             soundscape.         (line   49)
 * C-x @ s SPC:                           emacspeak-wizards.  (line  906)
 * C-x @ s t:                             soundscape.         (line  123)
 * C-x @ s u:                             soundscape.         (line  133)
-* C-x @ s v:                             extra-muggles.      (line  260)
+* C-x @ s v:                             extra-muggles.      (line  281)
 * C-x r C-e:                             emacspeak-eww.      (line  410)
 * C-x r e:                               emacspeak-eww.      (line  645)
 * C-z b:                                 emacspeak-wizards.  (line 1205)
@@ -3011,11 +3011,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <ESCAPE> prior:                        Reading.            (line  172)
 * <ESCAPE> <UP>:                         Reading.            (line  154)
 * M-ESC ::                               emacspeak-wizards.  (line 1016)
-* s-':                                   extra-muggles.      (line  210)
-* s-;:                                   extra-muggles.      (line  112)
+* s-':                                   extra-muggles.      (line  231)
+* s-;:                                   extra-muggles.      (line  113)
 * S-<down>:                              emacspeak-wizards.  (line  187)
 * S-<up>:                                emacspeak-wizards.  (line  179)
-* s-m:                                   extra-muggles.      (line   52)
-* s-n:                                   emacspeak-muggles.  (line  134)
-* s-SPC:                                 emacspeak-muggles.  (line  111)
+* s-m:                                   extra-muggles.      (line   53)
+* s-n:                                   emacspeak-muggles.  (line  133)
+* s-SPC:                                 emacspeak-muggles.  (line  110)
 
