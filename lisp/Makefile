@@ -243,7 +243,6 @@ emacspeak-sgml-mode.elc \
 emacspeak-sh-script.elc \
 emacspeak-shx.elc \
 emacspeak-slime.elc \
-emacspeak-smart-window.elc \
 emacspeak-smartparens.elc \
 emacspeak-solitaire.elc \
 emacspeak-speedbar.elc \
