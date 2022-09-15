@@ -1,4 +1,4 @@
-;;; emacspeak-calculator.el --- Speech enable  desktop calculator  -*- lexical-binding: t; -*-
+;;; emacspeak-calculator.el --- Extend calculator -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable desktop calculator

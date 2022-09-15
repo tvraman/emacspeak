@@ -1,4 +1,4 @@
-;;; emacspeak-ess.el --- Speech-enable ESS: Emacs Speaks Statistics  -*- lexical-binding: t; -*- 
+;;; emacspeak-ess.el --- Speech-enable ESS -*- lexical-binding: t; -*- 
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ESS An Emacs Interface to R and others

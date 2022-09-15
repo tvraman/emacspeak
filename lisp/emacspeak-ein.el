@@ -1,4 +1,4 @@
-;;; emacspeak-ein.el --- Speech-enable EIN For IPython Notebooks   -*- lexical-binding: t; -*-
+;;; emacspeak-ein.el --- Speech-enable EIN -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-ein.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable EIN An Emacs Interface to IPython Notebooks
@@ -122,7 +122,8 @@
      ((string= "markdown" type) (sox-sin .5 "%4:%8"fade)))))
 
 (declare-function ein:cell-type "ein-classes" (arg &rest args))
-(declare-function ein:worksheet-get-current-cell "ein-worksheet" (&rest --cl-rest--))
+(declare-function ein:worksheet-get-current-cell
+                  "ein-worksheet" (&rest --cl-rest--))
 
 (defun emacspeak-ein-speak-current-cell ()
   "Speak current cell."
@@ -196,8 +197,10 @@
  for f in
  '(
    ein:worksheet-execute-all-cells 
-   ein:worksheet-execute-cell-and-insert-below ein:worksheet-execute-cell-and-insert-below-km
-   ein:worksheet-execute-cell-and-goto-next-km ein:worksheet-execute-cell-and-goto-next
+   ein:worksheet-execute-cell-and-insert-below
+   ein:worksheet-execute-cell-and-insert-below-km
+   ein:worksheet-execute-cell-and-goto-next-km
+   ein:worksheet-execute-cell-and-goto-next
    ein:worksheet-execute-cell ein:worksheet-execute-cell-km) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

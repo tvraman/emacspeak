@@ -1,4 +1,4 @@
-;;; emacspeak-solitaire.el --- Speech enable Solitaire game  -*- lexical-binding: t; -*-
+;;; emacspeak-solitaire.el --- Solitaire -*- lexical-binding: t -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to solitaire
@@ -105,7 +105,8 @@
   (let ((cells
          (split-string
           (buffer-substring (line-beginning-position) (line-end-position)))))
-    (mapcar #'emacspeak-auditory-icon (mapcar #'emacspeak-solitaire-cell-to-icon cells))))
+    (mapcar #'emacspeak-auditory-icon
+            (mapcar #'emacspeak-solitaire-cell-to-icon cells))))
 
 (defun emacspeak-solitaire-show-column ()
   "Audio format current column."
@@ -135,7 +136,9 @@
            (?o (push "o" cells))
            (?. (push "." cells))))))
       (setq cells (nreverse cells))
-      (mapcar #'emacspeak-auditory-icon  (mapcar #'emacspeak-solitaire-cell-to-icon cells)))))
+      (mapcar
+       #'emacspeak-auditory-icon
+       (mapcar #'emacspeak-solitaire-cell-to-icon cells)))))
 
 ;;}}}
 ;;{{{ advice commands
@@ -191,18 +194,18 @@
 
 (defun emacspeak-solitaire-setup()
   "Emacspeak provides an auditory interface to the solitaire game.
-As you move you hear the coordinates and state of the current cell.
-Moving a stone produces an auditory icon.
-You can examine the state of the board by using
-`r' and `c' to listen to the row and column respectively.
-Emacspeak produces tones to indicate the state --a higher pitched beep
-indicates a hole.
-Rows and columns are displayed aurally by
-grouping the tones to provide structure.
-Emacspeak specific commands:
-               \\[emacspeak-solitaire-show-column] emacspeak-solitaire-show-column
-\\[emacspeak-solitaire-show-row]                emacspeak-solitaire-show-row
-               \\[emacspeak-solitaire-speak-coordinates]  emacspeak-solitaire-speak-coordinates"
+As you move you hear the coordinates and state of the current
+cell.  Moving a stone produces an auditory icon.  You can examine
+the state of the board by using `r' and `c' to listen to the row
+and column respectively.  Emacspeak produces tones to indicate
+the state --a higher pitched beep indicates a hole.  Rows and
+columns are displayed aurally by grouping the tones to provide
+structure.  Emacspeak specific commands:
+\\[emacspeak-solitaire-show-column]
+emacspeak-solitaire-show-column \\[emacspeak-solitaire-show-row]
+emacspeak-solitaire-show-row
+\\[emacspeak-solitaire-speak-coordinates]
+emacspeak-solitaire-speak-coordinates"
   (delete-other-windows)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-solitaire-setup-keymap)

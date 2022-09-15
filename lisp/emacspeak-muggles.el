@@ -88,10 +88,6 @@
 (require 'emacspeak-preamble)
 
 (eval-when-compile
-  ;; FIXME: Network access as part of compilation is EVIL!
-  ;; (when (locate-library "package")
-  ;;   (unless (locate-library "hydra") (package-install 'hydra)))
-  
   (require 'emacspeak-hydra)
   (require 'org)
   (require 'hideshow)

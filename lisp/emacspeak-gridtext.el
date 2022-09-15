@@ -1,4 +1,4 @@
-;;; emacspeak-gridtext.el --- Overlay Grids To filter columnar text  -*- lexical-binding: t; -*-
+;;; emacspeak-gridtext.el --- Filter columnar text  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak module for laying grids on text
@@ -104,31 +104,32 @@ end   as specified by grid."
         (if (< start end)
             (goto-char start)
           (goto-char end))
-        (cl-loop for i from 0 to (1- num-rows)
-                 do
-                 (beginning-of-line)
-                 (setq this-line
-                       (buffer-substring (line-beginning-position) (line-end-position)))
-                 (setq this-length (length this-line))
-                 (setq this-row (make-vector num-columns ""))
-                 (cl-loop for j from 0 to (1- (length grid))
-                          do
-                          (when (< (1- (nth j grid)) this-length)
-                            ;; within bounds 
-                            (aset  this-row j
-                                   (substring
-                                    this-line
-                                    (if (= j 0) 
-                                        0
-                                      (nth  (1- j) grid))
-                                    (1- (nth j grid))))))
-                 (aset this-row (length grid)
-                       (if (< (nth (1- (length grid)) grid) this-length)
-                           (substring this-line
-                                      (nth (1- (length grid)) grid))
-                         ""))
-                 (aset result-grid i this-row)
-                 (forward-line 1))
+        (cl-loop
+         for i from 0 to (1- num-rows)
+         do
+         (setq this-line
+               (buffer-substring (line-beginning-position) (line-end-position)))
+         (setq this-length (length this-line))
+         (setq this-row (make-vector num-columns ""))
+         (cl-loop
+          for j from 0 to (1- (length grid))
+          do
+          (when (< (1- (nth j grid)) this-length)
+            ;; within bounds 
+            (aset  this-row j
+                   (substring
+                    this-line
+                    (if (= j 0) 
+                        0
+                      (nth  (1- j) grid))
+                    (1- (nth j grid))))))
+         (aset this-row (length grid)
+               (if (< (nth (1- (length grid)) grid) this-length)
+                   (substring this-line
+                              (nth (1- (length grid)) grid))
+                 ""))
+         (aset result-grid i this-row)
+         (forward-line 1))
         result-grid))))
 
 ;;}}}
@@ -199,8 +200,9 @@ end   as specified by grid."
   (interactive
    (list
     (point) (mark)
-    (read-minibuffer "Specify grid as a list of tuples: "
-                     (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
+    (read-minibuffer
+     "Specify grid as a list of tuples: "
+     (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
   (let ((grid-table
          (emacspeak-table-make-table
           (emacspeak-gridtext-vector-region start end grid)))

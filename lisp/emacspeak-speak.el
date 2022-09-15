@@ -352,8 +352,7 @@ Argument BODY specifies forms to execute."
 (defmacro ems-with-errors-silenced (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   (declare (indent 1) (debug t))
-  `(let (;; (emacspeak-speak-errors nil) ;FIXME: Unused!
-         (emacspeak-speak-messages nil))
+  `(let ((emacspeak-speak-messages nil))
      ,@body))
 
 ;;}}}

@@ -1,4 +1,4 @@
-;;; emacspeak-feeds.el --- Feeds Support (Atom, RSS) For Emacspeak  -*- lexical-binding: t; -*-
+;;; emacspeak-feeds.el --- Atom, RSS -*- lexical-binding: t; -*-
 ;; $Id:$
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak Feeds Support 
@@ -82,9 +82,6 @@
   '(
     ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
     ("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
-    ("BBC News"
-     "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"
-     rss)
     ("CNet Tech News"  "http://feeds.feedburner.com/cnet/tcoc"  rss)
     )
   "Table of RSS/Atom feeds.
@@ -212,7 +209,8 @@ feeds."
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
   (let ((read-process-output-max  (* 1024 1024)))
-    (url-retrieve feed-url #'emacspeak-feeds-render (list feed-url  style  speak)))
+    (url-retrieve feed-url #'emacspeak-feeds-render
+                  (list feed-url  style  speak)))
   (message "pulling feed.")
   (emacspeak-auditory-icon 'item))
 
@@ -352,7 +350,8 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
                        emacspeak-opml-view-xsl))
   (unless (file-exists-p emacspeak-feeds-awesome-rss) 
     (error
-     "Download awesome-rss from Github, and run the awesome-rss-fixup.sh script found  in %s"
+     "Download awesome-rss from Github, \
+and run the awesome-rss-fixup.sh script found  in %s"
      emacspeak-etc-directory))
   (unless emacspeak-feeds-awesome-rss-map ;;; first time
     (setq emacspeak-feeds-awesome-rss-map (make-hash-table :test #'equal))

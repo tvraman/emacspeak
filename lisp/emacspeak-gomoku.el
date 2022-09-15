@@ -1,4 +1,4 @@
-;;; emacspeak-gomoku.el --- Speech enable the game of Gomoku  -*- lexical-binding: t; -*-
+;;; emacspeak-gomoku.el --- Speech enable Gomoku  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to gomoku
@@ -238,9 +238,10 @@
 
 (cl-loop
  for f in
- '(gomoku-beginning-of-line gomoku-end-of-line
-                            gomoku-move-down gomoku-move-up gomoku-move-left gomoku-move-right 
-                            gomoku-move-ne gomoku-move-nw gomoku-move-se gomoku-move-sw)
+ '(
+   gomoku-beginning-of-line gomoku-end-of-line
+   gomoku-move-down gomoku-move-up gomoku-move-left gomoku-move-right 
+   gomoku-move-ne gomoku-move-nw gomoku-move-se gomoku-move-sw)
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
@@ -280,12 +281,14 @@
 (defun emacspeak-gomoku-setup-keys ()
   "Add additional keybindings"
   (cl-declare (special gomoku-mode-map))
-  (cl-loop for key in (where-is-internal 'backward-char (list gomoku-mode-map))
-           do
-           (define-key gomoku-mode-map key 'gomoku-move-left))
-  (cl-loop for key in (where-is-internal 'forward-char (list gomoku-mode-map))
-           do
-           (define-key gomoku-mode-map key 'gomoku-move-right))
+  (cl-loop
+   for key in (where-is-internal 'backward-char (list gomoku-mode-map))
+   do
+   (define-key gomoku-mode-map key 'gomoku-move-left))
+  (cl-loop
+   for key in (where-is-internal 'forward-char (list gomoku-mode-map))
+   do
+   (define-key gomoku-mode-map key 'gomoku-move-right))
   (define-key gomoku-mode-map "\t"
               'emacspeak-gomoku-speak-emacs-previous-move)
   (define-key gomoku-mode-map "\M-\t"

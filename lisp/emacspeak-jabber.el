@@ -94,7 +94,8 @@
  for f in
  '(
    image-type jabber-chat-with jabber-chat-with-jid-at-point
-   jabber-keepalive-do jabber-fsm-handle-sentinel jabber-xml-resolve-namespace-prefixes
+   jabber-keepalive-do jabber-fsm-handle-sentinel
+   jabber-xml-resolve-namespace-prefixes
    jabber-process-roster jabber-keepalive-got-response)
  do
  (eval
@@ -189,7 +190,8 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
   (interactive)
   (cl-declare (special jabber-roster-buffer jabber-connections))
   (unless jabber-connections  (call-interactively 'jabber-connect))
-  (unless (buffer-live-p jabber-roster-buffer) (call-interactively 'jabber-display-roster))
+  (unless (buffer-live-p jabber-roster-buffer)
+    (call-interactively 'jabber-display-roster))
   (pop-to-buffer jabber-roster-buffer)
   (goto-char (point-min))
   (forward-line 4)
@@ -220,10 +222,12 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 ;;}}}
 ;;{{{ Pronunciations
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
-(emacspeak-pronounce-augment-pronunciations 'jabber-chat-mode
-                                            emacspeak-pronounce-internet-smileys-pronunciations)
-(emacspeak-pronounce-augment-pronunciations 'jabber-mode
-                                            emacspeak-pronounce-internet-smileys-pronunciations)
+(emacspeak-pronounce-augment-pronunciations
+ 'jabber-chat-mode
+ emacspeak-pronounce-internet-smileys-pronunciations)
+(emacspeak-pronounce-augment-pronunciations
+ 'jabber-mode
+ emacspeak-pronounce-internet-smileys-pronunciations)
 
 ;;}}}
 ;;{{{ Browse chat buffers:
@@ -239,7 +243,8 @@ the kill ring as well."
 (defun emacspeak-jabber-chat-next-message ()
   "Move forward to and speak the next message in this chat session."
   (interactive)
-  (cl-assert  (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
+  (cl-assert
+   (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
   (end-of-line)
   (goto-char (next-single-property-change (point) 'face nil(point-max)))
   (while (and (not (eobp))
@@ -256,13 +261,15 @@ the kill ring as well."
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat session."
   (interactive)
-  (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
+  (cl-assert
+   (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
   (beginning-of-line)
   (goto-char (previous-single-property-change (point) 'face nil  (point-min)))
   (while  (and (not (bobp))
                (or (null (get-text-property (point) 'face))
                    (get-text-property (point) 'field)))
-    (goto-char (previous-single-property-change (point) 'face  nil  (point-min))))
+    (goto-char
+     (previous-single-property-change (point) 'face  nil  (point-min))))
   (cond
    ((bobp)
     (message "On first message")

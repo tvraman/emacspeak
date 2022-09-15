@@ -1,4 +1,4 @@
-;;; emacspeak-related.el --- Speech-enable RELATED buffer switching  -*- lexical-binding: t; -*-
+;;; emacspeak-related.el --- Speech-enable RELATED -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable RELATED An Emacs Interface to related
 ;; Keywords: Emacspeak,  Audio Desktop related

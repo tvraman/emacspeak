@@ -1,4 +1,4 @@
-;;; emacspeak-erc.el --- speech-enable erc irc client  -*- lexical-binding: t; -*-
+;;; emacspeak-erc.el --- speech-enable erc -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak module for speech-enabling erc.el
@@ -96,8 +96,9 @@ server."
 ;;}}}
 ;;{{{ advice interactive commands
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
-(emacspeak-pronounce-augment-pronunciations 'erc-mode
-                                            emacspeak-pronounce-internet-smileys-pronunciations)
+(emacspeak-pronounce-augment-pronunciations
+ 'erc-mode
+ emacspeak-pronounce-internet-smileys-pronunciations)
 
 (defadvice erc-mode (after emacspeak pre act comp)
   "Turn on voice lock mode."

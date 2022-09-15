@@ -1,4 +1,4 @@
-;;; emacspeak-pianobar.el --- Pandora Radio: Speech-enable PIANOBAR  -*- lexical-binding: t; -*-
+;;; emacspeak-pianobar.el --- Speech-enable Pandora  -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-pianobar.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable PIANOBAR An Emacs Interface to pianobar
@@ -126,7 +126,8 @@
     (define-key pianobar-key-map (ems-kbd "RET") 'emacspeak-pianobar-send-raw)
     (define-key pianobar-key-map [right] 'pianobar-next-song)
     (dotimes (i 10)
-      (define-key pianobar-key-map    (format "%s" i)   'emacspeak-pianobar-switch-to-preset))
+      (define-key pianobar-key-map
+                  (format "%s" i)   'emacspeak-pianobar-switch-to-preset))
     (dotimes (i 25)
       (define-key pianobar-key-map
                   (format "%c" (+ i 65))
@@ -278,19 +279,23 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defun emacspeak-pianobar-next-preset ()
   "Switch to next preset."
   (interactive)
-  (cl-declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
+  (cl-declare (special
+               emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
   (when (= emacspeak-pianobar-max-preset emacspeak-pianobar-current-preset)
     (setq emacspeak-pianobar-current-preset -1))
-  (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-current-preset))
+  (setq emacspeak-pianobar-current-preset
+        (1+ emacspeak-pianobar-current-preset))
   (pianobar-send-string (format "s%s\n" emacspeak-pianobar-current-preset)))
 
 (defun emacspeak-pianobar-previous-preset ()
   "Switch to previous preset."
   (interactive)
-  (cl-declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
+  (cl-declare (special
+               emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
   (when (zerop emacspeak-pianobar-current-preset)
     (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-max-preset)))
-  (setq emacspeak-pianobar-current-preset (1- emacspeak-pianobar-current-preset))
+  (setq emacspeak-pianobar-current-preset
+        (1- emacspeak-pianobar-current-preset))
   (pianobar-send-string (format "s%s\n" emacspeak-pianobar-current-preset)))
 
 (defun emacspeak-pianobar-send-raw  (string)

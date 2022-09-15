@@ -1,4 +1,4 @@
-;;; emacspeak-pronounce.el --- Emacspeak pronunciation dictionaries -*- lexical-binding: t; -*-
+;;; emacspeak-pronounce.el --- pronunciations -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Emacspeak pronunciation dictionaries
@@ -66,7 +66,7 @@
 ;;}}}
 ;;{{{Helper:ems--pronounce-string-template:
 
-;; Helper to split a string using split-pattern and format using format-template
+;; Helper: split a string using split-pattern and format using format-template
 
 (defun ems--pronounce-string-template (str split template)
   "Return an audio formatted representation of string `STR'.
@@ -142,7 +142,8 @@ the match  being passed to the func which returns  the new pronunciation."
              emacspeak-pronounce-pronunciation-table)
     (remhash string emacspeak-pronounce-pronunciation-table)))
 
-(defun emacspeak-pronounce-add-buffer-local-dictionary-entry (string pronunciation)
+(defun emacspeak-pronounce-add-buffer-local-dictionary-entry
+    (string pronunciation)
   "Add  pronunciation for current buffer. "
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond
@@ -196,8 +197,10 @@ the match  being passed to the func which returns  the new pronunciation."
             (set-buffer buffer)
             major-mode))
          (mode-supers (emacspeak-pronounce-get-supers mode))
-         (file-alist (and filename (emacspeak-pronounce-get-dictionary filename)))
-         (dir-alist (and directory (emacspeak-pronounce-get-dictionary directory)))
+         (file-alist
+          (and filename (emacspeak-pronounce-get-dictionary filename)))
+         (dir-alist
+          (and directory (emacspeak-pronounce-get-dictionary directory)))
          (mode-alist (emacspeak-pronounce-get-dictionary mode))
          (super-alist nil))
     (cl-loop for super in mode-supers
@@ -270,7 +273,8 @@ the match  being passed to the func which returns  the new pronunciation."
   (interactive )
   (cl-declare (special emacspeak-pronounce-personality))
   (cond
-   (emacspeak-pronounce-personality (setq emacspeak-pronounce-personality nil))
+   (emacspeak-pronounce-personality
+    (setq emacspeak-pronounce-personality nil))
    (t (setq emacspeak-pronounce-personality 'match)))
   (emacspeak-auditory-icon
    (if emacspeak-pronounce-personality 'on 'off))
@@ -296,11 +300,12 @@ the match  being passed to the func which returns  the new pronunciation."
   (let* ((coding-system-for-write 'utf-8)
          (print-level nil)
          (print-length nil)
-         (filename (read-file-name
-                    "Save pronunciation dictionaries to file: "
-                    emacspeak-user-directory
-                    nil nil
-                    (file-name-nondirectory emacspeak-pronounce-dictionaries-file)))
+         (filename
+          (read-file-name
+           "Save pronunciation dictionaries to file: "
+           emacspeak-user-directory
+           nil nil
+           (file-name-nondirectory emacspeak-pronounce-dictionaries-file)))
          (buffer nil))
     (setq buffer (find-file-noselect filename))
     (save-current-buffer
@@ -451,13 +456,16 @@ First loads any persistent dictionaries if not already loaded."
            (read-minibuffer
             (format "Pronouncer for %s: " word))))
     (when (and (not emacspeak-pronounce-dictionaries-loaded)
-               (y-or-n-p "Load pre existing pronunciation dictionaries first? "))
+               (y-or-n-p
+                "Load pre existing pronunciation dictionaries first? "))
       (emacspeak-pronounce-load-dictionaries))
     (unless (eq (car key-pair) 'buffer)
-      (emacspeak-pronounce-add-dictionary-entry (cdr key-pair) word pronunciation)
+      (emacspeak-pronounce-add-dictionary-entry
+       (cdr key-pair) word pronunciation)
       (emacspeak-pronounce-refresh-pronunciations))
     (when (eq (car key-pair) 'buffer)
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry word pronunciation))))
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+       word pronunciation))))
 
 (defun emacspeak-pronounce-define-pronunciation ()
   "Interactively define entries in the pronunciation dictionaries.
@@ -473,13 +481,16 @@ First loads any persistent dictionaries if not already loaded."
           (read-from-minibuffer
            (format "Pronounce %s as: " word)))
     (when (and (not emacspeak-pronounce-dictionaries-loaded)
-               (y-or-n-p "Load pre existing pronunciation dictionaries first? "))
+               (y-or-n-p
+                "Load pre existing pronunciation dictionaries first? "))
       (emacspeak-pronounce-load-dictionaries))
     (unless (eq (car key-pair) 'buffer)
-      (emacspeak-pronounce-add-dictionary-entry (cdr key-pair) word pronunciation)
+      (emacspeak-pronounce-add-dictionary-entry
+       (cdr key-pair) word pronunciation)
       (emacspeak-pronounce-refresh-pronunciations))
     (when (eq (car key-pair) 'buffer)
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry word pronunciation))))
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+       word pronunciation))))
 
 ;;}}}
 ;;{{{ Turning dictionaries on and off on a per buffer basis
@@ -603,26 +614,29 @@ First loads any persistent dictionaries if not already loaded."
         (notify (emacspeak-pronounce-edit-generate-callback key))
         (buffer (get-buffer-create (format "*Dict: %s" key)))
         (inhibit-read-only t))
-    (save-current-buffer
-      (set-buffer buffer)
+    (with-current-buffer buffer
       (erase-buffer)
       (widget-insert (format "Dict: %s\n" key))
       (widget-create
        'repeat
        :help-echo "Edit" :tag "Edit"
        :value value :notify notify
-       '(cons :tag "Entry"
-              (string :tag "Phrase")
-              (choice :tag "Pronounce"
-                      (string :tag "Phrase")
-                      (cons :tag "Pair"
-                            (symbol :tag "Matcher")
-                            (symbol :tag "Pronouncer")))))
-      (widget-create 'push-button
-                     :tag "Save"
-                     :notify
-                     #'(lambda (&rest _ignore)
-                         (call-interactively #'emacspeak-pronounce-save-dictionaries)))
+       '(cons
+         :tag "Entry"
+         (string :tag "Phrase")
+         (choice
+          :tag "Pronounce"
+          (string :tag "Phrase")
+          (cons
+           :tag "Pair"
+           (symbol :tag "Matcher")
+           (symbol :tag "Pronouncer")))))
+      (widget-create
+       'push-button
+       :tag "Save"
+       :notify
+       #'(lambda (&rest _ignore)
+           (call-interactively #'emacspeak-pronounce-save-dictionaries)))
       (use-local-map widget-keymap)
       (widget-setup)
       (goto-char (point-min)))
@@ -680,7 +694,8 @@ specified pronunciation dictionary key."
       (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
       (?d (call-interactively
            'emacspeak-pronounce-define-pronunciation t))
-      (?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
+      (?D (call-interactively
+           'emacspeak-pronounce-define-template-pronunciation t))
       (?e (call-interactively
            'emacspeak-pronounce-edit-pronunciations t))
       (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
@@ -704,7 +719,8 @@ specified pronunciation dictionary key."
 (defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
   "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"
   "Pattern that matches dates of the form mm-dd-[cc]yy.")
-(declare-function calendar-date-string "calendar" (date &optional abbreviate nodayname))
+(declare-function calendar-date-string
+                  "calendar" (date &optional abbreviate nodayname))
 
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."

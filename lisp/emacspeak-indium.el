@@ -1,4 +1,4 @@
-;;; emacspeak-indium.el --- Speech-enable INDIUM, A Javascript IDE -*- lexical-binding: t; -*-
+;;; emacspeak-indium.el --- Speech-enable INDIUM -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable INDIUM An Emacs Interface to indium
 ;; Keywords: Emacspeak,  Audio Desktop indium

@@ -81,7 +81,8 @@
 ;; You can also jump to a given board position by:
 ;; @itemize @bullet
 ;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
-;; @item Target of last move: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
+;; @item Target of last move:
+;;  @code{emacspeak-chess-goto-target} bound to @kbd{t}.
 ;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
 ;; @kbd{l}.
 ;; @item  Review   current square: @kbd{;}.
@@ -472,10 +473,10 @@
   (let ((index (get-text-property (point) 'chess-coord))
         (kd ;;; king directions
          (list
-          chess-direction-northwest chess-direction-north chess-direction-northeast
-          chess-direction-east
-          chess-direction-southeast chess-direction-south chess-direction-southwest
-          chess-direction-west))
+          chess-direction-northwest chess-direction-north
+          chess-direction-northeast chess-direction-east
+          chess-direction-southeast chess-direction-south
+          chess-direction-southwest chess-direction-west))
         (result nil)
         (target nil)
         (squares nil))
@@ -597,7 +598,8 @@ and `a' for entire board.."
                 (white "white")
                 (t (emacspeak-chess-piece-name piece)))))
      (t
-      (flatten-list (mapcar #'emacspeak-chess-describe-square (sort from '<)))))))
+      (flatten-list
+       (mapcar #'emacspeak-chess-describe-square (sort from '<)))))))
 
 (defun emacspeak-chess-speak-who-targets (piece)
   "Speak description of squares that can target current square.
@@ -709,7 +711,9 @@ specifies index of move, default is final index."
          ad-do-it
          (when (not (= orig chess-display-index))
            (emacspeak-auditory-icon 'search-hit)
-           (dtk-speak  (emacspeak-chess-describe-move chess-module-game chess-display-index)))))
+           (dtk-speak
+            (emacspeak-chess-describe-move
+             chess-module-game chess-display-index)))))
       (t ad-do-it))
      ad-return-value)))
 

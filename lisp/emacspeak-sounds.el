@@ -1,4 +1,4 @@
-;;; emacspeak-sounds.el --- Defines Emacspeak auditory icons  -*- lexical-binding: t; -*-
+;;; emacspeak-sounds.el --- auditory icons  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module for adding sound cues to emacspeak
@@ -65,7 +65,8 @@
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
 ;; found in appropriate subdirectories of emacspeak-sounds-directory.
-;; @item The auditory icon player is configure via custom option @code{emacspeak-play-program}.
+;; @item The auditory icon player is configure via 
+;; custom option @code{emacspeak-play-program}.
 ;; @end itemize
 ;;}}}
 ;;{{{ required modules
@@ -119,7 +120,7 @@ Do not set this by hand;
   (setq theme-name (intern theme-name))
   (setf (gethash  theme-name emacspeak-sounds-themes-table)
         file-ext))
-(defun emacspeak-sounds-theme-get-extension (theme-name)
+(defun emacspeak-sounds-theme-get-ext (theme-name)
   "Retrieve filename extension for specified theme. "
   (cl-declare (special emacspeak-sounds-themes-table))
   (gethash
@@ -134,9 +135,10 @@ Do not set this by hand;
                        emacspeak-sounds-current-theme))
   (let ((f
          (expand-file-name
-          (format "%s%s"
-                  sound-name
-                  (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
+          (format
+           "%s%s"
+           sound-name
+           (emacspeak-sounds-theme-get-ext emacspeak-sounds-current-theme))
           emacspeak-sounds-current-theme)))
     (cond
      ((and
@@ -158,7 +160,7 @@ Do not set this by hand;
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
   (cond
-   ((emacspeak-sounds-theme-get-extension theme-name) t)
+   ((emacspeak-sounds-theme-get-ext theme-name) t)
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
    (t (error "Theme %s is missing its configuration file. "
@@ -169,7 +171,7 @@ Do not set this by hand;
   "Select theme for auditory icons."
   (interactive
    (list
-    (expand-file-name (read-directory-name "Theme: " emacspeak-sounds-directory))))
+     (read-directory-name "Theme: " emacspeak-sounds-directory)))
   (cl-declare (special emacspeak-sounds-current-theme
                        emacspeak-sounds-themes-table
                        emacspeak-play-program emacspeak-sounds-directory))

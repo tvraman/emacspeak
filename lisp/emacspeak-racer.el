@@ -64,7 +64,9 @@
 
 (cl-loop
  for f in 
- '(racer-find-definition racer-find-definition-other-frame racer-find-definition-other-window)
+ '(
+   racer-find-definition racer-find-definition-other-frame
+   racer-find-definition-other-window)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

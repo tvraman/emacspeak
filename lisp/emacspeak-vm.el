@@ -181,8 +181,9 @@ Note that some badly formed mime messages  cause trouble."
 
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
-  (cl-declare (special vm-message-pointer smtpmail-local-domain
-                       vm-presentation-buffer  emacspeak-vm-headers-strip-octals))
+  (cl-declare (special
+               vm-message-pointer smtpmail-local-domain
+               vm-presentation-buffer  emacspeak-vm-headers-strip-octals))
   (when vm-message-pointer
     (let*  ((message (car vm-message-pointer))
             (number (emacspeak-vm-number-of  message))
@@ -604,7 +605,8 @@ Leave point at front of decoded attachment."
 
 ;; has to be done indirectly
 ;; Fake emacs-w3m, though we actually use shr
-(defalias 'vm-mime-display-internal-emacs-w3m-text/html  'vm-mime-display-internal-shr-text/html)
+(defalias 'vm-mime-display-internal-emacs-w3m-text/html
+  'vm-mime-display-internal-shr-text/html)
 
 (defun vm-chromium ()
   "Run Chromium on current link."
@@ -634,18 +636,19 @@ Leave point at front of decoded attachment."
 
 (defun emacspeak-vm-use-raman-settings ()
   "Customization settings for VM used by the author of Emacspeak."
-  (cl-declare (special emacspeak-vm-demote-html-attachments
-                       emacspeak-vm-promote-html-attachments
-                       vm-mime-charset-converter-alist vm-mime-default-face-charsets
-                       vm-frame-per-folder vm-frame-per-composition
-                       vm-frame-per-edit vm-frame-per-help
-                       vm-frame-per-summary vm-index-file-suffix
-                       vm-crash-box vm-primary-inbox vm-folder-directory
-                       vm-forwarding-subject-format vm-startup-with-summary
-                       vm-inhibit-startup-message vm-visible-headers
-                       vm-delete-after-saving vm-url-browser
-                       vm-confirm-new-folders vm-mime-alternative-select-method
-                       vm-mime-text/html-handler vm-move-after-deleting))
+  (cl-declare (special
+               emacspeak-vm-demote-html-attachments
+               emacspeak-vm-promote-html-attachments
+               vm-mime-charset-converter-alist vm-mime-default-face-charsets
+               vm-frame-per-folder vm-frame-per-composition
+               vm-frame-per-edit vm-frame-per-help
+               vm-frame-per-summary vm-index-file-suffix
+               vm-crash-box vm-primary-inbox vm-folder-directory
+               vm-forwarding-subject-format vm-startup-with-summary
+               vm-inhibit-startup-message vm-visible-headers
+               vm-delete-after-saving vm-url-browser
+               vm-confirm-new-folders vm-mime-alternative-select-method
+               vm-mime-text/html-handler vm-move-after-deleting))
   (setq vm-mime-text/html-handler'emacs-w3m  )
   (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist

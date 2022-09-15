@@ -1,4 +1,4 @@
-;;; emacspeak-tcl.el --- Speech enable TCL development environment  -*- lexical-binding: t; -*-
+;;; emacspeak-tcl.el --- Speech enable TCL -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for tcl-mode
@@ -77,47 +77,6 @@ This exists because some people (eg, me) use \"defvar\" et al. ")
     "method" "itcl_class")
   "List of Tcl keywords.  Used only for highlighting.
 Default list includes some TclX keywords. ")
-
-;; FIXME need some way to recognize variables because array refs look
-;; like 2 sexps.
-(defvar tcl-type-alist
-  '(
-    ("expr" tcl-expr)
-    ("catch" tcl-commands)
-    ("set" tcl-expr)
-    ("if" tcl-expr "then" tcl-commands)
-    ("elseif" tcl-expr "then" tcl-commands)
-    ("elseif" tcl-expr tcl-commands)
-    ("if" tcl-expr tcl-commands)
-    ("while" tcl-expr tcl-commands)
-    ("for" tcl-commands tcl-expr tcl-commands tcl-commands)
-    ("foreach" nil nil tcl-commands)
-    ("for_file" nil nil tcl-commands)
-    ("for_array_keys" nil nil tcl-commands)
-    ("for_recursive_glob" nil nil nil tcl-commands)
-    ;; Loop handling is not perfect, because the third argument can be
-    ;; either a command or an expr, and there is no real way to look
-    ;; forward.
-    ("cl-loop" nil tcl-expr tcl-expr tcl-commands)
-    ("cl-loop" nil tcl-expr tcl-commands)
-    )
-  "Alist that controls indentation.
-\(Actually, this really only controls what happens on continuation lines).
-Each entry looks like `(KEYWORD TYPE ...)'.
-Each type entry describes a sexp after the keyword, and can be one of:
-* nil, meaning that this sexp has no particular type.
-* tcl-expr, meaning that this sexp is an arithmetic expression.
-* tcl-commands, meaning that this sexp holds Tcl commands.
-* a string, which must exactly match the string at the corresponding
-  position for a match to be made.
-
-For example, the entry for the \"cl-loop\" command is:
-
-   (\"cl-loop\" nil tcl-expr tcl-commands)
-
-This means that the \"cl-loop\" command has three arguments.  The first
-argument is ignored (for indentation purposes).  The second argument
-is a Tcl expression, and the last argument is Tcl commands.")
 
 ;;}}}
 ;;{{{  Advice electric insertion to talk:

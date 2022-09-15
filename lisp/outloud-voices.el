@@ -111,7 +111,8 @@
 (outloud-define-voice 'paul  " `v1 ")
 
 ;;}}}
-;;  Mapping css parameters to tts codes --- see../servers /linux-outloud/lib/voice-params.org
+;;  mapping css parameters to tts codes
+;;  --- see../servers /linux-outloud/lib/voice-params.org
 ;;{{{  hash table for mapping families to their dimensions
 
 (defvar outloud-css-code-tables (make-hash-table)
@@ -319,7 +320,8 @@
                 dtk-speech-rate outloud-default-speech-rate
                 dtk-speech-rate-base 50)
   (dtk-unicode-update-untouched-charsets
-   '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
+   '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9
+           eight-bit-graphic)))
 
 ;;}}}
 

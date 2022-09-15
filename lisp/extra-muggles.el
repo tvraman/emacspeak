@@ -91,9 +91,6 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-dired)
 (eval-when-compile
-  ;; FIXME: Network access as part of compilation is EVIL!
-  ;; (when (locate-library "package")
-  ;;   (unless (locate-library "hydra") (package-install 'hydra)))
   (require 'emacspeak-hydra)
   (require 'emacspeak-outline)
   (require 'vuiet nil 'no-error)
@@ -234,18 +231,18 @@ _d_: subtree
 "
            ("?" (emacspeak-hydra-self-help "emacspeak-muggles-outliner"))
            ;; Hide
-           ("q" outline-hide-sublevels) ; Hide everything but the top-level headings
-           ("t" outline-hide-body) ; Hide everything but headings (all body lines)
+           ("q" outline-hide-sublevels)
+           ("t" outline-hide-body)
            ("o" outline-hide-other)             ; Hide other branches
            ("c" outline-hide-entry)             ; Hide this entry's body
-           ("l" outline-hide-leaves) ; Hide body lines in this entry and sub-entries
-           ("d" outline-hide-subtree) ; Hide everything in this entry and sub-entries
+           ("l" outline-hide-leaves)
+           ("d" outline-hide-subtree)
            ;; Show
            ("a" outline-show-all)               ; Show (expand) everything
            ("e" outline-show-entry)             ; Show this heading's body
-           ("i" outline-show-children) ; Show this heading's immediate child sub-headings
-           ("k" outline-show-branches) ; Show all sub-headings under this heading
-           ("s" outline-show-subtree) ; Show (expand) everything in this heading & below
+           ("i" outline-show-children) 
+           ("k" outline-show-branches)
+           ("s" outline-show-subtree)
            ;; Move
            ("u" outline-up-heading)               ; Up
            ("n" outline-next-visible-heading)     ; Next
@@ -260,9 +257,12 @@ _d_: subtree
 ;; Taken from Hydra wiki and customized to taste:
 (define-key Info-mode-map (ems-kbd "?")
             (defhydra emacspeak-muggles-info-summary
-                      (:color blue :hint nil
-                              :body-pre (emacspeak-hydra-body-pre "Info Summary")
-                              :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+                      (
+                       :color blue :hint nil
+                       :body-pre (emacspeak-hydra-body-pre "Info Summary")
+                       :pre
+                       emacspeak-hydra-pre
+                       :post emacspeak-hydra-post)
                       "info mode"
                       ("]"   Info-forward-node)
                       ("["   Info-backward-node)
@@ -379,7 +379,8 @@ Also generates global keybindings if any."
       (cl-loop
        for m in muggles do
        (let ((key  (where-is-internal m nil 'first)))
-         (insert (format "(autoload '%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
+         (insert
+          (format "(autoload '%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
          (when key 
            (insert (format "(global-set-key %s '%s)\n" key m)))))
       (insert "\n(provide 'emacspeak-muggles-autoloads)\n")
