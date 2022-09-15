@@ -1,4 +1,4 @@
-;;; emacspeak-twittering.el --- Speech-enable Twittering-mode  -*- lexical-binding: t; -*-
+;;; emacspeak-twittering.el - Speech-enable Twitter -*- lexical-binding: t -*-
 ;; $Id: emacspeak-twit.el 6133 2009-03-17 02:36:43Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable twit.el and twitter.el --- Twitter from Emacs
@@ -178,16 +178,18 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
 ;;}}}
 ;;{{{ Silence chatter
 
-(cl-loop for f in
-         '(twittering-get-and-render-timeline
-           twittering-http-default-sentinel
-           twittering-http-post-default-sentinel
-           twittering-http-get-default-sentinel twittering-retrieve-single-tweet-sentinel)
-         do
-         (eval
-          `(defadvice ,f  (around emacspeak pre act comp)
-             "Silence spoken messages while twitter is updating."
-             (ems-with-messages-silenced ad-do-it))))
+(cl-loop
+ for f in
+ '(
+   twittering-get-and-render-timeline twittering-http-default-sentinel
+   twittering-http-post-default-sentinel
+   twittering-http-get-default-sentinel
+   twittering-retrieve-single-tweet-sentinel)
+ do
+ (eval
+  `(defadvice ,f  (around emacspeak pre act comp)
+     "Silence spoken messages while twitter is updating."
+     (ems-with-messages-silenced ad-do-it))))
 
 ;;}}}
 ;;{{{ additional interactive commands:
@@ -208,7 +210,8 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
 
 (when (boundp 'twittering-mode-map)
   (cl-declaim (special twittering-mode-map))
-  (define-key twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
+  (define-key twittering-mode-map
+              "." 'emacspeak-twittering-jump-to-following-url)
   (define-key twittering-mode-map "," 'emacspeak-twittering-speak-this-tweet)
   (define-key twittering-mode-map "?" 'twittering-search))
 

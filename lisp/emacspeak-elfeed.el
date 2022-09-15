@@ -1,4 +1,4 @@
-;;; emacspeak-elfeed.el --- Speech-enable ELFEED, A Feed Reader -*- lexical-binding: t; -*-
+;;; emacspeak-elfeed.el --- Speech-enable ELFEED -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-elfeed.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ELFEED A Feed Reader For Emacs
@@ -70,9 +70,11 @@
 (cl-loop
  for f in
  '(
-   elfeed-apply-hooks-now elfeed-search-browse-url elfeed-show-entry elfeed-show-visit
+   elfeed-apply-hooks-now elfeed-search-browse-url
+   elfeed-show-entry elfeed-show-visit
    elfeed-update-feed elfeed-update elfeed-show-refresh
-   elfeed-search-update--force elfeed-search-update elfeed-search-untag-all-unread
+   elfeed-search-update--force elfeed-search-update
+   elfeed-search-untag-all-unread
    elfeed-search-untag-all elfeed-search-tag-all-unread elfeed-search-tag-all
    elfeed-search-show-entry elfeed-load-opml elfeed-export-opml
    elfeed-db-compact elfeed-add-feed
@@ -168,7 +170,8 @@
       (setq emacspeak-we-recent-xpath-filter "//p"))
     (cond
      (entry (elfeed-untag  entry 'unread)
-            (emacspeak-we-xslt-filter emacspeak-we-recent-xpath-filter link 'speak))
+            (emacspeak-we-xslt-filter
+             emacspeak-we-recent-xpath-filter link 'speak))
      (t (message "No link under point.")))))
 
 (defun emacspeak-elfeed-eww-entry-at-point ()
@@ -202,10 +205,13 @@
   (setq goal-column 11)                 ; place point on entry title
   (define-key elfeed-search-mode-map "n" 'emacspeak-elfeed-next-entry)
   (define-key elfeed-search-mode-map "p" 'emacspeak-elfeed-previous-entry)
-  (define-key elfeed-search-mode-map "." 'emacspeak-elfeed-filter-entry-at-point)
-  (define-key elfeed-search-mode-map [right] 'emacspeak-elfeed-filter-entry-at-point)
+  (define-key elfeed-search-mode-map
+              "." 'emacspeak-elfeed-filter-entry-at-point)
+  (define-key elfeed-search-mode-map
+              [right] 'emacspeak-elfeed-filter-entry-at-point)
   (define-key elfeed-search-mode-map "e" 'emacspeak-elfeed-eww-entry-at-point)
-  (define-key elfeed-search-mode-map " "'emacspeak-elfeed-speak-entry-at-point))
+  (define-key elfeed-search-mode-map
+              " "'emacspeak-elfeed-speak-entry-at-point))
 
 ;;}}}
 (provide 'emacspeak-elfeed)

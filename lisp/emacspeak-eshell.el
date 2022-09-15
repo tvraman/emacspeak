@@ -1,4 +1,4 @@
-;;; emacspeak-eshell.el --- Speech-enable EShell - Emacs Shell  -*- lexical-binding: t; -*-
+;;; emacspeak-eshell.el --- Speech-enable EShell -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:   Speech-enable EShell
@@ -99,21 +99,23 @@ Provide an auditory icon if possible."
 ;;}}}
 ;;{{{ advice em-hist
 
-(cl-loop for f in
-         '(
-           eshell-next-input eshell-previous-input
-           eshell-next-matching-input eshell-previous-matching-input
-           eshell-next-matching-input-from-input eshell-previous-matching-input-from-input)
-         do
-         (eval
-          `(defadvice ,f (after  emacspeak pre act comp)
-             "Speak selected command."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'select-object)
-               (save-excursion
-                 (beginning-of-line)
-                 (eshell-skip-prompt)
-                 (emacspeak-speak-line 1))))))
+(cl-loop
+ for f in
+ '(
+   eshell-next-input eshell-previous-input
+   eshell-next-matching-input eshell-previous-matching-input
+   eshell-next-matching-input-from-input
+   eshell-previous-matching-input-from-input)
+ do
+ (eval
+  `(defadvice ,f (after  emacspeak pre act comp)
+     "Speak selected command."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (save-excursion
+         (beginning-of-line)
+         (eshell-skip-prompt)
+         (emacspeak-speak-line 1))))))
 
 ;;}}}
 ;;{{{  advice em-ls

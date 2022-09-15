@@ -1,4 +1,4 @@
-;;; emacspeak-wizards.el --- Magic For Power Users   -*- lexical-binding: t; -*-
+;;; emacspeak-wizards.el --- Magic -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Contains convenience wizards
@@ -1938,8 +1938,10 @@ Parameter `action' specifies relative URL. '"
   "Retrieve stock quote data from IEX Trading.
 Uses symbols set in `emacspeak-wizards-personal-portfolio '.
 Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
-  (cl-declare (special emacspeak-wizards-iex-portfolio-file g-curl-program
-                       emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
+  (cl-declare (special
+               emacspeak-wizards-iex-portfolio-file g-curl-program
+               emacspeak-wizards-personal-portfolio
+               emacspeak-wizards-iex-cache))
   (let* ((symbols
           (mapconcat
            #'identity
@@ -3119,7 +3121,8 @@ before brightness is checked.")
   (cl-declare  (special emacspeak-wizards-content-extensions
                         locate-command locate-make-command-line))
   (let ((inhibit-read-only t)
-        (locate-make-command-line #'(lambda (s) (list locate-command "-i" "--regexp" s))))
+        (locate-make-command-line
+         #'(lambda (s) (list locate-command "-i" "--regexp" s))))
     (locate-with-filter
      (mapconcat #'identity
                 (split-string pattern)
