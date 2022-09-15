@@ -1,4 +1,4 @@
-;;; emacspeak-xslt.el --- Implements Emacspeak  xslt transform engine  -*- lexical-binding: t; -*-
+;;; emacspeak-xslt.el --- XSLT -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  xslt transformation routines
@@ -400,10 +400,11 @@ and return the results in a newly created buffer. "
           (buffer-file-coding-system 'utf-8))
       (insert-file-contents file)
       (shell-command
-       (format "%s   --novalid --nonet --param base %s  %s  \"%s\"  2>/dev/null"
-               emacspeak-xslt-program 
-               (format "\"'file://%s'\"" file)
-               style file)
+       (format
+        "%s   --novalid --nonet --param base %s  %s  \"%s\"  2>/dev/null"
+        emacspeak-xslt-program 
+        (format "\"'file://%s'\"" file)
+        style file)
        (current-buffer) 'replace)
       (browse-url-of-buffer))))
 
