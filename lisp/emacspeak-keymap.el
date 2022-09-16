@@ -613,6 +613,7 @@
     ("f" magit-file-dispatch)
     ("g" gnus)
     ("h" emacspeak-m-player-from-history)
+    ("i" ibuffer)
     ("k" emacspeak-google-knowledge-search)
     ("l" locate)
     ("m" vm)
