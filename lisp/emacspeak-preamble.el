@@ -178,7 +178,7 @@ FN-NAME to our stored value of ems--interactive-fn-name."
      ;;  env with new definition
      `((ems-interactive-p
         ;; Reset the var to nil after consuming it to avoid  misfiring if
-                ;; fn-name calls itself recursively.
+        ;; fn-name calls itself recursively.
         . ,(lambda ()
              `(when (eq ems--interactive-fn-name ',fn-name)
                 (setq ems--interactive-fn-name nil)

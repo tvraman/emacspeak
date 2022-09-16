@@ -80,20 +80,20 @@ String: Return it as is.
         (values nil))
     (cl-loop
      for  v in template do
-      (push
-       (cond
-        ((stringp v) (format " %s " v))
-        ((and (numberp v) (< v (length fields)))
-         (propertize (nth v fields) 'personality voice-smoothen))
-        ((and
-          (listp v) (symbolp (nth 0 v)) (fboundp (nth 0 v)))
-         (apply
-          (nth 0 v)
-                (cl-loop
-                 for k in (cdr v)
-                 collect (nth k fields))))
-        (t (error "bad template?")))
-       values))
+     (push
+      (cond
+       ((stringp v) (format " %s " v))
+       ((and (numberp v) (< v (length fields)))
+        (propertize (nth v fields) 'personality voice-smoothen))
+       ((and
+         (listp v) (symbolp (nth 0 v)) (fboundp (nth 0 v)))
+        (apply
+         (nth 0 v)
+         (cl-loop
+          for k in (cdr v)
+          collect (nth k fields))))
+       (t (error "bad template?")))
+      values))
     (mapconcat #'identity (nreverse values) " ")))
 
 ;;}}}
@@ -741,8 +741,6 @@ specified pronunciation dictionary key."
   "[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}"
   "Pattern that matches dates of the form yy-mm-dd.")
 
-
-
 (defun emacspeak-pronounce-yyyy-mm-dd-date (string)
   "Return pronunciation for yyyy-mm-dd  dates."
   (let ((fields (mapcar #'read (split-string string "-"))))
@@ -768,8 +766,6 @@ specified pronunciation dictionary key."
     (read (substring string 6))
     (read (substring string 0 4)))
    nil 'nodayname))
-
-
 
 ;;}}}
 ;;{{{ phone numbers
@@ -834,7 +830,6 @@ with Git among other things."
 ;;}}}
 ;;{{{ helper function --decode ISO date-time 
 
-
 (defun ems-speak-rfc-3339-tz-offset (rfc-3339)
   "Return offset in seconds from UTC given an RFC-3339 time.
   Timezone spec is of the form -08:00 or +05:30 or [zZ] for UTC.
@@ -855,7 +850,6 @@ Value returned is compatible with `encode-time'."
        (+ (* 60 (cl-first fields))
           (cl-second fields)))))))
 
-
 (defun emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
   "Return a speakable string description."
   (cl-declare (special emacspeak-speak-time-format-string))
@@ -872,7 +866,6 @@ Value returned is compatible with `encode-time'."
                             (encode-time second minute hour day month
                                          year tz))
       (error rfc-3339))))
-
 
 (defvar emacspeak-pronounce-iso-datetime-pattern
   "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)Z?"

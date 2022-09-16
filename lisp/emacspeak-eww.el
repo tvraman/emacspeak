@@ -689,7 +689,7 @@ Optional interactive prefix arg `playlist-p' treats
     (cl-assert (stringp url) t "No URL under point." )
     (message "Playing media  URL under point")
     (kill-new url)
-      (cl-pushnew  url emacspeak-m-player-media-history :test #'string=)
+    (cl-pushnew  url emacspeak-m-player-media-history :test #'string=)
     (emacspeak-m-player  url  playlist-p)))
 
 (defun emacspeak-eww-curl-play-media-at-point ()
@@ -1846,7 +1846,6 @@ The %s is automatically spoken if there is no user activity."
                  (emacspeak-speak-region start (point)))
              (error nil))))))))
 
-
 (cl-loop
  for f in
  '(url-retrieve-internal  url-truncate-url-for-viewing eww)
@@ -1860,21 +1859,20 @@ The %s is automatically spoken if there is no user activity."
        ((and u (stringp u)
              (string-prefix-p (emacspeak-google-result-url-prefix) u))
         (ad-set-arg 0 (emacspeak-google-canonicalize-result-url
- u))))))))
+                       u))))))))
 
 (defadvice shr-copy-url (around emacspeak pre act comp)
   "Canonicalize Google URLs"
   (ems-with-messages-silenced
-    ad-do-it
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'delete-object)
-      (let ((u (car kill-ring)))
-        (when
-            (and u (stringp u)
-                 (string-prefix-p (emacspeak-google-result-url-prefix) u))
-          (kill-new  (emacspeak-google-canonicalize-result-url u))))
-      (emacspeak-speak-current-kill))))
-
+   ad-do-it
+   (when (ems-interactive-p)
+     (emacspeak-auditory-icon 'delete-object)
+     (let ((u (car kill-ring)))
+       (when
+           (and u (stringp u)
+                (string-prefix-p (emacspeak-google-result-url-prefix) u))
+         (kill-new  (emacspeak-google-canonicalize-result-url u))))
+     (emacspeak-speak-current-kill))))
 
 ;;}}}
 ;;{{{ Speech-enable EWW buffer list:

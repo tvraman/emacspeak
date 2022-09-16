@@ -255,12 +255,12 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
   "Run command and return its output."
   (cl-declare (special shell-file-name shell-command-switch))
   (g-using-scratch
-      (call-process shell-file-name nil t
-                    nil shell-command-switch
-                    command)
-    (goto-char (point-min))
-    (message "Size: %d" (buffer-size))
-    (libxml-parse-xml-region (point-min) (point-max))))
+   (call-process shell-file-name nil t
+                 nil shell-command-switch
+                 command)
+   (goto-char (point-min))
+   (message "Size: %d" (buffer-size))
+   (libxml-parse-xml-region (point-min) (point-max))))
 
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")

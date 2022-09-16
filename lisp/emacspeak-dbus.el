@@ -225,10 +225,10 @@ already disabled."
   (cl-declare (special dtk-quiet))
   (let ((dtk-quiet t))
     (ems-with-messages-silenced
-      (emacspeak-dbus-screensaver-check)
-      (save-some-buffers t)
-      (start-process "fuser" nil  "fuser"
-                     "-k" "/dev/snd/*"))))
+     (emacspeak-dbus-screensaver-check)
+     (save-some-buffers t)
+     (start-process "fuser" nil  "fuser"
+                    "-k" "/dev/snd/*"))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 
@@ -237,20 +237,20 @@ already disabled."
   (cl-declare (special amixer-alsactl-config-file))
   (emacspeak-prompt "resume")
   (ems-with-messages-silenced
-    (tts-restart)
-    (with-environment-variables
-        (("PULSE_SINK"  "tts_left"))
-      (emacspeak-prompt "waking-up"))
-    (amixer-restore amixer-alsactl-config-file)
-    (when (featurep 'soundscape) (soundscape-restart))
-    (when (featurep 'light) (light-black))
-    (when
-        (dbus-call-method
-         :session
-         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-         "org.gnome.ScreenSaver" "GetActive")
-      (emacspeak-prompt "pwd")
-      (emacspeak-auditory-icon 'help))))
+   (tts-restart)
+   (with-environment-variables
+       (("PULSE_SINK"  "tts_left"))
+     (emacspeak-prompt "waking-up"))
+   (amixer-restore amixer-alsactl-config-file)
+   (when (featurep 'soundscape) (soundscape-restart))
+   (when (featurep 'light) (light-black))
+   (when
+       (dbus-call-method
+        :session
+        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+        "org.gnome.ScreenSaver" "GetActive")
+     (emacspeak-prompt "pwd")
+     (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 

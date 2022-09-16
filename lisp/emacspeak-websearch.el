@@ -194,8 +194,8 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defvar emacspeak-websearch-biblio-uri
   (concat
- "http://liinwww.ira.uka.de/searchbib/index"
-"?partial=on&case=on&results=citation&maxnum=200&query=")
+   "http://liinwww.ira.uka.de/searchbib/index"
+   "?partial=on&case=on&results=citation&maxnum=200&query=")
   "URI to search the Computer Science Bibliographies.")
 
 (defun emacspeak-websearch-biblio-search (query)
@@ -217,7 +217,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 (defvar emacspeak-websearch-citeseer-uri
   (concat
    "https://citeseerx.ist.psu.edu/search"
-"?t=doc&sort=rlv&s2=Semantic+Scholar&submit=Search&q=%s") 
+   "?t=doc&sort=rlv&s2=Semantic+Scholar&submit=Search&q=%s") 
   "URI for searching CiteSeer index. ")
 
 (emacspeak-websearch-set-searcher

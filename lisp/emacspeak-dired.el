@@ -586,7 +586,6 @@ If on a directory, speak the total duration of all mp3 files under
       (setq arg (completing-read "Switch:" ems--find-switches nil t)))
     (find-dired directory (mapconcat #'identity (nreverse f-args) " "))))
 
-
 ;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables

@@ -79,7 +79,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'right)))
 
-
 (defadvice mpv-volume-decrease (after emacspeak pre act comp)
   "Icon."
   (when (ems-interactive-p)

@@ -412,15 +412,15 @@ command."
 To leave, press \\[keyboard-quit]."
   (interactive)
   (ems-with-messages-silenced
-    (let ((continue t)
-          (dtk-stop-immediately nil))
-      (while continue
-        (call-interactively 'describe-key-briefly)
-        (sit-for 1)
-        (when (and (numberp last-input-event)
-                   (= last-input-event 7))
-          (setq continue nil)))
-      (message "Leaving learn mode "))))
+   (let ((continue t)
+         (dtk-stop-immediately nil))
+     (while continue
+       (call-interactively 'describe-key-briefly)
+       (sit-for 1)
+       (when (and (numberp last-input-event)
+                  (= last-input-event 7))
+         (setq continue nil)))
+     (message "Leaving learn mode "))))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
@@ -1192,7 +1192,6 @@ dates.")
            (if emacspeak-wizards-yyyy-mm-dd-date-pronounce
                "" " not ")))
 
-
 (defvar emacspeak-wizards-yyyymmdd-date-pronounce nil
   "Toggled by wizard to record how we are pronouncing yyyymmdd dates.")
 
@@ -1227,7 +1226,7 @@ dates.")
   (cl-declare (special emacspeak-comint-autospeak))
   (with-environment-variables
       (("PAGER" "cat"))
-      (make-comint "units" "units" nil "--verbose"))
+    (make-comint "units" "units" nil "--verbose"))
   (switch-to-buffer "*units*")
   (emacspeak-auditory-icon 'select-object)
   (goto-char (point-max))
@@ -1359,7 +1358,7 @@ of the source buffer."
              (length (hash-table-keys emacspeak-wizards--shells-table))))
            (buffer (gethash key emacspeak-wizards--shells-table)))
       (when ;  source determines target directory
-               (or (eq major-mode 'dired-mode) buffer-file-name)
+          (or (eq major-mode 'dired-mode) buffer-file-name)
         (unless prefix (ems--shell-pushd-if-needed directory buffer)))
       (funcall-interactively #'pop-to-buffer buffer)))))
 
@@ -1411,7 +1410,6 @@ defined.  If not in a shell buffer, switch to our Home shell buffer."
     (message (abbreviate-file-name default-directory)))
    (t
     (funcall-interactively #'pop-to-buffer "Home"))))
-
 
 (defun emacspeak-wizards-shell-re-key (key buffer)
   "Re-key shell-buffer `buffer' to be accessed via key `key'. The old shell
@@ -2901,13 +2899,13 @@ Works best when you already are ssh-impel-ed in and have a talking
                      emacspeak-wizards-remote-workstation "\\.")))))))
     (with-environment-variables
         (("TERM" "xterm"))
-        (start-process
-         "REmacs" "*REmacs*" "ssh"
-         "-Y" ;;; forward Trusted X11
-         emacspeak-wizards-remote-workstation
-         "emacsclient" "-c"
-         "-a" "''"
-         "-F" (shell-quote-argument (prin1-to-string title))))))
+      (start-process
+       "REmacs" "*REmacs*" "ssh"
+       "-Y" ;;; forward Trusted X11
+       emacspeak-wizards-remote-workstation
+       "emacsclient" "-c"
+       "-a" "''"
+       "-F" (shell-quote-argument (prin1-to-string title))))))
 
 ;;}}}
 ;;{{{ describe-voice at point:
@@ -3052,7 +3050,6 @@ before brightness is checked.")
   :type 'boolean
   :group 'emacspeak-wizards)
 
-
 (defun emacspeak-brightness-alert ()
   "Check  brightness, alert and autoblack if set."
   (cl-declare (special emacspeak-brightness-autoblack))
@@ -3081,7 +3078,6 @@ before brightness is checked.")
              (if emacspeak-brightness-timer "on" "off"))
     (emacspeak-auditory-icon
      (if emacspeak-brightness-timer 'on 'off))))
-
 
 ;;;###autoload
 (defun emacspeak-brightness-autoblack-toggle ()

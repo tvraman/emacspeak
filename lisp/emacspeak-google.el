@@ -492,7 +492,7 @@ current page."
                    (cl-find-if
                     #'(lambda (tool)
                         (string= (emacspeak-google-tool-name tool)
-                                      ,(emacspeak-google-tool-name this-tool)))
+                                 ,(emacspeak-google-tool-name this-tool)))
                     belt))
                   (param (emacspeak-google-tool-param tool))
                   (value (emacspeak-google-tool-value tool))
@@ -585,8 +585,8 @@ current page."
 
 (defvar emacspeak-google-sign-in-url
   (concat
- "https://accounts.google.com/ServiceLogin"
-"?hl=en&continue=https://www.google.com/")
+   "https://accounts.google.com/ServiceLogin"
+   "?hl=en&continue=https://www.google.com/")
   "URL for signing in to Google.")
 
 (defun emacspeak-google-sign-in ()
@@ -729,8 +729,8 @@ Optional interactive prefix arg `lang' specifies  language identifier."
 
 (defvar emacspeak-google-kg-rest-end-point
   (concat
- "https://kgsearch.googleapis.com/v1/entities:search"
-"?%s=%s&key=%s&indent=1&limit=%s")
+   "https://kgsearch.googleapis.com/v1/entities:search"
+   "?%s=%s&key=%s&indent=1&limit=%s")
   "Rest end-point for KG Search.")
 
 (defun emacspeak-google-kg-id-uri (id)
@@ -836,7 +836,7 @@ results, default is 1."
       (setq channel
             (substring url
                        (+ (string-match "channel" url)
-                        (length "channel/")))))
+                          (length "channel/")))))
     (cond
      (playlist
       (kill-new (format r "playlist_id" playlist))

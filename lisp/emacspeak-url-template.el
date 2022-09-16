@@ -261,7 +261,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "Sign in to Google"
  (concat  "https://accounts.google.com/ServiceLogin"
-"?hl=en&continue=https://www.google.com/")
+          "?hl=en&continue=https://www.google.com/")
  nil
  nil
  "Login to Google.")
@@ -311,7 +311,6 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-speak-rest-of-buffer))
  "Light-weight Google US Stock Markets.")
 
-
 ;;}}}
 ;;{{{ Calendar Mobile:
 
@@ -339,12 +338,12 @@ dont-url-encode if true then url arguments are not url-encoded "
  (list
   #'(lambda nil
       (format
-   "%s:%s"
-   (read-from-minibuffer "ticker:")
-   (cl-case (read-char "o,n")
-  (?n "nyse")
-  (?o "nasdaq")
-  (error "O: nasdaq N: nyse")))))
+       "%s:%s"
+       (read-from-minibuffer "ticker:")
+       (cl-case (read-char "o,n")
+         (?n "nyse")
+         (?o "nasdaq")
+         (error "O: nasdaq N: nyse")))))
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object)
      (search-forward "Most Active")
@@ -367,7 +366,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "Google Scholar"
  (concat  "https://scholar.google.com/scholar"
-"?ie=UTF-8&oe=UTF-8&hl=en&btnG=Search&num=25&q=%s")
+          "?ie=UTF-8&oe=UTF-8&hl=en&btnG=Search&num=25&q=%s")
  (list "Google Scholar Search: ")
  nil
  "Google Scholar Search"
@@ -431,8 +430,8 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "Google News Search"
  (concat
- "https://news.google.com/atom/"
-"search?hl=en-US&q=%s&btnG=Google+Search&gl=US&ceid=US:en")
+  "https://news.google.com/atom/"
+  "search?hl=en-US&q=%s&btnG=Google+Search&gl=US&ceid=US:en")
  (list #'gweb-news-autocomplete)
  nil
  "Search Google news."
@@ -840,7 +839,7 @@ JSON is retrieved from `url'."
 (emacspeak-url-template-define
  "WordNet Search"
  (concat "http://wordnetweb.princeton.edu/perl/webwn"
-"?s=%s&o1=1&o8=1&o0=1&sub=Search+WordNet")
+         "?s=%s&o1=1&o8=1&o0=1&sub=Search+WordNet")
  (list "WordNet Define: ")
  #'(lambda ()
      (search-forward "(gloss)")
@@ -968,7 +967,7 @@ Format is stationid+AM/FM."
 (emacspeak-url-template-define
  "OpenLibrary"
  (concat  "https://openlibrary.org/search?"
-"subject_facet=Accessible+book&q=%s&has_fulltext=true")
+          "subject_facet=Accessible+book&q=%s&has_fulltext=true")
  (list "Query: ")
  nil
  "Open Library Search")
@@ -1167,7 +1166,7 @@ Each URL template carries out the following steps:
 (emacspeak-url-template-define
  "NLS Bard Search"
  (concat  "https://nlsbard.loc.gov/nlsbardprod/search/"
-"collection/page/1/sort/s/srch/%s/local/0")
+          "collection/page/1/sort/s/srch/%s/local/0")
  (list "Search For: ")
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))

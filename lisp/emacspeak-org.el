@@ -139,9 +139,9 @@
   (unless (eq major-mode 'org-mode) (error "Not in an org buffer"))
   (unless (org-at-item-p) (error "Not at an item"))
   (save-excursion
-   (let ((start (org-beginning-of-item))
-         (end (org-end-of-item)))
-     (emacspeak-speak-region start end))))
+    (let ((start (org-beginning-of-item))
+          (end (org-end-of-item)))
+      (emacspeak-speak-region start end))))
 
 (cl-loop
  for f in 
@@ -153,8 +153,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-org-speak-item)))))
-
-
 
 (cl-loop
  for f in
@@ -646,13 +644,11 @@ Before doing so, re-align the table if necessary."
 ;;}}}
 ;;{{{ Capture
 
-
 (defcustom emacspeak-org-hotlist  (expand-file-name
                                    "~/.org/hotlist.org")
   "Emacspeak org hotlist location."
   :type 'file
   :group 'emacspeak-org)
-
 
 ;;;###autoload
 (defun emacspeak-org-capture-link (&optional open)

@@ -55,12 +55,10 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'((ffap voice-bolden)))
+ '((ffap voice-bolden)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
-
-
 
 (cl-loop
  for f in 
@@ -79,8 +77,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
-
-
 
 ;;}}}
 (provide 'emacspeak-ffap)

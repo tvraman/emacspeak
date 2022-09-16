@@ -314,7 +314,6 @@ Interactive prefix arg refreshes cache."
   :type 'integer
   :group 'emacspeak)
 
-
 ;;;###autoload
 (defun amixer-volume-up (prompt)
   "Raise Master volume by amixer-volume-step.

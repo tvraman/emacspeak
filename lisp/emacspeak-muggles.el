@@ -116,27 +116,28 @@
 
 (global-set-key
  (ems-kbd "<print>")
- (defhydra emacspeak-muggles-brightness
-   (:body-pre
-    (progn
-      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "brightness"))
-    :hint nil
-    :pre emacspeak-hydra-pre
-    :post emacspeak-hydra-post)
-   "Brightness "
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
-   ("b" emacspeak-brightness-alert-toggle "Alert" )
-   ("B" emacspeak-brightness-autoblack-toggle "Autoblack" )
-   ("s" light-set "set")
-   ("g" light-get "Get")
-   ("t" emacspeak-hydra-toggle-talkative)
-   ("<print>" light-black "black")
-   ("0" light-black "black")
-   ("1" light-white  "white")
-   ("d" light-decrement "dimmer")
-   ("i" light-increment "brighter")
-   ("SPC" light-increment "brighter")))
+ (defhydra
+  emacspeak-muggles-brightness
+  (:body-pre
+   (progn
+     (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+     (emacspeak-hydra-body-pre "brightness"))
+   :hint nil
+   :pre emacspeak-hydra-pre
+   :post emacspeak-hydra-post)
+  "Brightness "
+  ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
+  ("b" emacspeak-brightness-alert-toggle "Alert" )
+  ("B" emacspeak-brightness-autoblack-toggle "Autoblack" )
+  ("s" light-set "set")
+  ("g" light-get "Get")
+  ("t" emacspeak-hydra-toggle-talkative)
+  ("<print>" light-black "black")
+  ("0" light-black "black")
+  ("1" light-white  "white")
+  ("d" light-decrement "dimmer")
+  ("i" light-increment "brighter")
+  ("SPC" light-increment "brighter")))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
@@ -205,15 +206,15 @@
 (global-set-key
  (ems-kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
-   (
-    :color blue
-    :body-pre (emacspeak-hydra-body-pre "Toggle Option ")
-    :pre
-    (progn
-      (emacspeak-hydra-pre)
-      (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
-    :post emacspeak-hydra-post)
-   "
+           (
+            :color blue
+            :body-pre (emacspeak-hydra-body-pre "Toggle Option ")
+            :pre
+            (progn
+              (emacspeak-hydra-pre)
+              (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
+            :post emacspeak-hydra-post)
+           "
 _C-f_ turn-on-folding-mmode:       %`folding-mode
 _a_ abbrev-mode: %`abbrev-mode
 _e_emacspeak-m-player-toggle-extrastereo:
@@ -225,18 +226,18 @@ _g_ debug-on-quit:    %`debug-on-quit
 _h_ hydra-is-helpful    %`hydra-is-helpful
 _p_ emacspeak-muggles-lispy-or-sp:    
 "
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
-   ("C-f" (call-interactively #'folding-mode))
-   ("a" (call-interactively #'abbrev-mode))
-   ("d" (call-interactively #'toggle-debug-on-error))
-   ("F" (call-interactively #'flyspell-mode))
-   ("e" (call-interactively #'emacspeak-m-player-toggle-extrastereo))
-   ("f" (call-interactively #'auto-fill-mode))
-   ("g"  (call-interactively #'toggle-debug-on-quit))
-   ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
-   ("p" emacspeak-muggles-lispy-or-sp)
-   ("u" (call-interactively #'ido-ubiquitous-mode))
-   ("q" nil "quit")))
+           ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
+           ("C-f" (call-interactively #'folding-mode))
+           ("a" (call-interactively #'abbrev-mode))
+           ("d" (call-interactively #'toggle-debug-on-error))
+           ("F" (call-interactively #'flyspell-mode))
+           ("e" (call-interactively #'emacspeak-m-player-toggle-extrastereo))
+           ("f" (call-interactively #'auto-fill-mode))
+           ("g"  (call-interactively #'toggle-debug-on-quit))
+           ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
+           ("p" emacspeak-muggles-lispy-or-sp)
+           ("u" (call-interactively #'ido-ubiquitous-mode))
+           ("q" nil "quit")))
 
 ;;}}}
 ;;{{{ Navigate:
@@ -296,22 +297,22 @@ _p_ emacspeak-muggles-lispy-or-sp:
 (global-set-key (ems-kbd "M-C-y") 'emacspeak-muggles-ido-yank)
 
 (defhydra
-  emacspeak-muggles-yank-pop
-  (:body-pre (emacspeak-hydra-body-pre "Yank")
-             :pre
-             (progn
-               (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-               (emacspeak-hydra-pre))
-             :post emacspeak-hydra-post)
-  "Yank"
-  ("?" (emacspeak-hydra-self-help "emacspeak-muggles-yank-pop"))
-  ("C-y" yank nil)
-  ("M-y" yank-pop nil)
-  ("y" (funcall-interactively #'yank-pop 1) "next")
-  ("Y" (funcall-interactively #'yank-pop -1) "prev")
-  ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
-  ("s" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
-  ("l" browse-kill-ring "list" :color blue))
+ emacspeak-muggles-yank-pop
+ (:body-pre (emacspeak-hydra-body-pre "Yank")
+            :pre
+            (progn
+              (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+              (emacspeak-hydra-pre))
+            :post emacspeak-hydra-post)
+ "Yank"
+ ("?" (emacspeak-hydra-self-help "emacspeak-muggles-yank-pop"))
+ ("C-y" yank nil)
+ ("M-y" yank-pop nil)
+ ("y" (funcall-interactively #'yank-pop 1) "next")
+ ("Y" (funcall-interactively #'yank-pop -1) "prev")
+ ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
+ ("s" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
+ ("l" browse-kill-ring "list" :color blue))
 
 (global-set-key (ems-kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
 (global-set-key (ems-kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
@@ -323,17 +324,17 @@ _p_ emacspeak-muggles-lispy-or-sp:
 (global-set-key
  (ems-kbd "C-/") 
  (defhydra
-   emacspeak-muggles-undo-only/undo-redo
-   (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
-              :pre
-              (progn
-                (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-                (emacspeak-hydra-pre))
-              :post emacspeak-hydra-post)
-   "Undo"
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo"))
-   ("/" undo-only nil)
-   ("\\" undo-redo nil)))
+  emacspeak-muggles-undo-only/undo-redo
+  (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
+             :pre
+             (progn
+               (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+               (emacspeak-hydra-pre))
+             :post emacspeak-hydra-post)
+  "Undo"
+  ("?" (emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo"))
+  ("/" undo-only nil)
+  ("\\" undo-redo nil)))
 
 ;;}}}
 ;;{{{  Speak And Browse Math

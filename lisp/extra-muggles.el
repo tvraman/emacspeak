@@ -534,22 +534,22 @@ Also generates global keybindings if any."
    org-mode-map
    (ems-kbd "C-c C-SPC")
    (defhydra emacspeak-muggles-org-nav
-     (:body-pre
-      (progn
-        (emacspeak-hydra-toggle-talkative)
-        (emacspeak-hydra-body-pre "OrgNavView"))
-      :hint nil
-      :pre emacspeak-hydra-pre :post emacspeak-hydra-post
-      :color red :columns 3)
-     "Org Mode Navigate "
-     ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
-     ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
-     ("n" emacspeak-outline-speak-next-heading  "next heading")
-     ("p" emacspeak-outline-speak-previous-heading "prev heading")
-     ("f" org-forward-heading-same-level "next heading at same level")
-     ("b" org-backward-heading-same-level "prev heading at same level")
-     ("u" outline-up-heading "up heading")
-     ("g" org-goto "goto" :exit t))))
+             (:body-pre
+              (progn
+                (emacspeak-hydra-toggle-talkative)
+                (emacspeak-hydra-body-pre "OrgNavView"))
+              :hint nil
+              :pre emacspeak-hydra-pre :post emacspeak-hydra-post
+              :color red :columns 3)
+             "Org Mode Navigate "
+             ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
+             ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
+             ("n" emacspeak-outline-speak-next-heading  "next heading")
+             ("p" emacspeak-outline-speak-previous-heading "prev heading")
+             ("f" org-forward-heading-same-level "next heading at same level")
+             ("b" org-backward-heading-same-level "prev heading at same level")
+             ("u" outline-up-heading "up heading")
+             ("g" org-goto "goto" :exit t))))
 
 ;;}}}
 (provide 'extra-muggles)

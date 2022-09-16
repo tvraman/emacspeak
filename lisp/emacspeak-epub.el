@@ -914,7 +914,7 @@ in the epub file."
 
 (defvar emacspeak-epub-google-search-template
   (concat  "http://books.google.com/books/feeds/volumes?"
-"min-viewability=full&epub=epub&q=%s")
+           "min-viewability=full&epub=epub&q=%s")
   "REST  end-point for performing Google Books Search
 to find Epubs  having full viewability.")
 

@@ -127,8 +127,6 @@ Do not set this by hand;
    (intern theme-name)
    emacspeak-sounds-themes-table))
 
-
-
 (defun emacspeak-get-sound-filename (sound-name)
   "Get name of  file that produces  auditory icon SOUND-NAME."
   (cl-declare (special emacspeak-sounds-themes-table
@@ -171,7 +169,7 @@ Do not set this by hand;
   "Select theme for auditory icons."
   (interactive
    (list
-     (read-directory-name "Theme: " emacspeak-sounds-directory)))
+    (read-directory-name "Theme: " emacspeak-sounds-directory)))
   (cl-declare (special emacspeak-sounds-current-theme
                        emacspeak-sounds-themes-table
                        emacspeak-play-program emacspeak-sounds-directory))
@@ -189,11 +187,10 @@ Do not set this by hand;
   (emacspeak-sounds-define-theme-if-necessary theme)
   (when (string= (executable-find "pactl") emacspeak-play-program)
     (shell-command
-                  (format "%s load-sample-dir-lazy %s"
-                          (executable-find "pacmd") theme))
+     (format "%s load-sample-dir-lazy %s"
+             (executable-find "pacmd") theme))
     )
   t)
-
 
 (defcustom emacspeak-play-program
   (or
@@ -233,10 +230,6 @@ Do not set this by hand;
   (cl-declare (special emacspeak-sounds-directory))
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
-
-
-
-
 
 ;;}}}
 ;;{{{  queue an auditory icon

@@ -80,7 +80,7 @@
 
 (defcustom g-curl-common-options
   (concat "--http1.0 --compressed --silent --location --location-trusted "
-"--max-time 4 --connect-timeout 1")
+          "--max-time 4 --connect-timeout 1")
   "Common options to pass to all Curl invocations."
   :type 'string
   :group 'g)

@@ -184,11 +184,6 @@ This is set to nil when playing Internet  streams.")
     (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata))
     (setq buffer-undo-list t)))
 
-
-
-
-
-
 ;;}}}
 ;;{{{Dynamic playlist:
 
@@ -375,9 +370,6 @@ Controls media playback when already playing.
     (global-set-key key command)
     (put command 'repeat-map 'emacspeak-m-player-mode-map)
     (put 'emacspeak-m-player-quit  'repeat-map nil)))
-
-
-
 
 (defvar emacspeak-m-player-accelerator-p nil
   "Flag set by accelerators. Let-binding this causes default-directory
@@ -1079,7 +1071,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "ladspa=amp:amp_stereo:2"
     "ladspa=amp:amp_stereo:0.5"
     (concat  "ladspa=tap_autopan:tap_autopan:.0016:100:1.5,"
-" ladspa=tap_autopan:tap_autopan:.06:33:2")
+             " ladspa=tap_autopan:tap_autopan:.06:33:2")
     "bs2b profile=cmoy" "bs2b profile=jmeier" "bs2b")
   "Table of MPlayer filters.")
 
@@ -1174,7 +1166,6 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
          (> (length emacspeak-m-player-media-history) posn))
     (funcall #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
    (t (error "Not enough history"))))
-
 
 (defun emacspeak-m-player-browse-history ()
   "Create a  media history browser from media-history."
@@ -1522,7 +1513,7 @@ flat classical club dance full-bass full-bass-and-treble
                      url)))))
       (when (= 0 (length  u)) (error "Error retrieving Media URL "))
       (kill-new u)
-        (emacspeak-m-player u)))))
+      (emacspeak-m-player u)))))
 
 (put 'emacspeak-m-player-youtube-player 'repeat-map 'emacspeak-mpv-keymap)
 ;;;###autoload
