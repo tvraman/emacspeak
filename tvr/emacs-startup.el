@@ -145,9 +145,6 @@ Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        python-mode-hook outline-mode-prefix-map
                        outline-minor-mode-prefix))
-  (when (require 'wallpaper "wallpaper" 'no-error)
-    (wallpaper-set
-     (expand-file-name "tilden-face.jpg" emacspeak-etc-directory)))
   (add-hook 'python-mode-hook
             #'(lambda nil
                 (elpy-enable)))
