@@ -31,32 +31,31 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-bookshare::BOOKSHARE client.
 * emacspeak-browse-kill-ring::kill-ring.
 * emacspeak-bs::speech-enable bs.
-* emacspeak-buff-menu::Speech enable buff-menu.
+* emacspeak-buff-menu::Speech enable buff.
 * emacspeak-c::Speech enable C, C++.
 * emacspeak-calc::Speech enable Calc.
 * emacspeak-calculator::Extend calculator.
 * emacspeak-calendar::Speech enable Calendar.
-* emacspeak-calibredb::Speech-enable CALIBREDB.
+* emacspeak-calibredb::CALIBREDB.
 * emacspeak-chess::Speech-enable CHESS.
 * emacspeak-cider::Speech-enable CIDER.
 * emacspeak-ciel::Speech-enable CIEL.
-* emacspeak-clojure::Speech-enable CLOJURE Mode.
+* emacspeak-clojure::Speech-enable CLOJURE.
 * emacspeak-cmuscheme::CMUScheme.
 * emacspeak-comint::Speech-enable COMINT.
-* emacspeak-company::Speech-enable COMPANY-mode.
+* emacspeak-company::Speech-enable COMPANY.
 * emacspeak-compile::Speech enable compile.
 * emacspeak-cperl::Speech enable CPerl.
-* emacspeak-crossword::Speech-enable CROSSWORD.
 * emacspeak-custom::Speech enable custom.
-* emacspeak-dbus::DBus On Emacspeak Desktop.
+* emacspeak-dbus::DBus On Emacspeak.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
 * emacspeak-debugger::Speech-enable DEBUG.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::dictionaries.
-* emacspeak-diff-mode::Speech-enable DIFF-MODE.
+* emacspeak-diff-mode::Speech-enable DIFF.
 * emacspeak-dired::Speech enable Dired Mode.
 * emacspeak-dismal::Speech enable Dismal.
-* emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
+* emacspeak-dumb-jump::DUMB-JUMP.
 * emacspeak-eaf::Speech-enable EAF.
 * emacspeak-ecb::speech-enable ECB.
 * emacspeak-eclim::Speech-enable ECLIM.
@@ -64,16 +63,16 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-eglot::Speech-enable EGLOT.
 * emacspeak-ein::Speech-enable EIN.
 * emacspeak-elfeed::Speech-enable ELFEED.
-* emacspeak-elisp-refs::Speech-enable ELISP-REFS.
+* emacspeak-elisp-refs::ELISP-REFS.
 * emacspeak-elpher::Speech-enable ELPHER.
 * emacspeak-elpy::Speech-enable ELPY.
-* emacspeak-elscreen::Speech-enable ELSCREEN.
+* emacspeak-elscreen::ELSCREEN.
 * emacspeak-emms::Speech-enable EMMS.
 * emacspeak-enriched::Audio FormatRichtext.
-* emacspeak-entertain::Speech enable misc games.
-* emacspeak-epa::Speech-enable EasyPG Assistant.
+* emacspeak-entertain::Speech enable games.
+* emacspeak-epa::Speech-enable GPG Helper.
 * emacspeak-eperiodic::Periodic Table.
-* emacspeak-epub::epubs On emacspeak desktop.
+* emacspeak-epub::epubs for  desktop.
 * emacspeak-erc::speech-enable erc.
 * emacspeak-eshell::Speech-enable EShell.
 * emacspeak-ess::Speech-enable ESS.
@@ -85,16 +84,16 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-extras::Speech-enable EXTRAS.
 * emacspeak-feeds::Atom, RSS.
 * emacspeak-ffap::Speech-enable FFAP.
-* emacspeak-filtertext::Utilities to filter text.
+* emacspeak-filtertext::filter text.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.
 * emacspeak-flyspell::Speech enable flyspell.
 * emacspeak-folding::
 * emacspeak-forge::Speech-enable FORGE.
-* emacspeak-forms::Speech enable Emacs' forms mode.
+* emacspeak-forms::Speech enable  forms mode.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-gh-explorer::GH-EXPLORER.
-* emacspeak-gnuplot::speech-enable gnuplot mode.
+* emacspeak-gnuplot::speech-enable gnuplot.
 * emacspeak-gnus::Speech enable Gnus.
 * emacspeak-go-mode::Speech-enable GO-MODE.
 * emacspeak-gomoku::Speech enable Gomoku.
@@ -105,7 +104,7 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-haskell::Speech-enable HASKELL.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Hide/Expose Text blocks.
-* emacspeak-hide-lines::Speech-enable HIDE-LINES.
+* emacspeak-hide-lines::HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
 * emacspeak-ibuffer::speech-enable ibuffer.
@@ -117,7 +116,7 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-ivy::Speech-enable IVY.
 * emacspeak-jabber::Speech-Enable jabber.
 * emacspeak-jdee::Speech enable JDEE.
-* emacspeak-journalctl::Speech-enable JOURNALCTL.
+* emacspeak-journalctl::JOURNALCTL.
 * emacspeak-js2::Speech-enable JS2.
 * emacspeak-keymap::Setup   keybindings.
 * emacspeak-kmacro::Speech-enable KMacros.
@@ -126,21 +125,20 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-lua::Speech-enable LUA.
 * emacspeak-m-player::mplayer Interaction.
 * emacspeak-magit::Speech-enable MAGIT.
-* emacspeak-make-mode::Speech enable make-mode.
+* emacspeak-make-mode::Speech enable make.
 * emacspeak-man::Speech enable Man.
 * emacspeak-markdown::Speech-enable MARKDOWN.
-* emacspeak-maths::Audio-Formatted Mathematics.
+* emacspeak-maths::Audio-Formatted Maths.
 * emacspeak-message::Speech enable Message.
-* emacspeak-metapost::speech-enable metapost mode.
-* emacspeak-midge::Speech-enable MIDI editor.
+* emacspeak-metapost::speech-enable metapost.
+* emacspeak-midge::Speech-enable Midge.
 * emacspeak-mines::Speech-enable MINES.
 * emacspeak-mpv::Speech-enable MPV.
 * emacspeak-mspools::Speech enable MSpools.
 * emacspeak-muggles::Convenience Hydras.
 * emacspeak-muse::Speech-enable Muse.
-* emacspeak-navi-mode::Speech-enable NAVI-MODE.
-* emacspeak-net-utils::Speech enable net-utils.
-* emacspeak-newsticker::Speech-enable newsticker.
+* emacspeak-net-utils::net-utils.
+* emacspeak-newsticker::newsticker.
 * emacspeak-notmuch::Speech-enable NOTMUCH.
 * emacspeak-nov::Speech-enable NOV.
 * emacspeak-nxml::Speech enable nxml mode.
@@ -156,14 +154,14 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
-* emacspeak-projectile::Speech-enable PROJECTILE.
+* emacspeak-projectile::PROJECTILE.
 * emacspeak-pronounce::pronunciations.
 * emacspeak-py::Speech enable Python.
 * emacspeak-pydoc::Speech-enable PYDOC.
 * emacspeak-python::Speech enable Python.
 * emacspeak-racer::Speech-enable RACER.
 * emacspeak-racket::Speech-enable RACKET.
-* emacspeak-re-builder::speech-enable re-builder.
+* emacspeak-re-builder::re-builder.
 * emacspeak-reftex::speech enable reftex.
 * emacspeak-related::Speech-enable RELATED.
 * emacspeak-rg::Speech-enable RG.
@@ -171,25 +169,25 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-rpm-spec::Speech enable rpm spec.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
-* emacspeak-rust-mode::Speech-enable RUST-MODE.
+* emacspeak-rust-mode::Speech-enable RUST.
 * emacspeak-sage::Speech-enable SAGE.
 * emacspeak-sdcv::Speech-enable SDCV.
-* emacspeak-selectrum::Speech-enable SELECTRUM.
-* emacspeak-ses::Speech-enable ses spread-sheet.
+* emacspeak-selectrum::SELECTRUM.
+* emacspeak-ses::Speech-enable ses.
 * emacspeak-setup::Setup Emacspeak --.
-* emacspeak-sgml-mode::Speech enable SGML mode.
+* emacspeak-sgml-mode::Speech enable SGML.
 * emacspeak-sh-script::Speech enable script.
 * emacspeak-shx::Speech-enable SHX.
-* emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
+* emacspeak-slime::Speech-enable SLIME.
 * emacspeak-smartparens::SMARTPARENS.
 * emacspeak-solitaire::Solitaire.
 * emacspeak-sounds::auditory icons.
-* emacspeak-speak::Implements core services.
-* emacspeak-speedbar::Speech enable speedbar -.
+* emacspeak-speak::Core Speech Lib.
+* emacspeak-speedbar::speedbar -.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
-* emacspeak-supercite::Speech enable supercite.
-* emacspeak-syslog::Speech-enable SYSLOG-MODE.
+* emacspeak-supercite::Speech enable SC.
+* emacspeak-syslog::Speech-enable SYSLOG.
 * emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Table data model.
 * emacspeak-table-ui::Table Navigation UI.
@@ -198,11 +196,11 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-tcl::Speech enable TCL.
 * emacspeak-tempo::Speech enable tempo.
 * emacspeak-tetris::Tetris.
-* emacspeak-texinfo::Speech enable texinfo mode.
+* emacspeak-texinfo::Speech enable texinfo.
 * emacspeak-threes::Speech-enable THREES.
 * emacspeak-tide::Speech-enable TIDE.
-* emacspeak-todo-mode::speech-enable todo-mode.
-* emacspeak-transient::Speech-enable TRANSIENT.
+* emacspeak-todo-mode::speech-enable todo.
+* emacspeak-transient::TRANSIENT.
 * emacspeak-twittering::
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::URI templates.
@@ -217,7 +215,7 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-websearch::search utilities.
 * emacspeak-webspace::Webspaces.
 * emacspeak-widget::Speech enable widgets.
-* emacspeak-windmove::speech-enable windmove.
+* emacspeak-windmove::windmove.
 * emacspeak-winring::Speech enable WinRing.
 * emacspeak-wizards::Magic.
 * emacspeak-woman::Speech-enable WOMAN.
@@ -225,14 +223,14 @@ This chapter documents a total of 1163 commands and 148 options.
 * emacspeak-xref::Speech-enable XREF.
 * emacspeak-xslt::XSLT.
 * emacspeak-yaml::Speech-enable YAML.
-* emacspeak-yasnippet::Speech-enable YASNIPPET.
+* emacspeak-yasnippet::YASNIPPET.
 * espeak-voices::Define  Espeak tags.
 * extra-muggles::Additional Hydras.
 * g-utils::Google Client Utilities.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
-* light::Control Display Brightness From Emacs.
+* light::Control Brightness.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.
@@ -2788,13 +2786,6 @@ Speech feedback about the compilation error.
 
 Provide additional advice to CPerl mode
 
-@node emacspeak-crossword
-@section emacspeak-crossword
-
-CROSSWORD == Solve crosswords in Emacs
-Use fork at https://github.com/ieure/emacs-crossword
-Rather than the one on melpa.
-
 @node emacspeak-custom
 @section emacspeak-custom
 
@@ -3765,13 +3756,12 @@ on integrating with Calibre catalogs.
 
 @subsection Calibre Integration
 
-Project Calibre  enables the indexing and searching of
-large EBook collections.
-Read the Calibre documentation for organizing and indexing your EBook library.
-See user options named @code{emacspeak-epub-calibre-*} for
-customizing  emacspeak to work with Calibre.
-Once set up, Calibre integration provides
-the following commands from the @emph{bookshelf} buffer:
+Project Calibre enables the indexing and searching of large EBook
+collections.  Read the Calibre documentation for organizing and
+indexing your EBook library.  See user options named
+@code{emacspeak-epub-calibre-*} for customizing emacspeak to work
+with Calibre.  Once set up, Calibre integration provides the
+following commands from the @emph{bookshelf} buffer:
 
 @table @kbd
 @item /
@@ -9841,11 +9831,6 @@ The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 
 Speech enable Muse
 
-@node emacspeak-navi-mode
-@section emacspeak-navi-mode
-
-NAVI-MODE ==  Remote control for buffer navigation
-
 @node emacspeak-net-utils
 @section emacspeak-net-utils
 
@@ -14653,9 +14638,9 @@ timeline we download.
 @node emacspeak-typo
 @section emacspeak-typo
 
-TYPO ==  Typographical Editing
-This module speech-enables typo-mode.
-Typo-mode's magic insertion commands are speech-enabled to speak the inserted char.
+TYPO == Typographical Editing This module speech-enables typo-mode.
+Typo-mode's magic insertion commands are speech-enabled to speak
+the inserted char.
 
 @node emacspeak-url-template
 @section emacspeak-url-template
