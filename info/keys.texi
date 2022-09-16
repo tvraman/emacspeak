@@ -465,6 +465,9 @@
 @item h
  emacspeak-m-player-from-history
 
+@item i
+ ibuffer
+
 @item k
  emacspeak-google-knowledge-search
 

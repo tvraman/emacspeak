@@ -3104,6 +3104,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘h’
      emacspeak-m-player-from-history
 
+‘i’
+     ibuffer
+
 ‘k’
      emacspeak-google-knowledge-search
 
