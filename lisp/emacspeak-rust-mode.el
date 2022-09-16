@@ -1,4 +1,4 @@
-;;; emacspeak-rust-mode.el --- Speech-enable RUST-MODE  -*- lexical-binding: t; -*-
+;;; emacspeak-rust-mode.el --- Speech-enable RUST -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable RUST-MODE An Emacs Interface to rust-mode
 ;; Keywords: Emacspeak,  Audio Desktop rust-mode
@@ -66,7 +66,9 @@
 
 (cl-loop
  for f in 
- '(rust-compile rust-run rust-test rust-run-clippy rust-promote-module-into-dir)
+ '(
+   rust-compile rust-run rust-test
+   rust-run-clippy rust-promote-module-into-dir)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

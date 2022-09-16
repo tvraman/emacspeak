@@ -1,4 +1,4 @@
-;;; emacspeak-dbus.el --- DBus On Emacspeak Desktop -*- lexical-binding: t; -*-
+;;; emacspeak-dbus.el --- DBus On Emacspeak -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-dbus.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  DBus Tools For The Emacspeak Desktop
@@ -101,14 +101,14 @@ switch to a screen-saver soundscape."
   (setq header-line-format "")
   t)
 
-(defvar emacspeak-screen-saver-saved-configuration  nil
+(defvar emacspeak-screen-saver-saved-conf  nil
   "Record window configuration when screen-saver was launched.")
 
 (defun emacspeak-screen-saver ()
   "Launch Emacspeak screen-saver.
 Initialize screen-saver buffer  if needed, and switch to  it."
-  (cl-declare (special emacspeak-screen-saver-saved-configuration))
-  (setq emacspeak-screen-saver-saved-configuration (current-window-configuration))
+  (cl-declare (special emacspeak-screen-saver-saved-conf))
+  (setq emacspeak-screen-saver-saved-conf (current-window-configuration))
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
     (funcall-interactively #'switch-to-buffer buffer)
@@ -283,7 +283,8 @@ already disabled."
   (interactive)
   (cl-declare (special emacspeak-dbus-udisks-registration))
   (unless emacspeak-dbus-udisks-registration
-    (setq emacspeak-dbus-udisks-registration (emacspeak-dbus-udisks-register))))
+    (setq emacspeak-dbus-udisks-registration
+          (emacspeak-dbus-udisks-register))))
 
 ;; Disable integration
 (defun emacspeak-dbus-udisks-disable()
@@ -332,7 +333,8 @@ already disabled."
   (interactive)
   (cl-declare (special emacspeak-dbus-upower-registration))
   (unless emacspeak-dbus-upower-registration
-    (setq emacspeak-dbus-upower-registration (emacspeak-dbus-upower-register))))
+    (setq emacspeak-dbus-upower-registration
+          (emacspeak-dbus-upower-register))))
 
 ;; Disable integration
 (defun emacspeak-dbus-upower-disable()
@@ -371,7 +373,7 @@ already disabled."
 (defun emacspeak-dbus-watch-screen-lock ()
   "Register a handler to watch screen lock/unlock."
   (cl-declare (special emacspeak-dbus-screen-lock-handle
-                       emacspeak-screen-saver-saved-configuration))
+                       emacspeak-screen-saver-saved-conf))
   (setq
    emacspeak-dbus-screen-lock-handle
    (dbus-register-signal
@@ -388,8 +390,9 @@ already disabled."
               (light-black))
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
             (when
-                (window-configuration-p emacspeak-screen-saver-saved-configuration)
-              (set-window-configuration emacspeak-screen-saver-saved-configuration))
+                (window-configuration-p emacspeak-screen-saver-saved-conf)
+              (set-window-configuration
+               emacspeak-screen-saver-saved-conf))
             (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()

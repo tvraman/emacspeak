@@ -1,4 +1,4 @@
-;;; light.el --- Control Display Brightness From Emacs  -*- lexical-binding: t; -*-
+;;; light.el --- Control Brightness -*- lexical-binding: t; -*-
 ;;
 ;; Emacs front-end to Light
 ;;{{{  Copyright:

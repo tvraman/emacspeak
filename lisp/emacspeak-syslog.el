@@ -1,4 +1,4 @@
-;;; emacspeak-syslog.el --- Speech-enable SYSLOG-MODE  -*- lexical-binding: t; -*-
+;;; emacspeak-syslog.el --- Speech-enable SYSLOG -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SYSLOG-MODE An Emacs Interface to syslog-mode
 ;; Keywords: Emacspeak,  Audio Desktop syslog-mode

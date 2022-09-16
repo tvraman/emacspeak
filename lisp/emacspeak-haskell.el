@@ -168,7 +168,8 @@
 
 (cl-loop
  for f in
- '(haskell-add-import haskell-align-imports haskell-auto-insert-module-template)
+ '(
+   haskell-add-import haskell-align-imports haskell-auto-insert-module-template)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -187,7 +188,8 @@
    haskell-cabal-goto-library-section haskell-cabal-goto-test-suite-section
    haskell-cabal-next-section haskell-cabal-next-subsection
    haskell-cabal-previous-section haskell-cabal-previous-subsection
-   haskell-cabal-section-end haskell-cabal-indent-line haskell-delete-indentation
+   haskell-cabal-section-end haskell-cabal-indent-line
+   haskell-delete-indentation
    haskell-forward-sexp haskell-goto-first-error
    haskell-goto-next-error haskell-goto-prev-error
    haskell-mode-jump-to-def
@@ -217,7 +219,8 @@
 (cl-loop
  for f in
  '(
-   haskell-indentation-common-electric-command haskell-indentation-indent-backwards
+   haskell-indentation-common-electric-command
+   haskell-indentation-indent-backwards
    haskell-indentation-indent-line haskell-indentation-indent-rigidly
    haskell-indentation-newline-and-indent)
  do

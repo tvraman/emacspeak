@@ -1,4 +1,4 @@
-;;; emacspeak-net-utils.el --- Speech enable net-utils  -*- lexical-binding: t; -*-
+;;; emacspeak-net-utils.el --- net-utils  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable net-utils

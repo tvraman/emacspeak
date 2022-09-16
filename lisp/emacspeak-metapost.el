@@ -1,4 +1,4 @@
-;;; emacspeak-metapost.el --- speech-enable metapost mode  -*- lexical-binding: t; -*-
+;;; emacspeak-metapost.el --- speech-enable metapost -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak module for speech-enabling

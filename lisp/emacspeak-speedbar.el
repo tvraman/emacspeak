@@ -1,4 +1,4 @@
-;;; emacspeak-speedbar.el --- Speech enable speedbar - -*- lexical-binding: t; -*-
+;;; emacspeak-speedbar.el --- speedbar - -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to speedbar

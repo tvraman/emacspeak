@@ -20,28 +20,31 @@
 ;; Copyright (c) 2006 and later, Google Inc.
 ;; All rights reserved.
 
-;; Redistribution and use in source and binary forms, with or without modification,
-;; are permitted provided that the following conditions are met:
+;; Redistribution and use in source and binary forms, with or without
+;; modification, are permitted provided that the following conditions
+;; are met:
 
-;;     * Redistributions of source code must retain the above copyright notice,
-;;       this list of conditions and the following disclaimer.
-;;     * Redistributions in binary form must reproduce the above copyright notice,
-;;       this list of conditions and the following disclaimer in the documentation
-;;       and/or other materials provided with the distribution.
-;;     * The name of the author may not be used to endorse or promote products
-;;       derived from this software without specific prior written permission.
+;;     * Redistributions of source code must retain the above
+;;       copyright notice, this list of conditions and the following
+;;       disclaimer.  * Redistributions in binary form must reproduce
+;;       the above copyright notice, this list of conditions and the
+;;       following disclaimer in the documentation and/or other
+;;       materials provided with the distribution.  * The name of the
+;;       author may not be used to endorse or promote products derived
+;;       from this software without specific prior written permission.
 
-;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+;; "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+;; LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+;; FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+;; COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+;; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+;; (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+;; SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
 ;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
-;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-;; SUCH DAMAGE.
+;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ;;}}}
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -109,7 +112,8 @@
                 'short_name
                 (cl-find-if ; component whose type contains postal_code
                  #'(lambda (v)
-                     (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
+                     (cl-find
+                      "postal_code" (g-json-get 'types v) :test #'string=))
                  .address_components))
                :lat-lng .geometry.location)))
       (puthash  address result gmaps-location-table)
@@ -152,7 +156,7 @@
     (when (called-interactively-p 'interactive)
       (message "Saved GMaps Locations."))
     (when (featurep 'emacspeak)
-      (emacspeak-auditory-icon 'save-object)))                                    )
+      (emacspeak-auditory-icon 'save-object))))
 
 ;;}}}
 
@@ -418,7 +422,8 @@ origin/destination may be returned as a lat,long string."
     (setq origin
           (cond
            (gmaps-current-location
-            (url-hexify-string (gmaps--location-address gmaps-current-location)))
+            (url-hexify-string
+             (gmaps--location-address gmaps-current-location)))
            (t (url-hexify-string (read-from-minibuffer "Start Address: ")))))
     (setq destination
           (cond
@@ -427,7 +432,8 @@ origin/destination may be returned as a lat,long string."
                     (g-json-get 'lat place-location)
                     (g-json-get 'lng place-location)))
            (t
-            (url-hexify-string (read-from-minibuffer "Destination  Address: ")))))
+            (url-hexify-string
+             (read-from-minibuffer "Destination  Address: ")))))
     (list origin destination)))
 
 (defun gmaps-display-routes (routes)
@@ -480,7 +486,8 @@ origin/destination may be returned as a lat,long string."
 ;;}}}
 ;;{{{ Places:
 
-;; Place Types: https://developers.google.com/places/documentation/supported_types
+;; Place Types:
+;;  https://developers.google.com/places/documentation/supported_types
 
 (defvar gmaps-place-types
   '(
@@ -638,7 +645,9 @@ origin/destination may be returned as a lat,long string."
             (if keyword (format "&keyword=%s" keyword) "")
             (if name (format "&name=%s" name) "")
             (if type (format "&type=%s" type) "")
-            (if types (format "&types=%s" (mapconcat #'identity types "|")) ""))))
+            (if types
+                (format "&types=%s" (mapconcat #'identity types "|"))
+              ""))))
 
 (defun gmaps-places-filter-as-string (filter)
   "Convert filter structure into display-friendly string."
@@ -650,7 +659,9 @@ origin/destination may be returned as a lat,long string."
             (if keyword (format "Keyword: %s" keyword) "")
             (if name (format "Name: %s" name) "")
             (if type (format "Type: %s" type) "")
-            (if types (format "Types: %s" (mapconcat #'identity types "|")) ""))))
+            (if types
+                (format "Types: %s" (mapconcat #'identity types "|"))
+              ""))))
 (defun gmaps-place-read-types ()
   "Returns a list of types."
   (cl-declare (special gmaps-place-types))
@@ -741,8 +752,9 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                  gmaps-current-radius
                  (gmaps--location-address gmaps-current-location)))
         (when gmaps-current-filter
-          (insert (format "Filter: %s\n"
-                          (gmaps-places-filter-as-string gmaps-current-filter))))
+          (insert
+           (format "Filter: %s\n"
+                   (gmaps-places-filter-as-string gmaps-current-filter))))
         (gmaps-display-places .results)
         (goto-char start))
        ((string= "ZERO_RESULTS"  .status)
@@ -812,7 +824,8 @@ Optional  prefix arg clears any active filters."
         (close nil)
         (weekday
          (aref
-          '["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"]
+          '["Sunday" "Monday" "Tuesday"
+            "Wednesday" "Thursday" "Friday" "Saturday"]
           day)))
     (setq open
           (cl-find-if
@@ -848,7 +861,8 @@ Optional  prefix arg clears any active filters."
           (hours .opening_hours.periods)
           (open .opening_hours.open_now))
       (when hours
-        (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w"))))
+        (let ((today
+               (gmaps-hours-for-day hours (read (format-time-string "%w"))))
               (here nil))
           (insert-text-button
            "[Hours]\t"

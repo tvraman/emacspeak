@@ -1,4 +1,4 @@
-;;; emacspeak-yasnippet.el --- Speech-enable YASNIPPET  -*- lexical-binding: t; -*-
+;;; emacspeak-yasnippet.el --- YASNIPPET  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable YASNIPPET An Emacs Interface to yasnippet
 ;; Keywords: Emacspeak,  Audio Desktop yasnippet

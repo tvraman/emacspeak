@@ -1,4 +1,4 @@
-;;; emacspeak-slime.el --- Speech-enable SLIME, A Lisp IDE -*- lexical-binding: t; -*-
+;;; emacspeak-slime.el --- Speech-enable SLIME -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SLIME An Emacs Interface to slime
 ;; Keywords: Emacspeak,  Audio Desktop slime

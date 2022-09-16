@@ -1,4 +1,4 @@
-;;; emacspeak-projectile.el --- Speech-enable PROJECTILE  -*- lexical-binding: t; -*-
+;;; emacspeak-projectile.el --- PROJECTILE  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable PROJECTILE An Emacs Project Manager
 ;; Keywords: Emacspeak,  Audio Desktop projectile

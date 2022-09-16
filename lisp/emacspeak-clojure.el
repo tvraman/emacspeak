@@ -1,4 +1,4 @@
-;;; emacspeak-clojure.el --- Speech-enable CLOJURE Mode  -*- lexical-binding: t; -*-
+;;; emacspeak-clojure.el --- Speech-enable CLOJURE -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable CLOJURE-mode
 ;; Keywords: Emacspeak,  Audio Desktop clojure

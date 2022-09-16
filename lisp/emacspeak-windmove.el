@@ -1,4 +1,4 @@
-;;; emacspeak-windmove.el --- speech-enable windmove  -*- lexical-binding: t; -*- 
+;;; emacspeak-windmove.el --- windmove  -*- lexical-binding: t; -*- 
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for WINDMOVE

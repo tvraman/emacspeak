@@ -1,4 +1,4 @@
-;;; emacspeak-sgml-mode.el --- Speech enable SGML mode  -*- lexical-binding: t; -*-
+;;; emacspeak-sgml-mode.el --- Speech enable SGML -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extension for sgml mode

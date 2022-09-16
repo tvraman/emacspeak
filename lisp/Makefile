@@ -101,7 +101,6 @@ emacspeak-calc.elc \
 emacspeak-calculator.elc \
 emacspeak-calendar.elc \
 emacspeak-calibredb.elc \
-emacspeak-crossword.elc \
 emacspeak-chess.elc \
 emacspeak-cider.elc \
 emacspeak-ciel.elc \
@@ -200,7 +199,6 @@ emacspeak-midge.elc \
 emacspeak-mines.elc \
 emacspeak-mspools.elc \
 emacspeak-muse.elc \
-emacspeak-navi-mode.elc \
 emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
 emacspeak-notmuch.elc \

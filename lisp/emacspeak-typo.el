@@ -41,9 +41,9 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;; TYPO ==  Typographical Editing
-;; This module speech-enables typo-mode.
-;; Typo-mode's magic insertion commands are speech-enabled to speak the inserted char.
+;; TYPO == Typographical Editing This module speech-enables typo-mode.
+;; Typo-mode's magic insertion commands are speech-enabled to speak
+;; the inserted char.
 
 ;;; Code:
 

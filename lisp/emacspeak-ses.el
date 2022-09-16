@@ -1,4 +1,4 @@
-;;; emacspeak-ses.el --- Speech-enable ses spread-sheet  -*- lexical-binding: t; -*-
+;;; emacspeak-ses.el --- Speech-enable ses -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for SES 

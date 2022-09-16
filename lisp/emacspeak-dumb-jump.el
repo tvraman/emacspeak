@@ -1,4 +1,4 @@
-;;; emacspeak-dumb-jump.el --- Speech-enable DUMB-JUMP  -*- lexical-binding: t; -*-
+;;; emacspeak-dumb-jump.el --- DUMB-JUMP  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable DUMB-JUMP An Emacs Interface to dumb-jump
 ;; Keywords: Emacspeak,  Audio Desktop dumb-jump

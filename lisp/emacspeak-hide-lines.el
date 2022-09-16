@@ -1,4 +1,4 @@
-;;; emacspeak-hide-lines.el --- Speech-enable HIDE-LINES  -*- lexical-binding: t; -*-
+;;; emacspeak-hide-lines.el --- HIDE-LINES  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable HIDE-LINES An Emacs Interface to hide-lines
 ;; Keywords: Emacspeak,  Audio Desktop hide-lines

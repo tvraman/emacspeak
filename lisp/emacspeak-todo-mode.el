@@ -1,4 +1,4 @@
-;;; emacspeak-todo-mode.el --- speech-enable todo-mode  -*- lexical-binding: t; -*-
+;;; emacspeak-todo-mode.el --- speech-enable todo -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: todo-mode  for maintaining todo lists 

@@ -1,4 +1,4 @@
-;;; emacspeak-selectrum.el --- Speech-enable SELECTRUM  -*- lexical-binding: t; -*-
+;;; emacspeak-selectrum.el --- SELECTRUM  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SELECTRUM An Emacs Interface to selectrum
 ;; Keywords: Emacspeak,  Audio Desktop selectrum

@@ -1,4 +1,4 @@
-;;; emacspeak-speak.el --- Implements core services -*- lexical-binding: t; -*-
+;;; emacspeak-speak.el --- Core Speech Lib -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Contains the functions for speaking various chunks of text
@@ -2387,7 +2387,7 @@ Also display match context in minibuffer."
                                              (progn (end-of-line)
                                                     (skip-chars-backward " \t")
                                                     (point)))
-                           ;; Replace the newline and other whitespace with `...'.
+                           ;; Replace the newline and  whitespace with `...'.
                            "..."
                            (buffer-substring blinkpos (1+ blinkpos)))
                         ;; There is nothing to show except the char itself.
@@ -2499,7 +2499,8 @@ char, or dont move. "
 (cl-declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map
             "\C-o" 'emacspeak-switch-to-reference-buffer)
-(define-key completion-list-mode-map (ems-kbd "<backspace>") 'previous-completion)
+(define-key completion-list-mode-map
+            (ems-kbd "<backspace>") 'previous-completion)
 (define-key completion-list-mode-map " " 'next-completion)
 (define-key completion-list-mode-map "\C-m" 'choose-completion)
 (let ((chars

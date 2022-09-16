@@ -1,4 +1,4 @@
-;;; emacspeak-diff-mode.el --- Speech-enable DIFF-MODE  -*- lexical-binding: t; -*-
+;;; emacspeak-diff-mode.el --- Speech-enable DIFF -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-diff-mode.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable DIFF-MODE An Emacs Interface to diff-mode

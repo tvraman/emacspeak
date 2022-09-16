@@ -341,11 +341,12 @@ and TABLE gives the values along that dimension."
                      (acss-pitch-range style)
                      (acss-stress style)
                      (acss-richness style))
-             (concat "  "
-                     (plain-get-average-pitch-code (acss-average-pitch style) family)
-                     (plain-get-pitch-range-code (acss-pitch-range style) family)
-                     (plain-get-stress-code (acss-stress style) family)
-                     (plain-get-richness-code (acss-richness style) family))))))
+             (concat
+              "  "
+              (plain-get-average-pitch-code (acss-average-pitch style) family)
+              (plain-get-pitch-range-code (acss-pitch-range style) family)
+              (plain-get-stress-code (acss-stress style) family)
+              (plain-get-richness-code (acss-richness style) family))))))
     (plain-define-voice name command)))
 
 ;;}}}
@@ -360,7 +361,8 @@ and TABLE gives the values along that dimension."
   (fset 'tts-voice-defined-p 'plain-voice-defined-p)
   (fset 'tts-get-voice-command 'plain-get-voice-command)
   (fset 'tts-voice-defined-p 'plain-voice-defined-p)
-  (fset 'tts-define-voice-from-speech-style 'plain-define-voice-from-speech-style)
+  (fset 'tts-define-voice-from-speech-style
+        'plain-define-voice-from-speech-style)
   (setq tts-default-speech-rate plain-default-speech-rate)
   (set-default 'tts-default-speech-rate plain-default-speech-rate))
 

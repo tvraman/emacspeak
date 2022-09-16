@@ -1,4 +1,4 @@
-;;; emacspeak-entertain.el --- Speech enable misc games  -*- lexical-binding: t; -*-
+;;; emacspeak-entertain.el --- Speech enable games  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Auditory interface to diversions

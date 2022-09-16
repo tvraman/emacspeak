@@ -56,10 +56,11 @@
   "Set up emacspeak for table.el"
   (cl-declare (special table-cell-map))
   (when  table-cell-map
-    (cl-loop for k in
-             (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
-             do
-             (define-key table-cell-map k '*table--cell-self-insert-command))
+    (cl-loop
+     for k in
+     (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
+     do
+     (define-key table-cell-map k '*table--cell-self-insert-command))
     (cl-loop for k in
              '(
                ("S-TAB" table-backward-cell)

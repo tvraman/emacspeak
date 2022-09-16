@@ -180,14 +180,16 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (emacspeak-speak-line)))
-(defadvice View-scroll-page-forward-set-page-size (after emacspeak pre act comp)
+(defadvice View-scroll-page-forward-set-page-size
+    (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
       (emacspeak-auditory-icon 'scroll)
       (dtk-speak (emacspeak-get-window-contents)))))
 
-(defadvice View-scroll-page-backward-set-page-size (after emacspeak pre act comp)
+(defadvice View-scroll-page-backward-set-page-size
+    (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
@@ -223,7 +225,8 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice View-scroll-lines-forward-set-scroll-size (after emacspeak pre act comp)
+(defadvice View-scroll-lines-forward-set-scroll-size
+    (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
@@ -283,7 +286,8 @@
     (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
-(defadvice View-revert-buffer-scroll-page-forward (after emacspeak pre act comp)
+(defadvice View-revert-buffer-scroll-page-forward
+    (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
@@ -322,14 +326,15 @@ keybindings for view mode")
                        view-mode-map emacspeak-keymap))
   (unless emacspeak-view-keys-optimized
     (setq emacspeak-view-keys-optimized t)
-    (cl-loop for edit-command in emacspeak-view-edit-commands
-             do
-             (let ((edit-keys (where-is-internal edit-command (list view-mode-map))))
-               (cl-loop for key in edit-keys 
-                        do
-                        (let ((command (lookup-key emacspeak-keymap key)))
-                          (when command
-                            (define-key view-mode-map key command))))))
+    (cl-loop
+     for edit-command in emacspeak-view-edit-commands
+     do
+     (let ((edit-keys (where-is-internal edit-command (list view-mode-map))))
+       (cl-loop for key in edit-keys 
+                do
+                (let ((command (lookup-key emacspeak-keymap key)))
+                  (when command
+                    (define-key view-mode-map key command))))))
     (cl-loop for k in
              '(
                ("[" backward-paragraph)

@@ -1,4 +1,4 @@
-;;; emacspeak-transient.el --- Speech-enable TRANSIENT  -*- lexical-binding: t; -*-
+;;; emacspeak-transient.el --- TRANSIENT  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable TRANSIENT An Emacs Interface to transient
 ;; Keywords: Emacspeak,  Audio Desktop transient

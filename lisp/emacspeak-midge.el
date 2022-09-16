@@ -1,4 +1,4 @@
-;;; emacspeak-midge.el --- Speech-enable MIDI editor  -*- lexical-binding: t; -*-
+;;; emacspeak-midge.el --- Speech-enable Midge -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech-enable MIDGE

@@ -1,4 +1,4 @@
-;;; emacspeak-calibredb.el --- Speech-enable CALIBREDB  -*- lexical-binding: t; -*-
+;;; emacspeak-calibredb.el --- CALIBREDB  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable CALIBREDB An Emacs Interface to calibredb
 ;; Keywords: Emacspeak,  Audio Desktop calibredb
@@ -185,7 +185,8 @@
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-predefined-window 1)))))
 
-(defadvice calibredb-search-refresh-and-clear-filter (after emacspeak pre act comp)
+(defadvice calibredb-search-refresh-and-clear-filter
+    (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)

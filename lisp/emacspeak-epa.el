@@ -1,4 +1,4 @@
-;;; emacspeak-epa.el --- Speech-enable EasyPG Assistant  -*- lexical-binding: t; -*-
+;;; emacspeak-epa.el --- Speech-enable GPG Helper  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable EPA An Emacs Interface to epa
 ;; Keywords: Emacspeak,  Audio Desktop epa

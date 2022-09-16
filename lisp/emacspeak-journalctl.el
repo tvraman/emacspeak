@@ -1,4 +1,4 @@
-;;; emacspeak-journalctl.el --- Speech-enable JOURNALCTL  -*- lexical-binding: t; -*-
+;;; emacspeak-journalctl.el --- JOURNALCTL  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable JOURNALCTL An Emacs Interface to journalctl
 ;;; Keywords: Emacspeak,  Audio Desktop journalctl

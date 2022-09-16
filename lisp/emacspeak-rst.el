@@ -145,7 +145,9 @@
     (emacspeak-speak-line)))
 (cl-loop
  for f in
- '(rst-bullet-list-region rst-convert-bullets-to-enumeration rst-enumerate-region)
+ '(
+   rst-bullet-list-region rst-convert-bullets-to-enumeration
+   rst-enumerate-region)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

@@ -1,4 +1,4 @@
-;;; emacspeak-buff-menu.el --- Speech enable buff-menu -*- lexical-binding: t; -*-
+;;; emacspeak-buff-menu.el --- Speech enable buff -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to buff-menu
@@ -104,7 +104,8 @@
                   (setq this-buffer-directory list-buffers-directory))))
                                         ;format and speak the line
         (when this-buffer-modified-p (emacspeak-auditory-icon 'modified-object))
-        (when this-buffer-read-only (emacspeak-auditory-icon 'unmodified-object))
+        (when this-buffer-read-only
+          (emacspeak-auditory-icon 'unmodified-object))
         (dtk-speak
          (format  "%s a %s  buffer  %s with size  %s"
                   name this-buffer-mode-name

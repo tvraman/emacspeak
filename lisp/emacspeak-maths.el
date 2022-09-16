@@ -1,4 +1,4 @@
-;;; emacspeak-maths.el --- Audio-Formatted Mathematics  -*- lexical-binding: t; -*-
+;;; emacspeak-maths.el --- Audio-Formatted Maths  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv, zorkov  $
 ;; Description:  Speak MathML and LaTeX math expressions
 ;; Keywords: Emacspeak,  Audio Desktop maths
@@ -412,7 +412,8 @@ Set calc-language to tex to use this feature."
 
 (defun emacspeak-maths-guess-sage ()
   "Guess expression to speak in sage-mode buffers."
-  (cl-assert (eq major-mode 'sage-shell:sage-mode) nil "This is not a Sage buffer.")
+  (cl-assert
+   (eq major-mode 'sage-shell:sage-mode) nil "This is not a Sage buffer.")
   (sit-for 0.1)
   (emacspeak-sage-get-output-as-latex))
 
@@ -569,7 +570,8 @@ Emacs online help facility to look up help on these commands.
   "Switch to output buffer."
   (interactive)
   (cl-declare (special emacspeak-maths))
-  (funcall-interactively #'pop-to-buffer (emacspeak-maths-output emacspeak-maths)))
+  (funcall-interactively
+   #'pop-to-buffer (emacspeak-maths-output emacspeak-maths)))
 
 ;;}}}
 ;;{{{ Helpers:

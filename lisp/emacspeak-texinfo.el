@@ -1,4 +1,4 @@
-;;; emacspeak-texinfo.el --- Speech enable texinfo mode  -*- lexical-binding: t; -*-
+;;; emacspeak-texinfo.el --- Speech enable texinfo -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable

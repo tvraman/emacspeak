@@ -1,4 +1,4 @@
-;;; emacspeak-elscreen.el --- Speech-enable ELSCREEN  -*- lexical-binding: t; -*-
+;;; emacspeak-elscreen.el --- ELSCREEN  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ELSCREEN An Emacs Interface to elscreen
 ;; Keywords: Emacspeak,  Audio Desktop elscreen
@@ -71,8 +71,8 @@
    elscreen-toggle elscreen-swap elscreen-select-and-goto
    elscreen-previous elscreen-next elscreen-jump
    elscreen-goto elscreen-find-file-read-only elscreen-find-file
-   elscreen-find-and-goto-by-buffer elscreen-execute-extended-command elscreen-dired
-   elscreen-clone elscreen-create)
+   elscreen-find-and-goto-by-buffer elscreen-execute-extended-command
+   elscreen-dired elscreen-clone elscreen-create)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -113,7 +113,8 @@
                (ems-with-messages-silenced
                 (let ((screen-name (assoc-default screen screen-to-name-alist)))
                   (concat
-                   (propertize (format "%d" screen) 'face  'font-lock-keyword-face)
+                   (propertize
+                    (format "%d" screen) 'face  'font-lock-keyword-face)
                    (elscreen-status-label screen "")
                    (propertize screen-name 'face 'font-lock-string-face)))))
            screen-list "  "))

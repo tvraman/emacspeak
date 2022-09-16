@@ -1,4 +1,4 @@
-;;; emacspeak-re-builder.el --- speech-enable re-builder  -*- lexical-binding: t; -*-
+;;; emacspeak-re-builder.el --- re-builder  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable re-builder
@@ -121,7 +121,8 @@
   (when (buffer-live-p reb-target-buffer)
     (with-current-buffer reb-target-buffer
       (with-silent-modifications
-        (mapc #'(lambda (o) (overlay-put o 'auditory-icon 'item))  reb-overlays))))
+        (mapc
+         #'(lambda (o) (overlay-put o 'auditory-icon 'item))  reb-overlays))))
   (emacspeak-speak-message-again))
 
 ;;}}}

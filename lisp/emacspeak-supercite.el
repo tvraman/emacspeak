@@ -1,4 +1,4 @@
-;;; emacspeak-supercite.el --- Speech enable supercite  -*- lexical-binding: t; -*-
+;;; emacspeak-supercite.el --- Speech enable SC  -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable supercite

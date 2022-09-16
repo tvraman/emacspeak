@@ -1,4 +1,4 @@
-;;; emacspeak-orgalist.el --- Speech-enable ORGALIST  -*- lexical-binding: t; -*-
+;;; emacspeak-orgalist.el --- Speech-enable ORGALIST -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ORGALIST An Emacs Interface to orgalist
 ;; Keywords: Emacspeak,  Audio Desktop orgalist

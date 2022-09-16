@@ -1,4 +1,4 @@
-;;; emacspeak-elisp-refs.el --- Speech-enable ELISP-REFS  -*- lexical-binding: t; -*-
+;;; emacspeak-elisp-refs.el --- ELISP-REFS  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ELISP-REFS An Emacs Interface to elisp-refs
 ;; Keywords: Emacspeak,  Audio Desktop elisp-refs

@@ -1,4 +1,4 @@
-;;; emacspeak-epub.el --- epubs On emacspeak desktop  -*- lexical-binding: t; -*-
+;;; emacspeak-epub.el --- epubs for  desktop -*- lexical-binding: t; -*-
 ;; $Id: emacspeak-epub.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for EPUBS Talking Books
@@ -125,13 +125,12 @@
 ;; 
 ;; @subsection Calibre Integration
 ;; 
-;; Project Calibre  enables the indexing and searching of
-;; large EBook collections.
-;; Read the Calibre documentation for organizing and indexing your EBook library.
-;; See user options named @code{emacspeak-epub-calibre-*} for
-;; customizing  emacspeak to work with Calibre.
-;; Once set up, Calibre integration provides
-;; the following commands from the @emph{bookshelf} buffer:
+;; Project Calibre enables the indexing and searching of large EBook
+;; collections.  Read the Calibre documentation for organizing and
+;; indexing your EBook library.  See user options named
+;; @code{emacspeak-epub-calibre-*} for customizing emacspeak to work
+;; with Calibre.  Once set up, Calibre integration provides the
+;; following commands from the @emph{bookshelf} buffer:
 ;; 
 ;; @table @kbd
 ;; @item /
@@ -445,9 +444,11 @@ Useful if table of contents in toc.ncx is empty."
            (locator (cl-first fields))
            (fragment (cl-second fields)))
       (when fragment (setq fragment (format "#%s" fragment)))
-      (add-hook 'emacspeak-eww-post-process-hook
-                #'(lambda nil (ems--fastload emacspeak-speak-directory-settings)))
-      (emacspeak-epub-browse-content emacspeak-epub-this-epub locator fragment)))
+      (add-hook
+       'emacspeak-eww-post-process-hook
+       #'(lambda nil (ems--fastload emacspeak-speak-directory-settings)))
+      (emacspeak-epub-browse-content
+       emacspeak-epub-this-epub locator fragment)))
    (t (browse-url url))))
 
 ;;}}}
@@ -512,7 +513,8 @@ Optional interactive prefix arg author-first prints author at the
     (maphash formatter emacspeak-epub-db)
     (sort-lines nil (point-min) (point-max))
     (goto-char (point-min)))
-  (when (called-interactively-p 'interactive) (emacspeak-auditory-icon 'task-done)))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon 'task-done)))
 
 (defun emacspeak-epub-bookshelf-refresh ()
   "Refresh and redraw bookshelf."
@@ -911,7 +913,8 @@ in the epub file."
     (funcall-interactively #'switch-to-buffer eww-epub)))
 
 (defvar emacspeak-epub-google-search-template
-  "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
+  (concat  "http://books.google.com/books/feeds/volumes?"
+"min-viewability=full&epub=epub&q=%s")
   "REST  end-point for performing Google Books Search
 to find Epubs  having full viewability.")
 
@@ -1017,7 +1020,7 @@ With interactive prefix arg `download', download the epub."
   "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
   "URL to Gutenberg index.")
 
-(defvar emacspeak-epub-gutenberg-catalog-file
+(defvar emacspeak-epub-gutenberg-cat
   (expand-file-name "catalog/GUTINDEX.ALL" emacspeak-epub-library-directory)
   "Local filename of catalog.")
 
@@ -1026,23 +1029,23 @@ With interactive prefix arg `download', download the epub."
 Fetch if needed, or if refresh is T."
   (interactive "P")
   (cl-declare (special emacspeak-epub-gutenberg-catalog-url
-                       emacspeak-epub-gutenberg-catalog-file
+                       emacspeak-epub-gutenberg-cat
                        emacspeak-epub-wget))
   (unless emacspeak-epub-wget
     (error "Please install wget. "))
   (unless
-      (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
+      (file-exists-p (file-name-directory emacspeak-epub-gutenberg-cat))
     (make-directory
-     (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
+     (file-name-directory emacspeak-epub-gutenberg-cat) 'parents))
   (when (or refresh
-            (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
+            (not (file-exists-p emacspeak-epub-gutenberg-cat)))
     (call-process
      emacspeak-epub-wget
      nil nil nil
      "-O"
-     emacspeak-epub-gutenberg-catalog-file
+     emacspeak-epub-gutenberg-cat
      emacspeak-epub-gutenberg-catalog-url))
-  (view-file-other-window emacspeak-epub-gutenberg-catalog-file)
+  (view-file-other-window emacspeak-epub-gutenberg-cat)
   (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
