@@ -512,9 +512,9 @@ instead, always play an auditory icon when the shell prompt is displayed."
 (defadvice comint-kill-input (before emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
     (let ((pmark (process-mark (get-buffer-process (current-buffer)))))
       (when (> (point) (marker-position pmark))
-        (emacspeak-auditory-icon 'delete-object)
         (emacspeak-speak-region pmark (point))))))
 
 (defadvice comint-dynamic-list-filename-completions
