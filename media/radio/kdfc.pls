@@ -1,0 +1,12 @@
+[playlist]
+File1=https://24883.live.streamtheworld.com:443/KDFCFM_SC
+File2=https://18423.live.streamtheworld.com:443/KDFCFM_SC
+File3=https://18443.live.streamtheworld.com:443/KDFCFM_SC
+File4=https://25083.live.streamtheworld.com:443/KDFCFM_SC
+File5=https://13693.live.streamtheworld.com:443/KDFCFM_SC
+File6=https://23103.live.streamtheworld.com:443/KDFCFM_SC
+Title1=KDFCFM_SC
+Title2=KDFCFM_SC-Bak
+Length1=-1
+NumberOfEntries=6
+Version=2
