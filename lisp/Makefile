@@ -316,10 +316,17 @@ emacs -batch -q \
 
 # }}}
 # {{{build time target --loaddefs
+# Rule for emacs 29:
+#emacspeak-loaddefs.el: 
+#	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
+#	-f loaddefs-generate-batch  emacspeak-loaddefs.el .
+
+# Earlier than emacs-29:
 
 emacspeak-loaddefs.el: 
 	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
-	-f loaddefs-generate-batch  emacspeak-loaddefs.el .
+	-l ./emacspeak-autoload.el  \
+	-f emacspeak-auto-generate-autoloads
 
 # }}}
 # {{{Development  target: indent, tags, relint 
