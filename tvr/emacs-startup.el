@@ -48,6 +48,8 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
+;;; Emacs @HEAD is broken:
+(defvar font-lock-reference-face 'font-lock-constant-face)
 (defvar tvr-site-lib
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
