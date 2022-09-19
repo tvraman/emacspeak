@@ -182,7 +182,7 @@ Note that some badly formed mime messages  cause trouble."
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
   (cl-declare (special
-               vm-message-pointer smtpmail-local-domain
+               vm-message-pointer 
                vm-presentation-buffer  emacspeak-vm-headers-strip-octals))
   (when vm-message-pointer
     (let*  ((message (car vm-message-pointer))
@@ -217,11 +217,11 @@ Note that some badly formed mime messages  cause trouble."
       (cond
        ((and self-p
              (= 0 self-p)) ;mail to me and others
-        (emacspeak-auditory-icon 'select-object))
+        (emacspeak-auditory-icon 'item))
        (self-p                          ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
        (t                            ;got it because of a mailing list
-        (emacspeak-auditory-icon 'item))))))
+        (emacspeak-auditory-icon 'select-object))))))
 
 (defun emacspeak-vm-speak-labels ()
   "Speak a message's labels"
