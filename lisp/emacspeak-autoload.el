@@ -14,7 +14,7 @@
 ;; 
 
 ;;}}}
-;; {{{ Copyright:
+;;{{{ Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman Copyright
 ;;(c) 1994, 1995 by Digital Equipment Corporation.  All Rights
 ;;Reserved.  This file is not part of GNU Emacs, but the same
@@ -31,25 +31,16 @@
 ;;Boston,MA 02110-1301, USA.
 
 ;;}}}
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
 ;;; Commentary:
 ;; generate autoloads for emacspeak
 ;;; Code:
-;;}}}
-;;{{{  Required modules
 
 (require 'cl-lib)
-
-
-;;}}}
 (defvar emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el"
                     (file-name-directory load-file-name))
   "File that holds automatically generated autoloads for Emacspeak.")
-
-(defvar dtk-quiet)
 
 (defun emacspeak-auto-generate-autoloads ()
   "Generate emacspeak autoloads."
@@ -64,7 +55,6 @@
 
 (provide 'emacspeak-autoload)
 ;;{{{ end of file
-;;}}}
 ;; local variables:
 ;; folded-file: t
 ;; end:
