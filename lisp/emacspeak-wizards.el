@@ -3130,9 +3130,7 @@ before brightness is checked.")
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-
 (provide 'emacspeak-wizards)
-
 ;;{{{ end of file
 
 ;; local variables:
