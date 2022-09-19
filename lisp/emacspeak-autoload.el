@@ -13,7 +13,9 @@
 ;; Location undetermined
 ;; 
 
-;;}}} {{{ Copyright: Copyright (C) 1995 -- 2022, T. V. Raman Copyright
+;;}}}
+;; {{{ Copyright:
+;; Copyright (C) 1995 -- 2022, T. V. Raman Copyright
 ;;(c) 1994, 1995 by Digital Equipment Corporation.  All Rights
 ;;Reserved.  This file is not part of GNU Emacs, but the same
 ;;permissions apply.  GNU Emacs is free software; you can redistribute
@@ -32,9 +34,9 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
-
+;;; Commentary:
 ;; generate autoloads for emacspeak
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 
@@ -62,7 +64,7 @@
 
 (provide 'emacspeak-autoload)
 ;;{{{ end of file
-
+;;}}}
 ;; local variables:
 ;; folded-file: t
 ;; end:
