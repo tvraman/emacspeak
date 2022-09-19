@@ -50,8 +50,7 @@
    (t (require 'autoload)
       (let ((dtk-quiet t)
             (generated-autoload-file emacspeak-auto-autoloads-file))
-        (update-directory-autoloads
-         (file-name-directory emacspeak-auto-autoloads-file))))))
+        (update-directory-autoloads emacspeak-lisp-directory)))))
 
 (provide 'emacspeak-autoload)
 ;;{{{ end of file
