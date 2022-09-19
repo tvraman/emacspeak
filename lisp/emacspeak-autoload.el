@@ -39,7 +39,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
-(require 'autoload)
+
 
 ;;}}}
 (defvar emacspeak-auto-autoloads-file
@@ -51,10 +51,14 @@
 
 (defun emacspeak-auto-generate-autoloads ()
   "Generate emacspeak autoloads."
-  (let ((dtk-quiet t)
-        (generated-autoload-file emacspeak-auto-autoloads-file))
-    (update-directory-autoloads
-     (file-name-directory emacspeak-auto-autoloads-file))))
+  (cond
+   ((locate-library "loaddefs-gen")     ; emacs 29
+    (loaddefs-generate emacspeak-lisp-directory "emacspeak-loaddefs.el"))
+   (t (require 'autoload)
+      (let ((dtk-quiet t)
+            (generated-autoload-file emacspeak-auto-autoloads-file))
+        (update-directory-autoloads
+         (file-name-directory emacspeak-auto-autoloads-file))))))
 
 (provide 'emacspeak-autoload)
 ;;{{{ end of file
