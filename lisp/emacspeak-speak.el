@@ -1573,7 +1573,7 @@ Displays name of current buffer.")
   (cond
    (header-line-format
     (let ((window-count (length (window-list))))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-auditory-icon 'item)
       (when (> window-count 1) (emacspeak--sox-multiwindow))
       (dtk-speak (format-mode-line header-line-format))))
    (t (dtk-speak "No header line."))))
