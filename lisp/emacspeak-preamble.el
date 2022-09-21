@@ -42,8 +42,7 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(cl-pushnew
- (file-name-directory load-file-name) load-path :test #'string-equal)
+(cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
 
 (eval-when-compile (require 'subr-x))
 (require 'advice)
