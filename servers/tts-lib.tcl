@@ -351,7 +351,10 @@ proc tts_initialize {} {
 } else {
     set tts(play) "/usr/bin/aplay -q"
 }
-    
+    #if env variable EMACSPEAK_PLAY is set, use it;
+    if {[info exists env(EMACSPEAK_PLAY)] } {
+        set tts(play)  $env(EMACSPEAK_PLAY)
+    } 
     #optional debuggin output
     if {[info exists env(DTK_DEBUG)] } {
         set tts(debug) 1
