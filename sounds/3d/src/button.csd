@@ -1,7 +1,4 @@
 <CsoundSynthesizer>
-<C  sOptions>
-  -o button.wav
-</CsOptions>
 <CsInstruments>
 sr		=		44100
 ksmps=10
