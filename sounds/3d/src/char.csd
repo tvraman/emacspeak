@@ -16,6 +16,6 @@ aleft,aright hrtfmove2 aout, 0,kelev, "hrtf-44100-left.dat","hrtf-44100-right.da
 </CsInstruments>
 <CsScore>
  i2 0 0.1 8000 
-i2 0.012 0.04 2000 
+i2 0.01 0.04 2000 
 </CsScore>
 </CsoundSynthesizer>
