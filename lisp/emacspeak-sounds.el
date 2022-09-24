@@ -177,18 +177,16 @@ Do not set this by hand;
     (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme)
     (error "Theme %s is not installed" theme))
-  (when
-      (and (string= emacspeak-play-program (executable-find "pactl"))
-           (not
-            (member (file-relative-name theme emacspeak-sounds-directory)
-                    '("ogg-3d/" "ogg-chimes/"))))
-    (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
-  (setq emacspeak-sounds-current-theme theme)
-  (emacspeak-sounds-define-theme-if-necessary theme)
-  (when (string= (executable-find "pactl") emacspeak-play-program)
+  (when (string= emacspeak-play-program (executable-find "pactl"))
+    (unless
+        (member (file-relative-name theme emacspeak-sounds-directory)
+                '("ogg-3d/" "ogg-chimes/"))
+      (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
     (shell-command
      (format "%s load-sample-dir-lazy %s"
              (executable-find "pacmd") theme)))
+  (setq emacspeak-sounds-current-theme theme)
+  (emacspeak-sounds-define-theme-if-necessary theme)
   (emacspeak-auditory-icon 'button)
   t)
 
