@@ -655,7 +655,7 @@
 
 (defcustom emacspeak-super-keys
   '(
-    ("SPC"  emacspeak-wizards-scratch)
+    ("SPC"  scratch-buffer)
     ("." emacspeak-wizards-shell-directory-reset)
     ("C-n" emacspeak-wizards-google-headlines)
     ("R" emacspeak-webspace-feed-reader)

@@ -1322,6 +1322,13 @@ Indicate change of selection with an auditory icon
     (emacspeak-auditory-icon 'tick-tick)
     (emacspeak-speak-mode-line)))
 
+(defadvice scratch-buffer (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'tick-tick)
+    (emacspeak-speak-mode-line)))
+
+
 (defadvice display-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
