@@ -7797,8 +7797,7 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      ‘emacspeak-feeds-atom-display’ Display link under point as an
      ‘ATOM’ feed.
 ‘y’
-     ‘emacspeak-m-player-youtube-player’ Play link under point as a
-     Youtube stream.
+     ‘emacspeak-mpv-play-url’ Play link under point as a Youtube stream.
 
 12.74.5 Table Browsing
 ----------------------

@@ -250,7 +250,7 @@
 ;; @command{emacspeak-feeds-atom-display}
 ;; Display link under point as an @code{ATOM} feed.
 ;; @item y
-;; @command{emacspeak-m-player-youtube-player}
+;; @command{emacspeak-mpv-play-url}
 ;; Play link under point as a Youtube stream.
 ;; @end table
 ;; 
