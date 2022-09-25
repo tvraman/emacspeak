@@ -368,8 +368,9 @@ Controls media playback when already playing.
              (setq emacspeak-m-player-current-directory ,directory)
              (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)
-    (put command 'repeat-map 'emacspeak-m-player-mode-map)
-    (put 'emacspeak-m-player-quit  'repeat-map nil)))
+    (put command 'repeat-map 'emacspeak-m-player-mode-map))
+  (put 'emacspeak-m-player-quit  'repeat-map nil)
+  (put 'emacspeak-m-player-locate-media 'repeat-map nil))
 
 (defvar emacspeak-m-player-accelerator-p nil
   "Flag set by accelerators. Let-binding this causes default-directory
@@ -1436,6 +1437,7 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;; disable on stop:
 (put 'emacspeak-m-player-quit  'repeat-map nil)
+(put 'emacspeak-m-player-locate-media 'repeat-map nil)
 
 (defun emacspeak-m-player-volume-set (&optional arg)
   "Set Volume in steps from 1 to 9."
