@@ -85,7 +85,7 @@ Use `emacspeak-toggle-auditory-icons' bound to
 ;;}}}
 ;;{{{  setup play function
 
-(defvar emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon
+(defvar emacspeak-auditory-icon-function #'emacspeak-play-auditory-icon
   "Function that plays auditory icons.
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
