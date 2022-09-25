@@ -520,7 +520,7 @@
  emacspeak-webspace-feed-reader
 
 @item SPC
- emacspeak-wizards-scratch
+ scratch-buffer
 
 @item a
  emacspeak-wizards-execute-asynchronously

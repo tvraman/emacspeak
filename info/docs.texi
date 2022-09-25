@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1163 commands and 148 options.
+This chapter documents a total of 1162 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -7806,7 +7806,7 @@ Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacsp
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC emacspeak-wizards-scratch) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))|}}
+Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood))|}}
 
 @end defvar
 
@@ -17306,22 +17306,6 @@ Open a frame on a remote Emacs.
 Remote workstation is  ‘emacspeak-wizards-remote-workstation’.
 Works best when you already are ssh-impel-ed in and have a talking
   remote Emacs in   a local XTerm.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-scratch
-@deffn {Command} emacspeak-wizards-scratch   
-@table @kbd
-@item C-. SPC
-@kindex C-. SPC
-@item C-x @@ s SPC
-@kindex C-x @@ s SPC
-@end table
-
-@findex emacspeak-wizards-scratch
-
-@format
-Switch to *scratch* buffer, creating it if necessary.
 @end format
 @end deffn
 
