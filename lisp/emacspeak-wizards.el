@@ -2634,13 +2634,6 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 ;;}}}
 ;;{{{ Smart Scratch:
 
-(defun emacspeak-wizards-scratch ()
-  "Switch to *scratch* buffer, creating it if necessary."
-  (interactive)
-  (let ((buffer (get-buffer-create "*scratch*")))
-    (with-current-buffer buffer (lisp-interaction-mode))
-    (funcall-interactively #'pop-to-buffer buffer)))
-
 ;;}}}
 ;;{{{ Customize Saved Settings  By Pattern:
 
