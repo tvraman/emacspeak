@@ -365,10 +365,12 @@ Controls media playback when already playing.
                ()
              ,(format "Launch media from directory %s" directory)
              (interactive)
-             (cl-declare  (special emacspeak-m-player-current-directory))
-             (setq emacspeak-m-player-current-directory ,directory
-                   default-directory ,directory)
-             (emacspeak-m-player-accelerator ,directory)))))
+             (cl-declare  (special
+                           default-directory
+                           emacspeak-m-player-current-directory))
+             (let ((default-directory ,directory))
+               (setq emacspeak-m-player-current-directory ,directory)
+               (emacspeak-m-player-accelerator ,directory))))))
     (global-set-key key command)
     (put command 'repeat-map 'emacspeak-m-player-mode-map)))
 
