@@ -415,6 +415,14 @@ Controls media playback when already playing.
 (defvar-local emacspeak-m-player-url-p nil
   "Records if  playing a URL")
 
+(defun emacspeak-media-local-resource ()
+  "Read local resource starting from default-directory"
+  (cl-declare (special default-directory))
+  (let ((completion-ignore-case t))
+    (completing-read
+     "Media: "
+     (directory-files-recursively default-directory emacspeak-media-extensions))))
+
 (defun emacspeak-media-read-resource ()
   "Read resource from minibuffer.
 If a dynamic playlist exists, just use it."
