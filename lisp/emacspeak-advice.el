@@ -2085,13 +2085,15 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (when minibuffer-default (emacspeak-auditory-icon 'help))
     (tts-with-punctuations
-     'all
-     (dtk-speak
-      (concat
-       (buffer-string)
-       (if (stringp minibuffer-default)
-           minibuffer-default
-         ""))))))
+        'all
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+        default-directory "")
+      (dtk-speak
+       (concat
+        (buffer-string)
+        (if (stringp minibuffer-default)
+            minibuffer-default
+          ""))))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 
