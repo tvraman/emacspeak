@@ -1360,7 +1360,7 @@ of the source buffer."
       (when ;  source determines target directory
           (or (eq major-mode 'dired-mode) buffer-file-name)
         (unless prefix (ems--shell-pushd-if-needed directory buffer)))
-      (funcall-interactively #'pop-to-buffer buffer)))))
+      (funcall-interactively #'switch-to-buffer buffer)))))
 
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
