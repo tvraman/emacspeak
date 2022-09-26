@@ -334,7 +334,7 @@ Controls media playback when already playing.
   (unless (process-live-p emacspeak-m-player-process)
     (emacspeak-multimedia))
   (funcall-interactively
-   #'pop-to-buffer (process-buffer emacspeak-m-player-process)))
+   #'switch-to-buffer (process-buffer emacspeak-m-player-process)))
 
 (defun emacspeak-m-player-command (key)
   "Invoke MPlayer commands."
