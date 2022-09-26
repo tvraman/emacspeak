@@ -291,11 +291,12 @@ Reset immediately after being used.")
   "Map  keys  to launch MPlayer on a  directory."
   :group 'emacspeak-m-player
   :group 'emacspeak-media
-  :type '(repeat
-          :tag "Media Locations"
-          (list
-           (string :tag "Key")
-           (directory :tag "Directory")))
+  :type
+  '(repeat
+    :tag "Media Locations"
+    (list
+     (string :tag "Key")
+     (directory :tag "Directory")))
   :set
   #'(lambda (sym val)
       (mapc
@@ -368,9 +369,7 @@ Controls media playback when already playing.
              (setq emacspeak-m-player-current-directory ,directory)
              (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)
-    (put command 'repeat-map 'emacspeak-m-player-mode-map))
-  (put 'emacspeak-m-player-quit  'repeat-map nil)
-  (put 'emacspeak-m-player-locate-media 'repeat-map nil))
+    (put command 'repeat-map 'emacspeak-m-player-mode-map)))
 
 (defvar emacspeak-m-player-accelerator-p nil
   "Flag set by accelerators. Let-binding this causes default-directory
