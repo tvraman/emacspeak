@@ -117,7 +117,7 @@
   (eval-when-compile
     (concat
      (regexp-opt
-      (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
+      (list ".m3u" ".asx" ".pls"  ".ram"))
      "$"))
   "Playlist pattern.")
 
