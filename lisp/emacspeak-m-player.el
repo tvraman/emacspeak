@@ -359,14 +359,15 @@ Controls media playback when already playing.
   (let ((command
          (eval
           `(defun
-               ,(intern (format "emacspeak-media-%s"
-                                (file-name-base
-                                 (directory-file-name directory))))
+               ,(intern
+                 (format "emacspeak-media-%s"
+                         (file-name-base (directory-file-name directory))))
                ()
              ,(format "Launch media from directory %s" directory)
              (interactive)
              (cl-declare  (special emacspeak-m-player-current-directory))
-             (setq emacspeak-m-player-current-directory ,directory)
+             (setq emacspeak-m-player-current-directory ,directory
+                   default-directory ,directory)
              (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)
     (put command 'repeat-map 'emacspeak-m-player-mode-map)))
@@ -426,26 +427,31 @@ Controls media playback when already playing.
 (defun emacspeak-media-read-resource ()
   "Read resource from minibuffer.
 If a dynamic playlist exists, just use it."
-  (cl-declare (special emacspeak-m-player-dynamic-playlist))
+  (cl-declare (special emacspeak-m-player-dynamic-playlist
+                       emacspeak-m-player-accelerator-p))
   (unless emacspeak-m-player-dynamic-playlist
-    (let ((completion-ignore-case t)
-          (read-file-name-function
-           (if (eq major-mode 'locate-mode)
-               #'read-file-name-default
-             #'ido-read-file-name))
-          (read-file-name-completion-ignore-case t)
-          (default-filename
-           (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
-             (dired-get-filename nil 'no-error)))
-          (dir (emacspeak-media-guess-directory))
-          (result nil))
-      (setq result
-            (expand-file-name
-             (funcall read-file-name-function
-                      "Media Resource: "
-                      dir
-                      default-filename 'must-match)))
-      result)))
+    (cond
+     (emacspeak-m-player-accelerator-p
+      (emacspeak-media-local-resource))
+     (t
+      (let ((completion-ignore-case t)
+            (read-file-name-function
+             (if (eq major-mode 'locate-mode)
+                 #'read-file-name-default
+               #'ido-read-file-name))
+            (read-file-name-completion-ignore-case t)
+            (default-filename
+             (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
+               (dired-get-filename nil 'no-error)))
+            (dir (emacspeak-media-guess-directory))
+            (result nil))
+        (setq result
+              (expand-file-name
+               (funcall read-file-name-function
+                        "Media Resource: "
+                        dir
+                        default-filename 'must-match)))
+        result)))))
 
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from current  stream."
