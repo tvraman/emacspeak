@@ -1459,6 +1459,8 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;; disable on stop:
 (put 'emacspeak-m-player-quit  'repeat-map nil)
+(put 'bury-buffer  'repeat-map nil)
+(put 'ladspa  'repeat-map nil)
 (put 'emacspeak-m-player-locate-media 'repeat-map nil)
 
 (defun emacspeak-m-player-volume-set (&optional arg)
