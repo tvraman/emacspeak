@@ -128,12 +128,20 @@ given name, it is updated with path and position."
       (emacspeak-auditory-icon 'save-object))))
 
 ;;;###autoload
-(defun emacspeak-amark-load (&optional dir)
-  "Load AMarks file from  DIR ---current  directory is default."
-  (cl-declare (special emacspeak-amark-list emacspeak-amark-file))
+(defun emacspeak-amark-load ()
+  "Load AMarks file from  current  media directory."
+  (cl-declare (special emacspeak-amark-list emacspeak-amark-file
+                       emacspeak-m-player-process))
   (let ((buff nil)
-        (file (expand-file-name emacspeak-amark-file
-                                (or dir default-directory)))
+        (file
+         (expand-file-name
+          emacspeak-amark-file
+          (or
+           (when (process-live-p emacspeak-m-player-process)
+             (with-current-buffer
+                 (process-buffer emacspeak-m-player-process)
+               default-directory))
+           default-directory)))
         (l nil ))
     (when (file-exists-p file)
       (setq buff (find-file-noselect file))
@@ -145,7 +153,12 @@ given name, it is updated with path and position."
     (setq
      emacspeak-amark-list
      (sort
-      (cl-remove-if-not #'file-exists-p l :key #'emacspeak-amark-path)
+      (cl-remove-if-not
+       #'(lambda (f)
+           (file-exists-p
+            (expand-file-name f (file-name-directory file))))
+       l
+       :key #'emacspeak-amark-path)
       #'(lambda (a b) ;; predicate for sort
           (string-lessp (emacspeak-amark-name a) (emacspeak-amark-name b )))))))
 
