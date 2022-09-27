@@ -511,8 +511,7 @@ name of the list.")
 
 (defun emacspeak-url-template-cnn-content (url)
   "Extract CNN content."
-  (emacspeak-we-extract-by-class
-   "zn-body__paragraph" url 'speak))
+  (emacspeak-we-xslt-filter "//p" url 'speak))
 
 (emacspeak-url-template-define
  "CNN Content"
@@ -545,7 +544,7 @@ name of the list.")
  nil
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))
-     (eww-display-dom-by-element 'h3)
+     ;(eww-display-dom-by-element 'h3)
      (setq
       emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "Money Headlines From CNN")
