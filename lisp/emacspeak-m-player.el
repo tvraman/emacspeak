@@ -418,23 +418,26 @@ Controls media playback when already playing.
 (defvar-local emacspeak-m-player-url-p nil
   "Records if  playing a URL")
 
-(defun emacspeak-media-local-resource ()
+(defun emacspeak-media-local-resource (prefix)
   "Read local resource starting from default-directory"
   (cl-declare (special default-directory))
   (let ((completion-ignore-case t))
-    (completing-read
-     "Media: "
-     (directory-files-recursively default-directory emacspeak-media-extensions))))
+    (cond
+     (prefix
+      (read-directory-name "Media:" emacspeak-m-player-current-directory))
+     (t
+      (completing-read
+       "Media: "
+       (directory-files-recursively default-directory emacspeak-media-extensions))))))
 
-(defun emacspeak-media-read-resource ()
+(defun emacspeak-media-read-resource (&optional prefix)
   "Read resource from minibuffer.
 If a dynamic playlist exists, just use it."
   (cl-declare (special emacspeak-m-player-dynamic-playlist
                        emacspeak-m-player-accelerator-p))
   (unless emacspeak-m-player-dynamic-playlist
     (cond
-     (emacspeak-m-player-accelerator-p
-      (emacspeak-media-local-resource))
+     (emacspeak-m-player-accelerator-p (emacspeak-media-local-resource prefix))
      (t
       (let ((completion-ignore-case t)
             (read-file-name-function
@@ -521,25 +524,29 @@ See command \\[emacspeak-m-player-add-to-dynamic] for adding to the
 dynamic playlist. "
   (interactive
    (list
-    (emacspeak-media-read-resource)
+    (emacspeak-media-read-resource current-prefix-arg)
     current-prefix-arg))
   (cl-declare (special
                emacspeak-m-player-dynamic-playlist
+               emacspeak-m-player-accelerator-p
                emacspeak-m-player-file-list emacspeak-m-player-current-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
                emacspeak-m-player-program emacspeak-m-player-options
                emacspeak-m-player-custom-filters))
-  (when (and emacspeak-m-player-process
-             (eq 'run (process-status emacspeak-m-player-process))
-             (y-or-n-p "Stop currently playing music? "))
+  (when
+      (and emacspeak-m-player-process
+           (eq 'run (process-status emacspeak-m-player-process))
+           (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
   (let ((buffer (get-buffer-create "*M-Player*"))
         (process-connection-type nil)
         (playlist-p
          (when resource
-           (or play-list (emacspeak-m-player-playlist-p resource))))
+           (and (not emacspeak-m-player-accelerator-p)
+                (or play-list (emacspeak-m-player-playlist-p resource))
+                )))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list  (reverse emacspeak-m-player-dynamic-playlist))
         (duration
