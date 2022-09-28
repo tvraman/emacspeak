@@ -1414,7 +1414,6 @@ flat classical club dance full-bass full-bass-and-treble
     ("]" emacspeak-m-player-faster)
     ("G" emacspeak-m-player-seek-percentage)
     ("a" emacspeak-m-player-add-autopan)
-    ("b" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     ("c" emacspeak-m-player-slave-command)
     ("d" emacspeak-m-player-delete-filter)
     ("e" emacspeak-m-player-equalizer-preset)
