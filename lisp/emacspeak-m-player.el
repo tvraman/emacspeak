@@ -1397,9 +1397,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("E" emacspeak-m-player-add-equalizer)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
-    ("L" emacspeak-m-player-locate-media)
     ("M" emacspeak-m-player-display-metadata)
-    ("M-l" emacspeak-m-player-load-playlist)
     ("C-l" ladspa)
     ("A" emacspeak-m-player-amark-add)
     ("O" emacspeak-m-player-reset-options)
@@ -1427,7 +1425,6 @@ flat classical club dance full-bass full-bass-and-treble
     ("n" emacspeak-m-player-next-track)
     ("o" emacspeak-m-player-customize-options)
     ("p" emacspeak-m-player-previous-track)
-    ("q" bury-buffer)
     ("r" emacspeak-m-player-seek-relative)
     ("s" emacspeak-m-player-scale-speed)
     ("t" emacspeak-m-player-play-tracks-jump)
@@ -1439,8 +1436,9 @@ flat classical club dance full-bass full-bass-and-treble
     )
   "M-Player Key bindings.")
 
-(cl-loop for k in emacspeak-m-player-bindings do
-         (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
+(cl-loop
+ for k in emacspeak-m-player-bindings do
+ (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
 
 (put 'emacspeak-m-player-shuffle 'repeat-map 'emacspeak-m-player-mode-map)
 (put 'emacspeak-m-player-loop 'repeat-map 'emacspeak-m-player-mode-map)
@@ -1458,9 +1456,7 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;; disable on stop:
 (put 'emacspeak-m-player-quit  'repeat-map nil)
-(put 'bury-buffer  'repeat-map nil)
 (put 'ladspa  'repeat-map nil)
-(put 'emacspeak-m-player-locate-media 'repeat-map nil)
 
 (defun emacspeak-m-player-volume-set (&optional arg)
   "Set Volume in steps from 1 to 9."
