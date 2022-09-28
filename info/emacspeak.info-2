@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 25, 2022.
+last updated on September 28, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  Prev: emacspeak-geiser,  Up: Emacspeak Commands And Options
@@ -1580,7 +1580,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      C		emacspeak-m-player-clear-filters
      E		emacspeak-m-player-add-equalizer
      G		emacspeak-m-player-seek-percentage
-     L		emacspeak-m-player-locate-media
      M		emacspeak-m-player-display-metadata
      O		emacspeak-m-player-reset-options
      P		emacspeak-m-player-apply-reverb-preset
@@ -1591,7 +1590,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      \		emacspeak-m-player-persist-process
      ]		emacspeak-m-player-faster
      a		emacspeak-m-player-add-autopan
-     b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
      e		emacspeak-m-player-equalizer-preset
@@ -1605,7 +1603,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      n		emacspeak-m-player-next-track
      o		emacspeak-m-player-customize-options
      p		emacspeak-m-player-previous-track
-     q		bury-buffer
      r		emacspeak-m-player-seek-relative
      s		emacspeak-m-player-scale-speed
      t		emacspeak-m-player-play-tracks-jump
@@ -1628,7 +1625,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
-     M-l		emacspeak-m-player-load-playlist
 
      In addition to any hooks its parent mode ‘comint-mode’ might have run,
      this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final
@@ -1988,7 +1984,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      C		emacspeak-m-player-clear-filters
      E		emacspeak-m-player-add-equalizer
      G		emacspeak-m-player-seek-percentage
-     L		emacspeak-m-player-locate-media
      M		emacspeak-m-player-display-metadata
      O		emacspeak-m-player-reset-options
      P		emacspeak-m-player-apply-reverb-preset
@@ -1999,7 +1994,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      \		emacspeak-m-player-persist-process
      ]		emacspeak-m-player-faster
      a		emacspeak-m-player-add-autopan
-     b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
      e		emacspeak-m-player-equalizer-preset
@@ -2013,7 +2007,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      n		emacspeak-m-player-next-track
      o		emacspeak-m-player-customize-options
      p		emacspeak-m-player-previous-track
-     q		bury-buffer
      r		emacspeak-m-player-seek-relative
      s		emacspeak-m-player-scale-speed
      t		emacspeak-m-player-play-tracks-jump
@@ -2036,7 +2029,6 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
-     M-l		emacspeak-m-player-load-playlist
      .
 
 12.117.3 emacspeak-m-player Options

@@ -8490,7 +8490,6 @@ A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
-L		emacspeak-m-player-locate-media
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
@@ -8501,7 +8500,6 @@ S		emacspeak-m-player-amark-save
 \		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
 a		emacspeak-m-player-add-autopan
-b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 c		emacspeak-m-player-slave-command
 d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-equalizer-preset
@@ -8515,7 +8513,6 @@ m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
 p		emacspeak-m-player-previous-track
-q		bury-buffer
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
@@ -8538,7 +8535,6 @@ DEL		emacspeak-m-player-reset-speed
 
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
-M-l		emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
 this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final
@@ -9010,7 +9006,6 @@ A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
-L		emacspeak-m-player-locate-media
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
@@ -9021,7 +9016,6 @@ S		emacspeak-m-player-amark-save
 \		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
 a		emacspeak-m-player-add-autopan
-b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 c		emacspeak-m-player-slave-command
 d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-equalizer-preset
@@ -9035,7 +9029,6 @@ m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
 p		emacspeak-m-player-previous-track
-q		bury-buffer
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
@@ -9058,7 +9051,6 @@ DEL		emacspeak-m-player-reset-speed
 
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
-M-l		emacspeak-m-player-load-playlist
 .
 @end format
 @end deffn
