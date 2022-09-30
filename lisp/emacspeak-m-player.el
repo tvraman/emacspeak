@@ -429,7 +429,8 @@ Controls media playback when already playing.
      (t
       (completing-read
        "Media: "
-       (directory-files-recursively default-directory emacspeak-media-extensions))))))
+       (directory-files-recursively
+        default-directory emacspeak-media-extensions))))))
 
 (defun emacspeak-media-read-resource (&optional prefix)
   "Read resource from minibuffer.
