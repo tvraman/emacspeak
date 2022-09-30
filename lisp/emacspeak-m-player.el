@@ -78,7 +78,7 @@
 (require 'emacspeak-amark)
 (declare-function dired-get-filename "dired" (&optional localp
                                                         no-error-if-not-filep))
-(declare-function comint-mode "comint" nil)
+
 (declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
 ;;}}}
@@ -176,13 +176,14 @@ This is set to nil when playing Internet  streams.")
           (cl-second info)))))
     (t (format "Process MPlayer not running.")))))
 
-(define-derived-mode emacspeak-m-player-mode comint-mode
+(define-derived-mode emacspeak-m-player-mode special-mode
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
   (progn
-    (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata))
-    (setq buffer-undo-list t)))
+    (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata)
+          buffer-undo-list t
+          buffer-read-only nil)))
 
 ;;}}}
 ;;{{{Dynamic playlist:
