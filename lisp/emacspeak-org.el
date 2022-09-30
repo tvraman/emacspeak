@@ -789,6 +789,16 @@ arg just opens the file"
     (shrink-window-if-larger-than-buffer)))
 
 ;;}}}
+;;{{{md export:
+(defadvice org-md-export-as-markdown (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-mode-line)))
+
+
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
