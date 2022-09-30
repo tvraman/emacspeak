@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 28, 2022.
+last updated on September 30, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  Prev: emacspeak-geiser,  Up: Emacspeak Commands And Options
@@ -1626,9 +1626,9 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
 
-     In addition to any hooks its parent mode ‘comint-mode’ might have run,
-     this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final
-     or penultimate step during initialization.
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the
+     final or penultimate step during initialization.
 
 12.117.2.46 emacspeak-m-player-mode-line
 ........................................
