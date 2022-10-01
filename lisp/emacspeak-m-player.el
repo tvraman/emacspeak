@@ -1419,6 +1419,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("e" emacspeak-m-player-equalizer-preset)
     ("f" emacspeak-m-player-add-filter)
     ("g" emacspeak-m-player-seek-absolute)
+    ("h" emacspeak-m-player-from-history)
     ("i" emacspeak-m-player-stream-info)
     ("j" emacspeak-m-player-amark-jump)
     ("k" emacspeak-m-player-quit)
@@ -1455,8 +1456,7 @@ flat classical club dance full-bass full-bass-and-treble
    (when (symbolp cmd)
      (put cmd 'repeat-map 'emacspeak-m-player-mode-map)))
  emacspeak-m-player-mode-map)
-(put 'emacspeak-m-player-from-history 'repeat-map
-     'emacspeak-m-player-mode-map)
+
 
 ;;; disable on stop:
 (put 'emacspeak-m-player-quit  'repeat-map nil)
