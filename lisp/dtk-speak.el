@@ -1920,15 +1920,18 @@ Designed to work with ALSA and Pulseaudio."
   (cl-declare (special dtk-notify-process))
   (let ((dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
-        (new-process nil))
-    (with-environment-variables
-        (("PULSE_SINK" "tts_right"))
-      (setq  new-process (dtk-make-process "Notify")))
-    (when
-        (memq (process-status new-process) '(run open))
-      (when (and dtk-notify-process (process-live-p dtk-notify-process))
-        (delete-process dtk-notify-process))
-      (setq dtk-notify-process new-process))))
+        (new-process nil)
+        (pulse-tts-right-p (shell-command-to-string "pacmd list-sinks
+| grep tts_right")))
+    (unless (zerop (length pulse-tts-right-p)) 
+      (with-environment-variables
+          (("PULSE_SINK" "tts_right"))
+        (setq  new-process (dtk-make-process "Notify")))
+      (when
+          (memq (process-status new-process) '(run open))
+        (when (and dtk-notify-process (process-live-p dtk-notify-process))
+          (delete-process dtk-notify-process))
+        (setq dtk-notify-process new-process)))))
 
 (defun dtk-notify-using-voice (voice text &optional dont-log)
   "Use voice VOICE to speak text TEXT on notification stream."
