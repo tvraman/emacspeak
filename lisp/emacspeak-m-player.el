@@ -1455,6 +1455,8 @@ flat classical club dance full-bass full-bass-and-treble
    (when (symbolp cmd)
      (put cmd 'repeat-map 'emacspeak-m-player-mode-map)))
  emacspeak-m-player-mode-map)
+(put 'emacspeak-m-player-from-history 'repeat-map
+     'emacspeak-m-player-mode-map)
 
 ;;; disable on stop:
 (put 'emacspeak-m-player-quit  'repeat-map nil)
@@ -1538,7 +1540,9 @@ flat classical club dance full-bass full-bass-and-treble
       (kill-new u)
       (emacspeak-m-player u)))))
 
-(put 'emacspeak-m-player-youtube-player 'repeat-map 'emacspeak-mpv-keymap)
+(put 'emacspeak-m-player-youtube-player 'repeat-map
+     'emacspeak-mpv-keymap)
+
 ;;;###autoload
 (defun emacspeak-m-player-youtube-live (url)
   "Use youtube-dl and mplayer to live-stream   from Youtube. "
