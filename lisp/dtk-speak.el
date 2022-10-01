@@ -1921,8 +1921,8 @@ Designed to work with ALSA and Pulseaudio."
   (let ((dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
         (new-process nil)
-        (pulse-tts-right-p (shell-command-to-string "pacmd list-sinks
-| grep tts_right")))
+        (pulse-tts-right-p
+         (shell-command-to-string "pacmd list-sinks | grep tts_right")))
     (unless (zerop (length pulse-tts-right-p)) 
       (with-environment-variables
           (("PULSE_SINK" "tts_right"))
