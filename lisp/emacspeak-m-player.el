@@ -1196,6 +1196,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
    (t (error "Not enough history"))))
 (defvar emacspeak-m-player-history-map
   (let ((map (make-sparse-keymap)))
+    (define-key map ";" 'emacspeak-eww-play-media-at-point)
     (define-key map "r" 'emacspeak-m-player-remove-from-media-history)
     map)
   "Keymap used in media history browser.")
@@ -1209,7 +1210,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (with-temp-buffer
     (insert "<html>\n
 <head><title>Emacspeak Media History</title></head>\n
-<body>\n<ol>\n")
+<body>\n<p>Press 'r' on a link to remove it from the history.</p>\n
+<ol>\n")
     (cl-loop
      for u in emacspeak-m-player-media-history do
      (insert
