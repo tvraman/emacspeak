@@ -1884,6 +1884,8 @@ Note that there is newer material at
 <http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html>
 and in *Note emacspeak-eww::.  For Emacs 24.4 and later, note that the
 built-in Web browser EWW is also the browser of choice for emacspeak.
+Finally, note that Emacs/W3 is now considered obsolete, and Emacspeak
+support for w3m is no longer maintained.
 
    — T. V. Raman, October 2014.
 
