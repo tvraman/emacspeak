@@ -402,13 +402,13 @@ Emacspeak provides a set of additional keymaps to give easy access to
 its extensive facilities.
 
 Press C-; to access keybindings in emacspeak-hyper-keymap:
-\\{emacspeak-hyper-keymap}.
+\\{emacspeak-hyper-keymap}
 
 Press C-' or C-.  to access keybindings in emacspeak-super-keymap:
-\\{emacspeak-super-keymap}.
+\\{emacspeak-super-keymap}
 
 Press C-, to access keybindings in emacspeak-alt-keymap:
-\\{emacspeak-alt-keymap}.
+\\{emacspeak-alt-keymap}
 
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."

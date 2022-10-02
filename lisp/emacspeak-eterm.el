@@ -532,7 +532,7 @@ Optional argument COUNT specifies how many changes to skip."
 (defvar-local emacspeak-eterm-pointer nil
   "Terminal pointer. Can be moved around to listen to the contents of the
 terminal. See commands provided by the emacspeak extension to eterm:
-\\{emacspeak-eterm-keymap}.
+\\{emacspeak-eterm-keymap}
 Each term-mode buffer has a buffer local value of this variable. ")
 (defvar emacspeak-eterm-review-p nil
   "T if eterm is in review mode.
