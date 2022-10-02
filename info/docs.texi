@@ -7616,7 +7616,7 @@ Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node.
 
-Default Value: @code{@verb{|node|}}
+Default Value: @code{@verb{|screenfull|}}
 
 @end defvar
 
@@ -9056,7 +9056,7 @@ DEL		emacspeak-m-player-reset-speed
 
 M-,		emacspeak-m-player-set-clip-start
 M-.		emacspeak-m-player-set-clip-end
-.
+
 @end format
 @end deffn
 

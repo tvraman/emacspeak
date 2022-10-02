@@ -834,7 +834,7 @@ This module speech-enables the Emacs Info Reader.
      values are: screenfull – speak the displayed screen node – speak
      the entire node.
 
-     Default Value: ‘node’
+     Default Value: ‘screenfull’
 
 
 File: emacspeak.info,  Node: emacspeak-ispell,  Next: emacspeak-ivy,  Prev: emacspeak-info,  Up: Emacspeak Commands And Options
@@ -2036,7 +2036,7 @@ keybindings.
 
      M-,		emacspeak-m-player-set-clip-start
      M-.		emacspeak-m-player-set-clip-end
-     .
+
 
 12.117.3 emacspeak-m-player Options
 -----------------------------------

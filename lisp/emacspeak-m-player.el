@@ -320,7 +320,7 @@ Reset immediately after being used.")
   "Start or control Emacspeak multimedia player.
 Controls media playback when already playing.
 
-\\{emacspeak-m-player-mode-map}."
+\\{emacspeak-m-player-mode-map}"
   (interactive)
   (cl-declare (special emacspeak-m-player-process))
   (cond
