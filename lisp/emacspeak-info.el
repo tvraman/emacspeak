@@ -102,7 +102,7 @@
 ;;}}}
 ;;{{{ advice
 
-(defcustom  emacspeak-info-select-node-speak-chunk 'node
+(defcustom  emacspeak-info-select-node-speak-chunk 'screenfull
   "Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
