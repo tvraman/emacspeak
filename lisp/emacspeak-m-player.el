@@ -1200,6 +1200,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defvar emacspeak-m-player-history-map
   (let ((map (make-sparse-keymap)))
     (define-key map ";" 'emacspeak-eww-play-media-at-point)
+    (define-key map "k" 'shr-copy-url)
     (define-key map "r" 'emacspeak-m-player-remove-from-media-history)
     map)
   "Keymap used in media history browser.")
