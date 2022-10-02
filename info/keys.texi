@@ -561,6 +561,9 @@
 @item u
  soundscape-update-mood
 
+@item y
+ emacspeak-mpv-play-url
+
 @end table
 
 @node Emacspeak Keybindings On emacspeak-alt-keymap

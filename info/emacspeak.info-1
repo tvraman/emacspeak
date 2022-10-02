@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 1, 2022.
+last updated on October 2, 2022.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3201,6 +3201,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 
 ‘u’
      soundscape-update-mood
+
+‘y’
+     emacspeak-mpv-play-url
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
