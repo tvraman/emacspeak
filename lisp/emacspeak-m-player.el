@@ -51,19 +51,22 @@
 ;; 
 ;; @subsection Usage
 ;; 
-;; The main entry-point is command @code{emacspeak-multimedia}
-;; bound to @kbd{C-e ;}.
-;; This prompts for and launches the desired media stream.
-;; Once a stream is playing, you can control it with single-letter keystrokes
-;; in the @code{*M-Player*} buffer.
-;; Alternatively, you can switch away from that buffer to do real work,
-;; And invoke @code{m-player} commands by  first pressing @kbd{C-e ;}.
-;; As an example, pressing @kbd{v} in the @code{*M-Player*} buffer
-;; prompts for and sets the volume;
-;; When not in the @code{*M-Player*} buffer, you can achieve the same
-;; by pressing @kbd{C-e ; v}.
-;; Press @kbd{C-h b} in the @code{*M-Player*}
-;; buffer  to list  @code{m-player} keybindings.
+;; The main entry-point is command @code{emacspeak-multimedia} bound
+;; to @kbd{C-e ;}.  This prompts for and launches the desired media
+;; stream.  Once a stream is playing, you can control it with
+;; single-letter keystrokes in the @code{*M-Player*} buffer.
+;; Alternatively, you can switch away from that buffer to do real
+;; work, And invoke @code{m-player} commands by first pressing
+;; @kbd{C-e ;}.  If your Emacs supports @code{repeat-mode}, ---
+;; @xref{repeating, , , emacs} you can avoid the need to press @code{C-e
+;; ;} each time; with @code{repeat-mode} active, you only need to
+;; press the prefix @code{C-e ;} the first time; subsequent
+;; invocations can happen via single-letter presses as long as they
+;; are performed in a sequence.  As an example, pressing @kbd{v} in
+;; the @code{*M-Player*} buffer prompts for and sets the volume; When
+;; not in the @code{*M-Player*} buffer, you can achieve the same by
+;; pressing @kbd{C-e ; v}.  Press @kbd{C-h b} in the @code{*M-Player*}
+;; buffer to list @code{m-player} keybindings.
 ;; 
 ;;; Code:
 
