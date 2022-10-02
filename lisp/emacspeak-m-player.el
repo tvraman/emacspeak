@@ -448,7 +448,8 @@ If a dynamic playlist exists, just use it."
                #'ido-read-file-name))
             (read-file-name-completion-ignore-case t)
             (default-filename
-             (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
+             (when
+                 (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
                (dired-get-filename nil 'no-error)))
             (dir (emacspeak-media-guess-directory))
             (result nil))
@@ -1193,20 +1194,39 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
          (> (length emacspeak-m-player-media-history) posn))
     (funcall #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
    (t (error "Not enough history"))))
+(defvar emacspeak-m-player-history-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map "r" 'emacspeak-m-player-remove-from-media-history)
+    map)
+  "Keymap used in media history browser.")
 
 (defun emacspeak-m-player-browse-history ()
   "Create a  media history browser from media-history."
   (interactive )
-  (cl-declare (special emacspeak-m-player-media-history))
+  (cl-declare (special
+               emacspeak-m-player-history-map
+               emacspeak-m-player-media-history))
   (with-temp-buffer
-    (insert "<ol>\n")
+    (insert "<html>\n
+<head><title>Emacspeak Media History</title></head>\n
+<body>\n<ol>\n")
     (cl-loop
      for u in emacspeak-m-player-media-history do
      (insert
       (format "<li><a href='%s'>%s: %s</a></li>\n"
               u (url-host (url-generic-parse-url u)) (file-name-base  u))))
-    (insert "</ol>\n")
+    (insert "</ol></body></html>\n")
+    (add-hook
+ 'browse-url-of-file-hook
+ #'(lambda ()
+     (let ((inhibit-read-only t))
+       (put-text-property
+        (point-min) (point-max)
+        'keymap  emacspeak-m-player-history-map)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line))))
     (call-interactively #'browse-url-of-buffer)))
+
 
 ;;}}}
 ;;{{{ Reset Options:
