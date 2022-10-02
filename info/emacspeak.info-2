@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 30, 2022.
+last updated on October 1, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  Prev: emacspeak-geiser,  Up: Emacspeak Commands And Options
@@ -1595,6 +1595,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      e		emacspeak-m-player-equalizer-preset
      f		emacspeak-m-player-add-filter
      g		emacspeak-m-player-seek-absolute
+     h		emacspeak-m-player-from-history
      i		emacspeak-m-player-stream-info
      j		emacspeak-m-player-amark-jump
      k		emacspeak-m-player-quit
@@ -1999,6 +2000,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      e		emacspeak-m-player-equalizer-preset
      f		emacspeak-m-player-add-filter
      g		emacspeak-m-player-seek-absolute
+     h		emacspeak-m-player-from-history
      i		emacspeak-m-player-stream-info
      j		emacspeak-m-player-amark-jump
      k		emacspeak-m-player-quit
