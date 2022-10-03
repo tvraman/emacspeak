@@ -522,9 +522,10 @@ If a dynamic playlist exists, just use it."
       (emacspeak-amark-save))))
 (defun emacspeak-m-player-disable-repeat (process _state)
   "Process sentinel to disable repeat."
-  (when (memq (process-status process)
-              '(failed signal exit))
-    (push 7 unread-command-events)))
+  (when (and repeat-mode
+             (memq (process-status process)
+                   '(failed signal exit)))
+    (repeat-exit)))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
