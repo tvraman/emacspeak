@@ -58,6 +58,13 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
+(defadvice mpv-start (after emacspeak pre act comp)
+  "Set up repeat sentinel"
+  (when (and repeat-mode mpv--process)
+    (set-process-sentinel mpv--process #'ems--repeat-sentinel)))
+
+
+
 (cl-loop
  for f in 
  '(

@@ -62,6 +62,7 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-sounds)
 (require 'sox-gen)
+(require 'repeat)
 (declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
 (declare-function which-function "which-func" nil)
@@ -2847,7 +2848,14 @@ but quickly switch to a window by name."
     (emacspeak-auditory-icon 'repeat-end))
    (repeat-in-progress (emacspeak-auditory-icon 'repeat-active))))
 
-(defun emacspeak-repeat-mode-hook ()
+(defun ems--repeat-sentinel (process _state)
+  "Process sentinel to disable repeat."
+  (when
+      (and repeat-mode
+           (memq (process-status process) '(failed signal exit)))
+    (repeat-exit)))
+
+(defsubst emacspeak-repeat-mode-hook ()
   "Add or remove emacspeak-repeat-check-hook from post-command-hook"
   (cl-declare (special repeat-mode))
   (cond
