@@ -377,7 +377,8 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
        'emacspeak-eww-post-process-hook
        #'(lambda ()
            (goto-char (point-min))
-           (emacspeak-eww-next-h1  'speak)))      
+           (emacspeak-eww-next-h  'speak)
+           (emacspeak-speak-windowful)))      
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
        search-url)))))
@@ -410,7 +411,8 @@ Optional prefix arg prompts for toolbelt options."
        'emacspeak-eww-post-process-hook
        #'(lambda ()
            (goto-char (point-min))
-           (emacspeak-eww-next-h1  'speak)))
+           (emacspeak-eww-next-h)
+           (emacspeak-speak-windowful)))
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
        (format emacspeak-websearch-accessible-google-url query))))))
