@@ -335,6 +335,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defvar emacspeak-websearch-google-number-of-results 25
   "Number of Google search results.")
+(declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 
 ;;;###autoload
@@ -377,8 +378,9 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
        'emacspeak-eww-post-process-hook
        #'(lambda ()
            (goto-char (point-min))
-           (emacspeak-eww-next-h  'speak)
-           (emacspeak-speak-windowful)))      
+           (emacspeak-eww-next-h)
+           (emacspeak-speak-windowful))
+       'at-end)      
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
        search-url)))))
