@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 2, 2022.
+last updated on October 4, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  Prev: emacspeak-geiser,  Up: Emacspeak Commands And Options
@@ -1166,15 +1166,15 @@ This prompts for and launches the desired media stream.  Once a stream
 is playing, you can control it with single-letter keystrokes in the
 ‘*M-Player*’ buffer.  Alternatively, you can switch away from that
 buffer to do real work, And invoke ‘m-player’ commands by first pressing
-‘C-e ;’.  If your Emacs supports ‘repeat-mode’, — *Note
-(emacs)repeating:: you can avoid the need to press ‘C-e ’ each time;
-with ‘repeat-mode’ active, you only need to press the prefix ‘C-e ;’ the
-first time; subsequent invocations can happen via single-letter presses
-as long as they are performed in a sequence.  As an example, pressing
-‘v’ in the ‘*M-Player*’ buffer prompts for and sets the volume; When not
-in the ‘*M-Player*’ buffer, you can achieve the same by pressing ‘C-e ;
-v’.  Press ‘C-h b’ in the ‘*M-Player*’ buffer to list ‘m-player’
-keybindings.
+prefix-key ‘C-e ;’.  If your Emacs supports ‘repeat-mode’, — *Note
+(emacs)repeating:: you can avoid the need to repeatedly press the
+prefix-key ‘C-e ;’ each time; with ‘repeat-mode’ active, you only need
+to press the prefix ‘C-e ;’ the first time; subsequent invocations can
+happen via single-letter presses as long as they are performed in a
+sequence.  As an example, pressing ‘v’ in the ‘*M-Player*’ buffer
+prompts for and sets the volume; When not in the ‘*M-Player*’ buffer,
+you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
+‘*M-Player*’ buffer to list ‘m-player’ keybindings.
 
 12.117.2 Emacspeak-M-Player Commands
 ------------------------------------
