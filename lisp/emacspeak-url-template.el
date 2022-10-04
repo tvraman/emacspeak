@@ -284,7 +284,7 @@ dont-url-encode if true then url arguments are not url-encoded "
      (search-forward "Search Tools")
      (forward-line 1)
      (emacspeak-auditory-icon 'open-object)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Light-weight Google search.")
 
 ;; forward declaration:
@@ -298,8 +298,9 @@ dont-url-encode if true then url arguments are not url-encoded "
      (search-forward "Search Tools")
      (forward-line 1)
      (emacspeak-auditory-icon 'open-object)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Light-weight Google weather.")
+
 (emacspeak-url-template-define
  "US Stock Market From Google "
  "https://www.google.com/search?num=25&lite=90586&q=US+Stock+Market+Summary"
@@ -308,7 +309,7 @@ dont-url-encode if true then url arguments are not url-encoded "
      (search-forward "Search Tools")
      (forward-line 1)
      (emacspeak-auditory-icon 'open-object)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Light-weight Google US Stock Markets.")
 
 ;;}}}
@@ -347,7 +348,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object)
      (search-forward "Most Active")
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Lookup ticker on Google Finance.")
 
 (emacspeak-url-template-define
@@ -357,7 +358,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object)
      (search-forward "Most Active")
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Display top stocks  from Google Finance.")
 
 ;;}}}
@@ -413,7 +414,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  (list #'gweb-news-autocomplete)
  #'(lambda ()
      (emacspeak-url-template-setup-content-filter)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Search Google news.")
 
 (defun emacspeak-url-template-google-atom-news-display (feed-url)
@@ -843,7 +844,7 @@ JSON is retrieved from `url'."
  #'(lambda ()
      (search-forward "(gloss)")
      (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Look up term in WordNet.")
 
 ;;}}}
@@ -1145,7 +1146,7 @@ Each URL template carries out the following steps:
  #'(lambda nil
      (re-search-forward "^Result")
      (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Search WikiData.")
 
 ;;}}}
@@ -1258,7 +1259,7 @@ template."
  (list "Search: ")
  #'(lambda ()
      (emacspeak-eww-next-h)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-windowful))
  "Search Linux ArchWiki")
 
 ;;}}}
@@ -1370,7 +1371,7 @@ template."
       #'(lambda nil
           (search-forward "\n\n")
           (dtk-set-punctuations-to-some)
-          (emacspeak-speak-rest-of-buffer))
+          (emacspeak-speak-windowful))
       'at-end)
      (browse-url
       (replace-regexp-in-string
