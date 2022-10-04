@@ -209,15 +209,17 @@ feeds."
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
   (let ((read-process-output-max  (* 1024 1024)))
-    (url-retrieve feed-url #'emacspeak-feeds-render
-                  (list feed-url  style  speak)))
+    (url-retrieve
+     feed-url #'emacspeak-feeds-render
+     (list feed-url  style  speak)))
   (message "pulling feed.")
   (emacspeak-auditory-icon 'item))
 
 (defun emacspeak-feeds-render  (_status feed-url style   speak)
   "Render the result of asynchronously retrieving feed-url."
-  (cl-declare (special  eww-data  eww-current-url
-                        emacspeak-eww-feed emacspeak-eww-style))
+  (cl-declare (special
+               eww-data  eww-current-url
+               emacspeak-eww-feed emacspeak-eww-style))
   (let ((inhibit-read-only t)
         (browse-url-browser-function  'eww-browse-url)
         (data-buffer (current-buffer))
