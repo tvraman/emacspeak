@@ -965,7 +965,7 @@ Retain previously set punctuations  mode."
 
 ;;;###autoload
 (defun emacspeak-eww-autospeak()
-  "Setup post process hook to speak the Web page. "
+  "Setup post process hook to speak the first windowful . "
   (add-hook
    'emacspeak-eww-post-process-hook
    #'(lambda nil
@@ -973,7 +973,7 @@ Retain previously set punctuations  mode."
        (setq emacspeak-we-xpath-filter
              emacspeak-we-paragraphs-xpath-filter)
        (dtk-set-punctuations-to-some)
-       (emacspeak-speak-buffer))
+       (emacspeak-speak-windowful))
    'at-end))
 
 ;;;###autoload
