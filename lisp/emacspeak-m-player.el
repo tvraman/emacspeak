@@ -361,21 +361,22 @@ Controls media playback when already playing.
    (list
     (read-directory-name"Media Directory: ")
     (read-key-sequence "Key: ")))
-  (let ((command
-         (eval
-          `(defun
-               ,(intern
-                 (format "emacspeak-media-%s"
-                         (file-name-base (directory-file-name directory))))
-               ()
-             ,(format "Launch media from directory %s" directory)
-             (interactive)
-             (cl-declare  (special
-                           default-directory
-                           emacspeak-m-player-current-directory))
-             (let ((default-directory ,directory))
-               (setq emacspeak-m-player-current-directory ,directory)
-               (emacspeak-m-player-accelerator ,directory))))))
+  (let
+      ((command
+        (eval
+         `(defun
+              ,(intern
+                (format "emacspeak-media-%s"
+                        (file-name-base (directory-file-name directory))))
+              ()
+            ,(format "Launch media from directory %s" directory)
+            (interactive)
+            (cl-declare  (special
+                          default-directory
+                          emacspeak-m-player-current-directory))
+            (let ((default-directory ,directory))
+              (setq emacspeak-m-player-current-directory ,directory)
+              (emacspeak-m-player-accelerator ,directory))))))
     (global-set-key key command)
     (put command 'repeat-map 'emacspeak-m-player-mode-map)))
 
