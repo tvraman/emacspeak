@@ -557,10 +557,7 @@ dynamic playlist. "
   (let ((buffer (get-buffer-create "*M-Player*"))
         (process-connection-type nil)
         (playlist-p
-         (when resource
-           (and (not emacspeak-m-player-accelerator-p)
-                (or play-list (emacspeak-m-player-playlist-p resource))
-                )))
+         (and resource (or play-list (emacspeak-m-player-playlist-p resource))))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list  (reverse emacspeak-m-player-dynamic-playlist))
         (duration
