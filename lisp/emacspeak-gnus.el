@@ -864,7 +864,7 @@ Helps to prevent words from being spelled instead of spoken."
  'gnus-summary-mode
    "master [0-9a-f]{10}:"
  (cons 're-search-forward
-       "GitRef"))
+       #'(lambda (_) "GitRef")))
 
 ;;}}}
 (provide 'emacspeak-gnus)
