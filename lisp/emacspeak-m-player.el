@@ -524,9 +524,8 @@ If a dynamic playlist exists, just use it."
       (emacspeak-amark-save))))
 (defun ems--repeat-sentinel (process _state)
   "Process sentinel to disable repeat."
-  (when (and repeat-mode
-             (memq (process-status process)
-                   '(failed signal exit)))
+  (cl-declare (special repeat-mode))
+  (when (and repeat-mode (memq (process-status process) '(failed signal exit)))
     (repeat-exit)))
 
 ;;;###autoload
