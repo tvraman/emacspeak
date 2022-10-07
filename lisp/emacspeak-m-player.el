@@ -368,7 +368,7 @@ Controls media playback when already playing.
               ,(intern
                 (format "emacspeak-media-%s"
                         (file-name-base (directory-file-name directory))))
-              ()
+              (&optional prefix)
             ,(format "Launch media from directory %s" directory)
             (interactive)
             (cl-declare  (special
