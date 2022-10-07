@@ -858,15 +858,7 @@ Helps to prevent words from being spelled instead of spoken."
     user-mail-address)))
 
 ;;}}}
-;;{{{summary-mode pronunciations:
 
-(emacspeak-pronounce-add-dictionary-entry
- 'gnus-summary-mode
-   "master [0-9a-f]{10}:"
- (cons 're-search-forward
-       #'(lambda (_) "GitRef")))
-
-;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
 ;; local variables:
