@@ -430,6 +430,7 @@ Controls media playback when already playing.
   (let ((completion-ignore-case t))
     (cond
      (prefix
+      (setq current-prefix-arg nil)
       (read-directory-name "Media:" emacspeak-m-player-current-directory))
      (t
       (completing-read
