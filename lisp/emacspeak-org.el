@@ -799,6 +799,12 @@ arg just opens the file"
 
 
 ;;}}}
+;;{{{Amark:
+(cl-pushnew
+ '("amark" :follow org-amark-open :store org-amark-store-link)
+ org-link-parameters)
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
