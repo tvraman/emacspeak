@@ -64,6 +64,7 @@
 ;;{{{ Structure:
 
 (cl-defstruct emacspeak-amark
+  "AMark: A structure that holds a name, a file, and a time-position."
   path                                  ; filename
   name                                  ; Bookmark name
   position                              ; Offset in ms from start
@@ -160,7 +161,8 @@ given name, it is updated with path and position."
        l
        :key #'emacspeak-amark-path)
       #'(lambda (a b) ;; predicate for sort
-          (string-lessp (emacspeak-amark-name a) (emacspeak-amark-name b )))))))
+          (string-lessp
+           (emacspeak-amark-name a) (emacspeak-amark-name b )))))))
 
 (defun emacspeak-amark-delete (amark)
   "Delete Amark and save."
