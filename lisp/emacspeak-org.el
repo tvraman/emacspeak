@@ -803,7 +803,7 @@ arg just opens the file"
 (org-link-set-parameters
  "amark"
  :follow #'org-amark-open
- :store #'org-amark-store-link)
+ :store #'org-amark-store)
 
 ;;}}}
 (provide 'emacspeak-org)
