@@ -800,9 +800,10 @@ arg just opens the file"
 
 ;;}}}
 ;;{{{Amark:
-(cl-pushnew
- '("amark" :follow org-amark-open :store org-amark-store-link)
- org-link-parameters)
+(org-link-set-parameters
+ "amark"
+ :follow #'org-amark-open
+ :store #'org-amark-store-link)
 
 ;;}}}
 (provide 'emacspeak-org)
