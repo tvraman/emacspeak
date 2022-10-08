@@ -802,7 +802,7 @@ arg just opens the file"
 ;;{{{Amark:
 (org-link-set-parameters
  "amark"
- :follow #'org-amark-open
+ :follow #'org-amark-follow-link
  :store #'org-amark-store-link)
 
 
@@ -813,8 +813,21 @@ arg just opens the file"
                 (concat
                  "amark:" (emacspeak-amark-path amark)
 	         "#" (emacspeak-amark-position amark))))
-      (org-link-store-props :type "amark" :link link )
+    (org-link-store-props
+     :type "amark" :link link
+     :description (emacspeak-amark-name amark) )
       link))
+(require 'emacspeak-amark)
+
+(defun org-amark-follow-link (name)
+  "Follow an AMark link."
+  (when-let
+      ((match (string-match "\\(.*\\)#\\(.*\\)" name))
+        (filename (match-string 1 name))
+        (position  (match-string 2 name)))
+    (message "play: %s at %s" filename position)
+    (emacspeak-amark-play
+     (make-emacspeak-amark :path filename  :position position))))
 
 ;;}}}
 (provide 'emacspeak-org)
