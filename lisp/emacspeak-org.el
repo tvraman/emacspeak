@@ -480,8 +480,7 @@
 
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
-  (cl-declare (special org-mode-map
-                       org-link-parameters))
+  (cl-declare (special org-mode-map org-link-parameters))
   (emacspeak-org-update-keys)
   (define-key org-mode-map (ems-kbd "C-o e") 'tvr-org-enumerate)
   (define-key org-mode-map (ems-kbd "C-o i") 'tvr-org-itemize)
