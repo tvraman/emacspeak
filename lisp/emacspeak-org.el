@@ -805,6 +805,17 @@ arg just opens the file"
  :follow #'org-amark-open
  :store #'org-amark-store-link)
 
+
+(defun org-amark-store-link ()
+  "Store a link to a AMark at point."
+  (when-let ((amark (button-get (button-at (point)) 'mark))
+               (link
+                (concat
+                 "amark:" (emacspeak-amark-path amark)
+	         "#" (emacspeak-amark-position amark))))
+      (org-link-store-props :type "amark" :link link )
+      link))
+
 ;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
