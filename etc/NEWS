@@ -48,6 +48,13 @@ alternative to xbacklight.el
 
 Interactive browsers for EWW Marks,AMarks,  Media History.
 
+* Org-Mode Enhancements 
+
+Module ~emacspeak-org~ now integrates ~AMark~ support into org-mode;
+users can now enhance notes taken in org-mode with hyperlinks to
+AMarks that point to the relevant audio content when listening to
+audio books etc.
+
 ** Speech-Enable ~journalctl-mode~
 
 Speech-enable package ~journalctl-mode~ to work with SystemD
