@@ -807,16 +807,14 @@ arg just opens the file"
  :store #'org-amark-store-link)
 
 (defun org-amark-store-link ()
-  "Store a link to a AMark."
+  "Store a link to a AMark.
+Is enabled in the AMark Browser and M-Player Interaction buffers."
   (when-let
-      ((mode-p
-        (or
-         (eq major-mode 'emacspeak-m-player-mode)
-         (eq major-mode 'emacspeak-amark-mode)))
+      ((m (memq major-mode '(emacspeak-m-player-mode emacspeak-amark-mode)))
        (amark
         (if  (button-at (point))
-         (button-get (button-at (point)) 'mark)
-         (call-interactively #'emacspeak-amark-find)))
+            (button-get (button-at (point)) 'mark)
+          (call-interactively #'emacspeak-amark-find)))
        (link
         (concat
          "amark:" (emacspeak-amark-path amark)
@@ -824,7 +822,7 @@ arg just opens the file"
     (org-link-store-props
      :type "amark" :link link
      :description (emacspeak-amark-name amark) )
-      link))
+    link))
 
 (require 'emacspeak-amark)
 (defun org-amark-follow-link (name)
