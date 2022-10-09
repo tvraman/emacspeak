@@ -90,8 +90,10 @@
         "2">emacspeak-amark-browse</a></li>
         <li><a href="#emacspeak_002damark_002dfind" accesskey=
         "3">emacspeak-amark-find</a></li>
+        <li><a href="#emacspeak_002damark_002dmode" accesskey=
+        "4">emacspeak-amark-mode</a></li>
         <li><a href="#emacspeak_002damark_002dsave" accesskey=
-        "4">emacspeak-amark-save</a></li>
+        "5">emacspeak-amark-save</a></li>
       </ul>
       <div class="subsubsection" id="emacspeak_002damark_002dadd">
         <h4 class="subsubsection">12.12.1.1
@@ -139,7 +141,7 @@ given name, it is updated with path and position.
             "index-emacspeak_002damark_002dbrowse-1"></span>
             <div class="format">
               <pre class=
-              "format">Browse   amarks  in current directory.
+              "format">Browse   amarks  in current directory using ‘emacspeak-amark-mode’.
 </pre>
             </div>
           </dd>
@@ -167,8 +169,36 @@ given name, it is updated with path and position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="emacspeak_002damark_002dsave">
+      <div class="subsubsection" id="emacspeak_002damark_002dmode">
         <h4 class="subsubsection">12.12.1.4
+        emacspeak-amark-mode</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002damark_002dmode"><span class=
+          "category">Command:</span>
+          <span><strong>emacspeak-amark-mode</strong> <a href=
+          '#index-emacspeak_002damark_002dmode' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id="index-emacspeak_002damark_002dmode-1"></span>
+            <div class="format">
+              <pre class=
+              "format">A light-weight mode for the ‘*Emacspeak Amark Browser*’.
+ 1. Provides buttons for opening and removing AMarks.
+ 2. Enables org integration via command
+ ‘org-store-link’ bound to M-x org-store-link.
+ 3. Stored links can be inserted into org files in the same directory
+via command ‘org-insert-link’ bound to M-x org-insert-link.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘emacspeak-amark-mode-hook’, as the final
+or penultimate step during initialization.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id="emacspeak_002damark_002dsave">
+        <h4 class="subsubsection">12.12.1.5
         emacspeak-amark-save</h4>
         <dl class="def">
           <dt id="index-emacspeak_002damark_002dsave"><span class=
