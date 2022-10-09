@@ -15,6 +15,17 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on October 8, 2022.
 
 
+File: emacspeak.info,  Node: emacspeak-geiser,  Next: emacspeak-gh-explorer,  Prev: emacspeak-forms,  Up: Emacspeak Commands And Options
+
+12.85 emacspeak-geiser
+======================
+
+geiser.el — GNU Emacs and Scheme talk to each other This module
+speech-enables all interactive aspects of geiser, including the
+geiser->scheme REPL. This is used by racket-mode for racket interaction,
+And also for interacting with Guile.
+
+
 File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  Prev: emacspeak-geiser,  Up: Emacspeak Commands And Options
 
 12.86 emacspeak-gh-explorer

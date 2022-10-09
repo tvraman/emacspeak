@@ -189,9 +189,10 @@ given name, it is updated with path and position."
   "AMark Browser"
   "A light-weight mode for the `*Emacspeak Amark Browser*'.
  1. Provides buttons for opening and removing AMarks.
- 2. Enables org integration  via \\[org-store-link].
+ 2. Enables org integration via command
+ `org-store-link' bound to \\[org-store-link].
  3. Stored links can be inserted into org files in the same directory
-via command \\[org-insert-link]."
+via command `org-insert-link' bound to \\[org-insert-link]."
   (setq header-line-format "AMark Browser")
   t)
 
@@ -208,7 +209,7 @@ via command \\[org-insert-link]."
 
 ;;;###autoload
 (defun emacspeak-amark-browse ()
-  "Browse   amarks  in current directory."
+  "Browse   amarks  in current directory using `emacspeak-amark-mode'."
   (interactive)
   (cl-declare (special emacspeak-amark-list))
   (let ((amarks (or (emacspeak-amark-load) (error "No Amarks here")))

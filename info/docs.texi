@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1162 commands and 148 options.
+This chapter documents a total of 1163 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -1334,7 +1334,7 @@ given name, it is updated with path and position.
 @findex emacspeak-amark-browse
 
 @format
-Browse   amarks  in current directory.
+Browse   amarks  in current directory using ‘emacspeak-amark-mode’.
 @end format
 @end deffn
 
@@ -1346,6 +1346,24 @@ Browse   amarks  in current directory.
 Return matching AMark if found in buffer-local AMark list.
 
 (fn NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-amark-mode
+@deffn {Command} emacspeak-amark-mode   
+@findex emacspeak-amark-mode
+
+@format
+A light-weight mode for the ‘*Emacspeak Amark Browser*’.
+ 1. Provides buttons for opening and removing AMarks.
+ 2. Enables org integration via command
+ ‘org-store-link’ bound to M-x org-store-link.
+ 3. Stored links can be inserted into org files in the same directory
+via command ‘org-insert-link’ bound to M-x org-insert-link.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘emacspeak-amark-mode-hook’, as the final
+or penultimate step during initialization.
 @end format
 @end deffn
 

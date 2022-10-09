@@ -3438,7 +3438,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1162 commands and 148 options.
+   This chapter documents a total of 1163 commands and 148 options.
 
 * Menu:
 
@@ -4500,7 +4500,7 @@ directory containing mp3 files where Amarks have been created.
      ‘C-; a’
      ‘C-x @ h a’
 
-     Browse   amarks  in current directory.
+     Browse   amarks  in current directory using ‘emacspeak-amark-mode’.
 
 12.12.1.3 emacspeak-amark-find
 ..............................
@@ -4511,7 +4511,23 @@ directory containing mp3 files where Amarks have been created.
 
      (fn NAME)
 
-12.12.1.4 emacspeak-amark-save
+12.12.1.4 emacspeak-amark-mode
+..............................
+
+ -- Command: emacspeak-amark-mode
+
+     A light-weight mode for the ‘*Emacspeak Amark Browser*’.
+      1. Provides buttons for opening and removing AMarks.
+      2. Enables org integration via command
+      ‘org-store-link’ bound to M-x org-store-link.
+      3. Stored links can be inserted into org files in the same directory
+     via command ‘org-insert-link’ bound to M-x org-insert-link.
+
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘emacspeak-amark-mode-hook’, as the final
+     or penultimate step during initialization.
+
+12.12.1.5 emacspeak-amark-save
 ..............................
 
  -- Command: emacspeak-amark-save
@@ -9108,15 +9124,4 @@ Provide additional advice to forms-mode
  -- Command: emacspeak-forms-summarize-current-record
 
      Summarize current record
-
-
-File: emacspeak.info,  Node: emacspeak-geiser,  Next: emacspeak-gh-explorer,  Prev: emacspeak-forms,  Up: Emacspeak Commands And Options
-
-12.85 emacspeak-geiser
-======================
-
-geiser.el — GNU Emacs and Scheme talk to each other This module
-speech-enables all interactive aspects of geiser, including the
-geiser->scheme REPL. This is used by racket-mode for racket interaction,
-And also for interacting with Guile.
 
