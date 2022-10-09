@@ -186,10 +186,22 @@ given name, it is updated with path and position."
 ;;{{{Amark Mode:
 
 (define-derived-mode emacspeak-amark-mode special-mode
-  "Amark Mode"
-  "A light-weight mode for the `*Emacspeak Amark Browser*' buffer. "
-  (setq header-line-format "AMarks")
+  "AMark Browser"
+  "A light-weight mode for the `*Emacspeak Amark Browser*'.
+ 1. Provides buttons for opening and removing AMarks.
+ 2. Enables org integration  via \\[org-store-link].
+ 3. Stored links can be inserted into org files in the same directory
+via command \\[org-insert-link]."
+  (setq header-line-format "AMark Browser")
   t)
+
+(cl-loop
+ for b   in
+ '(
+   ("C-c i" org-insert-link)
+   ("C-c l" org-store-link))
+ do
+ (emacspeak-keymap-update emacspeak-amark-mode-map b))
 
 ;;}}}
 ;;{{{Browse Amarks:
