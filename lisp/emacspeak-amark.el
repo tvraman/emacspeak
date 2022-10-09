@@ -188,7 +188,7 @@ given name, it is updated with path and position."
 (define-derived-mode emacspeak-amark-mode special-mode
   "Amark Mode"
   "A light-weight mode for the `*Emacspeak Amark Browser*' buffer. "
-  (setq header-line-format "")
+  (setq header-line-format "AMarks")
   t)
 
 ;;}}}
