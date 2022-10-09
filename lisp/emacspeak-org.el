@@ -809,8 +809,9 @@ arg just opens the file"
 
 (defun org-amark-store-link ()
   "Store a link to a AMark at point."
-  (when-let ((amark (button-get (button-at (point)) 'mark))
-               (link
+  (when-let ((mode-p (eq major-mode 'emacspeak-amark-mode))
+             (amark (button-get (button-at (point)) 'mark))
+             (link
                 (concat
                  "amark:" (emacspeak-amark-path amark)
 	         "#" (emacspeak-amark-position amark))))
@@ -818,8 +819,8 @@ arg just opens the file"
      :type "amark" :link link
      :description (emacspeak-amark-name amark) )
       link))
-(require 'emacspeak-amark)
 
+(require 'emacspeak-amark)
 (defun org-amark-follow-link (name)
   "Follow an AMark link."
   (when-let
