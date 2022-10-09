@@ -183,6 +183,15 @@ given name, it is updated with path and position."
   (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
 
 ;;}}}
+;;{{{Amark Mode:
+
+(define-derived-mode emacspeak-amark-mode special-mode
+  "Amark Mode"
+  "A light-weight mode for the `*Emacspeak Amark Browser*' buffer. "
+  (setq header-line-format "")
+  t)
+
+;;}}}
 ;;{{{Browse Amarks:
 
 ;;;###autoload
@@ -194,7 +203,7 @@ given name, it is updated with path and position."
         (buff (get-buffer-create "*Amarks Browser"))
         (inhibit-read-only t))
     (with-current-buffer buff
-      (special-mode)
+      (emacspeak-amark-mode)
       (setq emacspeak-amark-list amarks)
       (local-set-key "p" 'backward-button)
       (local-set-key "n" 'forward-button)
