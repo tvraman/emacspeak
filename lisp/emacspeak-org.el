@@ -801,6 +801,7 @@ arg just opens the file"
 
 ;;}}}
 ;;{{{Amark:
+
 (org-link-set-parameters
  "amark"
  :follow #'org-amark-follow-link
@@ -834,6 +835,27 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
     (message "play: %s at %s" filename position)
     (emacspeak-amark-play
      (make-emacspeak-amark :path filename  :position position))))
+
+;;}}}
+;;{{{EWW Marks:
+
+(org-link-set-parameters
+ "ebook"
+ :follow #'org-ebook-follow-link
+ :store #'org-ebook-store-link)
+
+(defun org-ebook-store-link ()
+  "Store a link to an EWW mark from an EBook. "
+  (when-let
+      ((m (eq major-mode 'emacspeak-eww-marks-mode))
+       (b (button-at (point)))
+       (desc  (buffer-substring (button-start b) (button-end b)))
+       (link
+        (concat
+         "ebook:" (button-label b))))
+    (org-link-store-props
+     :type "ebook" :link link :description desc )
+    link))
 
 ;;}}}
 (provide 'emacspeak-org)
