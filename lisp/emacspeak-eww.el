@@ -2119,6 +2119,19 @@ arg `delete', delete that mark instead."
   (run-at-time 3600 3600  #'emacspeak-eww-marks-save)
   "Idle timer for saving EWW marks.")
 
+
+
+(define-derived-mode emacspeak-eww-marks-mode special-mode
+  "EWW Marks  Browser"
+  "A light-weight mode for the `*Emacspeak EWW Marks Browser*'.
+ 1. Enables org integration via command
+ `org-store-link' bound to \\[org-store-link].
+ 2. Stored links can be inserted into org files in the same directory
+via command `org-insert-link' bound to \\[org-insert-link]."
+  (setq header-line-format "EWW Marks Browser")
+  t)
+
+;;;###autoload
 (defun emacspeak-eww-marks-browse ()
   "List EWW Marks as actionable buttons."
   (interactive)
@@ -2126,7 +2139,7 @@ arg `delete', delete that mark instead."
   (let ((buffer (get-buffer-create "EWW Marks"))
         (inhibit-read-only t))
     (with-current-buffer buffer
-      (special-mode)
+      (emacspeak-eww-mark-mode)
       (erase-buffer)
       (setq buffer-undo-list t)
       (cl-loop
