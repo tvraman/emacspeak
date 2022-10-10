@@ -2102,6 +2102,7 @@ arg `delete', delete that mark instead."
            'emacspeak-eww-post-process-hook
            #'(lambda ()
                (goto-char point)
+               (eww-mode)
                (delete-other-windows)
                (emacspeak-speak-windowful)
                (emacspeak-auditory-icon 'large-movement))
