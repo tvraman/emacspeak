@@ -2139,7 +2139,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
   (let ((buffer (get-buffer-create "EWW Marks"))
         (inhibit-read-only t))
     (with-current-buffer buffer
-      (emacspeak-eww-mark-mode)
+      (emacspeak-eww-marks-mode)
       (erase-buffer)
       (setq buffer-undo-list t)
       (cl-loop
