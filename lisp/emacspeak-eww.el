@@ -2013,8 +2013,8 @@ into `notes'.`m"
           :point (point))))
     (puthash  name bm emacspeak-eww-marks)
     (emacspeak-eww-marks-save)
-    (emacspeak-auditory-icon 'mark-object)
     (cl-pushnew `(,(concat "ebook:" name) ,name) org-stored-links)
+    (emacspeak-auditory-icon 'mark-object)
     (message "Created  EWW mark %s." name)))
 
 (defun emacspeak-eww-jump-to-mark (bm)
