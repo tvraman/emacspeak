@@ -1979,7 +1979,9 @@ The %s is automatically spoken if there is no user activity."
   "Stores   EWW-marks.")
 
 (defun emacspeak-eww-add-mark (name)
-  "Interactively add a mark with name title+`name' at current position."
+  "Interactively add a mark with name title+`name' at current
+  position.  Also store it as an org link for later insertion
+into `notes'.`m"
   (interactive
    (list
     (concat
@@ -1987,8 +1989,10 @@ The %s is automatically spoken if there is no user activity."
      (let ((input (read-from-minibuffer "Mark: " nil nil nil nil "current")))
        (if (zerop (length input))
            "current" input)))))
-  (cl-declare (special emacspeak-eww-marks major-mode
-                       emacspeak-epub-this-epub emacspeak-bookshare-this-book))
+  (cl-declare (special
+               org-stored-links
+               emacspeak-eww-marks major-mode
+               emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (let ((bm
          (make-emacspeak-eww-mark
           :name name
@@ -2010,6 +2014,7 @@ The %s is automatically spoken if there is no user activity."
     (puthash  name bm emacspeak-eww-marks)
     (emacspeak-eww-marks-save)
     (emacspeak-auditory-icon 'mark-object)
+    (cl-pushnew `(,(concat "ebook:" name) ,name) org-stored-links)
     (message "Created  EWW mark %s." name)))
 
 (defun emacspeak-eww-jump-to-mark (bm)
