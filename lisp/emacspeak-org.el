@@ -841,7 +841,7 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 
 (org-link-set-parameters
  "ebook"
- :follow #'org-ebook-follow-link
+ :follow #'emacspeak-eww-open-mark
  :store #'org-ebook-store-link)
 
 (defun org-ebook-store-link ()
@@ -856,6 +856,7 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
     (org-link-store-props
      :type "ebook" :link link :description desc )
     link))
+
 
 ;;}}}
 (provide 'emacspeak-org)
