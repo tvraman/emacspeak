@@ -1210,6 +1210,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
    (t (error "Not enough history"))))
 (defvar emacspeak-m-player-history-map
   (let ((map (make-sparse-keymap)))
+    (define-key map  "\C-m" 'emacspeak-eww-play-media-at-point)
     (define-key map ";" 'emacspeak-eww-play-media-at-point)
     (define-key map "k" 'shr-copy-url)
     (define-key map "r" 'emacspeak-m-player-remove-from-media-history)
