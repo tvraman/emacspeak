@@ -649,7 +649,9 @@ dynamic playlist. "
       (setq  emacspeak-m-player-file-list file-list)
       (when (called-interactively-p 'interactive)
         (message
-         "MPlayer opened  %s"
+         "%s MPlayer opened  %s"
+         (if emacspeak-m-player-jump-action
+             "Press J to resume where you left off" "")
          (cond
           ((null resource)
            (format
