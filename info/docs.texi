@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1163 commands and 148 options.
+This chapter documents a total of 1165 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -5277,7 +5277,9 @@ delete a previously created eww-mark.
 @findex emacspeak-eww-add-mark
 
 @format
-Interactively add a mark with name title+‘name’ at current position.
+Interactively add a mark with name title+‘name’ at current
+  position.  Also store it as an org link for later insertion
+into ‘notes’.‘m
 
 (fn NAME)
 @end format
@@ -5375,6 +5377,23 @@ List EWW Marks as actionable buttons.
 
 @format
 Load saved marks.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-marks-mode
+@deffn {Command} emacspeak-eww-marks-mode   
+@findex emacspeak-eww-marks-mode
+
+@format
+A light-weight mode for the ‘*Emacspeak EWW Marks Browser*’.
+ 1. Enables org integration via command
+ ‘org-store-link’ bound to M-x org-store-link.
+ 2. Stored links can be inserted into org files in the same directory
+via command ‘org-insert-link’ bound to M-x org-insert-link.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘emacspeak-eww-marks-mode-hook’, as the
+final or penultimate step during initialization.
 @end format
 @end deffn
 
@@ -8512,6 +8531,7 @@ A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
+J		emacspeak-m-player-run-jump
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
@@ -8718,6 +8738,15 @@ Check first if current buffer is in emacspeak-m-player-mode.
 
 @format
 Play on right channel.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-run-jump
+@deffn {Command} emacspeak-m-player-run-jump   
+@findex emacspeak-m-player-run-jump
+
+@format
+Run buffer-local jump action.
 @end format
 @end deffn
 
@@ -9029,6 +9058,7 @@ A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
+J		emacspeak-m-player-run-jump
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
