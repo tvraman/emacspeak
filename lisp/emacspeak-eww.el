@@ -690,8 +690,12 @@ Optional interactive prefix arg `playlist-p' treats
     (cl-assert (stringp url) t "No URL under point." )
     (message "Playing media  URL under point")
     (kill-new url)
-    (cl-pushnew  url emacspeak-m-player-media-history :test #'string=)
-    (emacspeak-m-player  url  playlist-p)))
+    (cl-pushnew ; strip #target
+     (cl-first (split-string url "#"))
+     emacspeak-m-player-media-history :test #'string=)
+    (emacspeak-m-player
+     (url-unhex-string url)
+     playlist-p)))
 
 (defun emacspeak-eww-curl-play-media-at-point ()
   "Use Curl to pull a URL, then pass

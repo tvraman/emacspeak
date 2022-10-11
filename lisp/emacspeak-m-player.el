@@ -626,9 +626,9 @@ dynamic playlist. "
       (when
           (and
            emacspeak-m-player-current-url
-           (string-match "#" emacspeak-m-player-current-url)
-           (emacspeak-m-player-seek-absolute
-            (cl-second (split-string "#" emacspeak-m-player-current-url)))))
+           (string-match "#" emacspeak-m-player-current-url))
+        (emacspeak-m-player-seek-absolute
+            (cl-second (split-string "#" emacspeak-m-player-current-url))))
       (when (called-interactively-p 'interactive)
         (message
          "MPlayer opened  %s"
