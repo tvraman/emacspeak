@@ -614,9 +614,11 @@ dynamic playlist. "
       (when-let
           ((u emacspeak-m-player-current-url)
            (offset
-            (and (string-match "#" u) (cl-second (split-string u "#")))))
-        (message "Seek: %s" offset)
-        (emacspeak-m-player-seek-absolute offset))
+            (and (string-match "#" u) (cl-second (split-string u
+                                                               "#")))))
+        (sit-for 0.1)
+        (emacspeak-m-player-seek-absolute offset)
+        (message "Seek: %s" offset))
       (set-process-sentinel
        emacspeak-m-player-process
        #'ems--repeat-sentinel)
