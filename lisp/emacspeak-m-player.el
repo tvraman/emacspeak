@@ -533,6 +533,19 @@ If a dynamic playlist exists, just use it."
   (when (and repeat-mode (memq (process-status process) '(failed signal exit)))
     (repeat-exit)))
 
+(defvar-local emacspeak-m-player-jump-action nil
+  "Function to run as a `jump' action.")
+(defun emacspeak-m-player-run-jump ()
+  "Run buffer-local jump action."
+  (interactive)
+  (cl-declare (special emacspeak-m-player-process))
+  (when (process-live-p emacspeak-m-player-process)
+    (with-current-buffer (process-buffer emacspeak-m-player-process)
+      (when (and (boundp 'emacspeak-m-player-jump-action)
+                 (functionp emacspeak-m-player-jump-action))
+        (funcall emacspeak-m-player-jump-action )))))
+
+
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play  resource, or play dynamic playlist if set.  Optional prefix argument
@@ -545,6 +558,7 @@ dynamic playlist. "
     (emacspeak-media-read-resource current-prefix-arg)
     current-prefix-arg))
   (cl-declare (special
+               emacspeak-m-player-jump-action
                emacspeak-m-player-dynamic-playlist
                emacspeak-m-player-accelerator-p
                emacspeak-m-player-file-list emacspeak-m-player-current-directory
@@ -614,9 +628,12 @@ dynamic playlist. "
       (when-let
           ((u emacspeak-m-player-current-url)
            (offset
-            (and (string-match "#" u) (cl-second (split-string u
-                                                               "#")))))
-        (emacspeak-m-player-seek-absolute offset)
+            (and (string-match "#" u)
+                 (cl-second (split-string u "#")))))
+        (message "offset: %s" offset)
+        (setq emacspeak-m-player-jump-action
+              #'(lambda ()
+                  (emacspeak-m-player-seek-absolute offset)))
         (message "Seek: %s" offset))
       (set-process-sentinel
        emacspeak-m-player-process
@@ -1474,8 +1491,9 @@ flat classical club dance full-bass full-bass-and-treble
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
     ("M" emacspeak-m-player-display-metadata)
-    ("C-l" ladspa)
     ("A" emacspeak-m-player-amark-add)
+    ("C-l" ladspa)
+    ("J" emacspeak-m-player-run-jump)
     ("O" emacspeak-m-player-reset-options)
     ("P" emacspeak-m-player-apply-reverb-preset)
     ("Q" emacspeak-m-player-quit)
