@@ -693,9 +693,7 @@ Optional interactive prefix arg `playlist-p' treats
     (cl-pushnew ; strip #target
      (cl-first (split-string url "#"))
      emacspeak-m-player-media-history :test #'string=)
-    (emacspeak-m-player
-     (url-unhex-string url)
-     playlist-p)))
+    (emacspeak-m-player url playlist-p)))
 
 (defun emacspeak-eww-curl-play-media-at-point ()
   "Use Curl to pull a URL, then pass
