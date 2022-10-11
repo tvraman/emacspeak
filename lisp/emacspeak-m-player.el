@@ -616,7 +616,6 @@ dynamic playlist. "
            (offset
             (and (string-match "#" u) (cl-second (split-string u
                                                                "#")))))
-        (sit-for 0.1)
         (emacspeak-m-player-seek-absolute offset)
         (message "Seek: %s" offset))
       (set-process-sentinel
