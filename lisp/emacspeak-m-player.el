@@ -969,7 +969,10 @@ The time position can also be specified as HH:MM:SS."
                      (cl-first (split-string emacspeak-m-player-current-url "#"))))
                 emacspeak-m-player-media-history))
               (cl-pushnew
-               (format "%s#%s" emacspeak-m-player-current-url time)
+               (format
+                "%s#%s"
+                (cl-first (split-string emacspeak-m-player-current-url "#"))
+                time)
                emacspeak-m-player-media-history
                :test #'string=)))
           (unless
