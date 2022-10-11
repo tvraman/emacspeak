@@ -681,8 +681,9 @@ Optional interactive prefix arg `playlist-p' treats
  link as a playlist.  A second interactive prefix arg adds
  mplayer option -allow-dangerous-playlist-parsing"
   (interactive "P")
-  (cl-declare (special emacspeak-m-player-media-history
-                       emacspeak-eww-url-at-point))
+  (cl-declare (special
+               emacspeak-m-player-media-history 
+               emacspeak-eww-url-at-point))
   (let ((url
          (or (funcall emacspeak-eww-url-at-point)
              (browse-url-url-at-point))))

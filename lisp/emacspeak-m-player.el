@@ -425,6 +425,9 @@ plays result as a directory." directory)
 (defvar-local emacspeak-m-player-url-p nil
   "Records if  playing a URL")
 
+(defvar-local emacspeak-m-player-current-url nil
+  "Records   currently playing URL")
+
 (defun emacspeak-media-local-resource (prefix)
   "Read local resource starting from default-directory"
   (cl-declare (special default-directory))
@@ -548,6 +551,7 @@ dynamic playlist. "
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
                emacspeak-m-player-program emacspeak-m-player-options
+               emacspeak-m-player-current-url emacspeak-m-player-url-p
                emacspeak-m-player-custom-filters))
   (when
       (and emacspeak-m-player-process
@@ -578,6 +582,8 @@ dynamic playlist. "
              (or
               (string-match emacspeak-media-shortcuts-directory resource )
               (string-match "^http" resource))))
+      (when emacspeak-m-player-url-p
+        (setq emacspeak-m-player-current-url resource))
       (unless emacspeak-m-player-url-p  ; not a URL
         (when resource
           (setq resource (expand-file-name resource))
@@ -935,13 +941,29 @@ The time position can also be specified as HH:MM:SS."
 (defun emacspeak-m-player-quit ()
   "Quit."
   (interactive)
-  (cl-declare (special emacspeak-amark-list ems--m-player-mark
-                       emacspeak-m-player-url-p emacspeak-m-player-process))
+  (cl-declare (special
+               emacspeak-amark-list ems--m-player-mark
+               
+                       
+               emacspeak-m-player-url emacspeak-m-player-process))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
           (emacspeak-m-player-mode-line)
+          (when emacspeak-m-player-current-url
+            (let* ((info (emacspeak-m-player-get-position))
+                   (time (ems--seconds-string-to-duration (cl-first info))))
+              (setq emacspeak-m-player-media-history
+                    (cl-remove-if
+                     #'(lambda(u)
+                         (string= u emacspeak-m-player-current-url))
+                     emacspeak-m-player-media-history))
+              (cl-pushnew
+               (format "%s#%s"
+                       emacspeak-m-player-current-url time)
+               emacspeak-m-player-media-history
+               :test #'string=)))
           (unless
               (or
                emacspeak-m-player-url-p ;;;dont amark streams
