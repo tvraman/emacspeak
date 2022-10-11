@@ -611,13 +611,12 @@ dynamic playlist. "
             (apply
              #'start-process "MPLayer" buffer
              emacspeak-m-player-program options))
-      (when
-          (and
-           emacspeak-m-player-current-url
-           (string-match "#" emacspeak-m-player-current-url))
-        (message "Seek: %s\n" (cl-second (split-string emacspeak-m-player-current-url "#")))
-        (emacspeak-m-player-seek-absolute
-         (cl-second (split-string emacspeak-m-player-current-url "#"))))
+      (when-let
+          ((u emacspeak-m-player-current-url)
+           (offset
+            (and (string-match "#" u) (cl-second (split-string u "#")))))
+        (message "Seek: %s" offset)
+        (emacspeak-m-player-seek-absolute offset))
       (set-process-sentinel
        emacspeak-m-player-process
        #'ems--repeat-sentinel)
@@ -961,13 +960,14 @@ The time position can also be specified as HH:MM:SS."
           (when emacspeak-m-player-current-url
             (let* ((info (emacspeak-m-player-get-position))
                    (time  (cl-first info)))
-              (setq emacspeak-m-player-media-history
-                    (cl-remove-if
-                     #'(lambda(u)
-                         (string=
-                          (cl-first (split-string u "#"))
-                          emacspeak-m-player-current-url))
-                     emacspeak-m-player-media-history))
+              (setq
+               emacspeak-m-player-media-history
+               (cl-remove-if
+                #'(lambda(u)
+                    (string=
+                     (cl-first (split-string u "#"))
+                     (cl-first (split-string emacspeak-m-player-current-url "#"))))
+                emacspeak-m-player-media-history))
               (cl-pushnew
                (format "%s#%s" emacspeak-m-player-current-url time)
                emacspeak-m-player-media-history
