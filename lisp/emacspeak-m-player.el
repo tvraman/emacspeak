@@ -941,6 +941,7 @@ The time position can also be specified as HH:MM:SS."
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
+          (emacspeak-m-player-display-position)
           (unless
               (or
                emacspeak-m-player-url-p ;;;dont amark streams
