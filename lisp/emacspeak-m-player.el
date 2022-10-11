@@ -984,7 +984,8 @@ The time position can also be specified as HH:MM:SS."
                 #'(lambda(u)
                     (string=
                      (cl-first (split-string u "#"))
-                     (cl-first (split-string emacspeak-m-player-current-url "#"))))
+                     (cl-first
+                      (split-string emacspeak-m-player-current-url "#"))))
                 emacspeak-m-player-media-history))
               (cl-pushnew
                (format
