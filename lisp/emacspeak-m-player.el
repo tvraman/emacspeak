@@ -633,8 +633,7 @@ dynamic playlist. "
         (message "offset: %s" offset)
         (setq emacspeak-m-player-jump-action
               #'(lambda ()
-                  (emacspeak-m-player-seek-absolute offset)))
-        (message "Seek: %s" offset))
+                  (emacspeak-m-player-seek-absolute offset))))
       (set-process-sentinel
        emacspeak-m-player-process
        #'ems--repeat-sentinel)
@@ -648,6 +647,7 @@ dynamic playlist. "
         (emacspeak-amark-load))
       (setq  emacspeak-m-player-file-list file-list)
       (when (called-interactively-p 'interactive)
+        (when emacspeak-m-player-jump-action (emacspeak-auditory-icon 'tock-tock))
         (message
          "%s MPlayer opened  %s"
          (if emacspeak-m-player-jump-action
