@@ -15,6 +15,62 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on October 11, 2022.
 
 
+File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-geiser,  Prev: emacspeak-forge,  Up: Emacspeak Commands And Options
+
+12.84 emacspeak-forms
+=====================
+
+Provide additional advice to forms-mode
+
+12.84.1 Emacspeak-Forms Commands
+--------------------------------
+
+12.84.1.1 emacspeak-forms-find-file
+...................................
+
+ -- Command: emacspeak-forms-find-file (filename)
+
+     Visit a forms file
+
+     (fn FILENAME)
+
+12.84.1.2 emacspeak-forms-flush-unwanted-records
+................................................
+
+ -- Command: emacspeak-forms-flush-unwanted-records
+
+     Prompt for pattern and flush matching lines
+
+12.84.1.3 emacspeak-forms-rerun-filter
+......................................
+
+ -- Command: emacspeak-forms-rerun-filter
+
+     Rerun filter –allows us to nuke more matching records
+
+12.84.1.4 emacspeak-forms-speak-field
+.....................................
+
+ -- Command: emacspeak-forms-speak-field
+
+     Speak current form field name and value.
+     Assumes that point is at the front of a field value.
+
+12.84.1.5 emacspeak-forms-summarize-current-position
+....................................................
+
+ -- Command: emacspeak-forms-summarize-current-position
+
+     Summarize current position in list of records
+
+12.84.1.6 emacspeak-forms-summarize-current-record
+..................................................
+
+ -- Command: emacspeak-forms-summarize-current-record
+
+     Summarize current record
+
+
 File: emacspeak.info,  Node: emacspeak-geiser,  Next: emacspeak-gh-explorer,  Prev: emacspeak-forms,  Up: Emacspeak Commands And Options
 
 12.85 emacspeak-geiser
