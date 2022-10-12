@@ -589,13 +589,7 @@ dynamic playlist. "
       (push "-af" options))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
-      (setq emacspeak-m-player-url-p
-            (and 
-             (not emacspeak-m-player-dynamic-playlist) ;  resource is nil
-             (not emacspeak-m-player-accelerator-p)
-             (or
-              (string-match emacspeak-media-shortcuts-directory resource )
-              (string-match "^http" resource))))
+      (setq emacspeak-m-player-url-p (string-match "^http" resource))
       (when emacspeak-m-player-url-p
         (setq emacspeak-m-player-current-url resource))
       (unless emacspeak-m-player-url-p  ; not a URL
@@ -1698,8 +1692,9 @@ As the default, use current position."
   (when emacspeak-m-player-current-url)
   (cl-pushnew
    `(
-     ,(concat emacspeak-m-player-current-url
-              (cl-first (emacspeak-m-player-get-position)))
+     ,(format "%s#%s"
+       (cl-first (split-string emacspeak-m-player-current-url "#"))
+       (cl-first (emacspeak-m-player-get-position)))
      "URL")
    org-stored-links))
 
