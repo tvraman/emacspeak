@@ -679,19 +679,18 @@ Safari/537.36"
 
 (defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
   "Play media url under point.
-Interprets url-fragment identifier #nnn as time-offset in seconds.
-Use command `emacspeak-m-player-jump-action' bound to 'J' in m-player
-  interaction to move to that offset.
-Optional interactive prefix arg `playlist-p' treats
- link as a playlist.  A second interactive prefix arg adds
- mplayer option -allow-dangerous-playlist-parsing"
+Interprets url-fragment identifier #nnn as time-offset in
+seconds.  Use command `emacspeak-m-player-jump-action' bound to
+'J' in m-player interaction to move to that offset.  Optional
+interactive prefix arg `playlist-p' treats link as a playlist.  A
+second interactive prefix arg adds mplayer option
+-allow-dangerous-playlist-parsing"
   (interactive "P")
   (cl-declare (special
                emacspeak-m-player-media-history 
                emacspeak-eww-url-at-point))
   (let ((url
-         (or (funcall emacspeak-eww-url-at-point)
-             (browse-url-url-at-point))))
+             (browse-url-url-at-point)))
     (cl-assert (stringp url) t "No URL under point." )
     (kill-new url)
     (cl-pushnew                         ; strip #target
