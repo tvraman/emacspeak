@@ -365,8 +365,9 @@
         <dt><span><kbd>;</kbd></span></dt>
         <dd>
           <p><code>emacspeak-eww-play-media-at-point</code> Play
-          media URL under point using
-          <code>emacs-m-player</code>.</p>
+          media URL under point using <code>emacs-m-player</code>.
+          Handles URL fragment as time-stamp where we resume; use
+          <kbd>J</kbd> in M-Player to jump to that offset.</p>
         </dd>
         <dt><span><kbd>U</kbd></span></dt>
         <dd>
@@ -1661,6 +1662,9 @@ arg ‘delete’, delete that mark instead.
             "index-emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint-1"></span>
             <div class="format">
               <pre class="format">Play media url under point.
+Interprets url-fragment identifier #nnn as time-offset in seconds.
+Use command ‘emacspeak-m-player-jump-action’ bound to ’J’ in m-player
+  interaction to move to that offset.
 Optional interactive prefix arg ‘playlist-p’ treats
  link as a playlist.  A second interactive prefix arg adds
  mplayer option -allow-dangerous-playlist-parsing
