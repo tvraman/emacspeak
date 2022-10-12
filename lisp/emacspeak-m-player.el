@@ -1516,7 +1516,8 @@ flat classical club dance full-bass full-bass-and-treble
     ("i" emacspeak-m-player-stream-info)
     ("j" emacspeak-m-player-amark-jump)
     ("k" emacspeak-m-player-quit)
-    ("l" emacspeak-m-player-get-length)
+    ("L" emacspeak-m-player-get-length)
+    ("l" emacspeak-m-player-store-link)
     ("m" emacspeak-m-player-mode-line)
     ("n" emacspeak-m-player-next-track)
     ("o" emacspeak-m-player-customize-options)
@@ -1690,6 +1691,18 @@ As the default, use current position."
       (emacspeak-amark-add file-name name pos)
       (message "Added Amark %s in %s at %s" name file-name pos))))
 
+(defun emacspeak-m-player-store-link ()
+  "Store an org-link to currently playing stream at current position."
+  (interactive)
+  (cl-declare (special emacspeak-m-player-current-url org-stored-links))
+  (when emacspeak-m-player-current-url)
+  (cl-pushnew
+   `(
+     ,(concat emacspeak-m-player-current-url
+              (cl-first (emacspeak-m-player-get-position)))
+     "URL")
+   org-stored-links))
+
 (defun ems-file-index (name file-list)
   "Return index of name in file-list."
   (cl-position (expand-file-name name) file-list :test #'string=))
@@ -1727,8 +1740,8 @@ As the default, use current position."
 
 (defun emacspeak-m-player-edit-reverb ()
   "Edit ladspa reverb filter.
-You need to use mplayer built with ladspa support, and have package
-tap-reverb already installed."
+  You need to use mplayer built with ladspa support, and have package
+  tap-reverb already installed."
   (interactive)
   (cl-declare (special emacspeak-m-player-reverb-filter))
   (let ((ladspa(or  (getenv "LADSPA_PATH")
@@ -1842,8 +1855,8 @@ tap-reverb already installed."
 
 (defun emacspeak-m-player-apply-reverb-preset (preset)
   "Prompt for and apply a reverb preset.
-You need to use mplayer built with ladspa support, and have package
-tap-reverb already installed."
+  You need to use mplayer built with ladspa support, and have package
+  tap-reverb already installed."
   (interactive
    (list
     (let ((completion-ignore-case t))
@@ -1903,10 +1916,10 @@ tap-reverb already installed."
 
 (defvar emacspeak-locate-media-map
   (let ((map (make-sparse-keymap)))
-    (define-key map ";" 'emacspeak-dired-play-duration)
-    (define-key  map (ems-kbd "M-;") 'emacspeak-m-player-add-to-dynamic)
-    (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
-    map)
+    (define-key map "               ;" 'emacspeak-dired-play-duration)
+  (define-key  map (ems-kbd "M-;") 'emacspeak-m-player-add-to-dynamic)
+  (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
+  map)
   "Keymap used to play locate results.")
 (add-hook 'locate-mode-hook
           #'emacspeak-pronounce-refresh-pronunciations)
