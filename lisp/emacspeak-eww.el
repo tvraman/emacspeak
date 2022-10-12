@@ -235,6 +235,8 @@
 ;; @item ;
 ;; @command{emacspeak-eww-play-media-at-point}
 ;; Play media URL under point using @code{emacs-m-player}.
+;; Handles URL fragment as time-stamp where we resume; use @kbd{J} in
+;; M-Player to jump to that offset.
 ;; @item U
 ;; @command{emacspeak-eww-curl-play-media-at-point}
 ;; Play media url under point by first downloading the URL using
@@ -677,6 +679,9 @@ Safari/537.36"
 
 (defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
   "Play media url under point.
+Interprets url-fragment identifier #nnn as time-offset in seconds.
+Use command `emacspeak-m-player-jump-action' bound to 'J' in m-player
+  interaction to move to that offset.
 Optional interactive prefix arg `playlist-p' treats
  link as a playlist.  A second interactive prefix arg adds
  mplayer option -allow-dangerous-playlist-parsing"
