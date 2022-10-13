@@ -55,6 +55,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-amark)
 (require 'org "org" 'no-error)
 (require 'org-table "org-table" 'no-error)
 (defvar org-ans2 nil)
@@ -825,7 +826,7 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
      :description (emacspeak-amark-name amark) )
     link))
 
-(require 'emacspeak-amark)
+
 (defun org-amark-follow-link (name)
   "Follow an AMark link."
   (when-let
@@ -857,6 +858,13 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
      :type "ebook" :link link :description desc )
     link))
 
+
+;;}}}
+;;{{{e-media:
+
+(org-link-set-parameters
+ "e-media" ; stored from m-player emacspeak-m-player-store-link
+ :follow #'emacspeak-m-player-url)
 
 ;;}}}
 (provide 'emacspeak-org)

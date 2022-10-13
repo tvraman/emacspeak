@@ -1691,7 +1691,7 @@ As the default, use current position."
   (when emacspeak-m-player-current-url)
   (cl-pushnew
    `(
-     ,(format "%s#%s"
+     ,(format "e-media:%s#%s"
        (cl-first (split-string emacspeak-m-player-current-url "#"))
        (cl-first (emacspeak-m-player-get-position)))
      "URL")
