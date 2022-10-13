@@ -881,7 +881,8 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
  "e-media"        ; stored from m-player or mtp
  :follow #'org-e-media-follow-url)
 
-(declare-function emacspeak-eww-play-media-at-point "emacspeak-eww" (&optional playlist-p))
+(declare-function
+ emacspeak-eww-play-media-at-point "emacspeak-eww" (&optional playlist-p))
 
 
 (defun org-e-media-follow-url (url)
