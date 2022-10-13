@@ -92,9 +92,10 @@
      `(
        ,(format "e-media:%s#%s"
                 (cl-first (split-string emacspeak-mpv-url "#"))
-                (cl-first (mpv-get-playback-position)))
+                (mpv-get-playback-position))
        "URL")
-     org-stored-links)))
+     org-stored-links)
+    (setq emacspeak-mpv-url nil)))
 
 (defadvice mpv-volume-increase (after emacspeak pre act comp)
   "Icon."
@@ -173,18 +174,17 @@
             (mpv-seek
              (cl-second (split-string url "#"))))))
 
-(defvar-local emacspeak-mpv-jump-action nil
+(defvar emacspeak-mpv-jump-action nil
   "Stores jump action.")
 
 (defun emacspeak-mpv-jump ()
-  "Run buffer-local jump action."
+  "Run MPV  jump action."
   (interactive)
   (cl-declare (special mpv--process))
   (when (process-live-p mpv--process)
-    (with-current-buffer (process-buffer mpv--process)
       (when (and (boundp 'emacspeak-mpv-jump-action)
                  (functionp emacspeak-mpv-jump-action))
-        (funcall emacspeak-mpv-jump-action )))))
+        (funcall emacspeak-mpv-jump-action ))))
 
 ;;}}}
 ;;{{{repeatable:
