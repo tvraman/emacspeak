@@ -68,7 +68,7 @@
 (cl-loop
  for f in 
  '(
-   mpv-kill mpv-pause mpv-play
+    mpv-pause mpv-play
    mpv-playlist-next mpv-playlist-prev
    mpv-revert-seek mpv-seek mpv-seek-backward mpv-seek-forward
    mpv-seek-to-position-at-point
@@ -80,6 +80,20 @@
      "Icon."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)))))
+
+
+(defadvice mpv-kill (before emacspeak pre act comp)
+  "Add org integration."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (cl-pushnew
+     `(
+       ,(format "e-media:%s#%s"
+                (cl-first (split-string emacspeak-mpv-url "#"))
+                (cl-first (mpv-get-playback-position)))
+       "URL")
+     org-stored-links)
+    ))
 
 (defadvice mpv-volume-increase (after emacspeak pre act comp)
   "Icon."
@@ -135,26 +149,23 @@
   (interactive
    (list (emacspeak-eww-read-url) current-prefix-arg ))
   (cl-declare (special emacspeak-mpv-jump-action ))
-    (if left-channel
-        (with-environment-variables (("PULSE_SINK" "tts_left"))
-          (mpv-play-url url))
-      (mpv-play-url url))
-    (when  (process-live-p mpv--process)
-      (when (string-match url "#")
-        (cl-pushnew
-         `(
-           ,(format "e-media:%s#%s"
-                    (cl-first (split-string url "#"))
-                    (mpv-get-playback-position))
-           "URL")
-         org-stored-links))
-      (with-current-buffer (process-buffer mpv--process)
-        (setq emacspeak-mpv-jump-action
-              #'(lambda ()
-                  (mpv-seek
-                   (cl-second (split-string url "#"))))))))
+  (if left-channel
+      (with-environment-variables (("PULSE_SINK" "tts_left"))
+        (mpv-play-url url))
+    (mpv-play-url url))
+    (when (string-match "#" url)
+      (cl-pushnew
+       `(
+         ,(format "e-media:%s#%s"
+                  (cl-first (split-string url "#"))
+                  (mpv-get-playback-position))
+         "URL")))
+      (setq emacspeak-mpv-jump-action
+            #'(lambda ()
+                (mpv-seek
+                 (cl-second (split-string url "#"))))))
 
-(defvar-local emacspeak-mpv-jump-action nil
+(defvar emacspeak-mpv-jump-action nil
   "Stores jump action.")
 
 (defun emacspeak-mpv-jump ()
