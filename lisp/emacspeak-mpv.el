@@ -53,6 +53,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-google)
 (eval-when-compile (require 'mpv "mpv" 'no-error))
 
 ;;}}}
@@ -170,6 +171,11 @@
    (list (emacspeak-eww-read-url) current-prefix-arg ))
   (cl-declare (special emacspeak-mpv-jump-action
                        emacspeak-mpv-url))
+  (when
+      (and url
+           (stringp url)
+           (string-prefix-p (emacspeak-google-result-url-prefix) url))
+    (setq url  (emacspeak-google-canonicalize-result-url url)))
   (if left-channel
       (with-environment-variables (("PULSE_SINK" "tts_left"))
         (mpv-play-url url))
