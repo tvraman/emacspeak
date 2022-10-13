@@ -129,6 +129,7 @@
      '(("SPC" mpv-pause)
        (";" emacspeak-mpv-play-url)
        ("j" emacspeak-mpv-jump)
+       ("l" emacspeak-mpv-store-link)
        ("s" mpv-seek)
        ("n" mpv-playlist-next)
        ("p" mpv-playlist-prev)
@@ -149,6 +150,19 @@
 
 (declare-function emacspeak-eww-read-url "emacspeak-eww" nil)
 
+(defun emacspeak-mpv-store-link ()
+  "Store link at current position."
+  (interactive)
+  (cl-declare (special org-stored-links emacspeak-mpv-url))
+  (cl-pushnew
+   `(
+     ,(format "e-media:%s#%s"
+              (cl-first (split-string emacspeak-mpv-url "#"))
+              (mpv-get-playback-position))
+     "URL")
+   org-stored-links)
+  (message "Stored link to current play position."))
+
 ;;;###autoload
 (defun emacspeak-mpv-play-url (url &optional left-channel)
   "Play URL using mpv;  Prefix arg plays on left channel."
@@ -160,15 +174,8 @@
       (with-environment-variables (("PULSE_SINK" "tts_left"))
         (mpv-play-url url))
     (mpv-play-url url))
-  (setq emacspeak-mpv-url url)
-  (when (string-match "#" url)
-    (cl-pushnew
-     `(
-       ,(format "e-media:%s#%s"
-                (cl-first (split-string url "#"))
-                (mpv-get-playback-position))
-       "URL")
-     org-stored-links))
+  (setq emacspeak-mpv-url (cl-first (split-string url "#" )))
+  
   (setq emacspeak-mpv-jump-action
         #'(lambda ()
             (mpv-seek
