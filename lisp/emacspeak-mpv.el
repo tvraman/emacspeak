@@ -81,6 +81,8 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)))))
 
+(defvar emacspeak-mpv-url nil
+  "URL being played in mpv.")
 
 (defadvice mpv-kill (before emacspeak pre act comp)
   "Add org integration."
@@ -92,8 +94,7 @@
                 (cl-first (split-string emacspeak-mpv-url "#"))
                 (cl-first (mpv-get-playback-position)))
        "URL")
-     org-stored-links)
-    ))
+     org-stored-links)))
 
 (defadvice mpv-volume-increase (after emacspeak pre act comp)
   "Icon."
@@ -141,6 +142,10 @@
     map)
   "MPV Keymap")
 
+
+(define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
+(global-set-key (kbd "s-;") emacspeak-mpv-keymap)
+
 (declare-function emacspeak-eww-read-url "emacspeak-eww" nil)
 
 ;;;###autoload
@@ -148,24 +153,27 @@
   "Play URL using mpv;  Prefix arg plays on left channel."
   (interactive
    (list (emacspeak-eww-read-url) current-prefix-arg ))
-  (cl-declare (special emacspeak-mpv-jump-action ))
+  (cl-declare (special emacspeak-mpv-jump-action
+                       emacspeak-mpv-url))
   (if left-channel
       (with-environment-variables (("PULSE_SINK" "tts_left"))
         (mpv-play-url url))
     (mpv-play-url url))
-    (when (string-match "#" url)
-      (cl-pushnew
-       `(
-         ,(format "e-media:%s#%s"
-                  (cl-first (split-string url "#"))
-                  (mpv-get-playback-position))
-         "URL")))
-      (setq emacspeak-mpv-jump-action
-            #'(lambda ()
-                (mpv-seek
-                 (cl-second (split-string url "#"))))))
+  (setq emacspeak-mpv-url url)
+  (when (string-match "#" url)
+    (cl-pushnew
+     `(
+       ,(format "e-media:%s#%s"
+                (cl-first (split-string url "#"))
+                (mpv-get-playback-position))
+       "URL")
+     org-stored-links))
+  (setq emacspeak-mpv-jump-action
+        #'(lambda ()
+            (mpv-seek
+             (cl-second (split-string url "#"))))))
 
-(defvar emacspeak-mpv-jump-action nil
+(defvar-local emacspeak-mpv-jump-action nil
   "Stores jump action.")
 
 (defun emacspeak-mpv-jump ()
@@ -178,11 +186,6 @@
                  (functionp emacspeak-mpv-jump-action))
         (funcall emacspeak-mpv-jump-action )))))
 
-
-
-
-(define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
-(global-set-key (kbd "s-;") emacspeak-mpv-keymap)
 ;;}}}
 ;;{{{repeatable:
 
