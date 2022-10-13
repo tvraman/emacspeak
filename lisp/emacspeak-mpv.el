@@ -140,13 +140,14 @@
           (mpv-play-url url))
       (mpv-play-url url))
     (when  (process-live-p mpv--process)
-      (cl-pushnew
-     `(
-       ,(format "e-media:%s#%s"
-                (cl-first (split-string url "#"))
-                (mpv-get-playback-position))
-       "URL")
-     org-stored-links)
+      (when (string-match url "#")
+        (cl-pushnew
+         `(
+           ,(format "e-media:%s#%s"
+                    (cl-first (split-string url "#"))
+                    (mpv-get-playback-position))
+           "URL")
+         org-stored-links))
       (with-current-buffer (process-buffer mpv--process)
         (setq emacspeak-mpv-jump-action
               #'(lambda ()
