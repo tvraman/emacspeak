@@ -112,6 +112,7 @@
      for b in
      '(("SPC" mpv-pause)
        (";" emacspeak-mpv-play-url)
+       ("j" emacspeak-mpv-jump)
        ("s" mpv-seek)
        ("n" mpv-playlist-next)
        ("p" mpv-playlist-prev)
@@ -133,10 +134,40 @@
   "Play URL using mpv;  Prefix arg plays on left channel."
   (interactive
    (list (emacspeak-eww-read-url) current-prefix-arg ))
-  (if left-channel
-      (with-environment-variables (("PULSE_SINK" "tts_left"))
-        (mpv-play-url url))
-    (mpv-play-url url)))
+  (cl-declare (special emacspeak-mpv-jump-action ))
+    (if left-channel
+        (with-environment-variables (("PULSE_SINK" "tts_left"))
+          (mpv-play-url url))
+      (mpv-play-url url))
+    (when  (process-live-p mpv--process)
+      (cl-pushnew
+     `(
+       ,(format "e-media:%s#%s"
+                (cl-first (split-string url "#"))
+                (mpv-get-playback-position))
+       "URL")
+     org-stored-links)
+      (with-current-buffer (process-buffer mpv--process)
+        (setq emacspeak-mpv-jump-action
+              #'(lambda ()
+                  (mpv-seek
+                   (cl-second (split-string url "#"))))))))
+
+(defvar-local emacspeak-mpv-jump-action nil
+  "Stores jump action.")
+
+(defun emacspeak-mpv-jump ()
+  "Run buffer-local jump action."
+  (interactive)
+  (cl-declare (special mpv--process))
+  (when (process-live-p mpv--process)
+    (with-current-buffer (process-buffer mpv--process)
+      (when (and (boundp 'emacspeak-mpv-jump-action)
+                 (functionp emacspeak-mpv-jump-action))
+        (funcall emacspeak-mpv-jump-action )))))
+
+
+
 
 (define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
 (global-set-key (kbd "s-;") emacspeak-mpv-keymap)

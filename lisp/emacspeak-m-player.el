@@ -1688,14 +1688,14 @@ As the default, use current position."
   "Store an org-link to currently playing stream at current position."
   (interactive)
   (cl-declare (special emacspeak-m-player-current-url org-stored-links))
-  (when emacspeak-m-player-current-url)
-  (cl-pushnew
-   `(
-     ,(format "e-media:%s#%s"
-       (cl-first (split-string emacspeak-m-player-current-url "#"))
-       (cl-first (emacspeak-m-player-get-position)))
-     "URL")
-   org-stored-links))
+  (when emacspeak-m-player-current-url
+    (cl-pushnew
+     `(
+       ,(format "e-media:%s#%s"
+                (cl-first (split-string emacspeak-m-player-current-url "#"))
+                (cl-first (emacspeak-m-player-get-position)))
+       "URL")
+     org-stored-links)))
 
 (defun ems-file-index (name file-list)
   "Return index of name in file-list."

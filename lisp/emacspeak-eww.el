@@ -474,7 +474,7 @@
 
 ;; Return URL under point or URL read from minibuffer.
 ;;;###autoload
-(defun emacspeak-eww-read-url ()
+(defsubst emacspeak-eww-read-url ()
   (or
    (shr-url-at-point nil)
    (read-string "URL:" (browse-url-url-at-point))))

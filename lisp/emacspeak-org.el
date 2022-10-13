@@ -862,9 +862,28 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 ;;}}}
 ;;{{{e-media:
 
+(defun org--ems-yt-p (url)
+  "Predicate to check for YT urls."
+  (string-match
+   (format "^%s"
+           (regexp-opt
+            '("https://www.youtube.com/"
+              "https://youtu.be/")))
+   url))
+
 (org-link-set-parameters
- "e-media" ; stored from m-player emacspeak-m-player-store-link
- :follow #'emacspeak-m-player-url)
+ "e-media"        ; stored from m-player or mtp
+ :follow #'org-e-media-follow-url)
+
+(declare-function emacspeak-eww-play-media-at-point "emacspeak-eww" (&optional playlist-p))
+
+
+(defun org-e-media-follow-url (url)
+  "Handle e-media URLs, either mtv or mplayer based on content."
+  (cond
+   ((org--ems-yt-p url)
+    (emacspeak-mpv-play-url url))
+   (t (emacspeak-eww-play-media-at-point))))
 
 ;;}}}
 (provide 'emacspeak-org)
