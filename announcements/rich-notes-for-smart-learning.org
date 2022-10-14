@@ -1,7 +1,7 @@
 * Background 
 
-As a student, I learnt to take [[https://www.cs.cornell.edu/info/people/raman/phd-thesis/html/root-thesis.html][notes in Braille]] while in class and
-while lerning from audio books.   When reviewing the material, reading
+As a student, I learned to take [[https://www.cs.cornell.edu/info/people/raman/phd-thesis/html/root-thesis.html][notes in Braille]] while in class and
+while learning from audio books.   When reviewing the material, reading
 the notes was far more efficient than re-listening to the original
 recordings; however at the time, I had no means to easily jump to the
 original content when perusing my notes.
@@ -15,7 +15,7 @@ This article summarizes the present state of what I use at present.
 
 * Use Case Requirements 
   1. All of the following should work equally well for locally stored
-     material, e.g., downloaded EBooks from [[https://www.bookshare.org/cms/][Bookshare.org]]  or Project
+     material, e.g., downloaded E-Books from [[https://www.bookshare.org/cms/][Bookshare.org]]  or Project
      Gutenberg, as well as material hosted on the Internet in the form of
      Blogs and Podcasts.
   2. Create named bookmarks in E-Books (EPub, Daisy).
@@ -24,7 +24,7 @@ This article summarizes the present state of what I use at present.
      material is available locally, or accessed via the Internet.
   5. Enable the creation of hyperlinks to such bookmarks.
   6. Enable the easy creation of notes — organized by topic — while
-    reading EBooks  or listening to  audio material.
+    reading E-Books  or listening to  audio material.
   7. Enable the embedding of hyperlinks to the bookmarks mentioned
      earlier within these notes.
   8. Final experience: creation of notes should require minimal
@@ -36,7 +36,7 @@ This article summarizes the present state of what I use at present.
 
 * User Experience 
 
-** Create And Browse Bookmarks In EBooks 
+** Create And Browse Bookmarks In E-Books 
 
 
   1. You can open Project Gutenberg EPubs via the Emacspeak Bookshelf
@@ -69,7 +69,7 @@ See [[https://orgmode.org/org.html][Org Mode Manual]], [[https://tvraman.github.
      time-offset, and a bookmark name.
   3. AMarks once created can be navigated to when playing that content
      via module [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dm_002dplayer.html][Emacspeak MPlayer]] which provides a rich but seamless
-     interface to this powerful Linux media player— here, /seamless/
+     interface — here, /seamless/
      means you can play media content without switching from any
      on-going task, and in the context of this article, that means you
      can continue taking notes without explicitly switching context to
@@ -99,7 +99,7 @@ See module ~org-capture~ for inspiration.
 
 
 1. See the [[https://orgmode.org/org.html][Org Manual]] for details on taking notes in org-mode.   
-2. Insert Hyperlinks To EBooks And Audio In Org-Mode by first storing
+2. Insert Hyperlinks To E-Books And Audio In Org-Mode by first storing
    the link as described earlier.
 3. Review Notes, Follow Hyperlinks To Review Original Material  by
    opening the notes file in /org-mode/.
