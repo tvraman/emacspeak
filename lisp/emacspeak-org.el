@@ -8,29 +8,29 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4347 $ |
 ;; Location undetermined
-;; 
+;;
 
 ;;}}}
 ;;{{{  Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -46,7 +46,7 @@
 ;;  Org allows you to keep organized notes and todo lists.
 ;; Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
 ;; or http://orgmode.org/
-;; 
+;;
 ;;; Code:
 
 ;;}}}
@@ -145,7 +145,7 @@
       (emacspeak-speak-region start end))))
 
 (cl-loop
- for f in 
+ for f in
  '(org-next-item org-previous-item)
  do
  (eval
@@ -295,10 +295,10 @@
     ad-do-it
     (if (> (point) prior)
         (tts-with-punctuations
-         'all
-         (if (> (length (emacspeak-get-minibuffer-contents)) 0)
-             (dtk-speak (emacspeak-get-minibuffer-contents))
-           (emacspeak-speak-line)))
+            'all
+          (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+              (dtk-speak (emacspeak-get-minibuffer-contents))
+            (emacspeak-speak-line)))
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
@@ -798,8 +798,6 @@ arg just opens the file"
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
-
-
 ;;}}}
 ;;{{{Amark:
 
@@ -820,19 +818,18 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
        (link
         (concat
          "amark:" (emacspeak-amark-path amark)
-	 "#" (emacspeak-amark-position amark))))
+         "#" (emacspeak-amark-position amark))))
     (org-link-store-props
      :type "amark" :link link
      :description (emacspeak-amark-name amark) )
     link))
 
-
 (defun org-amark-follow-link (name)
   "Follow an AMark link."
   (when-let
       ((match (string-match "\\(.*\\)#\\(.*\\)" name))
-        (filename (match-string 1 name))
-        (position  (match-string 2 name)))
+       (filename (match-string 1 name))
+       (position  (match-string 2 name)))
     (message "play: %s at %s" filename position)
     (emacspeak-amark-play
      (make-emacspeak-amark :path filename  :position position))))
@@ -858,10 +855,10 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
      :type "ebook" :link link :description desc )
     link))
 
-
 ;;}}}
 ;;{{{e-media:
 (defvar org-e-media-yt-pattern
+  (eval-when-compile
     (format "^%s"
             (regexp-opt
              '("https://www.youtube.com/"
@@ -869,10 +866,10 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
                "https://youtu.be/"
                "http://www.youtube.com/"
                "http://youtube.com/"
-               "http://youtu.be/")))
+               "http://youtu.be/"))))
   "Regex for matching YT urls.")
 
-(defun org--ems-yt-p (url)
+(defsubst org--ems-yt-p (url)
   "Predicate to check for YT urls."
   (cl-declare (special org-e-media-yt-pattern))
   (string-match org-e-media-yt-pattern url))
@@ -884,13 +881,12 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 (declare-function
  emacspeak-eww-play-media-at-point "emacspeak-eww" (&optional playlist-p))
 
-
 (defun org-e-media-follow-url (url)
-  "Handle e-media URL, either mtv or mplayer based on content."
+  "Handle e-media URL, either mtv or mplayer based on URL."
   (cond
    ((org--ems-yt-p url)
     (emacspeak-mpv-play-url url))
-   (t (emacspeak-eww-play-media-at-point))))
+   (t (emacspeak-eww-play-media-at-point url))))
 
 ;;}}}
 (provide 'emacspeak-org)
