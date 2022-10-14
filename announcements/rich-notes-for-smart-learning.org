@@ -8,10 +8,10 @@ original content when perusing my notes.
 
 Fast-forward to the age of online computing, a complete audio desktop
 in the form of Emacspeak, a wealth of online resources in the form of
-E-Books, Audio Books, Podcasts and Blogs, all accessible from a
-consistent environment, I've been asking myself what /note-taking/ in
-this environment should look like.  This article summarizes the
-present state of what  I use at present.
+E-Books, Audio Books, Podcasts and Blogs, all backed by Universal
+Search accessible from a consistent environment. So I've been asking
+myself what /note-taking/ in this environment should look like.  This
+article summarizes the present state of what I use at present.
 
 * Use Case Requirements 
   1. All of the following should work equally well for locally stored
@@ -33,6 +33,28 @@ present state of what  I use at present.
 
 
      being 
+
+* User Experience 
+
+** Create And Browse Bookmarks In EBooks 
+
+** Create And Browse AMarks In Audio Books 
+
+** Create Bookmarks  On Web Pages 
+
+**  Create Audio Bookmarks In Podcasts 
+
+**  Create On-Line Notes Using Org-Mode
+
+**  Insert Hyperlinks To EBooks And Audio In Org-Mode
+
+**  Review Notes, Follow Hyperlinks To Review Original Material 
+
+* Software Components That Enable This Experience 
+
+* Conclusion: Looking Back, Looking Forward 
+
+
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
