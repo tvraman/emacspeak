@@ -38,9 +38,18 @@ article summarizes the present state of what I use at present.
 
 ** Create And Browse Bookmarks In EBooks 
 
+See[[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookmark.html][Emacspeak Bookmarks]], [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html][Emacspeak Bookshare]], and [[https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html][Emacspeak EPub]] for
+relevant sections of the user manual.
+
 ** Create And Browse AMarks In Audio Books 
 
+See [[https://tvraman.github.io/emacspeak/manual/emacspeak_002damark.html][Emacspeak Amarks]] for the user manual.
+
+
 ** Create Bookmarks  On Web Pages 
+
+
+See module ~org-capture~ for inspiration.
 
 **  Create Audio Bookmarks In Podcasts 
 
