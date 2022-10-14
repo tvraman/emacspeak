@@ -14,17 +14,20 @@ this environment should look like.  This article summarizes the
 present state of what  I use at present.
 
 * Use Case Requirements 
-
-  1. Create named bookmarks in E-Books (EPub, Daisy).
-  2. Create  AMarks —bookmarks  that point to positions in an audio files.
-  3. Enable the creation of hyperlinks to such bookmarks.
-  4. Enable the easy creation of notes — organized by topic — while
-    reading EBooks  or listening to  audio material.
-  5. Above should be possible independent of whether the learning
+  1. All of the following should work equally well for locally stored
+     material, e.g., downloaded EBooks from Bookshare or Project
+     Gutenberg, as well as material hosted on the Internet in the form of
+     Blogs and Podcasts.
+  2. Create named bookmarks in E-Books (EPub, Daisy).
+  3. Create  AMarks —bookmarks  that point to positions in an audio files.
+  4. Above should be possible independent of whether the learning
      material is available locally, or accessed via the Internet.
-  6. Enable the embedding of hyperlinks to the bookmarks mentioned
+  5. Enable the creation of hyperlinks to such bookmarks.
+  6. Enable the easy creation of notes — organized by topic — while
+    reading EBooks  or listening to  audio material.
+  7. Enable the embedding of hyperlinks to the bookmarks mentioned
      earlier within these notes.
-  7. Final experience: creation of notes should require minimal
+  8. Final experience: creation of notes should require minimal
      effort; when reding the notes, it should be  easy to open the
      relevant portion of the content that underlies the notes.
 
