@@ -44,7 +44,7 @@ article summarizes the present state of what I use at present.
      [[https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html][Emacspeak Epub]].
   2. You can download and open Bookshare books using module
     [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html][Emacspeak Bookshare]].
-  3. Both of those modules open books using Emacs' built-in EWW mode.
+  3. Both of those modules open books using Emacs' built-in EWW browser.
   4. Module
      [[https://tvraman.github.io/emacspeak/manual/emacspeak_002deww.html][Emacspeak
      eww]] implements /eww-marks/, a bookmarking facility that manages
