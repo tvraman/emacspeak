@@ -9,13 +9,13 @@ original content when perusing my notes.
 Fast-forward to the age of online computing, a complete audio desktop
 in the form of Emacspeak, a wealth of online resources in the form of
 E-Books, Audio Books, Podcasts and Blogs, all backed by Universal
-Search accessible from a consistent environment. So I've been asking
-myself what /note-taking/ in this environment should look like.  This
-article summarizes the present state of what I use at present.
+Search and accessible from a consistent environment. So I've been
+asking myself what /note-taking/ in this environment should look like.
+This article summarizes the present state of what I use at present.
 
 * Use Case Requirements 
   1. All of the following should work equally well for locally stored
-     material, e.g., downloaded EBooks from Bookshare or Project
+     material, e.g., downloaded EBooks from [[https://www.bookshare.org/cms/][Bookshare.org]]  or Project
      Gutenberg, as well as material hosted on the Internet in the form of
      Blogs and Podcasts.
   2. Create named bookmarks in E-Books (EPub, Daisy).
