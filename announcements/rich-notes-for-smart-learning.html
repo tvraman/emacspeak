@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-14 Fri 08:54 -->
+<!-- 2022-10-14 Fri 10:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Learn Smarter By Taking Rich, Hypertext Notes</title>
@@ -197,8 +197,8 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Learn Smarter By Taking Rich, Hypertext Notes</h1>
-<div id="outline-container-org309a39d" class="outline-2">
-<h2 id="org309a39d"><span class="section-number-2">1.</span> Background</h2>
+<div id="outline-container-org4b94054" class="outline-2">
+<h2 id="org4b94054"><span class="section-number-2">1.</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 As a student, I learnt to take <a href="https://www.cs.cornell.edu/info/people/raman/phd-thesis/html/root-thesis.html">notes in Braille</a> while in class and
@@ -219,8 +219,8 @@ article summarizes the present state of what I use at present.
 </div>
 </div>
 
-<div id="outline-container-org1f47b52" class="outline-2">
-<h2 id="org1f47b52"><span class="section-number-2">2.</span> Use Case Requirements</h2>
+<div id="outline-container-org0c937f2" class="outline-2">
+<h2 id="org0c937f2"><span class="section-number-2">2.</span> Use Case Requirements</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>All of the following should work equally well for locally stored
@@ -248,32 +248,73 @@ being
 </div>
 </div>
 
-<div id="outline-container-org13e59b6" class="outline-2">
-<h2 id="org13e59b6"><span class="section-number-2">3.</span> User Experience</h2>
+<div id="outline-container-org773b36f" class="outline-2">
+<h2 id="org773b36f"><span class="section-number-2">3.</span> User Experience</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgac8fc90" class="outline-3">
-<h3 id="orgac8fc90"><span class="section-number-3">3.1.</span> Create And Browse Bookmarks In EBooks</h3>
+<div id="outline-container-org0c1800d" class="outline-3">
+<h3 id="org0c1800d"><span class="section-number-3">3.1.</span> Create And Browse Bookmarks In EBooks</h3>
 <div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>You can open Project Gutenberg EPubs via the Emacspeak Bookshelf
+&#x2014; see  see
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html">Emacspeak Epub</a>.</li>
+<li>You can download and open Bookshare books using module
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html">Emacspeak Bookshare</a>.</li>
+<li>Both of those modules open books using Emacs' built-in EWW browser.</li>
+<li>Module
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002deww.html">Emacspeak
+eww</a> implements <i>eww-marks</i>, a bookmarking facility that manages
+bookmarks in EPub and Daisy books.</li>
+</ol>
+
 <p>
-See<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookmark.html">Emacspeak Bookmarks</a>, <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html">Emacspeak Bookshare</a>, and <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html">Emacspeak EPub</a> for
-relevant sections of the user manual.
+With a book open, you can:
+</p>
+
+<ol class="org-ol">
+<li>Create named bookmarks,</li>
+<li>Browse all saved bookmarks in your library,</li>
+<li>And open a given bookmark to continue reading.</li>
+<li>Bookmarks can also be stored as <i>org-mode links</i> for later
+insertion  in an <i>org-mode</i> file,  this means these hyperlinks
+integrate into notes taken in <i>org-mode</i> without any additional work.</li>
+</ol>
+
+<p>
+See <a href="https://orgmode.org/org.html">Org Mode Manual</a>, <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookmark.html">Emacspeak Bookmarks</a>, <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html">Emacspeak Bookshare</a>, and
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html">Emacspeak EPub</a> for relevant sections of the user manual.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge5106e6" class="outline-3">
-<h3 id="orge5106e6"><span class="section-number-3">3.2.</span> Create And Browse AMarks In Audio Books</h3>
+<div id="outline-container-orgae93439" class="outline-3">
+<h3 id="orgae93439"><span class="section-number-3">3.2.</span> Create And Browse AMarks In Audio Books</h3>
 <div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li>AMarks are Emacspeak's audio equivalent of traditional bookmarks.</li>
+<li>An AMark encapsulates the location of the audio content,  a
+time-offset, and a bookmark name.</li>
+<li>AMarks once created can be navigated to when playing that content
+via module <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dm_002dplayer.html">Emacspeak MPlayer</a> which provides a rich but seamless
+interface to this powerful Linux media player— here, <i>seamless</i>
+means you can play media content without switching from any
+on-going task, and in the context of this article, that means you
+can continue taking notes without explicitly switching context to
+the media-player.</li>
+<li>Emacspeak provides an AMarks Browser that lets you browse and
+play any AMark in your library.</li>
+<li>Finally, AMarks like bookmarks can be stored as org-mode links
+for later insertion into an org-mode file.</li>
+</ol>
+
 <p>
 See <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002damark.html">Emacspeak Amarks</a> for the user manual.
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-org3a7f83e" class="outline-3">
-<h3 id="org3a7f83e"><span class="section-number-3">3.3.</span> Create Bookmarks  On Web Pages</h3>
+<div id="outline-container-orgb3a5b8a" class="outline-3">
+<h3 id="orgb3a5b8a"><span class="section-number-3">3.3.</span> Create  Bookmarks   On Web Pages</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 See module <code>org-capture</code> for inspiration.
@@ -281,37 +322,58 @@ See module <code>org-capture</code> for inspiration.
 </div>
 </div>
 
-<div id="outline-container-org7415510" class="outline-3">
-<h3 id="org7415510"><span class="section-number-3">3.4.</span> Create Audio Bookmarks In Podcasts</h3>
+<div id="outline-container-org6dfa834" class="outline-3">
+<h3 id="org6dfa834"><span class="section-number-3">3.4.</span> Create Audio Bookmarks In Podcasts</h3>
+<div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>Module <code>emacspeak-m-player</code> is used to play Podcasts and other
+forms of online audio-content, e.g., talks published on Youtube.</li>
+<li>This module can   store org-mode links to such content; storing
+such a link captures the current time offset into the content
+being played.</li>
+<li>These  stored links can then be inserted into an org-mode file;
+opening those links using org-mode hyperlinking facilities lets
+you resume playback at the marked position.</li>
+</ol>
+</div>
 </div>
 
-<div id="outline-container-org1b6bf8e" class="outline-3">
-<h3 id="org1b6bf8e"><span class="section-number-3">3.5.</span> Create On-Line Notes Using Org-Mode</h3>
+<div id="outline-container-org3695cf2" class="outline-3">
+<h3 id="org3695cf2"><span class="section-number-3">3.5.</span> Create On-Line Notes Using Org-Mode</h3>
+<div class="outline-text-3" id="text-3-5">
+<ol class="org-ol">
+<li>See the <a href="https://orgmode.org/org.html">Org Manual</a> for details on taking notes in org-mode.</li>
+<li>Insert Hyperlinks To EBooks And Audio In Org-Mode by first storing
+the link as described earlier.</li>
+<li>Review Notes, Follow Hyperlinks To Review Original Material  by
+opening the notes file in <i>org-mode</i>.</li>
+</ol>
+</div>
+</div>
 </div>
 
-<div id="outline-container-org280ee01" class="outline-3">
-<h3 id="org280ee01"><span class="section-number-3">3.6.</span> Insert Hyperlinks To EBooks And Audio In Org-Mode</h3>
-</div>
 
-<div id="outline-container-orgbff4eee" class="outline-3">
-<h3 id="orgbff4eee"><span class="section-number-3">3.7.</span> Review Notes, Follow Hyperlinks To Review Original Material</h3>
-</div>
-</div>
 
-<div id="outline-container-org62ed388" class="outline-2">
-<h2 id="org62ed388"><span class="section-number-2">4.</span> Software Components That Enable This Experience</h2>
-</div>
-
-<div id="outline-container-org8615e5a" class="outline-2">
-<h2 id="org8615e5a"><span class="section-number-2">5.</span> Conclusion: Looking Back, Looking Forward</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org9716b2a" class="outline-2">
+<h2 id="org9716b2a"><span class="section-number-2">4.</span> Conclusion: Looking Back, Looking Forward</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>This describes a flexible workflow that is built out of multiple
+small components.</li>
+<li>Illustrating various   workflows as above outlines the space
+of possible solutions.</li>
+<li>Keeping the notes in <i>org-mode</i> ensures that the notes are
+long-lived, since <i>org-mode</i> files are essentially plain-text
+with an easy to parse syntax for parsing the underlying structure
+if needed to implement future extensions.</li>
+</ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2022-10-14 Fri 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2022-10-14 Fri 08:54</p>
+<p class="date">Created: 2022-10-14 Fri 10:20</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
