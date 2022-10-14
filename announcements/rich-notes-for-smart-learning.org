@@ -38,28 +38,73 @@ article summarizes the present state of what I use at present.
 
 ** Create And Browse Bookmarks In EBooks 
 
-See[[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookmark.html][Emacspeak Bookmarks]], [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html][Emacspeak Bookshare]], and [[https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html][Emacspeak EPub]] for
-relevant sections of the user manual.
+
+  1. You can open Project Gutenberg EPubs via the Emacspeak Bookshelf
+     --- see  see
+     [[https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html][Emacspeak Epub]].
+  2. You can download and open Bookshare books using module
+    [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html][Emacspeak Bookshare]].
+  3. Both of those modules open books using Emacs' built-in EWW mode.
+  4. Module
+     [[https://tvraman.github.io/emacspeak/manual/emacspeak_002deww.html][Emacspeak
+     eww]] implements /eww-marks/, a bookmarking facility that manages
+     bookmarks in EPub and Daisy books.
+
+With a book open, you can:
+
+  1. Create named bookmarks,
+  2. Browse all saved bookmarks in your library,
+  3. And open a given bookmark to continue reading.
+  4. Bookmarks can also be stored as /org-mode links/ for later
+     insertion  in an /org-mode/ file,  this means these hyperlinks
+     integrate into notes taken in /org-mode/ without any additional work.
+
+See [[https://orgmode.org/org.html][Org Mode Manual]], [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookmark.html][Emacspeak Bookmarks]], [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html][Emacspeak Bookshare]], and
+[[https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html][Emacspeak EPub]] for relevant sections of the user manual.
 
 ** Create And Browse AMarks In Audio Books 
 
+  1. AMarks are Emacspeak's audio equivalent of traditional bookmarks.
+  2. An AMark encapsulates the location of the audio content,  a
+     time-offset, and a bookmark name.
+  3. AMarks once created can be navigated to when playing that content
+     via module [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dm_002dplayer.html][Emacspeak MPlayer]] which provides a rich but seamless
+     interface to this powerful Linux media player— here, /seamless/
+     means you can play media content without switching from any
+     on-going task, and in the context of this article, that means you
+     can continue taking notes without explicitly switching context to
+     the media-player.
+  4. Emacspeak provides an AMarks Browser that lets you browse and
+     play any AMark in your library.
+  5. Finally, AMarks like bookmarks can be stored as org-mode links
+     for later insertion into an org-mode file.
+
 See [[https://tvraman.github.io/emacspeak/manual/emacspeak_002damark.html][Emacspeak Amarks]] for the user manual.
-
-
-** Create Bookmarks  On Web Pages 
-
+** Create  Bookmarks   On Web Pages 
 
 See module ~org-capture~ for inspiration.
 
 **  Create Audio Bookmarks In Podcasts 
 
+  1. Module ~emacspeak-m-player~ is used to play Podcasts and other
+    forms of online audio-content, e.g., talks published on Youtube.
+  2. This module can   store org-mode links to such content; storing
+     such a link captures the current time offset into the content
+     being played.
+  3. These  stored links can then be inserted into an org-mode file;
+     opening those links using org-mode hyperlinking facilities lets
+     you resume playback at the marked position.
+
 **  Create On-Line Notes Using Org-Mode
 
-**  Insert Hyperlinks To EBooks And Audio In Org-Mode
 
-**  Review Notes, Follow Hyperlinks To Review Original Material 
+1. See the [[https://orgmode.org/org.html][Org Manual]] for details on taking notes in org-mode.   
+2. Insert Hyperlinks To EBooks And Audio In Org-Mode by first storing
+   the link as described earlier.
+3. Review Notes, Follow Hyperlinks To Review Original Material  by
+   opening the notes file in /org-mode/.
 
-* Software Components That Enable This Experience 
+
 
 * Conclusion: Looking Back, Looking Forward 
 
