@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-10-14 Fri 10:29 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learn Smarter By Taking Rich, Hypertext Notes</title>
+<meta name="author" content="T.V Raman" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Learn Smarter By Taking Rich, Hypertext Notes</h1>
+<div id="outline-container-orgf7ba2eb" class="outline-2">
+<h2 id="orgf7ba2eb"><span class="section-number-2">1.</span> Background</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+As a student, I learned to take <a href="https://www.cs.cornell.edu/info/people/raman/phd-thesis/html/root-thesis.html">notes in Braille</a> while in class and
+while learning from audio books.   When reviewing the material, reading
+the notes was far more efficient than re-listening to the original
+recordings; however at the time, I had no means to easily jump to the
+original content when perusing my notes.
+</p>
+
+<p>
+Fast-forward to the age of online computing, a complete audio desktop
+in the form of Emacspeak, a wealth of online resources in the form of
+E-Books, Audio Books, Podcasts and Blogs, all backed by Universal
+Search and accessible from a consistent environment. So I've been
+asking myself what <i>note-taking</i> in this environment should look like.
+This article summarizes the present state of what I use at present.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org59016b7" class="outline-2">
+<h2 id="org59016b7"><span class="section-number-2">2.</span> Use Case Requirements</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>All of the following should work equally well for locally stored
+material, e.g., downloaded E-Books from <a href="https://www.bookshare.org/cms/">Bookshare.org</a>  or Project
+Gutenberg, as well as material hosted on the Internet in the form of
+Blogs and Podcasts.</li>
+<li>Create named bookmarks in E-Books (EPub, Daisy).</li>
+<li>Create  AMarks —bookmarks  that point to positions in an audio files.</li>
+<li>Above should be possible independent of whether the learning
+material is available locally, or accessed via the Internet.</li>
+<li>Enable the creation of hyperlinks to such bookmarks.</li>
+<li>Enable the easy creation of notes — organized by topic — while
+reading E-Books  or listening to  audio material.</li>
+<li>Enable the embedding of hyperlinks to the bookmarks mentioned
+earlier within these notes.</li>
+<li>Final experience: creation of notes should require minimal
+effort; when reding the notes, it should be  easy to open the
+relevant portion of the content that underlies the notes.</li>
+</ol>
+
+
+<p>
+being 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org84667ad" class="outline-2">
+<h2 id="org84667ad"><span class="section-number-2">3.</span> User Experience</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org0615ac1" class="outline-3">
+<h3 id="org0615ac1"><span class="section-number-3">3.1.</span> Create And Browse Bookmarks In E-Books</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>You can open Project Gutenberg EPubs via the Emacspeak Bookshelf
+&#x2014; see  see
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html">Emacspeak Epub</a>.</li>
+<li>You can download and open Bookshare books using module
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html">Emacspeak Bookshare</a>.</li>
+<li>Both of those modules open books using Emacs' built-in EWW browser.</li>
+<li>Module
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002deww.html">Emacspeak
+eww</a> implements <i>eww-marks</i>, a bookmarking facility that manages
+bookmarks in EPub and Daisy books.</li>
+</ol>
+
+<p>
+With a book open, you can:
+</p>
+
+<ol class="org-ol">
+<li>Create named bookmarks,</li>
+<li>Browse all saved bookmarks in your library,</li>
+<li>And open a given bookmark to continue reading.</li>
+<li>Bookmarks can also be stored as <i>org-mode links</i> for later
+insertion  in an <i>org-mode</i> file,  this means these hyperlinks
+integrate into notes taken in <i>org-mode</i> without any additional work.</li>
+</ol>
+
+<p>
+See <a href="https://orgmode.org/org.html">Org Mode Manual</a>, <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookmark.html">Emacspeak Bookmarks</a>, <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html">Emacspeak Bookshare</a>, and
+<a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html">Emacspeak EPub</a> for relevant sections of the user manual.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f47d14" class="outline-3">
+<h3 id="org7f47d14"><span class="section-number-3">3.2.</span> Create And Browse AMarks In Audio Books</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li>AMarks are Emacspeak's audio equivalent of traditional bookmarks.</li>
+<li>An AMark encapsulates the location of the audio content,  a
+time-offset, and a bookmark name.</li>
+<li>AMarks once created can be navigated to when playing that content
+via module <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dm_002dplayer.html">Emacspeak MPlayer</a> which provides a rich but seamless
+interface — here, <i>seamless</i>
+means you can play media content without switching from any
+on-going task, and in the context of this article, that means you
+can continue taking notes without explicitly switching context to
+the media-player.</li>
+<li>Emacspeak provides an AMarks Browser that lets you browse and
+play any AMark in your library.</li>
+<li>Finally, AMarks like bookmarks can be stored as org-mode links
+for later insertion into an org-mode file.</li>
+</ol>
+
+<p>
+See <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002damark.html">Emacspeak Amarks</a> for the user manual.
+</p>
+</div>
+</div>
+<div id="outline-container-orge5d3e22" class="outline-3">
+<h3 id="orge5d3e22"><span class="section-number-3">3.3.</span> Create  Bookmarks   On Web Pages</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+See module <code>org-capture</code> for inspiration.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org80c9b25" class="outline-3">
+<h3 id="org80c9b25"><span class="section-number-3">3.4.</span> Create Audio Bookmarks In Podcasts</h3>
+<div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>Module <code>emacspeak-m-player</code> is used to play Podcasts and other
+forms of online audio-content, e.g., talks published on Youtube.</li>
+<li>This module can   store org-mode links to such content; storing
+such a link captures the current time offset into the content
+being played.</li>
+<li>These  stored links can then be inserted into an org-mode file;
+opening those links using org-mode hyperlinking facilities lets
+you resume playback at the marked position.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org189d38b" class="outline-3">
+<h3 id="org189d38b"><span class="section-number-3">3.5.</span> Create On-Line Notes Using Org-Mode</h3>
+<div class="outline-text-3" id="text-3-5">
+<ol class="org-ol">
+<li>See the <a href="https://orgmode.org/org.html">Org Manual</a> for details on taking notes in org-mode.</li>
+<li>Insert Hyperlinks To E-Books And Audio In Org-Mode by first storing
+the link as described earlier.</li>
+<li>Review Notes, Follow Hyperlinks To Review Original Material  by
+opening the notes file in <i>org-mode</i>.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgbc8d6e0" class="outline-2">
+<h2 id="orgbc8d6e0"><span class="section-number-2">4.</span> Conclusion: Looking Back, Looking Forward</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>This describes a flexible workflow that is built out of multiple
+small components.</li>
+<li>Illustrating various   workflows as above outlines the space
+of possible solutions.</li>
+<li>Keeping the notes in <i>org-mode</i> ensures that the notes are
+long-lived, since <i>org-mode</i> files are essentially plain-text
+with an easy to parse syntax for parsing the underlying structure
+if needed to implement future extensions.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-10-14 Fri 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2022-10-14 Fri 10:29</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
