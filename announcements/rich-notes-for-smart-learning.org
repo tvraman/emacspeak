@@ -1,12 +1,35 @@
 * Background 
 
-As a student, I learnt to take notes in Braille while in class and
-while lerning from audio books.  Now, in the age of online computing,
-a complete audio desktop in the form of Emacspeak, a wealth of online
-resources in the form of E-Books, Audio Books, Podcasts and Blogs, all
-accessible from a consistent environment, I've been asking myself what
-/taking notes/ in this environment should look like, and this article
-summarizes the present state of what I've implemented at present.
+As a student, I learnt to take [[https://www.cs.cornell.edu/info/people/raman/phd-thesis/html/root-thesis.html][notes in Braille]] while in class and
+while lerning from audio books.   When reviewing the material, reading
+the notes was far more efficient than re-listening to the original
+recordings; however at the time, I had no means to easily jump to the
+original content when perusing my notes.
+
+Fast-forward to the age of online computing, a complete audio desktop
+in the form of Emacspeak, a wealth of online resources in the form of
+E-Books, Audio Books, Podcasts and Blogs, all accessible from a
+consistent environment, I've been asking myself what /note-taking/ in
+this environment should look like.  This article summarizes the
+present state of what  I use at present.
+
+* Use Case Requirements 
+
+  1. Create named bookmarks in E-Books (EPub, Daisy).
+  2. Create  AMarks —bookmarks  that point to positions in an audio files.
+  3. Enable the creation of hyperlinks to such bookmarks.
+  4. Enable the easy creation of notes — organized by topic — while
+    reading EBooks  or listening to  audio material.
+  5. Above should be possible independent of whether the learning
+     material is available locally, or accessed via the Internet.
+  6. Enable the embedding of hyperlinks to the bookmarks mentioned
+     earlier within these notes.
+  7. Final experience: creation of notes should require minimal
+     effort; when reding the notes, it should be  easy to open the
+     relevant portion of the content that underlies the notes.
+
+
+     being 
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
