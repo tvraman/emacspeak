@@ -4,6 +4,7 @@
   (require 'org-tempo)
   (require 'ol-eww)
   (require 'ox-md)
+  (define-key org-mode-map (ems-kbd "C-,") 'emacspeak-alt-keymap)
   (define-key org-mode-map (ems-kbd "C-c m")
               'org-md-export-as-markdown)
   (define-key global-map "\C-ci" 'org-insert-link)
