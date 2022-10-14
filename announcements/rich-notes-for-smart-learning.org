@@ -116,6 +116,8 @@ See module ~org-capture~ for inspiration.
      long-lived, since /org-mode/ files are essentially plain-text
      with an easy to parse syntax for parsing the underlying structure
      if needed to implement future extensions.
+
+
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
