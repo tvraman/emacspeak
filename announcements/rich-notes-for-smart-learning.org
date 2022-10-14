@@ -108,7 +108,14 @@ See module ~org-capture~ for inspiration.
 
 * Conclusion: Looking Back, Looking Forward 
 
-
+  1. This describes a flexible workflow that is built out of multiple
+    small components.
+  2. Illustrating various   workflows as above outlines the space
+    of possible solutions.
+  3. Keeping the notes in /org-mode/ ensures that the notes are
+     long-lived, since /org-mode/ files are essentially plain-text
+     with an easy to parse syntax for parsing the underlying structure
+     if needed to implement future extensions.
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
