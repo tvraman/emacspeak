@@ -331,6 +331,9 @@ type="text/xsl"?>
       presets  for single click access to
       favorite streams.
     </application>
+    <application name="mpv">
+      Play Internet  Media  streams. Player of choice for Youtube.
+    </application>
     <application name="vuiet">
       Discover and play music 
     </application>
