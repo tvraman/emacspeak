@@ -54,7 +54,23 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-google)
-(eval-when-compile (require 'mpv "mpv" 'no-error))
+(eval-when-compile (require 'mpv "mpv" 'no-error)
+                   (require 'url-parse))
+
+;;}}}
+;;{{{Helper: yt-url->time-offset:
+
+(defun ems--yt-get-time-offset (url)
+  "Get time offset if present from YT URL."
+  (cadr
+   (assoc
+    "t"
+    (mapcar
+     #'(lambda (s) (split-string s "="))
+     (split-string
+      (cl-second (split-string
+                  (url-filename (url-generic-parse-url url))
+                  "?")) "&")))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
