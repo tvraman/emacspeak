@@ -861,9 +861,12 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
   (eval-when-compile
     (format "^%s"
             (regexp-opt
-             '("https?://www.youtube.com/"
-               "https?://youtube.com/"
-               "https?://youtu.be/"))))
+             '("https://www.youtube.com/"
+               "https://youtube.com/"
+               "https://youtu.be/"
+               "http://www.youtube.com/"
+               "http://youtube.com/"
+               "http://youtu.be/"))))
   "Regex for matching YT urls.")
 
 (defsubst org--ems-yt-p (url)
