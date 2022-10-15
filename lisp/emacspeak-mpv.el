@@ -148,7 +148,6 @@
      for b in
      '(("SPC" mpv-pause)
        (";" emacspeak-mpv-play-url)
-       ("j" emacspeak-mpv-jump)
        ("l" emacspeak-mpv-store-link)
        ("s" mpv-seek)
        ("n" mpv-playlist-next)
@@ -198,18 +197,6 @@
       (with-environment-variables (("PULSE_SINK" "tts_left"))
         (mpv-play-url url))
     (mpv-play-url url)))
-
-(defvar emacspeak-mpv-jump-action nil
-  "Stores jump action.")
-
-(defun emacspeak-mpv-jump ()
-  "Run MPV  jump action."
-  (interactive)
-  (cl-declare (special mpv--process))
-  (when (process-live-p mpv--process)
-      (when (and (boundp 'emacspeak-mpv-jump-action)
-                 (functionp emacspeak-mpv-jump-action))
-        (funcall emacspeak-mpv-jump-action ))))
 
 ;;}}}
 ;;{{{repeatable:
