@@ -884,8 +884,7 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 (defun org-e-media-follow-url (url)
   "Handle e-media URL, either mtv or mplayer based on URL."
   (cond
-   ((org--ems-yt-p url)
-    (emacspeak-mpv-play-url url))
+   ((org--ems-yt-p url) (emacspeak-mpv-play-url url))
    (t (emacspeak-eww-play-media-at-point url))))
 
 ;;}}}
