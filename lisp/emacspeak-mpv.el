@@ -72,22 +72,9 @@
 
 (defsubst ems--yt-set-time (url offset)
   "Return YT URL after updating   time offset in   URL."
-  (let* ((u (url-generic-parse-url url))
-        (time
-         (cadr
-          (assoc
-           "t"
-           (mapcar
-            #'(lambda (s) (split-string s "="))
-            (split-string (cdr (url-path-and-query u)) "&"))))))
-    (cond
-     ((null time)
-      (format "%s&t=%s" url offset))
-     (t
-      (replace-regexp-in-string
-       "t=[0-9]+"
-       (format "t=%s" offset)
-       url)))))
+  (cond
+   ((null (ems--yt-get-time url)) (format "%s&t=%s" url offset))
+   (t (replace-regexp-in-string "t=[0-9]+" (format "t=%s" offset) url))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
