@@ -1244,6 +1244,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (message
    "Media History Length: %d" (length emacspeak-m-player-media-history)))
 
+;;;###autoload
 (defun emacspeak-m-player-from-history (posn)
   "Play media from position `posn'media-history. "
   (interactive "p")
@@ -1254,12 +1255,14 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
          (> (length emacspeak-m-player-media-history) posn))
     (funcall #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
    (t (error "Not enough history"))))
+
 (defvar emacspeak-m-player-history-map
   (let ((map (make-sparse-keymap)))
     (define-key map ";" 'emacspeak-eww-play-media-at-point)
     (define-key map "k" 'shr-copy-url)
     (define-key map "r" 'emacspeak-m-player-remove-from-media-history)
     map)
+  
   "Keymap used in media history browser.")
 
 (defun emacspeak-m-player-browse-history ()
@@ -1280,14 +1283,15 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
               u (url-host (url-generic-parse-url u)) (file-name-base  u))))
     (insert "</ol></body></html>\n")
     (add-hook
- 'browse-url-of-file-hook
- #'(lambda ()
-     (let ((inhibit-read-only t))
-       (put-text-property
-        (point-min) (point-max)
-        'keymap  emacspeak-m-player-history-map)
-       (emacspeak-auditory-icon 'open-object)
-       (emacspeak-speak-line))))
+     'browse-url-of-file-hook
+     #'(lambda ()
+         (let ((inhibit-read-only t))
+           (put-text-property
+            (point-min) (point-max)
+            'keymap  emacspeak-m-player-history-map)
+           (pop browse-url-of-file-hook)
+           (emacspeak-auditory-icon 'open-object)
+           (emacspeak-speak-line))))
     (call-interactively #'browse-url-of-buffer)))
 
 
