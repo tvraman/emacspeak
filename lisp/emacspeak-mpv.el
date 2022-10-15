@@ -111,9 +111,8 @@
     (emacspeak-auditory-icon 'button)
     (cl-pushnew
      `(
-       ,(format "e-media:%s#%s"
-                (cl-first (split-string emacspeak-mpv-url "#"))
-                (mpv-get-playback-position))
+       ,(format "e-media:%s"
+                (ems--yt-set-time emacspeak-mpv-url (mpv-get-playback-position)))
        "URL")
      org-stored-links)
     (setq emacspeak-mpv-url nil)))
@@ -177,9 +176,8 @@
   (cl-declare (special org-stored-links emacspeak-mpv-url))
   (cl-pushnew
    `(
-     ,(format "e-media:%s#%s"
-              (cl-first (split-string emacspeak-mpv-url "#"))
-              (mpv-get-playback-position))
+     ,(format "e-media:%s"
+                (ems--yt-set-time emacspeak-mpv-url (mpv-get-playback-position)))
      "URL")
    org-stored-links)
   (message "Stored link to current play position."))
@@ -189,23 +187,17 @@
   "Play URL using mpv;  Prefix arg plays on left channel."
   (interactive
    (list (emacspeak-eww-read-url) current-prefix-arg ))
-  (cl-declare (special emacspeak-mpv-jump-action
-                       emacspeak-mpv-url))
+  (cl-declare (special emacspeak-mpv-url))
   (when
       (and url
            (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
+  (setq emacspeak-mpv-url url)
   (if left-channel
       (with-environment-variables (("PULSE_SINK" "tts_left"))
         (mpv-play-url url))
-    (mpv-play-url url))
-  (setq emacspeak-mpv-url (cl-first (split-string url "#" )))
-  
-  (setq emacspeak-mpv-jump-action
-        #'(lambda ()
-            (mpv-seek
-             (cl-second (split-string url "#"))))))
+    (mpv-play-url url)))
 
 (defvar emacspeak-mpv-jump-action nil
   "Stores jump action.")
