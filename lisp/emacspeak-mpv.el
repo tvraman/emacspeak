@@ -60,17 +60,15 @@
 ;;}}}
 ;;{{{Helper: yt-url->time-offset:
 
-(defun ems--yt-get-time-offset (url)
+(defsubst ems--yt-get-time (url)
   "Get time offset if present from YT URL."
-  (cadr
-   (assoc
-    "t"
-    (mapcar
-     #'(lambda (s) (split-string s "="))
-     (split-string
-      (cl-second (split-string
-                  (url-filename (url-generic-parse-url url))
-                  "?")) "&")))))
+  (let ((u (url-generic-parse-url url)))
+    (cadr
+     (assoc
+      "t"
+      (mapcar
+       #'(lambda (s) (split-string s "="))
+       (split-string (cdr (url-path-and-query u)) "&"))))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
