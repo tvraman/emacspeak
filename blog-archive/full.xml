@@ -36,6 +36,204 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
 <entry>
+<id>tag:blogger.com,1999:blog-20280042.post-7255645472288967658
+</id>
+<published>2022-10-14T10:38:00.001-07:00
+</published>
+<updated>2022-10-14T10:38:36.767-07:00
+</updated>
+<title type='text'>Learn Smarter  By Taking Rich, Hypertext Notes
+</title>
+<content type='html'>&lt;div id=&quot;content&quot; class=&quot;content&quot;&gt;
+&lt;h1 class=&quot;title&quot;&gt;Learn Smarter By Taking Rich, Hypertext Notes&lt;/h1&gt;
+&lt;div id=&quot;outline-container-orgf7ba2eb&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;orgf7ba2eb&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Background&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;p&gt;
+As a student, I learned to take &lt;a href=&quot;https://www.cs.cornell.edu/info/people/raman/phd-thesis/html/root-thesis.html&quot;&gt;notes in Braille&lt;/a&gt; while in class and
+while learning from audio books.   When reviewing the material, reading
+the notes was far more efficient than re-listening to the original
+recordings; however at the time, I had no means to easily jump to the
+original content when perusing my notes.
+&lt;/p&gt;
+
+&lt;p&gt;
+Fast-forward to the age of online computing, a complete audio desktop
+in the form of Emacspeak, a wealth of online resources in the form of
+E-Books, Audio Books, Podcasts and Blogs, all backed by Universal
+Search and accessible from a consistent environment. So I&#39;ve been
+asking myself what &lt;i&gt;note-taking&lt;/i&gt; in this environment should look like.
+This article summarizes the present state of what I use at present.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org59016b7&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org59016b7&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Use Case Requirements&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;All of the following should work equally well for locally stored
+material, e.g., downloaded E-Books from &lt;a href=&quot;https://www.bookshare.org/cms/&quot;&gt;Bookshare.org&lt;/a&gt;  or Project
+Gutenberg, as well as material hosted on the Internet in the form of
+Blogs and Podcasts.&lt;/li&gt;
+&lt;li&gt;Create named bookmarks in E-Books (EPub, Daisy).&lt;/li&gt;
+&lt;li&gt;Create  AMarks —bookmarks  that point to positions in an audio files.&lt;/li&gt;
+&lt;li&gt;Above should be possible independent of whether the learning
+material is available locally, or accessed via the Internet.&lt;/li&gt;
+&lt;li&gt;Enable the creation of hyperlinks to such bookmarks.&lt;/li&gt;
+&lt;li&gt;Enable the easy creation of notes — organized by topic — while
+reading E-Books  or listening to  audio material.&lt;/li&gt;
+&lt;li&gt;Enable the embedding of hyperlinks to the bookmarks mentioned
+earlier within these notes.&lt;/li&gt;
+&lt;li&gt;Final experience: creation of notes should require minimal
+effort; when reding the notes, it should be  easy to open the
+relevant portion of the content that underlies the notes.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;
+being 
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org84667ad&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org84667ad&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; User Experience&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+&lt;/div&gt;
+&lt;div id=&quot;outline-container-org0615ac1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org0615ac1&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.1.&lt;/span&gt; Create And Browse Bookmarks In E-Books&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;You can open Project Gutenberg EPubs via the Emacspeak Bookshelf
+&amp;#x2014; see  see
+&lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html&quot;&gt;Emacspeak Epub&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;You can download and open Bookshare books using module
+&lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html&quot;&gt;Emacspeak Bookshare&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Both of those modules open books using Emacs&#39; built-in EWW browser.&lt;/li&gt;
+&lt;li&gt;Module
+&lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002deww.html&quot;&gt;Emacspeak
+eww&lt;/a&gt; implements &lt;i&gt;eww-marks&lt;/i&gt;, a bookmarking facility that manages
+bookmarks in EPub and Daisy books.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+With a book open, you can:
+&lt;/p&gt;
+
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Create named bookmarks,&lt;/li&gt;
+&lt;li&gt;Browse all saved bookmarks in your library,&lt;/li&gt;
+&lt;li&gt;And open a given bookmark to continue reading.&lt;/li&gt;
+&lt;li&gt;Bookmarks can also be stored as &lt;i&gt;org-mode links&lt;/i&gt; for later
+insertion  in an &lt;i&gt;org-mode&lt;/i&gt; file,  this means these hyperlinks
+integrate into notes taken in &lt;i&gt;org-mode&lt;/i&gt; without any additional work.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+See &lt;a href=&quot;https://orgmode.org/org.html&quot;&gt;Org Mode Manual&lt;/a&gt;, &lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookmark.html&quot;&gt;Emacspeak Bookmarks&lt;/a&gt;, &lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html&quot;&gt;Emacspeak Bookshare&lt;/a&gt;, and
+&lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html&quot;&gt;Emacspeak EPub&lt;/a&gt; for relevant sections of the user manual.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org7f47d14&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org7f47d14&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.2.&lt;/span&gt; Create And Browse AMarks In Audio Books&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-2&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;AMarks are Emacspeak&#39;s audio equivalent of traditional bookmarks.&lt;/li&gt;
+&lt;li&gt;An AMark encapsulates the location of the audio content,  a
+time-offset, and a bookmark name.&lt;/li&gt;
+&lt;li&gt;AMarks once created can be navigated to when playing that content
+via module &lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002dm_002dplayer.html&quot;&gt;Emacspeak MPlayer&lt;/a&gt; which provides a rich but seamless
+interface — here, &lt;i&gt;seamless&lt;/i&gt;
+means you can play media content without switching from any
+on-going task, and in the context of this article, that means you
+can continue taking notes without explicitly switching context to
+the media-player.&lt;/li&gt;
+&lt;li&gt;Emacspeak provides an AMarks Browser that lets you browse and
+play any AMark in your library.&lt;/li&gt;
+&lt;li&gt;Finally, AMarks like bookmarks can be stored as org-mode links
+for later insertion into an org-mode file.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+See &lt;a href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002damark.html&quot;&gt;Emacspeak Amarks&lt;/a&gt; for the user manual.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;outline-container-orge5d3e22&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;orge5d3e22&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.3.&lt;/span&gt; Create  Bookmarks   On Web Pages&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-3&quot;&gt;
+&lt;p&gt;
+See module &lt;code&gt;org-capture&lt;/code&gt; for inspiration.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org80c9b25&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org80c9b25&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.4.&lt;/span&gt; Create Audio Bookmarks In Podcasts&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-4&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Module &lt;code&gt;emacspeak-m-player&lt;/code&gt; is used to play Podcasts and other
+forms of online audio-content, e.g., talks published on Youtube.&lt;/li&gt;
+&lt;li&gt;This module can   store org-mode links to such content; storing
+such a link captures the current time offset into the content
+being played.&lt;/li&gt;
+&lt;li&gt;These  stored links can then be inserted into an org-mode file;
+opening those links using org-mode hyperlinking facilities lets
+you resume playback at the marked position.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org189d38b&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org189d38b&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.5.&lt;/span&gt; Create On-Line Notes Using Org-Mode&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-5&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;See the &lt;a href=&quot;https://orgmode.org/org.html&quot;&gt;Org Manual&lt;/a&gt; for details on taking notes in org-mode.&lt;/li&gt;
+&lt;li&gt;Insert Hyperlinks To E-Books And Audio In Org-Mode by first storing
+the link as described earlier.&lt;/li&gt;
+&lt;li&gt;Review Notes, Follow Hyperlinks To Review Original Material  by
+opening the notes file in &lt;i&gt;org-mode&lt;/i&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id=&quot;outline-container-orgbc8d6e0&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;orgbc8d6e0&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; Conclusion: Looking Back, Looking Forward&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;This describes a flexible workflow that is built out of multiple
+small components.&lt;/li&gt;
+&lt;li&gt;Illustrating various   workflows as above outlines the space
+of possible solutions.&lt;/li&gt;
+&lt;li&gt;Keeping the notes in &lt;i&gt;org-mode&lt;/i&gt; ensures that the notes are
+long-lived, since &lt;i&gt;org-mode&lt;/i&gt; files are essentially plain-text
+with an easy to parse syntax for parsing the underlying structure
+if needed to implement future extensions.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+<link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/7255645472288967658'/>
+<link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/7255645472288967658'/>
+<link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html' title='Learn Smarter  By Taking Rich, Hypertext Notes'/>
+<author>
+<name>T. V. Raman
+</name>
+<uri>http://www.blogger.com/profile/03589687652590194428
+</uri>
+<email>noreply@blogger.com
+</email>
+<gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+</author>
+</entry>
+<entry>
 <id>tag:blogger.com,1999:blog-20280042.post-5277603887439052336
 </id>
 <published>2022-09-04T07:33:00.002-07:00
