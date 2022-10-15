@@ -70,6 +70,24 @@
        #'(lambda (s) (split-string s "="))
        (split-string (cdr (url-path-and-query u)) "&"))))))
 
+(defsubst ems--yt-set-time (url time)
+  "Return YT URL after updating   time offset in  YT URL."
+  (let ((u (url-generic-parse-url url))
+        (time (cadr
+               (assoc
+                "t"
+                (mapcar
+                 #'(lambda (s) (split-string s "="))
+                 (split-string (cdr (url-path-and-query u)) "&"))))))
+    (cond
+     ((null time)
+      (format "%s?t=%s" url time))
+     (t
+      (replace-regexp-in-string
+       "t=[0-9]+"
+       (format "t=%s" time)
+       url)))))
+
 ;;}}}
 ;;{{{ Interactive Commands:
 
