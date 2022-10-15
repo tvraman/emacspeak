@@ -864,9 +864,11 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
              '("https://www.youtube.com/"
                "https://youtube.com/"
                "https://youtu.be/"
+               "https://yewtu.be/"
                "http://www.youtube.com/"
                "http://youtube.com/"
-               "http://youtu.be/"))))
+               "http://youtu.be/"
+               "http://yewtu.be/"))))
   "Regex for matching YT urls.")
 
 (defsubst org--ems-yt-p (url)
