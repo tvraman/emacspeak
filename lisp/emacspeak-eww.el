@@ -2009,11 +2009,11 @@ into `notes'.`m"
           (cond
            ((bound-and-true-p emacspeak-epub-this-epub) 'epub)
            ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
-           ((and (string-match "^file:///" (eww-current-url))
+           ((and (eww-current-url)
+             (string-match "^file:///" (eww-current-url))
                  (not (string-match "^file:///tmp" (eww-current-url))))
             'local-file)
-           (t
-            (error "EWW marks only work in  EPub  and Bookshare buffers.")))
+           (t (error "EWW marks only work in  EPub  and Bookshare buffers.")))
           :book
           (or
            (bound-and-true-p emacspeak-bookshare-this-book)
