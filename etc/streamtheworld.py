@@ -3,7 +3,7 @@
 from random import choice
 import os
 import sys
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import xml.dom.minidom as minidom
 
 def validate_callsign(cs):
@@ -25,7 +25,7 @@ def validate_callsign(cs):
 
 def make_request(callsign):
 	host = 'playerservices.streamtheworld.com'
-	req = urllib2.Request(
+	req = urllib.request.Request(
 			'http://%s/api/livestream?version=1.2&mount=%s&lang=en' %
 			(host, callsign))
 	req.add_header('User-Agent', 'Mozilla/5.0')
@@ -92,13 +92,13 @@ def start_mplayer(location):
 
 if __name__ == '__main__':
 	if len(sys.argv) < 2:
-		print 'usage: station callsign must be the first argument'
+		print('usage: station callsign must be the first argument')
 		sys.exit(1)
 
 	callsign = validate_callsign(sys.argv[1])
 
 	req = make_request(callsign)
-	result = urllib2.urlopen(req)
+	result = urllib.request.urlopen(req)
 
 	urls = create_stream_urls(result)
 	if len(urls) > 0:
