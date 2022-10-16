@@ -562,7 +562,9 @@ meaning of `next'."
       (set-buffer buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (cl-prettyprint result)
+      (condition-case nil
+          (cl-prettyprint result)
+        (error nil))
       (set-buffer-modified-p nil))
     (pop-to-buffer buffer)
     (emacs-lisp-mode)
