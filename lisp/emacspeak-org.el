@@ -857,24 +857,22 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 
 ;;}}}
 ;;{{{e-media:
-(defvar org-e-media-yt-pattern
-  (eval-when-compile
-    (format "^%s"
-            (regexp-opt
-             '("https://www.youtube.com/"
-               "https://youtube.com/"
-               "https://youtu.be/"
-               "https://yewtu.be/"
-               "http://www.youtube.com/"
-               "http://youtube.com/"
-               "http://youtu.be/"
-               "http://yewtu.be/"))))
-  "Regex for matching YT urls.")
 
 (defsubst org--ems-yt-p (url)
   "Predicate to check for YT urls."
-  (cl-declare (special org-e-media-yt-pattern))
-  (string-match org-e-media-yt-pattern url))
+  (string-match
+   (format
+    "^%s"
+    (regexp-opt
+     '("https://www.youtube.com/"
+       "https://youtube.com/"
+       "https://youtu.be/"
+       "https://yewtu.be/"
+       "http://www.youtube.com/"
+       "http://youtube.com/"
+       "http://youtu.be/"
+       "http://yewtu.be/")))
+   url))
 
 (org-link-set-parameters
  "e-media"        ; stored from m-player or mtp
