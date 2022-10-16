@@ -1299,7 +1299,7 @@ Useful for fulltext search in a book."
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-(defvar emacspeak-bookshare-this-book nil
+(defvar-local emacspeak-bookshare-this-book nil
   "Record current book in buffer where it is rendered.")
 
 (defun emacspeak-bookshare-eww (directory)
