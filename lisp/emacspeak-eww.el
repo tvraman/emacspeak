@@ -879,7 +879,10 @@ Retain previously set punctuations  mode."
     (cond
      (emacspeak-eww-post-process-hook
       (emacspeak-eww-run-post-process-hook))
-     (t (emacspeak-speak-mode-line)))))
+     (t (emacspeak-speak-mode-line)))
+    ;; Experimental: cleanup eww-data
+    (plist-put eww-data :source nil)
+    (plist-put eww-data :dom nil)))
 
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
 
