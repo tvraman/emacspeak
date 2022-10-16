@@ -1999,8 +1999,8 @@ into `notes'.`m"
        (if (zerop (length input))
            "current" input)))))
   (cl-declare (special
-               org-stored-links
-               emacspeak-eww-marks major-mode
+               emacspeak-bookshare-directory
+               org-stored-links emacspeak-eww-marks 
                emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (let ((bm
          (make-emacspeak-eww-mark
@@ -2009,8 +2009,11 @@ into `notes'.`m"
           (cond
            ((bound-and-true-p emacspeak-epub-this-epub) 'epub)
            ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
+           ((string-match  emacspeak-bookshare-directory
+                           default-directory )
+            'daisy)
            ((and (eww-current-url)
-             (string-match "^file:///" (eww-current-url))
+                 (string-match "^file:///" (eww-current-url))
                  (not (string-match "^file:///tmp" (eww-current-url))))
             'local-file)
            (t (error "EWW marks only work in  EPub  and Bookshare buffers.")))
@@ -2111,7 +2114,7 @@ arg `delete', delete that mark instead."
            'emacspeak-eww-post-process-hook
            #'(lambda ()
                (goto-char point)
-               (eww-mode)
+               ;(eww-mode)
                (delete-other-windows)
                (emacspeak-speak-windowful)
                (emacspeak-auditory-icon 'large-movement))
