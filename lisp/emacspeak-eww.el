@@ -2009,9 +2009,6 @@ into `notes'.`m"
           (cond
            ((bound-and-true-p emacspeak-epub-this-epub) 'epub)
            ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
-           ((string-match  emacspeak-bookshare-directory
-                           default-directory )
-            'daisy)
            ((and (eww-current-url)
                  (string-match "^file:///" (eww-current-url))
                  (not (string-match "^file:///tmp" (eww-current-url))))
