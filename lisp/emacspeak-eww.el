@@ -658,6 +658,7 @@ Safari/537.36"
      ("[" emacspeak-eww-previous-p)
      ("DEL" emacspeak-eww-restore)
      ("]" emacspeak-eww-next-p)
+     (";" emacspeak-eww-cleanup-eww-data)
      ("b" shr-previous-link)
      ("e" emacspeak-we-xsl-map)
      ("f" shr-next-link)
@@ -2531,7 +2532,7 @@ Use for large EBook buffers."
   (cl-declare (special eww-data))
   (plist-put eww-data :source nil)
   (plist-put eww-data :dom nil)
-  (when  (ems-interactive-p)
+  (when  (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
