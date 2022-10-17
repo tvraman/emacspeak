@@ -1314,7 +1314,7 @@ Useful for fulltext search in a book."
                                (when (eq major-mode 'dired-mode)
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
-  (cl-declare (special
+  (cl-declare (special eww-data
                emacspeak-xslt-program emacspeak-bookshare-directory
                emacspeak-speak-directory-settings
                emacspeak-bookshare-this-book))
@@ -1341,6 +1341,8 @@ Useful for fulltext search in a book."
             emacspeak-bookshare-this-book directory
             default-directory directory)
            (emacspeak-speak-load-directory-settings directory)
+           (plist-put eww-data :source nil)
+  (plist-put eww-data :dom nil)
            (emacspeak-auditory-icon 'open-object)
            (emacspeak-speak-mode-line)))
       (browse-url-of-buffer)

@@ -906,6 +906,8 @@ in the epub file."
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
       (eww-update-header-line-format)
+      (plist-put eww-data :source nil)
+  (plist-put eww-data :dom nil)
       (when emacspeak-eww-post-process-hook
         (emacspeak-eww-run-post-process-hook))
       (goto-char (point-min))
