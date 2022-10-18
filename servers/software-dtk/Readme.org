@@ -7,7 +7,7 @@ Dectalk.
 
 1. git clone  [[https://github.com/dectalk/dectalk][Dectalk Sources]]
 2. git checkout develop # switch branch
-3.  Patch src/configure.ac as shown below,, then build it as normal.
+3.  Patch src/configure.ac as shown below,.
 
 #+begin_src 
 diff --git a/src/configure.ac b/src/configure.ac
@@ -49,7 +49,10 @@ index ed42b821..c756bb5a 100644
  dnl AC_OUTPUT always has to be last
 
 #+end_src
+** Configure And Build
 
+1. autoreconf -f -i
+2. ./configure && make
 
 * Install Software Dectalk 
 
@@ -68,8 +71,11 @@ cd servers/software-dectalk && make
 #+end_src
 
 
+* Test, Then Use Server
 
-
+1. In a shell, run ./servers/dtk-soft from the emacspeak directory.
+2. If it works, then ask Emacspeak to use it as you would with any
+   other speech server.
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
