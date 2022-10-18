@@ -27,4 +27,3 @@ servers/native-espeak/tclespeak.so
 # ELPA-generated files
 /emacspeak-autoloads.el
 /emacspeak-pkg.el
- servers/dic/
