@@ -85,7 +85,7 @@
   (ems--fastload "voice-defs")
   (dtk-select-server "dtk-soft")
   (dtk-initialize)
-  (dtk-set-rate dectalk-default-speech-rate))
+  (dtk-set-rate dectalk-default-speech-rate 'global))
 
 ;;}}}
 ;;{{{ Forward declarations:
