@@ -134,6 +134,7 @@ given name, it is updated with path and position."
   (cl-declare (special emacspeak-amark-list emacspeak-amark-file
                        emacspeak-m-player-process))
   (let ((buff nil)
+        (find-file-hook nil)
         (file
          (expand-file-name
           emacspeak-amark-file

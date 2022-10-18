@@ -48,3 +48,12 @@ function rtts () {
     (export PULSE_SINK="tts_left"; $SDIR/$SERVER 3333 $SDIR/$ENGINE &)
     chime
 }
+
+function rdtk () {
+    SERVER=speech-server
+    ENGINE=dtk-soft
+    $SDIR/$SERVER  2222 $SDIR/$ENGINE  &
+    #notification stream listens on 3333
+    (export PULSE_SINK="tts_left"; $SDIR/$SERVER 3333 $SDIR/$ENGINE &)
+    chime
+}
