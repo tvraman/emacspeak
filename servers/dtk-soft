@@ -301,7 +301,11 @@ synth   {[:phoneme arpabet speak on ]
     [:pu s ]
     [:sa c]
     [:np]
-    Via  Software DecTalk, This,  is   Eamakspeak! 
+}
+synth {
+    [zhax<35> p'arl][_,]
+    [/dh`ow<100,140> _, ]  [:np] [  zhax<13>  suw<45>\iy<140,100> _.]
+    Via  Software DecTalk, This,  is   Eamakspeak!
 }
 #Start the main command loop:
 commandloop
