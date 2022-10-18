@@ -1,9 +1,11 @@
 cloud 
 cloud-dtk
+cloud-dtk-soft
 cloud-espeak
 cloud-mac
 cloud-outloud
 dtk-exp
+dtk-soft
 espeak
 log-dtk
 log-espeak
