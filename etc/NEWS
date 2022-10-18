@@ -13,7 +13,14 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
+
 * Emacspeak 57 --- Emacspeak 57 User Visible Changes
+
+** Software Dectalk 
+Emacspeak ~servers/dtk-soft~ implements support for the Software
+Dectalk available on  Github.
+
+
 ** Learn Smarter By Taking Rich, Hypertext Notes
 
 Integrates Audio Marks, E-Bookmarks and friends into  a note-taking
