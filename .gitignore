@@ -24,8 +24,7 @@ servers/native-espeak/tclespeak.so
 /.ccls-cache/
 *.pdf
 **.pdf
-
 # ELPA-generated files
 /emacspeak-autoloads.el
 /emacspeak-pkg.el
- /servers/dic
+ servers/dic
