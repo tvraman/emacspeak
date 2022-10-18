@@ -121,10 +121,11 @@ proc s {} {
 
 proc t  {{pitch 440} {duration 50}} {
     global tts queue
-    set tone "\[:to $pitch $duration\]"
-    set queue($tts(q_tail)) [list t $tone]
-    incr tts(q_tail)
-    return ""
+    if {$tts(beep)} {
+        b $pitch $duration
+        return ""
+    }
+    #service
 }
 
 proc sh  {{duration 50}} {
@@ -198,7 +199,13 @@ proc speech_task {}  {
             }
             a {
                 set sound [lindex $event 1]
-                say "\[:play $sound]"
+                catch "exec $tts(play) $sound > /dev/null &" errCode
+            }
+            b {
+                if {$tts(beep)} {
+                    lvarpop event 
+                    eval beep $event
+                }
             }
         }
     }
@@ -289,6 +296,7 @@ signal ignore {sigint}
 
 #initialize Dectalk 
 tts_initialize
+beep_initialize
 set tts(speech_rate)  225
 set tts(say_rate) [round \
                            [expr $tts(speech_rate) * $tts(char_factor)]]
