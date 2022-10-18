@@ -77,6 +77,15 @@
   (dtk-select-server "dtk-exp")
   (dtk-initialize))
 
+;;;###autoload
+(defun dectalk-soft ()
+  "Software Dectalk TTS."
+  (interactive)
+  (dectalk-configure-tts)
+  (ems--fastload "voice-defs")
+  (dtk-select-server "dtk-soft")
+  (dtk-initialize))
+
 ;;}}}
 ;;{{{ Forward declarations:
 

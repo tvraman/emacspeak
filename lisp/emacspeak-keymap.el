@@ -366,6 +366,7 @@
    ("C-c" dtk-cloud)
    ("C-d" dectalk)
    ("C-e" espeak)
+   ("C-s" dectalk-soft)
    ("C-m" dtk-set-chunk-separator-syntax)
    ("C-n" dtk-notify-initialize)
    ("C-o" outloud)
