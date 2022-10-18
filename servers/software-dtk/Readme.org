@@ -57,13 +57,14 @@ index ed42b821..c756bb5a 100644
 2. Symlink /opt/dectalk/include and /opt/dectalk/libs into their
   respective /usr/local directories.
 3. sudo ldconfig to update the library index.
+4. Edit /opt/dectalk/DECtalk.conf to use absolute pathnames for the
+   dic entries ---  copy over the DECtalk.conf file from this
+   directory to /opt/dectalk/
 
 * Build The Emacspeak Side
 
 #+begin_src 
 cd servers/software-dectalk && make
-# create the dict symlink in the servers directory 
-ln  -s /opt/dectalk/dic .
 #+end_src
 
 
