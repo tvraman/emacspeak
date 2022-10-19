@@ -70,7 +70,7 @@
 
 ;; From dtk-speak.el:
 
-(defvar tts-default-speech-rate)
+
 (defvar plain-default-speech-rate 75)
 (defvar dtk-speech-rate-step)
 (defvar dtk-speech-rate-base)
