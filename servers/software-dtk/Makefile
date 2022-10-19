@@ -12,4 +12,5 @@ clean:
 	rm tcldtk.so tcldtk.o
 
 tidy:
-	clang-tidy -header-filter=.*-checks='*' -fix-errors tcldtk.c   -- -I/usr/include/tcl8.6 
+	clang-tidy -header-filter=.*-checks='*' -fix-errors tcldtk.c \
+	-- -std=c11 -I${TCL_INCLUDE}
