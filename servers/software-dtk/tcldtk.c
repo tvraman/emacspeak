@@ -1,7 +1,6 @@
-/*$Id$*/
 /* <copyright*/
 /**
- *Copyright (C) 1995 -- 2003, T. V. Raman 
+ *Copyright (C) 1995 -- 2022, T. V. Raman 
  *All Rights Reserved
  *
  * This file is not part of GNU Emacs, but the same permissions apply.
@@ -25,7 +24,7 @@
 #define __VXWORKS__
 #include <tcl.h>
 #include <dtk/ttsapi.h>
-
+#include <stdio.h>
 /* > */
 
 /* <defines*/
