@@ -935,7 +935,6 @@ current local  value to the result."
    (list (read-from-minibuffer "Enter new rate: ")
     current-prefix-arg))
   (cl-declare (special dtk-speech-rate dtk-speaker-process
-                       tts-default-speech-rate
                        dtk-program dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (cond
@@ -943,10 +942,8 @@ current local  value to the result."
       (unless (eq dtk-speaker-process (dtk-notify-process))
         (let ((dtk-speaker-process (dtk-notify-process)))
           (dtk-set-rate rate prefix)))
-      (setq-default dtk-speech-rate rate
-                    tts-default-speech-rate rate)
-      (setq tts-default-speech-rate rate
-            dtk-speech-rate rate))
+      (setq-default dtk-speech-rate rate)
+      (setq dtk-speech-rate rate))
      (t (setq dtk-speech-rate rate)))
     (dtk-interp-set-rate rate)
     (when (called-interactively-p 'interactive)
