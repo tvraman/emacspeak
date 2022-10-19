@@ -22,6 +22,7 @@
  */
 /* > */
 /* <headers*/
+#define __VXWORKS__
 #include <tcl.h>
 #include <dtk/ttsapi.h>
 
