@@ -43,6 +43,11 @@ set tts(old_rate) 0
 # }}}
 # {{{ procedures  
 
+proc version {} {
+    q {[:version speak]}
+    d
+}
+
 proc tts_set_punctuations {mode} {
     global tts
     set tts(punctuations) $mode
