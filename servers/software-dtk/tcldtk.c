@@ -89,10 +89,9 @@ char *getErrorMsg(MMRESULT errno) {
   case MMSYSERR_LASTERROR:
     return "Error - Last error in range";
   default:
-    sprintf(error_buff, "Error - Unrecognized error number: %d", errno);
-    return error_msg;
+    return "Error - Unrecognized error number:";
   }
-  return "Opps - shouldn't have got to here!\n";
+  return "Oops - shouldn't have got  here!\n";
 }
 
 /* }}} */
