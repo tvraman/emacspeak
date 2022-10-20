@@ -18,6 +18,7 @@ js/node/auto/
 *.boop
 servers/linux-outloud/atcleci.so
 servers/native-espeak/tclespeak.so
+servers/software-dtk/tcldtk.so
 .build.log
 .cask/
 /etc/pickup-c/pickup

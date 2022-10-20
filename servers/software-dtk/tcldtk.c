@@ -1,4 +1,4 @@
-/* <copyright*/
+/* {{{copyright*/
 /**
  *Copyright (C) 1995 -- 2022, T. V. Raman
  *All Rights Reserved
@@ -19,30 +19,26 @@
  * along with GNU Emacs; see the file COPYING.  If not, write to
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-/* > */
-/* <headers*/
+/* }}} */
+/* {{{headers*/
+
 #define __VXWORKS__
 #include <tcl.h>
 #include <dtk/ttsapi.h>
 #include <stdio.h>
-/* > */
 
-/* <defines*/
+/* }}} */
+/* {{{defines*/
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
 
-#define EXPORT
-extern  EXPORT int Tcldtk_Init(Tcl_Interp *interp);
+extern int Tcldtk_Init(Tcl_Interp *interp);
 
-#define USE_LOG_FILE 0
-#define LOG_FILE_NAME "/tmp/tcldtk.log"
 #define DEBUG_LEVEL 0
 
-/* > */
-/* <prototypes*/
-
-int openLog();
+/* }}} */
+/* {{{prototypes*/
 
 char *getErrorMsg(MMRESULT);
 
@@ -54,33 +50,15 @@ int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 
-/* > */
-/* <global variables*/
+/* }}} */
+/* {{{global variables*/
 
 char *error_msg;
 char error_buff[80];
-FILE *LOG = NULL;
-
-/* > */
-/* <openLog*/
-
-int openLog(void) {
-
-  if (USE_LOG_FILE) {
-    LOG = fopen(LOG_FILE_NAME, "w");
-    setvbuf(LOG, NULL, _IONBF, 0);
-    if (LOG == NULL) {
-      return TCL_ERROR;
-    }
-    return TCL_OK;
-  } else {
-    LOG = stderr;
-  }
-  return TCL_OK;
-}
+/* }}} */
+/* {{{getErrorMsg*/
 
 char *getErrorMsg(MMRESULT errno) {
-
   switch (errno) {
   case MMSYSERR_NOERROR:
     return "Success - No Error";
@@ -117,22 +95,18 @@ char *getErrorMsg(MMRESULT errno) {
   return "Opps - shouldn't have got to here!\n";
 }
 
-/* > */
-/* <closing down*/
+/* }}} */
+/* {{{closing down*/
 
 void TclDtkFree(ClientData dtkHandle) {
   MMRESULT status;
-
   status = TextToSpeechShutdown( dtkHandle );
   if (status != MMSYSERR_NOERROR) {
-    error_msg = getErrorMsg(status);
-
   }
-
 }
 
-/* > */
-/* <init*/
+/* }}} */
+/* {{{init*/
 
 int Tcldtk_Init(Tcl_Interp *interp) {
   MMRESULT status;
@@ -141,12 +115,6 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   DWORD devOptions = 0;
 
   devNo = WAVE_MAPPER;
-  if (openLog() == TCL_ERROR) {
-    sprintf(error_buff, "Error in openLog()\n");
-    Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
-    return TCL_ERROR;
-  }
-
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     sprintf(error_buff, "Error loading %s\n", PACKAGENAME);
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
@@ -158,7 +126,6 @@ int Tcldtk_Init(Tcl_Interp *interp) {
 
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg(status);
-
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
     return TCL_ERROR;
   }
@@ -183,8 +150,8 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   return TCL_OK;
 }
 
-/* > */
-/* <say*/
+/* }}} */
+/* {{{say*/
 
 int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
         Tcl_Obj *CONST objv[]) {
@@ -202,7 +169,6 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
       status = TextToSpeechReset(dtkHandle, FALSE);
       if (status != MMSYSERR_NOERROR) {
         error_msg = getErrorMsg(status);
-
         Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
         return TCL_ERROR;
       }
@@ -210,7 +176,6 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
       status = TextToSpeechSpeak(dtkHandle, txt, dwFlags);
       if (status != MMSYSERR_NOERROR) {
         error_msg = getErrorMsg(status);
-
         Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
         return TCL_ERROR;
       }
@@ -221,7 +186,6 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
     status = TextToSpeechSpeak(dtkHandle, "", TTS_FORCE);
     if (status != MMSYSERR_NOERROR) {
       error_msg = getErrorMsg(status);
-
       Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
       return TCL_ERROR;
     }
@@ -230,8 +194,8 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
   return TCL_OK;
 }
 
-/* > */
-/* < sync*/
+/* }}} */
+/* {{{ sync*/
 
 int Synchronize(ClientData dtkHandle, Tcl_Interp *interp,
                 int objc, Tcl_Obj *CONST objv[]) {
@@ -246,13 +210,12 @@ int Synchronize(ClientData dtkHandle, Tcl_Interp *interp,
   return TCL_OK;
 }
 
-/* > */
-/* <stop*/
+/* }}} */
+/* {{{stop*/
 
 int Stop(ClientData dtkHandle, Tcl_Interp *interp,
          int objc, Tcl_Obj *CONST objv[]) {
   MMRESULT status;
-
   status = TextToSpeechReset (dtkHandle, FALSE);
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg(status);
@@ -269,8 +232,8 @@ int Stop(ClientData dtkHandle, Tcl_Interp *interp,
   return TCL_OK;
 }
 
-/* > */
-/* < pause and resume */
+/* }}} */
+/* {{{ pause and resume */
 
 int Pause(ClientData dtkHandle, Tcl_Interp *interp,
           int objc, Tcl_Obj *CONST objv[]) {
@@ -298,9 +261,9 @@ int Resume(ClientData dtkHandle, Tcl_Interp *interp,
   return TCL_OK;
 }
 
-/* > */
-/* <end of file*/
+/* }}} */
+/* {{{end of file*/
 /* local variables: */
 /* folded-file: t */
 /* end: */
-/* > */
+/* }}} */
