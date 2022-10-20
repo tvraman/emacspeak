@@ -116,8 +116,7 @@ int Tcldtk_Init(Tcl_Interp *interp) {
 
   devNo = WAVE_MAPPER;
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
-    sprintf(error_buff, "Error loading %s\n", PACKAGENAME);
-    Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
+    Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
   }
 
