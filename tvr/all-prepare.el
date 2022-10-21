@@ -193,6 +193,7 @@ This moves them into the Spam folder."
 ;;  Lispy for eval-expression:
   (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy))
 (with-eval-after-load "slime"
+  (add-hook 'slime-repl-mode-hook 'lispy-mode)
   (setq inferior-lisp-program (executable-find "sbcl"))
   (setq common-lisp-hyperspec-root
         (if (file-exists-p "/usr/share/doc/hyperspec/")
