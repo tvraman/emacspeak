@@ -1398,12 +1398,19 @@ of the source buffer."
   (message (abbreviate-file-name default-directory)))
 
 ;;;###autoload
-(defun emacspeak-wizards-shell-directory-reset ()
+;;* 
+(defun emacspeak-wizards-shell-directory-reset (&optional prefix)
   "Set current directory to this shell's initial directory if one was
-defined.  If not in a shell buffer, switch to our Home shell buffer."
-  (interactive)
+defined.  If not in a shell buffer, switch to our Home shell buffer.
+With interactive prefix-arg, change this shell's  project directory to
+the current directory."
+  (interactive "P")
   (cl-declare (special emacspeak-wizards--project-shell-directory))
   (cond
+   ((and prefix (eq major-mode 'shell-mode))
+    (setq emacspeak-wizards--project-shell-directory default-directory)
+    (emacspeak-auditory-icon 'item)
+    (message "%s" (abbreviate-file-name default-directory)))
    ((and (eq major-mode 'shell-mode)
          (process-live-p (get-buffer-process (current-buffer))))
     (emacspeak-auditory-icon 'item)
