@@ -265,6 +265,8 @@
         <li><a href=
         "#emacspeak_002dm_002dplayer_002dslower">emacspeak-m-player-slower</a></li>
         <li><a href=
+        "#emacspeak_002dm_002dplayer_002dstore_002dlink">emacspeak-m-player-store-link</a></li>
+        <li><a href=
         "#emacspeak_002dm_002dplayer_002dstream_002dinfo">emacspeak-m-player-stream-info</a></li>
         <li><a href=
         "#emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo">emacspeak-m-player-toggle-extrastereo</a></li>
@@ -586,8 +588,8 @@ As the default, use current position.
             <div class="format">
               <pre class=
               "format">Prompt for and apply a reverb preset.
-You need to use mplayer built with ladspa support, and have package
-tap-reverb already installed.
+  You need to use mplayer built with ladspa support, and have package
+  tap-reverb already installed.
 
 (fn PRESET)
 </pre>
@@ -991,8 +993,8 @@ tap-reverb already installed.
             </span>
             <div class="format">
               <pre class="format">Edit ladspa reverb filter.
-You need to use mplayer built with ladspa support, and have package
-tap-reverb already installed.
+  You need to use mplayer built with ladspa support, and have package
+  tap-reverb already installed.
 </pre>
             </div>
           </dd>
@@ -1426,6 +1428,7 @@ C               emacspeak-m-player-clear-filters
 E               emacspeak-m-player-add-equalizer
 G               emacspeak-m-player-seek-percentage
 J               emacspeak-m-player-run-jump
+L               emacspeak-m-player-get-length
 M               emacspeak-m-player-display-metadata
 O               emacspeak-m-player-reset-options
 P               emacspeak-m-player-apply-reverb-preset
@@ -1445,7 +1448,7 @@ h               emacspeak-m-player-from-history
 i               emacspeak-m-player-stream-info
 j               emacspeak-m-player-amark-jump
 k               emacspeak-m-player-quit
-l               emacspeak-m-player-get-length
+l               emacspeak-m-player-store-link
 m               emacspeak-m-player-mode-line
 n               emacspeak-m-player-next-track
 o               emacspeak-m-player-customize-options
@@ -2104,8 +2107,32 @@ Interactive prefix arg prompts for the timestamp.
         </dl>
       </div>
       <div class="subsubsection" id=
-      "emacspeak_002dm_002dplayer_002dstream_002dinfo">
+      "emacspeak_002dm_002dplayer_002dstore_002dlink">
         <h4 class="subsubsection">12.117.2.72
+        emacspeak-m-player-store-link</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dm_002dplayer_002dstore_002dlink">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-m-player-store-link</strong>
+          <a href=
+          '#index-emacspeak_002dm_002dplayer_002dstore_002dlink'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dm_002dplayer_002dstore_002dlink-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Store an org-link to currently playing stream at current position.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dm_002dplayer_002dstream_002dinfo">
+        <h4 class="subsubsection">12.117.2.73
         emacspeak-m-player-stream-info</h4>
         <dl class="def">
           <dt id=
@@ -2131,7 +2158,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo">
-        <h4 class="subsubsection">12.117.2.73
+        <h4 class="subsubsection">12.117.2.74
         emacspeak-m-player-toggle-extrastereo</h4>
         <dl class="def">
           <dt id=
@@ -2155,7 +2182,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002durl">
-        <h4 class="subsubsection">12.117.2.74
+        <h4 class="subsubsection">12.117.2.75
         emacspeak-m-player-url</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002durl">
@@ -2185,7 +2212,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dusing_002dhrtf">
-        <h4 class="subsubsection">12.117.2.75
+        <h4 class="subsubsection">12.117.2.76
         emacspeak-m-player-using-hrtf</h4>
         <dl class="def">
           <dt id=
@@ -2216,7 +2243,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dusing_002dopenal">
-        <h4 class="subsubsection">12.117.2.76
+        <h4 class="subsubsection">12.117.2.77
         emacspeak-m-player-using-openal</h4>
         <dl class="def">
           <dt id=
@@ -2247,7 +2274,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dchange">
-        <h4 class="subsubsection">12.117.2.77
+        <h4 class="subsubsection">12.117.2.78
         emacspeak-m-player-volume-change</h4>
         <dl class="def">
           <dt id=
@@ -2272,7 +2299,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002ddown">
-        <h4 class="subsubsection">12.117.2.78
+        <h4 class="subsubsection">12.117.2.79
         emacspeak-m-player-volume-down</h4>
         <dl class="def">
           <dt id=
@@ -2295,7 +2322,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dset">
-        <h4 class="subsubsection">12.117.2.79
+        <h4 class="subsubsection">12.117.2.80
         emacspeak-m-player-volume-set</h4>
         <dl class="def">
           <dt id=
@@ -2320,7 +2347,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dup">
-        <h4 class="subsubsection">12.117.2.80
+        <h4 class="subsubsection">12.117.2.81
         emacspeak-m-player-volume-up</h4>
         <dl class="def">
           <dt id=
@@ -2342,7 +2369,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dwrite_002dclip">
-        <h4 class="subsubsection">12.117.2.81
+        <h4 class="subsubsection">12.117.2.82
         emacspeak-m-player-write-clip</h4>
         <dl class="def">
           <dt id=
@@ -2365,7 +2392,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dyoutube_002dlive">
-        <h4 class="subsubsection">12.117.2.82
+        <h4 class="subsubsection">12.117.2.83
         emacspeak-m-player-youtube-live</h4>
         <dl class="def">
           <dt id=
@@ -2397,7 +2424,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dyoutube_002dplayer">
-        <h4 class="subsubsection">12.117.2.83
+        <h4 class="subsubsection">12.117.2.84
         emacspeak-m-player-youtube-player</h4>
         <dl class="def">
           <dt id=
@@ -2429,7 +2456,7 @@ This will work if the soundcard is set to 48000.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dmultimedia">
-        <h4 class="subsubsection">12.117.2.84
+        <h4 class="subsubsection">12.117.2.85
         emacspeak-multimedia</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dmultimedia"><span class=
@@ -2483,6 +2510,7 @@ C               emacspeak-m-player-clear-filters
 E               emacspeak-m-player-add-equalizer
 G               emacspeak-m-player-seek-percentage
 J               emacspeak-m-player-run-jump
+L               emacspeak-m-player-get-length
 M               emacspeak-m-player-display-metadata
 O               emacspeak-m-player-reset-options
 P               emacspeak-m-player-apply-reverb-preset
@@ -2502,7 +2530,7 @@ h               emacspeak-m-player-from-history
 i               emacspeak-m-player-stream-info
 j               emacspeak-m-player-amark-jump
 k               emacspeak-m-player-quit
-l               emacspeak-m-player-get-length
+l               emacspeak-m-player-store-link
 m               emacspeak-m-player-mode-line
 n               emacspeak-m-player-next-track
 o               emacspeak-m-player-customize-options
