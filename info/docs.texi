@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1165 commands and 148 options.
+This chapter documents a total of 1169 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -412,6 +412,22 @@ This module is Dectalk specific.
 
 @format
 Dectalk TTS.
+@end format
+@end deffn
+
+@subsubsection dectalk-soft
+@deffn {Command} dectalk-soft   
+@table @kbd
+@item C-e d C-s
+@kindex C-e d C-s
+@item <fn> d C-s
+@kindex <fn> d C-s
+@end table
+
+@findex dectalk-soft
+
+@format
+Software Dectalk TTS.
 @end format
 @end deffn
 
@@ -5309,6 +5325,16 @@ Launch async EAF browser.
 @end format
 @end deffn
 
+@subsubsection emacspeak-eww-cleanup-eww-data
+@deffn {Command} emacspeak-eww-cleanup-eww-data   
+@findex emacspeak-eww-cleanup-eww-data
+
+@format
+Clean up DOM and Source from eww-data.
+Use for large EBook buffers.
+@end format
+@end deffn
+
 @subsubsection emacspeak-eww-curl-play-media-at-point
 @deffn {Command} emacspeak-eww-curl-play-media-at-point   
 @findex emacspeak-eww-curl-play-media-at-point
@@ -5689,12 +5715,12 @@ arg ‘delete’, delete that mark instead.
 
 @format
 Play media url under point.
-Interprets url-fragment identifier #nnn as time-offset in seconds.
-Use command ‘emacspeak-m-player-jump-action’ bound to ’J’ in m-player
-  interaction to move to that offset.
-Optional interactive prefix arg ‘playlist-p’ treats
- link as a playlist.  A second interactive prefix arg adds
- mplayer option -allow-dangerous-playlist-parsing
+Interprets url-fragment identifier #nnn as time-offset in
+seconds.  Use command ‘emacspeak-m-player-jump-action’ bound to
+’J’ in m-player interaction to move to that offset.  Optional
+interactive prefix arg ‘playlist-p’ treats link as a playlist.  A
+second interactive prefix arg adds mplayer option
+-allow-dangerous-playlist-parsing
 
 (fn &optional PLAYLIST-P)
 @end format
@@ -8153,8 +8179,8 @@ Save amarks.
 
 @format
 Prompt for and apply a reverb preset.
-You need to use mplayer built with ladspa support, and have package
-tap-reverb already installed.
+  You need to use mplayer built with ladspa support, and have package
+  tap-reverb already installed.
 
 (fn PRESET)
 @end format
@@ -8321,8 +8347,8 @@ Scale speed by 2.0
 
 @format
 Edit ladspa reverb filter.
-You need to use mplayer built with ladspa support, and have package
-tap-reverb already installed.
+  You need to use mplayer built with ladspa support, and have package
+  tap-reverb already installed.
 @end format
 @end deffn
 
@@ -8537,6 +8563,7 @@ C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
 J		emacspeak-m-player-run-jump
+L		emacspeak-m-player-get-length
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
@@ -8556,7 +8583,7 @@ h		emacspeak-m-player-from-history
 i		emacspeak-m-player-stream-info
 j		emacspeak-m-player-amark-jump
 k		emacspeak-m-player-quit
-l		emacspeak-m-player-get-length
+l		emacspeak-m-player-store-link
 m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
@@ -8861,6 +8888,15 @@ Slow down playback.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-store-link
+@deffn {Command} emacspeak-m-player-store-link   
+@findex emacspeak-m-player-store-link
+
+@format
+Store an org-link to currently playing stream at current position.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-stream-info
 @deffn {Command} emacspeak-m-player-stream-info  (&optional toggle-cue)
 @findex emacspeak-m-player-stream-info
@@ -9064,6 +9100,7 @@ C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
 J		emacspeak-m-player-run-jump
+L		emacspeak-m-player-get-length
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
@@ -9083,7 +9120,7 @@ h		emacspeak-m-player-from-history
 i		emacspeak-m-player-stream-info
 j		emacspeak-m-player-amark-jump
 k		emacspeak-m-player-quit
-l		emacspeak-m-player-get-length
+l		emacspeak-m-player-store-link
 m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
@@ -9586,6 +9623,22 @@ Play URL using mpv;  Prefix arg plays on left channel.
 
 @format
 Show position and duration.
+@end format
+@end deffn
+
+@subsubsection emacspeak-mpv-store-link
+@deffn {Command} emacspeak-mpv-store-link   
+@table @kbd
+@item C-e C-; l
+@kindex C-e C-; l
+@item <fn> C-; l
+@kindex <fn> C-; l
+@end table
+
+@findex emacspeak-mpv-store-link
+
+@format
+Store link at current position.
 @end format
 @end deffn
 
@@ -17470,7 +17523,7 @@ Prompts for and runs shell command on current file.
 @end deffn
 
 @subsubsection emacspeak-wizards-shell-directory-reset
-@deffn {Command} emacspeak-wizards-shell-directory-reset   
+@deffn {Command} emacspeak-wizards-shell-directory-reset  (&optional prefix)
 @table @kbd
 @item C-. .
 @kindex C-. .
@@ -17487,6 +17540,10 @@ Prompts for and runs shell command on current file.
 @format
 Set current directory to this shell’s initial directory if one was
 defined.  If not in a shell buffer, switch to our Home shell buffer.
+With interactive prefix-arg, change this shell’s  project directory to
+the current directory.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 

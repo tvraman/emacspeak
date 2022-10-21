@@ -312,6 +312,9 @@
 @item C-o
  outloud
 
+@item C-s
+ dectalk-soft
+
 @item C-v
  global-voice-lock-mode
 

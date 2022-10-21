@@ -12,7 +12,16 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 11, 2022.
+last updated on October 21, 2022.
+
+
+File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
+
+12.83 emacspeak-forge
+=====================
+
+FORGE == Work with Github, Gitlab etc from inside magit.  This module
+speech-enables magit/forge.
 
 
 File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-geiser,  Prev: emacspeak-forge,  Up: Emacspeak Commands And Options
@@ -1353,8 +1362,8 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Command: emacspeak-m-player-apply-reverb-preset (preset)
 
      Prompt for and apply a reverb preset.
-     You need to use mplayer built with ladspa support, and have package
-     tap-reverb already installed.
+       You need to use mplayer built with ladspa support, and have package
+       tap-reverb already installed.
 
      (fn PRESET)
 
@@ -1483,8 +1492,8 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Command: emacspeak-m-player-edit-reverb
 
      Edit ladspa reverb filter.
-     You need to use mplayer built with ladspa support, and have package
-     tap-reverb already installed.
+       You need to use mplayer built with ladspa support, and have package
+       tap-reverb already installed.
 
 12.117.2.30 emacspeak-m-player-end-of-track
 ...........................................
@@ -1653,6 +1662,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      E		emacspeak-m-player-add-equalizer
      G		emacspeak-m-player-seek-percentage
      J		emacspeak-m-player-run-jump
+     L		emacspeak-m-player-get-length
      M		emacspeak-m-player-display-metadata
      O		emacspeak-m-player-reset-options
      P		emacspeak-m-player-apply-reverb-preset
@@ -1672,7 +1682,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      i		emacspeak-m-player-stream-info
      j		emacspeak-m-player-amark-jump
      k		emacspeak-m-player-quit
-     l		emacspeak-m-player-get-length
+     l		emacspeak-m-player-store-link
      m		emacspeak-m-player-mode-line
      n		emacspeak-m-player-next-track
      o		emacspeak-m-player-customize-options
@@ -1918,7 +1928,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Slow down playback.
 
-12.117.2.72 emacspeak-m-player-stream-info
+12.117.2.72 emacspeak-m-player-store-link
+.........................................
+
+ -- Command: emacspeak-m-player-store-link
+
+     Store an org-link to currently playing stream at current position.
+
+12.117.2.73 emacspeak-m-player-stream-info
 ..........................................
 
  -- Command: emacspeak-m-player-stream-info (&optional toggle-cue)
@@ -1928,14 +1945,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional TOGGLE-CUE)
 
-12.117.2.73 emacspeak-m-player-toggle-extrastereo
+12.117.2.74 emacspeak-m-player-toggle-extrastereo
 .................................................
 
  -- Command: emacspeak-m-player-toggle-extrastereo
 
      Toggle application of extrastereo filter to all streams.
 
-12.117.2.74 emacspeak-m-player-url
+12.117.2.75 emacspeak-m-player-url
 ..................................
 
  -- Command: emacspeak-m-player-url (url &optional playlist-p)
@@ -1946,7 +1963,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PLAYLIST-P)
 
-12.117.2.75 emacspeak-m-player-using-hrtf
+12.117.2.76 emacspeak-m-player-using-hrtf
 .........................................
 
  -- Command: emacspeak-m-player-using-hrtf
@@ -1956,7 +1973,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Add af resample=48000,hrtf to startup options.
      This will work if the soundcard is set to 48000.
 
-12.117.2.76 emacspeak-m-player-using-openal
+12.117.2.77 emacspeak-m-player-using-openal
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal (resource &optional
@@ -1968,7 +1985,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn RESOURCE &optional PLAY-LIST)
 
-12.117.2.77 emacspeak-m-player-volume-change
+12.117.2.78 emacspeak-m-player-volume-change
 ............................................
 
  -- Command: emacspeak-m-player-volume-change (value)
@@ -1977,14 +1994,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn VALUE)
 
-12.117.2.78 emacspeak-m-player-volume-down
+12.117.2.79 emacspeak-m-player-volume-down
 ..........................................
 
  -- Command: emacspeak-m-player-volume-down
 
      Volume down.
 
-12.117.2.79 emacspeak-m-player-volume-set
+12.117.2.80 emacspeak-m-player-volume-set
 .........................................
 
  -- Command: emacspeak-m-player-volume-set (&optional arg)
@@ -1993,21 +2010,21 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional ARG)
 
-12.117.2.80 emacspeak-m-player-volume-up
+12.117.2.81 emacspeak-m-player-volume-up
 ........................................
 
  -- Command: emacspeak-m-player-volume-up
 
      Volume up.
 
-12.117.2.81 emacspeak-m-player-write-clip
+12.117.2.82 emacspeak-m-player-write-clip
 .........................................
 
  -- Command: emacspeak-m-player-write-clip
 
      Split selected range using SoX
 
-12.117.2.82 emacspeak-m-player-youtube-live
+12.117.2.83 emacspeak-m-player-youtube-live
 ...........................................
 
  -- Command: emacspeak-m-player-youtube-live (url)
@@ -2018,7 +2035,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL)
 
-12.117.2.83 emacspeak-m-player-youtube-player
+12.117.2.84 emacspeak-m-player-youtube-player
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url &optional prefix)
@@ -2030,7 +2047,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PREFIX)
 
-12.117.2.84 emacspeak-multimedia
+12.117.2.85 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia
@@ -2066,6 +2083,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      E		emacspeak-m-player-add-equalizer
      G		emacspeak-m-player-seek-percentage
      J		emacspeak-m-player-run-jump
+     L		emacspeak-m-player-get-length
      M		emacspeak-m-player-display-metadata
      O		emacspeak-m-player-reset-options
      P		emacspeak-m-player-apply-reverb-preset
@@ -2085,7 +2103,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      i		emacspeak-m-player-stream-info
      j		emacspeak-m-player-amark-jump
      k		emacspeak-m-player-quit
-     l		emacspeak-m-player-get-length
+     l		emacspeak-m-player-store-link
      m		emacspeak-m-player-mode-line
      n		emacspeak-m-player-next-track
      o		emacspeak-m-player-customize-options
@@ -2533,6 +2551,15 @@ require only one initial ress of C-e C-;.
      ‘<fn> C-; .’
 
      Show position and duration.
+
+12.127.1.3 emacspeak-mpv-store-link
+...................................
+
+ -- Command: emacspeak-mpv-store-link
+     ‘C-e C-; l’
+     ‘<fn> C-; l’
+
+     Store link at current position.
 
 
 File: emacspeak.info,  Node: emacspeak-mspools,  Next: emacspeak-muggles,  Prev: emacspeak-mpv,  Up: Emacspeak Commands And Options
@@ -8668,7 +8695,7 @@ Contains various wizards for the Emacspeak desktop.
 12.211.1.88 emacspeak-wizards-shell-directory-reset
 ...................................................
 
- -- Command: emacspeak-wizards-shell-directory-reset
+ -- Command: emacspeak-wizards-shell-directory-reset (&optional prefix)
      ‘C-. .’
      ‘C-e x .’
      ‘<fn> x .’
@@ -8676,6 +8703,10 @@ Contains various wizards for the Emacspeak desktop.
 
      Set current directory to this shell’s initial directory if one was
      defined.  If not in a shell buffer, switch to our Home shell buffer.
+     With interactive prefix-arg, change this shell’s  project directory to
+     the current directory.
+
+     (fn &optional PREFIX)
 
 12.211.1.89 emacspeak-wizards-shell-directory-set
 .................................................
@@ -9896,163 +9927,4 @@ File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voi
 This module defines the various voices used in voice-lock mode.  Module
 Plain is suitable for a device for which you haven’t yet implemented
 appropriate voice-locking controls
-
-
-File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
-
-12.228 soundscape
-=================
-
-Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
-acoustic environment.  Boodler at <http://boodler.org> is a Python-based
-SoundScape generator.  To use this module, first install boodler.  Then
-install the soundscape packages (*.boop) files available at
-<http://boodler.org/lib>.  Make sure boodler works and produces audio in
-your environment.  finally install the Boodler packages from
-emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
-emacspeak/scapes; make ’
-
-   When boodler is set up and all packages installed, copy file
-emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
-lists all installed SoundScapes.  Directory emacspeak/scapes also
-contains additional Boodler Agents and SoundScapes that I have created
-for use with Emacspeak.
-
-   Module soundscape.el defines Emacs conveniences for running
-Soundscapes.  Main Entry Points:
-
-   • M-x soundscape-toggle – Enables or disables automatic SoundScapes.
-   • M-x soundscape – runs a named SoundScape
-   • M-x soundscape-stop – Stops a specified running Soundscape.
-   • M-x soundscape-kill – Kills all running Soundscapes.
-
-   When automatic Soundscapes are enabled, SoundScapes are started and
-stopped based on the current major mode.  Active Soundscape are
-displayed as part of the minor-mode-alist.  Command
-emacspeak-speak-minor-mode-line can be used to have this spoken.
-
-   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
-current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
-that is loaded using ‘(soundscape-load soundscape-default-theme)’.
-Emacs modes that provide similar functionality e.g., communication ==
-email, IM, ...  map to the same _mood_.
-
-12.228.1 Soundscape Commands
-----------------------------
-
-12.228.1.1 soundscape
-.....................
-
- -- Command: soundscape (scape)
-     ‘C-. s’
-     ‘C-x @ s s’
-
-     Play soundscape.
-
-     (fn SCAPE)
-
-12.228.1.2 soundscape-kill
-..........................
-
- -- Command: soundscape-kill
-
-     Stop all running soundscapes.
-
-12.228.1.3 soundscape-listener
-..............................
-
- -- Command: soundscape-listener (&optional restart)
-
-     Start  a Soundscape listener.
-     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
-     Optional interactive prefix arg restarts the listener.
-
-     (fn &optional RESTART)
-
-12.228.1.4 soundscape-listener-shutdown
-.......................................
-
- -- Command: soundscape-listener-shutdown
-
-     Shutdown listener.
-
-12.228.1.5 soundscape-remote
-............................
-
- -- Command: soundscape-remote (names)
-
-     Activate scapes named ‘names’ — a list of strings.
-
-     (fn NAMES)
-
-12.228.1.6 soundscape-restart
-.............................
-
- -- Command: soundscape-restart (&optional prompt)
-     ‘C-. r’
-     ‘C-x @ s r’
-
-     Restart Soundscape  environment.
-     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
-     The  is then saved to soundscape-device for future use.
-
-     (fn &optional PROMPT)
-
-12.228.1.7 soundscape-stop
-..........................
-
- -- Command: soundscape-stop (scape)
-
-     Stop running Soundscape.
-
-     (fn SCAPE)
-
-12.228.1.8 soundscape-theme
-...........................
-
- -- Command: soundscape-theme
-
-     Shows default theme in a special buffer.
-
-12.228.1.9 soundscape-toggle
-............................
-
- -- Command: soundscape-toggle
-     ‘C-. t’
-     ‘C-x @ s t’
-
-     Toggle automatic SoundScapes.
-     Run command M-x soundscape-theme to see the default mode->mood mapping.
-
-12.228.1.10 soundscape-update-mood
-..................................
-
- -- Command: soundscape-update-mood (&optional prompt-mode)
-     ‘C-. u’
-     ‘C-x @ s u’
-
-     Update mood/scape mapping for current  mode.
-     The  updated mapping is not persisted.
-     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
-
-     (fn &optional PROMPT-MODE)
-
-12.228.2 soundscape Options
----------------------------
-
- -- Variable: User Option soundscape-data
-     Soundscape data directory.
-
-     Default Value: ‘/home/raman/.boodler/Collection’
-
- -- Variable: User Option soundscape-device
-     Alsa sound device to use for soundscapes.
-
-     Default Value: ‘default’
-
- -- Variable: User Option soundscape-manager-options
-     User customizable options list passed to boodler.  Defaults specify
-     alsa as the output and set master volume
-
-     Default Value: ‘(-m 0.3)’
 
