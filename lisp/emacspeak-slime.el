@@ -346,12 +346,9 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     speak.
-     (cl-declare (special *slime-inspector*))
      (when (ems-interactive-p)
-       (with-current-buffer (get-buffer *slime-inspector*)
          (emacspeak-speak-line)
-         (emacspeak-auditory-icon 'open-object))))))
+         (emacspeak-auditory-icon 'open-object)))))
 
 (cl-loop
  for f in
@@ -360,11 +357,9 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      speak.
-     (cl-declare (special *slime-inspector*))
      (when (ems-interactive-p)
-       (with-current-buffer (get-buffer*slime-description*)
          (emacspeak-speak-buffer)
-         (emacspeak-auditory-icon 'help))))))
+         (emacspeak-auditory-icon 'help)))))
 
 '(
   slime-inspector-copy-down-to-repl
