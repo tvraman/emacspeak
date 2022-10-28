@@ -347,6 +347,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      speak.
+     (cl-declare (special *slime-inspector*))
      (when (ems-interactive-p)
        (with-current-buffer (get-buffer *slime-inspector*)
          (emacspeak-speak-line)
@@ -359,6 +360,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      speak.
+     (cl-declare (special *slime-inspector*))
      (when (ems-interactive-p)
        (with-current-buffer (get-buffer*slime-description*)
          (emacspeak-speak-buffer)
