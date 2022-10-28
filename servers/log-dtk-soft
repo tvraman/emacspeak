@@ -1,0 +1,4 @@
+#!/bin/sh
+
+LOG=/tmp/dtk-$$.log
+tee -a $LOG | `dirname $0`/dtk-soft
