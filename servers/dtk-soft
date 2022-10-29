@@ -132,7 +132,7 @@ proc t  {{pitch 440} {duration 50}} {
 
 proc sh  {{duration 50}} {
     global tts queue 
-    c"\[_<duration>] "
+    puts  "\[_<$duration>] "
     return ""
 }
 
