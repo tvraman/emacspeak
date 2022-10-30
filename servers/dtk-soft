@@ -153,8 +153,7 @@ proc tts_reset {} {
     global tts 
     synth -reset
     queue_clear
-    synth {[:phoneme arpabet speak on][:pu s][:sa c]}
-	synth "Via  Software DecTalk, This,  is   Eamakspeak! "
+    synth {[:phoneme arpabet speak on][:pu s][:sa c] Reset Dectalk}
 }
 
 proc r {rate} {
@@ -272,7 +271,7 @@ proc clean {element} {
             set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         }
 #        regsub -all {[A-Z]} $element {[_<5>]&} element
-		regsub -all {[A-Z]} $element { &} element
+		#regsub -all {[A-Z]} $element { &} element
 #        regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1[_<1>]\2[,] } element
 		regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1 \2 } element
 #        regsub -all {([^ -_A-Z])([A-Z])} $element {\1[_<1>]\2} element
@@ -303,11 +302,7 @@ synth   {[:phoneme arpabet speak on ]
     [:sa c]
     [:np]
 }
-synth {
-    [zhax<35> p'arl][_,]
-    [/dh`ow<100,140> _, ]  [:np] [  zhax<13>  suw<45>\iy<140,100> _.]
-    Via  Software DecTalk, This,  is   Eamakspeak!
-}
+synth {I speak, Therefore I am!}
 #Start the main command loop:
 commandloop
 
