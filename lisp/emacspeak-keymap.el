@@ -660,7 +660,6 @@
     ("." emacspeak-wizards-shell-directory-reset)
     ("C-n" emacspeak-wizards-google-headlines)
     ("R" emacspeak-webspace-feed-reader)
-    ("a" emacspeak-wizards-execute-asynchronously)
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
