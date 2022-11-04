@@ -1,0 +1,1 @@
+json=$(curl "https://nominatim.openstreetmap.org/reverse?format=json&accept-language=en&lat=37.23&lon=-121.83&zoom=18&addressdetails=1")

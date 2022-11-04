@@ -302,7 +302,7 @@ synth   {[:phoneme arpabet speak on ]
     [:sa c]
     [:np]
 }
-synth {I speak, Therefore I am!}
+synth {I speak, Therefore I am.}
 #Start the main command loop:
 commandloop
 
