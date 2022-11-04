@@ -1547,18 +1547,20 @@ program. Port defaults to dtk-local-server-port"
 
 (defsubst tts-notification-from-env ()
   "Compute tts-notification device from env."
-  (or
-   (cl-first
-    (split-string
-     (shell-command-to-string
-      "aplay -L 2>/dev/null | grep mono")))
-   (substring
-    (cl-first
-     (split-string
-      (shell-command-to-string
-       "pacmd list-sinks | grep tts | cut -f 2 -d ':'")))
-    1 -1)
-   "default"))
+  (let ((device 
+         (or
+          (cl-first
+           (split-string
+            (shell-command-to-string
+             "aplay -L 2>/dev/null | grep mono")))
+          (cl-first
+           (split-string
+            (shell-command-to-string
+             "pacmd list-sinks | grep tts | cut -f 2 -d ':'")))
+          "default")))
+    (if (string-match "<" device) ; strip <> from pactl result
+        (substring device 1 -1)
+      device)))
 
 (defcustom tts-notification-device
   (eval-when-compile (tts-notification-from-env))
