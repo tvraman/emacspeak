@@ -3,12 +3,12 @@
 # Use per app volume 
 # A bs2b (binaural for headphones) sink:
 
-load-module module-ladspa-sink sink_name=binaural  master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,6.5
+load-module module-ladspa-sink sink_name=binaural  master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,4.5
 
 # Use binaural as the default sink:
 #set-default-sink  binaural 
 
-# A tts_right device
+# A tts_right and tts_left device
 
 load-module module-remap-sink sink_name=tts_right  master=binaural channels=2 master_channel_map=front-right,front-right, channel_map=front-left,front-right remix=no
 load-module module-remap-sink sink_name=tts_left  master=binaural channels=2 master_channel_map=front-left,front-left, channel_map=front-left,front-right remix=no
@@ -16,3 +16,5 @@ load-module module-remap-sink sink_name=tts_left  master=binaural channels=2 mas
 load-module module-x11-bell
 load-sample bell-window-system /usr/share/sounds/freedesktop/stereo/bell.oga
 load-sample-dir-lazy  /home/raman/emacs/lisp/emacspeak/sounds/ogg-chimes
+# device: snoop -- to record and play
+load-module module-combine-sink sink_name=snoop slaves=binaural sink_properties=device.description="Record-and-Play"
