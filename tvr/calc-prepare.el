@@ -19,7 +19,7 @@
     (setq calc-group-digits t)
     (setq calc-complex-format 'i)
     (setq calc-angle-mode 'rad)
-    (setq calc-language 'tex)
+    (setq calc-language 'latex)
     (setq calc-display-trail nil)
     (setq calc-auto-why 1)
 ;; End of mode settings
