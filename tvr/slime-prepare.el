@@ -8,7 +8,7 @@
             "file:///usr/share/doc/hyperspec/"
           "http://www.lispworks.com/reference/HyperSpec/"))
   (global-set-key (ems-kbd "C-c s") 'slime-selector)
-  (setq slime-contribs '(slime-fancy slime-hyperdoc slime-quicklisp))
+  (setq slime-contribs '(slime-fancy slime-hyperdoc slime-quicklisp slime-asdf))
   (slime-setup)
   (slime-autodoc--disable)
   (setq slime-use-autodoc-mode nil)
