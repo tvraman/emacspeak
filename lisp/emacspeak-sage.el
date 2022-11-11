@@ -72,7 +72,7 @@
   (interactive)
   (with-current-buffer
       (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
-    (apply #'buffer-substring (sage-shell:last-output-beg-end))))
+    (string-trim  (apply #'buffer-substring (sage-shell:last-output-beg-end)))))
 
 (defun emacspeak-sage-speak-output ()
   "Speak last output from Sage."
