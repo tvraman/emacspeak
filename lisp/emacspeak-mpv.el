@@ -108,11 +108,12 @@
 (defadvice mpv-kill (before emacspeak pre act comp)
   "Add org integration."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-auditory-icon 'close-object)
     (cl-pushnew
      `(
-       ,(format "e-media:%s"
-                (ems--yt-set-time emacspeak-mpv-url (mpv-get-playback-position)))
+       ,(format
+         "e-media:%s"
+         (ems--yt-set-time emacspeak-mpv-url (mpv-get-playback-position)))
        "URL")
      org-stored-links)
     (setq emacspeak-mpv-url nil)))
@@ -175,8 +176,9 @@
   (cl-declare (special org-stored-links emacspeak-mpv-url))
   (cl-pushnew
    `(
-     ,(format "e-media:%s"
-                (ems--yt-set-time emacspeak-mpv-url (mpv-get-playback-position)))
+     ,(format
+       "e-media:%s"
+       (ems--yt-set-time emacspeak-mpv-url (mpv-get-playback-position)))
      "URL")
    org-stored-links)
   (message "Stored link to current play position."))
