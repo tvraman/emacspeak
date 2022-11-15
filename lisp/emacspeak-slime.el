@@ -126,6 +126,9 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+(add-hook
+ 'slime-repl-mode-hook
+ 'emacspeak-pronounce-refresh-pronunciations)
 
 (cl-loop
  for f in
