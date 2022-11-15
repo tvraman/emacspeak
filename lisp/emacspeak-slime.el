@@ -286,14 +286,16 @@
  '(
    slime-documentation-lookup
    slime-describe-function  slime-describe-symbol slime-describe-presentation
-   slime-apropos slime-apropos-package slime-apropos-summary
-   )
+   slime-apropos slime-apropos-package slime-apropos-summary)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'help)))))
+       (sit-for 0.1)
+       (with-current-buffer (slime-buffer-name :description)
+         (emacspeak-speak-buffer)
+         (emacspeak-auditory-icon 'help))))))
 
 ;;}}}
 ;;{{{ Inspector:
