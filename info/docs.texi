@@ -1069,7 +1069,7 @@ Default Value: @code{@verb{|8|}}
 @defvar {User Option} dtk-unicode-character-replacement-alist
 Replacements for  characters.
 
-Default Value: @code{@verb{|((150 . -) (9473 . -) (9475 . |) (176 .  degrees ) (8451 . Degree C) (8457 . Degree F ) (8220 . ") (8221 . ") (8902 . *) (173 . -) (8216 . `) (8217 . ') (8208 . -) (8211 .  -- ) (8212 .  --- ) (8202 .  ) (65279 .  ) (8204 . ) (8203 .  ) (8201 .  ) (8213 . ----) (8214 . ||) (8230 . ...) (8226 .  bullet ) (149 .  ... ) (8482 . TM) (64256 . ff) (64257 . fi) (64258 . fl) (64259 . ffi) (64260 . Ffl))|}}
+Default Value: @code{@verb{|((150 . -) (9473 . -) (9475 . |) (176 .  degrees ) (8451 . Degree C) (8457 . Degree F ) (8220 . ") (8221 . ") (8902 . *) (173 . -) (8216 . `) (8217 . ') (8208 .  dash ) (8211 .  dash dash  ) (8212 .  em dash  ) (8202 .  ) (65279 .  ) (8204 . ) (8203 .  ) (8201 .  ) (8213 . ----) (8214 . ||) (8230 . ...) (8226 .  bullet ) (149 .  ... ) (8482 . TM) (64256 . ff) (64257 . fi) (64258 . fl) (64259 . ffi) (64260 . Ffl))|}}
 
 @end defvar
 
@@ -7874,7 +7874,7 @@ Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacsp
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (a emacspeak-wizards-execute-asynchronously) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))|}}
+Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))|}}
 
 @end defvar
 
@@ -16937,13 +16937,6 @@ Update exec-path from shell path.
 
 @subsubsection emacspeak-wizards-execute-asynchronously
 @deffn {Command} emacspeak-wizards-execute-asynchronously  (key)
-@table @kbd
-@item C-. a
-@kindex C-. a
-@item C-x @@ s a
-@kindex C-x @@ s a
-@end table
-
 @findex emacspeak-wizards-execute-asynchronously
 
 @format

@@ -525,9 +525,6 @@
 @item SPC
  scratch-buffer
 
-@item a
- emacspeak-wizards-execute-asynchronously
-
 @item c
  calculator
 
