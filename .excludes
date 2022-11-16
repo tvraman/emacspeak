@@ -24,8 +24,6 @@ contrib
 debian
 dtk-lite
 emacspeak-pkg.el
-etc/tweets
-etc/tweets
 git-hooks
 html
 js/node/auto
@@ -34,8 +32,6 @@ js/piglets
 lib
 lisp/g-client/patches 
 lisp/patches
-nextalk 
-nyxtalk
 obsolete
 patches
 scapes

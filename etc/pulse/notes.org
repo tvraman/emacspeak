@@ -1,7 +1,4 @@
 * Pulseaudio Resources 
-
-
-
 - [[https://askubuntu.com/questions/43950/how-can-i-apply-a-ladspa-plugin-to-a-pulseaudio-stream][How can I apply a LADSPA plugin to a PulseAudio stream? - Ask Ubuntu]]
 - [[https://www.freedesktop.org/wiki/Software/PulseAudio/][PulseAudio]]
 - [[https://askubuntu.com/questions/71863/how-to-change-pulseaudio-sink-with-pacmd-set-default-sink-during-playback][How to change pulseaudio sink with "pacmd set-default-sink" during playback? - Ask Ubuntu]]
