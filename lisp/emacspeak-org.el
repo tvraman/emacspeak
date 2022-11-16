@@ -179,8 +179,6 @@
   `(defadvice ,f(after emacspeak pre act comp)
      "Speak."
      (when (ems-interactive-p)
-                                        ; to help voice-lock
-       (org-mode) ; fixme:
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'paragraph)))))
 
