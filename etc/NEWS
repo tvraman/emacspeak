@@ -6,17 +6,14 @@ associated with genuine accomplishments, with the successful
 fulfillment of a challenging task.
 – Donald Knuth
 
-
-
 Emacspeak News --History Of User-Visible Changes
 
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-
 * Emacspeak 57 --- Emacspeak 57 User Visible Changes
 
-** Software Dectalk 
+** Software Dectalk
 
 Emacspeak ~servers/dtk-soft~ implements support for the Software
 Dectalk available on  Github.
@@ -59,7 +56,7 @@ alternative to xbacklight.el
 
 Interactive browsers for EWW Marks,AMarks,  Media History.
 
-* Org-Mode Enhancements 
+* Org-Mode Enhancements
 
 Module ~emacspeak-org~ now integrates ~AMark~ support into org-mode;
 users can now enhance notes taken in org-mode with hyperlinks to
