@@ -164,7 +164,7 @@
    org-backward-sentence org-forward-sentence
    org-backward-element org-forward-element
    org-backward-paragraph org-forward-paragraph
-   org-next-link org-previous-link org-open-at-point
+   org-next-link org-previous-link 
    org-goto  org-goto-ret
    org-goto-left org-goto-right
    org-goto-quit
