@@ -1,3 +1,0 @@
-* Package: TTS
-
-Implements a bridge between SBCL and Emacspeak TTS servers.
