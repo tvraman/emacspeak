@@ -1,5 +1,0 @@
-* Testing EWW
-
-Test paragraph.
-  - Bulleted list
-  - Item
