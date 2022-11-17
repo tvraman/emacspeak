@@ -31,12 +31,14 @@ Enable this by creating devices ~tts_left~ and  ~tts_right~.
   1.   Unplugging headphones  initially left  speaker muted and
      vice-versa. After plugging/unplugging headphones, press _C-e ( C-j_
      in emacspeak if necessary. See asound.state here for my
-     sound-card; I place it in _~/.emacs.d~ for emacspeak to find it.
+     sound-card; I place it in _~/.emacs.d~ for emacspeak to find
+     it. Once asound.state is configured to taste,
+     unplugging/plugging-in headphones does not have any issues.
 
 ** Outloud TTS And Latency 
 
   1. The default latency assigned by Pulseaudio to alsa->pulse devices
-     is not optimal.
+     is not optimal; too high for responsive eeTS
   2. To work-around this issue, recompile the Emacspeak linux-outloud
      speech server which has been updated with ALSA configuration
      logic to request lower latency.
