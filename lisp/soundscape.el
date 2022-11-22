@@ -415,8 +415,10 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
   (soundscape-listener)
   (unless (member '(soundscape--auto (:eval (soundscape-current)))
                   minor-mode-alist)
-    (push   '(soundscape--auto (:eval (soundscape-current)))
-            minor-mode-alist)))
+    (add-to-list
+     'minor-mode-alist
+     '(soundscape--auto (:eval (soundscape-current)))
+     'at-end)))
 
 ;;;###autoload
 (defun soundscape-listener  (&optional restart)
