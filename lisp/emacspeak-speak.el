@@ -1530,13 +1530,28 @@ Interactive prefix arg speaks buffer info."
                          (dtk-speak
                           (buffer-name))))
 
+(defsubst ems--show-current-volume ()
+  "Volume display in minor-mode-line"
+  (cond
+    ((executable-find "pactl")
+     (format "Vol: %s"
+             (string-trim
+              (shell-command-to-string
+               (concat
+                "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
+                "|  cut -d ',' -f 1 | cut -d ':' -f 3 | cut -d '/' -f 2")))))
+    (t "")))
+
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
   "Speak the minor mode-information.
 Optional interactive prefix arg `log-msg' logs spoken info to
 *Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
-  (let ((info  (format-mode-line minor-mode-alist)))
+  (let ((info
+          (concat 
+           (ems--show-current-volume)
+           (format-mode-line minor-mode-alist))))
     (when log-msg (ems--log-message info))
     (dtk-speak  info)))
 
