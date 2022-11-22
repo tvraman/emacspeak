@@ -1544,10 +1544,9 @@ Optional interactive prefix arg `log-msg' logs spoken info to
 *Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
-  (let ((info
-          (format-mode-line minor-mode-alist)))
+  (let ((info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
-    (dtk-speak  info)))
+    (dtk-speak-list (split-string info))))
 
 (defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
