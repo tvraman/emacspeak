@@ -292,6 +292,28 @@ Interactive prefix arg refreshes cache."
        (amixer-control-name control)
        update)))))
 
+
+ (defun amixer-query (&optional refresh)
+  "Show setting for specified control."
+  (interactive "P")
+  (cl-declare (special amixer-db amixer-alsactl-config-file amixer-program))
+  (unless amixer-alsactl-config-file (amixer-alsactl-setup))
+  (when (or refresh (null amixer-db))
+    (amixer-build-db))
+  (let ((control
+          (cdr
+           (assoc
+            (let ((completion-ignore-case t))
+              (completing-read
+               "Control:" amixer-db
+               nil 'must-match))
+            amixer-db))))
+    (message
+     "%s is %s"
+     (amixer-control-name control)
+     (amixer-control-setting-current (amixer-control-setting
+                                      control)))))
+
 ;;;###autoload
 (defun amixer-store()
   "Persist  amixer."
