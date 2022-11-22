@@ -1530,12 +1530,14 @@ Interactive prefix arg speaks buffer info."
   "Volume display in minor-mode-line"
   (cond
     ((executable-find "pactl")
-     (format "Vol:%s%% "
-             (string-trim
-              (shell-command-to-string
-               (concat
-                "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
-                "|  cut -d ',' -f 1 | cut -d ':' -f 3 | cut -d '/' -f 2")))))
+     (propertize 
+      (format "Vol:%s%% "
+              (string-trim
+               (shell-command-to-string
+                (concat
+                 "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
+                 "|  cut -d ',' -f 1 | cut -d ':' -f 3 | cut -d '/' -f 2"))))
+      'personality 'voice-lighten))
     (t "")))
 
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
@@ -1546,7 +1548,7 @@ Optional interactive prefix arg `log-msg' logs spoken info to
   (cl-declare (special minor-mode-alist))
   (let ((info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
-    (dtk-speak-list (split-string info))))
+    (dtk-speak  info)))
 
 (defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
