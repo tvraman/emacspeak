@@ -1530,7 +1530,7 @@ Interactive prefix arg speaks buffer info."
   "Volume display in minor-mode-line"
   (cond
     ((executable-find "pactl")
-     (format "Vol: %s "
+     (format "Vol: %s%% "
              (string-trim
               (shell-command-to-string
                (concat
