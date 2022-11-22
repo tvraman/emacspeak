@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1169 commands and 148 options.
+This chapter documents a total of 1170 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -276,6 +276,17 @@ default values, Press @kbd{C-j}.
 @format
 ALSA settings.
 Interactive prefix arg refreshes cache.
+
+(fn &optional REFRESH)
+@end format
+@end deffn
+
+@subsubsection amixer-query
+@deffn {Command} amixer-query  (&optional refresh)
+@findex amixer-query
+
+@format
+Show setting for specified control.
 
 (fn &optional REFRESH)
 @end format

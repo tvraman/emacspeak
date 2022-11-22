@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 16, 2022.
+last updated on November 21, 2022.
 
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
@@ -2672,9 +2672,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> \:                              emacspeak-wizards.  (line  347)
 * <print>:                               emacspeak-muggles.  (line   48)
 * <silence>:                             emacspeak-speak.    (line  220)
-* <XF86AudioLowerVolume>:                amixer.             (line   44)
+* <XF86AudioLowerVolume>:                amixer.             (line   53)
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  221)
-* <XF86AudioRaiseVolume>:                amixer.             (line   56)
+* <XF86AudioRaiseVolume>:                amixer.             (line   65)
 * C-' h:                                 emacspeak-m-player. (line  193)
 * C-' l:                                 emacspeak-m-player. (line  388)
 * C-' y:                                 emacspeak-google.   (line  343)
@@ -2725,8 +2725,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; p:                                 emacspeak-wizards.  (line  431)
 * C-; r:                                 emacspeak-wizards.  (line  562)
 * C-; w:                                 emacspeak-wizards.  (line  820)
-* C-<f1>:                                amixer.             (line   45)
-* C-<f2>:                                amixer.             (line   57)
+* C-<f1>:                                amixer.             (line   54)
+* C-<f2>:                                amixer.             (line   66)
 * C-<left>:                              emacspeak-wizards.  (line  109)
 * C-<right>:                             emacspeak-wizards.  (line   98)
 * C-<up>:                                emacspeak-speak.    (line   87)
