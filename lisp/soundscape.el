@@ -255,6 +255,7 @@ Default is to return NullAgent if name not found."
   "Return names of currently running scapes."
   (cl-declare (special soundscape--scapes))
   (concat
+   " "
    (mapconcat #'soundscape-lookup-scape soundscape--scapes " ")
    " "))
 
@@ -413,8 +414,8 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
   "Initialize Soundscape."
   (soundscape-catalog)
   (soundscape-listener)
-  (unless (member '(soundscape--auto (:eval (soundscape-current)))
-                  minor-mode-alist)
+  (unless
+      (member '(soundscape--auto (:eval (soundscape-current))) minor-mode-alist)
     (add-to-list
      'minor-mode-alist
      '(soundscape--auto (:eval (soundscape-current)))
