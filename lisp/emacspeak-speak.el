@@ -1521,7 +1521,7 @@ Interactive prefix arg speaks buffer info."
                           (buffer-name))))
 
 
-(defcustom emacspeak-speak-show-volume t
+(defcustom emacspeak-speak-show-volume nil
   "Show volume as part of minor-mode-line."
   :type 'boolean
   :group 'emacspeak-speak)
