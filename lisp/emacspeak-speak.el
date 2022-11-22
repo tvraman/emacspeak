@@ -390,7 +390,6 @@ Useful to do this before you listen to an entire buffer."
       (condition-case nil
           (let ((start nil)
                 (blank-line "\n[ \t\n\r]*\n")
-                (inhibit-point-motion-hooks t)
                 (inhibit-modification-hooks t)
                 (deactivate-mark nil))
             (with-silent-modifications
@@ -667,8 +666,7 @@ current local  value to the result.")
   (interactive "r")
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
                        emacspeak-action-mode))
-  (let ((inhibit-point-motion-hooks t)
-        (inhibit-modification-hooks t)
+  (let ((inhibit-modification-hooks t)
         (deactivate-mark nil))
     (when (not emacspeak-speak-voice-annotated-paragraphs)
       (save-restriction
@@ -749,7 +747,6 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
   (when (listp arg) (setq arg (car arg)))
   (let* ((inhibit-field-text-motion t)
          (inhibit-read-only t)
-         (inhibit-point-motion-hooks t)
          (inhibit-modification-hooks t)
          (icon (get-char-property (point) 'auditory-icon))
          (before (get-char-property (point) 'before-string))
@@ -887,7 +884,6 @@ Cues the start of a physical line with auditory icon `left'."
         (inhibit-read-only t)
         (start nil)
         (end nil)
-        (inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
         (line nil)
         (orig (point)))
@@ -948,7 +944,6 @@ spelled out  instead of being spoken."
   (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
   (save-excursion
     (let ((orig (point))
-          (inhibit-point-motion-hooks t)
           (inhibit-modification-hooks t)
           (inhibit-field-text-motion  t)
           (start nil)
@@ -1110,7 +1105,6 @@ Negative prefix arg speaks from start of sentence to point."
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
-          (inhibit-point-motion-hooks t)
           (inhibit-modification-hooks t)
           (start nil)
           (end nil))
@@ -1133,7 +1127,6 @@ Negative prefix arg speaks from start of sexp to point. "
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
-          (inhibit-point-motion-hooks t)
           (inhibit-modification-hooks t)
           (start nil)
           (end nil))
@@ -1161,7 +1154,6 @@ Negative prefix arg will read from start of current page to point. "
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
-          (inhibit-point-motion-hooks t)
           (start nil)
           (end nil))
       (mark-page)
@@ -1183,7 +1175,6 @@ Negative prefix arg will read from start of current paragraph to point. "
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
-          (inhibit-point-motion-hooks t)
           (start nil)
           (end nil))
       (forward-paragraph 1)
@@ -1206,8 +1197,7 @@ With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point. "
   (interactive "P")
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
-  (let ((inhibit-point-motion-hooks t))
-    (when (not emacspeak-speak-voice-annotated-paragraphs)
+  (let () (when (not emacspeak-speak-voice-annotated-paragraphs)
       (emacspeak-speak-voice-annotate-paragraphs))
     (when (listp arg) (setq arg (car arg)))
     (dtk-stop)
@@ -1530,17 +1520,28 @@ Interactive prefix arg speaks buffer info."
                          (dtk-speak
                           (buffer-name))))
 
+
+(defcustom emacspeak-speak-show-volume t
+  "Show volume as part of minor-mode-line."
+  :type 'boolean
+  :group 'emacspeak-speak)
+
 (defsubst ems--show-current-volume ()
   "Volume display in minor-mode-line"
   (cond
     ((executable-find "pactl")
-     (format "Vol: %s"
+     (format "Vol: %s "
              (string-trim
               (shell-command-to-string
                (concat
                 "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
                 "|  cut -d ',' -f 1 | cut -d ':' -f 3 | cut -d '/' -f 2")))))
     (t "")))
+
+(cl-declaim (special emacspeak-speak-show-volume))
+(cl-pushnew
+ '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))
+ minor-mode-alist)
 
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
   "Speak the minor mode-information.
@@ -1549,9 +1550,7 @@ Optional interactive prefix arg `log-msg' logs spoken info to
   (interactive "P")
   (cl-declare (special minor-mode-alist))
   (let ((info
-          (concat 
-           (ems--show-current-volume)
-           (format-mode-line minor-mode-alist))))
+          (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
     (dtk-speak  info)))
 

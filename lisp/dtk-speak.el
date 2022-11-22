@@ -1653,7 +1653,7 @@ unless   `dtk-quiet' is set to t. "
   (cl-declare (special
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
-               tts-strip-octals inhibit-point-motion-hooks
+               tts-strip-octals 
                dtk-speak-server-initialized emacspeak-use-auditory-icons
                dtk-speech-rate dtk-speak-nonprinting-chars
                dtk-quiet dtk-chunk-separator-syntax
@@ -1680,8 +1680,7 @@ unless   `dtk-quiet' is set to t. "
       (let ((ctrl-m (string-match "\015" text)))
         (and ctrl-m (setq text (substring text 0 ctrl-m))
              (emacspeak-auditory-icon 'ellipses))))
-    (let ((inhibit-point-motion-hooks t) ;snapshot relevant state
-          (yank-excluded-properties  yank-excluded-properties)
+    (let ( ;snapshot relevant state (yank-excluded-properties  yank-excluded-properties)
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (deactivate-mark nil)
