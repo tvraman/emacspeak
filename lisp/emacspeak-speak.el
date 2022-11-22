@@ -1538,11 +1538,6 @@ Interactive prefix arg speaks buffer info."
                 "|  cut -d ',' -f 1 | cut -d ':' -f 3 | cut -d '/' -f 2")))))
     (t "")))
 
-
-(add-to-list 
- 'minor-mode-alist
- '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
-
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
   "Speak the minor mode-information.
 Optional interactive prefix arg `log-msg' logs spoken info to
