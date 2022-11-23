@@ -7,48 +7,6 @@ Dectalk.
 
 1. git clone  [[https://github.com/dectalk/dectalk][Dectalk Sources]]
 2. git checkout develop # switch branch
-3.  Patch src/configure.ac as shown below,.
-
-#+begin_src 
-diff --git a/src/configure.ac b/src/configure.ac
-index ed42b821..c756bb5a 100644
---- a/src/configure.ac
-+++ b/src/configure.ac
-@@ -36,12 +36,7 @@ dnl AC_REVISION([configure.in 0.01])
- dnl AC_INIT always has to be first. except AC_REVISION
- dnl the filename specified here is just so that autoconf
- dnl is sure that this is _actually_ the src dir
--AC_INIT(
--	DECtalk,
--	m4_esyscmd_s(echo $(git describe --always)$(git status --porcelain | awk '{if ($1 == "M") {print "-dirty";exit}}')),
--	https://github.com/dectalk/dectalk/issues,
--	,
--	https://github.com/dectalk/dectalk)
-+AC_INIT([DECtalk],[esyscmd: 1],[https://github.com/dectalk/dectalk/issues],[],[https://github.com/dectalk/dectalk])
- 
- dnl Determine the system type and set output variables to the names 
- dnl of the canonical system types.
-@@ -53,8 +48,8 @@ dnl build_cpu, build_vendor, build_os
- dnl host_cpu, host_vendor, host_os 
- dnl target_cpu, target_vendor, target_os 
- dnl      the individual parts of the canonical names (for convenience). 
--AC_CANONICAL_SYSTEM
--dnl AC_CANONICAL_SYSTEM requires config.guess and config.sub shell scripts
-+AC_CANONICAL_TARGET
-+dnl AC_CANONICAL_TARGET requires config.guess and config.sub shell scripts
- 
- dnl Determine a C compiler to use. If CC is not already set in the environment,
- dnl check for gcc, and use cc if that's not found. Set output variable CC 
-@@ -525,5 +520,6 @@ if test "${am_cv_lib_iconv}" = "yes"; then
- fi
- AC_SUBST(ICONV_LIBS)dnl
- 
--AC_OUTPUT(Makefile Makefile.sub dapi/src/Makefile dapi/src/Makefile.sub dapi/src/api/Makefile dapi/src/cmd/Makefile dapi/src/dic/Makefile dapi/src/kernel/Makefile dapi/src/lts/Makefile dapi/src/nt/Makefile dapi/src/osf/Makefile dapi/src/ph/Makefile dapi/src/vtm/Makefile dapi/src/hlsyn/Makefile dtalkml/src/Makefile samplosf/src/speak/Makefile samplosf/src/windict/Makefile samplosf/src/dtsamples/Makefile licunix/src/Makefile udicunix/src/Makefile)
-+AC_CONFIG_FILES([Makefile Makefile.sub dapi/src/Makefile dapi/src/Makefile.sub dapi/src/api/Makefile dapi/src/cmd/Makefile dapi/src/dic/Makefile dapi/src/kernel/Makefile dapi/src/lts/Makefile dapi/src/nt/Makefile dapi/src/osf/Makefile dapi/src/ph/Makefile dapi/src/vtm/Makefile dapi/src/hlsyn/Makefile dtalkml/src/Makefile samplosf/src/speak/Makefile samplosf/src/windict/Makefile samplosf/src/dtsamples/Makefile licunix/src/Makefile udicunix/src/Makefile])
-+AC_OUTPUT
- dnl AC_OUTPUT always has to be last
-
-#+end_src
 ** Configure And Build
 
 1. autoreconf -f -i
