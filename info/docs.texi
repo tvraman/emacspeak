@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1170 commands and 148 options.
+This chapter documents a total of 1170 commands and 149 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -13174,6 +13174,13 @@ message area.  You can use command
 C-e q.
 
 Default Value: @code{@verb{|t|}}
+
+@end defvar
+
+@defvar {User Option} emacspeak-speak-show-volume
+Show volume as part of minor-mode-line.
+
+Default Value: @code{@verb{|nil|}}
 
 @end defvar
 
