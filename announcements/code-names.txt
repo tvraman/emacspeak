@@ -1,7 +1,8 @@
 #    -*- mode: org -*-
 
 *  Emacspeak Codenames 
-Note that special releases are marked with an '*'.
+Note that special releases are marked with an '*' and commemorate each
+of Emacspeak's PR/Analyst Contacts.
 
 |------+----------------+----------------|
 |  3.0 | May 1995       | Illinois       |
@@ -59,7 +60,7 @@ Note that special releases are marked with an '*'.
 | 54.0 | May 2021       | EZDog          |
 | 55.0 | Nov 2021       | CalmDog        |
 | 56.0 | May 2022       | AgileDog       |
-| 57.0 | Nov 2022       | Tilden         |
+| 57.0 | Nov 2022       |* Tilden        |
 |------+----------------+----------------|
 
 #+TITLE:     code-names.txt
