@@ -1527,11 +1527,12 @@ Interactive prefix arg speaks buffer info."
   :group 'emacspeak-speak)
 
 (defconst ems--vol-cmd
-  (concat
-   "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
-   "|  cut -d ',' -f 1"
-   "| cut -d ':' -f 3"
-   "| cut -d '/' -f 2")
+  (eval-when-compile
+   (concat
+    "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
+    "|  cut -d ',' -f 1"
+    "| cut -d ':' -f 3"
+    "| cut -d '/' -f 2"))
   "Shell pipeline for getting volume.")
 
 (defsubst ems--show-current-volume ()
