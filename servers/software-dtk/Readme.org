@@ -7,10 +7,9 @@ Dectalk.
 
 1. git clone  [[https://github.com/dectalk/dectalk][Dectalk Sources]]
 2. git checkout develop # switch branch
-** Configure And Build
-
-1. autoreconf -f -i
-2. ./configure && make
+3. cd src
+4. autoreconf -f -i
+5. ./configure && make
 
 * Install Software Dectalk 
 
