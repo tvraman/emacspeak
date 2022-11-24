@@ -148,6 +148,7 @@ Use Custom to customize where possible. "
                        emacspeak-directory
                        outline-minor-mode-prefix))
   (load-library "aster")
+  (load-library "diminish")
   (add-hook 'python-mode-hook
             #'(lambda nil
                 (elpy-enable)))
@@ -200,7 +201,9 @@ Use Custom to customize where possible. "
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi t)
   (require 'dired-x)
-  (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
+  (tvr-time-load (when (file-exists-p custom-file)  (load
+                                                     custom-file)))
+  (diminish 'auto-correct-mode ""))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
