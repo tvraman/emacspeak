@@ -1526,21 +1526,24 @@ Interactive prefix arg speaks buffer info."
   :type 'boolean
   :group 'emacspeak-speak)
 
+(defconst ems--vol-cmd
+  (concat
+   "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
+   "|  cut -d ',' -f 1"
+   "| cut -d ':' -f 3"
+   "| cut -d '/' -f 2")
+  "Shell pipeline for getting volume.")
+
 (defsubst ems--show-current-volume ()
   "volume display in minor-mode-line"
+  (cl-declare (special ems--vol-cmd))
   (cond
     ((executable-find "pactl")
      (propertize 
       (format
-       " Volume: %s, "
+       " volume: %s%%, "
        (substring
-        (string-trim
-         (shell-command-to-string
-          (concat
-           "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
-           "|  cut -d ',' -f 1"
-           "| cut -d ':' -f 3"
-           "| cut -d '/' -f 2")))
+        (string-trim (shell-command-to-string ems--vol-cmd))
         0 -1))
       'personality 'voice-bolden))
     (t "")))
