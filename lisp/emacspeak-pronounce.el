@@ -163,6 +163,17 @@ the match  being passed to the func which returns  the new pronunciation."
              (buffer-name))))
 
 ;;}}}
+;;{{{mode hierarcy per define-derived-mode:
+
+(defun ems--derived-modes (mode)
+  "Return mode derivation chain as a list."
+  (let ((parents nil))
+    (while mode
+           (cl-pushnew mode parents)
+           (setq mode (get mode  'derived-mode-parent )))
+    parents))
+
+;;}}}
 ;;{{{ setting up inheritance relations
 
 ;; child inherits parents dictionary
