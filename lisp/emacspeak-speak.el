@@ -1531,12 +1531,17 @@ Interactive prefix arg speaks buffer info."
   (cond
     ((executable-find "pactl")
      (propertize 
-      (format " Vol:%s, "
-              (string-trim
-               (shell-command-to-string
-                (concat
-                 "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
-                 "|  cut -d ',' -f 1 | cut -d ':' -f 3 | cut -d '/' -f 2"))))
+      (format
+       " Vol:%s, "
+       (substring
+        (string-trim
+         (shell-command-to-string
+          (concat
+           "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
+           "|  cut -d ',' -f 1"
+           "| cut -d ':' -f 3"
+           "| cut -d '/' -f 2")))
+        0 -1))
       'personality 'voice-lighten))
     (t "")))
 
