@@ -146,7 +146,10 @@ startup sound."
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        python-mode-hook outline-mode-prefix-map
+                       emacspeak-directory
                        outline-minor-mode-prefix))
+  (load-file
+   (expand-file-name "../aster-math/ui/aster.el" emacspeak-directory))
   (add-hook 'python-mode-hook
             #'(lambda nil
                 (elpy-enable)))
@@ -156,7 +159,7 @@ Use Custom to customize where possible. "
   (mapc
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
-                  downcase-region  narrow-to-region eval-expression ))
+     downcase-region  narrow-to-region eval-expression ))
   (prefer-coding-system 'utf-8-emacs)
   (global-set-key [remap dabbrev-expand] 'hippie-expand)
   (cl-loop ;;; global key-bindings

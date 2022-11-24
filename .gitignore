@@ -28,3 +28,4 @@ servers/software-dtk/tcldtk.so
 # ELPA-generated files
 /emacspeak-autoloads.el
 /emacspeak-pkg.el
+aster-math
