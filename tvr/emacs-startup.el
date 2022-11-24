@@ -56,8 +56,7 @@
 
 (when (file-exists-p tvr-site-lib)
   (push tvr-site-lib load-path)
-  (push (expand-file-name "vm/lisp/" tvr-site-lib) load-path)
-  (push (expand-file-name "eaf/" tvr-site-lib) load-path))
+  (push (expand-file-name "vm/lisp/" tvr-site-lib) load-path))
 
 (defvar tvr-libs
   "all-prepare"
@@ -148,8 +147,7 @@ Use Custom to customize where possible. "
                        python-mode-hook outline-mode-prefix-map
                        emacspeak-directory
                        outline-minor-mode-prefix))
-  (load-file
-   (expand-file-name "../aster-math/ui/aster.el" emacspeak-directory))
+  (load-library "aster")
   (add-hook 'python-mode-hook
             #'(lambda nil
                 (elpy-enable)))
@@ -262,12 +260,13 @@ configuration happens via the after-init-hook. "
   (setenv "PULSE_SINK" "binaural")
   (unless (featurep 'emacspeak)
     (tvr-time-load ;;; load emacspeak:
-        (load ;; setenv EMACSPEAK_DIR if you want to load a different version
-         (expand-file-name
-          "lisp/emacspeak-setup"
-          (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
+     (load ;; setenv EMACSPEAK_DIR if you want to load a different version
+      (expand-file-name
+       "lisp/emacspeak-setup"
+       (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
   (cl-pushnew (expand-file-name "tvr/" emacspeak-directory) load-path
               :test #'string-equal)
+  (push (expand-file-name "aster-math/ui" emacspeak-directory) load-path)
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook))
 
