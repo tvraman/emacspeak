@@ -257,7 +257,7 @@ Default is to return NullAgent if name not found."
   (propertize
    (concat
     " "
-    (mapconcat #'soundscape-lookup-scape soundscape--scapes " ")
+    (mapconcat #'soundscape-lookup-scape soundscape--scapes ", ")
     " ")
    'personality voice-smoothen))
 
