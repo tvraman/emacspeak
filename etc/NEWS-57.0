@@ -1,0 +1,79 @@
+#    -*- mode: org -*-
+
+Easy things are often amusing and relaxing, but their value soon
+fades. Greater pleasure, deeper satisfaction, and higher wages are
+associated with genuine accomplishments, with the successful
+fulfillment of a challenging task.
+– Donald Knuth
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+
+* Emacspeak 57 --- Emacspeak 57 User Visible Changes
+
+** Software Dectalk
+
+Emacspeak ~servers/dtk-soft~ implements support for the Software
+Dectalk available on  Github.
+
+** Learn Smarter By Taking Rich, Hypertext Notes
+
+Integrates Audio Marks, E-Bookmarks and friends into  a note-taking
+workflow --- see [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][blog article]].
+
+** MPV
+
+Use mpv for playing Youtube streams
+
+** Emacs Repeat-Mode
+
+Emacspeak now leverages  feature ~repeat-mode~  for its media
+player commands.
+
+** Speech-Enable Repeat-Mode
+
+When ~repeat-mode~ is active, invoking a command that supports
+repeat-mode produces auditory icons ~repeat-start~, ~repeat-active~
+and ~repeat-end~.
+
+** Speech-Enable NotMuch
+
+Module ~emacspeak-notmuch~ speech-enables the Emacs Mail Interface to
+~NotMuch~.
+
+** Module light.el
+
+Module light.el enables brightness changes for OLED displays ---
+alternative to xbacklight.el
+
+** Emacspeak Auditory Display Under Pulseaudio
+
+[[https://emacspeak.blogspot.com/2022/06/emacspeak-complete-audio-desktop-under.html][Emacspeak auditory display]] features such as multiple TTS streams work
+under Pulseaudio.
+
+** Emacspeak Speciality Browsers
+
+Interactive browsers for EWW Marks,AMarks,  Media History.
+
+** Org-Mode Enhancements
+
+Module ~emacspeak-org~ now integrates ~AMark~ support into org-mode;
+users can now enhance notes taken in org-mode with hyperlinks to
+AMarks that point to the relevant audio content when listening to
+audio books etc.
+
+** Speech-Enable ~journalctl-mode~
+
+Speech-enable package ~journalctl-mode~ to work with SystemD
+JournalCTL.
+
+** Sounds Themes Using OGG
+
+This is especially useful when using pulseaudio's ~pactl~ as the
+auditory icon program.
+
+** Speech-Enable ffap: find-file-at-point
+
+Speech-enable commands from ~ffap.el~
