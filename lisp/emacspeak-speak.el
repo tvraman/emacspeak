@@ -1531,7 +1531,7 @@ Interactive prefix arg speaks buffer info."
   (cond
     ((executable-find "pactl")
      (propertize 
-      (format "Vol:%s, "
+      (format " Vol:%s, "
               (string-trim
                (shell-command-to-string
                 (concat
