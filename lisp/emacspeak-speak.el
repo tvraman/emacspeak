@@ -1527,7 +1527,7 @@ Interactive prefix arg speaks buffer info."
   :group 'emacspeak-speak)
 
 (defsubst ems--show-current-volume ()
-  "Volume display in minor-mode-line"
+  "volume display in minor-mode-line"
   (cond
     ((executable-find "pactl")
      (propertize 
