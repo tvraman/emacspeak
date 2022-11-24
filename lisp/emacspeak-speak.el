@@ -1532,7 +1532,7 @@ Interactive prefix arg speaks buffer info."
     ((executable-find "pactl")
      (propertize 
       (format
-       " Volume:%s, "
+       " Volume: %s, "
        (substring
         (string-trim
          (shell-command-to-string
@@ -1542,7 +1542,7 @@ Interactive prefix arg speaks buffer info."
            "| cut -d ':' -f 3"
            "| cut -d '/' -f 2")))
         0 -1))
-      'personality 'voice-lighten))
+      'personality 'voice-bolden))
     (t "")))
 
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
