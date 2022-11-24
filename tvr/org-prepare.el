@@ -14,3 +14,5 @@
   (define-key global-map (ems-kbd "C-c b") 'org-switchb)
   (define-key global-map  (ems-kbd "C-c c") 'org-capture)
   )
+(with-eval-after-load "orgalist"
+  (diminish 'orgalist-mode ""))

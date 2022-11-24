@@ -226,6 +226,8 @@ This moves them into the Spam folder."
   (define-key global-map (ems-kbd "C-c b") 'org-switchb)
   (define-key global-map  (ems-kbd "C-c c") 'org-capture)
   )
+(with-eval-after-load "orgalist"
+  (diminish 'orgalist-mode ""))
 ;;; Jump to Emacs Git Logs At HEAD:
 (defalias 'tvr-km-emacs-log
    (kmacro "C-c 3 C-; d F u C-; d l l C-e d q M-< C-e C-q C-e d q n"))
