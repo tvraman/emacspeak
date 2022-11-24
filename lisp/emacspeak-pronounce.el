@@ -165,7 +165,7 @@ the match  being passed to the func which returns  the new pronunciation."
 ;;}}}
 ;;{{{mode hierarcy per define-derived-mode:
 
-(defun ems--derived-modes (mode)
+(defun ems--mode-derive-chain (mode)
   "Return mode derivation chain as a list."
   (let ((parents nil))
     (while mode
@@ -208,7 +208,7 @@ the match  being passed to the func which returns  the new pronunciation."
             (set-buffer buffer)
             major-mode))
          (mode-supers (emacspeak-pronounce-get-supers mode))
-         (mode-parents (ems--derived-modes mode))
+         (mode-parents (ems--mode-derive-chain mode))
          (file-alist
            (and filename (emacspeak-pronounce-get-dictionary filename)))
          (dir-alist
