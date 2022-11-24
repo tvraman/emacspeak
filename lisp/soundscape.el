@@ -259,7 +259,7 @@ Default is to return NullAgent if name not found."
     " "
     (mapconcat #'soundscape-lookup-scape soundscape--scapes ", ")
     " ")
-   'personality voice-brighten))
+   'personality 'voice-brighten))
 
 ;;}}}
 ;;{{{ Modes->SoundScapes:
