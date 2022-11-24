@@ -1541,7 +1541,7 @@ Interactive prefix arg speaks buffer info."
     ((executable-find "pactl")
      (propertize 
       (format
-       " volume: %s%%, "
+       " volume: %s, "
        (substring
         (string-trim (shell-command-to-string ems--vol-cmd))
         0 -1))
