@@ -240,15 +240,9 @@ the match  being passed to the func which returns  the new pronunciation."
 ;;}}}
 ;;{{{ defining some inheritance relations:
 
-;; gnus server mode inherits from gnus group mode
-
-(emacspeak-pronounce-add-super 'gnus-group-mode
-                               'gnus-server-mode)
-
 ;; c++ mode inherits from C mode
 (emacspeak-pronounce-add-super 'c-mode 'c++-mode)
-;; shell inherits from comint:
-(emacspeak-pronounce-add-super 'comint-mode 'shell-mode)
+
 ;; latex-mode and latex2e-mode inherit from plain-tex-mode
 
 (emacspeak-pronounce-add-super 'plain-tex-mode 'latex-mode)
