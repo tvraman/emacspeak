@@ -1520,12 +1520,6 @@ Interactive prefix arg speaks buffer info."
                          (dtk-speak
                           (buffer-name))))
 
-
-(defcustom emacspeak-speak-show-volume nil
-  "Show volume as part of minor-mode-line."
-  :type 'boolean
-  :group 'emacspeak-speak)
-
 (defconst ems--vol-cmd
   (eval-when-compile
    (concat
@@ -1573,7 +1567,8 @@ Optional interactive prefix arg `log-msg' logs spoken info to
 *Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
-  (let ((info (format-mode-line minor-mode-alist)))
+  (let* ((emacspeak-speak-show-volume t)
+         (info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
     (tts-with-punctuations 'some
      (dtk-speak  info))))
