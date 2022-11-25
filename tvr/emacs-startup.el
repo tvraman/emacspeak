@@ -204,6 +204,8 @@ Use Custom to customize where possible. "
   (tvr-time-load (when (file-exists-p custom-file)  (load
                                                      custom-file)))
   (diminish 'voice-lock-mode "")
+  (diminish 'auto-fill-function "")
+  (diminish 'abbrev-mode "")
   (diminish 'company-mode "")
   (diminish 'hs-minor-mode "")
   (diminish 'auto-correct-mode ""))
