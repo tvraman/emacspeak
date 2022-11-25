@@ -1560,6 +1560,8 @@ Interactive prefix arg speaks buffer info."
         0 -1))
       'personality 'voice-bolden))
     (t "")))
+(defvar emacspeak-speak-show-volume nil
+  "Temporarily turned on when speaking minor-mode line.")
 
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
   "Speak the minor mode-information.
@@ -1571,7 +1573,7 @@ Optional interactive prefix arg `log-msg' logs spoken info to
          (info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
     (tts-with-punctuations 'some
-     (dtk-speak  info))))
+                           (dtk-speak  info))))
 
 (defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
