@@ -1541,12 +1541,11 @@ Interactive prefix arg speaks buffer info."
     "pacmd list-sinks | grep 'active port:'  | grep  Speaker")))
 
 
-(defsubst ems--pulse-headphone-p ()
+(defsubst ems--pulse-headphones-p ()
   "Predicate to check if we are on Headphones."
   (zerop
    (shell-command
     "pacmd list-sinks | grep 'active port:'  | grep  Headphones")))
-
 
 (defsubst ems--show-current-volume ()
   "volume display in minor-mode-line"
@@ -1556,8 +1555,8 @@ Interactive prefix arg speaks buffer info."
      (propertize 
       (format
        " %s %s"
-       (condition-case
-        ((ems--pulse-headphone-p) "🎧")
+       (cond
+        ((ems--pulse-headphones-p) "🎧")
         ((ems--pulse-speaker-p) "🔈")
         (t "Vol"))
        (substring

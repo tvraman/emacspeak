@@ -8,4 +8,6 @@
   (define-key smartparens-mode-map "\M-e" 'sp-up-sexp)
   (define-key smartparens-mode-map "\M-k" 'sp-kill-sexp)
   (define-key smartparens-mode-map "\C-\M-f" 'forward-sexp)
-  (define-key smartparens-mode-map "\C-\M-b" 'backward-sexp))
+  (define-key smartparens-mode-map "\C-\M-b" 'backward-sexp)
+  (diminish 'smartparens-mode "" )
+  )
