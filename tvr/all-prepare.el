@@ -194,7 +194,9 @@ This moves them into the Spam folder."
   (add-hook 'ielm-mode-hook 'lispy-mode)
   ;;  Lispy for eval-expression:
   (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
-  (diminish 'lispy-mode ""))
+  (diminish 'lispy-mode "")
+  (diminish 'lispy-other-mode "")
+  (diminish 'lispy-goto-mode ""))
 ;;; slime-autoloads is broken alas:
 (load-library "slime")
 (with-eval-after-load "slime"
