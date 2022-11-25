@@ -1534,6 +1534,19 @@ Interactive prefix arg speaks buffer info."
     "| cut -d ':' -f 3"
     "| cut -d '/' -f 2"))
   "Shell pipeline for getting volume.")
+(defsubst ems--pulse-speaker-p ()
+  "Predicate to check if we are on speaker."
+  (zerop
+   (shell-command
+    "pacmd list-sinks | grep 'active port:'  | grep  Speaker")))
+
+
+(defsubst ems--pulse-headphone-p ()
+  "Predicate to check if we are on Headphones."
+  (zerop
+   (shell-command
+    "pacmd list-sinks | grep 'active port:'  | grep  Headphones")))
+
 
 (defsubst ems--show-current-volume ()
   "volume display in minor-mode-line"
@@ -1542,7 +1555,11 @@ Interactive prefix arg speaks buffer info."
     ((executable-find "pactl")
      (propertize 
       (format
-       " 🎧 %s"
+       " %s %s"
+       (condition-case
+        ((ems--pulse-headphone-p) "🎧")
+        ((ems--pulse-speaker-p) "🔈")
+        (t "Vol"))
        (substring
         (string-trim (shell-command-to-string ems--vol-cmd))
         0 -1))
