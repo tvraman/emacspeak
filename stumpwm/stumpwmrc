@@ -136,12 +136,12 @@
 (define-key *root-map* (kbd "O") "toggle-orca")
 
 ;;}}}
-# {{{wallpaper:
+ ;;{{{wallpaper:
 
 (stumpwm:run-shell-command  
     " feh --no-fehbg --bg-center '/home/raman/emacs/lisp/emacspeak/etc/tilden-face.jpg' ")
 
-# }}}
+;; }}}
 ;;{{{Emacs local variables
 
 ;;; local variables:
