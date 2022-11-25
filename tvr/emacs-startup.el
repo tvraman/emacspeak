@@ -206,8 +206,6 @@ Use Custom to customize where possible. "
   (diminish 'voice-lock-mode "")
   (diminish 'auto-fill-function "")
   (diminish 'abbrev-mode "")
-  (diminish 'company-mode "")
-  (diminish 'hs-minor-mode "")
   (diminish 'auto-correct-mode ""))
 
 (defun tvr-after-init ()
@@ -219,8 +217,9 @@ Use Custom to customize where possible. "
    (load "emacspeak-mpv")
   (tvr-customize) ;;; customizations
   (with-eval-after-load
-      'yasnippet
-    (yas-reload-all))
+    'yasnippet
+    (yas-reload-all)
+    (diminish 'yas-minor-mode ""))
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize)
   (when emacspeak-soundscapes (soundscape-toggle)))
@@ -246,14 +245,16 @@ Use Custom to customize where possible. "
   (cl-declare (special dtk-caps))
   (local-set-key "\C-m" 'newline-and-indent)
   (company-mode)
+  (diminish 'company-mode "")
   (hs-minor-mode)
+  (diminish 'hs-minor-mode "")
   (auto-fill-mode)
   (cond
-   ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
-    (when dtk-caps
-      (setq dtk-caps nil))
-    (lispy-mode ))
-   (t (smartparens-mode)))
+    ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
+     (when dtk-caps
+       (setq dtk-caps nil))
+     (lispy-mode ))
+    (t (smartparens-mode)))
   (yas-minor-mode)
   (abbrev-mode))
 
