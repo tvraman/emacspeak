@@ -1536,16 +1536,18 @@ Interactive prefix arg speaks buffer info."
   "Shell pipeline for getting volume.")
 (defsubst ems--pulse-speaker-p ()
   "Predicate to check if we are on speaker."
-  (zerop
-   (shell-command
-    "pacmd list-sinks | grep 'active port:'  | grep  Speaker")))
+  (ems-with-messages-silenced
+   (zerop
+    (shell-command
+     "pacmd list-sinks | grep 'active port:'  | grep  Speaker"))))
 
 
 (defsubst ems--pulse-headphones-p ()
   "Predicate to check if we are on Headphones."
-  (zerop
-   (shell-command
-    "pacmd list-sinks | grep 'active port:'  | grep  Headphones")))
+  (ems-with-messages-silenced
+   (zerop
+    (shell-command
+     "pacmd list-sinks | grep 'active port:'  | grep  Headphones"))))
 
 (defsubst ems--show-current-volume ()
   "volume display in minor-mode-line"
