@@ -12,17 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 22, 2022.
-
-
-File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
-
-12.227 plain-voices
-===================
-
-This module defines the various voices used in voice-lock mode.  Module
-Plain is suitable for a device for which you haven’t yet implemented
-appropriate voice-locking controls
+last updated on November 25, 2022.
 
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options

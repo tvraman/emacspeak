@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 22, 2022.
+last updated on November 25, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -5389,11 +5389,6 @@ of emacspeak from becoming dependent on the speech server modules
 
      Default Value: ‘t’
 
- -- Variable: User Option emacspeak-speak-show-volume
-     Show volume as part of minor-mode-line.
-
-     Default Value: ‘nil’
-
  -- Variable: User Option emacspeak-speak-time-format-string
      Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
@@ -9920,4 +9915,14 @@ specific.
      Default speech rate.
 
      Default Value: ‘50’
+
+
+File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
+
+12.227 plain-voices
+===================
+
+This module defines the various voices used in voice-lock mode.  Module
+Plain is suitable for a device for which you haven’t yet implemented
+appropriate voice-locking controls
 
