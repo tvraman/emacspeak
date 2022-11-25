@@ -19,4 +19,6 @@
   (add-hook 'ielm-mode-hook 'lispy-mode)
   ;;  Lispy for eval-expression:
   (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
-  (diminish 'lispy-mode ""))
+  (diminish 'lispy-mode "")
+  (diminish 'lispy-other-mode "")
+  (diminish 'lispy-goto-mode ""))
