@@ -124,6 +124,19 @@ Produce timing information as the last step."
    (define-key shell-mode-map (ems-kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
+;;{{{Node/NVM Setup:
+(defun tvr-nvm-setup ()
+  "Set up NVM/NPM."
+  (when (require 'nvm)
+    (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
+      (nvm-use v)
+      (executable-find "node"))))
+
+(defvar tvr-npm-node
+  (tvr-nvm-setup)
+  "Find the right Node executable.")
+
+;;}}}
 ;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
 
 (defun tvr-emacs-startup-hook ()
