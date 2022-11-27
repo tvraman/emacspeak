@@ -59,6 +59,7 @@
 (voice-setup-add-map 
  '(
    (rg-context-face voice-bolden)
+   (rg-line-number-face voice-lighten)
    (rg-error-face voice-animate)
    (rg-file-tag-face voice-smoothen)
    (rg-filename-face voice-annotate)
