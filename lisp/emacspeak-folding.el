@@ -147,6 +147,12 @@ Then speak the  line."
         folding-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command))))
 
 ;;}}}
+;;{{{Diminish:
+
+(when (featurep 'diminish)
+  (diminish 'folding-mode ""))
+
+;;}}}
 (provide  'emacspeak-folding)
 ;;{{{  emacs local variables
 
