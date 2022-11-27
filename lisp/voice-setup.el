@@ -300,9 +300,13 @@ Define a voice for it if needed, then return the symbol."
       (voice-setup-set-voice-for-face face  orig)
       (message "Made personality %s audible." orig)
       (emacspeak-auditory-icon 'open-object))
-     (t (voice-setup-set-voice-for-face face 'inaudible)
+     (t (voice-setup-set-voice-for-face
+         (if (listp face)   (cl-first face)face)
+         'inaudible)
         (setf
-         (gethash face voice-setup-buffer-face-voice-table)
+         (gethash
+          (if (listp face) (cl-first face) face)
+          voice-setup-buffer-face-voice-table)
          personality)
         (message "Silenced personality %s" personality)
         (emacspeak-auditory-icon 'close-object)))
