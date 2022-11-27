@@ -59,13 +59,19 @@
 (voice-setup-add-map 
  '(
    (rg-context-face voice-bolden)
-   (rg-line-number-face voice-lighten)
    (rg-error-face voice-animate)
    (rg-file-tag-face voice-smoothen)
    (rg-filename-face voice-annotate)
    (rg-info-face voice-monotone-extra)
+   (rg-line-number-face voice-lighten)
+   (rg-literal-face voice-monotone)
    (rg-match-face voice-lighten)
-   (rg-warning-face voice-animate)))
+   (rg-match-position-face voice-lighten)
+   (rg-regexp-face voice-monotone)
+   (rg-toggle-off-face voice-smoothen)
+   (rg-toggle-on-face voice-brighten)
+   (rg-warning-face voice-animate)
+   ))
 
 ;;}}}
 ;;{{{ Interactive Commands:
