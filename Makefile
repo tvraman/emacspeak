@@ -58,6 +58,8 @@ outloud:
 espeak: 
 	@cd servers/native-espeak && $(MAKE) --no-print-directory  || echo "Can't build espeak server!"
 
+dtk: 
+	@cd servers/software-dtk && $(MAKE) --no-print-directory  || echo "Can't build espeak server!"
 # }}}
 # {{{  Maintenance targets   dist
 
