@@ -1680,7 +1680,7 @@ unless   `dtk-quiet' is set to t. "
       (let ((ctrl-m (string-match "\015" text)))
         (and ctrl-m (setq text (substring text 0 ctrl-m))
              (emacspeak-auditory-icon 'ellipses))))
-    (let ( ;snapshot relevant state (yank-excluded-properties  yank-excluded-properties)
+    (let (                              ;snapshot relevant state
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (deactivate-mark nil)
