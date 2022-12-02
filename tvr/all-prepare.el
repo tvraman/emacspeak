@@ -219,6 +219,7 @@ This moves them into the Spam folder."
 
 (with-eval-after-load "org"
   (require 'org-tempo)
+  (add-hook 'org-mode-hook #'turn-on-org-cdlatex)
   (require 'ol-eww)
   (require 'ox-md)
   (define-key org-mode-map (ems-kbd "C-,") 'emacspeak-alt-keymap)
