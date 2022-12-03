@@ -790,6 +790,7 @@ arg just opens the file"
 
 ;;}}}
 ;;{{{md export:
+
 (defadvice org-md-export-as-markdown (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -802,7 +803,8 @@ arg just opens the file"
 (org-link-set-parameters
  "amark"
  :follow #'org-amark-follow-link
- :store #'org-amark-store-link)
+ :store #'org-amark-store-link
+ :display 'org-link)
 
 (defun org-amark-store-link ()
   "Store a link to a AMark.
@@ -838,7 +840,8 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 (org-link-set-parameters
  "ebook"
  :follow #'emacspeak-eww-open-mark
- :store #'org-ebook-store-link)
+ :store #'org-ebook-store-link
+ :display 'org-link)
 
 (defun org-ebook-store-link ()
   "Store a link to an EWW mark from an EBook. "
