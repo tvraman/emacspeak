@@ -1648,19 +1648,37 @@ Argument S specifies the syntax class."
 This is so text marked invisible is silenced.")
 
 
-(defun dtk-org-light  ()
-  "Small org to get org folding magic."
-  (when (eq org-fold-core-style 'text-properties)
-    (org-fold-initialize
-     (or (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
-         "..."))
-    
-    (make-local-variable 'org-link-descriptive)
+
+(declare-function
+ org-fold-core-set-folding-spec-property
+ "org-fold-core" (spec property value &optional force))
+(declare-function
+ org-fold-core-set-folding-spec-property
+ "org-fold-core" (spec property value &optional force))
+
+(declare-function org-fold-initialize "org-fold" (ellipsis))
+(declare-function org-set-regexps-and-options "org" (&optional tags-only))
+
+(declare-function org-set-font-lock-defaults "org" nil)
+
+(defun dtk-org-fold-setup  ()
+  "Setup org-fold magic."
+  (cl-declare (special
+               org-outline-regexp
+               org-fold-core-style org-link-descriptive
+               org-link--link-folding-spec
+               org-ellipsis))
+  (when 
+      (org-fold-initialize
+       (or
+        (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
+        "..."))
+                                        ;(make-local-variable 'org-link-descriptive)
     (if org-link-descriptive
-        (org-fold-core-set-folding-spec-property (car org-link--link-folding-spec) :visible nil)
-        (org-fold-core-set-folding-spec-property (car
-                                                  org-link--link-folding-spec) :visible t))
-    
+        (org-fold-core-set-folding-spec-property
+         (car org-link--link-folding-spec) :visible nil)
+        (org-fold-core-set-folding-spec-property
+         (car org-link--link-folding-spec) :visible t))
     (setq-local outline-regexp org-outline-regexp)
     (setq-local outline-level 'org-outline-level)
     
@@ -1672,7 +1690,7 @@ This is so text marked invisible is silenced.")
 unless   `dtk-quiet' is set to t. "
   (cl-declare (special
                major-mode
-               org-fold-core--specs
+               org-fold-core-style
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals 
@@ -1704,7 +1722,6 @@ unless   `dtk-quiet' is set to t. "
              (emacspeak-auditory-icon 'ellipses))))
     (let (                              ;snapshot relevant state
           (orig-mode major-mode)
-          (org-specs (bound-and-true-p org-fold-core--specs))
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (deactivate-mark nil)
@@ -1731,7 +1748,6 @@ unless   `dtk-quiet' is set to t. "
         (erase-buffer)
         ;; inherit environment
         (setq
-         org-fold-core--specs org-specs
          yank-excluded-properties dtk-yank-excluded-properties
          emacspeak-pronounce-personality pron-personality
          buffer-invisibility-spec invisibility-spec
@@ -1746,7 +1762,9 @@ unless   `dtk-quiet' is set to t. "
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
-        (when (eq orig-mode 'org-mode) (dtk-org-light))
+        (when (and (eq orig-mode 'org-mode)
+                   (eq orig-mode 'org-mode))
+          (dtk-org-fold-setup))
         (dtk-interp-sync)
         (insert-for-yank text)          ; insert and pre-process text
         (dtk--delete-invisible-text)
