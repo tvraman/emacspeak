@@ -201,11 +201,12 @@ This moves them into the Spam folder."
 (load-library "slime")
 (with-eval-after-load "slime"
   (add-hook 'slime-repl-mode-hook 'lispy-mode)
+  (define-key slime-prefix-map "d" slime-doc-map)
   (setq inferior-lisp-program (executable-find "sbcl"))
   (setq common-lisp-hyperspec-root
         (if (file-exists-p "/usr/share/doc/hyperspec/")
             "file:///usr/share/doc/hyperspec/"
-          "http://www.lispworks.com/reference/HyperSpec/"))
+            "http://www.lispworks.com/reference/HyperSpec/"))
   (global-set-key (ems-kbd "C-c s") 'slime-selector)
   (setq slime-contribs '(slime-fancy slime-hyperdoc slime-quicklisp slime-asdf))
   (slime-setup)
@@ -214,7 +215,7 @@ This moves them into the Spam folder."
   (setq
    slime-lisp-implementations
    `((sbcl ("sbcl" "--core"
-            ,(expand-file-name "sbcl.core-for-slime" user-emacs-directory))))))
+                   ,(expand-file-name "sbcl.core-for-slime" user-emacs-directory))))))
 ;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: nil; -*-
 
 (with-eval-after-load "org"
