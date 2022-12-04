@@ -1647,6 +1647,26 @@ Argument S specifies the syntax class."
  in it.
 This is so text marked invisible is silenced.")
 
+
+(defun dtk-org-light  ()
+  "Small org to get org folding magic."
+  (when (eq org-fold-core-style 'text-properties)
+    (org-fold-initialize
+     (or (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
+         "..."))
+    
+    (make-local-variable 'org-link-descriptive)
+    (if org-link-descriptive
+        (org-fold-core-set-folding-spec-property (car org-link--link-folding-spec) :visible nil)
+        (org-fold-core-set-folding-spec-property (car
+                                                  org-link--link-folding-spec) :visible t))
+    
+    (setq-local outline-regexp org-outline-regexp)
+    (setq-local outline-level 'org-outline-level)
+    
+    (org-set-regexps-and-options)
+    (org-set-font-lock-defaults)))
+
 (defun dtk-speak (text)
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
@@ -1726,7 +1746,7 @@ unless   `dtk-quiet' is set to t. "
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
-        (when (eq orig-mode 'org-mode) (org-mode))
+        (when (eq orig-mode 'org-mode) (dtk-org-light))
         (dtk-interp-sync)
         (insert-for-yank text)          ; insert and pre-process text
         (dtk--delete-invisible-text)
