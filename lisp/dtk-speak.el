@@ -1661,8 +1661,8 @@ This is so text marked invisible is silenced.")
 
 (declare-function org-set-font-lock-defaults "org" nil)
 
-(defun dtk-org-fold-setup  ()
-  "Setup org-fold magic."
+(defun dtk-org-fold-setup ()
+  "Org fold magic."
   (cl-declare (special
                org-outline-regexp
                org-fold-core-style org-link-descriptive
@@ -1672,15 +1672,14 @@ This is so text marked invisible is silenced.")
    (or
     (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
     "..."))
+  (make-local-variable 'org-link-descriptive)
   (if org-link-descriptive
-      (org-fold-core-set-folding-spec-property
-       (car org-link--link-folding-spec) :visible nil)
-      (org-fold-core-set-folding-spec-property
-       (car org-link--link-folding-spec) :visible t))
+      (org-fold-core-set-folding-spec-property (car org-link--link-folding-spec) :visible nil)
+      (org-fold-core-set-folding-spec-property (car
+                                                org-link--link-folding-spec) :visible t))
   (setq-local outline-regexp org-outline-regexp)
   (setq-local outline-level 'org-outline-level)
   (org-set-regexps-and-options)
-                                        ;(org-set-font-lock-defaults)
   )
 
   
@@ -1763,7 +1762,7 @@ unless   `dtk-quiet' is set to t. "
           (set-syntax-table syntax-table)
           (when (and (eq orig-mode 'org-mode)
                      (eq orig-mode 'org-mode))
-            (org-mode))
+            (dtk-org-fold-setup))
           (dtk-interp-sync)
           (insert-for-yank text)        ; insert and pre-process text
           (dtk--delete-invisible-text)
