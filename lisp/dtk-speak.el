@@ -1651,6 +1651,7 @@ This is so text marked invisible is silenced.")
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
   (cl-declare (special
+               org-fold-core--specs
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals 
@@ -1681,6 +1682,7 @@ unless   `dtk-quiet' is set to t. "
         (and ctrl-m (setq text (substring text 0 ctrl-m))
              (emacspeak-auditory-icon 'ellipses))))
     (let (                              ;snapshot relevant state
+          (org-specs (bound-and-true-p org-fold-core--specs))
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (deactivate-mark nil)
@@ -1707,6 +1709,7 @@ unless   `dtk-quiet' is set to t. "
         (erase-buffer)
         ;; inherit environment
         (setq
+         org-fold-core--specs org-specs
          yank-excluded-properties dtk-yank-excluded-properties
          emacspeak-pronounce-personality pron-personality
          buffer-invisibility-spec invisibility-spec
