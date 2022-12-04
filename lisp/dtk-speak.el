@@ -1651,6 +1651,7 @@ This is so text marked invisible is silenced.")
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
   (cl-declare (special
+               major-mode
                org-fold-core--specs
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
@@ -1682,6 +1683,7 @@ unless   `dtk-quiet' is set to t. "
         (and ctrl-m (setq text (substring text 0 ctrl-m))
              (emacspeak-auditory-icon 'ellipses))))
     (let (                              ;snapshot relevant state
+          (orig-mode major-mode)
           (org-specs (bound-and-true-p org-fold-core--specs))
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
@@ -1724,6 +1726,7 @@ unless   `dtk-quiet' is set to t. "
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
+        (when (eq orig-mode 'org-mode) (org-mode))
         (dtk-interp-sync)
         (insert-for-yank text)          ; insert and pre-process text
         (dtk--delete-invisible-text)
@@ -1732,18 +1735,18 @@ unless   `dtk-quiet' is set to t. "
         (dtk-unicode-replace-chars mode)
         (dtk-quote mode)
         (goto-char (point-min))         ; text is ready to be spoken
-        (skip-syntax-forward "-")      ;skip leading whitespace
+        (skip-syntax-forward "-")       ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk chunk-sep complement-sep))
-          (unless ;;;If  embedded punctuations, continue
-              (and (char-after (point))
-                   (= ?. (char-syntax (preceding-char)))
-                   (not (= 32 (char-syntax (following-char)))))
-            (skip-syntax-forward "-")   ;skip  trailing whitespace
-            (setq end (point))
-            (dtk-audio-format start end)
-            (setq start end)))          ; end while
+               (unless ;;;If  embedded punctuations, continue
+                   (and (char-after (point))
+                        (= ?. (char-syntax (preceding-char)))
+                        (not (= 32 (char-syntax (following-char)))))
+                 (skip-syntax-forward "-") ;skip  trailing whitespace
+                 (setq end (point))
+                 (dtk-audio-format start end)
+                 (setq start end)))     ; end while
         ;; process trailing text
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
