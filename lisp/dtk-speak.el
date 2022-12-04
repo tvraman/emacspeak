@@ -1664,15 +1664,13 @@ This is so text marked invisible is silenced.")
 (defun dtk-org-fold-setup ()
   "Org fold magic."
   (cl-declare (special
-               org-outline-regexp
+               org-outline-regexp org-ellipsis
                org-fold-core-style org-link-descriptive
-               org-link--link-folding-spec
-               org-ellipsis))
+               org-link--link-folding-spec))
   (org-fold-initialize
    (or
     (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
     "..."))
-  (make-local-variable 'org-link-descriptive)
   (if org-link-descriptive
       (org-fold-core-set-folding-spec-property (car org-link--link-folding-spec) :visible nil)
       (org-fold-core-set-folding-spec-property (car
@@ -1680,6 +1678,18 @@ This is so text marked invisible is silenced.")
   (setq-local outline-regexp org-outline-regexp)
   (setq-local outline-level 'org-outline-level)
   (org-set-regexps-and-options)
+;;; minimalist
+  ;; Activate `org-table-header-line-mode'
+  (when org-table-header-line-p
+    (org-table-header-line-mode 1))
+  ;; Try to set `org-hide' face correctly.
+  (let ((foreground (org-find-invisible-foreground)))
+    (when foreground
+      (set-face-foreground 'org-hide foreground)))
+  ;; Set face extension as requested.
+  (org--set-faces-extend '(org-block-begin-line org-block-end-line)
+                         org-fontify-whole-block-delimiter-line)
+  (org--set-faces-extend org-level-faces org-fontify-whole-heading-line)
   )
 
   
@@ -1762,7 +1772,7 @@ unless   `dtk-quiet' is set to t. "
           (set-syntax-table syntax-table)
           (when (and (eq orig-mode 'org-mode)
                      (eq orig-mode 'org-mode))
-            (dtk-org-fold-setup))
+            (org-mode))
           (dtk-interp-sync)
           (insert-for-yank text)        ; insert and pre-process text
           (dtk--delete-invisible-text)
