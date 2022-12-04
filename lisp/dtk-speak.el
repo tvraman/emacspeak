@@ -1668,128 +1668,127 @@ This is so text marked invisible is silenced.")
                org-fold-core-style org-link-descriptive
                org-link--link-folding-spec
                org-ellipsis))
-  (when 
-      (org-fold-initialize
-       (or
-        (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
-        "..."))
-                                        ;(make-local-variable 'org-link-descriptive)
-    (if org-link-descriptive
-        (org-fold-core-set-folding-spec-property
-         (car org-link--link-folding-spec) :visible nil)
-        (org-fold-core-set-folding-spec-property
-         (car org-link--link-folding-spec) :visible t))
-    (setq-local outline-regexp org-outline-regexp)
-    (setq-local outline-level 'org-outline-level)
-    
-    (org-set-regexps-and-options)
-    (org-set-font-lock-defaults)))
+  (org-fold-initialize
+   (or
+    (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
+    "..."))
+  (if org-link-descriptive
+      (org-fold-core-set-folding-spec-property
+       (car org-link--link-folding-spec) :visible nil)
+      (org-fold-core-set-folding-spec-property
+       (car org-link--link-folding-spec) :visible t))
+  (setq-local outline-regexp org-outline-regexp)
+  (setq-local outline-level 'org-outline-level)
+  (org-set-regexps-and-options)
+                                        ;(org-set-font-lock-defaults)
+  )
 
-(defun dtk-speak (text)
-  "Speak the TEXT string
+  
+  (defun dtk-speak (text)
+    "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
-  (cl-declare (special
-               major-mode
-               org-fold-core-style
-               dtk-yank-excluded-properties
-               dtk-speaker-process dtk-stop-immediately
-               tts-strip-octals 
-               dtk-speak-server-initialized emacspeak-use-auditory-icons
-               dtk-speech-rate dtk-speak-nonprinting-chars
-               dtk-quiet dtk-chunk-separator-syntax
-               inhibit-modification-hooks
-               voice-lock-mode dtk-punctuation-mode
-               dtk-split-caps
-               emacspeak-pronounce-pronunciation-table
-               selective-display))
-  ;; ensure text is a  string
-  (unless (stringp text) (setq text (format "%s" text)))
-  ;; ensure  the process  is live
-  (unless (process-live-p dtk-speaker-process) (dtk-initialize))
-  ;; If you dont want me to talk,or my server is not running,
-  ;; I will remain silent.
-  ;; I also do nothing if text is nil or ""
-  (unless
-      (or dtk-quiet (not dtk-speak-server-initialized)
-          (null text) (zerop (length text)))
-    ;; flush previous speech if asked to
-    (when dtk-stop-immediately
-      (when (process-live-p dtk-notify-process) (dtk-notify-stop))
-      (dtk-stop))
-    (when selective-display
-      (let ((ctrl-m (string-match "\015" text)))
-        (and ctrl-m (setq text (substring text 0 ctrl-m))
-             (emacspeak-auditory-icon 'ellipses))))
-    (let (                              ;snapshot relevant state
-          (orig-mode major-mode)
-          (inhibit-read-only t)
-          (inhibit-modification-hooks t)
-          (deactivate-mark nil)
-          (invisibility-spec buffer-invisibility-spec)
-          (syntax-table (syntax-table))
-          (inherit-speaker-process dtk-speaker-process)
-          (pron-table emacspeak-pronounce-pronunciation-table)
-          (pron-personality emacspeak-pronounce-personality)
-          (use-auditory-icons emacspeak-use-auditory-icons)
-          (chunk-sep dtk-chunk-separator-syntax)
-          (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
-          (inherit-strip-octals tts-strip-octals)
-          (complement-sep (dtk-complement-chunk-separator-syntax))
-          (speech-rate dtk-speech-rate)
-          (caps dtk-caps)
-          (split-caps dtk-split-caps)
-          (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-          (start 1)
-          (end nil)
-          (mode dtk-punctuation-mode)
-          (voice-lock voice-lock-mode)) ; done snapshotting
-      (with-current-buffer dtk-scratch-buffer
-        (setq buffer-undo-list t)
-        (erase-buffer)
-        ;; inherit environment
-        (setq
-         yank-excluded-properties dtk-yank-excluded-properties
-         emacspeak-pronounce-personality pron-personality
-         buffer-invisibility-spec invisibility-spec
-         dtk-chunk-separator-syntax chunk-sep
-         dtk-speaker-process inherit-speaker-process
-         dtk-speech-rate speech-rate
-         emacspeak-use-auditory-icons use-auditory-icons
-         dtk-punctuation-mode mode
-         dtk-split-caps split-caps
-         dtk-caps caps
-         dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
-         tts-strip-octals inherit-strip-octals
-         voice-lock-mode voice-lock)
-        (set-syntax-table syntax-table)
-        (when (and (eq orig-mode 'org-mode)
-                   (eq orig-mode 'org-mode))
-          (dtk-org-fold-setup))
-        (dtk-interp-sync)
-        (insert-for-yank text)          ; insert and pre-process text
-        (dtk--delete-invisible-text)
-        (dtk-handle-repeating-patterns mode)
-        (when pron-table (tts-apply-pronunciations pron-table))
-        (dtk-unicode-replace-chars mode)
-        (dtk-quote mode)
-        (goto-char (point-min))         ; text is ready to be spoken
-        (skip-syntax-forward "-")       ;skip leading whitespace
-        (setq start (point))
-        (while (and (not (eobp))
-                    (dtk-move-across-a-chunk chunk-sep complement-sep))
-               (unless ;;;If  embedded punctuations, continue
-                   (and (char-after (point))
-                        (= ?. (char-syntax (preceding-char)))
-                        (not (= 32 (char-syntax (following-char)))))
-                 (skip-syntax-forward "-") ;skip  trailing whitespace
-                 (setq end (point))
-                 (dtk-audio-format start end)
-                 (setq start end)))     ; end while
-        ;; process trailing text
-        (unless (= start (point-max))
-          (skip-syntax-forward " ")     ;skip leading whitespace
-          (unless (eobp) (dtk-audio-format (point) (point-max))))))
-    (dtk-force)))
+    (cl-declare (special
+                 major-mode
+                 org-fold-core-style
+                 dtk-yank-excluded-properties
+                 dtk-speaker-process dtk-stop-immediately
+                 tts-strip-octals 
+                 dtk-speak-server-initialized emacspeak-use-auditory-icons
+                 dtk-speech-rate dtk-speak-nonprinting-chars
+                 dtk-quiet dtk-chunk-separator-syntax
+                 inhibit-modification-hooks
+                 voice-lock-mode dtk-punctuation-mode
+                 dtk-split-caps
+                 emacspeak-pronounce-pronunciation-table
+                 selective-display))
+    ;; ensure text is a  string
+    (unless (stringp text) (setq text (format "%s" text)))
+    ;; ensure  the process  is live
+    (unless (process-live-p dtk-speaker-process) (dtk-initialize))
+    ;; If you dont want me to talk,or my server is not running,
+    ;; I will remain silent.
+    ;; I also do nothing if text is nil or ""
+    (unless
+        (or dtk-quiet (not dtk-speak-server-initialized)
+            (null text) (zerop (length text)))
+      ;; flush previous speech if asked to
+      (when dtk-stop-immediately
+        (when (process-live-p dtk-notify-process) (dtk-notify-stop))
+        (dtk-stop))
+      (when selective-display
+        (let ((ctrl-m (string-match "\015" text)))
+          (and ctrl-m (setq text (substring text 0 ctrl-m))
+               (emacspeak-auditory-icon 'ellipses))))
+      (let (                            ;snapshot relevant state
+            (orig-mode major-mode)
+            (inhibit-read-only t)
+            (inhibit-modification-hooks t)
+            (deactivate-mark nil)
+            (invisibility-spec buffer-invisibility-spec)
+            (syntax-table (syntax-table))
+            (inherit-speaker-process dtk-speaker-process)
+            (pron-table emacspeak-pronounce-pronunciation-table)
+            (pron-personality emacspeak-pronounce-personality)
+            (use-auditory-icons emacspeak-use-auditory-icons)
+            (chunk-sep dtk-chunk-separator-syntax)
+            (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
+            (inherit-strip-octals tts-strip-octals)
+            (complement-sep (dtk-complement-chunk-separator-syntax))
+            (speech-rate dtk-speech-rate)
+            (caps dtk-caps)
+            (split-caps dtk-split-caps)
+            (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
+            (start 1)
+            (end nil)
+            (mode dtk-punctuation-mode)
+            (voice-lock voice-lock-mode)) ; done snapshotting
+        (with-current-buffer dtk-scratch-buffer
+          (setq buffer-undo-list t)
+          (erase-buffer)
+          ;; inherit environment
+          (setq
+           yank-excluded-properties dtk-yank-excluded-properties
+           emacspeak-pronounce-personality pron-personality
+           buffer-invisibility-spec invisibility-spec
+           dtk-chunk-separator-syntax chunk-sep
+           dtk-speaker-process inherit-speaker-process
+           dtk-speech-rate speech-rate
+           emacspeak-use-auditory-icons use-auditory-icons
+           dtk-punctuation-mode mode
+           dtk-split-caps split-caps
+           dtk-caps caps
+           dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
+           tts-strip-octals inherit-strip-octals
+           voice-lock-mode voice-lock)
+          (set-syntax-table syntax-table)
+          (when (and (eq orig-mode 'org-mode)
+                     (eq orig-mode 'org-mode))
+            (org-mode))
+          (dtk-interp-sync)
+          (insert-for-yank text)        ; insert and pre-process text
+          (dtk--delete-invisible-text)
+          (dtk-handle-repeating-patterns mode)
+          (when pron-table (tts-apply-pronunciations pron-table))
+          (dtk-unicode-replace-chars mode)
+          (dtk-quote mode)
+          (goto-char (point-min))       ; text is ready to be spoken
+          (skip-syntax-forward "-")     ;skip leading whitespace
+          (setq start (point))
+          (while (and (not (eobp))
+                      (dtk-move-across-a-chunk chunk-sep complement-sep))
+                 (unless ;;;If  embedded punctuations, continue
+                     (and (char-after (point))
+                          (= ?. (char-syntax (preceding-char)))
+                          (not (= 32 (char-syntax (following-char)))))
+                   (skip-syntax-forward "-") ;skip  trailing whitespace
+                   (setq end (point))
+                   (dtk-audio-format start end)
+                   (setq start end)))   ; end while
+          ;; process trailing text
+          (unless (= start (point-max))
+            (skip-syntax-forward " ")   ;skip leading whitespace
+            (unless (eobp) (dtk-audio-format (point) (point-max))))))
+      (dtk-force)))
 
 ;;;###autoload
 (defmacro ems-with-messages-silenced (&rest body)
