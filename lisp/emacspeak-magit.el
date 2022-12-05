@@ -145,7 +145,7 @@
    (magit-signature-good voice-smoothen)
    (magit-signature-revoked voice-bolden)
    (magit-signature-untrusted voice-brighten)
-   (magit-tag voice-animate)))
+   (magit-tag voice-smoothen)))
 
 ;;}}}
 ;;{{{ Pronunciations in Magit:
