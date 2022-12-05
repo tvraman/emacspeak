@@ -225,11 +225,13 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
      (untabify (point-min) (point-max))
      (setq start (point-min)
            end (1- (point-max)))
-     (condition-case nil
-                     (cond
-                       (read-as-csv (emacspeak-table-view-csv-buffer (current-buffer)))
-                       (t (emacspeak-table-display-table-in-region start end)))
-                     (error (message "Output could not be tabulated correctly")))
+     (condition-case
+      nil
+      (cond
+        (read-as-csv
+         (emacspeak-table-view-csv-buffer (current-buffer)))
+        (t (emacspeak-table-display-table-in-region start end)))
+      (error (message "Output could not be tabulated correctly")))
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-mode-line))))
 
@@ -380,28 +382,31 @@ Argument BODY specifies forms to execute."
 Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer."
   (interactive)
-  (cl-declare (special emacspeak-speak-paragraph-personality
-                       emacspeak-speak-voice-annotated-paragraphs))
+  (cl-declare (special
+               emacspeak-speak-paragraph-personality
+               emacspeak-speak-voice-annotated-paragraphs))
   (when
       (and  emacspeak-speak-paragraph-personality
             (null emacspeak-speak-voice-annotated-paragraphs)) ; memoized
     (save-excursion
      (goto-char (point-min))
-     (condition-case nil
-                     (let ((start nil)
-                           (blank-line "\n[ \t\n\r]*\n")
-                           (inhibit-modification-hooks t)
-                           (deactivate-mark nil))
-                       (with-silent-modifications
-                           (while (re-search-forward blank-line nil t)
-                                  (skip-syntax-forward " ")
-                                  (setq start (point))
-                                  (unless (get-text-property start 'personality)
-                                    (skip-syntax-forward "^ ")
-                                    (put-text-property
-                                     start (point)
-                                     'personality emacspeak-speak-paragraph-personality)))))
-                     (error nil))
+     (condition-case
+      nil
+      (let ((start nil)
+            (blank-line "\n[ \t\n\r]*\n")
+            (inhibit-modification-hooks t)
+            (deactivate-mark nil))
+        (with-silent-modifications
+            (while
+             (re-search-forward blank-line nil t)
+             (skip-syntax-forward " ")
+             (setq start (point))
+             (unless (get-text-property start 'personality)
+               (skip-syntax-forward "^ ")
+               (put-text-property
+                start (point)
+                'personality emacspeak-speak-paragraph-personality)))))
+      (error nil))
      (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
@@ -2357,12 +2362,13 @@ Also display match context in minibuffer."
             (narrow-to-region (max (minibuffer-prompt-end)
                                    (- (point) blink-matching-paren-distance))
                               oldpos))
-        (condition-case ()
-                        (let ((parse-sexp-ignore-comments
-                                (and parse-sexp-ignore-comments
-                                     (not blink-matching-paren-dont-ignore-comments))))
-                          (setq blinkpos (scan-sexps oldpos -1)))
-                        (error nil)))
+        (condition-case
+         nil
+         (let ((parse-sexp-ignore-comments
+                 (and parse-sexp-ignore-comments
+                      (not blink-matching-paren-dont-ignore-comments))))
+           (setq blinkpos (scan-sexps oldpos -1)))
+         (error nil)))
        (and blinkpos
             ;; Not syntax '$'.
             (not (eq (syntax-class (syntax-after blinkpos)) 8))
@@ -2412,12 +2418,14 @@ Also display match context in minibuffer."
                               (skip-chars-backward "\n \t")
                               (not (bobp)))
                              (concat
-                              (buffer-substring (progn
-                                                  (skip-chars-backward "\n \t")
-                                                  (line-beginning-position))
-                                                (progn (end-of-line)
-                                                       (skip-chars-backward " \t")
-                                                       (point)))
+                              (buffer-substring
+                               (progn
+                                 (skip-chars-backward "\n \t")
+                                 (line-beginning-position))
+                                                (progn
+                                                  (end-of-line)
+                                                  (skip-chars-backward " \t")
+                                                  (point)))
                               ;; Replace the newline and  whitespace with `...'.
                               "..."
                               (buffer-substring blinkpos (1+ blinkpos)))
