@@ -1661,7 +1661,7 @@ This is so text marked invisible is silenced.")
 
 (define-derived-mode dtk-org-fold-mode outline-mode
   "dtk-fold-org" "Org fold magic."
-  (cl-declare (special org-ellipsis
+  (cl-declare (special 
                org-fold-core-style org-link-descriptive
                org-link--link-folding-spec))
   (org-fold-initialize "...")
@@ -1714,7 +1714,6 @@ unless   `dtk-quiet' is set to t. "
           (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
-          (inherit-speaker-process dtk-speaker-process)
           (pron-table emacspeak-pronounce-pronunciation-table)
           (pron-personality emacspeak-pronounce-personality)
           (use-auditory-icons emacspeak-use-auditory-icons)
@@ -1745,7 +1744,6 @@ unless   `dtk-quiet' is set to t. "
             emacspeak-pronounce-personality pron-personality
             buffer-invisibility-spec invisibility-spec
             dtk-chunk-separator-syntax chunk-sep
-            dtk-speaker-process inherit-speaker-process
             dtk-speech-rate speech-rate
             emacspeak-use-auditory-icons use-auditory-icons
             dtk-punctuation-mode mode
