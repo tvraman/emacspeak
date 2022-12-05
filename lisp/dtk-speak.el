@@ -1674,7 +1674,7 @@ This is so text marked invisible is silenced.")
 (defun dtk-speak (text)
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
-  (cl-declare (special
+  (cl-declare (special org-descriptive-links
                major-mode
                org-fold-core-style
                dtk-yank-excluded-properties
@@ -1708,7 +1708,7 @@ unless   `dtk-quiet' is set to t. "
              (emacspeak-auditory-icon 'ellipses))))
     (let (                              ;snapshot relevant state
           (orig-mode major-mode)
-          (org-descriptive-links org-descriptive-links)
+          (links-desc org-descriptive-links)
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (deactivate-mark nil)
@@ -1737,6 +1737,7 @@ unless   `dtk-quiet' is set to t. "
         (cond
           ((and (eq orig-mode 'org-mode)
                 (eq org-fold-core-style 'text-properties))
+           (setq org-descriptive-links links-desc)
            (dtk-org-fold-mode))
           (t
            (setq                        ; mirror snapshot
