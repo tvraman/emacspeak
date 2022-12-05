@@ -668,6 +668,7 @@
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("n" emacspeak-wizards-google-news)
     ("p" proced)
+    ("o" org-mode)
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
