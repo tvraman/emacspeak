@@ -1661,8 +1661,8 @@ This is so text marked invisible is silenced.")
 
 (declare-function org-set-font-lock-defaults "org" nil)
 
-(defun dtk-org-fold-setup ()
-  "Org fold magic."
+(define-derived-mode dtk-org-fold-mode outline-mode
+  "dtk-fold-org" "Org fold magic."
   (cl-declare (special
                org-outline-regexp org-ellipsis
                org-fold-core-style org-link-descriptive
@@ -1693,7 +1693,7 @@ This is so text marked invisible is silenced.")
   )
 
   
-  (defun dtk-speak (text)
+(defun dtk-speak (text)
     "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
     (cl-declare (special
@@ -1772,7 +1772,7 @@ unless   `dtk-quiet' is set to t. "
           (set-syntax-table syntax-table)
           (when (and (eq orig-mode 'org-mode)
                      (eq orig-mode 'org-mode))
-            (org-mode))
+            (dtk-org-fold-mode))
           (dtk-interp-sync)
           (insert-for-yank text)        ; insert and pre-process text
           (dtk--delete-invisible-text)
