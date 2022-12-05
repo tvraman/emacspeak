@@ -1661,14 +1661,10 @@ This is so text marked invisible is silenced.")
 
 (define-derived-mode dtk-org-fold-mode outline-mode
   "dtk-fold-org" "Org fold magic."
-  (cl-declare (special
-               org-outline-regexp org-ellipsis
+  (cl-declare (special org-ellipsis
                org-fold-core-style org-link-descriptive
                org-link--link-folding-spec))
-  (org-fold-initialize
-   (or
-    (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
-    "..."))
+  (org-fold-initialize "...")
   (if org-link-descriptive
       (org-fold-core-set-folding-spec-property
        (car org-link--link-folding-spec) :visible nil)
@@ -1710,8 +1706,9 @@ unless   `dtk-quiet' is set to t. "
       (let ((ctrl-m (string-match "\015" text)))
         (and ctrl-m (setq text (substring text 0 ctrl-m))
              (emacspeak-auditory-icon 'ellipses))))
-    (let (                            ;snapshot relevant state
+    (let (                              ;snapshot relevant state
           (orig-mode major-mode)
+          (org-descriptive-links org-descriptive-links)
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (deactivate-mark nil)
@@ -1742,7 +1739,7 @@ unless   `dtk-quiet' is set to t. "
                 (eq org-fold-core-style 'text-properties))
            (dtk-org-fold-mode))
           (t
-           (setq
+           (setq                        ; mirror snapshot
             yank-excluded-properties dtk-yank-excluded-properties
             emacspeak-pronounce-personality pron-personality
             buffer-invisibility-spec invisibility-spec
@@ -1758,14 +1755,14 @@ unless   `dtk-quiet' is set to t. "
             voice-lock-mode voice-lock)
            (set-syntax-table syntax-table)))
         (dtk-interp-sync)
-        (insert-for-yank text)        ; insert and pre-process text
+        (insert-for-yank text)          ; insert and pre-process text
         (dtk--delete-invisible-text)
         (dtk-handle-repeating-patterns mode)
         (when pron-table (tts-apply-pronunciations pron-table))
         (dtk-unicode-replace-chars mode)
         (dtk-quote mode)
-        (goto-char (point-min))       ; text is ready to be spoken
-        (skip-syntax-forward "-")     ;skip leading whitespace
+        (goto-char (point-min))         ; text is ready to be spoken
+        (skip-syntax-forward "-")       ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk chunk-sep complement-sep))
@@ -1776,10 +1773,10 @@ unless   `dtk-quiet' is set to t. "
                  (skip-syntax-forward "-") ;skip  trailing whitespace
                  (setq end (point))
                  (dtk-audio-format start end)
-                 (setq start end)))   ; end while
+                 (setq start end)))     ; end while
         ;; process trailing text
         (unless (= start (point-max))
-          (skip-syntax-forward " ")   ;skip leading whitespace
+          (skip-syntax-forward " ")     ;skip leading whitespace
           (unless (eobp) (dtk-audio-format (point) (point-max))))))
     (dtk-force)))
 
