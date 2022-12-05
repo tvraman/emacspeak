@@ -878,12 +878,12 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 
 (org-link-set-parameters
  "e-media"        ; stored from m-player or mtp
- :follow #'org-e-media-follow-url)
+ :follow #'emacspeak-org-e-media-follow-url)
 
 (declare-function
  emacspeak-eww-play-media-at-point "emacspeak-eww" (&optional playlist-p))
 
-(defun org-e-media-follow-url (url)
+(defun emacspeak-org-e-media-follow-url (url)
   "Handle e-media URL, either mtv or mplayer based on URL."
   (cond
    ((org--ems-yt-p url) (emacspeak-mpv-play-url url))
