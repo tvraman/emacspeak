@@ -1677,7 +1677,6 @@ This is so text marked invisible is silenced.")
       (org-fold-core-set-folding-spec-property
        (car org-link--link-folding-spec) :visible t)))
 
-  
 (defun dtk-speak (text)
     "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
@@ -1740,24 +1739,26 @@ unless   `dtk-quiet' is set to t. "
           (setq buffer-undo-list t)
           (erase-buffer)
           ;; inherit environment
-          (setq
-           yank-excluded-properties dtk-yank-excluded-properties
-           emacspeak-pronounce-personality pron-personality
-           buffer-invisibility-spec invisibility-spec
-           dtk-chunk-separator-syntax chunk-sep
-           dtk-speaker-process inherit-speaker-process
-           dtk-speech-rate speech-rate
-           emacspeak-use-auditory-icons use-auditory-icons
-           dtk-punctuation-mode mode
-           dtk-split-caps split-caps
-           dtk-caps caps
-           dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
-           tts-strip-octals inherit-strip-octals
-           voice-lock-mode voice-lock)
-          (set-syntax-table syntax-table)
-          (when (and (eq orig-mode 'org-mode)
-                     (eq orig-mode 'org-mode))
-            (dtk-org-fold-mode))
+          (cond
+            ((and (eq orig-mode 'org-mode)
+                  (eq org-fold-core-style 'text-properties))
+             (dtk-org-fold-mode))
+            (t
+             (setq
+              yank-excluded-properties dtk-yank-excluded-properties
+              emacspeak-pronounce-personality pron-personality
+              buffer-invisibility-spec invisibility-spec
+              dtk-chunk-separator-syntax chunk-sep
+              dtk-speaker-process inherit-speaker-process
+              dtk-speech-rate speech-rate
+              emacspeak-use-auditory-icons use-auditory-icons
+              dtk-punctuation-mode mode
+              dtk-split-caps split-caps
+              dtk-caps caps
+              dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
+              tts-strip-octals inherit-strip-octals
+              voice-lock-mode voice-lock)
+             (set-syntax-table syntax-table)))
           (dtk-interp-sync)
           (insert-for-yank text)        ; insert and pre-process text
           (dtk--delete-invisible-text)
