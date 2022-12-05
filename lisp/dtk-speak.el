@@ -1711,12 +1711,10 @@ unless   `dtk-quiet' is set to t. "
           (links-desc org-descriptive-links)
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
-          (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
           (pron-table emacspeak-pronounce-pronunciation-table)
           (pron-personality emacspeak-pronounce-personality)
-          (use-auditory-icons emacspeak-use-auditory-icons)
           (chunk-sep dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
           (inherit-strip-octals tts-strip-octals)
@@ -1741,11 +1739,11 @@ unless   `dtk-quiet' is set to t. "
           (t
            (setq                        ; mirror snapshot
             yank-excluded-properties dtk-yank-excluded-properties
+            emacspeak-pronounce-pronunciation-table pron-table
             emacspeak-pronounce-personality pron-personality
             buffer-invisibility-spec invisibility-spec
             dtk-chunk-separator-syntax chunk-sep
             dtk-speech-rate speech-rate
-            emacspeak-use-auditory-icons use-auditory-icons
             dtk-punctuation-mode mode
             dtk-split-caps split-caps
             dtk-caps caps
