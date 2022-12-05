@@ -12,7 +12,18 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 3, 2022.
+last updated on December 4, 2022.
+
+
+File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
+
+12.82 emacspeak-folding
+=======================
+
+Folding mode turns emacs into a folding editor.  Folding mode is what I
+use: emacs 19 comes with similar packages, e.g.  allout.el This module
+defines some advice forms for folding mode Think of a fold as a
+container.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -9915,14 +9926,4 @@ specific.
      Default speech rate.
 
      Default Value: ‘50’
-
-
-File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
-
-12.227 plain-voices
-===================
-
-This module defines the various voices used in voice-lock mode.  Module
-Plain is suitable for a device for which you haven’t yet implemented
-appropriate voice-locking controls
 

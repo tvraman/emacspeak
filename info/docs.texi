@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1170 commands and 148 options.
+This chapter documents a total of 1171 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -550,6 +550,20 @@ Initialize notification TTS stream.
 
 @format
 Stop  speech on notification stream.
+@end format
+@end deffn
+
+@subsubsection dtk-org-fold-mode
+@deffn {Command} dtk-org-fold-mode   
+@findex dtk-org-fold-mode
+
+@format
+Org fold magic.
+
+In addition to any hooks its parent mode ‘outline-mode’ might have
+run, this mode runs the hook ‘dtk-org-fold-mode-hook’, as the final or
+penultimate step during initialization.
+
 @end format
 @end deffn
 
