@@ -1675,10 +1675,7 @@ This is so text marked invisible is silenced.")
       (org-fold-core-set-folding-spec-property
        (car org-link--link-folding-spec) :visible nil)
       (org-fold-core-set-folding-spec-property
-       (car org-link--link-folding-spec) :visible t))
-                                        ;(setq-local outline-regexp org-outline-regexp)
-  ;(setq-local outline-level 'org-outline-level)
-  )
+       (car org-link--link-folding-spec) :visible t)))
 
   
 (defun dtk-speak (text)
