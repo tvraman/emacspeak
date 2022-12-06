@@ -445,7 +445,7 @@
 (defvar  emacspeak-personal-keymap nil
   "Emacspeak personal keymap")
 
-(define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
+(define-prefix-command 'emacspeak-personal-keymap)
 
 (defcustom emacspeak-personal-keys
   '(
@@ -513,8 +513,7 @@
 (defvar  emacspeak-personal-ctlx-keymap nil
   "Emacspeak personal-ctlx keymap")
 
-(define-prefix-command 'emacspeak-personal-ctlx-keymap
-                       'emacspeak-personal-ctlx-keymap)
+(define-prefix-command 'emacspeak-personal-ctlx-keymap)
 
 (defcustom emacspeak-personal-ctlx-keys nil
   "Key bindings for use with C-e C-x. "
@@ -545,7 +544,7 @@
 (defvar  emacspeak-ctl-z-keymap nil
   "Emacspeak ctl-z keymap")
 
-(define-prefix-command 'emacspeak-ctl-z-keymap   'emacspeak-ctl-z-keymap)
+(define-prefix-command 'emacspeak-ctl-z-keymap)
 
 (defcustom emacspeak-ctl-z-keys
   '(
@@ -586,7 +585,7 @@
 (defvar  emacspeak-hyper-keymap nil
   "Emacspeak hyper keymap")
 
-(define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
+(define-prefix-command 'emacspeak-hyper-keymap)
 
 (defcustom emacspeak-hyper-keys
   '(
@@ -652,7 +651,7 @@
 (defvar  emacspeak-super-keymap nil
   "Emacspeak super keymap")
 
-(define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
+(define-prefix-command 'emacspeak-super-keymap)
 
 (defcustom emacspeak-super-keys
   '(
@@ -698,7 +697,7 @@
 
 (defvar  emacspeak-alt-keymap nil "Emacspeak alt keymap")
 
-(define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
+(define-prefix-command 'emacspeak-alt-keymap)
 
 (defcustom emacspeak-alt-keys
   '(
@@ -744,7 +743,7 @@
 
 (defvar  emacspeak-multi-keymap nil "Emacspeak multi keymap")
 
-(define-prefix-command 'emacspeak-multi-keymap   'emacspeak-multi-keymap)
+(define-prefix-command 'emacspeak-multi-keymap)
 
 (defcustom emacspeak-multi-keys
   '(
