@@ -223,11 +223,14 @@ This moves them into the Spam folder."
   (add-hook 'org-mode-hook #'turn-on-org-cdlatex)
   (require 'ol-eww)
   (require 'ox-md)
-  (define-key org-mode-map (ems-kbd "C-,") 'emacspeak-alt-keymap)
-  (define-key org-mode-map (ems-kbd "C-'") 'emacspeak-multi-keymap)
+  
+
+  (define-prefix-command 'org-multi-keymap   'org-multi-keymap)
+  (define-key org-mode-map (ems-kbd "C-'") 'org-multi-keymap)
   (define-key org-mode-map (ems-kbd "C-' n") #'org-next-link)
   (define-key org-mode-map (ems-kbd "C-' '") #'org-open-at-point)
   (define-key org-mode-map (ems-kbd "C-' p") #'org-previous-link)
+  (define-key org-mode-map (ems-kbd "C-,") 'emacspeak-alt-keymap)
   (define-key org-mode-map (ems-kbd "C-c m") 'org-md-export-as-markdown)
   (define-key global-map (ems-kbd "C-c i") 'org-insert-link)
   (define-key global-map (ems-kbd "C-c l") 'org-store-link)
