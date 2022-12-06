@@ -7,7 +7,7 @@
   (require 'ox-md)
   
 
-  (define-prefix-command 'org-multi-keymap   'org-multi-keymap)
+  (define-prefix-command 'org-multi-keymap)
   (define-key org-mode-map (ems-kbd "C-'") 'org-multi-keymap)
   (define-key org-mode-map (ems-kbd "C-' n") #'org-next-link)
   (define-key org-mode-map (ems-kbd "C-' '") #'org-open-at-point)
