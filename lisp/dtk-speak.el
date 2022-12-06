@@ -1733,8 +1733,8 @@ unless   `dtk-quiet' is set to t. "
         (erase-buffer)
         ;; inherit environment
         (cond
-          ((and (eq orig-mode 'org-mode)
-                (featurep 'org)
+          ((and (eq orig-mode 'org-mode) (featurep 'org)
+                (fboundp 'org-fold-initialize)
                 (bound-and-true-p org-fold-core-style)
                 (eq org-fold-core-style 'text-properties))
            (setq org-descriptive-links links-desc)
