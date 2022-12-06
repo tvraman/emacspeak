@@ -394,7 +394,7 @@ spoken.
 
  Emacspeak commands use \\[emacspeak-prefix-command] as a prefix
 key.  You can configure TTS  with
-\\[emacspeak-dtk-submap-command] as a prefix.
+\\[emacspeak-dtk-submap] as a prefix.
 
 \\{emacspeak-keymap}
 
