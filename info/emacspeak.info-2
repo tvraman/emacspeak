@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 4, 2022.
+last updated on December 5, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -1100,7 +1100,7 @@ found on laptops is denoted <fn>
      @defvar {User Option} emacspeak-super-keys
      Super key bindings. 
      
-     Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))’
+     Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (o org-mode) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))’
 
  -- Variable: User Option emacspeak-windows-keys
      Key bindings on the windows key.

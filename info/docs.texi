@@ -7899,7 +7899,7 @@ Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacsp
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))|}}
+Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (o org-mode) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))|}}
 
 @end defvar
 

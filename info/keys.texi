@@ -546,6 +546,9 @@
 @item n
  emacspeak-wizards-google-news
 
+@item o
+ org-mode
+
 @item p
  proced
 
