@@ -1674,20 +1674,21 @@ This is so text marked invisible is silenced.")
 (defun dtk-speak (text)
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
-  (cl-declare (special org-descriptive-links
-                       major-mode
-                       org-fold-core-style
-                       dtk-yank-excluded-properties
-                       dtk-speaker-process dtk-stop-immediately
-                       tts-strip-octals
-                       dtk-speak-server-initialized emacspeak-use-auditory-icons
-                       dtk-speech-rate dtk-speak-nonprinting-chars
-                       dtk-quiet dtk-chunk-separator-syntax
-                       inhibit-modification-hooks
-                       voice-lock-mode dtk-punctuation-mode
-                       dtk-split-caps
-                       emacspeak-pronounce-pronunciation-table
-                       selective-display))
+  (cl-declare (special
+               org-descriptive-links
+               major-mode
+               org-fold-core-style
+               dtk-yank-excluded-properties
+               dtk-speaker-process dtk-stop-immediately
+               tts-strip-octals
+               dtk-speak-server-initialized emacspeak-use-auditory-icons
+               dtk-speech-rate dtk-speak-nonprinting-chars
+               dtk-quiet dtk-chunk-separator-syntax
+               inhibit-modification-hooks
+               voice-lock-mode dtk-punctuation-mode
+               dtk-split-caps
+               emacspeak-pronounce-pronunciation-table
+               selective-display))
   ;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
   ;; ensure  the process  is live
