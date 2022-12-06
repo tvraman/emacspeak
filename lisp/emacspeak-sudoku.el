@@ -444,7 +444,7 @@ s   Sub-square Distribution.
              ("t" sudoku-move-point-upmost)
              ("." emacspeak-sudoku-speak-current-cell-value)
              ("=" emacspeak-sudoku-speak-current-cell-coordinates)
-             ("\C-e" emacspeak-prefix-command)
+             ("\C-e" emacspeak-keymap)
              ("r" emacspeak-sudoku-speak-current-row)
              ("c" emacspeak-sudoku-speak-current-column)
              ("s" emacspeak-sudoku-speak-current-sub-square)

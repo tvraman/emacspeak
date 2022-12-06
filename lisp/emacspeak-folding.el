@@ -144,7 +144,7 @@ Then speak the  line."
      (cl-declare (special folding-mode-map))
      (when (boundp 'folding-mode-map)
        (define-key
-        folding-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command))))
+        folding-mode-map (ems-kbd "C-e") 'emacspeak-keymap))))
 
 ;;}}}
 ;;{{{Diminish:

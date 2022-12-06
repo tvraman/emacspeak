@@ -624,7 +624,7 @@ Safari/537.36"
      ("C" eww-view-dom-having-class)
      ("C-d" emacspeak-eww-dive-into-div)
      ("C-t" emacspeak-eww-table-data)
-     ("C-e" emacspeak-prefix-command)
+     ("C-e" emacspeak-keymap)
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<up>"  emacspeak-eww-table-previous-row)
      ("M-<down>"  emacspeak-eww-table-next-row)

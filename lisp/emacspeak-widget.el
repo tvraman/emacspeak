@@ -657,7 +657,7 @@ widget before summarizing."
    '(widget-field-keymap widget-text-keymap)
    do
    (when  (keymapp map)
-     (define-key map  emacspeak-prefix 'emacspeak-prefix-command)
+     (define-key map  emacspeak-prefix 'emacspeak-keymap)
      (define-key map
                  (concat emacspeak-prefix emacspeak-prefix)
                  'widget-end-of-line)

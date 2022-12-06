@@ -1821,8 +1821,8 @@ Produce an auditory icon if possible."
                      minibuffer-local-isearch-map emacspeak-prefix))
 
 (define-key minibuffer-local-isearch-map
-            emacspeak-prefix 'emacspeak-prefix-command)
-(define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
+            emacspeak-prefix 'emacspeak-keymap)
+(define-key isearch-mode-map emacspeak-prefix 'emacspeak-keymap)
 (define-key isearch-mode-map "\M-y" 'isearch-yank-pop)
 ;; face navigators
 (define-key isearch-mode-map (ems-kbd "M-C-b") 'emacspeak-speak-face-backward )

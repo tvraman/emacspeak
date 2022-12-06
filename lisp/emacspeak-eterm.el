@@ -158,7 +158,7 @@ Useful when eterm is in review mode.")
                        emacspeak-eterm-keymap
                        emacspeak-eterm-raw-prefix))
   (when term-raw-map
-    (define-key term-raw-map emacspeak-prefix 'emacspeak-prefix-command)
+    (define-key term-raw-map emacspeak-prefix 'emacspeak-keymap)
     (define-key term-raw-map (concat emacspeak-prefix emacspeak-prefix)
                 'emacspeak-eterm-maybe-send-raw)
     (define-key term-raw-map emacspeak-eterm-prefix

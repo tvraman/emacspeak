@@ -117,7 +117,7 @@
 
 (eval-after-load
     "popup"
-  `(define-key popup-menu-keymap   emacspeak-prefix 'emacspeak-prefix-command))
+  `(define-key popup-menu-keymap   emacspeak-prefix 'emacspeak-keymap))
 
 ;;}}}
 

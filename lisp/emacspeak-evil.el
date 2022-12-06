@@ -253,7 +253,7 @@
   (when (keymapp keymap)
     (let ((orig (lookup-key keymap emacspeak-prefix)))
       (when orig
-        (define-key keymap emacspeak-prefix  'emacspeak-prefix-command)
+        (define-key keymap emacspeak-prefix  'emacspeak-keymap)
         (define-key keymap (concat emacspeak-prefix "e") orig)
         (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig)))))
 

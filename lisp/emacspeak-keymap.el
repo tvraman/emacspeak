@@ -179,16 +179,16 @@
 ;;}}}
 ;;{{{   Binding keymap and submap
 
-(define-prefix-command 'emacspeak-prefix-command 'emacspeak-keymap)
+(define-prefix-command  'emacspeak-keymap)
 (define-prefix-command   'emacspeak-dtk-submap)
 (define-prefix-command  'emacspeak-table-submap-command
                         'emacspeak-table-submap)
 
-(global-set-key emacspeak-prefix 'emacspeak-prefix-command)
+(global-set-key emacspeak-prefix 'emacspeak-keymap)
 
 ;;; Special keys:
 ;; One-finger use on laptop:
-(global-set-key (ems-kbd "<XF86WakeUp>")  'emacspeak-prefix-command)
+(global-set-key (ems-kbd "<XF86WakeUp>")  'emacspeak-keymap)
 (global-set-key (ems-kbd "<XF86AudioPlay>")  'emacspeak-silence)
 (global-set-key (ems-kbd "C-<f1>")  'amixer-volume-down)
 (global-set-key (ems-kbd "C-<f2>")  'amixer-volume-up)

@@ -123,7 +123,7 @@
 (defadvice emms-stream-mode (after emacspeak pre act comp)
   "Update keymaps."
   (define-key emms-stream-mode-map "\C-e"
-              'emacspeak-prefix-command))
+              'emacspeak-keymap))
 
 (defadvice emms-stream-delete-bookmark (after emacspeak pre act
                                               comp)

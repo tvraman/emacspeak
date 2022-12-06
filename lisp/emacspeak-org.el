@@ -451,7 +451,7 @@
   (cl-loop
    for k in
    '(
-     ("C-e" emacspeak-prefix-command)
+     ("C-e" emacspeak-keymap)
      ("C-j" org-insert-heading)
      ("M-<down>" org-metadown)
      ("M-<left>"  org-metaleft)
@@ -486,7 +486,7 @@
   (define-key outline-minor-mode-map (ems-kbd "C-o i") 'tvr-org-itemize)
   (define-key outline-minor-mode-map (ems-kbd "C-o e") 'tvr-org-enumerate)
   (when (fboundp 'org-end-of-line)
-    (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)
+    (define-key org-mode-map emacspeak-prefix  'emacspeak-keymap)
     (emacspeak-setup-programming-mode)
     (when dtk-caps (dtk-toggle-caps))
     (emacspeak-speak-load-directory-settings)))
