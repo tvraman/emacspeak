@@ -1659,6 +1659,16 @@ This is so text marked invisible is silenced.")
 (declare-function org-fold-initialize "org-fold" (ellipsis))
 (declare-function org-set-regexps-and-options "org" (&optional tags-only))
 
+(defsubst dtk-handle-org-p (mode)
+  "Predicate to check for org-mode special handling."
+  (and
+            (eq mode 'org-mode)
+            (featurep 'org) (featurep 'org-fold)
+            (fboundp 'org-fold-initialize)
+            (bound-and-true-p org-fold-core-style)
+            (boundp 'org-link-descriptive)
+            (eq org-fold-core-style 'text-properties)))
+
 (define-derived-mode dtk-org-fold-mode outline-mode
   "dtk-fold-org" "Org fold magic."
   (cl-declare (special 
