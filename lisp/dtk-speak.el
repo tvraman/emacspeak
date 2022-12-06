@@ -1734,6 +1734,7 @@ unless   `dtk-quiet' is set to t. "
         ;; inherit environment
         (cond
           ((and (eq orig-mode 'org-mode)
+                (featurep 'org)
                 (bound-and-true-p org-fold-core-style)
                 (eq org-fold-core-style 'text-properties))
            (setq org-descriptive-links links-desc)
