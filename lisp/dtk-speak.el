@@ -1675,16 +1675,19 @@ This is so text marked invisible is silenced.")
                org-fold-core-style org-link-descriptive
                org-link--link-folding-spec))
   (org-fold-initialize "...")
+  (if org-link-descriptive
       (org-fold-core-set-folding-spec-property
-       (if org-link-descriptive
-           (car org-link--link-folding-spec) :visible nil)
-       (car org-link--link-folding-spec) :visible t))
+       (car org-link--link-folding-spec) :visible nil)
+      (org-fold-core-set-folding-spec-property
+       (car org-link--link-folding-spec) :visible t)))
 
 (defun dtk-speak (text)
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
   (cl-declare (special
-               org-descriptive-links major-mode org-fold-core-style
+               org-descriptive-links
+               major-mode
+               org-fold-core-style
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals
@@ -1697,7 +1700,7 @@ unless   `dtk-quiet' is set to t. "
                emacspeak-pronounce-pronunciation-table
                selective-display))
   ;; ensure text is a  string
-  (unless (stringp text) (when text (setq text (format "%s" text))))
+  (unless (stringp text) (setq text (format "%s" text)))
   ;; ensure  the process  is live
   (unless (process-live-p dtk-speaker-process) (dtk-initialize))
   ;; If you dont want me to talk,or my server is not running,
