@@ -47,7 +47,7 @@
 (eval-when-compile (require 'subr-x))
 (require 'advice)
 (setq ad-redefinition-action 'accept)
-
+(require 'org) ; fixme: here now for org fold
 ;;{{{  Define locations
 
 (defvar emacspeak-directory

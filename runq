@@ -3,4 +3,4 @@
 # Default to using  espeak unless DTK_PROGRAM is set.
 #
 [ -z "$DTK_PROGRAM" ] && export DTK_PROGRAM="espeak"
-emacs -q -l org -l ./lisp/emacspeak-setup.el 
+emacs -q -l ./lisp/emacspeak-setup.el 
