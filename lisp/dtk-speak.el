@@ -1697,7 +1697,7 @@ unless   `dtk-quiet' is set to t. "
                emacspeak-pronounce-pronunciation-table
                selective-display))
   ;; ensure text is a  string
-  (unless (stringp text) (setq text (format "%s" text)))
+  (unless (stringp text) (when text (setq text (format "%s" text))))
   ;; ensure  the process  is live
   (unless (process-live-p dtk-speaker-process) (dtk-initialize))
   ;; If you dont want me to talk,or my server is not running,
