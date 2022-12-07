@@ -1741,27 +1741,24 @@ unless   `dtk-quiet' is set to t. "
       (with-current-buffer dtk-scratch-buffer
         (setq buffer-undo-list t)
         (erase-buffer)
+        (when (dtk-handle-org-p orig-mode)
+          (setq org-link-descriptive links-desc)
+          (dtk-org-fold-mode))
         ;; inherit environment
-        (cond
-          ((dtk-handle-org-p orig-mode)
-           (setq org-link-descriptive links-desc)
-           (dtk-org-fold-mode)
-           (setq dtk-punctuation-mode mode))
-          (t
-           (setq                        ; mirror snapshot
-            yank-excluded-properties dtk-yank-excluded-properties
-            emacspeak-pronounce-pronunciation-table pron-table
-            emacspeak-pronounce-personality pron-personality
-            buffer-invisibility-spec invisibility-spec
-            dtk-chunk-separator-syntax chunk-sep
-            dtk-speech-rate speech-rate
-            dtk-punctuation-mode mode
-            dtk-split-caps split-caps
-            dtk-caps caps
-            dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
-            tts-strip-octals inherit-strip-octals
-            voice-lock-mode voice-lock)
-           (set-syntax-table syntax-table)))
+        (setq                           ; mirror snapshot
+         yank-excluded-properties dtk-yank-excluded-properties
+         emacspeak-pronounce-pronunciation-table pron-table
+         emacspeak-pronounce-personality pron-personality
+         buffer-invisibility-spec invisibility-spec
+         dtk-chunk-separator-syntax chunk-sep
+         dtk-speech-rate speech-rate
+         dtk-punctuation-mode mode
+         dtk-split-caps split-caps
+         dtk-caps caps
+         dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
+         tts-strip-octals inherit-strip-octals
+         voice-lock-mode voice-lock)
+        (set-syntax-table syntax-table)
         (dtk-interp-sync)
         (insert-for-yank text)          ; insert and pre-process text
         (dtk--delete-invisible-text)
