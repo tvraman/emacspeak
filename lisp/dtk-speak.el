@@ -1659,27 +1659,27 @@ This is so text marked invisible is silenced.")
 (declare-function org-fold-initialize "org-fold" (ellipsis))
 (declare-function org-set-regexps-and-options "org" (&optional tags-only))
 
-(defsubst dtk-handle-org-p (mode)
+(defsubst dtk-handle-org-p ()
   "Predicate to check for org-mode special handling."
   (and
-            (eq mode 'org-mode)
-            (featurep 'org) (featurep 'org-fold)
-            (fboundp 'org-fold-initialize)
-            (bound-and-true-p org-fold-core-style)
-            (boundp 'org-link-descriptive)
-            (eq org-fold-core-style 'text-properties)))
+   (featurep 'org) (featurep 'org-fold)
+   (fboundp 'org-fold-initialize)
+   (bound-and-true-p org-fold-core-style)
+   (boundp 'org-link-descriptive)
+   (eq org-fold-core-style 'text-properties)))
 
 (define-derived-mode dtk-org-fold-mode outline-mode
   "dtk-fold-org" "Org fold magic."
   (cl-declare (special 
                org-fold-core-style org-link-descriptive
                org-link--link-folding-spec))
-  (org-fold-initialize "...")
-  (if org-link-descriptive
-      (org-fold-core-set-folding-spec-property
-       (car org-link--link-folding-spec) :visible nil)
-      (org-fold-core-set-folding-spec-property
-       (car org-link--link-folding-spec) :visible t)))
+  (when (dtk-handle-org-p)
+    (org-fold-initialize "...")
+    (if org-link-descriptive
+        (org-fold-core-set-folding-spec-property
+         (car org-link--link-folding-spec) :visible nil)
+        (org-fold-core-set-folding-spec-property
+         (car org-link--link-folding-spec) :visible t))))
 
 (defun dtk-speak (text)
   "Speak the TEXT string
@@ -1741,7 +1741,7 @@ unless   `dtk-quiet' is set to t. "
       (with-current-buffer dtk-scratch-buffer
         (setq buffer-undo-list t)
         (erase-buffer)
-        (when (dtk-handle-org-p orig-mode)
+        (when (eq orig-mode 'org-mode)
           (setq org-link-descriptive links-desc)
           (dtk-org-fold-mode))
         ;; inherit environment
