@@ -1671,7 +1671,7 @@ This is so text marked invisible is silenced.")
 (define-derived-mode dtk-org-fold-mode outline-mode
   "dtk-fold-org" "Org fold magic."
   (cl-declare (special 
-               org-fold-core-style org-link-descriptive
+               org-link-descriptive
                org-link--link-folding-spec))
   (when (dtk-handle-org-p)
     (org-fold-initialize "...")
