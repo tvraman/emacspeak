@@ -1716,7 +1716,7 @@ unless   `dtk-quiet' is set to t. "
              (emacspeak-auditory-icon 'ellipses))))
     (let (                              ;snapshot relevant state
           (orig-mode major-mode)
-          (links-desc org-link-descriptive)
+          (links-desc (and (eq major-mode 'org-mode) org-link-descriptive  ))
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (invisibility-spec buffer-invisibility-spec)
