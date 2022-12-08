@@ -1660,17 +1660,15 @@ This is so text marked invisible is silenced.")
 (declare-function org-set-regexps-and-options "org" (&optional tags-only))
 
 (define-derived-mode dtk-org-fold-mode outline-mode
-  "dtk-fold-org" "Org fold magic."
-  (cl-declare (special org-link-descriptive org-link--link-folding-spec))
-  (when
-      (and
-       (fboundp 'org-fold-initialize)
-       (boundp 'org-link-descriptive)
-       (bound-and-true-p org-fold-core-style)
-       (eq org-fold-core-style 'text-properties))
+  "dtk-fold-org" "Org fold magic." org-fold-core-style
+  (cl-declare (special
+               org-fold-core-style
+               org-link-descriptive org-link--link-folding-spec))
+  (when (eq org-fold-core-style 'text-properties)
     (org-fold-initialize "...")
     (org-fold-core-set-folding-spec-property
-     (car org-link--link-folding-spec) :visible org-link-descriptive)))
+     (car org-link--link-folding-spec)
+     :visible org-link-descriptive)))
 
 (defun dtk-speak (text)
   "Speak the TEXT string
@@ -1679,7 +1677,6 @@ unless   `dtk-quiet' is set to t. "
                char-property-alias-alist
                org-link-descriptive
                major-mode
-               org-fold-core-style
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals
