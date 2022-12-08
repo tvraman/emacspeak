@@ -1682,6 +1682,7 @@ This is so text marked invisible is silenced.")
   "Speak the TEXT string
 unless   `dtk-quiet' is set to t. "
   (cl-declare (special
+               char-property-alias-alist
                org-link-descriptive
                major-mode
                org-fold-core-style
@@ -1716,6 +1717,7 @@ unless   `dtk-quiet' is set to t. "
              (emacspeak-auditory-icon 'ellipses))))
     (let (                              ;snapshot relevant state
           (orig-mode major-mode)
+          (char-alias  char-property-alias-alist)
           (links-desc (and (eq major-mode 'org-mode) org-link-descriptive  ))
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
@@ -1744,6 +1746,7 @@ unless   `dtk-quiet' is set to t. "
         ;; inherit environment
         (setq                           ; mirror snapshot
          yank-excluded-properties dtk-yank-excluded-properties
+         char-property-alias-alist  char-alias
          emacspeak-pronounce-pronunciation-table pron-table
          emacspeak-pronounce-personality pron-personality
          buffer-invisibility-spec invisibility-spec
