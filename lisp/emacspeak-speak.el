@@ -2621,8 +2621,9 @@ directory."
                (expand-file-name emacspeak-speak-directory-settings res)))
        (ems--fastload (expand-file-name
                        emacspeak-speak-directory-settings res))
-       (message "loaded %s"
-                (expand-file-name emacspeak-speak-directory-settings res))
+       (when (called-interactively-p 'interactive)
+         (message "loaded %s"
+                (expand-file-name emacspeak-speak-directory-settings res)))
        (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
