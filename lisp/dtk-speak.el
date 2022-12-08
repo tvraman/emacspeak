@@ -1659,12 +1659,13 @@ This is so text marked invisible is silenced.")
 (declare-function org-fold-initialize "org-fold" (ellipsis))
 (declare-function org-set-regexps-and-options "org" (&optional tags-only))
 
-(define-derived-mode dtk-org-fold-mode outline-mode
-  "dtk-fold-org" "Org fold magic." org-fold-core-style
+(defun dtk-org-fold ()
+  "Prepare Org fold." 
   (cl-declare (special
                org-fold-core-style org-link-descriptive
                org-link--link-folding-spec))
   (when (eq org-fold-core-style 'text-properties)
+    (outline-mode)
     (org-fold-initialize "...")
     (org-fold-core-set-folding-spec-property
      (car org-link--link-folding-spec)
@@ -1733,7 +1734,7 @@ unless   `dtk-quiet' is set to t. "
         (erase-buffer)
         (when (eq orig-mode 'org-mode)
           (setq org-link-descriptive links-desc)
-          (dtk-org-fold-mode))
+          (dtk-org-fold))
         ;; inherit environment
         (setq                           ; mirror snapshot
          yank-excluded-properties dtk-yank-excluded-properties
