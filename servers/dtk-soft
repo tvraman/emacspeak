@@ -249,10 +249,7 @@ proc clean {element} {
         if  {$tts(allcaps_beep)} {
             set tone {[_:to 660 50]}
             set abbrev_tone ":to 880 50"
-        } else {
-            set tone ""
-            set abbrev_tone ""
-        }
+        } 
         set allcaps [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         while {$allcaps } {
             if {[string length $match] <=3} {
@@ -260,7 +257,7 @@ proc clean {element} {
 				#set abbrev $match
                 #regsub -all {[A-Z]} $abbrev {&[*]} abbrev
                 regsub -all {[A-Z]} $abbrev {& } abbrev
-                #regsub -all A $abbrev {[ey]} abbrev
+                regsub -all A $abbrev {[ey]} abbrev
                 if {[string length $abbrev_tone]} {
 					set abbrev "\[_ $abbrev_tone\]$abbrev"
 				}
