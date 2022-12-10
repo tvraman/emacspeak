@@ -236,7 +236,7 @@ proc clean {element} {
     }
     if {$tts(capitalize)} { #handle abbrevs
         while {[regexp $abbrev  $element match    ]}  {
-            regsub  $abbrev $element "$atone [string tolower $match] " element
+            regsub  $match $element "$atone [string tolower $match] " element
         }
     }
     if {$tts(split_caps) } {
