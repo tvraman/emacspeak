@@ -243,12 +243,12 @@ proc clean {element} {
         regsub -all -- {-}  $element { } element 
     }
     if {$tts(capitalize) } {
-        regsub -all {[A-Z]} $element {[_ :to 440 10]&} element
+        regsub -all {[A-Z]} $element {[_ :to 440 50]&} element
     }
     if {$tts(split_caps) } {
         if  {$tts(allcaps_beep)} {
-            set tone {[_:to 660 10]}
-            set abbrev_tone ":to 660 10"
+            set tone {[_:to 660 50]}
+            set abbrev_tone ":to 880 50"
         } else {
             set tone ""
             set abbrev_tone ""
@@ -256,12 +256,12 @@ proc clean {element} {
         set allcaps [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         while {$allcaps } {
             if {[string length $match] <=3} {
-#                set abbrev "\[_ $abbrev_tone\]$match"
-				set abbrev $match
-#                regsub -all {[A-Z]} $abbrev {&[*]} abbrev
-				regsub -all {[A-Z]} $abbrev {& } abbrev
-                regsub -all A $abbrev {[ey]} abbrev
-				if {[string length $abbrev_tone]} {
+                set abbrev "\[_ $abbrev_tone\]$match"
+				#set abbrev $match
+                #regsub -all {[A-Z]} $abbrev {&[*]} abbrev
+                regsub -all {[A-Z]} $abbrev {& } abbrev
+                #regsub -all A $abbrev {[ey]} abbrev
+                if {[string length $abbrev_tone]} {
 					set abbrev "\[_ $abbrev_tone\]$abbrev"
 				}
                 regsub $match $element  $abbrev element
@@ -270,12 +270,12 @@ proc clean {element} {
             }
             set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         }
-#        regsub -all {[A-Z]} $element {[_<5>]&} element
-		#regsub -all {[A-Z]} $element { &} element
-#        regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1[_<1>]\2[,] } element
-		regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1 \2 } element
-#        regsub -all {([^ -_A-Z])([A-Z])} $element {\1[_<1>]\2} element
-		regsub -all {([^ -_A-Z])([A-Z])} $element {\1 \2} element
+        regsub -all {[A-Z]} $element {[_<5>]&} element
+        regsub -all {[A-Z]} $element { &} element
+        regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1[_<1>]\2[,] } element
+        regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1 \2 } element
+        regsub -all {([^ -_A-Z])([A-Z])} $element {\1[_<1>]\2} element
+        regsub -all {([^ -_A-Z])([A-Z])} $element {\1 \2} element
     }
     return "$element "
 }
