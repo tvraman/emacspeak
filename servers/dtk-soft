@@ -213,11 +213,6 @@ proc speech_task {}  {
 proc clean {element} {
     global queue tts
     set element [string trim $element]
-    regexp {^[A-Z][A-Z0-9]+} $element full   
-    if {[info exists full] && [string length $full] == [string length $element]} {
-        # just an abbrev
-        return "\[:to 1200 50\] [string tolower $element]"
-    }
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element { pound } element
 		regsub -all {\*} $element { star } element
@@ -237,22 +232,25 @@ proc clean {element} {
         regsub -all {''} $element {[_<1>\\]} element
     }
     if {$tts(capitalize) } {
+        set atone ":to 1200 20"
+        if {[regexp { [A-Z][A-Z]+ } $element match   ]} {
+            # just an abbrev
+            regsub -all $match $element "\[$atone][string tolower $match]" element
+        }
         regsub -all {[A-Z]} $element "\[:to 880 20][string tolower &]" element
     }
     if {$tts(split_caps) } {
             set tone {[:to 660 20]}
-            set abbrev_tone ":to 1200 20"
-        
         set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
         set allcaps [regexp $sc_prefix $element full  match ]
         
         #Identify the splitcaps, handle and strip it
         while {$allcaps } {
             if {[string length $match] <=3} {
-                set abbrev "\[$abbrev_tone\][string tolower $match]"
+                set abbrev "\[$atone\][string tolower $match]"
                 regsub -all {[^A-Z]+} $abbrev "[string tolower &]" abbrev
                 regsub -all A $abbrev {[ey]} abbrev #alternate phoneme 
-                set abbrev "\[ $abbrev_tone\]$abbrev"
+                set abbrev "\[ $atone\]$abbrev"
                 regsub $match $element  $abbrev element
             } else {
                 regsub $match $element "$tone[string tolower $match]"  element
