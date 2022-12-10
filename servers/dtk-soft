@@ -212,6 +212,7 @@ proc speech_task {}  {
 #preprocess element before sending it out:
 proc clean {element} {
     global queue tts
+    set tone {[:to 660 20]}
     set element [string trim $element]
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element { pound } element
@@ -233,17 +234,18 @@ proc clean {element} {
     }
     regsub -all {A} $element {[ey]} element
     if {$tts(capitalize) &&
-        [regexp {[A-Z]+} $element    ]} { #handle abbrevs 
+        [regexp {[A-Z][A-Z]+} $element    ]} { #handle abbrevs 
         set atone ":to 1200 20"
-        regsub -all {[A-Z]+} $element "\[$atone][string tolower &]" element
+        regsub -all {[A-Z][A-Z]+} $element "\[$atone] [string tolower
+&] " element
+        regsub -all {[A-Z]}  $element {$tone [string tolower &]} element
     }
     if {$tts(split_caps) } {
-            set tone {[:to 660 20]}
         set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
         set allcaps [regexp $sc_prefix $element full  match ]
         #Identify the splitcaps, handle and strip it
         while {$allcaps } {
-            regsub $match $element "$tone[string tolower $match]"  element
+            regsub $match $element {$tone  [string tolower $match] }  element
             set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         }
         regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1[_<1>]\2[,] } element
