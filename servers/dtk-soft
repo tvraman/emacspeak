@@ -236,15 +236,13 @@ proc clean {element} {
     }
     if {$tts(capitalize) &&
         [regexp $abbrev  $element match    ]} { #handle abbrevs 
-        regsub -all $abbrev $element "$atone [string tolower &] " element
+        regsub -all $abbrev $element "$atone & " element
     }
     if {$tts(split_caps) } {
         set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
-        set allcaps [regexp $sc_prefix $element full  match ]
         #Identify the splitcaps, handle and strip it
-        while {$allcaps } {
+        while {[regexp $sc_prefix $element full  match ] } {
             regsub $match $element "$tone [string tolower $match] "  element
-            set allcaps [regexp $sc_prefix $element full  match ]
         }
         regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1[_<1>]\2[,] } element
         regsub -all {([^ -_A-Z])([A-Z])} $element {\1[_<1>]\2} element
