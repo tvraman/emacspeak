@@ -847,15 +847,15 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 (defun org-ebook-store-link ()
   "Store a link to an EWW mark from an EBook. "
   (when-let
-      ((m (eq major-mode 'emacspeak-eww-marks-mode))
-       (b (button-at (point)))
-       (desc  (buffer-substring (button-start b) (button-end b)))
-       (link
-        (concat
-         "ebook:" (button-label b))))
-    (org-link-store-props
-     :type "ebook" :link link :description desc )
-    link))
+   ((m (eq major-mode 'emacspeak-eww-marks-mode))
+    (b (button-at (point)))
+    (desc  (buffer-substring (button-start b) (button-end b)))
+    (link
+     (concat
+      "ebook:" (button-label b))))
+   (org-link-store-props
+    :type "ebook" :link link :description desc )
+   link))
 
 ;;}}}
 ;;{{{e-media:
