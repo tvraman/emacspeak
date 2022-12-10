@@ -214,34 +214,22 @@ proc clean {element} {
     global queue tts
 	set element [string trim $element]
     if {[string match all $tts(punctuations)] } {
-        regsub -all {\#} $element \
-            { pound } element
-		regsub -all {\*} $element \
-			{ star } element
+        regsub -all {\#} $element { pound } element
+		regsub -all {\*} $element { star } element
         regsub -all  {[%&;()$+=/]} $element  { \0 }   element
-        regsub -all {\.,} $element \
-            { dot comma [_,] } element
-        regsub -all {\.\.\.} $element \
-            { dot dot dot } element
-        regsub -all {\.\.} $element \
-            { dot dot } element
-        regsub -all {([a-zA-Z])\.([a-zA-Z])} $element \
-            {\1 dot \2} element
+        regsub -all {\.,} $element { dot comma [_,] } element
+        regsub -all {\.\.\.} $element { dot dot dot } element
+        regsub -all {\.\.} $element { dot dot } element
+        regsub -all {([a-zA-Z])\.([a-zA-Z])} $element {\1 dot \2} element
         regsub -all {[0-9]+} $element { & } element
     } else {
- #       regsub -all {\.,} $element  {[_,]} element
         regsub -all {([0-9a-zA-Z])([\"!;/:()=])+([0-9a-zA-z])} $element \
             {\1 \2 \3} element
 		regsub -all {([a-zA-Z])(,)+([a-zA-z])} $element \
             {\1 \2 \3} element
-#        regsub -all {([a-zA-Z])(\.)([a-zA-z])} $element {\1[*]dot[*]\3} element
         regsub -all {([a-zA-Z])(\.)([a-zA-z])} $element {\1 dot \3} element
         regsub -all {``} $element {[_<1>/]} element
         regsub -all {''} $element {[_<1>\\]} element
-#        regsub -all { '}  $element {[_']} element
-#        regsub -all {' }  $element {[_']} element
-#        regsub -all --  {--} $element { [_,]} element
-        regsub -all -- {-}  $element { } element 
     }
     if {$tts(capitalize) } {
         regsub -all {[A-Z]} $element "\[:to 880 20][string tolower &]" element
@@ -249,13 +237,15 @@ proc clean {element} {
     if {$tts(split_caps) } {
             set tone {[:to 660 20]}
             set abbrev_tone ":to 1200 20"
-        set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
-        set allcaps [regexp $sc_prefix $element full  match ]
-        if {[string length $allcaps] == [string length $element]} {
+        regexp {^[A-Z][A-Z0-9]+} $element full   
+        if {[string length $full] == [string length $element]} {
             #an abbrev
             puts stderr "abbrev match $element"
             return "\[:to 880 50\] [string tolower $element]"
         }
+        set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
+        set allcaps [regexp $sc_prefix $element full  match ]
+        
         #Identify the splitcaps, handle and strip it
         while {$allcaps } {
             if {[string length $match] <=3} {
