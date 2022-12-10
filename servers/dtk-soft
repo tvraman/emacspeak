@@ -244,12 +244,12 @@ proc clean {element} {
         regsub -all -- {-}  $element { } element 
     }
     if {$tts(capitalize) } {
-        regsub -all {[A-Z]} $element {[_ :to 440 50]&} element
+        regsub -all {[A-Z]} $element "\[:to 880 20][string tolower &]" element
     }
     if {$tts(split_caps) } {
         if  {$tts(allcaps_beep)} {
             set tone {[:to 660 20]}
-            set abbrev_tone ":to 880 20"
+            set abbrev_tone ":to 1200 20"
         } 
         set allcaps\
             [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
