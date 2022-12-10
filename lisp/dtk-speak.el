@@ -1669,7 +1669,7 @@ This is so text marked invisible is silenced.")
     (org-fold-initialize "...")
     (org-fold-core-set-folding-spec-property
      (car org-link--link-folding-spec)
-     :visible org-link-descriptive)))
+     :visible (not org-link-descriptive))))
 
 (defun dtk-speak (text)
   "Speak the TEXT string
