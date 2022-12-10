@@ -249,15 +249,17 @@ proc clean {element} {
     if {$tts(split_caps) } {
         if  {$tts(allcaps_beep)} {
             set tone {[:to 660 20]}
-            set abbrev_tone ":to 880 50"
+            set abbrev_tone ":to 880 20"
         } 
-        set allcaps [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+        set allcaps\
+            [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+        #Identify the splitcaps, handle and strip it
         while {$allcaps } {
             if {[string length $match] <=3} {
-                set abbrev "\[_ $abbrev_tone\][string tolower $match]"
-                regsub -all {[A-Z]} $abbrev {& } abbrev
+                set abbrev "\[$abbrev_tone\][string tolower $match]"
+                regsub -all {[A-Z]} $abbrev "[string tolower &]" abbrev
                 regsub -all A $abbrev {[ey]} abbrev #alternate phoneme 
-                set abbrev "\[ $abbrev_tone\]$abbrev"
+                #set abbrev "\[ $abbrev_tone\]$abbrev"
                 regsub $match $element  $abbrev element
             } else {
                 regsub $match $element "$tone[string tolower $match]"  element
