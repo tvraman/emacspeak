@@ -251,6 +251,10 @@ proc clean {element} {
             set abbrev_tone ":to 1200 15"
         set allcaps\
             [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+        if {[string length $allcaps] == [string length $element]} {
+            #an abbrev
+            return "\[:to 880 50\] [string tolower $element]"
+        }
         #Identify the splitcaps, handle and strip it
         while {$allcaps } {
             if {[string length $match] <=3} {
