@@ -245,7 +245,7 @@ proc clean {element} {
         while {[regexp $sc_prefix $element full  match ] } {
             regsub $match $element "$tone [string tolower $match] "  element
         }
-        # # next line would produce a tone for capitalized words.
+        # next line would produce a tone for capitalized words.
         # regsub -all {\y[A-Z][a-z]+\y} $element "$tone   &" element
         regsub -all {[A-Z]} $element { [_<1>] &} element
         regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element\
@@ -253,7 +253,7 @@ proc clean {element} {
         regsub -all {([^ -_A-Z])([A-Z])} $element\
             {\1 [_<1>] \2} element
     }
-    return "$element "
+    return $element 
 }
 
 #}}}
