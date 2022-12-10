@@ -236,7 +236,7 @@ proc clean {element} {
     }
     if {$tts(capitalize) &&
         [regexp $abbrev  $element match    ]} { #handle abbrevs 
-        regsub -all $abbrev $element "$atone [string tolower $match] " element
+        regsub -all $abbrev $element "$atone [string tolower &] " element
     }
     if {$tts(split_caps) } {
         set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
