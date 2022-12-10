@@ -212,11 +212,10 @@ proc speech_task {}  {
 #preprocess element before sending it out:
 proc clean {element} {
     global queue tts
-	set element [string trim $element]
+    set element [string trim $element]
     regexp {^[A-Z][A-Z0-9]+} $element full   
         if {[string length $full] == [string length $element]} {
             #an abbrev
-            puts stderr "abbrev match $element"
             return "\[:to 880 50\] [string tolower $element]"
         }
     if {[string match all $tts(punctuations)] } {
