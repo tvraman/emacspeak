@@ -142,11 +142,11 @@ proc tts_split_caps {flag} {
     set tts(split_caps) $flag
     return ""
 }
-
+# we set allcaps_beep as well for dtk-soft
 proc tts_capitalize {flag} {
     global tts 
     set tts(capitalize) $flag
-    # set tts(allcaps_beep) $flag
+    set tts(allcaps_beep) $flag
     return ""
 }
 
@@ -244,22 +244,20 @@ proc clean {element} {
         regsub -all -- {-}  $element { } element 
     }
     if {$tts(capitalize) } {
-        regsub -all {[A-Z]} $element "\[:to 880 20][string tolower &]" element
+        regsub -all {[A-Z]} $element "\[:to 880 15][string tolower &]" element
     }
     if {$tts(split_caps) } {
-        if  {$tts(allcaps_beep)} {
-            set tone {[:to 660 20]}
-            set abbrev_tone ":to 1200 20"
-        } 
+            set tone {[:to 660 15]}
+            set abbrev_tone ":to 1200 15"
         set allcaps\
             [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         #Identify the splitcaps, handle and strip it
         while {$allcaps } {
             if {[string length $match] <=3} {
                 set abbrev "\[$abbrev_tone\][string tolower $match]"
-                regsub -all {[A-Z]} $abbrev "[string tolower &]" abbrev
+                regsub -all {[^A-Z]+} $abbrev "[string tolower &]" abbrev
                 regsub -all A $abbrev {[ey]} abbrev #alternate phoneme 
-                #set abbrev "\[ $abbrev_tone\]$abbrev"
+                set abbrev "\[ $abbrev_tone\]$abbrev"
                 regsub $match $element  $abbrev element
             } else {
                 regsub $match $element "$tone[string tolower $match]"  element
