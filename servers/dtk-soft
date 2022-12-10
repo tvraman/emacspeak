@@ -233,9 +233,9 @@ proc clean {element} {
     }
     if {$tts(capitalize) } {
         set atone ":to 1200 20"
-        if {[regexp { [A-Z][A-Z]+ } $element match   ]} {
+        if {[regexp {[A-Z]+} $element    ]} {
             # just an abbrev
-            regsub -all $match $element "\[$atone][string tolower $match]" element
+            regsub -all {[A-Z]+} $element "\[$atone][string tolower &]" element
         }
         regsub -all {[A-Z]} $element "\[:to 880 20][string tolower &]" element
     }
@@ -243,18 +243,10 @@ proc clean {element} {
             set tone {[:to 660 20]}
         set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
         set allcaps [regexp $sc_prefix $element full  match ]
-        
+        regsub -all {A} $element {[ey]} element
         #Identify the splitcaps, handle and strip it
         while {$allcaps } {
-            if {[string length $match] <=3} {
-                set abbrev "\[$atone\][string tolower $match]"
-                regsub -all {[^A-Z]+} $abbrev "[string tolower &]" abbrev
-                regsub -all A $abbrev {[ey]} abbrev #alternate phoneme 
-                set abbrev "\[ $atone\]$abbrev"
-                regsub $match $element  $abbrev element
-            } else {
-                regsub $match $element "$tone[string tolower $match]"  element
-            }
+            regsub $match $element "$tone[string tolower $match]"  element
             set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         }
         regsub -all {[A-Z]} $element "&" element
