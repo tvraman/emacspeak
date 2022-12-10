@@ -235,8 +235,7 @@ proc clean {element} {
     }
     if {$tts(capitalize) &&
         [regexp {[A-Z][A-Z]+} $element    ]} { #handle abbrevs 
-        regsub -all {[A-Z][A-Z]+} $element "$atone [string tolower &]
-" element
+        regsub -all {[A-Z][A-Z]+} $element "$atone [string tolower &] " element
         regsub -all {A} $element {[ey]} element
     }
     if {$tts(split_caps) } {
