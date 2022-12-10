@@ -249,10 +249,11 @@ proc clean {element} {
     if {$tts(split_caps) } {
             set tone {[:to 660 20]}
             set abbrev_tone ":to 1200 20"
-        set allcaps\
-            [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+        set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
+        set allcaps [regexp $sc_prefix $element full  match ]
         if {[string length $allcaps] == [string length $element]} {
             #an abbrev
+            puts stderr "abbrev match $element"
             return "\[:to 880 50\] [string tolower $element]"
         }
         #Identify the splitcaps, handle and strip it
