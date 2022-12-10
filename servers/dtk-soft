@@ -243,9 +243,8 @@ proc clean {element} {
         set allcaps [regexp $sc_prefix $element full  match ]
         #Identify the splitcaps, handle and strip it
         while {$allcaps } {
-            puts stderr $element
             regsub $match $element "$tone [string tolower $match] "  element
-            set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+            set allcaps [regexp $sc_prefix $element full  match ]
         }
         regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element {\1[_<1>]\2[,] } element
         regsub -all {([^ -_A-Z])([A-Z])} $element {\1[_<1>]\2} element
