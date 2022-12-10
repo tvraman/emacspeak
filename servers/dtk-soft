@@ -213,6 +213,12 @@ proc speech_task {}  {
 proc clean {element} {
     global queue tts
 	set element [string trim $element]
+    regexp {^[A-Z][A-Z0-9]+} $element full   
+        if {[string length $full] == [string length $element]} {
+            #an abbrev
+            puts stderr "abbrev match $element"
+            return "\[:to 880 50\] [string tolower $element]"
+        }
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element { pound } element
 		regsub -all {\*} $element { star } element
@@ -237,12 +243,7 @@ proc clean {element} {
     if {$tts(split_caps) } {
             set tone {[:to 660 20]}
             set abbrev_tone ":to 1200 20"
-        regexp {^[A-Z][A-Z0-9]+} $element full   
-        if {[string length $full] == [string length $element]} {
-            #an abbrev
-            puts stderr "abbrev match $element"
-            return "\[:to 880 50\] [string tolower $element]"
-        }
+        
         set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
         set allcaps [regexp $sc_prefix $element full  match ]
         
