@@ -223,14 +223,14 @@ proc clean {element} {
         regsub -all {\.,} $element { dot comma [_,] } element
         regsub -all {\.\.\.} $element { dot dot dot } element
         regsub -all {\.\.} $element { dot dot } element
-        regsub -all {([a-z[:upper:]])\.([a-z[:upper:]])} $element {\1 dot \2} element
-        regsub -all {\y[0-9]+\y} $element { & } element
+        regsub -all {([[:alpha:]])\.([[:alpha:]])} $element {\1 dot \2} element
+        regsub -all {\y[[:digit:]]+\y} $element { & } element
     } else {
-        regsub -all {([0-9a-z[:upper:]])([\"!;/:()=])+([0-9a-zA-z])} $element \
+        regsub -all {([[:alnum:]])([[:punct:]])+([[:alnum:]])} $element \
             {\1 \2 \3} element
-		regsub -all {([a-z[:upper:]])(,)+([a-zA-z])} $element \
+        regsub -all {([[:alpha:]])(,)+([[:alpha:]])} $element \
             {\1 \2 \3} element
-        regsub -all {([a-z[:upper:]])(\.)([a-zA-z])} $element {\1 dot \3} element
+        regsub -all {([[:alpha:]])(\.)([:alpha:])} $element {\1 dot \3} element
         regsub -all {``} $element {[_<1>/]} element
         regsub -all {''} $element {[_<1>\\]} element
     }
@@ -239,8 +239,10 @@ proc clean {element} {
             regsub  $match $element "$atone [string tolower $match] " element
         }
     }
+    regsub -all A $element {[ey]} element
     if {$tts(split_caps) } {
-        set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
+        set sc_prefix \
+            {[^[:alnum:]]?([[:upper:]][[:upper:][:digit:]]+)[^[:alnum:]]}
         #separate out each splitCaps point
         while {[regexp $sc_prefix $element match ] } {
             regsub $match $element "$tone [string tolower $match] "  element
