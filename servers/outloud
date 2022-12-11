@@ -382,25 +382,18 @@ synth "`vs$rate "
 proc clean {element} {
     global queue tts 
     if {[string match all $tts(punctuations)] } {
-        regsub -all --  {\*} $element \
-            { `00 star } element
-        regsub -all --  {-} $element \
-            { `00 dash } element
-        regsub -all --  {;} $element \
-            { `00 semicolen } element
-        regsub -all --  {\(} $element \
-            { `00 left `00 paren } element
-        regsub -all --  {\)} $element \
-            { `00 right `00 paren } element
-        regsub -all --  {@} $element \
-            { `00 at } element
-        regsub -all  {[.,!?;:+=/'\"@$%&_*()]} $element  \
-            { `00 \0 `p10 }   element
+        regsub -all --  {\*} $element { `00 star } element
+        regsub -all --  {-} $element { `00 dash } element
+        regsub -all --  {;} $element { `00 semicolen } element
+        regsub -all --  {\(} $element { `00 left `00 paren } element
+        regsub -all --  {\)} $element { `00 right `00 paren } element
+        regsub -all --  {@} $element { `00 at } element
+        regsub -all {[[:punct:]]} $element { `00 \0 `p10 }   element
     } else {
         regsub -all  {[*&()\"]} $element  {}   element
-        regsub -all { \-([0-9]+\.[0-9]+)} $element \
+        regsub -all { \-([[:digit:]]+\.[[:digit:]]+)} $element \
             { minus `p3 \1 } element
-        regsub -all {([a-zA-Z])([@!;/:()=\#,.\"])+([0-9a-zA-Z])} $element \
+        regsub -all {([[:alpha:]])([[:punct:]])+([[:alnum:]])} $element \
             {\1 `p5 \3} element
         regsub -all {``} $element { `ar } element
         regsub -all {''} $element { `p3 } element
@@ -412,15 +405,14 @@ proc clean {element} {
     set abbrev {\y[-_[:upper:]]{3,}\y}
     if {$tts(capitalize)} { #handle abbrevs
         while {[regexp $abbrev  $element match    ]}  {
-            regsub  $match $element " [string tolower $match]" element
+            regsub $match $element {[string tolower $match]} element
         }
     }
     if {$tts(split_caps) } {
         regsub -all {[[:upper:]]} $element { &} element
-        regsub -all {[A-Z]} $element { `p1 &} element
-        regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element\
+        regsub -all {([^ -_[:upper:]])([[:upper:]][[:alpha:]]* )} $element\
             {\1 `p1 \2 } element
-        regsub -all {([^ -_A-Z])([A-Z])} $element\
+        regsub -all {([^ -_[:upper:]])([[:upper:]])} $element\
             {\1 `p1 \2} element
         regsub -all {\y[aA]\y} $element {[ey]} element
     }
