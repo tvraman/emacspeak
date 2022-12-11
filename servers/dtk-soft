@@ -246,9 +246,9 @@ proc clean {element} {
             regsub $match $element "$tone [string tolower $match] "  element
         }
         # next line would produce a tone for capitalized words.
-        # regsub -all {\y[A-Z][a-z]+\y} $element "$tone   &" element
+        # regsub -all {\y[[:upper:]][[:lower:]]+\y} $element "$tone   &" element
         regsub -all {[[:upper:]]} $element { [_<1>]&} element
-        regsub -all {([^ -_[:upper:]])([[:upper:]][a-z[:upper:]]*\y)} $element\
+        regsub -all {([^ -_[:upper:]])([[:upper:]][[:alpha:]]*\y)} $element\
             {\1 [_<1>] \2 } element
         regsub -all {([^ -_[:upper:]])([[:upper:]])} $element\
             {\1 [_<1>] \2} element
