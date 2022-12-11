@@ -214,7 +214,7 @@ proc clean {element} {
     global queue tts
     set tone {[:to 440 20]}
     set atone {[:to 1300 20]}
-    set abbrev {\y[[:upper:]]{3,}\y}
+    set abbrev {\y[-_[:upper:]]{3,}\y}
     set element [string trim $element]
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element { pound } element
