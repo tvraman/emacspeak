@@ -240,7 +240,6 @@ proc clean {element} {
             regsub  $match $element "$atone [string tolower $match]" element
         }
     }
-    regsub -all {\y[aA]\y} $element {[ey]} element
     if {$tts(split_caps) } {
         # next line  produces a tone for capitalized words.
         regsub -all {\y[[:upper:]][[:lower:]]+\y} $element "$tone   &" element
@@ -249,6 +248,7 @@ proc clean {element} {
             {\1 [_<1>] \2 } element
         regsub -all {([^ -_[:upper:]])([[:upper:]])} $element\
             {\1 [_<1>] \2} element
+        regsub -all {\y[aA]\y} $element {[ey]} element
     }
     return $element 
 }
