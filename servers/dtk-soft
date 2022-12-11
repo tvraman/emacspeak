@@ -236,7 +236,7 @@ proc clean {element} {
     }
     if {$tts(capitalize)} { #handle abbrevs
         while {[regexp $abbrev  $element match    ]}  {
-            regsub  $match $element "$atone [string tolower $match] " element
+            regsub  $match $element "[string tolower $match] $atone" element
         }
     }
     regsub -all {\y[aA]\y} $element {[ey]} element
