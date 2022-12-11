@@ -241,8 +241,8 @@ proc clean {element} {
     }
     if {$tts(split_caps) } {
         set sc_prefix {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]}
-        #Identify the splitcaps, handle and strip it
-        while {[regexp $sc_prefix $element full  match ] } {
+        #separate out each splitCaps point
+        while {[regexp $sc_prefix $element match ] } {
             regsub $match $element "$tone [string tolower $match] "  element
         }
         # next line would produce a tone for capitalized words.
