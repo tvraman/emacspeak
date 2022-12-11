@@ -243,10 +243,10 @@ proc clean {element} {
     if {$tts(split_caps) } {
         set sc_prefix \
             {[^[:alnum:]]?([[:upper:]][[:upper:][:digit:]]+)[^[:alnum:]]}
-        #separate out each splitCaps point
-        while {[regexp $sc_prefix $element match ] } {
-            regsub $match $element "$tone [string tolower $match] "  element
-        }
+        #separate out each splitCaps point (no-op)
+#        while {[regexp $sc_prefix $element match ] } {
+#            regsub $match $element "$tone [string tolower $match] "  element
+#        }
         # next line would produce a tone for capitalized words.
         # regsub -all {\y[[:upper:]][[:lower:]]+\y} $element "$tone   &" element
         regsub -all {[[:upper:]]} $element { [_<1>]&} element
