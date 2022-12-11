@@ -7,6 +7,7 @@ cloud-outloud
 dtk-exp
 dtk-soft
 espeak
+log-dtk-soft
 log-dtk
 log-espeak
 log-mac
