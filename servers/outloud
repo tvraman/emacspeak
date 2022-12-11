@@ -404,8 +404,8 @@ proc clean {element} {
         regsub -all -- {-}  $element {dash    } element 
     }
     regsub -all {\240} $element " " element
-    set abbrev {\y[-_[:upper:]]{3,}\y}
     regsub -all {\y[aA]\y} $element {[ey]} element
+    set abbrev {\y[-_[:upper:]]{3,}\y}
     if {$tts(capitalize)} { #handle abbrevs
         while {[regexp $abbrev  $element match    ]}  {
             regsub $match $element {[string tolower $match]} element
