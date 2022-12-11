@@ -239,7 +239,7 @@ proc clean {element} {
             regsub  $match $element "$atone [string tolower $match] " element
         }
     }
-    regsub -all A $element {[ey]} element
+    regsub -all {\y[aA]\y} $element {[ey]} element
     if {$tts(split_caps) } {
         set sc_prefix \
             {[^[:alnum:]]?([[:upper:]][[:upper:][:digit:]]+)[^[:alnum:]]}
