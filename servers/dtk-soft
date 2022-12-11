@@ -224,7 +224,7 @@ proc clean {element} {
         regsub -all {\.\.\.} $element { dot dot dot } element
         regsub -all {\.\.} $element { dot dot } element
         regsub -all {([a-zA-Z])\.([a-zA-Z])} $element {\1 dot \2} element
-        regsub -all {[0-9]+} $element { & } element
+        regsub -all {\y[0-9]+\y} $element { & } element
     } else {
         regsub -all {([0-9a-zA-Z])([\"!;/:()=])+([0-9a-zA-z])} $element \
             {\1 \2 \3} element
