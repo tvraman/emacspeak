@@ -409,24 +409,20 @@ proc clean {element} {
         regsub -all -- {-}  $element {dash    } element 
     }
     regsub -all {\240} $element " " element
-    if {$tts(split_caps) } {
-        set allcaps [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
-        while {$allcaps } {
-            if {[string length $match] <=3} {
-                set abbrev  $match
-                regsub -all {[A-Z]} $abbrev {& `p1 } abbrev
-                regsub -all A $abbrev {[ey]} abbrev 
-                regsub $match $element  $abbrev element
-            } else {
-                regsub $match $element "[string tolower $match]"  element
-            }
-            set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+    set abbrev {\y[-_[:upper:]]{3,}\y}
+    if {$tts(capitalize)} { #handle abbrevs
+        while {[regexp $abbrev  $element match    ]}  {
+            regsub  $match $element " [string tolower $match]" element
         }
+    }
+    if {$tts(split_caps) } {
+        regsub -all {[[:upper:]]} $element { &} element
         regsub -all {[A-Z]} $element { `p1 &} element
         regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element\
             {\1 `p1 \2 } element
         regsub -all {([^ -_A-Z])([A-Z])} $element\
             {\1 `p1 \2} element
+        regsub -all {\y[aA]\y} $element {[ey]} element
     }
     return $element
 }
