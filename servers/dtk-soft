@@ -214,7 +214,7 @@ proc clean {element} {
     global queue tts
     set tone {[:to 440 20]}
     set atone {[:to 1300 20]}
-    set abbrev {\y[A-Z][A-Z]+\y}
+    set abbrev {\y[[:upper:]]{3,}\y}
     set element [string trim $element]
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element { pound } element
@@ -223,14 +223,14 @@ proc clean {element} {
         regsub -all {\.,} $element { dot comma [_,] } element
         regsub -all {\.\.\.} $element { dot dot dot } element
         regsub -all {\.\.} $element { dot dot } element
-        regsub -all {([a-zA-Z])\.([a-zA-Z])} $element {\1 dot \2} element
+        regsub -all {([a-z[:upper:]])\.([a-z[:upper:]])} $element {\1 dot \2} element
         regsub -all {\y[0-9]+\y} $element { & } element
     } else {
-        regsub -all {([0-9a-zA-Z])([\"!;/:()=])+([0-9a-zA-z])} $element \
+        regsub -all {([0-9a-z[:upper:]])([\"!;/:()=])+([0-9a-zA-z])} $element \
             {\1 \2 \3} element
-		regsub -all {([a-zA-Z])(,)+([a-zA-z])} $element \
+		regsub -all {([a-z[:upper:]])(,)+([a-zA-z])} $element \
             {\1 \2 \3} element
-        regsub -all {([a-zA-Z])(\.)([a-zA-z])} $element {\1 dot \3} element
+        regsub -all {([a-z[:upper:]])(\.)([a-zA-z])} $element {\1 dot \3} element
         regsub -all {``} $element {[_<1>/]} element
         regsub -all {''} $element {[_<1>\\]} element
     }
@@ -247,10 +247,10 @@ proc clean {element} {
         }
         # next line would produce a tone for capitalized words.
         # regsub -all {\y[A-Z][a-z]+\y} $element "$tone   &" element
-        regsub -all {[A-Z]} $element { [_<1>]&} element
-        regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]*\y)} $element\
+        regsub -all {[[:upper:]]} $element { [_<1>]&} element
+        regsub -all {([^ -_[:upper:]])([[:upper:]][a-z[:upper:]]*\y)} $element\
             {\1 [_<1>] \2 } element
-        regsub -all {([^ -_A-Z])([A-Z])} $element\
+        regsub -all {([^ -_[:upper:]])([[:upper:]])} $element\
             {\1 [_<1>] \2} element
     }
     return $element 
