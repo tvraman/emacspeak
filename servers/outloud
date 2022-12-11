@@ -29,7 +29,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with GNU Emacs; see the file COPYING.  If not, write to
-# the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+# the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+#Boston,MA 02110-1301, USA.
 
 #}}}
 #{{{source common code 
@@ -189,7 +190,8 @@ proc r {rate} {
 
 #set langlabel(0) "American"
 
-# langalias converts a code language ("en", "en_GB",...) to its index in the langsynth array.
+# langalias converts a code language ("en", "en_GB",...)
+#to its index in the langsynth array.
 # e.g. langalias(fi)=3 could mean "fi_FI" will be used if "fi" is required. 
 
 set langsynth(0) "en_US"
