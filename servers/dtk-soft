@@ -263,7 +263,7 @@ signal ignore {sigint}
 tts_initialize
 beep_initialize
 #beeps only on dtk
-#tts_capitalize 1 
+tts_capitalize 1 
 set tts(speech_rate)  225
 set tts(say_rate) [round \
                            [expr $tts(speech_rate) * $tts(char_factor)]]
