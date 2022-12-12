@@ -510,23 +510,6 @@ name of the list.")
 ;;}}}
 ;;{{{ cnn
 
-(defun emacspeak-url-template-cnn-content (url)
-  "Extract CNN content."
-  (emacspeak-we-xslt-filter "//p" url 'speak))
-
-(emacspeak-url-template-define
- "CNN Content"
- "http://www.cnn.com/us"
- nil
- #'(lambda nil
-     (cl-declare (special emacspeak-we-url-executor))
-     (eww-display-dom-by-element 'h3)
-     (setq
-      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
- "Filter down to CNN content area."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "column" url 'speak)))
-
 (emacspeak-url-template-define
  "CNN Headlines"
  "http://rss.cnn.com/rss/cnn_latest.rss"
