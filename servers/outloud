@@ -396,7 +396,7 @@ proc clean {element} {
         regsub -all { \-([[:digit:]]+\.[[:digit:]]+)} $element \
             { minus `p3 \1 } element
         regsub -all {([[:alpha:]])([[:punct:]])+([[:alnum:]])} $element \
-            {\1 `p5 \3} element
+            {\1 `p1 \3} element
         regsub -all {``} $element { `ar } element
         regsub -all {''} $element { `p3 } element
         regsub -all {' }  $element { `p1  } element
