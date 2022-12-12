@@ -1814,8 +1814,10 @@ The %s is automatically spoken if there is no user activity."
      (interactive "P")
      (cl-declare (special emacspeak-eww-autospeak))
      (let ((s (intern ,(format "%s" f))))
-       (when (memq s '(h1 h2 h3 h4))
+       (when (memq s '(h1 h2 h3 h4 h))
          (emacspeak-auditory-icon 'section))
+       (when (memq s '(li))
+         (emacspeak-auditory-icon 'item))
        (funcall-interactively #'emacspeak-eww-next-element s)
        (when (and speak (= 16 (car speak)))
          (setq emacspeak-eww-autospeak (not emacspeak-eww-autospeak)))
@@ -1826,10 +1828,10 @@ The %s is automatically spoken if there is no user activity."
          (emacspeak-auditory-icon 'item)
          (let ((start  (point)))
            (condition-case nil
-               (save-excursion
-                 (funcall #'emacspeak-eww-next-element s)
-                 (emacspeak-speak-region start (point)))
-             (error nil)))))))
+                           (save-excursion
+                            (funcall #'emacspeak-eww-next-element s)
+                            (emacspeak-speak-region start (point)))
+                           (error nil)))))))
  (eval
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
