@@ -152,13 +152,15 @@ mac for MAC TTS (default on Mac)")
 ;;{{{ sync
 
 (defsubst dtk-interp-sync ()
-  (cl-declare (special dtk-speaker-process
-                       dtk-punctuation-mode dtk-speech-rate dtk-split-caps))
+  (cl-declare (special
+               dtk-speaker-process dtk-caps
+               dtk-punctuation-mode dtk-speech-rate dtk-split-caps))
   (process-send-string
    dtk-speaker-process
-   (format "tts_sync_state %s %s %s\n"
+   (format "tts_sync_state %s %s %s %s\n"
            dtk-punctuation-mode
            (if dtk-split-caps 1 0)
+           (if dtk-caps 1 0)
            dtk-speech-rate)))
 
 ;;}}}
@@ -1027,14 +1029,29 @@ Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result.")
 
-(ems-generate-switcher
- 'dtk-toggle-caps
- 'dtk-caps
- "Toggle caps.
-when set, capitalized words are preceded by a short `cap', and
-upper-case words are preceded by a `ac' spoken in a lower voice.
-Interactive PREFIX arg means toggle the global default value, and
-then set the current local value to the result.")
+(defun dtk-toggle-caps (&optional prefix)
+  "Toggle caps. Sets up caps beep  on the TTS engine."
+  (interactive "P")
+  (cl-declare (special dtk-caps dtk-speaker-process))
+  (cond
+    (prefix
+     (setq-default dtk-caps (not dtk-caps))
+     (setq dtk-caps (default-value 'dtk-caps)))
+    (t
+     (make-local-variable 'dtk-caps)
+     (setq dtk-caps (not dtk-caps))))
+  (process-send-string
+   dtk-speaker-process
+   (format "tts_caps_beep %s\n"
+           (if dtk-caps 1 0)))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon (if dtk-caps "on" "off"))
+    (message
+     (format "Turned %s %s  %s."
+             (if dtk-caps "on" "off")
+             'dtk-caps
+             (if prefix "" " locally")))))
+
 
 (ems-generate-switcher
  'dtk-toggle-speak-nonprinting-chars

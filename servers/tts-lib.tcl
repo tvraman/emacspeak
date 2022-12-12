@@ -48,9 +48,10 @@ proc tts_caps_beep {flag} {
 #}}}
 
 #{{{ sync state 
-proc tts_sync_state {punct  splitcaps rate } {
+proc tts_sync_state {punct  splitcaps capsbeep rate } {
     tts_set_punctuations  $punct
     tts_split_caps   $splitcaps
+    tts_caps_beep $capsbeep
     tts_set_speech_rate  $rate
 } 
 #}}}
