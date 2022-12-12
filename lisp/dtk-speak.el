@@ -1752,7 +1752,7 @@ unless   `dtk-quiet' is set to t. "
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
         (dtk-interp-sync)
-        (insert-and-inherit text)          ; insert and pre-process text
+        (insert-for-yank text)          ; insert and pre-process text
         (dtk--delete-invisible-text)
         (dtk-handle-repeating-patterns mode)
         (when pron-table (tts-apply-pronunciations pron-table))
