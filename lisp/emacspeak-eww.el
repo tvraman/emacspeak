@@ -1678,9 +1678,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (progn
       (emacspeak-eww-prepare-eww)
       (intern
-       (completing-read "Element: "
-                        eww-element-cache nil 'must-match
-                        nil 'emacspeak-eww-element-navigation-history)))))
+       (completing-read
+        "Element: "
+        eww-element-cache nil 'must-match
+        nil 'emacspeak-eww-element-navigation-history)))))
   (cl-declare (special eww-element-cache
                        emacspeak-eww-element-navigation-history))
   (let*
