@@ -1028,29 +1028,12 @@ result.")
 Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result.")
-
-(defun dtk-toggle-caps (&optional prefix)
-  "Toggle caps. Sets up caps beep  on the TTS engine."
-  (interactive "P")
-  (cl-declare (special dtk-caps dtk-speaker-process))
-  (cond
-    (prefix
-     (setq-default dtk-caps (not dtk-caps))
-     (setq dtk-caps (default-value 'dtk-caps)))
-    (t
-     (make-local-variable 'dtk-caps)
-     (setq dtk-caps (not dtk-caps))))
-  (process-send-string
-   dtk-speaker-process
-   (format "tts_caps_beep %s\n"
-           (if dtk-caps 1 0)))
-  (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon (if dtk-caps "on" "off"))
-    (message
-     (format "Turned %s %s  %s."
-             (if dtk-caps "on" "off")
-             'dtk-caps
-             (if prefix "" " locally")))))
+(ems-generate-switcher
+ 'dtk-toggle-caps
+ 'dtk-caps
+ "Toggle dtk-caps.
+Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.")
 
 
 (ems-generate-switcher

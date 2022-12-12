@@ -245,7 +245,7 @@ proc clean {element} {
             {\1 [_<1>] \2 } element
         regsub -all {([^ -_[:upper:]])([[:upper:]])} $element\
             {\1 [_<1>] \2} element
-        regsub -all {\y[aA]\y} $element {[ey]} element
+        regsub -all {\y[A]\y} $element {[ey]} element
     }
     return $element 
 }

@@ -404,7 +404,7 @@ proc clean {element} {
         regsub -all -- {-}  $element {dash    } element 
     }
     regsub -all {\240} $element " " element
-    regsub -all {\y[aA]\y} $element {[ey]} element
+    regsub -all {\y[A]\y} $element {[ey]} element
     set abbrev {\y[-_[:upper:]]{3,}\y}
     if {$tts(split_caps) } {
         while {[regexp $abbrev  $element match    ]}  {
