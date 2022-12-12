@@ -1688,9 +1688,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       ((start
         (or
          (when (get-text-property (point) el)
-           (next-single-property-change (point) el))
+           (max 
+            (next-single-property-change (point) el)
+            (next-single-property-change (point) 'shr-continuation-indentation)))
          (point)))
-       (next (next-single-property-change start  el)))
+       (next
+         (max
+          (next-single-property-change start  'shr-continuation-indentation)
+          (next-single-property-change start  el))))
     (when next
       (goto-char next)
       (cl-pushnew el emacspeak-eww-element-navigation-history)
@@ -1698,7 +1703,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
         (emacspeak-speak-region
          next
-         (next-single-property-change next el nil  (point-max)))))))
+         (max
+          (next-single-property-change next 'shr-continuation-indentation nil  (point-max))
+          (next-single-property-change next el nil  (point-max))))))))
 
 (defun emacspeak-eww-previous-element (el)
   "Move backward  to the previous  specified element."
@@ -1712,11 +1719,23 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special eww-element-cache
                        emacspeak-eww-element-navigation-history))
   (let* ((start
-          (or
-           (when (get-text-property  (point) el)
-             (previous-single-property-change (1+ (point)) el))
-           (point)))
-         (previous (previous-single-property-change  start  el)))
+           (cond
+             ((and
+               (get-text-property  (point) el)
+               (eq el 'li))
+              (min
+               (previous-single-property-change (1+ (point)) 'shr-continuation-indentation)
+               (previous-single-property-change (1+ (point)) el)))
+             ((get-text-property  (point) el)
+              (previous-single-property-change (1+ (point)) el))
+             (t (point))))
+         (previous
+           (cond
+             ((eq el 'li)
+              (min
+               (previous-single-property-change  start  'shr-continuation-indentation)
+               (previous-single-property-change  start  el)))
+             (t (previous-single-property-change  start  el)))))
     (when previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
       (cl-pushnew  el emacspeak-eww-element-navigation-history)
