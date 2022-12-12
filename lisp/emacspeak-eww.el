@@ -1692,7 +1692,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
        (next (next-single-property-change start  el)))
     (when next
       (goto-char next)
-      (cl-pushnew el  emacspeak-eww-element-navigation-history)
+      (cl-pushnew el emacspeak-eww-element-navigation-history)
       (when (called-interactively-p 'interactive)
         (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
         (emacspeak-speak-region
