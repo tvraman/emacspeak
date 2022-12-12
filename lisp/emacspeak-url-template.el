@@ -545,7 +545,7 @@ name of the list.")
  nil
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))
-     (eww-display-dom-by-element 'h3)
+     (eww-display-dom-by-element 'h2)
      (setq
       emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "Money Headlines From CNN")
