@@ -1056,17 +1056,19 @@ Note that the Web browser should reset this hook after using it.")
     (let ((orig (point)))
       ad-do-it
       (let ((start
-             (if (char-equal (following-char) ?\n)
-                 (min (point-max) (1+ orig))
-               orig))
+              (if (char-equal (following-char) ?\n)
+                  (min (point-max) (1+ orig))
+                  orig))
             (end
-             (if (> (point) orig)
-                 (1- (point))
-               (point))))
+              (if (> (point) orig)
+                  (1- (point))
+                  (point))))
         (put-text-property start end
                            (quote ,tag) 'eww-tag)
         (when (memq (quote ,tag) '(h1 h2 h3 h4 h5 h6))
-          (put-text-property start end 'h 'eww-tag)))))))
+          (put-text-property start end 'h 'eww-tag))
+        (when (memq (quote ,tag) '(dt li))
+          (put-text-property start end 'bullet 'eww-tag)))))))
 ;; Handle MathML math element:
 
 (defun shr-tag-math (dom)
