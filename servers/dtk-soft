@@ -218,7 +218,7 @@ proc clean {element} {
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element { pound } element
 		regsub -all {\*} $element { star } element
-        regsub -all {\.} $element { dot[_.]  } element
+        regsub -all {\.} $element { dot  } element
         regsub -all {\.,} $element { dot comma [_,] } element
         regsub -all {[[:punct:]]} $element  { \0 }   element
         regsub -all {\.\.\.} $element { dot dot dot } element
