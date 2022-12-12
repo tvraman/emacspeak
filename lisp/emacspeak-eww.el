@@ -1064,9 +1064,9 @@ Note that the Web browser should reset this hook after using it.")
                   (1- (point))
                   (point))))
         (put-text-property start end
-                           (quote ,tag) 'eww-tag)
+                           (quote ,tag) 'shr-tag)
         (when (memq (quote ,tag) '(h1 h2 h3 h4 h5 h6))
-          (put-text-property start end 'h 'eww-tag)))))))
+          (put-text-property start end 'h 'shr-tag)))))))
 ;; Handle MathML math element:
 
 (defun shr-tag-math (dom)
@@ -1157,7 +1157,7 @@ Note that the Web browser should reset this hook after using it.")
   "Tag article, then render."
   (let ((start (point)))
     (shr-generic dom)
-    (put-text-property start (point) 'article 'eww-tag)))
+    (put-text-property start (point) 'article 'shr-tag)))
 
 (defun emacspeak-eww-em-with-newline  (dom)
   "render EM node but with newline after."
@@ -1748,7 +1748,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let* ((eww-tags (text-properties-at (point))))
     (cl-loop
      for i from 0 to (1- (length eww-tags)) by 2
-     if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag)
+     if (eq (plist-get eww-tags (nth i eww-tags)) 'shr-tag)
      collect (nth i eww-tags))))
 
 (defun emacspeak-eww-read-tags-like-this(&optional prompt)
