@@ -36,6 +36,17 @@
 #
 
 #}}}
+#{{{ tts_caps_beep
+
+proc tts_caps_beep {flag} {
+    global tts 
+    set tts(caps_beep) $flag
+    return ""
+}
+
+
+#}}}
+
 #{{{ sync state 
 proc tts_sync_state {punct  splitcaps rate } {
     tts_set_punctuations  $punct
@@ -329,10 +340,10 @@ proc tts_setserial {} {
 
 proc tts_initialize {} {
     global tts backup  queue env
+    # caps beep (used by dtk soft)
+    set tts(caps_beep) 0
     #split caps flag: 
     set tts(split_caps) 1
-    # Capitalize flag
-    set tts(capitalize)  0
     #allcaps beep flag
     set tts(allcaps_beep)  0
     set tts(talking?) 0
