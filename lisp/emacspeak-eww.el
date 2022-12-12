@@ -1686,16 +1686,22 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
                        emacspeak-eww-element-navigation-history))
   (let*
       ((start
-        (or
-         (when (get-text-property (point) el)
-           (max 
-            (next-single-property-change (point) el)
-            (next-single-property-change (point) 'shr-continuation-indentation)))
-         (point)))
-       (next
-         (max
-          (next-single-property-change start  'shr-continuation-indentation)
-          (next-single-property-change start  el))))
+           (cond
+             ((and
+               (get-text-property  (point) el)
+               (eq el 'li))
+              (max
+               (next-single-property-change (1+ (point)) 'shr-continuation-indentation)
+               (next-single-property-change (1+ (point)) el)))
+             ((get-text-property  (point) el)
+              (next-single-property-change (1+ (point)) el))
+             (t (point))))
+         (next
+           (cond
+             ((eq el 'li)
+              (max
+               (next-single-property-change  start  'shr-continuation-indentation)
+               (next-single-property-change  start  el))))))
     (when next
       (goto-char next)
       (cl-pushnew el emacspeak-eww-element-navigation-history)
