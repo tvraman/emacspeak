@@ -595,7 +595,7 @@ Safari/537.36"
    (when (assoc  c eww-link-keymap)
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
   (define-key eww-text-map  [C-return] 'emacspeak-eww-fillin-form-field)
-  (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-command-on-url-at-point)
+  (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-cmd-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-eww-play-media-at-point)
   (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
@@ -822,7 +822,8 @@ are available are cued by an auditory icon on the header line."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
-  (add-hook 'emacspeak-eww-post-process-hook 'emacspeak-eww-post-render-actions)
+  (add-hook
+   'emacspeak-eww-post-process-hookj 'emacspeak-eww-post-render-actions)
   (cond
     ((and (eww-current-url)
           emacspeak-eww-feed
@@ -995,11 +996,12 @@ Retain previously set punctuations  mode."
   "Run web pre process hook."
   (cl-declare (special emacspeak-eww-pre-process-hook))
   (when     emacspeak-eww-pre-process-hook
-    (condition-case nil
-                    (let ((inhibit-read-only t))
-                      (run-hooks  'emacspeak-eww-pre-process-hook))
-                    ((debug error)  (message "Caught error  in pre-process hook.")
-                     (setq emacspeak-eww-pre-process-hook nil)))
+    (condition-case
+     nil
+     (let ((inhibit-read-only t))
+       (run-hooks  'emacspeak-eww-pre-process-hook))
+     ((debug error)  (message "Caught error  in pre-process hook.")
+      (setq emacspeak-eww-pre-process-hook nil)))
     (setq emacspeak-eww-pre-process-hook nil)))
 
 ;;}}}
@@ -1015,11 +1017,13 @@ Note that the Web browser should reset this hook after using it.")
   "Run web post process hook."
   (cl-declare (special emacspeak-eww-post-process-hook))
   (when     emacspeak-eww-post-process-hook
-    (condition-case nil
-                    (let ((inhibit-read-only t))
-                      (run-hooks  'emacspeak-eww-post-process-hook))
-                    ((debug error)  (message "Caught error  in post-process hook.")
-                     (setq emacspeak-eww-post-process-hook nil)))
+    (condition-case
+     nil
+     (let ((inhibit-read-only t))
+       (run-hooks
+        'emacspeak-eww-post-process-hook))
+     ((debug error)  (message "Caught error  in post-process hook.")
+      (setq emacspeak-eww-post-process-hook nil)))
     (setq emacspeak-eww-post-process-hook nil)))
 
 ;;}}}
@@ -1334,7 +1338,7 @@ Optional interactive arg `multi' prompts for multiple ids."
        (dom-html-add-base
         dom (eww-current-url))))))
 
-(defun emacspeak-eww-read-attribute-and-value ()
+(defun emacspeak-eww-read-attr-and-value ()
   "Read attr-value pair and return as a list."
   (cl-declare (special eww-id-cache eww-class-cache eww-role-cache
                        eww-property-cache eww-itemprop-cache))
@@ -1372,8 +1376,8 @@ Optional interactive arg `multi' prompts for multiple classes."
            (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
            (eww-attribute-list-tester
             (if multi
-                (emacspeak-eww-read-list 'emacspeak-eww-read-attribute-and-value)
-                (list  (emacspeak-eww-read-attribute-and-value)))))))
+                (emacspeak-eww-read-list 'emacspeak-eww-read-attr-and-value)
+                (list  (emacspeak-eww-read-attr-and-value)))))))
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base dom   (eww-current-url))))))
@@ -1388,8 +1392,8 @@ Optional interactive arg `multi' prompts for multiple classes."
            (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
            (eww-attribute-list-tester
             (if multi
-                (emacspeak-eww-read-list 'emacspeak-eww-read-attribute-and-value)
-                (list  (emacspeak-eww-read-attribute-and-value)))))))
+                (emacspeak-eww-read-list 'emacspeak-eww-read-attr-and-value)
+                (list  (emacspeak-eww-read-attr-and-value)))))))
     (when dom
       (dom-html-add-base dom   (eww-current-url))
       (emacspeak-eww-view-helper dom))))
@@ -1442,7 +1446,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((value (completing-read "Value: " eww-role-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
-(defun emacspeak-eww-read-property ()
+(defun emacspeak-eww-read-prop ()
   "Return property value read from minibuffer."
   (cl-declare (special eww-property-cache))
   (unless eww-property-cache (error "No property to filter."))
@@ -1500,8 +1504,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if multi #'dom-by-property-list #'dom-by-property))
         (property  (if multi
-                       (emacspeak-eww-read-list 'emacspeak-eww-read-property)
-                       (emacspeak-eww-read-property))))
+                       (emacspeak-eww-read-list 'emacspeak-eww-read-prop)
+                       (emacspeak-eww-read-prop))))
     (setq dom (funcall filter dom property))
     (when dom
       (emacspeak-eww-view-helper
@@ -1519,9 +1523,9 @@ Optional interactive arg `multi' prompts for multiple classes."
            (eww-attribute-list-tester
             (if multi
                 (cl-loop
-                 for r in (emacspeak-eww-read-list 'emacspeak-eww-read-property)
+                 for r in (emacspeak-eww-read-list 'emacspeak-eww-read-prop)
                  collect (list 'property r))
-                (list (list 'property (emacspeak-eww-read-property))))))))
+                (list (list 'property (emacspeak-eww-read-prop))))))))
     (when
         dom
       (emacspeak-eww-view-helper
@@ -1661,7 +1665,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 ;;{{{ Element Navigation:
 ;; Try only storing symbols, not strings.
 
-(defvar emacspeak-eww-element-navigation-history nil
+(defvar emacspeak-eww-el-nav-history nil
   "History for element navigation.")
 (defun emacspeak-eww-icon-for-element (el)
   "Return auditory icon for element `el'."
@@ -1678,36 +1682,21 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (progn
       (emacspeak-eww-prepare-eww)
       (intern
-       (completing-read "Element: "
-                        eww-element-cache nil 'must-match
-                        nil 'emacspeak-eww-element-navigation-history)))))
-  (cl-declare (special eww-element-cache
-                       emacspeak-eww-element-navigation-history))
-  (forward-line 0)
-  (let*
-      ((start
-         (or
-          (when (get-text-property (point) el)
-            (next-single-property-change
-             (point)
-             (if (eq el 'li) 'shr-continuation-indentation el)))
-          (point)))
-       (next
-         (next-single-property-change
-          start
-          (if (eq el 'li) 'shr-continuation-indentation el))))
-    (when next
-      (goto-char next)
-      (cl-pushnew el  emacspeak-eww-element-navigation-history)
-      (forward-line 0)
-      (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-        (emacspeak-speak-region
-         next
-         (next-single-property-change
-          next
-          (if (eq el 'li) 'shr-continuation-indentation el)
-          nil  (point-max)))))))
+       (completing-read
+        "Element: "
+        eww-element-cache nil 'must-match
+        nil 'emacspeak-eww-el-nav-history)))))
+  (cl-declare (special eww- element-cache emacspeak-eww-el-nav-history))
+  (when (eq el 'li) ;; if element is li, use shr-continuation-indentation:
+    (setq el 'shr-continuation-indentation))
+  (let* ((start (next-single-property-change (point) el))
+         (next (next-single-property-change start el)))
+    (cond
+      ((and start next)
+       (goto-char start)
+       (cl-pushnew el  emacspeak-eww-el-nav-history)
+       (emacspeak-speak-region start next))
+      (t (message "Did not move.")))))
 
 (defun emacspeak-eww-previous-element (el)
   "Move backward  to the previous  specified element."
@@ -1716,51 +1705,39 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (progn
       (emacspeak-eww-prepare-eww)
       (intern
-       (completing-read "Element: " eww-element-cache nil 'must-match
-                        nil 'emacspeak-eww-element-navigation-history)))))
-  (cl-declare (special eww-element-cache
-                       emacspeak-eww-element-navigation-history))
-  (forward-line 0)
-  (let*
-      ((start
-         (or
-          (when (get-text-property  (point) el)
-            (previous-single-property-change
-             (1+ (point))
-             (if (eq el 'li) 'shr-continuation-indentation el)))
-          (point)))
-       (previous
-         (previous-single-property-change  start  el)))
-    (when previous
-      (goto-char
-       (or (previous-single-property-change
-            previous
-            (if (eq el 'li) 'shr-continuation-indentation el))
-           (point-min)))
-      (cl-pushnew  el emacspeak-eww-element-navigation-history)
-      (forward-line 0)
-      (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-        (emacspeak-speak-region (point) previous)))))
+       (completing-read
+        "Element: " eww-element-cache nil 'must-match
+        nil 'emacspeak-eww-el-nav-history)))))
+  (cl-declare (special eww-element-cache emacspeak-eww-el-nav-history))
+  (when (eq el 'li) ;; if element is li, use shr-continuation-indentation
+    (setq el 'shr-continuation-indentation))
+  (let* ((start (previous-single-property-change (point) el))
+         (previous (previous-single-property-change  start  el)))
+    (cond
+      ((and start previous)
+       (goto-char previous)
+       (cl-pushnew  el emacspeak-eww-el-nav-history)
+       (emacspeak-speak-region start previous))
+      (t (message "Did not move.")))))
 
 (defun emacspeak-eww-next-element-from-history ()
   "Uses element navigation history to decide where we jump."
   (interactive)
-  (cl-declare (special emacspeak-eww-element-navigation-history))
+  (cl-declare (special emacspeak-eww-el-nav-history))
   (cond
-    (emacspeak-eww-element-navigation-history
+    (emacspeak-eww-el-nav-history
      (funcall-interactively #'emacspeak-eww-next-element
-                            (car emacspeak-eww-element-navigation-history)))
+                            (car emacspeak-eww-el-nav-history)))
     (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-previous-element-from-history ()
   "Uses element navigation history to decide where we jump."
   (interactive)
-  (cl-declare (special emacspeak-eww-element-navigation-history))
+  (cl-declare (special emacspeak-eww-el-nav-history))
   (cond
-    (emacspeak-eww-element-navigation-history
+    (emacspeak-eww-el-nav-history
      (funcall-interactively #'emacspeak-eww-previous-element
-                            (car emacspeak-eww-element-navigation-history)))
+                            (car emacspeak-eww-el-nav-history)))
     (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-here-tags ()
@@ -1782,7 +1759,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (or prompt "Jump to: ")
            (mapcar #'symbol-name tags)
            nil t
-           nil emacspeak-eww-element-navigation-history))))))
+           nil emacspeak-eww-el-nav-history))))))
 
 (defun emacspeak-eww-next-element-like-this (element)
   "Moves to next element like current.
@@ -1804,7 +1781,7 @@ Prompts if content at point is enclosed by multiple elements."
    (list
     (or
      (cl-first (emacspeak-eww-here-tags))
-     (car emacspeak-eww-element-navigation-history))))
+     (car emacspeak-eww-el-nav-history))))
   (let ((start (point)))
     (save-excursion
      (emacspeak-eww-next-element  element)
@@ -1993,7 +1970,7 @@ The %s is automatically spoken if there is no user activity."
   "File where we save EWW marks.")
 (cl-defstruct emacspeak-eww-mark
               type                             ; daisy, epub, epub-3
-              book                             ; pointer to book --- type-specific
+              book                             ; pointer to book 
               point                            ; location in book
               name                             ; name of mark
               )
@@ -2213,7 +2190,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
            (expand-file-name "cbox" emacspeak-etc-directory)))
   "Shell commands we permit on URL under point.")
 
-(defun emacspeak-eww-shell-command-on-url-at-point (&optional prompt)
+(defun emacspeak-eww-shell-cmd-on-url-at-point (&optional prompt)
   "Run specified shell command on URL at point. "
   (interactive "P")
   (cl-declare (special emacspeak-eww-url-shell-commands))
