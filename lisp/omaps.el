@@ -150,25 +150,22 @@
 ;;}}}
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
 
-;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/
+;; https://wiki.openstreetmap.org/wiki/API
 
 (defvar omaps-geocoder-base
-  "https://maps.google.com/maps/api/geocode/json?"
-  "Base URL  end-point for talking to the Google Maps Geocoding service.")
+  "https://nominatim.openstreetmap.org/"
+  "Base URL  end-point for talking to the Open Street  Maps Geocoding service.")
 
 (defun omaps-geocoder-url (address)
   "Return URL   for geocoding address."
-  (cl-declare (special omaps-geocoder-base omaps-api-key))
-  (format "%saddress=%s&sensor=false&key=%s"
-          omaps-geocoder-base address
-          omaps-api-key))
+  (cl-declare (special omaps-geocoder-base ))
+  (format "%saddress=%s" omaps-geocoder-base address))
 
 (defun omaps-reverse-geocoder-url (location)
   "Return URL   for reverse geocoding location."
-  (cl-declare (special omaps-geocoder-base
-                       omaps-api-key))
-  (format "%slatlng=%s&sensor=false&key=%s"
-          omaps-geocoder-base location omaps-api-key))
+  (cl-declare (special omaps-geocoder-base))
+  (format "%slatlng=%s"
+          omaps-geocoder-base location ))
 
 ;;;###autoload
 (defun omaps-geocode (address &optional raw-p)
