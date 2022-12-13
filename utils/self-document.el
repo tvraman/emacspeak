@@ -117,7 +117,7 @@
            '("amixer" "cd-tool"
              "dectalk" "dtk" "espeak" "mac-"
              "emacspeak" "xbacklight" "light" "extra-muggles"
-             "g-"    "gm-" "gmap"  "gweb"
+             "g-"    "gm-" "gmap"  "gweb" "omaps"
              "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match command names.")
 
