@@ -186,35 +186,15 @@
           (cons 'lng (g-json-path-lookup "[0].lon" result)))))))
 
 ;;;###autoload
-(defun omaps-reverse-geocode (lat-long &optional raw-p)
+(defun omaps-reverse-geocode (lat-long &optional full)
   "Reverse geocode lat-long.
-Optional argument `raw-p' returns raw JSON  object."
+Optional argument `full' returns full  object."
   (let ((result
-         (g-json-get-result
-          (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
-                  g-curl-program g-curl-common-options
-                  (omaps-reverse-geocoder-url
-                   (format "%s,%s"
-                           (g-json-get 'lat lat-long)
-                           (g-json-get 'lng   lat-long)))))))
-    (unless (string= "OK" (g-json-get 'status result))
-      (error "Error reverse geo-coding."))
+          (g-json-from-url
+                  (omaps-reverse-geocoder-url lat-long))))
     (cond
-     (raw-p (g-json-get 'results result))
-     (t (g-json-path-lookup "results.[0].formatted_address" result)))))
-
-(defun omaps-postal-code-from-location (location)
-  "Reverse geocode location and return postal coe."
-  (condition-case nil
-      (g-json-get
-       'short_name
-       (cl-find-if  ; component whose type contains postal_code
-        #'(lambda (v)
-            (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
-        (g-json-get ; from address_components at finest granularity
-         'address_components
-         (aref (omaps-reverse-geocode location 'raw) 0))))
-    (error "")))
+     (full result)
+     (t (g-json-get 'display_name result)))))
 
 ;; Example of use:
 (defvar omaps-my-location
