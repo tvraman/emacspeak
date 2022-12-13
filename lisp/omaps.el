@@ -75,7 +75,7 @@
 (defun omaps-geocoder-url (address)
   "Return URL   for geocoding address."
   (cl-declare (special omaps-geocoder-base ))
-  (format "%s/search?q=%s&format=json"
+  (format "%s/search?q=%s&format=json&extratags=1"
           omaps-geocoder-base
           (g-url-encode address)))
 
