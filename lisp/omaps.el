@@ -7,11 +7,11 @@
 ;; LCD Archive Entry:
 ;; gcal| T. V. Raman |tv.raman.tv@gmail.com
 ;; An emacs interface to Reader|
-;; 
+;;
 ;;  $Revision: 1.30 $ |
 ;; Location undetermined
 ;; License: GPL
-;; 
+;;
 
 ;;}}}
 ;;{{{ Copyright:
@@ -63,13 +63,13 @@
 (require 'g-utils)
 
 ;;}}}
-;;{{{ Address Structure 
+;;{{{ Address Structure
 
 (cl-defstruct omaps--location
-  address
-  alias                                 ; short-form entered by user
-  zip
-  lat-lng)
+              address
+              alias                                 ; short-form entered by user
+              zip
+              lat-lng)
 
 (defsubst omaps-locations-load ()
   "Load saved Omaps locations."
@@ -91,7 +91,7 @@
     (cond
       (found found)
       (t ;;; Get geocode from network  and  memoize
-       (setq result 
+       (setq result
              (let-alist (aref (omaps-geocode address 'raw) 0)
                         (make-omaps--location
                          :alias address
@@ -191,39 +191,12 @@
 Optional argument `full' returns full  object."
   (let ((result
           (g-json-from-url
-                  (omaps-reverse-geocoder-url lat-long))))
+           (omaps-reverse-geocoder-url lat-long))))
     (cond
-     (full result)
-     (t (g-json-get 'display_name result)))))
+      (full result)
+      (t (g-json-get 'display_name result)))))
 
 ;; Example of use:
-(defvar omaps-my-location
-  nil
-  "Geo coordinates --- automatically set by reverse geocoding omaps-my-address")
-
-(defvar omaps-my-zip
-  nil
-  "Postal Code --- automatically set by reverse geocoding omaps-my-address")
-
-(declare-function
- emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
-;;;###autoload
-(defcustom omaps-my-address
-  nil
-  "Location address. Setting this updates omaps-my-location
-coordinates via geocoding."
-  :type '(choice
-          (const :tag "None" nil)
-          (string  :tag "Address"))
-  :set
-  #'(lambda (sym val)
-      (cl-declare (special omaps-my-location))
-      (when val
-        (setq omaps-my-location (omaps-address-location val))
-        (setq omaps-my-zip (omaps--location-zip omaps-my-location))
-        (set-default sym (omaps--location-address omaps-my-location))
-        val))
-  :group 'gweb)
 
 ;;}}}
 
