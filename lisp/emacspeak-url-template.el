@@ -520,10 +520,18 @@ name of the list.")
       emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "News Headlines From CNN"
  #'emacspeak-feeds-rss-display)
+
+(emacspeak-url-template-define
+ "CNN Money"
+ "http://rss.cnn.com/rss/cnn_business.rss"
+ nil nil
+ "CNN Business Headlines"
+ #'emacspeak-feeds-rss-display)
+
 (declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
 
 (emacspeak-url-template-define
- "Money Headlines From CNN"
+ "Business Headlines From CNN"
  "https://cnn.com/business"
  nil
  #'(lambda nil
