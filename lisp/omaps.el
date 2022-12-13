@@ -152,6 +152,7 @@
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
 
 ;; https://nominatim.org/
+;; eg: '/search?q=6217+hopi+court+San+Jose+CA+95123&format=json' | jq
 
 (defvar omaps-geocoder-base
   "https://nominatim.openstreetmap.org/"
@@ -160,25 +161,29 @@
 (defun omaps-geocoder-url (address)
   "Return URL   for geocoding address."
   (cl-declare (special omaps-geocoder-base ))
-  (format "%saddress=%s" omaps-geocoder-base address))
+  (format "%s/search?q=%s&format=json"
+          omaps-geocoder-base
+          (g-url-encode address)))
 
 (defun omaps-reverse-geocoder-url (location)
   "Return URL   for reverse geocoding location."
   (cl-declare (special omaps-geocoder-base))
-  (format "%slatlng=%s"
-          omaps-geocoder-base location ))
+  (format "%s/reverse?lat=%s&lon=%s&format=json"
+          omaps-geocoder-base
+          (cdr (assoc 'lat location))
+          (cdr (assoc 'lng location))))
 
 ;;;###autoload
-(defun omaps-geocode (address &optional raw-p)
-  "Geocode given address.
-Optional argument `raw-p' returns complete JSON  object."
+(defun omaps-geocode (address &optional full)
+  "Geocode given address using nominatim search.. "
   (let ((result
-         (g-json-from-url (omaps-geocoder-url (g-url-encode address)))))
-    (unless (string= "OK" (g-json-get 'status result))
-      (error "Error geo-coding location."))
+          (g-json-from-url (omaps-geocoder-url (g-url-encode
+                                                address)))))
     (cond
-     (raw-p (g-json-get 'results result))
-     (t (g-json-path-lookup "results.[0].geometry.location" result)))))
+      (full result)
+      (t (list
+          (cons 'lat (g-json-path-lookup "[0].lat" result))
+          (cons 'lng (g-json-path-lookup "[0].lon" result)))))))
 
 ;;;###autoload
 (defun omaps-reverse-geocode (lat-long &optional raw-p)
