@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1171 commands and 148 options.
+This chapter documents a total of 1172 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -232,6 +232,7 @@ This chapter documents a total of 1171 commands and 148 options.
 * ladspa::Ladspa Tools For Emacs.
 * light::Control Brightness.
 * mac-voices::Define  Mac tags.
+* omaps::Open street  Maps.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.
 * soundscape::Soundscapes.
@@ -553,20 +554,6 @@ Stop  speech on notification stream.
 @end format
 @end deffn
 
-@subsubsection dtk-org-fold-mode
-@deffn {Command} dtk-org-fold-mode   
-@findex dtk-org-fold-mode
-
-@format
-Org fold magic.
-
-In addition to any hooks its parent mode ‘outline-mode’ might have
-run, this mode runs the hook ‘dtk-org-fold-mode-hook’, as the final or
-penultimate step during initialization.
-
-@end format
-@end deffn
-
 @subsubsection dtk-reset-state
 @deffn {Command} dtk-reset-state   
 @table @kbd
@@ -858,11 +845,9 @@ notification stream as well.
 @findex dtk-toggle-caps
 
 @format
-Toggle caps.
-when set, capitalized words are preceded by a short ‘cap’, and
-upper-case words are preceded by a ‘ac’ spoken in a lower voice.
-Interactive PREFIX arg means toggle the global default value, and
-then set the current local value to the result.
+Toggle dtk-caps.
+Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
 @end format
 @end deffn
 
@@ -5996,9 +5981,9 @@ Restore buffer to pre-filtered canonical state.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eww-shell-command-on-url-at-point
-@deffn {Command} emacspeak-eww-shell-command-on-url-at-point  (&optional prompt)
-@findex emacspeak-eww-shell-command-on-url-at-point
+@subsubsection emacspeak-eww-shell-cmd-on-url-at-point
+@deffn {Command} emacspeak-eww-shell-cmd-on-url-at-point  (&optional prompt)
+@findex emacspeak-eww-shell-cmd-on-url-at-point
 
 @format
 Run specified shell command on URL at point. 
@@ -13196,7 +13181,7 @@ Format string that specifies how the time should be spoken.
 See the documentation for function
 ‘format-time-string’
 
-Default Value: @code{@verb{|%H:%M   on %A, %B %_e, %Y |}}
+Default Value: @code{@verb{|%k %M   on %A, %B %_e, %Y |}}
 
 @end defvar
 
@@ -18966,6 +18951,32 @@ Default Value: @code{@verb{|225|}}
 
 @end defvar
 
+@node omaps
+@section omaps
+
+Implements geocoding via the Open Street Maps API
+https://nominatim.org/
+
+@subsection Omaps Commands
+
+@subsubsection omaps-locations-load
+@deffn {Command} omaps-locations-load   
+@findex omaps-locations-load
+
+@format
+Load saved Omaps locations.
+@end format
+@end deffn
+
+@subsubsection omaps-locations-save
+@deffn {Command} omaps-locations-save   
+@findex omaps-locations-save
+
+@format
+Save Omaps Locations.
+@end format
+@end deffn
+
 @node outloud-voices
 @section outloud-voices
 
@@ -20062,17 +20073,19 @@ Bing News results as RSS feed.@item @b{Bing Search}
 
 Bing results as RSS feed.@item @b{Bloomberg Stock  Lookup}
 
-Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us@item @b{CIA World Fact Book}
+Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us@item @b{Business Headlines From CNN}
+
+Money Headlines From CNN@item @b{CIA World Fact Book}
 
 Open CIA World Fact Book For Specified Country.@item @b{CNBC Using EAF}
 
-Play CNBC Using EAF@item @b{CNN Content}
+Play CNBC Using EAF@item @b{CNN Headlines}
 
-Filter down to CNN content area.@item @b{CNN Headlines}
+News Headlines From CNN@item @b{CNN Money}
 
-News Headlines From CNN@item @b{CNN Market Data }
+CNN Business Headlines@item @b{CNN World}
 
-Market data filtered from CNN Money@item @b{Cricinfo Print}
+CNN World@item @b{Cricinfo Print}
 
 Printer friendly   link on Cricinfo@item @b{Dictionary Lookup}
 
@@ -20112,9 +20125,7 @@ Haskell API Search against a local server.@item @b{MLB Scorecard}
 
 Show MLB Scorecard.@item @b{MLB standings}
 
-Display MLB standings.@item @b{Money Headlines From CNN}
-
-Money Headlines From CNN@item @b{NBA  standings}
+Display MLB standings.@item @b{NBA  standings}
 
 Display NBA standings.@item @b{NLS Bard Bookshelf}
 

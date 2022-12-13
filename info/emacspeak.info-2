@@ -12,18 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 5, 2022.
-
-
-File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
-
-12.82 emacspeak-folding
-=======================
-
-Folding mode turns emacs into a folding editor.  Folding mode is what I
-use: emacs 19 comes with similar packages, e.g.  allout.el This module
-defines some advice forms for folding mode Think of a fold as a
-container.
+last updated on December 13, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -5404,7 +5393,7 @@ of emacspeak from becoming dependent on the speech server modules
      Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
 
-     Default Value: ‘%H:%M   on %A, %B %_e, %Y ’
+     Default Value: ‘%k %M   on %A, %B %_e, %Y ’
 
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.
@@ -9880,7 +9869,7 @@ easily used in conjunction with hydra: M-x package-install hydra
      White screen.
 
 
-File: emacspeak.info,  Node: mac-voices,  Next: outloud-voices,  Prev: light,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: mac-voices,  Next: omaps,  Prev: light,  Up: Emacspeak Commands And Options
 
 12.225 mac-voices
 =================
@@ -9897,18 +9886,43 @@ TTS.
      Default Value: ‘225’
 
 
-File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: omaps,  Next: outloud-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
 
-12.226 outloud-voices
+12.226 omaps
+============
+
+Implements geocoding via the Open Street Maps API https://nominatim.org/
+
+12.226.1 Omaps Commands
+-----------------------
+
+12.226.1.1 omaps-locations-load
+...............................
+
+ -- Command: omaps-locations-load
+
+     Load saved Omaps locations.
+
+12.226.1.2 omaps-locations-save
+...............................
+
+ -- Command: omaps-locations-save
+
+     Save Omaps Locations.
+
+
+File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: omaps,  Up: Emacspeak Commands And Options
+
+12.227 outloud-voices
 =====================
 
 Interface to outloud server.  This module is IBM ViaVoice Outloud
 specific.
 
-12.226.1 Outloud-Voices Commands
+12.227.1 Outloud-Voices Commands
 --------------------------------
 
-12.226.1.1 outloud
+12.227.1.1 outloud
 ..................
 
  -- Command: outloud (&optional device)
@@ -9919,7 +9933,7 @@ specific.
 
      (fn &optional DEVICE)
 
-12.226.2 outloud-voices Options
+12.227.2 outloud-voices Options
 -------------------------------
 
  -- Variable: User Option outloud-default-speech-rate
