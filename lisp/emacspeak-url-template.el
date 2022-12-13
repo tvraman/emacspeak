@@ -558,20 +558,6 @@ name of the list.")
  #'(lambda (url)
      (emacspeak-we-extract-by-class "column" url 'speak)))
 
-(emacspeak-url-template-define
- "CNN Market Data "
- "https://money.cnn.com/data/markets/"
- nil
- #'(lambda nil
-     (cl-declare (special emacspeak-we-url-executor))
-     (setq
-      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
- "Market data filtered from CNN Money"
- #'(lambda (url)
-     (emacspeak-we-extract-by-role
-      "main" 
-      url 'speak)))
-
 ;;}}}
 ;;{{{ sourceforge
 
