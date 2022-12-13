@@ -51,7 +51,8 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;; Implements the Open Street Maps API
+;; Implements geocoding via the Open Street Maps API
+;; https://nominatim.org/
 ;;; Code:
 
 ;;}}}
@@ -150,7 +151,7 @@
 ;;}}}
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
 
-;; https://wiki.openstreetmap.org/wiki/API
+;; https://nominatim.org/
 
 (defvar omaps-geocoder-base
   "https://nominatim.openstreetmap.org/"
