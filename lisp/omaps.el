@@ -60,7 +60,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'g-utils)
-(require 'osm "osm" 'no-error)
+
 ;;}}}
 ;;{{{ Address Structure 
 
