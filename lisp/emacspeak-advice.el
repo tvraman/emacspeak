@@ -1688,14 +1688,19 @@ Provide an auditory icon if possible."
   "Enable to get tooltips spoken."
   :type 'boolean
   :group 'emacspeak)
+(cl-loop
+ for f in
+ '(tooltip-show-help tooltip-show-help-non-mode) do
+ (eval
+  `(defadvice   ,f  (around emacspeak pre act comp)
+     "speak."
+     (ems-with-messages-silenced ad-do-it)
+     (cond
+       (emacspeak-speak-tooltips
+        (let ((msg (ad-get-arg 0)))
+          (when msg (dtk-speak msg))))))))
 
-(defadvice tooltip-show-help (after emacspeak pre act comp)
-  "speak."
-  (when emacspeak-speak-tooltips
-    (let ((msg (ad-get-arg 0)))
-      (if msg
-          (dtk-speak msg)
-        (emacspeak-auditory-icon 'close-object)))))
+
 
 (cl-loop
  for f in
