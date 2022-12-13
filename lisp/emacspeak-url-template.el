@@ -513,11 +513,7 @@ name of the list.")
 (emacspeak-url-template-define
  "CNN Headlines"
  "http://rss.cnn.com/rss/cnn_latest.rss"
- nil
- #'(lambda nil
-     (cl-declare (special emacspeak-we-url-executor))
-     (setq
-      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
+ nil nil
  "News Headlines From CNN"
  #'emacspeak-feeds-rss-display)
 
@@ -526,6 +522,14 @@ name of the list.")
  "http://rss.cnn.com/rss/cnn_business.rss"
  nil nil
  "CNN Business Headlines"
+ #'emacspeak-feeds-rss-display)
+
+
+(emacspeak-url-template-define
+ "CNN World"
+ "http://rss.cnn.com/rss/cnn_world.rss"
+ nil nil
+ "CNN World"
  #'emacspeak-feeds-rss-display)
 
 (declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
