@@ -63,92 +63,6 @@
 (require 'g-utils)
 
 ;;}}}
-;;{{{ Address Structure
-
-(cl-defstruct omaps--location
-              address
-              alias                                 ; short-form entered by user
-              zip
-              lat-lng)
-
-(defsubst omaps-locations-load ()
-  "Load saved Omaps locations."
-  (interactive)
-  (cl-declare (special omaps-locations-file omaps-locations-loaded-p))
-  (when (file-exists-p omaps-locations-file)
-    (setq omaps-locations-loaded-p (ems--fastload omaps-locations-file))))
-
-(defvar omaps-location-table (make-hash-table  :test  #'equal)
-  "Hash table that memoizes geolocation.")
-
-;;;###autoload
-(defun omaps-address-location (address)
-  "Returns omaps--location structure. "
-  (cl-declare (special omaps-location-table omaps-locations-loaded-p))
-  (unless omaps-locations-loaded-p (omaps-locations-load))
-  (let ((found (gethash address omaps-location-table))
-        (result nil))
-    (cond
-      (found found)
-      (t ;;; Get geocode from network  and  memoize
-       (setq result
-             (let-alist (aref (omaps-geocode address 'raw) 0)
-                        (make-omaps--location
-                         :alias address
-                         :address .formatted_address
-                         :zip
-                         (g-json-get
-                          'short_name
-                          (cl-find-if ; component whose type contains postal_code
-                                      #'(lambda (v)
-                                          (cl-find
-                                           "postal_code" (g-json-get 'types v) :test #'string=))
-                                      .address_components))
-                         :lat-lng .geometry.location)))
-       (puthash  address result omaps-location-table)
-       (puthash  (omaps--location-address result) result omaps-location-table)
-       (omaps-locations-save)
-       result))))
-
-;;;###autoload
-(defun omaps-address-geocode(address)
-  "Return lat/long for a given address."
-  (omaps--location-lat-lng (omaps-address-location address)))
-
-(defun omaps-address-zip(address)
-  "Return ZIP code  for a given address."
-  (omaps--location-zip (omaps-address-location address)))
-
-(defvar omaps-locations-loaded-p nil
-  "Record if Locations cache  is loaded.")
-(defvar emacspeak-user-directory)
-
-(defvar omaps-locations-file
-  (expand-file-name "omaps-locations" emacspeak-user-directory)
-  "File where we save Locations.")
-(declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
-
-(defun omaps-locations-save ()
-  "Save Omaps Locations."
-  (interactive)
-  (cl-declare (special omaps-locations-file omaps-location-table))
-  (let ((buffer (find-file-noselect omaps-locations-file))
-        (print-length nil)
-        (print-level nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (insert  ";;; Auto-generated.\n\n")
-      (insert "(setq omaps-location-table\n")
-      (pp omaps-location-table (current-buffer))
-      (insert ") ;;; set hash table\n\n")
-      (insert "(setq omaps-locations-loaded-p t)\n")
-      (save-buffer))
-    (when (called-interactively-p 'interactive)
-      (message "Saved Omaps Locations."))
-    (when (featurep 'emacspeak)
-      (emacspeak-auditory-icon 'save-object))))
-
-;;}}}
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
 
 ;; https://nominatim.org/
@@ -199,7 +113,6 @@ Optional argument `full' returns full  object."
 ;; Example of use:
 
 ;;}}}
-
 (provide 'omaps)
 ;;{{{ end of file
 
