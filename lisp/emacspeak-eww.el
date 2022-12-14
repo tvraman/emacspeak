@@ -1689,7 +1689,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         eww-element-cache nil 'must-match
         nil 'emacspeak-eww-el-nav-history)))))
   (cl-declare (special eww- element-cache emacspeak-eww-el-nav-history))
-  (when (eq el 'li) ;; if element is li, use shr-continuation-indentation:
+  (when (eq el 'li) ;; if element is li, use shr-indentation
     (setq el 'shr-continuation-indentation))
   (let* ((start (next-single-property-change (point) el))
          (next (next-single-property-change start el)))
@@ -1711,7 +1711,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         "Element: " eww-element-cache nil 'must-match
         nil 'emacspeak-eww-el-nav-history)))))
   (cl-declare (special eww-element-cache emacspeak-eww-el-nav-history))
-  (when (eq el 'li) ;; if element is li, use shr-continuation-indentation
+  (when (eq el 'li) ;; if element is li, use shr-indentation
     (setq el 'shr-continuation-indentation))
   (let* ((start (previous-single-property-change (point) el))
          (previous (previous-single-property-change  start  el)))
