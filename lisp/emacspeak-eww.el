@@ -1825,7 +1825,6 @@ The %s is automatically spoken if there is no user activity."
            (or speak
                emacspeak-eww-autospeak
                (and (called-interactively-p 'interactive) (sit-for 4.0)))
-         (emacspeak-auditory-icon 'item)
          (let ((start  (point)))
            (condition-case nil
                            (save-excursion
@@ -1853,7 +1852,6 @@ The %s is automatically spoken if there is no user activity."
        (when (or speak
                  emacspeak-eww-autospeak
                  (sit-for 3.0))
-         (emacspeak-auditory-icon 'item)
          (let ((start  (point)))
            (condition-case nil
                            (save-excursion
