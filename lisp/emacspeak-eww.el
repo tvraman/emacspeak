@@ -772,6 +772,8 @@ are available are cued by an auditory icon on the header line."
 
 (voice-setup-add-map
  '(
+   (shr-code  voice-monotone)
+   (shr-sup  voice-animate)
    (shr-abbreviation  voice-bolden-extra)
    (shr-h1  voice-bolden)
    (shr-h2  voice-bolden-medium)
