@@ -57,6 +57,7 @@
   "Speak current window  information."
   (declare (special *tts-window-icon*))
   (when new
+  (stumpwm:run-shell-command "/usr/local/bin/emstop")
     (tts-serve-icon *tts-window-icon*)
     (tts-speak (window-name new))))
 
@@ -136,12 +137,12 @@
 (define-key *root-map* (kbd "O") "toggle-orca")
 
 ;;}}}
- ;;{{{wallpaper:
+;;{{{wallpaper:
 
 (stumpwm:run-shell-command  
     " feh --no-fehbg --bg-center '/home/raman/emacs/lisp/emacspeak/etc/tilden-face.jpg' ")
 
-;; }}}
+;;}}}
 ;;{{{Emacs local variables
 
 ;;; local variables:

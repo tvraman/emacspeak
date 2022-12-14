@@ -634,7 +634,7 @@ Safari/537.36"
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
      ("c" emacspeak-eww-browse-chrome)
-     ("j" emacspeak-eww-browse-eaf)
+     
      ("I" eww-view-dom-having-id)
      ("J" emacspeak-eww-next-element-like-this)
      ("K" emacspeak-eww-previous-element-like-this)
