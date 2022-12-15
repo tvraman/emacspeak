@@ -413,8 +413,6 @@ proc clean {element} {
         regsub -all {[[:upper:]]} $element { &} element
         regsub -all {([^ -_[:upper:]])([[:upper:]][[:alpha:]]* )} $element\
             {\1 `p1 \2 } element
-        regsub -all {([^ -_[:upper:]])([[:upper:]])} $element\
-            {\1 `p1 \2} element
     }
     return $element
 }
