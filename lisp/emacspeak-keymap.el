@@ -747,6 +747,7 @@
 
 (defcustom emacspeak-multi-keys
   '(
+    ("f" project-find-file)
     ("l" emacspeak-m-player-locate-media)
     ("h" emacspeak-m-player-browse-history)
     ("y" emacspeak-google-yt-feed))
