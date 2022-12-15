@@ -1561,7 +1561,8 @@ Optional interactive arg `multi' prompts for multiple classes."
            (eww-attribute-list-tester
             (if multi
                 (cl-loop
-                 for r in (emacspeak-eww-read-list 'emacspeak-eww-read-itemprop)
+                 for r in
+                 (emacspeak-eww-read-list 'emacspeak-eww-read-itemprop)
                  collect (list 'itemprop r))
                 (list (list 'itemprop (emacspeak-eww-read-itemprop))))))))
     (when dom
@@ -1775,7 +1776,8 @@ Prompts if content at point is enclosed by multiple elements."
   (interactive)
   (cl-declare (special emacspeak-eww-el-nav-history))
   (cl-assert emacspeak-eww-el-nav-history t "No element here")
-  (let  ((start (next-single-property-change (point) emacspeak-eww-el-nav-history)))
+  (let  ((start
+           (next-single-property-change (point) emacspeak-eww-el-nav-history)))
     (save-excursion
      (emacspeak-eww-next-element  emacspeak-eww-el-nav-history)
      (emacspeak-auditory-icon 'select-object)
@@ -2008,7 +2010,7 @@ into `notes'.`m"
                    (string-match "^file:///" (eww-current-url))
                    (not (string-match "^file:///tmp" (eww-current-url))))
               'local-file)
-             (t (error "EWW marks only work in  EPub  and Bookshare buffers.")))
+             (t (error "EWW marks work in  EPub  and Bookshare buffers.")))
            :book
            (or
             (bound-and-true-p emacspeak-bookshare-this-book)
