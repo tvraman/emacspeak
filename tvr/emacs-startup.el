@@ -14,24 +14,19 @@
 ;; This startup file is set up with the following goals:
 ;; 1. Speed up emacs startup 
 ;; 2. Customize packages via a custom file as far as possible.
-;; 3. Keep the  custom settings  in a separate file, with a later goal of
-;;   turning that into a  theme.
-;; 4. After converting to a theme,
-;; Move machine-specific custom settings
-;;    into a separate host-specific custom file, thus making the
-;; earlier theme host-independent.
+;; 3. Keep the  custom settings  in a separate file
 ;; Place host-specific non-customizable bits in default.el.
-;; 4. Define package-specific settings not available via Custom in a
+;; 3. Define package-specific settings not available via Custom in a
 ;;    package-specific <package>-prepare.el file.
-;; 5. Install everything from elpa/melpa as far as possible. (vm is an
+;; 4. Install everything from elpa/melpa as far as possible. (vm is an
 ;;    exception at present) --- I have nearly 200 packages activated.
-;; 6. The startup file contains functions with entry-point tvr-emacs.
-;; 7. The only top-level call is (tvr-emacs).
-;; 8. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
+;; 5. The startup file contains functions with entry-point tvr-emacs.
+;; 6. The only top-level call is (tvr-emacs).
+;; 7. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
 ;;    - after-init-hook to do the bulk of the work.
 ;; Set env var PULSE_SINK to binaural for using bs2b under pulseaudio
 ;;    - emacs-startup-hook to set up  initial window configuration.
-;; 9. Function tvr-after-init-hook on after-init-hook does the
+;; 8. Function tvr-after-init-hook on after-init-hook does the
 ;; following:
 ;; For efficiency, package-specific setup files are concatenated into
 ;; a single file all-prepare.el by  make.
