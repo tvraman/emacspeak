@@ -1127,13 +1127,13 @@ Note that the Web browser should reset this hook after using it.")
 
 ;; Holds element names as strings.
 
-(defvar-local eww-element-cache nil
+(defvar-local emacspeak-eww-el-cache nil
   "Cache of element names. Is buffer-local.")
 
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
   (cl-declare (special
-               eww-element-cache eww-id-cache
+               emacspeak-eww-el-cache eww-id-cache
                eww-property-cache eww-itemprop-cache
                eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
   (when (listp dom)                     ; build cache
@@ -1152,7 +1152,7 @@ Note that the Web browser should reset this hook after using it.")
       (when itemprop (cl-pushnew itemprop eww-itemprop-cache :test #'string=))
       (when role (cl-pushnew role eww-role-cache :test #'string=))
       (when property (cl-pushnew property eww-property-cache :test #'string=))
-      (when el (cl-pushnew el eww-element-cache :test #'string=))
+      (when el (cl-pushnew el emacspeak-eww-el-cache :test #'string=))
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
 
@@ -1570,8 +1570,8 @@ Optional interactive arg `multi' prompts for multiple classes."
         dom (eww-current-url))))))
 (defun emacspeak-eww-read-element ()
   "Return element  value read from minibuffer."
-  (cl-declare (special eww-element-cache))
-  (let ((value (completing-read "Value: " eww-element-cache nil 'must-match)))
+  (cl-declare (special emacspeak-eww-el-cache))
+  (let ((value (completing-read "Value: " emacspeak-eww-el-cache nil 'must-match)))
     (unless (zerop (length value)) (intern value))))
 
 (defun eww-view-dom-having-elements (&optional multi)
@@ -1665,6 +1665,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 ;;}}}
 ;;{{{ Element Navigation:
+
 ;; Try only storing symbols, not strings.
 
 (defvar emacspeak-eww-el-nav-history nil
@@ -1686,8 +1687,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (intern
        (completing-read
         "Element: "
-        eww-element-cache nil 'must-match
-        nil 'emacspeak-eww-el-nav-history)))))
+        emacspeak-eww-el-cache nil 'must-match
+        nil 'emacspeak-eww-el-cache)))))
   (cl-declare (special eww- element-cache emacspeak-eww-el-nav-history))
   (when (eq el 'li) ;; if element is li, use shr-indentation
     (setq el 'shr-continuation-indentation))
@@ -1696,7 +1697,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
       ((and start next)
        (goto-char start)
-       (cl-pushnew el  emacspeak-eww-el-nav-history)
+       (setq emacspeak-eww-el-nav-history  el)
        (emacspeak-speak-region start next))
       (t (message "Did not move.")))))
 
@@ -1708,9 +1709,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (emacspeak-eww-prepare-eww)
       (intern
        (completing-read
-        "Element: " eww-element-cache nil 'must-match
-        nil 'emacspeak-eww-el-nav-history)))))
-  (cl-declare (special eww-element-cache emacspeak-eww-el-nav-history))
+        "Element: " emacspeak-eww-el-cache nil 'must-match
+        nil 'emacspeak-eww-ell-cache)))))
+  (cl-declare (special emacspeak-eww-el-cache emacspeak-eww-el-nav-history))
   (when (eq el 'li) ;; if element is li, use shr-indentation
     (setq el 'shr-continuation-indentation))
   (let* ((start (previous-single-property-change (point) el))
@@ -1718,7 +1719,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
       ((and start previous)
        (goto-char previous)
-       (cl-pushnew  el emacspeak-eww-el-nav-history)
+       (setq  emacspeak-eww-el-nav-history el)
        (emacspeak-speak-region start previous))
       (t (message "Did not move.")))))
 
@@ -1728,8 +1729,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special emacspeak-eww-el-nav-history))
   (cond
     (emacspeak-eww-el-nav-history
-     (funcall-interactively #'emacspeak-eww-next-element
-                            (car emacspeak-eww-el-nav-history)))
+     (funcall-interactively #'emacspeak-eww-next-element emacspeak-eww-el-nav-history))
     (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-previous-element-from-history ()
@@ -1739,7 +1739,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cond
     (emacspeak-eww-el-nav-history
      (funcall-interactively #'emacspeak-eww-previous-element
-                            (car emacspeak-eww-el-nav-history)))
+                            emacspeak-eww-el-nav-history))
     (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-here-tags ()
@@ -1761,7 +1761,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (or prompt "Jump to: ")
            (mapcar #'symbol-name tags)
            nil t
-           nil emacspeak-eww-el-nav-history))))))
+           nil emacspeak-eww-el-cache))))))
 
 (defun emacspeak-eww-next-element-like-this (element)
   "Moves to next element like current.
@@ -1777,18 +1777,6 @@ Prompts if content at point is enclosed by multiple elements."
    (list (emacspeak-eww-read-tags-like-this)))
   (funcall-interactively #'emacspeak-eww-previous-element  element))
 
-(defun emacspeak-eww-speak-this-element (element)
-  "Speaks  to next element like current. "
-  (interactive
-   (list
-    (or
-     (cl-first (emacspeak-eww-here-tags))
-     (car emacspeak-eww-el-nav-history))))
-  (let ((start (point)))
-    (save-excursion
-     (emacspeak-eww-next-element  element)
-     (emacspeak-auditory-icon 'select-object)
-     (emacspeak-speak-region start (point)))))
 ;; Generate next and previous structural navigators:
 (defcustom emacspeak-eww-autospeak t
   "Turn this on to make section navigation autospeak.
