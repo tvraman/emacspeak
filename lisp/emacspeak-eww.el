@@ -1667,17 +1667,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 ;;}}}
 ;;{{{ Element Navigation:
 
-;; Try only storing symbols, not strings.
-
 (defvar emacspeak-eww-el-nav-history nil
   "History for element navigation.")
-(defun emacspeak-eww-icon-for-element (el)
-  "Return auditory icon for element `el'."
-  (cond
-    ((memq el '(li dt)) 'item)
-    ((memq el '(h h1 h2 h3 h4 h5 h6)) 'section)
-    ((memq el '(p ul ol dd dl)) 'paragraph)
-    (t 'large-movement)))
 
 (defun emacspeak-eww-next-element (el)
   "Move forward to the next specified element."
@@ -1865,8 +1856,7 @@ The %s is automatically spoken if there is no user activity."
  '(url-retrieve-internal  url-truncate-url-for-viewing eww)
  do
  (eval
-  `
-  (defadvice ,f (before cleanup-url  pre act comp)
+  `(defadvice ,f (before cleanup-url  pre act comp)
     "Canonicalize Google search URLs."
     (let ((u (ad-get-arg 0)))
       (cond
@@ -2525,6 +2515,7 @@ With interactive prefix arg, move to the start of the table."
      'repeat-map  'emacspeak-m-player-mode-map)
 ;;}}}
 ;;{{{Command: eww-cleanup:
+
 ;;; Command to cleanup dom and source for large web pages: e.g. ebooks
 
 (defun emacspeak-eww-cleanup-eww-data ()
