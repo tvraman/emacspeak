@@ -1571,7 +1571,8 @@ Optional interactive arg `multi' prompts for multiple classes."
 (defun emacspeak-eww-read-element ()
   "Return element  value read from minibuffer."
   (cl-declare (special emacspeak-eww-el-cache))
-  (let ((value (completing-read "Value: " emacspeak-eww-el-cache nil 'must-match)))
+  (let ((value
+          (completing-read "Value: " emacspeak-eww-el-cache nil 'must-match)))
     (unless (zerop (length value)) (intern value))))
 
 (defun eww-view-dom-having-elements (&optional multi)
@@ -1729,7 +1730,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special emacspeak-eww-el-nav-history))
   (cond
     (emacspeak-eww-el-nav-history
-     (funcall-interactively #'emacspeak-eww-next-element emacspeak-eww-el-nav-history))
+     (funcall-interactively #'emacspeak-eww-next-element
+                            emacspeak-eww-el-nav-history))
     (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-previous-element-from-history ()
