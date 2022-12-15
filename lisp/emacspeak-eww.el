@@ -1779,6 +1779,17 @@ Prompts if content at point is enclosed by multiple elements."
    (list (emacspeak-eww-read-tags-like-this)))
   (funcall-interactively #'emacspeak-eww-previous-element  element))
 
+(defun emacspeak-eww-speak-this-element ()
+  "Speak current ."
+  (interactive)
+  (cl-declare (special emacspeak-eww-el-nav-history))
+  (cl-assert emacspeak-eww-el-nav-history t "No element here")
+  (let  ((start (next-single-property-change (point) emacspeak-eww-el-nav-history)))
+    (save-excursion
+     (emacspeak-eww-next-element  emacspeak-eww-el-nav-history)
+     (emacspeak-auditory-icon 'select-object)
+     (emacspeak-speak-region start (point)))))
+
 ;; Generate next and previous structural navigators:
 (defcustom emacspeak-eww-autospeak t
   "Turn this on to make section navigation autospeak.
