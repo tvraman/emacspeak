@@ -869,7 +869,7 @@ Retain previously set punctuations  mode."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)))))
 
-(defvar emacspeak-eww-rename-result-buffer t
+(defvar emacspeak-eww-rename-buffer t
   "Result buffer is renamed to document title.")
 
 (defun emacspeak-eww-after-render-hook ()
@@ -877,7 +877,7 @@ Retain previously set punctuations  mode."
   (let ((title (emacspeak-eww-current-title))
         (alt (dom-alternate-links (emacspeak-eww-current-dom))))
     (when (= 0 (length title)) (setq title "EWW: Untitled"))
-    (when emacspeak-eww-rename-result-buffer (rename-buffer title 'unique))
+    (when emacspeak-eww-rename-buffer (rename-buffer title 'unique))
     (when alt
       (put-text-property 0 2 'auditory-icon 'mark-object  header-line-format))
     (emacspeak-speak-voice-annotate-paragraphs)
@@ -1266,9 +1266,9 @@ for use as a DOM filter."
 
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
-  (cl-declare (special emacspeak-eww-rename-result-buffer
+  (cl-declare (special emacspeak-eww-rename-buffer
                        emacspeak-eww-filter-renderers))
-  (let ((emacspeak-eww-rename-result-buffer nil)
+  (let ((emacspeak-eww-rename-buffer nil)
         (url (eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
         (inhibit-read-only t)
@@ -2177,7 +2177,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
 (defvar emacspeak-eww-url-shell-commands
   (delete nil
           (list
-           (executable-find "mpv")
+           ;(executable-find "mpv")
            (expand-file-name "cbox" emacspeak-etc-directory)))
   "Shell commands we permit on URL under point.")
 
