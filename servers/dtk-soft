@@ -243,8 +243,6 @@ proc clean {element} {
         regsub -all {[[:upper:]]} $element { [_<1>]&} element
         regsub -all {([^ -_[:upper:]])([[:upper:]][[:alpha:]]*\y)} $element\
             {\1 [_<1>] \2 } element
-        regsub -all {([^ -_[:upper:]])([[:upper:]])} $element\
-            {\1 [_<1>] \2} element
         regsub -all {\y[A]\y} $element {[ey]} element
     }
     return $element 
