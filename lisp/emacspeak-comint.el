@@ -434,7 +434,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
   "Flush any ongoing speech."
   (when (ems-interactive-p)
     (dtk-stop)
-    (emacspeak-auditory-icon 'progress)))
+    (emacspeak-auditory-icon 'more)))
 
 (defadvice comint-previous-prompt (after emacspeak pre act comp)
   "Speak."
