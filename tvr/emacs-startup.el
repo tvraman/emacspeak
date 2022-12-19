@@ -211,6 +211,7 @@ Use Custom to customize where possible. "
   (require 'dired-x)
   (tvr-time-load (when (file-exists-p custom-file)  (load
                                                      custom-file)))
+  (diminish 'outline-minor-mode "")
   (diminish 'voice-lock-mode "")
   (diminish 'auto-fill-function "")
   (diminish 'abbrev-mode "")
