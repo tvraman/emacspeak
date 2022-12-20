@@ -875,8 +875,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
         (result (ems--display-props-get)))
     (cond
       ((or (null result) (= 0 (length result)))
-       (emacspeak-auditory-icon 'warn-user)
-       (message "No speakable overlay properties here."))
+       (message (prin1-to-string (get-text-property (point) 'display))))
       (t
        (emacspeak-auditory-icon icon)
        (dtk-speak result)))))
