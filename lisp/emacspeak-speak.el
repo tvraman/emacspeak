@@ -859,8 +859,8 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
         (result nil))
     (setq result
           (concat
-           (when (stringp display) display)
            (when (stringp before) before)
+           (when (stringp display) display)
            (when (stringp after) after)))
     result))
 
