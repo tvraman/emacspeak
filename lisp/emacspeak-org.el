@@ -800,6 +800,12 @@ arg just opens the file"
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{org-mks:
+
+;;; Org should use transient --sigh!
+
+
+;;}}}
 ;;{{{Amark:
 
 (org-link-set-parameters
