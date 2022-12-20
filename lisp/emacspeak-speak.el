@@ -867,7 +867,13 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
 (defun emacspeak-speak-overlay-properties ()
   "Speak display, before-string or after-string property if any."
   (interactive)
-  (let ((icon
+  (let (
+        (disp
+          (if-let
+           ((disp (get-char-property (point) 'display)))
+           (prin1-to-string disp)
+           "No display properties here"))
+        (icon
           (cond
             ((get-char-property (point) 'before-string) 'left)
             ((get-char-property (point) 'after-string) 'right)
@@ -875,7 +881,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
         (result (ems--display-props-get)))
     (cond
       ((or (null result) (= 0 (length result)))
-       (message (prin1-to-string (get-text-property (point) 'display))))
+       (message disp))
       (t
        (emacspeak-auditory-icon icon)
        (dtk-speak result)))))
