@@ -27,10 +27,11 @@ from AppKit import NSURL
 # Globals.
 enableSox = False
 try:
-  import pysox
-  enableSox &= True
+    import pysox
+
+    enableSox &= True
 except:
-  enableSox = False
+    enableSox = False
 
 # Detect OSX version for use in conditional code
 osx_version, _, _ = platform.mac_ver()
@@ -38,7 +39,7 @@ osx_version = int(osx_version.split(".")[1])
 
 ttsState = {"allCaps": 0, "capitalize": 0}
 
-# amount to increase pitch of capital letters.  This may need tweaking. 
+# amount to increase pitch of capital letters.  This may need tweaking.
 capsPitchIncrease = 8
 
 # Debug level
@@ -50,65 +51,122 @@ debugToSTDOUT = 1
 
 # A debug file to place sample tts text sent by emacspeak.
 if debugLevel > 0:
-  DEBUGFILE = tempfile.NamedTemporaryFile(dir='/tmp',
-                                          mode='w',
-                                          prefix='emacspeak.servers.mac_log')
+    DEBUGFILE = tempfile.NamedTemporaryFile(
+        dir="/tmp", mode="w", prefix="emacspeak.servers.mac_log"
+    )
 
-  # Insecure version; used for easier debugging.
-  DEBUGFILE = open('/tmp/speech.log', 'w')
+    # Insecure version; used for easier debugging.
+    DEBUGFILE = open("/tmp/speech.log", "w")
 
 # global speech rate
-ttsState['speechRate'] = 500
-ttsState['charFactor'] = 1.8
-ttsState['sayRate'] = round(ttsState['speechRate'] * ttsState['charFactor'])
+ttsState["speechRate"] = 500
+ttsState["charFactor"] = 1.8
+ttsState["sayRate"] = round(ttsState["speechRate"] * ttsState["charFactor"])
 # set capitalize to off initially
-ttsState['capitalize'] = 0
+ttsState["capitalize"] = 0
 
 # Possible levels of punctuation (none, some, all).
-ttsState['punctuationLevel'] = 'none'
+ttsState["punctuationLevel"] = "none"
 
 # used to pronounce punctuation chars
-punctuationNamesMap= {'$':'dollar',
-                 '#':'pound', 
-                 '-':'dash',
-                 '"':'quote',
-	         '(':'leftParen',
-                 ')':'rightParen',
-                 '*':'star',
-                 ';':'semi',
-                 ':':'colon',
-                 '<':'less than',
-                 '>':'greater than',
-                 '\n':'',
-                 '\\':'backslash',
-                 '/':'slash',
-                 '+':'plus',
-                 '=':'equals',
-                 '\'':'apostrophe',
-                      '*':'star',
-                 '~':'tilda',
-                 '`':'backquote',
-                 '!':'exclamation',
-                 '@':'at',
-                 '_':'underline',
-                 '\'':'apostrophe',
-                 '.':'dot',
-                 ',':'comma',
-                 '^':'caret'}
+punctuationNamesMap = {
+    "$": "dollar",
+    "#": "pound",
+    "-": "dash",
+    '"': "quote",
+    "(": "leftParen",
+    ")": "rightParen",
+    "*": "star",
+    ";": "semi",
+    ":": "colon",
+    "<": "less than",
+    ">": "greater than",
+    "\n": "",
+    "\\": "backslash",
+    "/": "slash",
+    "+": "plus",
+    "=": "equals",
+    "'": "apostrophe",
+    "*": "star",
+    "~": "tilda",
+    "`": "backquote",
+    "!": "exclamation",
+    "@": "at",
+    "_": "underline",
+    "'": "apostrophe",
+    ".": "dot",
+    ",": "comma",
+    "^": "caret",
+}
 
-punctuationMap = {'none': ('$'),
-                  'some': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '~', '`', '!', '^'),
-                  'all': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '\'', '~', '`', '!', '@', '_', '\'', '*', '.', ',', '^')}
+punctuationMap = {
+    "none": ("$"),
+    "some": (
+        "$",
+        "#",
+        "-",
+        '"',
+        "(",
+        ")",
+        "*",
+        ";",
+        ":",
+        "<",
+        ">",
+        "\n",
+        "\\",
+        "/",
+        "+",
+        "=",
+        "~",
+        "`",
+        "!",
+        "^",
+    ),
+    "all": (
+        "$",
+        "#",
+        "-",
+        '"',
+        "(",
+        ")",
+        "*",
+        ";",
+        ":",
+        "<",
+        ">",
+        "\n",
+        "\\",
+        "/",
+        "+",
+        "=",
+        "'",
+        "~",
+        "`",
+        "!",
+        "@",
+        "_",
+        "'",
+        "*",
+        ".",
+        ",",
+        "^",
+    ),
+}
 
 # Blacklist these characters for audio clip rendering as they cause crashes.
-renderingBlacklist = ['*', '(', ')', '\n', '/']
+renderingBlacklist = ["*", "(", ")", "\n", "/"]
 
 # Do not filter on some or none punctuation.
 literalPunctuation = ["'", ","]
 
 # map voice short names to apple class names.
-voiceMap = dict([(NSSpeechSynthesizer.attributesForVoice_(v)['VoiceName'].lower(), v) 
-                    for v in list(NSSpeechSynthesizer.availableVoices())])
+voiceMap = dict(
+    [
+        (NSSpeechSynthesizer.attributesForVoice_(v)["VoiceName"].lower(), v)
+        for v in list(NSSpeechSynthesizer.availableVoices())
+    ]
+)
 
 # A queue of inline codes waiting to be dispatched to NSSpeechSynthesizer.
 codeQueue = []
@@ -123,573 +181,656 @@ speechLock = threading.Lock()
   Helper for consuming callbacks from NSSound and NSSpeechSynthesizer.
 Implements NSSoundDelegate and NSSpeechSynthesizerDelegate protocol's.
 """
+
+
 class ServerDelegate(NSObject):
-  # NSSoundDelegate implementation.
-  def sound_didFinishPlaying_(self, textClipPlayer, success):
-    processSpeechQueue()
+    # NSSoundDelegate implementation.
+    def sound_didFinishPlaying_(self, textClipPlayer, success):
+        processSpeechQueue()
 
-  # NSSpeechSynthesizerDelegate implementation.
-  def speechSynthesizer_didFinishSpeaking_(self, synthesizer, success):
-    global speechSynthesizer
-    global speechDelegate
+    # NSSpeechSynthesizerDelegate implementation.
+    def speechSynthesizer_didFinishSpeaking_(self, synthesizer, success):
+        global speechSynthesizer
+        global speechDelegate
 
-    if synthesizer == speechSynthesizer:
-      speechSynthesizer = NSSpeechSynthesizer.alloc().init()
-      speechSynthesizer.setDelegate_(speechDelegate)
-      processSpeechQueue()
+        if synthesizer == speechSynthesizer:
+            speechSynthesizer = NSSpeechSynthesizer.alloc().init()
+            speechSynthesizer.setDelegate_(speechDelegate)
+            processSpeechQueue()
 
-  def speechSynthesizer_didEncounterErrorAtIndex_ofString_message_(self, synthesizer, index, text, message):
-    #writeDebugLog(2, "error encountered in synth: " + message + " at index " + str(index) + " of string '" + text + "'\n")
-    writeDebugLog(2, "error encountered in synth: index " + str(index) + " of string '" + text + "'\n")
+    def speechSynthesizer_didEncounterErrorAtIndex_ofString_message_(
+        self, synthesizer, index, text, message
+    ):
+        # writeDebugLog(2, "error encountered in synth: " + message + " at index " + str(index) + " of string '" + text + "'\n")
+        writeDebugLog(
+            2,
+            "error encountered in synth: index "
+            + str(index)
+            + " of string '"
+            + text
+            + "'\n",
+        )
 
-  def speechSynthesizer_didEncounterSyncMessage_(self, synthesizer, message):
-    #writeDebugLog(2, "sync " + int(message) + "\n")
-    writeDebugLog(2, "sync\n")
-    p = ProtocolHandler()
-    p.handleTone("500 30")
+    def speechSynthesizer_didEncounterSyncMessage_(self, synthesizer, message):
+        # writeDebugLog(2, "sync " + int(message) + "\n")
+        writeDebugLog(2, "sync\n")
+        p = ProtocolHandler()
+        p.handleTone("500 30")
+
 
 # Static.
 speechSynthesizer = NSSpeechSynthesizer.alloc().init()
 speechDelegate = ServerDelegate.alloc().init()
-speechSynthesizer.setRate_(ttsState['speechRate'])
+speechSynthesizer.setRate_(ttsState["speechRate"])
 speechSynthesizer.setDelegate_(speechDelegate)
 textClipPlayer = NSSound.alloc().retain()
 textClipPlayerDelegate = ServerDelegate.alloc().init()
 textClipPlayer.setDelegate_(textClipPlayerDelegate)
 open("/tmp/speechOut.aiff", "w").write("0")
 open("/tmp/soxSpeechOut.aiff", "w").write("0")
-speechOutPathString = '/tmp/speechOut.aiff'
+speechOutPathString = "/tmp/speechOut.aiff"
 speechOutUrl = NSURL.alloc().initWithString_(speechOutPathString)
 speechOutMapFile = mmap.mmap(os.open(speechOutPathString, os.O_RDWR), 0)
-soxSpeechOutMapFile = mmap.mmap(os.open('/tmp/soxSpeechOut.aiff', os.O_RDWR), 0)
+soxSpeechOutMapFile = mmap.mmap(os.open("/tmp/soxSpeechOut.aiff", os.O_RDWR), 0)
 
 """
   An object which observes stdin.
   This class largely contains basic i/o for reading from stdin using
   NSNotificationCenter.
 """
+
+
 class FileObserver(NSObject):
-  def initWithFileDescriptor_readCallback_errorCallback_(self,
-      fileDescriptor, readCallback, errorCallback):
-    self = self.init()
-    self.readCallback = readCallback
-    self.errorCallback = errorCallback
-    self.fileHandle = NSFileHandle.alloc().initWithFileDescriptor_(
-      fileDescriptor)
-    self.nc = NSNotificationCenter.defaultCenter()
-    self.protocolHandler = ProtocolHandler()
-    self.nc.addObserver_selector_name_object_(
-      self,
-      'fileHandleReadCompleted:',
-      NSFileHandleReadCompletionNotification,
-      self.fileHandle)
-    self.fileHandle.readInBackgroundAndNotify()
-    return self
+    def initWithFileDescriptor_readCallback_errorCallback_(
+        self, fileDescriptor, readCallback, errorCallback
+    ):
+        self = self.init()
+        self.readCallback = readCallback
+        self.errorCallback = errorCallback
+        self.fileHandle = NSFileHandle.alloc().initWithFileDescriptor_(fileDescriptor)
+        self.nc = NSNotificationCenter.defaultCenter()
+        self.protocolHandler = ProtocolHandler()
+        self.nc.addObserver_selector_name_object_(
+            self,
+            "fileHandleReadCompleted:",
+            NSFileHandleReadCompletionNotification,
+            self.fileHandle,
+        )
+        self.fileHandle.readInBackgroundAndNotify()
+        return self
 
-  def fileHandleReadCompleted_(self, aNotification):
-    ui = aNotification.userInfo()
-    newData = ui.objectForKey_(NSFileHandleNotificationDataItem)
-    if newData is None:
-      if self.errorCallback is not None:
-        self.errorCallback(self, ui.objectForKey_(NSFileHandleError))
-      self.close()
-    else:
-      self.fileHandle.readInBackgroundAndNotify()
-      if self.readCallback is not None:
-        self.readCallback(self, newData.decode('utf-8'))
+    def fileHandleReadCompleted_(self, aNotification):
+        ui = aNotification.userInfo()
+        newData = ui.objectForKey_(NSFileHandleNotificationDataItem)
+        if newData is None:
+            if self.errorCallback is not None:
+                self.errorCallback(self, ui.objectForKey_(NSFileHandleError))
+            self.close()
+        else:
+            self.fileHandle.readInBackgroundAndNotify()
+            if self.readCallback is not None:
+                self.readCallback(self, newData.decode("utf-8"))
 
-  def close(self):
-    self.nc.removeObserver_(self)
-    if self.fileHandle is not None:
-      self.fileHandle.closeFile()
-      self.fileHandle = None
-    # break cycles in case these functions are closed over
-    # an instance of us
-    self.readCallback = None
-    self.errorCallback = None
+    def close(self):
+        self.nc.removeObserver_(self)
+        if self.fileHandle is not None:
+            self.fileHandle.closeFile()
+            self.fileHandle = None
+        # break cycles in case these functions are closed over
+        # an instance of us
+        self.readCallback = None
+        self.errorCallback = None
 
-  def __del__(self):
-    # Without this, if a notification fires after we are GC'ed
-    # then the app will crash because NSNotificationCenter
-    # doesn't retain observers.  In this example, it doesn't
-    # matter, but it's worth pointing out.
-    self.close()
+    def __del__(self):
+        # Without this, if a notification fires after we are GC'ed
+        # then the app will crash because NSNotificationCenter
+        # doesn't retain observers.  In this example, it doesn't
+        # matter, but it's worth pointing out.
+        self.close()
+
 
 # This is conceptually the main entry point of the server.
 def gotLine(observer, aLine):
-  if aLine:
-    writeDebugLog(2, "gotline: " + aLine.rstrip() +  "\nend\n")
-    observer.protocolHandler.dispatchRawTtsMessage(aLine.rstrip())
-  else:
-    AppHelper.stopEventLoop()
+    if aLine:
+        writeDebugLog(2, "gotline: " + aLine.rstrip() + "\nend\n")
+        observer.protocolHandler.dispatchRawTtsMessage(aLine.rstrip())
+    else:
+        AppHelper.stopEventLoop()
+
 
 def gotError(observer, err):
-  print(("error:", err))
-  AppHelper.stopEventLoop()
+    print(("error:", err))
+    AppHelper.stopEventLoop()
+
 
 def writeDebugLog(level, output):
-  # do nothing if debug is off
-  if debugLevel == 0:
-    return
+    # do nothing if debug is off
+    if debugLevel == 0:
+        return
 
-  if level <= debugLevel:
-    if output:
-      DEBUGFILE.write("\n" + output)
-      # Write debug messages to STDOUT if requested as well
-      if debugToSTDOUT:
-        print((output + "\n"))
-    DEBUGFILE.flush()
+    if level <= debugLevel:
+        if output:
+            DEBUGFILE.write("\n" + output)
+            # Write debug messages to STDOUT if requested as well
+            if debugToSTDOUT:
+                print((output + "\n"))
+        DEBUGFILE.flush()
 
 
 # Object that implements the Emacspeak TTS protocol.
 class _ProtocolHandler:
-  # Enables singleton behavior.
-  def __call__(self):
-    return self
+    # Enables singleton behavior.
+    def __call__(self):
+        return self
 
-  def __init__(self):
-    # Maps a protocol id to a handler function.
-    self.protocolIdToHandlerMap = { 'd':self.handleDispatch,
-                                    'a':self.handleAuditoryIcon,
-                                    'c':self.handleQueueCode,
-                                    'l':self.handleLetter,
-                                    'q':self.handleQueueSpeech,
-                                    's':self.handleStopSpeaking,
-                                    't':self.handleTone,
-                                    'tts_say':self.handleTtsSay,
-                                    'tts_selftest':self.handleTtsSelftest,
-                                    'tts_sync_state':self.handleTtsSyncState,
-                                    'tts_set_punctuations':self.handleTtsSetPunctuations,
-                                    'tts_set_speech_rate':self.handleTtsSetSpeechRate,
-                                    'tts_set_character_scale':self.handleTtsSetCharacterScale }
+    def __init__(self):
+        # Maps a protocol id to a handler function.
+        self.protocolIdToHandlerMap = {
+            "d": self.handleDispatch,
+            "a": self.handleAuditoryIcon,
+            "c": self.handleQueueCode,
+            "l": self.handleLetter,
+            "q": self.handleQueueSpeech,
+            "s": self.handleStopSpeaking,
+            "t": self.handleTone,
+            "tts_say": self.handleTtsSay,
+            "tts_selftest": self.handleTtsSelftest,
+            "tts_sync_state": self.handleTtsSyncState,
+            "tts_set_punctuations": self.handleTtsSetPunctuations,
+            "tts_set_speech_rate": self.handleTtsSetSpeechRate,
+            "tts_set_character_scale": self.handleTtsSetCharacterScale,
+        }
 
-    # Used to extract protocol id and args from a raw message.
-    self.protocolRePattern = (
-      r"((?P<blockId>[a-z_]*) {(?P<blockArg>[\s\S]*)})|((?P<spaceId>[a-z_]*) (?P<spaceArg>[\s\S]*))|(?P<id>[a-z_]*)")
-    # Used to detect multiple dispatches during processing of one chunk set.
-    self.isProcessing = False
+        # Used to extract protocol id and args from a raw message.
+        self.protocolRePattern = r"((?P<blockId>[a-z_]*) {(?P<blockArg>[\s\S]*)})|((?P<spaceId>[a-z_]*) (?P<spaceArg>[\s\S]*))|(?P<id>[a-z_]*)"
+        # Used to detect multiple dispatches during processing of one chunk set.
+        self.isProcessing = False
 
-  # Protocol Handlers.
-  def handleDispatch(self, args):
-    # sometimes we receive multiple dispatches within the same chunks set.
-    if not self.isProcessing:
-      processSpeechQueue()
-      self.isProcessing = True
+    # Protocol Handlers.
+    def handleDispatch(self, args):
+        # sometimes we receive multiple dispatches within the same chunks set.
+        if not self.isProcessing:
+            processSpeechQueue()
+            self.isProcessing = True
 
-  # Play an auditory icon.
-  # There may be a better way of doing this
-  # Currently we play the icon as soon as we receive it which produces the best results.
-  def handleAuditoryIcon(self, args):
-    writeDebugLog(6, "Auditory icon " + args + "\n")
-    if args:
-      try:
-        NSSound.alloc().initWithContentsOfFile_byReference_(args, True).play()
-      except:
-        pass
+    # Play an auditory icon.
+    # There may be a better way of doing this
+    # Currently we play the icon as soon as we receive it which produces the best results.
+    def handleAuditoryIcon(self, args):
+        writeDebugLog(6, "Auditory icon " + args + "\n")
+        if args:
+            try:
+                NSSound.alloc().initWithContentsOfFile_byReference_(args, True).play()
+            except:
+                pass
 
-  def handleLetter(self, args):
-    output = args.strip(" }")
+    def handleLetter(self, args):
+        output = args.strip(" }")
 
-    prefix = "[[rate " + str(ttsState['sayRate']) + "]] [[char ltrl]] "
-    suffix = "[[rate " + str(ttsState['speechRate']) + "]] [[char norm]]"
+        prefix = "[[rate " + str(ttsState["sayRate"]) + "]] [[char ltrl]] "
+        suffix = "[[rate " + str(ttsState["speechRate"]) + "]] [[char norm]]"
 
-    writeDebugLog(4, "Letter: " + output + "\n")
-    self.handleStopSpeaking(None)
+        writeDebugLog(4, "Letter: " + output + "\n")
+        self.handleStopSpeaking(None)
 
-    # Check if this is a capital
-    if re.match(r"^[A-Z]+$", output):
-      prefix = prefix + " [[pbas +" + str(capsPitchIncrease) + "]]"
-      suffix = "[[pbas -" + str(capsPitchIncrease) + "]] " + suffix
+        # Check if this is a capital
+        if re.match(r"^[A-Z]+$", output):
+            prefix = prefix + " [[pbas +" + str(capsPitchIncrease) + "]]"
+            suffix = "[[pbas -" + str(capsPitchIncrease) + "]] " + suffix
 
-    # add prefix and suffix to output 
-    output = prefix + " " + output + " " + suffix
-    writeDebugLog(4, "about to speak letter: " + output + "\n")
-    # Send directly to TTS to avoid any line processing.
-    speechSynthesizer.startSpeakingString_(output)
+        # add prefix and suffix to output
+        output = prefix + " " + output + " " + suffix
+        writeDebugLog(4, "about to speak letter: " + output + "\n")
+        # Send directly to TTS to avoid any line processing.
+        speechSynthesizer.startSpeakingString_(output)
 
-  def handleQueueCode(self, args):
-    global codeQueue
-    parseContent(args, codeQueue)
+    def handleQueueCode(self, args):
+        global codeQueue
+        parseContent(args, codeQueue)
 
-  def handleQueueSpeech(self, args):
-    global speechQueue
-    parseContent(args, speechQueue, extractCodesFromQueue())
+    def handleQueueSpeech(self, args):
+        global speechQueue
+        parseContent(args, speechQueue, extractCodesFromQueue())
 
-  def handleStopSpeaking(self, args):
-    global speechSynthesizer
-    global speechDelegate
+    def handleStopSpeaking(self, args):
+        global speechSynthesizer
+        global speechDelegate
 
-    # Stop all speech on previous synth.
-    speechSynthesizer.stopSpeaking()
+        # Stop all speech on previous synth.
+        speechSynthesizer.stopSpeaking()
 
-    speechSynthesizer = NSSpeechSynthesizer.alloc().init()
-    speechSynthesizer.setDelegate_(speechDelegate)
+        speechSynthesizer = NSSpeechSynthesizer.alloc().init()
+        speechSynthesizer.setDelegate_(speechDelegate)
 
-    textClipPlayer.stop()
-    del(speechQueue[:])
-    self.isProcessing = False
+        textClipPlayer.stop()
+        del speechQueue[:]
+        self.isProcessing = False
 
-  def handleTone(self, args):
-    frequency, length = args.split(' ')
-    frequency = int(frequency)
-    length = int(length)
-    if not frequency or not length:
-      writeDebugLog(4, 'Invalid tone args %i, %i' % (frequency, length))
-      return
+    def handleTone(self, args):
+        frequency, length = args.split(" ")
+        frequency = int(frequency)
+        length = int(length)
+        if not frequency or not length:
+            writeDebugLog(4, "Invalid tone args %i, %i" % (frequency, length))
+            return
 
-    frameRate = 44100
-    nframes = frameRate * length / 1000.
-    frequencyWave = 2 * math.pi * frequency / frameRate
-    # frequencyWave is measured in radians per sample
+        frameRate = 44100
+        nframes = frameRate * length / 1000.0
+        frequencyWave = 2 * math.pi * frequency / frameRate
+        # frequencyWave is measured in radians per sample
 
-    f = io.BytesIO()
-    e = aifc.open(f, 'w')
-    e.setnchannels(1)
-    e.setsampwidth(2)
-    e.setframerate(44100)
-    e.setnframes(int(nframes))
-    e.writeframesraw(self.buildSineWave(frequencyWave, int(nframes)))
+        f = io.BytesIO()
+        e = aifc.open(f, "w")
+        e.setnchannels(1)
+        e.setsampwidth(2)
+        e.setframerate(44100)
+        e.setnframes(int(nframes))
+        e.writeframesraw(self.buildSineWave(frequencyWave, int(nframes)))
 
-    soundData = NSData.alloc().initWithBytes_length_(f.getvalue(),
-                                                           len(f.getvalue()))
-    icon = NSSound.alloc().initWithData_(soundData)
-    icon.play()
-    e.close()
+        soundData = NSData.alloc().initWithBytes_length_(
+            f.getvalue(), len(f.getvalue())
+        )
+        icon = NSSound.alloc().initWithData_(soundData)
+        icon.play()
+        e.close()
 
-  def handleTtsSay(self, args):
-    self.handleStopSpeaking(None)
-    speechSynthesizer.startSpeakingString_(
-          '[[rate %i]] %s' % (ttsState['sayRate'],
-                          args.replace('[*]','[[slnc 50 ]]')))
+    def handleTtsSay(self, args):
+        self.handleStopSpeaking(None)
+        speechSynthesizer.startSpeakingString_(
+            "[[rate %i]] %s"
+            % (ttsState["sayRate"], args.replace("[*]", "[[slnc 50 ]]"))
+        )
 
-  def handleTtsSelftest(self, args):
-    samples = ["phaser 0.8 0.74 3.0 0.4 0.5 -t",
-               "phaser 0.6 0.66 3.0 0.6 2.0 -t",
-               "phaser 0.6 0.66 3.0 0.6 2.0 -t",
-               "echos 0.8 0.7 700.0 0.25 900.0 0.3",
-               "echo 0.8 0.9 1000.0 0.3 1800.0 0.25",
-               "chorus 0.6 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 1.3 -s",
-               "chorus 0.6 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 1.3 -s",
-               "pan -1",
-               "pan -.5",
-               "pan .5",
-               "pan 1",
-               "tremolo 10 90",
-               "tremolo 1000 60",
-               "reverb 100 50 5 0",
-               "reverb 100 100 100 0",
-               "reverb 50 30 50 0",
-               "chorus 0.5 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 2.3 -t"]
-    i = len(samples) - 1
-    while i >= 0:
-      self.handleQueueSpeech("[{" + samples[i] + "}]" + "[[rate 200]] This is a test at index " + str(i) + "}")
-      i -= 1
-      self.handleDispatch(args)
+    def handleTtsSelftest(self, args):
+        samples = [
+            "phaser 0.8 0.74 3.0 0.4 0.5 -t",
+            "phaser 0.6 0.66 3.0 0.6 2.0 -t",
+            "phaser 0.6 0.66 3.0 0.6 2.0 -t",
+            "echos 0.8 0.7 700.0 0.25 900.0 0.3",
+            "echo 0.8 0.9 1000.0 0.3 1800.0 0.25",
+            "chorus 0.6 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 1.3 -s",
+            "chorus 0.6 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 1.3 -s",
+            "pan -1",
+            "pan -.5",
+            "pan .5",
+            "pan 1",
+            "tremolo 10 90",
+            "tremolo 1000 60",
+            "reverb 100 50 5 0",
+            "reverb 100 100 100 0",
+            "reverb 50 30 50 0",
+            "chorus 0.5 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 2.3 -t",
+        ]
+        i = len(samples) - 1
+        while i >= 0:
+            self.handleQueueSpeech(
+                "[{"
+                + samples[i]
+                + "}]"
+                + "[[rate 200]] This is a test at index "
+                + str(i)
+                + "}"
+            )
+            i -= 1
+            self.handleDispatch(args)
 
-  def handleTtsSetPunctuations(self, args):
-    global ttsState
-    ttsState['punctuationLevel'] = args.strip()
-    writeDebugLog(4, "Setting punctuation level: " +  ttsState['punctuationLevel'])
-  def handleTtsSetSpeechRate(self, args):
-    global ttsState
-    ttsState['speechRate'] = int(args.strip())
-    ttsState['sayRate'] = round(ttsState['speechRate'] * ttsState['charFactor'])
-    writeDebugLog(4, "Setting speech rate: " +  str(ttsState['speechRate']) + " char factor: " + str(ttsState['charFactor']) + " say rate: " + str(ttsState['sayRate']) + "\n")
+    def handleTtsSetPunctuations(self, args):
+        global ttsState
+        ttsState["punctuationLevel"] = args.strip()
+        writeDebugLog(4, "Setting punctuation level: " + ttsState["punctuationLevel"])
 
-  def handleTtsSetCharacterScale(self, args):
-    global ttsState
-    ttsState['charFactor'] = float(args.strip())
-    ttsState['sayRate'] = round(ttsState['speechRate'] * ttsState['charFactor'])
-    writeDebugLog(4, "Setting character scale: " + str(ttsState['charFactor']) + " say rate: " + str(ttsState['sayRate']) + "\n")
-
-
-  def handleTtsSyncState(self, args):
-    params = args.split()
-    global ttsState
-    ttsState['punctuationLevel'] = params[0]
-    ttsState['splitCaps'] = int(params[1])
-    ttsState['speechRate'] = int(params[2])
-
-    # For older versions of the protocol.
-    if len(params) == 5:
-      ttsState['capitalize'] = int(params[1])
-      ttsState['allCaps'] = int(params[2])
-      ttsState['splitCaps'] = int(params[3])
-      ttsState['speechRate'] = int(params[4])
-
-    writeDebugLog(6, "tts_sync: set punctuation level to: " + ttsState['punctuationLevel'] + " capitalize to " + str(ttsState['capitalize']) + " allcaps " + str(ttsState['allCaps']) + " splitCaps " + str(ttsState['splitCaps']) + " rate to: " + str(ttsState['speechRate']) + "\n")
-
-  def dispatchRawTtsMessage(self, message):
-    writeDebugLog(4, "dispatchRawTtsMessage")
-    chunks = message.split('\n')
-    for chunk in chunks:
-      writeDebugLog(4, "\nchunk: " + chunk + "\nend\n")                      
-      if not chunk:
-        continue
-
-      # Extract protocol id and protocol args.
-      matcher = re.match(self.protocolRePattern, chunk)
-
-      # Message validation.
-      if not matcher or ( 
-        len(matcher.groups()) != 7):
-        writeDebugLog(4, "Unable to parse pattern " + chunk)
-        continue
-
-      # Note the presence of three types of protocol messages:
-      # 1. containing only id.
-      # 2. containing id and {...} block.
-      # 3. containing id and space delimited args.
-      id = matcher.group('id')
-      blockId = matcher.group('blockId')
-      blockArg = matcher.group('blockArg')
-      spaceId = matcher.group('spaceId')
-      spaceArg = matcher.group('spaceArg')
-
-      # Send off to the handler.
-      if id and id in self.protocolIdToHandlerMap:
-        self.protocolIdToHandlerMap[id](None)
-      elif (
-        blockId and
-        blockId in self.protocolIdToHandlerMap):
-        self.protocolIdToHandlerMap[blockId](blockArg)
-      elif (
-        spaceId and
-        spaceArg and spaceId in self.protocolIdToHandlerMap):
-        self.protocolIdToHandlerMap[spaceId](spaceArg)
-      else:
-        print("unable to parse")
+    def handleTtsSetSpeechRate(self, args):
+        global ttsState
+        ttsState["speechRate"] = int(args.strip())
+        ttsState["sayRate"] = round(ttsState["speechRate"] * ttsState["charFactor"])
         writeDebugLog(
-          4, "Error! unsupported message id:%s, blockId:%s, blockArg:%s, spaceId:%s, spaceArg:%s" % (
-          id, blockId, blockArg, spaceId, spaceArg))
+            4,
+            "Setting speech rate: "
+            + str(ttsState["speechRate"])
+            + " char factor: "
+            + str(ttsState["charFactor"])
+            + " say rate: "
+            + str(ttsState["sayRate"])
+            + "\n",
+        )
 
-  def buildSineWave(self, frequency, length):
-    sinewave = bytearray()
-    for i in range(length):
-      val = int(math.sin(i * frequency) * 20000)
-      sinewave.extend([(val >> 8) & 255, val & 255])
-    return bytes(sinewave)
+    def handleTtsSetCharacterScale(self, args):
+        global ttsState
+        ttsState["charFactor"] = float(args.strip())
+        ttsState["sayRate"] = round(ttsState["speechRate"] * ttsState["charFactor"])
+        writeDebugLog(
+            4,
+            "Setting character scale: "
+            + str(ttsState["charFactor"])
+            + " say rate: "
+            + str(ttsState["sayRate"])
+            + "\n",
+        )
 
-        #TODO:  support protocol commands.
-        #version":
-        #speak tts version
+    def handleTtsSyncState(self, args):
+        params = args.split()
+        global ttsState
+        ttsState["punctuationLevel"] = params[0]
+        ttsState["splitCaps"] = int(params[1])
+        ttsState["speechRate"] = int(params[2])
 
-        #tts_pause:
-        #if tts_resume:
-        #sh:
-        #silence for ms.
-        #tts__reset:
-#tts_allcaps_beep flag (beep)
+        # For older versions of the protocol.
+        if len(params) == 5:
+            ttsState["capitalize"] = int(params[1])
+            ttsState["allCaps"] = int(params[2])
+            ttsState["splitCaps"] = int(params[3])
+            ttsState["speechRate"] = int(params[4])
+
+        writeDebugLog(
+            6,
+            "tts_sync: set punctuation level to: "
+            + ttsState["punctuationLevel"]
+            + " capitalize to "
+            + str(ttsState["capitalize"])
+            + " allcaps "
+            + str(ttsState["allCaps"])
+            + " splitCaps "
+            + str(ttsState["splitCaps"])
+            + " rate to: "
+            + str(ttsState["speechRate"])
+            + "\n",
+        )
+
+    def dispatchRawTtsMessage(self, message):
+        writeDebugLog(4, "dispatchRawTtsMessage")
+        chunks = message.split("\n")
+        for chunk in chunks:
+            writeDebugLog(4, "\nchunk: " + chunk + "\nend\n")
+            if not chunk:
+                continue
+
+            # Extract protocol id and protocol args.
+            matcher = re.match(self.protocolRePattern, chunk)
+
+            # Message validation.
+            if not matcher or (len(matcher.groups()) != 7):
+                writeDebugLog(4, "Unable to parse pattern " + chunk)
+                continue
+
+            # Note the presence of three types of protocol messages:
+            # 1. containing only id.
+            # 2. containing id and {...} block.
+            # 3. containing id and space delimited args.
+            id = matcher.group("id")
+            blockId = matcher.group("blockId")
+            blockArg = matcher.group("blockArg")
+            spaceId = matcher.group("spaceId")
+            spaceArg = matcher.group("spaceArg")
+
+            # Send off to the handler.
+            if id and id in self.protocolIdToHandlerMap:
+                self.protocolIdToHandlerMap[id](None)
+            elif blockId and blockId in self.protocolIdToHandlerMap:
+                self.protocolIdToHandlerMap[blockId](blockArg)
+            elif spaceId and spaceArg and spaceId in self.protocolIdToHandlerMap:
+                self.protocolIdToHandlerMap[spaceId](spaceArg)
+            else:
+                print("unable to parse")
+                writeDebugLog(
+                    4,
+                    "Error! unsupported message id:%s, blockId:%s, blockArg:%s, spaceId:%s, spaceArg:%s"
+                    % (id, blockId, blockArg, spaceId, spaceArg),
+                )
+
+    def buildSineWave(self, frequency, length):
+        sinewave = bytearray()
+        for i in range(length):
+            val = int(math.sin(i * frequency) * 20000)
+            sinewave.extend([(val >> 8) & 255, val & 255])
+        return bytes(sinewave)
+
+        # TODO:  support protocol commands.
+        # version":
+        # speak tts version
+
+        # tts_pause:
+        # if tts_resume:
+        # sh:
+        # silence for ms.
+        # tts__reset:
+
+
+# tts_allcaps_beep flag (beep)
 
 # Static.
 ProtocolHandler = _ProtocolHandler()
 
 # Parse all content into an ordered sequence of tokens.
 def parseContent(text, outQueue, codes=""):
-  writeDebugLog(4, "Parsing content...")
-  effects = []
-  text = text.strip(' {}')
+    writeDebugLog(4, "Parsing content...")
+    effects = []
+    text = text.strip(" {}")
 
-  while text:
-    matcher = re.match(r"(?P<first>(^(.|\n)*?))(\[\{(?P<customembed>[a-zA-Z0-9 \.-]*?)\}\])|(?P<num>(\d+))(?P<rest>(.|\n)*?)$", text)
-    if not matcher:
-      writeDebugLog(8, "no match in string " + text + "\n")
-      break
+    while text:
+        matcher = re.match(
+            r"(?P<first>(^(.|\n)*?))(\[\{(?P<customembed>[a-zA-Z0-9 \.-]*?)\}\])|(?P<num>(\d+))(?P<rest>(.|\n)*?)$",
+            text,
+        )
+        if not matcher:
+            writeDebugLog(8, "no match in string " + text + "\n")
+            break
 
-    first = matcher.group('first')
-    embed = matcher.group('customembed')
-    num = matcher.group('num')
-    rest = matcher.group('rest')
+        first = matcher.group("first")
+        embed = matcher.group("customembed")
+        num = matcher.group("num")
+        rest = matcher.group("rest")
 
-    if first and len(effects) > 0:
-      speechQueue.append(("textclip", (effects, first)))
-    elif first:
-      first = ProcessSpecialCharacters(first)
-      while len(first) > 1024:
-        outQueue.append(('text', codes + first[:1024]))
-        first = first[1024:]
-      outQueue.append(('text', codes + first))
-    writeDebugLog(
-        8, "first: " + str(first) + "\neffects " + str(effects) + "\nrest " + str(rest))
+        if first and len(effects) > 0:
+            speechQueue.append(("textclip", (effects, first)))
+        elif first:
+            first = ProcessSpecialCharacters(first)
+            while len(first) > 1024:
+                outQueue.append(("text", codes + first[:1024]))
+                first = first[1024:]
+            outQueue.append(("text", codes + first))
+        writeDebugLog(
+            8,
+            "first: "
+            + str(first)
+            + "\neffects "
+            + str(effects)
+            + "\nrest "
+            + str(rest),
+        )
 
-    if num:
-      outQueue.append(('text', codes + processNumbers(num)))
+        if num:
+            outQueue.append(("text", codes + processNumbers(num)))
 
-    if embed:
-      embedArgs = embed.split(' ')
-      # Special case voice changes.
-      if embedArgs[0] == 'voice':
-        writeDebugLog(4, 'queueing voice change: ' + str(embedArgs))
-        speechQueue.append(('voice', embedArgs[1]))
-      else:
-        effects.append(embedArgs)
+        if embed:
+            embedArgs = embed.split(" ")
+            # Special case voice changes.
+            if embedArgs[0] == "voice":
+                writeDebugLog(4, "queueing voice change: " + str(embedArgs))
+                speechQueue.append(("voice", embedArgs[1]))
+            else:
+                effects.append(embedArgs)
 
-    if rest:
-      text = rest
-    else:
-      text = ""
+        if rest:
+            text = rest
+        else:
+            text = ""
 
-  if text:
-    text = ProcessSpecialCharacters(text)
-    writeDebugLog(8, "queueing final chunk " + text)
-    if len(effects) > 0:
-      writeDebugLog(8, "Appending textclip" + str(effects))
-      speechQueue.append(("textclip", (effects, text)))
-    else:
-      writeDebugLog(8, "Appending text")
-      while len(text) > 1024:
-        outQueue.append(("text", codes + text[:1024]))
-        text = text[1024:]
-      outQueue.append(("text", codes + text))
+    if text:
+        text = ProcessSpecialCharacters(text)
+        writeDebugLog(8, "queueing final chunk " + text)
+        if len(effects) > 0:
+            writeDebugLog(8, "Appending textclip" + str(effects))
+            speechQueue.append(("textclip", (effects, text)))
+        else:
+            writeDebugLog(8, "Appending text")
+            while len(text) > 1024:
+                outQueue.append(("text", codes + text[:1024]))
+                text = text[1024:]
+            outQueue.append(("text", codes + text))
+
 
 def extractCodesFromQueue():
-  ret = ''.join([item[1] for item in codeQueue])
-  del(codeQueue[:])
-  return ret
+    ret = "".join([item[1] for item in codeQueue])
+    del codeQueue[:]
+    return ret
+
 
 # Processes speech objects.
 #  format is:
 #  { type, value }
 def processSpeechQueue():
-  if (osx_version < 9):
-    # hacky way to work around buggy NSSpeechSynthesizerDelegate
-    speechLock.acquire()
-    if speechSynthesizer.isSpeaking() or textClipPlayer.isPlaying():
-      speechLock.release()
-      return
-    speechLock.release()
+    if osx_version < 9:
+        # hacky way to work around buggy NSSpeechSynthesizerDelegate
+        speechLock.acquire()
+        if speechSynthesizer.isSpeaking() or textClipPlayer.isPlaying():
+            speechLock.release()
+            return
+        speechLock.release()
 
-  if len(speechQueue) == 0:
-    ProtocolHandler().isProcessing = False
-  elif (len(speechQueue) > 0):
-    item = speechQueue.pop(0)
+    if len(speechQueue) == 0:
+        ProtocolHandler().isProcessing = False
+    elif len(speechQueue) > 0:
+        item = speechQueue.pop(0)
 
-    #Text
-    if item[0] == "text":
-      #Basic processing.  TODO: refactor.
-      output = item[1].strip(" {}")
-      if output:
-        speechSynthesizer.setRate_(ttsState['speechRate'])
-        speechSynthesizer.startSpeakingString_(output)
-        writeDebugLog(2, "\nsay: " + output + "\nend\n")
-      else:
-        processSpeechQueue()
+        # Text
+        if item[0] == "text":
+            # Basic processing.  TODO: refactor.
+            output = item[1].strip(" {}")
+            if output:
+                speechSynthesizer.setRate_(ttsState["speechRate"])
+                speechSynthesizer.startSpeakingString_(output)
+                writeDebugLog(2, "\nsay: " + output + "\nend\n")
+            else:
+                processSpeechQueue()
 
-    # Voice changes
-    elif item[0] == "voice":
-      writeDebugLog(4, "Voice change")
-      voice = item[1]
-      if voice in voiceMap:
-        voice = voiceMap[voice]
-      else:
-        voice = NSSpeechSynthesizer.defaultVoice()
+        # Voice changes
+        elif item[0] == "voice":
+            writeDebugLog(4, "Voice change")
+            voice = item[1]
+            if voice in voiceMap:
+                voice = voiceMap[voice]
+            else:
+                voice = NSSpeechSynthesizer.defaultVoice()
 
-      speechSynthesizer.setVoice_(voice)
-      writeDebugLog(6, "set voice to " + voice)
-      processSpeechQueue()
+            speechSynthesizer.setVoice_(voice)
+            writeDebugLog(6, "set voice to " + voice)
+            processSpeechQueue()
 
-    # Custom embeds.
-    elif item[0] == 'textclip':
-      # This is totally repetitive with above.
-      output = (item[1])[1]
-      output = output.strip(' ')
-      if not output:
-        processSpeechQueue()
-        return
-      writeDebugLog(4, "rendering text clip" + str(output))
-      speechSynthesizer.setRate_(ttsState['speechRate'])
-      if not enableSox:
-        speechSynthesizer.startSpeakingString_(output)
-      else:
-        if speechSynthesizer.startSpeakingString_toURL_(
-output, speechOutUrl) and output not in renderingBlacklist:
-          speechQueue.insert(0, (('playclip', (item[1])[0])))
+        # Custom embeds.
+        elif item[0] == "textclip":
+            # This is totally repetitive with above.
+            output = (item[1])[1]
+            output = output.strip(" ")
+            if not output:
+                processSpeechQueue()
+                return
+            writeDebugLog(4, "rendering text clip" + str(output))
+            speechSynthesizer.setRate_(ttsState["speechRate"])
+            if not enableSox:
+                speechSynthesizer.startSpeakingString_(output)
+            else:
+                if (
+                    speechSynthesizer.startSpeakingString_toURL_(output, speechOutUrl)
+                    and output not in renderingBlacklist
+                ):
+                    speechQueue.insert(0, (("playclip", (item[1])[0])))
 
-    # Plays text clip (with possibly sox processing).
-    elif item[0] == 'playclip':
-      effectArgs = (item[1]).pop(0)
-      writeDebugLog(4, "about to play clip with effects: " + str(effectArgs))
-      # Hack to get us proper stereo clips.
-      subprocess.call(['sox', '/tmp/speechOut.aiff', '/tmp/speechOut.wav', 'channels', '2'])
-      inStream = pysox.CSoxStream('/tmp/speechOut.wav')
-      outStream = pysox.CSoxStream(
-'/tmp/soxSpeechOut.aiff', 'w', inStream.get_signal(), fileType='wav')
-      chain = pysox.CEffectsChain(inStream, outStream)
-      effectName = effectArgs.pop(0)
-      chain.add_effect(pysox.CEffect(effectName, effectArgs))
-      chain.flow_effects()
-      inStream.close()
-      outStream.close()
-      textClipPlayer.initWithContentsOfFile_byReference_(
-'/tmp/soxSpeechOut.aiff', False).play()
+        # Plays text clip (with possibly sox processing).
+        elif item[0] == "playclip":
+            effectArgs = (item[1]).pop(0)
+            writeDebugLog(4, "about to play clip with effects: " + str(effectArgs))
+            # Hack to get us proper stereo clips.
+            subprocess.call(
+                ["sox", "/tmp/speechOut.aiff", "/tmp/speechOut.wav", "channels", "2"]
+            )
+            inStream = pysox.CSoxStream("/tmp/speechOut.wav")
+            outStream = pysox.CSoxStream(
+                "/tmp/soxSpeechOut.aiff", "w", inStream.get_signal(), fileType="wav"
+            )
+            chain = pysox.CEffectsChain(inStream, outStream)
+            effectName = effectArgs.pop(0)
+            chain.add_effect(pysox.CEffect(effectName, effectArgs))
+            chain.flow_effects()
+            inStream.close()
+            outStream.close()
+            textClipPlayer.initWithContentsOfFile_byReference_(
+                "/tmp/soxSpeechOut.aiff", False
+            ).play()
+
 
 def ProcessSpecialCharacters(wordList):
-  punctList = punctuationMap[ttsState['punctuationLevel']]
-  # used to track if we are currently inside an embedded command.
-  inEmbeddedCommand = 0
+    punctList = punctuationMap[ttsState["punctuationLevel"]]
+    # used to track if we are currently inside an embedded command.
+    inEmbeddedCommand = 0
 
-  expansion = ""
-  for i in range(len(wordList)):
-    # Check if we are entering an embedded command
-    if wordList[i] == '[' and wordList[i - 1] == '[':
-      inEmbeddedCommand = 1
-    # Check if we are leaving an embedded command
-    if wordList[i] == ']' and wordList[i - 1] == ']':
-      inEmbeddedCommand = 0
+    expansion = ""
+    for i in range(len(wordList)):
+        # Check if we are entering an embedded command
+        if wordList[i] == "[" and wordList[i - 1] == "[":
+            inEmbeddedCommand = 1
+        # Check if we are leaving an embedded command
+        if wordList[i] == "]" and wordList[i - 1] == "]":
+            inEmbeddedCommand = 0
 
-    # if we are in an embedded command then just send the char straight through with out processing
-    if inEmbeddedCommand:
-      expansion += (wordList[i])
-      continue
+        # if we are in an embedded command then just send the char straight through with out processing
+        if inEmbeddedCommand:
+            expansion += wordList[i]
+            continue
 
-    # Check if we have an expansion for this char
-    if wordList[i] in punctList:
-      expansion += ' ' + (punctuationNamesMap[wordList[i]]) + ' '
-      continue
-    elif wordList[i] in punctuationMap['all'] and not wordList[i] in literalPunctuation:
-      expansion += wordList[i] + ' '
-      continue
+        # Check if we have an expansion for this char
+        if wordList[i] in punctList:
+            expansion += " " + (punctuationNamesMap[wordList[i]]) + " "
+            continue
+        elif (
+            wordList[i] in punctuationMap["all"]
+            and not wordList[i] in literalPunctuation
+        ):
+            expansion += wordList[i] + " "
+            continue
 
-    # if we have a cap letter
-    if ttsState['capitalize'] and re.match(r"^[A-Z]+$", wordList[i]):
-      expansion += "[[sync 3]]"
-    expansion += (wordList[i])
+        # if we have a cap letter
+        if ttsState["capitalize"] and re.match(r"^[A-Z]+$", wordList[i]):
+            expansion += "[[sync 3]]"
+        expansion += wordList[i]
 
-  return expansion
+    return expansion
 
 
 def processNumbers(num):
-    '''English representation of a number'''
+    """English representation of a number"""
     # No preprocessing necessary.
     if len(num) <= 6 or "," in num:
-      return num
+        return num
     else:
-      processed = ""
-      i = len(num)
-      while (i >= 0):
-        if i > 3:
-          processed = "," + num[i - 3:i] + processed
-        else:
-          processed = num[0:i] + processed
-          return processed
-        i -= 3
+        processed = ""
+        i = len(num)
+        while i >= 0:
+            if i > 3:
+                processed = "," + num[i - 3 : i] + processed
+            else:
+                processed = num[0:i] + processed
+                return processed
+            i -= 3
 
 
-#* Main
+# * Main
+
 
 def main():
-  speechSynthesizer.startSpeakingString_("E Mac Speak server")
-  observer = FileObserver.alloc().initWithFileDescriptor_readCallback_errorCallback_(
-        sys.stdin.fileno(), gotLine, gotError)
-  try:
-    AppHelper.runConsoleEventLoop()
-  except KeyboardInterrupt:
-    writeDebugLog(2, "\nKeyboard interrupt")
-  except Exception as err:
-    writeDebugLog(2, "Server crashed:%s" % err)
+    speechSynthesizer.startSpeakingString_("E Mac Speak server")
+    observer = FileObserver.alloc().initWithFileDescriptor_readCallback_errorCallback_(
+        sys.stdin.fileno(), gotLine, gotError
+    )
+    try:
+        AppHelper.runConsoleEventLoop()
+    except KeyboardInterrupt:
+        writeDebugLog(2, "\nKeyboard interrupt")
+    except Exception as err:
+        writeDebugLog(2, "Server crashed:%s" % err)
 
-if __name__ == '__main__':
-  main()
+
+if __name__ == "__main__":
+    main()
 
 # local variables:
 # mode: python
