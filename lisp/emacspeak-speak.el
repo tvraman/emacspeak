@@ -159,9 +159,10 @@ Speech flushes as you type."
         ((and emacspeak-word-echo
               (= (char-syntax last-command-event)32))
          (save-excursion
-          (condition-case nil
-                          (forward-word -1)
-                          (error nil))
+          (condition-case
+           nil
+           (forward-word -1)
+           (error nil))
           (emacspeak-speak-word)))
         (emacspeak-character-echo
          (emacspeak-speak-this-char (preceding-char)))))))
