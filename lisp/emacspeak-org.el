@@ -253,6 +253,7 @@
  '(
    org-delete-indentation
    org-insert-heading org-insert-todo-heading
+   org-insert-structure-template
    org-promote-subtree org-demote-subtree
    org-do-promote org-do-demote
    org-move-subtree-up org-move-subtree-down
