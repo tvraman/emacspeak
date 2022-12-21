@@ -1,0 +1,124 @@
+* Dedication 
+#+begin_center
+To My Guiding Eyes
+#+end_center
+
+In fond memory of [[http://emacspeak.sf.net/raman/aster-labrador][Aster]] who first showed the way for 10 years; to [[http://emacspeak.sf.net/raman/hubbell-labrador][Hubbell]] and
+[[http://emacspeak.sf.net/raman/tilden-labrador][Tilden]] who ably followed her lead over the next 22+ years!
+
+#+BEGIN_EXPORT html
+<table>
+<tr><td colspan="3">On The Internet</td></tr>
+        <tr>
+          <td><strong>No one knows you're not a dog!</strong></td>
+          <td><strong>Nor  if you're the same dog!</strong></td>
+          <td><strong>Or even the same gender!</strong></td>
+        </tr>
+        <tr>
+          <td><a href="aster-labrador/">
+                <img src="aster-labrador/aster-geb-graduation.jpg"
+                     alt="Aster Labrador" width="150" height="216" /></a>
+ <br/>(2/15/1987—12/05/1999)</td>
+            <td><a href="hubbell-labrador/">
+                  <img
+                      src="hubbell-labrador/hubbell-and-raman.jpg" width="150" height="216"
+                      alt=" Hubbell Labrador" /></a>
+<br/>(12/21/1997—4/11/2011)</td>
+              <td><a href="tilden-labrador/">
+                    <img src="tilden-labrador/raman-and-tilden-geb.jpg"
+                         alt="Tilden Labrador" width="150"
+                         height="216" /></a>
+<br/>(8/4/2009—9/3/2022)</td>
+        </tr>
+      </table>
+#+END_EXPORT
+
+* Overview
+
+The work describing Audio System For Technical Readings [[https://emacspeak.sourceforge.net/raman/aster/abstract.html][(AsTeR)]] was
+presented to the Faculty of the Graduate School of Cornell University
+on Monday, Jan 17, 1994 for my [[http://awards.acm.org/award_winners/raman_4110221.cfm][PhD]].  This release
+is an updated version of AsTeR that uses the Software DECTalk.
+
+* Implementation
+
+- AsTeR /audio-formats/  *TeX* and *LaTeX* documents.
+-   User interface   is implemented in Emacs.
+- It uses  the Emacspeak speech-server =dtk-soft= to connect to the software DECTalk.
+- The  audio-formatter  is implemented in Common Lisp (SBCL).
+- Emacs commands call    Common Lisp via /slime/ to communicate with  Aster.
+
+* Prerequisites
+
+- Install Emacspeak 57.0 or later from Github.
+- Install  /slime/ and /auctex/ using =M-x package-install=.
+- Install /flex/,  /SBCL/  and /cl-asdf/ using  the  linux  package manager.
+- Install  [[https://github.com/dectalk/dectalk][Software DECTalk]] from Github.
+
+* Building AsTeR
+
+1. =cd= <emacspeak> to change to your =emacspeak= directory.
+2. Get source via git checkout [[https://github.com/tvraman/aster-math]]
+3. =cd aster-math/lisp  && make=
+
+* Usage
+
+- Add directory =aster-math/ui/= to your Emacs =load-path=.
+- Run =M-x load-library= /aster/; =M-x aster=.
+- Aster commands are   on Emacs prefix-key
+  =C-; SPC= and =C-' a=.
+- =M-x describe-function aster= displays help.
+- To speak math using AsTeR:
+  1. Send a TeX file.
+  2. Send math content from any Emacs buffer.
+  3. When  editing LaTeX — including from within org-mode buffers.
+  4. When  browsing Wikipedia pages containing mathematics using Emacs'
+     EWW browser. (Make sure to first disable =shr-discard-aria-hidden=).
+  5. From Emacs  Calculator (calc).
+  6. From the Emacs interface to Sage --- a symbolic algebra system.
+- Once Aster starts speaking, you can use Aster's
+  browser to move around.
+- Papers from [[https://arxiv.org/][arxiv.org]]  — see  [[https://info.arxiv.org/about/accessibility_research_report.html][Arxiv.org Accessibility Report]]
+
+* References
+
+
+1. [[https://emacspeak.sourceforge.net/raman/aster/2022-aster.ogg][Demo recorded in October 2022]].
+2. [[https://emacspeak.sourceforge.net/raman/aster/aster-toplevel.html][Demo recorded in 1994]].
+3. [[http://emacspeak.sf.net/raman/amsci-96.pdf][Brian Hayes: Speaking Of Mathematics]], American Scientist, March
+   1996 — An accessible overview of  AsTeR.
+4. [[https://emacspeak.sourceforge.net/raman/sciam-0996profile.html][Envisioning Speech:Scientific American]], Wayte Gibbs, September 1996
+   — Describes  AsTeR, Audio-formatting and Emacspeak.
+5. [[https://emacspeak.sourceforge.net/raman/publications/rfb-math-workshop/][Proceedings: RFB Math & Science Symposium]],  May 12 – 13 1994.
+6. [[https://emacspeak.sourceforge.net/raman/phd-thesis/index.html][PHd Thesis]], January 1994.
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: AsTeR: Spoken Math On The Emacspeak Audio Desktop
+#+date: <2022-11-28 Mon>
+#+author: T.V Raman
+#+email: ttv.raman.tv@gmail.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+cite_export:
+#+options: html-link-use-abs-url:nil html-postamble:auto
+#+options: html-preamble:t html-scripts:nil html-style:t
+#+options: html5-fancy:nil tex:t
+#+html_doctype: xhtml-strict
+#+html_container: div
+#+html_content_class: content
+#+description:
+#+keywords:
+#+html_link_home:
+#+html_link_up:
+#+html_mathjax:
+#+html_equation_reference_format: \eqref{%s}
+#+html_head: <base href="http://emacspeak.sf.net/raman"/>
+#+html_head_extra:
+#+subtitle:
+#+infojs_opt:
+#+latex_header:
