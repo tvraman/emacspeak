@@ -35,6 +35,443 @@
   </openSearch:startIndex>
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
+
+<entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-994492726550844692</id><published>
+      2022-12-20T20:36:00.001-08:00
+    </published>
+    <updated>2022-12-20T20:36:18.660-08:00</updated><title type='text'>
+      AsTeR: Spoken Math On The Emacspeak Audio Desktop
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;AsTeR: Spoken Math On The
+      Emacspeak Audio Desktop&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org7428d59&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org7428d59&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Dedication&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;div class=&quot;org-center&quot;&gt;
+      &lt;p&gt;
+      To My Guiding Eyes
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      In fond memory of &lt;a
+      
+      href=&quot;http://emacspeak.sf.net/raman/aster-labrador&quot;&gt;Aster&lt;/a&gt; who first showed the way for 10 years; to &lt;a href=&quot;http://emacspeak.sf.net/raman/hubbell-labrador&quot;&gt;Hubbell&lt;/a&gt; and
+      &lt;a
+      
+      href=&quot;http://emacspeak.sf.net/raman/tilden-labrador&quot;&gt;Tilden&lt;/a&gt; who ably followed her lead over the next 22+ years!
+      &lt;/p&gt;
+      
+      &lt;table&gt;
+      &lt;tr&gt;&lt;td colspan=&quot;3&quot;&gt;On The
+      Internet&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;No one knows you&#39;re not a
+      dog!&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Nor  if you&#39;re the same
+      dog!&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Or even the same
+      gender!&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;aster-labrador/&quot;&gt;
+      &lt;img src=&quot;aster-labrador/aster-geb-graduation.jpg&quot;
+      alt=&quot;Aster Labrador&quot; width=&quot;150&quot;
+      height=&quot;216&quot; /&gt;&lt;/a&gt;
+      &lt;br/&gt;(2/15/1987—12/05/1999)&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;hubbell-labrador/&quot;&gt;
+      &lt;img
+      src=&quot;hubbell-labrador/hubbell-and-raman.jpg&quot;
+      width=&quot;150&quot; height=&quot;216&quot;
+      alt=&quot; Hubbell Labrador&quot; /&gt;&lt;/a&gt;
+      &lt;br/&gt;(12/21/1997—4/11/2011)&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;tilden-labrador/&quot;&gt;
+      &lt;img src=&quot;tilden-labrador/raman-and-tilden-geb.jpg&quot;
+      alt=&quot;Tilden Labrador&quot; width=&quot;150&quot;
+      height=&quot;216&quot; /&gt;&lt;/a&gt;
+      &lt;br/&gt;(8/4/2009—9/3/2022)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org86c9bc8&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org86c9bc8&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt;
+      Overview&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      The work describing Audio System For Technical Readings &lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/aster/abstract.html&quot;&gt;(AsTeR)&lt;/a&gt; was
+      presented to the Faculty of the Graduate School of Cornell
+      Universityon Monday, Jan 17, 1994 for my &lt;a
+      
+      href=&quot;http://awards.acm.org/award_winners/raman_4110221.cfm&quot;&gt;PhD&lt;/a&gt;.  This release
+      is an updated version of AsTeR that uses the Software DECTalk.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org30a965c&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org30a965c&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt;
+      Implementation&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;AsTeR &lt;i&gt;audio-formats&lt;/i&gt; 
+      &lt;b&gt;TeX&lt;/b&gt; and &lt;b&gt;LaTeX&lt;/b&gt;
+      documents.&lt;/li&gt;
+      &lt;li&gt;User interface   is implemented in Emacs.&lt;/li&gt;
+      &lt;li&gt;It uses  the Emacspeak speech-server
+      &lt;code&gt;dtk-soft&lt;/code&gt; to connect to the software
+      DECTalk.&lt;/li&gt;
+      &lt;li&gt;The  audio-formatter  is implemented in Common Lisp
+      (SBCL).&lt;/li&gt;
+      &lt;li&gt;Emacs commands call    Common Lisp via
+      &lt;i&gt;slime&lt;/i&gt; to communicate with  Aster.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org8b54678&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org8b54678&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt;
+      Prerequisites&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Install Emacspeak 57.0 or later from Github.&lt;/li&gt;
+      &lt;li&gt;Install  &lt;i&gt;slime&lt;/i&gt; and
+      &lt;i&gt;auctex&lt;/i&gt; using &lt;code&gt;M-x
+      package-install&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Install &lt;i&gt;flex&lt;/i&gt;,  &lt;i&gt;SBCL&lt;/i&gt; 
+      and &lt;i&gt;cl-asdf&lt;/i&gt; using  the  linux  package
+      manager.&lt;/li&gt;
+      &lt;li&gt;Install  &lt;a
+      href=&quot;https://github.com/dectalk/dectalk&quot;&gt;Software
+      DECTalk&lt;/a&gt; from Github.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org10a0b30&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org10a0b30&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt; Building
+      AsTeR&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;code&gt;cd&lt;/code&gt; &amp;lt;emacspeak&amp;gt; to
+      change to your &lt;code&gt;emacspeak&lt;/code&gt;
+      directory.&lt;/li&gt;
+      &lt;li&gt;Get source via git checkout &lt;a
+      
+      href=&quot;https://github.com/tvraman/aster-math&quot;&gt;https://github.com/tvraman/aster-math&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;cd aster-math/lisp  &amp;amp;&amp;amp;
+      make&lt;/code&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org42bfb20&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org42bfb20&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;6.&lt;/span&gt;
+      Usage&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Add directory &lt;code&gt;aster-math/ui/&lt;/code&gt; to
+      your Emacs &lt;code&gt;load-path&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Run &lt;code&gt;M-x load-library&lt;/code&gt;
+      &lt;i&gt;aster&lt;/i&gt;; &lt;code&gt;M-x
+      aster&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Aster commands are   on Emacs prefix-key
+      &lt;code&gt;C-; SPC&lt;/code&gt; and &lt;code&gt;C-&#39;
+      a&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;M-x describe-function aster&lt;/code&gt;
+      displays help.&lt;/li&gt;
+      &lt;li&gt;To speak math using AsTeR:
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Send a TeX file.&lt;/li&gt;
+      &lt;li&gt;Send math content from any Emacs buffer.&lt;/li&gt;
+      &lt;li&gt;When  editing LaTeX — including from within org-mode
+      buffers.&lt;/li&gt;
+      &lt;li&gt;When  browsing Wikipedia pages containing mathematics
+      using Emacs&#39;
+      EWW browser. (Make sure to first disable
+      &lt;code&gt;shr-discard-aria-hidden&lt;/code&gt;).&lt;/li&gt;
+      &lt;li&gt;From Emacs  Calculator (calc).&lt;/li&gt;
+      &lt;li&gt;From the Emacs interface to Sage &amp;#x2014; a symbolic
+      algebra system.&lt;/li&gt;
+      &lt;/ol&gt;&lt;/li&gt;
+      &lt;li&gt;Once Aster starts speaking, you can use Aster&#39;s
+      browser to move around.&lt;/li&gt;
+      &lt;li&gt;Papers from &lt;a
+      href=&quot;https://arxiv.org/&quot;&gt;arxiv.org&lt;/a&gt;  — see 
+      &lt;a
+      
+      href=&quot;https://info.arxiv.org/about/accessibility_research_report.html&quot;&gt;Arxiv.org Accessibility Report&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgd061514&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd061514&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;7.&lt;/span&gt;
+      References&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/aster/2022-aster.ogg&quot;&gt;Demo recorded in October 2022&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/aster/aster-toplevel.html&quot;&gt;Demo recorded in 1994&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;http://emacspeak.sf.net/raman/amsci-96.pdf&quot;&gt;Brian
+      Hayes: Speaking Of Mathematics&lt;/a&gt;, American Scientist, March
+      1996 — An accessible overview of  AsTeR.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/sciam-0996profile.html&quot;&gt;Envisioning Speech:Scientific American&lt;/a&gt;, Wayte Gibbs, September 1996
+      — Describes  AsTeR, Audio-formatting and Emacspeak.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/publications/rfb-math-workshop/&quot;&gt;Proceedings: RFB Math &amp;amp; Science Symposium&lt;/a&gt;,  May 12 – 13 1994.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/phd-thesis/index.html&quot;&gt;PHd Thesis&lt;/a&gt;, January 1994.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/994492726550844692'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/994492726550844692'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio.html' title='AsTeR: Spoken Math On The Emacspeak Audio Desktop'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-2198261518305009360</id><published>
+      2022-12-20T19:06:00.002-08:00
+    </published>
+    <updated>2022-12-20T19:06:51.438-08:00</updated><title type='text'>
+      Toward Accessible Scientific Documents From Arxiv.Org
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Toward Accessible Scientific
+      Documents Via Arxiv.Org&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-orga229d1f&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orga229d1f&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      I access research papers from &lt;a
+      href=&quot;https://arxiv.org&quot;&gt;arxiv.org&lt;/a&gt; multiple
+      times a week. Having
+      originally worked on  access to STEM content for my PhD over 30
+      yearsago, I find it both encouraging and challenging as I continue
+      to acquire
+      access to the research materials I need.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      As the Digital Library of the future, &lt;i&gt;arxiv&lt;/i&gt; is
+      committed to
+      improving the state of STEM Access; see the  
+      &lt;a
+      
+      href=&quot;https://info.arxiv.org/about/accessibility_research_report.html&quot;&gt;Accessibility&lt;/a&gt; report they recently published. A few months
+      ago after talking to them about their goals, I wrote down some ideas
+      that would make my own access to &lt;i&gt;arxiv&lt;/i&gt; a smoother
+      experience;
+      posting them here so folks in the STEM Accessibility community can
+      expand and build on these ideas.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org10567aa&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org10567aa&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt;
+      Goal&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot;
+      id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      Make &lt;a href=&quot;http://arxiv.org&quot;&gt;Arxiv&lt;/a&gt; a
+      destination for Accessible Scientific documents where
+      blind students and researchers  can consume the latest technical
+      content  via alternative modes of interaction that best suit their
+      individual needs.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org31adab2&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org31adab2&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Making The
+      Portal Easy To Use&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      A &lt;i&gt;REST&lt;/i&gt; API to automate the download of multiple
+      formats.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgfa90fc6&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgfa90fc6&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; Making The
+      Content Progressively Easy To Consume&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Build PDFs using PDFLaTeX rather than the
+      DVI-&amp;gt;PS-&amp;gt;PDF pipeline.&lt;/li&gt;
+      &lt;li&gt;Ensure that PDFs are one-column layout.&lt;/li&gt;
+      &lt;li&gt;Build HTML+Math content from LaTeX using TeX4HT and
+      friends.&lt;/li&gt;
+      &lt;li&gt;Build out a collection of high-quality LaTeX macros for
+      specific
+      sub-domains in CS and Math so authors dont need to invent their
+      own marcos.&lt;/li&gt;
+      &lt;li&gt;Allow authors to contribute macros for new notation as it
+      gets invented.&lt;/li&gt;
+      &lt;li&gt;Incorporate Speech Rules Engine (SRE) from Volker 
+      Sorge.&lt;/li&gt;
+      &lt;li&gt;Explore ChromeBooks where  ChromeVox is already
+      built-in.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgf3c1c72&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgf3c1c72&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt; Target
+      Experience&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;p&gt;
+      Once we have:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Arxiv: building PDF and HTML the way we desire.&lt;/li&gt;
+      &lt;li&gt;Client-side setup recipe &amp;#x2013; initially for a
+      ChromeBook or Linux
+      running my present environment (see final Teaser
+      section).&lt;/li&gt;&lt;li&gt;Mathjax and SRE injected at the right
+      points on the backend at &lt;i&gt;arxiv&lt;/i&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      
+      &lt;p&gt;
+      The target audience should be able to:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Search and discover content on arxiv.&lt;/li&gt;
+      &lt;li&gt;View and consume content from Arxiv via the browser of
+      choice with spoken
+      feedback built-in.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org0215591&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org0215591&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;6.&lt;/span&gt; Iterate And
+      improve&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Test the flow with a few initial members of the target
+      audience to discover the pain-points and fix them.&lt;/li&gt;
+      &lt;li&gt;Communicate what we learn via arxiv given the traffic and
+      start
+      publicizing the solution.&lt;/li&gt;
+      &lt;li&gt;Rinse and repeat ….&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org864b785&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org864b785&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;7.&lt;/span&gt; Research
+      Areas&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Graphs &amp;#x2013; start with Graphviz &amp;#x2014; 
+      &lt;i&gt;Dot Graphics&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;Graphs as in X-Y plots &amp;#x2014; there has been some
+      work on
+      data Sonification &amp;#x2014; but it&#39;s still early and
+      exploratory.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      
+      &lt;div id=&quot;outline-container-org656867a&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org656867a&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;8.&lt;/span&gt;
+      References&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-8&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/zorkow/speech-rule-engine/releases&quot;&gt;Speech Rule Engine &lt;/a&gt; from Volker Sorge.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://tug.org/tex4ht/&quot;&gt;TeX4HT&lt;/a&gt; On
+      Debian Linux, this is in package
+      &lt;code&gt;texlive-plain-generic.list&lt;/code&gt; &amp;#x2014;
+      installed as &lt;code&gt;/usr/bin/xhlatex&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;Emacspeak&lt;/a&gt; &amp;#x2014; includes support for Math via SRE &amp;#x2014; AKA poor man&#39;s AsTeR.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/tvraman/aster-math#start-of-content&quot;&gt;Teaser:&lt;/a&gt; Heard from a bird: Speaking Of Mathematics: #emacspeak #STEM Again DECTalk → Again AsTeR.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2198261518305009360'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2198261518305009360'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2022/12/toward-accessible-scientific-documents.html' title='Toward Accessible Scientific Documents From Arxiv.Org'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
 <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-9200044220140893596</id><published>
       2022-11-23T10:10:00.001-08:00
