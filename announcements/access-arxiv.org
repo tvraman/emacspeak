@@ -1,0 +1,95 @@
+* Background
+
+I access research papers from [[https://arxiv.org][arxiv.org]] multiple times a week. Having
+originally worked on  access to STEM content for my PhD over 30 years
+ago, I find it both encouraging and challenging as I continue to acquire
+access to the research materials I need.
+
+As the Digital Library of the future, /arxiv/ is committed to
+improving the state of STEM Access; see the  
+[[https://info.arxiv.org/about/accessibility_research_report.html][Accessibility]] report they recently published. A few months
+ago after talking to them about their goals, I wrote down some ideas
+that would make my own access to /arxiv/ a smoother experience;
+posting them here so folks in the STEM Accessibility community can
+expand and build on these ideas.
+
+* Goal
+
+Make [[http://arxiv.org][Arxiv]] a destination for Accessible Scientific documents where
+blind students and researchers  can consume the latest technical
+content  via alternative modes of interaction that best suit their
+individual needs.
+
+* Making The Portal Easy To Use
+
+   A /REST/ API to automate the download of multiple formats.
+  
+* Making The Content Progressively Easy To Consume
+
+  1. Build PDFs using PDFLaTeX rather than the DVI->PS->PDF pipeline.
+  2. Ensure that PDFs are one-column layout.
+  3. Build HTML+Math content from LaTeX using TeX4HT and friends.
+  4. Build out a collection of high-quality LaTeX macros for specific
+     sub-domains in CS and Math so authors dont need to invent their
+     own marcos.
+  5. Allow authors to contribute macros for new notation as it gets invented.
+  6. Incorporate Speech Rules Engine (SRE) from Volker  Sorge.
+  7. Explore ChromeBooks where  ChromeVox is already built-in.
+
+* Target Experience
+
+Once we have:
+
+1. Arxiv: building PDF and HTML the way we desire.
+2. Client-side setup recipe -- initially for a ChromeBook or Linux
+   running my present environment (see final Teaser section).
+3. Mathjax and SRE injected at the right points on the backend at /arxiv/.
+   
+
+The target audience should be able to:
+
+1. Search and discover content on arxiv.
+2. View and consume content from Arxiv via the browser of choice with spoken
+   feedback built-in.
+
+* Iterate And improve 
+
+1. Test the flow with a few initial members of the target audience to discover the pain-points and fix them.
+2. Communicate what we learn via arxiv given the traffic and start
+   publicizing the solution.
+3. Rinse and repeat ….
+
+* Research Areas
+
+  1. Graphs -- start with Graphviz ---  /Dot Graphics/.
+  2. Graphs as in X-Y plots --- there has been some work on
+     data Sonification --- but it's still early and exploratory.
+
+
+
+* References 
+
+ 1. [[https://github.com/zorkow/speech-rule-engine/releases][Speech Rule Engine ]] from Volker Sorge.
+ 2. [[https://www.mathjax.org/][MathJax]]
+ 3. [[https://tug.org/tex4ht/][TeX4HT]] On Debian Linux, this is in package
+    ~texlive-plain-generic.list~ --- installed as ~/usr/bin/xhlatex~.
+ 4. [[https://github.com/tvraman/emacspeak][Emacspeak]] --- includes support for Math via SRE --- AKA poor man's AsTeR.
+ 5.  [[https://github.com/tvraman/aster-math#start-of-content][Teaser:]] Heard from a bird: Speaking Of Mathematics: #emacspeak #STEM Again DECTalk → Again AsTeR.
+
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Toward Accessible Scientific Documents Via Arxiv.Org
+#+date: <2022-08-05 Fri>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 29.0.50 (Org mode 9.5.4)
+#+cite_export:

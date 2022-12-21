@@ -1,7 +1,9 @@
 #!/usr/bin/perl
 # Like tex-check but for org
 
-
+#Initializations
+$, = ' ';		# set output field separator
+$\ = "\n";		# set output record separator
 #local function definitions
 
 sub org_check {
@@ -83,7 +85,7 @@ sub print_message {
     my ($message_string) = @_;
 
     #Print a message like grep -n
-    print $ARGV . ':' . $. . ':' . $message_string;
+    print $ARGV . ':' . $. . ':' . $message_string."\n";
 }
 
 #top-level:
