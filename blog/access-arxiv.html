@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-12-20 Tue 18:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Toward Accessible Scientific Documents Via Arxiv.Org</title>
+<meta name="author" content="T.V Raman" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Toward Accessible Scientific Documents Via Arxiv.Org</h1>
+<div id="outline-container-orga229d1f" class="outline-2">
+<h2 id="orga229d1f"><span class="section-number-2">1.</span> Background</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I access research papers from <a href="https://arxiv.org">arxiv.org</a> multiple times a week. Having
+originally worked on  access to STEM content for my PhD over 30 years
+ago, I find it both encouraging and challenging as I continue to acquire
+access to the research materials I need.
+</p>
+
+<p>
+As the Digital Library of the future, <i>arxiv</i> is committed to
+improving the state of STEM Access; see the  
+<a href="https://info.arxiv.org/about/accessibility_research_report.html">Accessibility</a> report they recently published. A few months
+ago after talking to them about their goals, I wrote down some ideas
+that would make my own access to <i>arxiv</i> a smoother experience;
+posting them here so folks in the STEM Accessibility community can
+expand and build on these ideas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org10567aa" class="outline-2">
+<h2 id="org10567aa"><span class="section-number-2">2.</span> Goal</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Make <a href="http://arxiv.org">Arxiv</a> a destination for Accessible Scientific documents where
+blind students and researchers  can consume the latest technical
+content  via alternative modes of interaction that best suit their
+individual needs.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org31adab2" class="outline-2">
+<h2 id="org31adab2"><span class="section-number-2">3.</span> Making The Portal Easy To Use</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+A <i>REST</i> API to automate the download of multiple formats.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfa90fc6" class="outline-2">
+<h2 id="orgfa90fc6"><span class="section-number-2">4.</span> Making The Content Progressively Easy To Consume</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>Build PDFs using PDFLaTeX rather than the DVI-&gt;PS-&gt;PDF pipeline.</li>
+<li>Ensure that PDFs are one-column layout.</li>
+<li>Build HTML+Math content from LaTeX using TeX4HT and friends.</li>
+<li>Build out a collection of high-quality LaTeX macros for specific
+sub-domains in CS and Math so authors dont need to invent their
+own marcos.</li>
+<li>Allow authors to contribute macros for new notation as it gets invented.</li>
+<li>Incorporate Speech Rules Engine (SRE) from Volker  Sorge.</li>
+<li>Explore ChromeBooks where  ChromeVox is already built-in.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf3c1c72" class="outline-2">
+<h2 id="orgf3c1c72"><span class="section-number-2">5.</span> Target Experience</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Once we have:
+</p>
+
+<ol class="org-ol">
+<li>Arxiv: building PDF and HTML the way we desire.</li>
+<li>Client-side setup recipe &#x2013; initially for a ChromeBook or Linux
+running my present environment (see final Teaser section).</li>
+<li>Mathjax and SRE injected at the right points on the backend at <i>arxiv</i>.</li>
+</ol>
+
+
+<p>
+The target audience should be able to:
+</p>
+
+<ol class="org-ol">
+<li>Search and discover content on arxiv.</li>
+<li>View and consume content from Arxiv via the browser of choice with spoken
+feedback built-in.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0215591" class="outline-2">
+<h2 id="org0215591"><span class="section-number-2">6.</span> Iterate And improve</h2>
+<div class="outline-text-2" id="text-6">
+<ol class="org-ol">
+<li>Test the flow with a few initial members of the target audience to discover the pain-points and fix them.</li>
+<li>Communicate what we learn via arxiv given the traffic and start
+publicizing the solution.</li>
+<li>Rinse and repeat ….</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org864b785" class="outline-2">
+<h2 id="org864b785"><span class="section-number-2">7.</span> Research Areas</h2>
+<div class="outline-text-2" id="text-7">
+<ol class="org-ol">
+<li>Graphs &#x2013; start with Graphviz &#x2014;  <i>Dot Graphics</i>.</li>
+<li>Graphs as in X-Y plots &#x2014; there has been some work on
+data Sonification &#x2014; but it's still early and exploratory.</li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org656867a" class="outline-2">
+<h2 id="org656867a"><span class="section-number-2">8.</span> References</h2>
+<div class="outline-text-2" id="text-8">
+<ol class="org-ol">
+<li><a href="https://github.com/zorkow/speech-rule-engine/releases">Speech Rule Engine </a> from Volker Sorge.</li>
+<li><a href="https://www.mathjax.org/">MathJax</a></li>
+<li><a href="https://tug.org/tex4ht/">TeX4HT</a> On Debian Linux, this is in package
+<code>texlive-plain-generic.list</code> &#x2014; installed as <code>/usr/bin/xhlatex</code>.</li>
+<li><a href="https://github.com/tvraman/emacspeak">Emacspeak</a> &#x2014; includes support for Math via SRE &#x2014; AKA poor man's AsTeR.</li>
+<li><a href="https://github.com/tvraman/aster-math#start-of-content">Teaser:</a> Heard from a bird: Speaking Of Mathematics: #emacspeak #STEM Again DECTalk → Again AsTeR.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-08-05 Fri 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2022-12-20 Tue 18:59</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
