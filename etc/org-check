@@ -85,7 +85,7 @@ sub print_message {
     my ($message_string) = @_;
 
     #Print a message like grep -n
-    print $ARGV . ':' . $. . ':' . $message_string."\n";
+    print $ARGV . ':' . $. . ':' . $message_string;
 }
 
 #top-level:
