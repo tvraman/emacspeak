@@ -608,15 +608,6 @@ Leave point at front of decoded attachment."
 (defalias 'vm-mime-display-internal-emacs-w3m-text/html
   'vm-mime-display-internal-shr-text/html)
 
-(defun vm-chromium ()
-  "Run Chromium on current link."
-  (interactive)
-  (let ((url (browse-url-url-at-point)))
-    (unless url (error "No link here."))
-    (dtk-stop)
-    (browse-url-chrome url)
-    (message "Opening url with Chrome")))
-
 (defcustom emacspeak-vm-use-raman-settings t
   "Should VM  use the customizations used by the author of Emacspeak."
   :type 'boolean
