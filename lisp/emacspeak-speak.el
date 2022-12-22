@@ -600,7 +600,7 @@ the sense of the filter. "
       (read-minibuffer
        (format
         "Specify columns to %s: "
-        (if emacspeak-speak-line-invert-filter "filter out" " speak"))
+        (if emacspeak-speak-line-invert-filter " speak" "filter out"))
        (format
         "%s"
         (emacspeak-speak-lookup-persistent-filter
