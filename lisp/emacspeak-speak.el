@@ -600,13 +600,11 @@ the sense of the filter. "
       (read-minibuffer
        (format
         "Specify columns to %s: "
-        (if emacspeak-speak-line-invert-filter
-            " speak"
-            "filter out"))
-       (format "%s"
-               (emacspeak-speak-lookup-persistent-filter
-                (or (buffer-file-name) (symbol-name major-mode)))
-                   "")))))
+        (if emacspeak-speak-line-invert-filter "filter out" " speak"))
+       (format
+        "%s"
+        (emacspeak-speak-lookup-persistent-filter
+         (or (buffer-file-name) (symbol-name major-mode))))))))
   (cond
     ((and (listp filter)
           (cl-every
