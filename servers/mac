@@ -224,7 +224,7 @@ def gotLine(observer, aLine):
     AppHelper.stopEventLoop()
 
 def gotError(observer, err):
-  print("error:", err)
+  print(("error:", err))
   AppHelper.stopEventLoop()
 
 def writeDebugLog(level, output):
@@ -237,7 +237,7 @@ def writeDebugLog(level, output):
       DEBUGFILE.write("\n" + output)
       # Write debug messages to STDOUT if requested as well
       if debugToSTDOUT:
-        print(output + "\n")
+        print((output + "\n"))
     DEBUGFILE.flush()
 
 
