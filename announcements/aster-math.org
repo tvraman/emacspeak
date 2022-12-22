@@ -76,9 +76,10 @@ is an updated version of AsTeR that uses the Software DECTalk.
      EWW browser. (Make sure to first disable =shr-discard-aria-hidden=).
   5. From Emacs  Calculator (calc).
   6. From the Emacs interface to Sage --- a symbolic algebra system.
+  7. Papers from [[https://arxiv.org/][arxiv.org]]  — see  [[https://info.arxiv.org/about/accessibility_research_report.html][Arxiv.org Accessibility Report]]
 - Once Aster starts speaking, you can use Aster's
   browser to move around.
-- Papers from [[https://arxiv.org/][arxiv.org]]  — see  [[https://info.arxiv.org/about/accessibility_research_report.html][Arxiv.org Accessibility Report]]
+  
 
 * References
 
