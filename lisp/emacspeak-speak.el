@@ -547,7 +547,9 @@ emacspeak-speak-filter-table)\n" k v)))
   "Lookup a filter setting we may have persisted."
   (cl-declare (special emacspeak-speak-filter-table))
   (or
-   (gethash (intern key) emacspeak-speak-filter-table)
+   (gethash
+    (if (symbolp key) key (intern key))
+    emacspeak-speak-filter-table)
    (list (list 0 (current-column)))))
 
 (defun emacspeak-speak-set-persistent-filter (key value)
@@ -602,10 +604,9 @@ the sense of the filter. "
             " speak"
             "filter out"))
        (format "%s"
-               (if (buffer-file-name)
-                   (emacspeak-speak-lookup-persistent-filter
-                    (buffer-file-name))
-                   ""))))))
+               (emacspeak-speak-lookup-persistent-filter
+                (or (buffer-file-name) (symbol-name major-mode)))
+                   "")))))
   (cond
     ((and (listp filter)
           (cl-every
@@ -614,8 +615,10 @@ the sense of the filter. "
                     (= 2 (length l))))
            filter))
      (setq emacspeak-speak-line-column-filter filter)
-     (when (buffer-file-name)
-       (emacspeak-speak-set-persistent-filter (buffer-file-name) filter)))
+     (when (or (buffer-file-name) major-mode)
+       (emacspeak-speak-set-persistent-filter
+        (or (buffer-file-name) (symbol-name major-mode))
+        filter)))
     (t
      (setq emacspeak-speak-line-column-filter nil))))
 
