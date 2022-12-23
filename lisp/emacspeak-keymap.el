@@ -667,7 +667,6 @@
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("n" emacspeak-wizards-google-news)
     ("p" proced)
-    ("o" org-mode)
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
@@ -747,8 +746,10 @@
 
 (defcustom emacspeak-multi-keys
   '(
-    ("l" emacspeak-m-player-locate-media)
+    ("d" deadgrep)
     ("h" emacspeak-m-player-browse-history)
+    ("l" emacspeak-m-player-locate-media)
+    ("o" org-mode)
     ("y" emacspeak-google-yt-feed))
   "Multi key bindings. "
   :group 'emacspeak
