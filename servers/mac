@@ -512,15 +512,10 @@ class _ProtocolHandler:
         global ttsState
         ttsState["punctuationLevel"] = params[0]
         ttsState["splitCaps"] = int(params[1])
-        ttsState["speechRate"] = int(params[2])
+        ttsState["capsbeep"] = int(params[2])
+        ttsState["speechRate"] = int(params[3])
 
-        # For older versions of the protocol.
-        if len(params) == 5:
-            ttsState["capitalize"] = int(params[1])
-            ttsState["allCaps"] = int(params[2])
-            ttsState["splitCaps"] = int(params[3])
-            ttsState["speechRate"] = int(params[4])
-
+        
         writeDebugLog(
             6,
             "tts_sync: set punctuation level to: "
