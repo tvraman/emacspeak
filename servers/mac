@@ -56,7 +56,7 @@ if debugLevel > 0:
     )
 
     # Insecure version; used for easier debugging.
-    #DEBUGFILE = open("/tmp/speech.log", "w")
+    # DEBUGFILE = open("/tmp/speech.log", "w")
 
 # global speech rate
 ttsState["speechRate"] = 500
@@ -515,7 +515,6 @@ class _ProtocolHandler:
         ttsState["capsbeep"] = int(params[2])
         ttsState["speechRate"] = int(params[3])
 
-        
         writeDebugLog(
             6,
             "tts_sync: set punctuation level to: "
@@ -596,6 +595,8 @@ class _ProtocolHandler:
 ProtocolHandler = _ProtocolHandler()
 
 # Parse all content into an ordered sequence of tokens.
+
+
 def parseContent(text, outQueue, codes=""):
     writeDebugLog(4, "Parsing content...")
     effects = []
