@@ -1240,7 +1240,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (cond
    ((and emacspeak-m-player-media-history
          (> (length emacspeak-m-player-media-history) posn))
-    (funcall #'emacspeak-m-player-url (elt emacspeak-m-player-media-history posn)))
+    (emacspeak-m-player-url (elt emacspeak-m-player-media-history posn)))
    (t (error "Not enough history"))))
 
 (defvar emacspeak-m-player-history-map
