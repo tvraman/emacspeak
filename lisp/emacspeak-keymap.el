@@ -703,7 +703,7 @@
     ("," eldoc)
     ("a" emacspeak-feeds-atom-display)
     ("b" sox-binaural)
-    ("d" sdcv-search-input)
+    ("d" deadgrep)
     ("e" eww)
     ("f" ffap)
     ("g" rg)
@@ -746,7 +746,7 @@
 
 (defcustom emacspeak-multi-keys
   '(
-    ("d" deadgrep)
+    ("d" sdcv-search-input)
     ("h" emacspeak-m-player-browse-history)
     ("l" emacspeak-m-player-locate-media)
     ("o" org-mode)
