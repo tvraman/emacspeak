@@ -546,9 +546,6 @@
 @item n
  emacspeak-wizards-google-news
 
-@item o
- org-mode
-
 @item p
  proced
 
@@ -586,7 +583,7 @@
  sox-binaural
 
 @item d
- sdcv-search-input
+ deadgrep
 
 @item e
  eww
@@ -756,11 +753,17 @@
  @section Emacspeak Keybindings On emacspeak-multi-keymap
 
 @table @kbd
+@item d
+ sdcv-search-input
+
 @item h
  emacspeak-m-player-browse-history
 
 @item l
  emacspeak-m-player-locate-media
+
+@item o
+ org-mode
 
 @item y
  emacspeak-google-yt-feed
