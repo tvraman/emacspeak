@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1170 commands and 148 options.
+This chapter documents a total of 1169 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8569,7 +8569,6 @@ A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
-J		emacspeak-m-player-run-jump
 L		emacspeak-m-player-get-length
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
@@ -8777,15 +8776,6 @@ Check first if current buffer is in emacspeak-m-player-mode.
 
 @format
 Play on right channel.
-@end format
-@end deffn
-
-@subsubsection emacspeak-m-player-run-jump
-@deffn {Command} emacspeak-m-player-run-jump   
-@findex emacspeak-m-player-run-jump
-
-@format
-Run buffer-local jump action.
 @end format
 @end deffn
 
@@ -9107,7 +9097,6 @@ A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
-J		emacspeak-m-player-run-jump
 L		emacspeak-m-player-get-length
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
