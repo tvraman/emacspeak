@@ -629,7 +629,7 @@ dynamic playlist. "
       (setq  emacspeak-m-player-file-list file-list)
       (when (called-interactively-p 'interactive)
         (message
-         "%s MPlayer opened  %s"
+         " MPlayer opened  %s"
          (cond
           ((null resource)
            (format
