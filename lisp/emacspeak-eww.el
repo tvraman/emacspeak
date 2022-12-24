@@ -690,16 +690,13 @@ second interactive prefix arg adds mplayer option
   (cl-declare (special
                emacspeak-m-player-media-history
                emacspeak-eww-url-at-point))
-  (let ((url
-          (browse-url-url-at-point)))
+  (let ((url (browse-url-url-at-point)))
     (cl-assert (stringp url) t "No URL under point." )
     (kill-new url)
     (cl-pushnew                         ; strip #target
      (cl-first (split-string url "#"))
      emacspeak-m-player-media-history :test #'string=)
-    (message "%s Playing url under point"
-             (if (string-match "#" url)
-                 "Press J to resume where you left off"))
+    (message " Playing url under point")
     (emacspeak-m-player url playlist-p)))
 
 (defun emacspeak-eww-curl-play-media-at-point ()
