@@ -417,12 +417,13 @@ URL fragment specifies optional start position."
   (cl-declare (special emacspeak-m-player-options))
   (ems-with-messages-silenced
    (cl-multiple-value-bind
-    (link offset )
-    (split-string url "#")
-    (let ((emacspeak-m-player-options
-            (append emacspeak-m-player-options
-                    (list "-ss" offset))))
-      (emacspeak-m-player link playlist-p)))))
+    (link offset ) (split-string url "#")
+    (cond
+      (offset
+       (let ((emacspeak-m-player-options
+               (append emacspeak-m-player-options (list "-ss" offset))))
+         (emacspeak-m-player link playlist-p)))
+      (t (emacspeak-m-player link playlist-p))))))
 
 (defvar-local  emacspeak-m-player-file-list nil
   "Records list of files being played.")
