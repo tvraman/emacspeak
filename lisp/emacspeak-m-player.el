@@ -1,4 +1,4 @@
-;;; emacspeak-m-player.el ---  mplayer Interaction -*- lexical-binding: t; -*-
+;;; emacspeak-m-player.el --- mplayer Interaction -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Controlling mplayer from emacs
@@ -80,8 +80,8 @@
 (require 'emacspeak-dired)
 (require 'ladspa)
 (require 'emacspeak-amark)
-(declare-function dired-get-filename "dired" (&optional localp
-                                                        no-error-if-not-filep))
+(declare-function
+ dired-get-filename "dired" (&optional localp no-error-if-not-filep))
 
 (declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
@@ -541,7 +541,9 @@ If a dynamic playlist exists, just use it."
 (defun ems--repeat-sentinel (process _state)
   "Process sentinel to disable repeat."
   (cl-declare (special repeat-mode))
-  (when (and repeat-mode (memq (process-status process) '(failed signal exit)))
+  (when (and
+         repeat-mode
+         (memq (process-status process) '(failed signal exit)))
     (repeat-exit)))
 
 ;;;###autoload
@@ -1617,9 +1619,10 @@ flat classical club dance full-bass full-bass-and-treble
      (let ((u
              (string-trim
               (shell-command-to-string
-               (format "%s --youtube-skip-dash-manifest    -g '%s' 2> /dev/null"
-                       emacspeak-m-player-youtube-dl
-                       url)))))
+               (format
+                "%s --youtube-skip-dash-manifest    -g '%s' 2> /dev/null"
+                emacspeak-m-player-youtube-dl
+                url)))))
        (when (= 0 (length  u)) (error "Error retrieving Media URL "))
        (kill-new u)
        (emacspeak-m-player u)))))
@@ -1701,7 +1704,10 @@ As the default, use current position."
 (defun emacspeak-m-player-amark-jump ()
   "Jump to AMark."
   (interactive)
-  (emacspeak-amark-play (call-interactively #'emacspeak-amark-find)))
+  (cl-declare (special emacspeak-m-player-process))
+  (with-current-buffer
+      (process-buffer emacspeak-m-player-process)
+    (emacspeak-amark-play (call-interactively #'emacspeak-amark-find))))
 
 ;;}}}
 ;;{{{ Adding specific Ladspa filters:
@@ -1836,7 +1842,8 @@ As the default, use current position."
    (list
     (let ((completion-ignore-case t))
       (completing-read "Preset: "
-                       emacspeak-m-player-tap-reverb-presets nil 'must-match))))
+                       emacspeak-m-player-tap-reverb-presets
+                       nil 'must-match))))
   (cl-declare (special emacspeak-m-player-tap-reverb-presets
                        emacspeak-m-player-reverb-preset-table
                        emacspeak-m-player-process
@@ -1981,7 +1988,8 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (emacspeak-m-player-dispatch  "af_del pan, channels")
     (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
     (setq emacspeak-m-player-panner (1+ emacspeak-m-player-panner))
-    (when (= 10 emacspeak-m-player-panner) (setq emacspeak-m-player-panner -10))
+    (when (= 10 emacspeak-m-player-panner)
+      (setq emacspeak-m-player-panner -10))
     (message "Panned  to %.1f %.1f" (- 1 this) this)))
 
 ;;}}}
@@ -2010,7 +2018,8 @@ our pre-defined filters if appropriate."
         (args nil))
     (when
         (cl-some
-         #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
+         #'null
+         (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
       (ladspa-instantiate))
     (setq args (emacspeak-m-player-ladspa-cmd plugin))
     (kill-new args)
@@ -2086,7 +2095,8 @@ Interactive prefix arg prompts for the timestamp."
   (let ((file (cl-second (emacspeak-m-player-get-position)))
         (tmp
           (concat
-           (make-temp-name (expand-file-name  "clip-" temporary-file-directory))
+           (make-temp-name
+            (expand-file-name  "clip-" temporary-file-directory))
            ".wav")))
     (shell-command
      (format "%s '%s' %s  trim %s %s"
