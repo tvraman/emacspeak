@@ -178,10 +178,13 @@ given name, it is updated with path and position."
 
 (defun emacspeak-amark-play (amark)
   "Play amark using m-player."
-  (emacspeak-m-player
-   (expand-file-name (emacspeak-amark-path  amark) default-directory))
-  (sit-for 0.3)
-  (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
+  (cl-declare (special emacspeak-m-player-options))
+  (let ((emacspeak-m-player-options
+          (append
+           emacspeak-m-player-options
+           `("-ss" ,(emacspeak-amark-position amark)))))
+    (emacspeak-m-player
+     (expand-file-name (emacspeak-amark-path  amark) default-directory))))
 
 ;;}}}
 ;;{{{Amark Mode:

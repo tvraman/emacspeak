@@ -410,9 +410,19 @@ plays result as a directory." directory)
 
 ;;;###autoload
 (defun emacspeak-m-player-url (url &optional playlist-p)
-  "Call emacspeak-m-player on  URL."
-  (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
-  (ems-with-messages-silenced (emacspeak-m-player url playlist-p)))
+  "Call emacspeak-m-player on  URL.
+URL fragment specifies optional start position."
+  (interactive
+   (list (car (browse-url-interactive-arg "Media URL: "))))
+  (cl-declare (special emacspeak-m-player-options))
+  (ems-with-messages-silenced
+   (cl-multiple-value-bind
+    (link offset )
+    (split-string url "#")
+    (let ((emacspeak-m-player-options
+            (append emacspeak-m-player-options
+                    (list "-ss" offset))))
+      (emacspeak-m-player link playlist-p)))))
 
 (defvar-local  emacspeak-m-player-file-list nil
   "Records list of files being played.")
@@ -1253,7 +1263,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (cond
    ((and emacspeak-m-player-media-history
          (> (length emacspeak-m-player-media-history) posn))
-    (funcall #'emacspeak-m-player (elt emacspeak-m-player-media-history posn)))
+    (funcall #'emacspeak-m-player-url (elt emacspeak-m-player-media-history posn)))
    (t (error "Not enough history"))))
 
 (defvar emacspeak-m-player-history-map
