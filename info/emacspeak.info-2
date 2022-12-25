@@ -3205,7 +3205,16 @@ http://orgmode.org/
 12.137.1 Emacspeak-Org Commands
 -------------------------------
 
-12.137.1.1 emacspeak-org-capture-link
+12.137.1.1 emacspeak-org-amarks-play
+....................................
+
+ -- Command: emacspeak-org-amarks-play
+
+     Loop through and play list of Amarks from org buffer.
+     Hit C-g to break out of the loop.
+     Press ‘y’ to move to next amark.
+
+12.137.1.2 emacspeak-org-capture-link
 .....................................
 
  -- Command: emacspeak-org-capture-link (&optional open)
@@ -3220,14 +3229,14 @@ http://orgmode.org/
 
      (fn &optional OPEN)
 
-12.137.1.2 emacspeak-org-popup-input
+12.137.1.3 emacspeak-org-popup-input
 ....................................
 
  -- Command: emacspeak-org-popup-input
 
      Pops up an org input area.
 
-12.137.1.3 emacspeak-org-popup-input-buffer
+12.137.1.4 emacspeak-org-popup-input-buffer
 ...........................................
 
  -- Command: emacspeak-org-popup-input-buffer (mode)
@@ -3236,56 +3245,56 @@ http://orgmode.org/
 
      (fn MODE)
 
-12.137.1.4 emacspeak-org-speak-item
+12.137.1.5 emacspeak-org-speak-item
 ...................................
 
  -- Command: emacspeak-org-speak-item
 
      Speak item
 
-12.137.1.5 emacspeak-org-table-speak-both-headers-and-element
+12.137.1.6 emacspeak-org-table-speak-both-headers-and-element
 .............................................................
 
  -- Command: emacspeak-org-table-speak-both-headers-and-element
 
      echoes both row and col headers.
 
-12.137.1.6 emacspeak-org-table-speak-column-header
+12.137.1.7 emacspeak-org-table-speak-column-header
 ..................................................
 
  -- Command: emacspeak-org-table-speak-column-header
 
      echoes column header
 
-12.137.1.7 emacspeak-org-table-speak-column-header-and-element
+12.137.1.8 emacspeak-org-table-speak-column-header-and-element
 ..............................................................
 
  -- Command: emacspeak-org-table-speak-column-header-and-element
 
      echoes col header and element
 
-12.137.1.8 emacspeak-org-table-speak-coordinates
+12.137.1.9 emacspeak-org-table-speak-coordinates
 ................................................
 
  -- Command: emacspeak-org-table-speak-coordinates
 
      echoes coordinates
 
-12.137.1.9 emacspeak-org-table-speak-current-element
-....................................................
+12.137.1.10 emacspeak-org-table-speak-current-element
+.....................................................
 
  -- Command: emacspeak-org-table-speak-current-element
 
      echoes current table element
 
-12.137.1.10 emacspeak-org-table-speak-row-header
+12.137.1.11 emacspeak-org-table-speak-row-header
 ................................................
 
  -- Command: emacspeak-org-table-speak-row-header
 
      echoes row header
 
-12.137.1.11 emacspeak-org-table-speak-row-header-and-element
+12.137.1.12 emacspeak-org-table-speak-row-header-and-element
 ............................................................
 
  -- Command: emacspeak-org-table-speak-row-header-and-element

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1169 commands and 148 options.
+This chapter documents a total of 1170 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -10383,6 +10383,17 @@ Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
 or http://orgmode.org/
 
 @subsection Emacspeak-Org Commands
+
+@subsubsection emacspeak-org-amarks-play
+@deffn {Command} emacspeak-org-amarks-play   
+@findex emacspeak-org-amarks-play
+
+@format
+Loop through and play list of Amarks from org buffer.
+Hit C-g to break out of the loop.
+Press ‘y’ to move to next amark.
+@end format
+@end deffn
 
 @subsubsection emacspeak-org-capture-link
 @deffn {Command} emacspeak-org-capture-link  (&optional open)
