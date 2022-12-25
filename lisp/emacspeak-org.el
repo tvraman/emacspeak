@@ -839,7 +839,6 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
       ((match (string-match "\\(.*\\)#\\(.*\\)" name))
        (filename (match-string 1 name))
        (position  (match-string 2 name)))
-    (message "play: %s at %s" filename position)
     (emacspeak-amark-play
      (make-emacspeak-amark :path filename  :position position))))
 
