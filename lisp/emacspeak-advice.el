@@ -2093,7 +2093,7 @@ Produce an auditory icon if possible."
         'all
       (emacspeak-pronounce-add-buffer-local-dictionary-entry
         default-directory "")
-      (dtk-speak
+      (dtk-notify-speak
        (concat
         (buffer-string)
         (if (stringp minibuffer-default)
