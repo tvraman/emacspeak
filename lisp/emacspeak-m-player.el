@@ -538,6 +538,7 @@ If a dynamic playlist exists, just use it."
     (with-current-buffer
         (process-buffer emacspeak-m-player-process)
       (emacspeak-amark-save))))
+
 (defun ems--repeat-sentinel (process _state)
   "Process sentinel to disable repeat."
   (cl-declare (special repeat-mode))
@@ -950,14 +951,13 @@ The time position can also be specified as HH:MM:SS."
   (interactive)
   (cl-declare (special
                emacspeak-amark-list ems--m-player-mark
-
-
+emacspeak-speak-messages
                emacspeak-m-player-url emacspeak-m-player-process))
-  (let ((kill-buffer-query-functions nil))
+  (let ((kill-buffer-query-functions nil)
+        (emacspeak-speak-messages nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
-          (emacspeak-m-player-mode-line)
           (when emacspeak-m-player-current-url
             (let* ((info (emacspeak-m-player-get-position))
                    (time  (cl-first info)))
@@ -979,7 +979,7 @@ The time position can also be specified as HH:MM:SS."
                :test #'string=)))
           (unless
               (or
-               emacspeak-m-player-url-p ;;;dont amark streams
+               emacspeak-m-player-url-p ;;;dont amark shortcut streams
                (string-equal emacspeak-media-shortcuts-directory
                              (substring default-directory 0 -1)))
             (emacspeak-m-player-amark-add ems--m-player-mark)
