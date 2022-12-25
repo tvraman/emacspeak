@@ -437,6 +437,9 @@ URL fragment specifies optional start position."
 (defvar-local emacspeak-m-player-current-url nil
   "Records   currently playing URL")
 
+
+(defvar-local emacspeak-m-player-current-resource nil
+  "Records   currently playing resource")
 (defun emacspeak-media-local-resource (prefix)
   "Read local resource starting from default-directory"
   (cl-declare (special default-directory))
@@ -559,6 +562,7 @@ dynamic playlist. "
     (emacspeak-media-read-resource current-prefix-arg)
     current-prefix-arg))
   (cl-declare (special
+               emacspeak-m-player-current-resource
                emacspeak-m-player-dynamic-playlist
                emacspeak-m-player-accelerator-p
                emacspeak-m-player-current-directory
@@ -590,6 +594,7 @@ dynamic playlist. "
       (push "-af" options))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
+      (setq emacspeak-m-player-current-resource resource)
       (setq emacspeak-m-player-url-p (string-match "^http" resource))
       (when emacspeak-m-player-url-p
         (setq emacspeak-m-player-current-url resource))
@@ -977,11 +982,13 @@ emacspeak-speak-messages
                 time)
                emacspeak-m-player-media-history
                :test #'string=)))
+          ;;dont amark shortcut streams
           (unless
-              (or
-               emacspeak-m-player-url-p ;;;dont amark shortcut streams
-               (string-equal emacspeak-media-shortcuts-directory
-                             (substring default-directory 0 -1)))
+              (or 
+               emacspeak-m-player-url-p
+               (string-match
+                emacspeak-media-shortcuts-directory
+                emacspeak-m-player-current-resource))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
           (emacspeak-m-player-dispatch "quit")
