@@ -657,7 +657,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defadvice read-event (before emacspeak pre act comp)
   "Speak prompt."
   (when  (ad-get-arg 0)
-    (message (ad-get-arg 0))))
+    (dtk-notify-say (ad-get-arg 0))))
 
 (defadvice read-multiple-choice (before emacspeak pre act comp)
   "speak."
@@ -680,7 +680,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (ems--log-message
      (concat msg
              (mapconcat #'identity details "\n ")))
-    (dtk-speak msg)
+    (dtk-notify-speak msg)
     (sox-tones 2 2)
     (dtk-speak-list choices)))
 
@@ -720,7 +720,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (ems-with-messages-silenced
    (let ((msg (ad-get-arg 0))
          (exit (ad-get-arg 2)))
-     (dtk-speak
+     (dtk-notify-speak
       (format
        "%s Press %s to exit"
        msg
@@ -776,7 +776,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "speak."
   (let ((buffer-name (ad-get-arg 1)))
     (when (bufferp ad-return-value)
-      (dtk-speak (format "Displayed message in buffer  %s" buffer-name)))))
+      (dtk-notify-speak (format "Displayed message in buffer  %s" buffer-name)))))
 
 (defun emacspeak-speak-eldoc (docs interactive)
   "Speak eldoc."
