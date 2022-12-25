@@ -843,6 +843,19 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
      (make-emacspeak-amark :path filename  :position position))))
 
 ;;}}}
+;;{{{Play Amarks:
+
+(defun emacspeak-org-amarks-play ()
+  "Play list of Amarks from org buffer."
+  (org-element-map
+   (org-element-parse-buffer)
+   'link
+   (lambda (link)
+     (when (string= (org-element-property :type link) "amark")
+       (org-amark-follow-link
+        (org-element-property :path link))))))
+
+;;}}}
 ;;{{{EWW Marks:
 
 (org-link-set-parameters
@@ -897,6 +910,8 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
    (t (emacspeak-eww-play-media-at-point url))))
 
 ;;}}}
+
+
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
