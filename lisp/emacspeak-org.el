@@ -847,6 +847,7 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 
 (defun emacspeak-org-amarks-play ()
   "Play list of Amarks from org buffer."
+  (interactive)
   (org-element-map
    (org-element-parse-buffer)
    'link
