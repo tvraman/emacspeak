@@ -2088,17 +2088,20 @@ Produce an auditory icon if possible."
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
     (emacspeak-auditory-icon 'open-object)
+    (emacspeak-pronounce-add-buffer-local-dictionary-entry
+     "(yes or no) " " y/n ")
+    (emacspeak-pronounce-toggle-use-of-dictionaries t)
     (when minibuffer-default (emacspeak-auditory-icon 'help))
     (tts-with-punctuations
-        'all
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry
-        default-directory "")
-      (dtk-notify-speak
-       (concat
-        (buffer-string)
-        (if (stringp minibuffer-default)
-            minibuffer-default
-          ""))))))
+     'all
+     (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      default-directory "")
+     (dtk-notify-speak
+      (concat
+       (buffer-string)
+       (if (stringp minibuffer-default)
+           minibuffer-default
+           ""))))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 
