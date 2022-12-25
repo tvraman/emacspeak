@@ -989,8 +989,7 @@ The time position can also be specified as HH:MM:SS."
           (and (buffer-live-p buffer) (kill-buffer buffer))))
       (unless (eq (process-status emacspeak-m-player-process) 'exit)
         (delete-process  emacspeak-m-player-process))
-      (setq emacspeak-m-player-process nil)
-      (emacspeak-speak-mode-line))))
+      (setq emacspeak-m-player-process nil))))
 
 (defun emacspeak-m-player-volume-up ()
   "Volume up."
