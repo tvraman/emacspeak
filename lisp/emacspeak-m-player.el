@@ -570,7 +570,7 @@ dynamic playlist. "
   (when
       (and emacspeak-m-player-process
            (eq 'run (process-status emacspeak-m-player-process))
-           (y-or-n-p "Stop Media? "))
+           (y-or-n-p "Stop? "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
   (let ((buffer (get-buffer-create "*M-Player*"))
