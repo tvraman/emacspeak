@@ -56,7 +56,8 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-amark)
-(require 'org "org" 'no-error)
+(require 'org)
+(require 'org-element)
 (require 'org-table "org-table" 'no-error)
 (defvar org-ans2 nil)
 
