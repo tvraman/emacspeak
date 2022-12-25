@@ -434,11 +434,11 @@ URL fragment specifies optional start position."
 (defvar-local emacspeak-m-player-url-p nil
   "Records if  playing a URL")
 
-(defvar-local emacspeak-m-player-current-url nil
+(defvar-local emacspeak-m-player-url nil
   "Records   currently playing URL")
 
 
-(defvar-local emacspeak-m-player-current-resource nil
+(defvar-local emacspeak-m-player-resource nil
   "Records   currently playing resource")
 (defun emacspeak-media-local-resource (prefix)
   "Read local resource starting from default-directory"
@@ -562,14 +562,14 @@ dynamic playlist. "
     (emacspeak-media-read-resource current-prefix-arg)
     current-prefix-arg))
   (cl-declare (special
-               emacspeak-m-player-current-resource
+               emacspeak-m-player-resource
                emacspeak-m-player-dynamic-playlist
                emacspeak-m-player-accelerator-p
                emacspeak-m-player-current-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
                emacspeak-m-player-program emacspeak-m-player-options
-               emacspeak-m-player-current-url emacspeak-m-player-url-p
+               emacspeak-m-player-url emacspeak-m-player-url-p
                emacspeak-m-player-custom-filters))
   (when
       (and emacspeak-m-player-process
@@ -594,10 +594,10 @@ dynamic playlist. "
       (push "-af" options))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
-      (setq emacspeak-m-player-current-resource resource)
+      (setq emacspeak-m-player-resource resource)
       (setq emacspeak-m-player-url-p (string-match "^http" resource))
       (when emacspeak-m-player-url-p
-        (setq emacspeak-m-player-current-url resource))
+        (setq emacspeak-m-player-url resource))
       (unless emacspeak-m-player-url-p  ; not a URL
         (when resource
           (setq resource (expand-file-name resource))
@@ -963,7 +963,7 @@ emacspeak-speak-messages
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
-          (when emacspeak-m-player-current-url
+          (when emacspeak-m-player-url
             (let* ((info (emacspeak-m-player-get-position))
                    (time  (cl-first info)))
               (setq
@@ -973,12 +973,12 @@ emacspeak-speak-messages
                     (string=
                      (cl-first (split-string u "#"))
                      (cl-first
-                      (split-string emacspeak-m-player-current-url "#"))))
+                      (split-string emacspeak-m-player-url "#"))))
                 emacspeak-m-player-media-history))
               (cl-pushnew
                (format
                 "%s#%s"
-                (cl-first (split-string emacspeak-m-player-current-url "#"))
+                (cl-first (split-string emacspeak-m-player-url "#"))
                 time)
                emacspeak-m-player-media-history
                :test #'string=)))
@@ -988,7 +988,7 @@ emacspeak-speak-messages
                emacspeak-m-player-url-p
                (string-match
                 emacspeak-media-shortcuts-directory
-                emacspeak-m-player-current-resource))
+                emacspeak-m-player-resource))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
           (emacspeak-m-player-dispatch "quit")
@@ -1693,12 +1693,12 @@ As the default, use current position."
 (defun emacspeak-m-player-store-link ()
   "Store an org-link to currently playing stream at current position."
   (interactive)
-  (cl-declare (special emacspeak-m-player-current-url org-stored-links))
-  (when emacspeak-m-player-current-url
+  (cl-declare (special emacspeak-m-player-url org-stored-links))
+  (when emacspeak-m-player-url
     (cl-pushnew
      `(
        ,(format "e-media:%s#%s"
-                (cl-first (split-string emacspeak-m-player-current-url "#"))
+                (cl-first (split-string emacspeak-m-player-url "#"))
                 (cl-first (emacspeak-m-player-get-position)))
        "URL")
      org-stored-links)))
