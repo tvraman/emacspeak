@@ -1,4 +1,4 @@
-;;; emacspeak-m-player.el --- mplayer Interaction -*- lexical-binding: t; -*-
+;;; emacspeak-m-player.el --- Media Player -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Controlling mplayer from emacs
