@@ -1754,7 +1754,7 @@ As the default, use current position."
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-m-player-dispatch (format "af_add %s" filter))))
 
-(defconst emacspeak-m-player-reverb-preset-table
+(defconst emacspeak-m-player-reverb-table
   '(
     ("AfterBurn"   0)
     ("AfterBurn (Long)"   1)
@@ -1801,7 +1801,7 @@ As the default, use current position."
     ("Warehouse - HD"   42))
   "Table mapping tap reverb preset names to values.")
 
-(defconst emacspeak-m-player-tap-reverb-presets
+(defconst emacspeak-m-player-tap-reverbs
   '(("AfterBurn" 2.8)
     ("AfterBurn (Long)" 4.8)
     ("Ambience" 1.1)
@@ -1855,13 +1855,13 @@ As the default, use current position."
    (list
     (let ((completion-ignore-case t))
       (completing-read "Preset: "
-                       emacspeak-m-player-tap-reverb-presets
+                       emacspeak-m-player-tap-reverbs
                        nil 'must-match))))
-  (cl-declare (special emacspeak-m-player-tap-reverb-presets
-                       emacspeak-m-player-reverb-preset-table
+  (cl-declare (special emacspeak-m-player-tap-reverbs
+                       emacspeak-m-player-reverb-table
                        emacspeak-m-player-process
                        emacspeak-m-player-reverb-filter))
-  (let ((setting (assoc preset emacspeak-m-player-tap-reverb-presets))
+  (let ((setting (assoc preset emacspeak-m-player-tap-reverbs))
         (ladspa (getenv "LADSPA_PATH"))
         (filter-spec nil)
         (filter nil))
@@ -1878,7 +1878,7 @@ As the default, use current position."
             1 1 1 1
                                         ; preset name
             ,(cadr (assoc (cl-first setting)
-                          emacspeak-m-player-reverb-preset-table))))
+                          emacspeak-m-player-reverb-table))))
     (setq emacspeak-m-player-reverb-filter filter-spec)
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
     (emacspeak-m-player-dispatch "af_clr")
