@@ -989,8 +989,8 @@ emacspeak-speak-messages
               (or 
                emacspeak-m-player-url-p
                (string-match
-                emacspeak-m-player-resource
-                emacspeak-media-shortcuts-directory))
+                emacspeak-media-shortcuts-directory
+                emacspeak-m-player-resource))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
           (emacspeak-m-player-dispatch "quit")
