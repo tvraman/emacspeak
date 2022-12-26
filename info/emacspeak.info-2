@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 24, 2022.
+last updated on December 25, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -1356,10 +1356,10 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Save amarks.
 
-12.117.2.12 emacspeak-m-player-apply-reverb-preset
-..................................................
+12.117.2.12 emacspeak-m-player-apply-reverb
+...........................................
 
- -- Command: emacspeak-m-player-apply-reverb-preset (preset)
+ -- Command: emacspeak-m-player-apply-reverb (preset)
 
      Prompt for and apply a reverb preset.
        You need to use mplayer built with ladspa support, and have package
@@ -1502,20 +1502,20 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Move to end.
 
-12.117.2.31 emacspeak-m-player-equalizer-control
-................................................
+12.117.2.31 emacspeak-m-player-eq-controls
+..........................................
 
- -- Command: emacspeak-m-player-equalizer-control (v)
+ -- Command: emacspeak-m-player-eq-controls (v)
 
      Manipulate values in  vector using minibuffer.
      Applies  the resulting value at each step.
 
      (fn V)
 
-12.117.2.32 emacspeak-m-player-equalizer-preset
-...............................................
+12.117.2.32 emacspeak-m-player-eq-preset
+........................................
 
- -- Command: emacspeak-m-player-equalizer-preset (name)
+ -- Command: emacspeak-m-player-eq-preset (name)
 
      Prompts for  and apply equalizer preset.
 
@@ -1664,7 +1664,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      L		emacspeak-m-player-get-length
      M		emacspeak-m-player-display-metadata
      O		emacspeak-m-player-reset-options
-     P		emacspeak-m-player-apply-reverb-preset
+     P		emacspeak-m-player-apply-reverb
      Q		emacspeak-m-player-quit
      R		emacspeak-m-player-edit-reverb
      S		emacspeak-m-player-amark-save
@@ -1674,7 +1674,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      a		emacspeak-m-player-add-autopan
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
-     e		emacspeak-m-player-equalizer-preset
+     e		emacspeak-m-player-eq-preset
      f		emacspeak-m-player-add-filter
      g		emacspeak-m-player-seek-absolute
      h		emacspeak-m-player-from-history
@@ -1799,10 +1799,10 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Quit.
 
-12.117.2.57 emacspeak-m-player-remove-from-media-history
-........................................................
+12.117.2.57 emacspeak-m-player-rem-history
+..........................................
 
- -- Command: emacspeak-m-player-remove-from-media-history (url)
+ -- Command: emacspeak-m-player-rem-history (url)
 
      Remove URL from media history
 
@@ -2078,7 +2078,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      L		emacspeak-m-player-get-length
      M		emacspeak-m-player-display-metadata
      O		emacspeak-m-player-reset-options
-     P		emacspeak-m-player-apply-reverb-preset
+     P		emacspeak-m-player-apply-reverb
      Q		emacspeak-m-player-quit
      R		emacspeak-m-player-edit-reverb
      S		emacspeak-m-player-amark-save
@@ -2088,7 +2088,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      a		emacspeak-m-player-add-autopan
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
-     e		emacspeak-m-player-equalizer-preset
+     e		emacspeak-m-player-eq-preset
      f		emacspeak-m-player-add-filter
      g		emacspeak-m-player-seek-absolute
      h		emacspeak-m-player-from-history

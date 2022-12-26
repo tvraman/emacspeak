@@ -123,7 +123,7 @@ This chapter documents a total of 1170 commands and 148 options.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
 * emacspeak-lua::Speech-enable LUA.
-* emacspeak-m-player::mplayer Interaction.
+* emacspeak-m-player::Media Player.
 * emacspeak-magit::Speech-enable MAGIT.
 * emacspeak-make-mode::Speech enable make.
 * emacspeak-man::Speech enable Man.
@@ -8180,9 +8180,9 @@ Save amarks.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-apply-reverb-preset
-@deffn {Command} emacspeak-m-player-apply-reverb-preset  (preset)
-@findex emacspeak-m-player-apply-reverb-preset
+@subsubsection emacspeak-m-player-apply-reverb
+@deffn {Command} emacspeak-m-player-apply-reverb  (preset)
+@findex emacspeak-m-player-apply-reverb
 
 @format
 Prompt for and apply a reverb preset.
@@ -8368,9 +8368,9 @@ Move to end.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-equalizer-control
-@deffn {Command} emacspeak-m-player-equalizer-control  (v)
-@findex emacspeak-m-player-equalizer-control
+@subsubsection emacspeak-m-player-eq-controls
+@deffn {Command} emacspeak-m-player-eq-controls  (v)
+@findex emacspeak-m-player-eq-controls
 
 @format
 Manipulate values in  vector using minibuffer.
@@ -8380,9 +8380,9 @@ Applies  the resulting value at each step.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-equalizer-preset
-@deffn {Command} emacspeak-m-player-equalizer-preset  (name)
-@findex emacspeak-m-player-equalizer-preset
+@subsubsection emacspeak-m-player-eq-preset
+@deffn {Command} emacspeak-m-player-eq-preset  (name)
+@findex emacspeak-m-player-eq-preset
 
 @format
 Prompts for  and apply equalizer preset.
@@ -8572,7 +8572,7 @@ G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-get-length
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
-P		emacspeak-m-player-apply-reverb-preset
+P		emacspeak-m-player-apply-reverb
 Q		emacspeak-m-player-quit
 R		emacspeak-m-player-edit-reverb
 S		emacspeak-m-player-amark-save
@@ -8582,7 +8582,7 @@ S		emacspeak-m-player-amark-save
 a		emacspeak-m-player-add-autopan
 c		emacspeak-m-player-slave-command
 d		emacspeak-m-player-delete-filter
-e		emacspeak-m-player-equalizer-preset
+e		emacspeak-m-player-eq-preset
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
 h		emacspeak-m-player-from-history
@@ -8731,9 +8731,9 @@ Quit.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-remove-from-media-history
-@deffn {Command} emacspeak-m-player-remove-from-media-history  (url)
-@findex emacspeak-m-player-remove-from-media-history
+@subsubsection emacspeak-m-player-rem-history
+@deffn {Command} emacspeak-m-player-rem-history  (url)
+@findex emacspeak-m-player-rem-history
 
 @format
 Remove URL from media history
@@ -9100,7 +9100,7 @@ G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-get-length
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
-P		emacspeak-m-player-apply-reverb-preset
+P		emacspeak-m-player-apply-reverb
 Q		emacspeak-m-player-quit
 R		emacspeak-m-player-edit-reverb
 S		emacspeak-m-player-amark-save
@@ -9110,7 +9110,7 @@ S		emacspeak-m-player-amark-save
 a		emacspeak-m-player-add-autopan
 c		emacspeak-m-player-slave-command
 d		emacspeak-m-player-delete-filter
-e		emacspeak-m-player-equalizer-preset
+e		emacspeak-m-player-eq-preset
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
 h		emacspeak-m-player-from-history
