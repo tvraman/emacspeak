@@ -437,9 +437,6 @@ URL fragment specifies optional start position."
 (defvar-local emacspeak-m-player-url nil
   "Records   currently playing URL")
 
-
-(defvar-local emacspeak-m-player-resource nil
-  "Records   currently playing resource")
 (defun emacspeak-media-local-resource (prefix)
   "Read local resource starting from default-directory"
   (cl-declare (special default-directory))
@@ -562,7 +559,6 @@ dynamic playlist. "
     (emacspeak-media-read-resource current-prefix-arg)
     current-prefix-arg))
   (cl-declare (special
-               emacspeak-m-player-resource
                emacspeak-m-player-dynamic-playlist
                emacspeak-m-player-accelerator-p
                emacspeak-m-player-directory
@@ -594,7 +590,6 @@ dynamic playlist. "
       (push "-af" options))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
-      (setq emacspeak-m-player-resource resource)
       (setq emacspeak-m-player-url-p (string-match "^http" resource))
       (when emacspeak-m-player-url-p
         (setq emacspeak-m-player-url resource))
@@ -802,12 +797,14 @@ necessary."
            "")
        (format "%s" (cl-third fields))))))
 
-(defun emacspeak-m-player-current-filename ()
+(defsubst emacspeak-m-player-current-filename ()
   "Return filename of current  track."
-  (cl-second
-   (split-string
-    (emacspeak-m-player-dispatch "get_file_name\n")
-    "=")))
+  (substring  ;; strip quotes
+   (cl-second
+    (split-string
+     (emacspeak-m-player-dispatch "get_file_name\n")
+     "="))
+   1 -1))
 
 (defun emacspeak-m-player-scale-speed (factor)
   "Scale speed by factor."
@@ -987,8 +984,7 @@ emacspeak-speak-messages
               (or 
                emacspeak-m-player-url-p
                (string-match
-                emacspeak-media-shortcuts-directory
-                emacspeak-m-player-resource))
+                emacspeak-media-shortcuts-directory))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
           (emacspeak-m-player-dispatch "quit")
@@ -1710,14 +1706,13 @@ As the default, use current position."
 (defun emacspeak-m-player-amark-jump ()
   "Jump to AMark."
   (interactive)
-  (cl-declare (special emacspeak-m-player-process
-                       emacspeak-m-player-resource))
+  (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer
       (process-buffer emacspeak-m-player-process)
     (let ((amark (call-interactively #'emacspeak-amark-find)))
       (cond ;; seek if in current  file
         ((string=
-          (file-name-nondirectory emacspeak-m-player-resource)
+          (emacspeak-m-player-current-filename)
           (emacspeak-amark-path amark))
          (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
         (t (emacspeak-amark-play amark))))))
