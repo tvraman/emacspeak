@@ -802,7 +802,7 @@ necessary."
            "")
        (format "%s" (cl-third fields))))))
 
-(defun emacspeak-m-player-current-filename ()
+(defun emacspeak-m-player-filename ()
   "Return filename of current  track."
   (substring ;; strip quotes
    (cl-second
@@ -1718,7 +1718,7 @@ As the default, use current position."
     (let ((amark (call-interactively #'emacspeak-amark-find)))
       (cond ;; seek if in current  file
         ((string=
-          (emacspeak-m-player-current-filename)
+          (emacspeak-m-player-filename)
           (emacspeak-amark-path amark))
          (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
         (t (emacspeak-amark-play amark))))))
