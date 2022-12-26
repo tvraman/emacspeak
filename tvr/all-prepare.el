@@ -1,4 +1,5 @@
-
+;;; Emacs' yes-or-no-p and y-or-no-p have prompts hard-wired.
+;; The advice forms below produce more succinct speech.
 
 (defadvice yes-or-no-p (around emacspeak pre act comp)
   "speak."
@@ -10,8 +11,8 @@
               (setq c  (read-char ask)))
        (setq ad-return-value
              (cl-case c
-               (?y t)
-               (?n nil)))))
+                      (?y t)
+                      (?n nil)))))
     (t ad-do-it))
   (emacspeak-auditory-icon
    (if ad-return-value 'y-answer 'n-answer))
