@@ -8229,15 +8229,6 @@ Set left/right balance.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-beginning-of-track
-@deffn {Command} emacspeak-m-player-beginning-of-track   
-@findex emacspeak-m-player-beginning-of-track
-
-@format
-Move to beginning.
-@end format
-@end deffn
-
 @subsubsection emacspeak-m-player-bind-accelerator
 @deffn {Command} emacspeak-m-player-bind-accelerator  (directory key)
 @findex emacspeak-m-player-bind-accelerator
@@ -8283,9 +8274,9 @@ Invoke MPlayer commands.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-customize-options
-@deffn {Command} emacspeak-m-player-customize-options   
-@findex emacspeak-m-player-customize-options
+@subsubsection emacspeak-m-player-customize
+@deffn {Command} emacspeak-m-player-customize   
+@findex emacspeak-m-player-customize
 
 @format
 Use Customize to set MPlayer options.
@@ -8312,30 +8303,12 @@ Delete plugin from  running MPlayer.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-display-metadata
-@deffn {Command} emacspeak-m-player-display-metadata   
-@findex emacspeak-m-player-display-metadata
-
-@format
-Display metadata after refreshing it if needed.
-@end format
-@end deffn
-
 @subsubsection emacspeak-m-player-display-percent
 @deffn {Command} emacspeak-m-player-display-percent   
 @findex emacspeak-m-player-display-percent
 
 @format
 Display current percentage.
-@end format
-@end deffn
-
-@subsubsection emacspeak-m-player-display-position
-@deffn {Command} emacspeak-m-player-display-position   
-@findex emacspeak-m-player-display-position
-
-@format
-Display current position in track.
 @end format
 @end deffn
 
@@ -8359,9 +8332,9 @@ Edit ladspa reverb filter.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-end-of-track
-@deffn {Command} emacspeak-m-player-end-of-track   
-@findex emacspeak-m-player-end-of-track
+@subsubsection emacspeak-m-player-end-track
+@deffn {Command} emacspeak-m-player-end-track   
+@findex emacspeak-m-player-end-track
 
 @format
 Move to end.
@@ -8564,13 +8537,13 @@ SPC		emacspeak-m-player-pause
 <		emacspeak-m-player-backward-1min
 =		emacspeak-m-player-volume-up
 >		emacspeak-m-player-forward-1min
-?		emacspeak-m-player-display-position
+?		emacspeak-m-player-show-pos
 A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-get-length
-M		emacspeak-m-player-display-metadata
+M		emacspeak-m-player-show-data
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb
 Q		emacspeak-m-player-quit
@@ -8592,11 +8565,11 @@ k		emacspeak-m-player-quit
 l		emacspeak-m-player-store-link
 m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
-o		emacspeak-m-player-customize-options
+o		emacspeak-m-player-customize
 p		emacspeak-m-player-previous-track
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
-t		emacspeak-m-player-play-tracks-jump
+t		emacspeak-m-player-skip-tracks
 u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
 w		emacspeak-m-player-write-clip
@@ -8606,8 +8579,8 @@ z		emacspeak-m-player-add-autosat
 @}		emacspeak-m-player-double-speed
 DEL		emacspeak-m-player-reset-speed
 <down>		emacspeak-m-player-forward-1min
-<end>		emacspeak-m-player-end-of-track
-<home>		emacspeak-m-player-beginning-of-track
+<end>		emacspeak-m-player-end-track
+<home>		emacspeak-m-player-start-track
 <left>		emacspeak-m-player-backward-10s
 <next>		emacspeak-m-player-forward-10min
 <prior>		emacspeak-m-player-backward-10min
@@ -8679,17 +8652,6 @@ Optional interactive prefix arg prompts for name to use for  player.
 Play an RSS stream.
 
 (fn RSS-URL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-m-player-play-tracks-jump
-@deffn {Command} emacspeak-m-player-play-tracks-jump  (step)
-@findex emacspeak-m-player-play-tracks-jump
-
-@format
-Skip tracks.
-
-(fn STEP)
 @end format
 @end deffn
 
@@ -8849,6 +8811,24 @@ Interactive prefix arg prompts for the timestamp.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-show-data
+@deffn {Command} emacspeak-m-player-show-data   
+@findex emacspeak-m-player-show-data
+
+@format
+Display metadata after refreshing it if needed.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-show-pos
+@deffn {Command} emacspeak-m-player-show-pos   
+@findex emacspeak-m-player-show-pos
+
+@format
+Display current position in track.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-shuffle
 @deffn {Command} emacspeak-m-player-shuffle   
 @table @kbd
@@ -8862,6 +8842,17 @@ Interactive prefix arg prompts for the timestamp.
 
 @format
 M-Player with shuffle turned on.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-skip-tracks
+@deffn {Command} emacspeak-m-player-skip-tracks  (step)
+@findex emacspeak-m-player-skip-tracks
+
+@format
+Skip tracks.
+
+(fn STEP)
 @end format
 @end deffn
 
@@ -8882,6 +8873,15 @@ Dispatch slave command.
 
 @format
 Slow down playback. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-start-track
+@deffn {Command} emacspeak-m-player-start-track   
+@findex emacspeak-m-player-start-track
+
+@format
+Move to beginning.
 @end format
 @end deffn
 
@@ -9092,13 +9092,13 @@ SPC		emacspeak-m-player-pause
 <		emacspeak-m-player-backward-1min
 =		emacspeak-m-player-volume-up
 >		emacspeak-m-player-forward-1min
-?		emacspeak-m-player-display-position
+?		emacspeak-m-player-show-pos
 A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
 E		emacspeak-m-player-add-equalizer
 G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-get-length
-M		emacspeak-m-player-display-metadata
+M		emacspeak-m-player-show-data
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb
 Q		emacspeak-m-player-quit
@@ -9120,11 +9120,11 @@ k		emacspeak-m-player-quit
 l		emacspeak-m-player-store-link
 m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
-o		emacspeak-m-player-customize-options
+o		emacspeak-m-player-customize
 p		emacspeak-m-player-previous-track
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
-t		emacspeak-m-player-play-tracks-jump
+t		emacspeak-m-player-skip-tracks
 u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
 w		emacspeak-m-player-write-clip
@@ -9134,8 +9134,8 @@ z		emacspeak-m-player-add-autosat
 @}		emacspeak-m-player-double-speed
 DEL		emacspeak-m-player-reset-speed
 <down>		emacspeak-m-player-forward-1min
-<end>		emacspeak-m-player-end-of-track
-<home>		emacspeak-m-player-beginning-of-track
+<end>		emacspeak-m-player-end-track
+<home>		emacspeak-m-player-start-track
 <left>		emacspeak-m-player-backward-10s
 <next>		emacspeak-m-player-forward-10min
 <prior>		emacspeak-m-player-backward-10min
