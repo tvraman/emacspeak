@@ -1710,10 +1710,17 @@ As the default, use current position."
 (defun emacspeak-m-player-amark-jump ()
   "Jump to AMark."
   (interactive)
-  (cl-declare (special emacspeak-m-player-process))
+  (cl-declare (special emacspeak-m-player-process
+                       emacspeak-m-player-resource))
   (with-current-buffer
       (process-buffer emacspeak-m-player-process)
-    (emacspeak-amark-play (call-interactively #'emacspeak-amark-find))))
+    (let ((amark (call-interactively #'emacspeak-amark-find)))
+      (cond ;; seek if in current  file
+        ((string=
+          (file-name-nondirectory emacspeak-m-player-resource)
+          (emacspeak-amark-path amark))
+         (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))
+        (t (emacspeak-amark-play amark))))))
 
 ;;}}}
 ;;{{{ Adding specific Ladspa filters:
