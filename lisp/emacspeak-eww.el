@@ -576,11 +576,11 @@ Safari/537.36"
   (cl-declare (special
                eww-mode-map eww-link-keymap eww-text-map
                shr-inhibit-images emacspeak-eww-inhibit-images
-               emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+               emacspeak-pronounce-xml-ns
                emacspeak-eww-masquerade))
   (ems--fastload "emacspeak-pronounce")
   (emacspeak-pronounce-augment-pronunciations
-   'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
+   'eww-mode emacspeak-pronounce-xml-ns)
   (emacspeak-pronounce-add-dictionary-entry
    'eww-mode
    emacspeak-pronounce-rfc-3339-datetime-pattern

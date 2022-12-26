@@ -578,7 +578,7 @@ First loads any persistent dictionaries if not already loaded."
 ;;}}}
 ;;{{{ xml namespace uri's
 
-(defcustom emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+(defcustom emacspeak-pronounce-xml-ns
   '(
     ("http://www.w3.org/2005/Atom" . " atom ")
     ("http://www.w3.org/1999/02/22-rdf-syntax-ns#" . "RDF Syntax")
