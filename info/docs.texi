@@ -8229,9 +8229,9 @@ Set left/right balance.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-bind-accelerator
-@deffn {Command} emacspeak-m-player-bind-accelerator  (directory key)
-@findex emacspeak-m-player-bind-accelerator
+@subsubsection emacspeak-m-player-bind-hotkey
+@deffn {Command} emacspeak-m-player-bind-hotkey  (directory key)
+@findex emacspeak-m-player-bind-hotkey
 
 @format
 Binds key to invoke m-player  on specified directory.
@@ -9875,7 +9875,6 @@ The heads for the associated hydra are:
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
 "F":    ‘(call-interactively #’flyspell-mode)’,
-"e":    ‘(call-interactively #’emacspeak-m-player-toggle-extrastereo)’,
 "f":    ‘(call-interactively #’auto-fill-mode)’,
 "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
@@ -11050,13 +11049,6 @@ Toggle use of pronunciation personality.
 
 @subsection emacspeak-pronounce Options
 
-@defvar {User Option} emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-Namespace URIs.
-
-Default Value: @code{@verb{|((http://www.w3.org/2005/Atom .  atom ) (http://www.w3.org/1999/02/22-rdf-syntax-ns# . RDF Syntax) (http://www.w3.org/2002/06/xhtml2 .  xhtml2 ) (http://www.w3.org/2003/XInclude . XInclude) (http://www.w3.org/1999/XSL/Transform .  XSLT ) (http://www.w3.org/2002/xforms .  XForms ) (http://www.w3.org/2001/xml-events .  XEvents ) (http://www.w3.org/2001/vxml .  vxml ) (http://www.w3.org/2001/XMLSchema-instance .  XSI ) (http://www.w3.org/2001/XMLSchema .  XSD ) (http://www.w3.org/1999/xhtml .  xhtml ) (http://purl.org/dc/elements/1.1/ . DC) (http://search.yahoo.com/mrss/ . media))|}}
-
-@end defvar
-
 @defvar {User Option} emacspeak-pronounce-dictionaries-file
 File that holds  emacspeak pronunciations.
 
@@ -11068,6 +11060,13 @@ Default Value: @code{@verb{|/home/raman/.emacspeak/.dictionary|}}
 Smileys
 
 Default Value: @code{@verb{|((:-) .  smile ) (;) .  half-wink ) (:) .  grin ) (:-( .  frown ) (:( .  sigh ) (:-I .  shrug ) (:-> .  sarcastic smile ) (>:-> .  devillish smile ) (>;-> .  lewd smile ) (;-) .  wink ))|}}
+
+@end defvar
+
+@defvar {User Option} emacspeak-pronounce-xml-ns
+Namespace URIs.
+
+Default Value: @code{@verb{|((http://www.w3.org/2005/Atom .  atom ) (http://www.w3.org/1999/02/22-rdf-syntax-ns# . RDF Syntax) (http://www.w3.org/2002/06/xhtml2 .  xhtml2 ) (http://www.w3.org/2003/XInclude . XInclude) (http://www.w3.org/1999/XSL/Transform .  XSLT ) (http://www.w3.org/2002/xforms .  XForms ) (http://www.w3.org/2001/xml-events .  XEvents ) (http://www.w3.org/2001/vxml .  vxml ) (http://www.w3.org/2001/XMLSchema-instance .  XSI ) (http://www.w3.org/2001/XMLSchema .  XSD ) (http://www.w3.org/1999/xhtml .  xhtml ) (http://purl.org/dc/elements/1.1/ . DC) (http://search.yahoo.com/mrss/ . media))|}}
 
 @end defvar
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 25, 2022.
+last updated on December 26, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-forge,  Next: emacspeak-forms,  Prev: emacspeak-folding,  Up: Emacspeak Commands And Options
@@ -1395,10 +1395,10 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Set left/right balance.
 
-12.117.2.17 emacspeak-m-player-bind-accelerator
-...............................................
+12.117.2.17 emacspeak-m-player-bind-hotkey
+..........................................
 
- -- Command: emacspeak-m-player-bind-accelerator (directory key)
+ -- Command: emacspeak-m-player-bind-hotkey (directory key)
 
      Binds key to invoke m-player  on specified directory.
 
@@ -2755,7 +2755,6 @@ binds ‘s’ to this command.
      "a":    ‘(call-interactively #’abbrev-mode)’,
      "d":    ‘(call-interactively #’toggle-debug-on-error)’,
      "F":    ‘(call-interactively #’flyspell-mode)’,
-     "e":    ‘(call-interactively #’emacspeak-m-player-toggle-extrastereo)’,
      "f":    ‘(call-interactively #’auto-fill-mode)’,
      "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
      "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
@@ -3792,13 +3791,6 @@ given file.
 12.149.3 emacspeak-pronounce Options
 ------------------------------------
 
- -- Variable: User Option
-          emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-     Namespace URIs.
-
-     Default Value:
-     ‘((http://www.w3.org/2005/Atom .  atom ) (http://www.w3.org/1999/02/22-rdf-syntax-ns# . RDF Syntax) (http://www.w3.org/2002/06/xhtml2 .  xhtml2 ) (http://www.w3.org/2003/XInclude . XInclude) (http://www.w3.org/1999/XSL/Transform .  XSLT ) (http://www.w3.org/2002/xforms .  XForms ) (http://www.w3.org/2001/xml-events .  XEvents ) (http://www.w3.org/2001/vxml .  vxml ) (http://www.w3.org/2001/XMLSchema-instance .  XSI ) (http://www.w3.org/2001/XMLSchema .  XSD ) (http://www.w3.org/1999/xhtml .  xhtml ) (http://purl.org/dc/elements/1.1/ . DC) (http://search.yahoo.com/mrss/ . media))’
-
  -- Variable: User Option emacspeak-pronounce-dictionaries-file
      File that holds emacspeak pronunciations.
 
@@ -3810,6 +3802,12 @@ given file.
 
      Default Value:
      ‘((:-) .  smile ) (;) .  half-wink ) (:) .  grin ) (:-( .  frown ) (:( .  sigh ) (:-I .  shrug ) (:-> .  sarcastic smile ) (>:-> .  devillish smile ) (>;-> .  lewd smile ) (;-) .  wink ))’
+
+ -- Variable: User Option emacspeak-pronounce-xml-ns
+     Namespace URIs.
+
+     Default Value:
+     ‘((http://www.w3.org/2005/Atom .  atom ) (http://www.w3.org/1999/02/22-rdf-syntax-ns# . RDF Syntax) (http://www.w3.org/2002/06/xhtml2 .  xhtml2 ) (http://www.w3.org/2003/XInclude . XInclude) (http://www.w3.org/1999/XSL/Transform .  XSLT ) (http://www.w3.org/2002/xforms .  XForms ) (http://www.w3.org/2001/xml-events .  XEvents ) (http://www.w3.org/2001/vxml .  vxml ) (http://www.w3.org/2001/XMLSchema-instance .  XSI ) (http://www.w3.org/2001/XMLSchema .  XSD ) (http://www.w3.org/1999/xhtml .  xhtml ) (http://purl.org/dc/elements/1.1/ . DC) (http://search.yahoo.com/mrss/ . media))’
 
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options

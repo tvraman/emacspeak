@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 25, 2022.
+last updated on December 26, 2022.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2547,7 +2547,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. u:                                 soundscape.         (line  132)
 * C-. v:                                 extra-muggles.      (line  280)
 * C-. y:                                 emacspeak-mpv.      (line   19)
-* C-/:                                   emacspeak-muggles.  (line  208)
+* C-/:                                   emacspeak-muggles.  (line  207)
 * C-; ':                                 emacspeak-m-player. (line  738)
 * C-; /:                                 emacspeak-websearch.
                                                              (line  115)
