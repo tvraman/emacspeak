@@ -88,11 +88,11 @@
 ;;}}}
 ;;{{{ Stream Metadata:
 
-(cl-defstruct emacspeak-m-player-metadata
+(cl-defstruct ems--media-data
               title artist album info
               year comment track genre)
 
-(defvar-local emacspeak-m-player-metadata nil
+(defvar-local ems--media-data nil
   "Instance of stream metadata for this buffer.")
 
 (defun emacspeak-m-player-display-metadata ()
@@ -103,14 +103,14 @@
       (cl-loop
        for f in
        (cl-rest
-        (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
+        (mapcar #'car (cl-struct-slot-info 'ems--media-data)))
        do
-       (when (cl-struct-slot-value 'emacspeak-m-player-metadata f data)
+       (when (cl-struct-slot-value 'ems--media-data f data)
          (princ
           (format
            "%s:\t%s\n"
            f
-           (cl-struct-slot-value 'emacspeak-m-player-metadata f data))))))
+           (cl-struct-slot-value 'ems--media-data f data))))))
     (message "Displayed metadata in other window.")
     (emacspeak-auditory-icon 'task-done)))
 
@@ -135,7 +135,7 @@
     (unless (zerop (buffer-size))
       (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
-(defvar-local  emacspeak-m-player-current-directory nil
+(defvar-local  emacspeak-m-player-directory nil
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
@@ -186,7 +186,7 @@ This is set to nil when playing Internet  streams.")
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
   (progn
-    (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata)
+    (setq ems--media-data (make-ems--media-data)
           buffer-undo-list t
           buffer-read-only nil)))
 
@@ -375,9 +375,9 @@ plays result as a directory." directory)
              (interactive)
              (cl-declare  (special
                            default-directory
-                           emacspeak-m-player-current-directory))
+                           emacspeak-m-player-directory))
              (let ((default-directory ,directory))
-               (setq emacspeak-m-player-current-directory ,directory)
+               (setq emacspeak-m-player-directory ,directory)
                (emacspeak-m-player-accelerator ,directory))))))
     (global-set-key key command)
     (put command 'repeat-map 'emacspeak-m-player-mode-map)))
@@ -447,7 +447,7 @@ URL fragment specifies optional start position."
     (cond
       (prefix
        (setq current-prefix-arg nil)
-       (read-directory-name "Media:" emacspeak-m-player-current-directory))
+       (read-directory-name "Media:" emacspeak-m-player-directory))
       (t
        (completing-read
         "Media: "
@@ -487,19 +487,19 @@ If a dynamic playlist exists, just use it."
 
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from current  stream."
-  (cl-declare (special emacspeak-m-player-metadata))
+  (cl-declare (special ems--media-data))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (cl-loop
      for  f in
      '(title artist album year comment track genre)
      do
-     (aset emacspeak-m-player-metadata
-           (cl-struct-slot-offset 'emacspeak-m-player-metadata f)
+     (aset ems--media-data
+           (cl-struct-slot-offset 'ems--media-data f)
            (cl-second
             (split-string
              (emacspeak-m-player-slave-command (format "get_meta_%s" f))
              "="))))
-    emacspeak-m-player-metadata))
+    ems--media-data))
 
 (defvar emacspeak-m-player-cue-info nil
   "Set to T if  ICY info cued automatically.")
@@ -511,11 +511,11 @@ If a dynamic playlist exists, just use it."
                        ansi-color-control-seq-regexp))
   (when (process-live-p process)
     (with-current-buffer (process-buffer process)
-      (when (and emacspeak-m-player-metadata
-                 (emacspeak-m-player-metadata-p emacspeak-m-player-metadata)
+      (when (and ems--media-data
+                 (ems--media-data-p ems--media-data)
                  (string-match "ICY Info:" output))
         (setf
-         (emacspeak-m-player-metadata-info emacspeak-m-player-metadata)
+         (ems--media-data-info ems--media-data)
          (format "%s" output))
         (when emacspeak-m-player-cue-info
           (emacspeak-auditory-icon 'progress)
@@ -534,9 +534,9 @@ If a dynamic playlist exists, just use it."
   "Save amarks."
   (interactive)
   (cl-declare (special emacspeak-m-player-process
-                       emacspeak-m-player-current-directory))
+                       emacspeak-m-player-directory))
   (when
-      (and  emacspeak-m-player-current-directory
+      (and  emacspeak-m-player-directory
             (process-live-p emacspeak-m-player-process))
     (with-current-buffer
         (process-buffer emacspeak-m-player-process)
@@ -565,7 +565,7 @@ dynamic playlist. "
                emacspeak-m-player-resource
                emacspeak-m-player-dynamic-playlist
                emacspeak-m-player-accelerator-p
-               emacspeak-m-player-current-directory
+               emacspeak-m-player-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
                emacspeak-m-player-program emacspeak-m-player-options
@@ -602,7 +602,7 @@ dynamic playlist. "
         (when resource
           (setq resource (expand-file-name resource))
           (emacspeak-speak-load-directory-settings)
-          (setq emacspeak-m-player-current-directory
+          (setq emacspeak-m-player-directory
                 (file-name-directory resource)))
         (unless emacspeak-m-player-dynamic-playlist
           (if   (file-directory-p resource)
@@ -632,9 +632,9 @@ dynamic playlist. "
                            #'emacspeak-m-player-process-filter)
       (when
           (and
-           emacspeak-m-player-current-directory
-           (file-exists-p emacspeak-m-player-current-directory))
-        (cd emacspeak-m-player-current-directory)
+           emacspeak-m-player-directory
+           (file-exists-p emacspeak-m-player-directory))
+        (cd emacspeak-m-player-directory)
         (emacspeak-amark-load))
       (when (called-interactively-p 'interactive)
         (message
@@ -1079,11 +1079,11 @@ emacspeak-speak-messages
   "Speak and display metadata.
 Interactive prefix arg toggles automatic cueing of ICY info updates."
   (interactive "P")
-  (cl-declare (special emacspeak-m-player-metadata
+  (cl-declare (special ems--media-data
                        emacspeak-m-player-cue-info))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (unless   emacspeak-m-player-metadata  (error "No metadata"))
-    (let* ((m (emacspeak-m-player-metadata-info  emacspeak-m-player-metadata))
+    (unless   ems--media-data  (error "No metadata"))
+    (let* ((m (ems--media-data-info  ems--media-data))
            (info (and m (cl-second (split-string m "=")))))
       (when toggle-cue
         (setq emacspeak-m-player-cue-info
@@ -1229,7 +1229,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defvar emacspeak-m-player-media-history nil
   "Record media urls we played.")
 
-(defun emacspeak-m-player-remove-from-media-history (url)
+(defun emacspeak-m-player-rem-history (url)
   "Remove URL from media history"
   (interactive (list (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-m-player-media-history))
@@ -1257,7 +1257,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (let ((map (make-sparse-keymap)))
     (define-key map ";" 'emacspeak-eww-play-media-at-point)
     (define-key map "k" 'shr-copy-url)
-    (define-key map "r" 'emacspeak-m-player-remove-from-media-history)
+    (define-key map "r" 'emacspeak-m-player-rem-history)
     map)
 
   "Keymap used in media history browser.")
@@ -1311,7 +1311,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 ;; VLC uses -20db .. 20db; mplayer uses -12db .. 12db
 ;; See http://advantage-bash.blogspot.com/2013/05/mplayer-presets.html
 
-(defvar emacspeak-m-player-equalizer-presets
+(defvar ems--eq-presets
   '(
       ("flat" . [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0])
       ("classical" . [0.0 0.0 0.0 0.0 0.0 -4.4 -4.4 -4.4 -5.8 -6.5])
@@ -1333,10 +1333,10 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
       ("techno" . [4.8 3.3 0.0 -3.4 -2.9 0.0 4.8 5.7 5.8 5.3]))
   "MPlayer equalizer presets.")
 
-(defsubst ems--equalizer-preset-get (name)
+(defsubst ems--eq-preset-get (name)
   "Return vector of numbers for specified preset."
-  (cl-declare (special  emacspeak-m-player-equalizer-presets))
-  (cdr (assoc name emacspeak-m-player-equalizer-presets)))
+  (cl-declare (special  ems--eq-presets))
+  (cdr (assoc name ems--eq-presets)))
 
 (defconst emacspeak-m-player-equalizer (make-vector 10 0)
   "Vector holding equalizer settings.")
@@ -1354,7 +1354,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
    "16.00 kHz"]
   "Center frequencies for the 10 equalizer bands in MPlayer.")
 
-(defun emacspeak-m-player-equalizer-control (v)
+(defun emacspeak-m-player-eq-controls (v)
   "Manipulate values in  vector using minibuffer.
 Applies  the resulting value at each step."
   (interactive)
@@ -1418,14 +1418,14 @@ arg `reset' starts with all filters set to 0."
                        emacspeak-m-player-active-filters))
   (cond
     ((eq 'run  (process-status emacspeak-m-player-process))
-     (emacspeak-m-player-equalizer-control
+     (emacspeak-m-player-eq-controls
       (if reset  (make-vector 10 0)
           emacspeak-m-player-equalizer))
      (emacspeak-auditory-icon 'close-object)
      (push "equalizer" emacspeak-m-player-active-filters))
     (t (message "No stream playing at present."))))
 
-(defun emacspeak-m-player-equalizer-preset  (name)
+(defun emacspeak-m-player-eq-preset  (name)
   "Prompts for  and apply equalizer preset.
 
 The following presets are available:
@@ -1437,14 +1437,14 @@ flat classical club dance full-bass full-bass-and-treble
    (list
     (completing-read
      "MPlayer Equalizer Preset:"
-     emacspeak-m-player-equalizer-presets
+     ems--eq-presets
      nil 'must-match)))
   (cl-declare (special emacspeak-m-player-active-filters))
   (cl-declare (special
-               emacspeak-m-player-equalizer-presets
+               ems--eq-presets
                emacspeak-m-player-equalizer))
   (let ((result nil)
-        (p (ems--equalizer-preset-get name)))
+        (p (ems--eq-preset-get name)))
     (setq emacspeak-m-player-equalizer p)
     (setq result  (mapconcat #'number-to-string p  ":"))
     (emacspeak-m-player-dispatch "af_del equalizer")
@@ -1490,7 +1490,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("A" emacspeak-m-player-amark-add)
     ("C-l" ladspa)
     ("O" emacspeak-m-player-reset-options)
-    ("P" emacspeak-m-player-apply-reverb-preset)
+    ("P" emacspeak-m-player-apply-reverb)
     ("Q" emacspeak-m-player-quit)
     ("R" emacspeak-m-player-edit-reverb)
     ("S" emacspeak-m-player-amark-save)
@@ -1503,7 +1503,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("a" emacspeak-m-player-add-autopan)
     ("c" emacspeak-m-player-slave-command)
     ("d" emacspeak-m-player-delete-filter)
-    ("e" emacspeak-m-player-equalizer-preset)
+    ("e" emacspeak-m-player-eq-preset)
     ("f" emacspeak-m-player-add-filter)
     ("g" emacspeak-m-player-seek-absolute)
     ("h" emacspeak-m-player-from-history)
@@ -1847,7 +1847,7 @@ As the default, use current position."
     ("Warehouse - HD" 6.0))
   "Table of tap-reverb presets along with recommended decay values.")
 
-(defun emacspeak-m-player-apply-reverb-preset (preset)
+(defun emacspeak-m-player-apply-reverb (preset)
   "Prompt for and apply a reverb preset.
   You need to use mplayer built with ladspa support, and have package
   tap-reverb already installed."
