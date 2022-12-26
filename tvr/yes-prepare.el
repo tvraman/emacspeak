@@ -7,7 +7,7 @@
      (let* ((ask (concat (ad-get-arg 0) " y/n "))
             (c (read-char ask)))
        (while (not (member c '(?n ?y)))
-              (setqc  (read-char ask)))
+              (setq c  (read-char ask)))
        (setq ad-return-value
              (cl-case c
                (?y t)
