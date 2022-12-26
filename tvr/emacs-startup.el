@@ -216,7 +216,8 @@ Use Custom to customize where possible. "
   (diminish 'voice-lock-mode "")
   (diminish 'auto-fill-function "")
   (diminish 'abbrev-mode "")
-  (diminish 'auto-correct-mode ""))
+  (diminish 'auto-correct-mode "")
+  (load-library "yes-prepare"))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
