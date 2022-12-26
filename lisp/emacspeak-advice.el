@@ -2510,22 +2510,16 @@ Produce an auditory icon if possible."
 
 (defadvice yes-or-no-p (around emacspeak pre act comp)
   "Play auditory icon."
-  (cond
-   ((ems-interactive-p)
-    (emacspeak-auditory-icon 'ask-question)
+  (emacspeak-auditory-icon 'ask-question)
     ad-do-it
-    (emacspeak-auditory-icon (if ad-return-value 'yes-answer 'no-answer )))
-   (t ad-do-it))
+    (emacspeak-auditory-icon (if ad-return-value 'yes-answer 'no-answer ))
   ad-return-value)
 
 (defadvice y-or-n-p (around emacspeak pre act comp)
   "Play auditory icon."
-  (cond
-   ((ems-interactive-p)
-    (emacspeak-auditory-icon 'ask-short-question)
-    ad-do-it
-    (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer )))
-   (t ad-do-it)))
+  (emacspeak-auditory-icon 'ask-short-question)
+     ad-do-it
+     (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer )))
 
 (defadvice ask-user-about-lock (around emacspeak pre act comp)
   "Play auditory icon."
