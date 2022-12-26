@@ -297,9 +297,10 @@ configuration happens via the after-init-hook. "
   "speak."
   (cond
     (use-short-answers
-     (let ((c (read-char " y/n ")))
+     (let* ((ask (concat (ad-get-arg 0) " y/n "))
+            (c (read-char ask)))
        (while (not (member c '(?n ?y)))
-              (setq (read-char " y/n ")))
+              (setq (read-char ask)))
        (setq ad-return-value
              (case c
                (?y t)
