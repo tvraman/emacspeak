@@ -291,6 +291,26 @@ configuration happens via the after-init-hook. "
 
 ;;}}}
 (tvr-emacs)
+;;{{{cleaner yes-or-no-p with use-short-answers:
+
+(defadvice yes-or-no-p (around emacspeak pre act comp)
+  "speak."
+  (cond
+    (use-short-answers
+     (let ((c (read-char " y/n ")))
+       (while (not (member c '(?n ?y)))
+              (setq (read-char " y/n ")))
+       (setq ad-return-value
+             (case c
+               (?y t)
+               (?n nil)))))
+    (t ad-do-it))
+  (emacspeak-auditory-icon
+   (if ad-return-value 'y-answer 'n-answer))
+  ad-return-value)
+
+;;}}}
+
 ;;{{{ Forward Function Declarations:
 (declare-function ems-kbd "emacspeak-keymap" (string))
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
