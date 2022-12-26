@@ -95,10 +95,10 @@
 (defvar-local ems--media-data nil
   "Instance of stream metadata for this buffer.")
 
-(defun emacspeak-m-player-display-metadata ()
+(defun emacspeak-m-player-show-data ()
   "Display metadata after refreshing it if needed."
   (interactive)
-  (let ((data (emacspeak-m-player-refresh-metadata)))
+  (let ((data (emacspeak-m-player-data-refresh)))
     (with-output-to-temp-buffer "M Player Metadata"
       (cl-loop
        for f in
@@ -485,7 +485,7 @@ If a dynamic playlist exists, just use it."
                          default-filename 'must-match)))
          result)))))
 
-(defun emacspeak-m-player-refresh-metadata ()
+(defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
   (cl-declare (special ems--media-data))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
@@ -841,7 +841,7 @@ necessary."
   (emacspeak-m-player-dispatch
    "speed_set 1.0"))
 
-(defun emacspeak-m-player-play-tracks-jump (step)
+(defun emacspeak-m-player-skip-tracks (step)
   "Skip tracks."
   (interactive"nSkip Tracks:")
   (unless (zerop step)
@@ -851,12 +851,12 @@ necessary."
 (defun emacspeak-m-player-previous-track ()
   "Previous track."
   (interactive)
-  (emacspeak-m-player-play-tracks-jump -1))
+  (emacspeak-m-player-skip-tracks -1))
 
 (defun emacspeak-m-player-next-track ()
   "Next track."
   (interactive)
-  (emacspeak-m-player-play-tracks-jump 1))
+  (emacspeak-m-player-skip-tracks 1))
 
 (defun emacspeak-m-player-play-tree-up (step)
   "Move within the play tree."
@@ -902,12 +902,12 @@ The time position can also be specified as HH:MM:SS."
     (setq pos (ems--duration-to-seconds pos)))
   (emacspeak-m-player-dispatch (format "seek %s 2" pos)))
 
-(defun emacspeak-m-player-beginning-of-track()
+(defun emacspeak-m-player-start-track()
   "Move to beginning."
   (interactive)
   (emacspeak-m-player-seek-absolute "0"))
 
-(defun emacspeak-m-player-end-of-track()
+(defun emacspeak-m-player-end-track()
   "Move to end."
   (interactive)
   (emacspeak-m-player-seek-absolute "99"))
@@ -1102,7 +1102,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"
   "Command we send MPlayer to display position.")
 
-(defun emacspeak-m-player-display-position ()
+(defun emacspeak-m-player-show-pos ()
   "Display current position in track."
   (interactive)
   (cl-declare (special emacspeak-m-player-display-cmd))
@@ -1215,7 +1215,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-auditory-icon 'delete-object)))
 
-(defun emacspeak-m-player-customize-options ()
+(defun emacspeak-m-player-customize ()
   "Use Customize to set MPlayer options."
   (interactive)
   (customize-variable 'emacspeak-m-player-options)
@@ -1470,8 +1470,8 @@ flat classical club dance full-bass full-bass-and-treble
     ("." emacspeak-m-player-forward-10s)
     ("<" emacspeak-m-player-backward-1min)
     ("<down>" emacspeak-m-player-forward-1min)
-    ("<end>" emacspeak-m-player-end-of-track)
-    ("<home>" emacspeak-m-player-beginning-of-track)
+    ("<end>" emacspeak-m-player-end-track)
+    ("<home>" emacspeak-m-player-start-track)
     ("<left>" emacspeak-m-player-backward-10s)
     ("<next>" emacspeak-m-player-forward-10min)
     ("<prior>" emacspeak-m-player-backward-10min)
@@ -1479,14 +1479,14 @@ flat classical club dance full-bass full-bass-and-treble
     ("<up>" emacspeak-m-player-backward-1min)
     ("=" emacspeak-m-player-volume-up)
     (">" emacspeak-m-player-forward-1min)
-    ("?" emacspeak-m-player-display-position)
+    ("?" emacspeak-m-player-show-pos)
     ("\\" emacspeak-m-player-persist-process)
     ("/" emacspeak-m-player-restore-process)
     ("C" emacspeak-m-player-clear-filters)
     ("E" emacspeak-m-player-add-equalizer)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
-    ("M" emacspeak-m-player-display-metadata)
+    ("M" emacspeak-m-player-show-data)
     ("A" emacspeak-m-player-amark-add)
     ("C-l" ladspa)
     ("O" emacspeak-m-player-reset-options)
@@ -1514,11 +1514,11 @@ flat classical club dance full-bass full-bass-and-treble
     ("l" emacspeak-m-player-store-link)
     ("m" emacspeak-m-player-mode-line)
     ("n" emacspeak-m-player-next-track)
-    ("o" emacspeak-m-player-customize-options)
+    ("o" emacspeak-m-player-customize)
     ("p" emacspeak-m-player-previous-track)
     ("r" emacspeak-m-player-seek-relative)
     ("s" emacspeak-m-player-scale-speed)
-    ("t" emacspeak-m-player-play-tracks-jump)
+    ("t" emacspeak-m-player-skip-tracks)
     ("u" emacspeak-m-player-url)
     ("v" emacspeak-m-player-volume-change)
     ("z" emacspeak-m-player-add-autosat)
