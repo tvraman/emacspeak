@@ -5,10 +5,12 @@
   "speak."
   (cond
     (use-short-answers
+     (emacspeak-auditory-icon  'ask-question)
      (let* ((ask (concat (ad-get-arg 0) " y/n "))
             (c (read-char ask)))
        (while (not (member c '(?n ?y)))
-              (setq c  (read-char ask)))
+              (setq c  (read-char ask))
+              (emacspeak-auditory-icon  'ask-question))
        (setq ad-return-value
              (cl-case c
                       (?y t)
@@ -18,14 +20,13 @@
    (if ad-return-value 'y-answer 'n-answer))
   ad-return-value)
 
-
-
-
 (defadvice y-or-n-p (around emacspeak pre act comp)
   "speak."
+  (emacspeak-auditory-icon  'ask-question)
   (let* ((ask (concat (ad-get-arg 0) " y/n "))
          (c (read-char ask)))
     (while (not (member c '(?n ?y)))
+           (emacspeak-auditory-icon  'ask-question)
            (setq c  (read-char ask)))
     (setq ad-return-value
           (cl-case c

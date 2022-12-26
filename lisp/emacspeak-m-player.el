@@ -309,7 +309,7 @@ Reset immediately after being used.")
        #'(lambda (binding)
            (let ((key (cl-first binding))
                  (directory (cl-second binding)))
-             (emacspeak-m-player-bind-accelerator directory (ems-kbd key))))
+             (emacspeak-m-player-bind-hotkey directory (ems-kbd key))))
        val)
       (set-default sym val)))
 
@@ -356,7 +356,7 @@ Controls media playback when already playing.
   (cl-declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
 
-(defun emacspeak-m-player-bind-accelerator (directory key)
+(defun emacspeak-m-player-bind-hotkey (directory key)
   "Binds key to invoke m-player  on specified directory."
   (interactive
    (list
@@ -378,19 +378,19 @@ plays result as a directory." directory)
                            emacspeak-m-player-directory))
              (let ((default-directory ,directory))
                (setq emacspeak-m-player-directory ,directory)
-               (emacspeak-m-player-accelerator ,directory))))))
+               (emacspeak-m-player-hotkey ,directory))))))
     (global-set-key key command)
     (put command 'repeat-map 'emacspeak-m-player-mode-map)))
 
-(defvar emacspeak-m-player-accelerator-p nil
-  "Flag set by accelerators. Let-binding this causes default-directory
+(defvar emacspeak-m-player-hotkey-p nil
+  "Flag set by hotkeys. Let-binding this causes default-directory
  to be ignored when guessing directory.")
 
-(defun emacspeak-m-player-accelerator (directory)
+(defun emacspeak-m-player-hotkey (directory)
   "Launch MPlayer on   `directory'."
   (cl-declare (special ido-case-fold))
   (let ((ido-case-fold t)
-        (emacspeak-m-player-accelerator-p t)
+        (emacspeak-m-player-hotkey-p t)
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively #'emacspeak-multimedia)
     (emacspeak-auditory-icon 'select-object)
@@ -399,10 +399,10 @@ plays result as a directory." directory)
 (defun emacspeak-media-guess-directory ()
   "Guess default directory."
   (cl-declare (special emacspeak-media-directory-regexp
-                       emacspeak-m-player-accelerator-p))
+                       emacspeak-m-player-hotkey-p))
   (cond
     ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
-    (emacspeak-m-player-accelerator-p   emacspeak-media-shortcuts-directory)
+    (emacspeak-m-player-hotkey-p   emacspeak-media-shortcuts-directory)
     ((or ;  dir  contains media:
       (string-match emacspeak-media-directory-regexp default-directory)
       (directory-files default-directory   nil emacspeak-media-extensions))
@@ -458,10 +458,10 @@ URL fragment specifies optional start position."
   "Read resource from minibuffer.
 If a dynamic playlist exists, just use it."
   (cl-declare (special emacspeak-m-player-dynamic-playlist
-                       emacspeak-m-player-accelerator-p))
+                       emacspeak-m-player-hotkey-p))
   (unless emacspeak-m-player-dynamic-playlist
     (cond
-      (emacspeak-m-player-accelerator-p
+      (emacspeak-m-player-hotkey-p
        (emacspeak-media-local-resource prefix))
       (t
        (let ((completion-ignore-case t)
@@ -564,7 +564,7 @@ dynamic playlist. "
   (cl-declare (special
                emacspeak-m-player-resource
                emacspeak-m-player-dynamic-playlist
-               emacspeak-m-player-accelerator-p
+               emacspeak-m-player-hotkey-p
                emacspeak-m-player-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
