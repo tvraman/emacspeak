@@ -1486,6 +1486,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("/" emacspeak-m-player-restore-process)
     ("C" emacspeak-m-player-clear-filters)
     ("E" emacspeak-m-player-add-equalizer)
+    ("C-a" emacspeak-amark-browse)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
     ("M" emacspeak-m-player-show-data)
