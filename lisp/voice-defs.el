@@ -155,7 +155,7 @@
    (isearch-group-2 voice-smoothen)
    (italic voice-animate)
    (link voice-bolden-medium)
-   (link-visited voice-bolden-extra)
+   (link-visited voice-monotone)
    (match voice-lighten)
    (query-replace voice-bolden)
    (region voice-brighten)
