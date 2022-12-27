@@ -94,7 +94,8 @@
  for f in 
  '(
    deadgrep-forward-match deadgrep-forward
-   deadgrep-backward-match deadgrep-backward)
+   deadgrep-backward-match deadgrep-backward
+   deadgrep-forward-filename deadgrep-backward-filename)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
