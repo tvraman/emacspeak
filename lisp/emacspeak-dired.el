@@ -419,7 +419,7 @@ On a directory line, run du -s on the directory to speak its size."
   (emacspeak-speak-line))
 
 (defconst emacspeak-dired-opener-table
-  `(("\\.amarks$"  emacspeak-amark-file-load)
+  `(("\\.am$"  emacspeak-amark-file-load)
     ("\\.epub$"  emacspeak-dired-epub-eww)
     ("\\.rpm$" emacspeak-dired-rpm-query-in-dired)
     ("\\.mid$"  emacspeak-dired-midi-play)

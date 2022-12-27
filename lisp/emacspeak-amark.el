@@ -250,6 +250,15 @@ via command `org-insert-link' bound to \\[org-insert-link]."
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buff)))
 
+;;;###autoload
+(defun emacspeak-amark-bookshelf()
+  "Open a locate buffer with all .amarks.am files.
+Use \\[emacspeak-dired-open-this-file] to open the AMark Browser on
+current file."
+  (interactive)
+  (cl-declare (special emacspeak-amark-file))
+  (funcall-interactively #'locate emacspeak-amark-file))
+
 ;;}}}
 (provide  'emacspeak-amark)
 ;;{{{  emacs local variables
