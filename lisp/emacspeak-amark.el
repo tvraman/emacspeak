@@ -133,18 +133,18 @@ given name, it is updated with path and position."
   "Load AMarks file from  current  media directory."
   (cl-declare (special emacspeak-amark-list emacspeak-amark-file
                        emacspeak-m-player-process))
-  (let ((buff nil)
-        (find-file-hook nil)
-        (file
-         (expand-file-name
-          emacspeak-amark-file
-          (or
+  (let* ((buff nil)
+         (find-file-hook nil)
+         (dir
            (when (process-live-p emacspeak-m-player-process)
-             (with-current-buffer
-                 (process-buffer emacspeak-m-player-process)
-               default-directory))
-           default-directory)))
-        (l nil ))
+             (with-current-buffer (process-buffer emacspeak-m-player-process)
+               default-directory)))
+         (file
+           (cond 
+             ((file-exists-p (expand-file-name emacspeak-amark-file default-directory))
+              (expand-file-name emacspeak-amark-file default-directory))
+             (t  (expand-file-name emacspeak-amark-file dir))))
+         (l nil ))
     (when (file-exists-p file)
       (setq buff (find-file-noselect file))
       (with-current-buffer buff
