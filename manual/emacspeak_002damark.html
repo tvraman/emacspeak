@@ -73,9 +73,9 @@
     path: filename containing marked name: Bookmark tag Position:
     time offset from start</p>
     <p>This library will be used from emacspeak-m-player to set and
-    jump to bookmarks. Amarks are stored in a .amarks.el file in
-    the working directory. It also provides a simple AMark Browser
-    to use from a directory containing mp3 files where Amarks have
+    jump to bookmarks. Amarks are stored in a .amarks file in the
+    working directory. It also provides a simple AMark Browser to
+    use from a directory containing mp3 files where Amarks have
     been created.</p>
     <ul class="section-toc">
       <li><a href="#Emacspeak_002dAmark-Commands" accesskey=
@@ -86,14 +86,18 @@
       <ul class="section-toc">
         <li><a href="#emacspeak_002damark_002dadd" accesskey=
         "1">emacspeak-amark-add</a></li>
+        <li><a href="#emacspeak_002damark_002dbookshelf" accesskey=
+        "2">emacspeak-amark-bookshelf</a></li>
         <li><a href="#emacspeak_002damark_002dbrowse" accesskey=
-        "2">emacspeak-amark-browse</a></li>
+        "3">emacspeak-amark-browse</a></li>
+        <li><a href="#emacspeak_002damark_002dfile_002dload"
+        accesskey="4">emacspeak-amark-file-load</a></li>
         <li><a href="#emacspeak_002damark_002dfind" accesskey=
-        "3">emacspeak-amark-find</a></li>
+        "5">emacspeak-amark-find</a></li>
         <li><a href="#emacspeak_002damark_002dmode" accesskey=
-        "4">emacspeak-amark-mode</a></li>
+        "6">emacspeak-amark-mode</a></li>
         <li><a href="#emacspeak_002damark_002dsave" accesskey=
-        "5">emacspeak-amark-save</a></li>
+        "7">emacspeak-amark-save</a></li>
       </ul>
       <div class="subsubsection" id="emacspeak_002damark_002dadd">
         <h4 class="subsubsection">12.12.1.1
@@ -120,8 +124,31 @@ given name, it is updated with path and position.
         </dl>
       </div>
       <div class="subsubsection" id=
-      "emacspeak_002damark_002dbrowse">
+      "emacspeak_002damark_002dbookshelf">
         <h4 class="subsubsection">12.12.1.2
+        emacspeak-amark-bookshelf</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002damark_002dbookshelf">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-amark-bookshelf</strong> <a href=
+          '#index-emacspeak_002damark_002dbookshelf' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002damark_002dbookshelf-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Open a locate buffer with all .amarks.am files.
+Use M-x emacspeak-dired-open-this-file to open the AMark Browser on
+current file.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002damark_002dbrowse">
+        <h4 class="subsubsection">12.12.1.3
         emacspeak-amark-browse</h4>
         <dl class="def">
           <dt id="index-emacspeak_002damark_002dbrowse">
@@ -147,8 +174,29 @@ given name, it is updated with path and position.
           </dd>
         </dl>
       </div>
+      <div class="subsubsection" id=
+      "emacspeak_002damark_002dfile_002dload">
+        <h4 class="subsubsection">12.12.1.4
+        emacspeak-amark-file-load</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002damark_002dfile_002dload">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-amark-file-load</strong> <a href=
+          '#index-emacspeak_002damark_002dfile_002dload' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002damark_002dfile_002dload-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Open .amark.el on current line in AMark Browser
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
       <div class="subsubsection" id="emacspeak_002damark_002dfind">
-        <h4 class="subsubsection">12.12.1.3
+        <h4 class="subsubsection">12.12.1.5
         emacspeak-amark-find</h4>
         <dl class="def">
           <dt id="index-emacspeak_002damark_002dfind"><span class=
@@ -170,7 +218,7 @@ given name, it is updated with path and position.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002damark_002dmode">
-        <h4 class="subsubsection">12.12.1.4
+        <h4 class="subsubsection">12.12.1.6
         emacspeak-amark-mode</h4>
         <dl class="def">
           <dt id="index-emacspeak_002damark_002dmode"><span class=
@@ -198,7 +246,7 @@ or penultimate step during initialization.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002damark_002dsave">
-        <h4 class="subsubsection">12.12.1.5
+        <h4 class="subsubsection">12.12.1.7
         emacspeak-amark-save</h4>
         <dl class="def">
           <dt id="index-emacspeak_002damark_002dsave"><span class=
