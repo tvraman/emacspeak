@@ -78,15 +78,16 @@
 ;;{{{  functions:
 
 (defun emacspeak-dired-speak-line ()
-  "Speak the dired line intelligently."
+  "Speak the dired line intelligently.
+If in locate-mode, speak full pathname."
   (cl-declare (special emacspeak-speak-last-spoken-word-position))
-  (let ((filename (dired-get-filename 'no-dir  t))
+  (let ((filename
+          (dired-get-filename (if (eq major-mode 'locate-mode) nil 'no-dir) t))
         (personality (dtk-get-style)))
     (cond
-     (filename
-      (dtk-speak (propertize filename 'personality personality))
-      (setq emacspeak-speak-last-spoken-word-position (point)))
-     (t (emacspeak-speak-line)))))
+      (filename (dtk-speak (propertize filename 'personality personality))
+       (setq emacspeak-speak-last-spoken-word-position (point)))
+      (t (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{  advice:
@@ -163,7 +164,7 @@
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
-     "Speak the filename name."
+     "Speak the filename."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-dired-speak-line)))))
