@@ -776,7 +776,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "speak."
   (let ((buffer-name (ad-get-arg 1)))
     (when (bufferp ad-return-value)
-      (dtk-notify-speak (format "Displayed message in buffer  %s" buffer-name)))))
+      (dtk-notify-speak
+       (format "Displayed message in buffer  %s" buffer-name)))))
 
 (defun emacspeak-speak-eldoc (docs interactive)
   "Speak eldoc."

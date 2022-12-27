@@ -135,14 +135,15 @@ given name, it is updated with path and position."
                        emacspeak-m-player-process))
   (let* ((buff nil)
          (find-file-hook nil)
+         (def default-directory)
          (dir
            (when (process-live-p emacspeak-m-player-process)
-             (with-current-buffer (process-buffer emacspeak-m-player-process)
-               default-directory)))
+             (with-current-buffer
+                 (process-buffer emacspeak-m-player-process) def)))
          (file
            (cond 
-             ((file-exists-p (expand-file-name emacspeak-amark-file default-directory))
-              (expand-file-name emacspeak-amark-file default-directory))
+             ((file-exists-p (expand-file-name emacspeak-amark-file def))
+              (expand-file-name emacspeak-amark-file def))
              (t  (expand-file-name emacspeak-amark-file dir))))
          (l nil ))
     (when (file-exists-p file)
