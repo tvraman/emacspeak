@@ -12,7 +12,166 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 26, 2022.
+last updated on December 27, 2022.
+
+
+File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
+
+12.229 soundscape
+=================
+
+Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
+acoustic environment.  Boodler at <http://boodler.org> is a Python-based
+SoundScape generator.  To use this module, first install boodler.  Then
+install the soundscape packages (*.boop) files available at
+<http://boodler.org/lib>.  Make sure boodler works and produces audio in
+your environment.  finally install the Boodler packages from
+emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
+emacspeak/scapes; make ’
+
+   When boodler is set up and all packages installed, copy file
+emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
+lists all installed SoundScapes.  Directory emacspeak/scapes also
+contains additional Boodler Agents and SoundScapes that I have created
+for use with Emacspeak.
+
+   Module soundscape.el defines Emacs conveniences for running
+Soundscapes.  Main Entry Points:
+
+   • M-x soundscape-toggle – Enables or disables automatic SoundScapes.
+   • M-x soundscape – runs a named SoundScape
+   • M-x soundscape-stop – Stops a specified running Soundscape.
+   • M-x soundscape-kill – Kills all running Soundscapes.
+
+   When automatic Soundscapes are enabled, SoundScapes are started and
+stopped based on the current major mode.  Active Soundscape are
+displayed as part of the minor-mode-alist.  Command
+emacspeak-speak-minor-mode-line can be used to have this spoken.
+
+   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
+current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
+that is loaded using ‘(soundscape-load soundscape-default-theme)’.
+Emacs modes that provide similar functionality e.g., communication ==
+email, IM, ...  map to the same _mood_.
+
+12.229.1 Soundscape Commands
+----------------------------
+
+12.229.1.1 soundscape
+.....................
+
+ -- Command: soundscape (scape)
+     ‘C-. s’
+     ‘C-x @ s s’
+
+     Play soundscape.
+
+     (fn SCAPE)
+
+12.229.1.2 soundscape-kill
+..........................
+
+ -- Command: soundscape-kill
+
+     Stop all running soundscapes.
+
+12.229.1.3 soundscape-listener
+..............................
+
+ -- Command: soundscape-listener (&optional restart)
+
+     Start  a Soundscape listener.
+     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
+     Optional interactive prefix arg restarts the listener.
+
+     (fn &optional RESTART)
+
+12.229.1.4 soundscape-listener-shutdown
+.......................................
+
+ -- Command: soundscape-listener-shutdown
+
+     Shutdown listener.
+
+12.229.1.5 soundscape-remote
+............................
+
+ -- Command: soundscape-remote (names)
+
+     Activate scapes named ‘names’ — a list of strings.
+
+     (fn NAMES)
+
+12.229.1.6 soundscape-restart
+.............................
+
+ -- Command: soundscape-restart (&optional prompt)
+     ‘C-. r’
+     ‘C-x @ s r’
+
+     Restart Soundscape  environment.
+     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+     The  is then saved to soundscape-device for future use.
+
+     (fn &optional PROMPT)
+
+12.229.1.7 soundscape-stop
+..........................
+
+ -- Command: soundscape-stop (scape)
+
+     Stop running Soundscape.
+
+     (fn SCAPE)
+
+12.229.1.8 soundscape-theme
+...........................
+
+ -- Command: soundscape-theme
+
+     Shows default theme in a special buffer.
+
+12.229.1.9 soundscape-toggle
+............................
+
+ -- Command: soundscape-toggle
+     ‘C-. t’
+     ‘C-x @ s t’
+
+     Toggle automatic SoundScapes.
+     Run command M-x soundscape-theme to see the default mode->mood mapping.
+
+12.229.1.10 soundscape-update-mood
+..................................
+
+ -- Command: soundscape-update-mood (&optional prompt-mode)
+     ‘C-. u’
+     ‘C-x @ s u’
+
+     Update mood/scape mapping for current  mode.
+     The  updated mapping is not persisted.
+     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+     (fn &optional PROMPT-MODE)
+
+12.229.2 soundscape Options
+---------------------------
+
+ -- Variable: User Option soundscape-data
+     Soundscape data directory.
+
+     Default Value: ‘/home/raman/.boodler/Collection’
+
+ -- Variable: User Option soundscape-device
+     Alsa sound device to use for soundscapes.
+
+     Default Value: ‘default’
+
+ -- Variable: User Option soundscape-manager-options
+     User customizable options list passed to boodler.  Defaults specify
+     alsa as the output and set master volume
+
+     Default Value: ‘(-m 0.3)’
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -491,12 +650,12 @@ unique voices defined in this module.
  -- Variable: User Option voice-monotone-medium-settings
      Settings for voice-monotone-medium
 
-     Default Value: ‘(nil nil 2 2)’
+     Default Value: ‘(nil nil 1 2)’
 
  -- Variable: User Option voice-monotone-settings
      Settings for voice-monotone
 
-     Default Value: ‘(nil nil 4 4)’
+     Default Value: ‘(nil nil 2 4)’
 
  -- Variable: User Option voice-overlay-0-settings
      Settings for voice-overlay-0
@@ -2257,8 +2416,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> 7:                                emacspeak-speak.    (line  699)
 * <fn> 8:                                emacspeak-speak.    (line  698)
 * <fn> 9:                                emacspeak-speak.    (line  697)
-* <fn> ::                                emacspeak-m-player. (line  662)
-* <fn> ;:                                emacspeak-m-player. (line  824)
+* <fn> ::                                emacspeak-m-player. (line  663)
+* <fn> ;:                                emacspeak-m-player. (line  825)
 * <fn> <down>:                           emacspeak-speak.    (line  174)
 * <fn> <f11>:                            emacspeak-wizards.  (line  999)
 * <fn> <f1>:                             emacspeak-wizards.  (line   75)
@@ -2485,7 +2644,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x f:                              emacspeak-wizards.  (line  892)
 * <fn> x h:                              emacspeak-wizards.  (line  653)
 * <fn> x j:                              emacspeak-jabber.   (line   44)
-* <fn> x l:                              emacspeak-m-player. (line  800)
+* <fn> x l:                              emacspeak-m-player. (line  801)
 * <fn> x o:                              emacspeak-wizards.  (line  839)
 * <fn> x q:                              emacspeak-wizards.  (line  873)
 * <fn> x SPC:                            emacspeak-jabber.   (line   53)
@@ -2530,8 +2689,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, s:                                 emacspeak-wizards.  (line 1133)
 * C-, SPC:                               emacspeak-eww.      (line  911)
 * C-, t:                                 emacspeak-wizards.  (line 1121)
-* C-, u:                                 emacspeak-m-player. (line  726)
-* C-, y:                                 emacspeak-m-player. (line  810)
+* C-, u:                                 emacspeak-m-player. (line  727)
+* C-, y:                                 emacspeak-m-player. (line  811)
 * C-. .:                                 emacspeak-wizards.  (line  972)
 * C-. C-n:                               emacspeak-wizards.  (line  633)
 * C-. d:                                 emacspeak-dired.    (line   25)
@@ -2548,12 +2707,12 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. v:                                 extra-muggles.      (line  280)
 * C-. y:                                 emacspeak-mpv.      (line   19)
 * C-/:                                   emacspeak-muggles.  (line  207)
-* C-; ':                                 emacspeak-m-player. (line  738)
+* C-; ':                                 emacspeak-m-player. (line  739)
 * C-; /:                                 emacspeak-websearch.
                                                              (line  115)
-* C-; ::                                 emacspeak-m-player. (line  749)
-* C-; ;:                                 emacspeak-m-player. (line  823)
-* C-; a:                                 emacspeak-amark.    (line   34)
+* C-; ::                                 emacspeak-m-player. (line  750)
+* C-; ;:                                 emacspeak-m-player. (line  824)
+* C-; a:                                 emacspeak-amark.    (line   43)
 * C-; C-a:                               emacspeak-wizards.  (line 1077)
 * C-; C-j:                               emacspeak-wizards.  (line  998)
 * C-; C-l:                               emacspeak-librivox. (line   32)
@@ -2639,8 +2798,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e 7:                                 emacspeak-speak.    (line  689)
 * C-e 8:                                 emacspeak-speak.    (line  688)
 * C-e 9:                                 emacspeak-speak.    (line  687)
-* C-e ::                                 emacspeak-m-player. (line  661)
-* C-e ;:                                 emacspeak-m-player. (line  822)
+* C-e ::                                 emacspeak-m-player. (line  662)
+* C-e ;:                                 emacspeak-m-player. (line  823)
 * C-e <down>:                            emacspeak-speak.    (line  173)
 * C-e <f11>:                             emacspeak-wizards.  (line  997)
 * C-e <f1>:                              emacspeak-wizards.  (line   73)
@@ -2924,7 +3083,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x f:                               emacspeak-wizards.  (line  891)
 * C-e x h:                               emacspeak-wizards.  (line  652)
 * C-e x j:                               emacspeak-jabber.   (line   43)
-* C-e x l:                               emacspeak-m-player. (line  799)
+* C-e x l:                               emacspeak-m-player. (line  800)
 * C-e x o:                               emacspeak-wizards.  (line  838)
 * C-e x q:                               emacspeak-wizards.  (line  872)
 * C-e x SPC:                             emacspeak-jabber.   (line   52)
@@ -2963,14 +3122,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a s:                             emacspeak-wizards.  (line 1134)
 * C-x @ a SPC:                           emacspeak-eww.      (line  912)
 * C-x @ a t:                             emacspeak-wizards.  (line 1122)
-* C-x @ a u:                             emacspeak-m-player. (line  727)
-* C-x @ a y:                             emacspeak-m-player. (line  811)
-* C-x @ h ':                             emacspeak-m-player. (line  739)
+* C-x @ a u:                             emacspeak-m-player. (line  728)
+* C-x @ a y:                             emacspeak-m-player. (line  812)
+* C-x @ h ':                             emacspeak-m-player. (line  740)
 * C-x @ h /:                             emacspeak-websearch.
                                                              (line  116)
-* C-x @ h ::                             emacspeak-m-player. (line  750)
-* C-x @ h ;:                             emacspeak-m-player. (line  825)
-* C-x @ h a:                             emacspeak-amark.    (line   35)
+* C-x @ h ::                             emacspeak-m-player. (line  751)
+* C-x @ h ;:                             emacspeak-m-player. (line  826)
+* C-x @ h a:                             emacspeak-amark.    (line   44)
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1078)
 * C-x @ h C-j:                           emacspeak-wizards.  (line 1000)
 * C-x @ h C-l:                           emacspeak-librivox. (line   33)

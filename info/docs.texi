@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1170 commands and 148 options.
+This chapter documents a total of 1172 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -1329,7 +1329,7 @@ name: Bookmark tag
 Position: time offset from start
 
  This library will be used from emacspeak-m-player to set and jump
-to bookmarks. Amarks are stored in a .amarks.el file in the working
+to bookmarks. Amarks are stored in a .amarks file in the working
 directory.  It also provides a simple AMark Browser to use from a
 directory containing mp3 files where Amarks have been created.
 
@@ -1348,6 +1348,17 @@ given name, it is updated with path and position.
 @end format
 @end deffn
 
+@subsubsection emacspeak-amark-bookshelf
+@deffn {Command} emacspeak-amark-bookshelf   
+@findex emacspeak-amark-bookshelf
+
+@format
+Open a locate buffer with all .amarks.am files.
+Use M-x emacspeak-dired-open-this-file to open the AMark Browser on
+current file.
+@end format
+@end deffn
+
 @subsubsection emacspeak-amark-browse
 @deffn {Command} emacspeak-amark-browse   
 @table @kbd
@@ -1361,6 +1372,15 @@ given name, it is updated with path and position.
 
 @format
 Browse   amarks  in current directory using ‘emacspeak-amark-mode’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-amark-file-load
+@deffn {Command} emacspeak-amark-file-load   
+@findex emacspeak-amark-file-load
+
+@format
+Open .amark.el on current line in AMark Browser
 @end format
 @end deffn
 
@@ -8521,6 +8541,7 @@ Major mode for m-player interaction.
 
 Key             Binding
 -------------------------------------------------------------------------------
+C-a		emacspeak-amark-browse
 C-l		ladspa
 RET		emacspeak-m-player-load
 SPC		emacspeak-m-player-pause
@@ -9076,6 +9097,7 @@ Controls media playback when already playing.
 
 Key             Binding
 -------------------------------------------------------------------------------
+C-a		emacspeak-amark-browse
 C-l		ladspa
 RET		emacspeak-m-player-load
 SPC		emacspeak-m-player-pause
@@ -19747,14 +19769,14 @@ Default Value: @code{@verb{|(nil nil 0 0)|}}
 @defvar {User Option} voice-monotone-medium-settings
 Settings for voice-monotone-medium
 
-Default Value: @code{@verb{|(nil nil 2 2)|}}
+Default Value: @code{@verb{|(nil nil 1 2)|}}
 
 @end defvar
 
 @defvar {User Option} voice-monotone-settings
 Settings for voice-monotone
 
-Default Value: @code{@verb{|(nil nil 4 4)|}}
+Default Value: @code{@verb{|(nil nil 2 4)|}}
 
 @end defvar
 
