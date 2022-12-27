@@ -109,7 +109,7 @@ given name, it is updated with path and position."
          (make-emacspeak-amark :path path :name name :position position)
          emacspeak-amark-list))))))
 
-(defvar emacspeak-amark-file ".amarks"
+(defvar emacspeak-amark-file ".amarks.am"
   "Name of file used to save AMarks.")
 
 ;;;###autoload
