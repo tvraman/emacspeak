@@ -2380,8 +2380,7 @@ Produce an auditory icon if possible."
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
-    (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'button)))
 
 ;;}}}
 ;;{{{ silence whitespace cleanup:
