@@ -49,7 +49,7 @@
 ;; Position: time offset from start
 
 ;;  This library will be used from emacspeak-m-player to set and jump
-;; to bookmarks. Amarks are stored in a .amarks.el file in the working
+;; to bookmarks. Amarks are stored in a .amarks file in the working
 ;; directory.  It also provides a simple AMark Browser to use from a
 ;; directory containing mp3 files where Amarks have been created.
 
@@ -60,15 +60,16 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
+(require 'dired)
 ;;}}}
 ;;{{{ Structure:
 
 (cl-defstruct emacspeak-amark
-  "AMark: A structure that holds a name, a file, and a time-position."
-  path                                  ; filename
-  name                                  ; Bookmark name
-  position                              ; Offset in ms from start
-  )
+              "AMark: A structure that holds a name, a file, and a time-position."
+              path                      ; filename
+              name                      ; Bookmark name
+              position                  ; Offset in ms from start
+              )
 
 ;;}}}
 ;;{{{ AMark List:
@@ -108,7 +109,7 @@ given name, it is updated with path and position."
          (make-emacspeak-amark :path path :name name :position position)
          emacspeak-amark-list))))))
 
-(defvar emacspeak-amark-file ".amarks.el"
+(defvar emacspeak-amark-file ".amarks"
   "Name of file used to save AMarks.")
 
 ;;;###autoload
@@ -165,6 +166,14 @@ given name, it is updated with path and position."
       #'(lambda (a b) ;; predicate for sort
           (string-lessp
            (emacspeak-amark-name a) (emacspeak-amark-name b )))))))
+
+
+(defun emacspeak-amark-file-load ()
+  "Open .amark.el on current line in AMark Browser"
+  (interactive)
+  (cd (file-name-directory
+       (shell-quote-argument(dired-get-filename))))
+  (funcall-interactively #'emacspeak-amark-browse))
 
 (defun emacspeak-amark-delete (amark)
   "Delete Amark and save."
