@@ -172,8 +172,7 @@ given name, it is updated with path and position."
 (defun emacspeak-amark-file-load ()
   "Open .amark.el on current line in AMark Browser"
   (interactive)
-  (cd (file-name-directory
-       (shell-quote-argument(dired-get-filename))))
+  (cd (file-name-directory (dired-get-filename)))
   (funcall-interactively #'emacspeak-amark-browse))
 
 (defun emacspeak-amark-delete (amark)
