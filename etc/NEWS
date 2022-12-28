@@ -14,3 +14,33 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 58 --- Emacspeak 58 User Visible Changes
 
 This version requires Emacs-29.
+
+** Audio Marks (AMarks)
+
+Audio marks and the AMark Browser are better integrated across =dired=
+and =org= interaction.
+
+** URL Templates
+
+URL Templates have been refreshed.
+
+** Search Wizards
+
+Search wizards have been updated to reflect the state of the Web.
+
+** Youtube MPV Integration 
+
+Better MPV/Youtube integration including PlayLists as RSS.
+
+** Updated Slime Support
+
+Module =emacspeak-slime= updated while developing AsTeR.
+
+** AsTeR: Audio System For Technical Readings 
+
+AsTeR integration is now integrated on the emacspeak Audio Desktop 
+
+** Media History
+
+Updated media history browser.
+
