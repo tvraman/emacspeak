@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1172 commands and 148 options.
+This chapter documents a total of 1173 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -1399,6 +1399,15 @@ Open .amark.el on current line in AMark Browser
 Return matching AMark if found in buffer-local AMark list.
 
 (fn NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-amark-list-play
+@deffn {Command} emacspeak-amark-list-play   
+@findex emacspeak-amark-list-play
+
+@format
+Play amark list as a playlist
 @end format
 @end deffn
 

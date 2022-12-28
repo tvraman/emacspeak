@@ -3444,7 +3444,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1172 commands and 148 options.
+   This chapter documents a total of 1173 commands and 148 options.
 
 * Menu:
 
@@ -4552,7 +4552,14 @@ directory containing mp3 files where Amarks have been created.
 
      (fn NAME)
 
-12.12.1.6 emacspeak-amark-mode
+12.12.1.6 emacspeak-amark-list-play
+...................................
+
+ -- Command: emacspeak-amark-list-play
+
+     Play amark list as a playlist
+
+12.12.1.7 emacspeak-amark-mode
 ..............................
 
  -- Command: emacspeak-amark-mode
@@ -4568,7 +4575,7 @@ directory containing mp3 files where Amarks have been created.
      run, this mode runs the hook ‘emacspeak-amark-mode-hook’, as the final
      or penultimate step during initialization.
 
-12.12.1.7 emacspeak-amark-save
+12.12.1.8 emacspeak-amark-save
 ..............................
 
  -- Command: emacspeak-amark-save
