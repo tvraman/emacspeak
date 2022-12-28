@@ -275,7 +275,7 @@ This moves them into the Spam folder."
   (diminish 'orgalist-mode ""))
 ;;; Jump to Emacs Git Logs At HEAD:
 (defalias 'tvr-km-emacs-log
-   (kmacro "C-c 3 C-; d F u C-; d l l C-e d q M-< C-e C-q C-e d q n"))
+   (kmacro "C-c 3 g i t SPC p <return> C-; d l l C-e | <return> <escape> < C-e s"))
 (global-set-key [24 11 48] 'tvr-km-emacs-log)
 (defalias 'tvr-km-morning
    (kmacro "C-<tab> C-e g b h <tab> <return> n n e c"))
