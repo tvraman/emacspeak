@@ -2518,8 +2518,10 @@ Produce an auditory icon if possible."
 (defadvice y-or-n-p (around emacspeak pre act comp)
   "Play auditory icon."
   (emacspeak-auditory-icon 'ask-short-question)
-     ad-do-it
-     (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer )))
+  ad-do-it
+  (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer
+                               ))
+  ad-return-value)
 
 (defadvice ask-user-about-lock (around emacspeak pre act comp)
   "Play auditory icon."
