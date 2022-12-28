@@ -990,7 +990,8 @@ emacspeak-speak-messages
                emacspeak-m-player-url-p
                (string-match
                 emacspeak-media-shortcuts-directory
-                emacspeak-m-player-resource))
+                emacspeak-m-player-resource)
+               (minusp (emacspeak-m-player-get-length)))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
           (ems--mplayer-send "quit")
@@ -1098,9 +1099,10 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defun emacspeak-m-player-get-length ()
   "Display length of track."
   (interactive)
-  (dtk-speak-and-echo
-   (read
-    (cl-second (split-string (ems--mplayer-send "get_time_length") "="))) ))
+  (let ((ans (read
+              (cl-second (split-string (ems--mplayer-send "get_time_length") "=")))))
+    (dtk-speak-and-echo ans)
+    ans))
 
 (defconst emacspeak-m-player-display-cmd
   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"
