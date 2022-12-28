@@ -257,7 +257,8 @@ Use \\[emacspeak-dired-open-this-file] to open the AMark Browser on
 current file."
   (interactive)
   (cl-declare (special emacspeak-amark-file))
-  (funcall-interactively #'locate emacspeak-amark-file))
+  (funcall-interactively #'locate emacspeak-amark-file)
+  (rename-buffer "AMark Browser" 'unique))
 
 ;;}}}
 (provide  'emacspeak-amark)

@@ -590,6 +590,7 @@
 (defcustom emacspeak-hyper-keys
   '(
     ("DEL" emacspeak-wizards-snarf-sexp)
+    ("C-;" emacspeak-amark-bookshelf)
     ("C-l" emacspeak-librivox)
     ("'" emacspeak-m-player-using-hrtf)
     ("," previous-buffer)
