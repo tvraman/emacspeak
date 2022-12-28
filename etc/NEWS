@@ -44,3 +44,7 @@ AsTeR integration is now integrated on the emacspeak Audio Desktop
 
 Updated media history browser.
 
+** Updated Keymaps 
+
+Updated key-bindings including specializations for =org-mode= and
+consistent media interaction across the Emacspeak Desktop.
