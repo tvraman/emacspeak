@@ -124,7 +124,7 @@
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player.")
 
-(defun emacspeak-m-player-dispatch (command)
+(defun ems--mplayer-send (command)
   "Dispatch command to m-player."
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
@@ -732,7 +732,7 @@ Interactive prefix arg appends the new resource to what is playing."
                        emacspeak-media-shortcuts-directory))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "loadfile %s %s" resource
            (if append 1 ""))))
 
@@ -785,10 +785,10 @@ necessary."
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     ;; dispatch command twice to avoid flakiness in mplayer
-    (emacspeak-m-player-dispatch
+    (ems--mplayer-send
      "get_time_pos\nget_file_name\nget_time_length\n")
     (let* ((output
-             (emacspeak-m-player-dispatch
+             (ems--mplayer-send
               "get_time_pos\nget_file_name\nget_time_length\n") )
            (lines (when output (split-string output "\n" 'omit-nulls)))
            (fields
@@ -807,14 +807,14 @@ necessary."
   (substring ;; strip quotes
    (cl-second
     (split-string
-     (emacspeak-m-player-dispatch "get_file_name\n")
+     (ems--mplayer-send "get_file_name\n")
      "="))
    1 -1))
 
 (defun emacspeak-m-player-scale-speed (factor)
   "Scale speed by factor."
   (interactive "nFactor:")
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "af_add scaletempo=scale=%f:speed=pitch" factor)))
 
 (defun emacspeak-m-player-slower ()
@@ -840,14 +840,14 @@ necessary."
 (defun emacspeak-m-player-reset-speed ()
   "Reset  speed."
   (interactive)
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    "speed_set 1.0"))
 
 (defun emacspeak-m-player-skip-tracks (step)
   "Skip tracks."
   (interactive"nSkip Tracks:")
   (unless (zerop step)
-    (emacspeak-m-player-dispatch
+    (ems--mplayer-send
      (format "pt_step %d" step))))
 
 (defun emacspeak-m-player-previous-track ()
@@ -865,7 +865,7 @@ necessary."
   (interactive
    (list
     (read-from-minibuffer "Move by: ")))
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "pt_up %s" step)))
 
 (defun emacspeak-m-player-alt-src-step (step)
@@ -873,7 +873,7 @@ necessary."
   (interactive
    (list
     (read-from-minibuffer "Move by: ")))
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "alt_src_step %s" step)))
 
 (defun emacspeak-m-player-seek-relative (offset)
@@ -884,14 +884,14 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS."
     (read-from-minibuffer "Offset: ")))
   (when (string-match ":" offset)
     (setq offset (ems--duration-to-seconds offset)))
-  (emacspeak-m-player-dispatch (format "seek %s" offset)))
+  (ems--mplayer-send (format "seek %s" offset)))
 
 (defun emacspeak-m-player-seek-percentage (pos)
   "Seek  to absolute pos in percent."
   (interactive
    (list
     (read-from-minibuffer "Seek to percentage: ")))
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "seek %s 1" pos)))
 
 (defun emacspeak-m-player-seek-absolute (pos)
@@ -902,7 +902,7 @@ The time position can also be specified as HH:MM:SS."
     (read-from-minibuffer "Seek to time position: ")))
   (when (string-match ":" pos)
     (setq pos (ems--duration-to-seconds pos)))
-  (emacspeak-m-player-dispatch (format "seek %s 2" pos)))
+  (ems--mplayer-send (format "seek %s 2" pos)))
 
 (defun emacspeak-m-player-start-track()
   "Move to beginning."
@@ -947,7 +947,7 @@ The time position can also be specified as HH:MM:SS."
 (defun emacspeak-m-player-pause ()
   "Pause or unpause."
   (interactive)
-  (emacspeak-m-player-dispatch "pause")
+  (ems--mplayer-send "pause")
   (emacspeak-speak-time))
 
 (defvar ems--m-player-mark "00-LastStopped"
@@ -993,7 +993,7 @@ emacspeak-speak-messages
                 emacspeak-m-player-resource))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
-          (emacspeak-m-player-dispatch "quit")
+          (ems--mplayer-send "quit")
           (emacspeak-auditory-icon 'close-object)
           (and (buffer-live-p buffer) (kill-buffer buffer))))
       (unless (eq (process-status emacspeak-m-player-process) 'exit)
@@ -1003,13 +1003,13 @@ emacspeak-speak-messages
 (defun emacspeak-m-player-volume-up ()
   "Volume up."
   (interactive)
-  (emacspeak-m-player-dispatch "volume 1")
+  (ems--mplayer-send "volume 1")
   (emacspeak-auditory-icon 'right))
 
 (defun emacspeak-m-player-volume-down ()
   "Volume down."
   (interactive)
-  (emacspeak-m-player-dispatch "volume -1")
+  (ems--mplayer-send "volume -1")
   (emacspeak-auditory-icon 'left))
 
 (defvar-local emacspeak-m-player-active-filters nil
@@ -1020,13 +1020,13 @@ emacspeak-speak-messages
   (interactive"sChange Volume to:")
   (cl-declare (special emacspeak-m-player-active-filters))
   (cl-pushnew "volume" emacspeak-m-player-active-filters :test #'string=)
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "volume %s, 1" value)))
 
 (defun emacspeak-m-player-balance ()
   "Set left/right balance."
   (interactive)
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "balance %s"
            (read-from-minibuffer "Balance -- Between -1 and 1:"))))
 
@@ -1044,7 +1044,7 @@ emacspeak-speak-messages
                  (cdr (assoc command emacspeak-m-player-command-list))
                  " "))))
            (result
-             (emacspeak-m-player-dispatch (format "%s %s" command args))))
+             (ems--mplayer-send (format "%s %s" command args))))
       (when result
         (setq result (replace-regexp-in-string  "^ans_" "" result))
         (setq result (replace-regexp-in-string  "_" " " result)))
@@ -1064,7 +1064,7 @@ emacspeak-speak-messages
   (cl-declare (special emacspeak-m-player-filters
                        emacspeak-m-player-active-filters))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (let* ((result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
+    (let* ((result (ems--mplayer-send (format "af_del %s" filter))))
       (setq emacspeak-m-player-active-filters
             (remove  filter emacspeak-m-player-active-filters))
       (when result
@@ -1098,7 +1098,9 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defun emacspeak-m-player-get-length ()
   "Display length of track."
   (interactive)
-  (dtk-speak-and-echo (emacspeak-m-player-dispatch "get_time_length")))
+  (dtk-speak-and-echo
+   (read
+    (cl-second (split-string (ems--mplayer-send "get_time_length") "="))) ))
 
 (defconst emacspeak-m-player-display-cmd
   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"
@@ -1109,7 +1111,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (interactive)
   (cl-declare (special emacspeak-m-player-display-cmd))
   (let ((fields nil)
-        (result (emacspeak-m-player-dispatch emacspeak-m-player-display-cmd)))
+        (result (ems--mplayer-send emacspeak-m-player-display-cmd)))
     (when result
       (setq result (replace-regexp-in-string  "^ans_" "" result))
       (setq fields
@@ -1136,7 +1138,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defun emacspeak-m-player-load-playlist(f)
   "Load playlist."
   (interactive "fPlaylist File:")
-  (emacspeak-m-player-dispatch
+  (ems--mplayer-send
    (format "loadlist %s"
            (expand-file-name f))))
 
@@ -1191,21 +1193,21 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
            "Edit Filter: " filter-name)))
   (when (process-live-p  emacspeak-m-player-process)
     (push filter-name emacspeak-m-player-active-filters)
-    (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
+    (ems--mplayer-send (format "af_add %s" filter-name))))
 
 (defun emacspeak-m-player-left-channel ()
   "Play both channels on left."
   (interactive)
   (let ((filter-name "channels=2:1:0:0:1:0"))
     (when (process-live-p  emacspeak-m-player-process)
-      (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
+      (ems--mplayer-send (format "af_add %s" filter-name)))))
 
 (defun emacspeak-m-player-right-channel ()
   "Play on right channel."
   (interactive)
   (let ((filter-name "channels=2:1:0:1:1:1"))
     (when (process-live-p  emacspeak-m-player-process)
-      (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
+      (ems--mplayer-send (format "af_add %s" filter-name)))))
 
 (defun emacspeak-m-player-clear-filters ()
   "Clear all filters"
@@ -1214,7 +1216,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
                        emacspeak-m-player-active-filters))
   (setq emacspeak-m-player-active-filters nil)
   (when (process-live-p emacspeak-m-player-process)
-    (emacspeak-m-player-dispatch "af_clr")
+    (ems--mplayer-send "af_clr")
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-m-player-customize ()
@@ -1366,9 +1368,9 @@ Applies  the resulting value at each step."
         (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
     ;; First, clear any equalizers in effect:
-    (emacspeak-m-player-dispatch "af_del equalizer")
+    (ems--mplayer-send "af_del equalizer")
     ;; Apply specified vector:
-    (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
+    (ems--mplayer-send (format "af_add equalizer=%s" result))
     (while  continue
             (setq key
                   (read-key-sequence
@@ -1400,14 +1402,14 @@ Applies  the resulting value at each step."
               ((equal key [end])
                (aset v   column -12))
               ((equal key "\C-g")
-               (emacspeak-m-player-dispatch "af_del equalizer")
+               (ems--mplayer-send "af_del equalizer")
                (error "Did not change equalizer."))
               ((equal key "\C-m")
                (setq emacspeak-m-player-equalizer v)
                (setq continue nil))
               (t (message "Invalid key")))
             (setq result (mapconcat #'number-to-string v  ":"))
-            (emacspeak-m-player-dispatch
+            (ems--mplayer-send
              (format "af_cmdline equalizer %s" result)))
     result))
 
@@ -1449,9 +1451,9 @@ flat classical club dance full-bass full-bass-and-treble
         (p (ems--eq-preset-get name)))
     (setq emacspeak-m-player-equalizer p)
     (setq result  (mapconcat #'number-to-string p  ":"))
-    (emacspeak-m-player-dispatch "af_del equalizer")
+    (ems--mplayer-send "af_del equalizer")
     (cl-pushnew "equalizer" emacspeak-m-player-active-filters :test #'string=)
-    (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))))
+    (ems--mplayer-send (format "af_add equalizer=%s" result))))
 
 ;;}}}
 ;;{{{ Key Bindings:
@@ -1753,8 +1755,8 @@ As the default, use current position."
       (error "Package tap_reverb not installed."))
     (setq filter (read-from-minibuffer "Reverb: " orig-filter))
     (setq emacspeak-m-player-reverb-filter(split-string filter ":"))
-    (emacspeak-m-player-dispatch "af_clr")
-    (emacspeak-m-player-dispatch (format "af_add %s" filter))))
+    (ems--mplayer-send "af_clr")
+    (ems--mplayer-send (format "af_add %s" filter))))
 
 (defconst emacspeak-m-player-reverb-table
   '(
@@ -1883,8 +1885,8 @@ As the default, use current position."
                           emacspeak-m-player-reverb-table))))
     (setq emacspeak-m-player-reverb-filter filter-spec)
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
-    (emacspeak-m-player-dispatch "af_clr")
-    (emacspeak-m-player-dispatch
+    (ems--mplayer-send "af_clr")
+    (ems--mplayer-send
      (format "af_add %s" filter))
     (emacspeak-auditory-icon 'button)))
 
@@ -2000,8 +2002,8 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (unless (process-live-p emacspeak-m-player-process) (error "No   player."))
   (let* ((this (abs  (/ emacspeak-m-player-panner 10.0)))
          (pan (format "%.1f:%.1f" (- 1  this)  this)))
-    (emacspeak-m-player-dispatch  "af_del pan, channels")
-    (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
+    (ems--mplayer-send  "af_del pan, channels")
+    (ems--mplayer-send (format "af_add pan=2:%s:%s" pan pan))
     (setq emacspeak-m-player-panner (1+ emacspeak-m-player-panner))
     (when (= 10 emacspeak-m-player-panner)
       (setq emacspeak-m-player-panner -10))
@@ -2039,7 +2041,7 @@ our pre-defined filters if appropriate."
     (setq args (emacspeak-m-player-ladspa-cmd plugin))
     (kill-new args)
     (setq result
-          (emacspeak-m-player-dispatch (format "af_add %s" args)))
+          (ems--mplayer-send (format "af_add %s" args)))
     (when (called-interactively-p 'interactive)
       (message   "%s"
                  (or result "Waiting")))))
@@ -2052,7 +2054,7 @@ our pre-defined filters if appropriate."
   (unless (process-live-p emacspeak-m-player-process)
     (error "No running MPlayer."))
 
-  (emacspeak-m-player-dispatch "af_del ladspa"))
+  (ems--mplayer-send "af_del ladspa"))
 
 ;;}}}
 ;;{{{ Clipping:
