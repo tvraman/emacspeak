@@ -266,7 +266,7 @@ current file."
   (interactive)
   (cl-declare (special emacspeak-amark-file))
   (funcall-interactively #'locate emacspeak-amark-file)
-  (rename-buffer "AMark Browser" 'unique))
+  (rename-buffer "AMark Bookshelf" 'unique))
 
 ;;}}}
 (provide  'emacspeak-amark)
