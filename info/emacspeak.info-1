@@ -4520,6 +4520,8 @@ directory containing mp3 files where Amarks have been created.
 ...................................
 
  -- Command: emacspeak-amark-bookshelf
+     ‘C-; C-;’
+     ‘C-x @ h C-;’
 
      Open a locate buffer with all .amarks.am files.
      Use M-x emacspeak-dired-open-this-file to open the AMark Browser on

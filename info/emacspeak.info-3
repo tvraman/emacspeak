@@ -15,6 +15,16 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on December 27, 2022.
 
 
+File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
+
+12.228 plain-voices
+===================
+
+This module defines the various voices used in voice-lock mode.  Module
+Plain is suitable for a device for which you haven’t yet implemented
+appropriate voice-locking controls
+
+
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
 12.229 soundscape
@@ -2712,7 +2722,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line  115)
 * C-; ::                                 emacspeak-m-player. (line  750)
 * C-; ;:                                 emacspeak-m-player. (line  824)
-* C-; a:                                 emacspeak-amark.    (line   43)
+* C-; a:                                 emacspeak-amark.    (line   45)
+* C-; C-;:                               emacspeak-amark.    (line   34)
 * C-; C-a:                               emacspeak-wizards.  (line 1077)
 * C-; C-j:                               emacspeak-wizards.  (line  998)
 * C-; C-l:                               emacspeak-librivox. (line   32)
@@ -3129,7 +3140,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line  116)
 * C-x @ h ::                             emacspeak-m-player. (line  751)
 * C-x @ h ;:                             emacspeak-m-player. (line  826)
-* C-x @ h a:                             emacspeak-amark.    (line   44)
+* C-x @ h a:                             emacspeak-amark.    (line   46)
+* C-x @ h C-;:                           emacspeak-amark.    (line   35)
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1078)
 * C-x @ h C-j:                           emacspeak-wizards.  (line 1000)
 * C-x @ h C-l:                           emacspeak-librivox. (line   33)
