@@ -221,6 +221,13 @@ via command `org-insert-link' bound to \\[org-insert-link]."
 ;;}}}
 ;;{{{Browse Amarks:
 
+(defun emacspeak-amark-list-play ()
+  "Play amark list as a playlist"
+  (interactive)
+  (cl-declare (special emacspeak-amark-list))
+  (when (and emacspeak-amark-list (listp emacspeak-amark-list))
+    (mapc #'emacspeak-amark-play emacspeak-amark-list)))
+
 ;;;###autoload
 (defun emacspeak-amark-browse ()
   "Browse   amarks  in current directory using `emacspeak-amark-mode'."
@@ -233,6 +240,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
       (emacspeak-amark-mode)
       (setq emacspeak-amark-list amarks)
       (local-set-key "p" 'backward-button)
+      (local-set-key "." 'emacspeak-amark-list-play)
       (local-set-key "n" 'forward-button)
       (erase-buffer)
       (setq buffer-undo-list t)
