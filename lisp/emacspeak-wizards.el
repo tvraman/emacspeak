@@ -1525,11 +1525,12 @@ With prefix arg, always creates a new terminal.
 Otherwise cycles through existing terminals, creating the first
 term if needed."
   (interactive "P")
-  (cl-declare (special explicit-shell-file-name))
+  (cl-declare (special shell-file-name))
   (let ((next (or create (emacspeak-wizards-buffer-cycle-next 'term-mode))))
     (cond
-     ((or create (not next)) (ansi-term explicit-shell-file-name))
+     ((or create (not next)) (ansi-term shell-file-name))
      (next
+
       (when (derived-mode-p 'term-mode) (bury-buffer))
       (switch-to-buffer next))
      (t (error "Confused?")))
