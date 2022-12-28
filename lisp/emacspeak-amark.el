@@ -64,12 +64,13 @@
 ;;}}}
 ;;{{{ Structure:
 
-(cl-defstruct emacspeak-amark
-              "AMark: A structure that holds a name, a file, and a time-position."
-              path                      ; filename
-              name                      ; Bookmark name
-              position                  ; Offset in ms from start
-              )
+(cl-defstruct
+ emacspeak-amark
+ "AMark: Holds name,  a file, and a time-position."
+ path                                   ; filename
+ name                                   ; Bookmark name
+ position                               ; Offset in ms from start
+ )
 
 ;;}}}
 ;;{{{ AMark List:
