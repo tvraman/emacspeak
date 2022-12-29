@@ -939,8 +939,7 @@ The time position can also be specified as HH:MM:SS."
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
           (when emacspeak-m-player-url
-            (let* ((info (emacspeak-m-player-get-position))
-                   (time  (cl-first info)))
+            (let ((time  (cl-first (emacspeak-m-player-get-position))))
               (setq
                emacspeak-m-player-media-history
                (cl-remove-if
