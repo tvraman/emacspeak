@@ -437,7 +437,6 @@ URL fragment specifies optional start position."
 (defvar-local emacspeak-m-player-url nil
   "Records   currently playing URL")
 
-
 (defvar-local emacspeak-m-player-resource nil
   "Records   currently playing resource")
 (defun emacspeak-media-local-resource (prefix)
@@ -710,32 +709,6 @@ Interactive prefix `raw' reads a raw URL."
       (raw (emacspeak-m-player (read-from-minibuffer "URL: ")))
       (t (call-interactively #'emacspeak-m-player)))))
 
-(defun emacspeak-m-player-load (resource  &optional append)
-  "Load specified resource into a running  m-player.
-Interactive prefix arg appends the new resource to what is playing."
-  (interactive
-   (list
-    (ems-with-messages-silenced
-     (let ((completion-ignore-case t)
-           (read-file-name-completion-ignore-case t))
-       (read-file-name
-        "MP3 Resource: "
-        (if
-         (string-match "\\(mp3\\)\\|\\(audio\\)"
-                       (expand-file-name default-directory))
-         default-directory
-         emacspeak-media-shortcuts-directory)
-        (when (eq major-mode 'dired-mode)
-          (dired-get-filename)))))
-    current-prefix-arg))
-  (cl-declare (special emacspeak-media-extensions
-                       emacspeak-media-shortcuts-directory))
-  (unless (string-match "^[a-z]+:"  resource)
-    (setq resource (expand-file-name resource)))
-  (ems--mplayer-send
-   (format "loadfile %s %s" resource
-           (if append 1 ""))))
-
 ;;}}}
 ;;{{{ Table of slave commands:
 
@@ -958,7 +931,7 @@ The time position can also be specified as HH:MM:SS."
   (interactive)
   (cl-declare (special
                emacspeak-amark-list ems--m-player-mark
-emacspeak-speak-messages
+               emacspeak-speak-messages
                emacspeak-m-player-url emacspeak-m-player-process))
   (let ((kill-buffer-query-functions nil)
         (emacspeak-speak-messages nil))
@@ -986,7 +959,7 @@ emacspeak-speak-messages
                :test #'string=)))
           ;;dont amark shortcut streams
           (unless
-              (or 
+              (or
                emacspeak-m-player-url-p
                (string-match
                 emacspeak-media-shortcuts-directory
@@ -1136,13 +1109,6 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
        (tts-with-punctuations 'some
                               (dtk-speak-and-echo (apply #'concat result))))
       (t (dtk-speak-and-echo "Waiting")))))
-
-(defun emacspeak-m-player-load-playlist(f)
-  "Load playlist."
-  (interactive "fPlaylist File:")
-  (ems--mplayer-send
-   (format "loadlist %s"
-           (expand-file-name f))))
 
 (defconst emacspeak-m-player-filters
   '("extrastereo" "volnorm" "surround"
@@ -1491,7 +1457,6 @@ flat classical club dance full-bass full-bass-and-treble
     ("C" emacspeak-m-player-clear-filters)
     ("E" emacspeak-m-player-add-equalizer)
     ("C-a" emacspeak-amark-browse)
-    ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
     ("M" emacspeak-m-player-show-data)
     ("A" emacspeak-m-player-amark-add)
