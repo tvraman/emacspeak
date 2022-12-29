@@ -1660,7 +1660,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      r		emacspeak-m-player-seek-relative
      s		emacspeak-m-player-scale-speed
      t		emacspeak-m-player-skip-tracks
-     u		emacspeak-m-player-url
      v		emacspeak-m-player-volume-change
      w		emacspeak-m-player-write-clip
      x		emacspeak-m-player-pan
@@ -2095,7 +2094,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      r		emacspeak-m-player-seek-relative
      s		emacspeak-m-player-scale-speed
      t		emacspeak-m-player-skip-tracks
-     u		emacspeak-m-player-url
      v		emacspeak-m-player-volume-change
      w		emacspeak-m-player-write-clip
      x		emacspeak-m-player-pan
