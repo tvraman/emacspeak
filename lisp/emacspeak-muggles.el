@@ -205,37 +205,32 @@
 
 (global-set-key
  (ems-kbd "C-c o")
- (defhydra emacspeak-muggles-toggle-option
-           (
-            :color blue
-            :body-pre (emacspeak-hydra-body-pre "Toggle Option ")
-            :pre
-            (progn
-              (emacspeak-hydra-pre)
-              (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
-            :post emacspeak-hydra-post)
-           "
+ (defhydra
+     emacspeak-muggles-toggle-option
+     (
+      :color blue
+      :body-pre (emacspeak-hydra-body-pre "Toggle Option ")
+      :pre
+      (progn
+        (emacspeak-hydra-pre)
+        (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
+      :post emacspeak-hydra-post)
+   "
 _C-f_ turn-on-folding-mmode:       %`folding-mode
 _a_ abbrev-mode: %`abbrev-mode
- \ %(member \"extrastereo\" emacspeak-m-player-custom-filters)
-_F_ flyspell-mode:       %`flyspell-mode
 _d_ debug-on-error:    %`debug-on-error
-_f_ auto-fill-mode:    %`auto-fill-function
 _g_ debug-on-quit:    %`debug-on-quit
 _h_ hydra-is-helpful    %`hydra-is-helpful
 _p_ emacspeak-muggles-lispy-or-sp:    
 "
-           ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
-           ("C-f" (call-interactively #'folding-mode))
-           ("a" (call-interactively #'abbrev-mode))
-           ("d" (call-interactively #'toggle-debug-on-error))
-           ("F" (call-interactively #'flyspell-mode))
-           ("f" (call-interactively #'auto-fill-mode))
-           ("g"  (call-interactively #'toggle-debug-on-quit))
-           ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
-           ("p" emacspeak-muggles-lispy-or-sp)
-           ("u" (call-interactively #'ido-ubiquitous-mode))
-           ("q" nil "quit")))
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
+   ("C-f" (call-interactively #'folding-mode))
+   ("a" (call-interactively #'abbrev-mode))
+   ("d" (call-interactively #'toggle-debug-on-error))
+   ("g"  (call-interactively #'toggle-debug-on-quit))
+   ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
+   ("p" emacspeak-muggles-lispy-or-sp)
+   ("q" nil "quit")))
 
 ;;}}}
 ;;{{{ Navigate:
