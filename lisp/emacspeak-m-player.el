@@ -933,6 +933,7 @@ The time position can also be specified as HH:MM:SS."
                emacspeak-amark-list ems--m-player-mark
                emacspeak-speak-messages
                emacspeak-m-player-url emacspeak-m-player-process))
+  (repeat-exit)
   (let ((kill-buffer-query-functions nil)
         (emacspeak-speak-messages nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
