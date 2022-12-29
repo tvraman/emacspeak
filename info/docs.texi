@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1173 commands and 148 options.
+This chapter documents a total of 1171 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8487,29 +8487,6 @@ Play both channels on left.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-load
-@deffn {Command} emacspeak-m-player-load  (resource &optional append)
-@findex emacspeak-m-player-load
-
-@format
-Load specified resource into a running  m-player.
-Interactive prefix arg appends the new resource to what is playing.
-
-(fn RESOURCE &optional APPEND)
-@end format
-@end deffn
-
-@subsubsection emacspeak-m-player-load-playlist
-@deffn {Command} emacspeak-m-player-load-playlist  (f)
-@findex emacspeak-m-player-load-playlist
-
-@format
-Load playlist.
-
-(fn F)
-@end format
-@end deffn
-
 @subsubsection emacspeak-m-player-locate-media
 @deffn {Command} emacspeak-m-player-locate-media  (pattern)
 @table @kbd
@@ -8559,7 +8536,6 @@ Key             Binding
 -------------------------------------------------------------------------------
 C-a		emacspeak-amark-browse
 C-l		ladspa
-RET		emacspeak-m-player-load
 SPC		emacspeak-m-player-pause
 %		emacspeak-m-player-display-percent
 (		emacspeak-m-player-left-channel
@@ -9115,7 +9091,6 @@ Key             Binding
 -------------------------------------------------------------------------------
 C-a		emacspeak-amark-browse
 C-l		ladspa
-RET		emacspeak-m-player-load
 SPC		emacspeak-m-player-pause
 %		emacspeak-m-player-display-percent
 (		emacspeak-m-player-left-channel
@@ -18258,9 +18233,7 @@ The heads for the associated hydra are:
 ">":    ‘emacspeak-m-player-forward-1min’,
 "?":    ‘emacspeak-m-player-display-position’,
 "C":    ‘emacspeak-m-player-clear-filters’,
-"C-m":    ‘emacspeak-m-player-load’,
 "DEL":    ‘emacspeak-m-player-reset-speed’,
-"M-l":    ‘emacspeak-m-player-load-playlist’,
 "O":    ‘emacspeak-m-player-reset-options’,
 "P":    ‘emacspeak-m-player-apply-reverb-preset’,
 "Q":    ‘emacspeak-m-player-quit’,

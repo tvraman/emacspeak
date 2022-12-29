@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 27, 2022.
+last updated on December 28, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -1577,26 +1577,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Play both channels on left.
 
-12.117.2.38 emacspeak-m-player-load
-...................................
-
- -- Command: emacspeak-m-player-load (resource &optional append)
-
-     Load specified resource into a running  m-player.
-     Interactive prefix arg appends the new resource to what is playing.
-
-     (fn RESOURCE &optional APPEND)
-
-12.117.2.39 emacspeak-m-player-load-playlist
-............................................
-
- -- Command: emacspeak-m-player-load-playlist (f)
-
-     Load playlist.
-
-     (fn F)
-
-12.117.2.40 emacspeak-m-player-locate-media
+12.117.2.38 emacspeak-m-player-locate-media
 ...........................................
 
  -- Command: emacspeak-m-player-locate-media (pattern)
@@ -1609,7 +1590,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn PATTERN)
 
-12.117.2.41 emacspeak-m-player-loop
+12.117.2.39 emacspeak-m-player-loop
 ...................................
 
  -- Command: emacspeak-m-player-loop (&optional raw)
@@ -1621,7 +1602,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional RAW)
 
-12.117.2.42 emacspeak-m-player-mode
+12.117.2.40 emacspeak-m-player-mode
 ...................................
 
  -- Command: emacspeak-m-player-mode
@@ -1632,7 +1613,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ——————————————————————————-
      C-a		emacspeak-amark-browse
      C-l		ladspa
-     RET		emacspeak-m-player-load
      SPC		emacspeak-m-player-pause
      %		emacspeak-m-player-display-percent
      (		emacspeak-m-player-left-channel
@@ -1704,35 +1684,35 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      run, this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the
      final or penultimate step during initialization.
 
-12.117.2.43 emacspeak-m-player-mode-line
+12.117.2.41 emacspeak-m-player-mode-line
 ........................................
 
  -- Command: emacspeak-m-player-mode-line
 
      Mode-line for M-Player buffers.
 
-12.117.2.44 emacspeak-m-player-next-track
+12.117.2.42 emacspeak-m-player-next-track
 .........................................
 
  -- Command: emacspeak-m-player-next-track
 
      Next track.
 
-12.117.2.45 emacspeak-m-player-pan
+12.117.2.43 emacspeak-m-player-pan
 ..................................
 
  -- Command: emacspeak-m-player-pan
 
      Pan from left to right   and back  one step at a time.
 
-12.117.2.46 emacspeak-m-player-pause
+12.117.2.44 emacspeak-m-player-pause
 ....................................
 
  -- Command: emacspeak-m-player-pause
 
      Pause or unpause.
 
-12.117.2.47 emacspeak-m-player-persist-process
+12.117.2.45 emacspeak-m-player-persist-process
 ..............................................
 
  -- Command: emacspeak-m-player-persist-process (&optional name)
@@ -1742,7 +1722,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional NAME)
 
-12.117.2.48 emacspeak-m-player-play-rss
+12.117.2.46 emacspeak-m-player-play-rss
 .......................................
 
  -- Command: emacspeak-m-player-play-rss (rss-url)
@@ -1751,7 +1731,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn RSS-URL)
 
-12.117.2.49 emacspeak-m-player-play-tree-up
+12.117.2.47 emacspeak-m-player-play-tree-up
 ...........................................
 
  -- Command: emacspeak-m-player-play-tree-up (step)
@@ -1760,28 +1740,28 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn STEP)
 
-12.117.2.50 emacspeak-m-player-pop-to-player
+12.117.2.48 emacspeak-m-player-pop-to-player
 ............................................
 
  -- Command: emacspeak-m-player-pop-to-player
 
      Pop to m-player buffer.
 
-12.117.2.51 emacspeak-m-player-previous-track
+12.117.2.49 emacspeak-m-player-previous-track
 .............................................
 
  -- Command: emacspeak-m-player-previous-track
 
      Previous track.
 
-12.117.2.52 emacspeak-m-player-quit
+12.117.2.50 emacspeak-m-player-quit
 ...................................
 
  -- Command: emacspeak-m-player-quit
 
      Quit.
 
-12.117.2.53 emacspeak-m-player-rem-history
+12.117.2.51 emacspeak-m-player-rem-history
 ..........................................
 
  -- Command: emacspeak-m-player-rem-history (url)
@@ -1790,21 +1770,21 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL)
 
-12.117.2.54 emacspeak-m-player-reset-options
+12.117.2.52 emacspeak-m-player-reset-options
 ............................................
 
  -- Command: emacspeak-m-player-reset-options
 
      Reset MPlayer options.
 
-12.117.2.55 emacspeak-m-player-reset-speed
+12.117.2.53 emacspeak-m-player-reset-speed
 ..........................................
 
  -- Command: emacspeak-m-player-reset-speed
 
      Reset  speed.
 
-12.117.2.56 emacspeak-m-player-restore-process
+12.117.2.54 emacspeak-m-player-restore-process
 ..............................................
 
  -- Command: emacspeak-m-player-restore-process
@@ -1812,14 +1792,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Restore emacspeak-m-player-process from current buffer.
      Check first if current buffer is in emacspeak-m-player-mode.
 
-12.117.2.57 emacspeak-m-player-right-channel
+12.117.2.55 emacspeak-m-player-right-channel
 ............................................
 
  -- Command: emacspeak-m-player-right-channel
 
      Play on right channel.
 
-12.117.2.58 emacspeak-m-player-scale-speed
+12.117.2.56 emacspeak-m-player-scale-speed
 ..........................................
 
  -- Command: emacspeak-m-player-scale-speed (factor)
@@ -1828,7 +1808,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn FACTOR)
 
-12.117.2.59 emacspeak-m-player-seek-absolute
+12.117.2.57 emacspeak-m-player-seek-absolute
 ............................................
 
  -- Command: emacspeak-m-player-seek-absolute (pos)
@@ -1838,7 +1818,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn POS)
 
-12.117.2.60 emacspeak-m-player-seek-percentage
+12.117.2.58 emacspeak-m-player-seek-percentage
 ..............................................
 
  -- Command: emacspeak-m-player-seek-percentage (pos)
@@ -1847,7 +1827,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn POS)
 
-12.117.2.61 emacspeak-m-player-seek-relative
+12.117.2.59 emacspeak-m-player-seek-relative
 ............................................
 
  -- Command: emacspeak-m-player-seek-relative (offset)
@@ -1857,7 +1837,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn OFFSET)
 
-12.117.2.62 emacspeak-m-player-set-clip-end
+12.117.2.60 emacspeak-m-player-set-clip-end
 ...........................................
 
  -- Command: emacspeak-m-player-set-clip-end (&optional prompt)
@@ -1867,7 +1847,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional PROMPT)
 
-12.117.2.63 emacspeak-m-player-set-clip-start
+12.117.2.61 emacspeak-m-player-set-clip-start
 .............................................
 
  -- Command: emacspeak-m-player-set-clip-start (&optional prompt)
@@ -1877,21 +1857,21 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional PROMPT)
 
-12.117.2.64 emacspeak-m-player-show-data
+12.117.2.62 emacspeak-m-player-show-data
 ........................................
 
  -- Command: emacspeak-m-player-show-data
 
      Display metadata after refreshing it if needed.
 
-12.117.2.65 emacspeak-m-player-show-pos
+12.117.2.63 emacspeak-m-player-show-pos
 .......................................
 
  -- Command: emacspeak-m-player-show-pos
 
      Display current position in track.
 
-12.117.2.66 emacspeak-m-player-shuffle
+12.117.2.64 emacspeak-m-player-shuffle
 ......................................
 
  -- Command: emacspeak-m-player-shuffle
@@ -1900,7 +1880,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-Player with shuffle turned on.
 
-12.117.2.67 emacspeak-m-player-skip-tracks
+12.117.2.65 emacspeak-m-player-skip-tracks
 ..........................................
 
  -- Command: emacspeak-m-player-skip-tracks (step)
@@ -1909,7 +1889,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn STEP)
 
-12.117.2.68 emacspeak-m-player-slave-command
+12.117.2.66 emacspeak-m-player-slave-command
 ............................................
 
  -- Command: emacspeak-m-player-slave-command (command)
@@ -1918,28 +1898,28 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn COMMAND)
 
-12.117.2.69 emacspeak-m-player-slower
+12.117.2.67 emacspeak-m-player-slower
 .....................................
 
  -- Command: emacspeak-m-player-slower
 
      Slow down playback.
 
-12.117.2.70 emacspeak-m-player-start-track
+12.117.2.68 emacspeak-m-player-start-track
 ..........................................
 
  -- Command: emacspeak-m-player-start-track
 
      Move to beginning.
 
-12.117.2.71 emacspeak-m-player-store-link
+12.117.2.69 emacspeak-m-player-store-link
 .........................................
 
  -- Command: emacspeak-m-player-store-link
 
      Store an org-link to currently playing stream at current position.
 
-12.117.2.72 emacspeak-m-player-stream-info
+12.117.2.70 emacspeak-m-player-stream-info
 ..........................................
 
  -- Command: emacspeak-m-player-stream-info (&optional toggle-cue)
@@ -1949,14 +1929,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional TOGGLE-CUE)
 
-12.117.2.73 emacspeak-m-player-toggle-extrastereo
+12.117.2.71 emacspeak-m-player-toggle-extrastereo
 .................................................
 
  -- Command: emacspeak-m-player-toggle-extrastereo
 
      Toggle application of extrastereo filter to all streams.
 
-12.117.2.74 emacspeak-m-player-url
+12.117.2.72 emacspeak-m-player-url
 ..................................
 
  -- Command: emacspeak-m-player-url (url &optional playlist-p)
@@ -1968,7 +1948,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PLAYLIST-P)
 
-12.117.2.75 emacspeak-m-player-using-hrtf
+12.117.2.73 emacspeak-m-player-using-hrtf
 .........................................
 
  -- Command: emacspeak-m-player-using-hrtf
@@ -1978,7 +1958,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Add af resample=48000,hrtf to startup options.
      This will work if the soundcard is set to 48000.
 
-12.117.2.76 emacspeak-m-player-using-openal
+12.117.2.74 emacspeak-m-player-using-openal
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal (resource &optional
@@ -1990,7 +1970,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn RESOURCE &optional PLAY-LIST)
 
-12.117.2.77 emacspeak-m-player-volume-change
+12.117.2.75 emacspeak-m-player-volume-change
 ............................................
 
  -- Command: emacspeak-m-player-volume-change (value)
@@ -1999,14 +1979,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn VALUE)
 
-12.117.2.78 emacspeak-m-player-volume-down
+12.117.2.76 emacspeak-m-player-volume-down
 ..........................................
 
  -- Command: emacspeak-m-player-volume-down
 
      Volume down.
 
-12.117.2.79 emacspeak-m-player-volume-set
+12.117.2.77 emacspeak-m-player-volume-set
 .........................................
 
  -- Command: emacspeak-m-player-volume-set (&optional arg)
@@ -2015,21 +1995,21 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional ARG)
 
-12.117.2.80 emacspeak-m-player-volume-up
+12.117.2.78 emacspeak-m-player-volume-up
 ........................................
 
  -- Command: emacspeak-m-player-volume-up
 
      Volume up.
 
-12.117.2.81 emacspeak-m-player-write-clip
+12.117.2.79 emacspeak-m-player-write-clip
 .........................................
 
  -- Command: emacspeak-m-player-write-clip
 
      Split selected range using SoX
 
-12.117.2.82 emacspeak-m-player-youtube-live
+12.117.2.80 emacspeak-m-player-youtube-live
 ...........................................
 
  -- Command: emacspeak-m-player-youtube-live (url)
@@ -2040,7 +2020,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL)
 
-12.117.2.83 emacspeak-m-player-youtube-player
+12.117.2.81 emacspeak-m-player-youtube-player
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url &optional prefix)
@@ -2052,7 +2032,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PREFIX)
 
-12.117.2.84 emacspeak-multimedia
+12.117.2.82 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia
@@ -2068,7 +2048,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ——————————————————————————-
      C-a		emacspeak-amark-browse
      C-l		ladspa
-     RET		emacspeak-m-player-load
      SPC		emacspeak-m-player-pause
      %		emacspeak-m-player-display-percent
      (		emacspeak-m-player-left-channel
@@ -9259,9 +9238,7 @@ binds ‘s’ to this command.
      ">":    ‘emacspeak-m-player-forward-1min’,
      "?":    ‘emacspeak-m-player-display-position’,
      "C":    ‘emacspeak-m-player-clear-filters’,
-     "C-m":    ‘emacspeak-m-player-load’,
      "DEL":    ‘emacspeak-m-player-reset-speed’,
-     "M-l":    ‘emacspeak-m-player-load-playlist’,
      "O":    ‘emacspeak-m-player-reset-options’,
      "P":    ‘emacspeak-m-player-apply-reverb-preset’,
      "Q":    ‘emacspeak-m-player-quit’,
@@ -9935,4 +9912,173 @@ specific.
      Default speech rate.
 
      Default Value: ‘50’
+
+
+File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
+
+12.228 plain-voices
+===================
+
+This module defines the various voices used in voice-lock mode.  Module
+Plain is suitable for a device for which you haven’t yet implemented
+appropriate voice-locking controls
+
+
+File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
+
+12.229 soundscape
+=================
+
+Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
+acoustic environment.  Boodler at <http://boodler.org> is a Python-based
+SoundScape generator.  To use this module, first install boodler.  Then
+install the soundscape packages (*.boop) files available at
+<http://boodler.org/lib>.  Make sure boodler works and produces audio in
+your environment.  finally install the Boodler packages from
+emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
+emacspeak/scapes; make ’
+
+   When boodler is set up and all packages installed, copy file
+emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
+lists all installed SoundScapes.  Directory emacspeak/scapes also
+contains additional Boodler Agents and SoundScapes that I have created
+for use with Emacspeak.
+
+   Module soundscape.el defines Emacs conveniences for running
+Soundscapes.  Main Entry Points:
+
+   • M-x soundscape-toggle – Enables or disables automatic SoundScapes.
+   • M-x soundscape – runs a named SoundScape
+   • M-x soundscape-stop – Stops a specified running Soundscape.
+   • M-x soundscape-kill – Kills all running Soundscapes.
+
+   When automatic Soundscapes are enabled, SoundScapes are started and
+stopped based on the current major mode.  Active Soundscape are
+displayed as part of the minor-mode-alist.  Command
+emacspeak-speak-minor-mode-line can be used to have this spoken.
+
+   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
+current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
+that is loaded using ‘(soundscape-load soundscape-default-theme)’.
+Emacs modes that provide similar functionality e.g., communication ==
+email, IM, ...  map to the same _mood_.
+
+12.229.1 Soundscape Commands
+----------------------------
+
+12.229.1.1 soundscape
+.....................
+
+ -- Command: soundscape (scape)
+     ‘C-. s’
+     ‘C-x @ s s’
+
+     Play soundscape.
+
+     (fn SCAPE)
+
+12.229.1.2 soundscape-kill
+..........................
+
+ -- Command: soundscape-kill
+
+     Stop all running soundscapes.
+
+12.229.1.3 soundscape-listener
+..............................
+
+ -- Command: soundscape-listener (&optional restart)
+
+     Start  a Soundscape listener.
+     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
+     Optional interactive prefix arg restarts the listener.
+
+     (fn &optional RESTART)
+
+12.229.1.4 soundscape-listener-shutdown
+.......................................
+
+ -- Command: soundscape-listener-shutdown
+
+     Shutdown listener.
+
+12.229.1.5 soundscape-remote
+............................
+
+ -- Command: soundscape-remote (names)
+
+     Activate scapes named ‘names’ — a list of strings.
+
+     (fn NAMES)
+
+12.229.1.6 soundscape-restart
+.............................
+
+ -- Command: soundscape-restart (&optional prompt)
+     ‘C-. r’
+     ‘C-x @ s r’
+
+     Restart Soundscape  environment.
+     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+     The  is then saved to soundscape-device for future use.
+
+     (fn &optional PROMPT)
+
+12.229.1.7 soundscape-stop
+..........................
+
+ -- Command: soundscape-stop (scape)
+
+     Stop running Soundscape.
+
+     (fn SCAPE)
+
+12.229.1.8 soundscape-theme
+...........................
+
+ -- Command: soundscape-theme
+
+     Shows default theme in a special buffer.
+
+12.229.1.9 soundscape-toggle
+............................
+
+ -- Command: soundscape-toggle
+     ‘C-. t’
+     ‘C-x @ s t’
+
+     Toggle automatic SoundScapes.
+     Run command M-x soundscape-theme to see the default mode->mood mapping.
+
+12.229.1.10 soundscape-update-mood
+..................................
+
+ -- Command: soundscape-update-mood (&optional prompt-mode)
+     ‘C-. u’
+     ‘C-x @ s u’
+
+     Update mood/scape mapping for current  mode.
+     The  updated mapping is not persisted.
+     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+     (fn &optional PROMPT-MODE)
+
+12.229.2 soundscape Options
+---------------------------
+
+ -- Variable: User Option soundscape-data
+     Soundscape data directory.
+
+     Default Value: ‘/home/raman/.boodler/Collection’
+
+ -- Variable: User Option soundscape-device
+     Alsa sound device to use for soundscapes.
+
+     Default Value: ‘default’
+
+ -- Variable: User Option soundscape-manager-options
+     User customizable options list passed to boodler.  Defaults specify
+     alsa as the output and set master volume
+
+     Default Value: ‘(-m 0.3)’
 
