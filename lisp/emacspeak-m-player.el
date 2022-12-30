@@ -544,9 +544,10 @@ If a dynamic playlist exists, just use it."
 (defun ems--repeat-sentinel (process _state)
   "Process sentinel to disable repeat."
   (cl-declare (special repeat-mode))
-  (when (and
-         repeat-mode
-         (memq (process-status process) '(failed signal exit)))
+  (when
+      (and
+       repeat-mode
+       (memq (process-status process) '(failed signal exit stop nil)))
     (repeat-exit)))
 
 ;;;###autoload
@@ -648,45 +649,31 @@ dynamic playlist. "
            (t (file-name-nondirectory resource))))))))
 
 ;;;###autoload
-(defun emacspeak-m-player-using-openal (resource &optional play-list)
+(defun emacspeak-m-player-using-openal ()
   "Use openal.  "
-  (interactive
-   (list
-    (emacspeak-media-read-resource)
-    current-prefix-arg))
+  (interactive)
   (cl-declare (special emacspeak-m-player-options
-                       emacspeak-m-player-openal-options
-                       emacspeak-m-player-process))
-  (when (and emacspeak-m-player-process
-             (eq 'run (process-status emacspeak-m-player-process))
-             (y-or-n-p "Stop currently playing music? "))
-    (emacspeak-m-player-quit))
-  (unless (process-live-p emacspeak-m-player-process)
-    (let ((emacspeak-m-player-options
-            (append emacspeak-m-player-openal-options
-                    emacspeak-m-player-options)))
-      (funcall-interactively #'emacspeak-m-player resource play-list))))
+                       emacspeak-m-player-openal-options))
+  (let ((emacspeak-m-player-options
+            (append emacspeak-m-player-options
+                    emacspeak-m-player-openal-options)))
+      (call-interactively #'emacspeak-m-player )))
 
 (defvar emacspeak-m-player-hrtf-options
   '("-af" "hrtf=s" "-af" "resample=48000")
   "Additional options to use built-in HRTF.")
 
+;;;###autoload
 (defun emacspeak-m-player-using-hrtf ()
   "Add af resample=48000,hrtf to startup options.
 This will work if the soundcard is set to 48000."
   (interactive)
   (cl-declare (special
-               emacspeak-m-player-options emacspeak-m-player-hrtf-options
-               emacspeak-m-player-process))
-  (when (and emacspeak-m-player-process
-             (eq 'run (process-status emacspeak-m-player-process))
-             (y-or-n-p "Stop currently playing music? "))
-    (emacspeak-m-player-quit))
-  (unless (process-live-p emacspeak-m-player-process)
+               emacspeak-m-player-options emacspeak-m-player-hrtf-options))
     (let ((emacspeak-m-player-options
-            (append emacspeak-m-player-hrtf-options
-                    emacspeak-m-player-options)))
-      (call-interactively #'emacspeak-m-player))))
+            (append emacspeak-m-player-options
+                    emacspeak-m-player-hrtf-options)))
+      (call-interactively #'emacspeak-m-player)))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
@@ -1516,7 +1503,10 @@ flat classical club dance full-bass full-bass-and-treble
 ;;; repeat-mode
 (map-keymap
  (lambda (_key cmd)
-   (when (symbolp cmd)
+   (when
+       (and 
+        (symbolp cmd)
+        (not (eq cmd 'digit-argument)))
      (put cmd 'repeat-map 'emacspeak-m-player-mode-map)))
  emacspeak-m-player-mode-map)
 
