@@ -2903,7 +2903,7 @@ but quickly switch to a window by name."
   "Process sentinel to disable repeat."
   (when
       (and repeat-mode
-           (memq (process-status process) '(failed signal exit)))
+           (memq (process-status process) '(failed signal exit stop nil)))
     (repeat-exit)))
 
 (defsubst emacspeak-repeat-mode-hook ()
