@@ -59,7 +59,7 @@ espeak:
 	@cd servers/native-espeak && $(MAKE) --no-print-directory  || echo "Can't build espeak server!"
 
 dtk: 
-	@cd servers/software-dtk && $(MAKE) --no-print-directory  || echo "Can't build espeak server!"
+	@cd servers/software-dtk && $(MAKE) --no-print-directory  || echo "Can't build DTK server!"
 # }}}
 # {{{  Maintenance targets   dist
 
@@ -134,8 +134,7 @@ cd .. ;\
 install:
 	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
 	@echo "(load-file \"`pwd`/lisp/emacspeak-setup.el\")"
-	@echo "If using espeak or outloud for TTS, "
-	@echo "type make <engine> to first build that speech-server."
+	@echo "    Type make  <engine> [dtk, outloud,  espeak] to build TTS server. "
 	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 # }}}
