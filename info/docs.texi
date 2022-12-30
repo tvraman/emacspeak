@@ -8964,7 +8964,7 @@ This will work if the soundcard is set to 48000.
 @end deffn
 
 @subsubsection emacspeak-m-player-using-openal
-@deffn {Command} emacspeak-m-player-using-openal  (resource &optional play-list)
+@deffn {Command} emacspeak-m-player-using-openal   
 @table @kbd
 @item C-; :
 @kindex C-; :
@@ -8976,8 +8976,6 @@ This will work if the soundcard is set to 48000.
 
 @format
 Use openal.  
-
-(fn RESOURCE &optional PLAY-LIST)
 @end format
 @end deffn
 
@@ -9885,12 +9883,9 @@ The heads for the associated hydra are:
 "C-f":    ‘(call-interactively #’folding-mode)’,
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
-"F":    ‘(call-interactively #’flyspell-mode)’,
-"f":    ‘(call-interactively #’auto-fill-mode)’,
 "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
 "p":    ‘emacspeak-muggles-lispy-or-sp’,
-"u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
 "q":    nil
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.

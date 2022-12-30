@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 28, 2022.
+last updated on December 30, 2022.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -1960,14 +1960,11 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 12.117.2.74 emacspeak-m-player-using-openal
 ...........................................
 
- -- Command: emacspeak-m-player-using-openal (resource &optional
-          play-list)
+ -- Command: emacspeak-m-player-using-openal
      ‘C-; :’
      ‘C-x @ h :’
 
      Use openal.
-
-     (fn RESOURCE &optional PLAY-LIST)
 
 12.117.2.75 emacspeak-m-player-volume-change
 ............................................
@@ -2744,12 +2741,9 @@ binds ‘s’ to this command.
      "C-f":    ‘(call-interactively #’folding-mode)’,
      "a":    ‘(call-interactively #’abbrev-mode)’,
      "d":    ‘(call-interactively #’toggle-debug-on-error)’,
-     "F":    ‘(call-interactively #’flyspell-mode)’,
-     "f":    ‘(call-interactively #’auto-fill-mode)’,
      "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
      "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
      "p":    ‘emacspeak-muggles-lispy-or-sp’,
-     "u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
      "q":    nil
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
