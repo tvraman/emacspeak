@@ -503,7 +503,7 @@ If a dynamic playlist exists, just use it."
 (defvar emacspeak-m-player-cue-info nil
   "Set to T if  ICY info cued automatically.")
 
-(defun emacspeak-m-player-process-filter (process output)
+(defun ems--mp-filter (process output)
   "Filter function to captures metadata.
  Cleanup ANSI escape sequences."
   (cl-declare (special emacspeak-m-player-cue-info
@@ -541,6 +541,10 @@ If a dynamic playlist exists, just use it."
         (process-buffer emacspeak-m-player-process)
       (emacspeak-amark-save))))
 
+(defvar-local emacspeak-m-player-paused nil
+  "Pause/unpased state of player.")
+
+
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play  resource, or play dynamic playlist if set.  Optional prefix argument
@@ -553,7 +557,7 @@ dynamic playlist. "
     (emacspeak-media-read-resource current-prefix-arg)
     current-prefix-arg))
   (cl-declare (special
-               emacspeak-m-player-resource
+               emacspeak-m-player-paused emacspeak-m-player-resource
                emacspeak-m-player-dynamic-playlist
                emacspeak-m-player-hotkey-p
                emacspeak-m-player-directory
@@ -585,16 +589,15 @@ dynamic playlist. "
       (push "-af" options))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
-      (setq emacspeak-m-player-resource resource)
-      (setq emacspeak-m-player-url-p (string-match "^http" resource))
+      (setq emacspeak-m-player-resource resource
+            emacspeak-m-player-url-p (string-match "^http" resource))
       (when emacspeak-m-player-url-p
         (setq emacspeak-m-player-url resource))
-      (unless emacspeak-m-player-url-p  ; not a URL
+      (unless emacspeak-m-player-url-p  
         (when resource
           (setq resource (expand-file-name resource))
           (emacspeak-speak-load-directory-settings)
-          (setq emacspeak-m-player-directory
-                (file-name-directory resource)))
+          (setq emacspeak-m-player-directory (file-name-directory resource)))
         (unless emacspeak-m-player-dynamic-playlist
           (if   (file-directory-p resource)
                 (setq file-list (emacspeak-m-player-directory-files resource))
@@ -616,11 +619,8 @@ dynamic playlist. "
             (apply
              #'start-process "MPLayer" buffer
              emacspeak-m-player-program options))
-      (set-process-sentinel
-       emacspeak-m-player-process
-       #'ems--repeat-sentinel)
-      (set-process-filter  emacspeak-m-player-process
-                           #'emacspeak-m-player-process-filter)
+      (set-process-sentinel emacspeak-m-player-process #'ems--repeat-sentinel)
+      (set-process-filter  emacspeak-m-player-process #'ems--mp-filter)
       (when
           (and
            emacspeak-m-player-directory
@@ -898,8 +898,10 @@ The time position can also be specified as HH:MM:SS."
 (defun emacspeak-m-player-pause ()
   "Pause or unpause."
   (interactive)
+  (cl-declare (special emacspeak-m-player-paused))
   (ems--mp-send "pause")
-  (emacspeak-speak-time))
+  (setq emacspeak-m-player-paused (not emacspeak-m-player-paused))
+  (when emacspeak-m-player-paused (emacspeak-speak-time)))
 
 (defvar ems--m-player-mark "00-LastStopped"
   "Name used to  mark position where we stopped.")
