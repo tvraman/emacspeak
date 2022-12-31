@@ -349,7 +349,9 @@ Controls media playback when already playing.
   (unless (eq 'run (process-status emacspeak-m-player-process))
     (emacspeak-multimedia))
   (call-interactively
-   (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
+   (or
+    (when emacspeak-m-player-process
+      (lookup-key emacspeak-m-player-mode-map key) 'undefined))))
 
 (defsubst emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
@@ -947,11 +949,11 @@ The time position can also be specified as HH:MM:SS."
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
           (ems--mp-send "quit")
-          (emacspeak-auditory-icon 'close-object)
-          (and (buffer-live-p buffer) (kill-buffer buffer))))
-      (unless (eq (process-status emacspeak-m-player-process) 'exit)
-        (delete-process  emacspeak-m-player-process))
-      (setq emacspeak-m-player-process nil))))
+          (unless (eq (process-status emacspeak-m-player-process) 'exit)
+            (delete-process  emacspeak-m-player-process))
+          (setq emacspeak-m-player-process nil)
+          (and (buffer-live-p buffer) (kill-buffer buffer))
+          (emacspeak-auditory-icon 'close-object))))))
 
 (defun emacspeak-m-player-volume-up ()
   "Volume up."
