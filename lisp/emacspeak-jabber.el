@@ -55,6 +55,15 @@
 (require 'emacspeak-preamble)
 (with-no-warnings (require 'jabber "jabber" 'no-error))
 ;;}}}
+;;{{{Forward decls:
+(declare-function jabber-activity-switch-to "jabber" (&optional jid-param))
+(declare-function jabber-jid-user "jabber" (jid))
+(declare-function jabber-jid-displayname "jabber" (string))
+(declare-function jabber-jid-resource "jabber" (jid))
+(declare-function jabber-muc-sender-p "jabber" (jid))
+nil
+
+;;}}}
 ;;{{{ map voices
 
 (voice-setup-add-map
