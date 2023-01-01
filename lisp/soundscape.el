@@ -323,7 +323,7 @@ See  \\{soundscape-default-theme} for details."
     ("Bonfire" (calendar-mode diary-mode))
     ("BuddhaLoop" (comint-mode))
     ("BuddhaLoop" (chess-display-mode))
-    ("RandomLoop" (lisp-interaction-mode))
+    ("RandomLoop" (lisp-interaction-mode slime-repl-mode))
     ("Cavern" (prog-mode))
     ("ChangingLoops" nil)
     ("ChangingLoopsPitches" (special-mode))
