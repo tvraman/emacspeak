@@ -351,7 +351,9 @@ Controls media playback when already playing.
   (call-interactively
    (or
     (when emacspeak-m-player-process
-      (lookup-key emacspeak-m-player-mode-map key) 'undefined))))
+      (with-current-buffer (process-buffer emacspeak-m-player-process)
+        (lookup-key emacspeak-m-player-mode-map key)))
+    'undefined)))
 
 (defsubst emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
