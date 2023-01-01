@@ -903,6 +903,7 @@ The time position can also be specified as HH:MM:SS."
   "Pause or unpause."
   (interactive)
   (cl-declare (special emacspeak-m-player-paused))
+  (dtk-stop)
   (ems--mp-send "pause")
   (setq emacspeak-m-player-paused (not emacspeak-m-player-paused))
   (when emacspeak-m-player-paused (emacspeak-speak-time)))
