@@ -623,7 +623,9 @@ dynamic playlist. "
             (apply
              #'start-process "MPLayer" buffer
              emacspeak-m-player-program options))
-      (set-process-sentinel emacspeak-m-player-process #'ems--repeat-sentinel)
+      (set-process-sentinel emacspeak-m-player-process
+                            #'ems--repeat-sentinel)
+      (setq emacspeak-m-player-paused nil)
       (set-process-filter  emacspeak-m-player-process #'ems--mp-filter)
       (when
           (and
