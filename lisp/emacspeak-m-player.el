@@ -545,7 +545,7 @@ If a dynamic playlist exists, just use it."
         (process-buffer emacspeak-m-player-process)
       (emacspeak-amark-save))))
 
-(defvar-local emacspeak-m-player-paused nil
+(defvar emacspeak-m-player-paused nil
   "Pause/unpased state of player.")
 
 
