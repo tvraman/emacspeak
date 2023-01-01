@@ -2900,7 +2900,10 @@ but quickly switch to a window by name."
     (repeat-in-progress (emacspeak-auditory-icon 'repeat-active))))
 
 (defun ems--repeat-sentinel (process _state)
-  "Process sentinel to disable repeat."
+  "Process sentinel to disable repeat.
+Also kill process-buffer on process exit."
+  (when (memq (process-status process) '(failed signal exit stop nil))
+    (kill-buffer (process-buffer process)))
   (when
       (and repeat-mode
            (memq (process-status process) '(failed signal exit stop nil)))

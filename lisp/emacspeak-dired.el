@@ -528,30 +528,33 @@ Optional interactive prefix arg shuffles playlist."
 ;;{{{ Play Duration Using Soxi:
 
 (defun emacspeak-dired-play-duration ()
-  "Speak duration of MP3 files.
+  "Speak duration of sound files.
 If on a file, speak its duration.
-If on a directory, speak the total duration of all mp3 files under
+If on a directory, speak the total duration of all sound files under
   that directory."
   (interactive)
+  (cl-declare (special emacspeak-media-extensions))
   (cl-assert (executable-find "soxi")
              t "This command needs soxi installed.")
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")
   (let* ((f   (dired-get-filename)))
     (cond
-     ((and (not (file-directory-p f))
-           (string-match "\\.mp3$" f))
-      (message "%s %s"
-               (shell-command-to-string (format "soxi -d '%s'" f))
-               (file-name-base f)))
-     ((file-directory-p f)
-      (message "%s in %s"
-               (shell-command-to-string
-                (format
-                 "find %s -name '*.mp3' -print0 | xargs -0 soxi -Td 2>/dev/null"
-                 (shell-quote-argument f)))
-               (file-name-base f)))
-     (t (message "No mp3  on current line.")))))
+      ((and (not (file-directory-p f))
+            (string-match emacspeak-media-extensions f))
+       (message "%s %s"
+                (shell-command-to-string (format "soxi -d '%s'" f))
+                (file-name-base f)))
+      ((file-directory-p f)
+       (message
+        "%s in %s"
+        (shell-command-to-string
+         (format
+          "find %s -name '%s -print0 | xargs -0 soxi -Td 2>/dev/null"
+          (shell-quote-argument f)
+          emacspeak-media-extensions))
+        (file-name-base f)))
+      (t (message "No mp3  on current line.")))))
 
 ;;}}}
 ;;{{{ Open Downloads:
