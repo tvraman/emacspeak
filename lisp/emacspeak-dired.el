@@ -67,10 +67,9 @@
    (dired-header voice-smoothen)
    (dired-mark voice-lighten)
    (dired-perm-write voice-lighten-extra)
-   (dired-marked voice-lighten)
    (dired-warning voice-animate-extra)
-   (dired-directory voice-bolden-medium)
-   (dired-symlink voice-animate-extra)
+   (dired-directory voice-bolden)
+   (dired-symlink voice-animate)
    (dired-ignored voice-lighten-extra)
    (dired-flagged voice-animate-extra)))
 
