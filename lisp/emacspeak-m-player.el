@@ -380,8 +380,7 @@ Controls media playback when already playing.
 plays result as a directory." directory)
              (interactive)
              (cl-declare  (special
-                           default-directory
-                           emacspeak-m-player-directory))
+                           default-directory emacspeak-m-player-directory))
              (let ((default-directory ,directory))
                (setq emacspeak-m-player-directory ,directory)
                (emacspeak-m-player-hotkey ,directory))))))
@@ -445,6 +444,7 @@ URL fragment specifies optional start position."
 
 (defvar-local emacspeak-m-player-resource nil
   "Records   currently playing resource")
+
 (defun emacspeak-media-local-resource (prefix)
   "Read local resource starting from default-directory"
   (cl-declare (special default-directory))
@@ -625,10 +625,10 @@ dynamic playlist. "
             (apply
              #'start-process "MPLayer" buffer
              emacspeak-m-player-program options))
-      (set-process-sentinel emacspeak-m-player-process
-                            #'ems--repeat-sentinel)
-      (setq emacspeak-m-player-paused nil)
+      (set-process-sentinel
+       emacspeak-m-player-process #'ems--repeat-sentinel)
       (set-process-filter  emacspeak-m-player-process #'ems--mp-filter)
+      (setq emacspeak-m-player-paused nil)
       (when
           (and
            emacspeak-m-player-directory
