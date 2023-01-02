@@ -371,6 +371,15 @@
 (define-key ctl-x-map  "g" 'magit-status)
 
 ;;}}}
+;;{{{Rebase:
+
+(defadvice git-rebase-squash (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)))
+
+
+;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
 
