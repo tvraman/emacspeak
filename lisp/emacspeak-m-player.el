@@ -82,7 +82,6 @@
 (require 'ladspa)
 (require 'emacspeak-amark)
 
-
 (declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
 ;;}}}
@@ -189,8 +188,6 @@ This is set to nil when playing Internet  streams.")
            (propertize " in " 'personality voice-smoothen-extra)
            (cl-second info)))))
      (t (format "Process MPlayer not running.")))))
-
-
 
 ;;}}}
 ;;{{{Dynamic playlist:
@@ -550,7 +547,6 @@ If a dynamic playlist exists, just use it."
 (defvar emacspeak-m-player-paused nil
   "Pause/unpased state of player.")
 
-
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play  resource, or play dynamic playlist if set.  Optional prefix argument
@@ -599,7 +595,7 @@ dynamic playlist. "
             emacspeak-m-player-url-p (string-match "^http" resource))
       (when emacspeak-m-player-url-p
         (setq emacspeak-m-player-url resource))
-      (unless emacspeak-m-player-url-p  
+      (unless emacspeak-m-player-url-p
         (when resource
           (setq resource (expand-file-name resource))
           (emacspeak-speak-load-directory-settings)
@@ -654,9 +650,9 @@ dynamic playlist. "
   (cl-declare (special emacspeak-m-player-options
                        emacspeak-m-player-openal-options))
   (let ((emacspeak-m-player-options
-            (append emacspeak-m-player-options
-                    emacspeak-m-player-openal-options)))
-      (call-interactively #'emacspeak-m-player )))
+          (append emacspeak-m-player-options
+                  emacspeak-m-player-openal-options)))
+    (call-interactively #'emacspeak-m-player )))
 
 (defvar emacspeak-m-player-hrtf-options
   '("-af" "hrtf=s" "-af" "resample=48000")
@@ -669,10 +665,10 @@ This will work if the soundcard is set to 48000."
   (interactive)
   (cl-declare (special
                emacspeak-m-player-options emacspeak-m-player-hrtf-options))
-    (let ((emacspeak-m-player-options
-            (append emacspeak-m-player-options
-                    emacspeak-m-player-hrtf-options)))
-      (call-interactively #'emacspeak-m-player)))
+  (let ((emacspeak-m-player-options
+          (append emacspeak-m-player-options
+                  emacspeak-m-player-hrtf-options)))
+    (call-interactively #'emacspeak-m-player)))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
@@ -1506,7 +1502,7 @@ flat classical club dance full-bass full-bass-and-treble
 (map-keymap
  (lambda (_key cmd)
    (when
-       (and 
+       (and
         (symbolp cmd)
         (not (eq cmd 'digit-argument)))
      (put cmd 'repeat-map 'emacspeak-m-player-mode-map)))
