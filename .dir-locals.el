@@ -1,7 +1,9 @@
 ;;; Directory Local Variables
 ;;; For more information see (info "(emacs) Directory Variables")
 
-((c-mode . ((folded-file . t)
+(
+ (emacs-lisp-mode  . ((folded-file . t)))
+ (c-mode . ((folded-file . t)
             (c-file-style . "GNU")))
  (change-log-mode . ((add-log-time-zone-rule . t)
                      (fill-column . 74)))

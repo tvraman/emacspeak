@@ -77,11 +77,11 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'dired)
 (require 'emacspeak-dired)
 (require 'ladspa)
 (require 'emacspeak-amark)
-(declare-function
- dired-get-filename "dired" (&optional localp no-error-if-not-filep))
+
 
 (declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
@@ -116,6 +116,14 @@
 
 ;;}}}
 ;;{{{ define a derived mode for m-player interaction
+(define-derived-mode emacspeak-m-player-mode special-mode
+  "M-Player Interaction"
+  "Major mode for m-player interaction. \n\n
+\\{emacspeak-m-player-mode-map}"
+  (progn
+    (setq ems--media-data (make-ems--media-data)
+          buffer-undo-list t
+          buffer-read-only nil)))
 
 (defconst  emacspeak-media-shortcuts-directory
   (expand-file-name "media/radio/" emacspeak-directory)
@@ -129,8 +137,9 @@
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (erase-buffer)
-    (process-send-string emacspeak-m-player-process
-                         (format "pausing_keep %s\n" command))
+    (process-send-string
+     emacspeak-m-player-process
+     (format "pausing_keep %s\n" command))
     (accept-process-output emacspeak-m-player-process 0.1)
     (unless (zerop (buffer-size))
       (buffer-substring-no-properties (point-min) (1-  (point-max))))))
@@ -181,26 +190,20 @@ This is set to nil when playing Internet  streams.")
            (cl-second info)))))
      (t (format "Process MPlayer not running.")))))
 
-(define-derived-mode emacspeak-m-player-mode special-mode
-  "M-Player Interaction"
-  "Major mode for m-player interaction. \n\n
-\\{emacspeak-m-player-mode-map}"
-  (progn
-    (setq ems--media-data (make-ems--media-data)
-          buffer-undo-list t
-          buffer-read-only nil)))
+
 
 ;;}}}
 ;;{{{Dynamic playlist:
 
 ;; Dynamic playlists are one-shot, and managed directly by emacspeak,
-;; ie no playlist file.
+;; i.e. no playlist file.
 
 (defvar emacspeak-m-player-dynamic-playlist  nil
-  "Dynamic plist --- lists files in the playlist.
+  "Dynamic --- lists files in the playlist.
 Reset immediately after being used.")
+
 ;;;###autoload
-(defun emacspeak-m-player-add-to-dynamic (file)
+(defun emacspeak-m-player-add-dynamic (file)
   "Add file to the current  dynamic playlist."
   (interactive
    (list
@@ -243,9 +246,9 @@ Reset immediately after being used.")
      (accept-process-output proc 0 100)
      (with-current-buffer buff
        (goto-char (point-min))
-       (setq result (buffer-substring-no-properties
-                     (line-beginning-position)
-                     (line-end-position))))
+       (setq result
+             (buffer-substring-no-properties
+              (line-beginning-position) (line-end-position))))
      result)))
 
 ;;}}}
@@ -349,11 +352,10 @@ Controls media playback when already playing.
   (unless (eq 'run (process-status emacspeak-m-player-process))
     (emacspeak-multimedia))
   (call-interactively
-   (or
-    (when emacspeak-m-player-process
-      (with-current-buffer (process-buffer emacspeak-m-player-process)
-        (lookup-key emacspeak-m-player-mode-map key)))
-    'undefined)))
+   (when emacspeak-m-player-process
+     (or
+      (lookup-key emacspeak-m-player-mode-map key)
+      'undefined))))
 
 (defsubst emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
@@ -554,7 +556,7 @@ If a dynamic playlist exists, just use it."
   "Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-See command \\[emacspeak-m-player-add-to-dynamic] for adding to the
+See command \\[emacspeak-m-player-add-dynamic] for adding to the
 dynamic playlist. "
   (interactive
    (list
@@ -1872,7 +1874,7 @@ As the default, use current position."
 (defvar emacspeak-locate-media-map
   (let ((map (make-sparse-keymap)))
     (define-key map "               ;" 'emacspeak-dired-play-duration)
-    (define-key  map (ems-kbd "M-;") 'emacspeak-m-player-add-to-dynamic)
+    (define-key  map (ems-kbd "M-;") 'emacspeak-m-player-add-dynamic)
     (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
     map)
   "Keymap used to play locate results.")
