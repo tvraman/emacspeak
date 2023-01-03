@@ -121,17 +121,17 @@
         "#emacspeak_002dm_002dplayer_002dadd_002dautosat"
         accesskey="3">emacspeak-m-player-add-autosat</a></li>
         <li><a href=
+        "#emacspeak_002dm_002dplayer_002dadd_002ddynamic"
+        accesskey="4">emacspeak-m-player-add-dynamic</a></li>
+        <li><a href=
         "#emacspeak_002dm_002dplayer_002dadd_002dequalizer"
-        accesskey="4">emacspeak-m-player-add-equalizer</a></li>
+        accesskey="5">emacspeak-m-player-add-equalizer</a></li>
         <li><a href=
         "#emacspeak_002dm_002dplayer_002dadd_002dfilter" accesskey=
-        "5">emacspeak-m-player-add-filter</a></li>
+        "6">emacspeak-m-player-add-filter</a></li>
         <li><a href=
         "#emacspeak_002dm_002dplayer_002dadd_002dladspa" accesskey=
-        "6">emacspeak-m-player-add-ladspa</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dadd_002dto_002ddynamic"
-        accesskey="7">emacspeak-m-player-add-to-dynamic</a></li>
+        "7">emacspeak-m-player-add-ladspa</a></li>
         <li><a href=
         "#emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"
         accesskey="8">emacspeak-m-player-alt-src-step</a></li>
@@ -151,6 +151,8 @@
         "#emacspeak_002dm_002dplayer_002dbackward_002d1min">emacspeak-m-player-backward-1min</a></li>
         <li><a href=
         "#emacspeak_002dm_002dplayer_002dbalance">emacspeak-m-player-balance</a></li>
+        <li><a href=
+        "#emacspeak_002dm_002dplayer_002dbalance_002dchannels">emacspeak-m-player-balance-channels</a></li>
         <li><a href=
         "#emacspeak_002dm_002dplayer_002dbind_002dhotkey">emacspeak-m-player-bind-hotkey</a></li>
         <li><a href=
@@ -301,7 +303,7 @@
               "format">Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-See command M-x emacspeak-m-player-add-to-dynamic for adding to the
+See command M-x emacspeak-m-player-add-dynamic for adding to the
 dynamic playlist. 
 
 (fn RESOURCE &amp;optional PLAY-LIST)
@@ -358,8 +360,34 @@ dynamic playlist.
         </dl>
       </div>
       <div class="subsubsection" id=
-      "emacspeak_002dm_002dplayer_002dadd_002dequalizer">
+      "emacspeak_002dm_002dplayer_002dadd_002ddynamic">
         <h4 class="subsubsection">12.117.2.4
+        emacspeak-m-player-add-dynamic</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dm_002dplayer_002dadd_002ddynamic">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-m-player-add-dynamic</strong>
+          <em>(file)</em> <a href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002ddynamic'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dm_002dplayer_002dadd_002ddynamic-1">
+            </span>
+            <div class="format">
+              <pre class=
+              "format">Add file to the current  dynamic playlist.
+
+(fn FILE)
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dm_002dplayer_002dadd_002dequalizer">
+        <h4 class="subsubsection">12.117.2.5
         emacspeak-m-player-add-equalizer</h4>
         <dl class="def">
           <dt id=
@@ -387,7 +415,7 @@ arg ‘reset’ starts with all filters set to 0.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dadd_002dfilter">
-        <h4 class="subsubsection">12.117.2.5
+        <h4 class="subsubsection">12.117.2.6
         emacspeak-m-player-add-filter</h4>
         <dl class="def">
           <dt id=
@@ -413,7 +441,7 @@ arg ‘reset’ starts with all filters set to 0.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dadd_002dladspa">
-        <h4 class="subsubsection">12.117.2.6
+        <h4 class="subsubsection">12.117.2.7
         emacspeak-m-player-add-ladspa</h4>
         <dl class="def">
           <dt id=
@@ -431,32 +459,6 @@ arg ‘reset’ starts with all filters set to 0.
               <pre class="format">Apply plugin to running MPlayer.
 Copies  invocation string to kill-ring so it can be added easily to
 our pre-defined filters if appropriate.
-</pre>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="subsubsection" id=
-      "emacspeak_002dm_002dplayer_002dadd_002dto_002ddynamic">
-        <h4 class="subsubsection">12.117.2.7
-        emacspeak-m-player-add-to-dynamic</h4>
-        <dl class="def">
-          <dt id=
-          "index-emacspeak_002dm_002dplayer_002dadd_002dto_002ddynamic">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-to-dynamic</strong>
-          <em>(file)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002dto_002ddynamic'
-          class='copiable-anchor'>¶</a></span></dt>
-          <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dadd_002dto_002ddynamic-1">
-            </span>
-            <div class="format">
-              <pre class=
-              "format">Add file to the current  dynamic playlist.
-
-(fn FILE)
 </pre>
             </div>
           </dd>
@@ -678,8 +680,31 @@ As the default, use current position.
         </dl>
       </div>
       <div class="subsubsection" id=
-      "emacspeak_002dm_002dplayer_002dbind_002dhotkey">
+      "emacspeak_002dm_002dplayer_002dbalance_002dchannels">
         <h4 class="subsubsection">12.117.2.17
+        emacspeak-m-player-balance-channels</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dm_002dplayer_002dbalance_002dchannels">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-m-player-balance-channels</strong>
+          <a href=
+          '#index-emacspeak_002dm_002dplayer_002dbalance_002dchannels'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <span id=
+            "index-emacspeak_002dm_002dplayer_002dbalance_002dchannels-1">
+            </span>
+            <div class="format">
+              <pre class="format">Mono to stereo.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dm_002dplayer_002dbind_002dhotkey">
+        <h4 class="subsubsection">12.117.2.18
         emacspeak-m-player-bind-hotkey</h4>
         <dl class="def">
           <dt id=
@@ -705,7 +730,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dbrowse_002dhistory">
-        <h4 class="subsubsection">12.117.2.18
+        <h4 class="subsubsection">12.117.2.19
         emacspeak-m-player-browse-history</h4>
         <dl class="def">
           <dt id=
@@ -732,7 +757,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dclear_002dfilters">
-        <h4 class="subsubsection">12.117.2.19
+        <h4 class="subsubsection">12.117.2.20
         emacspeak-m-player-clear-filters</h4>
         <dl class="def">
           <dt id=
@@ -755,7 +780,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dcommand">
-        <h4 class="subsubsection">12.117.2.20
+        <h4 class="subsubsection">12.117.2.21
         emacspeak-m-player-command</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dcommand">
@@ -778,7 +803,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dcustomize">
-        <h4 class="subsubsection">12.117.2.21
+        <h4 class="subsubsection">12.117.2.22
         emacspeak-m-player-customize</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dcustomize">
@@ -799,7 +824,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002ddelete_002dfilter">
-        <h4 class="subsubsection">12.117.2.22
+        <h4 class="subsubsection">12.117.2.23
         emacspeak-m-player-delete-filter</h4>
         <dl class="def">
           <dt id=
@@ -824,7 +849,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002ddelete_002dladspa">
-        <h4 class="subsubsection">12.117.2.23
+        <h4 class="subsubsection">12.117.2.24
         emacspeak-m-player-delete-ladspa</h4>
         <dl class="def">
           <dt id=
@@ -848,7 +873,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002ddisplay_002dpercent">
-        <h4 class="subsubsection">12.117.2.24
+        <h4 class="subsubsection">12.117.2.25
         emacspeak-m-player-display-percent</h4>
         <dl class="def">
           <dt id=
@@ -871,7 +896,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002ddouble_002dspeed">
-        <h4 class="subsubsection">12.117.2.25
+        <h4 class="subsubsection">12.117.2.26
         emacspeak-m-player-double-speed</h4>
         <dl class="def">
           <dt id=
@@ -894,7 +919,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dedit_002dreverb">
-        <h4 class="subsubsection">12.117.2.26
+        <h4 class="subsubsection">12.117.2.27
         emacspeak-m-player-edit-reverb</h4>
         <dl class="def">
           <dt id=
@@ -919,7 +944,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dend_002dtrack">
-        <h4 class="subsubsection">12.117.2.27
+        <h4 class="subsubsection">12.117.2.28
         emacspeak-m-player-end-track</h4>
         <dl class="def">
           <dt id=
@@ -941,7 +966,7 @@ As the default, use current position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002deq_002dcontrols">
-        <h4 class="subsubsection">12.117.2.28
+        <h4 class="subsubsection">12.117.2.29
         emacspeak-m-player-eq-controls</h4>
         <dl class="def">
           <dt id=
@@ -968,7 +993,7 @@ Applies  the resulting value at each step.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002deq_002dpreset">
-        <h4 class="subsubsection">12.117.2.29
+        <h4 class="subsubsection">12.117.2.30
         emacspeak-m-player-eq-preset</h4>
         <dl class="def">
           <dt id=
@@ -999,7 +1024,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dfaster">
-        <h4 class="subsubsection">12.117.2.30
+        <h4 class="subsubsection">12.117.2.31
         emacspeak-m-player-faster</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dfaster">
@@ -1019,7 +1044,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dforward_002d10min">
-        <h4 class="subsubsection">12.117.2.31
+        <h4 class="subsubsection">12.117.2.32
         emacspeak-m-player-forward-10min</h4>
         <dl class="def">
           <dt id=
@@ -1042,7 +1067,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dforward_002d10s">
-        <h4 class="subsubsection">12.117.2.32
+        <h4 class="subsubsection">12.117.2.33
         emacspeak-m-player-forward-10s</h4>
         <dl class="def">
           <dt id=
@@ -1065,7 +1090,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dforward_002d1min">
-        <h4 class="subsubsection">12.117.2.33
+        <h4 class="subsubsection">12.117.2.34
         emacspeak-m-player-forward-1min</h4>
         <dl class="def">
           <dt id=
@@ -1088,7 +1113,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dfrom_002dhistory">
-        <h4 class="subsubsection">12.117.2.34
+        <h4 class="subsubsection">12.117.2.35
         emacspeak-m-player-from-history</h4>
         <dl class="def">
           <dt id=
@@ -1120,7 +1145,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dget_002dlength">
-        <h4 class="subsubsection">12.117.2.35
+        <h4 class="subsubsection">12.117.2.36
         emacspeak-m-player-get-length</h4>
         <dl class="def">
           <dt id=
@@ -1143,7 +1168,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dhalf_002dspeed">
-        <h4 class="subsubsection">12.117.2.36
+        <h4 class="subsubsection">12.117.2.37
         emacspeak-m-player-half-speed</h4>
         <dl class="def">
           <dt id=
@@ -1166,7 +1191,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dleft_002dchannel">
-        <h4 class="subsubsection">12.117.2.37
+        <h4 class="subsubsection">12.117.2.38
         emacspeak-m-player-left-channel</h4>
         <dl class="def">
           <dt id=
@@ -1189,7 +1214,7 @@ flat classical club dance full-bass full-bass-and-treble
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dlocate_002dmedia">
-        <h4 class="subsubsection">12.117.2.38
+        <h4 class="subsubsection">12.117.2.39
         emacspeak-m-player-locate-media</h4>
         <dl class="def">
           <dt id=
@@ -1221,7 +1246,7 @@ to play  tracks.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dloop">
-        <h4 class="subsubsection">12.117.2.39
+        <h4 class="subsubsection">12.117.2.40
         emacspeak-m-player-loop</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dloop">
@@ -1254,7 +1279,7 @@ Interactive prefix ‘raw’ reads a raw URL.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dmode">
-        <h4 class="subsubsection">12.117.2.40
+        <h4 class="subsubsection">12.117.2.41
         emacspeak-m-player-mode</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dmode">
@@ -1303,6 +1328,7 @@ S               emacspeak-m-player-amark-save
 \               emacspeak-m-player-persist-process
 ]               emacspeak-m-player-faster
 a               emacspeak-m-player-add-autopan
+b               emacspeak-m-player-balance-channels
 c               emacspeak-m-player-slave-command
 d               emacspeak-m-player-delete-filter
 e               emacspeak-m-player-eq-preset
@@ -1349,7 +1375,7 @@ final or penultimate step during initialization.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dmode_002dline">
-        <h4 class="subsubsection">12.117.2.41
+        <h4 class="subsubsection">12.117.2.42
         emacspeak-m-player-mode-line</h4>
         <dl class="def">
           <dt id=
@@ -1371,7 +1397,7 @@ final or penultimate step during initialization.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dnext_002dtrack">
-        <h4 class="subsubsection">12.117.2.42
+        <h4 class="subsubsection">12.117.2.43
         emacspeak-m-player-next-track</h4>
         <dl class="def">
           <dt id=
@@ -1394,7 +1420,7 @@ final or penultimate step during initialization.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dpan">
-        <h4 class="subsubsection">12.117.2.43
+        <h4 class="subsubsection">12.117.2.44
         emacspeak-m-player-pan</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dpan">
@@ -1415,7 +1441,7 @@ final or penultimate step during initialization.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dpause">
-        <h4 class="subsubsection">12.117.2.44
+        <h4 class="subsubsection">12.117.2.45
         emacspeak-m-player-pause</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dpause">
@@ -1435,7 +1461,7 @@ final or penultimate step during initialization.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dpersist_002dprocess">
-        <h4 class="subsubsection">12.117.2.45
+        <h4 class="subsubsection">12.117.2.46
         emacspeak-m-player-persist-process</h4>
         <dl class="def">
           <dt id=
@@ -1462,7 +1488,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dplay_002drss">
-        <h4 class="subsubsection">12.117.2.46
+        <h4 class="subsubsection">12.117.2.47
         emacspeak-m-player-play-rss</h4>
         <dl class="def">
           <dt id=
@@ -1486,7 +1512,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dplay_002dtree_002dup">
-        <h4 class="subsubsection">12.117.2.47
+        <h4 class="subsubsection">12.117.2.48
         emacspeak-m-player-play-tree-up</h4>
         <dl class="def">
           <dt id=
@@ -1511,7 +1537,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer">
-        <h4 class="subsubsection">12.117.2.48
+        <h4 class="subsubsection">12.117.2.49
         emacspeak-m-player-pop-to-player</h4>
         <dl class="def">
           <dt id=
@@ -1534,7 +1560,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dprevious_002dtrack">
-        <h4 class="subsubsection">12.117.2.49
+        <h4 class="subsubsection">12.117.2.50
         emacspeak-m-player-previous-track</h4>
         <dl class="def">
           <dt id=
@@ -1557,7 +1583,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dquit">
-        <h4 class="subsubsection">12.117.2.50
+        <h4 class="subsubsection">12.117.2.51
         emacspeak-m-player-quit</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dquit">
@@ -1577,7 +1603,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002drem_002dhistory">
-        <h4 class="subsubsection">12.117.2.51
+        <h4 class="subsubsection">12.117.2.52
         emacspeak-m-player-rem-history</h4>
         <dl class="def">
           <dt id=
@@ -1602,7 +1628,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dreset_002doptions">
-        <h4 class="subsubsection">12.117.2.52
+        <h4 class="subsubsection">12.117.2.53
         emacspeak-m-player-reset-options</h4>
         <dl class="def">
           <dt id=
@@ -1625,7 +1651,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dreset_002dspeed">
-        <h4 class="subsubsection">12.117.2.53
+        <h4 class="subsubsection">12.117.2.54
         emacspeak-m-player-reset-speed</h4>
         <dl class="def">
           <dt id=
@@ -1648,7 +1674,7 @@ Optional interactive prefix arg prompts for name to use for  player.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002drestore_002dprocess">
-        <h4 class="subsubsection">12.117.2.54
+        <h4 class="subsubsection">12.117.2.55
         emacspeak-m-player-restore-process</h4>
         <dl class="def">
           <dt id=
@@ -1673,7 +1699,7 @@ Check first if current buffer is in emacspeak-m-player-mode.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dright_002dchannel">
-        <h4 class="subsubsection">12.117.2.55
+        <h4 class="subsubsection">12.117.2.56
         emacspeak-m-player-right-channel</h4>
         <dl class="def">
           <dt id=
@@ -1696,7 +1722,7 @@ Check first if current buffer is in emacspeak-m-player-mode.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dscale_002dspeed">
-        <h4 class="subsubsection">12.117.2.56
+        <h4 class="subsubsection">12.117.2.57
         emacspeak-m-player-scale-speed</h4>
         <dl class="def">
           <dt id=
@@ -1721,7 +1747,7 @@ Check first if current buffer is in emacspeak-m-player-mode.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dseek_002dabsolute">
-        <h4 class="subsubsection">12.117.2.57
+        <h4 class="subsubsection">12.117.2.58
         emacspeak-m-player-seek-absolute</h4>
         <dl class="def">
           <dt id=
@@ -1747,7 +1773,7 @@ The time position can also be specified as HH:MM:SS.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dseek_002dpercentage">
-        <h4 class="subsubsection">12.117.2.58
+        <h4 class="subsubsection">12.117.2.59
         emacspeak-m-player-seek-percentage</h4>
         <dl class="def">
           <dt id=
@@ -1772,7 +1798,7 @@ The time position can also be specified as HH:MM:SS.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dseek_002drelative">
-        <h4 class="subsubsection">12.117.2.59
+        <h4 class="subsubsection">12.117.2.60
         emacspeak-m-player-seek-relative</h4>
         <dl class="def">
           <dt id=
@@ -1799,7 +1825,7 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dset_002dclip_002dend">
-        <h4 class="subsubsection">12.117.2.60
+        <h4 class="subsubsection">12.117.2.61
         emacspeak-m-player-set-clip-end</h4>
         <dl class="def">
           <dt id=
@@ -1825,7 +1851,7 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dset_002dclip_002dstart">
-        <h4 class="subsubsection">12.117.2.61
+        <h4 class="subsubsection">12.117.2.62
         emacspeak-m-player-set-clip-start</h4>
         <dl class="def">
           <dt id=
@@ -1851,7 +1877,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dshow_002ddata">
-        <h4 class="subsubsection">12.117.2.62
+        <h4 class="subsubsection">12.117.2.63
         emacspeak-m-player-show-data</h4>
         <dl class="def">
           <dt id=
@@ -1874,7 +1900,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dshow_002dpos">
-        <h4 class="subsubsection">12.117.2.63
+        <h4 class="subsubsection">12.117.2.64
         emacspeak-m-player-show-pos</h4>
         <dl class="def">
           <dt id=
@@ -1897,7 +1923,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dshuffle">
-        <h4 class="subsubsection">12.117.2.64
+        <h4 class="subsubsection">12.117.2.65
         emacspeak-m-player-shuffle</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dshuffle">
@@ -1925,7 +1951,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dskip_002dtracks">
-        <h4 class="subsubsection">12.117.2.65
+        <h4 class="subsubsection">12.117.2.66
         emacspeak-m-player-skip-tracks</h4>
         <dl class="def">
           <dt id=
@@ -1950,7 +1976,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dslave_002dcommand">
-        <h4 class="subsubsection">12.117.2.66
+        <h4 class="subsubsection">12.117.2.67
         emacspeak-m-player-slave-command</h4>
         <dl class="def">
           <dt id=
@@ -1975,7 +2001,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dslower">
-        <h4 class="subsubsection">12.117.2.67
+        <h4 class="subsubsection">12.117.2.68
         emacspeak-m-player-slower</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002dslower">
@@ -1995,7 +2021,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dstart_002dtrack">
-        <h4 class="subsubsection">12.117.2.68
+        <h4 class="subsubsection">12.117.2.69
         emacspeak-m-player-start-track</h4>
         <dl class="def">
           <dt id=
@@ -2018,7 +2044,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dstore_002dlink">
-        <h4 class="subsubsection">12.117.2.69
+        <h4 class="subsubsection">12.117.2.70
         emacspeak-m-player-store-link</h4>
         <dl class="def">
           <dt id=
@@ -2042,7 +2068,7 @@ Interactive prefix arg prompts for the timestamp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dstream_002dinfo">
-        <h4 class="subsubsection">12.117.2.70
+        <h4 class="subsubsection">12.117.2.71
         emacspeak-m-player-stream-info</h4>
         <dl class="def">
           <dt id=
@@ -2068,7 +2094,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo">
-        <h4 class="subsubsection">12.117.2.71
+        <h4 class="subsubsection">12.117.2.72
         emacspeak-m-player-toggle-extrastereo</h4>
         <dl class="def">
           <dt id=
@@ -2092,7 +2118,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002durl">
-        <h4 class="subsubsection">12.117.2.72
+        <h4 class="subsubsection">12.117.2.73
         emacspeak-m-player-url</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dm_002dplayer_002durl">
@@ -2123,7 +2149,7 @@ URL fragment specifies optional start position.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dusing_002dhrtf">
-        <h4 class="subsubsection">12.117.2.73
+        <h4 class="subsubsection">12.117.2.74
         emacspeak-m-player-using-hrtf</h4>
         <dl class="def">
           <dt id=
@@ -2154,7 +2180,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dusing_002dopenal">
-        <h4 class="subsubsection">12.117.2.74
+        <h4 class="subsubsection">12.117.2.75
         emacspeak-m-player-using-openal</h4>
         <dl class="def">
           <dt id=
@@ -2183,7 +2209,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dchange">
-        <h4 class="subsubsection">12.117.2.75
+        <h4 class="subsubsection">12.117.2.76
         emacspeak-m-player-volume-change</h4>
         <dl class="def">
           <dt id=
@@ -2208,7 +2234,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002ddown">
-        <h4 class="subsubsection">12.117.2.76
+        <h4 class="subsubsection">12.117.2.77
         emacspeak-m-player-volume-down</h4>
         <dl class="def">
           <dt id=
@@ -2231,7 +2257,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dset">
-        <h4 class="subsubsection">12.117.2.77
+        <h4 class="subsubsection">12.117.2.78
         emacspeak-m-player-volume-set</h4>
         <dl class="def">
           <dt id=
@@ -2256,7 +2282,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dup">
-        <h4 class="subsubsection">12.117.2.78
+        <h4 class="subsubsection">12.117.2.79
         emacspeak-m-player-volume-up</h4>
         <dl class="def">
           <dt id=
@@ -2278,7 +2304,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dwrite_002dclip">
-        <h4 class="subsubsection">12.117.2.79
+        <h4 class="subsubsection">12.117.2.80
         emacspeak-m-player-write-clip</h4>
         <dl class="def">
           <dt id=
@@ -2301,7 +2327,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dyoutube_002dlive">
-        <h4 class="subsubsection">12.117.2.80
+        <h4 class="subsubsection">12.117.2.81
         emacspeak-m-player-youtube-live</h4>
         <dl class="def">
           <dt id=
@@ -2333,7 +2359,7 @@ This will work if the soundcard is set to 48000.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dm_002dplayer_002dyoutube_002dplayer">
-        <h4 class="subsubsection">12.117.2.81
+        <h4 class="subsubsection">12.117.2.82
         emacspeak-m-player-youtube-player</h4>
         <dl class="def">
           <dt id=
@@ -2365,7 +2391,7 @@ This will work if the soundcard is set to 48000.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dmultimedia">
-        <h4 class="subsubsection">12.117.2.82
+        <h4 class="subsubsection">12.117.2.83
         emacspeak-multimedia</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dmultimedia"><span class=
@@ -2429,6 +2455,7 @@ S               emacspeak-m-player-amark-save
 \               emacspeak-m-player-persist-process
 ]               emacspeak-m-player-faster
 a               emacspeak-m-player-add-autopan
+b               emacspeak-m-player-balance-channels
 c               emacspeak-m-player-slave-command
 d               emacspeak-m-player-delete-filter
 e               emacspeak-m-player-eq-preset
