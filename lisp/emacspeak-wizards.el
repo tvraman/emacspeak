@@ -2394,7 +2394,7 @@ Otherwise just return  `color'."
    (t color)))
 
 (defun emacspeak-wizards-frame-colors ()
-  "Display frame's foreground/background color seetting."
+  "Display frame's foreground/background color setting."
   (interactive)
   (message "%s on %s"
            (ems--color-name
