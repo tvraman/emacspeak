@@ -1162,6 +1162,13 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (when (process-live-p  emacspeak-m-player-process)
       (ems--mp-send (format "af_add %s" filter-name)))))
 
+
+(defun emacspeak-m-player-balance-channels ()
+  "Mono to stereo."
+  (interactive)
+  (let ((filter-name "channels=1:2"))
+    (when (process-live-p  emacspeak-m-player-process)
+      (ems--mp-send (format "af_add %s" filter-name)))))
 (defun emacspeak-m-player-clear-filters ()
   "Clear all filters"
   (interactive)
@@ -1437,6 +1444,7 @@ flat classical club dance full-bass full-bass-and-treble
     (">" emacspeak-m-player-forward-1min)
     ("?" emacspeak-m-player-show-pos)
     ("A" emacspeak-m-player-amark-add)
+    ("b" emacspeak-m-player-balance-channels)
     ("C" emacspeak-m-player-clear-filters)
     ("C-a" emacspeak-amark-browse)
     ("C-l" ladspa)

@@ -207,7 +207,7 @@ Use Custom to customize where possible. "
   (make-thread #'(lambda nil (load "eww")))
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (load-theme 'modus-vivendi t)
+  (load-theme 'modus-vivendi-tinted t)
   (require 'dired-x)
   (tvr-time-load (when (file-exists-p custom-file)  (load
                                                      custom-file)))
