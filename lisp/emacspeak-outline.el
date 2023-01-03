@@ -299,12 +299,12 @@ except that the outline section is  spoken"
 ;;{{{ Personalities (
 (voice-setup-add-map
  '(
-   (outline-1 voice-bolden-extra)
-   (outline-2 voice-bolden-medium)
-   (outline-3 voice-bolden)
-   (outline-4 voice-lighten)
-   (outline-5 voice-lighten-medium)
-   (outline-6 voice-lighten-extra)
+   (outline-1 voice-bolden)
+   (outline-2 voice-brighten)
+   (outline-3 voice-lighten)
+   (outline-4 voice-smoothen)
+   (outline-5 voice-monotone)
+   (outline-6 voice-lighten-medium)
    ))
 
 ;;}}}
