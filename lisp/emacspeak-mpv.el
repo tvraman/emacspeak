@@ -149,6 +149,7 @@
      for b in
      '(("SPC" mpv-pause)
        (";" emacspeak-mpv-play-url)
+       ("C-m" mpv-play)
        ("l" emacspeak-mpv-store-link)
        ("s" mpv-seek)
        ("n" mpv-playlist-next)
