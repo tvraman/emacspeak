@@ -98,7 +98,7 @@
 (defvoice voice-bolden '( nil 3 nil  6))
 (defvoice voice-bolden-and-animate '( nil 3 8 8 8))
 (defvoice voice-bolden-extra '( nil 1 nil 8))
-(defvoice voice-bolden-medium '( nil 2 nil  7 ))
+(defvoice voice-bolden-medium '( nil 2 nil  3 ))
 (defvoice voice-brighten '( nil nil nil 5 6))
 (defvoice voice-brighten-extra '( nil nil nil 3 8))
 (defvoice voice-brighten-medium '( nil nil nil 4 7))
