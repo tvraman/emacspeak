@@ -124,7 +124,7 @@
  '(
    (bold voice-bolden)
    (bold-italic voice-bolden-and-animate)
-   (button voice-bolden-medium)
+   (button voice-bolden)
    (error voice-brighten)
    (file-name-shadow voice-smoothen-medium)
    (fixed-pitch voice-monotone-extra)
@@ -154,7 +154,7 @@
    (isearch-group-1 voice-lighten)
    (isearch-group-2 voice-smoothen)
    (italic voice-animate)
-   (link voice-bolden-medium)
+   (link voice-bolden)
    (link-visited voice-monotone)
    (match voice-lighten)
    (query-replace voice-bolden)
