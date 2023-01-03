@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1171 commands and 148 options.
+This chapter documents a total of 1172 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3151,9 +3151,9 @@ Open PDF file on current dired line.
 @findex emacspeak-dired-play-duration
 
 @format
-Speak duration of MP3 files.
+Speak duration of sound files.
 If on a file, speak its duration.
-If on a directory, speak the total duration of all mp3 files under
+If on a directory, speak the total duration of all sound files under
   that directory.
 @end format
 @end deffn
@@ -8102,7 +8102,7 @@ keybindings.
 Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-See command M-x emacspeak-m-player-add-to-dynamic for adding to the
+See command M-x emacspeak-m-player-add-dynamic for adding to the
 dynamic playlist. 
 
 (fn RESOURCE &optional PLAY-LIST)
@@ -8124,6 +8124,17 @@ Add autopan effect.
 
 @format
 Add ZamAutoSat (auto saturation) effect.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-add-dynamic
+@deffn {Command} emacspeak-m-player-add-dynamic  (file)
+@findex emacspeak-m-player-add-dynamic
+
+@format
+Add file to the current  dynamic playlist.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -8160,17 +8171,6 @@ Adds  filter with completion.
 Apply plugin to running MPlayer.
 Copies  invocation string to kill-ring so it can be added easily to
 our pre-defined filters if appropriate.
-@end format
-@end deffn
-
-@subsubsection emacspeak-m-player-add-to-dynamic
-@deffn {Command} emacspeak-m-player-add-to-dynamic  (file)
-@findex emacspeak-m-player-add-to-dynamic
-
-@format
-Add file to the current  dynamic playlist.
-
-(fn FILE)
 @end format
 @end deffn
 
@@ -8262,6 +8262,15 @@ Move back 1 minute.
 
 @format
 Set left/right balance.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-balance-channels
+@deffn {Command} emacspeak-m-player-balance-channels   
+@findex emacspeak-m-player-balance-channels
+
+@format
+Mono to stereo.
 @end format
 @end deffn
 
@@ -8566,6 +8575,7 @@ S		emacspeak-m-player-amark-save
 \		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
 a		emacspeak-m-player-add-autopan
+b		emacspeak-m-player-balance-channels
 c		emacspeak-m-player-slave-command
 d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-eq-preset
@@ -9118,6 +9128,7 @@ S		emacspeak-m-player-amark-save
 \		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
 a		emacspeak-m-player-add-autopan
+b		emacspeak-m-player-balance-channels
 c		emacspeak-m-player-slave-command
 d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-eq-preset

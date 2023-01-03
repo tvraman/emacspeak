@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 31, 2022.
+last updated on January 2, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3444,7 +3444,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1171 commands and 148 options.
+   This chapter documents a total of 1172 commands and 148 options.
 
 * Menu:
 
@@ -6118,9 +6118,9 @@ buffer Voicification is used to indicate directories, marked files etc.
 
  -- Command: emacspeak-dired-play-duration
 
-     Speak duration of MP3 files.
+     Speak duration of sound files.
      If on a file, speak its duration.
-     If on a directory, speak the total duration of all mp3 files under
+     If on a directory, speak the total duration of all sound files under
        that directory.
 
 12.47.1.12 emacspeak-dired-rpm-query-in-dired

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 31, 2022.
+last updated on January 2, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -1274,7 +1274,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Play  resource, or play dynamic playlist if set.  Optional prefix argument
      play-list interprets resource as a play-list.  Second interactive
      prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
-     See command M-x emacspeak-m-player-add-to-dynamic for adding to the
+     See command M-x emacspeak-m-player-add-dynamic for adding to the
      dynamic playlist.
 
      (fn RESOURCE &optional PLAY-LIST)
@@ -1293,7 +1293,16 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Add ZamAutoSat (auto saturation) effect.
 
-12.117.2.4 emacspeak-m-player-add-equalizer
+12.117.2.4 emacspeak-m-player-add-dynamic
+.........................................
+
+ -- Command: emacspeak-m-player-add-dynamic (file)
+
+     Add file to the current  dynamic playlist.
+
+     (fn FILE)
+
+12.117.2.5 emacspeak-m-player-add-equalizer
 ...........................................
 
  -- Command: emacspeak-m-player-add-equalizer (&optional reset)
@@ -1304,7 +1313,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional RESET)
 
-12.117.2.5 emacspeak-m-player-add-filter
+12.117.2.6 emacspeak-m-player-add-filter
 ........................................
 
  -- Command: emacspeak-m-player-add-filter (filter-name &optional edit)
@@ -1314,7 +1323,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn FILTER-NAME &optional EDIT)
 
-12.117.2.6 emacspeak-m-player-add-ladspa
+12.117.2.7 emacspeak-m-player-add-ladspa
 ........................................
 
  -- Command: emacspeak-m-player-add-ladspa
@@ -1322,15 +1331,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Apply plugin to running MPlayer.
      Copies  invocation string to kill-ring so it can be added easily to
      our pre-defined filters if appropriate.
-
-12.117.2.7 emacspeak-m-player-add-to-dynamic
-............................................
-
- -- Command: emacspeak-m-player-add-to-dynamic (file)
-
-     Add file to the current  dynamic playlist.
-
-     (fn FILE)
 
 12.117.2.8 emacspeak-m-player-alt-src-step
 ..........................................
@@ -1406,7 +1406,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Set left/right balance.
 
-12.117.2.17 emacspeak-m-player-bind-hotkey
+12.117.2.17 emacspeak-m-player-balance-channels
+...............................................
+
+ -- Command: emacspeak-m-player-balance-channels
+
+     Mono to stereo.
+
+12.117.2.18 emacspeak-m-player-bind-hotkey
 ..........................................
 
  -- Command: emacspeak-m-player-bind-hotkey (directory key)
@@ -1415,7 +1422,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn DIRECTORY KEY)
 
-12.117.2.18 emacspeak-m-player-browse-history
+12.117.2.19 emacspeak-m-player-browse-history
 .............................................
 
  -- Command: emacspeak-m-player-browse-history
@@ -1423,14 +1430,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Create a  media history browser from media-history.
 
-12.117.2.19 emacspeak-m-player-clear-filters
+12.117.2.20 emacspeak-m-player-clear-filters
 ............................................
 
  -- Command: emacspeak-m-player-clear-filters
 
      Clear all filters
 
-12.117.2.20 emacspeak-m-player-command
+12.117.2.21 emacspeak-m-player-command
 ......................................
 
  -- Command: emacspeak-m-player-command (key)
@@ -1439,14 +1446,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn KEY)
 
-12.117.2.21 emacspeak-m-player-customize
+12.117.2.22 emacspeak-m-player-customize
 ........................................
 
  -- Command: emacspeak-m-player-customize
 
      Use Customize to set MPlayer options.
 
-12.117.2.22 emacspeak-m-player-delete-filter
+12.117.2.23 emacspeak-m-player-delete-filter
 ............................................
 
  -- Command: emacspeak-m-player-delete-filter (filter)
@@ -1455,28 +1462,28 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn FILTER)
 
-12.117.2.23 emacspeak-m-player-delete-ladspa
+12.117.2.24 emacspeak-m-player-delete-ladspa
 ............................................
 
  -- Command: emacspeak-m-player-delete-ladspa
 
      Delete plugin from  running MPlayer.
 
-12.117.2.24 emacspeak-m-player-display-percent
+12.117.2.25 emacspeak-m-player-display-percent
 ..............................................
 
  -- Command: emacspeak-m-player-display-percent
 
      Display current percentage.
 
-12.117.2.25 emacspeak-m-player-double-speed
+12.117.2.26 emacspeak-m-player-double-speed
 ...........................................
 
  -- Command: emacspeak-m-player-double-speed
 
      Scale speed by 2.0
 
-12.117.2.26 emacspeak-m-player-edit-reverb
+12.117.2.27 emacspeak-m-player-edit-reverb
 ..........................................
 
  -- Command: emacspeak-m-player-edit-reverb
@@ -1485,14 +1492,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
        You need to use mplayer built with ladspa support, and have package
        tap-reverb already installed.
 
-12.117.2.27 emacspeak-m-player-end-track
+12.117.2.28 emacspeak-m-player-end-track
 ........................................
 
  -- Command: emacspeak-m-player-end-track
 
      Move to end.
 
-12.117.2.28 emacspeak-m-player-eq-controls
+12.117.2.29 emacspeak-m-player-eq-controls
 ..........................................
 
  -- Command: emacspeak-m-player-eq-controls (v)
@@ -1502,7 +1509,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn V)
 
-12.117.2.29 emacspeak-m-player-eq-preset
+12.117.2.30 emacspeak-m-player-eq-preset
 ........................................
 
  -- Command: emacspeak-m-player-eq-preset (name)
@@ -1517,35 +1524,35 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn NAME)
 
-12.117.2.30 emacspeak-m-player-faster
+12.117.2.31 emacspeak-m-player-faster
 .....................................
 
  -- Command: emacspeak-m-player-faster
 
      Speed up  playback.
 
-12.117.2.31 emacspeak-m-player-forward-10min
+12.117.2.32 emacspeak-m-player-forward-10min
 ............................................
 
  -- Command: emacspeak-m-player-forward-10min
 
      Move forward ten minutes.
 
-12.117.2.32 emacspeak-m-player-forward-10s
+12.117.2.33 emacspeak-m-player-forward-10s
 ..........................................
 
  -- Command: emacspeak-m-player-forward-10s
 
      Move forward 10 seconds.
 
-12.117.2.33 emacspeak-m-player-forward-1min
+12.117.2.34 emacspeak-m-player-forward-1min
 ...........................................
 
  -- Command: emacspeak-m-player-forward-1min
 
      Move forward by 1 minute.
 
-12.117.2.34 emacspeak-m-player-from-history
+12.117.2.35 emacspeak-m-player-from-history
 ...........................................
 
  -- Command: emacspeak-m-player-from-history (posn)
@@ -1556,28 +1563,28 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn POSN)
 
-12.117.2.35 emacspeak-m-player-get-length
+12.117.2.36 emacspeak-m-player-get-length
 .........................................
 
  -- Command: emacspeak-m-player-get-length
 
      Display length of track.
 
-12.117.2.36 emacspeak-m-player-half-speed
+12.117.2.37 emacspeak-m-player-half-speed
 .........................................
 
  -- Command: emacspeak-m-player-half-speed
 
      Scale speed by 0.5.
 
-12.117.2.37 emacspeak-m-player-left-channel
+12.117.2.38 emacspeak-m-player-left-channel
 ...........................................
 
  -- Command: emacspeak-m-player-left-channel
 
      Play both channels on left.
 
-12.117.2.38 emacspeak-m-player-locate-media
+12.117.2.39 emacspeak-m-player-locate-media
 ...........................................
 
  -- Command: emacspeak-m-player-locate-media (pattern)
@@ -1590,7 +1597,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn PATTERN)
 
-12.117.2.39 emacspeak-m-player-loop
+12.117.2.40 emacspeak-m-player-loop
 ...................................
 
  -- Command: emacspeak-m-player-loop (&optional raw)
@@ -1602,7 +1609,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional RAW)
 
-12.117.2.40 emacspeak-m-player-mode
+12.117.2.41 emacspeak-m-player-mode
 ...................................
 
  -- Command: emacspeak-m-player-mode
@@ -1643,6 +1650,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      \		emacspeak-m-player-persist-process
      ]		emacspeak-m-player-faster
      a		emacspeak-m-player-add-autopan
+     b		emacspeak-m-player-balance-channels
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
      e		emacspeak-m-player-eq-preset
@@ -1683,35 +1691,35 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      run, this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the
      final or penultimate step during initialization.
 
-12.117.2.41 emacspeak-m-player-mode-line
+12.117.2.42 emacspeak-m-player-mode-line
 ........................................
 
  -- Command: emacspeak-m-player-mode-line
 
      Mode-line for M-Player buffers.
 
-12.117.2.42 emacspeak-m-player-next-track
+12.117.2.43 emacspeak-m-player-next-track
 .........................................
 
  -- Command: emacspeak-m-player-next-track
 
      Next track.
 
-12.117.2.43 emacspeak-m-player-pan
+12.117.2.44 emacspeak-m-player-pan
 ..................................
 
  -- Command: emacspeak-m-player-pan
 
      Pan from left to right   and back  one step at a time.
 
-12.117.2.44 emacspeak-m-player-pause
+12.117.2.45 emacspeak-m-player-pause
 ....................................
 
  -- Command: emacspeak-m-player-pause
 
      Pause or unpause.
 
-12.117.2.45 emacspeak-m-player-persist-process
+12.117.2.46 emacspeak-m-player-persist-process
 ..............................................
 
  -- Command: emacspeak-m-player-persist-process (&optional name)
@@ -1721,7 +1729,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional NAME)
 
-12.117.2.46 emacspeak-m-player-play-rss
+12.117.2.47 emacspeak-m-player-play-rss
 .......................................
 
  -- Command: emacspeak-m-player-play-rss (rss-url)
@@ -1730,7 +1738,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn RSS-URL)
 
-12.117.2.47 emacspeak-m-player-play-tree-up
+12.117.2.48 emacspeak-m-player-play-tree-up
 ...........................................
 
  -- Command: emacspeak-m-player-play-tree-up (step)
@@ -1739,28 +1747,28 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn STEP)
 
-12.117.2.48 emacspeak-m-player-pop-to-player
+12.117.2.49 emacspeak-m-player-pop-to-player
 ............................................
 
  -- Command: emacspeak-m-player-pop-to-player
 
      Pop to m-player buffer.
 
-12.117.2.49 emacspeak-m-player-previous-track
+12.117.2.50 emacspeak-m-player-previous-track
 .............................................
 
  -- Command: emacspeak-m-player-previous-track
 
      Previous track.
 
-12.117.2.50 emacspeak-m-player-quit
+12.117.2.51 emacspeak-m-player-quit
 ...................................
 
  -- Command: emacspeak-m-player-quit
 
      Quit.
 
-12.117.2.51 emacspeak-m-player-rem-history
+12.117.2.52 emacspeak-m-player-rem-history
 ..........................................
 
  -- Command: emacspeak-m-player-rem-history (url)
@@ -1769,21 +1777,21 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL)
 
-12.117.2.52 emacspeak-m-player-reset-options
+12.117.2.53 emacspeak-m-player-reset-options
 ............................................
 
  -- Command: emacspeak-m-player-reset-options
 
      Reset MPlayer options.
 
-12.117.2.53 emacspeak-m-player-reset-speed
+12.117.2.54 emacspeak-m-player-reset-speed
 ..........................................
 
  -- Command: emacspeak-m-player-reset-speed
 
      Reset  speed.
 
-12.117.2.54 emacspeak-m-player-restore-process
+12.117.2.55 emacspeak-m-player-restore-process
 ..............................................
 
  -- Command: emacspeak-m-player-restore-process
@@ -1791,14 +1799,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Restore emacspeak-m-player-process from current buffer.
      Check first if current buffer is in emacspeak-m-player-mode.
 
-12.117.2.55 emacspeak-m-player-right-channel
+12.117.2.56 emacspeak-m-player-right-channel
 ............................................
 
  -- Command: emacspeak-m-player-right-channel
 
      Play on right channel.
 
-12.117.2.56 emacspeak-m-player-scale-speed
+12.117.2.57 emacspeak-m-player-scale-speed
 ..........................................
 
  -- Command: emacspeak-m-player-scale-speed (factor)
@@ -1807,7 +1815,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn FACTOR)
 
-12.117.2.57 emacspeak-m-player-seek-absolute
+12.117.2.58 emacspeak-m-player-seek-absolute
 ............................................
 
  -- Command: emacspeak-m-player-seek-absolute (pos)
@@ -1817,7 +1825,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn POS)
 
-12.117.2.58 emacspeak-m-player-seek-percentage
+12.117.2.59 emacspeak-m-player-seek-percentage
 ..............................................
 
  -- Command: emacspeak-m-player-seek-percentage (pos)
@@ -1826,7 +1834,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn POS)
 
-12.117.2.59 emacspeak-m-player-seek-relative
+12.117.2.60 emacspeak-m-player-seek-relative
 ............................................
 
  -- Command: emacspeak-m-player-seek-relative (offset)
@@ -1836,7 +1844,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn OFFSET)
 
-12.117.2.60 emacspeak-m-player-set-clip-end
+12.117.2.61 emacspeak-m-player-set-clip-end
 ...........................................
 
  -- Command: emacspeak-m-player-set-clip-end (&optional prompt)
@@ -1846,7 +1854,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional PROMPT)
 
-12.117.2.61 emacspeak-m-player-set-clip-start
+12.117.2.62 emacspeak-m-player-set-clip-start
 .............................................
 
  -- Command: emacspeak-m-player-set-clip-start (&optional prompt)
@@ -1856,21 +1864,21 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional PROMPT)
 
-12.117.2.62 emacspeak-m-player-show-data
+12.117.2.63 emacspeak-m-player-show-data
 ........................................
 
  -- Command: emacspeak-m-player-show-data
 
      Display metadata after refreshing it if needed.
 
-12.117.2.63 emacspeak-m-player-show-pos
+12.117.2.64 emacspeak-m-player-show-pos
 .......................................
 
  -- Command: emacspeak-m-player-show-pos
 
      Display current position in track.
 
-12.117.2.64 emacspeak-m-player-shuffle
+12.117.2.65 emacspeak-m-player-shuffle
 ......................................
 
  -- Command: emacspeak-m-player-shuffle
@@ -1879,7 +1887,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      M-Player with shuffle turned on.
 
-12.117.2.65 emacspeak-m-player-skip-tracks
+12.117.2.66 emacspeak-m-player-skip-tracks
 ..........................................
 
  -- Command: emacspeak-m-player-skip-tracks (step)
@@ -1888,7 +1896,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn STEP)
 
-12.117.2.66 emacspeak-m-player-slave-command
+12.117.2.67 emacspeak-m-player-slave-command
 ............................................
 
  -- Command: emacspeak-m-player-slave-command (command)
@@ -1897,28 +1905,28 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn COMMAND)
 
-12.117.2.67 emacspeak-m-player-slower
+12.117.2.68 emacspeak-m-player-slower
 .....................................
 
  -- Command: emacspeak-m-player-slower
 
      Slow down playback.
 
-12.117.2.68 emacspeak-m-player-start-track
+12.117.2.69 emacspeak-m-player-start-track
 ..........................................
 
  -- Command: emacspeak-m-player-start-track
 
      Move to beginning.
 
-12.117.2.69 emacspeak-m-player-store-link
+12.117.2.70 emacspeak-m-player-store-link
 .........................................
 
  -- Command: emacspeak-m-player-store-link
 
      Store an org-link to currently playing stream at current position.
 
-12.117.2.70 emacspeak-m-player-stream-info
+12.117.2.71 emacspeak-m-player-stream-info
 ..........................................
 
  -- Command: emacspeak-m-player-stream-info (&optional toggle-cue)
@@ -1928,14 +1936,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional TOGGLE-CUE)
 
-12.117.2.71 emacspeak-m-player-toggle-extrastereo
+12.117.2.72 emacspeak-m-player-toggle-extrastereo
 .................................................
 
  -- Command: emacspeak-m-player-toggle-extrastereo
 
      Toggle application of extrastereo filter to all streams.
 
-12.117.2.72 emacspeak-m-player-url
+12.117.2.73 emacspeak-m-player-url
 ..................................
 
  -- Command: emacspeak-m-player-url (url &optional playlist-p)
@@ -1947,7 +1955,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PLAYLIST-P)
 
-12.117.2.73 emacspeak-m-player-using-hrtf
+12.117.2.74 emacspeak-m-player-using-hrtf
 .........................................
 
  -- Command: emacspeak-m-player-using-hrtf
@@ -1957,7 +1965,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Add af resample=48000,hrtf to startup options.
      This will work if the soundcard is set to 48000.
 
-12.117.2.74 emacspeak-m-player-using-openal
+12.117.2.75 emacspeak-m-player-using-openal
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal
@@ -1966,7 +1974,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Use openal.
 
-12.117.2.75 emacspeak-m-player-volume-change
+12.117.2.76 emacspeak-m-player-volume-change
 ............................................
 
  -- Command: emacspeak-m-player-volume-change (value)
@@ -1975,14 +1983,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn VALUE)
 
-12.117.2.76 emacspeak-m-player-volume-down
+12.117.2.77 emacspeak-m-player-volume-down
 ..........................................
 
  -- Command: emacspeak-m-player-volume-down
 
      Volume down.
 
-12.117.2.77 emacspeak-m-player-volume-set
+12.117.2.78 emacspeak-m-player-volume-set
 .........................................
 
  -- Command: emacspeak-m-player-volume-set (&optional arg)
@@ -1991,21 +1999,21 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional ARG)
 
-12.117.2.78 emacspeak-m-player-volume-up
+12.117.2.79 emacspeak-m-player-volume-up
 ........................................
 
  -- Command: emacspeak-m-player-volume-up
 
      Volume up.
 
-12.117.2.79 emacspeak-m-player-write-clip
+12.117.2.80 emacspeak-m-player-write-clip
 .........................................
 
  -- Command: emacspeak-m-player-write-clip
 
      Split selected range using SoX
 
-12.117.2.80 emacspeak-m-player-youtube-live
+12.117.2.81 emacspeak-m-player-youtube-live
 ...........................................
 
  -- Command: emacspeak-m-player-youtube-live (url)
@@ -2016,7 +2024,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL)
 
-12.117.2.81 emacspeak-m-player-youtube-player
+12.117.2.82 emacspeak-m-player-youtube-player
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url &optional prefix)
@@ -2028,7 +2036,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PREFIX)
 
-12.117.2.82 emacspeak-multimedia
+12.117.2.83 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia
@@ -2074,6 +2082,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      \		emacspeak-m-player-persist-process
      ]		emacspeak-m-player-faster
      a		emacspeak-m-player-add-autopan
+     b		emacspeak-m-player-balance-channels
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
      e		emacspeak-m-player-eq-preset
