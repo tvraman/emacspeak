@@ -2,4 +2,6 @@
 # Silence emacspeak from outside 
 #Usage emstop 
 
-emacsclient -n -e "(make-thread #'(lambda () (dtk-stop)))"  2>&1 > /dev/null
+emacsclient -n -e \
+            "(make-thread #'(lambda ()\
+ (dtk-stop) (dtk-notify-stop)))"  2>&1 > /dev/null
