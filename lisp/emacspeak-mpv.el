@@ -105,8 +105,9 @@
 (defvar emacspeak-mpv-url nil
   "URL being played in mpv.")
 
-(defadvice mpv-kill (before emacspeak pre act comp)
-  "Add org integration."
+(defadvice mpv-kill (after emacspeak pre act comp)
+  "Do our own"
+  (cl-declare (special mpv--process))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (cl-pushnew
