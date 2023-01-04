@@ -736,7 +736,7 @@ Helps to prevent words from being spelled instead of spoken."
  '(
    (gnus-button voice-bolden)
    (gnus-cite-attribution voice-smoothen)
-   (gnus-emphasis-bold-italic voice-bolden-medium)
+   (gnus-emphasis-bold-italic voice-animate)
    (gnus-emphasis-underline-bold voice-lighten) 
    (gnus-emphasis-underline-bold-italic  voice-lighten-extra)
    (gnus-emphasis-underline-italic voice-lighten)
