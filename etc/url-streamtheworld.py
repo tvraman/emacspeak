@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Print the stream URL to stdout."""
 from random import choice
 import os
