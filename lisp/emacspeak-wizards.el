@@ -2780,7 +2780,7 @@ weather for `gmaps-my-address'.  "
           (t (ems--noaa-get-data ask)))))
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-buffer)))
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ generate declare-function statements:
