@@ -153,10 +153,11 @@ startup sound."
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        python-mode-hook outline-mode-prefix-map
-                       emacspeak-directory
+                       completion-auto-select emacspeak-directory
                        outline-minor-mode-prefix))
   (load-library "aster")
   (load-library "diminish")
+  (setq completion-auto-select t)
   (add-hook 'python-mode-hook
             #'(lambda nil
                 (elpy-enable)))
