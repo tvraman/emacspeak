@@ -305,7 +305,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
         (next-completion 1)
         (tts-with-punctuations
          'all
-         (dtk-speak (buffer-substring (point) (point-max))))))
+         (emacspeak-speak-windowful))))
       (t (emacspeak-speak-line)))))
 
 ;;}}}
