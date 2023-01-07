@@ -687,6 +687,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (cl-loop
  for f in
  '(
+   minibuffer-complete-history
+   minibuffer-next-completion minibuffer-previous-completion
    next-history-element previous-history-element
    next-line-or-history-element previous-line-or-history-element
    previous-matching-history-element next-matching-history-element)
