@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1172 commands and 148 options.
+This chapter documents a total of 1174 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -17035,7 +17035,7 @@ Moves to the shortest line when called interactively.
 @findex emacspeak-wizards-frame-colors
 
 @format
-Display frame’s foreground/background color seetting.
+Display frame’s foreground/background color setting.
 @end format
 @end deffn
 
@@ -17263,6 +17263,17 @@ Display MLB standings as of today.
 Optional interactive prefix arg shows  unprocessed results.
 
 (fn &optional RAW)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-module-enumerate-uncovered-commands
+@deffn {Command} emacspeak-wizards-module-enumerate-uncovered-commands  (m)
+@findex emacspeak-wizards-module-enumerate-uncovered-commands
+
+@format
+Enumerate uncovered commands from module m
+
+(fn M)
 @end format
 @end deffn
 
@@ -17634,6 +17645,17 @@ Show  properties of  face.
 
 @format
 Convenience command to view state of memory used in this session so far.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-show-value
+@deffn {Command} emacspeak-wizards-show-value  (var)
+@findex emacspeak-wizards-show-value
+
+@format
+Pretty-print and view var value.
+
+(fn VAR)
 @end format
 @end deffn
 
@@ -19692,7 +19714,7 @@ Default Value: @code{@verb{|(nil 1 nil 8)|}}
 @defvar {User Option} voice-bolden-medium-settings
 Settings for voice-bolden-medium
 
-Default Value: @code{@verb{|(nil 2 nil 7)|}}
+Default Value: @code{@verb{|(nil 2 nil 3)|}}
 
 @end defvar
 

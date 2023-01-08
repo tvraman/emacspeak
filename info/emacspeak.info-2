@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 2, 2023.
+last updated on January 8, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -8320,7 +8320,7 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-frame-colors
 
-     Display frame’s foreground/background color seetting.
+     Display frame’s foreground/background color setting.
 
 12.211.1.57 emacspeak-wizards-free-geo-ip
 .........................................
@@ -8492,7 +8492,16 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.211.1.74 emacspeak-wizards-move-and-speak
+12.211.1.74 emacspeak-wizards-module-enumerate-uncovered-commands
+.................................................................
+
+ -- Command: emacspeak-wizards-module-enumerate-uncovered-commands (m)
+
+     Enumerate uncovered commands from module m
+
+     (fn M)
+
+12.211.1.75 emacspeak-wizards-move-and-speak
 ............................................
 
  -- Command: emacspeak-wizards-move-and-speak (command count)
@@ -8506,7 +8515,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND COUNT)
 
-12.211.1.75 emacspeak-wizards-nba-standings
+12.211.1.76 emacspeak-wizards-nba-standings
 ...........................................
 
  -- Command: emacspeak-wizards-nba-standings (&optional raw)
@@ -8516,21 +8525,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.211.1.76 emacspeak-wizards-next-bullet
+12.211.1.77 emacspeak-wizards-next-bullet
 .........................................
 
  -- Command: emacspeak-wizards-next-bullet
 
      Navigate to and speak next ‘bullet’.
 
-12.211.1.77 emacspeak-wizards-next-interactive-defun
+12.211.1.78 emacspeak-wizards-next-interactive-defun
 ....................................................
 
  -- Command: emacspeak-wizards-next-interactive-defun
 
      Move point to the next interactive defun
 
-12.211.1.78 emacspeak-wizards-noaa-weather
+12.211.1.79 emacspeak-wizards-noaa-weather
 ..........................................
 
  -- Command: emacspeak-wizards-noaa-weather (&optional ask)
@@ -8548,7 +8557,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional ASK)
 
-12.211.1.79 emacspeak-wizards-occur-header-lines
+12.211.1.80 emacspeak-wizards-occur-header-lines
 ................................................
 
  -- Command: emacspeak-wizards-occur-header-lines (&optional prefix)
@@ -8563,7 +8572,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.211.1.80 emacspeak-wizards-pdf-open
+12.211.1.81 emacspeak-wizards-pdf-open
 ......................................
 
  -- Command: emacspeak-wizards-pdf-open (filename &optional ask-pwd)
@@ -8575,14 +8584,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILENAME &optional ASK-PWD)
 
-12.211.1.81 emacspeak-wizards-previous-bullet
+12.211.1.82 emacspeak-wizards-previous-bullet
 .............................................
 
  -- Command: emacspeak-wizards-previous-bullet
 
      Navigate to and speak previous ‘bullet’.
 
-12.211.1.82 emacspeak-wizards-quote
+12.211.1.83 emacspeak-wizards-quote
 ...................................
 
  -- Command: emacspeak-wizards-quote (&optional refresh)
@@ -8601,7 +8610,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional REFRESH)
 
-12.211.1.83 emacspeak-wizards-remote-frame
+12.211.1.84 emacspeak-wizards-remote-frame
 ..........................................
 
  -- Command: emacspeak-wizards-remote-frame
@@ -8613,14 +8622,14 @@ Contains various wizards for the Emacspeak desktop.
      Works best when you already are ssh-impel-ed in and have a talking
        remote Emacs in   a local XTerm.
 
-12.211.1.84 emacspeak-wizards-set-colors
+12.211.1.85 emacspeak-wizards-set-colors
 ........................................
 
  -- Command: emacspeak-wizards-set-colors
 
      Prompt for foreground and background colors.
 
-12.211.1.85 emacspeak-wizards-shell
+12.211.1.86 emacspeak-wizards-shell
 ...................................
 
  -- Command: emacspeak-wizards-shell (&optional prefix)
@@ -8634,7 +8643,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.211.1.86 emacspeak-wizards-shell-by-key
+12.211.1.87 emacspeak-wizards-shell-by-key
 ..........................................
 
  -- Command: emacspeak-wizards-shell-by-key (&optional prefix)
@@ -8671,7 +8680,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.211.1.87 emacspeak-wizards-shell-command-on-current-file
+12.211.1.88 emacspeak-wizards-shell-command-on-current-file
 ...........................................................
 
  -- Command: emacspeak-wizards-shell-command-on-current-file (command)
@@ -8682,7 +8691,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND)
 
-12.211.1.88 emacspeak-wizards-shell-directory-reset
+12.211.1.89 emacspeak-wizards-shell-directory-reset
 ...................................................
 
  -- Command: emacspeak-wizards-shell-directory-reset (&optional prefix)
@@ -8698,7 +8707,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.211.1.89 emacspeak-wizards-shell-directory-set
+12.211.1.90 emacspeak-wizards-shell-directory-set
 .................................................
 
  -- Command: emacspeak-wizards-shell-directory-set
@@ -8707,7 +8716,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Define current directory as this shell’s project directory.
 
-12.211.1.90 emacspeak-wizards-shell-toggle
+12.211.1.91 emacspeak-wizards-shell-toggle
 ..........................................
 
  -- Command: emacspeak-wizards-shell-toggle
@@ -8719,7 +8728,7 @@ Contains various wizards for the Emacspeak desktop.
      Switch to  shell  and cd to
        directory of the previously current buffer.
 
-12.211.1.91 emacspeak-wizards-show-eval-result
+12.211.1.92 emacspeak-wizards-show-eval-result
 ..............................................
 
  -- Command: emacspeak-wizards-show-eval-result (form)
@@ -8729,7 +8738,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FORM)
 
-12.211.1.92 emacspeak-wizards-show-face
+12.211.1.93 emacspeak-wizards-show-face
 .......................................
 
  -- Command: emacspeak-wizards-show-face (face)
@@ -8738,14 +8747,23 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FACE)
 
-12.211.1.93 emacspeak-wizards-show-memory-used
+12.211.1.94 emacspeak-wizards-show-memory-used
 ..............................................
 
  -- Command: emacspeak-wizards-show-memory-used
 
      Convenience command to view state of memory used in this session so far.
 
-12.211.1.94 emacspeak-wizards-snarf-sexp
+12.211.1.95 emacspeak-wizards-show-value
+........................................
+
+ -- Command: emacspeak-wizards-show-value (var)
+
+     Pretty-print and view var value.
+
+     (fn VAR)
+
+12.211.1.96 emacspeak-wizards-snarf-sexp
 ........................................
 
  -- Command: emacspeak-wizards-snarf-sexp (&optional delete)
@@ -8757,7 +8775,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional DELETE)
 
-12.211.1.95 emacspeak-wizards-speak-iso-datetime
+12.211.1.97 emacspeak-wizards-speak-iso-datetime
 ................................................
 
  -- Command: emacspeak-wizards-speak-iso-datetime (iso)
@@ -8766,7 +8784,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ISO)
 
-12.211.1.96 emacspeak-wizards-squeeze-blanks
+12.211.1.98 emacspeak-wizards-squeeze-blanks
 ............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
@@ -8777,7 +8795,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.211.1.97 emacspeak-wizards-swap-fg-and-bg
+12.211.1.99 emacspeak-wizards-swap-fg-and-bg
 ............................................
 
  -- Command: emacspeak-wizards-swap-fg-and-bg
@@ -8787,8 +8805,8 @@ Contains various wizards for the Emacspeak desktop.
 
      Swap foreground and background.
 
-12.211.1.98 emacspeak-wizards-term
-..................................
+12.211.1.100 emacspeak-wizards-term
+...................................
 
  -- Command: emacspeak-wizards-term (create)
      ‘C-; C-a’
@@ -8801,8 +8819,8 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CREATE)
 
-12.211.1.99 emacspeak-wizards-tex-tie-current-word
-..................................................
+12.211.1.101 emacspeak-wizards-tex-tie-current-word
+...................................................
 
  -- Command: emacspeak-wizards-tex-tie-current-word (n)
 
@@ -8810,28 +8828,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn N)
 
-12.211.1.100 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.211.1.102 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.211.1.101 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
+12.211.1.103 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
 
      Toggle pronunciation of yyyy-mm-dd dates.
 
-12.211.1.102 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.211.1.104 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.211.1.103 emacspeak-wizards-tune-in-radio-browse
+12.211.1.105 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -8843,7 +8861,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.211.1.104 emacspeak-wizards-tune-in-radio-search
+12.211.1.106 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -8852,7 +8870,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.211.1.105 emacspeak-wizards-units
+12.211.1.107 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -8861,14 +8879,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units.
 
-12.211.1.106 emacspeak-wizards-vc-n
+12.211.1.108 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.211.1.107 emacspeak-wizards-vc-view-mode
+12.211.1.109 emacspeak-wizards-vc-view-mode
 ...........................................
 
  -- Command: emacspeak-wizards-vc-view-mode
@@ -8883,7 +8901,7 @@ Contains various wizards for the Emacspeak desktop.
      run, this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as
      the final or penultimate step during initialization.
 
-12.211.1.108 emacspeak-wizards-vc-viewer
+12.211.1.110 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -8894,21 +8912,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.211.1.109 emacspeak-wizards-vc-viewer-refresh
+12.211.1.111 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.211.1.110 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.211.1.112 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 
      Buffer menu filtered by  m-player mode.
 
-12.211.1.111 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.211.1.113 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -9923,163 +9941,4 @@ File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voi
 This module defines the various voices used in voice-lock mode.  Module
 Plain is suitable for a device for which you haven’t yet implemented
 appropriate voice-locking controls
-
-
-File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
-
-12.229 soundscape
-=================
-
-Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
-acoustic environment.  Boodler at <http://boodler.org> is a Python-based
-SoundScape generator.  To use this module, first install boodler.  Then
-install the soundscape packages (*.boop) files available at
-<http://boodler.org/lib>.  Make sure boodler works and produces audio in
-your environment.  finally install the Boodler packages from
-emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
-emacspeak/scapes; make ’
-
-   When boodler is set up and all packages installed, copy file
-emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
-lists all installed SoundScapes.  Directory emacspeak/scapes also
-contains additional Boodler Agents and SoundScapes that I have created
-for use with Emacspeak.
-
-   Module soundscape.el defines Emacs conveniences for running
-Soundscapes.  Main Entry Points:
-
-   • M-x soundscape-toggle – Enables or disables automatic SoundScapes.
-   • M-x soundscape – runs a named SoundScape
-   • M-x soundscape-stop – Stops a specified running Soundscape.
-   • M-x soundscape-kill – Kills all running Soundscapes.
-
-   When automatic Soundscapes are enabled, SoundScapes are started and
-stopped based on the current major mode.  Active Soundscape are
-displayed as part of the minor-mode-alist.  Command
-emacspeak-speak-minor-mode-line can be used to have this spoken.
-
-   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
-current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
-that is loaded using ‘(soundscape-load soundscape-default-theme)’.
-Emacs modes that provide similar functionality e.g., communication ==
-email, IM, ...  map to the same _mood_.
-
-12.229.1 Soundscape Commands
-----------------------------
-
-12.229.1.1 soundscape
-.....................
-
- -- Command: soundscape (scape)
-     ‘C-. s’
-     ‘C-x @ s s’
-
-     Play soundscape.
-
-     (fn SCAPE)
-
-12.229.1.2 soundscape-kill
-..........................
-
- -- Command: soundscape-kill
-
-     Stop all running soundscapes.
-
-12.229.1.3 soundscape-listener
-..............................
-
- -- Command: soundscape-listener (&optional restart)
-
-     Start  a Soundscape listener.
-     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
-     Optional interactive prefix arg restarts the listener.
-
-     (fn &optional RESTART)
-
-12.229.1.4 soundscape-listener-shutdown
-.......................................
-
- -- Command: soundscape-listener-shutdown
-
-     Shutdown listener.
-
-12.229.1.5 soundscape-remote
-............................
-
- -- Command: soundscape-remote (names)
-
-     Activate scapes named ‘names’ — a list of strings.
-
-     (fn NAMES)
-
-12.229.1.6 soundscape-restart
-.............................
-
- -- Command: soundscape-restart (&optional prompt)
-     ‘C-. r’
-     ‘C-x @ s r’
-
-     Restart Soundscape  environment.
-     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
-     The  is then saved to soundscape-device for future use.
-
-     (fn &optional PROMPT)
-
-12.229.1.7 soundscape-stop
-..........................
-
- -- Command: soundscape-stop (scape)
-
-     Stop running Soundscape.
-
-     (fn SCAPE)
-
-12.229.1.8 soundscape-theme
-...........................
-
- -- Command: soundscape-theme
-
-     Shows default theme in a special buffer.
-
-12.229.1.9 soundscape-toggle
-............................
-
- -- Command: soundscape-toggle
-     ‘C-. t’
-     ‘C-x @ s t’
-
-     Toggle automatic SoundScapes.
-     Run command M-x soundscape-theme to see the default mode->mood mapping.
-
-12.229.1.10 soundscape-update-mood
-..................................
-
- -- Command: soundscape-update-mood (&optional prompt-mode)
-     ‘C-. u’
-     ‘C-x @ s u’
-
-     Update mood/scape mapping for current  mode.
-     The  updated mapping is not persisted.
-     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
-
-     (fn &optional PROMPT-MODE)
-
-12.229.2 soundscape Options
----------------------------
-
- -- Variable: User Option soundscape-data
-     Soundscape data directory.
-
-     Default Value: ‘/home/raman/.boodler/Collection’
-
- -- Variable: User Option soundscape-device
-     Alsa sound device to use for soundscapes.
-
-     Default Value: ‘default’
-
- -- Variable: User Option soundscape-manager-options
-     User customizable options list passed to boodler.  Defaults specify
-     alsa as the output and set master volume
-
-     Default Value: ‘(-m 0.3)’
 
