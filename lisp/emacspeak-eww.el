@@ -1808,19 +1808,9 @@ The %s is automatically spoken if there is no user activity."
          (emacspeak-auditory-icon 'section))
        (when (memq s '(li))
          (emacspeak-auditory-icon 'item))
-       (funcall-interactively #'emacspeak-eww-next-element s)
        (when (and speak (= 16 (car speak)))
          (setq emacspeak-eww-autospeak (not emacspeak-eww-autospeak)))
-       (when
-           (or speak
-               emacspeak-eww-autospeak
-               (and (called-interactively-p 'interactive) (sit-for 4.0)))
-         (let ((start  (point)))
-           (condition-case nil
-                           (save-excursion
-                            (funcall #'emacspeak-eww-next-element s)
-                            (emacspeak-speak-region start (point)))
-                           (error nil)))))))
+       (funcall-interactively #'emacspeak-eww-next-element s))))
  (eval
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
@@ -1836,18 +1826,9 @@ The %s is automatically spoken if there is no user activity."
          (emacspeak-auditory-icon 'section))
        (when (memq s '(li))
          (emacspeak-auditory-icon 'item))
-       (funcall-interactively #'emacspeak-eww-previous-element s)
        (when (and speak (= 16 (car speak)))
          (setq emacspeak-eww-autospeak (not emacspeak-eww-autospeak)))
-       (when (or speak
-                 emacspeak-eww-autospeak
-                 (sit-for 3.0))
-         (let ((start  (point)))
-           (condition-case nil
-                           (save-excursion
-                            (funcall #'emacspeak-eww-next-element s)
-                            (emacspeak-speak-region start (point)))
-                           (error nil))))))))
+       (funcall-interactively #'emacspeak-eww-previous-element s)))))
 
 (cl-loop
  for f in
