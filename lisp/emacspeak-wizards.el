@@ -558,8 +558,7 @@ meaning of `next'."
         (print-level nil)
         (eval-expression-print-level nil)
         (result (eval form)))
-    (save-current-buffer
-      (set-buffer buffer)
+    (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
       (condition-case nil
@@ -570,7 +569,6 @@ meaning of `next'."
     (emacs-lisp-mode)
     (goto-char (point-min))
     (forward-line 1)
-
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
