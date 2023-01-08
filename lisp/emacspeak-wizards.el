@@ -1644,7 +1644,29 @@ filters out commands that dont have an active key-binding."
                 (not (ad-find-some-advice s 'any "emacspeak")))
              (push s result)))))
     (sort result
-          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))
+    result))
+
+
+
+(defun emacspeak-wizards-module-enumerate-uncovered-commands (m)
+  "Enumerate uncovered commands from module m"
+  (let ((result nil)
+        (f
+          (format "%sc"
+                  (find-library-name (read-library-name)))))
+    (mapatoms
+     #'(lambda (s)
+         (when
+             (and
+              (commandp s)
+              (string= f (symbol-file s))
+              (not (ad-find-some-advice s 'any "emacspeak")))
+           (push s result))))
+    (sort result
+          #'(lambda (a b)
+              (string-lessp (symbol-name a) (symbol-name b))))
+    result))
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
@@ -1652,17 +1674,17 @@ filters out commands that dont have an active key-binding."
   (interactive "sPattern:")
   (or pattern (setq pattern "."))
   (let ((result
-         (delq
-          nil
-          (mapcar
-           #'(lambda (s)
-               (let ((name (symbol-name s)))
-                 (when
-                     (and
-                      (string-match pattern name)
-                      (null (voice-setup-get-voice-for-face s)))
-                   s)))
-           (face-list)))))
+          (delq
+           nil
+           (mapcar
+            #'(lambda (s)
+                (let ((name (symbol-name s)))
+                  (when
+                      (and
+                       (string-match pattern name)
+                       (null (voice-setup-get-voice-for-face s)))
+                    s)))
+            (face-list)))))
     (sort result
           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
 
