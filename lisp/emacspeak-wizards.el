@@ -572,16 +572,34 @@ meaning of `next'."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
+
+;;;###autoload
+(defun emacspeak-wizards-show-value (var)
+  "Pretty-print and view var value."
+  (interactive "SSymbole: ")
+  (let ((buffer (get-buffer-create "*emacspeak:Eval*"))
+        (print-length nil)
+        (eval-expression-print-length nil)
+        (print-level nil)
+        (eval-expression-print-level nil))
+    (with-help-window buffer
+      (cl-prettyprint (symbol-value var)))
+    (pop-to-buffer buffer)
+    (emacs-lisp-mode)
+    (goto-char (point-min))
+    (forward-line 1)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 (defun emacspeak-wizards-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
   (interactive)
   (let ((buffer (get-buffer-create "*emacspeak-memory*")))
     (save-current-buffer
-      (set-buffer buffer)
-      (erase-buffer)
-      (insert
-       (apply 'format
-              "Memory Statistics
+     (set-buffer buffer)
+     (erase-buffer)
+     (insert
+      (apply 'format
+             "Memory Statistics
  cons cells:\t%d
  floats:\t%d
  vectors:\t%d
@@ -589,10 +607,10 @@ meaning of `next'."
  strings:\t%d
  miscellaneous:\t%d
  integers:\t%d\n"
-              (memory-use-counts)))
-      (insert "\nInterpretation of these statistics:\n")
-      (insert (documentation 'memory-use-counts))
-      (goto-char (point-min)))
+             (memory-use-counts)))
+     (insert "\nInterpretation of these statistics:\n")
+     (insert (documentation 'memory-use-counts))
+     (goto-char (point-min)))
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -1628,7 +1646,8 @@ interactive prompt."
 Optional interactive prefix arg `bound'
 filters out commands that dont have an active key-binding."
   (interactive "sFilter Regex:\nP")
-  (let ((result nil))
+  (let ((buffer (get-buffer-create "Result*"))
+        (result nil))
     (mapatoms
      #'(lambda (s)
          (let ((name (symbol-name s)))
@@ -1642,17 +1661,23 @@ filters out commands that dont have an active key-binding."
                 (not (ad-find-some-advice s 'any "emacspeak")))
              (push s result)))))
     (sort result
-          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name
+                                                         b))))
+    (when (called-interactively-p 'interactive)
+      (when (called-interactively-p 'interactive)
+      (with-help-window buffer
+        (cl-prettyprint result)
+        (funcall-interactively #'pop-to-buffer buffer))))
     result))
-
-
 
 (defun emacspeak-wizards-module-enumerate-uncovered-commands (m)
   "Enumerate uncovered commands from module m"
+  (interactive (list (read-library-name)))
   (let ((result nil)
+        (buffer (get-buffer-create "*Result*"))
         (f
           (format "%sc"
-                  (find-library-name (read-library-name)))))
+                  (find-library-name m))))
     (mapatoms
      #'(lambda (s)
          (when
@@ -1664,6 +1689,10 @@ filters out commands that dont have an active key-binding."
     (sort result
           #'(lambda (a b)
               (string-lessp (symbol-name a) (symbol-name b))))
+    (when (called-interactively-p 'interactive)
+      (with-help-window buffer
+        (cl-prettyprint result)
+        (funcall-interactively #'pop-to-buffer buffer)))
     result))
 
 ;;;###autoload
@@ -1671,7 +1700,8 @@ filters out commands that dont have an active key-binding."
   "Enumerate unmapped faces matching pattern."
   (interactive "sPattern:")
   (or pattern (setq pattern "."))
-  (let ((result
+  (let ((buffer (get-buffer-create "*Result*"))
+        (result
           (delq
            nil
            (mapcar
@@ -1683,8 +1713,15 @@ filters out commands that dont have an active key-binding."
                        (null (voice-setup-get-voice-for-face s)))
                     s)))
             (face-list)))))
-    (sort result
-          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
+    (setq result
+          (sort result
+                #'(lambda (a b)
+                    (string-lessp (symbol-name a) (symbol-name b)))))
+    (when (called-interactively-p 'interactive)
+      (with-help-window buffer
+        (cl-prettyprint result)
+        (funcall-interactively #'pop-to-buffer buffer)))
+    result))
 
 (defun emacspeak-wizards-enumerate-obsolete-faces ()
   "utility function to enumerate old, obsolete maps that we have still
@@ -1699,15 +1736,24 @@ mapped to voices."
 (defun emacspeak-wizards-enumerate-matching-faces (pattern)
   "Enumerate  faces matching pattern."
   (interactive "sPattern:")
-  (let ((result
-         (delq
-          nil
-          (mapcar
-           #'(lambda (s)
-               (let ((name (symbol-name s)))
-                 (when (string-match pattern name) name)))
-           (face-list)))))
-    (sort result #'(lambda (a b) (string-lessp a b)))))
+  (let ((buffer (get-buffer-create "*Result*"))
+        (result
+          (delq
+           nil
+           (mapcar
+            #'(lambda (s)
+                (let ((name (symbol-name s)))
+                  (when (string-match pattern name) name)))
+            (face-list)))))
+    (setq result 
+          (sort result
+                #'(lambda (a b)
+                    (string-lessp a b))))
+(when (called-interactively-p 'interactive)
+      (with-help-window buffer
+        (cl-prettyprint result)
+        (funcall-interactively #'pop-to-buffer buffer)))    
+    result))
 
 ;;}}}
 ;;{{{Emacspeak Execute Command:
