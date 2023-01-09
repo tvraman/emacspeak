@@ -1272,7 +1272,11 @@ for use as a DOM filter."
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
-    (shr-insert-document filtered-dom)
+    (condition-case
+     nil
+     
+     (shr-insert-document filtered-dom)
+     (error nil))
     (emacspeak-eww-set-dom filtered-dom)
     (emacspeak-eww-set-url url)
     (emacspeak-eww-set-title title)
