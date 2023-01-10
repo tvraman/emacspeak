@@ -4,6 +4,8 @@
 ;; Segre March 22 1991
 ;; July 15, 2001 finally cutting over to custom.
 ;; August 12, 2007: Cleaned up for Emacs 22
+;;{{{
+
 ;; September 2017: Optimized and Cleaned Up
 ;; August 2020: Limit code at top-level.
 
@@ -158,6 +160,8 @@ Use Custom to customize where possible. "
   (load-library "aster")
   (load-library "diminish")
   (setq completion-auto-select t)
+
+  ;;}}}
   (add-hook 'python-mode-hook
             #'(lambda nil
                 (elpy-enable)))
@@ -269,6 +273,14 @@ Use Custom to customize where possible. "
     (t (smartparens-mode)))
   (yas-minor-mode)
   (abbrev-mode))
+
+;;}}}
+;;{{{exwm:
+
+(require 'exwm)
+(require 'exwm-config)
+(exwm-config-example)
+
 
 ;;}}}
 ;;{{{tvr-emacs:
