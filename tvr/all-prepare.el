@@ -24,6 +24,9 @@
 ;;{{{Global Keys:
 
 ;;}}}
+;;{{{Control Orca:
+(load-library "orca")
+;;}}}
 ;;; Emacs' yes-or-no-p and y-or-no-p have prompts hard-wired.
 ;; The advice forms below produce more succinct speech.
 
