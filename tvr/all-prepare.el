@@ -1,3 +1,10 @@
+;;{{{Load and start exwm:
+
+(require 'exwm)
+(require 'exwm-config)
+(exwm-config-example)
+
+;;}}}
 ;;; Emacs' yes-or-no-p and y-or-no-p have prompts hard-wired.
 ;; The advice forms below produce more succinct speech.
 
