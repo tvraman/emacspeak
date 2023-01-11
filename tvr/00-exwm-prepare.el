@@ -24,3 +24,6 @@
 ;;{{{Global Keys:
 
 ;;}}}
+;;{{{Control Orca:
+(load-library "orca")
+;;}}}
