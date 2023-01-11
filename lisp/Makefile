@@ -145,6 +145,7 @@ emacspeak-eterm.elc \
 emacspeak-eudc.elc \
 emacspeak-evil.elc \
 emacspeak-eww.elc \
+emacspeak-exwm.elc \
 emacspeak-extras.elc \
 emacspeak-feeds.elc \
 emacspeak-ffap.elc \
