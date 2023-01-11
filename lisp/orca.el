@@ -8,5 +8,7 @@
   (interactive)
   (cond
     (orca-process (delete-process orca-process)
-     (setq orca-process  nil))
-    (t (setq orca-process (start-process "Orca"nil "orca" "-r")))))
+                  (setq orca-process  nil))
+    (t (setq orca-process (start-process "Orca"nil "orca")))))
+
+(global-set-key (kbd "s-o") 'orca-toggle)
