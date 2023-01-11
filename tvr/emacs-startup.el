@@ -275,14 +275,6 @@ Use Custom to customize where possible. "
   (abbrev-mode))
 
 ;;}}}
-;;{{{exwm:
-
-(require 'exwm)
-(require 'exwm-config)
-(exwm-config-example)
-
-
-;;}}}
 ;;{{{tvr-emacs:
 
 (defun tvr-emacs ()
