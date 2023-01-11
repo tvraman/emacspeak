@@ -82,6 +82,7 @@ This chapter documents a total of 1174 commands and 148 options.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
 * emacspeak-extras::Speech-enable EXTRAS.
+* emacspeak-exwm::Speech-enable EXWM.
 * emacspeak-feeds::Atom, RSS.
 * emacspeak-ffap::Speech-enable FFAP.
 * emacspeak-filtertext::filter text.
@@ -6417,6 +6418,13 @@ bound to C-x @@ h C-t.
 Default Value: @code{@verb{|nil|}}
 
 @end defvar
+
+@node emacspeak-exwm
+@section emacspeak-exwm
+
+EXWM ==  Emacs X Window Manager
+This module speech-enables and integrates EXWM on the Emacspeak
+Audio Desktop
 
 @node emacspeak-feeds
 @section emacspeak-feeds
@@ -16869,16 +16877,6 @@ Enumerate  faces matching pattern.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-enumerate-obsolete-faces
-@deffn {Command} emacspeak-wizards-enumerate-obsolete-faces   
-@findex emacspeak-wizards-enumerate-obsolete-faces
-
-@format
-utility function to enumerate old, obsolete maps that we have still
-mapped to voices.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-enumerate-uncovered-commands
 @deffn {Command} emacspeak-wizards-enumerate-uncovered-commands  (pattern &optional bound)
 @findex emacspeak-wizards-enumerate-uncovered-commands
@@ -16889,6 +16887,16 @@ Optional interactive prefix arg ‘bound’
 filters out commands that dont have an active key-binding.
 
 (fn PATTERN &optional BOUND)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-enumerate-undefined-faces
+@deffn {Command} emacspeak-wizards-enumerate-undefined-faces   
+@findex emacspeak-wizards-enumerate-undefined-faces
+
+@format
+utility function to enumerate possibly old, obsolete maps that we have still
+mapped to voices.
 @end format
 @end deffn
 
@@ -17649,7 +17657,7 @@ Convenience command to view state of memory used in this session so far.
 @end deffn
 
 @subsubsection emacspeak-wizards-show-value
-@deffn {Command} emacspeak-wizards-show-value  (var)
+@deffn {Command} emacspeak-wizards-show-value  [Arg list not available until function definition is loaded.]
 @findex emacspeak-wizards-show-value
 
 @format
