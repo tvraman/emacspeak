@@ -3,7 +3,6 @@
 (require 'exwm)
 (require 'exwm-config)
 (exwm-config-example)
-(exwm-config-ido)
 ;;}}}
 ;;{{{Look and feel:
 
