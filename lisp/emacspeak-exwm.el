@@ -161,6 +161,11 @@ exwm-workspace-toggle-minibuffer
      (format "Turned %s mode line"
              (if mode-line-format 'on 'off)))
     (emacspeak-auditory-icon (if mode-line-format 'on 'off))))
+(defadvice exwm-workspace-switch (after emacspeak pre act comp)
+  "speak frame title."
+  (when (ems-interactive-p)
+    (dtk-speak (cdr (assq 'name (frame-parameters))) )))
+
 
 ;;}}}
 (provide 'emacspeak-exwm)
