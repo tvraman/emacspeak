@@ -25,6 +25,4 @@
 (define-key exwm-mode-map emacspeak-prefix 'emacspeak-keymap)
 ;; doesn't appear to be a need to restore this: switch to char-mode if needed.
 ;;}}}
-;;{{{Control Orca:
-(load-library "orca")
-;;}}}
+
