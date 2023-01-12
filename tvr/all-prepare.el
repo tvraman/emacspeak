@@ -8,22 +8,10 @@
 
 (setq exwm-workspace-number 2)
 
-
-
-
-;;; hide echo-area when not used:
-(setq exwm-workspace-minibuffer-position 'bottom)
-
 (add-hook 'exwm-update-title-hook
           (lambda ()
             (exwm-workspace-rename-buffer exwm-title)))
 
-;;}}}
-;;{{{Global Keys:
-;; I set s-. to exwm-reset via custom
-;; recover emacspeak prefix in exwm buffers: 
-(define-key exwm-mode-map emacspeak-prefix 'emacspeak-keymap)
-;; doesn't appear to be a need to restore this: switch to char-mode if needed.
 ;;}}}
 
 ;;; Emacs' yes-or-no-p and y-or-no-p have prompts hard-wired.
