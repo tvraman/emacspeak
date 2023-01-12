@@ -143,6 +143,7 @@ startup sound."
   (cl-declare (special emacspeak-sounds-directory))
   (run-with-idle-timer 1 nil #'emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
+  (tvr-tabs)
   (start-process
    "play" nil "aplay"
    (expand-file-name "highbells.au" emacspeak-sounds-directory))
@@ -157,7 +158,6 @@ Use Custom to customize where possible. "
                        python-mode-hook outline-mode-prefix-map
                        completion-auto-select emacspeak-directory
                        outline-minor-mode-prefix))
-  (tvr-tabs)
   (load-library "aster")
   (load-library "diminish")
   (setq completion-auto-select t)
