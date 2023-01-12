@@ -52,6 +52,13 @@
 (require 'exwm "exwm" 'no-error)
 
 ;;}}}
+;;{{{Advise internal helpers:
+
+(defadvice exwm-workspace--prompt-for-workspace (before emacspeak pre act comp)
+  "speak prompt."
+  (dtk-speak (ad-get-arg 0)))
+
+;;}}}
 ;;{{{ Interactive Commands:
 
 '(
