@@ -14,6 +14,10 @@
 ;;; hide echo-area when not used:
 (setq exwm-workspace-minibuffer-position 'bottom)
 
+(add-hook 'exwm-update-title-hook
+          (lambda ()
+            (exwm-workspace-rename-buffer exwm-title)))
+
 ;;}}}
 ;;{{{Global Keys:
 ;; I set s-. to exwm-reset via custom
