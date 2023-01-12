@@ -168,6 +168,18 @@ exwm-workspace-toggle-minibuffer
 
 
 ;;}}}
+;;{{{Additional Interactive Commands:
+;; I bind this to s-/ via custom:
+
+(defun emacspeak-exwm-workspace-cycle ()
+  "Cycle to next workspace, with wrap-around"
+  (interactive)
+  (cl-declare (special exwm-workspace-number ))
+  (let ((index (exwm-workspace--position exwm-workspace--current)))
+    (exwm-workspace-switch (% (1+ index) exwm-workspace-number))
+    (dtk-speak (cdr (assq 'name (frame-parameters))) )))
+
+;;}}}
 (provide 'emacspeak-exwm)
 ;;{{{ end of file
 
