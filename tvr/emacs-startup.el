@@ -157,6 +157,7 @@ Use Custom to customize where possible. "
                        python-mode-hook outline-mode-prefix-map
                        completion-auto-select emacspeak-directory
                        outline-minor-mode-prefix))
+  (tvr-tabs)
   (load-library "aster")
   (load-library "diminish")
   (setq completion-auto-select t)
@@ -210,7 +211,6 @@ Use Custom to customize where possible. "
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (make-thread #'(lambda nil (load "eww")))
-  (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi-tinted t)
   (require 'dired-x)
