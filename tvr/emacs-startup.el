@@ -115,10 +115,9 @@ Produce timing information as the last step."
 
 (defun tvr-tabs ()
   "Set up my tab-bar."
-  (while (eq major-mode 'exwm-mode)
-         (next-buffer))
-  (tab-bar-switch-to-tab "Books")
-  (tab-bar-switch-to-tab "Home"))
+  (with-current-buffer (scratch-buffer)
+    (tab-bar-switch-to-tab "Books")
+    (tab-bar-switch-to-tab "Home")))
 
 ;;}}}
 ;;{{{Node/NVM Setup:
