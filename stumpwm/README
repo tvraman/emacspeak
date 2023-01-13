@@ -1,4 +1,5 @@
 * Emacspeak support for StumpWM
+X Setup is designed to work with exwm as well.
 
 File =stumpwmrc= is my StumpWM init file that  I use to set up
 StumpWM as a talking window manager.  With this setup, I run Emacs in
