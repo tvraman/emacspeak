@@ -111,6 +111,16 @@ Produce timing information as the last step."
    (define-key shell-mode-map (ems-kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
+;;{{{tvr-tabs:
+
+(defsubst tvr-tabs ()
+  "Set up my tab-bar."
+  (tab-bar-switch-to-tab "Books")
+  (tab-bar-switch-to-tab "Chrome")
+  (tab-bar-switch-to-tab "XTerm")
+  (tab-bar-switch-to-tab "Home"))
+
+;;}}}
 ;;{{{Node/NVM Setup:
 (defun tvr-nvm-setup ()
   "Set up NVM/NPM."
