@@ -96,16 +96,6 @@ Produce timing information as the last step."
 (defalias 'epa--decode-coding-string 'decode-coding-string)
 
 ;;}}}
-;;{{{ tvr-tabs:
-
-(defsubst tvr-tabs ()
-  "Set up my tab-bar."
-  (tab-new)
-  (tab-rename "books")
-  (tab-next)
-  (tab-rename "home"))
-
-;;}}}
 ;;{{{ tvr-shell-bind-keys:
 
 (defsubst tvr-shell-bind-keys ()
@@ -146,7 +136,6 @@ startup sound."
   (start-process
    "play" nil "aplay"
    (expand-file-name "highbells.au" emacspeak-sounds-directory))
-  (tvr-tabs)
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
