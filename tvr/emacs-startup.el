@@ -113,11 +113,12 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{tvr-tabs:
 
-(defsubst tvr-tabs ()
+(defun tvr-tabs ()
   "Set up my tab-bar."
-  (unless (eq major-mode 'exwm-mode)
-    (tab-bar-switch-to-tab "Books")
-    (tab-bar-switch-to-tab "Home")))
+  (while (eq major-mode 'exwm-mode)
+         (next-buffer))
+  (tab-bar-switch-to-tab "Books")
+  (tab-bar-switch-to-tab "Home"))
 
 ;;}}}
 ;;{{{Node/NVM Setup:
