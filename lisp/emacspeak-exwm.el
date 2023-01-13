@@ -201,6 +201,23 @@ exwm-workspace-toggle-minibuffer
 
 ;;}}}
 
+
+;;{{{Configure Hooks:
+
+
+(defun emacspeak-exwm-mode-hook ()
+  "EXWM Setup For Emacspeak"
+  (cl-declare (special
+               emacspeak-prefix exwm-mode-hook))
+  (define-key exwm-mode-map emacspeak-prefix 'emacspeak-keymap)
+  (emacspeak-speak-frame-title))
+
+(add-hook
+ 'exwm-mode-hook
+ #'emacspeak-exwm-mode-hook)
+
+;;}}}
+
 (provide 'emacspeak-exwm)
 ;;{{{ end of file
 
