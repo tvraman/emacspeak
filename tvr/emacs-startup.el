@@ -146,6 +146,7 @@ startup sound."
   (start-process
    "play" nil "aplay"
    (expand-file-name "highbells.au" emacspeak-sounds-directory))
+  (tvr-tabs)
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
@@ -229,7 +230,7 @@ Use Custom to customize where possible. "
   (cl-declare (special  tvr-libs emacspeak-soundscapes))
 ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
-   (load "emacspeak-mpv")
+  (load "emacspeak-mpv")
   (tvr-customize) ;;; customizations
   (with-eval-after-load
     'yasnippet
@@ -237,6 +238,7 @@ Use Custom to customize where possible. "
     (diminish 'yas-minor-mode ""))
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize)
+  (tvr-tabs)
   (when emacspeak-soundscapes (soundscape-toggle)))
 
 (declare-function
