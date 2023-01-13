@@ -59,29 +59,6 @@
   (dtk-speak (ad-get-arg 0)))
 
 ;;}}}
-;;{{{ Interactive Commands:
-
-'(
-exwm-workspace--handle-focus-in
-exwm-workspace--handle-focus-out
-exwm-workspace--prompt-add
-exwm-workspace--prompt-delete
-exwm-workspace--switch-map-nth-prefix
-exwm-workspace--switch-map-select-nth
-exwm-workspace-add
-exwm-workspace-attach-minibuffer
-exwm-workspace-delete
-exwm-workspace-detach-minibuffer
-exwm-workspace-move
-exwm-workspace-move-window
-exwm-workspace-swap
-exwm-workspace-switch
-exwm-workspace-switch-create
-exwm-workspace-switch-to-buffer
-exwm-workspace-toggle-minibuffer
-)
-
-;;}}}
 ;;{{{  Advice Interactive Commands
 
 (defadvice exwm-floating-hide (after emacspeak pre act comp)
