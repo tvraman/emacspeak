@@ -149,7 +149,9 @@ startup sound."
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)
-  (tvr-tabs))
+  (when (derived-mode-p 'exwm-mode)
+    (next-frame)
+    (tvr-tabs)))
 
 (defun tvr-customize ()
   "Customize my emacs.
