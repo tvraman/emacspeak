@@ -115,9 +115,9 @@ Produce timing information as the last step."
 
 (defsubst tvr-tabs ()
   "Set up my tab-bar."
-  (tab-bar-switch-to-tab "Books")
-  (tab-bar-switch-to-tab "XTerm")
-  (tab-bar-switch-to-tab "Home"))
+  (unless (eq major-mode 'exwm-mode)
+    (tab-bar-switch-to-tab "Books")
+    (tab-bar-switch-to-tab "Home")))
 
 ;;}}}
 ;;{{{Node/NVM Setup:
@@ -147,7 +147,8 @@ startup sound."
    (expand-file-name "highbells.au" emacspeak-sounds-directory))
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
-   user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
+   user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)
+  (tvr-tabs))
 
 (defun tvr-customize ()
   "Customize my emacs.
@@ -234,7 +235,6 @@ Use Custom to customize where possible. "
     (diminish 'yas-minor-mode ""))
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize)
-  (tvr-tabs)
   (when emacspeak-soundscapes (soundscape-toggle)))
 
 (declare-function
