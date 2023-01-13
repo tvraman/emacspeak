@@ -95,6 +95,14 @@
       (insert (format "%s\n" m)))))
 
 ;;}}}
+;;{{{Helper: Speak Frame Title
+
+(defsubst emacspeak-speak-frame-title ()
+  "Speak Frame Title"
+  (dtk-speak (cdr (assq 'name (frame-parameters))) ))
+
+;;}}}
+
 ;;{{{  line, Word and Character echo
 
 (defcustom emacspeak-line-echo nil

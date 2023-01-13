@@ -164,7 +164,7 @@ exwm-workspace-toggle-minibuffer
 (defadvice exwm-workspace-switch (after emacspeak pre act comp)
   "speak frame title."
   (when (ems-interactive-p)
-    (dtk-speak (cdr (assq 'name (frame-parameters))) )))
+    (emacspeak-speak-frame-title)))
 
 
 ;;}}}
@@ -177,7 +177,7 @@ exwm-workspace-toggle-minibuffer
   (cl-declare (special exwm-workspace-number ))
   (let ((index (exwm-workspace--position exwm-workspace--current)))
     (exwm-workspace-switch (% (1+ index) exwm-workspace-number))
-    (dtk-speak (cdr (assq 'name (frame-parameters))) )))
+    (emacspeak-speak-frame-title)))
 
 ;;}}}
 ;;{{{Orca Toggle:
