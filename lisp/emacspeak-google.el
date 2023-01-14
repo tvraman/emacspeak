@@ -687,6 +687,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
     (read-from-minibuffer "Text: ")
     current-prefix-arg))
   (cl-declare (special
+               emacspeak-mpv-program 
                emacspeak-google-tts-default-language
                emacspeak-google-tts-rest-uri ))
   (or lang (setq lang "en-us"))
@@ -696,7 +697,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
                      (url-hexify-string  text))))
     (kill-new url)
     (start-process
-     "google-tts" nil  (executable-find "mpv") url)))
+     "google-tts" nil  emacspeak-mpv-program  url)))
 
 ;;;###autoload
 (defun emacspeak-google-tts-region (start end &optional ask-lang)
