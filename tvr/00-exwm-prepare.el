@@ -6,7 +6,7 @@
 ;;}}}
 ;;{{{Look and feel:
 
-(setq exwm-workspace-number 2)
+(setq exwm-workspace-number 3)
 
 (add-hook 'exwm-update-title-hook
           (lambda ()
