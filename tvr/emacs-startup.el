@@ -114,10 +114,9 @@ Produce timing information as the last step."
 ;;{{{tvr-tabs:
 
 (defun tvr-tabs ()
-  "Set up my tab-bar."
-  (with-current-buffer (scratch-buffer)
-    (tab-bar-switch-to-tab "Books")
-    (tab-bar-switch-to-tab "Home")))
+  "Set up  tab-bar"
+  (tab-bar-switch-to-tab "Books")
+  (tab-bar-switch-to-tab "Home"))
 
 ;;}}}
 ;;{{{Node/NVM Setup:
@@ -148,9 +147,7 @@ startup sound."
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)
-  (when (derived-mode-p 'exwm-mode)
-    (next-frame)
-    (tvr-tabs)))
+    (tvr-tabs))
 
 (defun tvr-customize ()
   "Customize my emacs.
