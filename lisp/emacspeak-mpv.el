@@ -58,6 +58,13 @@
                    (require 'url-parse))
 
 ;;}}}
+;;{{{MPV Program:
+
+;;;###autoload
+(defvar emacspeak-mpv-program (executable-find "mpv")
+  "Name of MPV executable.")
+
+;;}}}
 ;;{{{Helper: yt-url->time-offset:
 
 (defsubst ems--yt-get-time (url)
