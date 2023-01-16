@@ -14,6 +14,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 58 --- Emacspeak 58 User Visible Changes
 
 This version requires Emacs-29.
+** Speech-Enable EXWM
+
+Emacs Window Manager --- ~exwm~ is speech-enabled by module
+~emacspeak-exwm~.
 
 ** Audio Marks (AMarks)
 
