@@ -153,6 +153,7 @@
   (interactive)
   (let ((count (length  exwm-workspace--list))
         (index (exwm-workspace--position exwm-workspace--current)))
+    (cl-assert (not (zerop count)) """Workspaces not set up correctly." t)
     (exwm-workspace-switch (% (1+ index) count))
     (emacspeak-speak-frame-title)))
 
@@ -184,11 +185,18 @@
 
 (defun emacspeak-exwm-mode-hook ()
   "EXWM Setup For Emacspeak"
-  (cl-declare (special
-               emacspeak-prefix exwm-mode-hook))
+  (cl-declare (special emacspeak-prefix ))
   (define-key exwm-mode-map emacspeak-prefix 'emacspeak-keymap)
+  (define-key exwm-mode-map  emacspeak-prefix 'emacspeak-keymap)
+  (define-key exwm-mode-map
+      (concat emacspeak-prefix "e")
+    'exwm-input-send-simulation-key)
+  (define-key exwm-mode-map
+      (concat emacspeak-prefix emacspeak-prefix)
+    'exwm-input-send-simulation-key)
   (emacspeak-speak-frame-title))
 
+(cl-declaim (special exwm-mode-hook))
 (add-hook
  'exwm-mode-hook
  #'emacspeak-exwm-mode-hook)
