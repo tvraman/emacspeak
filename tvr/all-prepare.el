@@ -1,19 +1,25 @@
-;;{{{Load and start exwm:
+;;; No-Op if Stumpwm already running:
+(when
+    (zerop  (length  (string-trim (shell-command-to-string "pidof stumpwm"))))
+    
+  ;;{{{Load and start exwm:
 
-(require 'exwm)
-(require 'exwm-config)
-(exwm-config-example)
-;;}}}
-;;{{{Look and feel:
+  (require 'exwm)
+  (require 'exwm-config)
+  (exwm-config-example)
+  ;;}}}
+  ;;{{{Look and feel:
 
-(setq exwm-workspace-number 3)
+  (setq exwm-workspace-number 3)
 
-(add-hook 'exwm-update-title-hook
-          (lambda ()
-            (exwm-workspace-rename-buffer exwm-title)))
+  (add-hook 'exwm-update-title-hook
+            (lambda ()
+              (exwm-workspace-rename-buffer exwm-title)))
 
-;;}}}
+  ;;}}}
 
+
+  )
 ;;; Emacs' yes-or-no-p and y-or-no-p have prompts hard-wired.
 ;; The advice forms below produce more succinct speech.
 
