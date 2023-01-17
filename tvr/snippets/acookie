@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: autoload cookie
+# key: ac
+# key: autoload
+# --
+;;;###autoload
