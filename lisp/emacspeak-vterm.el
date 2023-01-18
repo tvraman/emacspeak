@@ -183,50 +183,51 @@
   (emacspeak-vterm-snapshot))
 
 ;; speech-enable term update loop, using previously cached state.
+(defvar emacspeak-vterm-debug nil
+  "Debug flag")
 
 (defadvice vterm--redraw (after emacspeak pre act comp)
   "Speech-enable term emulation."
+  (cl-declare (special emacspeak-vterm-debug))
   (let ((current-char ems--vterm-char)
         (opoint ems--vterm-opoint)
         (row ems--vterm-row)
         (column ems--vterm-column)
         (new-row (1+ (count-lines (point-min) (point))))
         (new-column (current-column)))
-    (ems-with-messages-silenced ;;; debug output
-     (message
-      "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
-      last-command-event row column
-      new-row new-column current-char))
+    (when emacspeak-vterm-debug
+      (ems-with-messages-silenced ;;; debug output
+       (message
+        "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
+        last-command-event row column
+        new-row new-column current-char)))
     (cond
-     ((and ;;; backspace or 127
-       (memq  last-command-event    '(127 backspace))
-       (= new-row row) (= -1 (- new-column column)))
-      (dtk-tone-deletion)
-      (emacspeak-speak-this-char current-char))
-     ((and
-       (= new-row row) (= 1 (- new-column column))) ;;; char insert
-      (ems-with-messages-silenced (message "char insert"))
-      (if (eq 32 last-command-event) ;;; word echo 
-          (save-excursion (backward-char 2) (emacspeak-speak-word nil))
-        (emacspeak-speak-this-char (preceding-char))))
-     ((and
-       (= new-row row) (= 1 (abs(- new-column column))))
-      (ems-with-messages-silenced (message "horizontal char motion"))
-      (emacspeak-speak-this-char (following-char)))
-     ((= row new-row)
-      (ems-with-messages-silenced (message "left/right motion"))
-      (if (= 32 (following-char)) ;;; vi word nav
-          (save-excursion (forward-char 1) (emacspeak-speak-word))
-        (emacspeak-speak-word)))
-     (t
-      (if emacspeak-comint-autospeak
-          (let ((dtk-stop-immediately  nil))
-            (dtk-speak
-             (string-trim
-              (ansi-color-filter-apply
-               (save-excursion
+      ((and ;;; backspace or 127
+        (memq  last-command-event    '(127 backspace))
+        (= new-row row) (= -1 (- new-column column)))
+       (dtk-tone-deletion)
+       (emacspeak-speak-this-char current-char))
+      ((and
+        (= new-row row) (= 1 (- new-column column))) ;;; char insert
+       (if (eq 32 last-command-event) ;;; word echo 
+           (save-excursion (backward-char 2) (emacspeak-speak-word nil))
+           (emacspeak-speak-this-char (preceding-char))))
+      ((and
+        (= new-row row) (= 1 (abs(- new-column column))))
+       (emacspeak-speak-this-char (following-char)))
+      ((= row new-row)
+       (if (= 32 (following-char)) ;;; vi word nav
+           (save-excursion (forward-char 1) (emacspeak-speak-word))
+           (emacspeak-speak-word)))
+      (t
+       (if emacspeak-comint-autospeak
+           (let ((dtk-stop-immediately  nil))
+             (dtk-speak
+              (string-trim
+               (ansi-color-filter-apply
+                (save-excursion
                  (beginning-of-line) (buffer-substring (1+ opoint) (point)))))))
-        (emacspeak-speak-line))))))
+           (emacspeak-speak-line))))))
 
 ;;}}}
 (provide 'emacspeak-vterm)
