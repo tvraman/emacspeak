@@ -690,7 +690,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
                emacspeak-mpv-program 
                emacspeak-google-tts-default-language
                emacspeak-google-tts-rest-uri ))
-  (or lang (setq lang "en-us"))
+  (or lang (setq lang emacspeak-google-tts-default-language))
   (unless (stringp lang) (setq lang (read-string  "Lang:")))
   (let ((url (format emacspeak-google-tts-rest-uri
                      (or lang emacspeak-google-tts-default-language)

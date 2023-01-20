@@ -353,13 +353,20 @@ Then speak the screenful. "
 (defadvice vm-reply-include-text (after emacspeak pre act comp)
   "Provide aural feedback."
   (when (ems-interactive-p)
+    ;; Insert whitespace to delimit quoted text
+    (save-excursion
+     (insert "\n\n"))
     (emacspeak-speak-mode-line)))
 
 (defadvice vm-followup-include-text (after emacspeak pre act comp)
   "Provide aural feedback."
   (when (ems-interactive-p)
+    ;; Delimit cited text
+    (save-excursion
+     (insert "\n\n"))
     (message "Following up")
     (emacspeak-speak-mode-line)))
+
 (defadvice vm-mail-send (after emacspeak pre act comp)
   "Provide auditory context"
   (when  (ems-interactive-p)
