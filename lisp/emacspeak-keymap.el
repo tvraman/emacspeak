@@ -663,6 +663,7 @@
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
+    ("g" emacspeak-google-tts-region)
     ("h" emacspeak-org-capture-link)
     ("l" emacspeak-wizards-locate-content)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
