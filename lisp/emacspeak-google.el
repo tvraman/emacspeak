@@ -670,10 +670,8 @@ current page."
 ;;}}}
 ;;{{{ TTS:
 
-(defcustom emacspeak-google-tts-default-language "en-us"
-  "Default language used for Google TTS."
-  :type 'string
-  :group 'emacspeak-google)
+(defvar-local emacspeak-google-tts-default-language "en-us"
+  "Default language used for Google TTS.")
 
 (defvar emacspeak-google-tts-rest-uri
   "https://www.google.com/speech-api/v1/synthesize?lang=%s&text=%s"
@@ -681,7 +679,8 @@ current page."
 ;;;###autoload
 (defun emacspeak-google-tts (text &optional lang)
   "Google Network TTS.
-Optional interactive prefix arg `lang' specifies  language identifier."
+Optional interactive prefix arg `lang' specifies  language identifier
+which becomes buffer-local."
   (interactive
    (list
     (read-from-minibuffer "Text: ")
@@ -690,8 +689,9 @@ Optional interactive prefix arg `lang' specifies  language identifier."
                emacspeak-mpv-program 
                emacspeak-google-tts-default-language
                emacspeak-google-tts-rest-uri ))
-  (or lang (setq lang emacspeak-google-tts-default-language))
-  (unless (stringp lang) (setq lang (read-string  "Lang:")))
+  (unless (stringp lang)
+    (setq lang
+          (read-string  "Lang:" nil nil emacspeak-google-tts-default-language)))
   (let ((url (format emacspeak-google-tts-rest-uri
                      (or lang emacspeak-google-tts-default-language)
                      (url-hexify-string  text))))
