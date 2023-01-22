@@ -12,7 +12,33 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 11, 2023.
+last updated on January 21, 2023.
+
+
+File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev: emacspeak-flymake,  Up: Emacspeak Commands And Options
+
+12.82 emacspeak-flyspell
+========================
+
+This module speech enables flyspell.  it loads flyspell-correct if
+available, And when loading flyspell-correct sets up that module to use
+one of three supported correction styles:
+   • ido: IDO-like completion with C-s and C-r moving through choices.
+   • popup:Use up and down arrows to move through corrections.
+   • helm: A helm interface for picking amongst corrections.
+   See documentation for package flyspell-correct for additional
+details.
+
+   Use Customization emacspeak-flyspell-correct to pick between ido,
+popup and helm.
+
+12.82.1 emacspeak-flyspell Options
+----------------------------------
+
+ -- Variable: User Option emacspeak-flyspell-correct
+     Correction style to use with flyspell.
+
+     Default Value: ‘flyspell-correct-ido’
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -590,7 +616,8 @@ e.g.  blog search are tbm=
  -- Command: emacspeak-google-tts (text &optional lang)
 
      Google Network TTS.
-     Optional interactive prefix arg ‘lang’ specifies  language identifier.
+     Optional interactive prefix arg ‘lang’ specifies  language identifier
+     which becomes buffer-local.
 
      (fn TEXT &optional LANG)
 
@@ -598,6 +625,8 @@ e.g.  blog search are tbm=
 ......................................
 
  -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
+     ‘C-. g’
+     ‘C-x @ s g’
 
      Speak region using Google Network TTS.
 
@@ -635,11 +664,6 @@ e.g.  blog search are tbm=
      API Key for Google Knowledge Graph.
 
      Default Value: ‘nil’
-
- -- Variable: User Option emacspeak-google-tts-default-language
-     Default language used for Google TTS.
-
-     Default Value: ‘en-us’
 
 
 File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-gtags,  Prev: emacspeak-google,  Up: Emacspeak Commands And Options
@@ -1100,7 +1124,7 @@ found on laptops is denoted <fn>
      @defvar {User Option} emacspeak-super-keys
      Super key bindings. 
      
-     Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))’
+     Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts-region) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))’
 
  -- Variable: User Option emacspeak-windows-keys
      Key bindings on the windows key.
@@ -8754,17 +8778,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Convenience command to view state of memory used in this session so far.
 
-12.212.1.95 emacspeak-wizards-show-value
-........................................
-
- -- Command: emacspeak-wizards-show-value [Arg list not available until
-          function definition is loaded.]
-
-     Pretty-print and view var value.
-
-     (fn VAR)
-
-12.212.1.96 emacspeak-wizards-snarf-sexp
+12.212.1.95 emacspeak-wizards-snarf-sexp
 ........................................
 
  -- Command: emacspeak-wizards-snarf-sexp (&optional delete)
@@ -8776,7 +8790,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional DELETE)
 
-12.212.1.97 emacspeak-wizards-speak-iso-datetime
+12.212.1.96 emacspeak-wizards-speak-iso-datetime
 ................................................
 
  -- Command: emacspeak-wizards-speak-iso-datetime (iso)
@@ -8785,7 +8799,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ISO)
 
-12.212.1.98 emacspeak-wizards-squeeze-blanks
+12.212.1.97 emacspeak-wizards-squeeze-blanks
 ............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
@@ -8796,7 +8810,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.212.1.99 emacspeak-wizards-swap-fg-and-bg
+12.212.1.98 emacspeak-wizards-swap-fg-and-bg
 ............................................
 
  -- Command: emacspeak-wizards-swap-fg-and-bg
@@ -8806,8 +8820,8 @@ Contains various wizards for the Emacspeak desktop.
 
      Swap foreground and background.
 
-12.212.1.100 emacspeak-wizards-term
-...................................
+12.212.1.99 emacspeak-wizards-term
+..................................
 
  -- Command: emacspeak-wizards-term (create)
      ‘C-; C-a’
@@ -8820,7 +8834,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CREATE)
 
-12.212.1.101 emacspeak-wizards-tex-tie-current-word
+12.212.1.100 emacspeak-wizards-tex-tie-current-word
 ...................................................
 
  -- Command: emacspeak-wizards-tex-tie-current-word (n)
@@ -8829,28 +8843,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn N)
 
-12.212.1.102 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.212.1.101 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.212.1.103 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
+12.212.1.102 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
 
      Toggle pronunciation of yyyy-mm-dd dates.
 
-12.212.1.104 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.212.1.103 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.212.1.105 emacspeak-wizards-tune-in-radio-browse
+12.212.1.104 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -8862,7 +8876,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.212.1.106 emacspeak-wizards-tune-in-radio-search
+12.212.1.105 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -8871,7 +8885,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.212.1.107 emacspeak-wizards-units
+12.212.1.106 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -8880,14 +8894,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units.
 
-12.212.1.108 emacspeak-wizards-vc-n
+12.212.1.107 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.212.1.109 emacspeak-wizards-vc-view-mode
+12.212.1.108 emacspeak-wizards-vc-view-mode
 ...........................................
 
  -- Command: emacspeak-wizards-vc-view-mode
@@ -8902,7 +8916,7 @@ Contains various wizards for the Emacspeak desktop.
      run, this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as
      the final or penultimate step during initialization.
 
-12.212.1.110 emacspeak-wizards-vc-viewer
+12.212.1.109 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -8913,21 +8927,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.212.1.111 emacspeak-wizards-vc-viewer-refresh
+12.212.1.110 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.212.1.112 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.212.1.111 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 
      Buffer menu filtered by  m-player mode.
 
-12.212.1.113 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.212.1.112 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1174 commands and 148 options.
+This chapter documents a total of 1175 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -6426,6 +6426,31 @@ EXWM ==  Emacs X Window Manager
 This module speech-enables and integrates EXWM on the Emacspeak
 Audio Desktop
 
+@subsection Emacspeak-Exwm Commands
+
+@subsubsection emacspeak-exwm-orca-toggle
+@deffn {Command} emacspeak-exwm-orca-toggle   
+@table @kbd
+@item s-o
+@kindex s-o
+@end table
+
+@findex emacspeak-exwm-orca-toggle
+
+@format
+Toggle state of orca.
+@end format
+@end deffn
+
+@subsubsection emacspeak-exwm-workspace-cycle
+@deffn {Command} emacspeak-exwm-workspace-cycle   
+@findex emacspeak-exwm-workspace-cycle
+
+@format
+Cycle to next workspace, with wrap-around
+@end format
+@end deffn
+
 @node emacspeak-feeds
 @section emacspeak-feeds
 
@@ -7367,7 +7392,8 @@ Change  web-history-visited in the currently active toolbelt.
 
 @format
 Google Network TTS.
-Optional interactive prefix arg ‘lang’ specifies  language identifier.
+Optional interactive prefix arg ‘lang’ specifies  language identifier
+which becomes buffer-local.
 
 (fn TEXT &optional LANG)
 @end format
@@ -7375,6 +7401,13 @@ Optional interactive prefix arg ‘lang’ specifies  language identifier.
 
 @subsubsection emacspeak-google-tts-region
 @deffn {Command} emacspeak-google-tts-region  (start end &optional ask-lang)
+@table @kbd
+@item C-. g
+@kindex C-. g
+@item C-x @@ s g
+@kindex C-x @@ s g
+@end table
+
 @findex emacspeak-google-tts-region
 
 @format
@@ -7425,13 +7458,6 @@ Turn YT Channel or Playlist url into an RSS feed and open it.
 API Key for Google Knowledge Graph.
 
 Default Value: @code{@verb{|nil|}}
-
-@end defvar
-
-@defvar {User Option} emacspeak-google-tts-default-language
-Default language used for Google TTS.
-
-Default Value: @code{@verb{|en-us|}}
 
 @end defvar
 
@@ -7925,7 +7951,7 @@ Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacsp
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))|}}
+Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts-region) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))|}}
 
 @end defvar
 
@@ -17653,17 +17679,6 @@ Show  properties of  face.
 
 @format
 Convenience command to view state of memory used in this session so far.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-show-value
-@deffn {Command} emacspeak-wizards-show-value  [Arg list not available until function definition is loaded.]
-@findex emacspeak-wizards-show-value
-
-@format
-Pretty-print and view var value.
-
-(fn VAR)
 @end format
 @end deffn
 

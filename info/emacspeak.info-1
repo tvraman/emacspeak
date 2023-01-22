@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 11, 2023.
+last updated on January 21, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3175,6 +3175,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 ‘e’
      elfeed
 
+‘g’
+     emacspeak-google-tts-region
+
 ‘h’
      emacspeak-org-capture-link
 
@@ -3444,7 +3447,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1174 commands and 148 options.
+   This chapter documents a total of 1175 commands and 147 options.
 
 * Menu:
 
@@ -8913,6 +8916,24 @@ File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emac
 EXWM == Emacs X Window Manager This module speech-enables and integrates
 EXWM on the Emacspeak Audio Desktop
 
+12.76.1 Emacspeak-Exwm Commands
+-------------------------------
+
+12.76.1.1 emacspeak-exwm-orca-toggle
+....................................
+
+ -- Command: emacspeak-exwm-orca-toggle
+     ‘s-o’
+
+     Toggle state of orca.
+
+12.76.1.2 emacspeak-exwm-workspace-cycle
+........................................
+
+ -- Command: emacspeak-exwm-workspace-cycle
+
+     Cycle to next workspace, with wrap-around
+
 
 File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-ffap,  Prev: emacspeak-exwm,  Up: Emacspeak Commands And Options
 
@@ -9105,30 +9126,4 @@ File: emacspeak.info,  Node: emacspeak-flymake,  Next: emacspeak-flyspell,  Prev
 =======================
 
 Speech-enable flymake
-
-
-File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev: emacspeak-flymake,  Up: Emacspeak Commands And Options
-
-12.82 emacspeak-flyspell
-========================
-
-This module speech enables flyspell.  it loads flyspell-correct if
-available, And when loading flyspell-correct sets up that module to use
-one of three supported correction styles:
-   • ido: IDO-like completion with C-s and C-r moving through choices.
-   • popup:Use up and down arrows to move through corrections.
-   • helm: A helm interface for picking amongst corrections.
-   See documentation for package flyspell-correct for additional
-details.
-
-   Use Customization emacspeak-flyspell-correct to pick between ido,
-popup and helm.
-
-12.82.1 emacspeak-flyspell Options
-----------------------------------
-
- -- Variable: User Option emacspeak-flyspell-correct
-     Correction style to use with flyspell.
-
-     Default Value: ‘flyspell-correct-ido’
 
