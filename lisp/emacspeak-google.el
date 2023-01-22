@@ -689,9 +689,12 @@ which becomes buffer-local."
                emacspeak-mpv-program 
                emacspeak-google-tts-default-language
                emacspeak-google-tts-rest-uri ))
-  (unless (stringp lang)
-    (setq lang
-          (read-string  "Lang:" nil nil emacspeak-google-tts-default-language)))
+  (when current-prefix-arg
+    (unless (stringp lang)
+      (setq lang
+            (read-string  "Lang:" nil nil
+                          emacspeak-google-tts-default-language))
+      (setq emacspeak-google-tts-default-language lang)))
   (let ((url (format emacspeak-google-tts-rest-uri
                      (or lang emacspeak-google-tts-default-language)
                      (url-hexify-string  text))))
