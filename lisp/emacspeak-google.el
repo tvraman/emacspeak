@@ -709,6 +709,17 @@ which becomes buffer-local."
    (list (region-beginning) (region-end) current-prefix-arg))
   (emacspeak-google-tts (buffer-substring-no-properties start end) ask-lang))
 
+
+;;;###autoload
+(defun emacspeak-google-tts-line-at-a-time ()
+  "TTS line, then move to next line.
+Use default voice for buffer."
+  (interactive)
+  (dtk-notify-say (format "%d" (line-number-at-pos (point))))
+  (emacspeak-google-tts-region
+   (line-beginning-position) (line-end-position))
+  (forward-line 1))
+
 ;;}}}
 ;;{{{ What Is My IP:
 

@@ -749,6 +749,7 @@
 (defcustom emacspeak-multi-keys
   '(
     ("d" sdcv-search-input)
+    ("g" emacspeak-google-tts-line-at-a-time)
     ("h" emacspeak-m-player-browse-history)
     ("l" emacspeak-m-player-locate-media)
     ("o" org-mode)
