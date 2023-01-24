@@ -718,7 +718,8 @@ Use default voice for buffer."
   (dtk-notify-say (format "%d" (line-number-at-pos (point))))
   (emacspeak-google-tts-region
    (line-beginning-position) (line-end-position))
-  (forward-line 1))
+  (goto-char (line-end-position))
+  (skip-syntax-forward "^w_"))
 
 ;;}}}
 ;;{{{ What Is My IP:
