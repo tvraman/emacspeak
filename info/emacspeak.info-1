@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 21, 2023.
+last updated on January 26, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3176,7 +3176,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
      elfeed
 
 ‘g’
-     emacspeak-google-tts-region
+     emacspeak-google-tts
 
 ‘h’
      emacspeak-org-capture-link
@@ -3447,7 +3447,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1175 commands and 147 options.
+   This chapter documents a total of 1178 commands and 147 options.
 
 * Menu:
 

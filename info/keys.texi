@@ -535,7 +535,7 @@
  elfeed
 
 @item g
- emacspeak-google-tts-region
+ emacspeak-google-tts
 
 @item h
  emacspeak-org-capture-link

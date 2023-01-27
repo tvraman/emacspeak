@@ -12,7 +12,46 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 21, 2023.
+last updated on January 26, 2023.
+
+
+File: emacspeak.info,  Node: omaps,  Next: outloud-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
+
+12.227 omaps
+============
+
+Implements geocoding via the Open Street Maps API https://nominatim.org/
+
+
+File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: omaps,  Up: Emacspeak Commands And Options
+
+12.228 outloud-voices
+=====================
+
+Interface to outloud server.  This module is IBM ViaVoice Outloud
+specific.
+
+12.228.1 Outloud-Voices Commands
+--------------------------------
+
+12.228.1.1 outloud
+..................
+
+ -- Command: outloud (&optional device)
+     ‘C-e d C-o’
+     ‘<fn> d C-o’
+
+     Start Outloud.
+
+     (fn &optional DEVICE)
+
+12.228.2 outloud-voices Options
+-------------------------------
+
+ -- Variable: User Option outloud-default-speech-rate
+     Default speech rate.
+
+     Default Value: ‘50’
 
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
@@ -2687,7 +2726,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <XF86AudioRaiseVolume>:                amixer.             (line   65)
 * C-' h:                                 emacspeak-m-player. (line  193)
 * C-' l:                                 emacspeak-m-player. (line  355)
-* C-' y:                                 emacspeak-google.   (line  346)
+* C-' y:                                 emacspeak-google.   (line  378)
 * C-, /:                                 extra-muggles.      (line  338)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
@@ -2704,7 +2743,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. .:                                 emacspeak-wizards.  (line  981)
 * C-. C-n:                               emacspeak-wizards.  (line  633)
 * C-. d:                                 emacspeak-dired.    (line   25)
-* C-. g:                                 emacspeak-google.   (line  320)
+* C-. g l:                               emacspeak-google.   (line  309)
+* C-. g n:                               emacspeak-google.   (line  319)
+* C-. g p:                               emacspeak-google.   (line  329)
+* C-. g r:                               emacspeak-google.   (line  339)
+* C-. g s:                               emacspeak-google.   (line  350)
 * C-. h:                                 emacspeak-org.      (line   27)
 * C-. l:                                 emacspeak-wizards.  (line  760)
 * C-. m:                                 emacspeak-wizards.  (line 1208)
@@ -3158,7 +3201,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s .:                             emacspeak-wizards.  (line  984)
 * C-x @ s C-n:                           emacspeak-wizards.  (line  634)
 * C-x @ s d:                             emacspeak-dired.    (line   26)
-* C-x @ s g:                             emacspeak-google.   (line  321)
+* C-x @ s g l:                           emacspeak-google.   (line  310)
+* C-x @ s g n:                           emacspeak-google.   (line  320)
+* C-x @ s g p:                           emacspeak-google.   (line  330)
+* C-x @ s g r:                           emacspeak-google.   (line  340)
+* C-x @ s g s:                           emacspeak-google.   (line  351)
 * C-x @ s h:                             emacspeak-org.      (line   28)
 * C-x @ s l:                             emacspeak-wizards.  (line  761)
 * C-x @ s m:                             emacspeak-wizards.  (line 1209)

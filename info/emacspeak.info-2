@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 21, 2023.
+last updated on January 26, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev: emacspeak-flymake,  Up: Emacspeak Commands And Options
@@ -610,10 +610,53 @@ e.g.  blog search are tbm=
 
      Change  web-history-visited in the currently active toolbelt.
 
-12.92.1.41 emacspeak-google-tts
-...............................
+12.92.1.41 emacspeak-google-tts-line
+....................................
 
- -- Command: emacspeak-google-tts (text &optional lang)
+ -- Command: emacspeak-google-tts-line
+     ‘C-. g l’
+     ‘C-x @ s g l’
+
+     TTS line using network TTS.
+     Use default voice for buffer.
+
+12.92.1.42 emacspeak-google-tts-next-line
+.........................................
+
+ -- Command: emacspeak-google-tts-next-line
+     ‘C-. g n’
+     ‘C-x @ s g n’
+
+     TTS next line using network TTS.
+     Use default voice for buffer.
+
+12.92.1.43 emacspeak-google-tts-previous-line
+.............................................
+
+ -- Command: emacspeak-google-tts-previous-line
+     ‘C-. g p’
+     ‘C-x @ s g p’
+
+     TTS previous line using network TTS.
+     Use default voice for buffer.
+
+12.92.1.44 emacspeak-google-tts-region
+......................................
+
+ -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
+     ‘C-. g r’
+     ‘C-x @ s g r’
+
+     Speak region using Google Network TTS.
+
+     (fn START END &optional ASK-LANG)
+
+12.92.1.45 emacspeak-google-tts-speak
+.....................................
+
+ -- Command: emacspeak-google-tts-speak (text &optional lang)
+     ‘C-. g s’
+     ‘C-x @ s g s’
 
      Google Network TTS.
      Optional interactive prefix arg ‘lang’ specifies  language identifier
@@ -621,25 +664,14 @@ e.g.  blog search are tbm=
 
      (fn TEXT &optional LANG)
 
-12.92.1.42 emacspeak-google-tts-region
-......................................
-
- -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
-     ‘C-. g’
-     ‘C-x @ s g’
-
-     Speak region using Google Network TTS.
-
-     (fn START END &optional ASK-LANG)
-
-12.92.1.43 emacspeak-google-what-is-my-ip
+12.92.1.46 emacspeak-google-what-is-my-ip
 .........................................
 
  -- Command: emacspeak-google-what-is-my-ip
 
      Show my public IP
 
-12.92.1.44 emacspeak-google-who-links-to-this-page
+12.92.1.47 emacspeak-google-who-links-to-this-page
 ..................................................
 
  -- Command: emacspeak-google-who-links-to-this-page
@@ -647,7 +679,7 @@ e.g.  blog search are tbm=
      Perform a google search to locate documents that link to the
      current page.
 
-12.92.1.45 emacspeak-google-yt-feed
+12.92.1.48 emacspeak-google-yt-feed
 ...................................
 
  -- Command: emacspeak-google-yt-feed (url)
@@ -1124,7 +1156,7 @@ found on laptops is denoted <fn>
      @defvar {User Option} emacspeak-super-keys
      Super key bindings. 
      
-     Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts-region) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))’
+     Default Value: @code{@verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))’
 
  -- Variable: User Option emacspeak-windows-keys
      Key bindings on the windows key.
@@ -9907,43 +9939,4 @@ TTS.
      Default speech rate for mac.
 
      Default Value: ‘225’
-
-
-File: emacspeak.info,  Node: omaps,  Next: outloud-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
-
-12.227 omaps
-============
-
-Implements geocoding via the Open Street Maps API https://nominatim.org/
-
-
-File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: omaps,  Up: Emacspeak Commands And Options
-
-12.228 outloud-voices
-=====================
-
-Interface to outloud server.  This module is IBM ViaVoice Outloud
-specific.
-
-12.228.1 Outloud-Voices Commands
---------------------------------
-
-12.228.1.1 outloud
-..................
-
- -- Command: outloud (&optional device)
-     ‘C-e d C-o’
-     ‘<fn> d C-o’
-
-     Start Outloud.
-
-     (fn &optional DEVICE)
-
-12.228.2 outloud-voices Options
--------------------------------
-
- -- Variable: User Option outloud-default-speech-rate
-     Default speech rate.
-
-     Default Value: ‘50’
 
