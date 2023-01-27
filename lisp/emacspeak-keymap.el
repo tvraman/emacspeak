@@ -663,7 +663,7 @@
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
-    ("g" emacspeak-google-tts-region)
+    ("g" emacspeak-google-tts)
     ("h" emacspeak-org-capture-link)
     ("l" emacspeak-wizards-locate-content)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
@@ -749,7 +749,6 @@
 (defcustom emacspeak-multi-keys
   '(
     ("d" sdcv-search-input)
-    ("g" emacspeak-google-tts-line-at-a-time)
     ("h" emacspeak-m-player-browse-history)
     ("l" emacspeak-m-player-locate-media)
     ("o" org-mode)
