@@ -29,4 +29,4 @@ The first two of the above are mostly of interest when extending
 Emacspeak, or to learn how things are implemented.  The third category
 is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (@acronym{EWW}), read
-the @acronym{EWW} documentation, then  @xref{emacspeak-eww}.
+the @xref{EWW,,,emacs} documentation, then  @xref{emacspeak-eww}.

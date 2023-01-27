@@ -9923,20 +9923,3 @@ easily used in conjunction with hydra: M-x package-install hydra
 
      White screen.
 
-
-File: emacspeak.info,  Node: mac-voices,  Next: omaps,  Prev: light,  Up: Emacspeak Commands And Options
-
-12.226 mac-voices
-=================
-
-This module defines the various voices used in voice-lock mode by Mac
-TTS.
-
-12.226.1 mac-voices Options
----------------------------
-
- -- Variable: User Option mac-default-speech-rate
-     Default speech rate for mac.
-
-     Default Value: ‘225’
-

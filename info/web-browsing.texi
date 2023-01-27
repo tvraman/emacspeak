@@ -93,7 +93,7 @@ run commands, navigating documents, and the like are not covered.
 @node  emacs-w3
 @subsection emacs-w3
 
-emacs/w3 is a web browser written completely in emacs lisp.  It has
+emacs/w3 is a web browser (now obsolete and replaced by EWW) written completely in emacs lisp.  It has
 some really nice features applicable to the emacspeak community such
 as the ability to navigate tables and support for the w3c's aural
 cascading stylesheets.  

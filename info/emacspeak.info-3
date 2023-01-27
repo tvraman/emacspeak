@@ -15,6 +15,23 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on January 26, 2023.
 
 
+File: emacspeak.info,  Node: mac-voices,  Next: omaps,  Prev: light,  Up: Emacspeak Commands And Options
+
+12.226 mac-voices
+=================
+
+This module defines the various voices used in voice-lock mode by Mac
+TTS.
+
+12.226.1 mac-voices Options
+---------------------------
+
+ -- Variable: User Option mac-default-speech-rate
+     Default speech rate for mac.
+
+     Default Value: ‘225’
+
+
 File: emacspeak.info,  Node: omaps,  Next: outloud-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
 
 12.227 omaps

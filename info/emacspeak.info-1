@@ -1971,10 +1971,10 @@ File: emacspeak.info,  Node: emacs-w3,  Next: Add-ons,  Prev: Intro,  Up: Web Br
 10.4.2 emacs-w3
 ---------------
 
-emacs/w3 is a web browser written completely in emacs lisp.  It has some
-really nice features applicable to the emacspeak community such as the
-ability to navigate tables and support for the w3c’s aural cascading
-stylesheets.
+emacs/w3 is a web browser (now obsolete and replaced by EWW) written
+completely in emacs lisp.  It has some really nice features applicable
+to the emacspeak community such as the ability to navigate tables and
+support for the w3c’s aural cascading stylesheets.
 
 emacs/w3 advantages
 ===================
@@ -3444,8 +3444,8 @@ module.
    The first two of the above are mostly of interest when extending
 Emacspeak, or to learn how things are implemented.  The third category
 is useful in understanding how emacspeak works with a given package;
-thus, when learning to use the Emacs Web Browser (EWW), read the EWW
-documentation, then *Note emacspeak-eww::.
+thus, when learning to use the Emacs Web Browser (EWW), read the *Note
+(emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
    This chapter documents a total of 1178 commands and 147 options.
 
