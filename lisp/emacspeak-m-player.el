@@ -1096,7 +1096,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
       (t (dtk-speak-and-echo "Waiting")))))
 
 (defconst emacspeak-m-player-filters
-  '("extrastereo" "volnorm" "surround"
+  '("extrastereo=2.5" "extrastereo"
+    "extrastereo=1.5" "volnorm" "surround"
     "channels=2:2:1:0:0:1"
     "channels=1:0:0:0:1"
     "channels=1:1:0:1:1"
