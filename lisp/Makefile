@@ -132,6 +132,7 @@ emacspeak-elpher.elc \
 emacspeak-elpy.elc \
 emacspeak-elscreen.elc \
 emacspeak-emms.elc \
+emacspeak-empv.elc \
 emacspeak-enriched.elc \
 emacspeak-entertain.elc \
 emacspeak-epa.elc \
