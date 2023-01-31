@@ -53,6 +53,8 @@
                    (?y t)
                    (?n nil))))
   ad-return-value)
+(with-eval-after-load  "empv.el"
+  (global-set-key (ems-kbd "C-' m") empv-map))
 ;;; vm-prepare.l :  -*- lexical-binding: nil; -*-
 
 (autoload 'vm "vm" "vm mail reader" t nil)
