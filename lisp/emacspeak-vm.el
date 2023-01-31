@@ -334,7 +334,9 @@ Then speak the screenful. "
     (emacspeak-auditory-icon 'open-object)
     (message "Forwarding message")
     ad-do-it
-    (emacspeak-speak-line))
+    (emacspeak-speak-line)
+    (save-excursion
+     (insert "\n\n")))
    (t
     ad-do-it))
   ad-return-value)
