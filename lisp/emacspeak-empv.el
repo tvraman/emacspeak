@@ -54,17 +54,11 @@
 ;;{{{Interactive Commands:
 
 '(
-  empv-copy-path
-empv-current-loop-off
-empv-current-loop-on
 empv-display-current
 empv-enqueue
 empv-enqueue-last
 empv-enqueue-next
 empv-exit
-empv-file-loop-off
-empv-file-loop-on
-empv-log-current-radio-song-name
 empv-pause
 empv-play
 empv-play-audio
@@ -76,8 +70,6 @@ empv-play-video
 empv-playback-speed-down
 empv-playback-speed-up
 empv-playlist-clear
-empv-playlist-loop-off
-empv-playlist-loop-on
 empv-playlist-next
 empv-playlist-prev
 empv-playlist-select
@@ -89,10 +81,6 @@ empv-seek
 empv-set-playback-speed
 empv-set-volume
 empv-start
-empv-toggle
-empv-toggle-debug
-empv-toggle-event-display
-empv-toggle-video
 empv-volume-down
 empv-volume-up
 empv-youtube
