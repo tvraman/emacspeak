@@ -68,6 +68,7 @@ This chapter documents a total of 1178 commands and 147 options.
 * emacspeak-elpy::Speech-enable ELPY.
 * emacspeak-elscreen::ELSCREEN.
 * emacspeak-emms::Speech-enable EMMS.
+* emacspeak-empv::Speech-enable EMPV.
 * emacspeak-enriched::Audio FormatRichtext.
 * emacspeak-entertain::Speech enable games.
 * emacspeak-epa::Speech-enable GPG Helper.
@@ -3647,6 +3648,12 @@ M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
 Speak current track.
 @end format
 @end deffn
+
+@node emacspeak-empv
+@section emacspeak-empv
+
+EMPV ==  Another Emacs Media Player
+Provides better Youtube integration
 
 @node emacspeak-enriched
 @section emacspeak-enriched
