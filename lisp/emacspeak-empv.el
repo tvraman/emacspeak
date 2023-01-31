@@ -115,14 +115,14 @@ empv-youtube-tabulated-last-results
 (cl-loop
   for f in 
   '(aempv-current-loop-off empv-current-loop-on
-empv-file-loop-off empv-file-loop-on
-empv-playlist-loop-off empv-playlist-loop-on) do
+    empv-toggle
+    empv-file-loop-off empv-file-loop-on
+    empv-playlist-loop-off empv-playlist-loop-on) do
   (eval
    `(defadvice ,f (after emacspeak pre act comp)
       "speak."
       (when (ems-interactive-p)
         (emacspeak-auditory-icon 'button)))))
-
 
 ;;}}}
 ;;{{{Setup:
