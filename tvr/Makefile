@@ -10,7 +10,6 @@ laptop-local.elc touchpad-disable.elc   slime-prepare.elc   \
 org-prepare.elc   all-prepare.elc 
 
 ALL= 00-exwm-prepare.el yes-prepare.el\
-empv-prepare.el \
 vm-prepare.el gnus-gmail-prepare.el \
 	sp-prepare.el lispy-prepare.el slime-prepare.el org-prepare.el  kbd-macros.el
 

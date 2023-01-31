@@ -114,6 +114,11 @@ empv-youtube-tabulated-last-results
 
 
 ;;}}}
+;;{{{Setup:
+(cl-declaim (special empv-map))
+(global-set-key (ems-kbd "C-' m") empv-map)
+
+;;}}}
 ;;{{{ end of file
 
 ;;; local variables:
