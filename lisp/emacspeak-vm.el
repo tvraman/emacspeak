@@ -336,6 +336,7 @@ Then speak the screenful. "
     ad-do-it
     (emacspeak-speak-line)
     (save-excursion
+     (search-forward "--text follows this line--")
      (insert "\n\n")))
    (t
     ad-do-it))
