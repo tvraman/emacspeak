@@ -49,7 +49,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'empv nil t)
-
+(require 'iimage nil t)
 ;;}}}
 ;;{{{Interactive Commands:
 
