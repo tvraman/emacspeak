@@ -53,53 +53,6 @@
 ;;}}}
 ;;{{{Interactive Commands:
 
-'(
-empv-display-current
-empv-enqueue
-empv-enqueue-last
-empv-enqueue-next
-empv-exit
-empv-pause
-empv-play
-empv-play-audio
-empv-play-directory
-empv-play-file
-empv-play-radio
-empv-play-random-channel
-empv-play-video
-empv-playback-speed-down
-empv-playback-speed-up
-empv-playlist-clear
-empv-playlist-next
-empv-playlist-prev
-empv-playlist-select
-empv-playlist-shuffle
-empv-playtlist-save-to-file
-empv-resume
-empv-save-and-exit
-empv-seek
-empv-set-playback-speed
-empv-set-volume
-empv-start
-empv-volume-down
-empv-volume-up
-empv-youtube
-empv-youtube-last-results
-empv-youtube-playlist
-empv-youtube-results-copy-current
-empv-youtube-results-enqueue-current
-empv-youtube-results-inspect
-empv-youtube-results-mode
-empv-youtube-results-play-current
-empv-youtube-results-play-or-enqueue-current
-empv-youtube-results-show-comments
-empv-youtube-show-comments
-empv-youtube-show-current-comments
-empv-youtube-tabulated
-empv-youtube-tabulated-last-results
-)
-
-
 (cl-loop
   for f in 
   '(aempv-current-loop-off empv-current-loop-on
@@ -112,6 +65,10 @@ empv-youtube-tabulated-last-results
       (when (ems-interactive-p)
         (emacspeak-auditory-icon 'button)))))
 
+(defadvice empv-exit (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 
 ;;}}}
