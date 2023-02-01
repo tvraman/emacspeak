@@ -254,6 +254,7 @@ emacspeak-tab-bar.elc \
 emacspeak-table-ui.elc \
 emacspeak-table.elc \
 emacspeak-tabulate.elc \
+emacspeak-tabulated-list.elc \
 emacspeak-tar.elc \
 emacspeak-tcl.elc \
 emacspeak-tempo.elc \
