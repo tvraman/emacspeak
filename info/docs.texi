@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1178 commands and 147 options.
+This chapter documents a total of 1179 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -203,6 +203,7 @@ This chapter documents a total of 1178 commands and 147 options.
 * emacspeak-tide::Speech-enable TIDE.
 * emacspeak-todo-mode::speech-enable todo.
 * emacspeak-transient::TRANSIENT.
+* emacspeak-treesit::Speech-enable TREESIT.
 * emacspeak-twittering::
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::URI templates.
@@ -3654,6 +3655,17 @@ Speak current track.
 
 EMPV ==  Another Emacs Media Player
 Provides better Youtube integration
+
+@subsection Emacspeak-Empv Commands
+
+@subsubsection emacspeak-empv-this-title
+@deffn {Command} emacspeak-empv-this-title   
+@findex emacspeak-empv-this-title
+
+@format
+Speak title of current item
+@end format
+@end deffn
 
 @node emacspeak-enriched
 @section emacspeak-enriched
@@ -14818,6 +14830,12 @@ Next transient section.
 Previous transient section.
 @end format
 @end deffn
+
+@node emacspeak-treesit
+@section emacspeak-treesit
+
+TREESIT ==  Syntax Trees
+Speech-enable treesit navigation commands.
 
 @node emacspeak-twittering
 @section emacspeak-twittering

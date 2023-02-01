@@ -3447,7 +3447,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1178 commands and 147 options.
+   This chapter documents a total of 1179 commands and 147 options.
 
 * Menu:
 
@@ -3647,6 +3647,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-tide::Speech-enable TIDE.
 * emacspeak-todo-mode::speech-enable todo.
 * emacspeak-transient::TRANSIENT.
+* emacspeak-treesit::Speech-enable TREESIT.
 * emacspeak-twittering::
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::URI templates.
@@ -6585,6 +6586,16 @@ File: emacspeak.info,  Node: emacspeak-empv,  Next: emacspeak-enriched,  Prev: e
 
 EMPV == Another Emacs Media Player Provides better Youtube integration
 
+12.62.1 Emacspeak-Empv Commands
+-------------------------------
+
+12.62.1.1 emacspeak-empv-this-title
+...................................
+
+ -- Command: emacspeak-empv-this-title
+
+     Speak title of current item
+
 
 File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Prev: emacspeak-empv,  Up: Emacspeak Commands And Options
 
@@ -9119,12 +9130,4 @@ intermediate filters.
  -- Command: emacspeak-filtertext-revert
 
      Revert to original text.
-
-
-File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
-
-12.81 emacspeak-flycheck
-========================
-
-FLYCHECK == On-the-fly checking.
 
