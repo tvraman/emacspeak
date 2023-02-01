@@ -60,7 +60,7 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
-
+;;;###autoload
 (defun emacspeak-tabulated-list-speak-cell ()
   "Speak current cell."
   (interactive)
