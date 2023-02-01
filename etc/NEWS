@@ -14,6 +14,17 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 58 --- Emacspeak 58 User Visible Changes
 
 This version requires Emacs-29.
+
+** Speech-Enable ~empv~
+
+Module ~emacspeak-empv~ speech-enables  ~empv~ an Emacs MPV media
+front-end.
+
+** Speech-Enable Treesitter Navigation
+
+Module ~emacspeak-treesit~ speech-enables TreeSitter navigation where
+supported.
+
 ** Speech-Enable EXWM
 
 Emacs Window Manager --- ~exwm~ is speech-enabled by module
