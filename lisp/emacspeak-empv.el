@@ -102,7 +102,12 @@
      ("/" empv-seek)
      ("RET" empv-youtube-tabulated))
    do
-   (emacspeak-keymap-update empv-map b)))
+   (emacspeak-keymap-update empv-map b))
+  (map-keymap
+ (lambda (_key cmd)
+   (when (symbolp cmd)
+     (put cmd 'repeat-map 'empv-map)))
+ empv-map))
 
 (emacspeak-empv-setup)
 
