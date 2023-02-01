@@ -99,6 +99,7 @@
    for b in
    '(
      ("." emacspeak-empv-this-title)
+     ("/" empv-seek)
      ("RET" empv-youtube-tabulated))
    do
    (emacspeak-keymap-update empv-map b)))
