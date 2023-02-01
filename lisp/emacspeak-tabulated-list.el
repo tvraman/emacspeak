@@ -64,14 +64,14 @@
 (defun emacspeak-tabulated-list-speak-cell ()
   "Speak current cell."
   (interactive)
-  (cl-declare (tabulated-list-format tabulated-list-entries))
+  (cl-declare (tabulated-list-format))
   (unless (get-text-property (point) 'tabulated-list-column-name)
     (goto-char (next-single-property-change (point) 'tabulated-list-column-name)))
   (let* ((name (get-text-property (point) 'tabulated-list-column-name))
-         (pos (cl-position name tabulated-list-format
+         (col (cl-position name tabulated-list-format
                            :test #'string= :key #'car))
-         (entry (elt  (elt (cl-first tabulated-list-entries) 1) pos)))
-    (dtk-speak (concat name " " entry))))
+         (value (elt (tabulated-list-get-entry)  col)))
+    (dtk-speak (concat name " " value))))
 
 (cl-loop
  for f in 
@@ -84,6 +84,13 @@
        (emacspeak-auditory-icon 'select-objet)
        (emacspeak-tabulated-list-speak-cell)))))
 
+(defun emacspeak-tabulated-list-setup ()
+  "Setup Emacspeak"
+  (cl-declare (special tabulated-list-mode-map))
+  (define-key tabulated-list-mode-map "."
+    'emacspeak-tabulated-list-speak-cell))
+
+(emacspeak-tabulated-list-setup)
 ;;}}}
 (provide 'emacspeak-tabulated-list)
 ;;{{{ end of file
