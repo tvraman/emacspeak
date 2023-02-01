@@ -24,6 +24,10 @@ front-end.
 
 Module ~emacspeak-treesit~ speech-enables TreeSitter navigation where
 supported.
+** Speech-Enable Tabulated-List-Mode
+
+Module ~emacspeak-tabulated-list~ speech-enables
+~tabulated-list-mode~.
 
 ** Speech-Enable EXWM
 
