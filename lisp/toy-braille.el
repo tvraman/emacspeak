@@ -54,7 +54,7 @@
 ;;   http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
 ;;; Code:
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (defvar toy-braille-map
   '((?  . "⠀") (?. . "⠲") (?, . "⠐")

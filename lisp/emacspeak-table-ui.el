@@ -42,7 +42,7 @@
 
 ;;}}}
 ;;{{{ requires
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile
   (require 'derived))

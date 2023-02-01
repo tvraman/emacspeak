@@ -48,7 +48,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (require 'cl-extra)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)

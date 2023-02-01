@@ -72,7 +72,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 ;;}}}
 ;;{{{  state of auditory icons

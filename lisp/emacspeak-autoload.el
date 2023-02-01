@@ -36,7 +36,7 @@
 ;; generate autoloads for emacspeak
 ;;; Code:
 
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (defvar emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el"
                     (file-name-directory load-file-name))

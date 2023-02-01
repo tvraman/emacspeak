@@ -93,7 +93,7 @@
 ;;{{{  Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (require 'comint)
 (eval-when-compile (require 'derived))
 (require 'nvm "nvm" 'no-error)

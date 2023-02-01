@@ -54,7 +54,7 @@
 
 ;;}}}
 ;;{{{Load-path:
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string=)
 (require 'emacspeak-preamble)
 

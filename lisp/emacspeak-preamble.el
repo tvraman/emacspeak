@@ -40,7 +40,7 @@
 ;;}}}
 ;;{{{ Define Locations, Require modules
 
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
 

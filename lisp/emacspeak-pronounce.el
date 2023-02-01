@@ -60,7 +60,7 @@
 ;;}}}
 ;;{{{ required Modules:
 
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 (require 'emacspeak-sounds)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 ;;}}}
