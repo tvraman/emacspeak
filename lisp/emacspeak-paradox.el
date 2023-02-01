@@ -81,10 +81,7 @@
   (let* ((entry   (get-text-property (point) 'tabulated-list-entry))
          (name (aref entry 0))
          (desc (aref entry 5))
-         (stars (aref entry  4))
          (state (aref entry 2)))
-    (unless (zerop (length stars))
-      (setq stars (concat "stars: " stars)))
     (cond
      ((string= state "installed") (emacspeak-auditory-icon 'select-object))
      ((string= state "built-in") (emacspeak-auditory-icon 'mark-object))
@@ -92,7 +89,7 @@
      ((string= state "obsolete") (emacspeak-auditory-icon 'deselect-object))
      ((string= state "incompat") (emacspeak-auditory-icon 'alert-user))
      (t (emacspeak-auditory-icon 'item)))
-    (dtk-speak-and-echo  (concat name ": "desc stars))))
+    (dtk-speak-and-echo  (concat name ": "desc))))
 
 (defun emacspeak-paradox-mode-hook ()
   "Emacspeak setup hook for paradox-mode."
