@@ -73,9 +73,19 @@
 
 ;;}}}
 ;;{{{Setup:
-(cl-declaim (special empv-map))
-(global-set-key (ems-kbd "C-' m") empv-map)
+(defun emacspeak-empv-setup ()
+  "Emacspeak setup for empv."
+  (cl-declare (special empv-map))
+  (global-set-key (ems-kbd "C-' m") empv-map)
+  (cl-loop
+   for b in
+   '(
+     ("RET" empv-youtube-tabulated))
+   do
+   (emacspeak-keymap-update empv-map b))
+  )
 
+(emacspeak-empv-setup)
 ;;}}}
 ;;{{{ end of file
 
