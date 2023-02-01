@@ -78,20 +78,33 @@
 
 
 ;;}}}
+;;{{{Additional Commands:
+
+(defun emacspeak-empv-this-title ()
+  "Speak title of current item"
+  (interactive)
+  (dtk-stop)
+  (message "%s"
+           (cdr (assq 'title (empv-youtube-results--current-item)))))
+
+;;}}}
 ;;{{{Setup:
+
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
   (cl-declare (special empv-map))
   (global-set-key (ems-kbd "C-' m") empv-map)
+  (define-key empv-youtube-results-mode-map "." 'emacspeak-empv-this-title)
   (cl-loop
    for b in
    '(
+     ("." emacspeak-empv-this-title)
      ("RET" empv-youtube-tabulated))
    do
-   (emacspeak-keymap-update empv-map b))
-  )
+   (emacspeak-keymap-update empv-map b)))
 
 (emacspeak-empv-setup)
+
 ;;}}}
 ;;{{{ end of file
 
