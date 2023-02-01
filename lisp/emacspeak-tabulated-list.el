@@ -54,33 +54,35 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(let ((print-length 0)
-      (faces (emacspeak-wizards-enumerate-unmapped-faces "^tabulated-list"))
-      (start (point)))
-  (insert "\n\n(voice-setup-add-map \n'(\n")
-  (cl-loop for f in faces do 
-           (insert (format "(%s)\n" f)))
-  (insert "\n)\n)")
-  (goto-char start)
-  (backward-sexp)
-  (kill-sexp)
-  (goto-char (search-forward "("))
-  (indent-pp-sexp))
+(voice-setup-add-map 
+'(
+(tabulated-list-fake-header voice-bolden)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
-(let ((print-length nil)
-      (start (point))
-      (commands (emacspeak-wizards-enumerate-uncovered-commands "^tabulated-list")))
-  (insert "'(\n")
-  (cl-loop for c in commands do (insert (format "%s\n" c)))
-  (insert ")\n")
-  (goto-char start)
-  (backward-sexp)
-  (kill-sexp)
-  (goto-char (search-forward "("))
-  (indent-pp-sexp))
+(defun emacspeak-tabulated-list-speak-cell ()
+  "Speak current cell."
+  (interactive)
+  (cl-declare (tabulated-list-format tabulated-list-entries))
+  (let* ((name (get-text-property (point) 'tabulated-list-column-name))
+         (pos (cl-position name tabulated-list-format
+                           :test #'string= :key #'car))
+         (entry (elt  (elt tabulated-list-entries 1) pos)))
+    
+    (dtk-speak (concat name " " entry))))
+
+(cl-loop
+ for f in 
+ '(tabulated-list-next-column tabulated-list-previous-column)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-objet)
+       (message "%s"
+                (get-text-property (point) 'tabulated-list-column-name))))))
 
 ;;}}}
 (provide 'emacspeak-tabulated-list)
