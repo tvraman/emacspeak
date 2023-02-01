@@ -106,6 +106,7 @@
 (emacspeak-empv-setup)
 
 ;;}}}
+(provide 'emacspeak-empv)
 ;;{{{ end of file
 
 ;;; local variables:
