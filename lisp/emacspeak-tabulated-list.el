@@ -65,11 +65,12 @@
   "Speak current cell."
   (interactive)
   (cl-declare (tabulated-list-format tabulated-list-entries))
+  (unless (get-text-property (point) 'tabulated-list-column-name)
+    (goto-char (next-single-property-change (point) 'tabulated-list-column-name)))
   (let* ((name (get-text-property (point) 'tabulated-list-column-name))
          (pos (cl-position name tabulated-list-format
                            :test #'string= :key #'car))
-         (entry (elt  (elt tabulated-list-entries 1) pos)))
-    
+         (entry (elt  (elt (cl-first tabulated-list-entries) 1) pos)))
     (dtk-speak (concat name " " entry))))
 
 (cl-loop
@@ -81,8 +82,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-objet)
-       (message "%s"
-                (get-text-property (point) 'tabulated-list-column-name))))))
+       (emacspeak-tabulated-list-speak-cell)))))
 
 ;;}}}
 (provide 'emacspeak-tabulated-list)
