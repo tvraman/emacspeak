@@ -116,7 +116,8 @@ Produce timing information as the last step."
 (defun tvr-tabs ()
   "Set up  tab-bar"
   (tab-bar-rename-tab "Home")
-  (tab-bar-switch-to-tab "Books"))
+  (tab-bar-switch-to-tab "Books")
+  (tab-bar-switch-to-tab "Home"))
 
 ;;}}}
 ;;{{{Node/NVM Setup:
