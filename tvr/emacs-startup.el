@@ -226,7 +226,8 @@ Use Custom to customize where possible. "
   (cl-declare (special  tvr-libs emacspeak-soundscapes))
 ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
-  (load "emacspeak-mpv")
+  (load "mpv")
+  (load "empv")
   (tvr-customize) ;;; customizations
   (with-eval-after-load
     'yasnippet
