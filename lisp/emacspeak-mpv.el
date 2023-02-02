@@ -174,8 +174,6 @@
 
 
 (define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
-(global-set-key (kbd "s-;") emacspeak-mpv-keymap)
-
 (declare-function emacspeak-eww-read-url "emacspeak-eww" nil)
 
 (defun emacspeak-mpv-store-link ()
