@@ -281,7 +281,7 @@ configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory))
   (setenv "PULSE_SINK" "binaural")
   (unless (featurep 'emacspeak)
-    (tvr-time-load ;;; load emacspeak:
+    (tvr-time-load ; load emacspeak:
      (load ;; setenv EMACSPEAK_DIR if you want to load a different version
       (expand-file-name
        "lisp/emacspeak-setup"
