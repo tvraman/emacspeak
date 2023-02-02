@@ -83,13 +83,14 @@
          (desc (aref entry 5))
          (state (aref entry 2)))
     (cond
-      ((string= state "installed") (emacspeak-auditory-icon 'select-object))
-      ((string= state "built-in") (emacspeak-auditory-icon 'mark-object))
+      ((string= state "installed") (emacspeak-auditory-icon 'mark-object))
+      ((string= state "built-in") (emacspeak-auditory-icon 'select-object))
       ((string= state "dependency") (emacspeak-auditory-icon 'close-object))
       ((string= state "obsolete") (emacspeak-auditory-icon 'deselect-object))
-      ((string= state "incompat") (emacspeak-auditory-icon 'alert-user))
-      (t (emacspeak-auditory-icon 'item)))
-    (dtk-speak-and-echo  (concat name ": "desc))))
+      ((string= state "incompat") (emacspeak-auditory-icon 'alert-user)))
+    (dtk-speak-and-echo  (concat
+                          (propertize name 'personality voice-animate)
+                          "  "desc))))
 
 (defun emacspeak-paradox-mode-hook ()
   "Emacspeak setup hook for paradox-mode."
