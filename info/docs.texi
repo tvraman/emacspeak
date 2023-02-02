@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1179 commands and 147 options.
+This chapter documents a total of 1180 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -194,6 +194,7 @@ This chapter documents a total of 1179 commands and 147 options.
 * emacspeak-table::Table data model.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Handle table data.
+* emacspeak-tabulated-list::Speech-enable TABULATED-LIST.
 * emacspeak-tar::Speech enable Tar Mode.
 * emacspeak-tcl::Speech enable TCL.
 * emacspeak-tempo::Speech enable tempo.
@@ -11558,7 +11559,7 @@ custom option @code{emacspeak-play-program}.
 @subsection Emacspeak-Sounds Commands
 
 @subsubsection emacspeak-sounds-select-theme
-@deffn {Command} emacspeak-sounds-select-theme  (theme)
+@deffn {Command} emacspeak-sounds-select-theme  (&optional theme)
 @table @kbd
 @item C-e )
 @kindex C-e )
@@ -11571,7 +11572,7 @@ custom option @code{emacspeak-play-program}.
 @format
 Select theme for auditory icons.
 
-(fn THEME)
+(fn &optional THEME)
 @end format
 @end deffn
 
@@ -14404,6 +14405,24 @@ The processed  data is  presented using emacspeak table navigation.
 
 This module is a simple table recognizer.
 Can recognize the columns in tabulated output, e.g. ps, ls output
+
+@node emacspeak-tabulated-list
+@section emacspeak-tabulated-list
+
+TABULATED-LIST ==  tabulated list mode
+Speech-enable tabulated lists and provide commands for intelligent
+spoken output
+
+@subsection Emacspeak-Tabulated-List Commands
+
+@subsubsection emacspeak-tabulated-list-speak-cell
+@deffn {Command} emacspeak-tabulated-list-speak-cell   
+@findex emacspeak-tabulated-list-speak-cell
+
+@format
+Speak current cell.
+@end format
+@end deffn
 
 @node emacspeak-tar
 @section emacspeak-tar
