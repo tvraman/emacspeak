@@ -131,31 +131,18 @@ Do not set this by hand;
 
 (defun emacspeak-get-sound-filename (sound-name)
   "Get name of  file that produces  auditory icon SOUND-NAME."
-  (cl-declare (special emacspeak-sounds-themes-table
-                       emacspeak-sounds-current-theme))
+  (cl-declare (special emacspeak-sounds-current-theme))
   (let ((f
-         (expand-file-name
-          (format
-           "%s%s"
-           sound-name
-           (emacspeak-sounds-theme-get-ext emacspeak-sounds-current-theme))
-          emacspeak-sounds-current-theme)))
-    (cond
-     ((and
-       (string= emacspeak-play-program (executable-find "pactl"))
-       (or
-        (string=
-         emacspeak-sounds-current-theme
-         (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
-        (string=
-         emacspeak-sounds-current-theme
-         (expand-file-name "ogg-3d/" emacspeak-sounds-directory))))
-      (file-name-nondirectory f))
-     ((file-exists-p f) f)
-     (t
-      (let ((emacspeak-use-auditory-icons nil))
-        (message "Icon %s not defined." sound-name))
-      emacspeak-default-sound))))
+          (expand-file-name
+           (format
+            "%s%s"
+            sound-name
+            (emacspeak-sounds-theme-get-ext emacspeak-sounds-current-theme))
+           emacspeak-sounds-current-theme)))
+    (if (file-exists-p f)
+        (if (string= emacspeak-play-program (executable-find "pactl"))
+            (file-name-nondirectory f) f)
+        emacspeak-default-sound)))
 
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
