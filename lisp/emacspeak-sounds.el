@@ -105,7 +105,9 @@ Use Serve when working with remote speech servers.")
   "Name of current theme for auditory icons.
 Do not set this by hand;
 --use command \\[emacspeak-sounds-select-theme].")
+
 (cl-declaim (special emacspeak-sounds-directory))
+
 (defvar emacspeak-default-sound
   (expand-file-name "button.wav" emacspeak-sounds-current-theme)
   "Fallback icon.")
@@ -118,8 +120,8 @@ Do not set this by hand;
   "Define a sounds theme for auditory icons. "
   (cl-declare (special emacspeak-sounds-themes-table))
   (setq theme-name (intern theme-name))
-  (setf (gethash  theme-name emacspeak-sounds-themes-table)
-        file-ext))
+  (setf (gethash  theme-name emacspeak-sounds-themes-table) file-ext))
+
 (defun emacspeak-sounds-theme-get-ext (theme-name)
   "Retrieve filename extension for specified theme. "
   (cl-declare (special emacspeak-sounds-themes-table))
@@ -161,18 +163,20 @@ Do not set this by hand;
    ((emacspeak-sounds-theme-get-ext theme-name) t)
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
-   (t (error "Theme %s is missing its configuration file. "
-             theme-name))))
+   (t (error "Theme %s is missing its configuration file. " theme-name))))
 
 ;;;###autoload
-(defun emacspeak-sounds-select-theme  (theme)
+(defun emacspeak-sounds-select-theme  (&optional theme)
   "Select theme for auditory icons."
   (interactive
    (list
     (read-directory-name "Theme: " emacspeak-sounds-directory)))
   (cl-declare (special emacspeak-sounds-current-theme
                        emacspeak-sounds-themes-table
-                       emacspeak-play-program emacspeak-sounds-directory))
+                       emacspeak-play-program
+                       emacspeak-sounds-directory))
+  (or theme (setq theme emacspeak-sounds-current-theme))
+  (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme)
