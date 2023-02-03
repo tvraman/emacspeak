@@ -707,7 +707,7 @@
     ("b" sox-binaural)
     ("d" deadgrep)
     ("e" eww)
-    ("f" ffap)
+    ("f" find-file-in-project-by-selected)
     ("g" rg)
     ("l" eww-open-file)
     ("o" emacspeak-feeds-opml-display)

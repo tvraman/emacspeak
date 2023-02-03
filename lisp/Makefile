@@ -150,6 +150,7 @@ emacspeak-exwm.elc \
 emacspeak-extras.elc \
 emacspeak-feeds.elc \
 emacspeak-ffap.elc \
+emacspeak-ffip.elc \
 emacspeak-filtertext.elc \
 emacspeak-flycheck.elc \
 emacspeak-flymake.elc \
