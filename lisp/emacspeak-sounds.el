@@ -108,7 +108,7 @@ Do not set this by hand;
 
 (cl-declaim (special emacspeak-sounds-directory))
 
-(defvar emacspeak-default-sound
+(defvar emacspeak-sounds-default
   (expand-file-name "button.wav" emacspeak-sounds-current-theme)
   "Fallback icon.")
 
@@ -129,8 +129,9 @@ Do not set this by hand;
    (intern theme-name)
    emacspeak-sounds-themes-table))
 
-(defun emacspeak-get-sound-filename (sound-name)
-  "Get name of  file that produces  auditory icon SOUND-NAME."
+(defun emacspeak-sounds-get-file (sound-name)
+  "Get play arg  that produces  auditory icon SOUND-NAME.
+Fully qualified filename if using Alsa; basename if using pactl. "
   (cl-declare (special emacspeak-sounds-current-theme))
   (let ((f
           (expand-file-name
@@ -142,7 +143,7 @@ Do not set this by hand;
     (if (file-exists-p f)
         (if (string= emacspeak-play-program (executable-find "pactl"))
             (file-name-nondirectory f) f)
-        emacspeak-default-sound)))
+        emacspeak-sounds-default)))
 
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
@@ -228,7 +229,7 @@ Do not set this by hand;
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "a %s\n"
-                               (emacspeak-get-sound-filename sound-name))))
+                               (emacspeak-sounds-get-file sound-name))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
@@ -238,7 +239,7 @@ Do not set this by hand;
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "p %s\n"
-                               (emacspeak-get-sound-filename sound-name))))
+                               (emacspeak-sounds-get-file sound-name))))
 
 ;;}}}
 ;;{{{  Play an icon
@@ -257,10 +258,10 @@ Automatically set to `play-sample' if using pactl.")
         (start-process
          emacspeak-play-program nil emacspeak-play-program
          emacspeak-play-args
-         (emacspeak-get-sound-filename sound-name))
+         (emacspeak-sounds-get-file sound-name))
       (start-process
        emacspeak-play-program nil emacspeak-play-program
-       (emacspeak-get-sound-filename sound-name)))))
+       (emacspeak-sounds-get-file sound-name)))))
 
 (defvar emacspeak-sox (executable-find "sox")
   
