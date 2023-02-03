@@ -3233,7 +3233,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
      eww
 
 ‘f’
-     ffap
+     find-file-in-project-by-selected
 
 ‘g’
      rg
@@ -3530,6 +3530,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-exwm::Speech-enable EXWM.
 * emacspeak-feeds::Atom, RSS.
 * emacspeak-ffap::Speech-enable FFAP.
+* emacspeak-ffip::Speech-enable FFIP.
 * emacspeak-filtertext::filter text.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.
@@ -9071,7 +9072,7 @@ This module provides Feeds support for Emacspeak
      Default Value: ‘/home/raman/sourceforge/awesome-rss-feeds/’
 
 
-File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-filtertext,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
 
 12.79 emacspeak-ffap
 ====================
@@ -9079,9 +9080,17 @@ File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-filtertext,  Prev:
 FFAP == Find file at point and friends
 
 
-File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-flycheck,  Prev: emacspeak-ffap,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-ffip,  Next: emacspeak-filtertext,  Prev: emacspeak-ffap,  Up: Emacspeak Commands And Options
 
-12.80 emacspeak-filtertext
+12.80 emacspeak-ffip
+====================
+
+FFIP == find-file-in-project
+
+
+File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-flycheck,  Prev: emacspeak-ffip,  Up: Emacspeak Commands And Options
+
+12.81 emacspeak-filtertext
 ==========================
 
 It is often useful to view the results of filtering large amounts of
@@ -9094,10 +9103,10 @@ application of filters C: Provides commands for reverting to the
 original unfiltered text D: Provides commands for saving results from
 intermediate filters.
 
-12.80.1 Emacspeak-Filtertext Commands
+12.81.1 Emacspeak-Filtertext Commands
 -------------------------------------
 
-12.80.1.1 emacspeak-filtertext
+12.81.1.1 emacspeak-filtertext
 ..............................
 
  -- Command: emacspeak-filtertext (start end)
@@ -9108,7 +9117,7 @@ intermediate filters.
 
      (fn START END)
 
-12.80.1.2 emacspeak-filtertext-mode
+12.81.1.2 emacspeak-filtertext-mode
 ...................................
 
  -- Command: emacspeak-filtertext-mode
@@ -9125,7 +9134,7 @@ intermediate filters.
      this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final
      or penultimate step during initialization.
 
-12.80.1.3 emacspeak-filtertext-revert
+12.81.1.3 emacspeak-filtertext-revert
 .....................................
 
  -- Command: emacspeak-filtertext-revert

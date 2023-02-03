@@ -592,7 +592,7 @@
  eww
 
 @item f
- ffap
+ find-file-in-project-by-selected
 
 @item g
  rg
