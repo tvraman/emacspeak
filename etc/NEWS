@@ -28,6 +28,9 @@ supported.
 
 Module ~emacspeak-tabulated-list~ speech-enables
 ~tabulated-list-mode~.
+** Speech-Enable FFIP
+
+Speech-enable package ~find-file-in-project~.
 
 ** Speech-Enable EXWM
 
