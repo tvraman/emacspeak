@@ -393,8 +393,10 @@ proc clean {element} {
         regsub -all {[[:punct:]]} $element { `00 \0 `p10 }   element
     } else {
         regsub -all  {[*&()\"]} $element  {}   element
-        regsub -all { \-([[:digit:]]+\.[[:digit:]]+)} $element \
+        regsub -all { ?\-([[:digit:],]+\.[[:digit:]]+)} $element \
             { minus `p3 \1 } element
+        regsub -all { ?\$([[:digit:],]+\.[[:digit:]]+)} $element \
+            { dollars  `p3 \1   } element
         regsub -all {([[:alpha:]])([[:punct:]])+([[:alnum:]])} $element \
             {\1 `p1 \3} element
         regsub -all {``} $element { `ar } element
