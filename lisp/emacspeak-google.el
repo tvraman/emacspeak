@@ -713,13 +713,14 @@ which becomes buffer-local."
 
 
 ;;;###autoload
-(defun emacspeak-google-tts-line ()
+(defun emacspeak-google-tts-line (&optional lang)
   "TTS line using network TTS.
 Use default voice for buffer."
-  (interactive)
+  (interactive "P")
   (dtk-notify-say (format "%d" (line-number-at-pos (point))))
   (emacspeak-google-tts-region
-   (line-beginning-position) (line-end-position)))
+   (line-beginning-position) (line-end-position) lang))
+
 ;;;###autoload
 (defun emacspeak-google-tts-next-line ()
   "TTS next line using network TTS.
