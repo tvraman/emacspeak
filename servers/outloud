@@ -390,7 +390,7 @@ proc clean {element} {
         regsub -all --  {\(} $element { `00 left `00 paren } element
         regsub -all --  {\)} $element { `00 right `00 paren } element
         regsub -all --  {@} $element { `00 at } element
-        regsub -all {[[:punct:]]} $element { `00 \0} element
+        regsub -all {[[:punct:]]} $element { \0} element
     } else {
         regsub -all  {[*&()\"]} $element  {}   element
         regsub -all { ?\-([[:digit:],]+\.[[:digit:]]+)} $element \
