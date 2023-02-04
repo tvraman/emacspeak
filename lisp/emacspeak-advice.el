@@ -770,7 +770,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (setq emacspeak-lazy-message-time (current-time)
                emacspeak-last-message  m)
          ;;; so we really need to speak it
-         (tts-with-punctuations 'all
+         (tts-with-punctuations 'some
                                 (dtk-notify-speak m 'dont-log)))
        ad-return-value))))
 
