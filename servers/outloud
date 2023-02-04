@@ -383,8 +383,6 @@ synth "`vs$rate "
 
 proc clean {element} {
     global queue tts
-    regsub -all { ?\$([[:digit:],]+\.[[:digit:]]+)} $element \
-        { dollars  `p3 \1   } element
     if {[string match all $tts(punctuations)] } {
         regsub -all --  {\*} $element { `00 star } element
         regsub -all --  {-} $element { `00 dash } element
@@ -392,7 +390,7 @@ proc clean {element} {
         regsub -all --  {\(} $element { `00 left `00 paren } element
         regsub -all --  {\)} $element { `00 right `00 paren } element
         regsub -all --  {@} $element { `00 at } element
-        regsub -all {[[:punct:]]} $element { `00 \0 `p10 }   element
+        regsub -all {[[:punct:]]} $element { `00 \0} element
     } else {
         regsub -all  {[*&()\"]} $element  {}   element
         regsub -all { ?\-([[:digit:],]+\.[[:digit:]]+)} $element \
