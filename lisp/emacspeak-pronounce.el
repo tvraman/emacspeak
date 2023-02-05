@@ -957,6 +957,11 @@ Value returned is compatible with `encode-time'."
 
 ;;}}}
 ;;{{{Text Mode Pronunciations:
+(emacspeak-pronounce-add-dictionary-entry
+   'help-mode
+   emacspeak-pronounce-sha-checksum-pattern
+   (cons 're-search-forward
+         'emacspeak-pronounce-sha-checksum))
 
 (emacspeak-pronounce-add-dictionary-entry
  'text-mode
