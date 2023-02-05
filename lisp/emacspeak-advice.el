@@ -770,8 +770,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (setq emacspeak-lazy-message-time (current-time)
                emacspeak-last-message  m)
          ;;; so we really need to speak it
-         (tts-with-punctuations 'some
-                                (dtk-notify-speak m 'dont-log)))
+         (tts-with-punctuations 'all (dtk-notify-speak m 'dont-log)))
        ad-return-value))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
@@ -856,9 +855,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
         (emacspeak-auditory-icon 'char)
         (setq emacspeak-last-message prompt)
         (setq emacspeak-read-char-prompt-cache prompt)
-        (tts-with-punctuations
-         'all
-         (dtk-notify-speak (or prompt "key"))))))))
+        (tts-with-punctuations 'all (dtk-notify-speak (or prompt "key"))))))))
 
 (defadvice read-char-choice (before emacspeak pre act comp)
   "Speak the prompt. "
@@ -883,9 +880,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak completion."
      (when (ems-interactive-p)
-       (tts-with-punctuations 'all
-                              (accept-process-output)
-                              (dtk-speak dabbrev--last-expansion))))))
+       (accept-process-output)
+       (tts-with-punctuations 'all (dtk-speak dabbrev--last-expansion))))))
 
 (voice-setup-add-map
  '(
@@ -911,9 +907,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
           ad-do-it
           (if (> (point) prior)
               (tts-with-punctuations
-               'all
-               (dtk-speak (buffer-substring (point) prior)))
-            (emacspeak-speak-completions-if-available)))))
+               'all (dtk-speak (buffer-substring (point) prior)))
+              (emacspeak-speak-completions-if-available)))))
       (t ad-do-it))
      ad-return-value)))
 
@@ -2095,10 +2090,10 @@ Produce an auditory icon if possible."
      "(yes or no) " " y/n ")
     (emacspeak-pronounce-toggle-use-of-dictionaries t)
     (when minibuffer-default (emacspeak-auditory-icon 'help))
+    (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      default-directory "")
     (tts-with-punctuations
      'all
-     (emacspeak-pronounce-add-buffer-local-dictionary-entry
-      default-directory "")
      (dtk-notify-speak
       (concat
        (buffer-string)
@@ -2612,8 +2607,7 @@ Produce an auditory icon if possible."
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (if (> (point) prior)
-        (tts-with-punctuations 'all
-                               (emacspeak-speak-rest-of-buffer))
+        (tts-with-punctuations 'all (emacspeak-speak-rest-of-buffer))
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
@@ -2685,6 +2679,19 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
+;;}}}
+;;{{{Battery:
+(defadvice battery (around emacspeak pre act comp)
+  "speak."
+  (cond
+    ((ems-interactive-p)
+     (ems-with-messages-silenced
+      ad-do-it
+      (tts-with-punctuations 'some (dtk-speak ad-return-value))))
+    (t ad-do-it))
+  ad-return-value)
+
 
 ;;}}}
 (provide 'emacspeak-advice)
