@@ -2,7 +2,7 @@
 # E-Mac-Speak
 # Emacspeak on Mac.
 
-__author__ = "David Tseng, Bart Bunting"
+__author__ = "David Tseng, Bart Bunting, Robert Melton"
 
 import aifc
 import io
@@ -29,7 +29,7 @@ enableSox = False
 try:
     import pysox
 
-    enableSox &= True
+    enableSox = True
 except:
     enableSox = False
 
@@ -223,6 +223,7 @@ speechSynthesizer = NSSpeechSynthesizer.alloc().init()
 speechDelegate = ServerDelegate.alloc().init()
 speechSynthesizer.setRate_(ttsState["speechRate"])
 speechSynthesizer.setDelegate_(speechDelegate)
+audioIconPlayer = NSSound.alloc().retain()
 textClipPlayer = NSSound.alloc().retain()
 textClipPlayerDelegate = ServerDelegate.alloc().init()
 textClipPlayer.setDelegate_(textClipPlayerDelegate)
@@ -360,7 +361,13 @@ class _ProtocolHandler:
         writeDebugLog(6, "Auditory icon " + args + "\n")
         if args:
             try:
-                NSSound.alloc().initWithContentsOfFile_byReference_(args, True).play()
+                if audioIconPlayer.isPlaying():
+                    audioIconPlayer.stop()
+            except:
+                pass
+
+            try:
+                audioIconPlayer.initWithContentsOfFile_byReference_(args, True).play()
             except:
                 pass
 
@@ -403,6 +410,8 @@ class _ProtocolHandler:
         speechSynthesizer.setDelegate_(speechDelegate)
 
         textClipPlayer.stop()
+        audioIconPlayer.stop()
+
         del speechQueue[:]
         self.isProcessing = False
 
@@ -750,7 +759,7 @@ def processSpeechQueue():
             inStream.close()
             outStream.close()
             textClipPlayer.initWithContentsOfFile_byReference_(
-                "/tmp/soxSpeechOut.aiff", False
+                "/tmp/soxSpeechOut.aiff", True
             ).play()
 
 
