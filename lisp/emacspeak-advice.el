@@ -2695,6 +2695,23 @@ Produce an auditory icon if possible."
 
 
 ;;}}}
+;;{{{emacs lisp mode:
+
+(add-hook
+ 'emacs-lisp-mode-hook
+ #'(lambda ()
+     (setq mode-name
+           '("ELisp"
+             (lexical-binding (:propertize ":l"
+                               help-echo "Using lexical-binding mode")
+              (:propertize ":d"
+               help-echo "Using old dynamic scoping mode
+mouse-1: Enable lexical-binding mode"
+               face warning mouse-face mode-line-highlight
+               local-map
+               (keymap (mode-line keymap (mouse-1 . elisp-enable-lexical-binding)))))))))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
