@@ -2702,9 +2702,11 @@ Produce an auditory icon if possible."
  #'(lambda ()
      (setq mode-name
            '("ELisp"
-             (lexical-binding (:propertize ":l"
-                               help-echo "Using lexical-binding mode")
+             (lexical-binding
+              (:propertize ":l"
+               'personality 'voice-smoothen help-echo "Using lexical-binding mode")
               (:propertize ":d"
+               'personality 'voice-smoothen
                help-echo "Using old dynamic scoping mode
 mouse-1: Enable lexical-binding mode"
                face warning mouse-face mode-line-highlight
