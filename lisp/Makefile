@@ -106,6 +106,7 @@ emacspeak-cider.elc \
 emacspeak-ciel.elc \
 emacspeak-clojure.elc \
 emacspeak-cmuscheme.elc \
+emacspeak-combobulate.elc \
 emacspeak-comint.elc \
 emacspeak-company.elc \
 emacspeak-compile.elc \
