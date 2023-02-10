@@ -132,13 +132,15 @@
    ("s" light-set "set")
    ("g" light-get "Get")
    ("t" emacspeak-hydra-toggle-talkative)
-   ("<print>" light-black "black")
-   ("s-." light-black "black")
-   ("0" light-black "black")
-   ("1" light-white  "white")
+   ("<print>" light-black "black" :color blue)
+   ("s-." light-black "black" :color blue)
+   ("." light-black "black" :color blue)
+   ("0" light-black "black" :color blue)
+   ("1" light-white  "white" :color blue)
    ("d" light-decrement "dimmer")
    ("i" light-increment "brighter")
    ("SPC" light-increment "brighter")))
+
 (global-set-key (ems-kbd "s-.") 'emacspeak-muggles-brightness/body)
 
 ;;}}}
