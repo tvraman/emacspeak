@@ -138,29 +138,30 @@
   ("d" light-decrement "dimmer")
   ("i" light-increment "brighter")
   ("SPC" light-increment "brighter")))
+(global-set-key (ems-kbd "s-.") 'emacspeak-muggles-brightness/body)
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
 (with-eval-after-load "org"
   (define-key
-   org-mode-map (ems-kbd "C-c t")
-   (defhydra emacspeak-muggles-org-table
-             (:body-pre
-              (progn
-                (emacspeak-hydra-body-pre "Org Table UI")
-                (when hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
-              :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-             "Org Table UI"
-             ("?"(emacspeak-hydra-self-help "emacspeak-muggles-org-table"))
-             ("j" org-table-next-row)
-             ("k" org-table-previous-row)
-             ("h" org-table-previous-field)
-             ("l" org-table-next-field)
-             ("SPC"emacspeak-org-table-speak-current-element)
-             ("."emacspeak-org-table-speak-coordinates)
-             ("b"emacspeak-org-table-speak-both-headers-and-element)
-             ("r"emacspeak-org-table-speak-row-header-and-element)
-             ("c"emacspeak-org-table-speak-column-header-and-element))))
+      org-mode-map (ems-kbd "C-c t")
+    (defhydra emacspeak-muggles-org-table
+        (:body-pre
+         (progn
+           (emacspeak-hydra-body-pre "Org Table UI")
+           (when hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
+         :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+      "Org Table UI"
+      ("?"(emacspeak-hydra-self-help "emacspeak-muggles-org-table"))
+      ("j" org-table-next-row)
+      ("k" org-table-previous-row)
+      ("h" org-table-previous-field)
+      ("l" org-table-next-field)
+      ("SPC"emacspeak-org-table-speak-current-element)
+      ("."emacspeak-org-table-speak-coordinates)
+      ("b"emacspeak-org-table-speak-both-headers-and-element)
+      ("r"emacspeak-org-table-speak-row-header-and-element)
+      ("c"emacspeak-org-table-speak-column-header-and-element))))
 
 ;;}}}
 ;;{{{ HideShow:
