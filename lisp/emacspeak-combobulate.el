@@ -38,7 +38,9 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; COMBOBULATE: Navigate, Manipulate code with  tree-sitter concrete-tree;
+;;; COMBOBULATE: Navigate, Manipulate code with  tree-sitter's
+;; concrete-tree;
+;; https://github.com/mickeynp/combobulate.git (push)
 
 ;;; Code:
 
