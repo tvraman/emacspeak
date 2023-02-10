@@ -109,7 +109,7 @@ combobulate-vanish-node
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-auditory-icon 'select-object)
        (emacspeak-combobulate-speak-line)))))
 
 ;;}}}
