@@ -28,6 +28,11 @@ supported.
 
 Module ~emacspeak-tabulated-list~ speech-enables
 ~tabulated-list-mode~.
+* Speech-Enable Tree-Sitter Navigation
+
+Speech-enable =combobulate=, a package that enables consistent
+tree-sitter based code navigation. See https://github.com/mickeynp/combobulate.git (push)
+
 ** Speech-Enable FFIP
 
 Speech-enable package ~find-file-in-project~.
