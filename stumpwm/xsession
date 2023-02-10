@@ -4,12 +4,12 @@ export XLIB_SKIP_ARGB_VISUALS=1
 # one-time action for 4k display:
 xrandr --output eDP-1 --mode 1680x1050 
 xset dpms 0 0 0
-setxkbmap -option ctrl:nocaps #-option compose:rctrl
 xmodmap $HOME/.xmodmap 
+setxkbmap -option ctrl:nocaps #-option compose:rctrl
 pidof ibus-daemon && pkill ibus-daemon
 
 xrdb -merge $HOME/.Xresources &
-xterm  -title Retriever &
+xterm  -title Retriever -fullscreen &
 export LISP=sbcl
 
 #pidof ssh-agent && pkill ssh-agent
@@ -22,6 +22,6 @@ light -S 5
 mplayer -really-quiet   /home/raman/emacs/lisp/emacspeak/sounds/prompts/launch-wm.mp3 & 2>&1 > /dev/null
 espeak-ng "Launching Window Manager" &
 ~/.fehbg & # wallpaper 
-#ssh-agent dbus-launch --exit-with-session /usr/local/bin/stumpwm
 #ssh-agent dbus-launch --exit-with-session /usr/bin/gnome-session
-ssh-agent dbus-launch --exit-with-session /usr/local/bin/emacs
+ssh-agent dbus-launch --exit-with-session /usr/local/bin/stumpwm
+#ssh-agent dbus-launch --exit-with-session /usr/local/bin/emacs
