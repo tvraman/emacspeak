@@ -412,11 +412,10 @@ command."
 To leave, press \\[keyboard-quit]."
   (interactive)
   (ems-with-messages-silenced
-   (let ((continue t)
-         (dtk-stop-immediately nil))
+   (let ((continue t))
      (while continue
             (call-interactively 'describe-key-briefly)
-            (sit-for 1)
+            (sit-for 4)
             (when (and (numberp last-input-event)
                        (= last-input-event 7))
               (setq continue nil)))
