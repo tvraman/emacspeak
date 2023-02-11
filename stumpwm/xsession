@@ -21,7 +21,8 @@ ${HOME}/bin/export_x_info &
 light -S 5
 mplayer -really-quiet   /home/raman/emacs/lisp/emacspeak/sounds/prompts/launch-wm.mp3 & 2>&1 > /dev/null
 espeak-ng "Launching Window Manager" &
-~/.fehbg & # wallpaper 
+~/.fehbg & # wallpaper
+/home/raman/emacs/lisp/emacspeak/tvr/xcape.sh &
 #ssh-agent dbus-launch --exit-with-session /usr/bin/gnome-session
 ssh-agent dbus-launch --exit-with-session /usr/local/bin/stumpwm
 #ssh-agent dbus-launch --exit-with-session /usr/local/bin/emacs
