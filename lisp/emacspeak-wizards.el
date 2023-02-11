@@ -3013,7 +3013,10 @@ personality at point. "
   (interactive "P")
   (if arg
       (forward-word arg)
-      (forward-word 1)))
+      (forward-word 1))
+  (when (called-interactively-p 'interactive)
+    (let ((emacspeak-show-point  t))
+      (emacspeak-speak-line))))
 
 ;;;###autoload
 (defun emacspeak-wizards-comma-at-end-of-word ()
