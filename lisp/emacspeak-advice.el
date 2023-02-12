@@ -809,6 +809,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (defun emacspeak-error-handler (data context _calling-function)
   "Emacspeak custom error handler."
+  (dtk-stop)
   (emacspeak-auditory-icon 'warn-user)
   (message "%s %s"
            (or context "")
