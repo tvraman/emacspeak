@@ -9,6 +9,9 @@ TM=250 #timeout in ms for keyup
 
 KEYS="Shift_L=Escape;\
 Shift_R=Escape;\
+Super_L=Control_L|c;\
+Alt_L=Control_L|x;\
+Alt_R=Control_L|x;\
 Control_R=Control_L|e;\
 Control_L=Control_L|e"
 pidof xcape && kill -9 `pidof xcape`
