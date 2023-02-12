@@ -312,6 +312,22 @@ the kill ring as well."
    (t (message "No recent message."))))
 
 ;;}}}
+;;{{{Setup:
+
+(defun emacspeak-jabber-setup ()
+  "Initial jabber setup."
+  (cl-declare (special emacspeak-personal-keymap))
+  (cl-loop 
+   for b in
+   '(
+     ("r" jabber-activity-switch-to)
+     ("j" emacspeak-jabber-popup-roster)
+     ("SPC" emacspeak-jabber-speak-recent-message))
+   do
+   (define-key emacspeak-personal-keymap (cl-first b) (cl-second b))))
+
+(cl-eval-when '(load) (emacspeak-jabber-setup))
+;;}}}
 (provide 'emacspeak-jabber)
 ;;{{{ end of file
 
