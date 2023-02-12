@@ -245,6 +245,7 @@
 (cl-loop
  for binding in
  '(
+   ("<XF86WakeUp>" keyboard-quit)
    ("!" emacspeak-speak-run-shell-command)
    ("#" emacspeak-gridtext)
    ("$" flyspell-mode)
