@@ -5,7 +5,7 @@
 #Shift_L gives open paren
 #Shift_R gives Escape
 
-TM=150 #timeout in ms for keyup
+TM=250 #timeout in ms for keyup
 
 KEYS="Shift_L=Escape;\
 Shift_R=Escape;\
