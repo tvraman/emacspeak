@@ -2,12 +2,13 @@
 
 #XCape ==xcape -- reassign modifier keys etc.
 #Control by itself gives emacspeak modifier.
-#Shift_L gives open paren
-#Shift_R gives Escape
+# See forthcoming blog article for rationale.
+
+
 
 TM=250 #timeout in ms for keyup
 
-KEYS="Shift_L=Escape;\
+KEYS="Shift_L=Control_L|s;\
 Shift_R=Escape;\
 Super_L=Control_L|c;\
 Alt_L=Control_L|x;\
