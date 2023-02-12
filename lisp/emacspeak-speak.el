@@ -1629,7 +1629,7 @@ Displays name of current buffer.")
        (emacspeak-auditory-icon 'item)
        (when (> window-count 1) (emacspeak--sox-multiwindow))
        (dtk-speak (format-mode-line header-line-format))))
-    (t (emacspeak-speak-time))))
+    (t (dtk-speak (format-time-string " %H:%M ")))))
 
 (defun emacspeak-toggle-header-line ()
   "Toggle Emacspeak's default header line."
