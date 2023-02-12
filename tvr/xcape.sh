@@ -8,8 +8,9 @@
 
 TM=250 #timeout in ms for keyup
 
-KEYS="Shift_L=Control_L|s;\
-Shift_R=Escape;\
+KEYS="\
+Shift_R=Control_L|r;\
+Shift_L=Control_L|s;\
 Super_L=Control_L|c;\
 Alt_L=Control_L|x;\
 Alt_R=Control_L|x;\
