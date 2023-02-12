@@ -288,7 +288,7 @@
    ("C-j" emacspeak-hide-speak-block-sans-prefix)
    ("C-k" browse-kill-ring)
    ("C-l" what-line)
-   ("C-m"  emacspeak-speak-continuously)
+   ("C-m"  emacspeak-websearch-google)
    ("C-o" emacspeak-ocr)
    ("C-q" emacspeak-toggle-inaudible-or-comint-autospeak)
    ("C-s" tts-restart)
