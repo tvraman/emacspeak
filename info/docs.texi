@@ -42,6 +42,7 @@ This chapter documents a total of 1180 commands and 147 options.
 * emacspeak-ciel::Speech-enable CIEL.
 * emacspeak-clojure::Speech-enable CLOJURE.
 * emacspeak-cmuscheme::CMUScheme.
+* emacspeak-combobulate::Speech-enable COMBOBULATE.
 * emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY.
 * emacspeak-compile::Speech enable compile.
@@ -2770,6 +2771,13 @@ CLOJURE-mode: Specialized mode for Clojure programming.
 @section emacspeak-cmuscheme
 
 speech-enable scheme support
+
+@node emacspeak-combobulate
+@section emacspeak-combobulate
+
+COMBOBULATE: Navigate, Manipulate code with  tree-sitter's
+concrete-tree;
+https://github.com/mickeynp/combobulate.git (push)
 
 @node emacspeak-comint
 @section emacspeak-comint
@@ -7413,7 +7421,7 @@ Change  web-history-visited in the currently active toolbelt.
 @end deffn
 
 @subsubsection emacspeak-google-tts-line
-@deffn {Command} emacspeak-google-tts-line   
+@deffn {Command} emacspeak-google-tts-line  (&optional lang)
 @table @kbd
 @item C-. g l
 @kindex C-. g l
@@ -7426,6 +7434,8 @@ Change  web-history-visited in the currently active toolbelt.
 @format
 TTS line using network TTS.
 Use default voice for buffer.
+
+(fn &optional LANG)
 @end format
 @end deffn
 
@@ -7923,13 +7933,6 @@ the kill ring as well.
 
 @subsubsection emacspeak-jabber-popup-roster
 @deffn {Command} emacspeak-jabber-popup-roster   
-@table @kbd
-@item C-e x j
-@kindex C-e x j
-@item <fn> x j
-@kindex <fn> x j
-@end table
-
 @findex emacspeak-jabber-popup-roster
 
 @format
@@ -7939,13 +7942,6 @@ Pop to Jabber roster.
 
 @subsubsection emacspeak-jabber-speak-recent-message
 @deffn {Command} emacspeak-jabber-speak-recent-message   
-@table @kbd
-@item C-e x SPC
-@kindex C-e x SPC
-@item <fn> x SPC
-@kindex <fn> x SPC
-@end table
-
 @findex emacspeak-jabber-speak-recent-message
 
 @format
@@ -7993,7 +7989,7 @@ Note that the <fn> key found on laptops is denoted <fn>
 @defvar {User Option} emacspeak-alt-keys
 Alt key bindings. 
 
-Default Value: @code{@verb{|((, eldoc) (SPC emacspeak-eww-smart-tabs) (a emacspeak-feeds-atom-display) (b sox-binaural) (d deadgrep) (e eww) (f find-file-in-project-by-selected) (g rg) (l eww-open-file) (o emacspeak-feeds-opml-display) (p emacspeak-wizards-pdf-open) (q emacspeak-wizards-iex-show-price) (r emacspeak-feeds-rss-display) (s emacspeak-wizards-tune-in-radio-search) (t emacspeak-wizards-tune-in-radio-browse) (u emacspeak-m-player-url) (v visual-line-mode) (w define-word) (y emacspeak-m-player-youtube-player))|}}
+Default Value: @code{@verb{|((, eldoc) (SPC emacspeak-eww-smart-tabs) (a emacspeak-feeds-atom-display) (b sox-binaural) (d deadgrep) (e eww) (f ffip) (g rg) (l eww-open-file) (o emacspeak-feeds-opml-display) (p emacspeak-wizards-pdf-open) (q emacspeak-wizards-iex-show-price) (r emacspeak-feeds-rss-display) (s emacspeak-wizards-tune-in-radio-search) (t emacspeak-wizards-tune-in-radio-browse) (u emacspeak-m-player-url) (v visual-line-mode) (w define-word) (y emacspeak-m-player-youtube-player))|}}
 
 @end defvar
 
@@ -8028,7 +8024,7 @@ Default Value: @code{@verb{|nil|}}
 @defvar {User Option} emacspeak-personal-keys
 Key bindings for  C-e x. 
 
-Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (SPC emacspeak-jabber-speak-recent-message) (a emacspeak-wizards-alpha-vantage-quotes) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (j emacspeak-jabber-popup-roster) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (r jabber-activity-switch-to) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}}
+Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (a emacspeak-wizards-alpha-vantage-quotes) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}}
 
 @end defvar
 
@@ -9827,6 +9823,8 @@ example, Muggle @samp{ViewMode} binds @code{s} to this command.
 @subsubsection emacspeak-muggles-brightness/body
 @deffn {Command} emacspeak-muggles-brightness/body   
 @table @kbd
+@item s-.
+@kindex s-.
 @item <print>
 @kindex <print>
 @end table
@@ -9845,6 +9843,8 @@ The heads for the associated hydra are:
 "g":    ‘light-get’,
 "t":    ‘emacspeak-hydra-toggle-talkative’,
 "<print>":    ‘light-black’,
+"s-.":    ‘light-black’,
+".":    ‘light-black’,
 "0":    ‘light-black’,
 "1":    ‘light-white’,
 "d":    ‘light-decrement’,
@@ -12034,13 +12034,6 @@ Speak completions if available.
 
 @subsubsection emacspeak-speak-continuously
 @deffn {Command} emacspeak-speak-continuously   
-@table @kbd
-@item C-e RET
-@kindex C-e RET
-@item <fn> RET
-@kindex <fn> RET
-@end table
-
 @findex emacspeak-speak-continuously
 
 @format
@@ -15957,8 +15950,12 @@ Perform a CiteSeer search.
 @table @kbd
 @item C-e ?
 @kindex C-e ?
+@item C-e /
+@kindex C-e /
 @item <fn> ?
 @kindex <fn> ?
+@item <fn> /
+@kindex <fn> /
 @end table
 
 @findex emacspeak-websearch-dispatch
@@ -15983,6 +15980,13 @@ Perform a FolDoc search.
 
 @subsubsection emacspeak-websearch-google
 @deffn {Command} emacspeak-websearch-google  (query &optional flag)
+@table @kbd
+@item C-e RET
+@kindex C-e RET
+@item <fn> RET
+@kindex <fn> RET
+@end table
+
 @findex emacspeak-websearch-google
 
 @format
@@ -16672,10 +16676,10 @@ meaning of ‘next’.
 @subsubsection emacspeak-speak-this-buffer-other-window-display
 @deffn {Command} emacspeak-speak-this-buffer-other-window-display  (window)
 @table @kbd
-@item C-e /
-@kindex C-e /
-@item <fn> /
-@kindex <fn> /
+@item C-e C-/
+@kindex C-e C-/
+@item <fn> C-/
+@kindex <fn> C-/
 @end table
 
 @findex emacspeak-speak-this-buffer-other-window-display

@@ -34,7 +34,7 @@
  emacspeak-speak-windowful
 
 @item /
- emacspeak-speak-this-buffer-other-window-display
+ emacspeak-websearch-dispatch
 
 @item 0
  emacspeak-speak-predefined-window
@@ -160,7 +160,7 @@
  emacspeak-speak-rectangle
 
 @item RET
- emacspeak-speak-continuously
+ emacspeak-websearch-google
 
 @item SPC
  emacspeak-speak-header-line
@@ -592,7 +592,7 @@
  eww
 
 @item f
- find-file-in-project-by-selected
+ ffip
 
 @item g
  rg
@@ -684,9 +684,6 @@
 @item DEL
  desktop-clear
 
-@item SPC
- emacspeak-jabber-speak-recent-message
-
 @item a
  emacspeak-wizards-alpha-vantage-quotes
 
@@ -708,9 +705,6 @@
 @item i
  ibuffer
 
-@item j
- emacspeak-jabber-popup-roster
-
 @item l
  emacspeak-m-player-youtube-live
 
@@ -725,9 +719,6 @@
 
 @item q
  emacspeak-wizards-quote
-
-@item r
- jabber-activity-switch-to
 
 @item t
  emacspeak-speak-telephone-directory
