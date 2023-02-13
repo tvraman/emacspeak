@@ -46,11 +46,11 @@ result.
 
 * XCAPE: Turn Modifiers Into Buttons 
 
-I discovered  [[https://wiki.archlinux.org/title/Xcape][XCape]] a while ago, but had set it aside for /future/
+I discovered  [[https://wiki.archlinux.org/title/Xcape][xcape]] a while ago, but had set it aside for /future/
 exploration, the observations made in the previous section indicated
 that that time was now!
 
-So here is my [[https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh][XCape Setup]] and associated 
+So here is my [[https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh][xcape Setup]] and associated 
 [[https://github.com/tvraman/emacspeak/blob/master/stumpwm/xmodmap#L1][XModmap]] as of the time of writing:
 
 ** What  This Does:
@@ -71,7 +71,7 @@ So the bottom row of keys now look like this:
 | Key    | =C-e=  | =C-c= | =C-x= | Spacebar | =C-x= | =C-c= | =C-e=  |
 |--------+--------+-------+-------+----------+-------+-------+--------|
 
-Looking at the above, it's tempting to turn the=SpaceBar= into a
+Looking at the above, it's tempting to turn the =SpaceBar= into a
 modifier --- but I've resisted doing that for now.
 
 * Observations 
