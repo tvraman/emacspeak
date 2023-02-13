@@ -1,0 +1,103 @@
+* Executive Summary
+
+Describes customizations under X that makes my hands happier.
+Leverages features and (mis-features) of modern-day laptops to break
+old habits and reduce chording in common cases.
+
+* Background
+
+I have been using Emacs for 33 years now and  at this point, much of
+my Emacs usage is based on muscle memory. This has its good and bad points; the good ones are obvious; I
+dont need to think  about what keys I press. But it also has some
+downside; I likely press more keys than I ought to for the same
+result. 
+
+
+  1. I learn to use Emacs on a TTY (text console) and all my habits
+    are driven by the keys available on a terminal.
+  2. Under X you have more keys available, but I resisted running X
+     until around 2008.
+  3. Now, I almost never run Emacs on a TTY, except when I need to
+     rescue a broken X setup.
+  4. after turning =caps_lock= to =Control= I forgot about the other
+     modifier keys; I press =Esc= for Meta.
+  5. I also defined =C-;= and friends as additional Emacs prefix keys.
+  6. The above saves your hands because you dont chord using the
+     modifier keys on the bottom row.
+  7. But  a negative consequence is that you  waste 6 modifier  keys on a laptop where
+     keys are in short supply.
+
+* Leveraging Current Keyboard 
+
+  - The motivation to leverage the laptop keyboard is higher now, since
+    with the arrival of the pandemic, that has been  my primary (only) machine.
+  - I can chord without thinking of it using the modified =caps_lock=
+    as =Control=.
+   But I also noticed that I *choard a lot*.
+  - Chords I use most often:
+    - =C-e= --- Emacspeak prefix
+    - =C-s= and =C-r= --- Isearch
+    - =C-c= and =C-x= ---  emacs command prefix.
+  - Looking at the bottom row of the laptop keyboard, there are three
+   modifier keys to either side of the spacebar. 
+  - Adding  the left and right
+   =Shift= modifiers gives 8 keys that could potentially do something
+   useful when not used as a modifier key.
+
+* XCAPE: Turn Modifiers Into Buttons 
+
+I discovered  [[https://wiki.archlinux.org/title/Xcape][XCape]] a while ago, but had set it aside for /future/
+exploration, the observations made in the previous section indicated
+that that time was now!
+
+So here is my [[https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh][XCape Setup]] and associated 
+[[https://github.com/tvraman/emacspeak/blob/master/stumpwm/xmodmap#L1][XModmap]] as of the time of writing:
+
+** What  This Does:
+
+  1. =Control= by itself sends =C-e=
+  2. =Super= by itself sends =C-c=
+  3. =Alt= by itself sends =C-x=
+  4. =Shift_l= by itself sends =C-s=
+  5. =Shift_R= by itself sends =C-r=
+
+Note that the =XModmap= file does the work of changing the =<print>=
+key on my laptop to be =Super_L= for symmetry.
+So the bottom row of keys now look like this:
+
+
+|--------+--------+-------+-------+----------+-------+-------+--------|
+| Modifier | Control | Super | Alt    | Spacebar | Alt    | Super | Control |
+| Key    | =C-e=  | =C-c= | =C-x= | Spacebar | =C-x= | =C-c= | =C-e=  |
+|--------+--------+-------+-------+----------+-------+-------+--------|
+
+Looking at the above, it's tempting to turn the=SpaceBar= into a
+modifier --- but I've resisted doing that for now.
+
+* Observations 
+
+  1. A week later, I'm slowly retraining my muscle memory --- I use
+     the new affordances described here about 25% of the time.
+  2. I find myself using the new feature in the second half of the day
+     when my hands are more tired.
+  3. The effect of /thinking/ before /pressing/ a key reminds me of
+     the time I learn to use /dvorak/ for text input; I still do so
+     sometimes to give my hands a break.
+  4. The new mappings give some surprizing results /e.g./ =alt=
+     =shift= saves the buffer, but buyer beware, =alt= =super= quits Emacs.
+  5. Am sure more muscle memory will emerge for  oft-repeated tasks.
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Enhance Emacs Ergonomics Under X:  Happy Hands!
+#+date: <2023-02-13 Mon>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.1)
+#+cite_export:
