@@ -126,11 +126,23 @@
 @item C-q
  emacspeak-toggle-inaudible-or-comint-autospeak
 
+@item C-r
+ restart-emacs
+
 @item C-s
  tts-restart
 
 @item C-u
  emacspeak-feeds-browse
+
+@item RET
+ emacspeak-websearch-google
+
+@item TAB
+ emacspeak-open-info
+
+@item f
+ emacspeak-speak-buffer-filename
 
 @item C-v
  view-mode
@@ -159,17 +171,11 @@
 @item R
  emacspeak-speak-rectangle
 
-@item RET
- emacspeak-websearch-google
-
 @item SPC
  emacspeak-speak-header-line
 
 @item T
  emacspeak-view-emacspeak-tips
-
-@item TAB
- emacspeak-open-info
 
 @item V
  emacspeak-speak-version
@@ -200,9 +206,6 @@
 
 @item e
  end-of-line
-
-@item f
- emacspeak-speak-buffer-filename
 
 @item g
  emacspeak-epub
@@ -431,9 +434,6 @@
 
 @item C-l
  emacspeak-librivox
-
-@item C-o
- eaf-open-browser
 
 @item C-t
  emacspeak-wizards-tramp-open-location

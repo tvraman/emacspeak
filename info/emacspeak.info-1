@@ -2767,11 +2767,23 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-q’
      emacspeak-toggle-inaudible-or-comint-autospeak
 
+‘C-r’
+     restart-emacs
+
 ‘C-s’
      tts-restart
 
 ‘C-u’
      emacspeak-feeds-browse
+
+‘RET’
+     emacspeak-websearch-google
+
+‘TAB’
+     emacspeak-open-info
+
+‘f’
+     emacspeak-speak-buffer-filename
 
 ‘C-v’
      view-mode
@@ -2800,17 +2812,11 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘R’
      emacspeak-speak-rectangle
 
-‘RET’
-     emacspeak-websearch-google
-
 ‘SPC’
      emacspeak-speak-header-line
 
 ‘T’
      emacspeak-view-emacspeak-tips
-
-‘TAB’
-     emacspeak-open-info
 
 ‘V’
      emacspeak-speak-version
@@ -2841,9 +2847,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘e’
      end-of-line
-
-‘f’
-     emacspeak-speak-buffer-filename
 
 ‘g’
      emacspeak-epub
@@ -3072,9 +3075,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 
 ‘C-l’
      emacspeak-librivox
-
-‘C-o’
-     eaf-open-browser
 
 ‘C-t’
      emacspeak-wizards-tramp-open-location
