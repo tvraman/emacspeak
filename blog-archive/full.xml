@@ -35,7 +35,257 @@
   </openSearch:startIndex>
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
-
+<entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-852290279019377777</id><published>
+      2023-02-13T10:39:00.000-08:00
+    </published>
+    <updated>2023-02-13T10:39:10.299-08:00</updated><title type='text'>
+      Enhance Emacs Ergonomics Under X: Happy Hands!
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Enhance Emacs Ergonomics Under X:
+      Happy Hands!&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-orgd3a7c7e&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd3a7c7e&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Describes customizations under X that makes my hands happier.
+      Leverages features and (mis-features) of modern-day laptops to break
+      old habits and reduce chording in common cases.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orge47f788&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orge47f788&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt;
+      Background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      I have been using Emacs for 33 years now and at this point, much of
+      my
+      Emacs usage is based on muscle memory. This has its good and bad
+      points; the good ones are obvious; I dont need to think about what
+      keys I press. But it also has some downside; I likely press more
+      keysthan I ought to for a given result.
+      &lt;/p&gt;
+      
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;I learn to use Emacs on a TTY (text console) and all my
+      habits
+      are driven by the keys available on a terminal.&lt;/li&gt;
+      &lt;li&gt;Under X you have more keys available, but I resisted
+      running X
+      until around 2008.&lt;/li&gt;
+      &lt;li&gt;Now, I almost never run Emacs on a TTY, except when I need
+      to
+      rescue a broken X setup.&lt;/li&gt;
+      &lt;li&gt;after turning &lt;code&gt;caps_lock&lt;/code&gt; to
+      &lt;code&gt;Control&lt;/code&gt; I forgot about the other
+      modifier keys; I press &lt;code&gt;Escape&lt;/code&gt; for
+      Meta.&lt;/li&gt;
+      &lt;li&gt;I also defined &lt;code&gt;C-;&lt;/code&gt; and friends as
+      additional Emacs prefix keys.&lt;/li&gt;
+      &lt;li&gt;The above saves your hands because you dont chord using
+      themodifier keys on the bottom row.&lt;/li&gt;
+      &lt;li&gt;But  you waste 6 modifier keys on a
+      laptop where keys are in short supply.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgffeebe8&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgffeebe8&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Leveraging
+      Current Keyboard&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;The motivation to leverage the laptop keyboard is higher
+      now,
+      since with the arrival of the pandemic, that has been my primary
+      (only) machine.&lt;/li&gt;
+      &lt;li&gt;I can chord without thinking  using the modified
+      &lt;code&gt;caps_lock&lt;/code&gt;
+      as &lt;code&gt;Control&lt;/code&gt;.  But I also noticed that I
+      &lt;b&gt;choard a lot&lt;/b&gt;.&lt;/li&gt;
+      &lt;li&gt;Chords I use most often as a prefix:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;&lt;code&gt;C-e&lt;/code&gt; &amp;#x2014; Emacspeak
+      prefix,&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;C-s&lt;/code&gt; and
+      &lt;code&gt;C-r&lt;/code&gt; &amp;#x2014; Isearch,&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;C-c&lt;/code&gt; and
+      &lt;code&gt;C-x&lt;/code&gt; &amp;#x2014; emacs command
+      prefix.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      &lt;li&gt;Looking at the bottom row of the laptop keyboard, there
+      are three
+      modifier keys to either side of the spacebar.&lt;/li&gt;
+      &lt;li&gt;Adding the left and right &lt;code&gt;Shift&lt;/code&gt;
+      modifiers gives 8 keys that
+      could  do something useful when not used as a modifier
+      key.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org637e065&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org637e065&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; XCAPE: Turn
+      Modifiers Into Buttons&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;p&gt;
+      I discovered &lt;a
+      
+      href=&quot;https://wiki.archlinux.org/title/Xcape&quot;&gt;xcape&lt;/a&gt; a while ago, but had set it aside for &lt;i&gt;future&lt;/i&gt;
+      exploration; The observations made in the previous section indicated
+      that that time was now!
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      So here is my &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh&quot;&gt;xcape Setup&lt;/a&gt; and associated &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/stumpwm/xmodmap#L1&quot;&gt;XModmap&lt;/a&gt; as of the time of
+      writing:
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org2373c1b&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org2373c1b&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;4.1.&lt;/span&gt; What This
+      Does:&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-1&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;code&gt;Control&lt;/code&gt; by itself sends
+      &lt;code&gt;C-e&lt;/code&gt;,&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Super&lt;/code&gt; by itself sends
+      &lt;code&gt;C-c&lt;/code&gt;,&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Alt&lt;/code&gt; by itself sends
+      &lt;code&gt;C-x&lt;/code&gt;,&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Shift_l&lt;/code&gt; by itself sends
+      &lt;code&gt;C-s&lt;/code&gt;,&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Shift_R&lt;/code&gt; by itself sends
+      &lt;code&gt;C-r&lt;/code&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      Note that the &lt;code&gt;XModmap&lt;/code&gt; file does the work of
+      changing the &lt;code&gt;&amp;lt;print&amp;gt;&lt;/code&gt;
+      key on my laptop to be &lt;code&gt;Super_L&lt;/code&gt; for
+      symmetry.  So the bottom row of
+      keys now look like this:
+      &lt;/p&gt;
+      
+      
+      &lt;table border=&quot;2&quot; cellspacing=&quot;0&quot;
+      cellpadding=&quot;6&quot; rules=&quot;groups&quot;
+      frame=&quot;hsides&quot;&gt;
+      
+      
+      &lt;colgroup&gt;
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      
+      &lt;col  class=&quot;org-left&quot; /&gt;
+      &lt;/colgroup&gt;
+      &lt;tbody&gt;
+      &lt;tr&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Modifier&lt;/td&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Control&lt;/td&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Super&lt;/td&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Alt&lt;/td&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Spacebar&lt;/td&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Alt&lt;/td&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Super&lt;/td&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Control&lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+      &lt;td class=&quot;org-left&quot;&gt;Key&lt;/td&gt;
+      &lt;td
+      
+      class=&quot;org-left&quot;&gt;&lt;code&gt;C-e&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;org-left&quot;&gt;&lt;code&gt;C-c&lt;/code&gt;&lt;/td&gt;
+      &lt;td
+      
+      class=&quot;org-left&quot;&gt;&lt;code&gt;C-x&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;org-left&quot;&gt;Spacebar&lt;/td&gt;
+      &lt;td
+      
+      class=&quot;org-left&quot;&gt;&lt;code&gt;C-x&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;org-left&quot;&gt;&lt;code&gt;C-c&lt;/code&gt;&lt;/td&gt;
+      &lt;td
+      
+      class=&quot;org-left&quot;&gt;&lt;code&gt;C-e&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+      &lt;/table&gt;
+      
+      &lt;p&gt;
+      Looking at the above, it&#39;s tempting to turn the
+      &lt;code&gt;SpaceBar&lt;/code&gt; into a
+      modifier &amp;#x2014; but I&#39;ve resisted doing that for now.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orge777534&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orge777534&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt;
+      Observations&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;A week later, I&#39;m slowly retraining my muscle memory
+      &amp;#x2014; I use
+      the new affordances described here about 25% of the time.&lt;/li&gt;
+      &lt;li&gt;I find myself using the new features in the second half of
+      the day
+      when my hands are more tired.&lt;/li&gt;
+      &lt;li&gt;The effect of &lt;i&gt;thinking&lt;/i&gt; before
+      &lt;i&gt;pressing&lt;/i&gt; a key reminds me of
+      the time I learn to use &lt;i&gt;dvorak&lt;/i&gt; for text input; I
+      still do so
+      sometimes to give my hands a break.&lt;/li&gt;
+      &lt;li&gt;The new mappings give some surprizing results
+      &lt;i&gt;e.g.&lt;/i&gt;, &lt;code&gt;alt&lt;/code&gt;
+      &lt;code&gt;shift&lt;/code&gt; saves the buffer, but buyer beware,
+      &lt;code&gt;alt&lt;/code&gt; &lt;code&gt;super&lt;/code&gt; quits
+      Emacs.&lt;/li&gt;
+      &lt;li&gt;Am sure more muscle memory will emerge for oft-repeated
+      tasks.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/852290279019377777'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/852290279019377777'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html' title='Enhance Emacs Ergonomics Under X: Happy Hands!'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
 <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-6246951876659327244</id><published>
       2022-12-21T07:09:00.002-08:00
