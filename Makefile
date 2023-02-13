@@ -101,6 +101,7 @@ q:
 
 i:
 	cd info && make
+	cd ../gh-pages-emacspeak  && make
 qq:
 	make -s q 2>&1 |grep -v Loading  
 
