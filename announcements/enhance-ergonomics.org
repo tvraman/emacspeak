@@ -35,8 +35,8 @@ result.
     as =Control=.
    But I also noticed that I *choard a lot*.
   - Chords I use most often:
-    - =C-e= --- Emacspeak prefix
-    - =C-s= and =C-r= --- Isearch
+    - =C-e= --- Emacspeak prefix,
+    - =C-s= and =C-r= --- Isearch,
     - =C-c= and =C-x= ---  emacs command prefix.
   - Looking at the bottom row of the laptop keyboard, there are three
    modifier keys to either side of the spacebar. 
@@ -47,7 +47,7 @@ result.
 * XCAPE: Turn Modifiers Into Buttons 
 
 I discovered  [[https://wiki.archlinux.org/title/Xcape][xcape]] a while ago, but had set it aside for /future/
-exploration, the observations made in the previous section indicated
+exploration; The observations made in the previous section indicated
 that that time was now!
 
 So here is my [[https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh][xcape Setup]] and associated 
