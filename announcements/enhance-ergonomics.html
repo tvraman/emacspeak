@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-02-13 Mon 08:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Enhance Emacs Ergonomics Under X:  Happy Hands!</title>
+<meta name="author" content="T.V Raman" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Enhance Emacs Ergonomics Under X:  Happy Hands!</h1>
+<div id="outline-container-org585004e" class="outline-2">
+<h2 id="org585004e"><span class="section-number-2">1.</span> Executive Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Describes customizations under X that makes my hands happier.
+Leverages features and (mis-features) of modern-day laptops to break
+old habits and reduce chording in common cases.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2ad70af" class="outline-2">
+<h2 id="org2ad70af"><span class="section-number-2">2.</span> Background</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I have been using Emacs for 33 years now and  at this point, much of
+my Emacs usage is based on muscle memory. This has its good and bad points; the good ones are obvious; I
+dont need to think  about what keys I press. But it also has some
+downside:
+</p>
+
+<ol class="org-ol">
+<li>I learn to use Emacs on a TTY (text console) and all my habits
+are driven by the keys available on a terminal.</li>
+<li>Under X you have more keys available, but I resisted running X
+until around 2008.</li>
+<li>Now, I almost never run Emacs on a TTY, except when I need to
+rescue a broken X setup.</li>
+<li>after turning <code>caps_lock</code> to <code>Control</code> I forgot about the other
+modifier keys; I press <code>Esc</code> for Meta.</li>
+<li>I also defined <code>C-;</code> and friends as additional Emacs prefix keys.</li>
+<li>The above saves your hands because you dont chord using the
+modifier keys on the bottom row.</li>
+<li>But  a negative consequence is to waste 6 modifier  keys on a laptop where
+keys are in short supply.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgbb57aad" class="outline-2">
+<h2 id="orgbb57aad"><span class="section-number-2">3.</span> Leveraging Current Keyboard</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>The motivation to leverage the laptop keyboard is higher now, since
+with the arrival of the pandemic, that has been  my primary (only) machine.</li>
+<li>I can chord without thinking of it using the modified <code>caps_lock</code>
+ as <code>Control</code>.
+But I also noticed that I <b>choard a lot</b>.</li>
+<li>Chords I use most often:
+<ul class="org-ul">
+<li><code>C-e</code> &#x2014; Emacspeak prefix</li>
+<li><code>C-s</code> and <code>C-r</code> &#x2014; Isearch</li>
+<li><code>C-c</code> and <code>C-x</code> &#x2014;  emacs command prefix.</li>
+</ul></li>
+<li>Looking at the bottom row of the laptop keyboard, there are three
+modifier keys to either side of the spacebar.</li>
+<li>Adding  the left and right
+<code>Shift</code> modifiers gives 8 keys that could potentially do something
+useful when not used as a modifier key.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb4430a3" class="outline-2">
+<h2 id="orgb4430a3"><span class="section-number-2">4.</span> XCAPE: Turn Modifiers Into Buttons</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+I discovered  <a href="https://wiki.archlinux.org/title/Xcape">XCape</a> a while ago, but had set it aside for <i>future</i>
+exploration, the observations made in the previous section indicated
+that that time was now!
+</p>
+
+<p>
+So here is my <a href="https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh">XCape Setup</a> and associated 
+<a href="https://github.com/tvraman/emacspeak/blob/master/stumpwm/xmodmap#L1">XModmap</a> as of the time of writing:
+</p>
+</div>
+
+<div id="outline-container-orgcf1e818" class="outline-3">
+<h3 id="orgcf1e818"><span class="section-number-3">4.1.</span> What  This Does:</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li><code>Control</code> by itself sends <code>C-e</code></li>
+<li><code>Super</code> by itself sends <code>C-c</code></li>
+<li><code>Alt</code> by itself sends <code>C-x</code></li>
+<li><code>Shift_l</code> by itself sends <code>C-s</code></li>
+<li><code>Shift_R</code> by itself sends <code>C-r</code></li>
+</ol>
+
+<p>
+Note that the <code>XModmap</code> file does the work of changing the <code>&lt;print&gt;</code>
+key on my laptop to be <code>Super_L</code> for symmetry.
+So the bottom row of keys now look like this:
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Modifier</td>
+<td class="org-left">Control</td>
+<td class="org-left">Super</td>
+<td class="org-left">Alt</td>
+<td class="org-left">Spacebar</td>
+<td class="org-left">Alt</td>
+<td class="org-left">Super</td>
+<td class="org-left">Control</td>
+</tr>
+
+<tr>
+<td class="org-left">Key</td>
+<td class="org-left"><code>C-e</code></td>
+<td class="org-left"><code>C-c</code></td>
+<td class="org-left"><code>C-x</code></td>
+<td class="org-left">Spacebar</td>
+<td class="org-left"><code>C-x</code></td>
+<td class="org-left"><code>C-c</code></td>
+<td class="org-left"><code>C-e</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Looking at the above, it's tempting to turn the=SpaceBar= into a
+modifier &#x2014; but I've resisted doing that for now.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1132043" class="outline-2">
+<h2 id="org1132043"><span class="section-number-2">5.</span> Observations</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li>A week later, I'm slowly retraining my muscle memory &#x2014; I use
+the new affordances described here about 25% of the time.</li>
+<li>I find myself using the new feature in the second half of the day
+when my hands are more tired.</li>
+<li>The effect of <i>thinking</i> before <i>pressing</i> a key reminds me of
+the time I learn to use <i>dvorak</i> for text input; I still do so
+sometimes to give my hands a beak.</li>
+<li>The new mappings give some surprizing results <i>e.g.</i> <code>alt</code>
+<code>shift</code> saves the buffer, but buyer beware, <code>alt</code> <code>super</code> quits Emacs.</li>
+<li>Am sure more muscle memory will emerge for  oft-repeated tasks.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-02-13 Mon 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2023-02-13 Mon 08:50</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
