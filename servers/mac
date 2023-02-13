@@ -60,7 +60,7 @@ if debugLevel > 0:
 
 # global speech rate
 ttsState["speechRate"] = 500
-ttsState["charFactor"] = 1.8
+ttsState["charFactor"] = 1.1
 ttsState["sayRate"] = round(ttsState["speechRate"] * ttsState["charFactor"])
 # set capitalize to off initially
 ttsState["capitalize"] = 0
