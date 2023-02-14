@@ -283,7 +283,7 @@
    ("C-b" emacspeak-bookshare)
    ("C-c" emacspeak-clipboard-copy)
    ("C-d" emacspeak-toggle-show-point)
-   ("C-e" end-of-line)
+   ("C-e" move-end-of-line)
    ("C-f" emacspeak-find-dired)
    ("f" emacspeak-speak-buffer-filename)
    ("C-i" emacspeak-open-info)

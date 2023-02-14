@@ -1775,9 +1775,7 @@ Produce an auditory icon if possible."
 
 (cl-loop
  for f in
- '(beginning-of-line end-of-line
-   move-beginning-of-line move-end-of-line
-   recenter-top-bottom recenter)
+ '(recenter-top-bottom recenter)
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
@@ -1793,6 +1791,7 @@ Produce an auditory icon if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "Icon."
      (when (ems-interactive-p)
+       (emacspeak-speak-line)
        (emacspeak-auditory-icon 'left)))))
 
 
@@ -1804,6 +1803,7 @@ Produce an auditory icon if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "Icon."
      (when (ems-interactive-p)
+       (emacspeak-speak-line)
        (emacspeak-auditory-icon 'right)))))
 
 
