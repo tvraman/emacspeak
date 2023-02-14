@@ -132,9 +132,6 @@
 @item C-s
  tts-restart
 
-@item C-u
- emacspeak-feeds-browse
-
 @item RET
  emacspeak-websearch-google
 
@@ -143,6 +140,9 @@
 
 @item f
  emacspeak-speak-buffer-filename
+
+@item C-u
+ emacspeak-feeds-browse
 
 @item C-v
  view-mode

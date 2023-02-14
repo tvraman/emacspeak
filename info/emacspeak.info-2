@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 12, 2023.
+last updated on February 13, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -4600,6 +4600,8 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-speak-continuously
+     ‘C-e C-<return>’
+     ‘<fn> C-<return>’
 
      Speak a buffer continuously.
      First prompts using the minibuffer for the kind of action to
@@ -5129,8 +5131,6 @@ of emacspeak from becoming dependent on the speech server modules
 .......................................
 
  -- Command: emacspeak-speak-skim-buffer
-     ‘C-e C-<return>’
-     ‘<fn> C-<return>’
 
      Skim the current buffer  a paragraph at a time.
 

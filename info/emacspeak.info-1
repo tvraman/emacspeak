@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 12, 2023.
+last updated on February 13, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2773,9 +2773,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-s’
      tts-restart
 
-‘C-u’
-     emacspeak-feeds-browse
-
 ‘RET’
      emacspeak-websearch-google
 
@@ -2784,6 +2781,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘f’
      emacspeak-speak-buffer-filename
+
+‘C-u’
+     emacspeak-feeds-browse
 
 ‘C-v’
      view-mode
