@@ -528,9 +528,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Speak word beingkilled."
   (when (ems-interactive-p)
     (save-excursion
-      (skip-syntax-forward " ")
-      (dtk-tone-deletion)
-      (emacspeak-speak-word 1))))
+     (skip-syntax-forward " ")
+     (dtk-tone-deletion)
+     (emacspeak-speak-word 1))))
 
 (defadvice backward-kill-word (before emacspeak pre act comp)
   "Speak word beingkilled."
@@ -1785,6 +1785,28 @@ Produce an auditory icon if possible."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
+
+(cl-loop
+ for f in 
+ '(beginning-of-line move-beginning-of-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'left)))))
+
+
+(cl-loop
+ for f in 
+ '(end-of-line move-end-of-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'right)))))
+
 
 ;;}}}
 ;;{{{ yanking and popping
