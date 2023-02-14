@@ -803,8 +803,8 @@
 (defun emacspeak-keymap-recover-eol ()
   "Recover EOL ."
   (cl-declare (special emacspeak-prefix))
-  (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
-  (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
+  (global-set-key (concat emacspeak-prefix "e") 'move-end-of-line)
+  (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'move-end-of-line))
 (add-hook 'after-change-major-mode-hook  'emacspeak-keymap-recover-eol)
 
 ;;}}}

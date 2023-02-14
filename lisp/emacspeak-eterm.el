@@ -211,7 +211,7 @@ in a non eterm buffer if executed via C-e C-e"
    ((or (eq major-mode 'term-mode)
         (eq major-mode 'tshell-mode))
     (term-send-raw))
-   ((= last-input-event 5) (call-interactively #'end-of-line))
+   ((= last-input-event 5) (call-interactively #'move-end-of-line))
    (t (beep))))
 
 (defun emacspeak-eterm-speak-cursor ()
