@@ -515,7 +515,7 @@
 (cl-loop
  for f in
  '(
-   org-occur org-beginning-of-line org-end-of-line
+   org-occur
    org-beginning-of-item org-beginning-of-item-list
    org-end-of-item org-end-of-item-list)
  do
@@ -524,6 +524,19 @@
      "speak."
      (when (ems-interactive-p) (emacspeak-speak-line)
            (emacspeak-auditory-icon 'select-object)))))
+
+(defadvice org-beginning-of-line (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'left)))
+
+
+(defadvice org-end-of-line (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'right)))
 
 ;;}}}
 ;;{{{ global input wizard
