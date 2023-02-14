@@ -112,8 +112,7 @@
    lispy-ace-char lispy-ace-subword lispy-move-up lispy-move-down lispy-undo
    lispy-right-nostring lispy-left lispy-right lispy-up lispy-down lispy-back
    lispy-different lispy-backward lispy-forward lispy-flow
-   lispy-to-defun lispy-beginning-of-defun
-   lispy-move-beginning-of-line lispy-move-end-of-line)
+   lispy-to-defun lispy-beginning-of-defun)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
@@ -138,6 +137,19 @@ Indicate  no movement if we did not move."
       (t ad-do-it))
      ad-return-value)))
 
+
+ 
+(defadvice lispy-move-beginning-of-line (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'left)))
+
+(defadvice lispy-move-beginning-of-line (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'right)))
 ;;}}}
 ;;{{{Advice Insertions:
 
