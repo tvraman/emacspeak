@@ -255,7 +255,7 @@
    ("." emacspeak-speak-windowful)
    ("(" amixer)
    (")" emacspeak-sounds-select-theme)
-   ("C-<return>" emacspeak-speak-skim-buffer)
+   ("C-<return>" emacspeak-speak-continuously)
    ("C-/" emacspeak-speak-this-buffer-other-window-display)
    ("/" emacspeak-websearch-dispatch)
    (":" emacspeak-m-player-shuffle)
