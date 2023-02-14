@@ -233,6 +233,8 @@ This moves them into the Spam folder."
     (lispy-mode 1)))
 (with-eval-after-load "lispy"
   (cl-declare (special lispy-mode-map lispy-mode-map-lispy))
+  (define-key lispy-mode-map (ems-kbd "C-a") 'move-beginning-of-line)
+  (define-key lispy-mode-map (concat emacspeak-prefix emacspeak-prefix) 'move-end-of-line)
   (define-key lispy-mode-map (ems-kbd "C-,") nil)
   (define-key lispy-mode-map-lispy (ems-kbd "C-,") nil)
   (define-key lispy-mode-map (ems-kbd "C-<return>") 'complete)
