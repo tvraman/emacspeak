@@ -263,6 +263,8 @@
    ("<down>" emacspeak-read-next-line)
    ("<f11>" emacspeak-wizards-shell-toggle)
    ("<f1>" emacspeak-learn-emacs-mode)
+   ("<prior>" beginning-of-buffer)
+   ("<next>" end-of-buffer)
    ("<left>" emacspeak-speak-this-buffer-previous-display)
    ("<right>" emacspeak-speak-this-buffer-next-display)
    ("<up>"  emacspeak-read-previous-line)
