@@ -1776,15 +1776,19 @@ Produce an auditory icon if possible."
 (cl-loop
  for f in
  '(beginning-of-line end-of-line
-                     move-beginning-of-line move-end-of-line
-                     recenter-top-bottom recenter)
+   move-beginning-of-line move-end-of-line
+   recenter-top-bottom recenter)
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
      "Speak line."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (unless ,
+           (memq f
+                 '(beginning-of-line end-of-line
+                   move-beginning-of-line move-end-of-line))
+         (emacspeak-auditory-icon 'select-object))))))
 
 (cl-loop
  for f in 
