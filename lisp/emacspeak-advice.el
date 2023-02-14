@@ -1781,14 +1781,9 @@ Produce an auditory icon if possible."
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
-     "Speak line."
+     "Icon."
      (when (ems-interactive-p)
-       (emacspeak-speak-line)
-       (unless ,
-           (memq f
-                 '(beginning-of-line end-of-line
-                   move-beginning-of-line move-end-of-line))
-         (emacspeak-auditory-icon 'select-object))))))
+       (emacspeak-speak-line)))))
 
 (cl-loop
  for f in 
@@ -1796,7 +1791,7 @@ Produce an auditory icon if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "speak."
+     "Icon."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'left)))))
 
@@ -1807,7 +1802,7 @@ Produce an auditory icon if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "speak."
+     "Icon."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'right)))))
 
