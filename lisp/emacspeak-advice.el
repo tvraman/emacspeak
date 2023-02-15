@@ -319,6 +319,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      "Speak the line."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
+       (dtk-notify-speak
+        (propertize
+         (format "%s " (emacspeak-get-current-percentage-into-buffer))
+         'personality voice-smoothen))
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -416,8 +420,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (emacspeak-auditory-icon 'scroll)
        (dtk-speak (emacspeak-get-window-contents))
        (dtk-notify-speak
-       (format "%s "
-           (emacspeak-get-current-percentage-into-buffer)))))))
+        (propertize
+         (format "%s " (emacspeak-get-current-percentage-into-buffer))
+         'personality voice-smoothen))))))
 
 ;;}}}
 ;;{{{ Advise modify case commands to speak
