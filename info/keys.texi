@@ -106,7 +106,7 @@
  emacspeak-toggle-show-point
 
 @item C-e
- end-of-line
+ move-end-of-line
 
 @item C-f
  emacspeak-find-dired
@@ -205,7 +205,7 @@
  emacspeak-speak-char
 
 @item e
- end-of-line
+ move-end-of-line
 
 @item g
  emacspeak-epub

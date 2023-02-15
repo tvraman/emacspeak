@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 13, 2023.
+last updated on February 14, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2747,7 +2747,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
      emacspeak-toggle-show-point
 
 ‘C-e’
-     end-of-line
+     move-end-of-line
 
 ‘C-f’
      emacspeak-find-dired
@@ -2846,7 +2846,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
      emacspeak-speak-char
 
 ‘e’
-     end-of-line
+     move-end-of-line
 
 ‘g’
      emacspeak-epub
