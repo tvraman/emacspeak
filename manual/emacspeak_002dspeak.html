@@ -201,6 +201,8 @@
         <li><a href=
         "#emacspeak_002dspeak_002dother_002dbuffer">emacspeak-speak-other-buffer</a></li>
         <li><a href=
+        "#emacspeak_002dspeak_002dother_002dwindow">emacspeak-speak-other-window</a></li>
+        <li><a href=
         "#emacspeak_002dspeak_002doverlay_002dproperties">emacspeak-speak-overlay-properties</a></li>
         <li><a href=
         "#emacspeak_002dspeak_002dpage">emacspeak-speak-page</a></li>
@@ -242,6 +244,8 @@
         "#emacspeak_002dspeak_002dspaces_002dat_002dpoint">emacspeak-speak-spaces-at-point</a></li>
         <li><a href=
         "#emacspeak_002dspeak_002dspell_002dcurrent_002dword">emacspeak-speak-spell-current-word</a></li>
+        <li><a href=
+        "#emacspeak_002dspeak_002dthis_002dwindow">emacspeak-speak-this-window</a></li>
         <li><a href=
         "#emacspeak_002dspeak_002dtime">emacspeak-speak-time</a></li>
         <li><a href=
@@ -1893,8 +1897,37 @@ Useful to listen to a buffer without switching  contexts.
         </dl>
       </div>
       <div class="subsubsection" id=
-      "emacspeak_002dspeak_002doverlay_002dproperties">
+      "emacspeak_002dspeak_002dother_002dwindow">
         <h4 class="subsubsection">12.180.1.56
+        emacspeak-speak-other-window</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dspeak_002dother_002dwindow-1">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-speak-other-window</strong>
+          <a href=
+          '#index-emacspeak_002dspeak_002dother_002dwindow-1'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-2'><span><kbd>C-e 2</kbd>
+              <a href='#index-C_002de-2' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-2'><span><kbd>&lt;fn&gt;
+              2</kbd> <a href='#index-_003cfn_003e-2' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dspeak_002dother_002dwindow-2"></span>
+            <div class="format">
+              <pre class="format">Speak other window
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dspeak_002doverlay_002dproperties">
+        <h4 class="subsubsection">12.180.1.57
         emacspeak-speak-overlay-properties</h4>
         <dl class="def">
           <dt id=
@@ -1924,7 +1957,7 @@ Useful to listen to a buffer without switching  contexts.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dspeak_002dpage">
-        <h4 class="subsubsection">12.180.1.57
+        <h4 class="subsubsection">12.180.1.58
         emacspeak-speak-page</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dpage-1">
@@ -1957,7 +1990,7 @@ Negative prefix arg will read from start of current page to point.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dpage_002dinteractively">
-        <h4 class="subsubsection">12.180.1.58
+        <h4 class="subsubsection">12.180.1.59
         emacspeak-speak-page-interactively</h4>
         <dl class="def">
           <dt id=
@@ -1991,7 +2024,7 @@ any other key to speak entire page.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dparagraph">
-        <h4 class="subsubsection">12.180.1.59
+        <h4 class="subsubsection">12.180.1.60
         emacspeak-speak-paragraph</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dparagraph-1">
@@ -2023,7 +2056,7 @@ Negative prefix arg will read from start of current paragraph to point.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dparagraph_002dinteractively">
-        <h4 class="subsubsection">12.180.1.60
+        <h4 class="subsubsection">12.180.1.61
         emacspeak-speak-paragraph-interactively</h4>
         <dl class="def">
           <dt id=
@@ -2056,7 +2089,7 @@ any other key to speak entire paragraph.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dpersist_002dfilter_002dsettings">
-        <h4 class="subsubsection">12.180.1.61
+        <h4 class="subsubsection">12.180.1.62
         emacspeak-speak-persist-filter-settings</h4>
         <dl class="def">
           <dt id=
@@ -2080,7 +2113,7 @@ any other key to speak entire paragraph.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dpreceding_002dchar">
-        <h4 class="subsubsection">12.180.1.62
+        <h4 class="subsubsection">12.180.1.63
         emacspeak-speak-preceding-char</h4>
         <dl class="def">
           <dt id=
@@ -2102,7 +2135,7 @@ any other key to speak entire paragraph.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dpredefined_002dwindow">
-        <h4 class="subsubsection">12.180.1.63
+        <h4 class="subsubsection">12.180.1.64
         emacspeak-speak-predefined-window</h4>
         <dl class="def">
           <dt id=
@@ -2113,30 +2146,12 @@ any other key to speak entire paragraph.
           '#index-emacspeak_002dspeak_002dpredefined_002dwindow-1'
           class='copiable-anchor'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-2'><span><kbd>C-e 2</kbd>
-              <a href='#index-C_002de-2' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-1'><span><kbd>C-e 1</kbd>
-              <a href='#index-C_002de-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-0'><span><kbd>C-e 0</kbd>
-              <a href='#index-C_002de-0' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-2'><span><kbd>&lt;fn&gt;
-              2</kbd> <a href='#index-_003cfn_003e-2' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-1'><span><kbd>&lt;fn&gt;
-              1</kbd> <a href='#index-_003cfn_003e-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-0'><span><kbd>&lt;fn&gt;
-              0</kbd> <a href='#index-_003cfn_003e-0' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dspeak_002dpredefined_002dwindow-2"></span>
+            <span id=
+            "index-emacspeak_002dspeak_002dpredefined_002dwindow-2">
+            </span>
             <div class="format">
               <pre class=
-              "format">Speak one of the first 10 windows on the screen, 1 is current window.
+              "format">Speak one of the first 10 windows on the screen, 0 is current window.
 Speaks entire window irrespective of point.  Semantics of ‘other’
 is the same as for the Emacs builtin ‘other-window’.
 
@@ -2148,7 +2163,7 @@ is the same as for the Emacs builtin ‘other-window’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dprevious_002dfield">
-        <h4 class="subsubsection">12.180.1.64
+        <h4 class="subsubsection">12.180.1.65
         emacspeak-speak-previous-field</h4>
         <dl class="def">
           <dt id=
@@ -2171,7 +2186,7 @@ is the same as for the Emacs builtin ‘other-window’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002drange">
-        <h4 class="subsubsection">12.180.1.65
+        <h4 class="subsubsection">12.180.1.66
         emacspeak-speak-range</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002drange"><span class=
@@ -2194,7 +2209,7 @@ is the same as for the Emacs builtin ‘other-window’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002drectangle">
-        <h4 class="subsubsection">12.180.1.66
+        <h4 class="subsubsection">12.180.1.67
         emacspeak-speak-rectangle</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002drectangle-1">
@@ -2226,7 +2241,7 @@ program, arguments specify the START and END of the rectangle.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dregion">
-        <h4 class="subsubsection">12.180.1.67
+        <h4 class="subsubsection">12.180.1.68
         emacspeak-speak-region</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dregion-1">
@@ -2257,7 +2272,7 @@ program, arguments specify the START and END of the rectangle.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002drest_002dof_002dbuffer">
-        <h4 class="subsubsection">12.180.1.68
+        <h4 class="subsubsection">12.180.1.69
         emacspeak-speak-rest-of-buffer</h4>
         <dl class="def">
           <dt id=
@@ -2287,7 +2302,7 @@ program, arguments specify the START and END of the rectangle.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002drun_002dshell_002dcommand">
-        <h4 class="subsubsection">12.180.1.69
+        <h4 class="subsubsection">12.180.1.70
         emacspeak-speak-run-shell-command</h4>
         <dl class="def">
           <dt id=
@@ -2328,7 +2343,7 @@ normally bound to C-e M-i.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dseconds_002dsince_002depoch">
-        <h4 class="subsubsection">12.180.1.70
+        <h4 class="subsubsection">12.180.1.71
         emacspeak-speak-seconds-since-epoch</h4>
         <dl class="def">
           <dt id=
@@ -2354,7 +2369,7 @@ normally bound to C-e M-i.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dsentence">
-        <h4 class="subsubsection">12.180.1.71
+        <h4 class="subsubsection">12.180.1.72
         emacspeak-speak-sentence</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dsentence">
@@ -2378,7 +2393,7 @@ Negative prefix arg speaks from start of sentence to point.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dspeak_002dsexp">
-        <h4 class="subsubsection">12.180.1.72
+        <h4 class="subsubsection">12.180.1.73
         emacspeak-speak-sexp</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dsexp-1">
@@ -2411,7 +2426,7 @@ Negative prefix arg speaks from start of sexp to point.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dsexp_002dinteractively">
-        <h4 class="subsubsection">12.180.1.73
+        <h4 class="subsubsection">12.180.1.74
         emacspeak-speak-sexp-interactively</h4>
         <dl class="def">
           <dt id=
@@ -2438,7 +2453,7 @@ any other key to speak entire sexp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dskim_002dbuffer">
-        <h4 class="subsubsection">12.180.1.74
+        <h4 class="subsubsection">12.180.1.75
         emacspeak-speak-skim-buffer</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dskim_002dbuffer">
@@ -2459,7 +2474,7 @@ any other key to speak entire sexp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dspaces_002dat_002dpoint">
-        <h4 class="subsubsection">12.180.1.75
+        <h4 class="subsubsection">12.180.1.76
         emacspeak-speak-spaces-at-point</h4>
         <dl class="def">
           <dt id=
@@ -2498,7 +2513,7 @@ any other key to speak entire sexp.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dspell_002dcurrent_002dword">
-        <h4 class="subsubsection">12.180.1.76
+        <h4 class="subsubsection">12.180.1.77
         emacspeak-speak-spell-current-word</h4>
         <dl class="def">
           <dt id=
@@ -2519,8 +2534,35 @@ any other key to speak entire sexp.
           </dd>
         </dl>
       </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dspeak_002dthis_002dwindow">
+        <h4 class="subsubsection">12.180.1.78
+        emacspeak-speak-this-window</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dspeak_002dthis_002dwindow">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-speak-this-window</strong>
+          <a href='#index-emacspeak_002dspeak_002dthis_002dwindow'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002de-1'><span><kbd>C-e 1</kbd>
+              <a href='#index-C_002de-1' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-1'><span><kbd>&lt;fn&gt;
+              1</kbd> <a href='#index-_003cfn_003e-1' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dspeak_002dthis_002dwindow-1"></span>
+            <div class="format">
+              <pre class="format">Speak current window.
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
       <div class="subsubsection" id="emacspeak_002dspeak_002dtime">
-        <h4 class="subsubsection">12.180.1.77
+        <h4 class="subsubsection">12.180.1.79
         emacspeak-speak-time</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dtime-1">
@@ -2554,7 +2596,7 @@ Second interactive prefix sets clock to new timezone.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dversion">
-        <h4 class="subsubsection">12.180.1.78
+        <h4 class="subsubsection">12.180.1.80
         emacspeak-speak-version</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dversion-1">
@@ -2586,7 +2628,7 @@ Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dvisual_002dline">
-        <h4 class="subsubsection">12.180.1.79
+        <h4 class="subsubsection">12.180.1.81
         emacspeak-speak-visual-line</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dvisual_002dline">
@@ -2607,7 +2649,7 @@ Cues the start of a physical line with auditory icon ‘left’.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dvoice_002dannotate_002dparagraphs">
-        <h4 class="subsubsection">12.180.1.80
+        <h4 class="subsubsection">12.180.1.82
         emacspeak-speak-voice-annotate-paragraphs</h4>
         <dl class="def">
           <dt id=
@@ -2633,7 +2675,7 @@ Useful to do this before you listen to an entire buffer.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dwhich_002dfunction">
-        <h4 class="subsubsection">12.180.1.81
+        <h4 class="subsubsection">12.180.1.83
         emacspeak-speak-which-function</h4>
         <dl class="def">
           <dt id=
@@ -2665,7 +2707,7 @@ which-func without turning that mode on.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dwindow_002dinformation">
-        <h4 class="subsubsection">12.180.1.82
+        <h4 class="subsubsection">12.180.1.84
         emacspeak-speak-window-information</h4>
         <dl class="def">
           <dt id=
@@ -2696,7 +2738,7 @@ which-func without turning that mode on.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dwindowful">
-        <h4 class="subsubsection">12.180.1.83
+        <h4 class="subsubsection">12.180.1.85
         emacspeak-speak-windowful</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dwindowful">
@@ -2724,7 +2766,7 @@ which-func without turning that mode on.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dspeak_002dword">
-        <h4 class="subsubsection">12.180.1.84
+        <h4 class="subsubsection">12.180.1.86
         emacspeak-speak-word</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dword-1">
@@ -2758,7 +2800,7 @@ spelled out  instead of being spoken.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dword_002dinteractively">
-        <h4 class="subsubsection">12.180.1.85
+        <h4 class="subsubsection">12.180.1.87
         emacspeak-speak-word-interactively</h4>
         <dl class="def">
           <dt id=
@@ -2785,7 +2827,7 @@ any other key to speak entire word.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dspeak_002dworld_002dclock">
-        <h4 class="subsubsection">12.180.1.86
+        <h4 class="subsubsection">12.180.1.88
         emacspeak-speak-world-clock</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dspeak_002dworld_002dclock">
@@ -2810,7 +2852,7 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dswitch_002dto_002dreference_002dbuffer">
-        <h4 class="subsubsection">12.180.1.87
+        <h4 class="subsubsection">12.180.1.89
         emacspeak-switch-to-reference-buffer</h4>
         <dl class="def">
           <dt id=
@@ -2834,7 +2876,7 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002daction_002dmode">
-        <h4 class="subsubsection">12.180.1.88
+        <h4 class="subsubsection">12.180.1.90
         emacspeak-toggle-action-mode</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dtoggle_002daction_002dmode">
@@ -2858,7 +2900,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002daudio_002dindentation">
-        <h4 class="subsubsection">12.180.1.89
+        <h4 class="subsubsection">12.180.1.91
         emacspeak-toggle-audio-indentation</h4>
         <dl class="def">
           <dt id=
@@ -2894,7 +2936,7 @@ results in the number of initial spaces being spoken.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dcharacter_002decho">
-        <h4 class="subsubsection">12.180.1.90
+        <h4 class="subsubsection">12.180.1.92
         emacspeak-toggle-character-echo</h4>
         <dl class="def">
           <dt id=
@@ -2926,7 +2968,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dheader_002dline">
-        <h4 class="subsubsection">12.180.1.91
+        <h4 class="subsubsection">12.180.1.93
         emacspeak-toggle-header-line</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dtoggle_002dheader_002dline">
@@ -2947,7 +2989,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dline_002decho">
-        <h4 class="subsubsection">12.180.1.92
+        <h4 class="subsubsection">12.180.1.94
         emacspeak-toggle-line-echo</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dtoggle_002dline_002decho-1">
@@ -2978,7 +3020,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dmail_002dalert">
-        <h4 class="subsubsection">12.180.1.93
+        <h4 class="subsubsection">12.180.1.95
         emacspeak-toggle-mail-alert</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dtoggle_002dmail_002dalert">
@@ -3012,7 +3054,7 @@ indicating the arrival  of new mail when displaying the mode line.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dshow_002dpoint">
-        <h4 class="subsubsection">12.180.1.94
+        <h4 class="subsubsection">12.180.1.96
         emacspeak-toggle-show-point</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dtoggle_002dshow_002dpoint">
@@ -3044,7 +3086,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dspeak_002dline_002dinvert_002dfilter">
-        <h4 class="subsubsection">12.180.1.95
+        <h4 class="subsubsection">12.180.1.97
         emacspeak-toggle-speak-line-invert-filter</h4>
         <dl class="def">
           <dt id=
@@ -3077,7 +3119,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dspeak_002dmessages">
-        <h4 class="subsubsection">12.180.1.96
+        <h4 class="subsubsection">12.180.1.98
         emacspeak-toggle-speak-messages</h4>
         <dl class="def">
           <dt id=
@@ -3107,7 +3149,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dtoggle_002dword_002decho">
-        <h4 class="subsubsection">12.180.1.97
+        <h4 class="subsubsection">12.180.1.99
         emacspeak-toggle-word-echo</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dtoggle_002dword_002decho-1">
@@ -3138,7 +3180,7 @@ current local  value to the result.
       </div>
       <div class="subsubsection" id=
       "emacspeak_002dview_002dnotifications">
-        <h4 class="subsubsection">12.180.1.98
+        <h4 class="subsubsection">12.180.1.100
         emacspeak-view-notifications</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dview_002dnotifications">
@@ -3168,7 +3210,7 @@ current local  value to the result.
         </dl>
       </div>
       <div class="subsubsection" id="emacspeak_002dzap_002dtts">
-        <h4 class="subsubsection">12.180.1.99
+        <h4 class="subsubsection">12.180.1.101
         emacspeak-zap-tts</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dzap_002dtts"><span class=
