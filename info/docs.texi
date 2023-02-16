@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1180 commands and 147 options.
+This chapter documents a total of 1182 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -12487,6 +12487,22 @@ Useful to listen to a buffer without switching  contexts.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-other-window
+@deffn {Command} emacspeak-speak-other-window   
+@table @kbd
+@item C-e 2
+@kindex C-e 2
+@item <fn> 2
+@kindex <fn> 2
+@end table
+
+@findex emacspeak-speak-other-window
+
+@format
+Speak other window
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-overlay-properties
 @deffn {Command} emacspeak-speak-overlay-properties   
 @table @kbd
@@ -12601,25 +12617,10 @@ Speak character before point.
 
 @subsubsection emacspeak-speak-predefined-window
 @deffn {Command} emacspeak-speak-predefined-window  (&optional arg)
-@table @kbd
-@item C-e 2
-@kindex C-e 2
-@item C-e 1
-@kindex C-e 1
-@item C-e 0
-@kindex C-e 0
-@item <fn> 2
-@kindex <fn> 2
-@item <fn> 1
-@kindex <fn> 1
-@item <fn> 0
-@kindex <fn> 0
-@end table
-
 @findex emacspeak-speak-predefined-window
 
 @format
-Speak one of the first 10 windows on the screen, 1 is current window.
+Speak one of the first 10 windows on the screen, 0 is current window.
 Speaks entire window irrespective of point.  Semantics of ‘other’
 is the same as for the Emacs builtin ‘other-window’.
 
@@ -12818,6 +12819,22 @@ Speak the white space at point.
 
 @format
 Spell word at  point.
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-this-window
+@deffn {Command} emacspeak-speak-this-window   
+@table @kbd
+@item C-e 1
+@kindex C-e 1
+@item <fn> 1
+@kindex <fn> 1
+@end table
+
+@findex emacspeak-speak-this-window
+
+@format
+Speak current window.
 @end format
 @end deffn
 

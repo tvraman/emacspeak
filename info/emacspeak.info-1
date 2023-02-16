@@ -2677,14 +2677,11 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘/’
      emacspeak-websearch-dispatch
 
-‘0’
-     emacspeak-speak-predefined-window
-
 ‘1’
-     emacspeak-speak-predefined-window
+     emacspeak-speak-this-window
 
 ‘2’
-     emacspeak-speak-predefined-window
+     emacspeak-speak-other-window
 
 ‘:’
      emacspeak-m-player-shuffle
@@ -2752,6 +2749,12 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-s’
      tts-restart
 
+‘TAB’
+     emacspeak-open-info
+
+‘f’
+     emacspeak-speak-buffer-filename
+
 ‘C-u’
      emacspeak-feeds-browse
 
@@ -2791,9 +2794,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘T’
      emacspeak-view-emacspeak-tips
 
-‘TAB’
-     emacspeak-open-info
-
 ‘V’
      emacspeak-speak-version
 
@@ -2823,9 +2823,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘e’
      move-end-of-line
-
-‘f’
-     emacspeak-speak-buffer-filename
 
 ‘g’
      emacspeak-epub
@@ -3414,7 +3411,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1180 commands and 147 options.
+   This chapter documents a total of 1182 commands and 147 options.
 
 * Menu:
 

@@ -36,14 +36,11 @@
 @item /
  emacspeak-websearch-dispatch
 
-@item 0
- emacspeak-speak-predefined-window
-
 @item 1
- emacspeak-speak-predefined-window
+ emacspeak-speak-this-window
 
 @item 2
- emacspeak-speak-predefined-window
+ emacspeak-speak-other-window
 
 @item :
  emacspeak-m-player-shuffle
@@ -111,6 +108,12 @@
 @item C-s
  tts-restart
 
+@item TAB
+ emacspeak-open-info
+
+@item f
+ emacspeak-speak-buffer-filename
+
 @item C-u
  emacspeak-feeds-browse
 
@@ -150,9 +153,6 @@
 @item T
  emacspeak-view-emacspeak-tips
 
-@item TAB
- emacspeak-open-info
-
 @item V
  emacspeak-speak-version
 
@@ -182,9 +182,6 @@
 
 @item e
  move-end-of-line
-
-@item f
- emacspeak-speak-buffer-filename
 
 @item g
  emacspeak-epub
