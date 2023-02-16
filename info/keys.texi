@@ -42,6 +42,12 @@
 @item 2
  emacspeak-speak-other-window
 
+@item 3
+ amixer-volume-down
+
+@item 4
+ amixer-volume-up
+
 @item :
  emacspeak-m-player-shuffle
 

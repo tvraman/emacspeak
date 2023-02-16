@@ -315,6 +315,10 @@ Persist  amixer.
 @kindex <XF86AudioLowerVolume>
 @item C-<f1>
 @kindex C-<f1>
+@item C-e 3
+@kindex C-e 3
+@item <fn> 3
+@kindex <fn> 3
 @end table
 
 @findex amixer-volume-down
@@ -334,6 +338,10 @@ Interactive prefix arg ‘PROMPT’ reads percentage as a number
 @kindex <XF86AudioRaiseVolume>
 @item C-<f2>
 @kindex C-<f2>
+@item C-e 4
+@kindex C-e 4
+@item <fn> 4
+@kindex <fn> 4
 @end table
 
 @findex amixer-volume-up

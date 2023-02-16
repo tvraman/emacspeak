@@ -2683,6 +2683,12 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘2’
      emacspeak-speak-other-window
 
+‘3’
+     amixer-volume-down
+
+‘4’
+     amixer-volume-up
+
 ‘:’
      emacspeak-m-player-shuffle
 
@@ -3713,6 +3719,8 @@ To reset all controls to their default values, Press ‘C-j’.
  -- Command: amixer-volume-down (prompt)
      ‘<XF86AudioLowerVolume>’
      ‘C-<f1>’
+     ‘C-e 3’
+     ‘<fn> 3’
 
      Lower Master volume by amixer-volume-step.
      Interactive prefix arg ‘PROMPT’ reads percentage as a number
@@ -3725,6 +3733,8 @@ To reset all controls to their default values, Press ‘C-j’.
  -- Command: amixer-volume-up (prompt)
      ‘<XF86AudioRaiseVolume>’
      ‘C-<f2>’
+     ‘C-e 4’
+     ‘<fn> 4’
 
      Raise Master volume by amixer-volume-step.
      Interactive prefix arg ‘PROMPT’ reads percentage as a number
