@@ -2190,7 +2190,7 @@ Numeric prefix arg COUNT specifies number of lines to move."
    (emacspeak-speak-line)))
 
 (defun emacspeak-speak-predefined-window (&optional arg)
-  "Speak one of the first 10 windows on the screen, 0 is current window.
+  "Speak one of the first 10 windows on the screen, 1 is current window.
 Speaks entire window irrespective of point.  Semantics of `other'
 is the same as for the Emacs builtin `other-window'."
   (interactive "P")
@@ -2200,6 +2200,7 @@ is the same as for the Emacs builtin `other-window'."
              ((not (called-interactively-p 'interactive)) arg)
              (t
               (read (format "%c" last-input-event))))))
+    (when (numberp window) (setq window (1- window)))
     (or (numberp window)
         (setq window  (read-number "Window   between 1 and 9:" 1)))
     (save-window-excursion
