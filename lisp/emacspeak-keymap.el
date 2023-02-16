@@ -359,9 +359,8 @@
  do
  (emacspeak-keymap-update emacspeak-keymap binding))
 
-(dotimes (i 3)
-  (define-key emacspeak-keymap
-              (format "%s" i) 'emacspeak-speak-predefined-window))
+(define-key emacspeak-keymap "1" 'emacspeak-speak-predefined-window)
+(define-key emacspeak-keymap "2" 'emacspeak-speak-predefined-window)
 
 (cl-loop
  for binding in
