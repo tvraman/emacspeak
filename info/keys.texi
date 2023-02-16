@@ -45,27 +45,6 @@
 @item 2
  emacspeak-speak-predefined-window
 
-@item 3
- emacspeak-speak-predefined-window
-
-@item 4
- emacspeak-speak-predefined-window
-
-@item 5
- emacspeak-speak-predefined-window
-
-@item 6
- emacspeak-speak-predefined-window
-
-@item 7
- emacspeak-speak-predefined-window
-
-@item 8
- emacspeak-speak-predefined-window
-
-@item 9
- emacspeak-speak-predefined-window
-
 @item :
  emacspeak-m-player-shuffle
 
@@ -132,15 +111,6 @@
 @item C-s
  tts-restart
 
-@item RET
- emacspeak-websearch-google
-
-@item TAB
- emacspeak-open-info
-
-@item f
- emacspeak-speak-buffer-filename
-
 @item C-u
  emacspeak-feeds-browse
 
@@ -171,11 +141,17 @@
 @item R
  emacspeak-speak-rectangle
 
+@item RET
+ emacspeak-websearch-google
+
 @item SPC
  emacspeak-speak-header-line
 
 @item T
  emacspeak-view-emacspeak-tips
+
+@item TAB
+ emacspeak-open-info
 
 @item V
  emacspeak-speak-version
@@ -206,6 +182,9 @@
 
 @item e
  move-end-of-line
+
+@item f
+ emacspeak-speak-buffer-filename
 
 @item g
  emacspeak-epub
@@ -683,9 +662,6 @@
 
 @item DEL
  desktop-clear
-
-@item a
- emacspeak-wizards-alpha-vantage-quotes
 
 @item b
  battery

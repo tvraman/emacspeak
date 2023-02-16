@@ -8024,7 +8024,7 @@ Default Value: @code{@verb{|nil|}}
 @defvar {User Option} emacspeak-personal-keys
 Key bindings for  C-e x. 
 
-Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (a emacspeak-wizards-alpha-vantage-quotes) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}}
+Default Value: @code{@verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}}
 
 @end defvar
 
@@ -12602,40 +12602,12 @@ Speak character before point.
 @subsubsection emacspeak-speak-predefined-window
 @deffn {Command} emacspeak-speak-predefined-window  (&optional arg)
 @table @kbd
-@item C-e 9
-@kindex C-e 9
-@item C-e 8
-@kindex C-e 8
-@item C-e 7
-@kindex C-e 7
-@item C-e 6
-@kindex C-e 6
-@item C-e 5
-@kindex C-e 5
-@item C-e 4
-@kindex C-e 4
-@item C-e 3
-@kindex C-e 3
 @item C-e 2
 @kindex C-e 2
 @item C-e 1
 @kindex C-e 1
 @item C-e 0
 @kindex C-e 0
-@item <fn> 9
-@kindex <fn> 9
-@item <fn> 8
-@kindex <fn> 8
-@item <fn> 7
-@kindex <fn> 7
-@item <fn> 6
-@kindex <fn> 6
-@item <fn> 5
-@kindex <fn> 5
-@item <fn> 4
-@kindex <fn> 4
-@item <fn> 3
-@kindex <fn> 3
 @item <fn> 2
 @kindex <fn> 2
 @item <fn> 1
@@ -12647,7 +12619,7 @@ Speak character before point.
 @findex emacspeak-speak-predefined-window
 
 @format
-Speak one of the first 10 windows on the screen, 0 is current window.
+Speak one of the first 10 windows on the screen, 1 is current window.
 Speaks entire window irrespective of point.  Semantics of ‘other’
 is the same as for the Emacs builtin ‘other-window’.
 
@@ -16770,13 +16742,6 @@ Browse  Emacspeak productivity tips.
 
 @subsubsection emacspeak-wizards-alpha-vantage-quotes
 @deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
-@table @kbd
-@item C-e x a
-@kindex C-e x a
-@item <fn> x a
-@kindex <fn> x a
-@end table
-
 @findex emacspeak-wizards-alpha-vantage-quotes
 
 @format

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 14, 2023.
+last updated on February 16, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2686,27 +2686,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘2’
      emacspeak-speak-predefined-window
 
-‘3’
-     emacspeak-speak-predefined-window
-
-‘4’
-     emacspeak-speak-predefined-window
-
-‘5’
-     emacspeak-speak-predefined-window
-
-‘6’
-     emacspeak-speak-predefined-window
-
-‘7’
-     emacspeak-speak-predefined-window
-
-‘8’
-     emacspeak-speak-predefined-window
-
-‘9’
-     emacspeak-speak-predefined-window
-
 ‘:’
      emacspeak-m-player-shuffle
 
@@ -2773,15 +2752,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-s’
      tts-restart
 
-‘RET’
-     emacspeak-websearch-google
-
-‘TAB’
-     emacspeak-open-info
-
-‘f’
-     emacspeak-speak-buffer-filename
-
 ‘C-u’
      emacspeak-feeds-browse
 
@@ -2812,11 +2782,17 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘R’
      emacspeak-speak-rectangle
 
+‘RET’
+     emacspeak-websearch-google
+
 ‘SPC’
      emacspeak-speak-header-line
 
 ‘T’
      emacspeak-view-emacspeak-tips
+
+‘TAB’
+     emacspeak-open-info
 
 ‘V’
      emacspeak-speak-version
@@ -2847,6 +2823,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘e’
      move-end-of-line
+
+‘f’
+     emacspeak-speak-buffer-filename
 
 ‘g’
      emacspeak-epub
@@ -3324,9 +3303,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-keymap,
 
 ‘DEL’
      desktop-clear
-
-‘a’
-     emacspeak-wizards-alpha-vantage-quotes
 
 ‘b’
      battery
