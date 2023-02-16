@@ -257,6 +257,8 @@
    (")" emacspeak-sounds-select-theme)
    ("1" emacspeak-speak-this-window)
    ("2" emacspeak-speak-other-window)
+   ("3" amixer-volume-down)
+   ("4" amixer-volume-up)
    ("C-<return>" emacspeak-speak-continuously)
    ("C-/" emacspeak-speak-this-buffer-other-window-display)
    ("/" emacspeak-websearch-dispatch)
