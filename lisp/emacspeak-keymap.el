@@ -359,7 +359,7 @@
  do
  (emacspeak-keymap-update emacspeak-keymap binding))
 
-(dotimes (i 10)
+(dotimes (i 3)
   (define-key emacspeak-keymap
               (format "%s" i) 'emacspeak-speak-predefined-window))
 
