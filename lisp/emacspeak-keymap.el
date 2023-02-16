@@ -255,6 +255,8 @@
    ("." emacspeak-speak-windowful)
    ("(" amixer)
    (")" emacspeak-sounds-select-theme)
+   ("1" emacspeak-speak-this-window)
+   ("2" emacspeak-speak-other-window)
    ("C-<return>" emacspeak-speak-continuously)
    ("C-/" emacspeak-speak-this-buffer-other-window-display)
    ("/" emacspeak-websearch-dispatch)
@@ -358,9 +360,6 @@
    )
  do
  (emacspeak-keymap-update emacspeak-keymap binding))
-
-(define-key emacspeak-keymap "1" 'emacspeak-speak-predefined-window)
-(define-key emacspeak-keymap "2" 'emacspeak-speak-predefined-window)
 
 (cl-loop
  for binding in

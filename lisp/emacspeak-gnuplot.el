@@ -65,30 +65,30 @@
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window)))
 
 (defadvice gnuplot-send-line-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window)))
 
 (defadvice gnuplot-send-line-and-forward (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window)))
 
 (defadvice gnuplot-send-buffer-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window)))
 (defadvice gnuplot-send-file-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window )))
 
 (defadvice gnuplot-delchar-or-maybe-eof (around emacspeak pre act comp)
   "Speak character you're deleting."

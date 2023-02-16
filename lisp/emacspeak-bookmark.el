@@ -156,7 +156,7 @@
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window)))
 
 (defadvice bookmark-bmenu-show-all-annotations (after emacspeak pre act comp)
   "speak"

@@ -177,17 +177,17 @@
 (defadvice bbdb/vm-show-sender (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window)))
 
 (defadvice bbdb/rmail-show-sender (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window)))
 
 (defadvice bbdb/mh-show-sender (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-speak-other-window 1)))
+    (emacspeak-speak-other-window )))
 
 ;;}}}
 ;;{{{ silence messages 
