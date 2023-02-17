@@ -2647,53 +2647,8 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 11.1 Emacspeak Keybindings On emacspeak-keymap
 ==============================================
 
-‘!’
-     emacspeak-speak-run-shell-command
-
 ‘"’
      emacspeak-speak-sexp
-
-‘$’
-     flyspell-mode
-
-‘%’
-     emacspeak-speak-current-percentage
-
-‘&’
-     emacspeak-wizards-shell-command-on-current-file
-
-‘'’
-     emacspeak-pianobar
-
-‘(’
-     amixer
-
-‘)’
-     emacspeak-sounds-select-theme
-
-‘.’
-     emacspeak-speak-windowful
-
-‘/’
-     emacspeak-websearch-dispatch
-
-‘1’
-     emacspeak-speak-this-window
-
-‘2’
-     emacspeak-speak-other-window
-
-‘3’
-     amixer-volume-down
-
-‘4’
-     amixer-volume-up
-
-‘:’
-     emacspeak-m-player-shuffle
-
-‘;’
-     emacspeak-multimedia
 
 ‘=’
      emacspeak-speak-current-column
@@ -2755,12 +2710,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-s’
      tts-restart
 
-‘TAB’
-     emacspeak-open-info
-
-‘f’
-     emacspeak-speak-buffer-filename
-
 ‘C-u’
      emacspeak-feeds-browse
 
@@ -2800,6 +2749,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘T’
      emacspeak-view-emacspeak-tips
 
+‘TAB’
+     emacspeak-open-info
+
 ‘V’
      emacspeak-speak-version
 
@@ -2830,6 +2782,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘e’
      move-end-of-line
 
+‘f’
+     emacspeak-speak-buffer-filename
+
 ‘g’
      emacspeak-epub
 
@@ -2850,9 +2805,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘n’
      emacspeak-speak-rest-of-buffer
-
-‘o’
-     emacspeak-toggle-comint-output-monitor
 
 ‘p’
      emacspeak-speak-paragraph
@@ -2880,6 +2832,54 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘|’
      emacspeak-speak-line-set-column-filter
+
+‘!’
+     emacspeak-speak-run-shell-command
+
+‘$’
+     flyspell-mode
+
+‘%’
+     emacspeak-speak-current-percentage
+
+‘&’
+     emacspeak-wizards-shell-command-on-current-file
+
+‘'’
+     emacspeak-pianobar
+
+‘(’
+     amixer
+
+‘)’
+     emacspeak-sounds-select-theme
+
+‘,’
+     emacspeak-beginning-or-end
+
+‘.’
+     emacspeak-speak-windowful
+
+‘/’
+     emacspeak-websearch-dispatch
+
+‘1’
+     emacspeak-speak-this-window
+
+‘2’
+     emacspeak-speak-other-window
+
+‘3’
+     amixer-volume-down
+
+‘4’
+     amixer-volume-up
+
+‘:’
+     emacspeak-m-player-shuffle
+
+‘;’
+     emacspeak-multimedia
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-dtk-submap,  Next: Emacspeak Keybindings On emacspeak-hyper-keymap,  Prev: Emacspeak Keybindings On emacspeak-keymap,  Up: Emacspeak Keymaps
@@ -3417,7 +3417,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1182 commands and 147 options.
+   This chapter documents a total of 1183 commands and 147 options.
 
 * Menu:
 
@@ -5781,8 +5781,8 @@ comint == command interaction.  Advice comint and friends to speak.
 ................................................
 
  -- Command: emacspeak-toggle-comint-output-monitor (&optional prefix)
-     ‘C-e o’
-     ‘<fn> o’
+     ‘C-e M-o’
+     ‘<fn> M-o’
 
      Toggle  Emacspeak comint monitor.
      Interactive PREFIX arg means toggle the global default value.

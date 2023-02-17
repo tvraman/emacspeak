@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1182 commands and 147 options.
+This chapter documents a total of 1183 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -2810,10 +2810,10 @@ Interactive PREFIX arg means toggle  global default value.
 @subsubsection emacspeak-toggle-comint-output-monitor
 @deffn {Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
 @table @kbd
-@item C-e o
-@kindex C-e o
-@item <fn> o
-@kindex <fn> o
+@item C-e M-o
+@kindex C-e M-o
+@item <fn> M-o
+@kindex <fn> M-o
 @end table
 
 @findex emacspeak-toggle-comint-output-monitor
@@ -11646,6 +11646,22 @@ Persist variable  ‘var’ to file ‘FILE’.
 Arranges for ‘VAR’ to be restored when ‘file’ is loaded.
 
 (fn VAR FILE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-beginning-or-end
+@deffn {Command} emacspeak-beginning-or-end   
+@table @kbd
+@item C-e ,
+@kindex C-e ,
+@item <fn> ,
+@kindex <fn> ,
+@end table
+
+@findex emacspeak-beginning-or-end
+
+@format
+Move to start or end of buffer.
 @end format
 @end deffn
 

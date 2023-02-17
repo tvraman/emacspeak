@@ -6,53 +6,8 @@
  @section Emacspeak Keybindings On emacspeak-keymap
 
 @table @kbd
-@item !
- emacspeak-speak-run-shell-command
-
 @item "
  emacspeak-speak-sexp
-
-@item $
- flyspell-mode
-
-@item %
- emacspeak-speak-current-percentage
-
-@item &
- emacspeak-wizards-shell-command-on-current-file
-
-@item '
- emacspeak-pianobar
-
-@item (
- amixer
-
-@item )
- emacspeak-sounds-select-theme
-
-@item .
- emacspeak-speak-windowful
-
-@item /
- emacspeak-websearch-dispatch
-
-@item 1
- emacspeak-speak-this-window
-
-@item 2
- emacspeak-speak-other-window
-
-@item 3
- amixer-volume-down
-
-@item 4
- amixer-volume-up
-
-@item :
- emacspeak-m-player-shuffle
-
-@item ;
- emacspeak-multimedia
 
 @item =
  emacspeak-speak-current-column
@@ -114,12 +69,6 @@
 @item C-s
  tts-restart
 
-@item TAB
- emacspeak-open-info
-
-@item f
- emacspeak-speak-buffer-filename
-
 @item C-u
  emacspeak-feeds-browse
 
@@ -159,6 +108,9 @@
 @item T
  emacspeak-view-emacspeak-tips
 
+@item TAB
+ emacspeak-open-info
+
 @item V
  emacspeak-speak-version
 
@@ -189,6 +141,9 @@
 @item e
  move-end-of-line
 
+@item f
+ emacspeak-speak-buffer-filename
+
 @item g
  emacspeak-epub
 
@@ -209,9 +164,6 @@
 
 @item n
  emacspeak-speak-rest-of-buffer
-
-@item o
- emacspeak-toggle-comint-output-monitor
 
 @item p
  emacspeak-speak-paragraph
@@ -239,6 +191,54 @@
 
 @item |
  emacspeak-speak-line-set-column-filter
+
+@item !
+ emacspeak-speak-run-shell-command
+
+@item $
+ flyspell-mode
+
+@item %
+ emacspeak-speak-current-percentage
+
+@item &
+ emacspeak-wizards-shell-command-on-current-file
+
+@item '
+ emacspeak-pianobar
+
+@item (
+ amixer
+
+@item )
+ emacspeak-sounds-select-theme
+
+@item ,
+ emacspeak-beginning-or-end
+
+@item .
+ emacspeak-speak-windowful
+
+@item /
+ emacspeak-websearch-dispatch
+
+@item 1
+ emacspeak-speak-this-window
+
+@item 2
+ emacspeak-speak-other-window
+
+@item 3
+ amixer-volume-down
+
+@item 4
+ amixer-volume-up
+
+@item :
+ emacspeak-m-player-shuffle
+
+@item ;
+ emacspeak-multimedia
 
 @end table
 
