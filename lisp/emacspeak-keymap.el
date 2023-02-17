@@ -253,6 +253,7 @@
    ("'" emacspeak-pianobar)
    ("(" amixer)
    (")" emacspeak-sounds-select-theme)
+   ("," emacspeak-beginning-or-end)
    ("." emacspeak-speak-windowful)
    ("/" emacspeak-websearch-dispatch)
    ("1" emacspeak-speak-this-window)

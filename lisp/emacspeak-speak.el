@@ -2946,6 +2946,17 @@ Also kill process-buffer on process exit."
 (add-hook 'repeat-mode-hook 'emacspeak-repeat-mode-hook )
 
 ;;}}}
+;;{{{go top or bottom
+(defun emacspeak-beginning-or-end ()
+  "Move to start or end of buffer."
+  (interactive)
+  (cond
+    ((= (point) (point-min)) (call-interactively 'end-of-buffer))
+    ((= (point) (point-max)) (call-interactively 'beginning-of-buffer))
+    (t (call-interactively 'beginning-of-buffer))))
+
+;;}}}
+
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 
