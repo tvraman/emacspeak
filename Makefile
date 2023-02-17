@@ -100,7 +100,7 @@ q:
 	@test -d tvr && cd	 tvr && make  --no-print-directory
 
 i:
-	cd info && make
+	cd info && make && git commit -m docs
 	cd ../gh-pages-emacspeak  && make
 qq:
 	make -s q 2>&1 |grep -v Loading  
