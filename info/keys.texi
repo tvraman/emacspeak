@@ -165,6 +165,9 @@
 @item n
  emacspeak-speak-rest-of-buffer
 
+@item o
+ delete-blank-lines
+
 @item p
  emacspeak-speak-paragraph
 

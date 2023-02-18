@@ -12973,7 +12973,7 @@ Speaks information about current window.
 @findex emacspeak-speak-windowful
 
 @format
-Line to top, then Speak window contents.
+Delete other windows, Line to top, then Speak window contents.
 @end format
 @end deffn
 

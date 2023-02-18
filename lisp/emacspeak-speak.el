@@ -2109,8 +2109,9 @@ The message is also placed in the kill ring for convenient yanking "
     (window-end (selected-window)  'update ))))
 
 (defun emacspeak-speak-windowful ()
-  "Line to top, then Speak window contents."
+  "Delete other windows, Line to top, then Speak window contents."
   (interactive)
+  (delete-other-windows)
   (recenter 0)
   (emacspeak-auditory-icon 'scroll)
   (dtk-speak (emacspeak-get-window-contents)))

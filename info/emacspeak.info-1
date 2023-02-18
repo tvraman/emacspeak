@@ -2806,6 +2806,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘n’
      emacspeak-speak-rest-of-buffer
 
+‘o’
+     delete-blank-lines
+
 ‘p’
      emacspeak-speak-paragraph
 

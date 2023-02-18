@@ -5229,7 +5229,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e .’
      ‘<fn> .’
 
-     Line to top, then Speak window contents.
+     Delete other windows, Line to top, then Speak window contents.
 
 12.180.1.87 emacspeak-speak-word
 ................................
@@ -9915,62 +9915,4 @@ invada-studio-plugins-ladspa fil-plugins
      n		next-line
      p		previous-line
 
-
-
-File: emacspeak.info,  Node: light,  Next: mac-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
-
-12.230 light
-============
-
-Provide an emacs front-end to light.  This is a tool that controls the
-brightness on laptops.  To install light, sudo apt-get install light
-Install light setuid (sudo chmod u+s /usr/bin/light) This module is most
-easily used in conjunction with hydra: M-x package-install hydra
-
-12.230.1 Light Commands
------------------------
-
-12.230.1.1 light-black
-......................
-
- -- Command: light-black
-
-     Black screen.
-
-12.230.1.2 light-decrement
-..........................
-
- -- Command: light-decrement
-
-     Decrease brightness.
-
-12.230.1.3 light-get
-....................
-
- -- Command: light-get
-
-     Get  brightness level.
-
-12.230.1.4 light-increment
-..........................
-
- -- Command: light-increment
-
-     Increase brightness.
-
-12.230.1.5 light-set
-....................
-
- -- Command: light-set (brightness)
-
-     Set brightness.
-
-     (fn BRIGHTNESS)
-
-12.230.1.6 light-white
-......................
-
- -- Command: light-white
-
-     White screen.
 
