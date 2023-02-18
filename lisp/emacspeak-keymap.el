@@ -353,6 +353,7 @@
    ("l" emacspeak-speak-line)
    ("m" emacspeak-speak-mode-line)
    ("n" emacspeak-speak-rest-of-buffer)
+   ("o" delete-blank-lines)
    ("p" emacspeak-speak-paragraph)
    ("r" emacspeak-speak-region)
    ("s" dtk-stop)
