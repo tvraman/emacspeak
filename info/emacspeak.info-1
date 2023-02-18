@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 16, 2023.
+last updated on February 18, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2677,9 +2677,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-b’
      emacspeak-bookshare
 
-‘C-c’
-     emacspeak-clipboard-copy
-
 ‘C-d’
      emacspeak-toggle-show-point
 
@@ -2808,9 +2805,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘p’
      emacspeak-speak-paragraph
-
-‘q’
-     emacspeak-toggle-speak-messages
 
 ‘r’
      emacspeak-speak-region
@@ -8766,8 +8760,8 @@ Infrequently used wizards archived for posterity.
 ..................................
 
  -- Command: emacspeak-clipboard-copy (start end &optional prompt)
-     ‘C-e C-c’
-     ‘<fn> C-c’
+     ‘C-e C-M-c’
+     ‘<fn> C-M-c’
 
      Use file-based Emacspeak Clipboard —
      dis a convenient way of sharing information between independent

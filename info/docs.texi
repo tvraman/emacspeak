@@ -6249,10 +6249,10 @@ annotation is inserted into the working buffer when complete.
 @subsubsection emacspeak-clipboard-copy
 @deffn {Command} emacspeak-clipboard-copy  (start end &optional prompt)
 @table @kbd
-@item C-e C-c
-@kindex C-e C-c
-@item <fn> C-c
-@kindex <fn> C-c
+@item C-e C-M-c
+@kindex C-e C-M-c
+@item <fn> C-M-c
+@kindex <fn> C-M-c
 @end table
 
 @findex emacspeak-clipboard-copy
@@ -13165,10 +13165,10 @@ current local  value to the result.
 @subsubsection emacspeak-toggle-speak-messages
 @deffn {Command} emacspeak-toggle-speak-messages  (&optional prefix)
 @table @kbd
-@item C-e q
-@kindex C-e q
-@item <fn> q
-@kindex <fn> q
+@item C-e C-M-q
+@kindex C-e C-M-q
+@item <fn> C-M-q
+@kindex <fn> C-M-q
 @end table
 
 @findex emacspeak-toggle-speak-messages
@@ -13308,7 +13308,7 @@ Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
 ‘emacspeak-toggle-speak-messages’ bound to
-C-e q.
+C-e C-M-q.
 
 Default Value: @code{@verb{|t|}}
 

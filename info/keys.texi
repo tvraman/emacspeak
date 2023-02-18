@@ -36,9 +36,6 @@
 @item C-b
  emacspeak-bookshare
 
-@item C-c
- emacspeak-clipboard-copy
-
 @item C-d
  emacspeak-toggle-show-point
 
@@ -167,9 +164,6 @@
 
 @item p
  emacspeak-speak-paragraph
-
-@item q
- emacspeak-toggle-speak-messages
 
 @item r
  emacspeak-speak-region

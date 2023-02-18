@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 16, 2023.
+last updated on February 18, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -5366,8 +5366,8 @@ of emacspeak from becoming dependent on the speech server modules
 ...........................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
-     ‘C-e q’
-     ‘<fn> q’
+     ‘C-e C-M-q’
+     ‘<fn> C-M-q’
 
      Toggle  state of whether emacspeak echoes messages.
 
@@ -5455,7 +5455,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Variable: User Option emacspeak-speak-messages
      Option indicating if messages are spoken.  If nil, emacspeak will
      not speak messages as they are echoed to the message area.  You can
-     use command ‘emacspeak-toggle-speak-messages’ bound to C-e q.
+     use command ‘emacspeak-toggle-speak-messages’ bound to C-e C-M-q.
 
      Default Value: ‘t’
 
