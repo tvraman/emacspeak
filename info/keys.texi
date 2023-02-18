@@ -75,6 +75,9 @@
 @item C-w
  emacspeak-speak-window-information
 
+@item C-x
+ dtk-toggle-punctuation-mode
+
 @item C-y
  emacspeak-clipboard-paste
 

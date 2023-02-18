@@ -868,6 +868,10 @@ value, and then set the current local value to the result.
 @subsubsection dtk-toggle-punctuation-mode
 @deffn {Command} dtk-toggle-punctuation-mode  (&optional prefix)
 @table @kbd
+@item C-e C-x
+@kindex C-e C-x
+@item <fn> C-x
+@kindex <fn> C-x
 @item C-e d ,
 @kindex C-e d ,
 @item <fn> d ,
