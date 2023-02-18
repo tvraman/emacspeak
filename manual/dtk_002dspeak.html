@@ -775,6 +775,13 @@ value, and then set the current local value to the result.
           'copiable-anchor'>¶</a></span></dt>
           <dd>
             <dl compact="compact">
+              <dt id='index-C_002de-C_002dx'><span><kbd>C-e
+              C-x</kbd> <a href='#index-C_002de-C_002dx' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002dx'>
+              <span><kbd>&lt;fn&gt; C-x</kbd> <a href=
+              '#index-_003cfn_003e-C_002dx' class=
+              'copiable-anchor'>¶</a></span></dt>
               <dt id='index-C_002de-d-_002c'><span><kbd>C-e d
               ,</kbd> <a href='#index-C_002de-d-_002c' class=
               'copiable-anchor'>¶</a></span></dt>
@@ -1061,7 +1068,7 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Prefix used to indicate AllCaps</p>
-          <p>Default Value: <code><tt>acc</tt></code></p>
+          <p>Default Value: <tt>acc</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1072,7 +1079,7 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Prefix used to indicate capitalization</p>
-          <p>Default Value: <code><tt>cap</tt></code></p>
+          <p>Default Value: <tt>cap</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1087,8 +1094,8 @@ When called interactively, CHAR defaults to the character after point.
           patterns.</p>
           <p>More than 3 consecutive occurrences of a pattern is
           replaced with a repeat count.</p>
-          <p>Default Value: <code><tt>(. . _ - = / + * : ; % \/ /\
-          { } ~ $ ) # &lt;&gt; ^ &lt; &gt;)</tt></code></p>
+          <p>Default Value: <tt>(. . _ - = / + * : ; % \/ /\ { } ~
+          $ ) # &lt;&gt; ^ &lt; &gt;)</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1099,7 +1106,7 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Set this to your preferred cloud TTS server.</p>
-          <p>Default Value: <code><tt>cloud-outloud</tt></code></p>
+          <p>Default Value: <tt>cloud-outloud</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1110,7 +1117,7 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Engine we use for our local TTS server.</p>
-          <p>Default Value: <code><tt>outloud</tt></code></p>
+          <p>Default Value: <tt>outloud</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1121,7 +1128,7 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Value of lowest speech rate.</p>
-          <p>Default Value: <code><tt>50</tt></code></p>
+          <p>Default Value: <tt>50</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1133,7 +1140,7 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Speech rate step used by
           ‘dtk-set-predefined-speech-rate’.</p>
-          <p>Default Value: <code><tt>8</tt></code></p>
+          <p>Default Value: <tt>8</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1145,14 +1152,14 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Replacements for characters.</p>
-          <p>Default Value: <code><tt>((150 . -) (9473 . -) (9475 .
-          |) (176 . degrees ) (8451 . Degree C) (8457 . Degree F )
+          <p>Default Value: <tt>((150 . -) (9473 . -) (9475 . |)
+          (176 . degrees ) (8451 . Degree C) (8457 . Degree F )
           (8220 . ") (8221 . ") (8902 . *) (173 . -) (8216 . `)
           (8217 . ') (8208 . dash ) (8211 . dash dash ) (8212 . em
           dash ) (8202 . ) (65279 . ) (8204 . ) (8203 . ) (8201 . )
           (8213 . ----) (8214 . ||) (8230 . ...) (8226 . bullet )
           (149 . ... ) (8482 . TM) (64256 . ff) (64257 . fi) (64258
-          . fl) (64259 . ffi) (64260 . Ffl))</tt></code></p>
+          . fl) (64259 . ffi) (64260 . Ffl))</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1164,14 +1171,14 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Alist of character name transformation rules.</p>
-          <p>Default Value: <code><tt>((BOX DRAWING lambda
-          (_ignored) .) (^Mathematical Sans-Serif\( small\|
+          <p>Default Value: <tt>((BOX DRAWING lambda (_ignored) .)
+          (^Mathematical Sans-Serif\( small\| capital\)? letter
+          \(.*\)$ lambda (s) (match-string 2 s)) (^greek\( small\|
           capital\)? letter \(.*\)$ lambda (s) (match-string 2 s))
-          (^greek\( small\| capital\)? letter \(.*\)$ lambda (s)
-          (match-string 2 s)) (^latin\( small\| capital\)? letter
-          \(.*\)$ lambda (s) (match-string 2 s)) (^DEVANAGARI
-          \(sign\|vowel sign\|letter\)? \(.*\)$ lambda (s)
-          (match-string 2 s)))</tt></code></p>
+          (^latin\( small\| capital\)? letter \(.*\)$ lambda (s)
+          (match-string 2 s)) (^DEVANAGARI \(sign\|vowel
+          sign\|letter\)? \(.*\)$ lambda (s) (match-string 2
+          s)))</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1183,8 +1190,7 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Characters of these charsets are ignored by
           dtk-unicode-replace-chars.</p>
-          <p>Default Value: <code><tt>(ascii
-          latin-iso8859-1)</tt></code></p>
+          <p>Default Value: <tt>(ascii latin-iso8859-1)</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1195,7 +1201,7 @@ When called interactively, CHAR defaults to the character after point.
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Toggle tones.</p>
-          <p>Default Value: <code><tt>t</tt></code></p>
+          <p>Default Value: <tt>t</tt></p>
         </dd>
       </dl>
       <dl class="def">
@@ -1207,7 +1213,7 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Virtual sound device to use for notifications stream.
           Set to nil to disable a separate Notification stream.</p>
-          <p>Default Value: <code><tt>tts_right</tt></code></p>
+          <p>Default Value: <tt>tts_right</tt></p>
         </dd>
       </dl>
     </div>
