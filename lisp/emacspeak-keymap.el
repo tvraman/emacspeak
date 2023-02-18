@@ -302,6 +302,7 @@
    ("C-u" emacspeak-feeds-browse)
    ("C-v" view-mode)
    ("C-w" emacspeak-speak-window-information)
+   ("C-x" dtk-toggle-punctuation-mode)
    ("C-y" emacspeak-clipboard-paste)
    ("I"  emacspeak-speak-show-active-network-interfaces)
    ("L" emacspeak-speak-line-interactively)
@@ -535,7 +536,7 @@
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
+
 
 ;;}}}
 ;;{{{ Create a C-z keymap that is customizable
