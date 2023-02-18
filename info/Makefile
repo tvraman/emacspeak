@@ -35,7 +35,7 @@ force:
 
 docs.texi:force
 	$(EMACS) $(BATCH) -l ../utils/self-document.el -f self-document-all-modules
-
+pdf: emacspeak.pdf
 emacspeak.pdf: emacspeak.texi $(INCLUDES)
 	makeinfo --pdf emacspeak.texi
 	\rm emacspeak.aux emacspeak.cp emacspeak.cps emacspeak.fn \
