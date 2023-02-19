@@ -460,7 +460,7 @@ annotation is inserted into the working buffer when complete."
     (error (message "Make sure you have an Emacspeak resource directory %s"
                     emacspeak-user-directory))))
 
-(defcustom emacspeak-clipboard-file
+(defcustom emacspeak-clipfile-file
   (concat emacspeak-user-directory "/" "clipboard")
   "File used to save Emacspeak clipboard.
 The emacspeak clipboard provides a convenient mechanism for exchanging
@@ -468,19 +468,19 @@ information between different Emacs sessions."
   :group 'emacspeak-speak
   :type 'string)
 ;;;###autoload
-(defun emacspeak-clipboard-copy (start end &optional prompt)
+(defun emacspeak-clipfile-copy (start end &optional prompt)
   "Use file-based Emacspeak Clipboard ---
 dis a convenient way of sharing information between independent
 Emacspeak sessions running on  different machines. "
   (interactive "r\nP")
-  (cl-declare (special emacspeak-user-directory emacspeak-clipboard-file))
+  (cl-declare (special emacspeak-user-directory emacspeak-clipfile-file))
   (let ((clip (buffer-substring-no-properties start end))
         (clipboard-file
          (if prompt
              (read-file-name "Copy region to clipboard file: "
                              emacspeak-user-directory
-                             emacspeak-clipboard-file)
-           emacspeak-clipboard-file))
+                             emacspeak-clipfile-file)
+           emacspeak-clipfile-file))
         (clipboard nil))
     (setq clipboard (find-file-noselect clipboard-file))
     (ems-with-messages-silenced
@@ -496,12 +496,12 @@ Emacspeak sessions running on  different machines. "
 (declare-function emacspeak-table-paste-from-clipboard "emacspeak-extras" t)
 
 ;;;###autoload
-(defun emacspeak-clipboard-paste (&optional paste-table)
+(defun emacspeak-clipfile-paste (&optional paste-table)
   "Yank contents of the Emacspeak clipboard at point. "
   (interactive "P")
-  (cl-declare (special emacspeak-user-directory emacspeak-clipboard-file))
+  (cl-declare (special emacspeak-user-directory emacspeak-clipfile-file))
   (let ((start (point))
-        (clipboard-file emacspeak-clipboard-file))
+        (clipboard-file emacspeak-clipfile-file))
     (cond
      (paste-table (emacspeak-table-paste-from-clipboard))
      (t (insert-file-contents clipboard-file)
