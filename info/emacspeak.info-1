@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 18, 2023.
+last updated on February 19, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2718,9 +2718,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘C-x’
      dtk-toggle-punctuation-mode
-
-‘C-y’
-     emacspeak-clipboard-paste
 
 ‘I’
      emacspeak-speak-show-active-network-interfaces
@@ -8763,10 +8760,10 @@ Infrequently used wizards archived for posterity.
      Annotation is entered in a temporary buffer and the
      annotation is inserted into the working buffer when complete.
 
-12.77.1.2 emacspeak-clipboard-copy
-..................................
+12.77.1.2 emacspeak-clipfile-copy
+.................................
 
- -- Command: emacspeak-clipboard-copy (start end &optional prompt)
+ -- Command: emacspeak-clipfile-copy (start end &optional prompt)
      ‘C-e C-M-c’
      ‘<fn> C-M-c’
 
@@ -8774,12 +8771,10 @@ Infrequently used wizards archived for posterity.
      dis a convenient way of sharing information between independent
      Emacspeak sessions running on  different machines.
 
-12.77.1.3 emacspeak-clipboard-paste
-...................................
+12.77.1.3 emacspeak-clipfile-paste
+..................................
 
- -- Command: emacspeak-clipboard-paste (&optional paste-table)
-     ‘C-e C-y’
-     ‘<fn> C-y’
+ -- Command: emacspeak-clipfile-paste (&optional paste-table)
 
      Yank contents of the Emacspeak clipboard at point.
 
@@ -8895,7 +8890,7 @@ Infrequently used wizards archived for posterity.
 12.77.2 emacspeak-extras Options
 --------------------------------
 
- -- Variable: User Option emacspeak-clipboard-file
+ -- Variable: User Option emacspeak-clipfile-file
      File used to save Emacspeak clipboard.  The emacspeak clipboard
      provides a convenient mechanism for exchanging information between
      different Emacs sessions.

@@ -6250,8 +6250,8 @@ annotation is inserted into the working buffer when complete.
 @end format
 @end deffn
 
-@subsubsection emacspeak-clipboard-copy
-@deffn {Command} emacspeak-clipboard-copy  (start end &optional prompt)
+@subsubsection emacspeak-clipfile-copy
+@deffn {Command} emacspeak-clipfile-copy  (start end &optional prompt)
 @table @kbd
 @item C-e C-M-c
 @kindex C-e C-M-c
@@ -6259,7 +6259,7 @@ annotation is inserted into the working buffer when complete.
 @kindex <fn> C-M-c
 @end table
 
-@findex emacspeak-clipboard-copy
+@findex emacspeak-clipfile-copy
 
 @format
 Use file-based Emacspeak Clipboard ---
@@ -6268,16 +6268,9 @@ Emacspeak sessions running on  different machines.
 @end format
 @end deffn
 
-@subsubsection emacspeak-clipboard-paste
-@deffn {Command} emacspeak-clipboard-paste  (&optional paste-table)
-@table @kbd
-@item C-e C-y
-@kindex C-e C-y
-@item <fn> C-y
-@kindex <fn> C-y
-@end table
-
-@findex emacspeak-clipboard-paste
+@subsubsection emacspeak-clipfile-paste
+@deffn {Command} emacspeak-clipfile-paste  (&optional paste-table)
+@findex emacspeak-clipfile-paste
 
 @format
 Yank contents of the Emacspeak clipboard at point. 
@@ -6434,7 +6427,7 @@ Read a personality  and apply it to the current line.
 
 @subsection emacspeak-extras Options
 
-@defvar {User Option} emacspeak-clipboard-file
+@defvar {User Option} emacspeak-clipfile-file
 File used to save Emacspeak clipboard.
 The emacspeak clipboard provides a convenient mechanism for exchanging
 information between different Emacs sessions.

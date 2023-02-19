@@ -12,65 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 18, 2023.
-
-
-File: emacspeak.info,  Node: light,  Next: mac-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
-
-12.230 light
-============
-
-Provide an emacs front-end to light.  This is a tool that controls the
-brightness on laptops.  To install light, sudo apt-get install light
-Install light setuid (sudo chmod u+s /usr/bin/light) This module is most
-easily used in conjunction with hydra: M-x package-install hydra
-
-12.230.1 Light Commands
------------------------
-
-12.230.1.1 light-black
-......................
-
- -- Command: light-black
-
-     Black screen.
-
-12.230.1.2 light-decrement
-..........................
-
- -- Command: light-decrement
-
-     Decrease brightness.
-
-12.230.1.3 light-get
-....................
-
- -- Command: light-get
-
-     Get  brightness level.
-
-12.230.1.4 light-increment
-..........................
-
- -- Command: light-increment
-
-     Increase brightness.
-
-12.230.1.5 light-set
-....................
-
- -- Command: light-set (brightness)
-
-     Set brightness.
-
-     (fn BRIGHTNESS)
-
-12.230.1.6 light-white
-......................
-
- -- Command: light-white
-
-     White screen.
+last updated on February 19, 2023.
 
 
 File: emacspeak.info,  Node: mac-voices,  Next: omaps,  Prev: light,  Up: Emacspeak Commands And Options
@@ -2507,7 +2449,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
  [index ]
 * Menu:
 
-* <f1> ":                                emacspeak-extras.   (line  115)
+* <f1> ":                                emacspeak-extras.   (line  113)
 * <f1> ,:                                emacspeak-wizards.  (line  334)
 * <f1> =:                                emacspeak-wizards.  (line 1075)
 * <f1> C-e:                              emacspeak-wizards.  (line   55)
@@ -2623,7 +2565,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-u:                              emacspeak-feeds.    (line   55)
 * <fn> C-w:                              emacspeak-speak.    (line  917)
 * <fn> C-x:                              dtk-speak.          (line  260)
-* <fn> C-y:                              emacspeak-extras.   (line   40)
 * <fn> d ,:                              dtk-speak.          (line  262)
 * <fn> d .:                              dtk-speak.          (line   62)
 * <fn> d 0:                              dtk-speak.          (line  158)
@@ -2779,7 +2720,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> ^:                                emacspeak-filtertext.
                                                              (line   25)
 * <fn> |:                                emacspeak-speak.    (line  494)
-* <help> ":                              emacspeak-extras.   (line  116)
+* <help> ":                              emacspeak-extras.   (line  114)
 * <help> ,:                              emacspeak-wizards.  (line  335)
 * <help> =:                              emacspeak-wizards.  (line 1076)
 * <help> C-e:                            emacspeak-wizards.  (line   56)
@@ -2842,7 +2783,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; C-a:                               emacspeak-wizards.  (line 1084)
 * C-; C-j:                               emacspeak-wizards.  (line 1005)
 * C-; C-l:                               emacspeak-librivox. (line   32)
-* C-; C-t:                               emacspeak-extras.   (line  140)
+* C-; C-t:                               emacspeak-extras.   (line  138)
 * C-; DEL:                               emacspeak-wizards.  (line 1042)
 * C-; e:                                 gmaps.              (line   16)
 * C-; h:                                 emacspeak-m-player. (line  323)
@@ -3017,7 +2958,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-w:                               Status Information. (line   28)
 * C-e C-w <1>:                           emacspeak-speak.    (line  916)
 * C-e C-x:                               dtk-speak.          (line  259)
-* C-e C-y:                               emacspeak-extras.   (line   39)
 * C-e cap V:                             Status Information. (line   38)
 * C-e d cap V:                           Miscellaneous.      (line   84)
 * C-e d ,:                               dtk-speak.          (line  261)
@@ -3221,7 +3161,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e ^:                                 emacspeak-filtertext.
                                                              (line   24)
 * C-e |:                                 emacspeak-speak.    (line  493)
-* C-h ":                                 emacspeak-extras.   (line  114)
+* C-h ":                                 emacspeak-extras.   (line  112)
 * C-h ,:                                 emacspeak-wizards.  (line  333)
 * C-h =:                                 emacspeak-wizards.  (line 1074)
 * C-h C-e:                               emacspeak-wizards.  (line   54)
@@ -3256,7 +3196,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1085)
 * C-x @ h C-j:                           emacspeak-wizards.  (line 1007)
 * C-x @ h C-l:                           emacspeak-librivox. (line   33)
-* C-x @ h C-t:                           emacspeak-extras.   (line  141)
+* C-x @ h C-t:                           emacspeak-extras.   (line  139)
 * C-x @ h DEL:                           emacspeak-wizards.  (line 1043)
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h h:                             emacspeak-m-player. (line  324)

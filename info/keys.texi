@@ -78,9 +78,6 @@
 @item C-x
  dtk-toggle-punctuation-mode
 
-@item C-y
- emacspeak-clipboard-paste
-
 @item I
  emacspeak-speak-show-active-network-interfaces
 
