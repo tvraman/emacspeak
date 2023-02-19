@@ -101,7 +101,7 @@ q:
 
 i:
 	cd info && make && git ci docs
-	cd ../gh-pages-emacspeak  && make
+	cd info && make man
 qq:
 	make -s q 2>&1 |grep -v Loading  
 
