@@ -2916,7 +2916,7 @@ external package."
        (t (error "%s is not bound to a command." key))))))
 
 ;;}}}
-;;{{{Free GeoIP:
+;;{{{  Free Geo IP:
 
 (defun emacspeak-wizards-free-geo-ip (&optional reverse-geocode)
   "Return list consisting of city and region_name.
