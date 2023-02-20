@@ -1095,6 +1095,7 @@ Interactive PREFIX arg makes the new setting global."
     ((eq 'some dtk-punctuation-mode)
      (dtk-set-punctuations-to-all prefix)))
   (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon 'button)
     (message "set punctuation mode to %s %s"
              dtk-punctuation-mode
              (if prefix "" "locally"))))
