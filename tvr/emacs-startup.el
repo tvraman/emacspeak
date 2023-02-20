@@ -179,7 +179,6 @@ Use Custom to customize where possible. "
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
      ("<f5>" find-file)
-     ("C-c <tab>"  hs-toggle-hiding)
      ("M--" undo-only)
      ("M-/" dabbrev-expand)
      ("M-C-c" calendar)
