@@ -4,7 +4,7 @@
 #Control by itself gives emacspeak modifier.
 # See forthcoming blog article for rationale.
 
-TM=250 #timeout in ms for keyup
+TM=200 #timeout in ms for keyup
 
 KEYS="\
 Shift_L=Control_L|s;\
