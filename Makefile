@@ -100,7 +100,7 @@ q:
 	@test -d tvr && cd	 tvr && make  --no-print-directory
 
 i:
-	cd info && make && git ci docs
+	cd info && make && git ci docs || true
 	cd info && make man
 qq:
 	make -s q 2>&1 |grep -v Loading  
