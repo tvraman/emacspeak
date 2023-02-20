@@ -670,6 +670,7 @@ Safari/537.36"
      ("s" eww-readable)
      ("t" emacspeak-eww-next-table)
      ("m" emacspeak-eww-add-mark)
+     ("/" dtk-toggle-punctuation-mode)
      )
    do
    (emacspeak-keymap-update eww-mode-map binding)))
