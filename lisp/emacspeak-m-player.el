@@ -1573,8 +1573,8 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional prefix)
-  "Use youtube-dl  to stream  using mpv.
- Optional interactive prefix arg uses mplayer  instead. "
+  "Use youtube-dl  to stream  using mplayer.
+ Optional interactive prefix arg uses mpv  instead. "
   (interactive
    (list
     (emacspeak-eww-read-url)
@@ -1585,7 +1585,7 @@ flat classical club dance full-bass full-bass-and-treble
   (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
     (setq url (emacspeak-google-canonicalize-result-url url)))
   (cond
-    ((not prefix)
+    (prefix
      (require 'mpv)
      (mpv-start url))
     (t
