@@ -257,23 +257,6 @@ dont-url-encode if true then url arguments are not url-encoded "
   (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
 
 ;;}}}
-;;{{{ Anonimize google search
-(emacspeak-url-template-define
- "Sign in to Google"
- (concat  "https://accounts.google.com/ServiceLogin"
-          "?hl=en&continue=https://www.google.com/")
- nil
- nil
- "Login to Google.")
-
-(emacspeak-url-template-define
- "Anonymize Google Search"
- "https://www.google.com/accounts/Logout"
- nil
- nil
- "Logout from Google to do an anonymous search.")
-
-;;}}}
 ;;{{{Basic Google:
 
 ;; forward declaration:
