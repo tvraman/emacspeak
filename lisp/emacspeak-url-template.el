@@ -883,19 +883,6 @@ Format is stationid+AM/FM."
  #'emacspeak-feeds-rss-display)
 
 ;;}}}
-;;{{{ GitHub Search
-
-(declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
-(emacspeak-url-template-define
- "GitHub Search"
- "https://github.com/search?q=%s"
- (list "Query: ")
- #'(lambda ()
-     (search-forward  "repository results" nil t)
-     (emacspeak-speak-line))
- "Perform a GitHub Search.")
-
-;;}}}
 ;;{{{ TuneIn: streamId->URL
 ;; wget -O t    "http://stream.radiotime.com/listen.stream?streamIds=4299203"
 (emacspeak-url-template-define
