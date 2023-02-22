@@ -20185,7 +20185,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 65 URL Templates.
+This section documents a total of 64 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20227,9 +20227,7 @@ Display baseball scores.@item @b{Bing News}
 
 Bing News results as RSS feed.@item @b{Bing Search}
 
-Bing results as RSS feed.@item @b{Bloomberg Stock  Lookup}
-
-Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us@item @b{Business Headlines From CNN}
+Bing results as RSS feed.@item @b{Business Headlines From CNN}
 
 Money Headlines From CNN@item @b{CIA World Fact Book}
 
