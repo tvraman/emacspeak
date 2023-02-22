@@ -52,6 +52,7 @@ This chapter documents a total of 1183 commands and 147 options.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
 * emacspeak-debugger::Speech-enable DEBUG.
 * emacspeak-desktop::Speech-enable desktop.
+* emacspeak-devdocs::Speech-enable DEVDOCS.
 * emacspeak-dictionary::dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF.
 * emacspeak-dired::Speech enable Dired Mode.
@@ -3049,6 +3050,11 @@ Speech-enable the debugger by speech-enabling interactive commands.
 @section emacspeak-desktop
 
 advice desktop package
+
+@node emacspeak-devdocs
+@section emacspeak-devdocs
+
+DEVDOCS == Browse DevDocs
 
 @node emacspeak-dictionary
 @section emacspeak-dictionary
@@ -9187,7 +9193,7 @@ Use youtube-dl and mplayer to live-stream   from Youtube.
 @findex emacspeak-m-player-youtube-player
 
 @format
-Use youtube-dl  to stream  using mpv.
+Use youtube-dl  to stream  using mplayer.
  Optional interactive prefix arg uses mplayer  instead. 
 
 (fn URL &optional PREFIX)
@@ -20179,7 +20185,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 73 URL Templates.
+This section documents a total of 67 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20233,9 +20239,7 @@ Open CIA World Fact Book For Specified Country.@item @b{CNBC Using EAF}
 
 Play CNBC Using EAF@item @b{CNN Headlines}
 
-News Headlines From CNN@item @b{CNN Money}
-
-CNN Business Headlines@item @b{CNN World}
+News Headlines From CNN@item @b{CNN World}
 
 CNN World@item @b{Cricinfo Print}
 
@@ -20247,17 +20251,7 @@ Lookup ticker on Google Finance.@item @b{Finance Summary From Google}
 
 Display top stocks  from Google Finance.@item @b{FreeSound}
 
-Search FreeSound.@item @b{GitHub Search}
-
-Perform a GitHub Search.@item @b{GoLang Browse}
-
-Browse GoLang package documentation.@item @b{GoLang Lookup}
-
-Lookup GoLang package documentation.@item @b{GoLang Search}
-
-Search GoLang package documentation.@item @b{Google Basic}
-
-Light-weight Google search.@item @b{Google News Search}
+Search FreeSound.@item @b{Google News Search}
 
 Search Google news.@item @b{Google Scholar}
 
