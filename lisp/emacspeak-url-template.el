@@ -1135,15 +1135,6 @@ template."
        (eww-browse-url url))))
 
 ;;}}}
-;;{{{ Bloomberg:
-(emacspeak-url-template-define
- "Bloomberg Stock  Lookup"
- "http://www.bloomberg.com/quote/%s"
- (list "Lookup Ticker:Country")
- nil
- "Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us")
-
-;;}}}
 ;;{{{ Washington Post
 
 (emacspeak-url-template-define
