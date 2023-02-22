@@ -276,17 +276,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{Basic Google:
 
-(emacspeak-url-template-define
- "Google Basic"
- "https://www.google.com/search?num=25&gbv=1&q=%s"
- (list #'gweb-google-autocomplete)
- #'(lambda nil
-     (search-forward "Search Tools")
-     (forward-line 1)
-     (emacspeak-auditory-icon 'open-object)
-     (emacspeak-speak-windowful))
- "Light-weight Google search.")
-
 ;; forward declaration:
 (defvar gmaps-my-zip nil)
 (emacspeak-url-template-define
