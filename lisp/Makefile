@@ -116,6 +116,7 @@ emacspeak-dbus.elc \
 emacspeak-deadgrep.elc \
 emacspeak-debugger.elc \
 emacspeak-desktop.elc \
+emacspeak-devdocs.elc \
 emacspeak-dictionary.elc \
 emacspeak-diff-mode.elc \
 emacspeak-dired.elc \
