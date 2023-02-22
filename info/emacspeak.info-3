@@ -991,7 +991,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.244 URL Templates
 ====================
 
-This section documents a total of 67 URL Templates.
+This section documents a total of 65 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -1014,199 +1014,193 @@ out the following steps:
   4. Amazon Product Details By ASIN
 
      Retrieve product details from Amazon by either ISBN or ASIN.
-  5. Anonymize Google Search
-
-     Logout from Google to do an anonymous search.
-  6. ArchWiki Search
+  5. ArchWiki Search
 
      Search Linux ArchWiki
-  7. BBC Podcast Directory
+  6. BBC Podcast Directory
 
      BBC PodCast Directory
-  8. Baseball Box Scores
+  7. Baseball Box Scores
 
      Display baseball Play By Play.
-  9. Baseball Game Details
+  8. Baseball Game Details
 
      Display baseball Play By Play.
-  10. Baseball Game Index
+  9. Baseball Game Index
 
      Display baseball Play By Play.
-  11. Baseball Highlights
+  10. Baseball Highlights
 
      Display baseball Video Highlights.
-  12. Baseball scores
+  11. Baseball scores
 
      Display baseball scores.
-  13. Bing News
+  12. Bing News
 
      Bing News results as RSS feed.
-  14. Bing Search
+  13. Bing Search
 
      Bing results as RSS feed.
-  15. Bloomberg Stock Lookup
+  14. Bloomberg Stock Lookup
 
      Lookup Stock Quote information on Bloomberg.  Ticker is of the form
      goog:us
-  16. Business Headlines From CNN
+  15. Business Headlines From CNN
 
      Money Headlines From CNN
-  17. CIA World Fact Book
+  16. CIA World Fact Book
 
      Open CIA World Fact Book For Specified Country.
-  18. CNBC Using EAF
+  17. CNBC Using EAF
 
      Play CNBC Using EAF
-  19. CNN Headlines
+  18. CNN Headlines
 
      News Headlines From CNN
-  20. CNN World
+  19. CNN World
 
      CNN World
-  21. Cricinfo Print
+  20. Cricinfo Print
 
      Printer friendly link on Cricinfo
-  22. Dictionary Lookup
+  21. Dictionary Lookup
 
      Dictionary Lookup
-  23. Finance Google
+  22. Finance Google
 
      Lookup ticker on Google Finance.
-  24. Finance Summary From Google
+  23. Finance Summary From Google
 
      Display top stocks from Google Finance.
-  25. FreeSound
+  24. FreeSound
 
      Search FreeSound.
-  26. Google News Search
+  25. Google News Search
 
      Search Google news.
-  27. Google Scholar
+  26. Google Scholar
 
      Google Scholar Search
-  28. Google Trends
+  27. Google Trends
 
      Google Trends
-  29. Google Weather
+  28. Google Weather
 
      Light-weight Google weather.
-  30. Guardian RSS Feeds Directory
+  29. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  31. Hacker News Frontpage
+  30. Hacker News Frontpage
 
      Display Hacker News Front Page
-  32. Hacker News Search
+  31. Hacker News Search
 
      Display Hacker News Front Page
-  33. Hoogle Haskell API Search
+  32. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  34. MLB Scorecard
+  33. MLB Scorecard
 
      Show MLB Scorecard.
-  35. MLB standings
+  34. MLB standings
 
      Display MLB standings.
-  36. NBA standings
+  35. NBA standings
 
      Display NBA standings.
-  37. NLS Bard Bookshelf
+  36. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  38. NLS Bard Popular
+  37. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  39. NLS Bard Recent
+  38. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  40. NLS Bard Search
+  39. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  41. NY Times Mobile
+  40. NY Times Mobile
 
      NYTimes Mobile Site
-  42. Old Time Radio
+  41. Old Time Radio
 
      This months Old Time Radio Programming
-  43. OpenLibrary
+  42. OpenLibrary
 
      Open Library Search
-  44. Patent Search From Google
+  43. Patent Search From Google
 
      Perform patent search via Google
-  45. RadioTime Browser
+  44. RadioTime Browser
 
      RadioTime Entry point.
-  46. RadioTime Categories
+  45. RadioTime Categories
 
      RadioTime Categories .
-  47. RadioTime Search
+  46. RadioTime Search
 
      RadioTime Search.
-  48. Reddit At Point.
+  47. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  49. Reddit By Topic.
+  48. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  50. Reddit Front Page.
+  49. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  51. Reddit Search.
+  50. Reddit Search.
 
      Reddit Search Results Feed.
-  52. Sign in to Google
-
-     Login to Google.
-  53. StreamWorld Radio
+  51. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  54. Tech News From CNet
+  52. Tech News From CNet
 
      Display tech news from CNET
-  55. TuneIn Radio
+  53. TuneIn Radio
 
      Translate StreamId to playable stream.
-  56. US Stock Market From Google
+  54. US Stock Market From Google
 
      Light-weight Google US Stock Markets.
-  57. Washington Post
+  55. Washington Post
 
      Washington Post Contents
-  58. Wiki Data Search
+  56. Wiki Data Search
 
      Search WikiData.
-  59. WordNet Search
+  57. WordNet Search
 
      Look up term in WordNet.
-  60. Yahoo RSSNews
+  58. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  61. html Google News Search
+  59. html Google News Search
 
      Search Google news.
-  62. sourceforge Download
+  60. sourceforge Download
 
      Download specified file.
-  63. sourceforge browse mirrors
+  61. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  64. sourceforge project
+  62. sourceforge project
 
      Open specified project page at SourceForge.
-  65. w3c IRC Logs
+  63. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  66. w3c Lists
+  64. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  67. world CNN Content
+  65. world CNN Content
 
      Filter down to CNN content area.
 
