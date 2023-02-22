@@ -12,6 +12,11 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 This version requires Emacs-29.
 
+** Speech-Enable Package Devdocs
+
+Lookup and browse locally installed Devdocs.
+
+
 ** Speech-Enable ~empv~
 
 Module ~emacspeak-empv~ speech-enables  ~empv~ an Emacs MPV media
