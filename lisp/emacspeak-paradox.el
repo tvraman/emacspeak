@@ -97,10 +97,8 @@
 (defun emacspeak-paradox-mode-hook ()
   "Emacspeak setup hook for paradox-mode."
   (cl-declare (special paradox-menu-mode-map))
-  (define-key paradox-menu-mode-map
-              (ems-kbd "<left>") 'emacspeak-speak-previous-field)
-  (define-key paradox-menu-mode-map
-              (ems-kbd "<right>") 'emacspeak-speak-next-field)
+  (define-key paradox-menu-mode-map (ems-kbd "<left>") 'tabulated-list-previous-column)
+  (define-key paradox-menu-mode-map (ems-kbd "<right>") 'tabulated-list-next-column)
   (define-key paradox-menu-mode-map " " 'emacspeak-paradox-summarize-line)
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
    emacspeak-pronounce-date-yyyymmdd-pattern
