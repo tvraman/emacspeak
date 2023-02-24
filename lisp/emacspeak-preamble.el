@@ -90,6 +90,9 @@
 (defvar emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
   "README.")
+;;;###autoload
+(defvar emacspeak-mpv-program (executable-find "mpv")
+  "Name of MPV executable.")
 
 ;;;###autoload
 (defvar emacspeak-curl-program (executable-find "curl")

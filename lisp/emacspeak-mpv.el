@@ -61,8 +61,6 @@
 ;;{{{MPV Program:
 
 ;;;###autoload
-(defvar emacspeak-mpv-program (executable-find "mpv")
-  "Name of MPV executable.")
 
 ;;}}}
 ;;{{{Helper: yt-url->time-offset:
