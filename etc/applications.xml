@@ -32,6 +32,9 @@ type="text/xsl"?>
     <application name="woman">
       Support for <em>WoMan</em>, the UNIX Man page reader implemented
     as a native Emacs application.</application>
+<application name="devdocs">
+      Browse downloaded devdocs.io documentation in Emacs.
+    </application>
   </category>
   <category name="desktop">
     <application name="ido">
