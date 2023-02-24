@@ -108,11 +108,16 @@ Optional interactive prefix arg speaks column header as well."
 (defun emacspeak-tabulated-list-setup ()
   "Setup Emacspeak"
   (cl-declare (special tabulated-list-mode-map))
-  (define-key tabulated-list-mode-map "."
-    'emacspeak-tabulated-list-speak-cell)
-  (define-key tabulated-list-mode-map (ems-kbd "M-<down>")
-    'emacspeak-tabulated-list-next-row)
-  (define-key tabulated-list-mode-map (ems-kbd "M-<up>") 'emacspeak-tabulated-list-previous-row))
+  (cl-loop
+   for b in
+   '(
+     ("<left>" tabulated-list-previous-column)
+     ("<right>" tabulated-list-next-column)
+     ( "." emacspeak-tabulated-list-speak-cell)
+     ("<down>"  emacspeak-tabulated-list-next-row)
+     ("<up>" emacspeak-tabulated-list-previous-row))
+   do
+   (emacspeak-keymap-update tabulated-list-mode-map b)))
 
 (emacspeak-tabulated-list-setup)
 ;;}}}
