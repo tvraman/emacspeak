@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1183 commands and 147 options.
+This chapter documents a total of 1185 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -14429,6 +14429,24 @@ Speech-enable tabulated lists and provide commands for intelligent
 spoken output
 
 @subsection Emacspeak-Tabulated-List Commands
+
+@subsubsection emacspeak-tabulated-list-next-row
+@deffn {Command} emacspeak-tabulated-list-next-row   
+@findex emacspeak-tabulated-list-next-row
+
+@format
+Move to next row and speak that cell
+@end format
+@end deffn
+
+@subsubsection emacspeak-tabulated-list-previous-row
+@deffn {Command} emacspeak-tabulated-list-previous-row   
+@findex emacspeak-tabulated-list-previous-row
+
+@format
+Move to previous row and speak that cell.
+@end format
+@end deffn
 
 @subsubsection emacspeak-tabulated-list-speak-cell
 @deffn {Command} emacspeak-tabulated-list-speak-cell   

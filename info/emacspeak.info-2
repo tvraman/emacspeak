@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 22, 2023.
+last updated on February 23, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -6288,7 +6288,21 @@ provide commands for intelligent spoken output
 12.191.1 Emacspeak-Tabulated-List Commands
 ------------------------------------------
 
-12.191.1.1 emacspeak-tabulated-list-speak-cell
+12.191.1.1 emacspeak-tabulated-list-next-row
+............................................
+
+ -- Command: emacspeak-tabulated-list-next-row
+
+     Move to next row and speak that cell
+
+12.191.1.2 emacspeak-tabulated-list-previous-row
+................................................
+
+ -- Command: emacspeak-tabulated-list-previous-row
+
+     Move to previous row and speak that cell.
+
+12.191.1.3 emacspeak-tabulated-list-speak-cell
 ..............................................
 
  -- Command: emacspeak-tabulated-list-speak-cell
