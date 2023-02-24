@@ -14449,11 +14449,14 @@ Move to previous row and speak that cell.
 @end deffn
 
 @subsubsection emacspeak-tabulated-list-speak-cell
-@deffn {Command} emacspeak-tabulated-list-speak-cell   
+@deffn {Command} emacspeak-tabulated-list-speak-cell  (&optional header)
 @findex emacspeak-tabulated-list-speak-cell
 
 @format
 Speak current cell.
+Optional interactive prefix arg speaks column header as well.
+
+(fn &optional HEADER)
 @end format
 @end deffn
 

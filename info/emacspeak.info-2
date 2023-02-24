@@ -6305,9 +6305,12 @@ provide commands for intelligent spoken output
 12.191.1.3 emacspeak-tabulated-list-speak-cell
 ..............................................
 
- -- Command: emacspeak-tabulated-list-speak-cell
+ -- Command: emacspeak-tabulated-list-speak-cell (&optional header)
 
      Speak current cell.
+     Optional interactive prefix arg speaks column header as well.
+
+     (fn &optional HEADER)
 
 
 File: emacspeak.info,  Node: emacspeak-tar,  Next: emacspeak-tcl,  Prev: emacspeak-tabulated-list,  Up: Emacspeak Commands And Options

@@ -61,9 +61,10 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 ;;;###autoload
-(defun emacspeak-tabulated-list-speak-cell ()
-  "Speak current cell."
-  (interactive)
+(defun emacspeak-tabulated-list-speak-cell (&optional header)
+  "Speak current cell.
+Optional interactive prefix arg speaks column header as well."
+  (interactive "P")
   (cl-declare (tabulated-list-format))
   (unless (get-text-property (point) 'tabulated-list-column-name)
     (goto-char (next-single-property-change (point) 'tabulated-list-column-name)))
@@ -71,7 +72,9 @@
          (col (cl-position name tabulated-list-format
                            :test #'string= :key #'car))
          (value (elt (tabulated-list-get-entry)  col)))
-    (dtk-speak (concat name " " value))))
+    (if header 
+        (dtk-speak (concat name " " value))
+        (dtk-speak  value))))
 
 (cl-loop
  for f in 
