@@ -3185,7 +3185,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
      soundscape-update-mood
 
 ‘y’
-     emacspeak-mpv-play-url
+     empv-play
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
@@ -7884,7 +7884,7 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      ‘emacspeak-feeds-atom-display’ Display link under point as an
      ‘ATOM’ feed.
 ‘y’
-     ‘emacspeak-mpv-play-url’ Play link under point as a Youtube stream.
+     ‘empv-play’ Play link -under point as a Youtube stream.
 
 12.77.5 Table Browsing
 ----------------------

@@ -5190,8 +5190,8 @@ Display link under point as an @code{RSS} feed.
 @command{emacspeak-feeds-atom-display}
 Display link under point as an @code{ATOM} feed.
 @item y
-@command{emacspeak-mpv-play-url}
-Play link under point as a Youtube stream.
+@command{empv-play}
+Play link -under point as a Youtube stream.
 @end table
 
 @subsection Table Browsing
@@ -8042,7 +8042,7 @@ Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wi
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))|}
+Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y empv-play))|}
 
 @end defvar
 
@@ -9733,14 +9733,10 @@ commands require only one initial ress of C-e C-;.
 @subsubsection emacspeak-mpv-play-url
 @deffn {Command} emacspeak-mpv-play-url  (url &optional left-channel)
 @table @kbd
-@item C-. y
-@kindex C-. y
 @item C-e C-; ;
 @kindex C-e C-; ;
 @item <fn> C-; ;
 @kindex <fn> C-; ;
-@item C-x @@ s y
-@kindex C-x @@ s y
 @end table
 
 @findex emacspeak-mpv-play-url

@@ -544,7 +544,7 @@
  soundscape-update-mood
 
 @item y
- emacspeak-mpv-play-url
+ empv-play
 
 @end table
 

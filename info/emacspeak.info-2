@@ -1170,7 +1170,7 @@ found on laptops is denoted <fn>
      @defvar {User Option} emacspeak-super-keys
      Super key bindings. 
      
-     Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-mpv-play-url))
+     Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y empv-play))
 
  -- Variable: User Option emacspeak-windows-keys
      Key bindings on the windows key.
@@ -2592,10 +2592,8 @@ require only one initial ress of C-e C-;.
 .................................
 
  -- Command: emacspeak-mpv-play-url (url &optional left-channel)
-     ‘C-. y’
      ‘C-e C-; ;’
      ‘<fn> C-; ;’
-     ‘C-x @ s y’
 
      Play URL using mpv;  Prefix arg plays on left channel.
 
