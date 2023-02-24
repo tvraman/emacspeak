@@ -921,7 +921,7 @@ Press `y' to move to next amark."
 (defun emacspeak-org-e-media-follow-url (url)
   "Handle e-media URL, either mtv or mplayer based on URL."
   (cond
-    ((org--ems-yt-p url) (emacspeak-mpv-play-url url))
+    ((org--ems-yt-p url) (empv-play url))
     (t (emacspeak-eww-play-media-at-point url))))
 
 ;;}}}

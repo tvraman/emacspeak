@@ -677,7 +677,7 @@
     ("s" soundscape)
     ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
-    ("y" emacspeak-mpv-play-url)
+    ("y" empv-play)
     )
   "Super key bindings. "
   :group 'emacspeak
