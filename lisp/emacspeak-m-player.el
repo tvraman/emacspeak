@@ -1586,8 +1586,8 @@ flat classical club dance full-bass full-bass-and-treble
     (setq url (emacspeak-google-canonicalize-result-url url)))
   (cond
     ((not prefix)
-     (require 'mpv)
-     (mpv-start url))
+     (require 'empv)
+     (empv-play url))
     (t
      (let ((u
              (string-trim
