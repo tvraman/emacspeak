@@ -59,7 +59,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
 (require 'emacspeak-preamble)
-                                        ;(require 'eww)
+(require 'eww)
 (require 'dom-addons)
 (require 'gweb)
 (require 'g-utils)
