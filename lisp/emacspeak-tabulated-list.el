@@ -84,11 +84,32 @@
        (emacspeak-auditory-icon 'select-objet)
        (emacspeak-tabulated-list-speak-cell)))))
 
+
+(defun emacspeak-tabulated-list-next-row ()
+  "Move to next row and speak that cell"
+  (interactive)
+  (let ((col (current-column)))
+    (forward-line 1)
+    (forward-char col)
+    (emacspeak-tabulated-list-speak-cell)))
+
+
+(defun emacspeak-tabulated-list-previous-row ()
+  "Move to previous row and speak that cell."
+  (interactive)
+  (let ((col (current-column)))
+    (forward-line -1)
+    (forward-char col)
+    (emacspeak-tabulated-list-speak-cell)))
+
 (defun emacspeak-tabulated-list-setup ()
   "Setup Emacspeak"
   (cl-declare (special tabulated-list-mode-map))
   (define-key tabulated-list-mode-map "."
-    'emacspeak-tabulated-list-speak-cell))
+    'emacspeak-tabulated-list-speak-cell)
+  (define-key tabulated-list-mode-map (ems-kbd "M-<down>")
+    'emacspeak-tabulated-list-next-row)
+  (define-key tabulated-list-mode-map (ems-kbd "M-<up>") 'emacspeak-tabulated-list-previous-row))
 
 (emacspeak-tabulated-list-setup)
 ;;}}}
