@@ -2547,8 +2547,7 @@ Produce an auditory icon if possible."
   "Play auditory icon."
   (emacspeak-auditory-icon 'ask-short-question)
   ad-do-it
-  (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer
-                               ))
+  (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer))
   ad-return-value)
 
 (defadvice ask-user-about-lock (around emacspeak pre act comp)
@@ -2730,18 +2729,19 @@ Produce an auditory icon if possible."
 (add-hook
  'emacs-lisp-mode-hook
  #'(lambda ()
-     (setq mode-name
-           '("ELisp"
-             (lexical-binding
-              (:propertize ":l"
-               'personality voice-smoothen help-echo "Using lexical-binding mode")
-              (:propertize ":d"
-               'personality voice-smoothen
-               help-echo "Using old dynamic scoping mode
-mouse-1: Enable lexical-binding mode"
-               face warning mouse-face mode-line-highlight
-               local-map
-               (keymap (mode-line keymap (mouse-1 . elisp-enable-lexical-binding)))))))))
+     (setq
+      mode-name
+      '("ELisp"
+        (lexical-binding
+         (:propertize ":l"
+          'personality voice-smoothen help-echo "Using lexical-binding mode")
+         (:propertize ":d"
+          'personality voice-smoothen
+          help-echo "Using old dynamic scoping mode "
+          face warning mouse-face mode-line-highlight
+          local-map
+          (keymap
+           (mode-line keymap (mouse-1 . elisp-enable-lexical-binding)))))))))
 
 ;;}}}
 (provide 'emacspeak-advice)
