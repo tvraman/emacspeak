@@ -2860,6 +2860,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘/’
      emacspeak-websearch-dispatch
 
+‘0’
+     emacspeak-sounds-select-theme
+
 ‘1’
      emacspeak-speak-this-window
 
@@ -2871,6 +2874,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘4’
      amixer-volume-up
+
+‘9’
+     amixer
 
 ‘:’
      emacspeak-m-player-shuffle
@@ -3534,7 +3540,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-jdee::Speech enable JDEE.
 * emacspeak-journalctl::JOURNALCTL.
 * emacspeak-js2::Speech-enable JS2.
-* emacspeak-keymap::Setup   keybindings.
+* emacspeak-keymap::
 * emacspeak-kmacro::Speech-enable KMacros.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
@@ -3687,7 +3693,9 @@ To reset all controls to their default values, Press ‘C-j’.
 ...............
 
  -- Command: amixer (&optional refresh)
+     ‘C-e 9’
      ‘C-e (’
+     ‘<fn> 9’
      ‘<fn> (’
 
      ALSA settings.

@@ -4273,7 +4273,9 @@ emacspeak.
 ........................................
 
  -- Command: emacspeak-sounds-select-theme (&optional theme)
+     ‘C-e 0’
      ‘C-e )’
+     ‘<fn> 0’
      ‘<fn> )’
 
      Select theme for auditory icons.

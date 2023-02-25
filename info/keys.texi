@@ -219,6 +219,9 @@
 @item /
  emacspeak-websearch-dispatch
 
+@item 0
+ emacspeak-sounds-select-theme
+
 @item 1
  emacspeak-speak-this-window
 
@@ -230,6 +233,9 @@
 
 @item 4
  amixer-volume-up
+
+@item 9
+ amixer
 
 @item :
  emacspeak-m-player-shuffle
