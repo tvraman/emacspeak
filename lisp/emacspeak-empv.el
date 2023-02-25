@@ -79,7 +79,7 @@
 
 ;;}}}
 ;;{{{Additional Commands:
-
+;;;###autoload
 (defun emacspeak-empv-this-title ()
   "Speak title of current item"
   (interactive)
