@@ -698,7 +698,7 @@ second interactive prefix arg adds mplayer option
      (cl-first (split-string url "#"))
      emacspeak-m-player-media-history :test #'string=)
     (message " Playing url under point")
-    (emacspeak-m-player url playlist-p)))
+    (emacspeak-m-player-url url playlist-p)))
 
 (defun emacspeak-eww-curl-play-media-at-point ()
   "Use Curl to pull a URL, then pass

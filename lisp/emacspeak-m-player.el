@@ -1223,7 +1223,6 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (define-key map "k" 'shr-copy-url)
     (define-key map "r" 'emacspeak-m-player-rem-history)
     map)
-
   "Keymap used in media history browser.")
 
 (defun emacspeak-m-player-browse-history ()
