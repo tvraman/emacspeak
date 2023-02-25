@@ -2930,11 +2930,9 @@ but quickly switch to a window by name."
     (repeat-in-progress (emacspeak-auditory-icon 'repeat-active))))
 
 (defun ems--repeat-sentinel (process _state)
-  "Process sentinel to disable repeat.
-Also kill process-buffer on process exit."
+  "Process sentinel to disable repeat. "
   (when (memq (process-status process) '(failed signal exit stop nil))
-    (when repeat-mode (repeat-exit))
-    (kill-buffer (process-buffer process))))
+    (when repeat-mode (repeat-exit))))
 
 (defsubst emacspeak-repeat-mode-hook ()
   "Add or remove emacspeak-repeat-check-hook from post-command-hook"
