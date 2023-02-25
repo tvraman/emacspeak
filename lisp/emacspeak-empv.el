@@ -88,6 +88,22 @@
            (cdr (assq 'title (empv-youtube-results--current-item)))))
 
 ;;}}}
+;;{{{Commands:
+
+(defun emacspeak-empv-play-url (url &optional left-channel)
+  "Play URL using mpv;  Prefix arg plays on left channel."
+  (interactive (list (emacspeak-eww-read-url) current-prefix-arg ))
+  (when
+      (and url
+           (stringp url)
+           (string-prefix-p (emacspeak-google-result-url-prefix) url))
+    (setq url  (emacspeak-google-canonicalize-result-url url)))
+  (if left-channel
+      (with-environment-variables (("PULSE_SINK" "tts_left"))
+        (empv-play url))
+    (empv-play url)))
+
+;;}}}
 ;;{{{Setup:
 
 (defun emacspeak-empv-setup ()
