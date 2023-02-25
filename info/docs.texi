@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1185 commands and 147 options.
+This chapter documents a total of 1186 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3685,6 +3685,17 @@ EMPV ==  Another Emacs Media Player
 Provides better Youtube integration
 
 @subsection Emacspeak-Empv Commands
+
+@subsubsection emacspeak-empv-play-url
+@deffn {Command} emacspeak-empv-play-url  (url &optional left-channel)
+@findex emacspeak-empv-play-url
+
+@format
+Play URL using mpv;  Prefix arg plays on left channel.
+
+(fn URL &optional LEFT-CHANNEL)
+@end format
+@end deffn
 
 @subsubsection emacspeak-empv-this-title
 @deffn {Command} emacspeak-empv-this-title   
@@ -8042,7 +8053,7 @@ Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wi
 @defvar {User Option} emacspeak-super-keys
 Super key bindings. 
 
-Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y empv-play))|}
+Default Value: @verb{|((. emacspeak-wizards-shell-directory-reset) (C-n emacspeak-wizards-google-headlines) (R emacspeak-webspace-feed-reader) (SPC scratch-buffer) (c calculator) (d emacspeak-dired-downloads) (e elfeed) (g emacspeak-google-tts) (h emacspeak-org-capture-link) (l emacspeak-wizards-locate-content) (m emacspeak-wizards-view-buffers-filtered-by-this-mode) (n emacspeak-wizards-google-news) (p proced) (r soundscape-restart) (s soundscape) (t soundscape-toggle) (u soundscape-update-mood) (y emacspeak-empv-play))|}
 
 @end defvar
 
