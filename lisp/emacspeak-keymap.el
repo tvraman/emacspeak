@@ -1,4 +1,4 @@
-;;; emacspeak-keymap.el --- Setup   keybindings -*- lexical-binding: t; -*-
+"(" ;;; emacspeak-keymap.el --- Setup   keybindings -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module for setting up emacspeak keybindings
@@ -252,7 +252,9 @@
    ("&" emacspeak-wizards-shell-command-on-current-file)
    ("'" emacspeak-pianobar)
    ("(" amixer)
+   ("9" amixer)
    (")" emacspeak-sounds-select-theme)
+   ("0" emacspeak-sounds-select-theme)
    ("," emacspeak-beginning-or-end)
    ("." emacspeak-speak-windowful)
    ("/" emacspeak-websearch-dispatch)
