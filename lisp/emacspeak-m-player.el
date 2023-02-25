@@ -1586,7 +1586,7 @@ flat classical club dance full-bass full-bass-and-treble
   (cond
     ((not prefix)
      (require 'empv)
-     (emacspeak-empv-play url))
+     (emacspeak-empv-play-url url))
     (t
      (let ((u
              (string-trim

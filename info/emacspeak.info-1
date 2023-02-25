@@ -3453,7 +3453,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-ciel::Speech-enable CIEL.
 * emacspeak-clojure::Speech-enable CLOJURE.
 * emacspeak-cmuscheme::CMUScheme.
-* emacspeak-combobulate::Speech-enable COMBOBULATE.
+* emacspeak-combobulate::Speech-enable.
 * emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY.
 * emacspeak-compile::Speech enable compile.
@@ -3608,7 +3608,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-table::Table data model.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Handle table data.
-* emacspeak-tabulated-list::Speech-enable TABULATED-LIST.
+* emacspeak-tabulated-list::Speech-enable.
 * emacspeak-tar::Speech enable Tar Mode.
 * emacspeak-tcl::Speech enable TCL.
 * emacspeak-tempo::Speech enable tempo.
