@@ -1234,7 +1234,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (with-temp-buffer
       (insert "<html>\n
 <head><title>Emacspeak Media History</title></head>\n
-<body>\n<p>Press 'r' on a link to remove it from the history.</p>\n
+<body>\n<p>Press ';' to play, 'r'  to remove the link  from the history.</p>\n
 <ol>\n")
     (cl-loop
      for u in emacspeak-m-player-media-history do
