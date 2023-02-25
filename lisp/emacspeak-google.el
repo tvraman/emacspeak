@@ -709,7 +709,8 @@ which becomes buffer-local."
   "Speak region using Google Network TTS."
   (interactive
    (list (region-beginning) (region-end) current-prefix-arg))
-  (emacspeak-google-tts-speak (buffer-substring-no-properties start end) ask-lang))
+  (emacspeak-google-tts-speak
+   (buffer-substring-no-properties start end) ask-lang))
 
 
 ;;;###autoload
