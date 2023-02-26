@@ -325,7 +325,7 @@ See  \\{soundscape-default-theme} for details."
     ("BuddhaLoop" (chess-display-mode))
     ("RandomLoop" (lisp-interaction-mode slime-repl-mode))
     ("Cavern" (prog-mode))
-    ("ChangingLoops" (special-mode))
+    ("BuddhaLoop" (special-mode))
     ("ChangingLoopsPitches" nil)
     ("Drip" ,soundscape-communication-modes)
     ("GardenBackground" nil)
