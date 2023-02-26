@@ -1162,7 +1162,6 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (when (process-live-p  emacspeak-m-player-process)
       (ems--mp-send (format "af_add %s" filter-name)))))
 
-
 (defun emacspeak-m-player-balance-channels ()
   "Mono to stereo."
   (interactive)
@@ -1569,6 +1568,8 @@ flat classical club dance full-bass full-bass-and-treble
 (declare-function
  emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
 (declare-function mpv-start "mpv" (&rest args))
+(declare-function
+ emacspeak-empv-play-url "emacspeak-empv" (url &optional left-channel))
 
 ;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional prefix)

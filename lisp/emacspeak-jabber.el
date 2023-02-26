@@ -316,7 +316,7 @@ the kill ring as well."
 
 (defun emacspeak-jabber-setup ()
   "Initial jabber setup."
-  (cl-declare (special emacspeak-personal-keymap))
+  (cl-declare (special emacspeak-personal-x-keymap))
   (cl-loop 
    for b in
    '(
@@ -324,7 +324,7 @@ the kill ring as well."
      ("j" emacspeak-jabber-popup-roster)
      ("SPC" emacspeak-jabber-speak-recent-message))
    do
-   (define-key emacspeak-personal-keymap (cl-first b) (cl-second b))))
+   (define-key emacspeak-personal-x-keymap (cl-first b) (cl-second b))))
 
 (cl-eval-when '(load) (emacspeak-jabber-setup))
 ;;}}}

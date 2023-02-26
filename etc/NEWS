@@ -16,6 +16,11 @@ This version requires Emacs-29.
 
 Lookup and browse locally installed Devdocs.
 
+** Updated Keybindings 
+
+Keybindings have been updated while staying backwrd-compatible where
+it makes sense. 
+
 
 ** Speech-Enable ~empv~
 
