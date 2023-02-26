@@ -117,7 +117,7 @@
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
   (cl-declare (special empv-map))
-  (global-set-key (ems-kbd "C-' m") empv-map)
+  (global-set-key (ems-kbd "C-; v") empv-map)
   (define-key empv-youtube-results-mode-map "." 'emacspeak-empv-this-title)
   (cl-loop
    for b in
