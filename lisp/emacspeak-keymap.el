@@ -452,10 +452,10 @@
 ;;{{{ Create a personal keymap for c-e x
 
 ;; Adding keys using custom:
-(defvar  emacspeak-personal-keymap nil
+(defvar  emacspeak-personal-x-keymap nil
   "Emacspeak personal keymap")
 
-(define-prefix-command 'emacspeak-personal-keymap)
+(define-prefix-command 'emacspeak-personal-x-keymap)
 
 (defcustom emacspeak-personal-keys
   '(
@@ -505,14 +505,15 @@
            (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-personal-keymap val)
+      (emacspeak-keymap-bindings-update emacspeak-personal-x-keymap val)
       (set-default
        sym
        (sort
         val
         #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
+(define-key  emacspeak-keymap "x" 'emacspeak-personal-x-keymap)
+(define-key  emacspeak-keymap "y" 'emacspeak-personal-y-keymap)
 
 ;;}}}
 ;;{{{ Create personal ctl-x map
@@ -540,6 +541,34 @@
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 
+
+;;}}}
+;;{{{ Create personal y map
+
+(defvar  emacspeak-personal-y-keymap nil
+  "Emacspeak personal-y keymap")
+
+(define-prefix-command 'emacspeak-personal-y-keymap)
+
+(defcustom emacspeak-personal-y-keys
+  '(
+    ("y" emacspeak-empv-play-url)
+    )
+  "Key bindings for use with C-e C-x. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Personal-Y Keymap"
+          (list
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set
+  #'(lambda (sym val)
+      (emacspeak-keymap-bindings-update emacspeak-personal-y-keymap val)
+      (set-default sym
+                   (sort
+                    val
+                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 ;;}}}
 ;;{{{ Create a C-z keymap that is customizable
