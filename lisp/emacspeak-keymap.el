@@ -1,4 +1,4 @@
-"(" ;;; emacspeak-keymap.el --- Setup   keybindings -*- lexical-binding: t; -*-
+;;; emacspeak-keymap.el --- Setup   keybindings -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description:  Module for setting up emacspeak keybindings
@@ -462,15 +462,15 @@
     ("," emacspeak-wizards-shell-directory-set)
     ("." emacspeak-wizards-shell-directory-reset)
     ("0" emacspeak-wizards-shell-by-key)
-    ("1" emacspeak-wizards-shell-by-key)
-    ("2" emacspeak-wizards-shell-by-key)
-    ("3" emacspeak-wizards-shell-by-key)
-    ("4" emacspeak-wizards-shell-by-key)
-    ("5" emacspeak-wizards-shell-by-key)
-    ("6" emacspeak-wizards-shell-by-key)
-    ("7" emacspeak-wizards-shell-by-key)
-    ("8" emacspeak-wizards-shell-by-key)
-    ("9" emacspeak-wizards-shell-by-key)
+    ("1" emacspeak-speak-run-shell-command)
+    ("2" emacspeak-speak-message-at-time)
+    ("3" calc)
+    ("4" flyspell-mode)
+    ("5" emacspeak-speak-current-percentage)
+    ;("8" emacspeak-wizards-shell-by-key)
+    ("7" emacspeak-wizards-shell-command-on-current-file)
+                                        ;("8" emacspeak-wizards-shell-by-key)
+    ;("9" emacspeak-wizards-shell-by-key)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("C" emacspeak-wizards-colors)
     (";" emacspeak-m-player-loop)

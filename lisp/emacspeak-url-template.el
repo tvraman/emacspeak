@@ -1136,6 +1136,7 @@ template."
 
 ;;}}}
 ;;{{{ Washington Post
+(declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
 
 (emacspeak-url-template-define
  "Washington Post"

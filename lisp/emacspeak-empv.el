@@ -53,20 +53,25 @@
 (require 'emacspeak-preamble)
 (require 'empv nil t)
 (require 'iimage nil t)
+(declare-function emacspeak-google-canonicalize-result-url
+                  "emacspeak-google" (url))
+(declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
+
+
 ;;}}}
 ;;{{{Interactive Commands:
 
 (cl-loop
-  for f in 
-  '(aempv-current-loop-off empv-current-loop-on
-    empv-toggle empv-pause
-    empv-file-loop-off empv-file-loop-on
-    empv-playlist-loop-off empv-playlist-loop-on) do
-  (eval
-   `(defadvice ,f (after emacspeak pre act comp)
-      "speak."
-      (when (ems-interactive-p)
-        (emacspeak-auditory-icon 'button)))))
+ for f in 
+ '(aempv-current-loop-off empv-current-loop-on
+   empv-toggle empv-pause
+   empv-file-loop-off empv-file-loop-on
+   empv-playlist-loop-off empv-playlist-loop-on) do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)))))
 
 (defadvice empv-exit (after emacspeak pre act comp)
   "speak."
