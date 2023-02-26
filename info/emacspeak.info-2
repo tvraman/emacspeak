@@ -1164,7 +1164,7 @@ found on laptops is denoted <fn>
      Key bindings for C-e x.
 
      Default Value:
-     ((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (6 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-by-key) (8 emacspeak-wizards-shell-by-key) (9 emacspeak-wizards-shell-by-key) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) (
+     ((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-speak-run-shell-command) (2 emacspeak-speak-message-at-time) (3 calc) (4 flyspell-mode) (5 emacspeak-speak-current-percentage) (7 emacspeak-wizards-shell-command-on-current-file) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) (
      @end defvar
      
      @defvar {User Option} emacspeak-super-keys
@@ -4669,6 +4669,8 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-current-percentage
      ‘C-e %’
      ‘<fn> %’
+     ‘C-e x 5’
+     ‘<fn> x 5’
 
      Announce the percentage into the current buffer.
 
@@ -4850,6 +4852,8 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-message-at-time (time message)
      ‘C-e @’
      ‘<fn> @’
+     ‘C-e x 2’
+     ‘<fn> x 2’
 
      Speak message at specified time.
      Provides simple stop watch functionality.
@@ -5069,6 +5073,8 @@ of emacspeak from becoming dependent on the speech server modules
           read-as-csv)
      ‘C-e !’
      ‘<fn> !’
+     ‘C-e x 1’
+     ‘<fn> x 1’
 
      Invoke shell COMMAND and display its output as a table. The
      results are placed in a buffer in Emacspeak’s table browsing
@@ -8769,25 +8775,7 @@ Contains various wizards for the Emacspeak desktop.
 ..........................................
 
  -- Command: emacspeak-wizards-shell-by-key (&optional prefix)
-     ‘C-e x 9’
-     ‘C-e x 8’
-     ‘C-e x 7’
-     ‘C-e x 6’
-     ‘C-e x 5’
-     ‘C-e x 4’
-     ‘C-e x 3’
-     ‘C-e x 2’
-     ‘C-e x 1’
      ‘C-e x 0’
-     ‘<fn> x 9’
-     ‘<fn> x 8’
-     ‘<fn> x 7’
-     ‘<fn> x 6’
-     ‘<fn> x 5’
-     ‘<fn> x 4’
-     ‘<fn> x 3’
-     ‘<fn> x 2’
-     ‘<fn> x 1’
      ‘<fn> x 0’
 
      Switch to shell buffer by key. This provides a predictable
@@ -8808,6 +8796,8 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-shell-command-on-current-file (command)
      ‘C-e &’
      ‘<fn> &’
+     ‘C-e x 7’
+     ‘<fn> x 7’
 
      Prompts for and runs shell command on current file.
 

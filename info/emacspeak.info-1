@@ -3272,31 +3272,22 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-keymap,
      emacspeak-wizards-shell-by-key
 
 ‘1’
-     emacspeak-wizards-shell-by-key
+     emacspeak-speak-run-shell-command
 
 ‘2’
-     emacspeak-wizards-shell-by-key
+     emacspeak-speak-message-at-time
 
 ‘3’
-     emacspeak-wizards-shell-by-key
+     calc
 
 ‘4’
-     emacspeak-wizards-shell-by-key
+     flyspell-mode
 
 ‘5’
-     emacspeak-wizards-shell-by-key
-
-‘6’
-     emacspeak-wizards-shell-by-key
+     emacspeak-speak-current-percentage
 
 ‘7’
-     emacspeak-wizards-shell-by-key
-
-‘8’
-     emacspeak-wizards-shell-by-key
-
-‘9’
-     emacspeak-wizards-shell-by-key
+     emacspeak-wizards-shell-command-on-current-file
 
 ‘;’
      emacspeak-m-player-loop
@@ -3540,7 +3531,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-jdee::Speech enable JDEE.
 * emacspeak-journalctl::JOURNALCTL.
 * emacspeak-js2::Speech-enable JS2.
-* emacspeak-keymap::
+* emacspeak-keymap::Setup   keybindings.
 * emacspeak-kmacro::Speech-enable KMacros.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
