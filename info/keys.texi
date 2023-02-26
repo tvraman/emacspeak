@@ -631,22 +631,25 @@
  emacspeak-wizards-shell-by-key
 
 @item 1
- emacspeak-speak-run-shell-command
+ emacspeak-wizards-shell-by-key
 
 @item 2
- emacspeak-speak-message-at-time
+ emacspeak-wizards-shell-by-key
 
 @item 3
- calc
+ emacspeak-wizards-shell-by-key
 
 @item 4
- flyspell-mode
+ emacspeak-wizards-shell-by-key
 
 @item 5
- emacspeak-speak-current-percentage
+ emacspeak-wizards-shell-by-key
 
 @item 7
  emacspeak-wizards-shell-command-on-current-file
+
+@item 8
+ calc
 
 @item ;
  emacspeak-m-player-loop

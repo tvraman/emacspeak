@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1186 commands and 147 options.
+This chapter documents a total of 1185 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3698,15 +3698,6 @@ Provides better Youtube integration
 Play URL using mpv;  Prefix arg plays on left channel.
 
 (fn URL &optional LEFT-CHANNEL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-empv-this-title
-@deffn {Command} emacspeak-empv-this-title   
-@findex emacspeak-empv-this-title
-
-@format
-Speak title of current item
 @end format
 @end deffn
 
@@ -8050,7 +8041,7 @@ Default Value: @verb{|nil|}
 @defvar {User Option} emacspeak-personal-keys
 Key bindings for  C-e x. 
 
-Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-speak-run-shell-command) (2 emacspeak-speak-message-at-time) (3 calc) (4 flyspell-mode) (5 emacspeak-speak-current-percentage) (7 emacspeak-wizards-shell-command-on-current-file) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}
+Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-command-on-current-file) (8 calc) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}
 
 @end defvar
 
@@ -12169,10 +12160,6 @@ location of the mark is indicated by an aural highlight.
 @kindex C-e %
 @item <fn> %
 @kindex <fn> %
-@item C-e x 5
-@kindex C-e x 5
-@item <fn> x 5
-@kindex <fn> x 5
 @end table
 
 @findex emacspeak-speak-current-percentage
@@ -12430,10 +12417,6 @@ The message is also placed in the kill ring for convenient yanking
 @kindex C-e @@
 @item <fn> @@
 @kindex <fn> @@
-@item C-e x 2
-@kindex C-e x 2
-@item <fn> x 2
-@kindex <fn> x 2
 @end table
 
 @findex emacspeak-speak-message-at-time
@@ -12759,10 +12742,6 @@ Speak remainder of the buffer starting at point
 @kindex C-e !
 @item <fn> !
 @kindex <fn> !
-@item C-e x 1
-@kindex C-e x 1
-@item <fn> x 1
-@kindex <fn> x 1
 @end table
 
 @findex emacspeak-speak-run-shell-command
@@ -17674,8 +17653,28 @@ of the source buffer.
 @subsubsection emacspeak-wizards-shell-by-key
 @deffn {Command} emacspeak-wizards-shell-by-key  (&optional prefix)
 @table @kbd
+@item C-e x 5
+@kindex C-e x 5
+@item C-e x 4
+@kindex C-e x 4
+@item C-e x 3
+@kindex C-e x 3
+@item C-e x 2
+@kindex C-e x 2
+@item C-e x 1
+@kindex C-e x 1
 @item C-e x 0
 @kindex C-e x 0
+@item <fn> x 5
+@kindex <fn> x 5
+@item <fn> x 4
+@kindex <fn> x 4
+@item <fn> x 3
+@kindex <fn> x 3
+@item <fn> x 2
+@kindex <fn> x 2
+@item <fn> x 1
+@kindex <fn> x 1
 @item <fn> x 0
 @kindex <fn> x 0
 @end table

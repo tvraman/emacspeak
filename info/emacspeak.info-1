@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 25, 2023.
+last updated on February 26, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3272,22 +3272,25 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-keymap,
      emacspeak-wizards-shell-by-key
 
 ‘1’
-     emacspeak-speak-run-shell-command
+     emacspeak-wizards-shell-by-key
 
 ‘2’
-     emacspeak-speak-message-at-time
+     emacspeak-wizards-shell-by-key
 
 ‘3’
-     calc
+     emacspeak-wizards-shell-by-key
 
 ‘4’
-     flyspell-mode
+     emacspeak-wizards-shell-by-key
 
 ‘5’
-     emacspeak-speak-current-percentage
+     emacspeak-wizards-shell-by-key
 
 ‘7’
      emacspeak-wizards-shell-command-on-current-file
+
+‘8’
+     calc
 
 ‘;’
      emacspeak-m-player-loop
@@ -3411,7 +3414,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1186 commands and 147 options.
+   This chapter documents a total of 1185 commands and 147 options.
 
 * Menu:
 
@@ -6589,13 +6592,6 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
      Play URL using mpv;  Prefix arg plays on left channel.
 
      (fn URL &optional LEFT-CHANNEL)
-
-12.64.1.2 emacspeak-empv-this-title
-...................................
-
- -- Command: emacspeak-empv-this-title
-
-     Speak title of current item
 
 
 File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Prev: emacspeak-empv,  Up: Emacspeak Commands And Options
