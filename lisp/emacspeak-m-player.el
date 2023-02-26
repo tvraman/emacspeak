@@ -1155,6 +1155,14 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (when (process-live-p  emacspeak-m-player-process)
       (ems--mp-send (format "af_add %s" filter-name)))))
 
+
+(defun emacspeak-m-player-add-loop (&optional prompt)
+  "Add loop 10 is default."
+  (interactive "P")
+  (when (process-live-p  emacspeak-m-player-process)
+    (ems--mp-send
+     (format "loop %d" (if prompt (read-number "Count:") 10)))))
+
 (defun emacspeak-m-player-right-channel ()
   "Play on right channel."
   (interactive)
@@ -1423,6 +1431,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("%" emacspeak-m-player-display-percent)
     ("(" emacspeak-m-player-left-channel)
     (")" emacspeak-m-player-right-channel)
+    ("'" emacspeak-m-player-add-loop)
     ("+" emacspeak-m-player-volume-up)
     ("," emacspeak-m-player-backward-10s)
     ("-" emacspeak-m-player-volume-down)
