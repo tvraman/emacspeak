@@ -2822,9 +2822,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘u’
      emacspeak-url-template-fetch
 
-‘v’
-     view-register
-
 ‘w’
      emacspeak-speak-word
 
@@ -2875,6 +2872,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘4’
      amixer-volume-up
+
+‘5’
+     emacspeak-speak-current-percentage
 
 ‘9’
      amixer
@@ -3358,6 +3358,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-v-keyma
 
 11.7 Emacspeak Keybindings On emacspeak-personal-v-keymap
 =========================================================
+
+‘v’
+     view-register
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Up: Emacspeak Keymaps

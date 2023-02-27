@@ -1165,7 +1165,7 @@ found on laptops is denoted <fn>
      @defvar {User Option} emacspeak-personal-v-keys
      Key bindings for use with C-e v. 
      
-     Default Value: @verb{|nil
+     Default Value: @verb{|((v view-register))
 
  -- Variable: User Option emacspeak-personal-y-keys
      Key bindings for use with C-e C-x.
@@ -4684,7 +4684,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-speak-current-percentage
+     ‘C-e 5’
      ‘C-e %’
+     ‘<fn> 5’
      ‘<fn> %’
 
      Announce the percentage into the current buffer.

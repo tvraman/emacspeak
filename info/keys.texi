@@ -180,9 +180,6 @@
 @item u
  emacspeak-url-template-fetch
 
-@item v
- view-register
-
 @item w
  emacspeak-speak-word
 
@@ -233,6 +230,9 @@
 
 @item 4
  amixer-volume-up
+
+@item 5
+ emacspeak-speak-current-percentage
 
 @item 9
  amixer
@@ -717,6 +717,9 @@
  @section Emacspeak Keybindings On emacspeak-personal-v-keymap
 
 @table @kbd
+@item v
+ view-register
+
 @end table
 
 @node Emacspeak Keybindings On emacspeak-personal-y-keymap

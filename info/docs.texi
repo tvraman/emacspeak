@@ -8048,7 +8048,7 @@ Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wi
 @defvar {User Option} emacspeak-personal-v-keys
 Key bindings for use with C-e v. 
 
-Default Value: @verb{|nil|}
+Default Value: @verb{|((v view-register))|}
 
 @end defvar
 
@@ -12183,8 +12183,12 @@ location of the mark is indicated by an aural highlight.
 @subsubsection emacspeak-speak-current-percentage
 @deffn {Command} emacspeak-speak-current-percentage   
 @table @kbd
+@item C-e 5
+@kindex C-e 5
 @item C-e %
 @kindex C-e %
+@item <fn> 5
+@kindex <fn> 5
 @item <fn> %
 @kindex <fn> %
 @end table

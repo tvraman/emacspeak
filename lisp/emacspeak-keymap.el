@@ -513,7 +513,7 @@
        (sort
         val
         #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
+(define-key emacspeak-keymap "v" 'emacspeak-personal-v-keymap)
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-x-keymap)
 (define-key  emacspeak-keymap "y" 'emacspeak-personal-y-keymap)
 
@@ -546,6 +546,7 @@
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
+
 ;;}}}
 ;;{{{ Create personal y map
 
@@ -573,6 +574,7 @@
                    (sort
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
 
 ;;}}}
 ;;{{{ Create a C-z keymap that is customizable
