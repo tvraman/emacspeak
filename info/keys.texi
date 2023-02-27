@@ -617,8 +617,8 @@
 
 @end table
 
-@node Emacspeak Keybindings On emacspeak-personal-keymap
- @section Emacspeak Keybindings On emacspeak-personal-keymap
+@node Emacspeak Keybindings On emacspeak-personal-x-keymap
+ @section Emacspeak Keybindings On emacspeak-personal-x-keymap
 
 @table @kbd
 @item ,
@@ -713,10 +713,19 @@
 
 @end table
 
-@node Emacspeak Keybindings On emacspeak-personal-ctlx-keymap
- @section Emacspeak Keybindings On emacspeak-personal-ctlx-keymap
+@node Emacspeak Keybindings On emacspeak-personal-v-keymap
+ @section Emacspeak Keybindings On emacspeak-personal-v-keymap
 
 @table @kbd
+@end table
+
+@node Emacspeak Keybindings On emacspeak-personal-y-keymap
+ @section Emacspeak Keybindings On emacspeak-personal-y-keymap
+
+@table @kbd
+@item y
+ emacspeak-empv-play-url
+
 @end table
 
 @node Emacspeak Keybindings On emacspeak-multi-keymap

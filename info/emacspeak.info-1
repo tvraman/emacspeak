@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 26, 2023.
+last updated on February 27, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2637,8 +2637,9 @@ File: emacspeak.info,  Node: Emacspeak Keymaps,  Next: Emacspeak Commands And Op
 * Emacspeak Keybindings On emacspeak-hyper-keymap::
 * Emacspeak Keybindings On emacspeak-super-keymap::
 * Emacspeak Keybindings On emacspeak-alt-keymap::
-* Emacspeak Keybindings On emacspeak-personal-keymap::
-* Emacspeak Keybindings On emacspeak-personal-ctlx-keymap::
+* Emacspeak Keybindings On emacspeak-personal-x-keymap::
+* Emacspeak Keybindings On emacspeak-personal-v-keymap::
+* Emacspeak Keybindings On emacspeak-personal-y-keymap::
 * Emacspeak Keybindings On emacspeak-multi-keymap::
 
 
@@ -3194,7 +3195,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
      emacspeak-empv-play
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-x-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
 
 11.5 Emacspeak Keybindings On emacspeak-alt-keymap
 ==================================================
@@ -3257,10 +3258,10 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
      emacspeak-m-player-youtube-player
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-ctlx-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-x-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
 
-11.6 Emacspeak Keybindings On emacspeak-personal-keymap
-=======================================================
+11.6 Emacspeak Keybindings On emacspeak-personal-x-keymap
+=========================================================
 
 ‘,’
      emacspeak-wizards-shell-directory-set
@@ -3353,15 +3354,24 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-keymap,
      emacspeak-wizards-squeeze-blanks
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-ctlx-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-x-keymap,  Up: Emacspeak Keymaps
 
-11.7 Emacspeak Keybindings On emacspeak-personal-ctlx-keymap
-============================================================
+11.7 Emacspeak Keybindings On emacspeak-personal-v-keymap
+=========================================================
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-ctlx-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Up: Emacspeak Keymaps
 
-11.8 Emacspeak Keybindings On emacspeak-multi-keymap
+11.8 Emacspeak Keybindings On emacspeak-personal-y-keymap
+=========================================================
+
+‘y’
+     emacspeak-empv-play-url
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Up: Emacspeak Keymaps
+
+11.9 Emacspeak Keybindings On emacspeak-multi-keymap
 ====================================================
 
 ‘d’
@@ -3414,7 +3424,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1185 commands and 147 options.
+   This chapter documents a total of 1186 commands and 148 options.
 
 * Menu:
 
@@ -6588,6 +6598,8 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 .................................
 
  -- Command: emacspeak-empv-play-url (url &optional left-channel)
+     ‘C-e y y’
+     ‘<fn> y y’
 
      Play URL using mpv;  Prefix arg plays on left channel.
 

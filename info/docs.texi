@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1185 commands and 147 options.
+This chapter documents a total of 1186 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3692,6 +3692,13 @@ Provides better Youtube integration
 
 @subsubsection emacspeak-empv-play-url
 @deffn {Command} emacspeak-empv-play-url  (url &optional left-channel)
+@table @kbd
+@item C-e y y
+@kindex C-e y y
+@item <fn> y y
+@kindex <fn> y y
+@end table
+
 @findex emacspeak-empv-play-url
 
 @format
@@ -8031,17 +8038,24 @@ Default Value: @verb{|((d sdcv-search-input) (h emacspeak-m-player-browse-histor
 
 @end defvar
 
-@defvar {User Option} emacspeak-personal-ctlx-keys
-Key bindings for use with C-e C-x. 
+@defvar {User Option} emacspeak-personal-keys
+Key bindings for  C-e x. 
+
+Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-command-on-current-file) (8 calc) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}
+
+@end defvar
+
+@defvar {User Option} emacspeak-personal-v-keys
+Key bindings for use with C-e v. 
 
 Default Value: @verb{|nil|}
 
 @end defvar
 
-@defvar {User Option} emacspeak-personal-keys
-Key bindings for  C-e x. 
+@defvar {User Option} emacspeak-personal-y-keys
+Key bindings for use with C-e C-x. 
 
-Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-command-on-current-file) (8 calc) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}
+Default Value: @verb{|((y emacspeak-empv-play-url))|}
 
 @end defvar
 
@@ -8302,6 +8316,17 @@ Adds  filter with completion.
 Apply plugin to running MPlayer.
 Copies  invocation string to kill-ring so it can be added easily to
 our pre-defined filters if appropriate.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-add-loop
+@deffn {Command} emacspeak-m-player-add-loop  (&optional prompt)
+@findex emacspeak-m-player-add-loop
+
+@format
+Add loop 10 is default.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -8678,6 +8703,7 @@ C-a		emacspeak-amark-browse
 C-l		ladspa
 SPC		emacspeak-m-player-pause
 %		emacspeak-m-player-display-percent
+'		emacspeak-m-player-add-loop
 (		emacspeak-m-player-left-channel
 )		emacspeak-m-player-right-channel
 +		emacspeak-m-player-volume-up
@@ -9231,6 +9257,7 @@ C-a		emacspeak-amark-browse
 C-l		ladspa
 SPC		emacspeak-m-player-pause
 %		emacspeak-m-player-display-percent
+'		emacspeak-m-player-add-loop
 (		emacspeak-m-player-left-channel
 )		emacspeak-m-player-right-channel
 +		emacspeak-m-player-volume-up
@@ -16961,10 +16988,12 @@ updating custom settings for a specific package or group of packages.
 @subsubsection emacspeak-wizards-cycle-to-next-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-next-buffer   
 @table @kbd
-@item C-z n
-@kindex C-z n
 @item C-; n
 @kindex C-; n
+@item C-e z n
+@kindex C-e z n
+@item <fn> z n
+@kindex <fn> z n
 @item C-x @@ h n
 @kindex C-x @@ h n
 @end table
@@ -16979,10 +17008,12 @@ Cycles to next buffer having same mode.
 @subsubsection emacspeak-wizards-cycle-to-previous-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-previous-buffer   
 @table @kbd
-@item C-z p
-@kindex C-z p
 @item C-; p
 @kindex C-; p
+@item C-e z p
+@kindex C-e z p
+@item <fn> z p
+@kindex <fn> z p
 @item C-x @@ h p
 @kindex C-x @@ h p
 @end table
@@ -17119,8 +17150,10 @@ interactive prompt.
 @subsubsection emacspeak-wizards-eww-buffer-list
 @deffn {Command} emacspeak-wizards-eww-buffer-list   
 @table @kbd
-@item C-z e
-@kindex C-z e
+@item C-e z e
+@kindex C-e z e
+@item <fn> z e
+@kindex <fn> z e
 @end table
 
 @findex emacspeak-wizards-eww-buffer-list
@@ -18057,10 +18090,12 @@ Buffer menu filtered by  m-player mode.
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-this-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-this-mode   
 @table @kbd
-@item C-z b
-@kindex C-z b
 @item C-. m
 @kindex C-. m
+@item C-e z b
+@kindex C-e z b
+@item <fn> z b
+@kindex <fn> z b
 @item C-x @@ s m
 @kindex C-x @@ s m
 @end table

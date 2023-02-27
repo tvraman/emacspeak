@@ -3,6 +3,8 @@
 #XCape ==xcape -- reassign modifier keys
 #Control by itself gives emacspeak modifier.
 # See forthcoming blog article for rationale.
+# Start with  timeout  250, then tune it down (suggest 10% every few
+#days)
 
 TM=180 #timeout in ms for keyup
 

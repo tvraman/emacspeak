@@ -429,7 +429,8 @@ This chapter documents a total of %d commands and %d options.\n\n"
   '(
     emacspeak-keymap emacspeak-dtk-submap
     emacspeak-hyper-keymap emacspeak-super-keymap emacspeak-alt-keymap
-    emacspeak-personal-keymap emacspeak-personal-ctlx-keymap
+    emacspeak-personal-x-keymap emacspeak-personal-v-keymap
+    emacspeak-personal-y-keymap
     emacspeak-multi-keymap)
 "List of keymaps that we document.")
 
