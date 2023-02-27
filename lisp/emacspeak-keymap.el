@@ -525,7 +525,10 @@
 
 (define-prefix-command 'emacspeak-personal-v-keymap)
 
-(defcustom emacspeak-personal-v-keys nil
+(defcustom emacspeak-personal-v-keys
+  '(
+    ("v" view-register)
+    )
   "Key bindings for use with C-e v. "
   :group 'emacspeak
   :type
