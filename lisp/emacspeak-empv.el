@@ -117,7 +117,8 @@
    for b in
    '(
      ("/" empv-seek)
-     ("SPC" empv-toggle) (";" empv-current-loop-on)
+     ("SPC" empv-toggle)
+     ("'" empv-current-loop-on)
      ("RET" empv-youtube-tabulated))
    do
    (emacspeak-keymap-update empv-map b))
