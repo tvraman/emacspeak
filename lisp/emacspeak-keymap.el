@@ -92,33 +92,34 @@
      for word in (split-string string) do
      (let ((key nil))
        (cond
-        ((string-match mod+angle-reg word)  ;;; modifier+-<key>
-         (setq key
-               (list
-                (intern
-                 (concat ;;; strip < and >
-                  (substring word (match-beginning 1) (match-end 1))
-                  (substring word (match-beginning 3) (match-end 3)))))))
-        (t
-         (let ((prefix 0)
-               (bits 0))
-           (while (string-match mod+char word) ;;; calculate modifier bits
-             (cl-incf bits
-                      (cdr (assq (aref word 0) ems--kbd-mod-table)))
-             (cl-incf prefix 2) ;;; strip modifier
-             (cl-callf substring word 2)) ;;; end while modifiers
-           (when-let (c (assoc word ems--kbd-char-table)) (setq word (cdr c)))
-           (cond ;;; apply modifiers
-            ((= bits 0) (setq key word)) ;;; no modifier bits
-            ((/= (length word) 1)
-             (error "%s: Prefix must precede a character, not %s" string word))
-            ((and
-              (/= (logand bits ?\C-\^@) 0)
-              (string-match "^[@-_a-z]" word)) ;;; ascii control char
-             (setq key ;;; C-a is 1 etc.
-                   (list (+ bits (- ?\C-\^@)
-                            (logand (aref word 0) 31)))))
-            (t (setq key (list (+ bits (aref word 0)))))))))
+         ((string-match mod+angle-reg word)  ;;; modifier+-<key>
+          (setq key
+                (list
+                 (intern
+                  (concat ;;; strip < and >
+                   (substring word (match-beginning 1) (match-end 1))
+                   (substring word (match-beginning 3) (match-end 3)))))))
+         (t
+          (let ((prefix 0)
+                (bits 0))
+            (while (string-match mod+char word) ;;; calculate modifier bits
+                   (cl-incf bits
+                            (cdr (assq (aref word 0) ems--kbd-mod-table)))
+                   (cl-incf prefix 2) ;;; strip modifier
+                   (cl-callf substring word 2)) ;;; end while modifiers
+            (when-let (c (assoc word ems--kbd-char-table)) (setq word (cdr c)))
+            (cond ;;; apply modifiers
+              ((= bits 0) (setq key word)) ;;; no modifier bits
+              ((/= (length word) 1)
+               (error "%s: Prefix must precede a character, not %s"
+                      string word))
+              ((and
+                (/= (logand bits ?\C-\^@) 0)
+                (string-match "^[@-_a-z]" word)) ;;; ascii control char
+               (setq key ;;; C-a is 1 etc.
+                     (list (+ bits (- ?\C-\^@)
+                              (logand (aref word 0) 31)))))
+              (t (setq key (list (+ bits (aref word 0)))))))))
        ;; push key on to the result vector
        (when key (cl-callf vconcat res key))))
     res))
@@ -182,7 +183,7 @@
 (define-prefix-command  'emacspeak-keymap)
 (define-prefix-command   'emacspeak-dtk-submap)
 (define-prefix-command  'emacspeak-table-submap-command
-                        'emacspeak-table-submap)
+  'emacspeak-table-submap)
 
 (global-set-key emacspeak-prefix 'emacspeak-keymap)
 
@@ -410,7 +411,7 @@
 
 (dotimes (i 10)
   (define-key emacspeak-dtk-submap
-              (format "%s" i)   'dtk-set-predefined-speech-rate))
+      (format "%s" i)   'dtk-set-predefined-speech-rate))
 
 (cl-loop
  for binding in
@@ -467,10 +468,10 @@
     ("3" emacspeak-wizards-shell-by-key)
     ("4" emacspeak-wizards-shell-by-key )
     ("5" emacspeak-wizards-shell-by-key)
-    ;("6" emacspeak-speak-message-at-time)
+                                        ;("6" emacspeak-speak-message-at-time)
     ("7" emacspeak-wizards-shell-command-on-current-file)
     ("8" calc)
-    ;("9" emacspeak-wizards-shell-by-key)
+                                        ;("9" emacspeak-wizards-shell-by-key)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("C" emacspeak-wizards-colors)
     (";" emacspeak-m-player-loop)
@@ -486,7 +487,7 @@
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)
     ("q" emacspeak-wizards-quote)
-    
+
     ("t" emacspeak-speak-telephone-directory)
     ("u" emacspeak-wizards-units)
     ("v" emacspeak-wizards-vc-viewer)
@@ -516,31 +517,30 @@
 (define-key  emacspeak-keymap "y" 'emacspeak-personal-y-keymap)
 
 ;;}}}
-;;{{{ Create personal ctl-x map
+;;{{{ Create personal c-e v map
 
-(defvar  emacspeak-personal-ctlx-keymap nil
-  "Emacspeak personal-ctlx keymap")
+(defvar  emacspeak-personal-v-keymap nil
+  "Emacspeak personal-v keymap")
 
-(define-prefix-command 'emacspeak-personal-ctlx-keymap)
+(define-prefix-command 'emacspeak-personal-v-keymap)
 
-(defcustom emacspeak-personal-ctlx-keys nil
-  "Key bindings for use with C-e C-x. "
+(defcustom emacspeak-personal-v-keys nil
+  "Key bindings for use with C-e v. "
   :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Personal-Ctlx Keymap"
-          (list
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
+  :type
+  '(repeat
+    :tag "Emacspeak Personal-V Keymap"
+    (list
+     :tag "Key Binding"
+     (key-sequence :tag "Key")
+     (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-personal-ctlx-keymap val)
+      (emacspeak-keymap-bindings-update emacspeak-personal-v-keymap val)
       (set-default sym
                    (sort
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
-
 
 ;;}}}
 ;;{{{ Create personal y map
