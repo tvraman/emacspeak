@@ -263,6 +263,7 @@
    ("2" emacspeak-speak-other-window)
    ("3" amixer-volume-down)
    ("4" amixer-volume-up)
+   ("5" emacspeak-speak-current-percentage)
    (":" emacspeak-m-player-shuffle)
    (";" emacspeak-multimedia)
    ("<XF86WakeUp>" keyboard-quit)
