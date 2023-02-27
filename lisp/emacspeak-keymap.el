@@ -613,7 +613,7 @@
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(global-set-key (ems-kbd "C-z") 'emacspeak-ctl-z-keymap)
+(define-key emacspeak-keymap  "z" 'emacspeak-ctl-z-keymap)
 
 ;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
