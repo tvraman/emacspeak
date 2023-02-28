@@ -1315,9 +1315,9 @@ Useful for fulltext search in a book."
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
   (cl-declare (special eww-data
-               emacspeak-xslt-program emacspeak-bookshare-directory
-               emacspeak-speak-directory-settings
-               emacspeak-bookshare-this-book))
+                       emacspeak-xslt-program emacspeak-bookshare-directory
+                       emacspeak-speak-directory-settings
+                       emacspeak-bookshare-this-book))
   (unless (fboundp 'eww)
     (error "Your Emacs doesn't have EWW."))
   (let ((xsl (emacspeak-bookshare-xslt directory))
@@ -1342,7 +1342,7 @@ Useful for fulltext search in a book."
             default-directory directory)
            (emacspeak-speak-load-directory-settings directory)
            (plist-put eww-data :source nil)
-  (plist-put eww-data :dom nil)
+           (plist-put eww-data :dom nil)
            (emacspeak-auditory-icon 'open-object)
            (emacspeak-speak-mode-line)))
       (browse-url-of-buffer)

@@ -57,16 +57,15 @@
                   "emacspeak-google" (url))
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 
-
 ;;}}}
 ;;{{{Interactive Commands:
 
 (cl-loop
  for f in 
  '(aempv-current-loop-off empv-current-loop-on
-   empv-toggle empv-pause
-   empv-file-loop-off empv-file-loop-on
-   empv-playlist-loop-off empv-playlist-loop-on) do
+                          empv-toggle empv-pause
+                          empv-file-loop-off empv-file-loop-on
+                          empv-playlist-loop-off empv-playlist-loop-on) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
@@ -78,17 +77,13 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-
 (defadvice empv-youtube-tabulated (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
-
 ;;}}}
 ;;{{{Additional Commands:
-
-
 
 ;;}}}
 ;;{{{Commands:
@@ -123,10 +118,10 @@
    do
    (emacspeak-keymap-update empv-map b))
   (map-keymap
- (lambda (_key cmd)
-   (when (symbolp cmd)
-     (put cmd 'repeat-map 'empv-map)))
- empv-map))
+   (lambda (_key cmd)
+     (when (symbolp cmd)
+       (put cmd 'repeat-map 'empv-map)))
+   empv-map))
 
 (emacspeak-empv-setup)
 

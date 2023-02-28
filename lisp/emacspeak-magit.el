@@ -378,7 +378,6 @@
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-
 ;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file

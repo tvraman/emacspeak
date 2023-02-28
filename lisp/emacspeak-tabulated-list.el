@@ -58,8 +58,8 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(tabulated-list-fake-header voice-bolden)))
+ '(
+   (tabulated-list-fake-header voice-bolden)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -78,7 +78,7 @@ Optional interactive prefix arg speaks column header as well."
          (value (elt (tabulated-list-get-entry)  col)))
     (if (called-interactively-p 'interactive) 
         (dtk-speak (concat name " " value))
-        (dtk-speak  value))))
+      (dtk-speak  value))))
 
 (cl-loop
  for f in 
@@ -91,7 +91,6 @@ Optional interactive prefix arg speaks column header as well."
        (emacspeak-auditory-icon 'select-objet)
        (emacspeak-tabulated-list-speak-cell)))))
 
-
 (defun emacspeak-tabulated-list-next-row ()
   "Move to next row and speak that cell"
   (interactive)
@@ -99,7 +98,6 @@ Optional interactive prefix arg speaks column header as well."
     (forward-line 1)
     (forward-char col)
     (emacspeak-tabulated-list-speak-cell)))
-
 
 (defun emacspeak-tabulated-list-previous-row ()
   "Move to previous row and speak that cell."

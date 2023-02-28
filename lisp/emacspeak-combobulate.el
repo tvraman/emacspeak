@@ -58,42 +58,41 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(combobulate-active-indicator-face voice-animategs)
-(combobulate-dimmed-indicator-face voice-bolden)
-(combobulate-refactor-highlight-face voice-annotate)
-(combobulate-tree-branch-face voice-lighten)
-(combobulate-tree-highlighted-node-face voice-brighten)
-(combobulate-tree-pulse-node-face voice-smoothen)))
+ '(
+   (combobulate-active-indicator-face voice-animategs)
+   (combobulate-dimmed-indicator-face voice-bolden)
+   (combobulate-refactor-highlight-face voice-annotate)
+   (combobulate-tree-branch-face voice-lighten)
+   (combobulate-tree-highlighted-node-face voice-brighten)
+   (combobulate-tree-pulse-node-face voice-smoothen)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
 '(
-combobulate-clone-node-dwim
-combobulate-drag-down
-combobulate-drag-up
-combobulate-edit-cluster-dwim
-combobulate-envelop
-combobulate-envelop-node
-combobulate-envelop-python-ts-mode-decorate
-combobulate-envelop-python-ts-mode-nest-for
-combobulate-envelop-python-ts-mode-nest-if
-combobulate-envelop-python-ts-mode-nest-while
-combobulate-envelop-python-ts-mode-wrap-parentheses
-combobulate-kill-node-dwim
-combobulate-mark-defun
-combobulate-mark-node-dwim
-combobulate-maybe-auto-close-tag
-combobulate-maybe-close-tag-or-self-insert
-combobulate-maybe-insert-attribute
-combobulate-python-indent-for-tab-command
-combobulate-splice-down
-combobulate-splice-up
-combobulate-transpose-sexps
-combobulate-vanish-node
-)
-
+  combobulate-clone-node-dwim
+  combobulate-drag-down
+  combobulate-drag-up
+  combobulate-edit-cluster-dwim
+  combobulate-envelop
+  combobulate-envelop-node
+  combobulate-envelop-python-ts-mode-decorate
+  combobulate-envelop-python-ts-mode-nest-for
+  combobulate-envelop-python-ts-mode-nest-if
+  combobulate-envelop-python-ts-mode-nest-while
+  combobulate-envelop-python-ts-mode-wrap-parentheses
+  combobulate-kill-node-dwim
+  combobulate-mark-defun
+  combobulate-mark-node-dwim
+  combobulate-maybe-auto-close-tag
+  combobulate-maybe-close-tag-or-self-insert
+  combobulate-maybe-insert-attribute
+  combobulate-python-indent-for-tab-command
+  combobulate-splice-down
+  combobulate-splice-up
+  combobulate-transpose-sexps
+  combobulate-vanish-node
+  )
 
 (defun emacspeak-combobulate-speak-line ()
   "Speak"

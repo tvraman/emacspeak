@@ -271,9 +271,9 @@ except that the outline section is  spoken"
   (cl-loop
    for map in
    (if (and (bound-and-true-p outline-navigation-repeat-map)
-         (keymapp outline-navigation-repeat-map))
-    (list outline-mode-prefix-map outline-navigation-repeat-map)
-  (list outline-mode-prefix-map ))
+            (keymapp outline-navigation-repeat-map))
+       (list outline-mode-prefix-map outline-navigation-repeat-map)
+     (list outline-mode-prefix-map ))
    do
    (define-key map "p" 'emacspeak-outline-speak-previous-heading)
    (define-key map "n" 'emacspeak-outline-speak-next-heading)

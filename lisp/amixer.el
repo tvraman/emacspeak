@@ -292,8 +292,7 @@ Interactive prefix arg refreshes cache."
        (amixer-control-name control)
        update)))))
 
-
- (defun amixer-query (&optional refresh)
+(defun amixer-query (&optional refresh)
   "Show setting for specified control."
   (interactive "P")
   (cl-declare (special amixer-db amixer-alsactl-config-file amixer-program))
@@ -301,13 +300,13 @@ Interactive prefix arg refreshes cache."
   (when (or refresh (null amixer-db))
     (amixer-build-db))
   (let ((control
-          (cdr
-           (assoc
-            (let ((completion-ignore-case t))
-              (completing-read
-               "Control:" amixer-db
-               nil 'must-match))
-            amixer-db))))
+         (cdr
+          (assoc
+           (let ((completion-ignore-case t))
+             (completing-read
+              "Control:" amixer-db
+              nil 'must-match))
+           amixer-db))))
     (message
      "%s is %s"
      (amixer-control-name control)
@@ -349,7 +348,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
              amixer-program
              (if prompt
                  (read-number "Volume Step:")
-                 amixer-volume-step)))
+               amixer-volume-step)))
     (amixer-build-db)
     (dtk-notify-speak (ems--show-current-volume))
     (emacspeak-auditory-icon 'right)))
@@ -367,7 +366,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
              amixer-program
              (if prompt
                  (read-number "Volume Step:")
-                 amixer-volume-step)))
+               amixer-volume-step)))
     (amixer-build-db)
     (emacspeak-auditory-icon 'left)
     (dtk-notify-speak (ems--show-current-volume))))

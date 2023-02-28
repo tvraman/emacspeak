@@ -91,12 +91,10 @@
   (when (and repeat-mode mpv--process)
     (set-process-sentinel mpv--process #'ems--repeat-sentinel)))
 
-
-
 (cl-loop
  for f in 
  '(
-    mpv-pause mpv-play
+   mpv-pause mpv-play
    mpv-playlist-next mpv-playlist-prev
    mpv-revert-seek mpv-seek mpv-seek-backward mpv-seek-forward
    mpv-seek-to-position-at-point
@@ -171,7 +169,6 @@
      (define-key map (ems-kbd (cl-first b)) (cl-second b)))
     map)
   "MPV Keymap")
-
 
 (define-key emacspeak-keymap (ems-kbd "C-;")  emacspeak-mpv-keymap)
 

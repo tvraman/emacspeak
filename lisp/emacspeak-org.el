@@ -141,9 +141,9 @@
   (unless (eq major-mode 'org-mode) (error "Not in an org buffer"))
   (unless (org-at-item-p) (error "Not at an item"))
   (save-excursion
-   (let ((start (org-beginning-of-item))
-         (end (org-end-of-item)))
-     (emacspeak-speak-region start end))))
+    (let ((start (org-beginning-of-item))
+          (end (org-end-of-item)))
+      (emacspeak-speak-region start end))))
 
 (cl-loop
  for f in
@@ -195,15 +195,15 @@
   :type
   '(choice
     (const :tag "speak cell contents only"
-     emacspeak-org-table-speak-current-element)
+           emacspeak-org-table-speak-current-element)
     (const :tag "speak column header" emacspeak-org-table-speak-column-header)
     (const :tag "speak row header" emacspeak-org-table-speak-row-header)
     (const :tag "speak cell contents and column header"
-     emacspeak-org-table-speak-column-header-and-element)
+           emacspeak-org-table-speak-column-header-and-element)
     (const :tag "speak cell contents and row header"
-     emacspeak-org-table-speak-row-header-and-element)
+           emacspeak-org-table-speak-row-header-and-element)
     (const :tag "speak column contents and both headers"
-     emacspeak-org-table-speak-both-headers-and-element))
+           emacspeak-org-table-speak-both-headers-and-element))
   :group 'emacspeak-org)
 
 ;; orgalist-mode defines structured navigators that in turn call org-cycle.
@@ -219,12 +219,12 @@
   `(defadvice ,f(after emacspeak pre act comp)
      "speak."
      (cond
-       ((org-at-table-p 'any)
-        (funcall emacspeak-org-table-after-movement-function))
-       (t
-        (let ((dtk-stop-immediately nil))
-          (when (ems-interactive-p)
-            (emacspeak-speak-line))))))))
+      ((org-at-table-p 'any)
+       (funcall emacspeak-org-table-after-movement-function))
+      (t
+       (let ((dtk-stop-immediately nil))
+         (when (ems-interactive-p)
+           (emacspeak-speak-line))))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "speak."
@@ -298,8 +298,8 @@
          'all
          (if (> (length (emacspeak-get-minibuffer-contents)) 0)
              (dtk-speak (emacspeak-get-minibuffer-contents))
-             (emacspeak-speak-line)))
-        (emacspeak-speak-completions-if-available))
+           (emacspeak-speak-line)))
+      (emacspeak-speak-completions-if-available))
     ad-return-value))
 
 ;;}}}
@@ -417,32 +417,32 @@
 (defadvice org-delete-backward-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
-    ((ems-interactive-p)
-     (dtk-tone-deletion)
-     (emacspeak-speak-this-char (preceding-char))
-     ad-do-it)
-    (t ad-do-it))
+   ((ems-interactive-p)
+    (dtk-tone-deletion)
+    (emacspeak-speak-this-char (preceding-char))
+    ad-do-it)
+   (t ad-do-it))
   ad-return-value)
 
 (defadvice org-delete-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
-    ((ems-interactive-p)
-     (dtk-tone-deletion)
-     (emacspeak-speak-char t)
-     ad-do-it)
-    (t ad-do-it))
+   ((ems-interactive-p)
+    (dtk-tone-deletion)
+    (emacspeak-speak-char t)
+    ad-do-it)
+   (t ad-do-it))
   ad-return-value)
 
 (defadvice org-return (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (cond
-      ((org-at-table-p 'any)
-       (funcall emacspeak-org-table-after-movement-function))
-      (t
-       (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+     ((org-at-table-p 'any)
+      (funcall emacspeak-org-table-after-movement-function))
+     (t
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ Keymap update:
@@ -531,7 +531,6 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'left)))
 
-
 (defadvice org-end-of-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -573,8 +572,8 @@
   (interactive)
   (let ((field (org-table-get-field)))
     (cond
-      ((string-match "^ *$" field) (dtk-speak "space"))
-      (t (dtk-speak-and-echo field)))))
+     ((string-match "^ *$" field) (dtk-speak "space"))
+     (t (dtk-speak-and-echo field)))))
 
 (defun emacspeak-org-table-speak-column-header ()
   "echoes column header"
@@ -626,7 +625,7 @@
 (cl-loop
  for f in
  '(org-table-next-field org-table-previous-field
-   org-table-next-row org-table-previous-row)
+                        org-table-next-row org-table-previous-row)
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
@@ -646,16 +645,16 @@ Before doing so, re-align the table if necessary."
     (if (or (looking-at "[ \t]*$")
             (save-excursion (skip-chars-backward " \t") (bolp)))
         (newline)
-        (if (and org-table-automatic-realign
-                 org-table-may-need-update)
-            (org-table-align))
-        (let ((col (org-table-current-column)))
-          (beginning-of-line 0)
-          (when (or (not (org-at-table-p)) (org-at-table-hline-p))
-            (beginning-of-line 1))
-          (org-table-goto-column col)
-          (skip-chars-backward "^|\n\r")
-          (if (looking-at " ") (forward-char 1))))))
+      (if (and org-table-automatic-realign
+               org-table-may-need-update)
+          (org-table-align))
+      (let ((col (org-table-current-column)))
+        (beginning-of-line 0)
+        (when (or (not (org-at-table-p)) (org-at-table-hline-p))
+          (beginning-of-line 1))
+        (org-table-goto-column col)
+        (skip-chars-backward "^|\n\r")
+        (if (looking-at " ") (forward-char 1))))))
 
 ;;}}}
 ;;{{{ Capture
@@ -677,11 +676,11 @@ arg just opens the file"
   (require 'org)
   (require 'ol-eww)
   (cond
-    (open
-     (funcall-interactively #'find-file  emacspeak-org-hotlist))
-    (t
-     (org-store-link nil)
-     (org-capture nil "h"))))
+   (open
+    (funcall-interactively #'find-file  emacspeak-org-hotlist))
+   (t
+    (org-store-link nil)
+    (org-capture nil "h"))))
 
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 
@@ -695,9 +694,9 @@ arg just opens the file"
         (choices nil))
     (setq choices
           (cond
-            ((null first-key) entries)
-            (t                           ;third  is cl-caddr
-             (cl-caddr (assoc first-key entries)))))
+           ((null first-key) entries)
+           (t                           ;third  is cl-caddr
+            (cl-caddr (assoc first-key entries)))))
     (dtk-notify-speak
      (mapconcat
       #'(lambda (e)
@@ -753,7 +752,7 @@ arg just opens the file"
     (let ((state (org-get-todo-state)))
       (if (null state)
           (message "State unset")
-          (message state)))))
+        (message state)))))
 
 ;;}}}
 ;;{{{TVR: Conveniences
@@ -797,10 +796,10 @@ arg just opens the file"
     (funcall mode)
     (let ((map (copy-keymap (current-local-map))))
       (define-key map (ems-kbd "C-c C-c")
-        #'(lambda ()
-            (interactive)
-            (kill-buffer nil)
-            (delete-window)))
+                  #'(lambda ()
+                      (interactive)
+                      (kill-buffer nil)
+                      (delete-window)))
       (use-local-map map))
     (shrink-window-if-larger-than-buffer)))
 
@@ -831,28 +830,28 @@ arg just opens the file"
   "Store a link to a AMark.
 Is enabled in the AMark Browser and M-Player Interaction buffers."
   (when-let
-   ((m (memq major-mode '(emacspeak-m-player-mode emacspeak-amark-mode)))
-    (amark
-     (if  (button-at (point))
-          (button-get (button-at (point)) 'mark)
+      ((m (memq major-mode '(emacspeak-m-player-mode emacspeak-amark-mode)))
+       (amark
+        (if  (button-at (point))
+            (button-get (button-at (point)) 'mark)
           (call-interactively #'emacspeak-amark-find)))
-    (link
-     (concat
-      "amark:" (emacspeak-amark-path amark)
-      "#" (emacspeak-amark-position amark))))
-   (org-link-store-props
-    :type "amark" :link link
-    :description (emacspeak-amark-name amark) )
-   link))
+       (link
+        (concat
+         "amark:" (emacspeak-amark-path amark)
+         "#" (emacspeak-amark-position amark))))
+    (org-link-store-props
+     :type "amark" :link link
+     :description (emacspeak-amark-name amark) )
+    link))
 
 (defun org-amark-follow-link (name)
   "Follow an AMark link."
   (when-let
-   ((match (string-match "\\(.*\\)#\\(.*\\)" name))
-    (filename (match-string 1 name))
-    (position  (match-string 2 name)))
-   (emacspeak-amark-play
-    (make-emacspeak-amark :path filename  :position position))))
+      ((match (string-match "\\(.*\\)#\\(.*\\)" name))
+       (filename (match-string 1 name))
+       (position  (match-string 2 name)))
+    (emacspeak-amark-play
+     (make-emacspeak-amark :path filename  :position position))))
 
 ;;}}}
 ;;{{{Play Amarks:
@@ -882,15 +881,15 @@ Press `y' to move to next amark."
 (defun org-ebook-store-link ()
   "Store a link to an EWW mark from an EBook. "
   (when-let
-   ((m (eq major-mode 'emacspeak-eww-marks-mode))
-    (b (button-at (point)))
-    (desc  (buffer-substring (button-start b) (button-end b)))
-    (link
-     (concat
-      "ebook:" (button-label b))))
-   (org-link-store-props
-    :type "ebook" :link link :description desc )
-   link))
+      ((m (eq major-mode 'emacspeak-eww-marks-mode))
+       (b (button-at (point)))
+       (desc  (buffer-substring (button-start b) (button-end b)))
+       (link
+        (concat
+         "ebook:" (button-label b))))
+    (org-link-store-props
+     :type "ebook" :link link :description desc )
+    link))
 
 ;;}}}
 ;;{{{e-media:
@@ -921,8 +920,8 @@ Press `y' to move to next amark."
 (defun emacspeak-org-e-media-follow-url (url)
   "Handle e-media URL, either mtv or mplayer based on URL."
   (cond
-    ((org--ems-yt-p url) (empv-play url))
-    (t (emacspeak-eww-play-media-at-point url))))
+   ((org--ems-yt-p url) (empv-play url))
+   (t (emacspeak-eww-play-media-at-point url))))
 
 ;;}}}
 

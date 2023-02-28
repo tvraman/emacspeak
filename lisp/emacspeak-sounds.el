@@ -134,16 +134,16 @@ Do not set this by hand;
 Fully qualified filename if using Alsa; basename if using pactl. "
   (cl-declare (special emacspeak-sounds-current-theme))
   (let ((f
-          (expand-file-name
-           (format
-            "%s%s"
-            sound-name
-            (emacspeak-sounds-theme-get-ext emacspeak-sounds-current-theme))
-           emacspeak-sounds-current-theme)))
+         (expand-file-name
+          (format
+           "%s%s"
+           sound-name
+           (emacspeak-sounds-theme-get-ext emacspeak-sounds-current-theme))
+          emacspeak-sounds-current-theme)))
     (if (file-exists-p f)
         (if (string= emacspeak-play-program (executable-find "pactl"))
             (file-name-nondirectory f) f)
-        emacspeak-sounds-default)))
+      emacspeak-sounds-default)))
 
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."

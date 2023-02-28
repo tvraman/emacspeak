@@ -81,12 +81,12 @@
 If in locate-mode, speak full pathname."
   (cl-declare (special emacspeak-speak-last-spoken-word-position))
   (let ((filename
-          (dired-get-filename (if (eq major-mode 'locate-mode) nil 'no-dir) t))
+         (dired-get-filename (if (eq major-mode 'locate-mode) nil 'no-dir) t))
         (personality (dtk-get-style)))
     (cond
-      (filename (dtk-speak (propertize filename 'personality personality))
-       (setq emacspeak-speak-last-spoken-word-position (point)))
-      (t (emacspeak-speak-line)))))
+     (filename (dtk-speak (propertize filename 'personality personality))
+               (setq emacspeak-speak-last-spoken-word-position (point)))
+     (t (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{  advice:
@@ -539,21 +539,21 @@ If on a directory, speak the total duration of all sound files under
              t "This command is only available in dired buffers.")
   (let* ((f   (dired-get-filename)))
     (cond
-      ((and (not (file-directory-p f))
-            (string-match emacspeak-media-extensions f))
-       (message "%s %s"
-                (shell-command-to-string (format "soxi -d '%s'" f))
-                (file-name-base f)))
-      ((file-directory-p f)
-       (message
-        "%s in %s"
-        (shell-command-to-string
-         (format
-          "find %s -name '%s -print0 | xargs -0 soxi -Td 2>/dev/null"
-          (shell-quote-argument f)
-          emacspeak-media-extensions))
-        (file-name-base f)))
-      (t (message "No mp3  on current line.")))))
+     ((and (not (file-directory-p f))
+           (string-match emacspeak-media-extensions f))
+      (message "%s %s"
+               (shell-command-to-string (format "soxi -d '%s'" f))
+               (file-name-base f)))
+     ((file-directory-p f)
+      (message
+       "%s in %s"
+       (shell-command-to-string
+        (format
+         "find %s -name '%s -print0 | xargs -0 soxi -Td 2>/dev/null"
+         (shell-quote-argument f)
+         emacspeak-media-extensions))
+       (file-name-base f)))
+     (t (message "No mp3  on current line.")))))
 
 ;;}}}
 ;;{{{ Open Downloads:

@@ -58,8 +58,8 @@
 (cl-loop
  for f in
  '(find-file-in-project ffip
-   find-file-in-project-at-point
-   find-file-in-project-by-selected)
+                        find-file-in-project-at-point
+                        find-file-in-project-by-selected)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

@@ -169,8 +169,8 @@ the match  being passed to the func which returns  the new pronunciation."
   "Return mode derivation chain as a list."
   (let ((parents nil))
     (while mode
-           (cl-pushnew mode parents)
-           (setq mode (get mode  'derived-mode-parent )))
+      (cl-pushnew mode parents)
+      (setq mode (get mode  'derived-mode-parent )))
     parents))
 
 ;;}}}
@@ -204,15 +204,15 @@ the match  being passed to the func which returns  the new pronunciation."
          (filename (buffer-file-name buffer))
          (directory (and filename (file-name-directory filename)))
          (mode
-           (save-current-buffer
+          (save-current-buffer
             (set-buffer buffer)
             major-mode))
          (mode-supers (emacspeak-pronounce-get-supers mode))
          (mode-parents (ems--mode-derive-chain mode))
          (file-alist
-           (and filename (emacspeak-pronounce-get-dictionary filename)))
+          (and filename (emacspeak-pronounce-get-dictionary filename)))
          (dir-alist
-           (and directory (emacspeak-pronounce-get-dictionary directory)))
+          (and directory (emacspeak-pronounce-get-dictionary directory)))
          (mode-alist (emacspeak-pronounce-get-dictionary mode))
          (super-alist nil)
          (parent-alist nil))
@@ -958,10 +958,10 @@ Value returned is compatible with `encode-time'."
 ;;}}}
 ;;{{{Text Mode Pronunciations:
 (emacspeak-pronounce-add-dictionary-entry
-   'help-mode
-   emacspeak-pronounce-sha-checksum-pattern
-   (cons 're-search-forward
-         'emacspeak-pronounce-sha-checksum))
+ 'help-mode
+ emacspeak-pronounce-sha-checksum-pattern
+ (cons 're-search-forward
+       'emacspeak-pronounce-sha-checksum))
 
 (emacspeak-pronounce-add-dictionary-entry
  'text-mode

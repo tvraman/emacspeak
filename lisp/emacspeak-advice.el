@@ -536,9 +536,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Speak word beingkilled."
   (when (ems-interactive-p)
     (save-excursion
-     (skip-syntax-forward " ")
-     (dtk-tone-deletion)
-     (emacspeak-speak-word 1))))
+      (skip-syntax-forward " ")
+      (dtk-tone-deletion)
+      (emacspeak-speak-word 1))))
 
 (defadvice backward-kill-word (before emacspeak pre act comp)
   "Speak word beingkilled."
@@ -917,7 +917,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
           (if (> (point) prior)
               (tts-with-punctuations
                'all (dtk-speak (buffer-substring (point) prior)))
-              (emacspeak-speak-completions-if-available)))))
+            (emacspeak-speak-completions-if-available)))))
       (t ad-do-it))
      ad-return-value)))
 
@@ -1335,7 +1335,6 @@ Indicate change of selection with an auditory icon
     (emacspeak-auditory-icon 'tick-tick)
     (emacspeak-speak-mode-line)))
 
-
 (defadvice display-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
@@ -1703,11 +1702,9 @@ Provide an auditory icon if possible."
      "speak."
      (ems-with-messages-silenced ad-do-it)
      (cond
-       (emacspeak-speak-tooltips
-        (let ((msg (ad-get-arg 0)))
-          (when msg (dtk-speak msg))))))))
-
-
+      (emacspeak-speak-tooltips
+       (let ((msg (ad-get-arg 0)))
+         (when msg (dtk-speak msg))))))))
 
 (cl-loop
  for f in
@@ -1802,7 +1799,6 @@ Produce an auditory icon if possible."
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'left)))))
 
-
 (cl-loop
  for f in 
  '(end-of-line move-end-of-line)
@@ -1813,7 +1809,6 @@ Produce an auditory icon if possible."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'right)))))
-
 
 ;;}}}
 ;;{{{ yanking and popping
@@ -2122,7 +2117,7 @@ Produce an auditory icon if possible."
     (emacspeak-pronounce-toggle-use-of-dictionaries t)
     (when minibuffer-default (emacspeak-auditory-icon 'help))
     (emacspeak-pronounce-add-buffer-local-dictionary-entry
-      default-directory "")
+     default-directory "")
     (tts-with-punctuations
      'all
      (dtk-notify-speak
@@ -2130,7 +2125,7 @@ Produce an auditory icon if possible."
        (buffer-string)
        (if (stringp minibuffer-default)
            minibuffer-default
-           ""))))))
+         ""))))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 
@@ -2539,8 +2534,8 @@ Produce an auditory icon if possible."
 (defadvice yes-or-no-p (around emacspeak pre act comp)
   "Play auditory icon."
   (emacspeak-auditory-icon 'ask-question)
-    ad-do-it
-    (emacspeak-auditory-icon (if ad-return-value 'yes-answer 'no-answer ))
+  ad-do-it
+  (emacspeak-auditory-icon (if ad-return-value 'yes-answer 'no-answer ))
   ad-return-value)
 
 (defadvice y-or-n-p (around emacspeak pre act comp)
@@ -2715,13 +2710,12 @@ Produce an auditory icon if possible."
 (defadvice battery (around emacspeak pre act comp)
   "speak."
   (cond
-    ((ems-interactive-p)
-     (ems-with-messages-silenced
-      ad-do-it
-      (tts-with-punctuations 'some (dtk-speak ad-return-value))))
-    (t ad-do-it))
+   ((ems-interactive-p)
+    (ems-with-messages-silenced
+     ad-do-it
+     (tts-with-punctuations 'some (dtk-speak ad-return-value))))
+   (t ad-do-it))
   ad-return-value)
-
 
 ;;}}}
 ;;{{{emacs lisp mode:
@@ -2734,14 +2728,16 @@ Produce an auditory icon if possible."
       '("ELisp"
         (lexical-binding
          (:propertize ":l"
-          'personality voice-smoothen help-echo "Using lexical-binding mode")
-         (:propertize ":d"
           'personality voice-smoothen
-          help-echo "Using old dynamic scoping mode "
-          face warning mouse-face mode-line-highlight
-          local-map
-          (keymap
-           (mode-line keymap (mouse-1 . elisp-enable-lexical-binding)))))))))
+          help-echo "Using lexical-binding mode")
+         (:propertize ":d"
+                      'personality voice-smoothen
+                      help-echo "Using old dynamic scoping mode "
+                      face warning mouse-face mode-line-highlight
+                      local-map
+                      (keymap
+                       (mode-line keymap
+                        (mouse-1 . elisp-enable-lexical-binding)))))))))
 
 ;;}}}
 (provide 'emacspeak-advice)

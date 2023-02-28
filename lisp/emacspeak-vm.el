@@ -336,8 +336,8 @@ Then speak the screenful. "
     ad-do-it
     (emacspeak-speak-line)
     (save-excursion
-     (search-forward "--text follows this line--")
-     (insert "\n\n")))
+      (search-forward "--text follows this line--")
+      (insert "\n\n")))
    (t
     ad-do-it))
   ad-return-value)
@@ -358,7 +358,7 @@ Then speak the screenful. "
   (when (ems-interactive-p)
     ;; Insert whitespace to delimit quoted text
     (save-excursion
-     (insert "\n\n"))
+      (insert "\n\n"))
     (emacspeak-speak-mode-line)))
 
 (defadvice vm-followup-include-text (after emacspeak pre act comp)
@@ -366,7 +366,7 @@ Then speak the screenful. "
   (when (ems-interactive-p)
     ;; Delimit cited text
     (save-excursion
-     (insert "\n\n"))
+      (insert "\n\n"))
     (message "Following up")
     (emacspeak-speak-mode-line)))
 

@@ -55,26 +55,20 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-
-
-
 (voice-setup-add-map 
-'(
-(devdocs-code-block voice-monotone)))
+ '(
+   (devdocs-code-block voice-monotone)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
-
 '(
-devdocs-delete
+  devdocs-delete
 
+  devdocs-peruse
 
-devdocs-peruse
-
-devdocs-update-all
-)
-
+  devdocs-update-all
+  )
 
 (cl-loop
  for f in 

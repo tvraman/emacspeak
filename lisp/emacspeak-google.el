@@ -712,7 +712,6 @@ which becomes buffer-local."
   (emacspeak-google-tts-speak
    (buffer-substring-no-properties start end) ask-lang))
 
-
 ;;;###autoload
 (defun emacspeak-google-tts-line (&optional lang)
   "TTS line using network TTS.

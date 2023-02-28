@@ -91,24 +91,24 @@
 (defun omaps-geocode (address &optional full)
   "Geocode given address using nominatim search.. "
   (let ((result
-          (g-json-from-url (omaps-geocoder-url (g-url-encode
-                                                address)))))
+         (g-json-from-url (omaps-geocoder-url (g-url-encode
+                                               address)))))
     (cond
-      (full result)
-      (t (list
-          (cons 'lat (g-json-path-lookup "[0].lat" result))
-          (cons 'lng (g-json-path-lookup "[0].lon" result)))))))
+     (full result)
+     (t (list
+         (cons 'lat (g-json-path-lookup "[0].lat" result))
+         (cons 'lng (g-json-path-lookup "[0].lon" result)))))))
 
 ;;;###autoload
 (defun omaps-reverse-geocode (lat-long &optional full)
   "Reverse geocode lat-long.
 Optional argument `full' returns full  object."
   (let ((result
-          (g-json-from-url
-           (omaps-reverse-geocoder-url lat-long))))
+         (g-json-from-url
+          (omaps-reverse-geocoder-url lat-long))))
     (cond
-      (full result)
-      (t (g-json-get 'display_name result)))))
+     (full result)
+     (t (g-json-get 'display_name result)))))
 
 ;; Example of use:
 

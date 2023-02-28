@@ -212,7 +212,7 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
   (cl-declaim (special twittering-mode-map))
   (define-key twittering-mode-map "/" 'twittering-search)
   (define-key
-      twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
+   twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
   (define-key twittering-mode-map "," 'emacspeak-twittering-speak-this-tweet)
   )
 

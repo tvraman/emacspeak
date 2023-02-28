@@ -70,7 +70,6 @@
     (emacspeak-auditory-icon 'close-object)
     (dtk-speak "Hid floating window")))
 
-
 (defadvice exwm-floating-toggle-floating (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -78,7 +77,7 @@
      (format "Turned %s floating"
              (if exwm--floating-frame "on" "off")))
     (emacspeak-auditory-icon
-      (if  exwm--floating-frame 'on 'off))))
+     (if  exwm--floating-frame 'on 'off))))
 
 (defadvice exwm-input-grab-keyboard (after emacspeak pre act comp)
   "speak."
@@ -86,25 +85,22 @@
     (dtk-speak "line mode")
     (emacspeak-auditory-icon 'off)))
 
-
 (defadvice exwm-input-release-keyboard (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Char mode")
     (emacspeak-auditory-icon 'oon)))
 
-
 (defadvice exwm-input-toggle-keyboard (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (cl-case exwm--input-mode
-        (line-mode
-         (dtk-speak "Line mode")
-         (emacspeak-auditory-icon 'off))
-        (char-mode
-         (dtk-speak "Char mode")
-         (emacspeak-auditory-icon 'on)))))
-
+      (line-mode
+       (dtk-speak "Line mode")
+       (emacspeak-auditory-icon 'off))
+      (char-mode
+       (dtk-speak "Char mode")
+       (emacspeak-auditory-icon 'on)))))
 
 (defadvice exwm-layout-show-mode-line (after emacspeak pre act comp)
   "speak."
@@ -116,8 +112,7 @@
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Full screen")
-  (emacspeak-auditory-icon 'window-resize)))
-
+    (emacspeak-auditory-icon 'window-resize)))
 
 (defadvice exwm-layout-hide-mode-line (after emacspeak pre act comp)
   "speak."
@@ -146,7 +141,6 @@
   (when (ems-interactive-p)
     (emacspeak-speak-frame-title)))
 
-
 ;;}}}
 ;;{{{Additional Interactive Commands:
 ;; I bind this to s-/ via custom:
@@ -173,18 +167,15 @@
   (interactive)
   (cl-declare (special emacspeak-exwm-orca-handle))
   (cond
-    (emacspeak-exwm-orca-handle (delete-process emacspeak-exwm-orca-handle)
-                  (setq emacspeak-exwm-orca-handle  nil))
-    (t (setq emacspeak-exwm-orca-handle (start-process "Orca"nil "orca")))))
+   (emacspeak-exwm-orca-handle (delete-process emacspeak-exwm-orca-handle)
+                               (setq emacspeak-exwm-orca-handle  nil))
+   (t (setq emacspeak-exwm-orca-handle (start-process "Orca"nil "orca")))))
 
 (global-set-key (kbd "s-o") 'emacspeak-exwm-orca-toggle)
 
-
 ;;}}}
 
-
 ;;{{{Configure Hooks:
-
 
 (defun emacspeak-exwm-mode-hook ()
   "EXWM Setup For Emacspeak"
@@ -192,11 +183,11 @@
   (define-key exwm-mode-map emacspeak-prefix 'emacspeak-keymap)
   (define-key exwm-mode-map  emacspeak-prefix 'emacspeak-keymap)
   (define-key exwm-mode-map
-      (concat emacspeak-prefix "e")
-    'exwm-input-send-simulation-key)
+              (concat emacspeak-prefix "e")
+              'exwm-input-send-simulation-key)
   (define-key exwm-mode-map
-      (concat emacspeak-prefix emacspeak-prefix)
-    'exwm-input-send-simulation-key)
+              (concat emacspeak-prefix emacspeak-prefix)
+              'exwm-input-send-simulation-key)
   (emacspeak-speak-frame-title))
 
 (cl-declaim (special exwm-mode-hook))

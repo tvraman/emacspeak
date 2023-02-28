@@ -56,9 +56,9 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(treesit-explorer-anonymous-node 'voice-smoothen)
-(treesit-explorer-field-name voice-brighten)))
+ '(
+   (treesit-explorer-anonymous-node 'voice-smoothen)
+   (treesit-explorer-field-name voice-brighten)))
 
 ;;}}}
 ;;{{{ Interactive Commands:

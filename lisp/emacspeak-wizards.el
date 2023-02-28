@@ -54,28 +54,28 @@
 (require 'cl-extra)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (eval-when-compile
- (require 'subr-x)
- (require 'derived)
- (require 'light)
- (require 'let-alist))
+  (require 'subr-x)
+  (require 'derived)
+  (require 'light)
+  (require 'let-alist))
 (require 'emacspeak-preamble)
 (require 'color)
 (eval-when-compile
- (require 'calendar)
- (require 'cus-edit)
- (require 'desktop)
- (require 'emacspeak-table-ui)
- (require 'emacspeak-we)
- (require 'emacspeak-xslt)
- (require 'find-dired)
- (require 'gweb)
- (require 'lisp-mnt)
- (require 'name-this-color "name-this-color" 'no-error)
- (require 'org)
- (require 'shell)
- (require 'solar)
- (require 'term)
- (require 'texinfo))
+  (require 'calendar)
+  (require 'cus-edit)
+  (require 'desktop)
+  (require 'emacspeak-table-ui)
+  (require 'emacspeak-we)
+  (require 'emacspeak-xslt)
+  (require 'find-dired)
+  (require 'gweb)
+  (require 'lisp-mnt)
+  (require 'name-this-color "name-this-color" 'no-error)
+  (require 'org)
+  (require 'shell)
+  (require 'solar)
+  (require 'term)
+  (require 'texinfo))
 
 (declare-function word-at-point "thingatpt" (&optional no-properties))
 (declare-function sox-play "sox" t)
@@ -107,13 +107,13 @@
 (defsubst ems--json-read-file (filename)
   "Use native json implementation if available to read json file."
   (cond
-    ((fboundp 'json-parse-buffer)
-     (with-current-buffer (find-file-noselect filename)
-       (goto-char (point-min))
-       (prog1
-           (json-parse-buffer :object-type 'alist)
-         (kill-buffer ))))
-    (t (json-read-file filename))))
+   ((fboundp 'json-parse-buffer)
+    (with-current-buffer (find-file-noselect filename)
+      (goto-char (point-min))
+      (prog1
+          (json-parse-buffer :object-type 'alist)
+        (kill-buffer ))))
+   (t (json-read-file filename))))
 
 ;;}}}
 ;;{{{  Emacspeak News and Documentation
@@ -316,9 +316,9 @@ also copied to the kill ring for convenient yanking."
    (message
     (if address
         (ems-get-ip-address nil)
-        (mapconcat #'identity
-                   (ems-get-active-network-interfaces)
-                   " ")))))
+      (mapconcat #'identity
+                 (ems-get-active-network-interfaces)
+                 " ")))))
 
 ;;}}}
 ;;{{{ Elisp Utils:
@@ -351,16 +351,16 @@ This is just a text file, and we use grep to search it."
 With prefix arg, opens the phone book for editing."
   (interactive "P")
   (cond
-    (edit
-     (funcall-interactively #'find-file emacspeak-speak-telephone-directory))
-    ((file-exists-p emacspeak-speak-telephone-directory)
-     (emacspeak-shell-command
-      (format "%s %s %s"
-              emacspeak-speak-telephone-directory-command
-              (read-from-minibuffer "Lookup number for: ")
-              emacspeak-speak-telephone-directory)))
-    (t (error "First create your phone directory in %s"
-              emacspeak-speak-telephone-directory))))
+   (edit
+    (funcall-interactively #'find-file emacspeak-speak-telephone-directory))
+   ((file-exists-p emacspeak-speak-telephone-directory)
+    (emacspeak-shell-command
+     (format "%s %s %s"
+             emacspeak-speak-telephone-directory-command
+             (read-from-minibuffer "Lookup number for: ")
+             emacspeak-speak-telephone-directory)))
+   (t (error "First create your phone directory in %s"
+             emacspeak-speak-telephone-directory))))
 
 ;;}}}
 ;;{{{ find file as root
@@ -374,8 +374,8 @@ tramp/sudo), if the file is not writable by user."
   (interactive
    (list
     (cond
-      ((eq major-mode 'dired-mode) (dired-file-name-at-point))
-      (t (ido-read-file-name "Edit as root: ")))))
+     ((eq major-mode 'dired-mode) (dired-file-name-at-point))
+     (t (ido-read-file-name "Edit as root: ")))))
   (unless (file-writable-p file)
     (setq file (concat "/sudo:root@localhost:" file)))
   (find-file file)
@@ -414,11 +414,11 @@ To leave, press \\[keyboard-quit]."
   (ems-with-messages-silenced
    (let ((continue t))
      (while continue
-            (call-interactively 'describe-key-briefly)
-            (sit-for 4)
-            (when (and (numberp last-input-event)
-                       (= last-input-event 7))
-              (setq continue nil)))
+       (call-interactively 'describe-key-briefly)
+       (sit-for 4)
+       (when (and (numberp last-input-event)
+                  (= last-input-event 7))
+         (setq continue nil)))
      (message "Leaving learn mode "))))
 
 (defun emacspeak-describe-emacspeak ()
@@ -438,8 +438,8 @@ To leave, press \\[keyboard-quit]."
 With optional interactive prefix arg `frame', move to next frame instead."
   (interactive "P")
   (cond
-    (frame (funcall-interactively #'other-frame 1))
-    (t (call-interactively #'next-buffer))))
+   (frame (funcall-interactively #'other-frame 1))
+   (t (call-interactively #'next-buffer))))
 
 ;;;###autoload
 (defun emacspeak-previous-frame-or-buffer (&optional frame)
@@ -447,8 +447,8 @@ With optional interactive prefix arg `frame', move to next frame instead."
 With optional interactive prefix arg `frame', move to previous frame instead."
   (interactive "P")
   (cond
-    (frame (funcall-interactively #'other-frame -1))
-    (t (call-interactively #'previous-buffer))))
+   (frame (funcall-interactively #'other-frame -1))
+   (t (call-interactively #'previous-buffer))))
 
 ;;}}}
 ;;{{{  readng different displays of same buffer
@@ -468,10 +468,10 @@ listen to the places where you have left the book open.  "
               (read-minibuffer "Display    to speak")))
     (setq win (nth (% window (length window-list)) window-list))
     (save-excursion
-     (save-window-excursion
-      (emacspeak-speak-region
-       (window-point win)
-       (window-end win 'update))))))
+      (save-window-excursion
+        (emacspeak-speak-region
+         (window-point win)
+         (window-end win 'update))))))
 
 ;;;###autoload
 (defun emacspeak-speak-this-buffer-previous-display ()
@@ -501,10 +501,10 @@ portions of the buffer.  This is equivalent to leaving a book
 open at multiple places at once.  "
   (interactive "P")
   (let ((window
-          (or arg
-              (condition-case nil
-                              (read (format "%c" last-input-event))
-                              (error nil))))
+         (or arg
+             (condition-case nil
+                 (read (format "%c" last-input-event))
+               (error nil))))
         (win nil)
         (window-list (get-buffer-window-list
                       (current-buffer)
@@ -579,18 +579,18 @@ If optional arg property is not supplied, read it interactively. "
    (let
        ((properties (text-properties-at (point))))
      (cond
-       ((and properties
-             (= 2 (length properties)))
-        (list (car properties)))
-       (properties
-        (list
-         (intern
-          (completing-read
-           "Display property: "
-           (cl-loop
-            for p in properties and i from 0 if (cl-evenp i) collect p)))))
-       (t (message "No property set at point ")
-          nil))))
+      ((and properties
+            (= 2 (length properties)))
+       (list (car properties)))
+      (properties
+       (list
+        (intern
+         (completing-read
+          "Display property: "
+          (cl-loop
+           for p in properties and i from 0 if (cl-evenp i) collect p)))))
+      (t (message "No property set at point ")
+         nil))))
   (if property
       (kill-new
        (message "%s"
@@ -609,27 +609,27 @@ If optional arg property is not supplied, read it interactively. "
         (skipped nil)
         (skip 0))
     (unwind-protect
-         (progn
-           (modify-syntax-entry 10 " ")
-           (end-of-line)
-           (setq skip (skip-syntax-forward " "))
-           (cond
-             ((zerop skip)
-              (message "Did not move "))
-             ((eobp)
-              (message "At end of buffer"))
-             (t
-              (beginning-of-line)
-              (setq newlines (1- (count-lines start (point))))
-              (when (> newlines 0)
-                (setq skipped
-                      (format "skip %d " newlines))
-                (put-text-property 0 (length skipped)
-                                   'personality
-                                   voice-annotate skipped))
-              (emacspeak-auditory-icon 'select-object)
-              (dtk-speak
-               (concat skipped (ems--this-line))))))
+        (progn
+          (modify-syntax-entry 10 " ")
+          (end-of-line)
+          (setq skip (skip-syntax-forward " "))
+          (cond
+           ((zerop skip)
+            (message "Did not move "))
+           ((eobp)
+            (message "At end of buffer"))
+           (t
+            (beginning-of-line)
+            (setq newlines (1- (count-lines start (point))))
+            (when (> newlines 0)
+              (setq skipped
+                    (format "skip %d " newlines))
+              (put-text-property 0 (length skipped)
+                                 'personality
+                                 voice-annotate skipped))
+            (emacspeak-auditory-icon 'select-object)
+            (dtk-speak
+             (concat skipped (ems--this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 ;;;###autoload
 (defun emacspeak-skip-blank-lines-backward ()
@@ -641,26 +641,26 @@ If optional arg property is not supplied, read it interactively. "
         (skipped nil)
         (skip 0))
     (unwind-protect
-         (progn
-           (modify-syntax-entry 10 " ")
-           (beginning-of-line)
-           (setq skip (skip-syntax-backward " "))
-           (cond
-             ((zerop skip)
-              (message "Did not move "))
-             ((bobp)
-              (message "At start  of buffer"))
-             (t
-              (beginning-of-line)
-              (setq newlines (1- (count-lines start (point))))
-              (when (> newlines 0)
-                (setq skipped (format "skip %d " newlines))
-                (put-text-property 0 (length skipped)
-                                   'personality
-                                   voice-annotate skipped))
-              (emacspeak-auditory-icon 'select-object)
-              (dtk-speak
-               (concat skipped (ems--this-line))))))
+        (progn
+          (modify-syntax-entry 10 " ")
+          (beginning-of-line)
+          (setq skip (skip-syntax-backward " "))
+          (cond
+           ((zerop skip)
+            (message "Did not move "))
+           ((bobp)
+            (message "At start  of buffer"))
+           (t
+            (beginning-of-line)
+            (setq newlines (1- (count-lines start (point))))
+            (when (> newlines 0)
+              (setq skipped (format "skip %d " newlines))
+              (put-text-property 0 (length skipped)
+                                 'personality
+                                 voice-annotate skipped))
+            (emacspeak-auditory-icon 'select-object)
+            (dtk-speak
+             (concat skipped (ems--this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 
 ;;}}}
@@ -720,9 +720,9 @@ Optional interactive prefix arg ask-pwd prompts for password."
   (cl-assert (string-match ".pdf$"filename) t "Not a PDF file.")
   (let ((passwd (when ask-pwd (read-passwd "User Password:")))
         (output-buffer
-          (format "%s"
-                  (file-name-sans-extension
-                   (file-name-nondirectory filename)))))
+         (format "%s"
+                 (file-name-sans-extension
+                  (file-name-nondirectory filename)))))
     (shell-command
      (format
       "%s %s %s  %s - | cat -s "
@@ -730,7 +730,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
       emacspeak-wizards-pdf-to-text-options
       (if passwd
           (format "-opw %s -upw %s" passwd passwd)
-          "")
+        "")
       (shell-quote-argument
        (expand-file-name filename)))
      output-buffer)
@@ -751,8 +751,8 @@ emacspeak-wizards-tramp-open-location
 bound to \\[emacspeak-wizards-tramp-open-location]."
   :type '(repeat
           (cons :tag "Tramp"
-           (string :tag "Name")
-           (string :tag "Location")))
+                (string :tag "Name")
+                (string :tag "Location")))
   :group 'emacspeak-wizards)
 
 ;;;###autoload
@@ -826,14 +826,14 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
     current-prefix-arg))
   (cl-declare (special emacspeak-occur-pattern))
   (cond
-    ((and (not prefix)
-          (boundp 'emacspeak-occur-pattern)
-          emacspeak-occur-pattern)
-     (how-many emacspeak-occur-pattern start end 'interactive))
-    (t
-     (let ((pattern (read-from-minibuffer "Regular expression: ")))
-       (setq emacspeak-occur-pattern pattern)
-       (how-many pattern start end 'interactive)))))
+   ((and (not prefix)
+         (boundp 'emacspeak-occur-pattern)
+         emacspeak-occur-pattern)
+    (how-many emacspeak-occur-pattern start end 'interactive))
+   (t
+    (let ((pattern (read-from-minibuffer "Regular expression: ")))
+      (setq emacspeak-occur-pattern pattern)
+      (how-many pattern start end 'interactive)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-occur-header-lines (&optional prefix)
@@ -845,16 +845,16 @@ prompts for and sets value of the file local pattern."
   (interactive "P")
   (cl-declare (special emacspeak-occur-pattern))
   (cond
-    ((and (not prefix)
-          (boundp 'emacspeak-occur-pattern)
-          emacspeak-occur-pattern)
-     (occur emacspeak-occur-pattern)
-     (message "Displayed header lines in other window.")
-     (emacspeak-auditory-icon 'open-object))
-    (t
-     (let ((pattern (read-from-minibuffer "Regular expression: ")))
-       (setq emacspeak-occur-pattern pattern)
-       (occur pattern)))))
+   ((and (not prefix)
+         (boundp 'emacspeak-occur-pattern)
+         emacspeak-occur-pattern)
+    (occur emacspeak-occur-pattern)
+    (message "Displayed header lines in other window.")
+    (emacspeak-auditory-icon 'open-object))
+   (t
+    (let ((pattern (read-from-minibuffer "Regular expression: ")))
+      (setq emacspeak-occur-pattern pattern)
+      (occur pattern)))))
 
 ;;}}}
 ;;{{{   Switching buffers, killing buffers etc
@@ -895,11 +895,11 @@ Ubuntu and Debian this is group `tty'.")
                        temporary-file-directory))
   (ems-with-messages-silenced
    (let ((command
-           (format emacspeak-wizards-vc-viewer-command
-                   console
-                   (expand-file-name
-                    (format "vc-%s.dump" console)
-                    temporary-file-directory)))
+          (format emacspeak-wizards-vc-viewer-command
+                  console
+                  (expand-file-name
+                   (format "vc-%s.dump" console)
+                   temporary-file-directory)))
          (buffer (get-buffer-create
                   (format "*vc-%s*" console))))
      (shell-command command buffer)
@@ -924,12 +924,12 @@ Ubuntu and Debian this is group `tty'.")
     (error "Not viewing a virtual console."))
   (let ((console emacspeak-wizards-vc-console)
         (command
-          (format emacspeak-wizards-vc-viewer-command
-                  emacspeak-wizards-vc-console
-                  (expand-file-name
-                   (format "vc-%s.dump"
-                           emacspeak-wizards-vc-console)
-                   temporary-file-directory)))
+         (format emacspeak-wizards-vc-viewer-command
+                 emacspeak-wizards-vc-console
+                 (expand-file-name
+                  (format "vc-%s.dump"
+                          emacspeak-wizards-vc-console)
+                  temporary-file-directory)))
         (inhibit-read-only t)
         (orig (point)))
     (shell-command command)
@@ -958,7 +958,7 @@ Ubuntu and Debian this is group `tty'.")
 (cl-declaim (special emacspeak-wizards-vc-view-mode-map))
 
 (define-key emacspeak-wizards-vc-view-mode-map
-  "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
+            "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
 ;;{{{ longest line in region
@@ -969,17 +969,17 @@ Ubuntu and Debian this is group `tty'.")
   (let ((max 0)
         (where nil))
     (save-excursion
-     (goto-char start)
-     (while (and (not (eobp))
-                 (< (point) end))
-            (when
-                (< max
-                   (- (line-end-position)
-                      (line-beginning-position)))
-              (setq max (- (line-end-position)
-                           (line-beginning-position)))
-              (setq where (line-beginning-position)))
-            (forward-line 1)))
+      (goto-char start)
+      (while (and (not (eobp))
+                  (< (point) end))
+        (when
+            (< max
+               (- (line-end-position)
+                  (line-beginning-position)))
+          (setq max (- (line-end-position)
+                       (line-beginning-position)))
+          (setq where (line-beginning-position)))
+        (forward-line 1)))
     (when (called-interactively-p 'interactive)
       (message "Longest line is %s columns"
                max)
@@ -993,17 +993,17 @@ Moves to the shortest line when called interactively."
   (let ((min 1)
         (where (point)))
     (save-excursion
-     (goto-char start)
-     (while (and (not (eobp))
-                 (< (point) end))
-            (when
-                (< (- (line-end-position)
-                      (line-beginning-position))
-                   min)
-              (setq min (- (line-end-position)
-                           (line-beginning-position)))
-              (setq where (line-beginning-position)))
-            (forward-line 1)))
+      (goto-char start)
+      (while (and (not (eobp))
+                  (< (point) end))
+        (when
+            (< (- (line-end-position)
+                  (line-beginning-position))
+               min)
+          (setq min (- (line-end-position)
+                       (line-beginning-position)))
+          (setq where (line-beginning-position)))
+        (forward-line 1)))
     (when (called-interactively-p 'interactive)
       (message "Shortest line is %s columns"
                min)
@@ -1020,15 +1020,15 @@ Moves to the shortest line when called interactively."
         (where nil)
         (para-start start))
     (save-excursion
-     (goto-char start)
-     (while (and (not (eobp))
-                 (< (point) end))
-            (forward-paragraph 1)
-            (when
-                (< max (- (point) para-start))
-              (setq max (- (point) para-start))
-              (setq where para-start))
-            (setq para-start (point))))
+      (goto-char start)
+      (while (and (not (eobp))
+                  (< (point) end))
+        (forward-paragraph 1)
+        (when
+            (< max (- (point) para-start))
+          (setq max (- (point) para-start))
+          (setq where para-start))
+        (setq para-start (point))))
     (when (called-interactively-p 'interactive)
       (message "Longest paragraph is %s characters"
                max)
@@ -1045,22 +1045,22 @@ Moves to the shortest line when called interactively."
     (read-face-name "Face")))
   (let ((output (get-buffer-create "*emacspeak-face-display*")))
     (save-current-buffer
-     (set-buffer output)
-     (setq buffer-read-only nil)
-     (erase-buffer)
-     (insert (format "Face: %s\n" face))
-     (cl-loop for a in
-              (mapcar #'car face-attribute-name-alist)
-              do
-              (unless (eq 'unspecified (face-attribute face a))
-                (insert
-                 (format "%s\t%s\n"
-                         a
-                         (face-attribute face a)))))
-     (insert
-      (format "Documentation: %s\n"
-              (face-documentation face)))
-     (setq buffer-read-only t))
+      (set-buffer output)
+      (setq buffer-read-only nil)
+      (erase-buffer)
+      (insert (format "Face: %s\n" face))
+      (cl-loop for a in
+               (mapcar #'car face-attribute-name-alist)
+               do
+               (unless (eq 'unspecified (face-attribute face a))
+                 (insert
+                  (format "%s\t%s\n"
+                          a
+                          (face-attribute face a)))))
+      (insert
+       (format "Documentation: %s\n"
+               (face-documentation face)))
+      (setq buffer-read-only t))
     (when (called-interactively-p 'interactive)
       (switch-to-buffer output)
       (goto-char (point-min))
@@ -1096,15 +1096,15 @@ dates.")
   (cl-declare (special emacspeak-wizards-mm-dd-yyyy-date-pronounce
                        emacspeak-pronounce-date-mm-dd-yyyy-pattern))
   (cond
-    (emacspeak-wizards-mm-dd-yyyy-date-pronounce
-     (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce nil)
-     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
-      emacspeak-pronounce-date-mm-dd-yyyy-pattern))
-    (t (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce t)
-       (emacspeak-pronounce-add-buffer-local-dictionary-entry
-        emacspeak-pronounce-date-mm-dd-yyyy-pattern
-        (cons #'re-search-forward
-              'emacspeak-pronounce-mm-dd-yyyy-date))))
+   (emacspeak-wizards-mm-dd-yyyy-date-pronounce
+    (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce nil)
+    (emacspeak-pronounce-remove-buffer-local-dictionary-entry
+     emacspeak-pronounce-date-mm-dd-yyyy-pattern))
+   (t (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce t)
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+       emacspeak-pronounce-date-mm-dd-yyyy-pattern
+       (cons #'re-search-forward
+             'emacspeak-pronounce-mm-dd-yyyy-date))))
   (message "Will %s pronounce mm-dd-yyyy date strings in
   English."
            (if emacspeak-wizards-mm-dd-yyyy-date-pronounce "" "
@@ -1120,15 +1120,15 @@ dates.")
   (cl-declare (special emacspeak-wizards-yyyy-mm-dd-date-pronounce
                        emacspeak-pronounce-date-yyyy-mm-dd-pattern))
   (cond
-    (emacspeak-wizards-yyyy-mm-dd-date-pronounce
-     (setq emacspeak-wizards-yyyy-mm-dd-date-pronounce nil)
-     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
-      emacspeak-pronounce-date-yyyy-mm-dd-pattern))
-    (t (setq emacspeak-wizards-yyyy-mm-dd-date-pronounce t)
-       (emacspeak-pronounce-add-buffer-local-dictionary-entry
-        emacspeak-pronounce-date-yyyy-mm-dd-pattern
-        (cons #'re-search-forward
-              'emacspeak-pronounce-yyyy-mm-dd-date))))
+   (emacspeak-wizards-yyyy-mm-dd-date-pronounce
+    (setq emacspeak-wizards-yyyy-mm-dd-date-pronounce nil)
+    (emacspeak-pronounce-remove-buffer-local-dictionary-entry
+     emacspeak-pronounce-date-yyyy-mm-dd-pattern))
+   (t (setq emacspeak-wizards-yyyy-mm-dd-date-pronounce t)
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+       emacspeak-pronounce-date-yyyy-mm-dd-pattern
+       (cons #'re-search-forward
+             'emacspeak-pronounce-yyyy-mm-dd-date))))
   (message "Will %s pronounce yyyy-mm-dd date strings in
   English."
            (if emacspeak-wizards-yyyy-mm-dd-date-pronounce
@@ -1144,15 +1144,15 @@ dates.")
   (cl-declare (special emacspeak-wizards-yyyymmdd-date-pronounce
                        emacspeak-pronounce-date-yyyymmdd-pattern))
   (cond
-    (emacspeak-wizards-yyyymmdd-date-pronounce
-     (setq emacspeak-wizards-yyyymmdd-date-pronounce nil)
-     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
-      emacspeak-pronounce-date-yyyymmdd-pattern))
-    (t (setq emacspeak-wizards-yyyymmdd-date-pronounce t)
-       (emacspeak-pronounce-add-buffer-local-dictionary-entry
-        emacspeak-pronounce-date-yyyymmdd-pattern
-        (cons 're-search-forward
-              'emacspeak-pronounce-yyyymmdd-date))))
+   (emacspeak-wizards-yyyymmdd-date-pronounce
+    (setq emacspeak-wizards-yyyymmdd-date-pronounce nil)
+    (emacspeak-pronounce-remove-buffer-local-dictionary-entry
+     emacspeak-pronounce-date-yyyymmdd-pattern))
+   (t (setq emacspeak-wizards-yyyymmdd-date-pronounce t)
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+       emacspeak-pronounce-date-yyyymmdd-pattern
+       (cons 're-search-forward
+             'emacspeak-pronounce-yyyymmdd-date))))
   (message "Will %s pronounce YYYYMMDD date strings in
   English."
            (if emacspeak-wizards-yyyymmdd-date-pronounce "" "
@@ -1203,15 +1203,15 @@ Direction specifies previous/next."
   (let* ((shells (emacspeak-wizards-get-shells))
          (target nil))
     (cond
-      ((> (length shells) 1)
-       (when (> direction 0) (bury-buffer))
-       (setq target
-             (if (> direction 0)
-                 (cl-second shells)
-                 (nth (1- (length shells)) shells)))
-       (funcall-interactively #'switch-to-buffer target))
-      ((= 1 (length shells)) (shell "1-shell"))
-      (t (call-interactively #'shell)))))
+     ((> (length shells) 1)
+      (when (> direction 0) (bury-buffer))
+      (setq target
+            (if (> direction 0)
+                (cl-second shells)
+              (nth (1- (length shells)) shells)))
+      (funcall-interactively #'switch-to-buffer target))
+     ((= 1 (length shells)) (shell "1-shell"))
+     (t (call-interactively #'shell)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-shell (&optional prefix)
@@ -1224,28 +1224,28 @@ of the source buffer."
   (interactive "P")
   (cl-declare (special emacspeak-wizards--project-shell-directory))
   (cond
-    ((or prefix (not (eq major-mode 'shell-mode)))
-     (let ((dir default-directory)
-           (shells (emacspeak-wizards-get-shells))
-           (target nil)
-           (target-len 0))
-       (cl-loop
-        for s in shells do
-        (let ((sd
-                (with-current-buffer s
-                  (expand-file-name
-                   emacspeak-wizards--project-shell-directory))))
-          (when
-              (and
-               (string-prefix-p sd dir)
-               (> (length sd) target-len))
-            (setq target s)
-            (setq target-len (length sd)))))
-       (cond
-         (target (funcall-interactively #'switch-to-buffer target)
-                 (ems--shell-pushd-if-needed dir target))
-         (t (call-interactively #'shell)))))
-    (t (call-interactively 'emacspeak-wizards-cycle-to-next-buffer))))
+   ((or prefix (not (eq major-mode 'shell-mode)))
+    (let ((dir default-directory)
+          (shells (emacspeak-wizards-get-shells))
+          (target nil)
+          (target-len 0))
+      (cl-loop
+       for s in shells do
+       (let ((sd
+              (with-current-buffer s
+                (expand-file-name
+                 emacspeak-wizards--project-shell-directory))))
+         (when
+             (and
+              (string-prefix-p sd dir)
+              (> (length sd) target-len))
+           (setq target s)
+           (setq target-len (length sd)))))
+      (cond
+       (target (funcall-interactively #'switch-to-buffer target)
+               (ems--shell-pushd-if-needed dir target))
+       (t (call-interactively #'shell)))))
+   (t (call-interactively 'emacspeak-wizards-cycle-to-next-buffer))))
 
 ;; Inspired by package project-shells from melpa --- but simplified.
 
@@ -1288,21 +1288,21 @@ of the source buffer."
   (unless (emacspeak-wizards-get-shells) (shell))
   (emacspeak-wizards--build-shells-table)
   (cond
-    ((and prefix (eq major-mode 'shell-mode))
-     (emacspeak-wizards-shell-re-key
-      (read (format "%c" last-input-event))
-      (current-buffer)))
-    (t
-     (let* ((directory default-directory)
-            (key
-              (%
-               (read (format "%c" last-input-event))
-               (length (hash-table-keys emacspeak-wizards--shells-table))))
-            (buffer (gethash key emacspeak-wizards--shells-table)))
-       (when ;  source determines target directory
-           (or (eq major-mode 'dired-mode) buffer-file-name)
-         (unless prefix (ems--shell-pushd-if-needed directory buffer)))
-       (funcall-interactively #'switch-to-buffer buffer)))))
+   ((and prefix (eq major-mode 'shell-mode))
+    (emacspeak-wizards-shell-re-key
+     (read (format "%c" last-input-event))
+     (current-buffer)))
+   (t
+    (let* ((directory default-directory)
+           (key
+            (%
+             (read (format "%c" last-input-event))
+             (length (hash-table-keys emacspeak-wizards--shells-table))))
+           (buffer (gethash key emacspeak-wizards--shells-table)))
+      (when ;  source determines target directory
+          (or (eq major-mode 'dired-mode) buffer-file-name)
+        (unless prefix (ems--shell-pushd-if-needed directory buffer)))
+      (funcall-interactively #'switch-to-buffer buffer)))))
 
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
@@ -1349,18 +1349,18 @@ the current directory."
   (interactive "P")
   (cl-declare (special emacspeak-wizards--project-shell-directory))
   (cond
-    ((and prefix (eq major-mode 'shell-mode))
-     (setq emacspeak-wizards--project-shell-directory default-directory)
-     (emacspeak-auditory-icon 'item)
-     (message "%s" (abbreviate-file-name default-directory)))
-    ((and (eq major-mode 'shell-mode)
-          (process-live-p (get-buffer-process (current-buffer))))
-     (emacspeak-auditory-icon 'item)
-     (ems--shell-pushd-if-needed
-      emacspeak-wizards--project-shell-directory (current-buffer))
-     (message (abbreviate-file-name default-directory)))
-    (t
-     (funcall-interactively #'switch-to-buffer "Home"))))
+   ((and prefix (eq major-mode 'shell-mode))
+    (setq emacspeak-wizards--project-shell-directory default-directory)
+    (emacspeak-auditory-icon 'item)
+    (message "%s" (abbreviate-file-name default-directory)))
+   ((and (eq major-mode 'shell-mode)
+         (process-live-p (get-buffer-process (current-buffer))))
+    (emacspeak-auditory-icon 'item)
+    (ems--shell-pushd-if-needed
+     emacspeak-wizards--project-shell-directory (current-buffer))
+    (message (abbreviate-file-name default-directory)))
+   (t
+    (funcall-interactively #'switch-to-buffer "Home"))))
 
 (defun emacspeak-wizards-shell-re-key (key buffer)
   "Re-key shell-buffer `buffer' to be accessed via key `key'. The old shell
@@ -1368,40 +1368,40 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (cl-declare (special emacspeak-wizards--shells-table
                        emacspeak-wizards--project-shell-directory))
   (cond
-    ((eq buffer (gethash key emacspeak-wizards--shells-table))
-     (message "Rekey: Nothing to do"))
-    (t
-     (setq key ;;; works as a circular list
-           (% key (length (hash-table-keys emacspeak-wizards--shells-table))))
-     (let ((swap-buffer (gethash key emacspeak-wizards--shells-table))
-           (swap-key nil))
-       (cl-loop
-        for k being the hash-keys of emacspeak-wizards--shells-table do
-        (when (eq buffer (gethash k emacspeak-wizards--shells-table))
-          (setq swap-key k)))
-       (puthash key buffer emacspeak-wizards--shells-table)
-       (when swap-key
-         (puthash swap-key swap-buffer emacspeak-wizards--shells-table))
-       (message "%s is now  on %s" (buffer-name buffer) key)))))
+   ((eq buffer (gethash key emacspeak-wizards--shells-table))
+    (message "Rekey: Nothing to do"))
+   (t
+    (setq key ;;; works as a circular list
+          (% key (length (hash-table-keys emacspeak-wizards--shells-table))))
+    (let ((swap-buffer (gethash key emacspeak-wizards--shells-table))
+          (swap-key nil))
+      (cl-loop
+       for k being the hash-keys of emacspeak-wizards--shells-table do
+       (when (eq buffer (gethash k emacspeak-wizards--shells-table))
+         (setq swap-key k)))
+      (puthash key buffer emacspeak-wizards--shells-table)
+      (when swap-key
+        (puthash swap-key swap-buffer emacspeak-wizards--shells-table))
+      (message "%s is now  on %s" (buffer-name buffer) key)))))
 
 ;;}}}
 ;;{{{ show commentary:
 (defun ems-cleanup-commentary (commentary)
   "Cleanup commentary."
   (save-current-buffer
-   (set-buffer (get-buffer-create " *doc-temp*"))
-   (erase-buffer)
-   (insert commentary)
-   (goto-char (point-min))
-   (flush-lines "{{{")
-   (goto-char (point-min))
-   (flush-lines "}}}")
-   (goto-char (point-min))
-   (delete-blank-lines)
-   (goto-char (point-min))
-   (while (re-search-forward "^;+ ?" nil t)
-          (replace-match "" nil t))
-   (buffer-string)))
+    (set-buffer (get-buffer-create " *doc-temp*"))
+    (erase-buffer)
+    (insert commentary)
+    (goto-char (point-min))
+    (flush-lines "{{{")
+    (goto-char (point-min))
+    (flush-lines "}}}")
+    (goto-char (point-min))
+    (delete-blank-lines)
+    (goto-char (point-min))
+    (while (re-search-forward "^;+ ?" nil t)
+      (replace-match "" nil t))
+    (buffer-string)))
 
 ;;}}}
 ;;{{{ Bullet navigation
@@ -1443,9 +1443,9 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (interactive)
   (let ((prev (emacspeak-wizards-buffer-cycle-previous major-mode)))
     (cond
-      (prev
-       (funcall-interactively #'switch-to-buffer prev))
-      (t (error "No previous buffer in mode %s" major-mode)))))
+     (prev
+      (funcall-interactively #'switch-to-buffer prev))
+     (t (error "No previous buffer in mode %s" major-mode)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-cycle-to-next-buffer ()
@@ -1453,9 +1453,9 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (interactive)
   (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
     (cond
-      (next (bury-buffer)
-            (funcall-interactively #'switch-to-buffer next))
-      (t (error "No next buffer in mode %s" major-mode)))))
+     (next (bury-buffer)
+           (funcall-interactively #'switch-to-buffer next))
+     (t (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
 ;;{{{ Start or switch to term:
@@ -1470,12 +1470,12 @@ term if needed."
   (cl-declare (special shell-file-name))
   (let ((next (or create (emacspeak-wizards-buffer-cycle-next 'term-mode))))
     (cond
-      ((or create (not next)) (ansi-term shell-file-name))
-      (next
+     ((or create (not next)) (ansi-term shell-file-name))
+     (next
 
-       (when (derived-mode-p 'term-mode) (bury-buffer))
-       (switch-to-buffer next))
-      (t (error "Confused?")))
+      (when (derived-mode-p 'term-mode) (bury-buffer))
+      (switch-to-buffer next))
+     (t (error "Confused?")))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
@@ -1489,17 +1489,17 @@ term if needed."
   "Build up alist of espeak voices."
   (cl-declare (special emacspeak-wizards-espeak-voices-alist))
   (with-temp-buffer
-      (shell-command "espeak-ng  --voices" (current-buffer))
+    (shell-command "espeak-ng  --voices" (current-buffer))
     (goto-char (point-min))
     (forward-line 1)
     (while (not (eobp))
-           (let ((fields
-                   (split-string
-                    (buffer-substring
-                     (line-beginning-position) (line-end-position)))))
-             (push (cons (cl-fourth fields) (cl-second fields))
-                   emacspeak-wizards-espeak-voices-alist))
-           (forward-line 1))))
+      (let ((fields
+             (split-string
+              (buffer-substring
+               (line-beginning-position) (line-end-position)))))
+        (push (cons (cl-fourth fields) (cl-second fields))
+              emacspeak-wizards-espeak-voices-alist))
+      (forward-line 1))))
 
 (defun emacspeak-wizards-espeak-get-voice-code ()
   "Read and return ESpeak voice code with completion."
@@ -1523,9 +1523,9 @@ interactive prompt."
     (unless lang
       (setq lang
             (cond
-              ((called-interactively-p 'interactive)
-               (emacspeak-wizards-espeak-get-voice-code))
-              (t "en"))))
+             ((called-interactively-p 'interactive)
+              (emacspeak-wizards-espeak-get-voice-code))
+             (t "en"))))
     (shell-command
      (format "espeak -v %s '%s'" lang string))))
 
@@ -1534,15 +1534,15 @@ interactive prompt."
   "Speak region using ESpeak polyglot wizard."
   (interactive "r")
   (save-excursion
-   (goto-char start)
-   (while (< start end)
-          (goto-char
-           (next-single-property-change
-            start 'lang
-            (current-buffer) end))
-          (emacspeak-wizards-espeak-string (buffer-substring start (point)))
-          (skip-syntax-forward " ")
-          (setq start (point)))))
+    (goto-char start)
+    (while (< start end)
+      (goto-char
+       (next-single-property-change
+        start 'lang
+        (current-buffer) end))
+      (emacspeak-wizards-espeak-string (buffer-substring start (point)))
+      (skip-syntax-forward " ")
+      (setq start (point)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-espeak-line ()
@@ -1575,8 +1575,8 @@ interactive prompt."
       (setq buffer-undo-list t)
       (erase-buffer)
       (condition-case nil
-                      (cl-prettyprint result)
-                      (error nil))
+          (cl-prettyprint result)
+        (error nil))
       (set-buffer-modified-p nil))
     (pop-to-buffer buffer)
     (emacs-lisp-mode)
@@ -1590,11 +1590,11 @@ interactive prompt."
   (interactive)
   (let ((buffer (get-buffer-create "*emacspeak-memory*")))
     (save-current-buffer
-     (set-buffer buffer)
-     (erase-buffer)
-     (insert
-      (apply 'format
-             "Memory Statistics
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert
+       (apply 'format
+              "Memory Statistics
  cons cells:\t%d
  floats:\t%d
  vectors:\t%d
@@ -1602,10 +1602,10 @@ interactive prompt."
  strings:\t%d
  miscellaneous:\t%d
  integers:\t%d\n"
-             (memory-use-counts)))
-     (insert "\nInterpretation of these statistics:\n")
-     (insert (documentation 'memory-use-counts))
-     (goto-char (point-min)))
+              (memory-use-counts)))
+      (insert "\nInterpretation of these statistics:\n")
+      (insert (documentation 'memory-use-counts))
+      (goto-char (point-min)))
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -1659,8 +1659,8 @@ filters out commands that dont have an active key-binding."
   (let ((result nil)
         (buffer (get-buffer-create "*Result*"))
         (f
-          (format "%sc"
-                  (find-library-name m))))
+         (format "%sc"
+                 (find-library-name m))))
     (mapatoms
      #'(lambda (s)
          (when
@@ -1685,17 +1685,17 @@ filters out commands that dont have an active key-binding."
   (or pattern (setq pattern "."))
   (let ((buffer (get-buffer-create "*Result*"))
         (result
-          (delq
-           nil
-           (mapcar
-            #'(lambda (s)
-                (let ((name (symbol-name s)))
-                  (when
-                      (and
-                       (string-match pattern name)
-                       (null (voice-setup-get-voice-for-face s)))
-                    s)))
-            (face-list)))))
+         (delq
+          nil
+          (mapcar
+           #'(lambda (s)
+               (let ((name (symbol-name s)))
+                 (when
+                     (and
+                      (string-match pattern name)
+                      (null (voice-setup-get-voice-for-face s)))
+                   s)))
+           (face-list)))))
     (setq result
           (sort result
                 #'(lambda (a b)
@@ -1722,13 +1722,13 @@ mapped to voices."
   (interactive "sPattern:")
   (let ((buffer (get-buffer-create "*Result*"))
         (result
-          (delq
-           nil
-           (mapcar
-            #'(lambda (s)
-                (let ((name (symbol-name s)))
-                  (when (string-match pattern name) name)))
-            (face-list)))))
+         (delq
+          nil
+          (mapcar
+           #'(lambda (s)
+               (let ((name (symbol-name s)))
+                 (when (string-match pattern name) name)))
+           (face-list)))))
     (setq result
           (sort result
                 #'(lambda (a b)
@@ -1791,9 +1791,9 @@ mapped to voices."
 (defun emacspeak-wizards-view-buffers-filtered-by-predicate (predicate)
   "Display list of buffers filtered by specified predicate."
   (let ((buffer-list
-          (cl-loop
-           for b in (buffer-list)
-           when (funcall predicate b) collect b))
+         (cl-loop
+          for b in (buffer-list)
+          when (funcall predicate b) collect b))
         (buffer (get-buffer-create (format "*: Filtered Buffer Menu"))))
     (cl-assert buffer-list t "No buffers in this mode.")
     (when buffer-list
@@ -1872,8 +1872,8 @@ Optional interactive prefix arg `category' prompts for a category."
 Visit https://www.alphavantage.co/support/#api-key to get your key."
   :type
   '(choice :tag "Key"
-    (const :tag "Unspecified" nil)
-    (string :tag "API Key"))
+           (const :tag "Unspecified" nil)
+           (string :tag "API Key"))
   :group 'emacspeak-wizards)
 
 (defvar emacspeak-wizards-alpha-vantage-base
@@ -1924,14 +1924,14 @@ access to the various functions provided by alpha-vantage."
                        ems--alpha-vantage-funcs))
   (let* ((completion-ignore-case t)
          (method
-           (if custom
-               (upcase
-                (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
-               "TIME_SERIES_DAILY"))
+          (if custom
+              (upcase
+               (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
+            "TIME_SERIES_DAILY"))
          (url
-           (emacspeak-wizards-alpha-vantage-uri
-            method
-            ticker)))
+          (emacspeak-wizards-alpha-vantage-uri
+           method
+           ticker)))
     (kill-new url)
     (emacspeak-table-view-csv-url url
                                   (format "%s Data For %s" method ticker))))
@@ -1952,16 +1952,16 @@ https://iexcloud.io/cloud-login/
 for how to get  an API key. "
   :type
   '(choice :tag "Key"
-    (const :tag "Unspecified" nil)
-    (string :tag "API Key"))
+           (const :tag "Unspecified" nil)
+           (string :tag "API Key"))
   :group 'emacspeak-wizards)
 
 (defvar emacspeak-wizards-iex-quotes-row-filter
   '(0 " ask  " 2
                                         ;" trading between   " 4 " and  " 5
-    " 52 week range " 7 " to " 8
-    " PE is " 10
-    " For a market cap of " 9)
+      " 52 week range " 7 " to " 8
+      " PE is " 10
+      " For a market cap of " 9)
   "Template used to audio-format  rows.")
 
 (defvar emacspeak-wizards-iex-portfolio-file
@@ -2001,9 +2001,9 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
                emacspeak-wizards-personal-portfolio
                emacspeak-wizards-iex-cache))
   (let* ((symbols
-           (mapconcat
-            #'identity
-            (split-string emacspeak-wizards-personal-portfolio) ","))
+          (mapconcat
+           #'identity
+           (split-string emacspeak-wizards-personal-portfolio) ","))
          (url (emacspeak-wizards-iex-uri  "stock/market/batch" symbols)))
     (shell-command
      (format "%s -s -D %s/iex-headers -o %s '%s'"
@@ -2030,15 +2030,15 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-wizards-personal-portfolio))
   (let-alist
-   (aref
-    (g-json-from-url
-     (format "%s/tops/last?symbols=%s&token=%s"
-             emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
-    0)
-   (message "%s: %s at %s"
-            symbol .price
-            (format-time-string
-             "%_I %M %p" (seconds-to-time (/ .time 1000))))))
+      (aref
+       (g-json-from-url
+        (format "%s/tops/last?symbols=%s&token=%s"
+                emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
+       0)
+    (message "%s: %s at %s"
+             symbol .price
+             (format-time-string
+              "%_I %M %p" (seconds-to-time (/ .time 1000))))))
 
 (defvar ems--wizards-iex-quotes-keymap
   (let ((map (make-sparse-keymap)))
@@ -2065,29 +2065,29 @@ P: Show live price for current stock."
   (let* ((buff (get-buffer-create "*Stock Quotes From IEXTrading*"))
          (inhibit-read-only t)
          (results
-           (cl-loop
-            for i in emacspeak-wizards-iex-cache collect
-            (let-alist i .quote)))
+          (cl-loop
+           for i in emacspeak-wizards-iex-cache collect
+           (let-alist i .quote)))
          (count 1)
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
-                         "lastTrade" "Open" "Low" "High" "Close"
-                         "52WeekLow" "52WeekHigh"
-                         "MarketCap" "PERatio"
-                         "Previous Close" "Change" "Change %"])
+           "lastTrade" "Open" "Low" "High" "Close"
+           "52WeekLow" "52WeekHigh"
+           "MarketCap" "PERatio"
+           "Previous Close" "Change" "Change %"])
     (cl-loop
      for r in results do
      (aset table count
            (apply
             #'vector
             (let-alist r
-                       (list
-                        .companyName .symbol
-                        .latestPrice .open .low .high .close
-                        .week52Low .week52High
-                        .marketCap .peRatio
-                        .previousClose .change .changePercent))))
+              (list
+               .companyName .symbol
+               .latestPrice .open .low .high .close
+               .week52Low .week52High
+               .marketCap .peRatio
+               .previousClose .change .changePercent))))
      (setq count (1+ count)))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
@@ -2112,25 +2112,25 @@ P: Show live price for current stock."
          (inhibit-read-only t)
          (i 1)
          (symbols
-           (mapconcat #'identity
-                      (split-string emacspeak-wizards-personal-portfolio)
-                      ","))
+          (mapconcat #'identity
+                     (split-string emacspeak-wizards-personal-portfolio)
+                     ","))
          (url
-           (format "%s/tops/last?symbols=%s&token=%s"
-                   emacspeak-wizards-iex-base symbols emacspeak-iex-api-key))
+          (format "%s/tops/last?symbols=%s&token=%s"
+                  emacspeak-wizards-iex-base symbols emacspeak-iex-api-key))
          (results (g-json-from-url url))
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0 ["Symbol" "Price"  "Time"])
     (cl-loop
      for r across results do
      (let-alist r
-                (aset table i
-                      (apply #'vector
-                             (list
-                              .symbol .price
-                              (format-time-string
-                               "%_I %M %p" (seconds-to-time (/ .time 1000))))))
-                (setq i (1+ i))))
+       (aset table i
+             (apply #'vector
+                    (list
+                     .symbol .price
+                     (format-time-string
+                      "%_I %M %p" (seconds-to-time (/ .time 1000))))))
+       (setq i (1+ i))))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
@@ -2178,10 +2178,10 @@ Optional interactive prefix arg refreshes cache."
       (mapc
        #'(lambda (n)
            (let-alist n
-                      (insert
-                       (format
-                        "  - [[%s][%s]] %s \n"
-                        .url .headline .source))))
+             (insert
+              (format
+               "  - [[%s][%s]] %s \n"
+               .url .headline .source))))
        this)
       (setq buffer-read-only t)
       (setq header-line-format title))
@@ -2209,15 +2209,15 @@ Optional interactive prefix arg refreshes cache."
          (headers nil)
          (result (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
     (cond
-      (result                            ; in cache
-       (setq this (let-alist result .financials.financials)))
-      (t                                 ; not in cache
-       (setq this
-             (let-alist
-              (g-json-from-url
-               (format "%s/stock/%s/financials?token=%s"
-                       emacspeak-wizards-iex-base symbol
-                       emacspeak-iex-api-key))
+     (result                            ; in cache
+      (setq this (let-alist result .financials.financials)))
+     (t                                 ; not in cache
+      (setq this
+            (let-alist
+                (g-json-from-url
+                 (format "%s/stock/%s/financials?token=%s"
+                         emacspeak-wizards-iex-base symbol
+                         emacspeak-iex-api-key))
               .financials))))
     (cl-assert (arrayp this) t "Not an array.")
     (setq headers
@@ -2261,16 +2261,16 @@ t   :  tops/last
 "
   (interactive "P")
   (cl-case
-   (read-char
-    "f: Financials, n: News, p: Price, q: Quotes, t: tops, m:metadata")
-   (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
-   (?p (call-interactively #'emacspeak-wizards-iex-show-price))
-   (?n (call-interactively #'emacspeak-wizards-iex-show-news))
-   (?m (call-interactively #'emacspeak-wizards-iex-show-metadata))
-   (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote
-                              refresh))
-   (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
-   (otherwise (error "Invalid key"))))
+      (read-char
+       "f: Financials, n: News, p: Price, q: Quotes, t: tops, m:metadata")
+    (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
+    (?p (call-interactively #'emacspeak-wizards-iex-show-price))
+    (?n (call-interactively #'emacspeak-wizards-iex-show-news))
+    (?m (call-interactively #'emacspeak-wizards-iex-show-metadata))
+    (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote
+                               refresh))
+    (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
+    (otherwise (error "Invalid key"))))
 ;; Define emacspeak-wizards-iex-this-news and friends
 (cl-loop
  for n in
@@ -2307,15 +2307,15 @@ where `sport' is either mlb or nba."
 (defun emacspeak-wizards--format-mlb-standing (s)
   "Format  MLB standing."
   (let-alist s
-             (format
-              "* %s %s  are %s in the %s %s.
+    (format
+     "* %s %s  are %s in the %s %s.
 They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
-              .first_name .last_name .ordinal_rank .conference .division
-              .won .lost .games_played .win_percentage
-              .streak .home_won .home_lost .away_won .away_lost
-              .conference_won .conference_lost)))
+     .first_name .last_name .ordinal_rank .conference .division
+     .won .lost .games_played .win_percentage
+     .streak .home_won .home_lost .away_won .away_lost
+     .conference_won .conference_lost)))
 
 (defun emacspeak-wizards-mlb-standings (&optional raw)
   "Display MLB standings as of today.
@@ -2325,40 +2325,40 @@ Optional interactive prefix arg shows  unprocessed results."
         (date (format-time-string "%B %e %Y"))
         (inhibit-read-only t)
         (standings
-          (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "mlb"))))
+         (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "mlb"))))
     (with-current-buffer buffer
       (erase-buffer)
       (special-mode)
       (org-mode)
       (insert (format "* Standings: %s\n\n" date))
       (cond
-        (raw
+       (raw
+        (cl-loop
+         for s across (g-json-get 'standing standings) do
          (cl-loop
-          for s across (g-json-get 'standing standings) do
-          (cl-loop
-           for f in s do
-           (insert (format "%s:\t%s\n"
-                           (car f) (cdr f))))
-          (insert "\n")))
-        (t
-         (cl-loop
-          for s across (g-json-get 'standing standings) do
-          (insert (emacspeak-wizards--format-mlb-standing s)))))
+          for f in s do
+          (insert (format "%s:\t%s\n"
+                          (car f) (cdr f))))
+         (insert "\n")))
+       (t
+        (cl-loop
+         for s across (g-json-get 'standing standings) do
+         (insert (emacspeak-wizards--format-mlb-standing s)))))
       (goto-char (point-min))
       (funcall-interactively #'switch-to-buffer buffer))))
 
 (defun emacspeak-wizards--format-nba-standing (s)
   "Format  NBA standing."
   (let-alist s
-             (format
-              "%s %s  are %s in the %s %s.
+    (format
+     "%s %s  are %s in the %s %s.
 They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
-              .first_name .last_name .ordinal_rank .conference .division
-              .won .lost .games_played .win_percentage
-              .streak .home_won .home_lost .away_won .away_lost
-              .conference_won .conference_lost)))
+     .first_name .last_name .ordinal_rank .conference .division
+     .won .lost .games_played .win_percentage
+     .streak .home_won .home_lost .away_won .away_lost
+     .conference_won .conference_lost)))
 
 (defun emacspeak-wizards-nba-standings (&optional raw)
   "Display NBA standings as of today.
@@ -2368,24 +2368,24 @@ Optional interactive prefix arg shows  unprocessed results."
         (date (format-time-string "%B %e %Y"))
         (inhibit-read-only t)
         (standings
-          (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "nba"))))
+         (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "nba"))))
     (with-current-buffer buffer
       (erase-buffer)
       (special-mode)
       (insert (format "Standings: %s\n\n" date))
       (cond
-        (raw
+       (raw
+        (cl-loop
+         for s across (g-json-get 'standing standings) do
          (cl-loop
-          for s across (g-json-get 'standing standings) do
-          (cl-loop
-           for f in s do
-           (insert (format "%s:\t%s\n"
-                           (car f) (cdr f))))
-          (insert "\n")))
-        (t
-         (cl-loop
-          for s across (g-json-get 'standing standings) do
-          (insert (emacspeak-wizards--format-nba-standing s)))))
+          for f in s do
+          (insert (format "%s:\t%s\n"
+                          (car f) (cdr f))))
+         (insert "\n")))
+       (t
+        (cl-loop
+         for s across (g-json-get 'standing standings) do
+         (insert (emacspeak-wizards--format-nba-standing s)))))
       (goto-char (point-min))
       (funcall-interactively #'switch-to-buffer buffer))))
 
@@ -2429,19 +2429,19 @@ With interactive prefix arg, set foreground and background color first."
 Otherwise just return  `color'."
   (interactive "P")
   (cond
-    ((fboundp 'ntc-name-this-color)
-     (let* ((candidate (ntc--get-closest-color color))
-            (name (ntc--struct-name (cdr candidate)))
-            (shade (ntc--struct-shade (cdr candidate))))
-       (cond
-         ((string= name shade) name)
-         (t
-          (concat
-           (propertize name 'personality voice-bolden)
-           " shaded"
-           (propertize shade 'personality voice-annotate))
-          ))))
-    (t color)))
+   ((fboundp 'ntc-name-this-color)
+    (let* ((candidate (ntc--get-closest-color color))
+           (name (ntc--struct-name (cdr candidate)))
+           (shade (ntc--struct-shade (cdr candidate))))
+      (cond
+       ((string= name shade) name)
+       (t
+        (concat
+         (propertize name 'personality voice-bolden)
+         " shaded"
+         (propertize shade 'personality voice-annotate))
+        ))))
+   (t color)))
 
 (defun emacspeak-wizards-frame-colors ()
   "Display frame's foreground/background color setting."
@@ -2456,8 +2456,8 @@ Otherwise just return  `color'."
   "Set color as foreground or background."
   (let ((choice (read-char "f:foreground, b:background")))
     (cl-case choice
-             (?b (set-background-color color))
-             (?f (set-foreground-color color)))
+      (?b (set-background-color color))
+      (?f (set-foreground-color color)))
     (emacspeak-auditory-icon 'select-object)
     (call-interactively #'emacspeak-wizards-frame-colors)))
 
@@ -2486,8 +2486,8 @@ under point as either the foreground or background color."
 ;;}}}
 ;;{{{ Color Wheel:
 (cl-defstruct ems--color-wheel
-              "Color wheel holds RGB balues and step-size."
-              red green blue step)
+  "Color wheel holds RGB balues and step-size."
+  red green blue step)
 
 (defun ems--color-wheel-hex (w)
   "Return color value as hex."
@@ -2516,23 +2516,23 @@ under point as either the foreground or background color."
   "Describe the current state of this color wheel."
   (let ((name (ems--color-wheel-name w))
         (hexcol
-          (format "#%02X%02X%02X"
-                  (ems--color-wheel-red w)
-                  (ems--color-wheel-green w)
-                  (ems--color-wheel-blue w)))
+         (format "#%02X%02X%02X"
+                 (ems--color-wheel-red w)
+                 (ems--color-wheel-green w)
+                 (ems--color-wheel-blue w)))
         (hex
-          (format "%02X %02X %02X"
-                  (ems--color-wheel-red w)
-                  (ems--color-wheel-green w)
-                  (ems--color-wheel-blue w)))
+         (format "%02X %02X %02X"
+                 (ems--color-wheel-red w)
+                 (ems--color-wheel-green w)
+                 (ems--color-wheel-blue w)))
         (msg nil))
     (cond
-      ((string= fg "red")
-       (put-text-property 0 2 'personality voice-bolden hex))
-      ((string= fg "green")
-       (put-text-property 3 5 'personality voice-bolden hex))
-      ((string= fg "blue")
-       (put-text-property 6 8 'personality voice-bolden hex)))
+     ((string= fg "red")
+      (put-text-property 0 2 'personality voice-bolden hex))
+     ((string= fg "green")
+      (put-text-property 3 5 'personality voice-bolden hex))
+     ((string= fg "blue")
+      (put-text-property 6 8 'personality voice-bolden hex)))
     (setq msg (format "%s is a %s shade: %s"
                       name (ems--color-wheel-shade w) hex))
     (setq msg
@@ -2556,6 +2556,7 @@ s: Set stepsize to number read from minibuffer.
 q: Quit color wheel, after copying current hex value to kill-ring."
   (interactive (list (color-name-to-rgb (read-color "Start Color: "))))
   (cl-declare (special ems--color-wheel))
+  (require 'name-this-color)
   (unless (featurep 'name-this-color)
     (error "This tool requires package name-this-color."))
   (setq start (mapcar #'(lambda (c) (round (* 255 c))) start))
@@ -2570,103 +2571,103 @@ q: Quit color wheel, after copying current hex value to kill-ring."
             :blue (cl-third start)
             :step 8)))
     (while continue
-           (setq event (read-event (ems--color-wheel-describe w color)))
-           (cond
-             ((eq event ?c)
-              (emacspeak-auditory-icon 'button)
-              (setf (ems--color-wheel-red w) (- 255 (ems--color-wheel-red w)))
-              (setf (ems--color-wheel-green w)
-                    (- 255 (ems--color-wheel-green w)))
-              (setf (ems--color-wheel-blue w)
-                    (- 255 (ems--color-wheel-blue w))))
-             ((eq event ?q)
-              (setq continue nil)
-              (emacspeak-auditory-icon 'close-object)
-              (message "Copied color %s %s to kill ring"
-                       (ems--color-wheel-hex w)
-                       (ems--color-wheel-name w))
-              (kill-new (ems--color-wheel-hex w)))
-             ((eq event ?f)
-              (setq continue nil)
-              (emacspeak-auditory-icon 'close-object)
-              (set-foreground-color (ems--color-wheel-hex w))
-              (message "Setting foreground  color  to %s %s"
-                       (ems--color-wheel-hex w)
-                       (ems--color-wheel-name w))
-              (kill-new (ems--color-wheel-hex w)))
-             ((eq event ?b)
-              (setq continue nil)
-              (emacspeak-auditory-icon 'close-object)
-              (set-background-color (ems--color-wheel-hex w))
-              (message "Setting background color  to %s %s"
-                       (ems--color-wheel-hex w)
-                       (ems--color-wheel-name w))
-              (kill-new (ems--color-wheel-hex w)))
-             ((eq event ?s)
-              (setf (ems--color-wheel-step w) (read-number "Step size: ")))
-             ((eq event 'left)
-              (setq this (% (+ this 2) 3))
-              (setq color (elt colors this))
-              (dtk-speak (format "%s Axis" color)))
-             ((eq event 'right)
-              (setq this (% (+ this 1) 3))
-              (setq color (elt colors this))
-              (dtk-speak (format "%s Axis" color)))
-             ((eq event ?n)
-              (setq start
-                    (mapcar #'(lambda (c) (round (* 255 c)))
-                            (color-name-to-rgb (read-color "Start Color: "))))
-              (setf (ems--color-wheel-red w) (cl-first start))
-              (setf (ems--color-wheel-green w) (cl-second start))
-              (setf (ems--color-wheel-blue w) (cl-third start)))
-             ((eq event ?=)
-              (cond
-                ((string= color "red")
-                 (setf (ems--color-wheel-red w) (read-number "Red:"))
-                 (setf (ems--color-wheel-red w)
-                       (min 255 (ems--color-wheel-red w))))
-                ((string= color "green")
-                 (setf (ems--color-wheel-green w) (read-number "Green:"))
-                 (setf (ems--color-wheel-green w)
-                       (min 255 (ems--color-wheel-green w))))
-                ((string= color "blue")
-                 (setf (ems--color-wheel-blue w) (read-number "Blue:"))
-                 (setf (ems--color-wheel-blue w)
-                       (min 255 (ems--color-wheel-blue w))))
-                (t (error "Unknown color %s" color))))
-             ((eq event 'up)
-              (cond
-                ((string= color "red")
-                 (cl-incf (ems--color-wheel-red w) (ems--color-wheel-step w))
-                 (setf (ems--color-wheel-red w)
-                       (min 255 (ems--color-wheel-red w))))
-                ((string= color "green")
-                 (cl-incf (ems--color-wheel-green w) (ems--color-wheel-step w))
-                 (setf (ems--color-wheel-green w)
-                       (min 255 (ems--color-wheel-green w))))
-                ((string= color "blue")
-                 (cl-incf (ems--color-wheel-blue w) (ems--color-wheel-step w))
-                 (setf (ems--color-wheel-blue w)
-                       (min 255 (ems--color-wheel-blue w))))
-                (t (error "Unknown color %s" color))))
-             ((eq event 'down)
-              (cond
-                ((string= color "red")
-                 (cl-decf (ems--color-wheel-red w) (ems--color-wheel-step w))
-                 (setf (ems--color-wheel-red w)
-                       (max 0 (ems--color-wheel-red w))))
-                ((string= color "green")
-                 (cl-decf (ems--color-wheel-green w) (ems--color-wheel-step w))
-                 (setf (ems--color-wheel-green w)
-                       (max 0 (ems--color-wheel-green w))))
-                ((string= color "blue")
-                 (cl-decf (ems--color-wheel-blue w) (ems--color-wheel-step w))
-                 (setf (ems--color-wheel-blue w)
-                       (max 0 (ems--color-wheel-blue w))))
-                (t (error "Unknown color %s" color))))
-             (t
-              (message
-               "Left/Right Switches primary, Up/Down increases/decreases."))))))
+      (setq event (read-event (ems--color-wheel-describe w color)))
+      (cond
+       ((eq event ?c)
+        (emacspeak-auditory-icon 'button)
+        (setf (ems--color-wheel-red w) (- 255 (ems--color-wheel-red w)))
+        (setf (ems--color-wheel-green w)
+              (- 255 (ems--color-wheel-green w)))
+        (setf (ems--color-wheel-blue w)
+              (- 255 (ems--color-wheel-blue w))))
+       ((eq event ?q)
+        (setq continue nil)
+        (emacspeak-auditory-icon 'close-object)
+        (message "Copied color %s %s to kill ring"
+                 (ems--color-wheel-hex w)
+                 (ems--color-wheel-name w))
+        (kill-new (ems--color-wheel-hex w)))
+       ((eq event ?f)
+        (setq continue nil)
+        (emacspeak-auditory-icon 'close-object)
+        (set-foreground-color (ems--color-wheel-hex w))
+        (message "Setting foreground  color  to %s %s"
+                 (ems--color-wheel-hex w)
+                 (ems--color-wheel-name w))
+        (kill-new (ems--color-wheel-hex w)))
+       ((eq event ?b)
+        (setq continue nil)
+        (emacspeak-auditory-icon 'close-object)
+        (set-background-color (ems--color-wheel-hex w))
+        (message "Setting background color  to %s %s"
+                 (ems--color-wheel-hex w)
+                 (ems--color-wheel-name w))
+        (kill-new (ems--color-wheel-hex w)))
+       ((eq event ?s)
+        (setf (ems--color-wheel-step w) (read-number "Step size: ")))
+       ((eq event 'left)
+        (setq this (% (+ this 2) 3))
+        (setq color (elt colors this))
+        (dtk-speak (format "%s Axis" color)))
+       ((eq event 'right)
+        (setq this (% (+ this 1) 3))
+        (setq color (elt colors this))
+        (dtk-speak (format "%s Axis" color)))
+       ((eq event ?n)
+        (setq start
+              (mapcar #'(lambda (c) (round (* 255 c)))
+                      (color-name-to-rgb (read-color "Start Color: "))))
+        (setf (ems--color-wheel-red w) (cl-first start))
+        (setf (ems--color-wheel-green w) (cl-second start))
+        (setf (ems--color-wheel-blue w) (cl-third start)))
+       ((eq event ?=)
+        (cond
+         ((string= color "red")
+          (setf (ems--color-wheel-red w) (read-number "Red:"))
+          (setf (ems--color-wheel-red w)
+                (min 255 (ems--color-wheel-red w))))
+         ((string= color "green")
+          (setf (ems--color-wheel-green w) (read-number "Green:"))
+          (setf (ems--color-wheel-green w)
+                (min 255 (ems--color-wheel-green w))))
+         ((string= color "blue")
+          (setf (ems--color-wheel-blue w) (read-number "Blue:"))
+          (setf (ems--color-wheel-blue w)
+                (min 255 (ems--color-wheel-blue w))))
+         (t (error "Unknown color %s" color))))
+       ((eq event 'up)
+        (cond
+         ((string= color "red")
+          (cl-incf (ems--color-wheel-red w) (ems--color-wheel-step w))
+          (setf (ems--color-wheel-red w)
+                (min 255 (ems--color-wheel-red w))))
+         ((string= color "green")
+          (cl-incf (ems--color-wheel-green w) (ems--color-wheel-step w))
+          (setf (ems--color-wheel-green w)
+                (min 255 (ems--color-wheel-green w))))
+         ((string= color "blue")
+          (cl-incf (ems--color-wheel-blue w) (ems--color-wheel-step w))
+          (setf (ems--color-wheel-blue w)
+                (min 255 (ems--color-wheel-blue w))))
+         (t (error "Unknown color %s" color))))
+       ((eq event 'down)
+        (cond
+         ((string= color "red")
+          (cl-decf (ems--color-wheel-red w) (ems--color-wheel-step w))
+          (setf (ems--color-wheel-red w)
+                (max 0 (ems--color-wheel-red w))))
+         ((string= color "green")
+          (cl-decf (ems--color-wheel-green w) (ems--color-wheel-step w))
+          (setf (ems--color-wheel-green w)
+                (max 0 (ems--color-wheel-green w))))
+         ((string= color "blue")
+          (cl-decf (ems--color-wheel-blue w) (ems--color-wheel-step w))
+          (setf (ems--color-wheel-blue w)
+                (max 0 (ems--color-wheel-blue w))))
+         (t (error "Unknown color %s" color))))
+       (t
+        (message
+         "Left/Right Switches primary, Up/Down increases/decreases."))))))
 
 ;;}}}
 ;;{{{ Swap Foreground And Background:
@@ -2735,7 +2736,7 @@ updating custom settings for a specific package or group of packages."
   "Return NOAA gridpoint from geo-coordinates."
   (cl-declare (special ems--noaa-grid-endpoint))
   (let-alist geo
-             (format "%s%.4f,%.4f" ems--noaa-grid-endpoint .lat .lng)))
+    (format "%s%.4f,%.4f" ems--noaa-grid-endpoint .lat .lng)))
 
 ;; NOAA: format time
 ;; NOAA data has a ":" in tz
@@ -2754,8 +2755,8 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
   (cl-assert (or geo gmaps-my-address) nil "Location not specified.")
   (unless geo (setq geo (gmaps-address-geocode gmaps-my-address)))
   (let-alist ;;; return forecast url
-   (g-json-from-url (ems--noaa-get-gridpoint geo))
-   .properties.forecast))
+      (g-json-from-url (ems--noaa-get-gridpoint geo))
+    .properties.forecast))
 
 (defun ems--noaa-get-data (ask)
   "Internal function that gets NOAA data and returns a results buffer."
@@ -2767,14 +2768,14 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
          (fmt "%A  %H:%M %h %d")
          (start (point-min))
          (address
-           (if (and ask (= 16 (car ask)))
-               (completing-read
-                "Address:"
-                gmaps-location-table)
-               gmaps-my-address))
+          (if (and ask (= 16 (car ask)))
+              (completing-read
+               "Address:"
+               gmaps-location-table)
+            gmaps-my-address))
          (geo (if (and ask (= 16 (car ask)))
                   (gmaps-address-geocode address)
-                  (gmaps-address-geocode gmaps-my-address)))
+                (gmaps-address-geocode gmaps-my-address)))
          (url (ems--noaa-url geo)))
     (with-current-buffer buffer
       (erase-buffer)
@@ -2782,39 +2783,39 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (setq header-line-format (format "NOAA Weather For %s" address))
       ;; produce Daily forecast
       (let-alist (g-json-from-url url)
-                 (insert
-                  (format "* Forecast At %s For %s\n\n"
-                          (ems--noaa-time fmt .properties.updated)
-                          address))
-                 (cl-loop
-                  for p across .properties.periods do
-                  (let-alist p
-                             (insert
-                              (format
-                               "* Forecast For %s: %s\n\n%s\n\n"
-                               .name .shortForecast .detailedForecast)))
-                  (fill-region start (point)))
-                 )
+        (insert
+         (format "* Forecast At %s For %s\n\n"
+                 (ems--noaa-time fmt .properties.updated)
+                 address))
+        (cl-loop
+         for p across .properties.periods do
+         (let-alist p
+           (insert
+            (format
+             "* Forecast For %s: %s\n\n%s\n\n"
+             .name .shortForecast .detailedForecast)))
+         (fill-region start (point)))
+        )
       (let-alist ;;; Now produce hourly forecast
-       (g-json-from-url (concat url "/hourly"))
-       (insert
-        (format "\n* Hourly Forecast:Updated At %s \n"
-                (ems--noaa-time fmt .properties.updated)))
-       (cl-loop
-        for p across .properties.periods do
-        (let-alist p
-                   (unless (and
-                            date
-                            (string= date (ems--noaa-time "%x" .startTime)))
-                     (insert
-                      (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
-                     (setq date (ems--noaa-time "%x" .startTime)))
-                   (insert
-                    (format
-                     "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-                     (ems--noaa-time "%R" .startTime)
-                     .shortForecast
-                     .temperature .windSpeed .windDirection)))))
+          (g-json-from-url (concat url "/hourly"))
+        (insert
+         (format "\n* Hourly Forecast:Updated At %s \n"
+                 (ems--noaa-time fmt .properties.updated)))
+        (cl-loop
+         for p across .properties.periods do
+         (let-alist p
+           (unless (and
+                    date
+                    (string= date (ems--noaa-time "%x" .startTime)))
+             (insert
+              (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
+             (setq date (ems--noaa-time "%x" .startTime)))
+           (insert
+            (format
+             "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+             (ems--noaa-time "%R" .startTime)
+             .shortForecast
+             .temperature .windSpeed .windDirection)))))
       (setq buffer-read-only t)
       (goto-char (point-min)))
     buffer))
@@ -2829,10 +2830,10 @@ arg (C-u C-u) asks for location address; Default is to display
 weather for `gmaps-my-address'.  "
   (interactive "P")
   (let ((buffer
-          (cond
-            (ask (ems--noaa-get-data ask))
-            ((get-buffer "*NOAA Weather*") (get-buffer "*NOAA Weather*"))
-            (t (ems--noaa-get-data ask)))))
+         (cond
+          (ask (ems--noaa-get-data ask))
+          ((get-buffer "*NOAA Weather*") (get-buffer "*NOAA Weather*"))
+          (t (ems--noaa-get-data ask)))))
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
@@ -2903,13 +2904,13 @@ external package."
   (let ((l (local-key-binding key))
         (g (global-key-binding key))
         (k
-          (when-let (map (get-text-property (point) 'keymap))
-                    (lookup-key map key))))
+         (when-let (map (get-text-property (point) 'keymap))
+           (lookup-key map key))))
     (cl-flet
-     ((do-it (command)
-        (make-thread command)
-        (message "Running %s on a new thread." command)))
-     (cond
+        ((do-it (command)
+           (make-thread command)
+           (message "Running %s on a new thread." command)))
+      (cond
        ((commandp k) (do-it k))
        ((commandp l) (do-it l))
        ((commandp g) (do-it g))
@@ -2923,12 +2924,12 @@ external package."
 Optional interactive prefix arg reverse-geocodes using Google Maps."
   (interactive "P")
   (let-alist
-   (g-json-from-url "https://freegeoip.app/json")
-   (if reverse-geocode
-       (dtk-speak
-        (gmaps-reverse-geocode
-         `((lat . ,.latitude) (lng . ,.longitude ))))
-       (dtk-speak-list (list  .city .region_name)))))
+      (g-json-from-url "https://freegeoip.app/json")
+    (if reverse-geocode
+        (dtk-speak
+         (gmaps-reverse-geocode
+          `((lat . ,.latitude) (lng . ,.longitude ))))
+      (dtk-speak-list (list  .city .region_name)))))
 
 ;;}}}
 ;;{{{ Open Frame On Remote Emacs:
@@ -2949,12 +2950,12 @@ Works best when you already are ssh-impel-ed in and have a talking
    (> (length emacspeak-wizards-remote-workstation) 0) t
    "Set emacspeak-wizards-remote-workstation first.")
   (let ((title
-          `((name .
-                  ,(format
-                    "%s:Emacs"
-                    (cl-first
-                     (split-string
-                      emacspeak-wizards-remote-workstation "\\.")))))))
+         `((name .
+                 ,(format
+                   "%s:Emacs"
+                   (cl-first
+                    (split-string
+                     emacspeak-wizards-remote-workstation "\\.")))))))
     (with-environment-variables
         (("TERM" "xterm"))
       (start-process
@@ -2978,7 +2979,7 @@ personality at point. "
       (setq v
             (if (listp v)
                 (mapcar #'symbol-name v)
-                (symbol-name v)))
+              (symbol-name v)))
       (when (listp v) (setq v (cl-first v)))
       (read-from-minibuffer
        "Personality: "
@@ -2989,20 +2990,20 @@ personality at point. "
     (when personality
       (setq settings (intern (format "%s-settings" personality))))
     (cond
-      ((symbol-value settings) ;;; globally bound, display it
-       (setq values (symbol-value settings))
-       (with-help-window (help-buffer)
-         (with-current-buffer standard-output
-           (insert (format "Personality: %s\n\n" personality ))
-           (put-text-property (point-min) (point)
-                              'personality personality)
-           (cl-loop
-            for i from 0 to (1- (length n))do
-            (insert (format "%s: %s\n"
-                            (elt n i) (elt values i))))))
-       (when (called-interactively-p 'interactive)
-         (emacspeak-speak-help)))
-      (t (message "%s doesn't look like a valid personality." personality)))))
+     ((symbol-value settings) ;;; globally bound, display it
+      (setq values (symbol-value settings))
+      (with-help-window (help-buffer)
+        (with-current-buffer standard-output
+          (insert (format "Personality: %s\n\n" personality ))
+          (put-text-property (point-min) (point)
+                             'personality personality)
+          (cl-loop
+           for i from 0 to (1- (length n))do
+           (insert (format "%s: %s\n"
+                           (elt n i) (elt values i))))))
+      (when (called-interactively-p 'interactive)
+        (emacspeak-speak-help)))
+     (t (message "%s doesn't look like a valid personality." personality)))))
 
 ;;}}}
 ;;{{{ tex utils:
@@ -3013,7 +3014,7 @@ personality at point. "
   (interactive "P")
   (if arg
       (forward-word arg)
-      (forward-word 1))
+    (forward-word 1))
   (when (called-interactively-p 'interactive)
     (let ((emacspeak-show-point  t))
       (emacspeak-speak-line))))
@@ -3038,11 +3039,11 @@ personality at point. "
   (interactive "P")
   (or n (setq n 1))
   (while
-   (> n 0)
-   (setq n (- n 1))
-   (forward-word 1)
-   (delete-horizontal-space)
-   (insert-char 126 1))
+      (> n 0)
+    (setq n (- n 1))
+    (forward-word 1)
+    (delete-horizontal-space)
+    (insert-char 126 1))
   (forward-word 1))
 
 ;;}}}
@@ -3056,19 +3057,19 @@ Optional interactive prefix arg deletes it."
   (let ((orig (point))
         (pair nil)
         (pairs
-          '((?< ?>)
-            (?\[ ?\])
-            (?\( ?\))
-            (?{ ?})
-            (?\" ?\")
-            (?' ?')
-            (?` ?')
-            (?| ?|)
-            (?* ?*)
-            (?/ ?/)
-            (?- ?-)
-            (?_ ?_)
-            (?~ ?~)))
+         '((?< ?>)
+           (?\[ ?\])
+           (?\( ?\))
+           (?{ ?})
+           (?\" ?\")
+           (?' ?')
+           (?` ?')
+           (?| ?|)
+           (?* ?*)
+           (?/ ?/)
+           (?- ?-)
+           (?_ ?_)
+           (?~ ?~)))
         (char (char-after))
         (stab nil))
     (setq pair
@@ -3077,21 +3078,21 @@ Optional interactive prefix arg deletes it."
     (setq stab (copy-syntax-table))
     (with-syntax-table stab
       (cond
-        ((= (cl-first pair) (cl-second pair))
-         (modify-syntax-entry (cl-first pair) "\"" )
-         (modify-syntax-entry (cl-second pair) "\"" ))
-        (t
-         (modify-syntax-entry (cl-first pair) "(")
-         (modify-syntax-entry (cl-second pair) ")")))
+       ((= (cl-first pair) (cl-second pair))
+        (modify-syntax-entry (cl-first pair) "\"" )
+        (modify-syntax-entry (cl-second pair) "\"" ))
+       (t
+        (modify-syntax-entry (cl-first pair) "(")
+        (modify-syntax-entry (cl-second pair) ")")))
       (save-excursion
-       (forward-sexp)
-       (cond
+        (forward-sexp)
+        (cond
          (delete
           (kill-region (1+ orig) (1- (point)))
           (emacspeak-auditory-icon 'delete-object))
          (t (kill-ring-save (1+ orig) (1- (point)))
             (emacspeak-auditory-icon 'mark-object)))
-       (dtk-speak (car kill-ring))))))
+        (dtk-speak (car kill-ring))))))
 
 ;;}}}
 ;;{{{Brightness Alert:
@@ -3115,10 +3116,10 @@ before brightness is checked.")
   "Check  brightness, alert and autoblack if set."
   (cl-declare (special emacspeak-brightness-autoblack))
   (with-local-quit
-      (unless (zerop (light-get))
-        (emacspeak-auditory-icon 'alert-user)
-        (when emacspeak-brightness-autoblack (light-black))
-        (message "Brightness %s." (light-get)))))
+    (unless (zerop (light-get))
+      (emacspeak-auditory-icon 'alert-user)
+      (when emacspeak-brightness-autoblack (light-black))
+      (message "Brightness %s." (light-get)))))
 
 ;;;###autoload
 (defun emacspeak-brightness-alert-toggle ()
@@ -3126,14 +3127,14 @@ before brightness is checked.")
   (interactive)
   (cl-declare (special emacspeak-brightness-timer))
   (cond
-    ((null emacspeak-brightness-timer)
-     (setq emacspeak-brightness-timer
-           (run-with-timer
-            emacspeak-brightness-alert-delay
-            emacspeak-brightness-alert-delay
-            'emacspeak-brightness-alert)))
-    (t (cancel-timer emacspeak-brightness-timer)
-       (setq emacspeak-brightness-timer nil)))
+   ((null emacspeak-brightness-timer)
+    (setq emacspeak-brightness-timer
+          (run-with-timer
+           emacspeak-brightness-alert-delay
+           emacspeak-brightness-alert-delay
+           'emacspeak-brightness-alert)))
+   (t (cancel-timer emacspeak-brightness-timer)
+      (setq emacspeak-brightness-timer nil)))
   (when (called-interactively-p 'interactive)
     (message "turned %s brightness alert"
              (if emacspeak-brightness-timer "on" "off"))
@@ -3160,15 +3161,15 @@ before brightness is checked.")
 
 (defvar emacspeak-wizards-content-extensions
   (eval-when-compile
-   (let
-       ((ext
+    (let
+        ((ext
           '("tex" "org" "html" "pdf")))
-     (concat
-      "\\."
-      (regexp-opt
-       (nconc ext (mapcar #'upcase ext))
-       'parens)
-      "$")))
+      (concat
+       "\\."
+       (regexp-opt
+        (nconc ext (mapcar #'upcase ext))
+        'parens)
+       "$")))
   "Content extensions.")
 
 (defun emacspeak-wizards-locate-content (pattern)
@@ -3179,7 +3180,7 @@ before brightness is checked.")
                         locate-command locate-make-command-line))
   (let ((inhibit-read-only t)
         (locate-make-command-line
-          #'(lambda (s) (list locate-command "-i" "--regexp" s))))
+         #'(lambda (s) (list locate-command "-i" "--regexp" s))))
     (locate-with-filter
      (mapconcat #'identity
                 (split-string pattern)

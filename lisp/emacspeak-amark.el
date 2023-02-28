@@ -65,12 +65,12 @@
 ;;{{{ Structure:
 
 (cl-defstruct
- emacspeak-amark
- "AMark: Holds name,  a file, and a time-position."
- path                                   ; filename
- name                                   ; Bookmark name
- position                               ; Offset in ms from start
- )
+    emacspeak-amark
+  "AMark: Holds name,  a file, and a time-position."
+  path                                   ; filename
+  name                                   ; Bookmark name
+  position                               ; Offset in ms from start
+  )
 
 ;;}}}
 ;;{{{ AMark List:
@@ -139,14 +139,14 @@ given name, it is updated with path and position."
          (find-file-hook nil)
          (def default-directory)
          (dir
-           (when (process-live-p emacspeak-m-player-process)
-             (with-current-buffer
-                 (process-buffer emacspeak-m-player-process) def)))
+          (when (process-live-p emacspeak-m-player-process)
+            (with-current-buffer
+                (process-buffer emacspeak-m-player-process) def)))
          (file
-           (cond 
-             ((file-exists-p (expand-file-name emacspeak-amark-file def))
-              (expand-file-name emacspeak-amark-file def))
-             (t  (expand-file-name emacspeak-amark-file dir))))
+          (cond 
+           ((file-exists-p (expand-file-name emacspeak-amark-file def))
+            (expand-file-name emacspeak-amark-file def))
+           (t  (expand-file-name emacspeak-amark-file dir))))
          (l nil ))
     (when (file-exists-p file)
       (setq buff (find-file-noselect file))
@@ -167,7 +167,6 @@ given name, it is updated with path and position."
       #'(lambda (a b) ;; predicate for sort
           (string-lessp
            (emacspeak-amark-name a) (emacspeak-amark-name b )))))))
-
 
 (defun emacspeak-amark-file-load ()
   "Open .amark.el on current line in AMark Browser"
@@ -190,9 +189,9 @@ given name, it is updated with path and position."
   "Play amark using m-player."
   (cl-declare (special emacspeak-m-player-options))
   (let ((emacspeak-m-player-options
-          (append
-           emacspeak-m-player-options
-           `("-ss" ,(emacspeak-amark-position amark)))))
+         (append
+          emacspeak-m-player-options
+          `("-ss" ,(emacspeak-amark-position amark)))))
     (emacspeak-m-player
      (expand-file-name (emacspeak-amark-path  amark) default-directory))))
 
