@@ -18,3 +18,5 @@ load-sample bell-window-system /usr/share/sounds/freedesktop/stereo/bell.oga
 load-sample-dir-lazy  /home/raman/emacs/lisp/emacspeak/sounds/ogg-chimes
 # device: snoop -- to record and play
 load-module module-combine-sink sink_name=snoop slaves=binaural sink_properties=device.description="Record-and-Play"
+set-sink-volume 5 70000
+set-sink-volume 6 70000
