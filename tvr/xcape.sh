@@ -6,7 +6,7 @@
 # Start with  timeout  250, then tune it down (suggest 10% every few
 #days)
 
-TM=180 #timeout in ms for keyup
+TM=175 #timeout in ms for keyup
 
 KEYS="\
 Shift_L=Control_L|s;\
