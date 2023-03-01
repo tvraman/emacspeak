@@ -251,7 +251,7 @@
    ("$" flyspell-mode)
    ("%" emacspeak-speak-current-percentage)
    ("&" emacspeak-wizards-shell-command-on-current-file)
-   ("'" emacspeak-pianobar)
+   ("C-'" emacspeak-pianobar)
    ("(" amixer)
    ("9" amixer)
    (")" emacspeak-sounds-select-theme)
@@ -446,6 +446,7 @@
 (global-set-key  (ems-kbd "C-.") 'emacspeak-super-keymap)
 (global-set-key  (ems-kbd "C-;") 'emacspeak-hyper-keymap)
 (global-set-key  (ems-kbd "C-'") 'emacspeak-multi-keymap)
+(define-key emacspeak-keymap   (ems-kbd "'") 'emacspeak-multi-keymap)
 
 ;; Our very own silence key on the console
 (global-set-key '[silence] 'emacspeak-silence)
