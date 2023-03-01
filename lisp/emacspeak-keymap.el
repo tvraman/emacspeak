@@ -363,7 +363,6 @@
    ("s" dtk-stop)
    ("t" emacspeak-speak-time)
    ("u" emacspeak-url-template-fetch)
-   ("v" view-register)
    ("w" emacspeak-speak-word)
    ("|" emacspeak-speak-line-set-column-filter)
    )
