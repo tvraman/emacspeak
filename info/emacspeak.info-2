@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 27, 2023.
+last updated on March 1, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -702,6 +702,8 @@ e.g.  blog search are tbm=
 
  -- Command: emacspeak-google-yt-feed (url)
      ‘C-' y’
+     ‘C-e ' y’
+     ‘<fn> ' y’
 
      Turn YT Channel or Playlist url into an RSS feed and open it.
 
@@ -1159,7 +1161,7 @@ found on laptops is denoted <fn>
      Key bindings for C-e x.
 
      Default Value:
-     ((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-command-on-current-file) (8 calc) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) (
+     ((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-command-on-current-file) (8 calc) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C-c emacspeak-wizards-color-wheel) (M-c emacspeak-wizards-colors) (b battery) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) (
      @end defvar
      
      @defvar {User Option} emacspeak-personal-v-keys
@@ -1512,6 +1514,8 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-browse-history
      ‘C-' h’
+     ‘C-e ' h’
+     ‘<fn> ' h’
 
      Create a  media history browser from media-history.
 
@@ -1674,6 +1678,8 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-locate-media (pattern)
      ‘C-' l’
+     ‘C-e ' l’
+     ‘<fn> ' l’
 
      Locate media matching  pattern.  The results can be
      played as a play-list by pressing [RET] on the first line, see
@@ -3565,8 +3571,8 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
 .............................
 
  -- Command: emacspeak-pianobar
-     ‘C-e '’
-     ‘<fn> '’
+     ‘C-e C-'’
+     ‘<fn> C-'’
 
      Start or control Emacspeak Pianobar player.
 
@@ -8213,8 +8219,8 @@ Contains various wizards for the Emacspeak desktop.
 .........................................
 
  -- Command: emacspeak-wizards-color-wheel (start)
-     ‘C-e x c’
-     ‘<fn> x c’
+     ‘C-e x C-c’
+     ‘<fn> x C-c’
 
      Manipulate a simple color wheel and display the name and shade
        of the resulting color.  Prompts for a color from which to
@@ -8236,8 +8242,8 @@ Contains various wizards for the Emacspeak desktop.
 ....................................
 
  -- Command: emacspeak-wizards-colors
-     ‘C-e x C’
-     ‘<fn> x C’
+     ‘C-e x M-c’
+     ‘<fn> x M-c’
 
      Display list of colors and setup a callback to activate color
      under point as either the foreground or background color.

@@ -198,9 +198,6 @@
 @item &
  emacspeak-wizards-shell-command-on-current-file
 
-@item '
- emacspeak-pianobar
-
 @item (
  amixer
 
@@ -657,17 +654,14 @@
 @item =
  emacspeak-wizards-find-longest-line-in-region
 
-@item C
- emacspeak-wizards-colors
+@item C-c
+ emacspeak-wizards-color-wheel
 
 @item DEL
  desktop-clear
 
 @item b
  battery
-
-@item c
- emacspeak-wizards-color-wheel
 
 @item d
  emacspeak-speak-load-directory-settings

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 27, 2023.
+last updated on March 1, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2840,9 +2840,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘&’
      emacspeak-wizards-shell-command-on-current-file
 
-‘'’
-     emacspeak-pianobar
-
 ‘(’
      amixer
 
@@ -3299,17 +3296,14 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-x-keyma
 ‘=’
      emacspeak-wizards-find-longest-line-in-region
 
-‘C’
-     emacspeak-wizards-colors
+‘C-c’
+     emacspeak-wizards-color-wheel
 
 ‘DEL’
      desktop-clear
 
 ‘b’
      battery
-
-‘c’
-     emacspeak-wizards-color-wheel
 
 ‘d’
      emacspeak-speak-load-directory-settings

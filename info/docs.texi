@@ -7559,6 +7559,10 @@ current page.
 @table @kbd
 @item C-' y
 @kindex C-' y
+@item C-e ' y
+@kindex C-e ' y
+@item <fn> ' y
+@kindex <fn> ' y
 @end table
 
 @findex emacspeak-google-yt-feed
@@ -8041,7 +8045,7 @@ Default Value: @verb{|((d sdcv-search-input) (h emacspeak-m-player-browse-histor
 @defvar {User Option} emacspeak-personal-keys
 Key bindings for  C-e x. 
 
-Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-command-on-current-file) (8 calc) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C emacspeak-wizards-colors) (b battery) (c emacspeak-wizards-color-wheel) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}
+Default Value: @verb{|((, emacspeak-wizards-shell-directory-set) (. emacspeak-wizards-shell-directory-reset) (0 emacspeak-wizards-shell-by-key) (1 emacspeak-wizards-shell-by-key) (2 emacspeak-wizards-shell-by-key) (3 emacspeak-wizards-shell-by-key) (4 emacspeak-wizards-shell-by-key) (5 emacspeak-wizards-shell-by-key) (7 emacspeak-wizards-shell-command-on-current-file) (8 calc) (; emacspeak-m-player-loop) (= emacspeak-wizards-find-longest-line-in-region) (C-c emacspeak-wizards-color-wheel) (M-c emacspeak-wizards-colors) (b battery) (d emacspeak-speak-load-directory-settings) (e emacspeak-we-xsl-map) (f emacspeak-wizards-remote-frame) (h emacspeak-wizards-how-many-matches) (i ibuffer) (l emacspeak-m-player-youtube-live) (m mspools-show) (o emacspeak-wizards-occur-header-lines) (p paradox-list-packages) (q emacspeak-wizards-quote) (t emacspeak-speak-telephone-directory) (u emacspeak-wizards-units) (v emacspeak-wizards-vc-viewer) (w emacspeak-wizards-noaa-weather) (| emacspeak-wizards-squeeze-blanks) ( desktop-clear))|}
 
 @end defvar
 
@@ -8446,6 +8450,10 @@ Binds key to invoke m-player  on specified directory.
 @table @kbd
 @item C-' h
 @kindex C-' h
+@item C-e ' h
+@kindex C-e ' h
+@item <fn> ' h
+@kindex <fn> ' h
 @end table
 
 @findex emacspeak-m-player-browse-history
@@ -8657,6 +8665,10 @@ Play both channels on left.
 @table @kbd
 @item C-' l
 @kindex C-' l
+@item C-e ' l
+@kindex C-e ' l
+@item <fn> ' l
+@kindex <fn> ' l
 @end table
 
 @findex emacspeak-m-player-locate-media
@@ -10866,10 +10878,10 @@ keys from @code{pianobar-key-map}.
 @subsubsection emacspeak-pianobar
 @deffn {Command} emacspeak-pianobar   
 @table @kbd
-@item C-e '
-@kindex C-e '
-@item <fn> '
-@kindex <fn> '
+@item C-e C-'
+@kindex C-e C-'
+@item <fn> C-'
+@kindex <fn> C-'
 @end table
 
 @findex emacspeak-pianobar
@@ -16904,10 +16916,10 @@ With interactive prefix arg, set foreground and background color first.
 @subsubsection emacspeak-wizards-color-wheel
 @deffn {Command} emacspeak-wizards-color-wheel  (start)
 @table @kbd
-@item C-e x c
-@kindex C-e x c
-@item <fn> x c
-@kindex <fn> x c
+@item C-e x C-c
+@kindex C-e x C-c
+@item <fn> x C-c
+@kindex <fn> x C-c
 @end table
 
 @findex emacspeak-wizards-color-wheel
@@ -16934,10 +16946,10 @@ q: Quit color wheel, after copying current hex value to kill-ring.
 @subsubsection emacspeak-wizards-colors
 @deffn {Command} emacspeak-wizards-colors   
 @table @kbd
-@item C-e x C
-@kindex C-e x C
-@item <fn> x C
-@kindex <fn> x C
+@item C-e x M-c
+@kindex C-e x M-c
+@item <fn> x M-c
+@kindex <fn> x M-c
 @end table
 
 @findex emacspeak-wizards-colors
