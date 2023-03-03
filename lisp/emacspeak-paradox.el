@@ -146,6 +146,26 @@
        (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
+;;{{{ Commit Navigation:
+(cl-loop
+ for f in 
+ '(paradox-next-commit paradox-previous-commit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-tabulated-list-speak-cell)))))
+
+(defadvice paradox-menu-view-commit-list (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
+;;}}}
 (provide 'emacspeak-paradox)
 ;;{{{ end of file
 
