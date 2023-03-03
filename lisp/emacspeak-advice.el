@@ -1972,8 +1972,7 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
-    (when (process-live-p dtk-notify-process)
-      (dtk-notify-speak (buffer-name)))))
+    (dtk-notify-speak (buffer-name))))
 
 (defadvice mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
