@@ -164,6 +164,12 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
+(defadvice fparadox-commit-list-visit-commit (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
 
 ;;}}}
 (provide 'emacspeak-paradox)
