@@ -785,7 +785,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;; xcae training wheel:
 (defadvice set-minibuffer-message (after emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'doc))
+  (emacspeak-auditory-icon 'key))
+
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
   "Icon"
   (let ((buffer-name (ad-get-arg 1)))
