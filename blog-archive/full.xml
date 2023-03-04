@@ -36,6 +36,128 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
 <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-866016839026380267</id><published>
+      2023-03-04T10:11:00.001-08:00
+    </published>
+    <updated>2023-03-04T10:11:30.165-08:00</updated><title type='text'>
+      Training Wheels For Better Ergonomics
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Training Wheels For Better
+      Ergonomics&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-orgce001e1&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgce001e1&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      In my previous article &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html&quot;&gt;Ergonomics Using xcape&lt;/a&gt;
+      I described my setup to minimize chording  in Emacs. The setup is
+      working whell, and in the few weeks of usage, I&#39;ve reduce the
+      &lt;code&gt;xcape
+      timeout&lt;/code&gt; setting from 250ms to 170ms,  this is the
+      timeout that
+      controls  the behavior of modifier keys in xcape.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgcdb9067&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgcdb9067&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Training
+      Wheels In Emacs&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      Next, I decided that getting some feedback from Emacs and Emacspeak
+      when xcape behavior is triggered would act as &lt;i&gt;training
+      wheels&lt;/i&gt; while
+      getting used to the setup.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      I considered the following:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Adding  a feature to &lt;code&gt;xcape&lt;/code&gt; that
+      produces a sound cue on triggering modified behavior &amp;#x2014;
+      would work &lt;i&gt;everywhere&lt;/i&gt; in X.&lt;/li&gt;
+      &lt;li&gt;Having Emacs produce some feedback when xcape behavior is
+      triggered.&lt;/li&gt;
+      &lt;li&gt;Asked on &lt;span
+      class=&quot;underline&quot;&gt;emacs-devel&lt;/span&gt; as to how
+      one would do this in Emacsand
+      was pointed at &lt;code&gt;echo-keystrokes&lt;/code&gt; by one of
+      the core Emacs maintainers.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org507b85d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org507b85d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt;
+      Solution&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      I phrased my question on emacs-devel as &lt;i&gt;is there an elisp
+      hook&lt;/i&gt; for
+      implementing this.  Turns out no new code is needed; Emacs has a
+      &lt;code&gt;echo-keystrokes&lt;/code&gt; custom option that controls
+      how long Emacs waits
+      before displaying an incomplete key-sequence.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      So now, I have &lt;code&gt;echo-keystrokes&lt;/code&gt; set to
+      &lt;span class=&quot;underline&quot;&gt;0.05&lt;/span&gt;
+      &amp;#x2014; and Emacspeak
+      speaks the resulting incomplete keystroke that  is displayed  by
+      Emacs. 
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Still playing with various values of
+      &lt;code&gt;echo-keystrokes&lt;/code&gt; but that is
+      easy &amp;#x2014; it&#39;s just one custom setting.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orge94514c&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orge94514c&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt;
+      Conclusion&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;p&gt;
+      To quote &lt;a
+      href=&quot;https://en.wikipedia.org/wiki/Larry_Wall&quot;&gt;Larry
+      Wall&lt;/a&gt; of Perl fame, 
+      &lt;/p&gt;
+      &lt;pre class=&quot;example&quot;&gt;
+      Lazy programmer equals good programmer!
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/866016839026380267'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/866016839026380267'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2023/03/training-wheels-for-better-ergonomics.html' title='Training Wheels For Better Ergonomics'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+<entry>
     <id>tag:blogger.com,1999:blog-20280042.post-852290279019377777</id><published>
       2023-02-13T10:39:00.000-08:00
     </published>
