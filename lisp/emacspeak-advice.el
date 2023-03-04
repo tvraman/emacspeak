@@ -764,7 +764,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (setq m
              (or
               (current-message)
-              (if (bound-and-true-p minibuffer-message-overlay)
+              (when (bound-and-true-p minibuffer-message-overlay)
                   (overlay-get minibuffer-message-overlay 'after-string))))
        (when
            (and
