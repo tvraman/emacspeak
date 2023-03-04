@@ -1,0 +1,57 @@
+* Background 
+
+In my previous article [[https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html][Ergonomics Using xcape]]
+I described my setup to minimize chording  in Emacs. The setup is
+working whell, and in the few weeks of usage, I've reduce the ~xcape
+timeout~ setting from 250ms to 170ms,  this is the timeout that
+controls  the behavior of modifier keys in xcape.
+
+* Training Wheels In Emacs
+
+Next, I decided that getting some feedback from Emacs and Emacspeak
+ when xcape behavior is triggered would act as /training wheels/ while
+ getting used to the setup.
+
+I considered the following:
+
+  1. Adding  a feature to ~xcape~ that produces a sound cue on triggering modified behavior --- would work /everywhere/ in X.
+  2. Having Emacs produce some feedback when xcape behavior is triggered.
+  3. Asked on _emacs-devel_ as to how one would do this in Emacsand
+     was pointed at ~echo-keystrokes~ by one of the core Emacs maintainers.
+
+* Solution
+
+I phrased my question on emacs-devel as /is there an elisp hook/ for
+implementing this.  Turns out no new code is needed; Emacs has a
+~echo-keystrokes~ custom option that controls how long Emacs waits
+before displaying an incomplete key-sequence.
+
+So now, I have ~echo-keystrokes~ set to _0.05_ --- and Emacspeak
+speaks the resulting incomplete keystroke that  is displayed  by
+Emacs. 
+
+Still playing with various values of ~echo-keystrokes~ but that is
+easy --- it's just one custom setting.
+
+* Conclusion
+
+To quote [[https://en.wikipedia.org/wiki/Larry_Wall][Larry Wall]] of Perl fame, 
+: Lazy programmer equals good programmer!
+
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Training Wheels For Better Ergonomics
+#+date: <2023-03-04 Sat>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.1)
+#+cite_export:
