@@ -781,8 +781,13 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (tts-with-punctuations 'all (dtk-notify-speak m 'dont-log)))
        ad-return-value))))
 
-(defadvice display-message-or-buffer (after emacspeak pre act comp)
+
+;; xcae training wheel:
+(defadvice set-minibuffer-message (after emacspeak pre act comp)
   "speak."
+  (emacspeak-auditory-icon 'doc))
+(defadvice display-message-or-buffer (after emacspeak pre act comp)
+  "Icon"
   (let ((buffer-name (ad-get-arg 1)))
     (when (bufferp ad-return-value)
       (dtk-notify-speak
