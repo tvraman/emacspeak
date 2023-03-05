@@ -2040,27 +2040,25 @@ our pre-defined filters if appropriate."
 (defvar-local clip-end nil
   "End position of clip.")
 
-(defun emacspeak-m-player-set-clip-start    (&optional prompt)
-  "Set start of clip marker.
-Interactive prefix arg prompts for the timestamp."
-  (interactive "P")
+(defun emacspeak-m-player-set-clip-start    ( )
+  "Set start of clip. "
+  (interactive )
   (setq clip-start
-        (if prompt
-            (read-number "Start Time: ")
-          (read (cl-first (emacspeak-m-player-get-position)))))
+        (read-number
+         "Start Time: "
+         (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
     (message "Start: %s" clip-start)
     (emacspeak-auditory-icon 'mark-object)))
 
-(defun emacspeak-m-player-set-clip-end    (&optional prompt)
-  "Set end of clip marker.
- Optional interactive prefix arg prompts for the timestamp."
-  (interactive "P")
+(defun emacspeak-m-player-set-clip-end    ()
+  "Set end of clip mark."
+  (interactive )
   (cl-declare (special clip-end))
   (setq clip-end
-        (if prompt
-            (read-number "End time: ")
-          (read (cl-first (emacspeak-m-player-get-position)))))
+        (read-number
+         "End time: "
+         (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
     (message "End: %s" clip-end)
     (emacspeak-auditory-icon 'mark-object)))
