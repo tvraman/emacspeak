@@ -1518,7 +1518,9 @@ Interactive prefix arg speaks buffer info."
            (dtk-speak
             (concat
              dir-info
-             (propertize (buffer-name) 'personality voice-lighten-medium)
+             (propertize (buffer-name) 'personality
+                         voice-lighten-medium)
+             (emacspeak-get-current-percentage-verbously)
              (when window-count
                (propertize window-count 'personality voice-smoothen))
              (when vc-mode
@@ -1531,7 +1533,6 @@ Interactive prefix arg speaks buffer info."
              (propertize
               (downcase
                (format-mode-line mode-name)) 'personality voice-animate)
-             (emacspeak-get-current-percentage-verbously)
              global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
