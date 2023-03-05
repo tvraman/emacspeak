@@ -158,7 +158,7 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
              "Provide spoken and auditory feedback."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'news)
-               (emacspeak-speak-mode-line)))))
+               (emacspeak-twittering-speak-this-tweet)))))
 (defadvice twittering-kill-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
