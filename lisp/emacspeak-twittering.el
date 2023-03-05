@@ -83,7 +83,7 @@
 (defadvice twit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-speak-mode-line)
+    (emacspeak-twittering-speak-this-tweet)
     (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop for command in
