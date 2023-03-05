@@ -2046,7 +2046,7 @@ Interactive prefix arg prompts for the timestamp."
   (interactive "P")
   (setq clip-start
         (if prompt
-            (read-number "Start Time:: ")
+            (read-number "Start Time: ")
           (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
     (message "Start: %s" clip-start)
