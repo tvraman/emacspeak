@@ -2059,10 +2059,13 @@ Produce an auditory icon if possible."
       (setq lines (count-lines start end)
             chars (abs (- start end)))
       (if (> lines 1)
-          (message "Copied %s lines to register %c"
-                   lines register)
-        (message "Copied %s characters to register %c"
-                 chars register)))))
+          (dtk-notify-speak
+           (format "Copied %s lines to register %c"
+                   lines register))
+          (dtk-notify-speak
+           (format "Copied %s characters to register %c"
+                   chars register))))))
+
 (defadvice view-register (after emacspeak pre act comp)
   "Speak displayed contents."
   (when (ems-interactive-p)
