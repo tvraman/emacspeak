@@ -246,7 +246,8 @@ beginning or end of a physical line produces an  auditory icon."
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak line."
      (when (ems-interactive-p)
-       (emacspeak-speak-line)))))
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))))))
 
 (cl-loop
  for f in
