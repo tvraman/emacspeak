@@ -2066,7 +2066,8 @@ was spoken.  Any other key continues to speak the buffer."
 (defun emacspeak-speak-current-column ()
   "Speak the current column."
   (interactive)
-  (message "Point at column %d" (current-column)))
+  (dtk-speak
+   (format "Point at column %d" (current-column))))
 
 (defun emacspeak-speak-current-percentage ()
   "Announce the percentage into the current buffer."
