@@ -2046,10 +2046,10 @@ Interactive prefix arg prompts for the timestamp."
   (interactive "P")
   (setq clip-start
         (if prompt
-            (read-number "Timestamp: ")
+            (read-number "Start Time:: ")
           (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
-    (message "mark set at %s" clip-start)
+    (message "Start: %s" clip-start)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defun emacspeak-m-player-set-clip-end    (&optional prompt)
@@ -2059,10 +2059,10 @@ Interactive prefix arg prompts for the timestamp."
   (cl-declare (special clip-end))
   (setq clip-end
         (if prompt
-            (read-number "Timestamp: ")
+            (read-number "End time: ")
           (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
-    (message "mark set at %s" clip-end)
+    (message "End: %s" clip-end)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defun emacspeak-m-player-write-clip ()
