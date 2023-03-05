@@ -714,13 +714,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Time message was spoken")
 
 (defcustom emacspeak-speak-messages-filter
-  '("psession")
+  '("psession" " ")
   "List of strings used to filter spoken messages."
   :type '(repeat :tag "Filtered Strings"
-                 (string :tag "String" ))
-  :set #'(lambda (sym val)
-           (set-default sym val )
-           (setq ems--message-filter-pattern (apply #'regexp-quote val)))
+          (string :tag "String" ))
+  :set
+  #'(lambda (sym val)
+      (set-default sym val ) ; turn list into a pattern to use 
+      (setq ems--message-filter-pattern (regexp-opt val)))
   :group 'emacspeak-speak)
 
 (defadvice momentary-string-display (around emacspeak pre act comp)
@@ -768,6 +769,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
            (and
             (null inhibit-message)
             m                           ; our message
+            (not (zerop (length m)))
             emacspeak-speak-messages    ; speaking messages
             (not (string-match ems--message-filter-pattern m))
             (< 1.0
