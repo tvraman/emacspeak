@@ -262,7 +262,7 @@ options passed to command `file'."
       (call-process "file" nil t t
                     emacspeak-dired-file-cmd-options file))
     (when (bolp)
-      (backward-delete-char 1))
+      (delete-char  -1))
     (message (buffer-string))))
 
 (defun emacspeak-dired-speak-header-line()
