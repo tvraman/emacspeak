@@ -749,7 +749,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (cl-loop
  for f in
- '( minibuffer-message set-minibuffer-message
+ '( minibuffer-message
     message display-message-or-buffer) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
@@ -784,8 +784,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 ;; xcae training wheel:
 (defadvice set-minibuffer-message (after emacspeak pre act comp)
-  "speak."
+  "Icon."
   (unless (zerop (length (ad-get-arg 0)))
+    (dtk-notify-speak (ad-get-arg 0))
     (emacspeak-auditory-icon 'key)))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
