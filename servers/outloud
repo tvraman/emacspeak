@@ -51,6 +51,11 @@ proc version {} {
 proc tts_set_punctuations {mode} {
     global tts
     set tts(punctuations) $mode
+    if {[string match all $tts(punctuations)] } {
+        synth "`da0"
+    } else {
+        synth "`da1"
+    }
     service
     return ""
 }
