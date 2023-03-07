@@ -1332,7 +1332,7 @@ not needed in Emacs 22.
 @defvar {User Option} emacspeak-speak-messages-filter
 List of strings used to filter spoken messages.
 
-Default Value: @verb{|(psession)|}
+Default Value: @verb{|(psession  )|}
 
 @end defvar
 
@@ -8979,26 +8979,20 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS.
 @end deffn
 
 @subsubsection emacspeak-m-player-set-clip-end
-@deffn {Command} emacspeak-m-player-set-clip-end  (&optional prompt)
+@deffn {Command} emacspeak-m-player-set-clip-end   
 @findex emacspeak-m-player-set-clip-end
 
 @format
-Set end of clip marker.
- Optional interactive prefix arg prompts for the timestamp.
-
-(fn &optional PROMPT)
+Set end of clip mark.
 @end format
 @end deffn
 
 @subsubsection emacspeak-m-player-set-clip-start
-@deffn {Command} emacspeak-m-player-set-clip-start  (&optional prompt)
+@deffn {Command} emacspeak-m-player-set-clip-start   
 @findex emacspeak-m-player-set-clip-start
 
 @format
-Set start of clip marker.
-Interactive prefix arg prompts for the timestamp.
-
-(fn &optional PROMPT)
+Set start of clip. 
 @end format
 @end deffn
 

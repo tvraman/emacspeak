@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 4, 2023.
+last updated on March 6, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -1939,22 +1939,16 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 12.122.2.62 emacspeak-m-player-set-clip-end
 ...........................................
 
- -- Command: emacspeak-m-player-set-clip-end (&optional prompt)
+ -- Command: emacspeak-m-player-set-clip-end
 
-     Set end of clip marker.
-      Optional interactive prefix arg prompts for the timestamp.
-
-     (fn &optional PROMPT)
+     Set end of clip mark.
 
 12.122.2.63 emacspeak-m-player-set-clip-start
 .............................................
 
- -- Command: emacspeak-m-player-set-clip-start (&optional prompt)
+ -- Command: emacspeak-m-player-set-clip-start
 
-     Set start of clip marker.
-     Interactive prefix arg prompts for the timestamp.
-
-     (fn &optional PROMPT)
+     Set start of clip.
 
 12.122.2.64 emacspeak-m-player-show-data
 ........................................
