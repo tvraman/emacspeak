@@ -785,9 +785,11 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;; xcae training wheel:
 (defadvice set-minibuffer-message (after emacspeak pre act comp)
   "Icon."
-  (unless (zerop (length (ad-get-arg 0)))
-    (dtk-notify-speak (ad-get-arg 0))
-    (emacspeak-auditory-icon 'key)))
+  (cl-declare (special dtk-speaker-process))
+  (when (process-live-p dtk-speaker-process)
+    (unless (zerop (length (ad-get-arg 0)))
+      (dtk-notify-speak (ad-get-arg 0))
+      (emacspeak-auditory-icon 'key))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
   "Icon"
