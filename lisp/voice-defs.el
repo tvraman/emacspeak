@@ -145,6 +145,7 @@
    (font-lock-string-face voice-lighten-extra)
    (font-lock-type-face voice-smoothen)
    (font-lock-variable-name-face voice-animate)
+   (font-lock-variable-use-face voice-animate)
    (font-lock-warning-face voice-brighten)
    (font-lock-bracket-face voice-lighten)
    (font-lock-delimiter-face voice-lighten)
