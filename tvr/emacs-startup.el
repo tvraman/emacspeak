@@ -154,6 +154,7 @@ startup sound."
   "Customize my emacs.
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
+                       global-mode-string
                        python-mode-hook outline-mode-prefix-map
                        completion-auto-select emacspeak-directory
                        outline-minor-mode-prefix))
@@ -220,7 +221,8 @@ Use Custom to customize where possible. "
   (diminish 'voice-lock-mode "")
   (diminish 'auto-fill-function "")
   (diminish 'abbrev-mode "")
-  (diminish 'auto-correct-mode ""))
+  (diminish 'auto-correct-mode "")
+  (setq  global-mode-string '("" display-time-string battery-mode-line-string)))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
