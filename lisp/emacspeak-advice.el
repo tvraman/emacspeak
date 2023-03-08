@@ -785,13 +785,13 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;; xcae training wheel:
 ;; Also speaks any messages generated directly from Emacs' C layer
 (defadvice set-minibuffer-message (after emacspeak pre act comp)
-  "Icon."
+  "Icon and speak."
   (cl-declare (special dtk-speaker-process
                        ems--message-filter-pattern))
   (let ((m (ad-get-arg 0)))
     (when (process-live-p dtk-speaker-process)
       (unless
-          (and (zerop (length m)) (string-match ems--message-filter-pattern m))
+          (or (zerop (length m)) (string-match ems--message-filter-pattern m))
         (dtk-notify-speak m)
         (emacspeak-auditory-icon 'key)))))
 
