@@ -714,7 +714,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Time message was spoken")
 
 (defcustom emacspeak-speak-messages-filter
-  '("psession" " " "auto saving")
+  '("psession"  "auto saving")
   "List of strings used to filter spoken messages."
   :type '(repeat :tag "Filtered Strings"
           (string :tag "String" ))
