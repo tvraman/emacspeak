@@ -56,7 +56,8 @@
   "speak"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-line)))
+
 (defadvice mspools-quit (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
