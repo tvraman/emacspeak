@@ -30,6 +30,14 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
 ;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
 
      ;;}}}
+;;{{{silence debug chatter:
+
+(defadvice auth-source-do-debug (around quiet pre act comp)
+  "silence"
+  (ems-with-messages-silenced ad-do-it))
+
+;;}}}
+
      ;;{{{ Sending Mail:
 
 ;;  Set send-mail-function via custom.
