@@ -858,7 +858,13 @@ Helps to prevent words from being spelled instead of spoken."
     user-mail-address)))
 
 ;;}}}
+;;{{{xoauth2
 
+(defadvice auth-source-do-debug (around quiet pre act comp)
+  "silence"
+  (ems-with-messages-silenced ad-do-it))
+
+;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
 ;; local variables:

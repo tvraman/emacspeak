@@ -32,9 +32,7 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
      ;;}}}
 ;;{{{silence debug chatter:
 
-(defadvice auth-source-do-debug (around quiet pre act comp)
-  "silence"
-  (ems-with-messages-silenced ad-do-it))
+
 
 ;;}}}
 
