@@ -395,8 +395,7 @@ plays result as a directory." directory)
         (emacspeak-m-player-hotkey-p t)
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively #'emacspeak-multimedia)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-media-guess-directory ()
   "Guess default directory."
@@ -905,8 +904,7 @@ The time position can also be specified as HH:MM:SS."
   (cl-declare (special emacspeak-m-player-paused))
   (dtk-stop 'all)
   (ems--mp-send "pause")
-  (setq emacspeak-m-player-paused (not emacspeak-m-player-paused))
-  (when emacspeak-m-player-paused (emacspeak-speak-time)))
+  (setq emacspeak-m-player-paused (not emacspeak-m-player-paused)))
 
 (defvar ems--m-player-mark "00-LastStopped"
   "Name used to  mark position where we stopped.")
