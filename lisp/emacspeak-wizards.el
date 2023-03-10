@@ -2028,6 +2028,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
     (completing-read
      "Stock Symbol: " (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
+tts-notification-device
                        emacspeak-wizards-personal-portfolio))
   (let-alist
       (aref
