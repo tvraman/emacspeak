@@ -234,12 +234,13 @@ already disabled."
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
-  (cl-declare (special amixer-alsactl-config-file))
+  (cl-declare (special amixer-alsactl-config-file
+                       tts-notification-device))
   (emacspeak-prompt "resume")
   (ems-with-messages-silenced
    (tts-restart)
    (with-environment-variables
-       (("PULSE_SINK"  "tts_left"))
+       (("PULSE_SINK"  tts-notification-device))
      (emacspeak-prompt "waking-up"))
    (amixer-restore amixer-alsactl-config-file)
    (when (featurep 'soundscape) (soundscape-restart))
@@ -381,19 +382,20 @@ already disabled."
     "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
     "org.gnome.ScreenSaver" "ActiveChanged"
     #'(lambda (lock)
+        (cl-declare (special tts-notification-device))
         (if lock
             (progn (emacspeak-screen-saver))
-          (progn
-            (with-environment-variables
-                (("PULSE_SINK"  "tts_left"))
-              (emacspeak-prompt "success")
-              (light-black))
-            (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
-            (when
-                (window-configuration-p emacspeak-screen-saver-saved-conf)
-              (set-window-configuration
-               emacspeak-screen-saver-saved-conf))
-            (emacspeak-speak-mode-line)))))))
+            (progn
+              (with-environment-variables
+                  (("PULSE_SINK"  tts-notification-device))
+                (emacspeak-prompt "success")
+                (light-black))
+              (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
+              (when
+                  (window-configuration-p emacspeak-screen-saver-saved-conf)
+                (set-window-configuration
+                 emacspeak-screen-saver-saved-conf))
+              (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
   "De-Register a handler to watch screen lock/unlock."
