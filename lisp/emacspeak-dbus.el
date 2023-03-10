@@ -385,7 +385,7 @@ already disabled."
             (progn (emacspeak-screen-saver))
           (progn
             (with-environment-variables
-                (("PULSE_SINK"  "tts_right"))
+                (("PULSE_SINK"  "tts_left"))
               (emacspeak-prompt "success")
               (light-black))
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))

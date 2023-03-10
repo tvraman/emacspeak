@@ -1948,11 +1948,11 @@ Designed to work with ALSA and Pulseaudio."
   (let ((dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
         (new-process nil)
-        (pulse-tts-right-p
-         (shell-command-to-string "pacmd list-sinks | grep tts_right")))
-    (unless (zerop (length pulse-tts-right-p))
+        (pulse-tts-left-p
+         (shell-command-to-string "pacmd list-sinks | grep tts_left")))
+    (unless (zerop (length pulse-tts-left-p))
       (with-environment-variables
-          (("PULSE_SINK" "tts_right"))
+          (("PULSE_SINK" "tts_left"))
         (setq  new-process (dtk-make-process "Notify")))
       (when
           (memq (process-status new-process) '(run open))
