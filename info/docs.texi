@@ -1332,7 +1332,7 @@ not needed in Emacs 22.
 @defvar {User Option} emacspeak-speak-messages-filter
 List of strings used to filter spoken messages.
 
-Default Value: @verb{|(psession  )|}
+Default Value: @verb{|(Decrypting psession auto saving)|}
 
 @end defvar
 
