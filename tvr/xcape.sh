@@ -8,7 +8,7 @@
 # Customize echo-keystrokes in Emacs: I have it as 0.05
 
 
-TM=165 #timeout in ms for keyup
+TM=175 #timeout in ms for keyup
 
 KEYS="\
 Shift_L=Control_L|s;\
