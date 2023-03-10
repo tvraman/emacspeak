@@ -1944,15 +1944,14 @@ Designed to work with ALSA and Pulseaudio."
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
-  (cl-declare (special dtk-notify-process))
+  (cl-declare (special dtk-notify-process
+                       tts-notification-device))
   (let ((dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
-        (new-process nil)
-        (pulse-tts-left-p
-         (shell-command-to-string "pacmd list-sinks | grep tts_left")))
-    (unless (zerop (length pulse-tts-left-p))
+        (new-process nil))
+    (unless (zerop (length tts-notification-device))
       (with-environment-variables
-          (("PULSE_SINK" "tts_left"))
+          (("PULSE_SINK" tts-notification-device))
         (setq  new-process (dtk-make-process "Notify")))
       (when
           (memq (process-status new-process) '(run open))
