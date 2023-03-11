@@ -667,10 +667,12 @@ specifies the current pronunciation mode --- See
   "Handle repeating patterns by replacing them with  `aw <length> char-names'"
   (cl-declare (special dtk-cleanup-repeats))
   (goto-char (point-min))
-  (mapc
-   #'(lambda (str)
-       (dtk-replace-duplicates str mode))
-   dtk-cleanup-repeats))
+  (condition-case nil                   ; track down lispy nav error:
+                  (mapc
+                   #'(lambda (str)
+                       (dtk-replace-duplicates str mode))
+                   dtk-cleanup-repeats)
+                  (error nil)))
 
 (defun dtk-quote (mode)
   "Clean-up text."
