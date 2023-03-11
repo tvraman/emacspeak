@@ -1132,7 +1132,7 @@ Default Value: @verb{|t|}
 Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream.
 
-Default Value: @verb{|tts_right|}
+Default Value: @verb{|tts_left|}
 
 @end defvar
 
@@ -9770,7 +9770,7 @@ commands require only one initial ress of C-e C-;.
 @subsection Emacspeak-Mpv Commands
 
 @subsubsection emacspeak-mpv-play-url
-@deffn {Command} emacspeak-mpv-play-url  (url &optional left-channel)
+@deffn {Command} emacspeak-mpv-play-url  (url &optional notification)
 @table @kbd
 @item C-e C-; ;
 @kindex C-e C-; ;
@@ -9781,9 +9781,9 @@ commands require only one initial ress of C-e C-;.
 @findex emacspeak-mpv-play-url
 
 @format
-Play URL using mpv;  Prefix arg plays on left channel.
+Play URL using mpv;  Prefix arg plays on notification  channel.
 
-(fn URL &optional LEFT-CHANNEL)
+(fn URL &optional NOTIFICATION)
 @end format
 @end deffn
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 9, 2023.
+last updated on March 10, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -2608,13 +2608,13 @@ require only one initial ress of C-e C-;.
 12.132.1.1 emacspeak-mpv-play-url
 .................................
 
- -- Command: emacspeak-mpv-play-url (url &optional left-channel)
+ -- Command: emacspeak-mpv-play-url (url &optional notification)
      ‘C-e C-; ;’
      ‘<fn> C-; ;’
 
-     Play URL using mpv;  Prefix arg plays on left channel.
+     Play URL using mpv;  Prefix arg plays on notification  channel.
 
-     (fn URL &optional LEFT-CHANNEL)
+     (fn URL &optional NOTIFICATION)
 
 12.132.1.2 emacspeak-mpv-position
 .................................
