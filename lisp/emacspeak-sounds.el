@@ -95,16 +95,17 @@ Use Serve when working with remote speech servers.")
 (defvar ems--lazy-icon-time '(0 0 0 0)
   "Record time of last icon.")
 
+(defvar ems--last-icon nil
+  "Record last icon we played.")
+
 ;;;###autoload
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (cl-declare (special emacspeak-use-auditory-icons ems--lazy-icon-time))
   (when
-      (and emacspeak-use-auditory-icons ; rate-limit
-           ;; (< 1.0
-           ;;    (float-time (time-subtract (current-time)
-           ;;                               ems--lazy-icon-time)))
-           )
+      (and
+       emacspeak-use-auditory-icons ; rate-limit by icon
+       (not (eq icon ems--last-icon)))
     (setq ems--lazy-icon-time (current-time))
     (funcall emacspeak-auditory-icon-function icon)))
 
