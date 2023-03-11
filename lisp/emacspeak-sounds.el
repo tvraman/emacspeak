@@ -106,7 +106,9 @@ Use Serve when working with remote speech servers.")
       (and
        emacspeak-use-auditory-icons ; rate-limit by icon
        (not (eq icon ems--last-icon)))
-    (setq ems--lazy-icon-time (current-time))
+    (setq
+     ems--last-icon icon
+     ems--lazy-icon-time (current-time))
     (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
