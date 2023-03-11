@@ -101,9 +101,10 @@ Use Serve when working with remote speech servers.")
   (cl-declare (special emacspeak-use-auditory-icons ems--lazy-icon-time))
   (when
       (and emacspeak-use-auditory-icons ; rate-limit
-           (< 1.0
-              (float-time (time-subtract (current-time)
-                                         ems--lazy-icon-time))))
+           ;; (< 1.0
+           ;;    (float-time (time-subtract (current-time)
+           ;;                               ems--lazy-icon-time)))
+           )
     (setq ems--lazy-icon-time (current-time))
     (funcall emacspeak-auditory-icon-function icon)))
 
