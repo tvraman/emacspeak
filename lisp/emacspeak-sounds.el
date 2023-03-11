@@ -92,7 +92,7 @@ Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
 Use Serve when working with remote speech servers.")
 
-(defvar ems--lazy-icon-time (current-time)
+(defvar ems--lazy-icon-time '(0 0 0 0)
   "Record time of last icon.")
 
 ;;;###autoload
@@ -102,8 +102,9 @@ Use Serve when working with remote speech servers.")
   (when
       (and emacspeak-use-auditory-icons ; rate-limit
            (< 1.0
-               (float-time
-                (time-subtract (current-time) ems--lazy-icon-time))))
+              (float-time (time-subtract (current-time)
+                                         ems--lazy-icon-time))))
+    (setq ems--lazy-icon-time (current-time))
     (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
