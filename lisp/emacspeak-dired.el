@@ -391,6 +391,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 (cl-declaim (special locate-mode-map))
 (define-key locate-mode-map  "j" 'emacspeak-dired-open-this-directory)
+(define-key locate-mode-map  (ems-kbd "C-j") 'emacspeak-dired-open-this-file)
 (define-key locate-mode-map  [C-return] 'emacspeak-dired-open-this-file)
 ;;}}}
 ;;{{{ Context-sensitive openers:
