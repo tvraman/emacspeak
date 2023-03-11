@@ -832,12 +832,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (setq command-error-function 'emacspeak-error-handler)
 
 (defun emacspeak-error-handler (data context _calling-function)
-  "Emacspeak custom error handler."
-  (dtk-stop)
-  (emacspeak-auditory-icon 'warn-user)
-  (message "%s %s"
-           (or context "")
-           (error-message-string data)))
+  "Custom error handler."
+  (cl-declare (special emacspeak-last-message))
+  (let ((emacspeak-use-auditory-icons  nil)
+        (m (error-message-string data)))
+    (unless (string= m emacspeak-last-message)
+      (setq emacspeak-last-message m)
+      (emacspeak-auditory-icon 'warn-user)
+      (message "%s %s" (or context "") m))))
 
 ;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
