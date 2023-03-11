@@ -642,9 +642,10 @@ specifies the current pronunciation mode --- See
   (let* ((inhibit-read-only t)
          (len (length string))
          (pattern (regexp-quote string))
-         (reg (concat
-               pattern pattern
-               "\\(" pattern "\\)+"))
+         (reg
+           (concat
+            pattern pattern
+            "\\(" pattern "\\)+"))
          (start nil)
          (personality nil)
          (replacement nil))
