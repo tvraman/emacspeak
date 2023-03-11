@@ -353,11 +353,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak sexp."
+     "Speak sexp or line."
      (if (ems-interactive-p)
          (let ((start (point))
-               (end (line-end-position))
-               (emacspeak-show-point t))
+               (end (line-end-position)))
            ad-do-it
            (emacspeak-auditory-icon 'large-movement)
            (cond
