@@ -356,7 +356,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      "Speak sexp or line."
      (if (ems-interactive-p)
          (let ((start (point))
-               (end (line-end-position)))
+               (end (line-end-position))
+               (emacspeak-show-point t))
            ad-do-it
            (emacspeak-auditory-icon 'large-movement)
            (cond

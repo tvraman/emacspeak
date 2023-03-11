@@ -771,11 +771,6 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
          (end (line-end-position))
          (line nil)
          (orig (point))
-         (dtk-cleanup-repeats
-          (cond
-           ((and emacspeak-show-point
-                 (= ?\) (char-syntax (following-char)))))
-           (t dtk-cleanup-repeats)))
          (linenum
           (when
               (or (bound-and-true-p display-line-numbers)
