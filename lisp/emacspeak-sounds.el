@@ -102,14 +102,7 @@ Use Serve when working with remote speech servers.")
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (cl-declare (special emacspeak-use-auditory-icons ems--lazy-icon-time))
-  (when
-      (and
-       emacspeak-use-auditory-icons ; rate-limit by icon
-       (not (eq icon ems--last-icon)))
-    (setq
-     ems--last-icon icon
-     ems--lazy-icon-time (current-time))
-    (funcall emacspeak-auditory-icon-function icon)))
+  (when emacspeak-use-auditory-icons (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
 ;;{{{  Setup sound themes
