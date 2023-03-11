@@ -834,8 +834,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defun emacspeak-error-handler (data context _calling-function)
   "Custom error handler."
   (cl-declare (special emacspeak-last-message))
-  (let ((emacspeak-use-auditory-icons  nil)
-        (m (error-message-string data)))
+  (let ((m (error-message-string data)))
     (unless (string= m emacspeak-last-message)
       (setq emacspeak-last-message m)
       (emacspeak-auditory-icon 'warn-user)
