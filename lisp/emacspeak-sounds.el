@@ -91,10 +91,19 @@ play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
 Use Serve when working with remote speech servers.")
+
+(defvar ems--lazy-icon-time (current-time)
+  "Record time of last icon.")
+
 ;;;###autoload
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
-  (when emacspeak-use-auditory-icons
+  (cl-declare (special emacspeak-use-auditory-icons ems--lazy-icon-time))
+  (when
+      (and emacspeak-use-auditory-icons ; rate-limit
+           (< 1.0
+               (float-time
+                (time-subtract (current-time) ems--lazy-icon-time))))
     (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
