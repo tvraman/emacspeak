@@ -775,7 +775,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               (not (zerop (length m)))
               (not (string= m emacspeak-last-message))
               (not (string-match ems--message-filter-pattern m))
-              (< 0.00001
+              (< 0.0005
                (float-time (time-subtract (current-time) ems--lazy-msg-time))))
            (setq ems--lazy-msg-time (current-time)
                  emacspeak-last-message  m)
