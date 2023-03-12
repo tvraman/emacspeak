@@ -770,11 +770,13 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (when
              (and
               (null inhibit-message)
+              emacspeak-speak-messages  ; speaking messages
               m                         ; our message
               (not (zerop (length m)))
-              emacspeak-speak-messages  ; speaking messages
               (not (string= m emacspeak-last-message))
-              (not (string-match ems--message-filter-pattern m)))
+              (not (string-match ems--message-filter-pattern m))
+              (< 1.0
+               (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
            (setq emacspeak-lazy-message-time (current-time)
                  emacspeak-last-message  m)
 ;;; so we really need to speak it
