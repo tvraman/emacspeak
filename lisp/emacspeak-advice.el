@@ -710,7 +710,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defvar emacspeak-last-message nil
   "Last output from `message'.")
 
-(defvar emacspeak-lazy-message-time (current-time)
+(defvar ems--lazy-msg-time (current-time)
   "Time message was spoken")
 
 (defcustom emacspeak-speak-messages-filter
@@ -757,7 +757,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (cl-declare (special emacspeak-last-message inhibit-message
                           ems--message-filter-pattern
                           emacspeak-speak-messages
-                          emacspeak-lazy-message-time))
+                          ems--lazy-msg-time))
      (when (process-live-p dtk-speaker-process)
        (let ((inhibit-read-only t)
              (m nil))
@@ -776,9 +776,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               (not (string= m emacspeak-last-message))
               (not (string-match ems--message-filter-pattern m))
               (< 0.00001
-               (float-time (time-subtract (current-time)
-                                          emacspeak-lazy-message-time))))
-           (setq emacspeak-lazy-message-time (current-time)
+               (float-time (time-subtract (current-time) ems--lazy-msg-time))))
+           (setq ems--lazy-msg-time (current-time)
                  emacspeak-last-message  m)
 ;;; so we really need to speak it
                     (emacspeak-auditory-icon 'key)
