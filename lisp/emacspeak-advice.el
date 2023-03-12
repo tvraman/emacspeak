@@ -817,13 +817,15 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (cl-declaim (special command-error-function))
 (setq command-error-function 'emacspeak-error-handler)
+(defvar ems--last-error-msg nil
+  "Cache last error message.")
 
 (defun emacspeak-error-handler (data context _calling-function)
   "Custom error handler."
-  (cl-declare (special emacspeak-last-message))
+  (cl-declare (special ems--last-error-msg))
   (let ((m (error-message-string data)))
-    (unless (string= m emacspeak-last-message)
-      (setq emacspeak-last-message m)
+    (unless (string= m ems--last-error-msg)
+      (setq ems--last-error-msg m)
       (emacspeak-auditory-icon 'warn-user)
       (message "%s %s" (or context "") m))))
 
