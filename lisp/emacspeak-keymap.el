@@ -786,6 +786,7 @@
 
 (defcustom emacspeak-multi-keys
   '(
+    ("'" emacspeak-pianobar)
     ("d" sdcv-search-input)
     ("h" emacspeak-m-player-browse-history)
     ("l" emacspeak-m-player-locate-media)
