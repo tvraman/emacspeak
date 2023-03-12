@@ -99,10 +99,21 @@ Use Serve when working with remote speech servers.")
   "Record last icon we played.")
 
 ;;;###autoload
-(defsubst emacspeak-auditory-icon (icon)
+(defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
-  (cl-declare (special emacspeak-use-auditory-icons ems--lazy-icon-time))
-  (when emacspeak-use-auditory-icons (funcall emacspeak-auditory-icon-function icon)))
+  (cl-declare (special
+               emacspeak-use-auditory-icons
+               ems--last-icon ems--lazy-icon-time))
+  (when emacspeak-use-auditory-icons
+    (let
+        ((play-p ;; rate limit: id, time
+           (or 
+            (not (eq icon ems--last-icon))
+            (< 1.0
+               (float-time (time-subtract (current-time) ems--lazy-icon-time))))))
+      (setq ems--last-icon icon
+            ems--lazy-icon-time (current-time))
+      (when play-p  (funcall emacspeak-auditory-icon-function icon)))))
 
 ;;}}}
 ;;{{{  Setup sound themes
