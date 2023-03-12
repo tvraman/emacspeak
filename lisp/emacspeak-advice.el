@@ -773,9 +773,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               m                         ; our message
               (not (zerop (length m)))
               emacspeak-speak-messages  ; speaking messages
-              (not (string-match ems--message-filter-pattern m))
               (not (string= m emacspeak-last-message))
-              )
+              (not (string-match ems--message-filter-pattern m)))
            (setq emacspeak-lazy-message-time (current-time)
                  emacspeak-last-message  m)
 ;;; so we really need to speak it
