@@ -1277,16 +1277,17 @@ template."
        (shr-url-at-point nil)))))
 
 ;;}}}
-;;{{{cnbc using eaf:
+;;{{{npr:
 
 (emacspeak-url-template-define
- "CNBC Using EAF"
- "https://tunein.com/radio/CNBC-s110052/"
- nil nil
- "Play CNBC Using EAF"
- #'emacspeak-eww-browse-eaf)
+ "NPR"
+ "http://npr.org"
+ nil
+ #'emacspeak-eww-links-rel
+ "Open NPR home , then display the alternative links to access RSS feeds.")
 
 ;;}}}
+
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
