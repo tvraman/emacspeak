@@ -821,9 +821,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defvar ems--last-error-msg nil
   "Cache last error message.")
 
-(defun emacspeak-error-handler (data context _calling-function)
+(defun emacspeak-error-handler (data context calling-function)
   "Custom error handler."
   (cl-declare (special ems--last-error-msg))
+  (unless calling-function (ding))
   (let ((m (error-message-string data)))
     (unless (string= m ems--last-error-msg)
       (setq ems--last-error-msg m)
