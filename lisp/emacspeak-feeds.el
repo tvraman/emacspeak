@@ -264,6 +264,19 @@ feeds."
   (cl-declare (special emacspeak-opml-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
+
+;;;###autoload
+(defun emacspeak-feeds-select-feed (feed-type)
+  "Prompt for feed-type (Atom, RSS, OPML and open it."
+  (interactive
+   (list
+    (read-char "a Atom, o OPML, r RSS")))
+  (cl-case feed-type
+           (?a (call-interactively 'emacspeak-feeds-atom-display))
+           (?o (call-interactively 'emacspeak-feeds-opml-display))
+           (?r (call-interactively 'emacspeak-feeds-rss-display))
+           (otherwise (keyboard-quit))))
+
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."

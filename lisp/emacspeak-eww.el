@@ -242,15 +242,9 @@
 ;; Play media url under point by first downloading the URL using
 ;; CURL. This is useful for sites that do multiple redirects before
 ;; returning the actual media stream URL.
-;; @item C-o
-;; @command{emacspeak-feeds-opml-display}
-;; Display link under point as an @code{OPML} feed .
-;; @item C-r
-;; @command{emacspeak-feeds-rss-display}
-;; Display link under point as an @code{RSS} feed.
-;; @item C-a
-;; @command{emacspeak-feeds-atom-display}
-;; Display link under point as an @code{ATOM} feed.
+;; @item x
+;; @command{emacspeak-feeds-select-feed
+;; Display link under point as an @code{ATOM}, @code{OPML} or @code{RSS} feed.
 ;; @item y
 ;; @command{empv-play}
 ;; Play link -under point as a Youtube stream.
@@ -599,9 +593,7 @@ Safari/537.36"
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-eww-play-media-at-point)
   (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
-  (define-key eww-link-keymap (ems-kbd "C-o") 'emacspeak-feeds-opml-display)
-  (define-key eww-link-keymap (ems-kbd "C-r") 'emacspeak-feeds-rss-display)
-  (define-key eww-link-keymap (ems-kbd "C-a") 'emacspeak-feeds-atom-display)
+  (define-key eww-link-keymap "x" 'emacspeak-feeds-select-feed)
   (define-key eww-link-keymap  "y" 'emacspeak-empv-play-url)
   (cl-loop
    for binding  in
