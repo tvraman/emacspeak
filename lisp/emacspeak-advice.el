@@ -778,7 +778,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               (and
                (not (zerop echo-keystrokes))
                (<  (/ echo-keystrokes 20)
-                   (float-time (time-subtract (current-time) ems--lazy-msg-time)))))
+                   (float-time
+                    (time-subtract (current-time) ems--lazy-msg-time)))))
            (setq ems--lazy-msg-time (current-time)
                  emacspeak-last-message  m)
 ;;; so we really need to speak it
@@ -822,16 +823,30 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (setq command-error-function 'emacspeak-error-handler)
 (defvar ems--last-error-msg nil
   "Cache last error message.")
+(defvar ems--lazy-error-time (current-time)
+  "Time error was spoken")
 
 (defun emacspeak-error-handler (data context calling-function)
   "Custom error handler."
-  (cl-declare (special ems--last-error-msg))
+  (cl-declare (special ems--last-error-msg
+                       ems--lazy-error-time))
   (unless calling-function (ding))
   (let ((m (error-message-string data)))
-    (unless (string= m ems--last-error-msg)
-      (setq ems--last-error-msg m)
+    (when
+        (or
+         (and
+          (not (zerop echo-keystrokes))
+          (<  (/ echo-keystrokes 20)
+              (float-time
+               (time-subtract (current-time) ems--lazy-msg-time))))
+         (string= m ems--last-error-msg))
+      (setq ems--last-error-msg m
+            ems--lazy-error-time (current-time) )
       (emacspeak-auditory-icon 'warn-user)
-      (message "%s %s" (or context "") m))))
+      (message
+       "%s %s %s"
+       (or calling-function "")
+       m (or context "")))))
 
 ;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
