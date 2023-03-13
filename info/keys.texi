@@ -729,6 +729,9 @@
  @section Emacspeak Keybindings On emacspeak-multi-keymap
 
 @table @kbd
+@item '
+ emacspeak-pianobar
+
 @item d
  sdcv-search-input
 

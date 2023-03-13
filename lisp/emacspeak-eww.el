@@ -243,7 +243,7 @@
 ;; CURL. This is useful for sites that do multiple redirects before
 ;; returning the actual media stream URL.
 ;; @item x
-;; @command{emacspeak-feeds-select-feed
+;; @command{emacspeak-feeds-select-feed}
 ;; Display link under point as an @code{ATOM}, @code{OPML} or @code{RSS} feed.
 ;; @item y
 ;; @command{empv-play}

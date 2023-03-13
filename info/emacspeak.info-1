@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 11, 2023.
+last updated on March 13, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3371,6 +3371,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  P
 11.9 Emacspeak Keybindings On emacspeak-multi-keymap
 ====================================================
 
+‘'’
+     emacspeak-pianobar
+
 ‘d’
      sdcv-search-input
 
@@ -3421,7 +3424,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1186 commands and 148 options.
+   This chapter documents a total of 1187 commands and 148 options.
 
 * Menu:
 
@@ -7887,15 +7890,9 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      by first downloading the URL using CURL. This is useful for sites
      that do multiple redirects before returning the actual media stream
      URL.
-‘C-o’
-     ‘emacspeak-feeds-opml-display’ Display link under point as an
-     ‘OPML’ feed .
-‘C-r’
-     ‘emacspeak-feeds-rss-display’ Display link under point as an ‘RSS’
-     feed.
-‘C-a’
-     ‘emacspeak-feeds-atom-display’ Display link under point as an
-     ‘ATOM’ feed.
+‘x’
+     ‘emacspeak-feeds-select-feed’ Display link under point as an
+     ‘ATOM’, ‘OPML’ or ‘RSS’ feed.
 ‘y’
      ‘empv-play’ Play link -under point as a Youtube stream.
 
@@ -9057,6 +9054,15 @@ This module provides Feeds support for Emacspeak
      Display RSS feed.
 
      (fn FEED-URL)
+
+12.80.1.10 emacspeak-feeds-select-feed
+......................................
+
+ -- Command: emacspeak-feeds-select-feed (feed-type)
+
+     Prompt for feed-type (Atom, RSS, OPML and open it.
+
+     (fn FEED-TYPE)
 
 12.80.2 emacspeak-feeds Options
 -------------------------------

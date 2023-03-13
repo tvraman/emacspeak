@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 11, 2023.
+last updated on March 13, 2023.
 
 
 File: emacspeak.info,  Node: light,  Next: mac-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
@@ -2497,6 +2497,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> # s:                              emacspeak-gridtext. (line   50)
 * <fn> %:                                emacspeak-speak.    (line  369)
 * <fn> &:                                emacspeak-wizards.  (line  964)
+* <fn> ' ':                              emacspeak-pianobar. (line   48)
 * <fn> ' h:                              emacspeak-m-player. (line  204)
 * <fn> ' l:                              emacspeak-m-player. (line  368)
 * <fn> ' y:                              emacspeak-google.   (line  382)
@@ -2531,7 +2532,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> B:                                emacspeak-speak.    (line  269)
 * <fn> c:                                emacspeak-speak.    (line  281)
 * <fn> C:                                emacspeak-wizards.  (line   46)
-* <fn> C-':                              emacspeak-pianobar. (line   45)
+* <fn> C-':                              emacspeak-pianobar. (line   46)
 * <fn> C-.:                              emacspeak-speak.    (line  403)
 * <fn> C-/:                              emacspeak-wizards.  (line  255)
 * <fn> C-; .:                            emacspeak-mpv.      (line   31)
@@ -2654,7 +2655,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> M:                                emacspeak-speak.    (line  581)
 * <fn> m:                                emacspeak-speak.    (line  594)
 * <fn> M-%:                              emacspeak-speak.    (line   84)
-* <fn> M-;:                              emacspeak-eww.      (line  682)
+* <fn> M-;:                              emacspeak-eww.      (line  676)
 * <fn> M-b:                              emacspeak-speak.    (line  614)
 * <fn> M-c:                              emacspeak-wizards.  (line   31)
 * <fn> M-d:                              emacspeak-pronounce.
@@ -2774,6 +2775,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <XF86AudioLowerVolume>:                amixer.             (line   55)
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  230)
 * <XF86AudioRaiseVolume>:                amixer.             (line   69)
+* C-' ':                                 emacspeak-pianobar. (line   45)
 * C-' h:                                 emacspeak-m-player. (line  202)
 * C-' l:                                 emacspeak-m-player. (line  366)
 * C-' y:                                 emacspeak-google.   (line  380)
@@ -2786,7 +2788,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, q:                                 emacspeak-wizards.  (line  698)
 * C-, r:                                 emacspeak-feeds.    (line   94)
 * C-, s:                                 emacspeak-wizards.  (line 1137)
-* C-, SPC:                               emacspeak-eww.      (line  911)
+* C-, SPC:                               emacspeak-eww.      (line  905)
 * C-, t:                                 emacspeak-wizards.  (line 1125)
 * C-, u:                                 emacspeak-m-player. (line  722)
 * C-, y:                                 emacspeak-m-player. (line  803)
@@ -2886,6 +2888,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e %:                                 Status Information. (line   92)
 * C-e % <1>:                             emacspeak-speak.    (line  367)
 * C-e &:                                 emacspeak-wizards.  (line  963)
+* C-e ' ':                               emacspeak-pianobar. (line   47)
 * C-e ' h:                               emacspeak-m-player. (line  203)
 * C-e ' l:                               emacspeak-m-player. (line  367)
 * C-e ' y:                               emacspeak-google.   (line  381)
@@ -3090,7 +3093,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M:                                 emacspeak-speak.    (line  580)
 * C-e m <1>:                             emacspeak-speak.    (line  593)
 * C-e M-%:                               emacspeak-speak.    (line   83)
-* C-e M-;:                               emacspeak-eww.      (line  681)
+* C-e M-;:                               emacspeak-eww.      (line  675)
 * C-e M-b:                               emacspeak-speak.    (line  613)
 * C-e M-c:                               emacspeak-wizards.  (line   30)
 * C-e M-d:                               emacspeak-pronounce.
@@ -3227,7 +3230,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a q:                             emacspeak-wizards.  (line  699)
 * C-x @ a r:                             emacspeak-feeds.    (line   95)
 * C-x @ a s:                             emacspeak-wizards.  (line 1138)
-* C-x @ a SPC:                           emacspeak-eww.      (line  912)
+* C-x @ a SPC:                           emacspeak-eww.      (line  906)
 * C-x @ a t:                             emacspeak-wizards.  (line 1126)
 * C-x @ a u:                             emacspeak-m-player. (line  723)
 * C-x @ a y:                             emacspeak-m-player. (line  804)
@@ -3269,8 +3272,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s t:                             soundscape.         (line  123)
 * C-x @ s u:                             soundscape.         (line  133)
 * C-x @ s v:                             extra-muggles.      (line  279)
-* C-x r C-e:                             emacspeak-eww.      (line  420)
-* C-x r e:                               emacspeak-eww.      (line  670)
+* C-x r C-e:                             emacspeak-eww.      (line  414)
+* C-x r e:                               emacspeak-eww.      (line  664)
 * ESC <down>:                            emacspeak-speak.    (line  135)
 * ESC <next>:                            emacspeak-speak.    (line  166)
 * ESC <prior>:                           emacspeak-speak.    (line  157)

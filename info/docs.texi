@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1186 commands and 148 options.
+This chapter documents a total of 1187 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -5193,15 +5193,9 @@ M-Player to jump to that offset.
 Play media url under point by first downloading the URL using
 CURL. This is useful for sites that do multiple redirects before
 returning the actual media stream URL.
-@item C-o
-@command{emacspeak-feeds-opml-display}
-Display link under point as an @code{OPML} feed .
-@item C-r
-@command{emacspeak-feeds-rss-display}
-Display link under point as an @code{RSS} feed.
-@item C-a
-@command{emacspeak-feeds-atom-display}
-Display link under point as an @code{ATOM} feed.
+@item x
+@command{emacspeak-feeds-select-feed}
+Display link under point as an @code{ATOM}, @code{OPML} or @code{RSS} feed.
 @item y
 @command{empv-play}
 Play link -under point as a Youtube stream.
@@ -6643,6 +6637,17 @@ Display RSS feed.
 @end format
 @end deffn
 
+@subsubsection emacspeak-feeds-select-feed
+@deffn {Command} emacspeak-feeds-select-feed  (feed-type)
+@findex emacspeak-feeds-select-feed
+
+@format
+Prompt for feed-type (Atom, RSS, OPML and open it.
+
+(fn FEED-TYPE)
+@end format
+@end deffn
+
 @subsection emacspeak-feeds Options
 
 @defvar {User Option} emacspeak-feeds
@@ -8038,7 +8043,7 @@ Default Value: @verb{|((' emacspeak-m-player-using-hrtf) (, previous-buffer) (. 
 @defvar {User Option} emacspeak-multi-keys
 Multi key bindings. 
 
-Default Value: @verb{|((d sdcv-search-input) (h emacspeak-m-player-browse-history) (l emacspeak-m-player-locate-media) (o org-mode) (y emacspeak-google-yt-feed))|}
+Default Value: @verb{|((' emacspeak-pianobar) (d sdcv-search-input) (h emacspeak-m-player-browse-history) (l emacspeak-m-player-locate-media) (o org-mode) (y emacspeak-google-yt-feed))|}
 
 @end defvar
 
@@ -10874,8 +10879,14 @@ keys from @code{pianobar-key-map}.
 @table @kbd
 @item C-e C-'
 @kindex C-e C-'
+@item C-' '
+@kindex C-' '
 @item <fn> C-'
 @kindex <fn> C-'
+@item C-e ' '
+@kindex C-e ' '
+@item <fn> ' '
+@kindex <fn> ' '
 @end table
 
 @findex emacspeak-pianobar

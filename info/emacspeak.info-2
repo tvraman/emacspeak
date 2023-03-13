@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 11, 2023.
+last updated on March 13, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -1155,7 +1155,7 @@ found on laptops is denoted <fn>
      Multi key bindings.
 
      Default Value:
-     ((d sdcv-search-input) (h emacspeak-m-player-browse-history) (l emacspeak-m-player-locate-media) (o org-mode) (y emacspeak-google-yt-feed))
+     ((' emacspeak-pianobar) (d sdcv-search-input) (h emacspeak-m-player-browse-history) (l emacspeak-m-player-locate-media) (o org-mode) (y emacspeak-google-yt-feed))
 
  -- Variable: User Option emacspeak-personal-keys
      Key bindings for C-e x.
@@ -3566,7 +3566,10 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
 
  -- Command: emacspeak-pianobar
      ‘C-e C-'’
+     ‘C-' '’
      ‘<fn> C-'’
+     ‘C-e ' '’
+     ‘<fn> ' '’
 
      Start or control Emacspeak Pianobar player.
 
