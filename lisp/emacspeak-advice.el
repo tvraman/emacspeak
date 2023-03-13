@@ -830,23 +830,20 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Custom error handler."
   (cl-declare (special ems--last-error-msg
                        ems--lazy-error-time))
-  (unless calling-function (ding))
   (let ((m (error-message-string data)))
     (when
-        (or
          (and
-          (not (zerop echo-keystrokes))
           (<  (/ echo-keystrokes 20)
               (float-time
                (time-subtract (current-time) ems--lazy-msg-time))))
-         (string= m ems--last-error-msg))
       (setq ems--last-error-msg m
             ems--lazy-error-time (current-time) )
       (emacspeak-auditory-icon 'warn-user)
-      (message
-       "%s %s %s"
-       (or calling-function "")
-       m (or context "")))))
+      (dtk-speak-and-echo
+       (format 
+        "%s %s %s"
+        (or calling-function "")
+        m (or context ""))))))
 
 ;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
