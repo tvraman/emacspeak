@@ -840,9 +840,12 @@ When on a close delimiter, speak matching delimiter after a small delay. "
             ems--lazy-error-time (current-time) )
       (emacspeak-auditory-icon 'warn-user)
       (dtk-speak-and-echo
-       (format 
-        "%s %s %s"
-        (or calling-function "")
+       (concat 
+        (if calling-function
+            (propertize
+             (format "%s: " calling-function)
+             'personality voice-lighten)
+            "")
         m (or context ""))))))
 
 ;; Silence messages from async handlers:
