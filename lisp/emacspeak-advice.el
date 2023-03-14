@@ -846,7 +846,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
             ems--lazy-error-time (current-time) )
       (emacspeak-auditory-icon 'warn-user)
       (dtk-speak-and-echo
-       (concat (propertize (format "%s: " fn) 'personality voice-bolden) m )))))
+       (concat (propertize (format "%s " fn) 'personality voice-bolden) m )))))
 
 ;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
