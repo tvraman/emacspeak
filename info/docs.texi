@@ -20300,9 +20300,7 @@ Bing results as RSS feed.@item @b{Business Headlines From CNN}
 
 Money Headlines From CNN@item @b{CIA World Fact Book}
 
-Open CIA World Fact Book For Specified Country.@item @b{CNBC Using EAF}
-
-Play CNBC Using EAF@item @b{CNN Headlines}
+Open CIA World Fact Book For Specified Country.@item @b{CNN Headlines}
 
 News Headlines From CNN@item @b{CNN World}
 
@@ -20349,7 +20347,9 @@ template.@item @b{NLS Bard Recent}
 NLS Bard Catalog: Recently Added. Login once before using this
 template.@item @b{NLS Bard Search}
 
-Search NLS Bard Catalog. Login once before using this template.@item @b{NY Times Mobile}
+Search NLS Bard Catalog. Login once before using this template.@item @b{NPR}
+
+Open NPR home , then display the alternative links to access RSS feeds.@item @b{NY Times Mobile}
 
 NYTimes Mobile Site@item @b{Old Time Radio}
 

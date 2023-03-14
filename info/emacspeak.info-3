@@ -1047,78 +1047,79 @@ out the following steps:
   15. CIA World Fact Book
 
      Open CIA World Fact Book For Specified Country.
-  16. CNBC Using EAF
-
-     Play CNBC Using EAF
-  17. CNN Headlines
+  16. CNN Headlines
 
      News Headlines From CNN
-  18. CNN World
+  17. CNN World
 
      CNN World
-  19. Cricinfo Print
+  18. Cricinfo Print
 
      Printer friendly link on Cricinfo
-  20. Dictionary Lookup
+  19. Dictionary Lookup
 
      Dictionary Lookup
-  21. Finance Google
+  20. Finance Google
 
      Lookup ticker on Google Finance.
-  22. Finance Summary From Google
+  21. Finance Summary From Google
 
      Display top stocks from Google Finance.
-  23. FreeSound
+  22. FreeSound
 
      Search FreeSound.
-  24. Google News Search
+  23. Google News Search
 
      Search Google news.
-  25. Google Scholar
+  24. Google Scholar
 
      Google Scholar Search
-  26. Google Trends
+  25. Google Trends
 
      Google Trends
-  27. Google Weather
+  26. Google Weather
 
      Light-weight Google weather.
-  28. Guardian RSS Feeds Directory
+  27. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  29. Hacker News Frontpage
+  28. Hacker News Frontpage
 
      Display Hacker News Front Page
-  30. Hacker News Search
+  29. Hacker News Search
 
      Display Hacker News Front Page
-  31. Hoogle Haskell API Search
+  30. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  32. MLB Scorecard
+  31. MLB Scorecard
 
      Show MLB Scorecard.
-  33. MLB standings
+  32. MLB standings
 
      Display MLB standings.
-  34. NBA standings
+  33. NBA standings
 
      Display NBA standings.
-  35. NLS Bard Bookshelf
+  34. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  36. NLS Bard Popular
+  35. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  37. NLS Bard Recent
+  36. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  38. NLS Bard Search
+  37. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
+  38. NPR
+
+     Open NPR home , then display the alternative links to access RSS
+     feeds.
   39. NY Times Mobile
 
      NYTimes Mobile Site
