@@ -826,7 +826,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defvar ems--lazy-error-time (current-time)
   "Time error was spoken")
 
-(defun emacspeak-error-handler (data _context caller)
+(defun emacspeak-error-handler (data _ _)
   "Custom error handler"
   (emacspeak-auditory-icon 'warn-user)
   (dtk-speak-and-echo (propertize (error-message-string data) 'face 'error)))
