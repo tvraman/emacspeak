@@ -832,27 +832,22 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (dtk-speak-and-echo (propertize (error-message-string data) 'face 'error)))
 
 
-(defun emacspeak-fancy-error-handler (data context calling-function)
+(defun emacspeak-fancy-error-handler (data _ caller)
   "Custom error handler."
   (cl-declare (special ems--last-error-msg
                        ems--lazy-error-time))
-  (let ((m (error-message-string data)))
+  (let ((m (error-message-string data))
+        (fn (if caller (format "%s" caller) "")))
     (when
-         (and
-          (<  (/ echo-keystrokes 20)
-              (float-time
-               (time-subtract (current-time) ems--lazy-msg-time))))
+        (and
+         (<  (/ echo-keystrokes 20)
+             (float-time
+              (time-subtract (current-time) ems--lazy-msg-time))))
       (setq ems--last-error-msg m
             ems--lazy-error-time (current-time) )
       (emacspeak-auditory-icon 'warn-user)
       (dtk-speak-and-echo
-       (concat 
-        (if calling-function
-            (propertize
-             (format "%s: " calling-function)
-             'personality voice-lighten)
-            "")
-        m (or context ""))))))
+       (concat (propertize (format "%s: " fn) 'personality voice-bolden) m )))))
 
 ;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
