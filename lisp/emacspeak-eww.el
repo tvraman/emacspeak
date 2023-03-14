@@ -738,22 +738,22 @@ are available are cued by an auditory icon on the header line."
      ((null alt) (message "No alternate links."))
      (t
       (with-temp-buffer
-        (insert "<table><th>Type</th><th>URL</th></tr>\n")
+          (insert "<ol>\n")
         (cl-loop
          for a in alt do
-         (insert "<tr>")
+         (insert "<li>")
          (insert
-          (format "<td>%s</td>\n"
-                  (or (dom-attr a 'title)
-                      (dom-attr a 'type)
-                      (dom-attr a 'media)
-                      "")))
-         (insert
-          (format "<td><a href='%s'>%s</td>\n"
-                  (shr-expand-url (dom-attr a 'href) base)
-                  (shr-expand-url (dom-attr a 'href) base)))
-         (insert "</tr>\n"))
-        (insert "</table>\n")
+          (format
+           "<a href='%s'>%s</a>\n"
+           (shr-expand-url (dom-attr a 'href) base)
+           (or
+            (dom-attr a 'title)
+            (dom-attr a 'type)
+            (dom-attr a 'media)
+            (shr-expand-url (dom-attr a 'href) base))))
+         (insert "</li>\n"))
+        (insert "</ol>\n")
+        (emacspeak-eww-autospeak)
         (browse-url-of-buffer))))))
 
 ;;}}}
