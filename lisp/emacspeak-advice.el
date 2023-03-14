@@ -837,7 +837,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (cl-declare (special ems--last-error-msg
                        ems--lazy-error-time))
   (let ((m (error-message-string data))
-        (fn (or caller "")))
+        (fn (if caller (symbol-name caller) "")))
     (when
         (and
          (<  (/ echo-keystrokes 20)
@@ -846,7 +846,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
             ems--lazy-error-time (current-time) )
       (emacspeak-auditory-icon 'warn-user)
       (dtk-speak-and-echo
-       (concat (propertize (format "%s " fn) 'personality voice-bolden) m )))))
+       (concat
+        (propertize
+         (if (string-match "^ad-Advice" fn) (substring fn 10) fn)
+         'personality voice-bolden) m )))))
 
 ;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
