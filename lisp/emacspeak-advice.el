@@ -828,6 +828,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (defun emacspeak-error-handler (data _context caller)
   "Custom error handler"
+  (emacspeak-auditory-icon 'warn-user)
   (message "%s" (propertize (error-message-string data) 'face 'error)))
 
 ;; Silence messages from async handlers:
