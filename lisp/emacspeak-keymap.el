@@ -266,7 +266,7 @@
    ("5" emacspeak-speak-current-percentage)
    (":" emacspeak-m-player-shuffle)
    (";" emacspeak-multimedia)
-   ("<XF86WakeUp>" keyboard-quit)
+   ("<XF86WakeUp>" emacspeak-speak-brief-time)
    ("<down>" emacspeak-read-next-line)
    ("<f11>" emacspeak-wizards-shell-toggle)
    ("<f1>" emacspeak-learn-emacs-mode)

@@ -320,7 +320,6 @@ the Emacspeak desktop.")
   "Setup programming mode. "
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation dtk-caps))
   (ems-with-messages-silenced
-   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
    (dtk-set-punctuations 'all)
    (or dtk-split-caps (dtk-toggle-split-caps))
    (or dtk-caps (dtk-toggle-caps))

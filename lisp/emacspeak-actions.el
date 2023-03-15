@@ -66,7 +66,7 @@ shows the matching paren when the cursor moves across a right paren."
       (while (search-forward ")" nil t)
         (put-text-property  (point) (1+ (point))
                             'emacspeak-action
-                            'emacspeak-blink-matching-open)))))
+                            'blink-matching-open)))))
 (add-hook 'emacspeak-emacs-lisp-mode-actions-hook
           'emacspeak-activate-match-blinker)
 ;;}}}

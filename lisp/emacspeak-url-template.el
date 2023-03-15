@@ -1279,6 +1279,9 @@ template."
 ;;}}}
 ;;{{{npr:
 
+
+(declare-function emacspeak-eww-links-rel "emacspeak-eww" nil)
+
 (emacspeak-url-template-define
  "NPR"
  "http://npr.org"

@@ -289,7 +289,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (emacspeak-auditory-icon 'item)
          (save-excursion
           (forward-char 1)
-          (emacspeak-blink-matching-open)))))))
+          (blink-matching-open)))))))
 
 (cl-loop
  for f in
