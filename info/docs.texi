@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1188 commands and 148 options.
+This chapter documents a total of 1187 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -11718,16 +11718,6 @@ Move to start or end of buffer.
 @end format
 @end deffn
 
-@subsubsection emacspeak-blink-matching-open
-@deffn {Command} emacspeak-blink-matching-open   
-@findex emacspeak-blink-matching-open
-
-@format
-Move cursor momentarily to the beginning of the sexp before point.
-Also display match context in minibuffer.
-@end format
-@end deffn
-
 @subsubsection emacspeak-completions-move-to-completion-group
 @deffn {Command} emacspeak-completions-move-to-completion-group   
 @findex emacspeak-completions-move-to-completion-group
@@ -12011,6 +12001,17 @@ configure which media players get silenced or paused/resumed.
 
 @subsubsection emacspeak-speak-brief-time
 @deffn {Command} emacspeak-speak-brief-time   
+@table @kbd
+@item C-e C-c
+@kindex C-e C-c
+@item C-e <fn>
+@kindex C-e <fn>
+@item <fn> C-c
+@kindex <fn> C-c
+@item <fn> <fn>
+@kindex <fn> <fn>
+@end table
+
 @findex emacspeak-speak-brief-time
 
 @format
