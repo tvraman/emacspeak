@@ -1730,6 +1730,7 @@ Optional second arg `set' sets the TZ environment variable as well."
   "Time in brief"
   (interactive)
   (dtk-speak (format-time-string "%H:%M")))
+
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
 Spoken time  is available via \\[emacspeak-view-notifications].
@@ -2469,7 +2470,8 @@ Also display match context in minibuffer."
                         ;; There is nothing to show except the char itself.
                         (buffer-substring blinkpos (1+ blinkpos)))))))
           (message "Matches %s"
-                   (substring-no-properties open-paren-line-string))
+                   (format "%s"
+                           (substring-no-properties open-paren-line-string)))
           (sit-for blink-matching-delay)))))))
 
 ;;}}}
