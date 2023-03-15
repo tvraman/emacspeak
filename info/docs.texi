@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1187 commands and 148 options.
+This chapter documents a total of 1188 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -12006,6 +12006,15 @@ Run shell command COMMANDAND speak its output.
 Silence is golden. Stop speech, and pause/resume any media
 streams. Runs ‘emacspeak-silence-hook’ which can be used to
 configure which media players get silenced or paused/resumed.
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-brief-time
+@deffn {Command} emacspeak-speak-brief-time   
+@findex emacspeak-speak-brief-time
+
+@format
+Time in brief
 @end format
 @end deffn
 
