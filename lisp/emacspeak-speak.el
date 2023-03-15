@@ -1725,6 +1725,11 @@ Optional second arg `set' sets the TZ environment variable as well."
                      zone
                      (length emacspeak-speak-zoneinfo-directory)))))))
 
+
+(defun emacspeak-speak-brief-time ()
+  "Time in brief"
+  (interactive)
+  (dtk-speak (format-time-string "%H:%M")))
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
 Spoken time  is available via \\[emacspeak-view-notifications].
@@ -1735,12 +1740,12 @@ Second interactive prefix sets clock to new timezone."
   (cl-declare (special emacspeak-speak-time-format-string))
   (emacspeak-auditory-icon 'time)
   (cond
-   (world (call-interactively 'emacspeak-speak-world-clock))
-   (t
-    (let ((time-string
-           (format-time-string emacspeak-speak-time-format-string
-                               (current-time) (getenv "TZ"))))
-      (tts-with-punctuations 'some (dtk-notify-speak time-string))))))
+    (world (call-interactively 'emacspeak-speak-world-clock))
+    (t
+     (let ((time-string
+             (format-time-string emacspeak-speak-time-format-string
+                                 (current-time) (getenv "TZ"))))
+       (tts-with-punctuations 'some (dtk-notify-speak time-string))))))
 
 (defun emacspeak-speak-seconds-since-epoch (seconds)
   "Speaks time value specified as seconds  since epoch."
@@ -2464,8 +2469,7 @@ Also display match context in minibuffer."
                         ;; There is nothing to show except the char itself.
                         (buffer-substring blinkpos (1+ blinkpos)))))))
           (message "Matches %s"
-                   (substring-no-properties
-                    open-paren-line-string))
+                   (substring-no-properties open-paren-line-string))
           (sit-for blink-matching-delay)))))))
 
 ;;}}}
