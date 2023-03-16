@@ -5,7 +5,7 @@
 # See forthcoming blog article for rationale.
 # Start with  timeout  250, then tune it down (suggest 10% every few
 #days)
-# Customize echo-keystrokes in Emacs: I have it as 0.05
+# Customize echo-keystrokes in Emacs: I have it as 0.001
 
 
 TM=175 #timeout in ms for keyup
