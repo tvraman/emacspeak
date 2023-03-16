@@ -114,7 +114,7 @@
 (defconst self-document-patterns
   (concat "^"
           (regexp-opt
-           '("amixer" "cd-tool"
+           '("amixer" 
              "dectalk" "dtk" "espeak" "mac-"
              "emacspeak" "xbacklight" "light" "extra-muggles"
              "g-"    "gm-" "gmap"  "gweb" "omaps"
