@@ -1655,11 +1655,11 @@ See the documentation for function
   :type 'string)
 
 (defcustom emacspeak-speak-time-brief-format
-  "%l %m%p"
+  "%l %M%p"
   "Format for time in brief."
   :group 'emacspeak
   :type 'string)
-
+ 
 (defcustom emacspeak-speak-zoneinfo-directory
   "/usr/share/zoneinfo/"
   "Directory containing timezone data."
