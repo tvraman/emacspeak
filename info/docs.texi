@@ -13264,11 +13264,11 @@ Default Value: @verb{|t|}
 @defvar {User Option} emacspeak-speak-time-brief-format
 Format for time in brief.
 
-Default Value: @verb{|%l %m%p|}
+Default Value: @verb{|%l %M%p|}
 
 @end defvar
 
-@defvar {User Option} emacspeak-speak-time-format-string
+@defvar {User Option} emacspeak-speak-time-format
 Format string that specifies how the time should be spoken.
 See the documentation for function
 ‘format-time-string’

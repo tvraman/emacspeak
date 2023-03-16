@@ -863,7 +863,7 @@ Value returned is compatible with `encode-time'."
 
 (defun emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
   "Return a speakable string description."
-  (cl-declare (special emacspeak-speak-time-format-string))
+  (cl-declare (special emacspeak-speak-time-format))
   (let ((year (read (substring rfc-3339 0 4)))
         (month (read (substring rfc-3339 5 7)))
         (day (read (substring rfc-3339 8 10)))
@@ -873,7 +873,7 @@ Value returned is compatible with `encode-time'."
         (tz (ems-speak-rfc-3339-tz-offset rfc-3339)))
     ;; create the decoded date-time
     (condition-case nil
-        (format-time-string emacspeak-speak-time-format-string
+        (format-time-string emacspeak-speak-time-format
                             (encode-time second minute hour day month
                                          year tz))
       (error rfc-3339))))
@@ -884,7 +884,7 @@ Value returned is compatible with `encode-time'."
 
 (defun emacspeak-pronounce-decode-iso-datetime (iso)
   "Return a speakable string description."
-  (cl-declare (special emacspeak-speak-time-format-string))
+  (cl-declare (special emacspeak-speak-time-format))
   (let ((year (read (substring iso 0 4)))
         (month (read (substring iso 4 6)))
         (day (read (substring iso 6 8)))
@@ -903,7 +903,7 @@ Value returned is compatible with `encode-time'."
                                          year))) second)))
     ;; create the decoded date-time
     (condition-case nil
-        (format-time-string emacspeak-speak-time-format-string
+        (format-time-string emacspeak-speak-time-format
                             (encode-time second minute hour day month year))
       (error iso))))
 
@@ -940,7 +940,7 @@ Value returned is compatible with `encode-time'."
 
 (defun emacspeak-pronounce-decode-rfc-3339-datetime (rfc-3339)
   "Return a speakable string description."
-  (cl-declare (special emacspeak-speak-time-format-string))
+  (cl-declare (special emacspeak-speak-time-format))
   (let ((year (read (substring rfc-3339 0 4)))
         (month (read (substring rfc-3339 5 7)))
         (day (read (substring rfc-3339 8 10)))
@@ -950,7 +950,7 @@ Value returned is compatible with `encode-time'."
         (tz (ems-pronounce-rfc-3339-tz-offset rfc-3339)))
     ;; create the decoded date-time
     (condition-case nil
-        (format-time-string emacspeak-speak-time-format-string
+        (format-time-string emacspeak-speak-time-format
                             (encode-time second minute hour day month
                                          year tz))
       (error rfc-3339))))

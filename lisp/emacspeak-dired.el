@@ -305,7 +305,7 @@ On a directory line, run du -s on the directory to speak its size."
       (emacspeak-auditory-icon 'select-object)
       (message "Modified on : %s"
                (format-time-string
-                emacspeak-speak-time-format-string
+                emacspeak-speak-time-format
                 (nth 5 (file-attributes filename)))))
      (t (message "No file on current line")))))
 
@@ -318,7 +318,7 @@ On a directory line, run du -s on the directory to speak its size."
       (emacspeak-auditory-icon 'select-object)
       (message "Last accessed   on  %s"
                (format-time-string
-                emacspeak-speak-time-format-string
+                emacspeak-speak-time-format
                 (nth 4 (file-attributes filename)))))
      (t (message "No file on current line")))))
 (defun emacspeak-dired-speak-symlink-target ()

@@ -158,7 +158,7 @@
 (defun emacspeak-tar-speak-file-date()
   "Speak date of file current entry "
   (interactive)
-  (cl-declare (special emacspeak-speak-time-format-string))
+  (cl-declare (special emacspeak-speak-time-format))
   (unless (eq major-mode 'tar-mode)
     (error "This command should be called only in tar mode"))
   (let ((entry (tar-current-descriptor)))
@@ -167,7 +167,7 @@
       (message "No file on this line"))
      (t (message  "Modified on  %s "
                   (format-time-string
-                   emacspeak-speak-time-format-string
+                   emacspeak-speak-time-format
                    (tar-header-date entry)))))))
 
 (defun emacspeak-tar-setup-keys ()

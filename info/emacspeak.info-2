@@ -5400,9 +5400,9 @@ of emacspeak from becoming dependent on the speech server modules
  -- Variable: User Option emacspeak-speak-time-brief-format
      Format for time in brief.
 
-     Default Value: %l %m%p
+     Default Value: %l %M%p
 
- -- Variable: User Option emacspeak-speak-time-format-string
+ -- Variable: User Option emacspeak-speak-time-format
      Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
 

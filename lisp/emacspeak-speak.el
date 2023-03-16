@@ -1646,7 +1646,7 @@ offset. Default  is to speak the previous word. "
 ;;}}}
 ;;{{{  Speak misc information e.g. time, version, current-kill  etc
 
-(defcustom emacspeak-speak-time-format-string
+(defcustom emacspeak-speak-time-format
   "%k %M   on %A, %B %_e, %Y "
   "Format string that specifies how the time should be spoken.
 See the documentation for function
@@ -1676,7 +1676,7 @@ Optional second arg `set' sets the TZ environment variable as well."
           (read-file-name-completion-ignore-case t))
       (read-file-name "Timezone: " emacspeak-speak-zoneinfo-directory))
     current-prefix-arg))
-  (cl-declare (special emacspeak-speak-time-format-string
+  (cl-declare (special emacspeak-speak-time-format
                        ido-case-fold emacspeak-speak-zoneinfo-directory))
   (when (and set
              (= 16 (car set)))
@@ -1685,7 +1685,7 @@ Optional second arg `set' sets the TZ environment variable as well."
   (emacspeak-shell-command
    (format "export TZ=%s; date +\"%s\""
            zone
-           (concat emacspeak-speak-time-format-string
+           (concat emacspeak-speak-time-format
                    (format
                     " in %s, %%Z, %%z "
                     (substring
@@ -1707,13 +1707,13 @@ Optional interactive prefix arg `C-u'invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
-  (cl-declare (special emacspeak-speak-time-format-string))
+  (cl-declare (special emacspeak-speak-time-format))
   (emacspeak-auditory-icon 'time)
   (cond
     (world (call-interactively 'emacspeak-speak-world-clock))
     (t
      (let ((time-string
-             (format-time-string emacspeak-speak-time-format-string
+             (format-time-string emacspeak-speak-time-format
                                  (current-time) (getenv "TZ"))))
        (tts-with-punctuations 'some (dtk-notify-speak time-string))))))
 
@@ -1721,10 +1721,10 @@ Second interactive prefix sets clock to new timezone."
   "Speaks time value specified as seconds  since epoch."
   (interactive
    (list (read-minibuffer "Seconds: " (word-at-point))))
-  (cl-declare (special emacspeak-speak-time-format-string))
+  (cl-declare (special emacspeak-speak-time-format))
   (message
    (format-time-string
-    emacspeak-speak-time-format-string (seconds-to-time seconds))))
+    emacspeak-speak-time-format (seconds-to-time seconds))))
 
 (defun emacspeak-speak-microseconds-since-epoch (ms)
   "Speaks time value specified as microseconds  since epoch."
