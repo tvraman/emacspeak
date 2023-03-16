@@ -117,6 +117,7 @@ Interactive PREFIX arg means toggle the global default value. ")
 (defun emacspeak-comint-speech-setup ()
   "Speech setup."
   (cl-declare (special
+               emacspeak-speak-time-brief-format
                comint-mode-map
                emacspeak-pronounce-sha-checksum-pattern
                emacspeak-pronounce-date-mm-dd-yyyy-pattern
@@ -130,7 +131,7 @@ Interactive PREFIX arg means toggle the global default value. ")
         (concat
          (abbreviate-file-name default-directory)
          (propertize (buffer-name) 'personality voice-annotate)
-         (format-time-string " %H:%M ")
+         (format-time-string emacspeak-speak-time-brief-format)
          (when emacspeak-comint-autospeak
            (propertize "Autospeak" 'personality voice-lighten))
          (when (> (length (window-list)) 1)

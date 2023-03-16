@@ -1578,7 +1578,8 @@ Displays name of current buffer.")
 (defun emacspeak-speak-header-line ()
   "Speak header line if set."
   (interactive)
-  (cl-declare (special header-line-format))
+  (cl-declare (special header-line-format
+                       emacspeak-speak-time-brief-format))
   (cond
    (header-line-format
     (let ((window-count (length (window-list))))
@@ -1589,7 +1590,7 @@ Displays name of current buffer.")
     (dtk-speak
      (concat
       (propertize (buffer-name) 'personality voice-smoothen)
-      (format-time-string " %H:%M "))))))
+      (format-time-string emacspeak-speak-time-brief-format))))))
 
 (defun emacspeak-toggle-header-line ()
   "Toggle Emacspeak's default header line."
@@ -1653,6 +1654,12 @@ See the documentation for function
   :group 'emacspeak
   :type 'string)
 
+(defcustom emacspeak-speak-time-brief-format
+  "%l %m%p"
+  "Format for time in brief."
+  :group 'emacspeak
+  :type 'string)
+
 (defcustom emacspeak-speak-zoneinfo-directory
   "/usr/share/zoneinfo/"
   "Directory containing timezone data."
@@ -1689,7 +1696,9 @@ Optional second arg `set' sets the TZ environment variable as well."
 (defun emacspeak-speak-brief-time ()
   "Time in brief"
   (interactive)
-  (dtk-speak (format-time-string "%l %M%p")))
+  (cl-declare (special emacspeak-speak-time-brief-format))
+  (dtk-speak
+   (format-time-string emacspeak-speak-time-brief-format)))
 
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.

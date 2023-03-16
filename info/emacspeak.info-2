@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 15, 2023.
+last updated on March 16, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -5397,6 +5397,11 @@ of emacspeak from becoming dependent on the speech server modules
 
      Default Value: t
 
+ -- Variable: User Option emacspeak-speak-time-brief-format
+     Format for time in brief.
+
+     Default Value: %l %m%p
+
  -- Variable: User Option emacspeak-speak-time-format-string
      Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
@@ -9924,21 +9929,4 @@ easily used in conjunction with hydra: M-x package-install hydra
  -- Command: light-white
 
      White screen.
-
-
-File: emacspeak.info,  Node: mac-voices,  Next: omaps,  Prev: light,  Up: Emacspeak Commands And Options
-
-12.229 mac-voices
-=================
-
-This module defines the various voices used in voice-lock mode by Mac
-TTS.
-
-12.229.1 mac-voices Options
----------------------------
-
- -- Variable: User Option mac-default-speech-rate
-     Default speech rate for mac.
-
-     Default Value: 225
 
