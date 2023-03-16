@@ -270,6 +270,10 @@ beginning or end of a physical line produces an  auditory icon."
        (t ad-do-it))
      ad-return-value)))
 
+(defadvice blink-matching-open (after emacspeak pre act comp)
+  "Speak"
+  (emacspeak-speak-matching-paren))
+
 (cl-loop
  for f in
  '(left-char right-char
