@@ -1689,7 +1689,7 @@ Optional second arg `set' sets the TZ environment variable as well."
 (defun emacspeak-speak-brief-time ()
   "Time in brief"
   (interactive)
-  (dtk-speak (format-time-string "%H:%M")))
+  (dtk-speak (format-time-string "%l %M%p")))
 
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
