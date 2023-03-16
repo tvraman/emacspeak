@@ -4,11 +4,10 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1187 commands and 148 options.
+This chapter documents a total of 1184 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
-* cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Dectalk Voice  Codes.
 * dom-addons::dom.el addons.
 * dtk-speak::Interface to speech server.
@@ -137,7 +136,6 @@ This chapter documents a total of 1187 commands and 148 options.
 * emacspeak-metapost::speech-enable metapost.
 * emacspeak-midge::Speech-enable Midge.
 * emacspeak-mines::Speech-enable MINES.
-* emacspeak-mpv::Speech-enable MPV.
 * emacspeak-mspools::Speech enable MSpools.
 * emacspeak-muggles::Convenience Hydras.
 * emacspeak-muse::Speech-enable Muse.
@@ -371,53 +369,6 @@ Default Value: @verb{|default|}
 Step-size for volume change.
 
 Default Value: @verb{|2|}
-
-@end defvar
-
-@node cd-tool
-@section cd-tool
-
-Provide an emacs front-end to cdtool.
-cdtool can be obtained as an rpm
-check using rpmfind
-or from its home site at
-  sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
-This module also provides the ability to play or save
-clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav converter.
-
-@subsection Cd-Tool Commands
-
-@subsubsection cd-tool
-@deffn {Command} cd-tool   
-@findex cd-tool
-
-@format
-Front-end to CDTool.
-Key     Action
----     ------
-
-+       Next Track
--       Previous Track
-SPC     Pause or Resume
-e       Eject
-=       Shuffle
-i       CD Info
-p       Play
-s       Stop
-t       track
-c       clip
-cap C   Save clip to disk
-
-@end format
-@end deffn
-
-@subsection cd-tool Options
-
-@defvar {User Option} cd-tool-start-command
-Name of cdstart command; most likely either "cdstart" or "cdplay".
-
-Default Value: @verb{|cdstart|}
 
 @end defvar
 
@@ -9752,67 +9703,6 @@ Speak neighboring cells in sorted order.
 
 @format
 Speak number of uncovered cells.
-@end format
-@end deffn
-
-@node emacspeak-mpv
-@section emacspeak-mpv
-
-MPV ==   Media Player
-Enables seamless playback of Youtube content among others.
-Binds mpv commands on C-e C-; as the  prefix key.
-This leverages Emacs' repeat-mode functionality, so successive mpv
-commands require only one initial ress of C-e C-;.
-
-@subsection Emacspeak-Mpv Commands
-
-@subsubsection emacspeak-mpv-play-url
-@deffn {Command} emacspeak-mpv-play-url  (url &optional notification)
-@table @kbd
-@item C-e C-; ;
-@kindex C-e C-; ;
-@item <fn> C-; ;
-@kindex <fn> C-; ;
-@end table
-
-@findex emacspeak-mpv-play-url
-
-@format
-Play URL using mpv;  Prefix arg plays on notification  channel.
-
-(fn URL &optional NOTIFICATION)
-@end format
-@end deffn
-
-@subsubsection emacspeak-mpv-position
-@deffn {Command} emacspeak-mpv-position   
-@table @kbd
-@item C-e C-; .
-@kindex C-e C-; .
-@item <fn> C-; .
-@kindex <fn> C-; .
-@end table
-
-@findex emacspeak-mpv-position
-
-@format
-Show position and duration.
-@end format
-@end deffn
-
-@subsubsection emacspeak-mpv-store-link
-@deffn {Command} emacspeak-mpv-store-link   
-@table @kbd
-@item C-e C-; l
-@kindex C-e C-; l
-@item <fn> C-; l
-@kindex <fn> C-; l
-@end table
-
-@findex emacspeak-mpv-store-link
-
-@format
-Store link at current position.
 @end format
 @end deffn
 
