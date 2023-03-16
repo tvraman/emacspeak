@@ -15,7 +15,6 @@ This chapter documents a total of 1187 commands and 148 options.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-abc-mode::Speech-enable ABC.
-* emacspeak-actions::Emacspeak actions.
 * emacspeak-add-log::Speech-enable add-log.
 * emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio.
@@ -1303,13 +1302,6 @@ Speak board column-wise.
 ABC-MODE ==  Specialized mode for editing  ABC Music notation.
 See @url{http://www.lesession.co.uk/abc/abc_notation.htm} for details.
 This package speech-enables abc-mode.
-
-@node emacspeak-actions
-@section emacspeak-actions
-
-Define mode-specific  actions.
-Actions are defined by adding them to hook
-emacspeak-<mode-name>-actions-hook
 
 @node emacspeak-add-log
 @section emacspeak-add-log
@@ -12449,6 +12441,15 @@ Load emacspeak filter settings.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-matching-paren
+@deffn {Command} emacspeak-speak-matching-paren   
+@findex emacspeak-speak-matching-paren
+
+@format
+Show matched paren with context.
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-message-again
 @deffn {Command} emacspeak-speak-message-again  (&optional from-message-cache)
 @table @kbd
@@ -13092,17 +13093,6 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
 
 @format
 Switch back to buffer that generated completions.
-@end format
-@end deffn
-
-@subsubsection emacspeak-toggle-action-mode
-@deffn {Command} emacspeak-toggle-action-mode  (&optional prefix)
-@findex emacspeak-toggle-action-mode
-
-@format
-Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
 @end format
 @end deffn
 
