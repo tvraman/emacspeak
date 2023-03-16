@@ -674,6 +674,19 @@ Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
 ;;}}}
+;;{{{Match Parens:
+(defun emacspeak-speak-matching-paren ()
+  "Show matched paren with context."
+  (interactive)
+  (let ((data (show-paren--default)))
+    (when data 
+      (save-excursion
+       (goto-char (cl-third  data))
+       (dtk-speak
+        (buffer-substring (point) (line-end-position)))))))
+
+;;}}}
+ 
 ;;{{{  Speak units of text
 
 (defun emacspeak-speak-region (start end)
