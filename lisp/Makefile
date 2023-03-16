@@ -80,7 +80,6 @@ CORE_OBJECTS =  \
 amixer.elc \
 emacspeak-2048.elc \
 emacspeak-abc-mode.elc \
-emacspeak-actions.elc \
 emacspeak-add-log.elc \
 emacspeak-amark.elc \
 emacspeak-analog.elc \

@@ -629,51 +629,6 @@ the sense of the filter. "
     (setq emacspeak-speak-line-column-filter nil))))
 
 ;;}}}
-;;{{{  Actions
-
-;; Setting value of property 'emacspeak-action to a list
-;; of the form (before | after function)
-;; function to be executed before or after the unit of text at that
-;; point is spoken.
-(defvar-local emacspeak-action-mode nil
-  "Determines if action mode is active.
-Non-nil value means that any function that is set as the
-value of property action is executed when the text at that
-point is spoken.")
-
-;; Record in the mode line
-(or
- (assq 'emacspeak-action-mode minor-mode-alist)
- (setq minor-mode-alist
-       (append minor-mode-alist
-               '((emacspeak-action-mode " Action")))))
-
-;; Return the appropriate action hook variable that defines actions
-;; for this mode.
-
-(defun emacspeak-action-get-action-hook (mode)
-  "Retrieve action hook.
-Argument MODE defines action mode."
-  (intern (format "emacspeak-%s-actions-hook" mode)))
-
-;; Execute action at point
-(defun emacspeak-handle-action-at-point (&optional pos)
-  "Execute action specified at point."
-  (cl-declare (special emacspeak-action-mode))
-  (setq pos (or pos (point)))
-  (let ((action-spec (get-text-property (point) 'emacspeak-action)))
-    (when (and emacspeak-action-mode action-spec)
-      (condition-case nil
-          (funcall action-spec)
-        (error (message "Invalid actionat %s" (point)))))))
-
-(ems-generate-switcher 'emacspeak-toggle-action-mode
-                       'emacspeak-action-mode
-                       "Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.")
-
-;;}}}
 ;;{{{Match Parens:
 (defun emacspeak-speak-matching-paren ()
   "Show matched paren with context."
@@ -694,15 +649,13 @@ current local  value to the result.")
 (defun emacspeak-speak-region (start end)
   "Speak region bounded by start and end. "
   (interactive "r")
-  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
-                       emacspeak-action-mode))
+  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
   (let ((inhibit-modification-hooks t)
         (deactivate-mark nil))
     (when (not emacspeak-speak-voice-annotated-paragraphs)
       (save-restriction
         (narrow-to-region start end)
         (emacspeak-speak-voice-annotate-paragraphs)))
-    (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
     (dtk-speak (buffer-substring start end))))
 
 (defconst emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
@@ -968,10 +921,8 @@ Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
 spelled out  instead of being spoken."
   (interactive "P")
-  (cl-declare (special emacspeak-speak-last-spoken-word-position
-                       emacspeak-action-mode))
+  (cl-declare (special emacspeak-speak-last-spoken-word-position))
   (when (listp arg) (setq arg (car arg)))
-  (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
   (save-excursion
     (let ((orig (point))
           (inhibit-modification-hooks t)
@@ -1131,7 +1082,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 With prefix ARG, speaks the rest of the sentence  from point.
 Negative prefix arg speaks from start of sentence to point."
   (interactive "P")
-  (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
@@ -1142,7 +1092,6 @@ Negative prefix arg speaks from start of sentence to point."
       (setq end (point))
       (backward-sentence 1)
       (setq start (point))
-      (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
@@ -1180,7 +1129,6 @@ Negative prefix arg speaks from start of sexp to point. "
 With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point. "
   (interactive "P")
-  (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
@@ -1188,7 +1136,6 @@ Negative prefix arg will read from start of current page to point. "
           (end nil))
       (mark-page)
       (setq start (point))
-      (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
       (setq end (mark))
       (cond
        ((null arg))
@@ -1201,7 +1148,6 @@ Negative prefix arg will read from start of current page to point. "
 With prefix arg, speaks rest of current paragraph.
 Negative prefix arg will read from start of current paragraph to point. "
   (interactive "P")
-  (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
@@ -1211,7 +1157,6 @@ Negative prefix arg will read from start of current paragraph to point. "
       (setq end (point))
       (backward-paragraph 1)
       (setq start (point))
-      (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
