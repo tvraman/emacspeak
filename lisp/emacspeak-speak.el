@@ -683,7 +683,9 @@ current local  value to the result.")
       (save-excursion
        (goto-char (cl-third  data))
        (dtk-speak
-        (buffer-substring (point) (line-end-position)))))))
+        (buffer-substring (point)
+                          (max (cl-fourth data)
+                               (line-end-position))))))))
 
 ;;}}}
  
