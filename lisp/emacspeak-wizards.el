@@ -1740,19 +1740,6 @@ mapped to voices."
     result))
 
 ;;}}}
-;;{{{Emacspeak Execute Command:
-
-(defconst emacspeak-wizards-emacspeak-command-pattern
-  (concat "^"
-          (regexp-opt
-           '("amixer" "cd-tool"
-             "dectalk" "dtk" "espeak" "mac-"
-             "emacspeak" "xbacklight"
-             "gm-" "gmap"  "gweb"
-             "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
-  "Patterns to match Emacspeak command names.")
-
-;;}}}
 ;;{{{ Shell Helper: Path Cleanup
 
 (defun emacspeak-wizards-cleanup-shell-path ()
