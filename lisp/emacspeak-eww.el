@@ -737,6 +737,7 @@ are available are cued by an auditory icon on the header line."
     (cond
      ((null alt) (message "No alternate links."))
      (t
+      (bury-buffer)
       (with-temp-buffer
           (insert "<ol>\n")
         (cl-loop
