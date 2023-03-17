@@ -129,9 +129,9 @@ Interactive PREFIX arg means toggle the global default value. ")
      header-line-format
      '((:eval
         (concat
-         (abbreviate-file-name default-directory)
-         (propertize (buffer-name) 'personality voice-annotate)
          (format-time-string emacspeak-speak-time-brief-format)
+         (propertize (buffer-name) 'personality voice-annotate)
+         (abbreviate-file-name default-directory)
          (when emacspeak-comint-autospeak
            (propertize "Autospeak" 'personality voice-lighten))
          (when (> (length (window-list)) 1)
