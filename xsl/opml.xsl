@@ -41,9 +41,9 @@ View OPML feeds as XHTML
         </xsl:attribute>
         <xsl:value-of select="@title|@text"/>
         <xsl:choose>
-          <xsl:when test="@type='link'"> (Link: C-o to open) </xsl:when>
-          <xsl:when test="@type='atom'"> (Atom: C-a to open) </xsl:when>
-          <xsl:when test="@type='rss'"> (RSS: C-r to open) </xsl:when>
+          <xsl:when test="@type='link'"> (Link: x o to open) </xsl:when>
+          <xsl:when test="@type='atom'"> (Atom: x a to open) </xsl:when>
+          <xsl:when test="@type='rss'"> (RSS: x r to open) </xsl:when>
           <xsl:when test="@type='audio'"> (Play: C-u ; or U)
             </xsl:when>
           <xsl:otherwise>(<xsl:value-of select="@type"/>)</xsl:otherwise>
