@@ -53,13 +53,7 @@
 ;;{{{Speak Actions:
 
 
-(defun speak-window-change (new old)
-  "Speak current window  information."
-  (declare (special *tts-window-icon*))
-  (when new
-  (stumpwm:run-shell-command "/usr/local/bin/emstop")
-    (tts-serve-icon *tts-window-icon*)
-    (tts-speak (window-name new))))
+(tts-speakm (time-format "%l %M%p %s" (window-name new)))
 
 (defun speak-this-window (window)
   "Speak this window  information."
