@@ -45,7 +45,7 @@
               "stumpwm/tts.lisp"))
 
 (setq *tts-engine*
-(concatenate 'string   *emacspeak-dir* "/servers/outloud"))
+(concatenate 'string   *emacspeak-dir* "/servers/dtk-soft"))
 
 (tts-say "TTS: Ready to talk! ")
 (tts-rate 80)
