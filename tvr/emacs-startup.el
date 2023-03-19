@@ -172,6 +172,12 @@ Use Custom to customize where possible. "
    '(list-threads narrow-to-page list-timers upcase-region
      downcase-region  narrow-to-region eval-expression ))
   (prefer-coding-system 'utf-8-emacs)
+  ;; prepend and append to register
+
+  (global-set-key (ems-kbd "C-x r a" ) 'append-to-register)
+  (global-set-key (ems-kbd "C-x r p" ) 'prepend-to-register)
+  
+  
   (global-set-key (ems-kbd "C-x v .") 'magit-commit-create)
   (global-set-key [remap dabbrev-expand] 'hippie-expand)
   (cl-loop ;; global key-bindings
