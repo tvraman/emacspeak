@@ -13273,7 +13273,7 @@ Format string that specifies how the time should be spoken.
 See the documentation for function
 ‘format-time-string’
 
-Default Value: @verb{|%k %M   on %A, %B %_e, %Y |}
+Default Value: @verb{|%l %M%p on %A %B %_e|}
 
 @end defvar
 

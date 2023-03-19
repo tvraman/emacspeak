@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 16, 2023.
+last updated on March 19, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
@@ -5406,7 +5406,7 @@ of emacspeak from becoming dependent on the speech server modules
      Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
 
-     Default Value: %k %M   on %A, %B %_e, %Y 
+     Default Value: %l %M%p on %A %B %_e
 
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.
