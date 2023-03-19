@@ -1715,7 +1715,7 @@ Second interactive prefix sets clock to new timezone."
      (let ((time-string
              (format-time-string emacspeak-speak-time-format
                                  (current-time) (getenv "TZ"))))
-       (tts-with-punctuations 'some (dtk-notify-say time-string))))))
+       (dtk-notify-say time-string)))))
 
 (defun emacspeak-speak-seconds-since-epoch (seconds)
   "Speaks time value specified as seconds  since epoch."
