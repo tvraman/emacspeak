@@ -1647,7 +1647,7 @@ offset. Default  is to speak the previous word. "
 ;;{{{  Speak misc information e.g. time, version, current-kill  etc
 
 (defcustom emacspeak-speak-time-format
-  "%l %M%p on %A %B %_e %Y"
+  "%l %M%p on %A %B %_e"
   "Format string that specifies how the time should be spoken.
 See the documentation for function
 `format-time-string'"
