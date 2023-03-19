@@ -71,7 +71,7 @@ proc tts_set_character_scale {factor} {
 
 proc tts_say {text} {
     global tts
-	synth "\[:sa w]$text "
+	synth "$text "
     return ""
 }
 
