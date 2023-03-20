@@ -2506,6 +2506,17 @@ Use for large EBook buffers."
     (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
+;;{{{Command: url-to-register
+
+(defun emacspeak-eww-url-to-register ()
+  "Accumulate  URL in register `u'"
+  (interactive)
+  (set-register ?u                      ; hard-wired for now
+                (concat
+                 (get-register ?u) "\n" (shr-url-at-point nil)))
+  (message "Accumulated URL"))
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
