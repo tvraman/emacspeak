@@ -105,6 +105,18 @@
         (empv-play url))
       (empv-play url)))
 
+
+(defun emacspeak-empv-accumulate-to-register ()
+  "Accumulate media links to register u"
+  (interactive)
+  (let ((url (empv-youtube-results--current-video-url)))
+    (unless url (error "No media url here."))
+        (set-register ?u                ; hard-wired for now
+                      (concat
+                       (get-register ?u) "\n"url ))
+        (message "Accumulated %d links"
+                 (1- (length (split-string (get-register ?u) "\n"))))))
+
 ;;}}}
 ;;{{{Setup:
 
@@ -112,6 +124,7 @@
   "Emacspeak setup for empv."
   (cl-declare (special empv-map))
   (global-set-key (ems-kbd "C-; v") empv-map)
+  (define-key empv-youtube-results-mode-map "u" 'emacspeak-empv-accumulate-to-register)
   (cl-loop
    for b in
    '(
