@@ -176,8 +176,6 @@ Use Custom to customize where possible. "
 
   (global-set-key (ems-kbd "C-x r a" ) 'append-to-register)
   (global-set-key (ems-kbd "C-x r p" ) 'prepend-to-register)
-  ;; Accumulate urls in register:
-  (global-set-key (ems-kbd "C-x r u") 'emacspeak-eww-url-to-register)
   
   (global-set-key (ems-kbd "C-x v .") 'magit-commit-create)
   (global-set-key [remap dabbrev-expand] 'hippie-expand)

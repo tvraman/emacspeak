@@ -588,7 +588,9 @@ Safari/537.36"
    do
    (when (assoc  c eww-link-keymap)
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
-  (define-key eww-text-map  [C-return] 'emacspeak-eww-fillin-form-field)
+  (define-key eww-text-map  [C-return]
+    'emacspeak-eww-fillin-form-field)
+  (define-key eww-link-keymap  "u" 'emacspeak-eww-url-to-register)
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-cmd-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-eww-play-media-at-point)
