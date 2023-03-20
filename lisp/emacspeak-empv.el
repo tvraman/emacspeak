@@ -70,6 +70,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
+       (dtk-stop)
        (emacspeak-auditory-icon 'button)))))
 
 (defadvice empv-exit (after emacspeak pre act comp)
