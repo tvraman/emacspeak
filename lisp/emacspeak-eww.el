@@ -2516,7 +2516,8 @@ Use for large EBook buffers."
   (set-register ?u                      ; hard-wired for now
                 (concat
                  (get-register ?u) "\n" (shr-url-at-point nil)))
-  (message "Accumulated URL"))
+  (message "Accumulated %d links"
+           (length (split-string (get-register ?u)))))
 
 ;;}}}
 (provide 'emacspeak-eww)
