@@ -3427,7 +3427,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1183 commands and 148 options.
+   This chapter documents a total of 1184 commands and 148 options.
 
 * Menu:
 
@@ -8688,6 +8688,13 @@ prefix arg to delete a previously created eww-mark.
 
      Display tags at point.
 
+12.75.9.69 emacspeak-eww-url-to-register
+........................................
+
+ -- Command: emacspeak-eww-url-to-register
+
+     Accumulate  URL in register ‘u’
+
 12.75.10 emacspeak-eww Options
 ------------------------------
 
@@ -9110,30 +9117,4 @@ File: emacspeak.info,  Node: emacspeak-flymake,  Next: emacspeak-flyspell,  Prev
 =======================
 
 Speech-enable flymake
-
-
-File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev: emacspeak-flymake,  Up: Emacspeak Commands And Options
-
-12.84 emacspeak-flyspell
-========================
-
-This module speech enables flyspell.  it loads flyspell-correct if
-available, And when loading flyspell-correct sets up that module to use
-one of three supported correction styles:
-   • ido: IDO-like completion with C-s and C-r moving through choices.
-   • popup:Use up and down arrows to move through corrections.
-   • helm: A helm interface for picking amongst corrections.
-   See documentation for package flyspell-correct for additional
-details.
-
-   Use Customization emacspeak-flyspell-correct to pick between ido,
-popup and helm.
-
-12.84.1 emacspeak-flyspell Options
-----------------------------------
-
- -- Variable: User Option emacspeak-flyspell-correct
-     Correction style to use with flyspell.
-
-     Default Value: flyspell-correct-ido
 

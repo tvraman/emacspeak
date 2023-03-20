@@ -15,6 +15,32 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on March 19, 2023.
 
 
+File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev: emacspeak-flymake,  Up: Emacspeak Commands And Options
+
+12.84 emacspeak-flyspell
+========================
+
+This module speech enables flyspell.  it loads flyspell-correct if
+available, And when loading flyspell-correct sets up that module to use
+one of three supported correction styles:
+   • ido: IDO-like completion with C-s and C-r moving through choices.
+   • popup:Use up and down arrows to move through corrections.
+   • helm: A helm interface for picking amongst corrections.
+   See documentation for package flyspell-correct for additional
+details.
+
+   Use Customization emacspeak-flyspell-correct to pick between ido,
+popup and helm.
+
+12.84.1 emacspeak-flyspell Options
+----------------------------------
+
+ -- Variable: User Option emacspeak-flyspell-correct
+     Correction style to use with flyspell.
+
+     Default Value: flyspell-correct-ido
+
+
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forge,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
 
 12.85 emacspeak-folding
