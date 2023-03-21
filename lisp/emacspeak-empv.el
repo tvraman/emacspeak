@@ -110,13 +110,9 @@
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
   (interactive)
-  (let ((url (empv-youtube-results--current-video-url)))
-    (unless url (error "No media url here."))
-        (set-register ?u                ; hard-wired for now
-                      (concat
-                       (get-register ?u) "\n"url ))
-        (message "Accumulated %d links"
-                 (1- (length (split-string (get-register ?u) "\n"))))))
+  (emacspeak-accumulate-to-register ?u
+                                    'empv-youtube-results--current-video-url))
+
 
 ;;}}}
 ;;{{{Setup:

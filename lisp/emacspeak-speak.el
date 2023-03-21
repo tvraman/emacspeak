@@ -2778,6 +2778,18 @@ but quickly switch to a window by name."
    (t (call-interactively 'beginning-of-buffer))))
 
 ;;}}}
+;;{{{Utility: Accumulate 
+
+
+(defun emacspeak-accumulate-to-register (reg generator)
+  "Call generator and append resulting content to specified register.
+Appended entries are separated by newlines."
+  (set-register reg
+                (concat
+                 (get-register reg) "\n" (funcall generator nil)))
+  (message "Accumulated %d lines" (length (split-string (get-register reg)))))
+
+;;}}}
 
 (provide 'emacspeak-speak)
 ;;{{{ end of file

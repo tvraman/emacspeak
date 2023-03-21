@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 19, 2023.
+last updated on March 20, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3427,7 +3427,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1184 commands and 148 options.
+   This chapter documents a total of 1185 commands and 148 options.
 
 * Menu:
 
@@ -6540,7 +6540,14 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 12.62.1 Emacspeak-Empv Commands
 -------------------------------
 
-12.62.1.1 emacspeak-empv-play-url
+12.62.1.1 emacspeak-empv-accumulate-to-register
+...............................................
+
+ -- Command: emacspeak-empv-accumulate-to-register
+
+     Accumulate media links to register u
+
+12.62.1.2 emacspeak-empv-play-url
 .................................
 
  -- Command: emacspeak-empv-play-url (url &optional left-channel)
@@ -7836,6 +7843,10 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      by first downloading the URL using CURL. This is useful for sites
      that do multiple redirects before returning the actual media stream
      URL.
+‘u’
+     ‘emacspeak-eww-url-to-register’ Accumulate url under point to
+     register‘u’
+
 ‘x’
      ‘emacspeak-feeds-select-feed’ Display link under point as an
      ‘ATOM’, ‘OPML’ or ‘RSS’ feed.
@@ -9101,20 +9112,4 @@ intermediate filters.
  -- Command: emacspeak-filtertext-revert
 
      Revert to original text.
-
-
-File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
-
-12.82 emacspeak-flycheck
-========================
-
-FLYCHECK == On-the-fly checking.
-
-
-File: emacspeak.info,  Node: emacspeak-flymake,  Next: emacspeak-flyspell,  Prev: emacspeak-flycheck,  Up: Emacspeak Commands And Options
-
-12.83 emacspeak-flymake
-=======================
-
-Speech-enable flymake
 

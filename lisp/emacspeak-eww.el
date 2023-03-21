@@ -242,6 +242,10 @@
 ;; Play media url under point by first downloading the URL using
 ;; CURL. This is useful for sites that do multiple redirects before
 ;; returning the actual media stream URL.
+;; @item u
+;; @command{emacspeak-eww-url-to-register}
+;;Accumulate url under point to register@code{u}
+
 ;; @item x
 ;; @command{emacspeak-feeds-select-feed}
 ;; Display link under point as an @code{ATOM}, @code{OPML} or @code{RSS} feed.
@@ -2513,11 +2517,7 @@ Use for large EBook buffers."
 (defun emacspeak-eww-url-to-register ()
   "Accumulate  URL in register `u'"
   (interactive)
-  (set-register ?u                      ; hard-wired for now
-                (concat
-                 (get-register ?u) "\n" (shr-url-at-point nil)))
-  (message "Accumulated %d links"
-           (length (split-string (get-register ?u)))))
+  (emacspeak-accumulate-to-register ?u #'(lambda () (shr-url-at-point nil))))
 
 ;;}}}
 (provide 'emacspeak-eww)

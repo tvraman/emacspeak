@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1184 commands and 148 options.
+This chapter documents a total of 1185 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3633,6 +3633,15 @@ Provides better Youtube integration
 
 @subsection Emacspeak-Empv Commands
 
+@subsubsection emacspeak-empv-accumulate-to-register
+@deffn {Command} emacspeak-empv-accumulate-to-register   
+@findex emacspeak-empv-accumulate-to-register
+
+@format
+Accumulate media links to register u
+@end format
+@end deffn
+
 @subsubsection emacspeak-empv-play-url
 @deffn {Command} emacspeak-empv-play-url  (url &optional left-channel)
 @table @kbd
@@ -5136,6 +5145,10 @@ M-Player to jump to that offset.
 Play media url under point by first downloading the URL using
 CURL. This is useful for sites that do multiple redirects before
 returning the actual media stream URL.
+@item u
+@command{emacspeak-eww-url-to-register}
+Accumulate url under point to register@code{u}
+
 @item x
 @command{emacspeak-feeds-select-feed}
 Display link under point as an @code{ATOM}, @code{OPML} or @code{RSS} feed.
