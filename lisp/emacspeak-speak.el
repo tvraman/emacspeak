@@ -2786,7 +2786,7 @@ but quickly switch to a window by name."
 Appended entries are separated by newlines."
   (set-register reg
                 (concat
-                 (get-register reg) "\n" (funcall generator nil)))
+                 (get-register reg) "\n" (funcall generator )))
   (message "Accumulated %d lines" (length (split-string (get-register reg)))))
 
 ;;}}}
