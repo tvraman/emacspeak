@@ -81,10 +81,8 @@
 (defadvice empv-youtube-tabulated (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (accept-process-output nil 1)
-    (with-current-buffer "*empv-yt-results*"
-      (call-interactively 'tabulated-list-next-column)
-      (emacspeak-auditory-icon 'open-object))))
+    
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{Additional Commands:
