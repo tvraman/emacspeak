@@ -188,7 +188,7 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
       return TCL_ERROR;
     }
   }
-
+// fprintf(stderr, "%s", error_buff);
   return TCL_OK;
 }
 
