@@ -61,6 +61,7 @@
 (require 'emacspeak-preamble)
 (require 'eww)
 (require 'dom-addons)
+(require 'emacspeak-eww)
 (require 'gweb)
 (require 'g-utils)
 (require 'emacspeak-we)
