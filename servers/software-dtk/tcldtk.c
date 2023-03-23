@@ -120,7 +120,7 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   }
 
   status = TextToSpeechStartup(&dtkHandle, devNo, devOptions, NULL, 0);
-  sprintf(error_buff, "TTS startup returned %d", status);
+/*  sprintf(error_buff, "TTS startup returned %d", status); */
 
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg(status);
@@ -129,7 +129,7 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   }
 
   if (dtkHandle == NULL) {
-    sprintf(error_buff, "Could not open text-to-speech engine");
+    /* sprintf(error_buff, "Could not open text-to-speech engine"); */
 
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
     return TCL_ERROR;
