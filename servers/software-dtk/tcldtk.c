@@ -47,8 +47,8 @@ int Say(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Stop(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 
 int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
-int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
-int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
+
+
 
 /* }}} */
 /* {{{global variables*/
@@ -140,11 +140,6 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   Tcl_CreateObjCommand(interp, "synchronize", Synchronize,
                        (ClientData) dtkHandle, TclDtkFree);
   Tcl_CreateObjCommand(interp,"stop", Stop, (ClientData) dtkHandle, TclDtkFree);
-  Tcl_CreateObjCommand(interp, "pause", Pause,
-                       (ClientData) dtkHandle, TclDtkFree);
-  Tcl_CreateObjCommand(interp, "resume", Resume,
-                       (ClientData) dtkHandle, TclDtkFree);
-
   return TCL_OK;
 }
 
@@ -222,35 +217,6 @@ int Stop(ClientData dtkHandle, Tcl_Interp *interp,
   }
   status = TextToSpeechSpeak(dtkHandle,
                              "[:phoneme arpabet speak on :say clause]", TTS_NORMAL);
-  if (status != MMSYSERR_NOERROR) {
-    error_msg = getErrorMsg(status);
-    Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
-    return TCL_ERROR;
-  }
-  return TCL_OK;
-}
-
-/* }}} */
-/* {{{ pause and resume */
-
-int Pause(ClientData dtkHandle, Tcl_Interp *interp,
-          int objc, Tcl_Obj *CONST objv[]) {
-  MMRESULT status;
-
-  status = TextToSpeechPause(dtkHandle);
-  if (status != MMSYSERR_NOERROR) {
-    error_msg = getErrorMsg(status);
-    Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
-    return TCL_ERROR;
-  }
-  return TCL_OK;
-}
-
-int Resume(ClientData dtkHandle, Tcl_Interp *interp,
-           int objc, Tcl_Obj *CONST objv[]) {
-  MMRESULT status;
-
-  status = TextToSpeechResume(dtkHandle);
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg(status);
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
