@@ -482,6 +482,15 @@ name of the list.")
 ;;}}}
 ;;{{{ cnn
 
+
+(emacspeak-url-template-define
+ "CNN Money"
+ "https://money.cnn.com"
+ nil
+ #'(lambda ()
+     (eww-display-dom-by-role "main"))
+ "CNN Money")
+
 (emacspeak-url-template-define
  "CNN Headlines"
  "http://rss.cnn.com/rss/cnn_latest.rss"
