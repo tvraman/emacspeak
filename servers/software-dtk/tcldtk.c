@@ -155,14 +155,14 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
         Tcl_Obj *CONST objv[]) {
   int i, length;
   MMRESULT status;
-  DWORD dwFlags = TTS_NORMAL;
+  DWORD dwFlags = TTS_FORCE;
   char *txt = NULL;
 
   for (i=1; i<objc; i++) {
-    sprintf(error_buff, "For loop - %d. objc = %d", i, objc);
+    /*sprintf(error_buff, "For loop - %d. objc = %d", i, objc); */ 
     txt = Tcl_GetStringFromObj(objv[i], &length);
-    sprintf(error_buff, "String length is %d", length);
-    sprintf(error_buff, "Tcl obj %d. String = %s\n", i, txt);
+/*     sprintf(error_buff, "String length is %d", length);
+    sprintf(error_buff, "Tcl obj %d. String = %s\n", i, txt); */
     if (Tcl_StringMatch(txt, "-reset")) {
       status = TextToSpeechReset(dtkHandle, FALSE);
       if (status != MMSYSERR_NOERROR) {
