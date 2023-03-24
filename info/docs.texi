@@ -5147,8 +5147,9 @@ CURL. This is useful for sites that do multiple redirects before
 returning the actual media stream URL.
 @item u
 @command{emacspeak-eww-url-to-register}
-Accumulate url under point to register@code{u}
-
+Accumulate url under point to register@code{u}.
+Sample use-cases include building up a playlist of links in the
+right sort order after a YT search.
 @item x
 @command{emacspeak-feeds-select-feed}
 Display link under point as an @code{ATOM}, @code{OPML} or @code{RSS} feed.
@@ -20173,7 +20174,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 64 URL Templates.
+This section documents a total of 65 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20221,7 +20222,9 @@ Money Headlines From CNN@item @b{CIA World Fact Book}
 
 Open CIA World Fact Book For Specified Country.@item @b{CNN Headlines}
 
-News Headlines From CNN@item @b{CNN World}
+News Headlines From CNN@item @b{CNN Money}
+
+CNN Money@item @b{CNN World}
 
 CNN World@item @b{Cricinfo Print}
 

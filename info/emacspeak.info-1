@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 20, 2023.
+last updated on March 24, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7845,8 +7845,8 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      URL.
 ‘u’
      ‘emacspeak-eww-url-to-register’ Accumulate url under point to
-     register‘u’
-
+     register‘u’.  Sample use-cases include building up a playlist of
+     links in the right sort order after a YT search.
 ‘x’
      ‘emacspeak-feeds-select-feed’ Display link under point as an
      ‘ATOM’, ‘OPML’ or ‘RSS’ feed.
