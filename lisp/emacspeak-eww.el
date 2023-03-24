@@ -244,8 +244,9 @@
 ;; returning the actual media stream URL.
 ;; @item u
 ;; @command{emacspeak-eww-url-to-register}
-;;Accumulate url under point to register@code{u}
-
+;;Accumulate url under point to register@code{u}.
+;; Sample use-cases include building up a playlist of links in the
+;; right sort order after a YT search.
 ;; @item x
 ;; @command{emacspeak-feeds-select-feed}
 ;; Display link under point as an @code{ATOM}, @code{OPML} or @code{RSS} feed.
