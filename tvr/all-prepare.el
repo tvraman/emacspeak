@@ -179,6 +179,7 @@ This moves them into the Spam folder."
   (interactive )
   (cl-declare (special file-xoauth2-creds-location))
   (kill-buffer (find-file-noselect file-xoauth2-creds-location))
+  (dtk-stop)
   (emacspeak-auditory-icon 'task-done))
 
 (when (keymapp emacspeak-ctl-z-keymap )
