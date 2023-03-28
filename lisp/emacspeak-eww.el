@@ -176,6 +176,10 @@
 ;; @command{eww-view-dom-having-id}
 ;; Display DOM nodes having specified ID. Valid id values
 ;; are available via completion.
+
+;; @item  M
+;; @command{eww-view-dom-by-match}
+;; lines containing pattern. Useful to filter down RSS feeds.
 ;; @item  R
 ;; @command{eww-view-dom-having-role}
 ;; Display DOM nodes having specified role. Valid roles
