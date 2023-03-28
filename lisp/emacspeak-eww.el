@@ -624,6 +624,7 @@ Safari/537.36"
      ("C-d" emacspeak-eww-dive-into-div)
      ("C-t" emacspeak-eww-table-data)
      ("C-e" emacspeak-keymap)
+     ("M" eww-view-dom-by-match)
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<up>"  emacspeak-eww-table-previous-row)
      ("M-<down>"  emacspeak-eww-table-next-row)
@@ -1576,6 +1577,14 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((value
          (completing-read "Value: " emacspeak-eww-el-cache nil 'must-match)))
     (unless (zerop (length value)) (intern value))))
+(defun eww-view-dom-by-match (pattern)
+  "Filter page keeping lines that match pattern."
+  (interactive "sPattern:")
+  (let ((inhibit-read-only  t))
+    (keep-lines pattern)
+    (goto-char (point-min))
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defun eww-view-dom-having-elements (&optional multi)
   "Display DOM filtered by specified elements.
@@ -1586,13 +1595,13 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         (filter  (if multi #'dom-by-tag-list #'dom-by-tag))
         (tag (if multi
                  (emacspeak-eww-read-list 'emacspeak-eww-read-element)
-               (emacspeak-eww-read-element))))
+                 (emacspeak-eww-read-element))))
     (setq dom (funcall filter dom tag))
     (cond
-     (dom
-      (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (eww-current-url))))
-     (t (message "Filtering failed.")))))
+      (dom
+       (emacspeak-eww-view-helper
+        (dom-html-from-nodes dom (eww-current-url))))
+      (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-elements (multi)
   "Display DOM filtered by specified nodes not passing   el list.
