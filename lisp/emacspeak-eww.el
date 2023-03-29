@@ -1607,18 +1607,33 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         (dom-html-from-nodes dom (eww-current-url))))
       (t (message "Filtering failed.")))))
 
+
+(defun eww-view-dom-element-having-text (element text )
+  "Display DOM filtered by specific element instances that contain text."
+  (interactive
+   (list
+    (emacspeak-eww-read-element)
+    (read-from-minibuffer "Text:")))
+  (let ((dom (emacspeak-eww-current-dom)))
+    (setq dom     (dom-by-tag dom tag)))
+  (cond
+    (dom
+     (emacspeak-eww-view-helper         ; todo: filter by text 
+      (dom-html-from-nodes dom (eww-current-url))))
+    (t (message "Filtering failed."))))
+
 (defun eww-view-dom-not-having-elements (multi)
   "Display DOM filtered by specified nodes not passing   el list.
 Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-remove-if
-          (emacspeak-eww-current-dom)
-          (eww-elements-tester
-           (if multi
-               (emacspeak-eww-read-list 'emacspeak-eww-read-element)
-             (list  (emacspeak-eww-read-element)))))))
+          (eww-dom-remove-if
+           (emacspeak-eww-current-dom)
+           (eww-elements-tester
+            (if multi
+                (emacspeak-eww-read-list 'emacspeak-eww-read-element)
+                (list  (emacspeak-eww-read-element)))))))
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
