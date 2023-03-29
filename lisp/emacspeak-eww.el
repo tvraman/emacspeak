@@ -1618,13 +1618,13 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special eww-current-url))
   (let ((dom (dom-by-tag  (emacspeak-eww-current-dom) element)))
     (cond
-      (dom                              ; filter by text:
+      (                              ; filter by text:
        (setq dom
              (cl-remove-if-not
               #'(lambda (node)
                   (string-match text (dom-texts node " ")))
               dom))
-       (emacspeak-eww-view-helper       ; todo: filter by text 
+       (emacspeak-eww-view-helper       
         (dom-html-from-nodes dom (eww-current-url)))
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line))
