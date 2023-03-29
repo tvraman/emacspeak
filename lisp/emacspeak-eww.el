@@ -628,7 +628,7 @@ Safari/537.36"
      ("C-d" emacspeak-eww-dive-into-div)
      ("C-t" emacspeak-eww-table-data)
      ("C-e" emacspeak-keymap)
-     ("M" eww-view-dom-by-match)
+     ("M" eww-view-dom-element-having-text)
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<up>"  emacspeak-eww-table-previous-row)
      ("M-<down>"  emacspeak-eww-table-next-row)
@@ -1610,9 +1610,11 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 (defun eww-view-dom-element-having-text (element text )
   "Display DOM filtered by specific element instances that contain text."
   (interactive
-   (list
-    (emacspeak-eww-read-element)
-    (read-from-minibuffer "Text:")))
+   (progn
+     (emacspeak-eww-prepare-eww)
+     (list
+      (emacspeak-eww-read-element)
+      (read-from-minibuffer "Text:"))))
   (cl-declare (special eww-current-url))
   (let ((dom (dom-by-tag  (emacspeak-eww-current-dom) element)))
     (cond
