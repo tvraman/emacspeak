@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 27, 2023.
+last updated on March 29, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7788,6 +7788,10 @@ prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
 ‘I’
      ‘eww-view-dom-having-id’ Display DOM nodes having specified ID.
      Valid id values are available via completion.
+
+‘M’
+     ‘eww-view-dom-element-having-text’ lines containing pattern.
+     Useful to filter down RSS feeds.
 ‘R’
      ‘eww-view-dom-having-role’ Display DOM nodes having specified role.
      Valid roles are available via completion.

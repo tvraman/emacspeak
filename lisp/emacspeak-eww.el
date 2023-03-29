@@ -178,7 +178,7 @@
 ;; are available via completion.
 
 ;; @item  M
-;; @command{eww-view-dom-by-match}
+;; @command{eww-view-dom-element-having-text}
 ;; lines containing pattern. Useful to filter down RSS feeds.
 ;; @item  R
 ;; @command{eww-view-dom-having-role}
@@ -1618,7 +1618,12 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special eww-current-url))
   (let ((dom (dom-by-tag  (emacspeak-eww-current-dom) element)))
     (cond
-      (dom
+      (dom                              ; filter by text:
+       (setq dom
+             (cl-remove-if-not
+              #'(lambda (node)
+                  (string-match text (dom-text node)))
+              dom))
        (emacspeak-eww-view-helper       ; todo: filter by text 
         (dom-html-from-nodes dom (eww-current-url))))))
   (t (message "Filtering failed.")))
