@@ -1627,8 +1627,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
        (emacspeak-eww-view-helper       ; todo: filter by text 
         (dom-html-from-nodes dom (eww-current-url)))
        (emacspeak-auditory-icon 'open-object)
-       (emacspeak-speak-mode-line))))
-  (t (message "Filtering failed.")))
+       (emacspeak-speak-mode-line))
+      (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-elements (multi)
   "Display DOM filtered by specified nodes not passing   el list.
