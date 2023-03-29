@@ -1622,7 +1622,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
        (setq dom
              (cl-remove-if-not
               #'(lambda (node)
-                  (string-match text (dom-text node)))
+                  (string-match text (dom-texts node " ")))
               dom))
        (emacspeak-eww-view-helper       ; todo: filter by text 
         (dom-html-from-nodes dom (eww-current-url)))
