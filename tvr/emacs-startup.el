@@ -227,7 +227,9 @@ Use Custom to customize where possible. "
   (diminish 'auto-fill-function "")
   (diminish 'abbrev-mode "")
   (diminish 'auto-correct-mode "")
-  (setq  global-mode-string '("" display-time-string battery-mode-line-string)))
+  (setq  global-mode-string '("" display-time-string
+                              battery-mode-line-string))
+  (bash-completion-setup))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
