@@ -1607,23 +1607,28 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         (dom-html-from-nodes dom (eww-current-url))))
       (t (message "Filtering failed.")))))
 
-(defun eww-view-dom-element-having-text (element text )
-  "Display DOM filtered by specific element instances  containing  text."
+(defun eww-view-dom-element-having-text (element text &optional reverse )
+  "Display DOM filtered by specific element instances  containing
+  text. Optional interactive prefix arg `reverse'renders elements
+  in reverse order."
   (interactive
    (progn
      (emacspeak-eww-prepare-eww)
      (list
       (emacspeak-eww-read-element)
-      (read-from-minibuffer "Text:"))))
+      (read-from-minibuffer "Text:")
+      current-prefix-arg)))
   (cl-declare (special eww-current-url))
-  (let ((dom (dom-by-tag  (emacspeak-eww-current-dom) element)))
+  (let ((dom (dom-by-tag  (emacspeak-eww-current-dom) element))
+        (transform (if reverse 'nreverse 'identity)))
     (cond
-      (                              ; filter by text:
+      (                                 ; filter by text:
        (setq dom
-             (cl-remove-if-not
-              #'(lambda (node)
-                  (string-match text (dom-texts node " ")))
-              dom))
+             (funcall transform 
+                      (cl-remove-if-not
+                       #'(lambda (node)
+                           (string-match text (dom-texts node " ")))
+                       dom)))
        (emacspeak-eww-view-helper
         (dom-html-from-nodes dom (eww-current-url)))
        (emacspeak-auditory-icon 'open-object)
