@@ -1206,8 +1206,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
          #'(lambda(u) (string= u url))
          emacspeak-m-player-media-history))
   (emacspeak-auditory-icon 'delete-object)
-  (message
-   "Media History Length: %d" (length emacspeak-m-player-media-history)))
+  (kill-buffer)
+  (call-interactively 'emacspeak-m-player-browse-history))
 
 ;;;###autoload
 (defun emacspeak-m-player-from-history (posn)
