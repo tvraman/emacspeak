@@ -89,16 +89,20 @@
 
 ;;}}}
 ;;{{{Commands:
+(defvar emacspeak-empv-last-url nil
+  "Record most recent URL.")
 
 (defun emacspeak-empv-play-url (url &optional left-channel)
   "Play URL using mpv;  Prefix arg plays on left channel."
   (interactive (list (emacspeak-eww-read-url) current-prefix-arg ))
-  (cl-declare (special tts-notification-device))
+  (cl-declare (special tts-notification-device
+                       emacspeak-empv-last-url))
   (when
       (and url
            (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
+  (cl-pushnew url emacspeak-empv-last-url)
   (if left-channel
       (with-environment-variables (("PULSE_SINK" tts-notification-device))
         (empv-play url))
