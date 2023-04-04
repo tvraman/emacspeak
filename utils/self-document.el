@@ -49,6 +49,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'cl-extra)
 (require 'advice)
 (require 'lisp-mnt)
 (require 'subr-x)
@@ -248,7 +249,11 @@
     (insert (format "%s\n"
                     (or doc
                         (format "###%s: Not Documented\n" o))))
-    (insert (format "\nDefault Value: \n\n@verbatim\n%s\n@end verbatim\n\n" value))
+    (insert
+     (format "\nDefault Value: \n\n@verbatim\n%s\n@end verbatim\n\n"
+             (with-temp-buffer
+                 (cl-prettyprint value)
+               (buffer-substring-no-properties (point-min) (point-max)))))
     (insert "\n@end defvar\n\n")))
 
 (defun self-document-module-options (self)
