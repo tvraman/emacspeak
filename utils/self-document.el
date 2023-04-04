@@ -318,7 +318,7 @@
   (list
    emacspeak-prefix
    (kbd "C-;") (kbd "C-'") (kbd "C-.") (kbd "C-,") (kbd "C-z")
-   (kbd "C-e x") (kbd "C-e y" (kbd "C-e z") (kbd "C-e '") ))
+   (kbd "C-e x") (kbd "C-e y" )   (kbd "C-e z") (kbd "C-e '"))
   "Key prefixes  for which we generate a help section."
   )
 
