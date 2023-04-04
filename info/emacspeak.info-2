@@ -1170,7 +1170,7 @@ found on laptops is denoted <fn>
      Default Value: @verb{|((v view-register))
 
  -- Variable: User Option emacspeak-personal-y-keys
-     Key bindings for use with C-e C-x.
+     Key bindings for use with C-e y.
 
      Default Value:
      ((a emacspeak-xslt-view-atom-file) (r emacspeak-xslt-view-rss-file) (x emacspeak-xslt-view-file) (y emacspeak-empv-play-url))
