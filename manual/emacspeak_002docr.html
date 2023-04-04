@@ -644,155 +644,180 @@ Setting persists for current Emacs session.
     <div class="subsection" id="emacspeak_002docr-Options">
       <h4 class="subsection">12.138.2 emacspeak-ocr Options</h4>
       <dl class="def">
-        <dt id="index-User-Option-59"><span class=
+        <dt id="index-User-Option-60"><span class=
         "category">Variable:</span> <span><strong>User
         Option</strong> <em>emacspeak-ocr-compress-image</em>
-        <a href='#index-User-Option-59' class=
+        <a href='#index-User-Option-60' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Command used to compress the scanned tiff file.</p>
-          <p>Default Value: <tt>nil</tt></p>
-        </dd>
-      </dl>
-      <dl class="def">
-        <dt id="index-User-Option-60"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong>
-        <em>emacspeak-ocr-compress-image-options</em> <a href=
-        '#index-User-Option-60' class=
-        'copiable-anchor'>¶</a></span></dt>
-        <dd>
-          <p>Options used for compressing tiff image.</p>
-          <p>Default Value: <tt>-c g3</tt></p>
+          <p>Default Value:</p>
+          <pre class="verbatim">nil
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-61"><span class=
         "category">Variable:</span> <span><strong>User
         Option</strong>
-        <em>emacspeak-ocr-compress-photo-options</em> <a href=
+        <em>emacspeak-ocr-compress-image-options</em> <a href=
         '#index-User-Option-61' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Options used when created JPEG from scanned
-          photographs.</p>
-          <p>Default Value: <tt>-optimize -progressive</tt></p>
+          <p>Options used for compressing tiff image.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">-c g3 
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-62"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-engine</em> <a href=
+        Option</strong>
+        <em>emacspeak-ocr-compress-photo-options</em> <a href=
         '#index-User-Option-62' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>OCR engine to process acquired image.</p>
-          <p>Default Value:
-          <tt>/home/raman/emacs/lisp/emacspeak/etc/tesseract.pl</tt></p>
+          <p>Options used when created JPEG from scanned
+          photographs.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">-optimize -progressive
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-63"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-engine-options</em>
-        <a href='#index-User-Option-63' class=
+        Option</strong> <em>emacspeak-ocr-engine</em> <a href=
+        '#index-User-Option-63' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Command line options to pass to OCR engine.</p>
-          <p>Default Value: <tt>nil</tt></p>
+          <p>OCR engine to process acquired image.</p>
+          <p>Default Value:</p>
+          <pre class=
+          "verbatim">/home/raman/emacs/lisp/emacspeak/etc/tesseract.pl
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-64"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-image-extension</em>
+        Option</strong> <em>emacspeak-ocr-engine-options</em>
         <a href='#index-User-Option-64' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Filename extension used for acquired image.</p>
-          <p>Default Value: <tt>.tif</tt></p>
+          <p>Command line options to pass to OCR engine.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">nil
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-65"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-jpeg-metadata-writer</em>
+        Option</strong> <em>emacspeak-ocr-image-extension</em>
         <a href='#index-User-Option-65' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Program to add metadata to JPEG files.</p>
-          <p>Default Value: <tt>wrjpgcom</tt></p>
+          <p>Filename extension used for acquired image.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">.tif
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-66"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong>
-        <em>emacspeak-ocr-keep-uncompressed-image</em> <a href=
-        '#index-User-Option-66' class=
+        Option</strong> <em>emacspeak-ocr-jpeg-metadata-writer</em>
+        <a href='#index-User-Option-66' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>If set to T, uncompressed image is not removed.</p>
-          <p>Default Value: <tt>nil</tt></p>
+          <p>Program to add metadata to JPEG files.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">wrjpgcom
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-67"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-photo-compress</em>
-        <a href='#index-User-Option-67' class=
+        Option</strong>
+        <em>emacspeak-ocr-keep-uncompressed-image</em> <a href=
+        '#index-User-Option-67' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Program to create JPEG compressed images.</p>
-          <p>Default Value: <tt>cjpeg</tt></p>
+          <p>If set to T, uncompressed image is not removed.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">nil
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-68"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-scan-image</em> <a href=
-        '#index-User-Option-68' class=
+        Option</strong> <em>emacspeak-ocr-photo-compress</em>
+        <a href='#index-User-Option-68' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Name of image acquisition program.</p>
-          <p>Default Value: <tt>scanimage</tt></p>
+          <p>Program to create JPEG compressed images.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">cjpeg
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-69"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-scan-image-options</em>
-        <a href='#index-User-Option-69' class=
+        Option</strong> <em>emacspeak-ocr-scan-image</em> <a href=
+        '#index-User-Option-69' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Command line options to pass to image acquisition
-          program.</p>
-          <p>Default Value: <tt>--resolution 300 --mode lineart
-          --format=tiff</tt></p>
+          <p>Name of image acquisition program.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">scanimage
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-70"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-scan-photo-options</em>
+        Option</strong> <em>emacspeak-ocr-scan-image-options</em>
         <a href='#index-User-Option-70' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
-          <p>Options used when scanning in photographs.</p>
-          <p>Default Value: <tt>--mode color --format=pnm</tt></p>
+          <p>Command line options to pass to image acquisition
+          program.</p>
+          <p>Default Value:</p>
+          <pre class=
+          "verbatim">--resolution 300 --mode lineart --format=tiff
+</pre>
         </dd>
       </dl>
       <dl class="def">
         <dt id="index-User-Option-71"><span class=
         "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-ocr-working-directory</em>
+        Option</strong> <em>emacspeak-ocr-scan-photo-options</em>
         <a href='#index-User-Option-71' class=
+        'copiable-anchor'>¶</a></span></dt>
+        <dd>
+          <p>Options used when scanning in photographs.</p>
+          <p>Default Value:</p>
+          <pre class="verbatim">--mode color --format=pnm
+</pre>
+        </dd>
+      </dl>
+      <dl class="def">
+        <dt id="index-User-Option-72"><span class=
+        "category">Variable:</span> <span><strong>User
+        Option</strong> <em>emacspeak-ocr-working-directory</em>
+        <a href='#index-User-Option-72' class=
         'copiable-anchor'>¶</a></span></dt>
         <dd>
           <p>Directory where images and OCR results will be
           placed.</p>
-          <p>Default Value:
-          <tt>/home/raman/.emacspeak/ocr/</tt></p>
+          <p>Default Value:</p>
+          <pre class="verbatim">/home/raman/.emacspeak/ocr/
+</pre>
         </dd>
       </dl>
     </div>
