@@ -562,7 +562,7 @@
     ("x" emacspeak-xslt-view-file)
     ("y" emacspeak-empv-play-url)
     )
-  "Key bindings for use with C-e C-x. "
+  "Key bindings for use with C-e y. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal-Y Keymap"
