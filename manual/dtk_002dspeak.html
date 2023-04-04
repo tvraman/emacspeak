@@ -1069,7 +1069,9 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Prefix used to indicate AllCaps</p>
           <p>Default Value:</p>
-          <pre class="verbatim"> acc 
+          <pre class="verbatim">
+#(" acc " 0 5 (personality acss-p3-s1-r3))
+
 </pre>
         </dd>
       </dl>
@@ -1082,7 +1084,9 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Prefix used to indicate capitalization</p>
           <p>Default Value:</p>
-          <pre class="verbatim">cap
+          <pre class="verbatim">
+#("cap" 0 3 (personality acss-p3-s1-r3))
+
 </pre>
         </dd>
       </dl>
@@ -1099,8 +1103,30 @@ When called interactively, CHAR defaults to the character after point.
           <p>More than 3 consecutive occurrences of a pattern is
           replaced with a repeat count.</p>
           <p>Default Value:</p>
-          <pre class=
-          "verbatim">(.  . _ - = / + * : ; % \/ /\ { } ~ $ ) # &lt;&gt; ^ &lt; &gt;)
+          <pre class="verbatim">
+(". " "."
+ "_"
+ "-"
+ "="
+ "/"
+ "+"
+ "*"
+ ":"
+ ";"
+ "%"
+ "\\/"
+ "/\\"
+ "{"
+ "}"
+ "~"
+ "$"
+ ")"
+ "#"
+ "&lt;&gt;"
+ "^"
+ "&lt;"
+ "&gt;")
+
 </pre>
         </dd>
       </dl>
@@ -1113,7 +1139,9 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Set this to your preferred cloud TTS server.</p>
           <p>Default Value:</p>
-          <pre class="verbatim">cloud-outloud
+          <pre class="verbatim">
+"cloud-outloud"
+
 </pre>
         </dd>
       </dl>
@@ -1126,7 +1154,9 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Engine we use for our local TTS server.</p>
           <p>Default Value:</p>
-          <pre class="verbatim">outloud
+          <pre class="verbatim">
+"outloud"
+
 </pre>
         </dd>
       </dl>
@@ -1139,7 +1169,9 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Value of lowest speech rate.</p>
           <p>Default Value:</p>
-          <pre class="verbatim">50
+          <pre class="verbatim">
+50
+
 </pre>
         </dd>
       </dl>
@@ -1153,7 +1185,9 @@ When called interactively, CHAR defaults to the character after point.
           <p>Speech rate step used by
           ‘dtk-set-predefined-speech-rate’.</p>
           <p>Default Value:</p>
-          <pre class="verbatim">8
+          <pre class="verbatim">
+8
+
 </pre>
         </dd>
       </dl>
@@ -1167,8 +1201,39 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Replacements for characters.</p>
           <p>Default Value:</p>
-          <pre class=
-          "verbatim">((150 . -) (9473 . -) (9475 . |) (176 .  degrees ) (8451 . Degree C) (8457 . Degree F ) (8220 . ") (8221 . ") (8902 . *) (173 . -) (8216 . `) (8217 . ') (8208 .  dash ) (8211 .  dash dash  ) (8212 .  em dash  ) (8202 .  ) (65279 .  ) (8204 . ) (8203 .  ) (8201 .  ) (8213 . ----) (8214 . ||) (8230 . ...) (8226 .  bullet ) (149 .  ... ) (8482 . TM) (64256 . ff) (64257 . fi) (64258 . fl) (64259 . ffi) (64260 . Ffl))
+          <pre class="verbatim">
+((150 . "-")
+ (9473 . "-")
+ (9475 . "|")
+ (176 . " degrees ")
+ (8451 . "Degree C")
+ (8457 . "Degree F ")
+ (8220 . "\"")
+ (8221 . "\"")
+ (8902 . "*")
+ (173 . "-")
+ (8216 . "`")
+ (8217 . "'")
+ (8208 . " dash ")
+ (8211 . " dash dash  ")
+ (8212 . " em dash  ")
+ (8202 . " ")
+ (65279 . " ")
+ (8204 . "")
+ (8203 . " ")
+ (8201 . " ")
+ (8213 . "----")
+ (8214 . "||")
+ (8230 . "...")
+ (8226 . " bullet ")
+ (149 . " ... ")
+ (8482 . "TM")
+ (64256 . "ff")
+ (64257 . "fi")
+ (64258 . "fl")
+ (64259 . "ffi")
+ (64260 . "Ffl"))
+
 </pre>
         </dd>
       </dl>
@@ -1182,8 +1247,21 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Alist of character name transformation rules.</p>
           <p>Default Value:</p>
-          <pre class=
-          "verbatim">((BOX DRAWING lambda (_ignored) .) (^Mathematical Sans-Serif\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^greek\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^latin\( small\| capital\)? letter \(.*\)$ lambda (s) (match-string 2 s)) (^DEVANAGARI \(sign\|vowel sign\|letter\)? \(.*\)$ lambda (s) (match-string 2 s)))
+          <pre class="verbatim">
+(("BOX DRAWING" lambda (_ignored) ".")
+ ("^Mathematical Sans-Serif\\( small\\| capital\\)? letter \\(.*\\)$" lambda
+  (s)
+  (match-string 2 s))
+ ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" lambda
+  (s)
+  (match-string 2 s))
+ ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" lambda
+  (s)
+  (match-string 2 s))
+ ("^DEVANAGARI \\(sign\\|vowel sign\\|letter\\)? \\(.*\\)$" lambda
+  (s)
+  (match-string 2 s)))
+
 </pre>
         </dd>
       </dl>
@@ -1197,7 +1275,9 @@ When called interactively, CHAR defaults to the character after point.
           <p>Characters of these charsets are ignored by
           dtk-unicode-replace-chars.</p>
           <p>Default Value:</p>
-          <pre class="verbatim">(ascii latin-iso8859-1)
+          <pre class="verbatim">
+(ascii latin-iso8859-1)
+
 </pre>
         </dd>
       </dl>
@@ -1210,7 +1290,9 @@ When called interactively, CHAR defaults to the character after point.
         <dd>
           <p>Toggle tones.</p>
           <p>Default Value:</p>
-          <pre class="verbatim">t
+          <pre class="verbatim">
+t
+
 </pre>
         </dd>
       </dl>
@@ -1224,7 +1306,9 @@ When called interactively, CHAR defaults to the character after point.
           <p>Virtual sound device to use for notifications stream.
           Set to nil to disable a separate Notification stream.</p>
           <p>Default Value:</p>
-          <pre class="verbatim">tts_left
+          <pre class="verbatim">
+"tts_left"
+
 </pre>
         </dd>
       </dl>
