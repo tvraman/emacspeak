@@ -557,6 +557,7 @@
 
 (defcustom emacspeak-personal-y-keys
   '(
+    ("x" emacspeak-xslt-view-file)
     ("y" emacspeak-empv-play-url)
     )
   "Key bindings for use with C-e C-x. "
