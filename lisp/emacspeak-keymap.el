@@ -557,6 +557,8 @@
 
 (defcustom emacspeak-personal-y-keys
   '(
+    ("a" emacspeak-xslt-view-atom-file)
+    ("r" emacspeak-xslt-view-rss-file)
     ("x" emacspeak-xslt-view-file)
     ("y" emacspeak-empv-play-url)
     )

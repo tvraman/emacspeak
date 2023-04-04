@@ -407,6 +407,24 @@ and return the results in a newly created buffer. "
         style file)
        (current-buffer) 'replace)
       (browse-url-of-buffer))))
+;;;###autoload
+(defun emacspeak-xslt-view-rss-file (file)
+  "View RSS file."
+  (interactive "fRSS File:")
+  (cl-declare (special emacspeak-rss-view-xsl))
+  (funcall-interactively
+   'emacspeak-xslt-view-file
+   emacspeak-rss-view-xsl file))
+
+
+;;;###autoload
+(defun emacspeak-xslt-view-atom-file (file)
+  "View Atom file."
+  (interactive "fAtom File:")
+  (cl-declare (special emacspeak-atom-view-xsl))
+  (funcall-interactively
+   'emacspeak-xslt-view-file
+   emacspeak-atom-view-xsl file))
 
 ;;;###autoload
 (defun emacspeak-xslt-view (style url)
