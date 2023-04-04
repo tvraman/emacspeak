@@ -315,10 +315,12 @@
 
 (cl-declaim (special emacspeak-prefix))
 (defvar sd-emacspeak-prefixes
-  (list emacspeak-prefix
-        (kbd "C-;") (kbd "C-'") (kbd "C-.") (kbd "C-,")
-        (kbd "C-z") (kbd "C-e x") (kbd "C-e C-x"))
-  "Key prefixes  for which we generate a help section.")
+  (list
+   emacspeak-prefix
+   (kbd "C-;") (kbd "C-'") (kbd "C-.") (kbd "C-,") (kbd "C-z")
+   (kbd "C-e x") (kbd "C-e y" (kbd "C-e z") (kbd "C-e '") ))
+  "Key prefixes  for which we generate a help section."
+  )
 
 (defun sd-describe-keys (buffer)
   "Generate a Texinfo section in `buffer' listing commands bound
@@ -333,8 +335,8 @@
      (insert
       (format "@subsection Commands on prefix %s" (key-description prefix)))
      (insert "\n\n@code{@verb{|")
-      (describe-buffer-bindings (current-buffer) prefix)
-      (insert "|}}\n")
+     (describe-buffer-bindings (current-buffer) prefix)
+     (insert "|}}\n")
      )))
 
 ;;}}}
