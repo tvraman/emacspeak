@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 3, 2023.
+last updated on April 4, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3364,6 +3364,12 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keyma
 
 11.8 Emacspeak Keybindings On emacspeak-personal-y-keymap
 =========================================================
+
+‘a’
+     emacspeak-xslt-view-atom-file
+
+‘r’
+     emacspeak-xslt-view-rss-file
 
 ‘x’
      emacspeak-xslt-view-file

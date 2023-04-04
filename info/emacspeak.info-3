@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 3, 2023.
+last updated on April 4, 2023.
 
 
 File: emacspeak.info,  Node: light,  Next: mac-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
@@ -2751,7 +2751,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x v:                              emacspeak-wizards.  (line 1178)
 * <fn> x w:                              emacspeak-wizards.  (line  832)
 * <fn> x |:                              emacspeak-wizards.  (line 1061)
-* <fn> y x:                              emacspeak-xslt.     (line   37)
+* <fn> y a:                              emacspeak-xslt.     (line   28)
+* <fn> y r:                              emacspeak-xslt.     (line   60)
+* <fn> y x:                              emacspeak-xslt.     (line   39)
 * <fn> y y:                              emacspeak-empv.     (line   24)
 * <fn> z b:                              emacspeak-wizards.  (line 1204)
 * <fn> z e:                              emacspeak-wizards.  (line  539)
@@ -3200,7 +3202,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x v:                               emacspeak-wizards.  (line 1177)
 * C-e x w:                               emacspeak-wizards.  (line  831)
 * C-e x |:                               emacspeak-wizards.  (line 1060)
-* C-e y x:                               emacspeak-xslt.     (line   36)
+* C-e y a:                               emacspeak-xslt.     (line   27)
+* C-e y r:                               emacspeak-xslt.     (line   59)
+* C-e y x:                               emacspeak-xslt.     (line   38)
 * C-e y y:                               emacspeak-empv.     (line   23)
 * C-e z b:                               emacspeak-wizards.  (line 1203)
 * C-e z e:                               emacspeak-wizards.  (line  538)

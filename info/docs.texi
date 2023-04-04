@@ -8034,7 +8034,7 @@ Default Value: @verb{|((v view-register))|}
 @defvar {User Option} emacspeak-personal-y-keys
 Key bindings for use with C-e C-x. 
 
-Default Value: @verb{|((x emacspeak-xslt-view-file) (y emacspeak-empv-play-url))|}
+Default Value: @verb{|((a emacspeak-xslt-view-atom-file) (r emacspeak-xslt-view-rss-file) (x emacspeak-xslt-view-file) (y emacspeak-empv-play-url))|}
 
 @end defvar
 
@@ -18174,6 +18174,13 @@ Browse URL with specified XSL style.
 
 @subsubsection emacspeak-xslt-view-atom-file
 @deffn {Command} emacspeak-xslt-view-atom-file  (file)
+@table @kbd
+@item C-e y a
+@kindex C-e y a
+@item <fn> y a
+@kindex <fn> y a
+@end table
+
 @findex emacspeak-xslt-view-atom-file
 
 @format
@@ -18214,6 +18221,13 @@ Browse XML region with specified XSL style.
 
 @subsubsection emacspeak-xslt-view-rss-file
 @deffn {Command} emacspeak-xslt-view-rss-file  (file)
+@table @kbd
+@item C-e y r
+@kindex C-e y r
+@item <fn> y r
+@kindex <fn> y r
+@end table
+
 @findex emacspeak-xslt-view-rss-file
 
 @format

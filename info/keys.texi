@@ -723,6 +723,12 @@
  @section Emacspeak Keybindings On emacspeak-personal-y-keymap
 
 @table @kbd
+@item a
+ emacspeak-xslt-view-atom-file
+
+@item r
+ emacspeak-xslt-view-rss-file
+
 @item x
  emacspeak-xslt-view-file
 

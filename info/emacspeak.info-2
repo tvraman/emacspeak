@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 3, 2023.
+last updated on April 4, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -1173,7 +1173,7 @@ found on laptops is denoted <fn>
      Key bindings for use with C-e C-x.
 
      Default Value:
-     ((x emacspeak-xslt-view-file) (y emacspeak-empv-play-url))
+     ((a emacspeak-xslt-view-atom-file) (r emacspeak-xslt-view-rss-file) (x emacspeak-xslt-view-file) (y emacspeak-empv-play-url))
 
  -- Variable: User Option emacspeak-super-keys
      Super key bindings.
@@ -9146,6 +9146,8 @@ transformations using xsltproc
 ........................................
 
  -- Command: emacspeak-xslt-view-atom-file (file)
+     ‘C-e y a’
+     ‘<fn> y a’
 
      View Atom file.
 
@@ -9176,6 +9178,8 @@ transformations using xsltproc
 .......................................
 
  -- Command: emacspeak-xslt-view-rss-file (file)
+     ‘C-e y r’
+     ‘<fn> y r’
 
      View RSS file.
 
