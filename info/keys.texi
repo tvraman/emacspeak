@@ -723,6 +723,9 @@
  @section Emacspeak Keybindings On emacspeak-personal-y-keymap
 
 @table @kbd
+@item x
+ emacspeak-xslt-view-file
+
 @item y
  emacspeak-empv-play-url
 

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1185 commands and 148 options.
+This chapter documents a total of 1187 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8034,7 +8034,7 @@ Default Value: @verb{|((v view-register))|}
 @defvar {User Option} emacspeak-personal-y-keys
 Key bindings for use with C-e C-x. 
 
-Default Value: @verb{|((y emacspeak-empv-play-url))|}
+Default Value: @verb{|((x emacspeak-xslt-view-file) (y emacspeak-empv-play-url))|}
 
 @end defvar
 
@@ -18172,8 +18172,26 @@ Browse URL with specified XSL style.
 @end format
 @end deffn
 
+@subsubsection emacspeak-xslt-view-atom-file
+@deffn {Command} emacspeak-xslt-view-atom-file  (file)
+@findex emacspeak-xslt-view-atom-file
+
+@format
+View Atom file.
+
+(fn FILE)
+@end format
+@end deffn
+
 @subsubsection emacspeak-xslt-view-file
 @deffn {Command} emacspeak-xslt-view-file  (style file)
+@table @kbd
+@item C-e y x
+@kindex C-e y x
+@item <fn> y x
+@kindex <fn> y x
+@end table
+
 @findex emacspeak-xslt-view-file
 
 @format
@@ -18191,6 +18209,17 @@ Transform ‘file’ using ‘style’ and preview via browse-url.
 Browse XML region with specified XSL style.
 
 (fn STYLE START END &optional UNESCAPE-CHARENT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-xslt-view-rss-file
+@deffn {Command} emacspeak-xslt-view-rss-file  (file)
+@findex emacspeak-xslt-view-rss-file
+
+@format
+View RSS file.
+
+(fn FILE)
 @end format
 @end deffn
 

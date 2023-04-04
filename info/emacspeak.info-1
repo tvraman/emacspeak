@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 2, 2023.
+last updated on April 3, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3365,6 +3365,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keyma
 11.8 Emacspeak Keybindings On emacspeak-personal-y-keymap
 =========================================================
 
+‘x’
+     emacspeak-xslt-view-file
+
 ‘y’
      emacspeak-empv-play-url
 
@@ -3427,7 +3430,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1185 commands and 148 options.
+   This chapter documents a total of 1187 commands and 148 options.
 
 * Menu:
 
