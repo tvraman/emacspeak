@@ -364,7 +364,7 @@ proc clean {element} {
 #}}}
 #{{{ initialize
 
-tts_setserial
+
 # Dectalk likes only ascii
 fconfigure $tts(write) -encoding ascii
 
@@ -382,8 +382,8 @@ if {[info exists server_p]} {
 }
 #do not die if you see a control-c
 signal ignore {sigint}
-# gobble up garbage that is returned on powerup
-tts_gobble_acknowledgements
+
+
 
 puts -nonewline     $tts(write)  {[:timeout 0]
     [:pu s ]
