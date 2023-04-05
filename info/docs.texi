@@ -8483,7 +8483,7 @@ Default Value:
  ("v" emacspeak-wizards-vc-viewer)
  ("w" emacspeak-wizards-noaa-weather)
  ("|" emacspeak-wizards-squeeze-blanks)
- ("" desktop-clear))
+ ("<DEL>" desktop-clear))
 
 @end verbatim
 

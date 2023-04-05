@@ -1307,7 +1307,8 @@ found on laptops is denoted <fn>
       ("v" emacspeak-wizards-vc-viewer)
       ("w" emacspeak-wizards-noaa-weather)
       ("|" emacspeak-wizards-squeeze-blanks)
-      ("
+      ("<DEL>" desktop-clear))
+     
 
  -- Variable: User Option emacspeak-personal-v-keys
      Key bindings for use with C-e v.
