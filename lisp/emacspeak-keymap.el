@@ -519,35 +519,6 @@
 (define-key  emacspeak-keymap "y" 'emacspeak-personal-y-keymap)
 
 ;;}}}
-;;{{{ Create personal c-e v map
-
-(defvar  emacspeak-personal-v-keymap nil
-  "Emacspeak personal-v keymap")
-
-(define-prefix-command 'emacspeak-personal-v-keymap)
-
-(defcustom emacspeak-personal-v-keys
-  '(
-    ("v" view-register)
-    )
-  "Key bindings for use with C-e v. "
-  :group 'emacspeak
-  :type
-  '(repeat
-    :tag "Emacspeak Personal-V Keymap"
-    (list
-     :tag "Key Binding"
-     (key-sequence :tag "Key")
-     (ems-interactive-command :tag "Command")))
-  :set
-  #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-personal-v-keymap val)
-      (set-default sym
-                   (sort
-                    val
-                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
-;;}}}
 ;;{{{ Create personal y map
 
 (defvar  emacspeak-personal-y-keymap nil
@@ -573,6 +544,35 @@
   :set
   #'(lambda (sym val)
       (emacspeak-keymap-bindings-update emacspeak-personal-y-keymap val)
+      (set-default sym
+                   (sort
+                    val
+                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+;;}}}
+;;{{{ Create personal c-e v map
+
+(defvar  emacspeak-personal-v-keymap nil
+  "Emacspeak personal-v keymap")
+
+(define-prefix-command 'emacspeak-personal-v-keymap)
+
+(defcustom emacspeak-personal-v-keys
+  '(
+    ("v" view-register)
+    )
+  "Key bindings for use with C-e v. "
+  :group 'emacspeak
+  :type
+  '(repeat
+    :tag "Emacspeak Personal-V Keymap"
+    (list
+     :tag "Key Binding"
+     (key-sequence :tag "Key")
+     (ems-interactive-command :tag "Command")))
+  :set
+  #'(lambda (sym val)
+      (emacspeak-keymap-bindings-update emacspeak-personal-v-keymap val)
       (set-default sym
                    (sort
                     val
