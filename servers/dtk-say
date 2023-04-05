@@ -153,7 +153,7 @@ proc s {} {
         set tts(talking?) 0
         queue_clear
         #allow dtk to recover
-        read $tts(read) 1
+        #read $tts(read) 1
         select {} {} {} 0.075
     }
 }
@@ -243,6 +243,7 @@ proc r {rate} {
 
 proc speech_task {} {
     global queue tts
+    flush $tts(write)
     set tts(talking?) 1
     set tts(not_stopped) 1
     set mode  $tts(punctuations)
@@ -364,8 +365,10 @@ proc clean {element} {
 #}}}
 #{{{ initialize
 
-
-# Dectalk likes only ascii
+set f   [open |say r+]
+set tts(write) $f
+set tts(read) $f
+ # Dectalk likes only ascii
 fconfigure $tts(write) -encoding ascii
 
 # Emacspeak sends utf-8
