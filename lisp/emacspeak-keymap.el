@@ -460,7 +460,7 @@
 
 (define-prefix-command 'emacspeak-personal-x-keymap)
 
-(defcustom emacspeak-personal-keys
+(defcustom emacspeak-personal-x-keys
   '(
     ("," emacspeak-wizards-shell-directory-set)
     ("." emacspeak-wizards-shell-directory-reset)
