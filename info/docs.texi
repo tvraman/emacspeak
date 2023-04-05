@@ -8446,7 +8446,20 @@ Default Value:
 
 @end defvar
 
-@defvar {User Option} emacspeak-personal-keys
+@defvar {User Option} emacspeak-personal-v-keys
+Key bindings for use with C-e v. 
+
+Default Value: 
+
+@verbatim
+
+(("v" view-register))
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} emacspeak-personal-x-keys
 Key bindings for  C-e x. 
 
 Default Value: 
@@ -8484,19 +8497,6 @@ Default Value:
  ("w" emacspeak-wizards-noaa-weather)
  ("|" emacspeak-wizards-squeeze-blanks)
  ("<DEL>" desktop-clear))
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-personal-v-keys
-Key bindings for use with C-e v. 
-
-Default Value: 
-
-@verbatim
-
-(("v" view-register))
 
 @end verbatim
 

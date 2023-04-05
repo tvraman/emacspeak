@@ -1271,7 +1271,16 @@ found on laptops is denoted <fn>
       ("y" emacspeak-google-yt-feed))
      
 
- -- Variable: User Option emacspeak-personal-keys
+ -- Variable: User Option emacspeak-personal-v-keys
+     Key bindings for use with C-e v.
+
+     Default Value:
+
+     
+     (("v" view-register))
+     
+
+ -- Variable: User Option emacspeak-personal-x-keys
      Key bindings for C-e x.
 
      Default Value:
@@ -1308,15 +1317,6 @@ found on laptops is denoted <fn>
       ("w" emacspeak-wizards-noaa-weather)
       ("|" emacspeak-wizards-squeeze-blanks)
       ("<DEL>" desktop-clear))
-     
-
- -- Variable: User Option emacspeak-personal-v-keys
-     Key bindings for use with C-e v.
-
-     Default Value:
-
-     
-     (("v" view-register))
      
 
  -- Variable: User Option emacspeak-personal-y-keys
