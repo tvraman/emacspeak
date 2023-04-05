@@ -326,7 +326,7 @@
    (kbd "C-e x") (kbd "C-e y" )   (kbd "C-e z") (kbd "C-e '"))
   "Key prefixes  for which we generate a help section."
   )
-
+;; not used:
 (defun sd-describe-keys (buffer)
   "Generate a Texinfo section in `buffer' listing commands bound
  to prefix in `sd-emacspeak-prefixes'."
