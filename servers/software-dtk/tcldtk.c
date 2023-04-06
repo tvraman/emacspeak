@@ -26,7 +26,8 @@
 #include <tcl.h>
 #include <dtk/ttsapi.h>
 #include <stdio.h>
-
+#include <locale.h>
+#include <iconv.h>
 /* }}} */
 /* {{{defines*/
 
@@ -127,7 +128,7 @@ int Tcldtk_Init(Tcl_Interp *interp) {
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
     return TCL_ERROR;
   }
-
+  setlocale(LC_CTYPE, "ISO-Latin-1");
   if (dtkHandle == NULL) {
     /* sprintf(error_buff, "Could not open text-to-speech engine"); */
 
