@@ -1,5 +1,5 @@
-
 /* {{{copyright*/
+
 /**
  *Copyright (C) 1995 -- 2022, T. V. Raman
  *All Rights Reserved
@@ -20,6 +20,7 @@
  * along with GNU Emacs; see the file COPYING.  If not, write to
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
+
 /* }}} */
 /* {{{headers*/
 
@@ -39,42 +40,29 @@
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
 
-extern int Tcldtk_Init(Tcl_Interp *interp);
-
-#define DEBUG_LEVEL 0
-#define REALLOC_SIZE 4096
-
-/* The error code set by various library functions.  */
-
-
-
-
 /* }}} */
 /* {{{prototypes*/
-
-
 
 void TclDtkFree(ClientData);
 int Say(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Stop(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
-
 int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
-
-
 
 /* }}} */
 /* {{{global variables*/
 
 char *error_msg;
 char error_buff[80];
-/* }}} */
 
-/*ToDo:  This code is ugly and needs cleanup  */
+/* }}} */
+/* {{{ iso-latin1 cleanup: */
+
+/* Cloned from say.c --- ToDo:  This code is ugly and needs cleanup  */
 
 char *string_to_latin1(char *in, size_t inlen) {
-  char *out, *outp;
-  iconv_t cd   = iconv_open("ISO-8859-15//TRANSLIT//IGNORE", nl_langinfo(CODESET));
-	size_t outsize = REALLOC_SIZE;
+  char *out, *outP;
+  iconv_t cd   = iconv_open("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo(CODESET));
+	size_t outsize = 4*inlen;
 	size_t outleft = 0;
 	size_t inleft = inlen;
 	size_t r;
@@ -86,22 +74,22 @@ char *string_to_latin1(char *in, size_t inlen) {
 		exit(EXIT_FAILURE);
 	}
 	outleft = outsize;
-	outp = out;
+	outP = out;
 
 	do {
-		memset(outp, 0, outleft + 1);
+		memset(outP, 0, outleft + 1);
                 
-		r = iconv(cd, &in, &inleft, &outp, &outleft);
+		r = iconv(cd, &in, &inleft, &outP, &outleft);
 		if (r == -1 ) {
-			offset = outp - out;
-			outsize += REALLOC_SIZE;
+			offset = outP - out;
+			outsize = 2*outsize;
 			out = realloc(out, outsize + 1);
 			if (out == NULL) {
 				perror("realloc");
 				exit(EXIT_FAILURE);
 			}
-			outleft += REALLOC_SIZE;
-			outp = out + offset;
+			outleft += outsize;
+			outP = out + offset;
 		} else if (r == -1) {
 			if (inleft > 0) {
 				/* Skip */
@@ -118,6 +106,8 @@ char *string_to_latin1(char *in, size_t inlen) {
 
 	return out;
 }
+
+/* }}} */
 /* {{{getErrorMsg*/
 
 char *getErrorMsg(MMRESULT errno) {
@@ -172,10 +162,9 @@ void TclDtkFree(ClientData dtkHandle) {
 int Tcldtk_Init(Tcl_Interp *interp) {
   MMRESULT status;
   LPTTS_HANDLE_T dtkHandle;
-  unsigned int devNo = 0;
+  unsigned int devNo = WAVE_MAPPER;
   DWORD devOptions = 0;
-
-  devNo = WAVE_MAPPER;
+  
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
@@ -294,3 +283,4 @@ int Stop(ClientData dtkHandle, Tcl_Interp *interp,
 /* folded-file: t */
 /* end: */
 /* }}} */
+

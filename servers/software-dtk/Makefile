@@ -1,6 +1,6 @@
 #$Id$
 #
-CT=clang-tidy
+
 TCL_VERSION=8.6
 TCL_INCLUDE=/usr/include/tcl$(TCL_VERSION)
 CFLAGS+= -g    -O4 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I$(TCL_INCLUDE)
@@ -12,4 +12,4 @@ clean:
 	rm tcldtk.so tcldtk.o
 
 tidy:
-	$(CT) -header-filter=.*-checks='*'  tcldtk.c -- -std=c11 -I${TCL_INCLUDE}
+	clang-tidy -header-filter=.*-checks='*' -fix-errors tcldtk.c -- -std=c11 -I/usr/include/tcl8.6 
