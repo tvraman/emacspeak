@@ -62,6 +62,7 @@
 (require 'eww)
 (require 'dom-addons)
 (require 'emacspeak-eww)
+(require 'emacspeak-feeds)
 (require 'gweb)
 (require 'g-utils)
 (require 'emacspeak-we)
