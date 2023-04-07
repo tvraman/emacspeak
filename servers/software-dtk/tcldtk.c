@@ -60,7 +60,7 @@ string_to_latin1 (char *in, size_t inLen)
   iconv_t cd =
     iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
   size_t outsize = 4 * inLen;
-  size_t outleft = 0;
+  size_t outLeft = 0;
   size_t inLeft = inLen;
   size_t r;
   size_t offset;
@@ -71,14 +71,14 @@ string_to_latin1 (char *in, size_t inLen)
       perror ("malloc");
       exit (EXIT_FAILURE);
     }
-  outleft = outsize;
+  outLeft = outsize;
   outP = out;
 
   do
     {
-      memset (outP, 0, outleft + 1);
+      memset (outP, 0, outLeft + 1);
 
-      r = iconv (cd, &in, &inLeft, &outP, &outleft);
+      r = iconv (cd, &in, &inLeft, &outP, &outLeft);
       if (r == -1)
 	{
 	  offset = outP - out;
@@ -89,7 +89,7 @@ string_to_latin1 (char *in, size_t inLen)
 	      perror ("realloc");
 	      exit (EXIT_FAILURE);
 	    }
-	  outleft += outsize;
+	  outLeft += outsize;
 	  outP = out + offset;
 	}
       else if (r == -1)
