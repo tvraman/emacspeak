@@ -196,7 +196,7 @@ int Tcldtk_Init(Tcl_Interp *interp) {
 int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
         Tcl_Obj *CONST objv[]) {
   int i, length;
-  char *error_msg;
+  char *error_msg = NULL;
   MMRESULT status;
   DWORD dwFlags = TTS_FORCE;
   char *txt = NULL;
@@ -239,7 +239,7 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
 
 int Synchronize(ClientData dtkHandle, Tcl_Interp *interp,
                 int objc, Tcl_Obj *CONST objv[]) {
-  char *error_msg;
+  char *error_msg = NULL;
   MMRESULT status;
 
   status = TextToSpeechSync(dtkHandle);
@@ -257,7 +257,7 @@ int Synchronize(ClientData dtkHandle, Tcl_Interp *interp,
 int Stop(ClientData dtkHandle, Tcl_Interp *interp,
          int objc, Tcl_Obj *CONST objv[]) {
   MMRESULT status;
-  char *error_msg;
+  char *error_msg = NULL;
   status = TextToSpeechReset (dtkHandle, FALSE);
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg(status);
