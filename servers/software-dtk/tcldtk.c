@@ -71,7 +71,7 @@ char error_buff[80];
 
 /*ToDo:  This code is ugly and needs cleanup  */
 
-char *convert_string_for_dapi(char *in, size_t inlen) {
+char *string_to_latin1(char *in, size_t inlen) {
   char *out, *outp;
   iconv_t cd   = iconv_open("ISO-8859-15//TRANSLIT//IGNORE", nl_langinfo(CODESET));
 	size_t outsize = REALLOC_SIZE;
@@ -189,7 +189,7 @@ int Tcldtk_Init(Tcl_Interp *interp) {
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
     return TCL_ERROR;
   }
-  setlocale(LC_CTYPE, "ISO-Latin-1");
+  setlocale(LC_CTYPE, "ISO-latin-1");
   if (dtkHandle == NULL) {
     /* sprintf(error_buff, "Could not open text-to-speech engine"); */
 
@@ -228,7 +228,7 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
         return TCL_ERROR;
       }
     }else {
-       txt = convert_string_for_dapi(txt, strlen(txt));
+       txt = string_to_latin1(txt, strlen(txt));
       status = TextToSpeechSpeak(dtkHandle, txt, dwFlags);
       if (status != MMSYSERR_NOERROR) {
         error_msg = getErrorMsg(status);
