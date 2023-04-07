@@ -13,3 +13,6 @@ clean:
 
 tidy:
 	clang-tidy -header-filter=.*-checks='*' -fix-errors tcldtk.c -- -std=c11 -I/usr/include/tcl8.6 
+
+indent:
+	indent -br -brf tcldtk.c 
