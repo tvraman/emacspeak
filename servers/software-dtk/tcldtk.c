@@ -226,14 +226,13 @@ Say (ClientData dtkHandle, Tcl_Interp * interp, int objc,
   int i, length;
   char *error_msg = NULL;
   MMRESULT status;
-  DWORD dwFlags = TTS_FORCE;
   char *txt = NULL;
 
   for (i = 1; i < objc; i++)
     {
       txt = Tcl_GetStringFromObj (objv[i], &length);
       txt = string_to_latin1 (txt, strlen (txt));
-      status = TextToSpeechSpeak (dtkHandle, txt, dwFlags);
+      status = TextToSpeechSpeak (dtkHandle, txt, TTS_FORCE);
       if (status != MMSYSERR_NOERROR)
 	{
 	  error_msg = getErrorMsg (status);
