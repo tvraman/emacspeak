@@ -1,3 +1,4 @@
+
 /* {{{copyright*/
 /**
  *Copyright (C) 1995 -- 2022, T. V. Raman
@@ -46,7 +47,7 @@ extern int Tcldtk_Init(Tcl_Interp *interp);
 /* The error code set by various library functions.  */
 
 
-#define	E2BIG		 7	/* Argument list too long */
+
 
 /* }}} */
 /* {{{prototypes*/
@@ -68,8 +69,9 @@ char *error_msg;
 char error_buff[80];
 /* }}} */
 
-char *convert_string_for_dapi(char *in, size_t inlen)
-{
+/*ToDo:  This code is ugly and needs cleanup  */
+
+char *convert_string_for_dapi(char *in, size_t inlen) {
   char *out, *outp;
   iconv_t cd   = iconv_open("ISO-8859-15//TRANSLIT//IGNORE", nl_langinfo(CODESET));
 	size_t outsize = REALLOC_SIZE;
