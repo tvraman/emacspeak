@@ -51,13 +51,13 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 /* }}} */
 /* {{{ iso-latin1 cleanup: */
 
-/* Cloned from say.c --- ToDo:  This code is ugly and needs cleanup  */
+/* Cloned from say.c   */
 
 char *
 string_to_latin1 (char *in, size_t inLen)
 {
   char *out, *outP;
-  iconv_t conv_desc =
+  iconv_t conv_d =
     iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
   size_t outsize = 4 * inLen;
   size_t outLeft = 0;
@@ -78,7 +78,7 @@ string_to_latin1 (char *in, size_t inLen)
     {
       memset (outP, 0, outLeft + 1);
 
-      r = iconv (conv_desc, &in, &inLeft, &outP, &outLeft);
+      r = iconv (conv_d, &in, &inLeft, &outP, &outLeft);
       if (r == -1)
 	{
 	  offset = outP - out;
@@ -95,7 +95,7 @@ string_to_latin1 (char *in, size_t inLen)
     }
   while (inLeft > 0);
 
-  iconv (conv_desc, NULL, NULL, NULL, NULL);
+  iconv (conv_d, NULL, NULL, NULL, NULL);
 
   return out;
 }
