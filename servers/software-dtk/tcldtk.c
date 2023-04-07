@@ -203,26 +203,15 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
 
   for (i=1; i<objc; i++) {
     txt = Tcl_GetStringFromObj(objv[i], &length);
-
-    if (Tcl_StringMatch(txt, "-reset")) {
-      status = TextToSpeechReset(dtkHandle, FALSE);
-      if (status != MMSYSERR_NOERROR) {
-        error_msg = getErrorMsg(status);
-        Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
-        return TCL_ERROR;
-      }
-    }else {
-      txt = string_to_latin1(txt, strlen(txt));
-      status = TextToSpeechSpeak(dtkHandle, txt, dwFlags);
-      if (status != MMSYSERR_NOERROR) {
-        error_msg = getErrorMsg(status);
-        Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
-        return TCL_ERROR;
-      }
+    txt = string_to_latin1(txt, strlen(txt));
+    status = TextToSpeechSpeak(dtkHandle, txt, dwFlags);
+    if (status != MMSYSERR_NOERROR) {
+      error_msg = getErrorMsg(status);
+      Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
+      return TCL_ERROR;
     }
   }
   if (Tcl_StringMatch(Tcl_GetStringFromObj(objv[0],NULL), "synth")) {
-
     status = TextToSpeechSpeak(dtkHandle, "", TTS_FORCE);
     if (status != MMSYSERR_NOERROR) {
       error_msg = getErrorMsg(status);
