@@ -44,12 +44,9 @@ extern int Tcldtk_Init(Tcl_Interp *interp);
 #define REALLOC_SIZE 4096
 
 /* The error code set by various library functions.  */
-extern int *__errno_location (void) __THROW __attribute_const__;
+
 
 #define	E2BIG		 7	/* Argument list too long */
-
-
-
 
 /* }}} */
 /* {{{prototypes*/
