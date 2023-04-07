@@ -53,8 +53,8 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 
 
 /* We assume emacs never sends us a malformed utf-8 string
-   *The Dectalk  may silenty fail on some chars, e.g., þ (latin small
-   *letter thorn)
+   *The Dectalk  may silenty fail on some chars, e.g., þ 
+   (latin small *letter thorn)
  */
 
 char *
@@ -72,15 +72,11 @@ string_to_latin1 (char *in, size_t inLen)
       exit (EXIT_FAILURE);
     }
   outP = out;
-
-
-
   memset (outP, 0, outsize + 1);
-
   r = iconv (conv_d, &in, &inLen, &outP, &outsize);
   iconv (conv_d, NULL, NULL, NULL, NULL);
   if (r == -1)
-    {
+    { /* conversion failed  */
       return in;
     }
   return out;
