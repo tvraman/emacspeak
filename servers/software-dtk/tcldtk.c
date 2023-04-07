@@ -51,8 +51,7 @@ int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 /* }}} */
 /* {{{global variables*/
 
-char *error_msg;
-char error_buff[80];
+
 
 /* }}} */
 /* {{{ iso-latin1 cleanup: */
@@ -62,49 +61,49 @@ char error_buff[80];
 char *string_to_latin1(char *in, size_t inlen) {
   char *out, *outP;
   iconv_t cd   = iconv_open("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo(CODESET));
-	size_t outsize = 4*inlen;
-	size_t outleft = 0;
-	size_t inleft = inlen;
-	size_t r;
-	size_t offset;
+  size_t outsize = 4*inlen;
+  size_t outleft = 0;
+  size_t inleft = inlen;
+  size_t r;
+  size_t offset;
 
-	out = malloc(outsize + 1);
-	if (out == NULL) {
-		perror("malloc");
-		exit(EXIT_FAILURE);
-	}
-	outleft = outsize;
-	outP = out;
+  out = malloc(outsize + 1);
+  if (out == NULL) {
+    perror("malloc");
+    exit(EXIT_FAILURE);
+  }
+  outleft = outsize;
+  outP = out;
 
-	do {
-		memset(outP, 0, outleft + 1);
-                
-		r = iconv(cd, &in, &inleft, &outP, &outleft);
-		if (r == -1 ) {
-			offset = outP - out;
-			outsize = 2*outsize;
-			out = realloc(out, outsize + 1);
-			if (out == NULL) {
-				perror("realloc");
-				exit(EXIT_FAILURE);
-			}
-			outleft += outsize;
-			outP = out + offset;
-		} else if (r == -1) {
-			if (inleft > 0) {
-				/* Skip */
-				in++;
-				inleft--;
-			} else {
-				perror("iconv");
-				exit(EXIT_FAILURE);
-			}
-		}
-	} while (inleft > 0);
+  do {
+    memset(outP, 0, outleft + 1);
 
-	iconv(cd, NULL, NULL, NULL, NULL);
+    r = iconv(cd, &in, &inleft, &outP, &outleft);
+    if (r == -1 ) {
+      offset = outP - out;
+      outsize = 2*outsize;
+      out = realloc(out, outsize + 1);
+      if (out == NULL) {
+        perror("realloc");
+        exit(EXIT_FAILURE);
+      }
+      outleft += outsize;
+      outP = out + offset;
+    } else if (r == -1) {
+      if (inleft > 0) {
+        /* Skip */
+        in++;
+        inleft--;
+      } else {
+        perror("iconv");
+        exit(EXIT_FAILURE);
+      }
+    }
+  } while (inleft > 0);
 
-	return out;
+  iconv(cd, NULL, NULL, NULL, NULL);
+
+  return out;
 }
 
 /* }}} */
@@ -161,18 +160,17 @@ void TclDtkFree(ClientData dtkHandle) {
 
 int Tcldtk_Init(Tcl_Interp *interp) {
   MMRESULT status;
+  char *error_msg = NULL;
   LPTTS_HANDLE_T dtkHandle;
   unsigned int devNo = WAVE_MAPPER;
   DWORD devOptions = 0;
-  
+
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
   }
 
   status = TextToSpeechStartup(&dtkHandle, devNo, devOptions, NULL, 0);
-/*  sprintf(error_buff, "TTS startup returned %d", status); */
-
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg(status);
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
@@ -180,8 +178,6 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   }
   setlocale(LC_CTYPE, "ISO-latin-1");
   if (dtkHandle == NULL) {
-    /* sprintf(error_buff, "Could not open text-to-speech engine"); */
-
     Tcl_SetObjResult(interp, Tcl_NewStringObj(error_msg, -1));
     return TCL_ERROR;
   }
@@ -200,15 +196,14 @@ int Tcldtk_Init(Tcl_Interp *interp) {
 int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
         Tcl_Obj *CONST objv[]) {
   int i, length;
+  char *error_msg;
   MMRESULT status;
   DWORD dwFlags = TTS_FORCE;
   char *txt = NULL;
 
   for (i=1; i<objc; i++) {
-    /*sprintf(error_buff, "For loop - %d. objc = %d", i, objc); */ 
     txt = Tcl_GetStringFromObj(objv[i], &length);
-/*     sprintf(error_buff, "String length is %d", length);
-    sprintf(error_buff, "Tcl obj %d. String = %s\n", i, txt); */
+
     if (Tcl_StringMatch(txt, "-reset")) {
       status = TextToSpeechReset(dtkHandle, FALSE);
       if (status != MMSYSERR_NOERROR) {
@@ -217,7 +212,7 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
         return TCL_ERROR;
       }
     }else {
-       txt = string_to_latin1(txt, strlen(txt));
+      txt = string_to_latin1(txt, strlen(txt));
       status = TextToSpeechSpeak(dtkHandle, txt, dwFlags);
       if (status != MMSYSERR_NOERROR) {
         error_msg = getErrorMsg(status);
@@ -244,6 +239,7 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
 
 int Synchronize(ClientData dtkHandle, Tcl_Interp *interp,
                 int objc, Tcl_Obj *CONST objv[]) {
+  char *error_msg;
   MMRESULT status;
 
   status = TextToSpeechSync(dtkHandle);
@@ -261,6 +257,7 @@ int Synchronize(ClientData dtkHandle, Tcl_Interp *interp,
 int Stop(ClientData dtkHandle, Tcl_Interp *interp,
          int objc, Tcl_Obj *CONST objv[]) {
   MMRESULT status;
+  char *error_msg;
   status = TextToSpeechReset (dtkHandle, FALSE);
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg(status);
@@ -283,4 +280,3 @@ int Stop(ClientData dtkHandle, Tcl_Interp *interp,
 /* folded-file: t */
 /* end: */
 /* }}} */
-
