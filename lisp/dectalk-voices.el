@@ -81,11 +81,12 @@
 (defun dectalk-soft ()
   "Software Dectalk TTS."
   (interactive)
-  (dectalk-configure-tts)
-  (ems--fastload "voice-defs")
-  (dtk-select-server "dtk-soft")
-  (dtk-initialize)
-  (dtk-set-rate dectalk-default-speech-rate 'global))
+  (let ((coding-system-for-write  'iso-8859-1))
+    (dectalk-configure-tts)
+    (ems--fastload "voice-defs")
+    (dtk-select-server "dtk-soft")
+    (dtk-initialize)
+    (dtk-set-rate dectalk-default-speech-rate 'global)))
 
 ;;}}}
 ;;{{{ Forward declarations:

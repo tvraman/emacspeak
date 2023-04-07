@@ -26,8 +26,12 @@
 #include <tcl.h>
 #include <dtk/ttsapi.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+#include <langinfo.h>
 #include <locale.h>
 #include <iconv.h>
+#include <errno.h>
 /* }}} */
 /* {{{defines*/
 
@@ -37,11 +41,20 @@
 extern int Tcldtk_Init(Tcl_Interp *interp);
 
 #define DEBUG_LEVEL 0
+#define REALLOC_SIZE 4096
+
+/* The error code set by various library functions.  */
+extern int *__errno_location (void) __THROW __attribute_const__;
+
+#define	E2BIG		 7	/* Argument list too long */
+
+
+
 
 /* }}} */
 /* {{{prototypes*/
 
-char *getErrorMsg(MMRESULT);
+
 
 void TclDtkFree(ClientData);
 int Say(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
@@ -57,6 +70,55 @@ int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 char *error_msg;
 char error_buff[80];
 /* }}} */
+
+char *convert_string_for_dapi(char *in, size_t inlen)
+{
+  char *out, *outp;
+  iconv_t cd   = iconv_open("ISO-8859-15//TRANSLIT//IGNORE", nl_langinfo(CODESET));
+	size_t outsize = REALLOC_SIZE;
+	size_t outleft = 0;
+	size_t inleft = inlen;
+	size_t r;
+	size_t offset;
+
+	out = malloc(outsize + 1);
+	if (out == NULL) {
+		perror("malloc");
+		exit(EXIT_FAILURE);
+	}
+	outleft = outsize;
+	outp = out;
+
+	do {
+		memset(outp, 0, outleft + 1);
+                errno = 0;
+		r = iconv(cd, &in, &inleft, &outp, &outleft);
+		if (r == -1 && errno == E2BIG) {
+			offset = outp - out;
+			outsize += REALLOC_SIZE;
+			out = realloc(out, outsize + 1);
+			if (out == NULL) {
+				perror("realloc");
+				exit(EXIT_FAILURE);
+			}
+			outleft += REALLOC_SIZE;
+			outp = out + offset;
+		} else if (r == -1) {
+			if (inleft > 0) {
+				/* Skip */
+				in++;
+				inleft--;
+			} else {
+				perror("iconv");
+				exit(EXIT_FAILURE);
+			}
+		}
+	} while (inleft > 0);
+
+	iconv(cd, NULL, NULL, NULL, NULL);
+
+	return out;
+}
 /* {{{getErrorMsg*/
 
 char *getErrorMsg(MMRESULT errno) {
@@ -167,6 +229,7 @@ int Say(ClientData dtkHandle, Tcl_Interp *interp, int objc,
         return TCL_ERROR;
       }
     }else {
+       txt = convert_string_for_dapi(txt, strlen(txt));
       status = TextToSpeechSpeak(dtkHandle, txt, dwFlags);
       if (status != MMSYSERR_NOERROR) {
         error_msg = getErrorMsg(status);
