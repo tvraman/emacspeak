@@ -31,7 +31,7 @@
 #include <langinfo.h>
 #include <locale.h>
 #include <iconv.h>
-#include <errno.h>
+
 /* }}} */
 /* {{{defines*/
 
@@ -88,9 +88,9 @@ char *convert_string_for_dapi(char *in, size_t inlen)
 
 	do {
 		memset(outp, 0, outleft + 1);
-                errno = 0;
+                
 		r = iconv(cd, &in, &inleft, &outp, &outleft);
-		if (r == -1 && errno == E2BIG) {
+		if (r == -1 ) {
 			offset = outp - out;
 			outsize += REALLOC_SIZE;
 			out = realloc(out, outsize + 1);
