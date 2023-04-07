@@ -104,9 +104,9 @@ string_to_latin1 (char *in, size_t inLen)
 /* {{{getErrorMsg*/
 
 char *
-getErrorMsg (MMRESULT errno)
+getErrorMsg (int errCode)
 {
-  switch (errno)
+  switch (errCode)
     {
     case MMSYSERR_NOERROR:
       return "Success";
