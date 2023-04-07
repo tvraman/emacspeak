@@ -241,17 +241,6 @@ Say (ClientData dtkHandle, Tcl_Interp * interp, int objc,
 	  return TCL_ERROR;
 	}
     }
-  if (Tcl_StringMatch (Tcl_GetStringFromObj (objv[0], NULL), "synth"))
-    {
-      status = TextToSpeechSpeak (dtkHandle, "", TTS_FORCE);
-      if (status != MMSYSERR_NOERROR)
-	{
-	  error_msg = getErrorMsg (status);
-	  Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
-	  return TCL_ERROR;
-	}
-    }
-
   return TCL_OK;
 }
 
