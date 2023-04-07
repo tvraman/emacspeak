@@ -57,7 +57,7 @@ char *
 string_to_latin1 (char *in, size_t inLen)
 {
   char *out, *outP;
-  iconv_t conv_desc=
+  iconv_t conv_desc =
     iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
   size_t outsize = 4 * inLen;
   size_t outLeft = 0;
@@ -91,20 +91,6 @@ string_to_latin1 (char *in, size_t inLen)
 	    }
 	  outLeft += outsize;
 	  outP = out + offset;
-	}
-      else if (r == -1)
-	{
-	  if (inLeft > 0)
-	    {
-	      /* Skip */
-	      in++;
-	      inLeft--;
-	    }
-	  else
-	    {
-	      perror ("iconv");
-	      exit (EXIT_FAILURE);
-	    }
 	}
     }
   while (inLeft > 0);
