@@ -54,14 +54,14 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 /* Cloned from say.c --- ToDo:  This code is ugly and needs cleanup  */
 
 char *
-string_to_latin1 (char *in, size_t inlen)
+string_to_latin1 (char *in, size_t inLen)
 {
   char *out, *outP;
   iconv_t cd =
     iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
-  size_t outsize = 4 * inlen;
+  size_t outsize = 4 * inLen;
   size_t outleft = 0;
-  size_t inleft = inlen;
+  size_t inLeft = inLen;
   size_t r;
   size_t offset;
 
@@ -78,7 +78,7 @@ string_to_latin1 (char *in, size_t inlen)
     {
       memset (outP, 0, outleft + 1);
 
-      r = iconv (cd, &in, &inleft, &outP, &outleft);
+      r = iconv (cd, &in, &inLeft, &outP, &outleft);
       if (r == -1)
 	{
 	  offset = outP - out;
@@ -94,11 +94,11 @@ string_to_latin1 (char *in, size_t inlen)
 	}
       else if (r == -1)
 	{
-	  if (inleft > 0)
+	  if (inLeft > 0)
 	    {
 	      /* Skip */
 	      in++;
-	      inleft--;
+	      inLeft--;
 	    }
 	  else
 	    {
@@ -107,7 +107,7 @@ string_to_latin1 (char *in, size_t inlen)
 	    }
 	}
     }
-  while (inleft > 0);
+  while (inLeft > 0);
 
   iconv (cd, NULL, NULL, NULL, NULL);
 
