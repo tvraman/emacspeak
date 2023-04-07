@@ -123,37 +123,12 @@ getErrorMsg (MMRESULT errno)
   switch (errno)
     {
     case MMSYSERR_NOERROR:
-      return "Success - No Error";
+      return "Success";
     case MMSYSERR_ERROR:
       return "Error - Unspecified error";
-    case MMSYSERR_BADDEVICEID:
-      return "Error - Device ID out of range";
-    case MMSYSERR_NOTENABLED:
-      return "Error - Driver failed to be enabled";
-    case MMSYSERR_ALLOCATED:
-      return "Error - Device already allocated";
-    case MMSYSERR_INVALHANDLE:
-      return "Error - Device handle is invalid";
-    case MMSYSERR_NODRIVER:
-      return "Error - No device driver present";
-    case MMSYSERR_NOMEM:
-      return "Error - Memory allocation error";
-    case MMSYSERR_NOTSUPPORTED:
-      return "Error - Function is not supported";
-    case MMSYSERR_BADERRNUM:
-      return "Error - Error value out of range";
-    case MMSYSERR_INVALFLAG:
-      return "Error - Invalid flag passed";
-    case MMSYSERR_INVALPARAM:
-      return "Error - Invalid parameter passed";
-    case MMSYSERR_HANDLEBUSY:
-      return "Error - Handle being used in another thread";
-    case MMSYSERR_LASTERROR:
-      return "Error - Last error in range";
     default:
-      return "Error - Unrecognized error number:";
+      return "Error - Unrecognized error:";
     }
-  return "Oops - shouldn't have got  here!\n";
 }
 
 /* }}} */
