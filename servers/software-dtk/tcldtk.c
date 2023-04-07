@@ -49,11 +49,6 @@ int Stop (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 
 /* }}} */
-/* {{{global variables*/
-
-
-
-/* }}} */
 /* {{{ iso-latin1 cleanup: */
 
 /* Cloned from say.c --- ToDo:  This code is ugly and needs cleanup  */
