@@ -74,8 +74,8 @@ string_to_latin1 (char *in, size_t inLen)
   outLeft = outsize;
   outP = out;
 
-  
-    
+
+
   memset (outP, 0, outLeft + 1);
 
   r = iconv (conv_d, &in, &inLeft, &outP, &outLeft);
@@ -83,11 +83,7 @@ string_to_latin1 (char *in, size_t inLen)
     {
       return in;
     }
-    
-  
-
   iconv (conv_d, NULL, NULL, NULL, NULL);
-
   return out;
 }
 
@@ -243,4 +239,5 @@ Stop (ClientData dtkHandle, Tcl_Interp * interp,
 /* local variables: */
 /* folded-file: t */
 /* end: */
+
 /* }}} */
