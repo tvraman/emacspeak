@@ -51,8 +51,6 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 /* }}} */
 /* {{{ iso-latin1 cleanup: */
 
-/* Cloned from say.c   */
-
 char *
 string_to_latin1 (char *in, size_t inLen)
 {
