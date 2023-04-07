@@ -51,6 +51,12 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 /* }}} */
 /* {{{ iso-latin1 cleanup: */
 
+
+/* We assume emacs never sends us a malformed utf-8 string
+   *The Dectalk  may silenty fail on some chars, e.g., þ (latin small
+   *letter thorn)
+ */
+
 char *
 string_to_latin1 (char *in, size_t inLen)
 {
