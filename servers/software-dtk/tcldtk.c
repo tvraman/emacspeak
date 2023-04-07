@@ -74,26 +74,17 @@ string_to_latin1 (char *in, size_t inLen)
   outLeft = outsize;
   outP = out;
 
-  do
-    {
-      memset (outP, 0, outLeft + 1);
+  
+    
+  memset (outP, 0, outLeft + 1);
 
-      r = iconv (conv_d, &in, &inLeft, &outP, &outLeft);
-      if (r == -1)
-	{
-	  offset = outP - out;
-	  outsize = 2 * outsize;
-	  out = realloc (out, outsize + 1);
-	  if (out == NULL)
-	    {
-	      perror ("realloc");
-	      exit (EXIT_FAILURE);
-	    }
-	  outLeft += outsize;
-	  outP = out + offset;
-	}
+  r = iconv (conv_d, &in, &inLeft, &outP, &outLeft);
+  if (r == -1)
+    {
+      return in;
     }
-  while (inLeft > 0);
+    
+  
 
   iconv (conv_d, NULL, NULL, NULL, NULL);
 
