@@ -394,7 +394,7 @@ and TABLE gives the values along that dimension."
         dtk-speech-rate-base 150)
   (setq-default dtk-speech-rate-step 50
                 dtk-speech-rate-base 150)
-  (dtk-set-character-scale 1.25 'default)
+  (dtk-set-character-scale 1.5 'default)
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
