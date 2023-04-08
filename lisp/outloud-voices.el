@@ -319,9 +319,10 @@
   (setq-default dtk-speech-rate-step 10
                 dtk-speech-rate outloud-default-speech-rate
                 dtk-speech-rate-base 50)
+  (dtk-set-character-scale 1.5 'default)
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9
-           eight-bit-graphic)))
+     eight-bit-graphic)))
 
 ;;}}}
 
