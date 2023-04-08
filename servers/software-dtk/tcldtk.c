@@ -120,12 +120,8 @@ Tcldtk_Init (Tcl_Interp * interp) {
   }
 
   status = TextToSpeechStartup (&dtkHandle, WAVE_MAPPER, 0, NULL, 0);
-  if (status != MMSYSERR_NOERROR) {
+  if ((status != MMSYSERR_NOERROR) || (dtkHandle == NULL)) {
     error_msg = getErrorMsg (status);
-    Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
-    return TCL_ERROR;
-  }
-  if (dtkHandle == NULL) {
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
     return TCL_ERROR;
   }
