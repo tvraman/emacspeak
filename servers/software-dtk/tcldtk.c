@@ -51,7 +51,7 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 /* }}} */
 /* {{{ Global: iconv_d */
 
-  iconv_t conv_d ;
+iconv_t conv_d;
 
 /* }}} */
 /* {{{ iso-latin1 cleanup and speak: */
@@ -65,10 +65,10 @@ int
 speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   char *out, *outP;
   int status;
-  
+
   size_t outsize = 2 * inLen;
   size_t r;
-  out = calloc (outsize + 1, sizeof(char));
+  out = calloc (outsize + 1, sizeof (char));
   if (out == NULL) {
     perror ("malloc");
     exit (EXIT_FAILURE);
@@ -103,7 +103,7 @@ getErrorMsg (int errCode) {
 void
 TclDtkFree (ClientData dtkHandle) {
   TextToSpeechShutdown (dtkHandle);
-iconv_close(conv_d);
+  iconv_close (conv_d);
 }
 
 /* }}} */
@@ -129,8 +129,7 @@ Tcldtk_Init (Tcl_Interp * interp) {
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
     return TCL_ERROR;
   }
-  conv_d =
-    iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
+  conv_d = iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
   Tcl_CreateObjCommand (interp, "say", Say, (ClientData) dtkHandle,
 			TclDtkFree);
   Tcl_CreateObjCommand (interp, "synth", Say, (ClientData) dtkHandle, NULL);
