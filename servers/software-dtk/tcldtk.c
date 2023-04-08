@@ -49,6 +49,11 @@ int Stop (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 
 /* }}} */
+/* {{{ Global: iconv_d */
+
+  iconv_t conv_d ;
+
+/* }}} */
 /* {{{ iso-latin1 cleanup and speak: */
 
 /* We assume emacs never sends us a malformed utf-8 string
@@ -60,8 +65,7 @@ int
 speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   char *out, *outP;
   int status;
-  iconv_t conv_d =
-    iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
+  
   size_t outsize = 2 * inLen;
   size_t r;
   out = malloc (outsize + 1);
@@ -100,6 +104,7 @@ getErrorMsg (int errCode) {
 void
 TclDtkFree (ClientData dtkHandle) {
   TextToSpeechShutdown (dtkHandle);
+iconv_close(conv_d);
 }
 
 /* }}} */
@@ -121,12 +126,12 @@ Tcldtk_Init (Tcl_Interp * interp) {
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
     return TCL_ERROR;
   }
-  setlocale (LC_CTYPE, "ISO-latin-1");
   if (dtkHandle == NULL) {
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
     return TCL_ERROR;
   }
-
+  conv_d =
+    iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
   Tcl_CreateObjCommand (interp, "say", Say, (ClientData) dtkHandle,
 			TclDtkFree);
   Tcl_CreateObjCommand (interp, "synth", Say, (ClientData) dtkHandle, NULL);

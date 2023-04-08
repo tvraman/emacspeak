@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+t#!/usr/bin/tclsh
 #$Id$
 #Description: Launch a TTS server on a remote host.
 #Copyright (C) 1995 -- 2011, T. V. Raman 
