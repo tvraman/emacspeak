@@ -184,14 +184,6 @@ Stop (ClientData dtkHandle, Tcl_Interp * interp,
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
     return TCL_ERROR;
   }
-  status = TextToSpeechSpeak (dtkHandle,
-			      "[:phoneme arpabet speak on :say clause]",
-			      TTS_NORMAL);
-  if (status != MMSYSERR_NOERROR) {
-    error_msg = getErrorMsg (status);
-    Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
-    return TCL_ERROR;
-  }
   return TCL_OK;
 }
 
