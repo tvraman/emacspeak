@@ -150,14 +150,16 @@ int
 Say (ClientData dtkHandle, Tcl_Interp * interp, int objc,
      Tcl_Obj * CONST objv[]) {
   int i, length;
+  char *out;
   char *error_msg = NULL;
   MMRESULT status;
   char *txt = NULL;
 
   for (i = 1; i < objc; i++) {
     txt = Tcl_GetStringFromObj (objv[i], &length);
-    txt = string_to_latin1 (txt, strlen (txt));
-    status = TextToSpeechSpeak (dtkHandle, txt, TTS_FORCE);
+    out = string_to_latin1 (txt, strlen (txt));
+    status = TextToSpeechSpeak (dtkHandle, out, TTS_FORCE);
+    free (out);
     if (status != MMSYSERR_NOERROR) {
       error_msg = getErrorMsg (status);
       Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
