@@ -72,7 +72,7 @@ speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   outP = out;
   memset (outP, 0, outsize + 1);
   r = iconv (conv_d, &in, &inLen, &outP, &outsize);
-  iconv (conv_d, NULL, NULL, NULL, NULL);
+  
   if (r == -1) {		/* conversion failed:  speak orig input */
     status = TextToSpeechSpeak (dtkHandle, in, TTS_FORCE);
   } else {
@@ -90,10 +90,8 @@ getErrorMsg (int errCode) {
   switch (errCode) {
   case MMSYSERR_NOERROR:
     return "Success";
-  case MMSYSERR_ERROR:
-    return "Error - Unspecified error";
   default:
-    return "Error - Unrecognized error:";
+    return "Error";
   }
 }
 
