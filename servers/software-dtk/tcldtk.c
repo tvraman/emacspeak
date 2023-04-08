@@ -144,17 +144,14 @@ Tcldtk_Init (Tcl_Interp * interp) {
 int
 Say (ClientData dtkHandle, Tcl_Interp * interp, int objc,
      Tcl_Obj * CONST objv[]) {
-  int i, length;
+  int  length;
   int status;
   char *txt = NULL;
-
-  for (i = 1; i < objc; i++) {
-    txt = Tcl_GetStringFromObj (objv[i], &length);
-    status = speak_latin1 (dtkHandle, txt, strlen (txt));
-    if (status != TCL_OK) {
-      Tcl_SetObjResult (interp, Tcl_NewStringObj ("TTS Error", -1));
-      return TCL_ERROR;
-    }
+  txt = Tcl_GetStringFromObj (objv[1], &length);
+  status = speak_latin1 (dtkHandle, txt, strlen (txt));
+  if (status != TCL_OK) {
+    Tcl_SetObjResult (interp, Tcl_NewStringObj ("TTS Error", -1));
+    return TCL_ERROR;
   }
   return TCL_OK;
 }
