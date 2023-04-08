@@ -251,16 +251,12 @@ set tts(speech_rate)  225
 set tts(say_rate) [round \
                            [expr $tts(speech_rate) * $tts(char_factor)]]
 set tclTTS $env(EMACSPEAK_DIR)/servers/software-dtk
-if [file exists /usr/lib/libaoss.so] {
-    set env(LD_PRELOAD) /usr/lib/libaoss.so
-}
 load $tclTTS/tcldtk.so
 synth   {[:phoneme arpabet speak on ]
     [:pu s ]
     [:sa c]
     [:np]
-}
-synth {I speak, Therefore I am.}
+    I speak, Therefore I am.}
 #Start the main command loop:
 commandloop
 
