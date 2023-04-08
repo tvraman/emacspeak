@@ -68,13 +68,12 @@ speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   
   size_t outsize = 2 * inLen;
   size_t r;
-  out = malloc (outsize + 1);
+  out = calloc (outsize + 1, sizeof(char));
   if (out == NULL) {
     perror ("malloc");
     exit (EXIT_FAILURE);
   }
   outP = out;
-  memset (outP, 0, outsize + 1);
   r = iconv (conv_d, &in, &inLen, &outP, &outsize);
   if (r == -1) {		/* conversion failed:  speak orig input */
     status = TextToSpeechSpeak (dtkHandle, in, TTS_FORCE);
