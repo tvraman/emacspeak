@@ -72,7 +72,7 @@ speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   outP = out;
   memset (outP, 0, outsize + 1);
   r = iconv (conv_d, &in, &inLen, &outP, &outsize);
-  
+
   if (r == -1) {		/* conversion failed:  speak orig input */
     status = TextToSpeechSpeak (dtkHandle, in, TTS_FORCE);
   } else {
@@ -100,10 +100,7 @@ getErrorMsg (int errCode) {
 
 void
 TclDtkFree (ClientData dtkHandle) {
-  MMRESULT status;
-  status = TextToSpeechShutdown (dtkHandle);
-  if (status != MMSYSERR_NOERROR) {
-  }
+  TextToSpeechShutdown (dtkHandle);
 }
 
 /* }}} */
@@ -111,18 +108,15 @@ TclDtkFree (ClientData dtkHandle) {
 
 int
 Tcldtk_Init (Tcl_Interp * interp) {
-  MMRESULT status;
+  int status;
   char *error_msg = NULL;
   LPTTS_HANDLE_T dtkHandle;
-  unsigned int devNo = WAVE_MAPPER;
-  DWORD devOptions = 0;
-
   if (Tcl_PkgProvide (interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult (interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
   }
 
-  status = TextToSpeechStartup (&dtkHandle, devNo, devOptions, NULL, 0);
+  status = TextToSpeechStartup (&dtkHandle, WAVE_MAPPER, 0, NULL, 0);
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg (status);
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
@@ -172,9 +166,7 @@ int
 Synchronize (ClientData dtkHandle, Tcl_Interp * interp,
 	     int objc, Tcl_Obj * CONST objv[]) {
   char *error_msg = NULL;
-  MMRESULT status;
-
-  status = TextToSpeechSync (dtkHandle);
+  int status = TextToSpeechSync (dtkHandle);
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg (status);
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
@@ -189,9 +181,8 @@ Synchronize (ClientData dtkHandle, Tcl_Interp * interp,
 int
 Stop (ClientData dtkHandle, Tcl_Interp * interp,
       int objc, Tcl_Obj * CONST objv[]) {
-  MMRESULT status;
   char *error_msg = NULL;
-  status = TextToSpeechReset (dtkHandle, FALSE);
+  int status = TextToSpeechReset (dtkHandle, FALSE);
   if (status != MMSYSERR_NOERROR) {
     error_msg = getErrorMsg (status);
     Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
