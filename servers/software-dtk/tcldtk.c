@@ -49,12 +49,11 @@ int Stop (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 
 /* }}} */
-/* {{{ iso-latin1 cleanup: */
-
+/* {{{ iso-latin1 cleanup and speak: */
 
 /* We assume emacs never sends us a malformed utf-8 string
-   *The Dectalk  may silenty fail on some chars, e.g., þ 
-   * (latin small *letter thorn). Return NULL if input is malformed utf-8.
+   *The Dectalk  may silently fail on some chars, e.g., þ 
+   * (latin small *letter thorn). 
  */
 
 int
@@ -74,10 +73,9 @@ speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   memset (outP, 0, outsize + 1);
   r = iconv (conv_d, &in, &inLen, &outP, &outsize);
   iconv (conv_d, NULL, NULL, NULL, NULL);
-  if (r == -1) {		/* conversion failed  *//*speak orig input */
+  if (r == -1) {		/* conversion failed:  speak orig input */
     status = TextToSpeechSpeak (dtkHandle, in, TTS_FORCE);
-  }
-  else {
+  } else {
     status = TextToSpeechSpeak (dtkHandle, out, TTS_FORCE);
   }
   free (out);
