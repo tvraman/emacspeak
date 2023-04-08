@@ -62,7 +62,7 @@ speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   int status;
   iconv_t conv_d =
     iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
-  size_t outsize = 4 * inLen;
+  size_t outsize = 2 * inLen;
   size_t r;
   out = malloc (outsize + 1);
   if (out == NULL) {
