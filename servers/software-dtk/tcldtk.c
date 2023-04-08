@@ -57,9 +57,10 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
    * (latin small *letter thorn). Return NULL if input is malformed utf-8.
  */
 
-char *
-string_to_latin1 (char *in, size_t inLen) {
+int
+speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   char *out, *outP;
+  int status;
   iconv_t conv_d =
     iconv_open ("ISO-8859-1//TRANSLIT//IGNORE", nl_langinfo (CODESET));
   size_t outsize = 4 * inLen;
@@ -73,10 +74,14 @@ string_to_latin1 (char *in, size_t inLen) {
   memset (outP, 0, outsize + 1);
   r = iconv (conv_d, &in, &inLen, &outP, &outsize);
   iconv (conv_d, NULL, NULL, NULL, NULL);
-  if (r == -1) {		/* conversion failed  */
-    return NULL;
+  if (r == -1) {		/* conversion failed  *//*speak orig input */
+    status = TextToSpeechSpeak (dtkHandle, in, TTS_FORCE);
   }
-  return out;
+  else {
+    status = TextToSpeechSpeak (dtkHandle, out, TTS_FORCE);
+  }
+  free (out);
+  return status;
 }
 
 /* }}} */
@@ -150,19 +155,14 @@ int
 Say (ClientData dtkHandle, Tcl_Interp * interp, int objc,
      Tcl_Obj * CONST objv[]) {
   int i, length;
-  char *out;
-  char *error_msg = NULL;
-  MMRESULT status;
+  int status;
   char *txt = NULL;
 
   for (i = 1; i < objc; i++) {
     txt = Tcl_GetStringFromObj (objv[i], &length);
-    out = string_to_latin1 (txt, strlen (txt));
-    status = TextToSpeechSpeak (dtkHandle, out, TTS_FORCE);
-    free (out);
-    if (status != MMSYSERR_NOERROR) {
-      error_msg = getErrorMsg (status);
-      Tcl_SetObjResult (interp, Tcl_NewStringObj (error_msg, -1));
+    status = speak_latin1 (dtkHandle, txt, strlen (txt));
+    if (status != TCL_OK) {
+      Tcl_SetObjResult (interp, Tcl_NewStringObj ("TTS Error", -1));
       return TCL_ERROR;
     }
   }
