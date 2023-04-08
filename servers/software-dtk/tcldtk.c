@@ -144,7 +144,7 @@ Tcldtk_Init (Tcl_Interp * interp) {
 int
 Say (ClientData dtkHandle, Tcl_Interp * interp, int objc,
      Tcl_Obj * CONST objv[]) {
-  int  length;
+  int length;
   int status;
   char *txt = NULL;
   txt = Tcl_GetStringFromObj (objv[1], &length);
