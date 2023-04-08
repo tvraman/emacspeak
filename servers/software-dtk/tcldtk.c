@@ -146,9 +146,8 @@ Say (ClientData dtkHandle, Tcl_Interp * interp, int objc,
      Tcl_Obj * CONST objv[]) {
   int length;
   int status;
-  char *txt = NULL;
-  txt = Tcl_GetStringFromObj (objv[1], &length);
-  status = speak_latin1 (dtkHandle, txt, strlen (txt));
+  char *txt = Tcl_GetStringFromObj (objv[1], &length);
+  status = speak_latin1 (dtkHandle, txt, length);
   if (status != TCL_OK) {
     Tcl_SetObjResult (interp, Tcl_NewStringObj ("TTS Error", -1));
     return TCL_ERROR;
