@@ -726,6 +726,9 @@
 @item a
  emacspeak-xslt-view-atom-file
 
+@item p
+ emacspeak-pianobar
+
 @item r
  emacspeak-xslt-view-rss-file
 

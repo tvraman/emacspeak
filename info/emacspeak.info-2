@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 8, 2023.
+last updated on April 9, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -1326,6 +1326,7 @@ found on laptops is denoted <fn>
 
      
      (("a" emacspeak-xslt-view-atom-file)
+      ("p" emacspeak-pianobar)
       ("r" emacspeak-xslt-view-rss-file)
       ("x" emacspeak-xslt-view-file)
       ("y" emacspeak-empv-play-url))
@@ -3790,7 +3791,9 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
      ‘C-e C-'’
      ‘C-' '’
      ‘<fn> C-'’
+     ‘C-e y p’
      ‘C-e ' '’
+     ‘<fn> y p’
      ‘<fn> ' '’
 
      Start or control Emacspeak Pianobar player.

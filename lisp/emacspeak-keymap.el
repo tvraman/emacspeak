@@ -528,6 +528,7 @@
 
 (defcustom emacspeak-personal-y-keys
   '(
+    ("p" emacspeak-pianobar)
     ("a" emacspeak-xslt-view-atom-file)
     ("r" emacspeak-xslt-view-rss-file)
     ("x" emacspeak-xslt-view-file)

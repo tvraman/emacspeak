@@ -26,10 +26,11 @@
 
 #define __VXWORKS__
 #include <tcl.h>
-#include <dtk/ttsapi.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include<string.h>
+
+
+#include <dtk/ttsapi.h>
 #include <langinfo.h>
 
 #include <iconv.h>
@@ -65,9 +66,9 @@ __inline int
 speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   char *out, *outP;
   int status;
-
-  size_t outsize = 2 * inLen;
   size_t r;
+  size_t outsize = 2 * inLen;
+
   out = calloc (outsize + 1, sizeof (char));
   if (out == NULL) {
     perror ("malloc");
