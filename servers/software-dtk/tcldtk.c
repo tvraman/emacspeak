@@ -61,7 +61,7 @@ iconv_t conv_d;
    * (latin small *letter thorn). 
  */
 
-int
+__inline int
 speak_latin1 (LPTTS_HANDLE_T dtkHandle, char *in, size_t inLen) {
   char *out, *outP;
   int status;
