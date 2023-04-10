@@ -125,6 +125,7 @@
    for b in
    '(
      ("/" empv-seek)
+     ("g" empv-set-volume)
      ("SPC" empv-toggle)
      ("'" empv-current-loop-on)
      ("RET" empv-youtube-tabulated))
