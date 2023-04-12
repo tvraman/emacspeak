@@ -946,7 +946,7 @@ The time position can also be specified as HH:MM:SS."
                (string-match
                 emacspeak-media-shortcuts-directory
                 emacspeak-m-player-resource)
-               (minusp (emacspeak-m-player-get-length)))
+               (cl-minusp (emacspeak-m-player-get-length)))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
           (ems--mp-send "quit")
