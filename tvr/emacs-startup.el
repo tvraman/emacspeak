@@ -317,25 +317,13 @@ configuration happens via the after-init-hook. "
 
 ;;}}}
 (provide 'emacs-startup)
-;;{{{  emacs local variables
+;;{{{ end of file
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(mpv go-complete elfeed request-deferred magit-stats sdcv latex-table-wizard chess sicp ssh-config-mode orgalist company-c-headers company-bibtex flyspell-correct-popup lispy cargo-mode tldr exec-path-from-shell posframe elisp-refs bash-completion html2org sqlite3 devdocs rust-mode wiki-summary company-statistics smartparens exwm browse-at-remote company-flx company-prescient html5-schema name-this-color deadgrep auth-source-xoauth2 flyspell-popup yasnippet-snippets company-reftex disable-mouse pydoc haskell-mode mines notmuch-addr google-translate folding diminish arxiv-mode triples ghub+ treesit-auto company-auctex go-eldoc websearch graphviz-dot-mode threes js2-mode list-unicode-display arxiv-citation 2048-game relint empv elpy noaa company-wordfreq clhs ein cdlatex clang-format free-keys flx-ido alert find-file-in-project csound-mode slime-company nvm browse-kill-ring xkcd calibredb ido-completing-read+ paradox forge stumpwm-mode company-fuzzy psession twittering-mode bbdb common-lisp-snippets rg org-translate vdiff define-word eglot go-translate auto-correct))
- '(paradox-github-token t)
- '(safe-local-variable-values '((folded-file . t))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-;;local variables:
-;;folded-file: t
-;;end:
+;; local variables:
+;; folded-file: t
+;; end:
 
 ;;}}}
+
+
+
