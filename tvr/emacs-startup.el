@@ -5,7 +5,6 @@
 ;; July 15, 2001 finally cutting over to custom.
 ;; August 12, 2007: Cleaned up for Emacs 22
 
-
 ;; September 2017: Optimized and Cleaned Up
 ;; August 2020: Limit code at top-level.
 
@@ -14,7 +13,7 @@
 
 ;;; Commentary:
 ;; This startup file is set up with the following goals:
-;; 1. Speed up emacs startup 
+;; 1. Speed up emacs startup
 ;; 2. Customize packages via a custom file as far as possible.
 ;; 3. Keep the  custom settings  in a separate file
 ;; Place host-specific non-customizable bits in default.el.
@@ -210,8 +209,8 @@ Use Custom to customize where possible. "
   (make-thread #'(lambda nil (load "eww")))
   (require 'dired-x)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-   (when (file-exists-p custom-file)
-     (tvr-time-load (load custom-file)))
+  (when (file-exists-p custom-file)
+    (tvr-time-load (load custom-file)))
   (load-theme 'modus-vivendi-tinted t)
 
   (mapc
@@ -296,8 +295,9 @@ configuration happens via the after-init-hook. "
 ;;}}}
 (tvr-emacs)
 
-
 ;;{{{ Forward Function Declarations:
+(declare-function nvm--installed-versions "emacs-startup" t)
+
 (declare-function ems-kbd "emacspeak-keymap" (string))
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function soundscape-toggle "soundscape" nil)
@@ -315,6 +315,3 @@ configuration happens via the after-init-hook. "
 ;; end:
 
 ;;}}}
-
-
-
