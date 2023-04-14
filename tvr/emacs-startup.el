@@ -173,7 +173,7 @@ Use Custom to customize where possible. "
    '(
      (  "C-x r a"  append-to-register)
      ("C-x r p"  prepend-to-register)
-     ("C-x v ." 'magit-commit-create)
+     ("C-x v ." magit-commit-create)
      ("C-x <tab>"  previous-buffer)
      ("C-c <tab>"  next-buffer)
      ("<f3>" bury-buffer)
@@ -225,7 +225,7 @@ Use Custom to customize where possible. "
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
   ;; load  library-specific settings, customize, then start things.
-  (cl-declare (special  tvr-libs emacspeak-soundscapes))
+  (cl-declare (special  tvr-libs ))
 ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
   (tvr-customize) ;;; customizations
@@ -234,8 +234,7 @@ Use Custom to customize where possible. "
     (yas-reload-all)
     (diminish 'yas-minor-mode ""))
   (load "emacspeak-muggles")
-  (emacspeak-wizards-project-shells-initialize)
-  (when emacspeak-soundscapes (soundscape-toggle)))
+  (emacspeak-wizards-project-shells-initialize))
 
 (declare-function
  emacspeak-pronounce-toggle-use-of-dictionaries
