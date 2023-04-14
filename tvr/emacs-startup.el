@@ -213,12 +213,13 @@ Use Custom to customize where possible. "
    (when (file-exists-p custom-file)
      (tvr-time-load (load custom-file)))
   (load-theme 'modus-vivendi-tinted t)
-  (diminish 'outline-minor-mode "")
-  (diminish 'reftex-mode "")
-  (diminish 'voice-lock-mode "")
-  (diminish 'auto-fill-function "")
-  (diminish 'abbrev-mode "")
-  (diminish 'auto-correct-mode "")
+
+  (mapc
+   #'(lambda (m)
+       (diminish m ""))
+   '(outline-minor-mode reftex-mode voice-lock-mode
+     auto-fill-function abbrev-mode auto-correct-mode))
+
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup))
 
