@@ -123,7 +123,7 @@ Produce timing information as the last step."
 ;;{{{Node/NVM Setup:
 (defun tvr-nvm-setup ()
   "Set up NVM/NPM."
-  (when (require 'nvm "nvm" 'no-error)
+  (with-eval-after-load "nvm"
     (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
       (nvm-use v)
       (executable-find "node"))))
