@@ -89,7 +89,7 @@
 
 ;;}}}
 ;;{{{Commands:
-
+;;;###autoload
 (defun emacspeak-empv-play-url (url &optional left-channel)
   "Play URL using mpv;  Prefix arg plays on left channel."
   (interactive (list (emacspeak-eww-read-url) current-prefix-arg ))
