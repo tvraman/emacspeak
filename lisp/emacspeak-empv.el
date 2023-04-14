@@ -94,6 +94,7 @@
   "Play URL using mpv;  Prefix arg plays on left channel."
   (interactive (list (emacspeak-eww-read-url) current-prefix-arg ))
   (cl-declare (special tts-notification-device))
+  (require 'empv)
   (when
       (and url
            (stringp url)
