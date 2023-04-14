@@ -22,7 +22,7 @@
 ;;    package-specific <package>-prepare.el file.
 ;; 4. Install everything from elpa/melpa as far as possible. (vm is an
 ;;    exception at present) --- I have nearly 200 packages activated.
-;; 5. The startup file contains functions with entry-point tvr-emacs.
+;; 5. The startup file contains functions with prefix  tvr-.
 ;; 6. The only top-level call is (tvr-emacs).
 ;; 7. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
 ;;    - after-init-hook to do the bulk of the work.
@@ -123,7 +123,7 @@ Produce timing information as the last step."
 ;;{{{Node/NVM Setup:
 (defun tvr-nvm-setup ()
   "Set up NVM/NPM."
-  (when (require 'nvm)
+  (when (require 'nvm "nvm" 'no-error)
     (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
       (nvm-use v)
       (executable-find "node"))))
@@ -159,7 +159,6 @@ Use Custom to customize where possible. "
                        completion-auto-select emacspeak-directory
                        outline-minor-mode-prefix))
   (load-library "aster")
-  (load-library "diminish")
   (setq completion-auto-select t)
   (add-hook 'python-mode-hook
             #'(lambda nil
@@ -219,8 +218,8 @@ Use Custom to customize where possible. "
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (load-theme 'modus-vivendi-tinted t)
   (require 'dired-x)
-  (tvr-time-load (when (file-exists-p custom-file)  (load
-                                                     custom-file)))
+  (tvr-time-load
+   (when (file-exists-p custom-file)  (load custom-file)))
   (diminish 'outline-minor-mode "")
   (diminish 'reftex-mode "")
   (diminish 'voice-lock-mode "")
@@ -237,7 +236,6 @@ Use Custom to customize where possible. "
   (cl-declare (special  tvr-libs emacspeak-soundscapes))
 ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
-  (load "empv")
   (tvr-customize) ;;; customizations
   (with-eval-after-load
     'yasnippet
