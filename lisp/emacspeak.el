@@ -9,10 +9,10 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4642 $ |
 ;; Location undetermined
-;; 
+;;
 
 ;;}}}
 ;;{{{  Copyright:
@@ -20,19 +20,19 @@
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -65,19 +65,19 @@
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
   :link '(url-link :tag "Web" "http://emacspeak.sf.net"
-                   :help-echo "Emacspeak  Site")
+          :help-echo "Emacspeak  Site")
   :link '(url-link :tag "Blog" "http://emacspeak.blogspot.com"
-                   :help-echo "Emacspeak Blog")
+          :help-echo "Emacspeak Blog")
   :link '(url-link :tag "Apps"
-                   "https://tvraman.github.io/emacspeak/applications.html"
-                   :help-echo "Browse available  applications on
+          "https://tvraman.github.io/emacspeak/applications.html"
+          :help-echo "Browse available  applications on
 the Emacspeak desktop.")
   :link '(url-link :tag "Guide"
-                   "https://tvraman.github.io/emacspeak/manual"
-                   :help-echo "online user guide.")
+          "https://tvraman.github.io/emacspeak/manual"
+          :help-echo "online user guide.")
   :link '(url-link :tag "Tips"
-                   "https://tvraman.github.io/emacspeak/tips.html"
-                   :help-echo "Emacspeak Tips and Tricks.")
+          "https://tvraman.github.io/emacspeak/tips.html"
+          :help-echo "Emacspeak Tips and Tricks.")
   ;; end links
   :group 'applications)
 
@@ -376,16 +376,16 @@ the Emacspeak desktop.")
 
 (defvar emacspeak-startup-message
   (eval-when-compile
-    (format
-     "  Press %s to get an   overview of emacspeak  %s. \
+   (format
+    "  Press %s to get an   overview of emacspeak  %s. \
  I am  completely operational,  and all my circuits are functioning perfectly!"
-     (substitute-command-keys
-      "\\[emacspeak-describe-emacspeak]")
-     emacspeak-version))
+    (substitute-command-keys
+     "\\[emacspeak-describe-emacspeak]")
+    emacspeak-version))
   "Emacspeak startup message.")
 
 (defcustom emacspeak-soundscapes nil
-  "Whether we should turn on soundscapes."
+  "Whether we should turn on soundscapes on startup."
   :type 'boolean
   :group 'emacspeak)
 
@@ -427,11 +427,12 @@ commands and options for details."
   (setq line-number-mode nil column-number-mode nil)
   (make-thread #'emacspeak-prepare-emacs)
   (global-visual-line-mode -1)
-  (add-to-list 
+  (add-to-list
    'minor-mode-alist
    '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
   (transient-mark-mode -1)
-  (setenv "EMACSPEAK_DIR" emacspeak-directory)
+
+  (when emacspeak-soundscapes (soundscape-toggle))(setenv "EMACSPEAK_DIR" emacspeak-directory)
   (message emacspeak-startup-message)
   (emacspeak-play-startup-icon))
 
