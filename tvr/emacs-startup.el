@@ -245,7 +245,7 @@ Use Custom to customize where possible. "
   (cl-declare (special auto-correct-predicate))
   (auto-fill-mode)
   (emacspeak-pronounce-toggle-use-of-dictionaries t)
-  (setq auto-correct-predicate #'(lambda () t))
+  (setq auto-correct-predicate #'(lambda (&rest _) t))
   ;; company-wordfreq setup:
   (setq-local company-backends '(company-wordfreq))
   (setq-local company-transformers nil)
