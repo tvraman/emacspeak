@@ -168,21 +168,19 @@ Use Custom to customize where possible. "
    '(list-threads narrow-to-page list-timers upcase-region
      downcase-region  narrow-to-region eval-expression ))
   (prefer-coding-system 'utf-8-emacs)
-  ;; prepend and append to register
-  (global-set-key (ems-kbd "C-x r a" ) 'append-to-register)
-  (global-set-key (ems-kbd "C-x r p" ) 'prepend-to-register)
-  (global-set-key (ems-kbd "C-x v .") 'magit-commit-create)
-  (global-set-key [remap dabbrev-expand] 'hippie-expand)
+  (global-set-key[remap dabbrev-expand] 'hippie-expand)
   (cl-loop ;; global key-bindings
    for key in
    '(
+     (  "C-x r a"  append-to-register)
+     ("C-x r p"  prepend-to-register)
+     ("C-x v ." 'magit-commit-create)
      ("C-x <tab>"  previous-buffer)
      ("C-c <tab>"  next-buffer)
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
-     ("<f5>" find-file)
      ("M--" undo-only)
-     ("M-/" dabbrev-expand)
+     ("M-/" hippie-expand)
      ("M-C-c" calendar)
      ("M-C-j" imenu)
      ("M-e" emacspeak-wizards-end-of-word)
@@ -210,19 +208,18 @@ Use Custom to customize where possible. "
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (make-thread #'(lambda nil (load "eww")))
-  (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (load-theme 'modus-vivendi-tinted t)
   (require 'dired-x)
-  (tvr-time-load
-   (when (file-exists-p custom-file)  (load custom-file)))
+  (setq custom-file (expand-file-name "~/.customize-emacs"))
+   (when (file-exists-p custom-file)
+     (tvr-time-load (load custom-file)))
+  (load-theme 'modus-vivendi-tinted t)
   (diminish 'outline-minor-mode "")
   (diminish 'reftex-mode "")
   (diminish 'voice-lock-mode "")
   (diminish 'auto-fill-function "")
   (diminish 'abbrev-mode "")
   (diminish 'auto-correct-mode "")
-  (setq  global-mode-string '("" display-time-string
-                              battery-mode-line-string))
+  (setq  global-mode-string '("" display-time-string battery-mode-line-string))=
   (bash-completion-setup))
 
 (defun tvr-after-init ()
