@@ -216,8 +216,8 @@ Use Custom to customize where possible. "
   (mapc
    #'(lambda (m)
        (diminish m ""))
-   '(outline-minor-mode reftex-mode voice-lock-mode
-     auto-fill-function abbrev-mode auto-correct-mode))
+   '(outline-minor-mode reftex-mode voice-lock-mode company-mode
+     hs-minor-mode auto-fill-function abbrev-mode auto-correct-mode))
 
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup))
@@ -257,14 +257,11 @@ Use Custom to customize where possible. "
   (cl-declare (special dtk-caps))
   (local-set-key "\C-m" 'newline-and-indent)
   (company-mode)
-  (diminish 'company-mode "")
   (hs-minor-mode)
-  (diminish 'hs-minor-mode "")
   (auto-fill-mode)
   (cond
     ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
-     (when dtk-caps
-       (setq dtk-caps nil))
+     (when dtk-caps (setq dtk-caps nil))
      (lispy-mode ))
     (t (smartparens-mode)))
   (yas-minor-mode)
