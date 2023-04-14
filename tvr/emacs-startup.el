@@ -137,6 +137,7 @@ Produce timing information as the last step."
 
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook.
+Configure dbus and set up tabs.
 Reset gc-cons-threshold to a smaller value  and play
 startup sound."
   (cl-declare (special emacspeak-sounds-directory))
@@ -148,21 +149,17 @@ startup sound."
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)
-    (tvr-tabs))
+  (tvr-tabs))
 
 (defun tvr-customize ()
   "Customize my emacs.
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
-                       global-mode-string
+                       global-mode-string outline-minor-mode-prefix
                        python-mode-hook outline-mode-prefix-map
-                       completion-auto-select emacspeak-directory
-                       outline-minor-mode-prefix))
+                       completion-auto-select emacspeak-directory))
   (load-library "aster")
-  (setq completion-auto-select t)
-  (add-hook 'python-mode-hook
-            #'(lambda nil
-                (elpy-enable)))
+  (add-hook 'python-mode-hook #'elpy-enable)
   (setq outline-minor-mode-prefix "\C-co")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
@@ -172,10 +169,8 @@ Use Custom to customize where possible. "
      downcase-region  narrow-to-region eval-expression ))
   (prefer-coding-system 'utf-8-emacs)
   ;; prepend and append to register
-
   (global-set-key (ems-kbd "C-x r a" ) 'append-to-register)
   (global-set-key (ems-kbd "C-x r p" ) 'prepend-to-register)
-  
   (global-set-key (ems-kbd "C-x v .") 'magit-commit-create)
   (global-set-key [remap dabbrev-expand] 'hippie-expand)
   (cl-loop ;; global key-bindings
