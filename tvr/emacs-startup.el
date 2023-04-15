@@ -78,10 +78,6 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{ Fixups:
 
-;; Put psession startup on a separate thread:
-
-(defadvice psession--restore-objects-from-directory (around ems pre act comp)
-  ad-do-it)
 (defadvice psession--restore-some-buffers (around ems pre act comp)
   (make-thread ad-do-it))
 
