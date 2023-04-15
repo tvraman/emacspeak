@@ -431,8 +431,10 @@ commands and options for details."
    'minor-mode-alist
    '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
   (transient-mark-mode -1)
-
-  (when emacspeak-soundscapes (soundscape-toggle))(setenv "EMACSPEAK_DIR" emacspeak-directory)
+  (setenv "EMACSPEAK_DIR" emacspeak-directory)
+  (when   emacspeak-soundscapes
+    (require 'soundscape)
+    (call-interactively 'soundscape-toggle))
   (message emacspeak-startup-message)
   (emacspeak-play-startup-icon))
 
