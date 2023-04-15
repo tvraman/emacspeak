@@ -14,11 +14,12 @@
 ;;; Commentary:
 ;; This startup file is set up with the following goals:
 ;; 1. Speed up emacs startup
-;; 2. Customize packages via a custom file as far as possible.
+;; 2. Customize packages via a custom file where possible.
 ;; 3. Keep the  custom settings  in a separate file
 ;; Place host-specific non-customizable bits in default.el.
 ;; 3. Define package-specific settings not available via Custom in a
-;;    package-specific <package>-prepare.el file.
+;;    package-specific <package>-prepare.el file,
+;; then use Make to turn these into a single all-prepare.el..
 ;; 4. Install everything from elpa/melpa as far as possible. (vm is an
 ;;    exception at present) --- I have nearly 200 packages activated.
 ;; 5. The startup file contains functions with prefix  tvr-.
@@ -27,13 +28,11 @@
 ;;    - after-init-hook to do the bulk of the work.
 ;; Set env var PULSE_SINK to binaural for using bs2b under pulseaudio
 ;;    - emacs-startup-hook to set up  initial window configuration.
-;; 8. Function tvr-after-init-hook on after-init-hook does the
+;; 8. Function tvr-after-init on after-init-hook does the
 ;; following:
-;; For efficiency, package-specific setup files are concatenated into
-;; a single file all-prepare.el by  make.
-;;    - Load package-specific prepare.el files.
+;;Loads all-prepare.el described above.
 ;;    - Load the custom settings file.
-;;    - Start up things like the emacs server.
+;;    - Starts up things like the emacs server.
 ;;    - Some of these tasks are done on a separate thread using make-thread.
 ;;   - The work of loading files etc., is done within macro tvr-time-load
 ;;   which sets up an efficient environment for loading files and
@@ -216,8 +215,8 @@ Use Custom to customize where possible. "
   (mapc
    #'(lambda (m)
        (diminish m ""))
-   '(outline-minor-mode reftex-mode voice-lock-mode company-mode
-     hs-minor-mode auto-fill-function abbrev-mode auto-correct-mode))
+   '(outline-minor-mode reftex-mode voice-lock-mode company-mode hs-minor-mode
+     yas-minor-mode  auto-fill-function abbrev-mode auto-correct-mode))
 
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup))
@@ -232,7 +231,7 @@ Use Custom to customize where possible. "
   (with-eval-after-load
     'yasnippet
     (yas-reload-all)
-    (diminish 'yas-minor-mode ""))
+    (diminish ' ""))
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize))
 
@@ -272,12 +271,12 @@ Use Custom to customize where possible. "
 
 (defun tvr-emacs ()
   "Start up emacs.
-This function loads Emacspeak.  Emacs customization and library
+This function loads Emacspeak. Emacs customization and library
 configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory))
   (setenv "PULSE_SINK" "binaural")
   (unless (featurep 'emacspeak)
-    (tvr-time-load ; load emacspeak:
+    (tvr-time-load                      ; load emacspeak:
      (load ;; setenv EMACSPEAK_DIR if you want to load a different version
       (expand-file-name
        "lisp/emacspeak-setup"
