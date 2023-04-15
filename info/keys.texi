@@ -36,9 +36,6 @@
 @item C-b
  emacspeak-bookshare
 
-@item C-c
- emacspeak-speak-brief-time
-
 @item C-d
  emacspeak-toggle-show-point
 

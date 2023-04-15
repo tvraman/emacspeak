@@ -1265,7 +1265,7 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-soundscapes
-Whether we should turn on soundscapes.
+Whether we should turn on soundscapes on startup.
 
 Default Value: 
 
@@ -12596,12 +12596,8 @@ configure which media players get silenced or paused/resumed.
 @subsubsection emacspeak-speak-brief-time
 @deffn {Command} emacspeak-speak-brief-time   
 @table @kbd
-@item C-e C-c
-@kindex C-e C-c
 @item C-e <fn>
 @kindex C-e <fn>
-@item <fn> C-c
-@kindex <fn> C-c
 @item <fn> <fn>
 @kindex <fn> <fn>
 @end table

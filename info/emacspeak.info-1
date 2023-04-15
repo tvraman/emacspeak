@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 10, 2023.
+last updated on April 14, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2678,9 +2678,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-b’
      emacspeak-bookshare
 
-‘C-c’
-     emacspeak-speak-brief-time
-
 ‘C-d’
      emacspeak-toggle-show-point
 
@@ -4403,7 +4400,7 @@ system.
      
 
  -- Variable: User Option emacspeak-soundscapes
-     Whether we should turn on soundscapes.
+     Whether we should turn on soundscapes on startup.
 
      Default Value:
 
