@@ -158,7 +158,7 @@ Use Custom to customize where possible. "
                        completion-auto-select emacspeak-directory))
   (load-library "aster")
   (add-hook 'python-mode-hook #'elpy-enable)
-  (setq outline-minor-mode-prefix "\C-co")
+  (setq outline-minor-mode-prefix "\C-o")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
