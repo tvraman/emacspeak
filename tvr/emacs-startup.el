@@ -233,7 +233,8 @@ Use Custom to customize where possible. "
     (yas-reload-all)
     (diminish ' ""))
   (load "emacspeak-muggles")
-  (emacspeak-wizards-project-shells-initialize))
+  (emacspeak-wizards-project-shells-initialize)
+  (when emacspeak-soundscapes (soundscape-toggle)))
 
 (declare-function
  emacspeak-pronounce-toggle-use-of-dictionaries

@@ -432,9 +432,6 @@ commands and options for details."
    '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
   (transient-mark-mode -1)
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
-  (when   emacspeak-soundscapes
-    (require 'soundscape)
-    (call-interactively 'soundscape-toggle))
   (message emacspeak-startup-message)
   (emacspeak-play-startup-icon))
 
