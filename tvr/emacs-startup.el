@@ -291,7 +291,6 @@ configuration happens via the after-init-hook. "
 
 (declare-function ems-kbd "emacspeak-keymap" (string))
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
-(declare-function soundscape-toggle "soundscape" nil)
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
 (declare-function
  emacspeak-wizards-project-shells-initialize
