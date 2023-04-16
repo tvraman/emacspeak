@@ -229,7 +229,7 @@ Use Custom to customize where possible. "
     (diminish ' ""))
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize)
-  (when emacspeak-soundscapes (soundscape-toggle)))
+  )
 
 (declare-function
  emacspeak-pronounce-toggle-use-of-dictionaries

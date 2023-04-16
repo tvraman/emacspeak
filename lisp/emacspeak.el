@@ -298,7 +298,8 @@ the Emacspeak desktop.")
 
 (defun emacspeak-prepare-emacs ()
   "Prepare Emacs to speech-enable packages when loaded."
-  (cl-declare (special emacspeak-packages-to-prepare))
+  (cl-declare (special emacspeak-packages-to-prepare
+                       emacspeak-soundscapes))
   (setq-default line-move-visual nil)
   (setq use-dialog-box nil)
   (when (boundp 'Info-directory-list)
@@ -306,7 +307,8 @@ the Emacspeak desktop.")
   (mapc
    #'(lambda (pair)
        (emacspeak-do-package-setup  (cl-first pair) (cl-second pair)))
-   emacspeak-packages-to-prepare))
+   emacspeak-packages-to-prepare)
+  (when emacspeak-soundscapes (soundscape-toggle)))
 
 ;;}}}
 ;;{{{ setup programming modes
