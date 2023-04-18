@@ -10,7 +10,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 58 --- Emacspeak 58 User Visible Changes
 
-This version requires Emacs-29.
+This version requires Emacs-28.2.
 
 ** Speech-Enable Package Devdocs
 
@@ -19,7 +19,7 @@ Lookup and browse locally installed Devdocs.
 ** Updated Keybindings 
 
 Keybindings have been updated while staying backwrd-compatible where
-it makes sense. 
+it makes sense.  The updates leverage using ~xscape~.
 
 
 ** Speech-Enable ~empv~
@@ -31,11 +31,13 @@ front-end.
 
 Module ~emacspeak-treesit~ speech-enables TreeSitter navigation where
 supported.
+
 ** Speech-Enable Tabulated-List-Mode
 
 Module ~emacspeak-tabulated-list~ speech-enables
 ~tabulated-list-mode~.
-* Speech-Enable Tree-Sitter Navigation
+
+* Speech-Enable Tree-Sitter Based Navigation
 
 Speech-enable =combobulate=, a package that enables consistent
 tree-sitter based code navigation. See https://github.com/mickeynp/combobulate.git (push)
@@ -77,6 +79,7 @@ AsTeR integration is now integrated on the emacspeak Audio Desktop
 ** Media History
 
 Updated media history browser.
+
 ** Updated Structured Doc Navigation
 
 Better document navigation  in =eww= and =org= buffers.
