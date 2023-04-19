@@ -38,8 +38,9 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
 
      ;;{{{ Sending Mail:
 
-;;  Set send-mail-function via custom.
+
      (setq
+      send-mail-function 'smtpmail-send-it
                                         ;smtpmail-debug-info t
                                         ;smtpmail-debug-verb t
       smtpmail-stream-type 'ssl
