@@ -300,6 +300,7 @@
    ("C-l" what-line)
    ("C-m"  emacspeak-websearch-google)
    ("C-o" emacspeak-ocr)
+   ("C-p" emacspeak-pianobar)
    ("C-q" emacspeak-toggle-inaudible-or-comint-autospeak)
    ("C-r" restart-emacs)
    ("C-s" tts-restart)
