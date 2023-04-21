@@ -5,7 +5,12 @@ Code in remote-tts-setup is also available as a bash function in ../bash-utils/r
 Reverse port forwarding is the solution I have been using since approx
 2011.
 
-** Using SSH 
+** Using SSH
+
+This is legacy and is here for historical reasons, it has not been
+used in a long time. Port-forwarding is the recommended solution for
+using remote-emacspeak.
+
 
 0) Make sure you can ssh from the remote machine to the local
 machine without providing a password.
