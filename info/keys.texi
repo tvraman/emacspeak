@@ -9,6 +9,9 @@
 @item "
  emacspeak-speak-sexp
 
+@item '
+ emacspeak-pianobar
+
 @item =
  emacspeak-speak-current-column
 

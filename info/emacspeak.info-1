@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 14, 2023.
+last updated on April 21, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2650,6 +2650,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘"’
      emacspeak-speak-sexp
+
+‘'’
+     emacspeak-pianobar
 
 ‘=’
      emacspeak-speak-current-column

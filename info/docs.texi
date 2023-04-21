@@ -7839,10 +7839,6 @@ current page.
 @table @kbd
 @item C-' y
 @kindex C-' y
-@item C-e ' y
-@kindex C-e ' y
-@item <fn> ' y
-@kindex <fn> ' y
 @end table
 
 @findex emacspeak-google-yt-feed
@@ -8941,10 +8937,6 @@ Binds key to invoke m-player  on specified directory.
 @table @kbd
 @item C-' h
 @kindex C-' h
-@item C-e ' h
-@kindex C-e ' h
-@item <fn> ' h
-@kindex <fn> ' h
 @end table
 
 @findex emacspeak-m-player-browse-history
@@ -9156,10 +9148,6 @@ Play both channels on left.
 @table @kbd
 @item C-' l
 @kindex C-' l
-@item C-e ' l
-@kindex C-e ' l
-@item <fn> ' l
-@kindex <fn> ' l
 @end table
 
 @findex emacspeak-m-player-locate-media
@@ -11422,20 +11410,20 @@ keys from @code{pianobar-key-map}.
 @subsubsection emacspeak-pianobar
 @deffn {Command} emacspeak-pianobar   
 @table @kbd
+@item C-e '
+@kindex C-e '
 @item C-e C-'
 @kindex C-e C-'
 @item C-' '
 @kindex C-' '
+@item <fn> '
+@kindex <fn> '
 @item <fn> C-'
 @kindex <fn> C-'
 @item C-e y p
 @kindex C-e y p
-@item C-e ' '
-@kindex C-e ' '
 @item <fn> y p
 @kindex <fn> y p
-@item <fn> ' '
-@kindex <fn> ' '
 @end table
 
 @findex emacspeak-pianobar
@@ -21316,7 +21304,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 65 URL Templates.
+This section documents a total of 58 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21344,17 +21332,7 @@ Retrieve product details from Amazon by either ISBN or ASIN.@item @b{ArchWiki Se
 
 Search Linux ArchWiki@item @b{BBC Podcast Directory}
 
-BBC PodCast Directory@item @b{Baseball Box Scores}
-
-Display baseball Play By Play.@item @b{Baseball Game Details}
-
-Display baseball Play By Play.@item @b{Baseball Game Index}
-
-Display baseball Play By Play.@item @b{Baseball Highlights}
-
-Display baseball Video Highlights.@item @b{Baseball scores}
-
-Display baseball scores.@item @b{Bing News}
+BBC PodCast Directory@item @b{Bing News}
 
 Bing News results as RSS feed.@item @b{Bing Search}
 
@@ -21394,11 +21372,7 @@ Display Hacker News Front Page@item @b{Hacker  News Search}
 
 Display Hacker News Front Page@item @b{Hoogle Haskell API Search}
 
-Haskell API Search against a local server.@item @b{MLB Scorecard}
-
-Show MLB Scorecard.@item @b{MLB standings}
-
-Display MLB standings.@item @b{NBA  standings}
+Haskell API Search against a local server.@item @b{NBA  standings}
 
 Display NBA standings.@item @b{NLS Bard Bookshelf}
 

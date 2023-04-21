@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 14, 2023.
+last updated on April 21, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -714,8 +714,6 @@ e.g.  blog search are tbm=
 
  -- Command: emacspeak-google-yt-feed (url)
      ‘C-' y’
-     ‘C-e ' y’
-     ‘<fn> ' y’
 
      Turn YT Channel or Playlist url into an RSS feed and open it.
 
@@ -1700,8 +1698,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-browse-history
      ‘C-' h’
-     ‘C-e ' h’
-     ‘<fn> ' h’
 
      Create a  media history browser from media-history.
 
@@ -1864,8 +1860,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-locate-media (pattern)
      ‘C-' l’
-     ‘C-e ' l’
-     ‘<fn> ' l’
 
      Locate media matching  pattern.  The results can be
      played as a play-list by pressing [RET] on the first line, see
@@ -3788,13 +3782,13 @@ key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
 .............................
 
  -- Command: emacspeak-pianobar
+     ‘C-e '’
      ‘C-e C-'’
      ‘C-' '’
+     ‘<fn> '’
      ‘<fn> C-'’
      ‘C-e y p’
-     ‘C-e ' '’
      ‘<fn> y p’
-     ‘<fn> ' '’
 
      Start or control Emacspeak Pianobar player.
 
