@@ -277,6 +277,7 @@
    ("<up>"  emacspeak-read-previous-line)
    ("=" emacspeak-speak-current-column)
    ("?" emacspeak-websearch-dispatch)
+   ("'" emacspeak-pianobar)
    ("@" emacspeak-speak-message-at-time)
    ("A" emacspeak-appt-repeat-announcement)
    ("B" emacspeak-speak-buffer-interactively)
@@ -300,7 +301,6 @@
    ("C-l" what-line)
    ("C-m"  emacspeak-websearch-google)
    ("C-o" emacspeak-ocr)
-   ("C-p" emacspeak-pianobar)
    ("C-q" emacspeak-toggle-inaudible-or-comint-autospeak)
    ("C-r" restart-emacs)
    ("C-s" tts-restart)
@@ -446,7 +446,7 @@
 (global-set-key  (ems-kbd "C-.") 'emacspeak-super-keymap)
 (global-set-key  (ems-kbd "C-;") 'emacspeak-hyper-keymap)
 (global-set-key  (ems-kbd "C-'") 'emacspeak-multi-keymap)
-(define-key emacspeak-keymap   (ems-kbd "'") 'emacspeak-multi-keymap)
+
 
 ;; Our very own silence key on the console
 (global-set-key '[silence] 'emacspeak-silence)
