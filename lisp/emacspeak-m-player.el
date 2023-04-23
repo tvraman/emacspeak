@@ -1580,7 +1580,7 @@ flat classical club dance full-bass full-bass-and-treble
 ;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional prefix)
   "Use youtube-dl  to stream  using mplayer.
- Optional interactive prefix arg uses mplayer  instead. "
+ Optional interactive prefix arg mpv  instead. "
   (interactive
    (list
     (emacspeak-eww-read-url)
