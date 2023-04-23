@@ -797,19 +797,21 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (when (bufferp ad-return-value)
       (dtk-notify-speak
        (format "Displayed message in buffer  %s" buffer-name)))))
-(defvar eldoc--doc-buffer-docs nil)
+
+(defvar emacspeak--last-docs nil
+  "Last docs considered in `emacspeak-speak-eldoc'.")
+
 (defun emacspeak-speak-eldoc (docs interactive)
-  "Speak eldoc."
-  (cl-declare (special eldoc--doc-buffer-docs eldoc--doc-buffer))
-  (when (and eldoc--doc-buffer (buffer-live-p eldoc--doc-buffer))
-    (with-current-buffer eldoc--doc-buffer
-      (unless (equal docs eldoc--doc-buffer-docs)
-        (emacspeak-auditory-icon 'doc))
-      (when interactive (dtk-speak (buffer-string))))))
+  "Speak eldoc.  Intended for `eldoc-display-functions'."
+  (with-current-buffer (get-buffer-create " *emacspeak-eldoc*")
+    (erase-buffer)
+    (insert (mapconcat #'car docs "\n"))
+    (unless (equal docs emacspeak--last-docs)
+      (emacspeak-auditory-icon 'doc))
+    (when interactive (dtk-speak (buffer-string))))
+  (setq emacspeak--last-docs docs))
 
 (with-eval-after-load "eldoc"
-  (remove-hook 'eldoc-display-functions #'eldoc-display-in-echo-area)
-  (add-hook 'eldoc-display-functions #'eldoc-display-in-buffer)
   (add-hook 'eldoc-display-functions #'emacspeak-speak-eldoc)
   (voice-setup-set-voice-for-face
    'eldoc-highlight-function-argument 'voice-bolden))
