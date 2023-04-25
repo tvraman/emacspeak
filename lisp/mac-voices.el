@@ -80,7 +80,7 @@
 ;;}}}
 ;;{{{  voice table
 
-(defvar mac-default-voice-string "[{voice alex}]"
+(defvar mac-default-voice-string "[{voice systemDefault}]"
   "Default Mac tag for  default voice.")
 
 (defvar mac-voice-table (make-hash-table)
@@ -310,7 +310,7 @@ and TABLE gives the values along that dimension."
   "Configure TTS  to use mac."
   (cl-declare (special tts-default-speech-rate
                        tts-default-voice mac-default-speech-rate))
-  (setq tts-default-voice 'alex)
+  (setq tts-default-voice 'systemDefault)
   (fset 'tts-voice-defined-p 'mac-voice-defined-p)
   (fset 'tts-get-voice-command 'mac-get-voice-command)
   (fset 'tts-define-voice-from-speech-style 'mac-define-voice-from-speech-style)

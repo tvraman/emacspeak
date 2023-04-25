@@ -59,8 +59,8 @@ if debugLevel > 0:
     # DEBUGFILE = open("/tmp/speech.log", "w")
 
 # global speech rate
-ttsState["speechRate"] = 500
-ttsState["charFactor"] = 1.1
+ttsState["speechRate"] = 255
+ttsState["charFactor"] = 1.8
 ttsState["sayRate"] = round(ttsState["speechRate"] * ttsState["charFactor"])
 # set capitalize to off initially
 ttsState["capitalize"] = 0
@@ -410,7 +410,6 @@ class _ProtocolHandler:
         speechSynthesizer.setDelegate_(speechDelegate)
 
         textClipPlayer.stop()
-        audioIconPlayer.stop()
 
         del speechQueue[:]
         self.isProcessing = False
