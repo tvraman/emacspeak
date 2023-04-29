@@ -414,26 +414,6 @@
 ;;}}}
 ;;{{{ deleting chars:
 
-(defadvice org-delete-backward-char (around emacspeak pre act comp)
-  "Speak character you're deleting."
-  (cond
-   ((ems-interactive-p)
-    (dtk-tone-deletion)
-    (emacspeak-speak-this-char (preceding-char))
-    ad-do-it)
-   (t ad-do-it))
-  ad-return-value)
-
-(defadvice org-delete-char (around emacspeak pre act comp)
-  "Speak character you're deleting."
-  (cond
-   ((ems-interactive-p)
-    (dtk-tone-deletion)
-    (emacspeak-speak-char t)
-    ad-do-it)
-   (t ad-do-it))
-  ad-return-value)
-
 (defadvice org-return (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
