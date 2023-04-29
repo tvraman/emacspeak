@@ -9711,7 +9711,7 @@ Use youtube-dl and mplayer to live-stream   from Youtube.
 
 @format
 Use youtube-dl  to stream  using mplayer.
- Optional interactive prefix arg uses mplayer  instead. 
+ Optional interactive prefix arg mpv  instead. 
 
 (fn URL &optional PREFIX)
 @end format

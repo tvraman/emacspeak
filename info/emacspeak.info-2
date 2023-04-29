@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 23, 2023.
+last updated on April 29, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -2298,7 +2298,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘C-x @ a y’
 
      Use youtube-dl  to stream  using mplayer.
-      Optional interactive prefix arg uses mplayer  instead.
+      Optional interactive prefix arg mpv  instead.
 
      (fn URL &optional PREFIX)
 
