@@ -45,19 +45,17 @@ access to the evolving assistant-oriented social Internet cloud.
 
 * Major Enhancements:
 
-  1. Updated Keybindings  for better ergonomics.  ⌨
-  2. Speech-Enable Package Devdocs🗎
-  3. Speech-Enable ~empv~ 📺
-  4. Speech-Enable Treesitter Navigation 🐒
-  5. Speech-Enable Tabulated-List-Mode  ␋
-  6. Speech-Enable FFIP --- find file  in project 📁
-  7. Speech-Enable EXWM Emacs Window Manager 🪟
-  8. Audio Marks (AMarks) 🔉
-  9. Search Wizards 🪄
-  10. AsTeR: Audio System For Technical Readings  🦮
-  11. Media History browser   ℗
-
-
+  1. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][AsTeR]]: Audio System For Technical Readings.  🦮
+  2. Updated Keybindings  for better ergonomics.  ⌨
+  3. Speech-Enable Package Devdocs. 🗎
+  4. Speech-Enable ~empv~. 📺
+  5. Speech-Enable Treesitter Navigation.  🐒
+  6. Speech-Enable Tabulated-List-Mode.  ␋
+  7. Speech-Enable FFIP --- find file  in project. 📁
+  8. Speech-Enable EXWM Emacs Window Manager.  🪟
+  9. Audio Marks (AMarks). 🔉
+  10. Search Wizards. 🪄
+  11. Media History browser.  ℗
 
       — And a lot more than will fit this margin. … 🗞
   
@@ -127,7 +125,7 @@ The latest development snapshot of Emacspeak is always available at
 [[https://github.com/tvraman/emacspeak][GitHub]].
 
 * History:
-
+  - Emacspeak 58 delivers better ergonomics by minimizing the need for chording.
   - Emacspeak 57.0 is named in honor of [[https://tvraman.github.io/tilden-face.jpg][Tilden Labrador]].
   - Emacspeak 56.0 (AgileDog) belies its age  to be as agile as Tilden.
   - Emacspeak 55.0 (CalmDog) attempts to be as calm as Tilden.
@@ -285,9 +283,9 @@ valuable knowledge base for new users.
 
 * Press/Analyst Contact: Tilden Labrador
 
-Going forward, Tilden acknowledges his exclusive monopoly on
+Going forward,  Aster, Hubbell and Tilden acknowledge their  exclusive monopoly on
 setting the direction of the Emacspeak Audio Desktop (🦮) and
-promises to exercise this freedom to innovate and her resulting
+promise to exercise their freedom to innovate and her resulting
 power responsibly (as before) in the interest of all dogs.
 
 *About This Release:
