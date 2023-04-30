@@ -46,7 +46,7 @@ access to the evolving assistant-oriented social Internet cloud.
 * Major Enhancements:
 
   1. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][AsTeR]]: Audio System For Technical Readings.  🦮
-  2. Updated Keybindings  for better ergonomics.  ⌨
+  2. Updated Keybindings  for better [[https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html][ergonomics]].  ⌨
   3. Speech-Enable Package Devdocs. 🗎
   4. Speech-Enable ~empv~. 📺
   5. Speech-Enable Treesitter Navigation.  🐒
