@@ -78,9 +78,6 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{ Fixups:
 
-(defadvice psession--restore-some-buffers (around ems pre act comp)
-  (make-thread ad-do-it))
-
 (defadvice system-users (around fix pre act comp)
   "Just return user real name."
   (ignore ad--addoit-function)
