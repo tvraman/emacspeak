@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 29, 2023.
+last updated on May 1, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flymake,  Prev: emacspeak-filtertext,  Up: Emacspeak Commands And Options
@@ -1353,7 +1353,7 @@ found on laptops is denoted <fn>
       ("s" soundscape)
       ("t" soundscape-toggle)
       ("u" soundscape-update-mood)
-      ("y" emacspeak-empv-play))
+      ("y" emacspeak-empv-play-url))
      
 
  -- Variable: User Option emacspeak-windows-keys

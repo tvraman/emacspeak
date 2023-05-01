@@ -550,7 +550,7 @@
  soundscape-update-mood
 
 @item y
- emacspeak-empv-play
+ emacspeak-empv-play-url
 
 @end table
 
