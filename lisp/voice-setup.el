@@ -126,6 +126,7 @@
   family average-pitch pitch-range stress richness)
 
 (defun voice-setup ()
+  "Setup voices for selected TTS engine."
   (cond
    ((string-match "outloud" dtk-program)
     (require 'outloud-voices)
