@@ -1,0 +1,89 @@
+#    -*- mode: org -*-
+  To express oneself well is impactful, but only when one has
+  something impactful to express!  (TVR on Conversational Interfaces)
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+
+* Emacspeak 58 --- Emacspeak 58 User Visible Changes
+
+This version requires Emacs-28.2.
+
+** Speech-Enable Package Devdocs
+
+Lookup and browse locally installed Devdocs.
+
+** Updated Keybindings 
+
+Keybindings have been updated while staying backwrd-compatible where
+it makes sense.  The updates leverage using ~xscape~.
+
+
+** Speech-Enable ~empv~
+
+Module ~emacspeak-empv~ speech-enables  ~empv~ an Emacs MPV media
+front-end.
+
+** Speech-Enable Treesitter Navigation
+
+Module ~emacspeak-treesit~ speech-enables TreeSitter navigation where
+supported.
+
+** Speech-Enable Tabulated-List-Mode
+
+Module ~emacspeak-tabulated-list~ speech-enables
+~tabulated-list-mode~.
+
+* Speech-Enable Tree-Sitter Based Navigation
+
+Speech-enable =combobulate=, a package that enables consistent
+tree-sitter based code navigation. See https://github.com/mickeynp/combobulate.git (push)
+
+** Speech-Enable FFIP
+
+Speech-enable package ~find-file-in-project~.
+
+** Speech-Enable EXWM
+
+Emacs Window Manager --- ~exwm~ is speech-enabled by module
+~emacspeak-exwm~.
+
+** Audio Marks (AMarks)
+
+Audio marks and the AMark Browser are better integrated across =dired=
+and =org= interaction.
+
+** URL Templates
+
+URL Templates have been refreshed.
+
+** Search Wizards
+
+Search wizards have been updated to reflect the state of the Web.
+
+** Youtube MPV Integration 
+
+Better MPV/Youtube integration including PlayLists as RSS.
+
+** Updated Slime Support
+
+Module =emacspeak-slime= updated while developing AsTeR.
+
+** AsTeR: Audio System For Technical Readings 
+
+AsTeR  is now integrated on the emacspeak Audio Desktop 
+
+** Media History
+
+Updated media history browser.
+
+** Updated Structured Doc Navigation
+
+Better document navigation  in =eww= and =org= buffers.
+
+** Updated Keymaps 
+
+Updated key-bindings including specializations for =org-mode= and
+consistent media interaction across the Emacspeak Desktop.
