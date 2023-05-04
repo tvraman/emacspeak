@@ -268,6 +268,16 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
 
+
+(defadvice org-delete-char (around emacspeak pre act comp)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p)
+    (dtk-tone-deletion)
+    (emacspeak-speak-char t)
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
 ;;}}}
 ;;{{{ cut and paste:
 
