@@ -477,10 +477,10 @@
 
 ;; Return URL under point or URL read from minibuffer.
 ;;;###autoload
-(defsubst emacspeak-eww-read-url ()
+(defsubst emacspeak-eww-read-url (&optional history)
   (or
    (shr-url-at-point nil)
-   (read-string "URL:" (browse-url-url-at-point))))
+   (read-string "URL:" (browse-url-url-at-point) history)))
 
 ;; Generate functions emacspeak-eww-current-title and friends:
 

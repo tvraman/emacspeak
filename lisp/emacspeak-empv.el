@@ -89,21 +89,28 @@
 
 ;;}}}
 ;;{{{Commands:
+
+(defvar emacspeak-empv-yt-history nil
+  "Youtube history for EMpv.")
+
 ;;;###autoload
 (defun emacspeak-empv-play-url (url &optional left-channel)
   "Play URL using mpv;  Prefix arg plays on left channel."
-  (interactive (list (emacspeak-eww-read-url) current-prefix-arg ))
-  (cl-declare (special tts-notification-device))
+  (interactive (list (emacspeak-eww-read-url emacspeak-empv-yt-history)
+                     current-prefix-arg ))
+  (cl-declare (special tts-notification-device
+                       emacspeak-empv-yt-history))
   (require 'empv)
   (when
       (and url
            (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
+  (setq emacspeak-empv-yt-history url)
   (if left-channel
       (with-environment-variables (("PULSE_SINK" tts-notification-device))
         (empv-play url))
-      (empv-play url)))
+    (empv-play url)))
 
 
 (defun emacspeak-empv-accumulate-to-register ()
