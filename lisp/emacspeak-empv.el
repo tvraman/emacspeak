@@ -96,7 +96,7 @@
 ;;;###autoload
 (defun emacspeak-empv-play-url (url &optional left-channel)
   "Play URL using mpv;  Prefix arg plays on left channel."
-  (interactive (list (emacspeak-eww-read-url emacspeak-empv-yt-history)
+  (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-yt-history)
                      current-prefix-arg ))
   (cl-declare (special tts-notification-device
                        emacspeak-empv-yt-history))
@@ -106,7 +106,7 @@
            (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
-  (setq emacspeak-empv-yt-history url)
+  (cl-pushnew  url emacspeak-empv-yt-history :test #'string=)
   (if left-channel
       (with-environment-variables (("PULSE_SINK" tts-notification-device))
         (empv-play url))
