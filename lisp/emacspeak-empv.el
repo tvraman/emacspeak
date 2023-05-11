@@ -156,6 +156,8 @@
      ("v" empv-set-volume)
      ("SPC" empv-toggle)
      ("'" empv-current-loop-on)
+     ("9" empv-volume-down)
+     ("0" empv-volume-up)
      ("RET" empv-youtube-tabulated))
    do
    (emacspeak-keymap-update empv-map b)
