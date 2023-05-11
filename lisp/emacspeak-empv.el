@@ -144,21 +144,23 @@
   "Emacspeak setup for empv."
   (cl-declare (special empv-map))
   (global-set-key (ems-kbd "C-; v") empv-map)
-  (define-key empv-youtube-results-mode-map (kbd "C-j") 'empv-youtube-results-play-current)
-  (define-key empv-youtube-results-mode-map "u" 'emacspeak-empv-accumulate-to-register)
   (cl-loop
    for b in
    '(
-     ("/" empv-seek)
      ("%" emacspeak-empv-percentage-seek)
+     ("'" empv-current-loop-on)
+     ("/" empv-seek)
+     ("0" empv-volume-up)
+     ("9" empv-volume-down)
+     ("C-j" empv-youtube-results-play-current)
+     ("RET" empv-youtube-tabulated)
+     ("SPC" empv-toggle)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
+     ("u" 'emacspeak-empv-accumulate-to-register)
      ("v" empv-set-volume)
-     ("SPC" empv-toggle)
-     ("'" empv-current-loop-on)
-     ("9" empv-volume-down)
-     ("0" empv-volume-up)
-     ("RET" empv-youtube-tabulated))
+     )
+   
    do
    (emacspeak-keymap-update empv-map b)
    (emacspeak-keymap-update empv-youtube-results-mode-map b))
