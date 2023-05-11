@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1187 commands and 148 options.
+This chapter documents a total of 1189 commands and 148 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3837,6 +3837,24 @@ Accumulate media links to register u
 @end format
 @end deffn
 
+@subsubsection emacspeak-empv-percentage-seek
+@deffn {Command} emacspeak-empv-percentage-seek  (target)
+@table @kbd
+@item C-; v %
+@kindex C-; v %
+@item C-x @@ h v %
+@kindex C-x @@ h v %
+@end table
+
+@findex emacspeak-empv-percentage-seek
+
+@format
+Percentage seek in seconds,see ‘empv-seek’
+
+(fn TARGET)
+@end format
+@end deffn
+
 @subsubsection emacspeak-empv-play-url
 @deffn {Command} emacspeak-empv-play-url  (url &optional left-channel)
 @table @kbd
@@ -3856,6 +3874,24 @@ Accumulate media links to register u
 Play URL using mpv;  Prefix arg plays on left channel.
 
 (fn URL &optional LEFT-CHANNEL)
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-relative-seek
+@deffn {Command} emacspeak-empv-relative-seek  (target)
+@table @kbd
+@item C-; v r
+@kindex C-; v r
+@item C-x @@ h v r
+@kindex C-x @@ h v r
+@end table
+
+@findex emacspeak-empv-relative-seek
+
+@format
+Relative seek in seconds,see ‘empv-seek’
+
+(fn TARGET)
 @end format
 @end deffn
 
