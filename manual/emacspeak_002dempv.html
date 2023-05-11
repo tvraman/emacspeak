@@ -82,8 +82,12 @@
         "#emacspeak_002dempv_002daccumulate_002dto_002dregister"
         accesskey=
         "1">emacspeak-empv-accumulate-to-register</a></li>
+        <li><a href="#emacspeak_002dempv_002dpercentage_002dseek"
+        accesskey="2">emacspeak-empv-percentage-seek</a></li>
         <li><a href="#emacspeak_002dempv_002dplay_002durl"
-        accesskey="2">emacspeak-empv-play-url</a></li>
+        accesskey="3">emacspeak-empv-play-url</a></li>
+        <li><a href="#emacspeak_002dempv_002drelative_002dseek"
+        accesskey="4">emacspeak-empv-relative-seek</a></li>
       </ul>
       <div class="subsubsection" id=
       "emacspeak_002dempv_002daccumulate_002dto_002dregister">
@@ -110,8 +114,41 @@
         </dl>
       </div>
       <div class="subsubsection" id=
-      "emacspeak_002dempv_002dplay_002durl">
+      "emacspeak_002dempv_002dpercentage_002dseek">
         <h4 class="subsubsection">12.62.1.2
+        emacspeak-empv-percentage-seek</h4>
+        <dl class="def">
+          <dt id=
+          "index-emacspeak_002dempv_002dpercentage_002dseek">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-empv-percentage-seek</strong>
+          <em>(target)</em> <a href=
+          '#index-emacspeak_002dempv_002dpercentage_002dseek'
+          class='copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_003b-v-_0025'><span><kbd>C-; v
+              %</kbd> <a href='#index-C_002d_003b-v-_0025' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-v-_0025'><span><kbd>C-x
+              @ h v %</kbd> <a href=
+              '#index-C_002dx-_0040-h-v-_0025' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dempv_002dpercentage_002dseek-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Percentage seek in seconds,see ‘empv-seek’
+
+(fn TARGET)
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dempv_002dplay_002durl">
+        <h4 class="subsubsection">12.62.1.3
         emacspeak-empv-play-url</h4>
         <dl class="def">
           <dt id="index-emacspeak_002dempv_002dplay_002durl">
@@ -141,6 +178,37 @@
               "format">Play URL using mpv;  Prefix arg plays on left channel.
 
 (fn URL &amp;optional LEFT-CHANNEL)
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection" id=
+      "emacspeak_002dempv_002drelative_002dseek">
+        <h4 class="subsubsection">12.62.1.4
+        emacspeak-empv-relative-seek</h4>
+        <dl class="def">
+          <dt id="index-emacspeak_002dempv_002drelative_002dseek">
+          <span class="category">Command:</span>
+          <span><strong>emacspeak-empv-relative-seek</strong>
+          <em>(target)</em> <a href=
+          '#index-emacspeak_002dempv_002drelative_002dseek' class=
+          'copiable-anchor'>¶</a></span></dt>
+          <dd>
+            <dl compact="compact">
+              <dt id='index-C_002d_003b-v-r'><span><kbd>C-; v
+              r</kbd> <a href='#index-C_002d_003b-v-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-v-r'><span><kbd>C-x @ h
+              v r</kbd> <a href='#index-C_002dx-_0040-h-v-r' class=
+              'copiable-anchor'>¶</a></span></dt>
+            </dl><span id=
+            "index-emacspeak_002dempv_002drelative_002dseek-1"></span>
+            <div class="format">
+              <pre class=
+              "format">Relative seek in seconds,see ‘empv-seek’
+
+(fn TARGET)
 </pre>
             </div>
           </dd>
