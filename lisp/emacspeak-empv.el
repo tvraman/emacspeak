@@ -150,12 +150,16 @@
    for b in
    '(
      ("/" empv-seek)
-     ("g" empv-set-volume)
+     ("%" emacspeak-empv-percentage-seek)
+     ("r" emacspeak-empv-relative-seek)
+     ("s" emacspeak-empv-absolute-seek)
+     ("v" empv-set-volume)
      ("SPC" empv-toggle)
      ("'" empv-current-loop-on)
      ("RET" empv-youtube-tabulated))
    do
-   (emacspeak-keymap-update empv-map b))
+   (emacspeak-keymap-update empv-map b)
+   (emacspeak-keymap-update empv-youtube-results-mode-map b))
   (map-keymap
    (lambda (_key cmd)
      (when (symbolp cmd)
