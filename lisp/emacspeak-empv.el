@@ -17,19 +17,19 @@
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -61,7 +61,7 @@
 ;;{{{Interactive Commands:
 
 (cl-loop
- for f in 
+ for f in
  '(aempv-current-loop-off empv-current-loop-on
                           empv-toggle empv-pause
                           empv-file-loop-off empv-file-loop-on
@@ -81,7 +81,7 @@
 (defadvice empv-youtube-tabulated (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    
+
     (emacspeak-speak-mode-line)))
 
 ;;}}}
@@ -112,13 +112,30 @@
         (empv-play url))
     (empv-play url)))
 
-
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
   (interactive)
   (emacspeak-accumulate-to-register ?u
                                     'empv-youtube-results--current-video-url))
 
+;;}}}
+;;{{{Seekers:
+
+(defun emacspeak-empv-relative-seek (target)
+  "Relative seek in seconds,see `empv-seek'"
+  (interactive "nTarget:")
+  (empv-seek target)
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon 'button)
+    (call-interactively 'empv-display-current)))
+
+(defun emacspeak-empv-percentage-seek (target)
+  "Percentage seek in seconds,see `empv-seek'"
+  (interactive "nTarget:")
+  (empv-seek target '("absolute-percent"))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon 'button)
+    (call-interactively 'empv-display-current)))
 
 ;;}}}
 ;;{{{Setup:
