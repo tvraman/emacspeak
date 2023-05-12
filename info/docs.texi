@@ -3858,14 +3858,10 @@ Percentage seek in seconds,see ‘empv-seek’
 @subsubsection emacspeak-empv-play-url
 @deffn {Command} emacspeak-empv-play-url  (url &optional left-channel)
 @table @kbd
-@item C-. y
-@kindex C-. y
 @item C-e y y
 @kindex C-e y y
 @item <fn> y y
 @kindex <fn> y y
-@item C-x @@ s y
-@kindex C-x @@ s y
 @end table
 
 @findex emacspeak-empv-play-url
@@ -8579,7 +8575,7 @@ Default Value:
  ("s" soundscape)
  ("t" soundscape-toggle)
  ("u" soundscape-update-mood)
- ("y" emacspeak-empv-play-url))
+ ("y" empv-youtube-tabulated))
 
 @end verbatim
 

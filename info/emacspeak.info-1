@@ -3192,7 +3192,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
      soundscape-update-mood
 
 ‘y’
-     emacspeak-empv-play-url
+     empv-youtube-tabulated
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-x-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
@@ -6723,10 +6723,8 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 .................................
 
  -- Command: emacspeak-empv-play-url (url &optional left-channel)
-     ‘C-. y’
      ‘C-e y y’
      ‘<fn> y y’
-     ‘C-x @ s y’
 
      Play URL using mpv;  Prefix arg plays on left channel.
 
@@ -9292,4 +9290,12 @@ This module provides Feeds support for Emacspeak
      
      "/home/raman/sourceforge/awesome-rss-feeds/"
      
+
+
+File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
+
+12.79 emacspeak-ffap
+====================
+
+FFAP == Find file at point and friends
 

@@ -550,7 +550,7 @@
  soundscape-update-mood
 
 @item y
- emacspeak-empv-play-url
+ empv-youtube-tabulated
 
 @end table
 
