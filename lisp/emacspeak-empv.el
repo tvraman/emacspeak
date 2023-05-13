@@ -155,7 +155,7 @@
      ("C-j" empv-youtube-results-play-current)
      ("RET" empv-youtube-tabulated)
      ("SPC" empv-toggle)
-     ("q" empv-exit)
+     ("x" empv-exit)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
      ("u" 'emacspeak-empv-accumulate-to-register)
