@@ -129,6 +129,15 @@
     (emacspeak-auditory-icon 'button)
     (call-interactively 'empv-display-current)))
 
+
+(defun emacspeak-empv-absolute-seek (target)
+  "Absolute seek in seconds,see `empv-seek'"
+  (interactive "nTarget:")
+  (empv-seek target '("absolute"))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon 'button)
+    (call-interactively 'empv-display-current)))
+
 (defun emacspeak-empv-percentage-seek (target)
   "Percentage seek in seconds,see `empv-seek'"
   (interactive "nTarget:")
