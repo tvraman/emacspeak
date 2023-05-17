@@ -1893,7 +1893,7 @@ Produce an auditory icon if possible."
 (defun emacspeak-isearch-setup ()
   "Setup emacspeak isearch."
   (emacspeak-auditory-icon 'open-object)
-  (setq emacspeak-speak-messages nil)
+  (setq emacspeak-speak-messages isearch-lazy-count)
   (dtk-speak (isearch-message-prefix)))
 
 (defun emacspeak-isearch-teardown ()
