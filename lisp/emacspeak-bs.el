@@ -67,8 +67,10 @@
     (cond
      ((get-buffer buffer)
       (when dtk-stop-immediately (dtk-stop))
-      (let ((document " document ")
-            (with "with size ")
+      (let ((document
+             (propertize " document " 'personality voice-smoothen))
+            (with
+             (propertize "with size " 'personality voice-smoothen))
             (name (buffer-name buffer))
             (file (buffer-file-name buffer))
             this-buffer-read-only
@@ -78,11 +80,6 @@
             mode-name
             this-buffer-directory
             (dtk-stop-immediately nil))
-        (put-text-property 0 (length document)
-                           'personality voice-smoothen
-                           document)
-        (put-text-property 0 (length with)
-                           'personality voice-smoothen  with)
         (save-current-buffer
           (set-buffer buffer)
           (setq this-buffer-read-only buffer-read-only)
