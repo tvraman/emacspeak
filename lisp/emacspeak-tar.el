@@ -115,6 +115,20 @@
 ;;}}}
 ;;{{{ additional interactive commands
 
+(defsubst ems--tar-mode-to-string (mode)
+  "Convert mode to speakable string."
+    (format
+     "%c%c%c%c%c%c%c%c%c"
+     (if (zerop (logand 256 mode)) ?- ?r)
+     (if (zerop (logand 128 mode)) ?- ?w)
+     (if (zerop (logand  64 mode)) ?- ?x)
+     (if (zerop (logand  32 mode)) ?- ?r)
+     (if (zerop (logand  16 mode)) ?- ?w)
+     (if (zerop (logand   8 mode)) ?- ?x)
+     (if (zerop (logand   4 mode)) ?- ?r)
+     (if (zerop (logand   2 mode)) ?- ?w)
+     (if (zerop (logand   1 mode)) ?- ?x)))
+
 (defun emacspeak-tar-speak-file-permissions()
   "Speak permissions of file current entry "
   (interactive)
@@ -122,22 +136,14 @@
     (error "This command should be called only in tar mode"))
   (let ((entry (tar-current-descriptor))
         (mode nil)
-        (string "          "))
+        (string nil))
     (cond
      ((null entry)
       (message "No file on this line"))
      (t
       (setq mode
             (tar-header-mode  entry))
-      (aset string 0       (if (zerop (logand 256 mode)) ?- ?r))
-      (aset string   1 (if (zerop (logand 128 mode)) ?- ?w))
-      (aset string  2 (if (zerop (logand  64 mode)) ?- ?x))
-      (aset string  3 (if (zerop (logand  32 mode)) ?- ?r))
-      (aset string  4 (if (zerop (logand  16 mode)) ?- ?w))
-      (aset string  5 (if (zerop (logand   8 mode)) ?- ?x))
-      (aset string  6 (if (zerop (logand   4 mode)) ?- ?r))
-      (aset string  7 (if (zerop (logand   2 mode)) ?- ?w))
-      (aset string  8 (if (zerop (logand   1 mode)) ?- ?x))
+      (setq string (ems--tar-mode-to-string mode))
       (if (zerop (logand 1024 mode)) nil (aset string  2 ?s))
       (if (zerop (logand 2048 mode)) nil (aset string  5 ?s))
       (message  "Permissions  %s "
