@@ -104,14 +104,8 @@ Summarize the form to welcome the user. "
   (cl-declare (special eudc-server))
   (emacspeak-eudc-widgets-add-emacspeak-help)
   (emacspeak-auditory-icon 'open-object)
-  (let((server "Server ")
+  (let((server (propertize "Server " 'personality voice-smoothen))
        (host eudc-server))
-    (put-text-property 0  (length host)
-                       'personality voice-animate
-                       host)
-    (put-text-property 0  (length server)
-                       'personality voice-annotate
-                       server)
     (dtk-speak 
      (concat server 
              " " 
