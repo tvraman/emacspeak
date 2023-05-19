@@ -110,7 +110,7 @@
       (concat
        "\\."
        (regexp-opt
-        (nconc ext (mapcar #'upcase ext))
+        (append ext (mapcar #'upcase ext))
         'parens)
        "$")))
   "Media Extensions.")
