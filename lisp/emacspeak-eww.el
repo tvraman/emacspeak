@@ -593,10 +593,9 @@ Safari/537.36"
   ;; remove "I" "o" from eww-link-keymap
   (cl-loop
    for c in
-   '(?I ?o)
+   '("I" "o")
    do
-   (when (assoc  c eww-link-keymap)
-     (setq eww-link-keymap (delete (assoc  c eww-link-keymap) eww-link-keymap))))
+   (keymap-unset eww-link-keymap key 'remove))
   (define-key eww-text-map  [C-return]
     'emacspeak-eww-fillin-form-field)
   (define-key eww-link-keymap  "u" 'emacspeak-eww-url-to-register)
