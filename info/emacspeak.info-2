@@ -12,7 +12,15 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 12, 2023.
+last updated on May 21, 2023.
+
+
+File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
+
+12.79 emacspeak-ffap
+====================
+
+FFAP == Find file at point and friends
 
 
 File: emacspeak.info,  Node: emacspeak-ffip,  Next: emacspeak-filtertext,  Prev: emacspeak-ffap,  Up: Emacspeak Commands And Options

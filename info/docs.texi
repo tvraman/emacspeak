@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1189 commands and 148 options.
+This chapter documents a total of 1190 commands and 149 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -1228,6 +1228,20 @@ t
 @defvar {User Option} tts-notification-device
 Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream.
+
+Default Value: 
+
+@verbatim
+
+"tts_right"
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} tts-secondary-device
+Virtual sound device to use as a secondary display stream.
+Set to nil to disable a secondary Notification stream.
 
 Default Value: 
 
@@ -3828,6 +3842,24 @@ Provides better Youtube integration
 
 @subsection Emacspeak-Empv Commands
 
+@subsubsection emacspeak-empv-absolute-seek
+@deffn {Command} emacspeak-empv-absolute-seek  (target)
+@table @kbd
+@item C-; v s
+@kindex C-; v s
+@item C-x @@ h v s
+@kindex C-x @@ h v s
+@end table
+
+@findex emacspeak-empv-absolute-seek
+
+@format
+Absolute seek in seconds,see ‘empv-seek’
+
+(fn TARGET)
+@end format
+@end deffn
+
 @subsubsection emacspeak-empv-accumulate-to-register
 @deffn {Command} emacspeak-empv-accumulate-to-register   
 @findex emacspeak-empv-accumulate-to-register
@@ -3867,7 +3899,7 @@ Percentage seek in seconds,see ‘empv-seek’
 @findex emacspeak-empv-play-url
 
 @format
-Play URL using mpv;  Prefix arg plays on left channel.
+Play URL using mpv;  Prefix arg plays on secondary device.
 
 (fn URL &optional LEFT-CHANNEL)
 @end format
