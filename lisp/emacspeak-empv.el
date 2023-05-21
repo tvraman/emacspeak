@@ -95,7 +95,7 @@
 
 ;;;###autoload
 (defun emacspeak-empv-play-url (url &optional left-channel)
-  "Play URL using mpv;  Prefix arg plays on left channel."
+  "Play URL using mpv;  Prefix arg plays on secondary device."
   (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-yt-history)
                      current-prefix-arg ))
   (cl-declare (special tts-secondary-device
