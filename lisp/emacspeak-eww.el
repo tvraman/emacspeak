@@ -595,7 +595,7 @@ Safari/537.36"
    for c in
    '("I" "o")
    do
-   (keymap-unset eww-link-keymap key 'remove))
+   (keymap-unset eww-link-keymap c 'remove))
   (define-key eww-text-map  [C-return]
     'emacspeak-eww-fillin-form-field)
   (define-key eww-link-keymap  "u" 'emacspeak-eww-url-to-register)
@@ -673,8 +673,7 @@ Safari/537.36"
      ("s" eww-readable)
      ("t" emacspeak-eww-next-table)
      ("m" emacspeak-eww-add-mark)
-     ("/" dtk-toggle-punctuation-mode)
-     )
+     ("/" dtk-toggle-punctuation-mode))
    do
    (emacspeak-keymap-update eww-mode-map binding)))
 
