@@ -843,8 +843,16 @@ value, and then set the current local value to the result.
 @table @kbd
 @item C-e C-x
 @kindex C-e C-x
+@item C-e <deletechar>
+@kindex C-e <deletechar>
+@item C-e <backspace>
+@kindex C-e <backspace>
 @item <fn> C-x
 @kindex <fn> C-x
+@item <fn> <deletechar>
+@kindex <fn> <deletechar>
+@item <fn> <backspace>
+@kindex <fn> <backspace>
 @item C-e d ,
 @kindex C-e d ,
 @item <fn> d ,

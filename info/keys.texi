@@ -9,27 +9,6 @@
 @item "
  emacspeak-speak-sexp
 
-@item '
- emacspeak-pianobar
-
-@item =
- emacspeak-speak-current-column
-
-@item ?
- emacspeak-websearch-dispatch
-
-@item @@
- emacspeak-speak-message-at-time
-
-@item A
- emacspeak-appt-repeat-announcement
-
-@item B
- emacspeak-speak-buffer-interactively
-
-@item C
- emacspeak-customize
-
 @item C-@@
  emacspeak-speak-current-mark
 
@@ -201,6 +180,9 @@
 @item &
  emacspeak-wizards-shell-command-on-current-file
 
+@item '
+ emacspeak-pianobar
+
 @item (
  amixer
 
@@ -242,6 +224,24 @@
 
 @item ;
  emacspeak-multimedia
+
+@item =
+ emacspeak-speak-current-column
+
+@item ?
+ emacspeak-websearch-dispatch
+
+@item @@
+ emacspeak-speak-message-at-time
+
+@item A
+ emacspeak-appt-repeat-announcement
+
+@item B
+ emacspeak-speak-buffer-interactively
+
+@item C
+ emacspeak-customize
 
 @end table
 
