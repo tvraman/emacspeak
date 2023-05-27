@@ -4,8 +4,8 @@ export XLIB_SKIP_ARGB_VISUALS=1
 # one-time action for 4k display:
 xrandr --output eDP-1 --mode 1680x1050 
 xset dpms 0 0 0
-xmodmap $HOME/.xmodmap 
 setxkbmap -option ctrl:nocaps #-option compose:rctrl
+xmodmap $HOME/.xmodmap 
 pidof ibus-daemon && pkill ibus-daemon
 
 xrdb -merge $HOME/.Xresources &
