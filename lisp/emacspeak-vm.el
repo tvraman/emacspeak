@@ -157,7 +157,7 @@ Note that some badly formed mime messages  cause trouble."
       (while (not header)
         (setq header
               (cl-case (read-char "f From s Subject t To u URL")
-                (?s subject)
+                (?s (format "%s" subject))
                 (?f from)
                 (?u url)
                 (?t to))))
