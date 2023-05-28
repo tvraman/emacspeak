@@ -1818,7 +1818,7 @@ unless   `dtk-quiet' is set to t. "
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it."
   (ems-with-messages-silenced
-   (dtk-speak message)
+    (dtk-speak (format "%s" message))
    (message (format "%s" message))))
 
 (defun dtk-speak-list (text &optional group)
