@@ -51,7 +51,7 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'treesit "treesit" 'no-error)
 ;;}}}
 ;;{{{ Map Faces:
 
@@ -80,6 +80,7 @@
 (defun emacspeak-treesit-inspect ()
   "If inspect-mode is on, speak current node."
   (interactive)
+  (cl-declare (special treesit--inspect-name))
   (cond
    (treesit-inspect-mode (message (format-mode-line treesit--inspect-name)))
    ((y-or-n-p "Turn on treesitter inspector?")
