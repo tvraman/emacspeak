@@ -61,7 +61,7 @@
    (treesit-explorer-field-name voice-brighten)))
 
 ;;}}}
-;;{{{ Interactive Commands:
+;;{{{ Advice Interactive Commands:
 
 (cl-loop
  for f in 
@@ -73,6 +73,18 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+
+;;}}}
+;;{{{Interactive Helpers:
+
+(defun emacspeak-treesit-inspect ()
+  "If inspect-mode is on, speak current node."
+  (interactive)
+  (cond
+   (treesit-inspect-mode (message (format-mode-line treesit--inspect-name)))
+   ((y-or-n-p "Turn on treesitter inspector?")
+    (treesit-inspect-mode)
+    (message (format-mode-line treesit--inspect-name)))))
 
 ;;}}}
 (provide 'emacspeak-treesit)
