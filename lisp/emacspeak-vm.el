@@ -162,7 +162,7 @@ Note that some badly formed mime messages  cause trouble."
                 (?u url)
                 (?t to))))
       (when header (kill-new header))
-      (dtk-speak-and-echo  (format  "%s" header))))
+      (dtk-speak  (format  "%s" header))))
    (t (error "No current message."))))
 
 (defvar emacspeak-vm-headers-strip-octals t
