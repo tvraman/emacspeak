@@ -711,6 +711,7 @@
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
+    ("f" browse-url-firefox)
     ("g" emacspeak-google-tts)
     ("h" emacspeak-org-capture-link)
     ("l" emacspeak-wizards-locate-content)
