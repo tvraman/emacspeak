@@ -1,5 +1,5 @@
 #!/bin/sh
-. ${HOME}/.bash_profile
+export DTK_PROGRAM=outloud
 export XLIB_SKIP_ARGB_VISUALS=1
 # one-time action for 4k display:
 xrandr --output eDP-1 --mode 1680x1050 
