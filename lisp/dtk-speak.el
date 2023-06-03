@@ -1621,6 +1621,8 @@ Set to nil to disable a secondary Notification stream."
   "Initialize speech system."
   ;; `voice-setup' requires us, so we can't require it at top-level.
   (require 'voice-setup)
+  ; fallback of fallbacks
+  (unless dtk-program (setq dtk-program "espeak"))
   (voice-setup)
   (let* ((new-process (dtk-make-process "Speaker"))
          (state (process-status new-process)))
