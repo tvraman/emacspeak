@@ -1,4 +1,5 @@
 #!/bin/sh
+# this is obsolete and here  for archival purposes.
 export ALSA_DEFAULT=default
 . ${HOME}/.bash_profile
 export SSH_ASKPASS=/usr/local/bin/e-askpass.sh
