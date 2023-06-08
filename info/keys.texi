@@ -519,6 +519,9 @@
 @item e
  elfeed
 
+@item f
+ browse-url-firefox
+
 @item g
  emacspeak-google-tts
 

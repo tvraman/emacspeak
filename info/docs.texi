@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1190 commands and 149 options.
+This chapter documents a total of 1191 commands and 149 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8605,6 +8605,7 @@ Default Value:
  ("c" calculator)
  ("d" emacspeak-dired-downloads)
  ("e" elfeed)
+ ("f" browse-url-firefox)
  ("g" emacspeak-google-tts)
  ("h" emacspeak-org-capture-link)
  ("l" emacspeak-wizards-locate-content)
@@ -15690,6 +15691,17 @@ Previous transient section.
 
 TREESIT ==  Syntax Trees
 Speech-enable treesit navigation commands.
+
+@subsection Emacspeak-Treesit Commands
+
+@subsubsection emacspeak-treesit-inspect
+@deffn {Command} emacspeak-treesit-inspect   
+@findex emacspeak-treesit-inspect
+
+@format
+If inspect-mode is on, speak current node.
+@end format
+@end deffn
 
 @node emacspeak-twittering
 @section emacspeak-twittering

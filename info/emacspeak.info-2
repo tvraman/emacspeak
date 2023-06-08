@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 24, 2023.
+last updated on June 8, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1413,6 +1413,7 @@ found on laptops is denoted <fn>
       ("c" calculator)
       ("d" emacspeak-dired-downloads)
       ("e" elfeed)
+      ("f" browse-url-firefox)
       ("g" emacspeak-google-tts)
       ("h" emacspeak-org-capture-link)
       ("l" emacspeak-wizards-locate-content)
@@ -7111,6 +7112,16 @@ File: emacspeak.info,  Node: emacspeak-treesit,  Next: emacspeak-twittering,  Pr
 ========================
 
 TREESIT == Syntax Trees Speech-enable treesit navigation commands.
+
+12.198.1 Emacspeak-Treesit Commands
+-----------------------------------
+
+12.198.1.1 emacspeak-treesit-inspect
+....................................
+
+ -- Command: emacspeak-treesit-inspect
+
+     If inspect-mode is on, speak current node.
 
 
 File: emacspeak.info,  Node: emacspeak-twittering,  Next: emacspeak-typo,  Prev: emacspeak-treesit,  Up: Emacspeak Commands And Options
