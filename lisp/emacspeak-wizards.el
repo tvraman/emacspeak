@@ -2812,11 +2812,12 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
 ;;;###autoload
 (defun emacspeak-wizards-noaa-weather (&optional ask)
   "Display weather  using NOAA Weather API.
-Data is retrieved only once, subsequent calls switch to previously
-displayed results. Kill that buffer or use an interactive prefix
-arg (C-u) to get new data.  Optional second interactive prefix
-arg (C-u C-u) asks for location address; Default is to display
-weather for `gmaps-my-address'.  "
+Address is a string and can include house-number, street name,
+city and zip.  Data is retrieved only once, subsequent calls
+switch to previously displayed results. Kill that buffer or use
+an interactive prefix arg (C-u) to get new data.  Optional second
+interactive prefix arg (C-u C-u) asks for location address;
+Default is to display weather for `gmaps-my-address'."
   (interactive "P")
   (let ((buffer
          (cond
