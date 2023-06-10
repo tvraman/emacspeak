@@ -1639,8 +1639,10 @@ Set to nil to disable a secondary Notification stream."
 (defun tts-restart ()
   "Restart TTS server."
   (interactive)
+  (cl-declare (special dtk-speaker-process))
   (dtk-initialize)
-  (dtk-interp-sync))
+  (when (process-live-p dtk-speaker-process)
+    (dtk-interp-sync)))
 
 ;;}}}
 ;;{{{  interactively select how text is split:
