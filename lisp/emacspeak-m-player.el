@@ -314,8 +314,11 @@ Reset immediately after being used.")
       (set-default sym val)))
 
 (defvar emacspeak-media-directory-regexp
-  (regexp-opt '("mp3" "audio" "music")) "Pattern matching locations where we store media." ;;; (ly-raw newline)#autoload
-  defun emacspeak-multimedia ()
+  (regexp-opt '("mp3" "audio" "music"))
+  "Pattern matching locations where we store media.")
+
+;;;###autoload
+(defun emacspeak-multimedia  ()
   "Start or control Emacspeak multimedia player.
 Controls media playback when already playing.
 
@@ -395,17 +398,16 @@ plays result as a directory." directory)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-media-guess-directory ()
-  "Guess default directory.
-If default directory is a media directory as identified by
-emacspeak-media-directory-regexp, use it.
-If default directory contains media files, then use it.
+     "Guess default directory.
+If default directory matches emacspeak-media-directory-regexp,
+use it.  If default directory contains media files, then use it.
 Otherwise use emacspeak-media-directory as the fallback."
   (cl-declare (special emacspeak-media-directory-regexp
                        emacspeak-m-player-hotkey-p))
   (cond
    ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
    (emacspeak-m-player-hotkey-p   emacspeak-media-shortcuts-directory)
-   ((or                                 ;  dir  contains media:
+   ((or ;  dir  contains media:
      (string-match emacspeak-media-directory-regexp default-directory)
      (directory-files default-directory   nil emacspeak-media-extensions))
     default-directory)
