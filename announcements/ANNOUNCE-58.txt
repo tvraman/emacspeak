@@ -118,7 +118,7 @@ video demonstrating such complete user failure.
 Emacspeak can be downloaded from GitHub --- see
 https://github.com/tvraman/emacspeak you can visit Emacspeak on the
 WWW at http://emacspeak.sf.net. You can subscribe to the emacspeak
-mailing list — [[http://mail.emacspeak.org][emacspeak@emacspeak.org]].  The [[http://emacspeak.blogspot.com][Emacspeak Blog]] is a good
+mailing list — [[http://mail.emacspeak.net][emacspeak@emacspeak.net]].  The [[http://emacspeak.blogspot.com][Emacspeak Blog]] is a good
 source for news about recent enhancements and how to use them.
 
 The latest development snapshot of Emacspeak is always available at
@@ -276,7 +276,7 @@ Research Collection]] on Information Technology at the Smithsonian's
 National Museum of American History.
 
 The Emacspeak mailing list is archived at
-[[https://www.emacspeak.org][Emacspeak Mail Archive]] --the home of the
+[[https://www.emacspeak.net][Emacspeak Mail Archive]] --the home of the
 Emacspeak mailing list-- thanks to Greg Priest-Dorman, and provides a
 valuable knowledge base for new users.
 
