@@ -12,13 +12,13 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 8, 2023.
+last updated on June 9, 2023.
 
 
 Indirect:
 emacspeak.info-1: 428
 emacspeak.info-2: 301032
-emacspeak.info-3: 604031
+emacspeak.info-3: 604114
 
 Tag Table:
 (Indirect)
@@ -310,58 +310,58 @@ Node: emacspeak-widget539702
 Node: emacspeak-windmove541196
 Node: emacspeak-winring541502
 Node: emacspeak-wizards541932
-Node: emacspeak-woman579088
-Node: emacspeak-xkcd579315
-Node: emacspeak-xref579911
-Node: emacspeak-xslt580187
-Node: emacspeak-yaml581976
-Node: emacspeak-yasnippet582231
-Node: espeak-voices582473
-Node: extra-muggles583122
-Node: g-utils596544
-Node: gm-nnir597656
-Node: gmaps598297
-Node: ladspa604031
-Node: light605947
-Node: mac-voices607041
-Node: omaps607447
-Node: outloud-voices607665
-Node: plain-voices608333
-Node: soundscape608677
-Node: sox613377
-Node: sox-gen616023
-Node: tetris622354
-Node: toy-braille622495
-Node: voice-defs623196
-Node: voice-setup628870
-Node: xbacklight633306
-Node: URL Templates634489
-Node: Running Terminal Based Applications639005
-Node: Emacspeak Keyboard Commands647564
-Node: TTS Servers649627
-Node: Emacspeak At Twenty655855
-Node: Turning Twenty657558
-Node: Using UNIX With Speech Output --- 1994658246
-Node: Key Enabler --- Emacs And Lisp Advice660087
-Node: Key Component --- Text To Speech (TTS)661132
-Node: Emacspeak And Software Development663676
-Node: Programming Defensively666292
-Node: Emacspeak And Authoring Documents667551
-Node: Emacspeak And The Early Days Of The Web669126
-Node: Audio Formatting --- Generalizing Aural CSS672574
-Node: Conversational Gestures For The Audio Desktop675642
-Node: Speech-Enabling Interactive Games678997
-Node: Accessing Media Streams680777
-Node: EBooks --- Ubiquitous Access To Books682884
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks685432
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols687296
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access690778
-Node: Mashing It Up --- Leveraging Evolving Web APIs694322
-Node: Conclusion --- Turning Twenty696827
-Node: References698209
-Node: Acknowledgments699139
-Node: Concept Index699295
-Node: Key Index702938
+Node: emacspeak-woman579171
+Node: emacspeak-xkcd579398
+Node: emacspeak-xref579994
+Node: emacspeak-xslt580270
+Node: emacspeak-yaml582059
+Node: emacspeak-yasnippet582314
+Node: espeak-voices582556
+Node: extra-muggles583205
+Node: g-utils596627
+Node: gm-nnir597739
+Node: gmaps598380
+Node: ladspa604114
+Node: light606030
+Node: mac-voices607124
+Node: omaps607530
+Node: outloud-voices607748
+Node: plain-voices608416
+Node: soundscape608760
+Node: sox613460
+Node: sox-gen616106
+Node: tetris622437
+Node: toy-braille622578
+Node: voice-defs623279
+Node: voice-setup628953
+Node: xbacklight633389
+Node: URL Templates634572
+Node: Running Terminal Based Applications639088
+Node: Emacspeak Keyboard Commands647647
+Node: TTS Servers649710
+Node: Emacspeak At Twenty655938
+Node: Turning Twenty657641
+Node: Using UNIX With Speech Output --- 1994658329
+Node: Key Enabler --- Emacs And Lisp Advice660170
+Node: Key Component --- Text To Speech (TTS)661215
+Node: Emacspeak And Software Development663759
+Node: Programming Defensively666375
+Node: Emacspeak And Authoring Documents667634
+Node: Emacspeak And The Early Days Of The Web669209
+Node: Audio Formatting --- Generalizing Aural CSS672657
+Node: Conversational Gestures For The Audio Desktop675725
+Node: Speech-Enabling Interactive Games679080
+Node: Accessing Media Streams680860
+Node: EBooks --- Ubiquitous Access To Books682967
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks685515
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols687379
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access690861
+Node: Mashing It Up --- Leveraging Evolving Web APIs694405
+Node: Conclusion --- Turning Twenty696910
+Node: References698292
+Node: Acknowledgments699222
+Node: Concept Index699378
+Node: Key Index703021
 
 End Tag Table
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 8, 2023.
+last updated on June 9, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -9114,11 +9114,12 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-x @ h w’
 
      Display weather  using NOAA Weather API.
-     Data is retrieved only once, subsequent calls switch to previously
-     displayed results. Kill that buffer or use an interactive prefix
-     arg (C-u) to get new data.  Optional second interactive prefix
-     arg (C-u C-u) asks for location address; Default is to display
-     weather for ‘gmaps-my-address’.
+     Address is a string and can include house-number, street name,
+     city and zip.  Data is retrieved only once, subsequent calls
+     switch to previously displayed results. Kill that buffer or use
+     an interactive prefix arg (C-u) to get new data.  Optional second
+     interactive prefix arg (C-u C-u) asks for location address;
+     Default is to display weather for ‘gmaps-my-address’.
 
      (fn &optional ASK)
 
