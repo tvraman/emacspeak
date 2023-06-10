@@ -87,7 +87,7 @@
 (require 'emacspeak-preamble)
 
 (eval-when-compile
-  (require 'emacspeak-hydra)
+  (require 'hydra "hydra" 'no-error)
   (require 'org)
   (require 'hideshow)
   (require 'ido)
@@ -95,10 +95,10 @@
   (require 'emacspeak-outline)
   (require 'smartparens "smartparens" 'no-error)
   (require 'browse-kill-ring "browse-kill-ring" 'no-error)
-  (require 'hydra "hydra" 'no-error)
   (require 'xbacklight)
   (require 'view)
-  (require 'emacspeak-m-player))
+  (require 'emacspeak-m-player)
+  )
 ;; Don't burp if absent during compilation.
 (declare-function org-table-previous-row "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-current-element
