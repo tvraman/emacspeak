@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 10, 2023.
+last updated on June 11, 2023.
 
 
 File: emacspeak.info,  Node: ladspa,  Next: light,  Prev: gmaps,  Up: Emacspeak Commands And Options
@@ -2695,8 +2695,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> 4:                                amixer.             (line   72)
 * <fn> 5:                                emacspeak-speak.    (line  369)
 * <fn> 9:                                amixer.             (line   27)
-* <fn> ::                                emacspeak-m-player. (line  654)
-* <fn> ;:                                emacspeak-m-player. (line  813)
+* <fn> ::                                emacspeak-m-player. (line  655)
+* <fn> ;:                                emacspeak-m-player. (line  814)
 * <fn> <backspace>:                      dtk-speak.          (line  264)
 * <fn> <deletechar>:                     dtk-speak.          (line  263)
 * <fn> <down>:                           emacspeak-speak.    (line  175)
@@ -2920,7 +2920,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x e ]:                            emacspeak-we.       (line  344)
 * <fn> x f:                              emacspeak-wizards.  (line  903)
 * <fn> x h:                              emacspeak-wizards.  (line  654)
-* <fn> x l:                              emacspeak-m-player. (line  789)
+* <fn> x l:                              emacspeak-m-player. (line  790)
 * <fn> x M-c:                            emacspeak-wizards.  (line  380)
 * <fn> x o:                              emacspeak-wizards.  (line  850)
 * <fn> x q:                              emacspeak-wizards.  (line  884)
@@ -2975,8 +2975,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, s:                                 emacspeak-wizards.  (line 1138)
 * C-, SPC:                               emacspeak-eww.      (line  913)
 * C-, t:                                 emacspeak-wizards.  (line 1126)
-* C-, u:                                 emacspeak-m-player. (line  718)
-* C-, y:                                 emacspeak-m-player. (line  799)
+* C-, u:                                 emacspeak-m-player. (line  719)
+* C-, y:                                 emacspeak-m-player. (line  800)
 * C-. .:                                 emacspeak-wizards.  (line  977)
 * C-. C-n:                               emacspeak-wizards.  (line  634)
 * C-. d:                                 emacspeak-dired.    (line   25)
@@ -2997,11 +2997,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. u:                                 soundscape.         (line  132)
 * C-. v:                                 extra-muggles.      (line  278)
 * C-/:                                   emacspeak-muggles.  (line  207)
-* C-; ':                                 emacspeak-m-player. (line  730)
+* C-; ':                                 emacspeak-m-player. (line  731)
 * C-; /:                                 emacspeak-websearch.
                                                              (line  119)
-* C-; ::                                 emacspeak-m-player. (line  740)
-* C-; ;:                                 emacspeak-m-player. (line  812)
+* C-; ::                                 emacspeak-m-player. (line  741)
+* C-; ;:                                 emacspeak-m-player. (line  813)
 * C-; a:                                 emacspeak-amark.    (line   45)
 * C-; C-;:                               emacspeak-amark.    (line   34)
 * C-; C-a:                               emacspeak-wizards.  (line 1082)
@@ -3091,8 +3091,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e 4:                                 amixer.             (line   71)
 * C-e 5:                                 emacspeak-speak.    (line  367)
 * C-e 9:                                 amixer.             (line   25)
-* C-e ::                                 emacspeak-m-player. (line  653)
-* C-e ;:                                 emacspeak-m-player. (line  811)
+* C-e ::                                 emacspeak-m-player. (line  654)
+* C-e ;:                                 emacspeak-m-player. (line  812)
 * C-e <backspace>:                       dtk-speak.          (line  261)
 * C-e <deletechar>:                      dtk-speak.          (line  260)
 * C-e <down>:                            emacspeak-speak.    (line  174)
@@ -3373,7 +3373,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x e ]:                             emacspeak-we.       (line  343)
 * C-e x f:                               emacspeak-wizards.  (line  902)
 * C-e x h:                               emacspeak-wizards.  (line  653)
-* C-e x l:                               emacspeak-m-player. (line  788)
+* C-e x l:                               emacspeak-m-player. (line  789)
 * C-e x M-c:                             emacspeak-wizards.  (line  379)
 * C-e x o:                               emacspeak-wizards.  (line  849)
 * C-e x q:                               emacspeak-wizards.  (line  883)
@@ -3421,13 +3421,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a s:                             emacspeak-wizards.  (line 1139)
 * C-x @ a SPC:                           emacspeak-eww.      (line  914)
 * C-x @ a t:                             emacspeak-wizards.  (line 1127)
-* C-x @ a u:                             emacspeak-m-player. (line  719)
-* C-x @ a y:                             emacspeak-m-player. (line  800)
-* C-x @ h ':                             emacspeak-m-player. (line  731)
+* C-x @ a u:                             emacspeak-m-player. (line  720)
+* C-x @ a y:                             emacspeak-m-player. (line  801)
+* C-x @ h ':                             emacspeak-m-player. (line  732)
 * C-x @ h /:                             emacspeak-websearch.
                                                              (line  120)
-* C-x @ h ::                             emacspeak-m-player. (line  741)
-* C-x @ h ;:                             emacspeak-m-player. (line  814)
+* C-x @ h ::                             emacspeak-m-player. (line  742)
+* C-x @ h ;:                             emacspeak-m-player. (line  815)
 * C-x @ h a:                             emacspeak-amark.    (line   46)
 * C-x @ h C-;:                           emacspeak-amark.    (line   35)
 * C-x @ h C-a:                           emacspeak-wizards.  (line 1083)
