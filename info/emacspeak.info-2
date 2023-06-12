@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 11, 2023.
+last updated on June 12, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1989,7 +1989,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Q		emacspeak-m-player-quit
      R		emacspeak-m-player-edit-reverb
      S		emacspeak-m-player-amark-save
-     T		emacspeak-speak-time
+     T		emacspeak-speak-brief-time
      [		emacspeak-m-player-slower
      \		emacspeak-m-player-persist-process
      ]		emacspeak-m-player-faster
@@ -2417,7 +2417,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Q		emacspeak-m-player-quit
      R		emacspeak-m-player-edit-reverb
      S		emacspeak-m-player-amark-save
-     T		emacspeak-speak-time
+     T		emacspeak-speak-brief-time
      [		emacspeak-m-player-slower
      \		emacspeak-m-player-persist-process
      ]		emacspeak-m-player-faster
