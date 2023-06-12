@@ -1450,7 +1450,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("=" emacspeak-m-player-volume-up)
     (">" emacspeak-m-player-forward-1min)
     ("?" emacspeak-m-player-show-pos)
-    ("T" emacspeak-speak-time)
+    ("T" emacspeak-speak-brief-time)
     ("A" emacspeak-m-player-amark-add)
     ("b" emacspeak-m-player-balance-channels)
     ("C" emacspeak-m-player-clear-filters)
