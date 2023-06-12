@@ -1609,6 +1609,7 @@ Set to nil to disable a secondary Notification stream."
   "Make a  TTS process called name."
   (cl-declare (special dtk-program  emacspeak-servers-directory))
   (let ((process-connection-type nil)
+        (default-directory (expand-file-name "~/"))
         (program (expand-file-name dtk-program emacspeak-servers-directory))
         (process nil))
     (setq process (start-process name nil program))
