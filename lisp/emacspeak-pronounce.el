@@ -92,7 +92,7 @@ String: Return it as is.
          (cl-loop
           for k in (cdr v)
           collect (nth k fields))))
-       (t (error "bad template?")))
+       (t " "))
       values))
     (mapconcat #'identity (nreverse values) " ")))
 
