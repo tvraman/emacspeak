@@ -781,7 +781,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               (not (string-match ems--message-filter-pattern m))
               (and
                (not (zerop echo-keystrokes))
-               (<  (/ echo-keystrokes 20)
+               (<  (/ echo-keystrokes 50)
                    (float-time
                     (time-subtract (current-time) ems--lazy-msg-time)))))
            (setq ems--lazy-msg-time (current-time)
