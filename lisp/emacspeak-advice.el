@@ -781,9 +781,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               (not (string-match ems--message-filter-pattern m))
               (and
                (not (zerop echo-keystrokes))
-               (<  (/ echo-keystrokes 50)
-                   (float-time
-                    (time-subtract (current-time) ems--lazy-msg-time)))))
+               (> ; last display  older  than throttle threshold
+                (float-time (time-subtract (current-time) ems--lazy-msg-time))
+                (/ echo-keystrokes 50))))
            (setq ems--lazy-msg-time (current-time)
                  emacspeak-last-message  m)
 ;;; so we really need to speak it
