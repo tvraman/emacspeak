@@ -295,6 +295,14 @@ configuration happens via the after-init-hook. "
  "emacspeak-wizards" nil)
 
 ;;}}}
+;;{{{quick tts rescue:
+;;; debug aid: tts appears to not restart but notification stream is
+;;live: so reuse it as the speaker 
+(defun n2s ()
+  (interactive)
+  (setq dtk-speaker-process dtk-notify-process))
+
+;;}}}
 (provide 'emacs-startup)
 ;;{{{ end of file
 
