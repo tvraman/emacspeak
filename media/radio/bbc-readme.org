@@ -1,0 +1,3 @@
+Note that as of June 15, 2023, only the BBC World Service shortcuts
+work --- for other BBC Stations, open bbc.co.uk/sounds in Chrome or
+Firefox.
