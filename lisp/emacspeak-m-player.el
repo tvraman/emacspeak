@@ -465,8 +465,7 @@ If a dynamic playlist exists, just use it."
                        emacspeak-m-player-hotkey-p))
   (unless emacspeak-m-player-dynamic-playlist
     (cond
-     (emacspeak-m-player-hotkey-p
-      (emacspeak-media-local-resource prefix))
+     (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
      (t
       (let ((completion-ignore-case t)
             (read-file-name-function
