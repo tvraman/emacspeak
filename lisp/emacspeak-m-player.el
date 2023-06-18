@@ -468,7 +468,7 @@ If a dynamic playlist exists, just use it."
      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
      (t
       (let* ((completion-ignore-case t)
-             (read-file-name-function
+             (reader
               (if (eq major-mode 'locate-mode)
                   #'read-file-name-default
                 #'ido-read-file-name))
@@ -481,26 +481,22 @@ If a dynamic playlist exists, just use it."
              (dir (emacspeak-media-guess-directory))
              (shortcuts-p (string= dir emacspeak-media-shortcuts-directory))
              (result nil))
-        (setq result
-              (expand-file-name
-               (cond
-                (shortcuts-p 
-                 (funcall
-                  read-file-name-function
-                  "Media Resource: "
-                  dir default-filename 'must-match
-                  nil))
-                (t                      ; smarter prompter:
-                 (funcall
-                  read-file-name-function
-                  "Media Resource: "
-                  dir default-filename 'must-match
-                  (cl-first
-                   (directory-files dir nil emacspeak-media-extensions  ))
-                  #'(lambda (s)
-                      (or (file-directory-p s ))
-                      (string-match emacspeak-media-extensions s))
-                  )))))
+        (setq
+         result
+         (expand-file-name
+          (cond
+           (shortcuts-p 
+            (funcall
+             reader "Media Resource: "
+             dir default-filename 'must-match))
+           (t                           ; smarter prompter:
+            (funcall
+             reader "Media Resource: "
+             dir default-filename 'must-match
+             (cl-first (directory-files dir nil emacspeak-media-extensions  ))
+             #'(lambda (s)
+                 (or (file-directory-p s ))
+                 (string-match emacspeak-media-extensions s)))))))
         result)))))
 
 (defun emacspeak-m-player-data-refresh ()
