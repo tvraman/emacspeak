@@ -467,33 +467,40 @@ If a dynamic playlist exists, just use it."
     (cond
      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
      (t
-      (let ((completion-ignore-case t)
-            (read-file-name-function
-             (if (eq major-mode 'locate-mode)
-                 #'read-file-name-default
-               #'ido-read-file-name))
-            (read-file-name-completion-ignore-case t)
-            (default-filename
-             (when
-                 (or (eq major-mode 'dired-mode)
-                     (eq major-mode 'locate-mode))
-               (dired-get-filename nil 'no-error)))
-            (dir (emacspeak-media-guess-directory))
-            (result nil))
+      (let* ((completion-ignore-case t)
+             (read-file-name-function
+              (if (eq major-mode 'locate-mode)
+                  #'read-file-name-default
+                #'ido-read-file-name))
+             (read-file-name-completion-ignore-case t)
+             (default-filename
+              (when
+                  (or (eq major-mode 'dired-mode)
+                      (eq major-mode 'locate-mode))
+                (dired-get-filename nil 'no-error)))
+             (dir (emacspeak-media-guess-directory))
+             (shortcuts-p (string= dir emacspeak-media-shortcuts-directory))
+             (result nil))
         (setq result
               (expand-file-name
-               (funcall
-                read-file-name-function
-                "Media Resource: "
-                dir default-filename 'must-match
-                nil)))
+               (cond
+                (shortcuts-p 
+                 (funcall
+                  read-file-name-function
+                  "Media Resource: "
+                  dir default-filename 'must-match
+                  nil))
+                (t                      ; smarter prompter:
+                 (funcall
+                  read-file-name-function
+                  "Media Resource: "
+                  dir default-filename 'must-match
+                  (cl-first (directory-files dir nil emacspeak-media-extensions  ))
+                  #'(lambda (s)
+                      (or (file-directory-p s ))
+                      (string-match emacspeak-media-extensions s))
+                  )))))
         result)))))
-
-
-;;; Possible predicate for above, but breaks fuzzy matching:
-;; #'(lambda (s)
-;; (or (file-directory-p s ))
-;; (string-match emacspeak-media-extensions s))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
