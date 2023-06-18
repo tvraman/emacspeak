@@ -483,10 +483,13 @@ If a dynamic playlist exists, just use it."
             (result nil))
         (setq result
               (expand-file-name
-               (funcall read-file-name-function
-                        "Media Resource: "
-                        dir
-                        default-filename 'must-match)))
+               (funcall
+                read-file-name-function
+                "Media Resource: "
+                dir default-filename 'must-match nil
+                #'(lambda (s)
+                    (or (file-directory-p s ))
+                    (string-match emacspeak-media-extensions s)))))
         result)))))
 
 (defun emacspeak-m-player-data-refresh ()
