@@ -495,7 +495,8 @@ If a dynamic playlist exists, just use it."
                   read-file-name-function
                   "Media Resource: "
                   dir default-filename 'must-match
-                  (cl-first (directory-files dir nil emacspeak-media-extensions  ))
+                  (cl-first
+                   (directory-files dir nil emacspeak-media-extensions  ))
                   #'(lambda (s)
                       (or (file-directory-p s ))
                       (string-match emacspeak-media-extensions s))
