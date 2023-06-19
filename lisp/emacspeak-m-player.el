@@ -493,7 +493,8 @@ If a dynamic playlist exists, just use it."
             (funcall
              reader "Media Resource: "
              dir default-filename 'must-match
-             (cl-first (directory-files dir nil emacspeak-media-extensions  ))
+             (unless shortcuts-p
+               (cl-first (directory-files default-directory nil emacspeak-media-extensions  )))
              #'(lambda (s)
                  (or (file-directory-p s ))
                  (string-match emacspeak-media-extensions s)))))))
