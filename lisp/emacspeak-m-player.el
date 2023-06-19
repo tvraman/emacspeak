@@ -468,37 +468,24 @@ If a dynamic playlist exists, just use it."
      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
      (t
       (let* ((completion-ignore-case t)
-             (reader
-              (if (eq major-mode 'locate-mode)
-                  #'read-file-name-default
-                #'ido-read-file-name))
-             (read-file-name-completion-ignore-case t)
-             (default-filename
-              (when
-                  (or (eq major-mode 'dired-mode)
-                      (eq major-mode 'locate-mode))
-                (dired-get-filename nil 'no-error)))
-             (dir (emacspeak-media-guess-directory))
-             (shortcuts-p (string= dir emacspeak-media-shortcuts-directory))
-             (result nil))
+           (read-file-name-completion-ignore-case t)
+           (filename
+            (when (memq major-mode '(dired-mode locate-mode))
+              (dired-get-filename 'local 'no-error)))
+           (dir (emacspeak-media-guess-directory))
+           (shortcuts-p (string= dir emacspeak-media-shortcuts-directory))
+           (result nil))
         (setq
          result
-         (expand-file-name
           (cond
-           (shortcuts-p 
-            (funcall
-             reader "Media Resource: "
-             dir default-filename 'must-match))
+           (shortcuts-p (read-file-name "Media: " dir filename 'must-match))
            (t                           ; smarter prompter:
-            (funcall
-             reader "Media Resource: "
-             dir default-filename 'must-match
-             (unless shortcuts-p
-               (cl-first (directory-files default-directory nil emacspeak-media-extensions  )))
+            (read-file-name
+             "Media: " dir filename 'must-match nil
              #'(lambda (s)
                  (or (file-directory-p s ))
-                 (string-match emacspeak-media-extensions s)))))))
-        result)))))
+                 (string-match emacspeak-media-extensions s))))))
+        (expand-file-name result))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
