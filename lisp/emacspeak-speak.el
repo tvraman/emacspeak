@@ -306,14 +306,15 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
     (cond
      ((and completions
            (window-live-p (get-buffer-window completions)))
-      (save-current-buffer
-        (set-buffer completions)
-        (emacspeak-auditory-icon 'help)
-        (dtk-chunk-on-white-space-and-punctuations)
-        (next-completion 1)
-        (tts-with-punctuations
-         'all
-         (emacspeak-speak-windowful))))
+      (save-window-excursion
+        (save-current-buffer
+          (set-buffer completions)
+          (emacspeak-auditory-icon 'help)
+          (dtk-chunk-on-white-space-and-punctuations)
+          (next-completion 1)
+          (tts-with-punctuations
+              'all
+            (emacspeak-speak-buffer)))))
      (t (emacspeak-speak-line)))))
 
 ;;}}}
