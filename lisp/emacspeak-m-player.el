@@ -482,6 +482,7 @@ If a dynamic playlist exists, just use it."
            (t                           ; smarter prompter:
             (read-file-name
              "Media: " dir filename 
+             t nil
              #'(lambda (s)
                  (or (file-directory-p s ))
                  (string-match emacspeak-media-extensions s))))))
