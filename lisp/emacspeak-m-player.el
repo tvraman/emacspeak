@@ -474,18 +474,7 @@ If a dynamic playlist exists, just use it."
               (dired-get-filename 'local 'no-error)))
            (dir (emacspeak-media-guess-directory))
            (shortcuts-p (string= dir emacspeak-media-shortcuts-directory))
-           (result nil))
-        (setq
-         result
-          (cond
-           (shortcuts-p (read-file-name "Media: " dir filename t))
-           (t                           ; smarter prompter:
-            (read-file-name
-             "Media: " dir filename 
-             t nil
-             #'(lambda (s)
-                 (or (file-directory-p s ))
-                 (string-match emacspeak-media-extensions s))))))
+           (result  (read-file-name "Media: " dir filename t)))
         (expand-file-name result))))))
 
 (defun emacspeak-m-player-data-refresh ()
