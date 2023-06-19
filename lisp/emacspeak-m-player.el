@@ -478,10 +478,10 @@ If a dynamic playlist exists, just use it."
         (setq
          result
           (cond
-           (shortcuts-p (read-file-name "Media: " dir filename 'must-match))
+           (shortcuts-p (read-file-name "Media: " dir filename t))
            (t                           ; smarter prompter:
             (read-file-name
-             "Media: " dir filename 'must-match nil
+             "Media: " dir filename 
              #'(lambda (s)
                  (or (file-directory-p s ))
                  (string-match emacspeak-media-extensions s))))))
