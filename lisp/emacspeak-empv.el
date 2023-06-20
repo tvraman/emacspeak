@@ -167,7 +167,7 @@
      ("x" empv-exit)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
-     ("u" 'emacspeak-empv-accumulate-to-register)
+     ("u" emacspeak-empv-accumulate-to-register)
      ("v" empv-set-volume)
      )
    
