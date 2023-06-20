@@ -3870,6 +3870,13 @@ Absolute seek in seconds,see ‘empv-seek’
 
 @subsubsection emacspeak-empv-accumulate-to-register
 @deffn {Command} emacspeak-empv-accumulate-to-register   
+@table @kbd
+@item C-; v u
+@kindex C-; v u
+@item C-x @@ h v u
+@kindex C-x @@ h v u
+@end table
+
 @findex emacspeak-empv-accumulate-to-register
 
 @format
