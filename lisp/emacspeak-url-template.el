@@ -274,6 +274,18 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-windowful))
  "Light-weight Google weather.")
+(emacspeak-url-template-define
+ "Google Quotes"
+ "https://www.google.com/search?num=25&gbv=1&q=stock+%s"
+ (list "Ticker:")
+ #'(lambda nil
+     (search-forward "Stock Price")
+     (forward-line 1)
+     (emacspeak-auditory-icon 'open-object)
+
+     (emacspeak-speak-windowful))
+ "Light-weight Google Stock quotes.")
+
 
 (emacspeak-url-template-define
  "US Stock Market From Google "
