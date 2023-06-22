@@ -1192,7 +1192,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.241 URL Templates
 ====================
 
-This section documents a total of 58 URL Templates.
+This section documents a total of 59 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -1260,127 +1260,130 @@ out the following steps:
   19. Google News Search
 
      Search Google news.
-  20. Google Scholar
+  20. Google Quotes
+
+     Light-weight Google Stock quotes.
+  21. Google Scholar
 
      Google Scholar Search
-  21. Google Trends
+  22. Google Trends
 
      Google Trends
-  22. Google Weather
+  23. Google Weather
 
      Light-weight Google weather.
-  23. Guardian RSS Feeds Directory
+  24. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  24. Hacker News Frontpage
+  25. Hacker News Frontpage
 
      Display Hacker News Front Page
-  25. Hacker News Search
+  26. Hacker News Search
 
      Display Hacker News Front Page
-  26. Hoogle Haskell API Search
+  27. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  27. NBA standings
+  28. NBA standings
 
      Display NBA standings.
-  28. NLS Bard Bookshelf
+  29. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  29. NLS Bard Popular
+  30. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  30. NLS Bard Recent
+  31. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  31. NLS Bard Search
+  32. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  32. NPR
+  33. NPR
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  33. NY Times Mobile
+  34. NY Times Mobile
 
      NYTimes Mobile Site
-  34. Old Time Radio
+  35. Old Time Radio
 
      This months Old Time Radio Programming
-  35. OpenLibrary
+  36. OpenLibrary
 
      Open Library Search
-  36. Patent Search From Google
+  37. Patent Search From Google
 
      Perform patent search via Google
-  37. RadioTime Browser
+  38. RadioTime Browser
 
      RadioTime Entry point.
-  38. RadioTime Categories
+  39. RadioTime Categories
 
      RadioTime Categories .
-  39. RadioTime Search
+  40. RadioTime Search
 
      RadioTime Search.
-  40. Reddit At Point.
+  41. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  41. Reddit By Topic.
+  42. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  42. Reddit Front Page.
+  43. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  43. Reddit Search.
+  44. Reddit Search.
 
      Reddit Search Results Feed.
-  44. StreamWorld Radio
+  45. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  45. Tech News From CNet
+  46. Tech News From CNet
 
      Display tech news from CNET
-  46. TuneIn Radio
+  47. TuneIn Radio
 
      Translate StreamId to playable stream.
-  47. US Stock Market From Google
+  48. US Stock Market From Google
 
      Light-weight Google US Stock Markets.
-  48. Washington Post
+  49. Washington Post
 
      Washington Post Contents
-  49. Wiki Data Search
+  50. Wiki Data Search
 
      Search WikiData.
-  50. WordNet Search
+  51. WordNet Search
 
      Look up term in WordNet.
-  51. Yahoo RSSNews
+  52. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  52. html Google News Search
+  53. html Google News Search
 
      Search Google news.
-  53. sourceforge Download
+  54. sourceforge Download
 
      Download specified file.
-  54. sourceforge browse mirrors
+  55. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  55. sourceforge project
+  56. sourceforge project
 
      Open specified project page at SourceForge.
-  56. w3c IRC Logs
+  57. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  57. w3c Lists
+  58. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  58. world CNN Content
+  59. world CNN Content
 
      Filter down to CNN content area.
 
