@@ -431,6 +431,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ Google Archive Search
 
 ;;}}}
+ 
 ;;{{{ cnet news
 
 (emacspeak-url-template-define
@@ -492,6 +493,21 @@ name of the list.")
   "Get year/month"
   (emacspeak-speak-collect-date "Date range: "
                                 "%Y%h"))
+
+;;}}}
+;;{{{CNBC Quotes
+
+(emacspeak-url-template-define
+ "CNBC Quotes"
+ (format
+  "https://www.cnbc.com/quotes/%s"
+  (mapconcat #'identity (split-string emacspeak-wizards-personal-portfolio) ","))
+ nil
+ #'(lambda nil
+     (search-forward "Create a" nil t)
+     (forward-line 3)
+     (emacspeak-speak-windowful))
+ "Stock portfolio via CNBC")
 
 ;;}}}
 ;;{{{ cnn
