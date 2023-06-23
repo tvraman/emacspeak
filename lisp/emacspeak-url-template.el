@@ -496,6 +496,9 @@ name of the list.")
 
 ;;}}}
 ;;{{{CNBC Quotes
+(cl-declaim (special emacspeak-wizards-personal-portfolio))
+
+
 (emacspeak-url-template-define
  "CNBC Ticker"
   "https://www.cnbc.com/quotes/%s"
@@ -505,9 +508,6 @@ name of the list.")
  #'(lambda (u)
      (emacspeak-we-extract-by-role "main"
       u 'speak)))
-
-
-(cl-declaim (special emacspeak-wizards-personal-portfolio))
 
 (emacspeak-url-template-define
  "CNBC Quotes"
