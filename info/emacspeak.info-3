@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 21, 2023.
+last updated on June 22, 2023.
 
 
 File: emacspeak.info,  Node: ladspa,  Next: light,  Prev: gmaps,  Up: Emacspeak Commands And Options
@@ -1192,7 +1192,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.241 URL Templates
 ====================
 
-This section documents a total of 59 URL Templates.
+This section documents a total of 61 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -1233,157 +1233,163 @@ out the following steps:
   10. CIA World Fact Book
 
      Open CIA World Fact Book For Specified Country.
-  11. CNN Headlines
+  11. CNBC Quotes
+
+     Stock portfolio via CNBC
+  12. CNBC Ticker
+
+     Stock Quote via CNBC
+  13. CNN Headlines
 
      News Headlines From CNN
-  12. CNN Money
+  14. CNN Money
 
      CNN Money
-  13. CNN World
+  15. CNN World
 
      CNN World
-  14. Cricinfo Print
+  16. Cricinfo Print
 
      Printer friendly link on Cricinfo
-  15. Dictionary Lookup
+  17. Dictionary Lookup
 
      Dictionary Lookup
-  16. Finance Google
+  18. Finance Google
 
      Lookup ticker on Google Finance.
-  17. Finance Summary From Google
+  19. Finance Summary From Google
 
      Display top stocks from Google Finance.
-  18. FreeSound
+  20. FreeSound
 
      Search FreeSound.
-  19. Google News Search
+  21. Google News Search
 
      Search Google news.
-  20. Google Quotes
+  22. Google Quotes
 
      Light-weight Google Stock quotes.
-  21. Google Scholar
+  23. Google Scholar
 
      Google Scholar Search
-  22. Google Trends
+  24. Google Trends
 
      Google Trends
-  23. Google Weather
+  25. Google Weather
 
      Light-weight Google weather.
-  24. Guardian RSS Feeds Directory
+  26. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  25. Hacker News Frontpage
+  27. Hacker News Frontpage
 
      Display Hacker News Front Page
-  26. Hacker News Search
+  28. Hacker News Search
 
      Display Hacker News Front Page
-  27. Hoogle Haskell API Search
+  29. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  28. NBA standings
+  30. NBA standings
 
      Display NBA standings.
-  29. NLS Bard Bookshelf
+  31. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  30. NLS Bard Popular
+  32. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  31. NLS Bard Recent
+  33. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  32. NLS Bard Search
+  34. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  33. NPR
+  35. NPR
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  34. NY Times Mobile
+  36. NY Times Mobile
 
      NYTimes Mobile Site
-  35. Old Time Radio
+  37. Old Time Radio
 
      This months Old Time Radio Programming
-  36. OpenLibrary
+  38. OpenLibrary
 
      Open Library Search
-  37. Patent Search From Google
+  39. Patent Search From Google
 
      Perform patent search via Google
-  38. RadioTime Browser
+  40. RadioTime Browser
 
      RadioTime Entry point.
-  39. RadioTime Categories
+  41. RadioTime Categories
 
      RadioTime Categories .
-  40. RadioTime Search
+  42. RadioTime Search
 
      RadioTime Search.
-  41. Reddit At Point.
+  43. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  42. Reddit By Topic.
+  44. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  43. Reddit Front Page.
+  45. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  44. Reddit Search.
+  46. Reddit Search.
 
      Reddit Search Results Feed.
-  45. StreamWorld Radio
+  47. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  46. Tech News From CNet
+  48. Tech News From CNet
 
      Display tech news from CNET
-  47. TuneIn Radio
+  49. TuneIn Radio
 
      Translate StreamId to playable stream.
-  48. US Stock Market From Google
+  50. US Stock Market From Google
 
      Light-weight Google US Stock Markets.
-  49. Washington Post
+  51. Washington Post
 
      Washington Post Contents
-  50. Wiki Data Search
+  52. Wiki Data Search
 
      Search WikiData.
-  51. WordNet Search
+  53. WordNet Search
 
      Look up term in WordNet.
-  52. Yahoo RSSNews
+  54. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  53. html Google News Search
+  55. html Google News Search
 
      Search Google news.
-  54. sourceforge Download
+  56. sourceforge Download
 
      Download specified file.
-  55. sourceforge browse mirrors
+  57. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  56. sourceforge project
+  58. sourceforge project
 
      Open specified project page at SourceForge.
-  57. w3c IRC Logs
+  59. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  58. w3c Lists
+  60. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  59. world CNN Content
+  61. world CNN Content
 
      Filter down to CNN content area.
 

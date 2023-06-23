@@ -21402,7 +21402,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 59 URL Templates.
+This section documents a total of 61 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21438,7 +21438,11 @@ Bing results as RSS feed.@item @b{Business Headlines From CNN}
 
 Money Headlines From CNN@item @b{CIA World Fact Book}
 
-Open CIA World Fact Book For Specified Country.@item @b{CNN Headlines}
+Open CIA World Fact Book For Specified Country.@item @b{CNBC Quotes}
+
+Stock portfolio via CNBC@item @b{CNBC Ticker}
+
+Stock Quote via CNBC@item @b{CNN Headlines}
 
 News Headlines From CNN@item @b{CNN Money}
 
