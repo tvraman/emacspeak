@@ -496,18 +496,19 @@ name of the list.")
 
 ;;}}}
 ;;{{{CNBC Quotes
-
+(cl-declaim (special emacspeak-wizards-personal-portfolio))
 (emacspeak-url-template-define
  "CNBC Quotes"
  (format
   "https://www.cnbc.com/quotes/%s"
   (mapconcat #'identity (split-string emacspeak-wizards-personal-portfolio) ","))
  nil
- #'(lambda nil
-     (search-forward "Create a" nil t)
-     (forward-line 3)
-     (emacspeak-speak-windowful))
- "Stock portfolio via CNBC")
+ nil
+ "Stock portfolio via CNBC"
+ #'(lambda (u)
+     (emacspeak-we-extract-by-class-list
+      '("MultiQuoteStrip-lastPrice" "MultiQuoteStrip-companyName")
+      u 'speak)))
 
 ;;}}}
 ;;{{{ cnn
