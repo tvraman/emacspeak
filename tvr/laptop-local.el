@@ -38,4 +38,11 @@ Set by locating it via xinput list | grep -i touchpad ")
 
 (define-key emacspeak-personal-y-keymap " " 'tvr-chat)
 
+(defun tvr-mail ()
+  "Open Google Mail in Chrome"
+  (interactive)
+  (browse-url-chrome "chat/"))
+
+
+(define-key emacspeak-personal-y-keymap "m" 'tvr-mail)
 (provide 'laptop-local)
