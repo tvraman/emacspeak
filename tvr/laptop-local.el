@@ -29,7 +29,7 @@ Set by locating it via xinput list | grep -i touchpad ")
   (browse-url-chrome "calendar/"))
 (define-key emacspeak-personal-y-keymap "c" 'tvr-calendar)
 
-(provide 'laptop-local)
+
 
 (defun tvr-chat ()
   "Open Google Chat in Chrome"
@@ -37,3 +37,5 @@ Set by locating it via xinput list | grep -i touchpad ")
   (browse-url-chrome "chat/"))
 
 (define-key emacspeak-personal-y-keymap " " 'tvr-chat)
+
+(provide 'laptop-local)
