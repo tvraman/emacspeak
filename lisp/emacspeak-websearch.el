@@ -61,8 +61,6 @@
 ;;}}}
 ;;{{{ Forward Declarations:
 
-(defvar emacspeak-wizards-personal-portfolio)
-
 (declare-function gweb-google-autocomplete "gweb" (&optional prompt))
 (declare-function calendar-astro-date-string "cal-julian" (&optional date))
 

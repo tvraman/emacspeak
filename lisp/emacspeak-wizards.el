@@ -1884,7 +1884,7 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
 (defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
   "Set this to the stock tickers you want to check. Default is
 GAFA. Tickers are separated by white-space and are automatically
-sorted in lexical order with duplicates removed when saving."
+sorted in lexical order with duplicates removed when saving as a csv string."
   :type 'string
   :group 'emacspeak-wizards
   :initialize 'custom-initialize-reset
@@ -1896,7 +1896,7 @@ sorted in lexical order with duplicates removed when saving."
         #'identity
         (cl-remove-duplicates
          (sort (split-string val) #'string-lessp) :test #'string=)
-        "\n"))))
+        ","))))
 
 (defun emacspeak-wizards-alpha-vantage-quotes (ticker &optional custom)
   "Retrieve stock quote data from Alpha Vantage. Prompts for `ticker'
@@ -1905,8 +1905,9 @@ access to the various functions provided by alpha-vantage."
   (interactive
    (list
     (upcase
-     (completing-read "Stock Symbol: "
-                      (split-string emacspeak-wizards-personal-portfolio)))
+     (completing-read
+      "Stock Symbol: "
+      (split-string emacspeak-wizards-personal-portfolio ",")))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-personal-portfolio
                        ems--alpha-vantage-funcs))
@@ -1988,10 +1989,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
                emacspeak-wizards-iex-portfolio-file g-curl-program
                emacspeak-wizards-personal-portfolio
                emacspeak-wizards-iex-cache))
-  (let* ((symbols
-          (mapconcat
-           #'identity
-           (split-string emacspeak-wizards-personal-portfolio) ","))
+  (let* ((symbols emacspeak-wizards-personal-portfolio)
          (url (emacspeak-wizards-iex-uri  "stock/market/batch" symbols)))
     (shell-command
      (format "%s -s -D %s/iex-headers -o %s '%s'"
@@ -2014,7 +2012,8 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (interactive
    (list
     (completing-read
-     "Stock Symbol: " (split-string emacspeak-wizards-personal-portfolio))))
+     "Stock Symbol: " (split-string
+                       emacspeak-wizards-personal-portfolio ","))))
   (cl-declare (special emacspeak-wizards-iex-base
                        tts-notification-device
                        emacspeak-wizards-personal-portfolio))
@@ -2102,7 +2101,8 @@ P: Show live price for current stock."
          (i 1)
          (symbols
           (mapconcat #'identity
-                     (split-string emacspeak-wizards-personal-portfolio)
+                     (split-string
+                      emacspeak-wizards-personal-portfolio ",")
                      ","))
          (url
           (format "%s/tops/last?symbols=%s&token=%s"
@@ -2141,7 +2141,7 @@ Optional interactive prefix arg refreshes cache."
    (list
     (completing-read
      "Symbol: "
-     (split-string emacspeak-wizards-personal-portfolio))
+     (split-string emacspeak-wizards-personal-portfolio ","))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-iex-cache
                        emacspeak-iex-api-key))
@@ -2185,7 +2185,7 @@ Optional interactive prefix arg refreshes cache."
    (list
     (completing-read
      "Symbol: "
-     (split-string emacspeak-wizards-personal-portfolio))
+     (split-string emacspeak-wizards-personal-portfolio ","))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-iex-cache
                        emacspeak-wizards-iex-base

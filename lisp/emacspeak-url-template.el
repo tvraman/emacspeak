@@ -496,7 +496,7 @@ name of the list.")
 
 ;;}}}
 ;;{{{CNBC Quotes
-(cl-declaim (special emacspeak-wizards-personal-portfolio))
+
 
 
 (emacspeak-url-template-define
@@ -514,7 +514,8 @@ name of the list.")
   "https://www.cnbc.com/quotes/%s"
   (list
    #'(lambda nil
-       (mapconcat #'identity (split-string emacspeak-wizards-personal-portfolio) ",")))
+       (cl-declare (special emacspeak-wizards-personal-portfolio))
+       emacspeak-wizards-personal-portfolio))
  nil
  "Stock portfolio via CNBC"
  #'(lambda (u)
