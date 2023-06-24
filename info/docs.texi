@@ -19014,16 +19014,13 @@ Default Value:
 @defvar {User Option} emacspeak-wizards-personal-portfolio
 Set this to the stock tickers you want to check. Default is
 GAFA. Tickers are separated by white-space and are automatically
-sorted in lexical order with duplicates removed when saving.
+sorted in lexical order with duplicates removed when saving as a csv string.
 
 Default Value: 
 
 @verbatim
 
-"aapl
-amzn
-fb
-goog"
+"aapl,amzn,fb,goog"
 
 @end verbatim
 
