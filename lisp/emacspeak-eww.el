@@ -1247,7 +1247,9 @@ attr-value list for use as a DOM filter."
            do
            (setq attr (cl-first pair)
                  value (cl-second pair))
-           (setq found (member value (split-string (dom-attr  node attr)))))
+           (setq found
+                 (when (dom-attr  node attr)
+                   (member value (split-string (dom-attr  node attr))))))
           (when found node)))))
 
 (defun eww-attribute-tester (attr value)
