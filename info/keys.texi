@@ -694,7 +694,7 @@
  paradox-list-packages
 
 @item q
- emacspeak-wizards-quote
+ emacspeak-wizards-alpha-vantage-quotes
 
 @item t
  emacspeak-speak-telephone-directory

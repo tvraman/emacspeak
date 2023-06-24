@@ -8569,7 +8569,7 @@ Default Value:
  ("m" mspools-show)
  ("o" emacspeak-wizards-occur-header-lines)
  ("p" paradox-list-packages)
- ("q" emacspeak-wizards-quote)
+ ("q" emacspeak-wizards-alpha-vantage-quotes)
  ("t" emacspeak-speak-telephone-directory)
  ("u" emacspeak-wizards-units)
  ("v" emacspeak-wizards-vc-viewer)
@@ -17669,6 +17669,13 @@ Browse  Emacspeak productivity tips.
 
 @subsubsection emacspeak-wizards-alpha-vantage-quotes
 @deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
+@table @kbd
+@item C-e x q
+@kindex C-e x q
+@item <fn> x q
+@kindex <fn> x q
+@end table
+
 @findex emacspeak-wizards-alpha-vantage-quotes
 
 @format
@@ -18447,13 +18454,6 @@ Navigate to and speak previous ‘bullet’.
 
 @subsubsection emacspeak-wizards-quote
 @deffn {Command} emacspeak-wizards-quote  (&optional refresh)
-@table @kbd
-@item C-e x q
-@kindex C-e x q
-@item <fn> x q
-@kindex <fn> x q
-@end table
-
 @findex emacspeak-wizards-quote
 
 @format

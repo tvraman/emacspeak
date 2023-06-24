@@ -1682,7 +1682,6 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 (defun eww-display-dom-by-class (class)
   "Display DOM filtered by specified class."
-
   (eww-display-dom-filter-helper #'dom-by-class  class))
 
 (defun eww-display-dom-by-class-list (class-list)
@@ -1696,7 +1695,6 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 (defun eww-display-dom-by-element-list (tag-list)
   "Display DOM filtered by specified element-list."
-
   (eww-display-dom-filter-helper #'dom-by-tag-list  tag-list))
 
 (defun eww-display-dom-by-role (role)

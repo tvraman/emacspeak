@@ -1378,7 +1378,7 @@ found on laptops is denoted <fn>
       ("m" mspools-show)
       ("o" emacspeak-wizards-occur-header-lines)
       ("p" paradox-list-packages)
-      ("q" emacspeak-wizards-quote)
+      ("q" emacspeak-wizards-alpha-vantage-quotes)
       ("t" emacspeak-speak-telephone-directory)
       ("u" emacspeak-wizards-units)
       ("v" emacspeak-wizards-vc-viewer)
@@ -8595,6 +8595,8 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-alpha-vantage-quotes (ticker &optional
           custom)
+     ‘C-e x q’
+     ‘<fn> x q’
 
      Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
      — a stock symbol. Optional interactive prefix arg ‘custom’ provides
@@ -9163,8 +9165,6 @@ Contains various wizards for the Emacspeak desktop.
 ...................................
 
  -- Command: emacspeak-wizards-quote (&optional refresh)
-     ‘C-e x q’
-     ‘<fn> x q’
 
      Top-level dispatch for  Stock Market information.
 

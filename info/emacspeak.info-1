@@ -3336,7 +3336,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-x-keyma
      paradox-list-packages
 
 ‘q’
-     emacspeak-wizards-quote
+     emacspeak-wizards-alpha-vantage-quotes
 
 ‘t’
      emacspeak-speak-telephone-directory

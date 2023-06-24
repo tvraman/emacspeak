@@ -490,8 +490,6 @@
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)
-    ("q" emacspeak-wizards-alpha-vantage-quotes)
-
     ("t" emacspeak-speak-telephone-directory)
     ("u" emacspeak-wizards-units)
     ("v" emacspeak-wizards-vc-viewer)

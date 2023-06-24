@@ -497,17 +497,20 @@ name of the list.")
 ;;}}}
 ;;{{{CNBC Quotes
 
-
-
 (emacspeak-url-template-define
  "CNBC Ticker"
-  "https://www.cnbc.com/quotes/%s"
-  (list "Ticker:")
- nil
+ "https://www.cnbc.com/quotes/%s"
+ (list "Ticker:")
+ #'(lambda ()
+     (mapc
+      #'(lambda (n) (dom-remove-node n (emacspeak-eww-current-dom)))
+      (dom-by-class (emacspeak-eww-current-dom)
+                    "AddToWatchlistButton"))
+     (emacspeak-eww-view-helper (emacspeak-eww-current-dom)))
  "Stock Quote via CNBC"
  #'(lambda (u)
      (emacspeak-we-extract-by-role "main"
-      u 'speak)))
+                                   u 'speak)))
 
 (emacspeak-url-template-define
  "CNBC Quotes"
@@ -516,11 +519,14 @@ name of the list.")
    #'(lambda nil
        (cl-declare (special emacspeak-wizards-personal-portfolio))
        emacspeak-wizards-personal-portfolio))
- nil
+ #'(lambda ()
+     (mapc
+      #'(lambda (n) (dom-remove-node n (emacspeak-eww-current-dom)))
+      (dom-by-class (emacspeak-eww-current-dom) "AddToWatchlistButton"))
+     (emacspeak-eww-view-helper (emacspeak-eww-current-dom)))
  "Stock portfolio via CNBC"
  #'(lambda (u)
-     (emacspeak-we-extract-by-id "MainContentContainer"
-                                 u 'speak)))
+     (emacspeak-we-extract-by-id "MainContentContainer" u 'speak)))
 
 ;;}}}
 ;;{{{ cnn
