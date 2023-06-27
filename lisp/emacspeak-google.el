@@ -496,24 +496,28 @@ current page."
                     belt))
                   (param (emacspeak-google-tool-param tool))
                   (value (emacspeak-google-tool-value tool))
-                  (range (emacspeak-google-tool-range tool)))
+                  (range (emacspeak-google-tool-range tool))
+                  (slot nil))
                (cond
                 ((and (listp range)
                       (= 2 (length range)))
                  ;; toggle value
-                 (setf (emacspeak-google-tool-value tool)
+                 (setq slot
                        (if (equal value (cl-first range))
                            (cl-second range)
-                         (cl-first range))))
+                         (cl-first range)))
+                 (setf (emacspeak-google-tool-value tool) slot))
                 ((listp range)
                  ;; Prompt using completion
-                 (setf  (emacspeak-google-tool-value tool)
-                        (completing-read
-                         "Set tool to: "
-                         range)))
+                 (setq slot
+                       (completing-read
+                        "Set tool to: "
+                        range)))
+                (setf   (emacspeak-google-tool-value tool) slot)
                 ((stringp range)
-                 (setf (emacspeak-google-tool-value tool)
-                       (read-from-minibuffer  range)))
+                 (setq slot
+                       (read-from-minibuffer  range))
+                 (setf  (emacspeak-google-tool-value tool) slot))
                 (t (error "Unexpected type!")))
                (let
                    ((emacspeak-websearch-google-options
