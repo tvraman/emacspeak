@@ -323,7 +323,7 @@ This variable is buffer-local.")
         (make-emacspeak-google-tool
          :name "date-filter"
          :param "qdr"
-         :range '("d"h" "n" " "m" "w" "y")
+         :range '("d" "h" "n" "m" "w" "y")
          :default ""
          :type 'tbs
          :value "")
