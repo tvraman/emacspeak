@@ -509,8 +509,7 @@ name of the list.")
      (emacspeak-eww-view-helper (emacspeak-eww-current-dom)))
  "Stock Quote via CNBC"
  #'(lambda (u)
-     (emacspeak-we-extract-by-role "main"
-                                   u 'speak)))
+     (emacspeak-we-extract-by-role "main" u )))
 
 (emacspeak-url-template-define
  "CNBC Quotes"
@@ -526,7 +525,7 @@ name of the list.")
      (emacspeak-eww-view-helper (emacspeak-eww-current-dom)))
  "Stock portfolio via CNBC"
  #'(lambda (u)
-     (emacspeak-we-extract-by-id "MainContentContainer" u 'speak)))
+     (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
 ;;}}}
 ;;{{{ cnn
