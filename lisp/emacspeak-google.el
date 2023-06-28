@@ -8,29 +8,29 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4532 $ |
 ;; Location undetermined
-;; 
+;;
 
 ;;}}}
 ;;{{{  Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNGOOGLE FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -65,7 +65,7 @@
 
 ;; One tool on a tool-belt
 
-(cl-defstruct emacspeak-google-tool
+(cl-defstruct ems--g-tool
   name ; human readable
   param ; url param bit
   range ; range of possible values
@@ -93,13 +93,13 @@ This variable is buffer-local.")
         (delq nil
               (mapcar
                #'(lambda (tool)
-                   (when (eq 'tbm (emacspeak-google-tool-type tool))
+                   (when (eq 'tbm (ems--g-tool-type tool))
                      (cond
-                      ((equal (emacspeak-google-tool-value tool)
-                              (emacspeak-google-tool-default tool))
+                      ((equal (ems--g-tool-value tool)
+                              (ems--g-tool-default tool))
                        nil)
                       (t (format "%s"
-                                 (emacspeak-google-tool-param tool))))))
+                                 (ems--g-tool-param tool))))))
                belt))))
     (when settings
       (concat "&tbm="
@@ -112,14 +112,14 @@ This variable is buffer-local.")
         (delq nil
               (mapcar
                #'(lambda (tool)
-                   (when (eq 'tbs (emacspeak-google-tool-type tool))
+                   (when (eq 'tbs (ems--g-tool-type tool))
                      (cond
-                      ((equal (emacspeak-google-tool-value tool)
-                              (emacspeak-google-tool-default tool))
+                      ((equal (ems--g-tool-value tool)
+                              (ems--g-tool-default tool))
                        nil)
                       (t (format "%s:%s"
-                                 (emacspeak-google-tool-param tool)
-                                 (emacspeak-google-tool-value tool))))))
+                                 (ems--g-tool-param tool)
+                                 (ems--g-tool-value tool))))))
                belt))))
     (when settings
       (concat "&tbs="
@@ -135,7 +135,7 @@ This variable is buffer-local.")
        emacspeak-google-toolbelt
        (list
         ;; video vid: 1/0
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "video"
          :param "vid"
          :range '(0 1)
@@ -143,7 +143,7 @@ This variable is buffer-local.")
          :type 'tbm
          :value 0)
         ;; Recent
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "recent"
          :param "rcnt"
          :range '(0 1)
@@ -151,7 +151,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
         ;; Duration restrict for video
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "video-duration"
          :param "dur"
          :range '("m" "s" "l")
@@ -159,7 +159,7 @@ This variable is buffer-local.")
          :value "m"
          :type 'tbs)
         ;; Recipes
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "recipes"
          :param "rcp"
          :range '(0 1)
@@ -167,7 +167,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbm)
         ;; places/local:
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "places"
          :param "plcs"
          :range '(0 1)
@@ -175,7 +175,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbm)
         ;; patents
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "patents"
          :param "pts"
          :range '(0 1)
@@ -183,7 +183,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbm)
         ;; discussions/forums
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "group-discussions"
          :param "dsc"
          :range '(0 1)
@@ -191,7 +191,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbm)
         ;;;In-Depth Article
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "in-depth"
          :param "ida"
          :range '(0 1)
@@ -200,7 +200,7 @@ This variable is buffer-local.")
          :type 'tbs)
 
         ;; Blog mode
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "blog"
          :param "blg"
          :range '(0 1)
@@ -208,7 +208,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbm)
         ;; Books mode
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "books"
          :param "bks"
          :range '(0 1)
@@ -216,7 +216,7 @@ This variable is buffer-local.")
          :type 'tbm
          :value 0)
         ;; epub
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "books-format"
          :param "bft"
          :range '("p" "e")
@@ -224,7 +224,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value "e")
         ;; Books viewability
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "books-viewability"
          :param "bkv"
          :range '("a" "f")
@@ -232,7 +232,7 @@ This variable is buffer-local.")
          :value "a"
          :type 'tbs)
         ;; Book Type
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "books-type"
          :param "bkt"
          :range '("b" "p" "m")
@@ -240,7 +240,7 @@ This variable is buffer-local.")
          :value "b"
          :type 'tbs)
         ;; Forums Mode
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "forums"
          :param "frm"
          :range '(0 1)
@@ -248,7 +248,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
         ;; News Mode
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "news"
          :param "nws"
          :range '(0 1)
@@ -256,7 +256,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbm)
         ;; Reviews
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "reviews"
          :param "rvw"
          :range '(0 1)
@@ -264,7 +264,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
         ;; Web History Visited
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "web-history-visited"
          :param "whv"
          :range '(0 1)
@@ -272,7 +272,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)
         ;; Web History Not Visited
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "web-history-not-visited"
          :param "whnv"
          :type 'tbs
@@ -280,7 +280,7 @@ This variable is buffer-local.")
          :default 0
          :value 0)
         ;; Images
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "images"
          :param "isch"
          :range '(0 1)
@@ -288,7 +288,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbm)
         ;; Structured Snippets
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "structured-snippets"
          :param "sts"
          :range '(0 1)
@@ -296,7 +296,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
         ;; sort by date
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "sort-by-date"
          :param "std"
          :range '(0 1)
@@ -304,7 +304,7 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
         ;; Timeline
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "timeline"
          :param "tl"
          :range '(0 1)
@@ -312,7 +312,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)
         ;; Timeline Low
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "timeline-low"
          :param "tll"
          :type 'tbs
@@ -320,7 +320,7 @@ This variable is buffer-local.")
          :default ""
          :value "")
         ;; Date Filter
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "date-filter"
          :param "qdr"
          :range '("d" "h" "n" "m" "w" "y")
@@ -328,7 +328,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value "")
         ;; Timeline High
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "timeline-high"
          :param "tlh"
          :range "YYYY/MM"
@@ -336,7 +336,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value "")
         ;; more:commercial promotion with prices
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "commercial"
          :param "cpk"
          :range '(0 1)
@@ -344,7 +344,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)
         ;; verbatim/literal search
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "literal"
          :param "li"
          :range '(0 1)
@@ -352,14 +352,14 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)
         ;; shopping
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "Shopping"
          :param "shop"
          :range '(0 1)
          :default 0
          :type 'tbm
          :value 0)
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "commercial-prices"
          :param "cp"
          :range '(0 1)
@@ -367,7 +367,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)
         ;; less:commercial (demotion)
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "non-commercial"
          :param "cdcpk"
          :range '(0 1)
@@ -375,7 +375,7 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)
         ;; soc
-        (make-emacspeak-google-tool
+        (make-ems--g-tool
          :name "social"
          :param "sa"
          :range '(0 1)
@@ -419,7 +419,7 @@ This variable is buffer-local.")
   "Setup post process hook to cache google toolbelt when rendered."
   (cl-declare (special emacspeak-google-toolbelt))
   (let ((cache
-         (eval 
+         (eval
           `#'(lambda nil
                (setq emacspeak-google-toolbelt' ,belt)))))
     (add-hook 'emacspeak-eww-post-process-hook cache 'at-end)))
@@ -475,26 +475,22 @@ current page."
 (cl-loop
  for this-tool in (emacspeak-google-toolbelt) do
  (eval
-  `(defun
-       ,(intern
-         (format
-          "ems--g-tb-set-%s" (emacspeak-google-tool-name this-tool)))
-       ()
+  `(defun ,(intern (format "ems--g-tb-set-%s" (ems--g-tool-name this-tool))) ()
      ,(format
        "Change  %s in the currently active toolbelt."
-       (emacspeak-google-tool-name this-tool))
+       (ems--g-tool-name this-tool))
      (interactive)
      (let*
          ((belt (emacspeak-google-toolbelt))
           (tool
            (cl-find-if
             #'(lambda (tool)
-                (string= (emacspeak-google-tool-name tool)
-                         ,(emacspeak-google-tool-name this-tool)))
+                (string= (ems--g-tool-name tool)
+                         ,(ems--g-tool-name this-tool)))
             belt))
-          (param (emacspeak-google-tool-param tool))
-          (value (emacspeak-google-tool-value tool))
-          (range (emacspeak-google-tool-range tool))
+          (param (ems--g-tool-param tool))
+          (value (ems--g-tool-value tool))
+          (range (ems--g-tool-range tool))
           (slot nil))
        (cond
         ((and (listp range)
@@ -504,18 +500,18 @@ current page."
                (if (equal value (cl-first range))
                    (cl-second range)
                  (cl-first range)))
-         (setf (emacspeak-google-tool-value tool) slot))
+         (setf (ems--g-tool-value tool) slot))
         ((listp range)
          ;; Prompt using completion
          (setq slot
                (completing-read
                 "Set tool to: "
                 range)))
-        (setf   (emacspeak-google-tool-value tool) slot)
+        (setf   (ems--g-tool-value tool) slot)
         ((stringp range)
          (setq slot
                (read-from-minibuffer  range))
-         (setf  (emacspeak-google-tool-value tool) slot))
+         (setf  (ems--g-tool-value tool) slot))
         (t (error "Unexpected type!")))
        (let
            ((emacspeak-websearch-google-options
@@ -534,13 +530,13 @@ current page."
       (setq emacspeak-google-toolbelt-names
             (cl-loop
              for b in emacspeak-google-toolbelt
-             collect (emacspeak-google-tool-name b)))))
+             collect (ems--g-tool-name b)))))
 
 (defun emacspeak-google-toolbelt-names-from-toolbelt (toolbelt)
   "Return list of names in toolbelt."
   (cl-loop
    for b in toolbelt
-   collect (emacspeak-google-tool-name b)))
+   collect (ems--g-tool-name b)))
 
 (defun emacspeak-google-toolbelt-change ()
   "Command to change values in the toolbelt and execute the query."
@@ -573,7 +569,7 @@ current page."
     (add-hook
      'emacspeak-eww-post-process-hook
      #'(lambda ()
-         (emacspeak-eww-next-h1  'speak)))      
+         (emacspeak-eww-next-h1  'speak)))
     (emacspeak-we-extract-by-id-list
      ems--websearch-google-filter
      url)))
@@ -690,7 +686,7 @@ which becomes buffer-local."
     (read-from-minibuffer "Text: ")
     current-prefix-arg))
   (cl-declare (special
-               emacspeak-mpv-program 
+               emacspeak-mpv-program
                emacspeak-google-tts-default-language
                emacspeak-google-tts-rest-uri ))
   (when current-prefix-arg
@@ -748,7 +744,7 @@ Use default voice for buffer."
 
 (cl-declaim (special emacspeak-google-tts))
 (cl-loop
- for b in 
+ for b in
  '(("l" emacspeak-google-tts-line)
    ("p" emacspeak-google-tts-previous-line)
    ("n" emacspeak-google-tts-next-line)
@@ -775,7 +771,7 @@ Use default voice for buffer."
 ;;}}}
 ;;{{{ Google Knowledge Graph:
 
-;; Google Knowledge Graph Search API  
+;; Google Knowledge Graph Search API
 ;;  G https://developers.google.com/knowledge-graph/
 
 (defcustom emacspeak-google-kg-key  nil
@@ -874,7 +870,7 @@ results, default is 1."
 ;;}}}
 ;;{{{youtube to rss:
 
-(defun emacspeak-google-yt-feed (url) 
+(defun emacspeak-google-yt-feed (url)
   "Turn YT Channel or Playlist url into an RSS feed and open it."
   (interactive (list (emacspeak-eww-read-url)))
   (let ((r "https://www.youtube.com/feeds/videos.xml?%s=%s")
@@ -888,7 +884,7 @@ results, default is 1."
              #'      (lambda         (s) (split-string s "="))
              (split-string (url-filename u) "&")))
       (setq playlist
-            (or 
+            (or
              (cadr (assoc "list" params))
              (cadr (assoc "/playlist?list" params)))))
     (when (string-match "channel" url)
