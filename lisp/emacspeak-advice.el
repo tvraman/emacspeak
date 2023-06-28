@@ -1839,7 +1839,7 @@ Produce an auditory icon if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "Icon."
      (when (ems-interactive-p)
-       (emacspeak-speak-line)
+       (emacspeak-speak-current-column)
        (emacspeak-auditory-icon 'right)))))
 
 ;;}}}
