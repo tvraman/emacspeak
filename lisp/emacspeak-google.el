@@ -503,9 +503,11 @@ current page."
          (setf (ems--g-tool-value tool) slot))
         ((listp range)
          ;; Prompt using completion
-         (setq slot (completing-read "Set tool to: " range))
-         (setf   (ems--g-tool-value tool) slot))
-        
+         (setq slot
+               (completing-read
+                "Set tool to: "
+                range)))
+        (setf   (ems--g-tool-value tool) slot)
         ((stringp range)
          (setq slot
                (read-from-minibuffer  range))
