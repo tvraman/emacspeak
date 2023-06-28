@@ -472,62 +472,60 @@ current page."
 ;;}}}
 ;;{{{ Interactive Commands
 
-(cl-loop for this-tool in
-         (emacspeak-google-toolbelt)
-         do
-         (eval
-          `(defun
-               ,(intern
-                 (format
-                  "emacspeak-google-toolbelt-change-%s"
-                  (emacspeak-google-tool-name this-tool)))
-               ()
-             ,(format
-               "Change  %s in the currently active toolbelt."
-               (emacspeak-google-tool-name this-tool))
-             (interactive)
-             (let*
-                 ((belt (emacspeak-google-toolbelt))
-                  (tool
-                   (cl-find-if
-                    #'(lambda (tool)
-                        (string= (emacspeak-google-tool-name tool)
-                                 ,(emacspeak-google-tool-name this-tool)))
-                    belt))
-                  (param (emacspeak-google-tool-param tool))
-                  (value (emacspeak-google-tool-value tool))
-                  (range (emacspeak-google-tool-range tool))
-                  (slot nil))
-               (cond
-                ((and (listp range)
-                      (= 2 (length range)))
-                 ;; toggle value
-                 (setq slot
-                       (if (equal value (cl-first range))
-                           (cl-second range)
-                         (cl-first range)))
-                 (setf (emacspeak-google-tool-value tool) slot))
-                ((listp range)
-                 ;; Prompt using completion
-                 (setq slot
-                       (completing-read
-                        "Set tool to: "
-                        range)))
-                (setf   (emacspeak-google-tool-value tool) slot)
-                ((stringp range)
-                 (setq slot
-                       (read-from-minibuffer  range))
-                 (setf  (emacspeak-google-tool-value tool) slot))
-                (t (error "Unexpected type!")))
-               (let
-                   ((emacspeak-websearch-google-options
-                     (concat
-                      (emacspeak-google-toolbelt-to-tbs belt)
-                      (emacspeak-google-toolbelt-to-tbm belt))))
-                 (emacspeak-google-cache-toolbelt belt)
-                 (emacspeak-websearch-google
-                  (or emacspeak-google-query
-                      (gweb-google-autocomplete))))))))
+(cl-loop
+ for this-tool in (emacspeak-google-toolbelt) do
+ (eval
+  `(defun
+       ,(intern
+         (format
+          "ems--g-tb-set-%s" (emacspeak-google-tool-name this-tool)))
+       ()
+     ,(format
+       "Change  %s in the currently active toolbelt."
+       (emacspeak-google-tool-name this-tool))
+     (interactive)
+     (let*
+         ((belt (emacspeak-google-toolbelt))
+          (tool
+           (cl-find-if
+            #'(lambda (tool)
+                (string= (emacspeak-google-tool-name tool)
+                         ,(emacspeak-google-tool-name this-tool)))
+            belt))
+          (param (emacspeak-google-tool-param tool))
+          (value (emacspeak-google-tool-value tool))
+          (range (emacspeak-google-tool-range tool))
+          (slot nil))
+       (cond
+        ((and (listp range)
+              (= 2 (length range)))
+         ;; toggle value
+         (setq slot
+               (if (equal value (cl-first range))
+                   (cl-second range)
+                 (cl-first range)))
+         (setf (emacspeak-google-tool-value tool) slot))
+        ((listp range)
+         ;; Prompt using completion
+         (setq slot
+               (completing-read
+                "Set tool to: "
+                range)))
+        (setf   (emacspeak-google-tool-value tool) slot)
+        ((stringp range)
+         (setq slot
+               (read-from-minibuffer  range))
+         (setf  (emacspeak-google-tool-value tool) slot))
+        (t (error "Unexpected type!")))
+       (let
+           ((emacspeak-websearch-google-options
+             (concat
+              (emacspeak-google-toolbelt-to-tbs belt)
+              (emacspeak-google-toolbelt-to-tbm belt))))
+         (emacspeak-google-cache-toolbelt belt)
+         (emacspeak-websearch-google
+          (or emacspeak-google-query
+              (gweb-google-autocomplete))))))))
 
 (defun emacspeak-google-toolbelt-names ()
   "Return memoized cache of names."
@@ -549,7 +547,7 @@ current page."
   (interactive)
   (call-interactively
    (read
-    (format  "emacspeak-google-toolbelt-change-%s"
+    (format  "ems--g-tb-set-%s"
              (completing-read
               "Toolbelt: "
               (emacspeak-google-toolbelt-names)
@@ -614,7 +612,7 @@ current page."
 (cl-loop
  for k in
  '(
-   ("." emacspeak-google-toolbelt-change)("." emacspeak-google-toolbelt-change)
+   ("." emacspeak-google-toolbelt-change)
    ("A" emacspeak-google-sign-in)
    ("a" emacspeak-google-sign-out)
    ("c" emacspeak-google-extract-from-cache)
