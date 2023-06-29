@@ -2778,7 +2778,8 @@ but quickly switch to a window by name."
    ((= (point) (point-max)) (call-interactively 'beginning-of-buffer))
    (t (call-interactively 'beginning-of-buffer)))
   (when (called-interactively-p 'interactive)
-    (dtk-notify-speak (format "%s%%" (emacspeak-get-current-percentage-into-buffer)))))
+    (dtk-notify-speak
+     (format "%s%%" (emacspeak-get-current-percentage-into-buffer)))))
 
 ;;}}}
 ;;{{{Utility: Accumulate 

@@ -1697,7 +1697,9 @@ This is so text marked invisible is silenced.")
   (cl-declare (special
                org-fold-core-style org-link-descriptive
                org-link--link-folding-spec))
-  (when (and (boundp 'org-fold-core-style) (eq org-fold-core-style 'text-properties))
+  (when
+      (and
+       (boundp 'org-fold-core-style) (eq org-fold-core-style 'text-properties))
     (outline-mode)
     (org-fold-initialize "...")
     (org-fold-core-set-folding-spec-property

@@ -109,8 +109,9 @@ Use Serve when working with remote speech servers.")
         ((play-p ;; rate limit: id, time
            (or 
             (not (eq icon ems--last-icon))
-            (< 1.0
-               (float-time (time-subtract (current-time) ems--lazy-icon-time))))))
+            (<
+             1.0
+             (float-time (time-subtract (current-time) ems--lazy-icon-time))))))
       (setq ems--last-icon icon
             ems--lazy-icon-time (current-time))
       (when play-p  (funcall emacspeak-auditory-icon-function icon)))))

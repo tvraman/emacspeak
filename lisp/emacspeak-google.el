@@ -495,7 +495,9 @@ current page."
        (cond
         ((and (listp range) (= 2 (length range))) ;; toggle value
          (setq slot
-               (if (equal value (cl-first range)) (cl-second range) (cl-first range)))
+               (if (equal value (cl-first range))
+                   (cl-second range)
+                 (cl-first range)))
          (setf (ems--g-tool-value tool) slot))
         ((listp range)
          ;; Prompt using completion
