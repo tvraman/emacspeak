@@ -316,7 +316,7 @@ This variable is buffer-local.")
          :name "timeline-low"
          :param "tll"
          :type 'tbs
-         :range "YYYY/MM"
+         :range '("YYYY" "MM")
          :default ""
          :value "")
         ;; Date Filter
@@ -331,7 +331,7 @@ This variable is buffer-local.")
         (make-ems--g-tool
          :name "timeline-high"
          :param "tlh"
-         :range "YYYY/MM"
+         :range '("YYYY" "mm")
          :default ""
          :type 'tbs
          :value "")
@@ -493,13 +493,9 @@ current page."
           (range (ems--g-tool-range tool))
           (slot nil))
        (cond
-        ((and (listp range)
-              (= 2 (length range)))
-         ;; toggle value
+        ((and (listp range) (= 2 (length range))) ;; toggle value
          (setq slot
-               (if (equal value (cl-first range))
-                   (cl-second range)
-                 (cl-first range)))
+               (if (equal value (cl-first range)) (cl-second range) (cl-first range)))
          (setf (ems--g-tool-value tool) slot))
         ((listp range)
          ;; Prompt using completion
