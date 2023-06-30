@@ -231,6 +231,12 @@ dont-url-encode if true then url arguments are not url-encoded "
  "emacspeak-xslt" (style url &optional unescape-charent))
 
 (emacspeak-url-template-define
+ "Player FM BBC RSS Feeds"
+ "https://player.fm/networks/uk-podcast-networks.txt"
+ nil #'emacspeak-speak-line
+ "Player FM BBC RSS Feeds")
+
+(emacspeak-url-template-define
  "BBC Podcast Directory"
  "http://www.bbc.co.uk/podcasts.opml"
  nil nil
