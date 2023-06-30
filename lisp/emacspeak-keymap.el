@@ -264,7 +264,7 @@
    ("3" amixer-volume-down)
    ("4" amixer-volume-up)
    ("5" emacspeak-speak-current-percentage)
-   (":" emacspeak-m-player-shuffle)
+   (":" empv-play-file)
    (";" emacspeak-multimedia)
    ("<XF86WakeUp>" emacspeak-speak-brief-time)
    ("<down>" emacspeak-read-next-line)
