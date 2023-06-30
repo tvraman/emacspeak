@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 23, 2023.
+last updated on June 29, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -491,224 +491,7 @@ e.g.  blog search are tbm=
 
      Command to change values in the toolbelt and execute the query.
 
-12.94.1.10 emacspeak-google-toolbelt-change-Shopping
-....................................................
-
- -- Command: emacspeak-google-toolbelt-change-Shopping
-
-     Change  Shopping in the currently active toolbelt.
-
-12.94.1.11 emacspeak-google-toolbelt-change-blog
-................................................
-
- -- Command: emacspeak-google-toolbelt-change-blog
-
-     Change  blog in the currently active toolbelt.
-
-12.94.1.12 emacspeak-google-toolbelt-change-books
-.................................................
-
- -- Command: emacspeak-google-toolbelt-change-books
-
-     Change  books in the currently active toolbelt.
-
-12.94.1.13 emacspeak-google-toolbelt-change-books-format
-........................................................
-
- -- Command: emacspeak-google-toolbelt-change-books-format
-
-     Change  books-format in the currently active toolbelt.
-
-12.94.1.14 emacspeak-google-toolbelt-change-books-type
-......................................................
-
- -- Command: emacspeak-google-toolbelt-change-books-type
-
-     Change  books-type in the currently active toolbelt.
-
-12.94.1.15 emacspeak-google-toolbelt-change-books-viewability
-.............................................................
-
- -- Command: emacspeak-google-toolbelt-change-books-viewability
-
-     Change  books-viewability in the currently active toolbelt.
-
-12.94.1.16 emacspeak-google-toolbelt-change-commercial
-......................................................
-
- -- Command: emacspeak-google-toolbelt-change-commercial
-
-     Change  commercial in the currently active toolbelt.
-
-12.94.1.17 emacspeak-google-toolbelt-change-commercial-prices
-.............................................................
-
- -- Command: emacspeak-google-toolbelt-change-commercial-prices
-
-     Change  commercial-prices in the currently active toolbelt.
-
-12.94.1.18 emacspeak-google-toolbelt-change-date-filter
-.......................................................
-
- -- Command: emacspeak-google-toolbelt-change-date-filter
-
-     Change  date-filter in the currently active toolbelt.
-
-12.94.1.19 emacspeak-google-toolbelt-change-forums
-..................................................
-
- -- Command: emacspeak-google-toolbelt-change-forums
-
-     Change  forums in the currently active toolbelt.
-
-12.94.1.20 emacspeak-google-toolbelt-change-group-discussions
-.............................................................
-
- -- Command: emacspeak-google-toolbelt-change-group-discussions
-
-     Change  group-discussions in the currently active toolbelt.
-
-12.94.1.21 emacspeak-google-toolbelt-change-images
-..................................................
-
- -- Command: emacspeak-google-toolbelt-change-images
-
-     Change  images in the currently active toolbelt.
-
-12.94.1.22 emacspeak-google-toolbelt-change-in-depth
-....................................................
-
- -- Command: emacspeak-google-toolbelt-change-in-depth
-
-     Change  in-depth in the currently active toolbelt.
-
-12.94.1.23 emacspeak-google-toolbelt-change-literal
-...................................................
-
- -- Command: emacspeak-google-toolbelt-change-literal
-
-     Change  literal in the currently active toolbelt.
-
-12.94.1.24 emacspeak-google-toolbelt-change-news
-................................................
-
- -- Command: emacspeak-google-toolbelt-change-news
-
-     Change  news in the currently active toolbelt.
-
-12.94.1.25 emacspeak-google-toolbelt-change-non-commercial
-..........................................................
-
- -- Command: emacspeak-google-toolbelt-change-non-commercial
-
-     Change  non-commercial in the currently active toolbelt.
-
-12.94.1.26 emacspeak-google-toolbelt-change-patents
-...................................................
-
- -- Command: emacspeak-google-toolbelt-change-patents
-
-     Change  patents in the currently active toolbelt.
-
-12.94.1.27 emacspeak-google-toolbelt-change-places
-..................................................
-
- -- Command: emacspeak-google-toolbelt-change-places
-
-     Change  places in the currently active toolbelt.
-
-12.94.1.28 emacspeak-google-toolbelt-change-recent
-..................................................
-
- -- Command: emacspeak-google-toolbelt-change-recent
-
-     Change  recent in the currently active toolbelt.
-
-12.94.1.29 emacspeak-google-toolbelt-change-recipes
-...................................................
-
- -- Command: emacspeak-google-toolbelt-change-recipes
-
-     Change  recipes in the currently active toolbelt.
-
-12.94.1.30 emacspeak-google-toolbelt-change-reviews
-...................................................
-
- -- Command: emacspeak-google-toolbelt-change-reviews
-
-     Change  reviews in the currently active toolbelt.
-
-12.94.1.31 emacspeak-google-toolbelt-change-social
-..................................................
-
- -- Command: emacspeak-google-toolbelt-change-social
-
-     Change  social in the currently active toolbelt.
-
-12.94.1.32 emacspeak-google-toolbelt-change-sort-by-date
-........................................................
-
- -- Command: emacspeak-google-toolbelt-change-sort-by-date
-
-     Change  sort-by-date in the currently active toolbelt.
-
-12.94.1.33 emacspeak-google-toolbelt-change-structured-snippets
-...............................................................
-
- -- Command: emacspeak-google-toolbelt-change-structured-snippets
-
-     Change  structured-snippets in the currently active toolbelt.
-
-12.94.1.34 emacspeak-google-toolbelt-change-timeline
-....................................................
-
- -- Command: emacspeak-google-toolbelt-change-timeline
-
-     Change  timeline in the currently active toolbelt.
-
-12.94.1.35 emacspeak-google-toolbelt-change-timeline-high
-.........................................................
-
- -- Command: emacspeak-google-toolbelt-change-timeline-high
-
-     Change  timeline-high in the currently active toolbelt.
-
-12.94.1.36 emacspeak-google-toolbelt-change-timeline-low
-........................................................
-
- -- Command: emacspeak-google-toolbelt-change-timeline-low
-
-     Change  timeline-low in the currently active toolbelt.
-
-12.94.1.37 emacspeak-google-toolbelt-change-video
-.................................................
-
- -- Command: emacspeak-google-toolbelt-change-video
-
-     Change  video in the currently active toolbelt.
-
-12.94.1.38 emacspeak-google-toolbelt-change-video-duration
-..........................................................
-
- -- Command: emacspeak-google-toolbelt-change-video-duration
-
-     Change  video-duration in the currently active toolbelt.
-
-12.94.1.39 emacspeak-google-toolbelt-change-web-history-not-visited
-...................................................................
-
- -- Command: emacspeak-google-toolbelt-change-web-history-not-visited
-
-     Change  web-history-not-visited in the currently active toolbelt.
-
-12.94.1.40 emacspeak-google-toolbelt-change-web-history-visited
-...............................................................
-
- -- Command: emacspeak-google-toolbelt-change-web-history-visited
-
-     Change  web-history-visited in the currently active toolbelt.
-
-12.94.1.41 emacspeak-google-tts-line
+12.94.1.10 emacspeak-google-tts-line
 ....................................
 
  -- Command: emacspeak-google-tts-line (&optional lang)
@@ -720,7 +503,7 @@ e.g.  blog search are tbm=
 
      (fn &optional LANG)
 
-12.94.1.42 emacspeak-google-tts-next-line
+12.94.1.11 emacspeak-google-tts-next-line
 .........................................
 
  -- Command: emacspeak-google-tts-next-line
@@ -730,7 +513,7 @@ e.g.  blog search are tbm=
      TTS next line using network TTS.
      Use default voice for buffer.
 
-12.94.1.43 emacspeak-google-tts-previous-line
+12.94.1.12 emacspeak-google-tts-previous-line
 .............................................
 
  -- Command: emacspeak-google-tts-previous-line
@@ -740,7 +523,7 @@ e.g.  blog search are tbm=
      TTS previous line using network TTS.
      Use default voice for buffer.
 
-12.94.1.44 emacspeak-google-tts-region
+12.94.1.13 emacspeak-google-tts-region
 ......................................
 
  -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
@@ -751,7 +534,7 @@ e.g.  blog search are tbm=
 
      (fn START END &optional ASK-LANG)
 
-12.94.1.45 emacspeak-google-tts-speak
+12.94.1.14 emacspeak-google-tts-speak
 .....................................
 
  -- Command: emacspeak-google-tts-speak (text &optional lang)
@@ -764,14 +547,14 @@ e.g.  blog search are tbm=
 
      (fn TEXT &optional LANG)
 
-12.94.1.46 emacspeak-google-what-is-my-ip
+12.94.1.15 emacspeak-google-what-is-my-ip
 .........................................
 
  -- Command: emacspeak-google-what-is-my-ip
 
      Show my public IP
 
-12.94.1.47 emacspeak-google-who-links-to-this-page
+12.94.1.16 emacspeak-google-who-links-to-this-page
 ..................................................
 
  -- Command: emacspeak-google-who-links-to-this-page
@@ -779,7 +562,7 @@ e.g.  blog search are tbm=
      Perform a google search to locate documents that link to the
      current page.
 
-12.94.1.48 emacspeak-google-yt-feed
+12.94.1.17 emacspeak-google-yt-feed
 ...................................
 
  -- Command: emacspeak-google-yt-feed (url)
@@ -1378,7 +1161,6 @@ found on laptops is denoted <fn>
       ("m" mspools-show)
       ("o" emacspeak-wizards-occur-header-lines)
       ("p" paradox-list-packages)
-      ("q" emacspeak-wizards-alpha-vantage-quotes)
       ("t" emacspeak-speak-telephone-directory)
       ("u" emacspeak-wizards-units)
       ("v" emacspeak-wizards-vc-viewer)
@@ -2220,8 +2002,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ......................................
 
  -- Command: emacspeak-m-player-shuffle
-     ‘C-e :’
-     ‘<fn> :’
 
      M-Player with shuffle turned on.
 
@@ -8595,8 +8375,6 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-alpha-vantage-quotes (ticker &optional
           custom)
-     ‘C-e x q’
-     ‘<fn> x q’
 
      Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
      — a stock symbol. Optional interactive prefix arg ‘custom’ provides
@@ -10387,4 +10165,160 @@ Implements the Google Maps API
      
      nil
      
+
+
+File: emacspeak.info,  Node: ladspa,  Next: light,  Prev: gmaps,  Up: Emacspeak Commands And Options
+
+12.227 ladspa
+=============
+
+This module uses tools from the Ladspa SDK to expose Ladspa plugins in a
+consistent way to elisp.  The goal is to make it easy to inspect Ladspa
+Plugins, And invoke them easily from Ladspa host applications such as
+MPlayer.  Some Ladspa Packages that provide plugins: sudo apt-get
+install zam-plugins wah-plugins vco-plugins tap-plugins swh-plugins
+rev-plugins mcp-plugins liquidsoap-plugin-ladspa ladspa-foo-plugins
+invada-studio-plugins-ladspa fil-plugins
+
+12.227.1 Ladspa Commands
+------------------------
+
+12.227.1.1 ladspa
+.................
+
+ -- Command: ladspa (&optional refresh)
+
+     Ladspa workbench.
+
+     (fn &optional REFRESH)
+
+12.227.1.2 ladspa-analyse-plugin-at-point
+.........................................
+
+ -- Command: ladspa-analyse-plugin-at-point
+
+     Analyse plugin at point.
+
+12.227.1.3 ladspa-edit-control
+..............................
+
+ -- Command: ladspa-edit-control
+
+     Edit Ladspa control  at point by prompting for control values.
+
+12.227.1.4 ladspa-instantiate
+.............................
+
+ -- Command: ladspa-instantiate
+
+     Instantiate plugin at point by prompting for control values.
+
+12.227.1.5 ladspa-mode
+......................
+
+ -- Command: ladspa-mode
+
+     A Ladspa workbench for the Emacspeak desktop.
+
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘ladspa-mode-hook’, as the final or
+     penultimate step during initialization.
+
+     Key             Binding
+     ——————————————————————————-
+     RET		ladspa-instantiate
+     SPC		ladspa-analyse-plugin-at-point
+     a		emacspeak-m-player-add-ladspa
+     d		emacspeak-m-player-delete-ladspa
+     e		ladspa-edit-control
+     n		next-line
+     p		previous-line
+
+
+
+File: emacspeak.info,  Node: light,  Next: mac-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
+
+12.228 light
+============
+
+Provide an emacs front-end to light.  This is a tool that controls the
+brightness on laptops.  To install light, sudo apt-get install light
+Install light setuid (sudo chmod u+s /usr/bin/light) This module is most
+easily used in conjunction with hydra: M-x package-install hydra
+
+12.228.1 Light Commands
+-----------------------
+
+12.228.1.1 light-black
+......................
+
+ -- Command: light-black
+
+     Black screen.
+
+12.228.1.2 light-decrement
+..........................
+
+ -- Command: light-decrement
+
+     Decrease brightness.
+
+12.228.1.3 light-get
+....................
+
+ -- Command: light-get
+
+     Get  brightness level.
+
+12.228.1.4 light-increment
+..........................
+
+ -- Command: light-increment
+
+     Increase brightness.
+
+12.228.1.5 light-set
+....................
+
+ -- Command: light-set (brightness)
+
+     Set brightness.
+
+     (fn BRIGHTNESS)
+
+12.228.1.6 light-white
+......................
+
+ -- Command: light-white
+
+     White screen.
+
+
+File: emacspeak.info,  Node: mac-voices,  Next: omaps,  Prev: light,  Up: Emacspeak Commands And Options
+
+12.229 mac-voices
+=================
+
+This module defines the various voices used in voice-lock mode by Mac
+TTS.
+
+12.229.1 mac-voices Options
+---------------------------
+
+ -- Variable: User Option mac-default-speech-rate
+     Default speech rate for mac.
+
+     Default Value:
+
+     
+     225
+     
+
+
+File: emacspeak.info,  Node: omaps,  Next: outloud-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
+
+12.230 omaps
+============
+
+Implements geocoding via the Open Street Maps API https://nominatim.org/
 

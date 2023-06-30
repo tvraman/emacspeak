@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1191 commands and 149 options.
+This chapter documents a total of 1160 commands and 149 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -7528,285 +7528,6 @@ Command to change values in the toolbelt and execute the query.
 @end format
 @end deffn
 
-@subsubsection emacspeak-google-toolbelt-change-Shopping
-@deffn {Command} emacspeak-google-toolbelt-change-Shopping   
-@findex emacspeak-google-toolbelt-change-Shopping
-
-@format
-Change  Shopping in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-blog
-@deffn {Command} emacspeak-google-toolbelt-change-blog   
-@findex emacspeak-google-toolbelt-change-blog
-
-@format
-Change  blog in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-books
-@deffn {Command} emacspeak-google-toolbelt-change-books   
-@findex emacspeak-google-toolbelt-change-books
-
-@format
-Change  books in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-books-format
-@deffn {Command} emacspeak-google-toolbelt-change-books-format   
-@findex emacspeak-google-toolbelt-change-books-format
-
-@format
-Change  books-format in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-books-type
-@deffn {Command} emacspeak-google-toolbelt-change-books-type   
-@findex emacspeak-google-toolbelt-change-books-type
-
-@format
-Change  books-type in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-books-viewability
-@deffn {Command} emacspeak-google-toolbelt-change-books-viewability   
-@findex emacspeak-google-toolbelt-change-books-viewability
-
-@format
-Change  books-viewability in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-commercial
-@deffn {Command} emacspeak-google-toolbelt-change-commercial   
-@findex emacspeak-google-toolbelt-change-commercial
-
-@format
-Change  commercial in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-commercial-prices
-@deffn {Command} emacspeak-google-toolbelt-change-commercial-prices   
-@findex emacspeak-google-toolbelt-change-commercial-prices
-
-@format
-Change  commercial-prices in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-date-filter
-@deffn {Command} emacspeak-google-toolbelt-change-date-filter   
-@findex emacspeak-google-toolbelt-change-date-filter
-
-@format
-Change  date-filter in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-forums
-@deffn {Command} emacspeak-google-toolbelt-change-forums   
-@findex emacspeak-google-toolbelt-change-forums
-
-@format
-Change  forums in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-group-discussions
-@deffn {Command} emacspeak-google-toolbelt-change-group-discussions   
-@findex emacspeak-google-toolbelt-change-group-discussions
-
-@format
-Change  group-discussions in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-images
-@deffn {Command} emacspeak-google-toolbelt-change-images   
-@findex emacspeak-google-toolbelt-change-images
-
-@format
-Change  images in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-in-depth
-@deffn {Command} emacspeak-google-toolbelt-change-in-depth   
-@findex emacspeak-google-toolbelt-change-in-depth
-
-@format
-Change  in-depth in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-literal
-@deffn {Command} emacspeak-google-toolbelt-change-literal   
-@findex emacspeak-google-toolbelt-change-literal
-
-@format
-Change  literal in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-news
-@deffn {Command} emacspeak-google-toolbelt-change-news   
-@findex emacspeak-google-toolbelt-change-news
-
-@format
-Change  news in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-non-commercial
-@deffn {Command} emacspeak-google-toolbelt-change-non-commercial   
-@findex emacspeak-google-toolbelt-change-non-commercial
-
-@format
-Change  non-commercial in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-patents
-@deffn {Command} emacspeak-google-toolbelt-change-patents   
-@findex emacspeak-google-toolbelt-change-patents
-
-@format
-Change  patents in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-places
-@deffn {Command} emacspeak-google-toolbelt-change-places   
-@findex emacspeak-google-toolbelt-change-places
-
-@format
-Change  places in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-recent
-@deffn {Command} emacspeak-google-toolbelt-change-recent   
-@findex emacspeak-google-toolbelt-change-recent
-
-@format
-Change  recent in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-recipes
-@deffn {Command} emacspeak-google-toolbelt-change-recipes   
-@findex emacspeak-google-toolbelt-change-recipes
-
-@format
-Change  recipes in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-reviews
-@deffn {Command} emacspeak-google-toolbelt-change-reviews   
-@findex emacspeak-google-toolbelt-change-reviews
-
-@format
-Change  reviews in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-social
-@deffn {Command} emacspeak-google-toolbelt-change-social   
-@findex emacspeak-google-toolbelt-change-social
-
-@format
-Change  social in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-sort-by-date
-@deffn {Command} emacspeak-google-toolbelt-change-sort-by-date   
-@findex emacspeak-google-toolbelt-change-sort-by-date
-
-@format
-Change  sort-by-date in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-structured-snippets
-@deffn {Command} emacspeak-google-toolbelt-change-structured-snippets   
-@findex emacspeak-google-toolbelt-change-structured-snippets
-
-@format
-Change  structured-snippets in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-timeline
-@deffn {Command} emacspeak-google-toolbelt-change-timeline   
-@findex emacspeak-google-toolbelt-change-timeline
-
-@format
-Change  timeline in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-timeline-high
-@deffn {Command} emacspeak-google-toolbelt-change-timeline-high   
-@findex emacspeak-google-toolbelt-change-timeline-high
-
-@format
-Change  timeline-high in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-timeline-low
-@deffn {Command} emacspeak-google-toolbelt-change-timeline-low   
-@findex emacspeak-google-toolbelt-change-timeline-low
-
-@format
-Change  timeline-low in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-video
-@deffn {Command} emacspeak-google-toolbelt-change-video   
-@findex emacspeak-google-toolbelt-change-video
-
-@format
-Change  video in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-video-duration
-@deffn {Command} emacspeak-google-toolbelt-change-video-duration   
-@findex emacspeak-google-toolbelt-change-video-duration
-
-@format
-Change  video-duration in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-web-history-not-visited
-@deffn {Command} emacspeak-google-toolbelt-change-web-history-not-visited   
-@findex emacspeak-google-toolbelt-change-web-history-not-visited
-
-@format
-Change  web-history-not-visited in the currently active toolbelt.
-@end format
-@end deffn
-
-@subsubsection emacspeak-google-toolbelt-change-web-history-visited
-@deffn {Command} emacspeak-google-toolbelt-change-web-history-visited   
-@findex emacspeak-google-toolbelt-change-web-history-visited
-
-@format
-Change  web-history-visited in the currently active toolbelt.
-@end format
-@end deffn
-
 @subsubsection emacspeak-google-tts-line
 @deffn {Command} emacspeak-google-tts-line  (&optional lang)
 @table @kbd
@@ -8569,7 +8290,6 @@ Default Value:
  ("m" mspools-show)
  ("o" emacspeak-wizards-occur-header-lines)
  ("p" paradox-list-packages)
- ("q" emacspeak-wizards-alpha-vantage-quotes)
  ("t" emacspeak-speak-telephone-directory)
  ("u" emacspeak-wizards-units)
  ("v" emacspeak-wizards-vc-viewer)
@@ -9580,13 +9300,6 @@ Display current position in track.
 
 @subsubsection emacspeak-m-player-shuffle
 @deffn {Command} emacspeak-m-player-shuffle   
-@table @kbd
-@item C-e :
-@kindex C-e :
-@item <fn> :
-@kindex <fn> :
-@end table
-
 @findex emacspeak-m-player-shuffle
 
 @format
@@ -17669,13 +17382,6 @@ Browse  Emacspeak productivity tips.
 
 @subsubsection emacspeak-wizards-alpha-vantage-quotes
 @deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
-@table @kbd
-@item C-e x q
-@kindex C-e x q
-@item <fn> x q
-@kindex <fn> x q
-@end table
-
 @findex emacspeak-wizards-alpha-vantage-quotes
 
 @format

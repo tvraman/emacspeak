@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 23, 2023.
+last updated on June 29, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2862,7 +2862,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
      amixer
 
 ‘:’
-     emacspeak-m-player-shuffle
+     empv-play-file
 
 ‘;’
      emacspeak-multimedia
@@ -3335,9 +3335,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-x-keyma
 ‘p’
      paradox-list-packages
 
-‘q’
-     emacspeak-wizards-alpha-vantage-quotes
-
 ‘t’
      emacspeak-speak-telephone-directory
 
@@ -3442,7 +3439,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1191 commands and 149 options.
+   This chapter documents a total of 1160 commands and 149 options.
 
 * Menu:
 

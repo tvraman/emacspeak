@@ -220,7 +220,7 @@
  amixer
 
 @item :
- emacspeak-m-player-shuffle
+ empv-play-file
 
 @item ;
  emacspeak-multimedia
@@ -692,9 +692,6 @@
 
 @item p
  paradox-list-packages
-
-@item q
- emacspeak-wizards-alpha-vantage-quotes
 
 @item t
  emacspeak-speak-telephone-directory
