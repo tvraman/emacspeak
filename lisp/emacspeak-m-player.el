@@ -445,7 +445,9 @@ URL fragment specifies optional start position."
   "Records   currently playing resource")
 
 (defun emacspeak-media-local-resource (prefix)
-  "Read local resource starting from default-directory"
+  "Read local filename starting from default-directory, using
+completion over all subfiles.  Interactive prefix arg causes it
+to read a directory rather than completing over all subfiles."
   (cl-declare (special default-directory))
   (let ((completion-ignore-case t))
     (cond
