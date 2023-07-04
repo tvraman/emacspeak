@@ -21105,7 +21105,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 61 URL Templates.
+This section documents a total of 62 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21202,7 +21202,9 @@ This months Old Time Radio Programming@item @b{OpenLibrary}
 
 Open Library Search@item @b{Patent Search From Google}
 
-Perform patent search via Google@item @b{RadioTime Browser}
+Perform patent search via Google@item @b{Player FM BBC RSS Feeds}
+
+Player FM BBC RSS Feeds@item @b{RadioTime Browser}
 
 RadioTime Entry point.@item @b{RadioTime Categories}
 

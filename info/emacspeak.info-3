@@ -1036,7 +1036,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.241 URL Templates
 ====================
 
-This section documents a total of 61 URL Templates.
+This section documents a total of 62 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -1168,72 +1168,75 @@ out the following steps:
   39. Patent Search From Google
 
      Perform patent search via Google
-  40. RadioTime Browser
+  40. Player FM BBC RSS Feeds
+
+     Player FM BBC RSS Feeds
+  41. RadioTime Browser
 
      RadioTime Entry point.
-  41. RadioTime Categories
+  42. RadioTime Categories
 
      RadioTime Categories .
-  42. RadioTime Search
+  43. RadioTime Search
 
      RadioTime Search.
-  43. Reddit At Point.
+  44. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  44. Reddit By Topic.
+  45. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  45. Reddit Front Page.
+  46. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  46. Reddit Search.
+  47. Reddit Search.
 
      Reddit Search Results Feed.
-  47. StreamWorld Radio
+  48. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  48. Tech News From CNet
+  49. Tech News From CNet
 
      Display tech news from CNET
-  49. TuneIn Radio
+  50. TuneIn Radio
 
      Translate StreamId to playable stream.
-  50. US Stock Market From Google
+  51. US Stock Market From Google
 
      Light-weight Google US Stock Markets.
-  51. Washington Post
+  52. Washington Post
 
      Washington Post Contents
-  52. Wiki Data Search
+  53. Wiki Data Search
 
      Search WikiData.
-  53. WordNet Search
+  54. WordNet Search
 
      Look up term in WordNet.
-  54. Yahoo RSSNews
+  55. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  55. html Google News Search
+  56. html Google News Search
 
      Search Google news.
-  56. sourceforge Download
+  57. sourceforge Download
 
      Download specified file.
-  57. sourceforge browse mirrors
+  58. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  58. sourceforge project
+  59. sourceforge project
 
      Open specified project page at SourceForge.
-  59. w3c IRC Logs
+  60. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  60. w3c Lists
+  61. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  61. world CNN Content
+  62. world CNN Content
 
      Filter down to CNN content area.
 
