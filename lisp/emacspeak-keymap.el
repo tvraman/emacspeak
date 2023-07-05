@@ -858,6 +858,17 @@
 (global-set-key (ems-kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
+;;{{{Repeat:
+(map-keymap
+ (lambda (_key cmd)
+   (when
+       (and
+        (symbolp cmd)
+        (not (eq cmd 'digit-argument)))
+     (put cmd 'repeat-map 'emacspeak-keymap)))
+ emacspeak-keymap)
+
+;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
