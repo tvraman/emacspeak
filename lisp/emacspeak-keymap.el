@@ -858,6 +858,15 @@
 (global-set-key (ems-kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
+;;{{{ Make dtk map sticky:
+
+(map-keymap
+ (lambda (_key cmd)
+   (when (symbolp cmd)
+     (put cmd 'repeat-map 'emacspeak-dtk-submap)))
+ emacspeak-dtk-submap)
+
+;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
