@@ -381,7 +381,7 @@
    ("C-d" dectalk)
    ("C-e" espeak)
    ("C-s" dectalk-soft)
-   ("C-m" dtk-set-chunk-separator-syntax)
+   ("C-j" dtk-set-chunk-separator-syntax)
    ("C-n" dtk-notify-initialize)
    ("C-o" outloud)
    ("C-v" global-voice-lock-mode)
