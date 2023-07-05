@@ -371,6 +371,9 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
     (emacspeak-auditory-icon 'left)
     (dtk-notify-speak (ems--show-current-volume))))
 
+(put 'amixer-volume-up 'repeat-map 'emacspeak-keymap)
+(put 'amixer-volume-down 'repeat-map 'emacspeak-keymap)
+
 ;;}}}
 (provide 'amixer)
 ;;{{{ end of file
