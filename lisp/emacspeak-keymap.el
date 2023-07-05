@@ -860,11 +860,11 @@
 ;;}}}
 ;;{{{ Make dtk map sticky:
 
-(map-keymap
- (lambda (_key cmd)
-   (when (symbolp cmd)
-     (put cmd 'repeat-map 'emacspeak-dtk-submap)))
- emacspeak-dtk-submap)
+
+ 
+   
+(put 'dtk-set-predefined-speech-rate 'repeat-map 'emacspeak-dtk-submap)
+(put 'dtk-set-rate 'repeat-map 'emacspeak-dtk-submap) 
 
 ;;}}}
 (provide 'emacspeak-keymap)
