@@ -381,8 +381,7 @@ plays result as a directory." directory)
             (let ((default-directory ,directory))
               (setq emacspeak-m-player-directory ,directory)
               (emacspeak-m-player-hotkey ,directory))))))
-    (global-set-key key command)
-    (put command 'repeat-map 'emacspeak-m-player-mode-map)))
+    (global-set-key key command)))
 
 (defvar emacspeak-m-player-hotkey-p nil
   "Flag set by hotkeys. Let-binding this causes default-directory
