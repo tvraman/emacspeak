@@ -600,10 +600,10 @@ then set the current local value to the result.
 @subsubsection dtk-set-chunk-separator-syntax
 @deffn {Command} dtk-set-chunk-separator-syntax  (s)
 @table @kbd
-@item C-e d RET
-@kindex C-e d RET
-@item <fn> d RET
-@kindex <fn> d RET
+@item C-e d C-j
+@kindex C-e d C-j
+@item <fn> d C-j
+@kindex <fn> d C-j
 @end table
 
 @findex dtk-set-chunk-separator-syntax

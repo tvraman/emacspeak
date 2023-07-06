@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 3, 2023.
+last updated on July 5, 2023.
 
 
 File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: omaps,  Up: Emacspeak Commands And Options
@@ -2655,6 +2655,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> d C-c:                            dtk-speak.          (line   30)
 * <fn> d C-d:                            dectalk-voices.     (line   18)
 * <fn> d C-e:                            espeak-voices.      (line   18)
+* <fn> d C-j:                            dtk-speak.          (line  106)
 * <fn> d C-n:                            dtk-speak.          (line   53)
 * <fn> d C-o:                            outloud-voices.     (line   18)
 * <fn> d C-s:                            dectalk-voices.     (line   27)
@@ -2672,7 +2673,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> d q:                              dtk-speak.          (line  278)
 * <fn> d R:                              dtk-speak.          (line   71)
 * <fn> d r:                              dtk-speak.          (line  224)
-* <fn> d RET:                            dtk-speak.          (line  106)
 * <fn> d S:                              dtk-speak.          (line  118)
 * <fn> d s:                              dtk-speak.          (line  300)
 * <fn> d SPC:                            dtk-speak.          (line  313)
@@ -3065,6 +3065,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d C-c:                             dtk-speak.          (line   29)
 * C-e d C-d:                             dectalk-voices.     (line   17)
 * C-e d C-e:                             espeak-voices.      (line   17)
+* C-e d C-j:                             dtk-speak.          (line  105)
 * C-e d C-n:                             dtk-speak.          (line   52)
 * C-e d C-o:                             outloud-voices.     (line   17)
 * C-e d C-s:                             dectalk-voices.     (line   26)
@@ -3098,7 +3099,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   16)
 * C-e d R:                               dtk-speak.          (line   70)
 * C-e d r <1>:                           dtk-speak.          (line  223)
-* C-e d RET:                             dtk-speak.          (line  105)
 * C-e d <RETURN>:                        Miscellaneous.      (line   71)
 * C-e d s:                               Speech Output Control.
                                                              (line   58)

@@ -294,6 +294,9 @@
 @item C-e
  espeak
 
+@item C-j
+ dtk-set-chunk-separator-syntax
+
 @item C-n
  dtk-notify-initialize
 
@@ -317,9 +320,6 @@
 
 @item R
  dtk-reset-state
-
-@item RET
- dtk-set-chunk-separator-syntax
 
 @item S
  dtk-set-language
