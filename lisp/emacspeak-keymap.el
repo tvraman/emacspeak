@@ -858,15 +858,7 @@
 (global-set-key (ems-kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
-;;{{{ Make dtk map sticky:
 
-
- 
-   
-(put 'dtk-set-predefined-speech-rate 'repeat-map 'emacspeak-dtk-submap)
-(put 'dtk-set-rate 'repeat-map 'emacspeak-dtk-submap) 
-
-;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
