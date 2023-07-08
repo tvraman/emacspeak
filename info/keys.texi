@@ -249,8 +249,14 @@
  @section Emacspeak Keybindings On emacspeak-dtk-submap
 
 @table @kbd
+@item +
+ dtk-rate-adjust
+
 @item ,
  dtk-toggle-punctuation-mode
+
+@item -
+ dtk-rate-adjust
 
 @item .
  dtk-notify-stop
@@ -284,6 +290,9 @@
 
 @item 9
  dtk-set-predefined-speech-rate
+
+@item =
+ dtk-rate-adjust
 
 @item C-c
  dtk-cloud

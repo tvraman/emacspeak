@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 149 options.
+This chapter documents a total of 1161 commands and 149 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -538,6 +538,33 @@ Initialize notification TTS stream.
 
 @format
 Stop  speech on notification stream.
+@end format
+@end deffn
+
+@subsubsection dtk-rate-adjust
+@deffn {Command} dtk-rate-adjust   
+@table @kbd
+@item C-e d -
+@kindex C-e d -
+@item C-e d +
+@kindex C-e d +
+@item C-e d =
+@kindex C-e d =
+@item <fn> d -
+@kindex <fn> d -
+@item <fn> d +
+@kindex <fn> d +
+@item <fn> d =
+@kindex <fn> d =
+@end table
+
+@findex dtk-rate-adjust
+
+@format
+Adjust speech rate in current buffer, inspired by
+  text-scale-adjust.   Invoke this command via C-e d =/+ or
+C-impel-d -. Pressing =,+, or - immediately continues to adjust
+the speech rate.  Call when on a non-blank line to preview the effectt
 @end format
 @end deffn
 
