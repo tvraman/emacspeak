@@ -336,7 +336,7 @@ Interactive prefix arg refreshes cache."
   :group 'emacspeak)
 
 ;;;###autoload
-(defun amixer-volume-up (prompt)
+(defun amixer-volume-up (&optional prompt)
   "Raise Master volume by amixer-volume-step.
 Interactive prefix arg `PROMPT' reads percentage as a number"
   (interactive "P")
@@ -354,7 +354,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
     (emacspeak-auditory-icon 'right)))
 
 ;;;###autoload
-(defun amixer-volume-down (prompt)
+(defun amixer-volume-down (&optional prompt)
   "Lower Master volume by amixer-volume-step.
 Interactive prefix arg `PROMPT' reads percentage as a number"
   (interactive "P")
