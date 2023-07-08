@@ -375,6 +375,9 @@
 (cl-loop
  for binding in
  '(
+   ("=" dtk-rate-adjust)
+   ("+" dtk-rate-adjust)
+   ("-" dtk-rate-adjust)
    ("," dtk-toggle-punctuation-mode)
    ("." dtk-notify-stop)
    ("C-c" dtk-cloud)
