@@ -204,12 +204,12 @@ Use Custom to customize where possible. "
   (when (file-exists-p custom-file)
     (tvr-time-load (load custom-file)))
   (load-theme 'modus-vivendi-tinted t)
-
-  (mapc
-   #'(lambda (m)
-       (diminish m ""))
-   '(outline-minor-mode reftex-mode voice-lock-mode company-mode hs-minor-mode
-     yas-minor-mode  auto-fill-function abbrev-mode auto-correct-mode))
+  (with-eval-after-load 'diminish
+    (mapc
+     #'(lambda (m)
+         (diminish m ""))
+     '(outline-minor-mode reftex-mode voice-lock-mode company-mode hs-minor-mode
+                          yas-minor-mode  auto-fill-function abbrev-mode auto-correct-mode)))
 
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup))
