@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 7, 2023.
+last updated on July 8, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2700,7 +2700,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
      emacspeak-speak-window-information
 
 ‘C-x’
-     dtk-toggle-punctuation-mode
+     emacspeak-speak-header-line
 
 ‘I’
      emacspeak-speak-show-active-network-interfaces
@@ -2722,9 +2722,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘RET’
      emacspeak-websearch-google
-
-‘SPC’
-     emacspeak-speak-header-line
 
 ‘T’
      emacspeak-view-emacspeak-tips
@@ -2834,9 +2831,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘,’
      emacspeak-beginning-or-end
 
-‘.’
-     emacspeak-speak-windowful
-
 ‘/’
      emacspeak-websearch-dispatch
 
@@ -2850,16 +2844,13 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
      emacspeak-speak-other-window
 
 ‘3’
-     amixer-volume-down
+     amixer-volume-adjust
 
 ‘4’
-     amixer-volume-up
+     amixer-volume-adjust
 
 ‘5’
      emacspeak-speak-current-percentage
-
-‘9’
-     amixer
 
 ‘:’
      empv-play-file
@@ -2884,6 +2875,12 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘C’
      emacspeak-customize
+
+‘9’
+     amixer
+
+‘SPC’
+     emacspeak-speak-windowful
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-dtk-submap,  Next: Emacspeak Keybindings On emacspeak-hyper-keymap,  Prev: Emacspeak Keybindings On emacspeak-keymap,  Up: Emacspeak Keymaps
@@ -3039,10 +3036,10 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
      emacspeak-m-player-using-hrtf
 
 ‘,’
-     previous-buffer
+     emacspeak-wizards-buffer-select
 
 ‘.’
-     next-buffer
+     emacspeak-wizards-buffer-select
 
 ‘/’
      emacspeak-websearch-google-with-toolbelt
@@ -3448,7 +3445,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1161 commands and 149 options.
+   This chapter documents a total of 1163 commands and 149 options.
 
 * Menu:
 
@@ -3744,33 +3741,40 @@ To reset all controls to their default values, Press ‘C-j’.
 
      Persist  amixer.
 
-12.1.1.4 amixer-volume-down
+12.1.1.4 amixer-volume-adjust
+.............................
+
+ -- Command: amixer-volume-adjust
+     ‘C-e 4’
+     ‘C-e 3’
+     ‘<fn> 4’
+     ‘<fn> 3’
+
+     Adjust volume continuously.
+
+12.1.1.5 amixer-volume-down
 ...........................
 
- -- Command: amixer-volume-down (prompt)
+ -- Command: amixer-volume-down (&optional prompt)
      ‘<XF86AudioLowerVolume>’
      ‘C-<f1>’
-     ‘C-e 3’
-     ‘<fn> 3’
 
      Lower Master volume by amixer-volume-step.
      Interactive prefix arg ‘PROMPT’ reads percentage as a number
 
-     (fn PROMPT)
+     (fn &optional PROMPT)
 
-12.1.1.5 amixer-volume-up
+12.1.1.6 amixer-volume-up
 .........................
 
- -- Command: amixer-volume-up (prompt)
+ -- Command: amixer-volume-up (&optional prompt)
      ‘<XF86AudioRaiseVolume>’
      ‘C-<f2>’
-     ‘C-e 4’
-     ‘<fn> 4’
 
      Raise Master volume by amixer-volume-step.
      Interactive prefix arg ‘PROMPT’ reads percentage as a number
 
-     (fn PROMPT)
+     (fn &optional PROMPT)
 
 12.1.2 amixer Options
 ---------------------
@@ -4117,10 +4121,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 .....................................
 
  -- Command: dtk-toggle-punctuation-mode (&optional prefix)
-     ‘C-e C-x’
      ‘C-e <deletechar>’
      ‘C-e <backspace>’
-     ‘<fn> C-x’
      ‘<fn> <deletechar>’
      ‘<fn> <backspace>’
      ‘C-e d ,’

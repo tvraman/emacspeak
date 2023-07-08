@@ -58,7 +58,7 @@
  emacspeak-speak-window-information
 
 @item C-x
- dtk-toggle-punctuation-mode
+ emacspeak-speak-header-line
 
 @item I
  emacspeak-speak-show-active-network-interfaces
@@ -80,9 +80,6 @@
 
 @item RET
  emacspeak-websearch-google
-
-@item SPC
- emacspeak-speak-header-line
 
 @item T
  emacspeak-view-emacspeak-tips
@@ -192,9 +189,6 @@
 @item ,
  emacspeak-beginning-or-end
 
-@item .
- emacspeak-speak-windowful
-
 @item /
  emacspeak-websearch-dispatch
 
@@ -208,16 +202,13 @@
  emacspeak-speak-other-window
 
 @item 3
- amixer-volume-down
+ amixer-volume-adjust
 
 @item 4
- amixer-volume-up
+ amixer-volume-adjust
 
 @item 5
  emacspeak-speak-current-percentage
-
-@item 9
- amixer
 
 @item :
  empv-play-file
@@ -242,6 +233,12 @@
 
 @item C
  emacspeak-customize
+
+@item 9
+ amixer
+
+@item SPC
+ emacspeak-speak-windowful
 
 @end table
 
@@ -397,10 +394,10 @@
  emacspeak-m-player-using-hrtf
 
 @item ,
- previous-buffer
+ emacspeak-wizards-buffer-select
 
 @item .
- next-buffer
+ emacspeak-wizards-buffer-select
 
 @item /
  emacspeak-websearch-google-with-toolbelt

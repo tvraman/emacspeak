@@ -1424,6 +1424,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
 
 ;;}}}
 ;;{{{  Buffer Cycling:
+
 (defun emacspeak-wizards-buffer-cycle-previous (mode)
   "Return previous  buffer in cycle order having same major mode as `mode'."
   (catch 'cl-loop
@@ -1458,6 +1459,39 @@ buffer keyed by `key'gets the key of buffer `buffer'."
      (t (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
+;;{{{Buffer Selection:
+
+;; Inspired by text-adjust-scale:
+(defun emacspeak-wizards-buffer-select()
+  "Select buffer by smart cycling.
+By default, this command is bound to multiple keys.
+The final key of the initial  key-sequence, and  further invocations
+of the keys below call the following bindings:
+
+, previous-buffer
+. next-buffer
+b emacspeak-wizards-cycle-to-previous-buffer
+f emacspeak-wizards-cycle-to-next-buffer
+n next-buffer
+p previous-buffer
+"
+  (interactive )
+  (let ((key (event-basic-type last-command-event)))
+    (cl-case key
+      (?b
+       (call-interactively 'emacspeak-wizards-cycle-to-previous-buffer))
+      (?f
+       (call-interactively 'emacspeak-wizards-cycle-to-next-buffer))
+      (?p (call-interactively 'previous-buffer))
+      (?, (call-interactively 'previous-buffer))
+      (?n (call-interactively 'next-buffer))
+      (?. (call-interactively 'next-buffer)))
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (dolist (key '("," "." "b" "f" "p" "n"))
+         (define-key map key (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
+       map))))
+
 ;;{{{ Start or switch to term:
 
 ;;;###autoload

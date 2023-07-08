@@ -370,11 +370,20 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
     (amixer-build-db)
     (emacspeak-auditory-icon 'left)
     (dtk-notify-speak (ems--show-current-volume))))
+;;;###autoload
+(defun amixer-volume-adjust ()
+  "Adjust volume continuously."
+  (interactive )
+  (let ((key (event-basic-type last-command-event)))
+    (cl-case key
+      (?3 (call-interactively 'amixer-volume-down))
+      (?4 (call-interactively 'amixer-volume-up)))
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (dolist (key '("3" "4"))
+         (define-key map key (lambda () (interactive) (amixer-volume-adjust ))))
+       map))))
 
-(put 'amixer-volume-up 'repeat-map 'emacspeak-keymap)
-(put 'amixer-volume-down 'repeat-map 'emacspeak-keymap)
-
-;;}}}
 (provide 'amixer)
 ;;{{{ end of file
 
