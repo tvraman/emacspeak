@@ -7,6 +7,26 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 59 --- Emacspeak 58 User Visible Changes
+* Emacspeak 59 --- Emacspeak 59 User Visible Changes
 
 This version requires Emacs-29.1.
+
+* Updated Keybindings 
+
+
+Key bindings have been updated to be more ergonomic
+
+* Smart Buffer Selection
+
+Command ~emacspeak-wizards-buffer-select~ provides smart buffer
+cycling via  a single transient key.
+
+* Audio Volume Adjust
+
+Command ~amixer-adjust-volume~ provides a single transient key for
+adjusting audio volume.
+
+* Speech-Rate Adjust
+
+Command ~dtk-rate-adjust~ provides a single transient for adjusting
+speech rate in current buffer.
