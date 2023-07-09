@@ -249,7 +249,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
 
 (defun emacspeak--notifications-init ()
   "Init Notifications buffer."
-  (let ((buffer (get-buffer-create "*Notifications*")))
+  (let ((buffer (get-buffer-create " *Notifications*")))
     (with-current-buffer buffer
       (special-mode)
       buffer)))
