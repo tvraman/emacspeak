@@ -186,8 +186,8 @@
 @item )
  emacspeak-sounds-select-theme
 
-@item ,
- emacspeak-beginning-or-end
+@item .
+ emacspeak-wizards-buffer-select
 
 @item /
  emacspeak-websearch-dispatch

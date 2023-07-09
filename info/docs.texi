@@ -12120,13 +12120,6 @@ Arranges for ‘VAR’ to be restored when ‘file’ is loaded.
 
 @subsubsection emacspeak-beginning-or-end
 @deffn {Command} emacspeak-beginning-or-end   
-@table @kbd
-@item C-e ,
-@kindex C-e ,
-@item <fn> ,
-@kindex <fn> ,
-@end table
-
 @findex emacspeak-beginning-or-end
 
 @format
@@ -17431,10 +17424,14 @@ access to the various functions provided by alpha-vantage.
 @subsubsection emacspeak-wizards-buffer-select
 @deffn {Command} emacspeak-wizards-buffer-select   
 @table @kbd
+@item C-e .
+@kindex C-e .
 @item C-; .
 @kindex C-; .
 @item C-; ,
 @kindex C-; ,
+@item <fn> .
+@kindex <fn> .
 @item C-x @@ h .
 @kindex C-x @@ h .
 @item C-x @@ h ,
@@ -17451,6 +17448,7 @@ of the keys below call the following bindings:
 
 , previous-buffer
 . next-buffer
+k emacspeak-kill-buffer-quietly
 b emacspeak-wizards-cycle-to-previous-buffer
 f emacspeak-wizards-cycle-to-next-buffer
 n next-buffer

@@ -2828,8 +2828,8 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘)’
      emacspeak-sounds-select-theme
 
-‘,’
-     emacspeak-beginning-or-end
+‘.’
+     emacspeak-wizards-buffer-select
 
 ‘/’
      emacspeak-websearch-dispatch

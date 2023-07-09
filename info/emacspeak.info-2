@@ -4463,8 +4463,6 @@ of emacspeak from becoming dependent on the speech server modules
 .....................................
 
  -- Command: emacspeak-beginning-or-end
-     ‘C-e ,’
-     ‘<fn> ,’
 
      Move to start or end of buffer.
 
@@ -8386,8 +8384,10 @@ Contains various wizards for the Emacspeak desktop.
 ...........................................
 
  -- Command: emacspeak-wizards-buffer-select
+     ‘C-e .’
      ‘C-; .’
      ‘C-; ,’
+     ‘<fn> .’
      ‘C-x @ h .’
      ‘C-x @ h ,’
 
@@ -8398,6 +8398,7 @@ Contains various wizards for the Emacspeak desktop.
 
      , previous-buffer
      . next-buffer
+     k emacspeak-kill-buffer-quietly
      b emacspeak-wizards-cycle-to-previous-buffer
      f emacspeak-wizards-cycle-to-next-buffer
      n next-buffer
