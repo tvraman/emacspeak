@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 8, 2023.
+last updated on July 9, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2828,6 +2828,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘)’
      emacspeak-sounds-select-theme
 
+‘,’
+     emacspeak-wizards-buffer-select
+
 ‘.’
      emacspeak-wizards-buffer-select
 
@@ -3751,6 +3754,8 @@ To reset all controls to their default values, Press ‘C-j’.
      ‘<fn> 3’
 
      Adjust volume continuously.
+     Press C-e 3 to lower volume; C-e 4 to increase it. Subsequent presses
+     of 3 and 4 lower or raise volume.
 
 12.1.1.5 amixer-volume-down
 ...........................

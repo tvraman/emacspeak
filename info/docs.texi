@@ -327,6 +327,8 @@ Persist  amixer.
 
 @format
 Adjust volume continuously.
+Press C-e 3 to lower volume; C-e 4 to increase it. Subsequent presses
+of 3 and 4 lower or raise volume.
 @end format
 @end deffn
 
@@ -17426,12 +17428,16 @@ access to the various functions provided by alpha-vantage.
 @table @kbd
 @item C-e .
 @kindex C-e .
+@item C-e ,
+@kindex C-e ,
 @item C-; .
 @kindex C-; .
 @item C-; ,
 @kindex C-; ,
 @item <fn> .
 @kindex <fn> .
+@item <fn> ,
+@kindex <fn> ,
 @item C-x @@ h .
 @kindex C-x @@ h .
 @item C-x @@ h ,

@@ -372,7 +372,9 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
     (dtk-notify-speak (ems--show-current-volume))))
 ;;;###autoload
 (defun amixer-volume-adjust ()
-  "Adjust volume continuously."
+  "Adjust volume continuously.
+Press C-e 3 to lower volume; C-e 4 to increase it. Subsequent presses
+of 3 and 4 lower or raise volume."
   (interactive )
   (let ((key (event-basic-type last-command-event)))
     (cl-case key

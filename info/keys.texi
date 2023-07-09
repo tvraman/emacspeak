@@ -186,6 +186,9 @@
 @item )
  emacspeak-sounds-select-theme
 
+@item ,
+ emacspeak-wizards-buffer-select
+
 @item .
  emacspeak-wizards-buffer-select
 

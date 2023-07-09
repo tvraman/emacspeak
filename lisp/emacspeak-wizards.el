@@ -452,6 +452,7 @@ With optional interactive prefix arg `frame', move to previous frame instead."
 
 ;;}}}
 ;;{{{  readng different displays of same buffer
+
 ;;;###autoload
 (defun emacspeak-speak-this-buffer-other-window-display ( window)
   "Speak this buffer as displayed in a different frame or window.  Emacs
@@ -539,7 +540,6 @@ meaning of `next'."
   (emacspeak-select-this-buffer-other-window-display 1))
 
 ;;}}}
-
 ;;{{{  Display properties conveniently
 
 ;; Useful for developping emacspeak:
@@ -598,6 +598,7 @@ If optional arg property is not supplied, read it interactively. "
 
 ;;}}}
 ;;{{{  moving across blank lines
+
 ;;;###autoload
 (defun emacspeak-skip-blank-lines-forward ()
   "Move forward across blank lines, then speak line.
@@ -1340,7 +1341,6 @@ of the source buffer."
   (message (abbreviate-file-name default-directory)))
 
 ;;;###autoload
-;;*
 (defun emacspeak-wizards-shell-directory-reset (&optional prefix)
   "Set current directory to this shell's initial directory if one was
 defined.  If not in a shell buffer, switch to our Home shell buffer.
@@ -1459,8 +1459,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
      (t (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
-;;{{{Buffer Selection:
-
+;;{{{ Buffer Select:
 ;; Inspired by text-adjust-scale:
 (defun emacspeak-wizards-buffer-select()
   "Select buffer by smart cycling.
@@ -1492,8 +1491,9 @@ p previous-buffer
      (let ((map (make-sparse-keymap)))
        (dolist (key '("k" "," "." "b" "f" "p" "n"))
          (define-key map key (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
-       map))))
 
+       map))))
+;;}}}       
 ;;{{{ Start or switch to term:
 
 ;;;###autoload
@@ -1812,6 +1812,7 @@ mapped to voices."
 
 ;;}}}
 ;;{{{ Filtered buffer lists:
+
 (defun emacspeak-wizards-view-buffers-filtered-by-predicate (predicate)
   "Display list of buffers filtered by specified predicate."
   (let ((buffer-list
@@ -1864,6 +1865,7 @@ mapped to voices."
   "Display list of  EWW buffers."
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode 'eww-mode))
+
 ;;}}}
 ;;{{{ TuneIn:
 
@@ -1883,438 +1885,6 @@ Optional interactive prefix arg `category' prompts for a category."
   (require 'emacspeak-url-template)
   (let ((name "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
-
-;;}}}
-;;{{{ alpha-vantage: Stock Quotes
-
-;; alpha-vantage:
-;; API Key: https://www.alphavantage.co/support/#api-key
-;; API Documentation: https://www.alphavantage.co/documentation/
-
-(defcustom emacspeak-wizards-alpha-vantage-api-key nil
-  "API Key  used to retrieve stock data from alpha-vantage.
-Visit https://www.alphavantage.co/support/#api-key to get your key."
-  :type
-  '(choice :tag "Key"
-           (const :tag "Unspecified" nil)
-           (string :tag "API Key"))
-  :group 'emacspeak-wizards)
-
-(defvar emacspeak-wizards-alpha-vantage-base
-  "https://alphavantage.co/query?function=%s&symbol=%s&apikey=%s&datatype=csv"
-  "Rest End-Point For Alpha-Vantage Stock API.")
-
-(defun emacspeak-wizards-alpha-vantage-uri (func ticker)
-  "Return URL for calling Alpha-Vantage API."
-  (cl-declare (special emacspeak-wizards-alpha-vantage-base
-                       emacspeak-wizards-alpha-vantage-api-key))
-  (format
-   emacspeak-wizards-alpha-vantage-base
-   func ticker emacspeak-wizards-alpha-vantage-api-key))
-
-(defconst ems--alpha-vantage-funcs
-  '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
-    "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED")
-  "Alpha-Vantage query types.")
-
-(defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
-  "Set this to the stock tickers you want to check. Default is
-GAFA. Tickers are separated by white-space and are automatically
-sorted in lexical order with duplicates removed when saving as a csv string."
-  :type 'string
-  :group 'emacspeak-wizards
-  :initialize 'custom-initialize-reset
-  :set
-  #'(lambda (sym val)
-      (set-default
-       sym
-       (mapconcat
-        #'identity
-        (cl-remove-duplicates
-         (sort (split-string val) #'string-lessp) :test #'string=)
-        ","))))
-
-(defun emacspeak-wizards-alpha-vantage-quotes (ticker &optional custom)
-  "Retrieve stock quote data from Alpha Vantage. Prompts for `ticker'
---- a stock symbol. Optional interactive prefix arg `custom' provides
-access to the various functions provided by alpha-vantage."
-  (interactive
-   (list
-    (upcase
-     (completing-read
-      "Stock Symbol: "
-      (split-string emacspeak-wizards-personal-portfolio ",")))
-    current-prefix-arg))
-  (cl-declare (special emacspeak-wizards-personal-portfolio
-                       ems--alpha-vantage-funcs))
-  (let* ((completion-ignore-case t)
-         (method
-          (if custom
-              (upcase
-               (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
-            "TIME_SERIES_DAILY"))
-         (url
-          (emacspeak-wizards-alpha-vantage-uri
-           method
-           ticker)))
-    (kill-new url)
-    (emacspeak-table-view-csv-url url
-                                  (format "%s Data For %s" method ticker))))
-
-;;}}}
-;;{{{ Stock Quotes from iextrading
-
-;; Moving from iextrading to iexcloud.
-;; This service is the new iextrading, but needs an API key.
-;; The service still has a free tier that should be sufficient for
-;; Emacspeak users.
-;; API Docs at https://iexcloud.io/docs/api/
-
-(defcustom emacspeak-iex-api-key nil
-  "Web API  key for IEX Finance access.
-See IEX Login Console   at
-https://iexcloud.io/cloud-login/
-for how to get  an API key. "
-  :type
-  '(choice :tag "Key"
-           (const :tag "Unspecified" nil)
-           (string :tag "API Key"))
-  :group 'emacspeak-wizards)
-
-(defvar emacspeak-wizards-iex-quotes-row-filter
-  '(0 " ask  " 2
-                                        ;" trading between   " 4 " and  " 5
-      " 52 week range " 7 " to " 8
-      " PE is " 10
-      " For a market cap of " 9)
-  "Template used to audio-format  rows.")
-
-(defvar emacspeak-wizards-iex-portfolio-file
-  (expand-file-name "portfolio.json" emacspeak-user-directory)
-  "Local file cache of IEX API data.")
-
-(defconst ems--iex-types
-  "quote"
-  "Iex query types.")
-
-(defvar emacspeak-wizards-iex-cache
-  (when (file-exists-p emacspeak-wizards-iex-portfolio-file)
-    (ems--json-read-file emacspeak-wizards-iex-portfolio-file))
-  "Cache retrieved data to save API calls.")
-
-(defconst emacspeak-wizards-iex-base
-  "https://cloud.iexapis.com/stable"
-  "Rest End-Point For iex Stock API.")
-
-(defun emacspeak-wizards-iex-uri (action symbols)
-  "Return URL for calling iex API.
-Parameter `action' specifies relative URL. '"
-  (cl-declare (special emacspeak-wizards-iex-base
-                       ems--iex-types emacspeak-iex-api-key))
-  (format
-   "%s/%s?symbols=%s&token=%s&types=%s"
-   emacspeak-wizards-iex-base action symbols
-   emacspeak-iex-api-key
-   ems--iex-types))
-
-(defun emacspeak-wizards-iex-refresh ()
-  "Retrieve stock quote data from IEX Trading.
-Uses symbols set in `emacspeak-wizards-personal-portfolio '.
-Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
-  (cl-declare (special
-               emacspeak-wizards-iex-portfolio-file g-curl-program
-               emacspeak-wizards-personal-portfolio
-               emacspeak-wizards-iex-cache))
-  (let* ((symbols emacspeak-wizards-personal-portfolio)
-         (url (emacspeak-wizards-iex-uri  "stock/market/batch" symbols)))
-    (shell-command
-     (format "%s -s -D %s/iex-headers -o %s '%s'"
-             g-curl-program temporary-file-directory
-             emacspeak-wizards-iex-portfolio-file url))
-    (setq emacspeak-wizards-iex-cache
-          (ems--json-read-file emacspeak-wizards-iex-portfolio-file))))
-
-(defun emacspeak-wizards-iex-show-metadata ()
-  "Account metadata."
-  (interactive)
-  (cl-declare (special emacspeak-wizards-iex-base))
-  (message "%s"
-           (g-json-from-url
-            (format "%s/account/metadata?token=%s"
-                    emacspeak-wizards-iex-base emacspeak-iex-api-key))))
-
-(defun emacspeak-wizards-iex-show-price (symbol)
-  "Quick Quote: Just stock price from IEXCloud."
-  (interactive
-   (list
-    (completing-read
-     "Stock Symbol: " (split-string
-                       emacspeak-wizards-personal-portfolio ","))))
-  (cl-declare (special emacspeak-wizards-iex-base
-                       tts-notification-device
-                       emacspeak-wizards-personal-portfolio))
-  (let-alist
-      (aref
-       (g-json-from-url
-        (format "%s/tops/last?symbols=%s&token=%s"
-                emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
-       0)
-    (message "%s: %s at %s"
-             symbol .price
-             (format-time-string
-              "%_I %M %p" (seconds-to-time (/ .time 1000))))))
-
-(defvar ems--wizards-iex-quotes-keymap
-  (let ((map (make-sparse-keymap)))
-    (define-key map "F" 'emacspeak-wizards-iex-this-financials)
-    (define-key map "N" 'emacspeak-wizards-iex-this-news)
-    (define-key map "P" 'emacspeak-wizards-iex-this-price)
-    map)
-  "Local keymap used in quotes view.")
-
-(defun emacspeak-wizards-iex-show-quote (&optional refresh)
-  "Show portfolio  data from cache.
-Optional interactive prefix arg forces cache refresh.
-
-The quotes view uses emacspeak's table mode.
-In addition,  the following  keys are available :
-
-F: Show financials for current stock.
-N: Show news for current stock.
-P: Show live price for current stock."
-  (interactive "P")
-  (cl-declare (special emacspeak-wizards-iex-cache))
-  (when (or refresh (null emacspeak-wizards-iex-cache))
-    (emacspeak-wizards-iex-refresh))
-  (let* ((buff (get-buffer-create "*Stock Quotes From IEXTrading*"))
-         (inhibit-read-only t)
-         (results
-          (cl-loop
-           for i in emacspeak-wizards-iex-cache collect
-           (let-alist i .quote)))
-         (count 1)
-         (table (make-vector (1+ (length results)) nil)))
-    (aset table 0
-          ["CompanyName" "Symbol"
-           "lastTrade" "Open" "Low" "High" "Close"
-           "52WeekLow" "52WeekHigh"
-           "MarketCap" "PERatio"
-           "Previous Close" "Change" "Change %"])
-    (cl-loop
-     for r in results do
-     (aset table count
-           (apply
-            #'vector
-            (let-alist r
-              (list
-               .companyName .symbol
-               .latestPrice .open .low .high .close
-               .week52Low .week52High
-               .marketCap .peRatio
-               .previousClose .change .changePercent))))
-     (setq count (1+ count)))
-    (emacspeak-table-prepare-table-buffer
-     (emacspeak-table-make-table table) buff)
-    (funcall-interactively #'switch-to-buffer buff)
-    (setq
-     emacspeak-table-speak-element
-     'emacspeak-table-speak-row-header-and-element
-     emacspeak-table-speak-row-filter emacspeak-wizards-iex-quotes-row-filter
-     header-line-format
-     (format "Stock Quotes From IEXTrading"))
-    (put-text-property
-     (point-min) (point-max)
-     'keymap ems--wizards-iex-quotes-keymap)
-    (funcall-interactively #'emacspeak-table-goto 1 2)))
-
-(defun emacspeak-wizards-iex-show-tops ()
-  "Uses tops/last end-point to show brief portfolio quotes."
-  (interactive)
-  (cl-declare (special emacspeak-wizards-iex-base
-                       emacspeak-iex-api-key))
-  (let* ((buff (get-buffer-create "*Brief Stock Quotes From IEXTrading*"))
-         (inhibit-read-only t)
-         (i 1)
-         (symbols
-          (mapconcat #'identity
-                     (split-string
-                      emacspeak-wizards-personal-portfolio ",")
-                     ","))
-         (url
-          (format "%s/tops/last?symbols=%s&token=%s"
-                  emacspeak-wizards-iex-base symbols emacspeak-iex-api-key))
-         (results (g-json-from-url url))
-         (table (make-vector (1+ (length results)) nil)))
-    (aset table 0 ["Symbol" "Price"  "Time"])
-    (cl-loop
-     for r across results do
-     (let-alist r
-       (aset table i
-             (apply #'vector
-                    (list
-                     .symbol .price
-                     (format-time-string
-                      "%_I %M %p" (seconds-to-time (/ .time 1000))))))
-       (setq i (1+ i))))
-    (emacspeak-table-prepare-table-buffer
-     (emacspeak-table-make-table table) buff)
-    (funcall-interactively #'switch-to-buffer buff)
-    (setq
-     emacspeak-table-speak-row-filter '(0  1 " at " 2)
-     emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered
-     header-line-format
-     (format "Brief Stock Quotes From IEXTrading"))
-    (put-text-property
-     (point-min) (point-max)
-     'keymap ems--wizards-iex-quotes-keymap)
-    (funcall-interactively #'emacspeak-table-goto 1 1)))
-
-(defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
-  "Show news for specified ticker.
-Checks cache, then makes API call if needed.
-Optional interactive prefix arg refreshes cache."
-  (interactive
-   (list
-    (completing-read
-     "Symbol: "
-     (split-string emacspeak-wizards-personal-portfolio ","))
-    current-prefix-arg))
-  (cl-declare (special emacspeak-wizards-iex-cache
-                       emacspeak-iex-api-key))
-  (when (or refresh (null emacspeak-wizards-iex-cache))
-    (emacspeak-wizards-iex-refresh))
-  (let* ((inhibit-read-only t)
-         (buff (get-buffer-create (format "News For %s" symbol)))
-         (title (format "Stock News From IEXTrading For %S" (upcase symbol)))
-         (this nil)
-         (result (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
-    (with-current-buffer buff
-      (erase-buffer)
-      (org-mode)
-      (goto-char (point-min))
-      (insert title "\n\n")
-      (setq this (let-alist result .news))
-      (unless this                      ; not in cache
-        (setq this
-              (g-json-from-url
-               (format "%s/stock/%s/news?token=%s"
-                       emacspeak-wizards-iex-base symbol
-                       emacspeak-iex-api-key))))
-      (mapc
-       #'(lambda (n)
-           (let-alist n
-             (insert
-              (format
-               "  - [[%s][%s]] %s \n"
-               .url .headline .source))))
-       this)
-      (setq buffer-read-only t)
-      (setq header-line-format title))
-    (funcall-interactively #'switch-to-buffer buff)
-    (goto-char (point-min))))
-
-(defun emacspeak-wizards-iex-show-financials (symbol &optional refresh)
-  "Show financials for specified ticker.
-Checks cache, then makes API call if needed.
-Optional interactive prefix arg refreshes cache."
-  (interactive
-   (list
-    (completing-read
-     "Symbol: "
-     (split-string emacspeak-wizards-personal-portfolio ","))
-    current-prefix-arg))
-  (cl-declare (special emacspeak-wizards-iex-cache
-                       emacspeak-wizards-iex-base
-                       emacspeak-iex-api-key))
-  (when (or refresh (null emacspeak-wizards-iex-cache))
-    (emacspeak-wizards-iex-refresh))
-  (let* ((buff (get-buffer-create (format "Financials For %s" symbol)))
-         (this nil)
-         (table nil)
-         (headers nil)
-         (result (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
-    (cond
-     (result                            ; in cache
-      (setq this (let-alist result .financials.financials)))
-     (t                                 ; not in cache
-      (setq this
-            (let-alist
-                (g-json-from-url
-                 (format "%s/stock/%s/financials?token=%s"
-                         emacspeak-wizards-iex-base symbol
-                         emacspeak-iex-api-key))
-              .financials))))
-    (cl-assert (arrayp this) t "Not an array.")
-    (setq headers
-          (apply #'vector
-                 (mapcar
-                  #'(lambda (h) (format "%s" (car h)))
-                  (aref this 0))))
-    (setq table (make-vector (1+ (length this)) nil))
-    (aset table 0 headers)
-    (cl-loop
-     for i from 0 to (1- (length this)) do
-     (aset
-      table
-      (+ i 1)
-      (apply
-       #'vector
-       (mapcar #'(lambda (v) (format "%s" (cdr v)))
-               (aref this i)))))
-    (emacspeak-table-prepare-table-buffer
-     (emacspeak-table-make-table table) buff)
-    (funcall-interactively #'switch-to-buffer buff)
-    (setq
-     header-line-format
-     (format "Financials For %s From IEXTrading" (upcase symbol))
-     emacspeak-table-speak-element
-     'emacspeak-table-speak-column-header-and-element)
-    (funcall-interactively #'emacspeak-table-goto 1 2)))
-
-;; Top-Level Dispatch:
-;;;###autoload
-(defun emacspeak-wizards-quote (&optional refresh)
-  "Top-level dispatch for  Stock Market information.
-
-Key : Action
-f   :  Financials
-m   :  Account metadata
-n   :  News
-p   :  Price
-q   :  Quotes
-t   :  tops/last
-"
-  (interactive "P")
-  (cl-case
-      (read-char
-       "f: Financials, n: News, p: Price, q: Quotes, t: tops, m:metadata")
-    (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
-    (?p (call-interactively #'emacspeak-wizards-iex-show-price))
-    (?n (call-interactively #'emacspeak-wizards-iex-show-news))
-    (?m (call-interactively #'emacspeak-wizards-iex-show-metadata))
-    (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote
-                               refresh))
-    (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
-    (otherwise (error "Invalid key"))))
-;; Define emacspeak-wizards-iex-this-news and friends
-(cl-loop
- for n in
- '(financials news price) do
- (eval
-  `(defun
-       ,(intern (format "emacspeak-wizards-iex-this-%s" n))
-       ()
-     ,(format "Show %s for symbol in current row" n)
-     (interactive)
-     (cl-declare (special emacspeak-table))
-     (funcall-interactively
-      (symbol-function
-       ',(intern (format "emacspeak-wizards-iex-show-%s" n)))
-      (aref
-       (aref
-        (emacspeak-table-elements emacspeak-table)
-        (emacspeak-table-current-row emacspeak-table))
-       1)))))
 
 ;;}}}
 ;;{{{ Sports API:
@@ -2718,9 +2288,6 @@ q: Quit color wheel, after copying current hex value to kill-ring."
   (pop-to-buffer (get-buffer-create " *piped*"))
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
-
-;;}}}
-;;{{{ Smart Scratch:
 
 ;;}}}
 ;;{{{ Customize Saved Settings  By Pattern:
