@@ -256,6 +256,7 @@
    ("9" amixer)
    (")" emacspeak-sounds-select-theme)
    ("0" emacspeak-sounds-select-theme)
+   ("," emacspeak-wizards-buffer-select)
    ("." emacspeak-wizards-buffer-select)
    ("SPC" emacspeak-speak-windowful)
    ("/" emacspeak-websearch-dispatch)
