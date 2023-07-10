@@ -2650,163 +2650,84 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ==============================================
 
 ‘" emacspeak-speak-sexp’
-
 ‘C-@ emacspeak-speak-current-mark’
-
 ‘C-a emacspeak-toggle-auditory-icons’
-
 ‘C-b emacspeak-bookshare’
-
 ‘C-d emacspeak-toggle-show-point’
-
 ‘C-e move-end-of-line’
-
 ‘C-f emacspeak-find-dired’
-
 ‘C-j emacspeak-hide-speak-block-sans-prefix’
-
 ‘C-k browse-kill-ring’
-
 ‘C-l what-line’
-
 ‘C-o emacspeak-ocr’
-
 ‘C-q emacspeak-toggle-inaudible-or-comint-autospeak’
-
 ‘C-r restart-emacs’
-
 ‘C-s tts-restart’
-
 ‘C-u emacspeak-feeds-browse’
-
 ‘C-v view-mode’
-
 ‘C-w emacspeak-speak-window-information’
-
 ‘C-x emacspeak-speak-header-line’
-
 ‘I emacspeak-speak-show-active-network-interfaces’
-
 ‘L emacspeak-speak-line-interactively’
-
 ‘M emacspeak-speak-minor-mode-line’
-
 ‘N emacspeak-view-emacspeak-news’
-
 ‘P emacspeak-speak-paragraph-interactively’
-
 ‘R emacspeak-speak-rectangle’
-
 ‘RET emacspeak-websearch-google’
-
 ‘T emacspeak-view-emacspeak-tips’
-
 ‘TAB emacspeak-open-info’
-
 ‘V emacspeak-speak-version’
-
 ‘W emacspeak-select-window-by-name’
-
 ‘[ emacspeak-speak-paragraph’
-
 ‘\ emacspeak-toggle-speak-line-invert-filter’
-
 ‘] emacspeak-speak-page’
-
 ‘^ emacspeak-filtertext’
-
 ‘a emacspeak-speak-message-again’
-
 ‘b emacspeak-speak-buffer’
-
 ‘c emacspeak-speak-char’
-
 ‘e move-end-of-line’
-
 ‘f emacspeak-speak-buffer-filename’
-
 ‘g emacspeak-epub’
-
 ‘h emacspeak-speak-help’
-
 ‘i emacspeak-speak-rest-of-buffer’
-
 ‘j emacspeak-hide-or-expose-block’
-
 ‘k emacspeak-speak-current-kill’
-
 ‘l emacspeak-speak-line’
-
 ‘m emacspeak-speak-mode-line’
-
 ‘n emacspeak-wizards-buffer-select’
-
 ‘o delete-blank-lines’
-
 ‘p emacspeak-wizards-buffer-select’
-
 ‘r emacspeak-speak-region’
-
 ‘s dtk-stop’
-
 ‘t emacspeak-speak-time’
-
 ‘u emacspeak-url-template-fetch’
-
 ‘w emacspeak-speak-word’
-
 ‘| emacspeak-speak-line-set-column-filter’
-
 ‘! emacspeak-speak-run-shell-command’
-
 ‘$ flyspell-mode’
-
 ‘% emacspeak-speak-current-percentage’
-
 ‘& emacspeak-wizards-shell-command-on-current-file’
-
 ‘' emacspeak-pianobar’
-
 ‘( amixer’
-
 ‘) emacspeak-sounds-select-theme’
-
 ‘, emacspeak-wizards-buffer-select’
-
 ‘. emacspeak-wizards-buffer-select’
-
 ‘/ emacspeak-websearch-dispatch’
-
 ‘0 emacspeak-sounds-select-theme’
-
 ‘1 emacspeak-speak-this-window’
-
 ‘2 emacspeak-speak-other-window’
-
 ‘3 amixer-volume-adjust’
-
 ‘4 amixer-volume-adjust’
-
 ‘5 emacspeak-speak-current-percentage’
-
 ‘9 amixer’
-
 ‘: empv-play-file’
-
 ‘; emacspeak-multimedia’
-
 ‘= emacspeak-speak-current-column’
-
 ‘? emacspeak-websearch-dispatch’
-
 ‘@ emacspeak-speak-message-at-time’
-
 ‘A emacspeak-appt-repeat-announcement’
-
 ‘B emacspeak-speak-buffer-interactively’
-
 ‘C emacspeak-customize’
-
 ‘SPC emacspeak-speak-windowful’
 
 
@@ -2816,95 +2737,50 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-dtk-submap,  Nex
 ==================================================
 
 ‘+ dtk-rate-adjust’
-
 ‘, dtk-toggle-punctuation-mode’
-
 ‘- dtk-rate-adjust’
-
 ‘. dtk-notify-stop’
-
 ‘0 dtk-set-predefined-speech-rate’
-
 ‘1 dtk-set-predefined-speech-rate’
-
 ‘2 dtk-set-predefined-speech-rate’
-
 ‘3 dtk-set-predefined-speech-rate’
-
 ‘4 dtk-set-predefined-speech-rate’
-
 ‘5 dtk-set-predefined-speech-rate’
-
 ‘6 dtk-set-predefined-speech-rate’
-
 ‘7 dtk-set-predefined-speech-rate’
-
 ‘8 dtk-set-predefined-speech-rate’
-
 ‘9 dtk-set-predefined-speech-rate’
-
 ‘= dtk-rate-adjust’
-
 ‘C-c dtk-cloud’
-
 ‘C-d dectalk’
-
 ‘C-e espeak’
-
 ‘C-j dtk-set-chunk-separator-syntax’
-
 ‘C-n dtk-notify-initialize’
-
 ‘C-o outloud’
-
 ‘C-s dectalk-soft’
-
 ‘C-v global-voice-lock-mode’
-
 ‘L dtk-local-server’
-
 ‘N dtk-set-next-language’
-
 ‘P dtk-set-previous-language’
-
 ‘R dtk-reset-state’
-
 ‘S dtk-set-language’
-
 ‘SPC dtk-toggle-splitting-on-white-space’
-
 ‘V tts-speak-version’
-
 ‘a dtk-add-cleanup-pattern’
-
 ‘c dtk-toggle-caps’
-
 ‘d dtk-select-server’
-
 ‘f dtk-set-character-scale’
-
 ‘i emacspeak-toggle-audio-indentation’
-
 ‘k emacspeak-toggle-character-echo’
-
 ‘l emacspeak-toggle-line-echo’
-
 ‘n dtk-toggle-speak-nonprinting-chars’
-
 ‘o dtk-toggle-strip-octals’
-
 ‘p dtk-set-punctuations’
-
 ‘q dtk-toggle-quiet’
-
 ‘r dtk-set-rate’
-
 ‘s dtk-toggle-split-caps’
-
 ‘v voice-lock-mode’
-
 ‘w emacspeak-toggle-word-echo’
-
 ‘z emacspeak-zap-tts’
 
 
@@ -2914,67 +2790,36 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ====================================================
 
 ‘' emacspeak-m-player-using-hrtf’
-
 ‘/ emacspeak-websearch-google-with-toolbelt’
-
 ‘: emacspeak-m-player-using-openal’
-
 ‘; emacspeak-multimedia’
-
 ‘C-a emacspeak-wizards-term’
-
 ‘C-b eww-list-bookmarks’
-
 ‘C-d dictionary-search’
-
 ‘C-e eshell’
-
 ‘C-j emacspeak-wizards-shell-toggle’
-
 ‘C-l emacspeak-librivox’
-
 ‘C-t emacspeak-wizards-tramp-open-location’
-
 ‘DEL emacspeak-wizards-snarf-sexp’
-
 ‘TAB hippie-expand’
-
 ‘a emacspeak-amark-browse’
-
 ‘b eww-list-buffers’
-
 ‘c browse-url-chrome’
-
 ‘d magit-dispatch’
-
 ‘e gmaps’
-
 ‘f magit-file-dispatch’
-
 ‘g gnus’
-
 ‘h emacspeak-m-player-from-history’
-
 ‘i ibuffer’
-
 ‘k emacspeak-google-knowledge-search’
-
 ‘l locate’
-
 ‘m vm’
-
 ‘o find-file’
-
 ‘r emacspeak-wizards-find-file-as-root’
-
 ‘s magit-status’
-
 ‘t twit’
-
 ‘u list-unicode-display’
-
 ‘w emacspeak-wizards-noaa-weather’
-
 ‘y yas-expand’
 
 
@@ -2984,41 +2829,23 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 ====================================================
 
 ‘. emacspeak-wizards-shell-directory-reset’
-
 ‘C-n emacspeak-wizards-google-headlines’
-
 ‘R emacspeak-webspace-feed-reader’
-
 ‘SPC scratch-buffer’
-
 ‘c calculator’
-
 ‘d emacspeak-dired-downloads’
-
 ‘e elfeed’
-
 ‘f browse-url-firefox’
-
 ‘g emacspeak-google-tts’
-
 ‘h emacspeak-org-capture-link’
-
 ‘l emacspeak-wizards-locate-content’
-
 ‘m emacspeak-wizards-view-buffers-filtered-by-this-mode’
-
 ‘n emacspeak-wizards-google-news’
-
 ‘p proced’
-
 ‘r soundscape-restart’
-
 ‘s soundscape’
-
 ‘t soundscape-toggle’
-
 ‘u soundscape-update-mood’
-
 ‘y empv-youtube-tabulated’
 
 
@@ -3028,39 +2855,22 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 ==================================================
 
 ‘, eldoc’
-
 ‘SPC emacspeak-eww-smart-tabs’
-
 ‘a emacspeak-feeds-atom-display’
-
 ‘b sox-binaural’
-
 ‘d deadgrep’
-
 ‘e eww’
-
 ‘f ffip’
-
 ‘g rg’
-
 ‘l eww-open-file’
-
 ‘o emacspeak-feeds-opml-display’
-
 ‘p emacspeak-wizards-pdf-open’
-
 ‘r emacspeak-feeds-rss-display’
-
 ‘s emacspeak-wizards-tune-in-radio-search’
-
 ‘t emacspeak-wizards-tune-in-radio-browse’
-
 ‘u emacspeak-m-player-url’
-
 ‘v visual-line-mode’
-
 ‘w define-word’
-
 ‘y emacspeak-m-player-youtube-player’
 
 
@@ -3070,59 +2880,32 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next:
 ================================================
 
 ‘, emacspeak-wizards-shell-directory-set’
-
 ‘. emacspeak-wizards-shell-directory-reset’
-
 ‘0 emacspeak-wizards-shell-by-key’
-
 ‘1 emacspeak-wizards-shell-by-key’
-
 ‘2 emacspeak-wizards-shell-by-key’
-
 ‘3 emacspeak-wizards-shell-by-key’
-
 ‘4 emacspeak-wizards-shell-by-key’
-
 ‘5 emacspeak-wizards-shell-by-key’
-
 ‘7 emacspeak-wizards-shell-command-on-current-file’
-
 ‘8 calc’
-
 ‘; emacspeak-m-player-loop’
-
 ‘= emacspeak-wizards-find-longest-line-in-region’
-
 ‘C-c emacspeak-wizards-color-wheel’
-
 ‘DEL desktop-clear’
-
 ‘b battery’
-
 ‘d emacspeak-speak-load-directory-settings’
-
 ‘f emacspeak-wizards-remote-frame’
-
 ‘h emacspeak-wizards-how-many-matches’
-
 ‘i ibuffer’
-
 ‘l emacspeak-m-player-youtube-live’
-
 ‘m mspools-show’
-
 ‘o emacspeak-wizards-occur-header-lines’
-
 ‘p paradox-list-packages’
-
 ‘t emacspeak-speak-telephone-directory’
-
 ‘u emacspeak-wizards-units’
-
 ‘v emacspeak-wizards-vc-viewer’
-
 ‘w emacspeak-wizards-noaa-weather’
-
 ‘| emacspeak-wizards-squeeze-blanks’
 
 
@@ -3140,13 +2923,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ================================================
 
 ‘a emacspeak-xslt-view-atom-file’
-
 ‘p emacspeak-pianobar’
-
 ‘r emacspeak-xslt-view-rss-file’
-
 ‘x emacspeak-xslt-view-file’
-
 ‘y emacspeak-empv-play-url’
 
 
@@ -3156,27 +2935,16 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next:
 ================================================
 
 ‘SPC flyspell-mode’
-
 ‘b emacspeak-wizards-view-buffers-filtered-by-this-mode’
-
 ‘c calibredb’
-
 ‘d magit-dispatch’
-
 ‘e emacspeak-wizards-eww-buffer-list’
-
 ‘f magit-file-dispatch’
-
 ‘l locate’
-
 ‘n emacspeak-wizards-buffer-select’
-
 ‘p emacspeak-wizards-buffer-select’
-
 ‘r restart-emacs’
-
 ‘s magit-status’
-
 ‘z suspend-frame’
 
 
@@ -3186,15 +2954,10 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  P
 =====================================================
 
 ‘' emacspeak-pianobar’
-
 ‘d sdcv-search-input’
-
 ‘h emacspeak-m-player-browse-history’
-
 ‘l emacspeak-m-player-locate-media’
-
 ‘o org-mode’
-
 ‘y emacspeak-google-yt-feed’
 
 
