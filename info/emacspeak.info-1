@@ -2640,6 +2640,7 @@ File: emacspeak.info,  Node: Emacspeak Keymaps,  Next: Emacspeak Commands And Op
 * Emacspeak Keybindings On emacspeak-personal-x-keymap::
 * Emacspeak Keybindings On emacspeak-personal-v-keymap::
 * Emacspeak Keybindings On emacspeak-personal-y-keymap::
+* Emacspeak Keybindings On emacspeak-ctl-z-keymap::
 * Emacspeak Keybindings On emacspeak-multi-keymap::
 
 
@@ -3360,7 +3361,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-v-keyma
      view-register
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Next: Emacspeak Keybindings On emacspeak-ctl-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Up: Emacspeak Keymaps
 
 11.8 Emacspeak Keybindings On emacspeak-personal-y-keymap
 =========================================================
@@ -3381,10 +3382,52 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keyma
      emacspeak-empv-play-url
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-ctl-z-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Up: Emacspeak Keymaps
 
-11.9 Emacspeak Keybindings On emacspeak-multi-keymap
+11.9 Emacspeak Keybindings On emacspeak-ctl-z-keymap
 ====================================================
+
+‘SPC’
+     flyspell-mode
+
+‘b’
+     emacspeak-wizards-view-buffers-filtered-by-this-mode
+
+‘c’
+     calibredb
+
+‘d’
+     magit-dispatch
+
+‘e’
+     emacspeak-wizards-eww-buffer-list
+
+‘f’
+     magit-file-dispatch
+
+‘l’
+     locate
+
+‘n’
+     emacspeak-wizards-buffer-select
+
+‘p’
+     emacspeak-wizards-buffer-select
+
+‘r’
+     restart-emacs
+
+‘s’
+     magit-status
+
+‘z’
+     suspend-frame
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-ctl-z-keymap,  Up: Emacspeak Keymaps
+
+11.10 Emacspeak Keybindings On emacspeak-multi-keymap
+=====================================================
 
 ‘'’
      emacspeak-pianobar

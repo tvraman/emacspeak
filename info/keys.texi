@@ -740,6 +740,48 @@
 
 @end table
 
+@node Emacspeak Keybindings On emacspeak-ctl-z-keymap
+ @section Emacspeak Keybindings On emacspeak-ctl-z-keymap
+
+@table @kbd
+@item SPC
+ flyspell-mode
+
+@item b
+ emacspeak-wizards-view-buffers-filtered-by-this-mode
+
+@item c
+ calibredb
+
+@item d
+ magit-dispatch
+
+@item e
+ emacspeak-wizards-eww-buffer-list
+
+@item f
+ magit-file-dispatch
+
+@item l
+ locate
+
+@item n
+ emacspeak-wizards-buffer-select
+
+@item p
+ emacspeak-wizards-buffer-select
+
+@item r
+ restart-emacs
+
+@item s
+ magit-status
+
+@item z
+ suspend-frame
+
+@end table
+
 @node Emacspeak Keybindings On emacspeak-multi-keymap
  @section Emacspeak Keybindings On emacspeak-multi-keymap
 
