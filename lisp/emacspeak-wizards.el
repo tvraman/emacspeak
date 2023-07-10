@@ -2785,7 +2785,7 @@ before brightness is checked.")
 (defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
   "Set this to the stock tickers you want to check. Default is
 GAFA. Tickers are separated by white-space and are automatically
-sorted in lexical order with duplicates removed when saving."
+sorted in lexical order with duplicates removed when saving as a csv string."
   :type 'string
   :group 'emacspeak-wizards
   :initialize 'custom-initialize-reset
@@ -2797,7 +2797,7 @@ sorted in lexical order with duplicates removed when saving."
         #'identity
         (cl-remove-duplicates
          (sort (split-string val) #'string-lessp) :test #'string=)
-        "\n"))))
+        ","))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
