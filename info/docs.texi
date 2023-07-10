@@ -8205,8 +8205,8 @@ Default Value:
  ("e" emacspeak-wizards-eww-buffer-list)
  ("f" magit-file-dispatch)
  ("l" locate)
- ("n" emacspeak-wizards-cycle-to-next-buffer)
- ("p" emacspeak-wizards-cycle-to-previous-buffer)
+ ("n" emacspeak-wizards-buffer-select)
+ ("p" emacspeak-wizards-buffer-select)
  ("r" restart-emacs)
  ("s" magit-status)
  ("z" suspend-frame))
@@ -8223,8 +8223,6 @@ Default Value:
 @verbatim
 
 (("'" emacspeak-m-player-using-hrtf)
- ("," emacspeak-wizards-buffer-select)
- ("." emacspeak-wizards-buffer-select)
  ("/" emacspeak-websearch-google-with-toolbelt)
  (":" emacspeak-m-player-using-openal)
  (";" emacspeak-multimedia)
@@ -8250,9 +8248,9 @@ Default Value:
  ("k" emacspeak-google-knowledge-search)
  ("l" locate)
  ("m" vm)
- ("n" emacspeak-wizards-cycle-to-next-buffer)
+ ("n" emacspeak-wizards-buffer-select)
  ("o" find-file)
- ("p" emacspeak-wizards-cycle-to-previous-buffer)
+ ("p" emacspeak-wizards-buffer-select)
  ("r" emacspeak-wizards-find-file-as-root)
  ("s" magit-status)
  ("t" twit)
@@ -17416,18 +17414,26 @@ Browse  Emacspeak productivity tips.
 @kindex C-e .
 @item C-e ,
 @kindex C-e ,
-@item C-; .
-@kindex C-; .
-@item C-; ,
-@kindex C-; ,
+@item C-; p
+@kindex C-; p
+@item C-; n
+@kindex C-; n
 @item <fn> .
 @kindex <fn> .
 @item <fn> ,
 @kindex <fn> ,
-@item C-x @@ h .
-@kindex C-x @@ h .
-@item C-x @@ h ,
-@kindex C-x @@ h ,
+@item C-e z p
+@kindex C-e z p
+@item C-e z n
+@kindex C-e z n
+@item <fn> z p
+@kindex <fn> z p
+@item <fn> z n
+@kindex <fn> z n
+@item C-x @@ h p
+@kindex C-x @@ h p
+@item C-x @@ h n
+@kindex C-x @@ h n
 @end table
 
 @findex emacspeak-wizards-buffer-select
@@ -17441,10 +17447,8 @@ of the keys below call the following bindings:
 , previous-buffer
 . next-buffer
 k emacspeak-kill-buffer-quietly
-b emacspeak-wizards-cycle-to-previous-buffer
-f emacspeak-wizards-cycle-to-next-buffer
-n next-buffer
-p previous-buffer
+n emacspeak-wizards-cycle-to-next-buffer
+p emacspeak-wizards-cycle-to-previous-buffer
 
 @end format
 @end deffn
@@ -17587,17 +17591,6 @@ updating custom settings for a specific package or group of packages.
 
 @subsubsection emacspeak-wizards-cycle-to-next-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-next-buffer   
-@table @kbd
-@item C-; n
-@kindex C-; n
-@item C-e z n
-@kindex C-e z n
-@item <fn> z n
-@kindex <fn> z n
-@item C-x @@ h n
-@kindex C-x @@ h n
-@end table
-
 @findex emacspeak-wizards-cycle-to-next-buffer
 
 @format
@@ -17607,17 +17600,6 @@ Cycles to next buffer having same mode.
 
 @subsubsection emacspeak-wizards-cycle-to-previous-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-previous-buffer   
-@table @kbd
-@item C-; p
-@kindex C-; p
-@item C-e z p
-@kindex C-e z p
-@item <fn> z p
-@kindex <fn> z p
-@item C-x @@ h p
-@kindex C-x @@ h p
-@end table
-
 @findex emacspeak-wizards-cycle-to-previous-buffer
 
 @format

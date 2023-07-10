@@ -3038,12 +3038,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘'’
      emacspeak-m-player-using-hrtf
 
-‘,’
-     emacspeak-wizards-buffer-select
-
-‘.’
-     emacspeak-wizards-buffer-select
-
 ‘/’
      emacspeak-websearch-google-with-toolbelt
 
@@ -3117,13 +3111,13 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
      vm
 
 ‘n’
-     emacspeak-wizards-cycle-to-next-buffer
+     emacspeak-wizards-buffer-select
 
 ‘o’
      find-file
 
 ‘p’
-     emacspeak-wizards-cycle-to-previous-buffer
+     emacspeak-wizards-buffer-select
 
 ‘r’
      emacspeak-wizards-find-file-as-root

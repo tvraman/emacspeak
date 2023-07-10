@@ -1055,8 +1055,8 @@ found on laptops is denoted <fn>
       ("e" emacspeak-wizards-eww-buffer-list)
       ("f" magit-file-dispatch)
       ("l" locate)
-      ("n" emacspeak-wizards-cycle-to-next-buffer)
-      ("p" emacspeak-wizards-cycle-to-previous-buffer)
+      ("n" emacspeak-wizards-buffer-select)
+      ("p" emacspeak-wizards-buffer-select)
       ("r" restart-emacs)
       ("s" magit-status)
       ("z" suspend-frame))
@@ -1069,8 +1069,6 @@ found on laptops is denoted <fn>
 
      
      (("'" emacspeak-m-player-using-hrtf)
-      ("," emacspeak-wizards-buffer-select)
-      ("." emacspeak-wizards-buffer-select)
       ("/" emacspeak-websearch-google-with-toolbelt)
       (":" emacspeak-m-player-using-openal)
       (";" emacspeak-multimedia)
@@ -1096,9 +1094,9 @@ found on laptops is denoted <fn>
       ("k" emacspeak-google-knowledge-search)
       ("l" locate)
       ("m" vm)
-      ("n" emacspeak-wizards-cycle-to-next-buffer)
+      ("n" emacspeak-wizards-buffer-select)
       ("o" find-file)
-      ("p" emacspeak-wizards-cycle-to-previous-buffer)
+      ("p" emacspeak-wizards-buffer-select)
       ("r" emacspeak-wizards-find-file-as-root)
       ("s" magit-status)
       ("t" twit)
@@ -8373,12 +8371,16 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-buffer-select
      ‘C-e .’
      ‘C-e ,’
-     ‘C-; .’
-     ‘C-; ,’
+     ‘C-; p’
+     ‘C-; n’
      ‘<fn> .’
      ‘<fn> ,’
-     ‘C-x @ h .’
-     ‘C-x @ h ,’
+     ‘C-e z p’
+     ‘C-e z n’
+     ‘<fn> z p’
+     ‘<fn> z n’
+     ‘C-x @ h p’
+     ‘C-x @ h n’
 
      Select buffer by smart cycling.
      By default, this command is bound to multiple keys.
@@ -8388,10 +8390,8 @@ Contains various wizards for the Emacspeak desktop.
      , previous-buffer
      . next-buffer
      k emacspeak-kill-buffer-quietly
-     b emacspeak-wizards-cycle-to-previous-buffer
-     f emacspeak-wizards-cycle-to-next-buffer
-     n next-buffer
-     p previous-buffer
+     n emacspeak-wizards-cycle-to-next-buffer
+     p emacspeak-wizards-cycle-to-previous-buffer
 
 
 12.215.1.29 emacspeak-wizards-cleanup-shell-path
@@ -8490,10 +8490,6 @@ Contains various wizards for the Emacspeak desktop.
 ..................................................
 
  -- Command: emacspeak-wizards-cycle-to-next-buffer
-     ‘C-; n’
-     ‘C-e z n’
-     ‘<fn> z n’
-     ‘C-x @ h n’
 
      Cycles to next buffer having same mode.
 
@@ -8501,10 +8497,6 @@ Contains various wizards for the Emacspeak desktop.
 ......................................................
 
  -- Command: emacspeak-wizards-cycle-to-previous-buffer
-     ‘C-; p’
-     ‘C-e z p’
-     ‘<fn> z p’
-     ‘C-x @ h p’
 
      Cycles to previous buffer having same mode.
 

@@ -396,12 +396,6 @@
 @item '
  emacspeak-m-player-using-hrtf
 
-@item ,
- emacspeak-wizards-buffer-select
-
-@item .
- emacspeak-wizards-buffer-select
-
 @item /
  emacspeak-websearch-google-with-toolbelt
 
@@ -475,13 +469,13 @@
  vm
 
 @item n
- emacspeak-wizards-cycle-to-next-buffer
+ emacspeak-wizards-buffer-select
 
 @item o
  find-file
 
 @item p
- emacspeak-wizards-cycle-to-previous-buffer
+ emacspeak-wizards-buffer-select
 
 @item r
  emacspeak-wizards-find-file-as-root
