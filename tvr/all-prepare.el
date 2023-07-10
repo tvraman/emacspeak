@@ -251,7 +251,7 @@ Set by locating it via xinput list | grep -i touchpad ")
   "Open Google Calendar in Chrome"
   (interactive)
   (browse-url-chrome "calendar/"))
-(define-key emacspeak-personal-y-keymap "c" 'tvr-calendar)
+(define-key emacspeak-y-keymap "c" 'tvr-calendar)
 
 
 
@@ -260,7 +260,7 @@ Set by locating it via xinput list | grep -i touchpad ")
   (interactive)
   (browse-url-chrome "chat/"))
 
-(define-key emacspeak-personal-y-keymap " " 'tvr-chat)
+(define-key emacspeak-y-keymap " " 'tvr-chat)
 
 (defun tvr-mail ()
   "Open Google Mail in Chrome"
@@ -268,7 +268,7 @@ Set by locating it via xinput list | grep -i touchpad ")
   (browse-url-chrome "chat/"))
 
 
-(define-key emacspeak-personal-y-keymap "m" 'tvr-mail)
+(define-key emacspeak-y-keymap "m" 'tvr-mail)
 (provide 'laptop-local)
 (with-eval-after-load "smartparens"
   (require 'smartparens-config)
@@ -356,7 +356,7 @@ Set by locating it via xinput list | grep -i touchpad ")
 ;;; Jump to Emacs Git Logs At HEAD:
 (defalias 'tvr-km-emacs-log
    (kmacro "C-c 3 g i t SPC p <return> C-; d l l C-e | <return> <escape> < C-e s"))
-(define-key emacspeak-personal-y-keymap "3" 'tvr-km-emacs-log)
+(define-key emacspeak-y-keymap "3" 'tvr-km-emacs-log)
 (defalias 'tvr-km-morning
    (kmacro "C-<tab> C-e g b h <tab> <return> n n e c"))
-(define-key emacspeak-personal-y-keymap "0" 'tvr-km-morning)
+(define-key emacspeak-y-keymap "0" 'tvr-km-morning)
