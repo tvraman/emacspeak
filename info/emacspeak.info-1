@@ -2637,9 +2637,9 @@ File: emacspeak.info,  Node: Emacspeak Keymaps,  Next: Emacspeak Commands And Op
 * Emacspeak Keybindings On emacspeak-hyper-keymap::
 * Emacspeak Keybindings On emacspeak-super-keymap::
 * Emacspeak Keybindings On emacspeak-alt-keymap::
-* Emacspeak Keybindings On emacspeak-personal-x-keymap::
-* Emacspeak Keybindings On emacspeak-personal-v-keymap::
-* Emacspeak Keybindings On emacspeak-personal-y-keymap::
+* Emacspeak Keybindings On emacspeak-x-keymap::
+* Emacspeak Keybindings On emacspeak-v-keymap::
+* Emacspeak Keybindings On emacspeak-y-keymap::
 * Emacspeak Keybindings On emacspeak-z-keymap::
 * Emacspeak Keybindings On emacspeak-multi-keymap::
 
@@ -3202,7 +3202,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
      empv-youtube-tabulated
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-x-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-x-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
 
 11.5 Emacspeak Keybindings On emacspeak-alt-keymap
 ==================================================
@@ -3262,10 +3262,10 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
      emacspeak-m-player-youtube-player
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-x-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next: Emacspeak Keybindings On emacspeak-v-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
 
-11.6 Emacspeak Keybindings On emacspeak-personal-x-keymap
-=========================================================
+11.6 Emacspeak Keybindings On emacspeak-x-keymap
+================================================
 
 ‘,’
      emacspeak-wizards-shell-directory-set
@@ -3352,19 +3352,19 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-x-keyma
      emacspeak-wizards-squeeze-blanks
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Next: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-x-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-v-keymap,  Next: Emacspeak Keybindings On emacspeak-y-keymap,  Prev: Emacspeak Keybindings On emacspeak-x-keymap,  Up: Emacspeak Keymaps
 
-11.7 Emacspeak Keybindings On emacspeak-personal-v-keymap
-=========================================================
+11.7 Emacspeak Keybindings On emacspeak-v-keymap
+================================================
 
 ‘v’
      view-register
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Next: Emacspeak Keybindings On emacspeak-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-v-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next: Emacspeak Keybindings On emacspeak-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-v-keymap,  Up: Emacspeak Keymaps
 
-11.8 Emacspeak Keybindings On emacspeak-personal-y-keymap
-=========================================================
+11.8 Emacspeak Keybindings On emacspeak-y-keymap
+================================================
 
 ‘a’
      emacspeak-xslt-view-atom-file
@@ -3382,7 +3382,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-personal-y-keyma
      emacspeak-empv-play-url
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-personal-y-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-y-keymap,  Up: Emacspeak Keymaps
 
 11.9 Emacspeak Keybindings On emacspeak-z-keymap
 ================================================

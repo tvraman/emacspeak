@@ -461,12 +461,12 @@
 ;;{{{ Create a personal keymap for c-e x
 
 ;; Adding keys using custom:
-(defvar  emacspeak-personal-x-keymap nil
+(defvar  emacspeak-x-keymap nil
   "Emacspeak personal keymap")
 
-(define-prefix-command 'emacspeak-personal-x-keymap)
+(define-prefix-command 'emacspeak-x-keymap)
 
-(defcustom emacspeak-personal-x-keys
+(defcustom emacspeak-x-keys
   '(
     ("," emacspeak-wizards-shell-directory-set)
     ("." emacspeak-wizards-shell-directory-reset)
@@ -512,25 +512,25 @@
            (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-personal-x-keymap val)
+      (emacspeak-keymap-bindings-update emacspeak-x-keymap val)
       (set-default
        sym
        (sort
         val
         #'(lambda (a b) (string-lessp (car a) (car b)))))))
-(define-key emacspeak-keymap "v" 'emacspeak-personal-v-keymap)
-(define-key  emacspeak-keymap "x" 'emacspeak-personal-x-keymap)
-(define-key  emacspeak-keymap "y" 'emacspeak-personal-y-keymap)
+(define-key emacspeak-keymap "v" 'emacspeak-v-keymap)
+(define-key  emacspeak-keymap "x" 'emacspeak-x-keymap)
+(define-key  emacspeak-keymap "y" 'emacspeak-y-keymap)
 
 ;;}}}
 ;;{{{ Create personal y map
 
-(defvar  emacspeak-personal-y-keymap nil
-  "Emacspeak personal-y keymap")
+(defvar  emacspeak-y-keymap nil
+  "Emacspeak y keymap")
 
-(define-prefix-command 'emacspeak-personal-y-keymap)
+(define-prefix-command 'emacspeak-y-keymap)
 
-(defcustom emacspeak-personal-y-keys
+(defcustom emacspeak-y-keys
   '(
     ("p" emacspeak-pianobar)
     ("a" emacspeak-xslt-view-atom-file)
@@ -548,7 +548,7 @@
            (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-personal-y-keymap val)
+      (emacspeak-keymap-bindings-update emacspeak-y-keymap val)
       (set-default sym
                    (sort
                     val
@@ -557,12 +557,12 @@
 ;;}}}
 ;;{{{ Create personal c-e v map
 
-(defvar  emacspeak-personal-v-keymap nil
-  "Emacspeak personal-v keymap")
+(defvar  emacspeak-v-keymap nil
+  "Emacspeak v keymap")
 
-(define-prefix-command 'emacspeak-personal-v-keymap)
+(define-prefix-command 'emacspeak-v-keymap)
 
-(defcustom emacspeak-personal-v-keys
+(defcustom emacspeak-v-keys
   '(
     ("v" view-register)
     )
@@ -570,14 +570,14 @@
   :group 'emacspeak
   :type
   '(repeat
-    :tag "Emacspeak Personal-V Keymap"
+    :tag "Emacspeak V Keymap"
     (list
      :tag "Key Binding"
      (key-sequence :tag "Key")
      (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-personal-v-keymap val)
+      (emacspeak-keymap-bindings-update emacspeak-v-keymap val)
       (set-default sym
                    (sort
                     val

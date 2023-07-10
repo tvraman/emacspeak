@@ -620,8 +620,8 @@
 
 @end table
 
-@node Emacspeak Keybindings On emacspeak-personal-x-keymap
- @section Emacspeak Keybindings On emacspeak-personal-x-keymap
+@node Emacspeak Keybindings On emacspeak-x-keymap
+ @section Emacspeak Keybindings On emacspeak-x-keymap
 
 @table @kbd
 @item ,
@@ -710,8 +710,8 @@
 
 @end table
 
-@node Emacspeak Keybindings On emacspeak-personal-v-keymap
- @section Emacspeak Keybindings On emacspeak-personal-v-keymap
+@node Emacspeak Keybindings On emacspeak-v-keymap
+ @section Emacspeak Keybindings On emacspeak-v-keymap
 
 @table @kbd
 @item v
@@ -719,8 +719,8 @@
 
 @end table
 
-@node Emacspeak Keybindings On emacspeak-personal-y-keymap
- @section Emacspeak Keybindings On emacspeak-personal-y-keymap
+@node Emacspeak Keybindings On emacspeak-y-keymap
+ @section Emacspeak Keybindings On emacspeak-y-keymap
 
 @table @kbd
 @item a

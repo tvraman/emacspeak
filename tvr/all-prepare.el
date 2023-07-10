@@ -183,8 +183,8 @@ This moves them into the Spam folder."
   (dtk-stop)
   (emacspeak-auditory-icon 'task-done))
 
-(when (keymapp emacspeak-ctl-z-keymap )
-  (define-key emacspeak-ctl-z-keymap "u" 'tvr-unlock-xoauth))
+(when (keymapp emacspeak-z-keymap )
+  (define-key emacspeak-z-keymap "u" 'tvr-unlock-xoauth))
 (setq mm-file-name-rewrite-functions
                 '(mm-file-name-trim-whitespace
                   mm-file-name-collapse-whitespace

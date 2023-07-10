@@ -8280,7 +8280,38 @@ Default Value:
 
 @end defvar
 
-@defvar {User Option} emacspeak-personal-v-keys
+@defvar {User Option} emacspeak-super-keys
+Super key bindings. 
+
+Default Value: 
+
+@verbatim
+
+(("." emacspeak-wizards-shell-directory-reset)
+ ("C-n" emacspeak-wizards-google-headlines)
+ ("R" emacspeak-webspace-feed-reader)
+ ("SPC" scratch-buffer)
+ ("c" calculator)
+ ("d" emacspeak-dired-downloads)
+ ("e" elfeed)
+ ("f" browse-url-firefox)
+ ("g" emacspeak-google-tts)
+ ("h" emacspeak-org-capture-link)
+ ("l" emacspeak-wizards-locate-content)
+ ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+ ("n" emacspeak-wizards-google-news)
+ ("p" proced)
+ ("r" soundscape-restart)
+ ("s" soundscape)
+ ("t" soundscape-toggle)
+ ("u" soundscape-update-mood)
+ ("y" empv-youtube-tabulated))
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} emacspeak-v-keys
 Key bindings for use with C-e v. 
 
 Default Value: 
@@ -8293,7 +8324,20 @@ Default Value:
 
 @end defvar
 
-@defvar {User Option} emacspeak-personal-x-keys
+@defvar {User Option} emacspeak-windows-keys
+Key bindings on the windows  key. 
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} emacspeak-x-keys
 Key bindings for  C-e x. 
 
 Default Value: 
@@ -8335,7 +8379,7 @@ Default Value:
 
 @end defvar
 
-@defvar {User Option} emacspeak-personal-y-keys
+@defvar {User Option} emacspeak-y-keys
 Key bindings for use with C-e y. 
 
 Default Value: 
@@ -8347,50 +8391,6 @@ Default Value:
  ("r" emacspeak-xslt-view-rss-file)
  ("x" emacspeak-xslt-view-file)
  ("y" emacspeak-empv-play-url))
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-super-keys
-Super key bindings. 
-
-Default Value: 
-
-@verbatim
-
-(("." emacspeak-wizards-shell-directory-reset)
- ("C-n" emacspeak-wizards-google-headlines)
- ("R" emacspeak-webspace-feed-reader)
- ("SPC" scratch-buffer)
- ("c" calculator)
- ("d" emacspeak-dired-downloads)
- ("e" elfeed)
- ("f" browse-url-firefox)
- ("g" emacspeak-google-tts)
- ("h" emacspeak-org-capture-link)
- ("l" emacspeak-wizards-locate-content)
- ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
- ("n" emacspeak-wizards-google-news)
- ("p" proced)
- ("r" soundscape-restart)
- ("s" soundscape)
- ("t" soundscape-toggle)
- ("u" soundscape-update-mood)
- ("y" empv-youtube-tabulated))
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-windows-keys
-Key bindings on the windows  key. 
-
-Default Value: 
-
-@verbatim
-
-nil
 
 @end verbatim
 
