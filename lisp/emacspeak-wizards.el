@@ -1486,7 +1486,9 @@ p emacspeak-wizards-cycle-to-previous-buffer
     (set-transient-map
      (let ((map (make-sparse-keymap)))
        (dolist (key '("k" "," "."   "p" "n"))
-         (define-key map key (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
+         (define-key
+          map key
+          (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
 
        map))))
 ;;}}}       
