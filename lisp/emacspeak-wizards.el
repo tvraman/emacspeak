@@ -2781,6 +2781,25 @@ before brightness is checked.")
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{Stock Portfolio:
+(defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
+  "Set this to the stock tickers you want to check. Default is
+GAFA. Tickers are separated by white-space and are automatically
+sorted in lexical order with duplicates removed when saving."
+  :type 'string
+  :group 'emacspeak-wizards
+  :initialize 'custom-initialize-reset
+  :set
+  #'(lambda (sym val)
+      (set-default
+       sym
+       (mapconcat
+        #'identity
+        (cl-remove-duplicates
+         (sort (split-string val) #'string-lessp) :test #'string=)
+        "\n"))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
