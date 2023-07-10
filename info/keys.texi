@@ -740,8 +740,8 @@
 
 @end table
 
-@node Emacspeak Keybindings On emacspeak-ctl-z-keymap
- @section Emacspeak Keybindings On emacspeak-ctl-z-keymap
+@node Emacspeak Keybindings On emacspeak-z-keymap
+ @section Emacspeak Keybindings On emacspeak-z-keymap
 
 @table @kbd
 @item SPC

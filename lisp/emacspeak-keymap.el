@@ -590,10 +590,10 @@
 ;; years.
 ;; Turn it into a useful prefix key.
 
-(defvar  emacspeak-ctl-z-keymap nil
+(defvar  emacspeak-z-keymap nil
   "Emacspeak ctl-z keymap")
 
-(define-prefix-command 'emacspeak-ctl-z-keymap)
+(define-prefix-command 'emacspeak-z-keymap)
 
 (defcustom emacspeak-ctl-z-keys
   '(
@@ -620,13 +620,13 @@
            (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-ctl-z-keymap val)
+      (emacspeak-keymap-bindings-update emacspeak-z-keymap val)
       (set-default sym
                    (sort
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(define-key emacspeak-keymap  "z" 'emacspeak-ctl-z-keymap)
+(define-key emacspeak-keymap  "z" 'emacspeak-z-keymap)
 
 ;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
