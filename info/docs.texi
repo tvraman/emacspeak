@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1163 commands and 149 options.
+This chapter documents a total of 1152 commands and 146 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8179,7 +8179,6 @@ Default Value:
  ("l" eww-open-file)
  ("o" emacspeak-feeds-opml-display)
  ("p" emacspeak-wizards-pdf-open)
- ("q" emacspeak-wizards-iex-show-price)
  ("r" emacspeak-feeds-rss-display)
  ("s" emacspeak-wizards-tune-in-radio-search)
  ("t" emacspeak-wizards-tune-in-radio-browse)
@@ -17410,19 +17409,6 @@ Browse  Emacspeak productivity tips.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-alpha-vantage-quotes
-@deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
-@findex emacspeak-wizards-alpha-vantage-quotes
-
-@format
-Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
---- a stock symbol. Optional interactive prefix arg ‘custom’ provides
-access to the various functions provided by alpha-vantage.
-
-(fn TICKER &optional CUSTOM)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-buffer-select
 @deffn {Command} emacspeak-wizards-buffer-select   
 @table @kbd
@@ -17945,114 +17931,6 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-iex-show-financials
-@deffn {Command} emacspeak-wizards-iex-show-financials  (symbol &optional refresh)
-@findex emacspeak-wizards-iex-show-financials
-
-@format
-Show financials for specified ticker.
-Checks cache, then makes API call if needed.
-Optional interactive prefix arg refreshes cache.
-
-(fn SYMBOL &optional REFRESH)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-show-metadata
-@deffn {Command} emacspeak-wizards-iex-show-metadata   
-@findex emacspeak-wizards-iex-show-metadata
-
-@format
-Account metadata.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-show-news
-@deffn {Command} emacspeak-wizards-iex-show-news  (symbol &optional refresh)
-@findex emacspeak-wizards-iex-show-news
-
-@format
-Show news for specified ticker.
-Checks cache, then makes API call if needed.
-Optional interactive prefix arg refreshes cache.
-
-(fn SYMBOL &optional REFRESH)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-show-price
-@deffn {Command} emacspeak-wizards-iex-show-price  (symbol)
-@table @kbd
-@item C-, q
-@kindex C-, q
-@item C-x @@ a q
-@kindex C-x @@ a q
-@end table
-
-@findex emacspeak-wizards-iex-show-price
-
-@format
-Quick Quote: Just stock price from IEXCloud.
-
-(fn SYMBOL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-show-quote
-@deffn {Command} emacspeak-wizards-iex-show-quote  (&optional refresh)
-@findex emacspeak-wizards-iex-show-quote
-
-@format
-Show portfolio  data from cache.
-Optional interactive prefix arg forces cache refresh.
-
-The quotes view uses emacspeak’s table mode.
-In addition,  the following  keys are available :
-
-F: Show financials for current stock.
-N: Show news for current stock.
-P: Show live price for current stock.
-
-(fn &optional REFRESH)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-show-tops
-@deffn {Command} emacspeak-wizards-iex-show-tops   
-@findex emacspeak-wizards-iex-show-tops
-
-@format
-Uses tops/last end-point to show brief portfolio quotes.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-this-financials
-@deffn {Command} emacspeak-wizards-iex-this-financials   
-@findex emacspeak-wizards-iex-this-financials
-
-@format
-Show financials for symbol in current row
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-this-news
-@deffn {Command} emacspeak-wizards-iex-this-news   
-@findex emacspeak-wizards-iex-this-news
-
-@format
-Show news for symbol in current row
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-this-price
-@deffn {Command} emacspeak-wizards-iex-this-price   
-@findex emacspeak-wizards-iex-this-price
-
-@format
-Show price for symbol in current row
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-lacheck-buffer-file
 @deffn {Command} emacspeak-wizards-lacheck-buffer-file   
 @findex emacspeak-wizards-lacheck-buffer-file
@@ -18225,25 +18103,6 @@ Optional interactive prefix arg ask-pwd prompts for password.
 
 @format
 Navigate to and speak previous ‘bullet’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-quote
-@deffn {Command} emacspeak-wizards-quote  (&optional refresh)
-@findex emacspeak-wizards-quote
-
-@format
-Top-level dispatch for  Stock Market information.
-
-Key : Action
-f   :  Financials
-m   :  Account metadata
-n   :  News
-p   :  Price
-q   :  Quotes
-t   :  tops/last
-
-(fn &optional REFRESH)
 @end format
 @end deffn
 
@@ -18730,22 +18589,6 @@ nil
 
 @end defvar
 
-@defvar {User Option} emacspeak-iex-api-key
-Web API  key for IEX Finance access.
-See IEX Login Console   at
-https://iexcloud.io/cloud-login/
-for how to get  an API key. 
-
-Default Value: 
-
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} emacspeak-speak-telephone-directory
 File holding telephone directory.
 This is just a text file, and we use grep to search it.
@@ -18760,20 +18603,6 @@ Default Value:
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-alpha-vantage-api-key
-API Key  used to retrieve stock data from alpha-vantage.
-Visit https://www.alphavantage.co/support/#api-key to get your key.
-
-Default Value: 
-
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-pdf-to-text-options
 options to Command for running pdftotext.
 
@@ -18782,21 +18611,6 @@ Default Value:
 @verbatim
 
 "-layout"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-personal-portfolio
-Set this to the stock tickers you want to check. Default is
-GAFA. Tickers are separated by white-space and are automatically
-sorted in lexical order with duplicates removed when saving as a csv string.
-
-Default Value: 
-
-@verbatim
-
-"aapl,amzn,fb,goog"
 
 @end verbatim
 

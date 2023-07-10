@@ -603,9 +603,6 @@
 @item p
  emacspeak-wizards-pdf-open
 
-@item q
- emacspeak-wizards-iex-show-price
-
 @item r
  emacspeak-feeds-rss-display
 

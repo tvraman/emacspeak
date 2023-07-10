@@ -3245,9 +3245,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 ‘p’
      emacspeak-wizards-pdf-open
 
-‘q’
-     emacspeak-wizards-iex-show-price
-
 ‘r’
      emacspeak-feeds-rss-display
 
@@ -3448,7 +3445,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1163 commands and 149 options.
+   This chapter documents a total of 1152 commands and 146 options.
 
 * Menu:
 
