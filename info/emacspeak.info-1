@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 9, 2023.
+last updated on July 10, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2737,13 +2737,13 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
      emacspeak-select-window-by-name
 
 ‘[’
-     emacspeak-speak-page
+     emacspeak-speak-paragraph
 
 ‘\’
      emacspeak-toggle-speak-line-invert-filter
 
 ‘]’
-     emacspeak-speak-page-interactively
+     emacspeak-speak-page
 
 ‘^’
      emacspeak-filtertext
@@ -2769,6 +2769,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘h’
      emacspeak-speak-help
 
+‘i’
+     emacspeak-speak-rest-of-buffer
+
 ‘j’
      emacspeak-hide-or-expose-block
 
@@ -2782,13 +2785,13 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
      emacspeak-speak-mode-line
 
 ‘n’
-     emacspeak-speak-rest-of-buffer
+     emacspeak-wizards-buffer-select
 
 ‘o’
      delete-blank-lines
 
 ‘p’
-     emacspeak-speak-paragraph
+     emacspeak-wizards-buffer-select
 
 ‘r’
      emacspeak-speak-region
@@ -2856,6 +2859,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘5’
      emacspeak-speak-current-percentage
 
+‘9’
+     amixer
+
 ‘:’
      empv-play-file
 
@@ -2879,9 +2885,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 
 ‘C’
      emacspeak-customize
-
-‘9’
-     amixer
 
 ‘SPC’
      emacspeak-speak-windowful
@@ -3111,14 +3114,8 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘m’
      vm
 
-‘n’
-     emacspeak-wizards-buffer-select
-
 ‘o’
      find-file
-
-‘p’
-     emacspeak-wizards-buffer-select
 
 ‘r’
      emacspeak-wizards-find-file-as-root

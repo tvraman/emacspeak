@@ -8248,9 +8248,7 @@ Default Value:
  ("k" emacspeak-google-knowledge-search)
  ("l" locate)
  ("m" vm)
- ("n" emacspeak-wizards-buffer-select)
  ("o" find-file)
- ("p" emacspeak-wizards-buffer-select)
  ("r" emacspeak-wizards-find-file-as-root)
  ("s" magit-status)
  ("t" twit)
@@ -13026,10 +13024,10 @@ Speak display, before-string or after-string property if any.
 @subsubsection emacspeak-speak-page
 @deffn {Command} emacspeak-speak-page  (&optional arg)
 @table @kbd
-@item C-e [
-@kindex C-e [
-@item <fn> [
-@kindex <fn> [
+@item C-e ]
+@kindex C-e ]
+@item <fn> ]
+@kindex <fn> ]
 @end table
 
 @findex emacspeak-speak-page
@@ -13045,13 +13043,6 @@ Negative prefix arg will read from start of current page to point.
 
 @subsubsection emacspeak-speak-page-interactively
 @deffn {Command} emacspeak-speak-page-interactively   
-@table @kbd
-@item C-e ]
-@kindex C-e ]
-@item <fn> ]
-@kindex <fn> ]
-@end table
-
 @findex emacspeak-speak-page-interactively
 
 @format
@@ -13065,10 +13056,10 @@ any other key to speak entire page.
 @subsubsection emacspeak-speak-paragraph
 @deffn {Command} emacspeak-speak-paragraph  (&optional arg)
 @table @kbd
-@item C-e p
-@kindex C-e p
-@item <fn> p
-@kindex <fn> p
+@item C-e [
+@kindex C-e [
+@item <fn> [
+@kindex <fn> [
 @end table
 
 @findex emacspeak-speak-paragraph
@@ -13193,10 +13184,10 @@ Speak region bounded by start and end.
 @subsubsection emacspeak-speak-rest-of-buffer
 @deffn {Command} emacspeak-speak-rest-of-buffer   
 @table @kbd
-@item C-e n
-@kindex C-e n
-@item <fn> n
-@kindex <fn> n
+@item C-e i
+@kindex C-e i
+@item <fn> i
+@kindex <fn> i
 @end table
 
 @findex emacspeak-speak-rest-of-buffer
@@ -17410,14 +17401,18 @@ Browse  Emacspeak productivity tips.
 @subsubsection emacspeak-wizards-buffer-select
 @deffn {Command} emacspeak-wizards-buffer-select   
 @table @kbd
+@item C-e p
+@kindex C-e p
+@item C-e n
+@kindex C-e n
 @item C-e .
 @kindex C-e .
 @item C-e ,
 @kindex C-e ,
-@item C-; p
-@kindex C-; p
-@item C-; n
-@kindex C-; n
+@item <fn> p
+@kindex <fn> p
+@item <fn> n
+@kindex <fn> n
 @item <fn> .
 @kindex <fn> .
 @item <fn> ,
@@ -17430,10 +17425,6 @@ Browse  Emacspeak productivity tips.
 @kindex <fn> z p
 @item <fn> z n
 @kindex <fn> z n
-@item C-x @@ h p
-@kindex C-x @@ h p
-@item C-x @@ h n
-@kindex C-x @@ h n
 @end table
 
 @findex emacspeak-wizards-buffer-select

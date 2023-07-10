@@ -94,13 +94,13 @@
  emacspeak-select-window-by-name
 
 @item [
- emacspeak-speak-page
+ emacspeak-speak-paragraph
 
 @item \
  emacspeak-toggle-speak-line-invert-filter
 
 @item ]
- emacspeak-speak-page-interactively
+ emacspeak-speak-page
 
 @item ^
  emacspeak-filtertext
@@ -126,6 +126,9 @@
 @item h
  emacspeak-speak-help
 
+@item i
+ emacspeak-speak-rest-of-buffer
+
 @item j
  emacspeak-hide-or-expose-block
 
@@ -139,13 +142,13 @@
  emacspeak-speak-mode-line
 
 @item n
- emacspeak-speak-rest-of-buffer
+ emacspeak-wizards-buffer-select
 
 @item o
  delete-blank-lines
 
 @item p
- emacspeak-speak-paragraph
+ emacspeak-wizards-buffer-select
 
 @item r
  emacspeak-speak-region
@@ -213,6 +216,9 @@
 @item 5
  emacspeak-speak-current-percentage
 
+@item 9
+ amixer
+
 @item :
  empv-play-file
 
@@ -236,9 +242,6 @@
 
 @item C
  emacspeak-customize
-
-@item 9
- amixer
 
 @item SPC
  emacspeak-speak-windowful
@@ -468,14 +471,8 @@
 @item m
  vm
 
-@item n
- emacspeak-wizards-buffer-select
-
 @item o
  find-file
-
-@item p
- emacspeak-wizards-buffer-select
 
 @item r
  emacspeak-wizards-find-file-as-root

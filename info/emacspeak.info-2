@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 9, 2023.
+last updated on July 10, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1094,9 +1094,7 @@ found on laptops is denoted <fn>
       ("k" emacspeak-google-knowledge-search)
       ("l" locate)
       ("m" vm)
-      ("n" emacspeak-wizards-buffer-select)
       ("o" find-file)
-      ("p" emacspeak-wizards-buffer-select)
       ("r" emacspeak-wizards-find-file-as-root)
       ("s" magit-status)
       ("t" twit)
@@ -5074,8 +5072,8 @@ of emacspeak from becoming dependent on the speech server modules
 ................................
 
  -- Command: emacspeak-speak-page (&optional arg)
-     ‘C-e [’
-     ‘<fn> [’
+     ‘C-e ]’
+     ‘<fn> ]’
 
      Speak a page.
      With prefix ARG, speaks rest of current page.
@@ -5087,8 +5085,6 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-speak-page-interactively
-     ‘C-e ]’
-     ‘<fn> ]’
 
      Speak the start of, rest of, or the entire page.
       ‘s’ to speak the start.
@@ -5099,8 +5095,8 @@ of emacspeak from becoming dependent on the speech server modules
 .....................................
 
  -- Command: emacspeak-speak-paragraph (&optional arg)
-     ‘C-e p’
-     ‘<fn> p’
+     ‘C-e [’
+     ‘<fn> [’
 
      Speak paragraph.
      With prefix arg, speaks rest of current paragraph.
@@ -5189,8 +5185,8 @@ of emacspeak from becoming dependent on the speech server modules
 ..........................................
 
  -- Command: emacspeak-speak-rest-of-buffer
-     ‘C-e n’
-     ‘<fn> n’
+     ‘C-e i’
+     ‘<fn> i’
 
      Speak remainder of the buffer starting at point
 
@@ -8369,18 +8365,18 @@ Contains various wizards for the Emacspeak desktop.
 ...........................................
 
  -- Command: emacspeak-wizards-buffer-select
+     ‘C-e p’
+     ‘C-e n’
      ‘C-e .’
      ‘C-e ,’
-     ‘C-; p’
-     ‘C-; n’
+     ‘<fn> p’
+     ‘<fn> n’
      ‘<fn> .’
      ‘<fn> ,’
      ‘C-e z p’
      ‘C-e z n’
      ‘<fn> z p’
      ‘<fn> z n’
-     ‘C-x @ h p’
-     ‘C-x @ h n’
 
      Select buffer by smart cycling.
      By default, this command is bound to multiple keys.
