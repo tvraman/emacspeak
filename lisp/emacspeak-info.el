@@ -277,6 +277,12 @@ node-spec."
         (emacspeak-speak-line)))))
 
 ;;}}}
+;;{{{Hook:
+(add-hook
+ 'info-mode-hook
+ 'emacspeak-pronounce-refresh-pronunciations)
+
+;;}}}
 ;;{{{ keymaps
 
 (cl-declaim (special Info-mode-map))
