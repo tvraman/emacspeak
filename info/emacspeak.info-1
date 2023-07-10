@@ -2649,245 +2649,165 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 11.1 Emacspeak Keybindings On emacspeak-keymap
 ==============================================
 
-‘"’
-     emacspeak-speak-sexp
+‘" emacspeak-speak-sexp’
 
-‘C-@’
-     emacspeak-speak-current-mark
+‘C-@ emacspeak-speak-current-mark’
 
-‘C-a’
-     emacspeak-toggle-auditory-icons
+‘C-a emacspeak-toggle-auditory-icons’
 
-‘C-b’
-     emacspeak-bookshare
+‘C-b emacspeak-bookshare’
 
-‘C-d’
-     emacspeak-toggle-show-point
+‘C-d emacspeak-toggle-show-point’
 
-‘C-e’
-     move-end-of-line
+‘C-e move-end-of-line’
 
-‘C-f’
-     emacspeak-find-dired
+‘C-f emacspeak-find-dired’
 
-‘C-j’
-     emacspeak-hide-speak-block-sans-prefix
+‘C-j emacspeak-hide-speak-block-sans-prefix’
 
-‘C-k’
-     browse-kill-ring
+‘C-k browse-kill-ring’
 
-‘C-l’
-     what-line
+‘C-l what-line’
 
-‘C-o’
-     emacspeak-ocr
+‘C-o emacspeak-ocr’
 
-‘C-q’
-     emacspeak-toggle-inaudible-or-comint-autospeak
+‘C-q emacspeak-toggle-inaudible-or-comint-autospeak’
 
-‘C-r’
-     restart-emacs
+‘C-r restart-emacs’
 
-‘C-s’
-     tts-restart
+‘C-s tts-restart’
 
-‘C-u’
-     emacspeak-feeds-browse
+‘C-u emacspeak-feeds-browse’
 
-‘C-v’
-     view-mode
+‘C-v view-mode’
 
-‘C-w’
-     emacspeak-speak-window-information
+‘C-w emacspeak-speak-window-information’
 
-‘C-x’
-     emacspeak-speak-header-line
+‘C-x emacspeak-speak-header-line’
 
-‘I’
-     emacspeak-speak-show-active-network-interfaces
+‘I emacspeak-speak-show-active-network-interfaces’
 
-‘L’
-     emacspeak-speak-line-interactively
+‘L emacspeak-speak-line-interactively’
 
-‘M’
-     emacspeak-speak-minor-mode-line
+‘M emacspeak-speak-minor-mode-line’
 
-‘N’
-     emacspeak-view-emacspeak-news
+‘N emacspeak-view-emacspeak-news’
 
-‘P’
-     emacspeak-speak-paragraph-interactively
+‘P emacspeak-speak-paragraph-interactively’
 
-‘R’
-     emacspeak-speak-rectangle
+‘R emacspeak-speak-rectangle’
 
-‘RET’
-     emacspeak-websearch-google
+‘RET emacspeak-websearch-google’
 
-‘T’
-     emacspeak-view-emacspeak-tips
+‘T emacspeak-view-emacspeak-tips’
 
-‘TAB’
-     emacspeak-open-info
+‘TAB emacspeak-open-info’
 
-‘V’
-     emacspeak-speak-version
+‘V emacspeak-speak-version’
 
-‘W’
-     emacspeak-select-window-by-name
+‘W emacspeak-select-window-by-name’
 
-‘[’
-     emacspeak-speak-paragraph
+‘[ emacspeak-speak-paragraph’
 
-‘\’
-     emacspeak-toggle-speak-line-invert-filter
+‘\ emacspeak-toggle-speak-line-invert-filter’
 
-‘]’
-     emacspeak-speak-page
+‘] emacspeak-speak-page’
 
-‘^’
-     emacspeak-filtertext
+‘^ emacspeak-filtertext’
 
-‘a’
-     emacspeak-speak-message-again
+‘a emacspeak-speak-message-again’
 
-‘b’
-     emacspeak-speak-buffer
+‘b emacspeak-speak-buffer’
 
-‘c’
-     emacspeak-speak-char
+‘c emacspeak-speak-char’
 
-‘e’
-     move-end-of-line
+‘e move-end-of-line’
 
-‘f’
-     emacspeak-speak-buffer-filename
+‘f emacspeak-speak-buffer-filename’
 
-‘g’
-     emacspeak-epub
+‘g emacspeak-epub’
 
-‘h’
-     emacspeak-speak-help
+‘h emacspeak-speak-help’
 
-‘i’
-     emacspeak-speak-rest-of-buffer
+‘i emacspeak-speak-rest-of-buffer’
 
-‘j’
-     emacspeak-hide-or-expose-block
+‘j emacspeak-hide-or-expose-block’
 
-‘k’
-     emacspeak-speak-current-kill
+‘k emacspeak-speak-current-kill’
 
-‘l’
-     emacspeak-speak-line
+‘l emacspeak-speak-line’
 
-‘m’
-     emacspeak-speak-mode-line
+‘m emacspeak-speak-mode-line’
 
-‘n’
-     emacspeak-wizards-buffer-select
+‘n emacspeak-wizards-buffer-select’
 
-‘o’
-     delete-blank-lines
+‘o delete-blank-lines’
 
-‘p’
-     emacspeak-wizards-buffer-select
+‘p emacspeak-wizards-buffer-select’
 
-‘r’
-     emacspeak-speak-region
+‘r emacspeak-speak-region’
 
-‘s’
-     dtk-stop
+‘s dtk-stop’
 
-‘t’
-     emacspeak-speak-time
+‘t emacspeak-speak-time’
 
-‘u’
-     emacspeak-url-template-fetch
+‘u emacspeak-url-template-fetch’
 
-‘w’
-     emacspeak-speak-word
+‘w emacspeak-speak-word’
 
-‘|’
-     emacspeak-speak-line-set-column-filter
+‘| emacspeak-speak-line-set-column-filter’
 
-‘!’
-     emacspeak-speak-run-shell-command
+‘! emacspeak-speak-run-shell-command’
 
-‘$’
-     flyspell-mode
+‘$ flyspell-mode’
 
-‘%’
-     emacspeak-speak-current-percentage
+‘% emacspeak-speak-current-percentage’
 
-‘&’
-     emacspeak-wizards-shell-command-on-current-file
+‘& emacspeak-wizards-shell-command-on-current-file’
 
-‘'’
-     emacspeak-pianobar
+‘' emacspeak-pianobar’
 
-‘(’
-     amixer
+‘( amixer’
 
-‘)’
-     emacspeak-sounds-select-theme
+‘) emacspeak-sounds-select-theme’
 
-‘,’
-     emacspeak-wizards-buffer-select
+‘, emacspeak-wizards-buffer-select’
 
-‘.’
-     emacspeak-wizards-buffer-select
+‘. emacspeak-wizards-buffer-select’
 
-‘/’
-     emacspeak-websearch-dispatch
+‘/ emacspeak-websearch-dispatch’
 
-‘0’
-     emacspeak-sounds-select-theme
+‘0 emacspeak-sounds-select-theme’
 
-‘1’
-     emacspeak-speak-this-window
+‘1 emacspeak-speak-this-window’
 
-‘2’
-     emacspeak-speak-other-window
+‘2 emacspeak-speak-other-window’
 
-‘3’
-     amixer-volume-adjust
+‘3 amixer-volume-adjust’
 
-‘4’
-     amixer-volume-adjust
+‘4 amixer-volume-adjust’
 
-‘5’
-     emacspeak-speak-current-percentage
+‘5 emacspeak-speak-current-percentage’
 
-‘9’
-     amixer
+‘9 amixer’
 
-‘:’
-     empv-play-file
+‘: empv-play-file’
 
-‘;’
-     emacspeak-multimedia
+‘; emacspeak-multimedia’
 
-‘=’
-     emacspeak-speak-current-column
+‘= emacspeak-speak-current-column’
 
-‘?’
-     emacspeak-websearch-dispatch
+‘? emacspeak-websearch-dispatch’
 
-‘@’
-     emacspeak-speak-message-at-time
+‘@ emacspeak-speak-message-at-time’
 
-‘A’
-     emacspeak-appt-repeat-announcement
+‘A emacspeak-appt-repeat-announcement’
 
-‘B’
-     emacspeak-speak-buffer-interactively
+‘B emacspeak-speak-buffer-interactively’
 
-‘C’
-     emacspeak-customize
+‘C emacspeak-customize’
 
-‘SPC’
-     emacspeak-speak-windowful
+‘SPC emacspeak-speak-windowful’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-dtk-submap,  Next: Emacspeak Keybindings On emacspeak-hyper-keymap,  Prev: Emacspeak Keybindings On emacspeak-keymap,  Up: Emacspeak Keymaps
@@ -2895,143 +2815,97 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-dtk-submap,  Nex
 11.2 Emacspeak Keybindings On emacspeak-dtk-submap
 ==================================================
 
-‘+’
-     dtk-rate-adjust
+‘+ dtk-rate-adjust’
 
-‘,’
-     dtk-toggle-punctuation-mode
+‘, dtk-toggle-punctuation-mode’
 
-‘-’
-     dtk-rate-adjust
+‘- dtk-rate-adjust’
 
-‘.’
-     dtk-notify-stop
+‘. dtk-notify-stop’
 
-‘0’
-     dtk-set-predefined-speech-rate
+‘0 dtk-set-predefined-speech-rate’
 
-‘1’
-     dtk-set-predefined-speech-rate
+‘1 dtk-set-predefined-speech-rate’
 
-‘2’
-     dtk-set-predefined-speech-rate
+‘2 dtk-set-predefined-speech-rate’
 
-‘3’
-     dtk-set-predefined-speech-rate
+‘3 dtk-set-predefined-speech-rate’
 
-‘4’
-     dtk-set-predefined-speech-rate
+‘4 dtk-set-predefined-speech-rate’
 
-‘5’
-     dtk-set-predefined-speech-rate
+‘5 dtk-set-predefined-speech-rate’
 
-‘6’
-     dtk-set-predefined-speech-rate
+‘6 dtk-set-predefined-speech-rate’
 
-‘7’
-     dtk-set-predefined-speech-rate
+‘7 dtk-set-predefined-speech-rate’
 
-‘8’
-     dtk-set-predefined-speech-rate
+‘8 dtk-set-predefined-speech-rate’
 
-‘9’
-     dtk-set-predefined-speech-rate
+‘9 dtk-set-predefined-speech-rate’
 
-‘=’
-     dtk-rate-adjust
+‘= dtk-rate-adjust’
 
-‘C-c’
-     dtk-cloud
+‘C-c dtk-cloud’
 
-‘C-d’
-     dectalk
+‘C-d dectalk’
 
-‘C-e’
-     espeak
+‘C-e espeak’
 
-‘C-j’
-     dtk-set-chunk-separator-syntax
+‘C-j dtk-set-chunk-separator-syntax’
 
-‘C-n’
-     dtk-notify-initialize
+‘C-n dtk-notify-initialize’
 
-‘C-o’
-     outloud
+‘C-o outloud’
 
-‘C-s’
-     dectalk-soft
+‘C-s dectalk-soft’
 
-‘C-v’
-     global-voice-lock-mode
+‘C-v global-voice-lock-mode’
 
-‘L’
-     dtk-local-server
+‘L dtk-local-server’
 
-‘N’
-     dtk-set-next-language
+‘N dtk-set-next-language’
 
-‘P’
-     dtk-set-previous-language
+‘P dtk-set-previous-language’
 
-‘R’
-     dtk-reset-state
+‘R dtk-reset-state’
 
-‘S’
-     dtk-set-language
+‘S dtk-set-language’
 
-‘SPC’
-     dtk-toggle-splitting-on-white-space
+‘SPC dtk-toggle-splitting-on-white-space’
 
-‘V’
-     tts-speak-version
+‘V tts-speak-version’
 
-‘a’
-     dtk-add-cleanup-pattern
+‘a dtk-add-cleanup-pattern’
 
-‘c’
-     dtk-toggle-caps
+‘c dtk-toggle-caps’
 
-‘d’
-     dtk-select-server
+‘d dtk-select-server’
 
-‘f’
-     dtk-set-character-scale
+‘f dtk-set-character-scale’
 
-‘i’
-     emacspeak-toggle-audio-indentation
+‘i emacspeak-toggle-audio-indentation’
 
-‘k’
-     emacspeak-toggle-character-echo
+‘k emacspeak-toggle-character-echo’
 
-‘l’
-     emacspeak-toggle-line-echo
+‘l emacspeak-toggle-line-echo’
 
-‘n’
-     dtk-toggle-speak-nonprinting-chars
+‘n dtk-toggle-speak-nonprinting-chars’
 
-‘o’
-     dtk-toggle-strip-octals
+‘o dtk-toggle-strip-octals’
 
-‘p’
-     dtk-set-punctuations
+‘p dtk-set-punctuations’
 
-‘q’
-     dtk-toggle-quiet
+‘q dtk-toggle-quiet’
 
-‘r’
-     dtk-set-rate
+‘r dtk-set-rate’
 
-‘s’
-     dtk-toggle-split-caps
+‘s dtk-toggle-split-caps’
 
-‘v’
-     voice-lock-mode
+‘v voice-lock-mode’
 
-‘w’
-     emacspeak-toggle-word-echo
+‘w emacspeak-toggle-word-echo’
 
-‘z’
-     emacspeak-zap-tts
+‘z emacspeak-zap-tts’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  Next: Emacspeak Keybindings On emacspeak-super-keymap,  Prev: Emacspeak Keybindings On emacspeak-dtk-submap,  Up: Emacspeak Keymaps
@@ -3039,101 +2913,69 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 11.3 Emacspeak Keybindings On emacspeak-hyper-keymap
 ====================================================
 
-‘'’
-     emacspeak-m-player-using-hrtf
+‘' emacspeak-m-player-using-hrtf’
 
-‘/’
-     emacspeak-websearch-google-with-toolbelt
+‘/ emacspeak-websearch-google-with-toolbelt’
 
-‘:’
-     emacspeak-m-player-using-openal
+‘: emacspeak-m-player-using-openal’
 
-‘;’
-     emacspeak-multimedia
+‘; emacspeak-multimedia’
 
-‘C-a’
-     emacspeak-wizards-term
+‘C-a emacspeak-wizards-term’
 
-‘C-b’
-     eww-list-bookmarks
+‘C-b eww-list-bookmarks’
 
-‘C-d’
-     dictionary-search
+‘C-d dictionary-search’
 
-‘C-e’
-     eshell
+‘C-e eshell’
 
-‘C-j’
-     emacspeak-wizards-shell-toggle
+‘C-j emacspeak-wizards-shell-toggle’
 
-‘C-l’
-     emacspeak-librivox
+‘C-l emacspeak-librivox’
 
-‘C-t’
-     emacspeak-wizards-tramp-open-location
+‘C-t emacspeak-wizards-tramp-open-location’
 
-‘DEL’
-     emacspeak-wizards-snarf-sexp
+‘DEL emacspeak-wizards-snarf-sexp’
 
-‘TAB’
-     hippie-expand
+‘TAB hippie-expand’
 
-‘a’
-     emacspeak-amark-browse
+‘a emacspeak-amark-browse’
 
-‘b’
-     eww-list-buffers
+‘b eww-list-buffers’
 
-‘c’
-     browse-url-chrome
+‘c browse-url-chrome’
 
-‘d’
-     magit-dispatch
+‘d magit-dispatch’
 
-‘e’
-     gmaps
+‘e gmaps’
 
-‘f’
-     magit-file-dispatch
+‘f magit-file-dispatch’
 
-‘g’
-     gnus
+‘g gnus’
 
-‘h’
-     emacspeak-m-player-from-history
+‘h emacspeak-m-player-from-history’
 
-‘i’
-     ibuffer
+‘i ibuffer’
 
-‘k’
-     emacspeak-google-knowledge-search
+‘k emacspeak-google-knowledge-search’
 
-‘l’
-     locate
+‘l locate’
 
-‘m’
-     vm
+‘m vm’
 
-‘o’
-     find-file
+‘o find-file’
 
-‘r’
-     emacspeak-wizards-find-file-as-root
+‘r emacspeak-wizards-find-file-as-root’
 
-‘s’
-     magit-status
+‘s magit-status’
 
-‘t’
-     twit
+‘t twit’
 
-‘u’
-     list-unicode-display
+‘u list-unicode-display’
 
-‘w’
-     emacspeak-wizards-noaa-weather
+‘w emacspeak-wizards-noaa-weather’
 
-‘y’
-     yas-expand
+‘y yas-expand’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  Next: Emacspeak Keybindings On emacspeak-alt-keymap,  Prev: Emacspeak Keybindings On emacspeak-hyper-keymap,  Up: Emacspeak Keymaps
@@ -3141,62 +2983,43 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 11.4 Emacspeak Keybindings On emacspeak-super-keymap
 ====================================================
 
-‘.’
-     emacspeak-wizards-shell-directory-reset
+‘. emacspeak-wizards-shell-directory-reset’
 
-‘C-n’
-     emacspeak-wizards-google-headlines
+‘C-n emacspeak-wizards-google-headlines’
 
-‘R’
-     emacspeak-webspace-feed-reader
+‘R emacspeak-webspace-feed-reader’
 
-‘SPC’
-     scratch-buffer
+‘SPC scratch-buffer’
 
-‘c’
-     calculator
+‘c calculator’
 
-‘d’
-     emacspeak-dired-downloads
+‘d emacspeak-dired-downloads’
 
-‘e’
-     elfeed
+‘e elfeed’
 
-‘f’
-     browse-url-firefox
+‘f browse-url-firefox’
 
-‘g’
-     emacspeak-google-tts
+‘g emacspeak-google-tts’
 
-‘h’
-     emacspeak-org-capture-link
+‘h emacspeak-org-capture-link’
 
-‘l’
-     emacspeak-wizards-locate-content
+‘l emacspeak-wizards-locate-content’
 
-‘m’
-     emacspeak-wizards-view-buffers-filtered-by-this-mode
+‘m emacspeak-wizards-view-buffers-filtered-by-this-mode’
 
-‘n’
-     emacspeak-wizards-google-news
+‘n emacspeak-wizards-google-news’
 
-‘p’
-     proced
+‘p proced’
 
-‘r’
-     soundscape-restart
+‘r soundscape-restart’
 
-‘s’
-     soundscape
+‘s soundscape’
 
-‘t’
-     soundscape-toggle
+‘t soundscape-toggle’
 
-‘u’
-     soundscape-update-mood
+‘u soundscape-update-mood’
 
-‘y’
-     empv-youtube-tabulated
+‘y empv-youtube-tabulated’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-x-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
@@ -3204,59 +3027,41 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 11.5 Emacspeak Keybindings On emacspeak-alt-keymap
 ==================================================
 
-‘,’
-     eldoc
+‘, eldoc’
 
-‘SPC’
-     emacspeak-eww-smart-tabs
+‘SPC emacspeak-eww-smart-tabs’
 
-‘a’
-     emacspeak-feeds-atom-display
+‘a emacspeak-feeds-atom-display’
 
-‘b’
-     sox-binaural
+‘b sox-binaural’
 
-‘d’
-     deadgrep
+‘d deadgrep’
 
-‘e’
-     eww
+‘e eww’
 
-‘f’
-     ffip
+‘f ffip’
 
-‘g’
-     rg
+‘g rg’
 
-‘l’
-     eww-open-file
+‘l eww-open-file’
 
-‘o’
-     emacspeak-feeds-opml-display
+‘o emacspeak-feeds-opml-display’
 
-‘p’
-     emacspeak-wizards-pdf-open
+‘p emacspeak-wizards-pdf-open’
 
-‘r’
-     emacspeak-feeds-rss-display
+‘r emacspeak-feeds-rss-display’
 
-‘s’
-     emacspeak-wizards-tune-in-radio-search
+‘s emacspeak-wizards-tune-in-radio-search’
 
-‘t’
-     emacspeak-wizards-tune-in-radio-browse
+‘t emacspeak-wizards-tune-in-radio-browse’
 
-‘u’
-     emacspeak-m-player-url
+‘u emacspeak-m-player-url’
 
-‘v’
-     visual-line-mode
+‘v visual-line-mode’
 
-‘w’
-     define-word
+‘w define-word’
 
-‘y’
-     emacspeak-m-player-youtube-player
+‘y emacspeak-m-player-youtube-player’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next: Emacspeak Keybindings On emacspeak-v-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
@@ -3264,89 +3069,61 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next:
 11.6 Emacspeak Keybindings On emacspeak-x-keymap
 ================================================
 
-‘,’
-     emacspeak-wizards-shell-directory-set
+‘, emacspeak-wizards-shell-directory-set’
 
-‘.’
-     emacspeak-wizards-shell-directory-reset
+‘. emacspeak-wizards-shell-directory-reset’
 
-‘0’
-     emacspeak-wizards-shell-by-key
+‘0 emacspeak-wizards-shell-by-key’
 
-‘1’
-     emacspeak-wizards-shell-by-key
+‘1 emacspeak-wizards-shell-by-key’
 
-‘2’
-     emacspeak-wizards-shell-by-key
+‘2 emacspeak-wizards-shell-by-key’
 
-‘3’
-     emacspeak-wizards-shell-by-key
+‘3 emacspeak-wizards-shell-by-key’
 
-‘4’
-     emacspeak-wizards-shell-by-key
+‘4 emacspeak-wizards-shell-by-key’
 
-‘5’
-     emacspeak-wizards-shell-by-key
+‘5 emacspeak-wizards-shell-by-key’
 
-‘7’
-     emacspeak-wizards-shell-command-on-current-file
+‘7 emacspeak-wizards-shell-command-on-current-file’
 
-‘8’
-     calc
+‘8 calc’
 
-‘;’
-     emacspeak-m-player-loop
+‘; emacspeak-m-player-loop’
 
-‘=’
-     emacspeak-wizards-find-longest-line-in-region
+‘= emacspeak-wizards-find-longest-line-in-region’
 
-‘C-c’
-     emacspeak-wizards-color-wheel
+‘C-c emacspeak-wizards-color-wheel’
 
-‘DEL’
-     desktop-clear
+‘DEL desktop-clear’
 
-‘b’
-     battery
+‘b battery’
 
-‘d’
-     emacspeak-speak-load-directory-settings
+‘d emacspeak-speak-load-directory-settings’
 
-‘f’
-     emacspeak-wizards-remote-frame
+‘f emacspeak-wizards-remote-frame’
 
-‘h’
-     emacspeak-wizards-how-many-matches
+‘h emacspeak-wizards-how-many-matches’
 
-‘i’
-     ibuffer
+‘i ibuffer’
 
-‘l’
-     emacspeak-m-player-youtube-live
+‘l emacspeak-m-player-youtube-live’
 
-‘m’
-     mspools-show
+‘m mspools-show’
 
-‘o’
-     emacspeak-wizards-occur-header-lines
+‘o emacspeak-wizards-occur-header-lines’
 
-‘p’
-     paradox-list-packages
+‘p paradox-list-packages’
 
-‘t’
-     emacspeak-speak-telephone-directory
+‘t emacspeak-speak-telephone-directory’
 
-‘u’
-     emacspeak-wizards-units
+‘u emacspeak-wizards-units’
 
-‘v’
-     emacspeak-wizards-vc-viewer
+‘v emacspeak-wizards-vc-viewer’
 
-‘w’
-     emacspeak-wizards-noaa-weather
+‘w emacspeak-wizards-noaa-weather’
 
-‘|’
-     emacspeak-wizards-squeeze-blanks
+‘| emacspeak-wizards-squeeze-blanks’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-v-keymap,  Next: Emacspeak Keybindings On emacspeak-y-keymap,  Prev: Emacspeak Keybindings On emacspeak-x-keymap,  Up: Emacspeak Keymaps
@@ -3354,8 +3131,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-v-keymap,  Next:
 11.7 Emacspeak Keybindings On emacspeak-v-keymap
 ================================================
 
-‘v’
-     view-register
+‘v view-register’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next: Emacspeak Keybindings On emacspeak-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-v-keymap,  Up: Emacspeak Keymaps
@@ -3363,20 +3139,15 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 11.8 Emacspeak Keybindings On emacspeak-y-keymap
 ================================================
 
-‘a’
-     emacspeak-xslt-view-atom-file
+‘a emacspeak-xslt-view-atom-file’
 
-‘p’
-     emacspeak-pianobar
+‘p emacspeak-pianobar’
 
-‘r’
-     emacspeak-xslt-view-rss-file
+‘r emacspeak-xslt-view-rss-file’
 
-‘x’
-     emacspeak-xslt-view-file
+‘x emacspeak-xslt-view-file’
 
-‘y’
-     emacspeak-empv-play-url
+‘y emacspeak-empv-play-url’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-y-keymap,  Up: Emacspeak Keymaps
@@ -3384,41 +3155,29 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next:
 11.9 Emacspeak Keybindings On emacspeak-z-keymap
 ================================================
 
-‘SPC’
-     flyspell-mode
+‘SPC flyspell-mode’
 
-‘b’
-     emacspeak-wizards-view-buffers-filtered-by-this-mode
+‘b emacspeak-wizards-view-buffers-filtered-by-this-mode’
 
-‘c’
-     calibredb
+‘c calibredb’
 
-‘d’
-     magit-dispatch
+‘d magit-dispatch’
 
-‘e’
-     emacspeak-wizards-eww-buffer-list
+‘e emacspeak-wizards-eww-buffer-list’
 
-‘f’
-     magit-file-dispatch
+‘f magit-file-dispatch’
 
-‘l’
-     locate
+‘l locate’
 
-‘n’
-     emacspeak-wizards-buffer-select
+‘n emacspeak-wizards-buffer-select’
 
-‘p’
-     emacspeak-wizards-buffer-select
+‘p emacspeak-wizards-buffer-select’
 
-‘r’
-     restart-emacs
+‘r restart-emacs’
 
-‘s’
-     magit-status
+‘s magit-status’
 
-‘z’
-     suspend-frame
+‘z suspend-frame’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-z-keymap,  Up: Emacspeak Keymaps
@@ -3426,23 +3185,17 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  P
 11.10 Emacspeak Keybindings On emacspeak-multi-keymap
 =====================================================
 
-‘'’
-     emacspeak-pianobar
+‘' emacspeak-pianobar’
 
-‘d’
-     sdcv-search-input
+‘d sdcv-search-input’
 
-‘h’
-     emacspeak-m-player-browse-history
+‘h emacspeak-m-player-browse-history’
 
-‘l’
-     emacspeak-m-player-locate-media
+‘l emacspeak-m-player-locate-media’
 
-‘o’
-     org-mode
+‘o org-mode’
 
-‘y’
-     emacspeak-google-yt-feed
+‘y emacspeak-google-yt-feed’
 
 
 File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Running Terminal Based Applications,  Prev: Emacspeak Keymaps,  Up: Top

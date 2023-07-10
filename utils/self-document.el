@@ -455,15 +455,15 @@ This chapter documents a total of %d commands and %d options.\n\n"
   (cl-assert  (keymapp keymap) t "Not a valid keymap: %s")
   (let ((entries (sd-sort-keymap (cdr (copy-keymap keymap )))))
     (insert "@table @kbd\n")
-    (cl-loop for binding in
-          entries
-          when (and (characterp (car binding))
-                    (not (keymapp  (cdr binding))))
-          do 
-          (insert
-           (format "@item %s\n %s\n\n"
-                   (sd-texinfo-escape (key-description (format "%c" (car binding))))
-                   (cdr binding))))
+    (cl-loop
+     for binding in entries
+     when (and (characterp (car binding))
+               (not (keymapp  (cdr binding))))
+     do 
+     (insert
+      (format "@item %s  %s\n\n"
+              (sd-texinfo-escape (key-description (format "%c" (car binding))))
+              (cdr binding))))
     (insert "@end table\n")))
 
 
