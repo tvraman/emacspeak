@@ -59,8 +59,8 @@
 (voice-setup-add-map
  '(
    (elfeed-search-date-face  voice-smoothen)
-   (elfeed-search-title-face voice-bolden)
-   (elfeed-search-unread-title-face voice-bolden-extra)
+   (elfeed-search-title-face voice-lighten)
+   (elfeed-search-unread-title-face voice-bolden)
    (elfeed-search-feed-face voice-animate)
    (elfeed-search-tag-face voice-lighten)))
 
