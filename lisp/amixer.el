@@ -377,6 +377,7 @@ Press C-e 3 to lower volume; C-e 4 to increase it. Subsequent presses
 of 3 and 4 lower or raise volume."
   (interactive )
   (let ((key (event-basic-type last-command-event)))
+    (emacspeak-auditory-icon 'repeat-start)
     (cl-case key
       (?3 (call-interactively 'amixer-volume-down))
       (?4 (call-interactively 'amixer-volume-up)))
@@ -384,7 +385,8 @@ of 3 and 4 lower or raise volume."
      (let ((map (make-sparse-keymap)))
        (dolist (key '("3" "4"))
          (define-key map key (lambda () (interactive) (amixer-volume-adjust ))))
-       map))))
+       map)
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
 
 (provide 'amixer)
 ;;{{{ end of file

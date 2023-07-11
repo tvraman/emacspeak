@@ -1476,6 +1476,7 @@ p emacspeak-wizards-cycle-to-previous-buffer
 "
   (interactive )
   (let ((key (event-basic-type last-command-event)))
+    (emacspeak-auditory-icon 'repeat-active)
     (cl-case key
       (?b (call-interactively 'switch-to-buffer))
       (?k (call-interactively 'emacspeak-kill-buffer-quietly))
@@ -1491,7 +1492,8 @@ p emacspeak-wizards-cycle-to-previous-buffer
          (define-key
           map key
           #'(lambda () (interactive) (emacspeak-wizards-buffer-select ))))
-       map))))
+       map)
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
 
 ;;}}}       
 ;;{{{ Start or switch to term:

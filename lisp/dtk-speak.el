@@ -999,6 +999,7 @@ the speech rate.  Call when on a non-blank line to preview the effectt"
             ((or ?+ ?=) dtk-speech-rate-step)
             (?- (- dtk-speech-rate-step))
             (_ dtk-speech-rate-step))))
+    (emacspeak-auditory-icon 'repeat-start)
     (dtk-set-rate (+ dtk-speech-rate  step))
     (emacspeak-speak-line)
     (emacspeak-auditory-icon (if (cl-minusp step) 'left 'right))
@@ -1006,7 +1007,8 @@ the speech rate.  Call when on a non-blank line to preview the effectt"
      (let ((map (make-sparse-keymap)))
        (dolist (key '("=" "+" "-")) ;; = is often unshifted +.
          (define-key map key (lambda () (interactive) (dtk-rate-adjust ))))
-       map))))
+       map)
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
 
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set character scale FACTOR for   speech rate.
