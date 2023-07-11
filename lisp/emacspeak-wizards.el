@@ -1493,7 +1493,7 @@ p emacspeak-wizards-cycle-to-previous-buffer
           (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
 
        map)
-     nil nil
+     nil (lambda nil (emacspeak-auditory-icon 'select-object))
      "Use %k to continue switching")))
 
 ;;}}}       
