@@ -278,6 +278,9 @@ node-spec."
 
 ;;}}}
 ;;{{{Hook:
+(add-hook
+ 'Info-mode-hook
+ 'emacspeak-pronounce-toggle-use-of-dictionaries)
 
 ;;}}}
 ;;{{{ keymaps
