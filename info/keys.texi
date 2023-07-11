@@ -6,16 +6,17 @@
  @section Emacspeak Keybindings On emacspeak-keymap
 
 @table @kbd
-@item "  emacspeak-speak-sexp
 @item C-@@  emacspeak-speak-current-mark
 @item C-a  emacspeak-toggle-auditory-icons
 @item C-b  emacspeak-bookshare
 @item C-d  emacspeak-toggle-show-point
 @item C-e  move-end-of-line
 @item C-f  emacspeak-find-dired
+@item TAB  emacspeak-open-info
 @item C-j  emacspeak-hide-speak-block-sans-prefix
 @item C-k  browse-kill-ring
 @item C-l  what-line
+@item RET  emacspeak-websearch-google
 @item C-o  emacspeak-ocr
 @item C-q  emacspeak-toggle-inaudible-or-comint-autospeak
 @item C-r  restart-emacs
@@ -24,15 +25,14 @@
 @item C-v  view-mode
 @item C-w  emacspeak-speak-window-information
 @item C-x  emacspeak-speak-header-line
+@item "  emacspeak-speak-sexp
 @item I  emacspeak-speak-show-active-network-interfaces
 @item L  emacspeak-speak-line-interactively
 @item M  emacspeak-speak-minor-mode-line
 @item N  emacspeak-view-emacspeak-news
 @item P  emacspeak-speak-paragraph-interactively
 @item R  emacspeak-speak-rectangle
-@item RET  emacspeak-websearch-google
 @item T  emacspeak-view-emacspeak-tips
-@item TAB  emacspeak-open-info
 @item V  emacspeak-speak-version
 @item W  emacspeak-select-window-by-name
 @item [  emacspeak-speak-paragraph
@@ -60,6 +60,7 @@
 @item u  emacspeak-url-template-fetch
 @item w  emacspeak-speak-word
 @item |  emacspeak-speak-line-set-column-filter
+@item SPC  emacspeak-speak-windowful
 @item !  emacspeak-speak-run-shell-command
 @item $  flyspell-mode
 @item %  emacspeak-speak-current-percentage
@@ -85,13 +86,21 @@
 @item A  emacspeak-appt-repeat-announcement
 @item B  emacspeak-speak-buffer-interactively
 @item C  emacspeak-customize
-@item SPC  emacspeak-speak-windowful
 @end table
 
 @node Emacspeak Keybindings On emacspeak-dtk-submap
  @section Emacspeak Keybindings On emacspeak-dtk-submap
 
 @table @kbd
+@item C-c  dtk-cloud
+@item C-d  dectalk
+@item C-e  espeak
+@item C-j  dtk-set-chunk-separator-syntax
+@item C-n  dtk-notify-initialize
+@item C-o  outloud
+@item C-s  dectalk-soft
+@item C-v  global-voice-lock-mode
+@item SPC  dtk-toggle-splitting-on-white-space
 @item +  dtk-rate-adjust
 @item ,  dtk-toggle-punctuation-mode
 @item -  dtk-rate-adjust
@@ -107,20 +116,11 @@
 @item 8  dtk-set-predefined-speech-rate
 @item 9  dtk-set-predefined-speech-rate
 @item =  dtk-rate-adjust
-@item C-c  dtk-cloud
-@item C-d  dectalk
-@item C-e  espeak
-@item C-j  dtk-set-chunk-separator-syntax
-@item C-n  dtk-notify-initialize
-@item C-o  outloud
-@item C-s  dectalk-soft
-@item C-v  global-voice-lock-mode
 @item L  dtk-local-server
 @item N  dtk-set-next-language
 @item P  dtk-set-previous-language
 @item R  dtk-reset-state
 @item S  dtk-set-language
-@item SPC  dtk-toggle-splitting-on-white-space
 @item V  tts-speak-version
 @item a  dtk-add-cleanup-pattern
 @item c  dtk-toggle-caps
@@ -144,19 +144,18 @@
  @section Emacspeak Keybindings On emacspeak-hyper-keymap
 
 @table @kbd
-@item '  emacspeak-m-player-using-hrtf
-@item /  emacspeak-websearch-google-with-toolbelt
-@item :  emacspeak-m-player-using-openal
-@item ;  emacspeak-multimedia
 @item C-a  emacspeak-wizards-term
 @item C-b  eww-list-bookmarks
 @item C-d  dictionary-search
 @item C-e  eshell
+@item TAB  hippie-expand
 @item C-j  emacspeak-wizards-shell-toggle
 @item C-l  emacspeak-librivox
 @item C-t  emacspeak-wizards-tramp-open-location
-@item DEL  emacspeak-wizards-snarf-sexp
-@item TAB  hippie-expand
+@item '  emacspeak-m-player-using-hrtf
+@item /  emacspeak-websearch-google-with-toolbelt
+@item :  emacspeak-m-player-using-openal
+@item ;  emacspeak-multimedia
 @item a  emacspeak-amark-browse
 @item b  eww-list-buffers
 @item c  browse-url-chrome
@@ -176,16 +175,17 @@
 @item u  list-unicode-display
 @item w  emacspeak-wizards-noaa-weather
 @item y  yas-expand
+@item DEL  emacspeak-wizards-snarf-sexp
 @end table
 
 @node Emacspeak Keybindings On emacspeak-super-keymap
  @section Emacspeak Keybindings On emacspeak-super-keymap
 
 @table @kbd
-@item .  emacspeak-wizards-shell-directory-reset
 @item C-n  emacspeak-wizards-google-headlines
-@item R  emacspeak-webspace-feed-reader
 @item SPC  scratch-buffer
+@item .  emacspeak-wizards-shell-directory-reset
+@item R  emacspeak-webspace-feed-reader
 @item c  calculator
 @item d  emacspeak-dired-downloads
 @item e  elfeed
@@ -207,8 +207,8 @@
  @section Emacspeak Keybindings On emacspeak-alt-keymap
 
 @table @kbd
-@item ,  eldoc
 @item SPC  emacspeak-eww-smart-tabs
+@item ,  eldoc
 @item a  emacspeak-feeds-atom-display
 @item b  sox-binaural
 @item d  deadgrep
@@ -231,6 +231,7 @@
  @section Emacspeak Keybindings On emacspeak-x-keymap
 
 @table @kbd
+@item C-c  emacspeak-wizards-color-wheel
 @item ,  emacspeak-wizards-shell-directory-set
 @item .  emacspeak-wizards-shell-directory-reset
 @item 0  emacspeak-wizards-shell-by-key
@@ -243,8 +244,6 @@
 @item 8  calc
 @item ;  emacspeak-m-player-loop
 @item =  emacspeak-wizards-find-longest-line-in-region
-@item C-c  emacspeak-wizards-color-wheel
-@item DEL  desktop-clear
 @item b  battery
 @item d  emacspeak-speak-load-directory-settings
 @item f  emacspeak-wizards-remote-frame
@@ -259,6 +258,7 @@
 @item v  emacspeak-wizards-vc-viewer
 @item w  emacspeak-wizards-noaa-weather
 @item |  emacspeak-wizards-squeeze-blanks
+@item DEL  desktop-clear
 @end table
 
 @node Emacspeak Keybindings On emacspeak-v-keymap

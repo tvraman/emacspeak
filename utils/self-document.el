@@ -436,10 +436,10 @@ This chapter documents a total of %d commands and %d options.\n\n"
   (cl-sort
    temp
    #'(lambda (a b)
-       (when (and (characterp (car a)) (characterp (car b)))
-       (string-lessp
-        (key-description (format "%c" (car a)))
-        (key-description (format "%c" (car b)))))))))
+       (cond
+        ((and (characterp (car a)) (characterp (car b)))
+         (< (car a) (car b)))
+        (t nil))))))
 
 (defvar self-document-keymap-list
   '(
