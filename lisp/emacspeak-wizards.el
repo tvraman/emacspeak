@@ -1490,11 +1490,8 @@ p emacspeak-wizards-cycle-to-previous-buffer
        (dolist (key '("b" "k" "," "."   "p" "n"))
          (define-key
           map key
-          (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
-
-       map)
-     nil nil
-     "Use %k to continue switching")))
+          #'(lambda () (interactive) (emacspeak-wizards-buffer-select ))))
+       map))))
 
 ;;}}}       
 ;;{{{ Start or switch to term:

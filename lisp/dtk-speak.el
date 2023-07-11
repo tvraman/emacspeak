@@ -1006,9 +1006,7 @@ the speech rate.  Call when on a non-blank line to preview the effectt"
      (let ((map (make-sparse-keymap)))
        (dolist (key '("=" "+" "-")) ;; = is often unshifted +.
          (define-key map key (lambda () (interactive) (dtk-rate-adjust ))))
-       map)
-     nil nil
-     "Use %k to adjust rate")))
+       map))))
 
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set character scale FACTOR for   speech rate.
