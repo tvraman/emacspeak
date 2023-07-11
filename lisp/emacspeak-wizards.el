@@ -1469,6 +1469,7 @@ of the keys below call the following bindings:
 
 , previous-buffer
 . next-buffer
+b switch-to-buffer
 k emacspeak-kill-buffer-quietly
 n emacspeak-wizards-cycle-to-next-buffer
 p emacspeak-wizards-cycle-to-previous-buffer
@@ -1476,6 +1477,7 @@ p emacspeak-wizards-cycle-to-previous-buffer
   (interactive )
   (let ((key (event-basic-type last-command-event)))
     (cl-case key
+      (?b (call-interactively 'switch-to-buffer))
       (?k (call-interactively 'emacspeak-kill-buffer-quietly))
       (?p
        (call-interactively 'emacspeak-wizards-cycle-to-previous-buffer))
@@ -1485,12 +1487,13 @@ p emacspeak-wizards-cycle-to-previous-buffer
       (?. (call-interactively 'next-buffer)))
     (set-transient-map
      (let ((map (make-sparse-keymap)))
-       (dolist (key '("k" "," "."   "p" "n"))
+       (dolist (key '("b" "k" "," "."   "p" "n"))
          (define-key
           map key
           (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
 
        map))))
+
 ;;}}}       
 ;;{{{ Start or switch to term:
 
