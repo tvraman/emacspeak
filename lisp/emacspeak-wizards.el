@@ -1492,7 +1492,9 @@ p emacspeak-wizards-cycle-to-previous-buffer
           map key
           (lambda () (interactive) (emacspeak-wizards-buffer-select ))))
 
-       map))))
+       map)
+     nil nil
+     "Use %k to continue switching")))
 
 ;;}}}       
 ;;{{{ Start or switch to term:

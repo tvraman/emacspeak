@@ -384,7 +384,9 @@ of 3 and 4 lower or raise volume."
      (let ((map (make-sparse-keymap)))
        (dolist (key '("3" "4"))
          (define-key map key (lambda () (interactive) (amixer-volume-adjust ))))
-       map))))
+       map)
+     nil nil
+     "Use %k to adjust volume")))
 
 (provide 'amixer)
 ;;{{{ end of file
