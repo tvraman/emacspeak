@@ -278,9 +278,6 @@ node-spec."
 
 ;;}}}
 ;;{{{Hook:
-(add-hook
- 'info-mode-hook
- 'emacspeak-pronounce-refresh-pronunciations)
 
 ;;}}}
 ;;{{{ keymaps
