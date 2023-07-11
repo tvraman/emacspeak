@@ -1,4 +1,5 @@
 ;;; slime-autoloads is broken alas:
+;; See https://github.com/susam/emacs4cl
 (load-library "slime")
 (with-eval-after-load "slime"
   (add-hook 'slime-repl-mode-hook 'lispy-mode)
