@@ -1423,7 +1423,9 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (emacspeak-speak-line))
 
 ;;}}}
-;;{{{  Buffer Cycling:
+;;{{{ Buffer Select:
+
+;; Helpers:
 
 (defun emacspeak-wizards-buffer-cycle-previous (mode)
   "Return previous  buffer in cycle order having same major mode as `mode'."
@@ -1438,6 +1440,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
     (dolist (buf (cdr (buffer-list (selected-frame))))
       (when (with-current-buffer buf (eq mode major-mode))
         (throw 'cl-loop buf)))))
+
 ;;;###autoload
 (defun emacspeak-wizards-cycle-to-previous-buffer ()
   "Cycles to previous buffer having same mode."
@@ -1458,8 +1461,6 @@ buffer keyed by `key'gets the key of buffer `buffer'."
            (funcall-interactively #'switch-to-buffer next))
      (t (error "No next buffer in mode %s" major-mode)))))
 
-;;}}}
-;;{{{ Buffer Select:
 ;; Inspired by text-adjust-scale:
 (defun emacspeak-wizards-buffer-select()
   "Select buffer by smart cycling.
