@@ -2656,7 +2656,8 @@ Arranges for `VAR' to be restored when `file' is loaded."
         (if (listp (symbol-value var)) (insert "'"))
         (pp (symbol-value var) (current-buffer))
         (insert (format ") ;;; set %s\n\n" var))
-        (save-buffer)))))
+        (save-buffer)
+        (kill-buffer)))))
 
 ;;}}}
 ;;{{{Tapestry --Jump to window by name:
