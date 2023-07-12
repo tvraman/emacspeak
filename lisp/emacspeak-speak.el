@@ -2846,6 +2846,7 @@ of the keys below call the following bindings:
 b switch-to-buffer
 k emacspeak-kill-buffer-quietly
 n emacspeak-cycle-to-next-buffer
+o other-window
 p emacspeak-cycle-to-previous-buffer
 "
   (interactive )
@@ -2859,10 +2860,11 @@ p emacspeak-cycle-to-previous-buffer
       (?, (call-interactively 'previous-buffer))
       (?n
        (call-interactively 'emacspeak-cycle-to-next-buffer))
+      (?o (call-interactively 'other-window))
       (?. (call-interactively 'next-buffer)))
     (set-transient-map
      (let ((map (make-sparse-keymap)))
-       (dolist (key '("b" "k" "," "."   "p" "n"))
+       (dolist (key '("b" "k" "," "."   "p" "n" "o"))
          (define-key
           map key
           #'(lambda () (interactive) (emacspeak-buffer-select ))))
