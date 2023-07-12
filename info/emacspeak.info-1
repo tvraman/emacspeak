@@ -2694,9 +2694,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘k emacspeak-speak-current-kill’
 ‘l emacspeak-speak-line’
 ‘m emacspeak-speak-mode-line’
-‘n emacspeak-wizards-buffer-select’
+‘n emacspeak-buffer-select’
 ‘o delete-blank-lines’
-‘p emacspeak-wizards-buffer-select’
+‘p emacspeak-buffer-select’
 ‘r emacspeak-speak-region’
 ‘s dtk-stop’
 ‘t emacspeak-speak-time’
@@ -2711,8 +2711,8 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘' emacspeak-pianobar’
 ‘( amixer’
 ‘) emacspeak-sounds-select-theme’
-‘, emacspeak-wizards-buffer-select’
-‘. emacspeak-wizards-buffer-select’
+‘, emacspeak-buffer-select’
+‘. emacspeak-buffer-select’
 ‘/ emacspeak-websearch-dispatch’
 ‘0 emacspeak-sounds-select-theme’
 ‘1 emacspeak-speak-this-window’

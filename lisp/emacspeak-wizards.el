@@ -1386,6 +1386,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
 
 ;;}}}
 ;;{{{ show commentary:
+
 (defun ems-cleanup-commentary (commentary)
   "Cleanup commentary."
   (save-current-buffer
@@ -1423,80 +1424,6 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (emacspeak-speak-line))
 
 ;;}}}
-;;{{{ Buffer Select:
-
-;; Helpers:
-
-(defun emacspeak-wizards-buffer-cycle-previous (mode)
-  "Return previous  buffer in cycle order having same major mode as `mode'."
-  (catch 'cl-loop
-    (dolist (buf (reverse (cdr (buffer-list (selected-frame)))))
-      (when (with-current-buffer buf (eq mode major-mode))
-        (throw 'cl-loop buf)))))
-
-(defun emacspeak-wizards-buffer-cycle-next (mode)
-  "Return next buffer in cycle order having same major mode as `mode'."
-  (catch 'cl-loop
-    (dolist (buf (cdr (buffer-list (selected-frame))))
-      (when (with-current-buffer buf (eq mode major-mode))
-        (throw 'cl-loop buf)))))
-
-;;;###autoload
-(defun emacspeak-wizards-cycle-to-previous-buffer ()
-  "Cycles to previous buffer having same mode."
-  (interactive)
-  (let ((prev (emacspeak-wizards-buffer-cycle-previous major-mode)))
-    (cond
-     (prev
-      (funcall-interactively #'switch-to-buffer prev))
-     (t (error "No previous buffer in mode %s" major-mode)))))
-
-;;;###autoload
-(defun emacspeak-wizards-cycle-to-next-buffer ()
-  "Cycles to next buffer having same mode."
-  (interactive)
-  (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
-    (cond
-     (next (bury-buffer)
-           (funcall-interactively #'switch-to-buffer next))
-     (t (error "No next buffer in mode %s" major-mode)))))
-
-;; Inspired by text-adjust-scale:
-(defun emacspeak-wizards-buffer-select()
-  "Select buffer by smart cycling.
-By default, this command is bound to multiple keys.
-The final key of the initial  key-sequence, and  further invocations
-of the keys below call the following bindings:
-
-, previous-buffer
-. next-buffer
-b switch-to-buffer
-k emacspeak-kill-buffer-quietly
-n emacspeak-wizards-cycle-to-next-buffer
-p emacspeak-wizards-cycle-to-previous-buffer
-"
-  (interactive )
-  (let ((key (event-basic-type last-command-event)))
-    (emacspeak-auditory-icon 'repeat-active)
-    (cl-case key
-      (?b (call-interactively 'switch-to-buffer))
-      (?k (call-interactively 'emacspeak-kill-buffer-quietly))
-      (?p
-       (call-interactively 'emacspeak-wizards-cycle-to-previous-buffer))
-      (?, (call-interactively 'previous-buffer))
-      (?n
-       (call-interactively 'emacspeak-wizards-cycle-to-next-buffer))
-      (?. (call-interactively 'next-buffer)))
-    (set-transient-map
-     (let ((map (make-sparse-keymap)))
-       (dolist (key '("b" "k" "," "."   "p" "n"))
-         (define-key
-          map key
-          #'(lambda () (interactive) (emacspeak-wizards-buffer-select ))))
-       map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
-
-;;}}}       
 ;;{{{ Start or switch to term:
 
 ;;;###autoload

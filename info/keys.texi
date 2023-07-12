@@ -51,9 +51,9 @@
 @item k  emacspeak-speak-current-kill
 @item l  emacspeak-speak-line
 @item m  emacspeak-speak-mode-line
-@item n  emacspeak-wizards-buffer-select
+@item n  emacspeak-buffer-select
 @item o  delete-blank-lines
-@item p  emacspeak-wizards-buffer-select
+@item p  emacspeak-buffer-select
 @item r  emacspeak-speak-region
 @item s  dtk-stop
 @item t  emacspeak-speak-time
@@ -68,8 +68,8 @@
 @item '  emacspeak-pianobar
 @item (  amixer
 @item )  emacspeak-sounds-select-theme
-@item ,  emacspeak-wizards-buffer-select
-@item .  emacspeak-wizards-buffer-select
+@item ,  emacspeak-buffer-select
+@item .  emacspeak-buffer-select
 @item /  emacspeak-websearch-dispatch
 @item 0  emacspeak-sounds-select-theme
 @item 1  emacspeak-speak-this-window

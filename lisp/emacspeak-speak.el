@@ -2796,7 +2796,80 @@ Appended entries are separated by newlines."
    (length (split-string (get-register reg) "\n"))))
 
 ;;}}}
+;;{{{ Buffer Select:
 
+;; Helpers:
+
+(defsubst emacspeak-buffer-cycle-previous (mode)
+  "Return previous  buffer in cycle order having same major mode as `mode'."
+  (catch 'cl-loop
+    (dolist (buf (reverse (cdr (buffer-list (selected-frame)))))
+      (when (with-current-buffer buf (eq mode major-mode))
+        (throw 'cl-loop buf)))))
+
+(defsubst emacspeak-buffer-cycle-next (mode)
+  "Return next buffer in cycle order having same major mode as `mode'."
+  (catch 'cl-loop
+    (dolist (buf (cdr (buffer-list (selected-frame))))
+      (when (with-current-buffer buf (eq mode major-mode))
+        (throw 'cl-loop buf)))))
+
+;;;###autoload
+(defun emacspeak-cycle-to-previous-buffer ()
+  "Cycles to previous buffer having same mode."
+  (interactive)
+  (let ((prev (emacspeak-buffer-cycle-previous major-mode)))
+    (cond
+     (prev
+      (funcall-interactively #'switch-to-buffer prev))
+     (t (error "No previous buffer in mode %s" major-mode)))))
+
+;;;###autoload
+(defun emacspeak-cycle-to-next-buffer ()
+  "Cycles to next buffer having same mode."
+  (interactive)
+  (let ((next (emacspeak-buffer-cycle-next major-mode)))
+    (cond
+     (next ;  (bury-buffer)
+           (funcall-interactively #'switch-to-buffer next))
+     (t (error "No next buffer in mode %s" major-mode)))))
+
+;; Inspired by text-adjust-scale:
+(defun emacspeak-buffer-select()
+  "Select buffer by smart cycling.
+By default, this command is bound to multiple keys.
+The final key of the initial  key-sequence, and  further invocations
+of the keys below call the following bindings:
+
+, previous-buffer
+. next-buffer
+b switch-to-buffer
+k emacspeak-kill-buffer-quietly
+n emacspeak-cycle-to-next-buffer
+p emacspeak-cycle-to-previous-buffer
+"
+  (interactive )
+  (let ((key (event-basic-type last-command-event)))
+    (emacspeak-auditory-icon 'repeat-active)
+    (cl-case key
+      (?b (call-interactively 'switch-to-buffer))
+      (?k (call-interactively 'emacspeak-kill-buffer-quietly))
+      (?p
+       (call-interactively 'emacspeak-cycle-to-previous-buffer))
+      (?, (call-interactively 'previous-buffer))
+      (?n
+       (call-interactively 'emacspeak-cycle-to-next-buffer))
+      (?. (call-interactively 'next-buffer)))
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (dolist (key '("b" "k" "," "."   "p" "n"))
+         (define-key
+          map key
+          #'(lambda () (interactive) (emacspeak-buffer-select ))))
+       map)
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
+
+;;}}}       
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 

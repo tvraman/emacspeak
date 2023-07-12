@@ -12124,6 +12124,45 @@ Move to start or end of buffer.
 @end format
 @end deffn
 
+@subsubsection emacspeak-buffer-select
+@deffn {Command} emacspeak-buffer-select   
+@table @kbd
+@item C-e p
+@kindex C-e p
+@item C-e n
+@kindex C-e n
+@item C-e .
+@kindex C-e .
+@item C-e ,
+@kindex C-e ,
+@item <fn> p
+@kindex <fn> p
+@item <fn> n
+@kindex <fn> n
+@item <fn> .
+@kindex <fn> .
+@item <fn> ,
+@kindex <fn> ,
+@end table
+
+@findex emacspeak-buffer-select
+
+@format
+Select buffer by smart cycling.
+By default, this command is bound to multiple keys.
+The final key of the initial  key-sequence, and  further invocations
+of the keys below call the following bindings:
+
+, previous-buffer
+. next-buffer
+b switch-to-buffer
+k emacspeak-kill-buffer-quietly
+n emacspeak-cycle-to-next-buffer
+p emacspeak-cycle-to-previous-buffer
+
+@end format
+@end deffn
+
 @subsubsection emacspeak-completions-move-to-completion-group
 @deffn {Command} emacspeak-completions-move-to-completion-group   
 @findex emacspeak-completions-move-to-completion-group
@@ -12132,6 +12171,24 @@ Move to start or end of buffer.
 Move to group of choices beginning with character last
 typed. If no such group exists, then we try to search for that
 char, or dont move. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-cycle-to-next-buffer
+@deffn {Command} emacspeak-cycle-to-next-buffer   
+@findex emacspeak-cycle-to-next-buffer
+
+@format
+Cycles to next buffer having same mode.
+@end format
+@end deffn
+
+@subsubsection emacspeak-cycle-to-previous-buffer
+@deffn {Command} emacspeak-cycle-to-previous-buffer   
+@findex emacspeak-cycle-to-previous-buffer
+
+@format
+Cycles to previous buffer having same mode.
 @end format
 @end deffn
 
@@ -17398,53 +17455,6 @@ Browse  Emacspeak productivity tips.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-buffer-select
-@deffn {Command} emacspeak-wizards-buffer-select   
-@table @kbd
-@item C-e p
-@kindex C-e p
-@item C-e n
-@kindex C-e n
-@item C-e .
-@kindex C-e .
-@item C-e ,
-@kindex C-e ,
-@item <fn> p
-@kindex <fn> p
-@item <fn> n
-@kindex <fn> n
-@item <fn> .
-@kindex <fn> .
-@item <fn> ,
-@kindex <fn> ,
-@item C-e z p
-@kindex C-e z p
-@item C-e z n
-@kindex C-e z n
-@item <fn> z p
-@kindex <fn> z p
-@item <fn> z n
-@kindex <fn> z n
-@end table
-
-@findex emacspeak-wizards-buffer-select
-
-@format
-Select buffer by smart cycling.
-By default, this command is bound to multiple keys.
-The final key of the initial  key-sequence, and  further invocations
-of the keys below call the following bindings:
-
-, previous-buffer
-. next-buffer
-b switch-to-buffer
-k emacspeak-kill-buffer-quietly
-n emacspeak-wizards-cycle-to-next-buffer
-p emacspeak-wizards-cycle-to-previous-buffer
-
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-cleanup-shell-path
 @deffn {Command} emacspeak-wizards-cleanup-shell-path   
 @findex emacspeak-wizards-cleanup-shell-path
@@ -17578,24 +17588,6 @@ Customize saved options matching ‘pattern’.  This command enables
 updating custom settings for a specific package or group of packages.
 
 (fn PATTERN)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-cycle-to-next-buffer
-@deffn {Command} emacspeak-wizards-cycle-to-next-buffer   
-@findex emacspeak-wizards-cycle-to-next-buffer
-
-@format
-Cycles to next buffer having same mode.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-cycle-to-previous-buffer
-@deffn {Command} emacspeak-wizards-cycle-to-previous-buffer   
-@findex emacspeak-wizards-cycle-to-previous-buffer
-
-@format
-Cycles to previous buffer having same mode.
 @end format
 @end deffn
 
