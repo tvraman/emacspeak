@@ -4484,6 +4484,7 @@ of emacspeak from becoming dependent on the speech server modules
      b switch-to-buffer
      k emacspeak-kill-buffer-quietly
      n emacspeak-cycle-to-next-buffer
+     o other-window
      p emacspeak-cycle-to-previous-buffer
 
 
