@@ -533,6 +533,7 @@
 
 (defcustom emacspeak-y-keys
   '(
+    ("b" switch-to-buffer)
     ("p" emacspeak-pianobar)
     ("a" emacspeak-xslt-view-atom-file)
     ("r" emacspeak-xslt-view-rss-file)
