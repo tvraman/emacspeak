@@ -1054,7 +1054,7 @@ found on laptops is denoted <fn>
       ("d" magit-dispatch)
       ("e" emacspeak-wizards-eww-buffer-list)
       ("f" magit-file-dispatch)
-      ("l" locate)
+      ("l" emacspeak-m-player-locate-media)
       ("n" emacspeak-wizards-buffer-select)
       ("p" emacspeak-wizards-buffer-select)
       ("r" restart-emacs)
@@ -1092,7 +1092,7 @@ found on laptops is denoted <fn>
       ("h" emacspeak-m-player-from-history)
       ("i" ibuffer)
       ("k" emacspeak-google-knowledge-search)
-      ("l" locate)
+      ("l" emacspeak-m-player-locate-media)
       ("m" vm)
       ("o" find-file)
       ("r" emacspeak-wizards-find-file-as-root)
@@ -1112,7 +1112,7 @@ found on laptops is denoted <fn>
      (("'" emacspeak-pianobar)
       ("d" sdcv-search-input)
       ("h" emacspeak-m-player-browse-history)
-      ("l" emacspeak-m-player-locate-media)
+      ("l" locate)
       ("o" org-mode)
       ("y" emacspeak-google-yt-feed))
      
@@ -1708,7 +1708,10 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ...........................................
 
  -- Command: emacspeak-m-player-locate-media (pattern)
-     ‘C-' l’
+     ‘C-; l’
+     ‘C-e z l’
+     ‘<fn> z l’
+     ‘C-x @ h l’
 
      Locate media matching  pattern.  The results can be
      played as a play-list by pressing [RET] on the first line, see

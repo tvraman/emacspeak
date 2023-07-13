@@ -2811,7 +2811,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘h emacspeak-m-player-from-history’
 ‘i ibuffer’
 ‘k emacspeak-google-knowledge-search’
-‘l locate’
+‘l emacspeak-m-player-locate-media’
 ‘m vm’
 ‘o find-file’
 ‘r emacspeak-wizards-find-file-as-root’
@@ -2941,7 +2941,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next:
 ‘d magit-dispatch’
 ‘e emacspeak-wizards-eww-buffer-list’
 ‘f magit-file-dispatch’
-‘l locate’
+‘l emacspeak-m-player-locate-media’
 ‘n emacspeak-wizards-buffer-select’
 ‘p emacspeak-wizards-buffer-select’
 ‘r restart-emacs’
@@ -2957,7 +2957,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  P
 ‘' emacspeak-pianobar’
 ‘d sdcv-search-input’
 ‘h emacspeak-m-player-browse-history’
-‘l emacspeak-m-player-locate-media’
+‘l locate’
 ‘o org-mode’
 ‘y emacspeak-google-yt-feed’
 

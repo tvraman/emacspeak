@@ -166,7 +166,7 @@
 @item h  emacspeak-m-player-from-history
 @item i  ibuffer
 @item k  emacspeak-google-knowledge-search
-@item l  locate
+@item l  emacspeak-m-player-locate-media
 @item m  vm
 @item o  find-file
 @item r  emacspeak-wizards-find-file-as-root
@@ -290,7 +290,7 @@
 @item d  magit-dispatch
 @item e  emacspeak-wizards-eww-buffer-list
 @item f  magit-file-dispatch
-@item l  locate
+@item l  emacspeak-m-player-locate-media
 @item n  emacspeak-wizards-buffer-select
 @item p  emacspeak-wizards-buffer-select
 @item r  restart-emacs
@@ -305,7 +305,7 @@
 @item '  emacspeak-pianobar
 @item d  sdcv-search-input
 @item h  emacspeak-m-player-browse-history
-@item l  emacspeak-m-player-locate-media
+@item l  locate
 @item o  org-mode
 @item y  emacspeak-google-yt-feed
 @end table

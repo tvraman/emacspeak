@@ -8204,7 +8204,7 @@ Default Value:
  ("d" magit-dispatch)
  ("e" emacspeak-wizards-eww-buffer-list)
  ("f" magit-file-dispatch)
- ("l" locate)
+ ("l" emacspeak-m-player-locate-media)
  ("n" emacspeak-wizards-buffer-select)
  ("p" emacspeak-wizards-buffer-select)
  ("r" restart-emacs)
@@ -8246,7 +8246,7 @@ Default Value:
  ("h" emacspeak-m-player-from-history)
  ("i" ibuffer)
  ("k" emacspeak-google-knowledge-search)
- ("l" locate)
+ ("l" emacspeak-m-player-locate-media)
  ("m" vm)
  ("o" find-file)
  ("r" emacspeak-wizards-find-file-as-root)
@@ -8270,7 +8270,7 @@ Default Value:
 (("'" emacspeak-pianobar)
  ("d" sdcv-search-input)
  ("h" emacspeak-m-player-browse-history)
- ("l" emacspeak-m-player-locate-media)
+ ("l" locate)
  ("o" org-mode)
  ("y" emacspeak-google-yt-feed))
 
@@ -8983,8 +8983,14 @@ Play both channels on left.
 @subsubsection emacspeak-m-player-locate-media
 @deffn {Command} emacspeak-m-player-locate-media  (pattern)
 @table @kbd
-@item C-' l
-@kindex C-' l
+@item C-; l
+@kindex C-; l
+@item C-e z l
+@kindex C-e z l
+@item <fn> z l
+@kindex <fn> z l
+@item C-x @@ h l
+@kindex C-x @@ h l
 @end table
 
 @findex emacspeak-m-player-locate-media
