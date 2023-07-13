@@ -8385,7 +8385,6 @@ Default Value:
 @verbatim
 
 (("a" emacspeak-xslt-view-atom-file)
- ("b" switch-to-buffer)
  ("p" emacspeak-pianobar)
  ("r" emacspeak-xslt-view-rss-file)
  ("x" emacspeak-xslt-view-file)
