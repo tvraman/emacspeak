@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 11, 2023.
+last updated on July 12, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1207,6 +1207,7 @@ found on laptops is denoted <fn>
 
      
      (("a" emacspeak-xslt-view-atom-file)
+      ("b" switch-to-buffer)
       ("p" emacspeak-pianobar)
       ("r" emacspeak-xslt-view-rss-file)
       ("x" emacspeak-xslt-view-file)
@@ -4482,6 +4483,7 @@ of emacspeak from becoming dependent on the speech server modules
      , previous-buffer
      . next-buffer
      b switch-to-buffer
+     f find-file
      k emacspeak-kill-buffer-quietly
      n emacspeak-cycle-to-next-buffer
      o other-window
