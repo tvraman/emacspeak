@@ -2845,6 +2845,7 @@ of the keys below call the following bindings:
 , previous-buffer
 . next-buffer
 b switch-to-buffer
+f find-file
 k emacspeak-kill-buffer-quietly
 n emacspeak-cycle-to-next-buffer
 o other-window
@@ -2855,6 +2856,7 @@ p emacspeak-cycle-to-previous-buffer
     (emacspeak-auditory-icon 'repeat-active)
     (cl-case key
       (?b (call-interactively 'switch-to-buffer))
+      (?f (call-interactively 'find-file))
       (?k (call-interactively 'emacspeak-kill-buffer-quietly))
       (?p
        (call-interactively 'emacspeak-cycle-to-previous-buffer))
@@ -2865,7 +2867,7 @@ p emacspeak-cycle-to-previous-buffer
       (?. (call-interactively 'next-buffer)))
     (set-transient-map
      (let ((map (make-sparse-keymap)))
-       (dolist (key '("b" "k" "," "."   "p" "n" "o"))
+       (dolist (key '("b" "f" "k" "," "."   "p" "n" "o"))
          (define-key
           map key
           #'(lambda () (interactive) (emacspeak-buffer-select ))))
