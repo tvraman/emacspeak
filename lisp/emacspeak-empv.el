@@ -112,6 +112,21 @@
         (empv-play url))
     (empv-play url)))
 
+
+(declare-function emacspeak-media-local-resource "emacspeak-empv" t)
+
+;;;###autoload
+(defun emacspeak-empv-play-file (file &optional left-channel)
+  "Play file using mpv;  Prefix arg plays on secondary device."
+  (interactive
+   (list (emacspeak-media-read-resource) current-prefix-arg  ))
+  (cl-declare (special tts-secondary-device))
+  (require 'empv)
+  (if left-channel
+      (with-environment-variables (("PULSE_SINK" tts-secondary-device))
+        (empv-play file))
+    (empv-play file)))
+
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
   (interactive)
