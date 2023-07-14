@@ -546,8 +546,7 @@ name of the list.")
 (emacspeak-url-template-define
  "CNBC Quotes"
   "https://www.cnbc.com/quotes/%s"
-  (list
-   #'(lambda nil (emacspeak-stock-tickers)))
+  (list #'emacspeak-stock-tickers)
  #'(lambda ()
      (mapc
       #'(lambda (n) (dom-remove-node n (emacspeak-eww-current-dom)))
