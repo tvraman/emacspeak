@@ -191,6 +191,32 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;; template resources
+
+;;{{{ Stock Tickers:
+
+;;;###autoload
+(defcustom emacspeak-stock-tickers
+  (list "goog" "aapl" "meta" "amzn")
+  "Set this to the stock tickers you want to check. Default is
+GAMA. Tickers is a list of stock symbols sorted in lexical order
+with duplicates removed when saving as a list of string."
+  :type
+  '(repeat
+    :tag "Tickers" (string :tag "Symbol"))
+  :group 'emacspeak
+  :initialize 'custom-initialize-reset
+  :set
+  #'(lambda (sym val)
+      (set-default
+       sym
+       (cl-remove-duplicates (sort val #'string-lessp) :test #'string=))))
+
+(defsubst emacspeak-stock-tickers ()
+  "Return emacspeak-stock-tickers as a CSV string."
+  (cl-declare (special emacspeak-stock-tickers))
+  (mapconcat #'identity emacspeak-stock-tickers ","))
+
+;;}}}
 ;;{{{ amazon
 
 (emacspeak-url-template-define
@@ -521,9 +547,7 @@ name of the list.")
  "CNBC Quotes"
   "https://www.cnbc.com/quotes/%s"
   (list
-   #'(lambda nil
-       (cl-declare (special emacspeak-wizards-personal-portfolio))
-       emacspeak-wizards-personal-portfolio))
+   #'(lambda nil (emacspeak-stock-tickers)))
  #'(lambda ()
      (mapc
       #'(lambda (n) (dom-remove-node n (emacspeak-eww-current-dom)))

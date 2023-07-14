@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 13, 2023.
+last updated on July 14, 2023.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2335,7 +2335,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> 4:                                amixer.             (line   57)
 * <fn> 5:                                emacspeak-speak.    (line  409)
 * <fn> 9:                                amixer.             (line   27)
-* <fn> ::                                emacspeak-empv.     (line   48)
 * <fn> ;:                                emacspeak-m-player. (line  815)
 * <fn> <backspace>:                      dtk-speak.          (line  278)
 * <fn> <deletechar>:                     dtk-speak.          (line  277)
@@ -2359,6 +2358,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-':                              emacspeak-pianobar. (line   48)
 * <fn> C-.:                              emacspeak-speak.    (line  444)
 * <fn> C-/:                              emacspeak-wizards.  (line  255)
+* <fn> C-;:                              emacspeak-empv.     (line   48)
 * <fn> C-<left>:                         emacspeak-wizards.  (line  147)
 * <fn> C-<return>:                       emacspeak-speak.    (line  350)
 * <fn> C-<right>:                        emacspeak-wizards.  (line  121)
@@ -2731,7 +2731,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e 4:                                 amixer.             (line   55)
 * C-e 5:                                 emacspeak-speak.    (line  407)
 * C-e 9:                                 amixer.             (line   25)
-* C-e ::                                 emacspeak-empv.     (line   47)
 * C-e ;:                                 emacspeak-m-player. (line  813)
 * C-e <backspace>:                       dtk-speak.          (line  276)
 * C-e <deletechar>:                      dtk-speak.          (line  275)
@@ -2759,6 +2758,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-':                               emacspeak-pianobar. (line   45)
 * C-e C-.:                               emacspeak-speak.    (line  443)
 * C-e C-/:                               emacspeak-wizards.  (line  254)
+* C-e C-;:                               emacspeak-empv.     (line   47)
 * C-e C-<left>:                          emacspeak-wizards.  (line  146)
 * C-e C-<return>:                        emacspeak-speak.    (line  349)
 * C-e C-<right>:                         emacspeak-wizards.  (line  120)

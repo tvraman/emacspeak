@@ -3942,10 +3942,10 @@ Percentage seek in seconds,see ‘empv-seek’
 @subsubsection emacspeak-empv-play-file
 @deffn {Command} emacspeak-empv-play-file  (file &optional left-channel)
 @table @kbd
-@item C-e :
-@kindex C-e :
-@item <fn> :
-@kindex <fn> :
+@item C-e C-;
+@kindex C-e C-;
+@item <fn> C-;
+@kindex <fn> C-;
 @end table
 
 @findex emacspeak-empv-play-file

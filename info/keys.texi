@@ -78,7 +78,6 @@
 @item 4  amixer-volume-adjust
 @item 5  emacspeak-speak-current-percentage
 @item 9  amixer
-@item :  emacspeak-empv-play-file
 @item ;  emacspeak-multimedia
 @item =  emacspeak-speak-current-column
 @item ?  emacspeak-websearch-dispatch

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 13, 2023.
+last updated on July 14, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2721,7 +2721,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘4 amixer-volume-adjust’
 ‘5 emacspeak-speak-current-percentage’
 ‘9 amixer’
-‘: emacspeak-empv-play-file’
 ‘; emacspeak-multimedia’
 ‘= emacspeak-speak-current-column’
 ‘? emacspeak-websearch-dispatch’
@@ -6329,8 +6328,8 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 ..................................
 
  -- Command: emacspeak-empv-play-file (file &optional left-channel)
-     ‘C-e :’
-     ‘<fn> :’
+     ‘C-e C-;’
+     ‘<fn> C-;’
 
      Play file using mpv;  Prefix arg plays on secondary device.
 
