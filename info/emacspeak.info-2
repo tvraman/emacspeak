@@ -7062,6 +7062,20 @@ presently defined.
 
      (fn FILE)
 
+12.201.2 emacspeak-url-template Options
+---------------------------------------
+
+ -- Variable: User Option emacspeak-stock-tickers
+     Set this to the stock tickers you want to check.  Default is GAMA.
+     Tickers is a list of stock symbols sorted in lexical order with
+     duplicates removed when saving as a list of string.
+
+     Default Value:
+
+     
+     ("aapl" "amzn" "goog" "meta")
+     
+
 
 File: emacspeak.info,  Node: emacspeak-vdiff,  Next: emacspeak-vertico,  Prev: emacspeak-url-template,  Up: Emacspeak Commands And Options
 
@@ -9196,18 +9210,6 @@ Contains various wizards for the Emacspeak desktop.
 
      
      "-layout"
-     
-
- -- Variable: User Option emacspeak-wizards-personal-portfolio
-     Set this to the stock tickers you want to check.  Default is GAFA.
-     Tickers are separated by white-space and are automatically sorted
-     in lexical order with duplicates removed when saving as a csv
-     string.
-
-     Default Value:
-
-     
-     "aapl,amzn,fb,goog"
      
 
  -- Variable: User Option emacspeak-wizards-project-shells

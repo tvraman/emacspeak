@@ -15659,6 +15659,23 @@ Save out url templates.
 @end format
 @end deffn
 
+@subsection emacspeak-url-template Options
+
+@defvar {User Option} emacspeak-stock-tickers
+Set this to the stock tickers you want to check. Default is
+GAMA. Tickers is a list of stock symbols sorted in lexical order
+with duplicates removed when saving as a list of string.
+
+Default Value: 
+
+@verbatim
+
+("aapl" "amzn" "goog" "meta")
+
+@end verbatim
+
+@end defvar
+
 @node emacspeak-vdiff
 @section emacspeak-vdiff
 
@@ -18603,21 +18620,6 @@ Default Value:
 @verbatim
 
 "-layout"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-personal-portfolio
-Set this to the stock tickers you want to check. Default is
-GAFA. Tickers are separated by white-space and are automatically
-sorted in lexical order with duplicates removed when saving as a csv string.
-
-Default Value: 
-
-@verbatim
-
-"aapl,amzn,fb,goog"
 
 @end verbatim
 
