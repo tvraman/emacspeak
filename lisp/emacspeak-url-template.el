@@ -547,11 +547,7 @@ name of the list.")
  "CNBC Quotes"
   "https://www.cnbc.com/quotes/%s"
   (list #'emacspeak-stock-tickers)
- #'(lambda ()
-     (mapc
-      #'(lambda (n) (dom-remove-node n (emacspeak-eww-current-dom)))
-      (dom-by-class (emacspeak-eww-current-dom) "AddToWatchlistButton"))
-     (emacspeak-eww-view-helper (emacspeak-eww-current-dom)))
+ nil
  "Stock portfolio via CNBC"
  #'(lambda (u)
      (emacspeak-we-extract-by-id "MainContentContainer" u )))
