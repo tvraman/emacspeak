@@ -742,7 +742,7 @@ Format is stationid+AM/FM."
 ;; wget -O t    "http://stream.radiotime.com/listen.stream?streamIds=4299203"
 (emacspeak-url-template-define
  "TuneIn Radio"
- "http://opml.radiotime.com/Tune.ashx?id=%s"
+ "https://opml.radiotime.com/Tune.ashx?id=%s"
  (list "StreamId: ")
  nil
  "Translate StreamId to playable stream."
