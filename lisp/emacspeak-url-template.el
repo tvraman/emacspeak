@@ -294,8 +294,6 @@ with duplicates removed when saving as a list of string."
 ;;}}}
 ;;{{{Basic Google:
 
-;; forward declaration:
-(defvar gmaps-my-zip nil)
 (emacspeak-url-template-define
  "Google Weather"
  (format "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
