@@ -296,7 +296,7 @@ with duplicates removed when saving as a list of string."
 
 (emacspeak-url-template-define
  "Google Weather"
- (format "https://www.google.com/search?num=25&gbv=1&q=weather+")
+  "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
  (list #'(lambda nil gmaps-my-zip))
  #'(lambda nil
      (search-forward "Search Tools")
