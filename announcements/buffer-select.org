@@ -1,0 +1,99 @@
+* Background
+
+Buffers are central to Emacs as is evinced by the various
+buffer-selection schemes that have been created over time. As someone
+who has lived for over 30 years in Emacs, my own set of
+buffer-selection tools have evolved and I've settled on a combination
+of /ido/ and /fuzzy matching/ over the last few years. This article
+describes a new tool that puts all of these together,  but with an emphasis on
+ergonomics and minimized chording.
+
+* Setting The Context
+
+Buffer selection tools in Emacs vary along the following feature axis,
+with many providing enhancements on one ore of  these axis:
+
+  - Match Strategy: Selecting the buffer name from the available choices,
+  - UI: Displaying those matches,
+  - And finally displaying the buffer.
+
+    Command /emacspeak-buffer-select/  focuses exclusively on invocation
+    and keyboard commands for moving through the choices and selecting
+    the buffer.
+
+    * So Why Is Ido  Not Sufficient?
+
+      Package /ido/ is still my tool of   choice and has served me well
+      over the years. The problem /emacspeak-buffer-select/ solves is  along the
+      invocation axis; it can be traced back to my desire to avoid
+      chording, and in that context, I found that _C-x b_ was becoming
+      particularly irksome. The solution described below is
+      specifically optimized to my current configuration using 
+[[https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html][XCape]], where  a single tap on the _CTRL/Caps_Lock_ key produces
+Emacspeak prefix _C-e_.
+
+* Design Goals
+
+  - No chording.
+  - Enable moving through list of buffers with  pairs of related keys.
+  - Enable various types of ordering of the available choices e.g.,
+    navigate by major-mode.
+  - In the spirit of /ido/, enable falling through to
+    _switch-to-buffer_ and _find-file_ when needed.
+  - Following on from above, enable relevant actions like killing buffers.
+
+* Use _set-transient-map_ To Implement The Behavior
+
+In the past I would have implemented the above using package /hydra/
+or /transient/; But both felt overweight for this case. My final
+solution uses Emacs builtin _set-transient-map_.
+
+* Final Behavior
+
+  - Command _emacspeak-buffer-select_ is invoked via keys _C-e ,_,
+   _C-e ._, _C-e n_, and _C-e p_.
+  - That command  moves to the *next/previous* buffer.
+  - The key pair _, ._ use Emacs commands _previous-buffer_ and
+    _next-buffer_; keys _n_ and _p_ pick the previous or next buffer
+    that uses the current buffer's major-mode.
+  - In addition, while active, the transient-map binds:
+    - b: _switch-to-buffer
+    - k: _kill-buffer_
+    - o: _other-window_
+      
+With the above in place, my most common workflows look like:
+
+  - Press   _,_ or _._ repeatedly to cycles through next/previous buffers.
+  - Press _n_ or _p_ repeatedly to  cycle through buffers in the same
+    mode, especially useful when programming, or using EWW to browse
+    the Web.
+  - Press _b_ or _f_  when cycling doesn't yield the target in a couple of steps.
+  - Opportunistically clean up unwanted buffers by pressing _k_.
+
+You can see the final implementation at [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-speak.el#L2839][emacspeak-buffer-select]]. Note
+that despite the naming there is little that is specific to Emacspeak
+in the above.
+
+** Emacspeak Specific Features
+
+  - Uses Auditory icons to indicate that a transient map is active.
+  - Produces an auditory icon when the transient map goes away
+  - Uses _call-interactively_ to invoke subcommands so that they
+     automatically produce auditory feedback via Emacspeak.
+
+     
+       
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: An Ergonomic Buffer Select With Minimal Chording
+#+date: <2023-07-14 Fri>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.6)
+#+cite_export:
