@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-07-14 Fri 20:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>An Ergonomic Buffer Select With Minimal Chording</title>
+<meta name="author" content="T.V Raman" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">An Ergonomic Buffer Select With Minimal Chording</h1>
+<div id="outline-container-orgd09ebf6" class="outline-2">
+<h2 id="orgd09ebf6"><span class="section-number-2">1.</span> Background</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Buffers are central to Emacs as is evinced by the various
+buffer-selection schemes that have been created over time. As someone
+who has lived for over 30 years in Emacs, my own set of
+buffer-selection tools have evolved and I've settled on a combination
+of <i>ido</i> and <i>fuzzy matching</i> over the last few years. This article
+describes a new tool that puts all of these together,  but with an emphasis on
+ergonomics and minimized chording.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ab045c" class="outline-2">
+<h2 id="org7ab045c"><span class="section-number-2">2.</span> Setting The Context</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Buffer selection tools in Emacs vary along the following feature axis,
+with many providing enhancements on one ore of  these axis:
+</p>
+
+<ul class="org-ul">
+<li>Match Strategy: Selecting the buffer name from the available choices,</li>
+<li>UI: Displaying those matches,</li>
+<li><p>
+And finally displaying the buffer.
+</p>
+
+<p>
+Command <i>emacspeak-buffer-select</i>  focuses exclusively on invocation
+and keyboard commands for moving through the choices and selecting
+the buffer.
+</p>
+
+<ul class="org-ul">
+<li><p>
+So Why Is Ido  Not Sufficient?
+</p>
+
+<p>
+Package <i>ido</i> is still my tool of   choice and has served me well
+over the years. The problem <i>emacspeak-buffer-select</i> solves is  along the
+invocation axis; it can be traced back to my desire to avoid
+chording, and in that context, I found that <span class="underline">C-x b</span> was becoming
+particularly irksome. The solution described below is
+specifically optimized to my current configuration using 
+</p></li>
+</ul></li>
+</ul>
+<p>
+<a href="https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html">XCape</a>, where  a single tap on the <span class="underline">CTRL/Caps<sub>Lock</sub></span> key produces
+Emacspeak prefix <span class="underline">C-e</span>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb07cca2" class="outline-2">
+<h2 id="orgb07cca2"><span class="section-number-2">3.</span> Design Goals</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>No chording.</li>
+<li>Enable moving through list of buffers with  pairs of related keys.</li>
+<li>Enable various types of ordering of the available choices e.g.,
+navigate by major-mode.</li>
+<li>In the spirit of <i>ido</i>, enable falling through to
+<span class="underline">switch-to-buffer</span> and <span class="underline">find-file</span> when needed.</li>
+<li>Following on from above, enable relevant actions like killing buffers.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org899800d" class="outline-2">
+<h2 id="org899800d"><span class="section-number-2">4.</span> Use <span class="underline">set-transient-map</span> To Implement The Behavior</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+In the past I would have implemented the above using package <i>hydra</i>
+or <i>transient</i>; But both felt overweight for this case. My final
+solution uses Emacs builtin <span class="underline">set-transient-map</span>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd20f30a" class="outline-2">
+<h2 id="orgd20f30a"><span class="section-number-2">5.</span> Final Behavior</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Command <span class="underline">emacspeak-buffer-select</span> is invoked via keys <span class="underline">C-e ,</span>,
+<span class="underline">C-e .</span>, <span class="underline">C-e n</span>, and <span class="underline">C-e p</span>.</li>
+<li>That command  moves to the <b>next/previous</b> buffer.</li>
+<li>The key pair <span class="underline">, .</span> use Emacs commands <span class="underline">previous-buffer</span> and
+<span class="underline">next-buffer</span>; keys <span class="underline">n</span> and <span class="underline">p</span> pick the previous or next buffer
+that uses the current buffer's major-mode.</li>
+<li>In addition, while active, the transient-map binds:
+<ul class="org-ul">
+<li>b: _switch-to-buffer</li>
+<li>k: <span class="underline">kill-buffer</span></li>
+<li>o: <span class="underline">other-window</span></li>
+</ul></li>
+</ul>
+
+<p>
+With the above in place, my most common workflows look like:
+</p>
+
+<ul class="org-ul">
+<li>Press   <span class="underline">,</span> or <span class="underline">.</span> repeatedly to cycles through next/previous buffers.</li>
+<li>Press <span class="underline">n</span> or <span class="underline">p</span> repeatedly to  cycle through buffers in the same
+mode, especially useful when programming, or using EWW to browse
+the Web.</li>
+<li>Press <span class="underline">b</span> or <span class="underline">f</span>  when cycling doesn't yield the target in a couple of steps.</li>
+<li>Opportunistically clean up unwanted buffers by pressing <span class="underline">k</span>.</li>
+</ul>
+
+<p>
+You can see the final implementation at <a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-speak.el#L2839">emacspeak-buffer-select</a>. Note
+that despite the naming there is little that is specific to Emacspeak
+in the above.
+</p>
+</div>
+
+<div id="outline-container-org198cdda" class="outline-3">
+<h3 id="org198cdda"><span class="section-number-3">5.1.</span> Emacspeak Specific Features</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>Uses Auditory icons to indicate that a transient map is active.</li>
+<li>Produces an auditory icon when the transient map goes away</li>
+<li>Uses <span class="underline">call-interactively</span> to invoke subcommands so that they
+automatically produce auditory feedback via Emacspeak.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-07-14 Fri 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2023-07-14 Fri 20:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
