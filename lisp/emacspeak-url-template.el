@@ -64,6 +64,7 @@
 (require 'emacspeak-eww)
 (require 'emacspeak-feeds)
 (require 'gweb)
+(require 'gmaps)
 (require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
