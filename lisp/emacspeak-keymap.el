@@ -796,7 +796,6 @@
   '(
     ("'" emacspeak-pianobar)
     ("d" sdcv-search-input)
-    ("h" emacspeak-m-player-browse-history)
     ("l" locate)
     ("o" org-mode)
     ("y" emacspeak-google-yt-feed))

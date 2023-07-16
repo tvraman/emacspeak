@@ -1200,16 +1200,17 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (call-interactively 'emacspeak-m-player-browse-history))
 
 ;;;###autoload
-(defun emacspeak-m-player-from-history (posn)
-  "Play media from position `posn'media-history. "
-  (interactive "p")
+(defun emacspeak-m-player-from-history (&optional prefix)
+  "Play media from the front of media-history.
+   Interactive prefix arg invokes media history browser."
+  (interactive "P")
   (cl-declare (special emacspeak-m-player-media-history))
-  (setq posn (1- posn))
   (cond
-   ((and emacspeak-m-player-media-history
-         (> (length emacspeak-m-player-media-history) posn))
-    (emacspeak-m-player-url (elt emacspeak-m-player-media-history posn)))
-   (t (error "Not enough history"))))
+   ((and prefix emacspeak-m-player-media-history) 
+    (call-interactively 'emacspeak-m-player-browse-history))
+   (emacspeak-m-player-media-history
+    (emacspeak-m-player-url (car emacspeak-m-player-media-history )))
+   (t (error "No media history"))))
 
 (defvar emacspeak-m-player-history-map
   (let ((map (make-sparse-keymap)))
