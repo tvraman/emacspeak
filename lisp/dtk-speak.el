@@ -1008,7 +1008,8 @@ the speech rate.  Call when on a non-blank line to preview the effectt"
        (dolist (key '("=" "+" "-")) ;; = is often unshifted +.
          (define-key map key (lambda () (interactive) (dtk-rate-adjust ))))
        map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end))
+     "Repeat with %k")))
 
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set character scale FACTOR for   speech rate.

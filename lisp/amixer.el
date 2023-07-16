@@ -386,7 +386,8 @@ of 3 and 4 lower or raise volume."
        (dolist (key '("3" "4"))
          (define-key map key (lambda () (interactive) (amixer-volume-adjust ))))
        map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end))
+     "Repeat with %k")))
 
 (provide 'amixer)
 ;;{{{ end of file

@@ -2872,7 +2872,8 @@ p emacspeak-cycle-to-previous-buffer
           map key
           #'(lambda () (interactive) (emacspeak-buffer-select ))))
        map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end))
+     "Repeat with %k")))
 
 ;;}}}       
 (provide 'emacspeak-speak)
