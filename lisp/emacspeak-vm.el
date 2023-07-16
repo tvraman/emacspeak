@@ -528,7 +528,7 @@ Leave point at front of decoded attachment."
  (add-hook hook 'emacspeak-pronounce-refresh-pronunciations 'append))
 
 (defvar emacspeak-speak-embedded-url-pattern
-  "<https?:[^ \t]*>"
+  "<?https?:[^ \t]*>?"
   "Pattern to recognize embedded URLs.")
 
 (cl-loop
