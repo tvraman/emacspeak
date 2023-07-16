@@ -346,8 +346,6 @@ Controls media playback when already playing.
 (defun emacspeak-m-player-command (key)
   "Invoke MPlayer commands."
   (interactive (list (read-key-sequence "Key: ")))
-  (unless (eq 'run (process-status emacspeak-m-player-process))
-    (emacspeak-multimedia))
   (call-interactively
    (when emacspeak-m-player-process
      (or
