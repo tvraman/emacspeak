@@ -115,6 +115,10 @@
 
 (declare-function emacspeak-media-local-resource "emacspeak-empv" t)
 
+(declare-function emacspeak-media-read-resource
+                  "emacspeak-m-player" (&optional prefix))
+
+
 ;;;###autoload
 (defun emacspeak-empv-play-file (file &optional left-channel)
   "Play file using mpv;  Prefix arg plays on secondary device."
