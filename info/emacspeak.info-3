@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 15, 2023.
+last updated on July 16, 2023.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2603,7 +2603,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  262)
 * <XF86AudioRaiseVolume>:                amixer.             (line   80)
 * C-' ':                                 emacspeak-pianobar. (line   46)
-* C-' h:                                 emacspeak-m-player. (line  202)
 * C-' y:                                 emacspeak-google.   (line  163)
 * C-, /:                                 extra-muggles.      (line  338)
 * C-, a:                                 emacspeak-feeds.    (line   35)
@@ -2650,7 +2649,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; C-t:                               emacspeak-extras.   (line  138)
 * C-; DEL:                               emacspeak-wizards.  (line  901)
 * C-; e:                                 gmaps.              (line   16)
-* C-; h:                                 emacspeak-m-player. (line  332)
+* C-; h:                                 emacspeak-m-player. (line  331)
 * C-; k:                                 emacspeak-google.   (line   28)
 * C-; l:                                 emacspeak-m-player. (line  364)
 * C-; r:                                 emacspeak-wizards.  (line  529)
@@ -3077,7 +3076,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h C-t:                           emacspeak-extras.   (line  139)
 * C-x @ h DEL:                           emacspeak-wizards.  (line  902)
 * C-x @ h e:                             gmaps.              (line   17)
-* C-x @ h h:                             emacspeak-m-player. (line  333)
+* C-x @ h h:                             emacspeak-m-player. (line  332)
 * C-x @ h k:                             emacspeak-google.   (line   29)
 * C-x @ h l:                             emacspeak-m-player. (line  367)
 * C-x @ h r:                             emacspeak-wizards.  (line  530)

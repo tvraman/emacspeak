@@ -8287,7 +8287,6 @@ Default Value:
 
 (("'" emacspeak-pianobar)
  ("d" sdcv-search-input)
- ("h" emacspeak-m-player-browse-history)
  ("l" locate)
  ("o" org-mode)
  ("y" emacspeak-google-yt-feed))
@@ -8788,11 +8787,6 @@ Binds key to invoke m-player  on specified directory.
 
 @subsubsection emacspeak-m-player-browse-history
 @deffn {Command} emacspeak-m-player-browse-history   
-@table @kbd
-@item C-' h
-@kindex C-' h
-@end table
-
 @findex emacspeak-m-player-browse-history
 
 @format
@@ -8953,7 +8947,7 @@ Move forward by 1 minute.
 @end deffn
 
 @subsubsection emacspeak-m-player-from-history
-@deffn {Command} emacspeak-m-player-from-history  (posn)
+@deffn {Command} emacspeak-m-player-from-history  (&optional prefix)
 @table @kbd
 @item C-; h
 @kindex C-; h
@@ -8964,9 +8958,10 @@ Move forward by 1 minute.
 @findex emacspeak-m-player-from-history
 
 @format
-Play media from position ‘posn’media-history. 
+Play media from the front of media-history.
+   Interactive prefix arg invokes media history browser.
 
-(fn POSN)
+(fn &optional PREFIX)
 @end format
 @end deffn
 

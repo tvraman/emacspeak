@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 15, 2023.
+last updated on July 16, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1111,7 +1111,6 @@ found on laptops is denoted <fn>
      
      (("'" emacspeak-pianobar)
       ("d" sdcv-search-input)
-      ("h" emacspeak-m-player-browse-history)
       ("l" locate)
       ("o" org-mode)
       ("y" emacspeak-google-yt-feed))
@@ -1545,7 +1544,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 .............................................
 
  -- Command: emacspeak-m-player-browse-history
-     ‘C-' h’
 
      Create a  media history browser from media-history.
 
@@ -1674,13 +1672,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 12.120.2.36 emacspeak-m-player-from-history
 ...........................................
 
- -- Command: emacspeak-m-player-from-history (posn)
+ -- Command: emacspeak-m-player-from-history (&optional prefix)
      ‘C-; h’
      ‘C-x @ h h’
 
-     Play media from position ‘posn’media-history.
+     Play media from the front of media-history.
+        Interactive prefix arg invokes media history browser.
 
-     (fn POSN)
+     (fn &optional PREFIX)
 
 12.120.2.37 emacspeak-m-player-get-length
 .........................................
