@@ -545,7 +545,15 @@ name of the list.")
  "CNBC Quotes"
   "https://www.cnbc.com/quotes/%s"
   (list #'emacspeak-stock-tickers)
- nil
+  #'(lambda nil
+      (let ((inhibit-read-only t))
+        (flush-lines "WATCHLIST" (point-min) (point-max))
+        (flush-lines "^Last " (point-min) (point-max))
+        (flush-lines "^$" (point-min) (point-max))
+        (flush-lines "^RT Quote " (point-min) (point-max))
+        (goto-char (point-min))
+        (forward-line 2)
+        (emacspeak-speak-line)))
  "Stock portfolio via CNBC"
  #'(lambda (u)
      (emacspeak-we-extract-by-id "MainContentContainer" u )))
@@ -853,10 +861,7 @@ Optional interactive prefix arg displays documentation for specified resource."
         (name nil))
     (setq name
           (completing-read
-           "Resource: "
-           (hash-table-keys  emacspeak-url-template-table)
-           nil
-           'must-match))
+           "Resource: " emacspeak-url-template-table nil 'must-match))
     (cond
      (documentation (emacspeak-url-template-help-internal name))
      (t
