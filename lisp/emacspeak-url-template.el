@@ -549,14 +549,15 @@ name of the list.")
       (let ((inhibit-read-only t))
         (flush-lines "WATCHLIST" (point-min) (point-max))
         (flush-lines "^Last " (point-min) (point-max))
-        (flush-lines "^$" (point-min) (point-max))
         (flush-lines "^RT Quote " (point-min) (point-max))
+        (flush-lines "^quote price arrow " (point-min) (point-max))
         (goto-char (point-min))
         (forward-line 2)
         (emacspeak-speak-line)))
  "Stock portfolio via CNBC"
  #'(lambda (u) (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
+(flush-lines "^Price Quote Arrow Quote " (point-min) (point-max))
 ;;}}}
 ;;{{{ cnn
 
