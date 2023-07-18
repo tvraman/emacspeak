@@ -555,8 +555,7 @@ name of the list.")
         (forward-line 2)
         (emacspeak-speak-line)))
  "Stock portfolio via CNBC"
- #'(lambda (u)
-     (emacspeak-we-extract-by-id "MainContentContainer" u )))
+ #'(lambda (u) (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
 ;;}}}
 ;;{{{ cnn
