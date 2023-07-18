@@ -850,7 +850,6 @@ before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
   (let ((completion-ignore-case t)
-        (case-fold-search  t)
         (name nil))
     (setq name
           (completing-read
