@@ -597,11 +597,12 @@ Safari/537.36"
    do
    (keymap-unset eww-link-keymap c 'remove))
   (define-key eww-text-map  [C-return]
-    'emacspeak-eww-fillin-form-field)
+              'emacspeak-eww-fillin-form-field)
   (define-key eww-link-keymap  "u" 'emacspeak-eww-url-to-register)
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-cmd-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-eww-play-media-at-point)
+  (define-key eww-link-keymap ":" 'emacspeak-empv-play-url)
   (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
   (define-key eww-link-keymap "x" 'emacspeak-feeds-select-feed)
   (define-key eww-link-keymap  "y" 'emacspeak-empv-play-url)
@@ -662,7 +663,6 @@ Safari/537.36"
      ("[" emacspeak-eww-previous-p)
      ("DEL" emacspeak-eww-restore)
      ("]" emacspeak-eww-next-p)
-     (";" emacspeak-eww-cleanup-eww-data)
      ("b" shr-previous-link)
      ("e" emacspeak-we-xsl-map)
      ("f" shr-next-link)
