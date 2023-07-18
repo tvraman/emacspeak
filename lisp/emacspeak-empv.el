@@ -131,6 +131,9 @@
         (empv-play file))
     (empv-play file)))
 
+(put 'emacspeak-empv-play-file 'repeat-map 'empv-map)
+(put 'emacspeak-empv-play-url 'repeat-map 'empv-map)
+
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
   (interactive)
@@ -189,7 +192,7 @@
      ("u" emacspeak-empv-accumulate-to-register)
      ("v" empv-set-volume)
      )
-   
+
    do
    (emacspeak-keymap-update empv-map b)
    (emacspeak-keymap-update empv-youtube-results-mode-map b))
