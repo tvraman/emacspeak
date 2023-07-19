@@ -1165,20 +1165,23 @@ Note that the Web browser should reset this hook after using it.")
     (shr-generic dom)
     (put-text-property start (point) 'article 'shr-tag)))
 
-(defun emacspeak-eww-em-with-newline  (dom)
-  "render EM node but with newline after."
+(defun emacspeak-eww-em-with-space  (dom)
+  "render EM node but with space.."
+  (insert "&nbsp;")
   (shr-tag-em dom)
-  (insert "  \n"))
+  (insert "&nbsp;"))
 
-(defun emacspeak-eww-span-with-newline  (dom)
-  "render span  node but with newline after."
+(defun emacspeak-eww-span-with-space  (dom)
+  "render span  node but with space."
+  (insert "&nbsp;")
   (shr-tag-span dom)
-  (insert "  \n"))
+  (insert "&nbsp;"))
 
-(defun emacspeak-eww-strong-with-newline  (dom)
-  "render STRONG node but with newline after."
+(defun emacspeak-eww-strong-with-space  (dom)
+  "render STRONG node but with space."
+  (insert "&nbsp;")
   (shr-tag-strong dom)
-  (insert "\n"))
+  (insert "&nbsp;"))
 
 (defvar emacspeak-eww-shr-renderers
   '((article . emacspeak-eww-tag-article)
@@ -1196,11 +1199,9 @@ Note that the Web browser should reset this hook after using it.")
 ;; Create a special list of renderers to use when filtering
 (defvar emacspeak-eww-filter-renderers
   (let ((copy (copy-sequence emacspeak-eww-shr-renderers)))
-    (cl-pushnew (cons 'em 'emacspeak-eww-em-with-newline) copy)
-    (cl-pushnew (cons 'strong 'emacspeak-eww-strong-with-newline)
-                copy)
-    (cl-pushnew (cons 'span 'emacspeak-eww-span-with-newline) copy)
-    copy)
+    (cl-pushnew (cons 'em 'emacspeak-eww-em-with-space) copy)
+    (cl-pushnew (cons 'strong 'emacspeak-eww-strong-with-space) copy)
+    (cl-pushnew (cons 'span 'emacspeak-eww-span-with-space) copy) copy)
   "Renderers used when filtering.")
 
 (defun eww-dom-keep-if (dom predicate)
@@ -1280,7 +1281,6 @@ for use as a DOM filter."
     (goto-char (point-min))
     (condition-case
      nil
-
      (shr-insert-document filtered-dom)
      (error nil))
     (emacspeak-eww-set-dom filtered-dom)
