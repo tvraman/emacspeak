@@ -536,7 +536,7 @@ name of the list.")
     (flush-lines "^quote price arrow " (point-min) (point-max))
     (flush-lines "^$" (point-min) (point-max))
     (goto-char (point-min))
-    (forward-line 2)
+    (forward-line 1)
     (emacspeak-speak-line)))
 
 (emacspeak-url-template-define
