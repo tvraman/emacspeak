@@ -527,33 +527,33 @@ name of the list.")
 ;;}}}
 ;;{{{CNBC Quotes
 
+(defun ems--ut-quotes-cleanup ()
+  "Clean up stock quotes buffer."
+  (let ((inhibit-read-only t))
+    (flush-lines "WATCHLIST" (point-min) (point-max))
+    (flush-lines "^Last " (point-min) (point-max))
+    (flush-lines "^RT Quote " (point-min) (point-max))
+    (flush-lines "^quote price arrow " (point-min) (point-max))
+    (goto-char (point-min))
+    (forward-line 2)
+    (emacspeak-speak-line))
+  )
+
+;;  Helper:
+
 (emacspeak-url-template-define
  "CNBC Ticker"
  "https://www.cnbc.com/quotes/%s"
  (list "Ticker:")
- #'(lambda ()
-     (mapc
-      #'(lambda (n) (dom-remove-node n (emacspeak-eww-current-dom)))
-      (dom-by-class (emacspeak-eww-current-dom)
-                    "AddToWatchlistButton"))
-     (emacspeak-eww-view-helper (emacspeak-eww-current-dom)))
+ #'ems--ut-quotes-cleanup
  "Stock Quote via CNBC"
- #'(lambda (u)
-     (emacspeak-we-extract-by-role "main" u )))
+ #'(lambda (u) (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
 (emacspeak-url-template-define
  "CNBC Quotes"
-  "https://www.cnbc.com/quotes/%s"
-  (list #'emacspeak-stock-tickers)
-  #'(lambda nil
-      (let ((inhibit-read-only t))
-        (flush-lines "WATCHLIST" (point-min) (point-max))
-        (flush-lines "^Last " (point-min) (point-max))
-        (flush-lines "^RT Quote " (point-min) (point-max))
-        (flush-lines "^quote price arrow " (point-min) (point-max))
-        (goto-char (point-min))
-        (forward-line 2)
-        (emacspeak-speak-line)))
+ "https://www.cnbc.com/quotes/%s"
+ (list #'emacspeak-stock-tickers)
+ #'ems--ut-quotes-cleanup
  "Stock portfolio via CNBC"
  #'(lambda (u) (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
