@@ -689,16 +689,16 @@ values as completion. "
 ;;;###autoload
 (defun emacspeak-we-extract-by-id (id   url &optional speak)
   "Extract elements having specified id attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer.
-Interactive use provides list of id values as completion."
+specified elements from current WWW page and displays it in a
+separate buffer.  Interactive use prompts for   id values using
+completion."
   (interactive
    (list
     (let ((completion-ignore-case t))
-      (completing-read "Id: "
-                       emacspeak-we-buffer-id-cache))
+      (completing-read "Id: " emacspeak-we-buffer-id-cache))
     (emacspeak-eww-read-url)
-    (or (called-interactively-p 'interactive) current-prefix-arg)))
+    (or (called-interactively-p 'interactive) current-prefix-arg))
+   current-prefix-arg)
   (emacspeak-we-xslt-filter
    (format "//*[@id=\"%s\"]"
            id)
