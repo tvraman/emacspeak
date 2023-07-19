@@ -1167,21 +1167,21 @@ Note that the Web browser should reset this hook after using it.")
 
 (defun emacspeak-eww-em-with-space  (dom)
   "render EM node but with space.."
-  (insert "&nbsp;")
+  (insert " ")
   (shr-tag-em dom)
-  (insert "&nbsp;"))
+  (insert " "))
 
 (defun emacspeak-eww-span-with-space  (dom)
   "render span  node but with space."
-  (insert "&nbsp;")
+  (insert " ")
   (shr-tag-span dom)
-  (insert "&nbsp;"))
+  (insert " "))
 
 (defun emacspeak-eww-strong-with-space  (dom)
   "render STRONG node but with space."
-  (insert "&nbsp;")
+  (insert " ")
   (shr-tag-strong dom)
-  (insert "&nbsp;"))
+  (insert " "))
 
 (defvar emacspeak-eww-shr-renderers
   '((article . emacspeak-eww-tag-article)
