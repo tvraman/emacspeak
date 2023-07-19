@@ -534,10 +534,10 @@ name of the list.")
     (flush-lines "^Last " (point-min) (point-max))
     (flush-lines "^RT Quote " (point-min) (point-max))
     (flush-lines "^quote price arrow " (point-min) (point-max))
+    (flush-lines "^$" (point-min) (point-max))
     (goto-char (point-min))
     (forward-line 2)
-    (emacspeak-speak-line))
-  )
+    (emacspeak-speak-line)))
 
 ;;  Helper:
 
