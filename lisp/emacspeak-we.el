@@ -267,9 +267,6 @@ from Web page -- default is the current page being viewed."
     (add-hook
      'emacspeak-eww-pre-process-hook
      (emacspeak-xslt-make-xsl-transformer emacspeak-we-xsl-filter params))
-    (add-hook
-     'emacspeak-eww-post-process-hook
-     #'emacspeak-eww-reading-settings 'at-end)
     (browse-url url)))
 
 (defun emacspeak-we-xslt-pipeline-filter (specs    url  &optional _speak)
