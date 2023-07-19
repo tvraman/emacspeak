@@ -532,14 +532,12 @@ name of the list.")
   (let ((inhibit-read-only t))
     (flush-lines "WATCHLIST" (point-min) (point-max))
     (flush-lines "^Last " (point-min) (point-max))
-    (flush-lines "^RT Quote " (point-min) (point-max))
+    (flush-lines "RT Quote " (point-min) (point-max))
     (flush-lines "^quote price arrow " (point-min) (point-max))
     (flush-lines "^$" (point-min) (point-max))
     (goto-char (point-min))
     (forward-line 2)
     (emacspeak-speak-line)))
-
-;;  Helper:
 
 (emacspeak-url-template-define
  "CNBC Ticker"
@@ -547,7 +545,8 @@ name of the list.")
  (list "Ticker:")
  #'ems--ut-quotes-cleanup
  "Stock Quote via CNBC"
- #'(lambda (u) (emacspeak-we-extract-by-id "MainContentContainer" u )))
+ #'(lambda (u)
+       (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
 (emacspeak-url-template-define
  "CNBC Quotes"
@@ -555,7 +554,8 @@ name of the list.")
  (list #'emacspeak-stock-tickers)
  #'ems--ut-quotes-cleanup
  "Stock portfolio via CNBC"
- #'(lambda (u) (emacspeak-we-extract-by-id "MainContentContainer" u )))
+ #'(lambda (u)
+       (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
 (flush-lines "^Price Quote Arrow Quote " (point-min) (point-max))
 ;;}}}
