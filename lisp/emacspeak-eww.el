@@ -1204,21 +1204,25 @@ Note that the Web browser should reset this hook after using it.")
     (cl-pushnew (cons 'span 'emacspeak-eww-span-with-space) copy) copy)
   "Renderers used when filtering.")
 
+
+    
+(setq shr-external-rendering-functions emacspeak-eww-filter-renderers)
+
 (defun eww-dom-keep-if (dom predicate)
   "Return filtered DOM  keeping nodes that match  predicate.
  Predicate receives the node to test."
   (cond
-    ((not (listp dom)) nil)
-    ((funcall predicate dom) dom)
-    (t
-     (let ((filtered
-             (delq nil
-                   (mapcar
-                    #'(lambda (node) (eww-dom-keep-if node predicate))
-                    (dom-children dom)))))
-       (when filtered
-         (push (dom-attributes dom) filtered)
-         (push (dom-tag dom) filtered))))))
+   ((not (listp dom)) nil)
+   ((funcall predicate dom) dom)
+   (t
+    (let ((filtered
+           (delq nil
+                 (mapcar
+                  #'(lambda (node) (eww-dom-keep-if node predicate))
+                  (dom-children dom)))))
+      (when filtered
+        (push (dom-attributes dom) filtered)
+        (push (dom-tag dom) filtered))))))
 
 (defun eww-dom-remove-if (dom predicate)
   "Return filtered DOM  dropping  nodes that match  predicate.
