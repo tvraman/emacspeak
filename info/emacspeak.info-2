@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 17, 2023.
+last updated on July 18, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -7421,9 +7421,9 @@ browse-url to handle Web pages.
      ‘<fn> x e i’
 
      Extract elements having specified id attribute from HTML. Extracts
-     specified elements from current WWW page and displays it in a separate
-     buffer.
-     Interactive use provides list of id values as completion.
+     specified elements from current WWW page and displays it in a
+     separate buffer.  Interactive use prompts for   id values using
+     completion.
 
      (fn ID URL &optional SPEAK)
 
