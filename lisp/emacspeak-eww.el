@@ -1182,7 +1182,7 @@ Note that the Web browser should reset this hook after using it.")
   (insert " ")
   (shr-tag-strong dom)
   (insert " "))
-
+;;;###autoload
 (defvar emacspeak-eww-shr-renderers
   '((article . emacspeak-eww-tag-article)
     (title . eww-tag-title)
@@ -1197,6 +1197,7 @@ Note that the Web browser should reset this hook after using it.")
     (a . eww-tag-a))
   "Customize shr rendering for EWW.")
 ;; Create a special list of renderers to use when filtering
+;;;###autoload
 (defvar emacspeak-eww-filter-renderers
   (let ((copy (copy-sequence emacspeak-eww-shr-renderers)))
     (cl-pushnew (cons 'em 'emacspeak-eww-em-with-space) copy)
