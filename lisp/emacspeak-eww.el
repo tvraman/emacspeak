@@ -577,6 +577,7 @@ Safari/537.36"
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (cl-declare (special
+               shr-external-rendering-functions emacspeak-eww-filter-renderers
                eww-mode-map eww-link-keymap eww-text-map
                shr-inhibit-images emacspeak-eww-inhibit-images
                emacspeak-pronounce-xml-ns
@@ -675,7 +676,8 @@ Safari/537.36"
      ("m" emacspeak-eww-add-mark)
      ("/" dtk-toggle-punctuation-mode))
    do
-   (emacspeak-keymap-update eww-mode-map binding)))
+   (emacspeak-keymap-update eww-mode-map binding))
+  (setq shr-external-rendering-functions emacspeak-eww-filter-renderers))
 
 (emacspeak-eww-setup)
 
@@ -1207,7 +1209,7 @@ Note that the Web browser should reset this hook after using it.")
 
 
     
-(setq shr-external-rendering-functions emacspeak-eww-filter-renderers)
+
 
 (defun eww-dom-keep-if (dom predicate)
   "Return filtered DOM  keeping nodes that match  predicate.
