@@ -93,13 +93,16 @@
 (defvar emacspeak-empv-history nil
   "Youtube history for EMpv.")
 
+(defvar emacspeak-empv-history-max 16
+  "Max number of history to preserve.")
+
 ;;;###autoload
 (defun emacspeak-empv-play-url (url &optional left-channel)
   "Play URL using mpv;  Prefix arg plays on secondary device."
   (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
                      current-prefix-arg ))
   (cl-declare (special tts-secondary-device
-                       emacspeak-empv-history))
+                       emacspeak-empv-history-max emacspeak-empv-history))
   (require 'empv)
   (when
       (and url
@@ -107,6 +110,13 @@
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
   (cl-pushnew  url emacspeak-empv-history :test #'string=)
+  (when (< emacspeak-empv-history-max (length emacspeak-empv-history))
+    (setq
+     emacspeak-empv-history
+     (butlast emacspeak-empv-history
+              (- (length
+                  emacspeak-empv-history)
+                 emacspeak-empv-history-max))))
   (if left-channel
       (with-environment-variables (("PULSE_SINK" tts-secondary-device))
         (empv-play url))
