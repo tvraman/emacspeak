@@ -109,14 +109,7 @@
            (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
-  (cl-pushnew  url emacspeak-empv-history :test #'string=)
-  (when (< emacspeak-empv-history-max (length emacspeak-empv-history))
-    (setq
-     emacspeak-empv-history
-     (butlast emacspeak-empv-history
-              (- (length
-                  emacspeak-empv-history)
-                 emacspeak-empv-history-max))))
+  (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
   (if left-channel
       (with-environment-variables (("PULSE_SINK" tts-secondary-device))
         (empv-play url))
