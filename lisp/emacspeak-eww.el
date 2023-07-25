@@ -1975,6 +1975,7 @@ The %s is automatically spoken if there is no user activity."
 (defadvice eww-browse-with-external-browser(around emacspeak pre act comp)
   "Use our m-player integration."
   (let* ((url (or (ad-get-arg 0) ""))
+         (case-fold-search t)
          (media-p (string-match emacspeak-media-extensions url)))
     (cond
       (media-p (emacspeak-m-player url))

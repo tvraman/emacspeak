@@ -105,13 +105,11 @@
         ((ext
           '("m3u" "pls"                 ; incorporate playlist ext
             "m4a" "m4b"  
-            "aiff" "aac" "opus ""mkv"
+            "aiff" "aac" "opus" "mkv"
             "ogv" "oga" "ogg" "mp3"  "mp4" "webm" "wav")))
       (concat
        "\\."
-       (regexp-opt
-        (append ext (mapcar #'upcase ext))
-        'parens)
+       (regexp-opt ext)
        "$")))
   "Media Extensions.")
 

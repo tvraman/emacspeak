@@ -396,20 +396,21 @@ plays result as a directory." directory)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-media-guess-directory ()
-     "Guess default directory.
+  "Guess default directory.
 If default directory matches emacspeak-media-directory-regexp,
 use it.  If default directory contains media files, then use it.
 Otherwise use emacspeak-media-directory as the fallback."
   (cl-declare (special emacspeak-media-directory-regexp
                        emacspeak-m-player-hotkey-p))
-  (cond
-   ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
-   (emacspeak-m-player-hotkey-p   emacspeak-media-shortcuts-directory)
-   ((or ;  dir  contains media:
-     (string-match emacspeak-media-directory-regexp default-directory)
-     (directory-files default-directory   nil emacspeak-media-extensions))
-    default-directory)
-   (t   emacspeak-media-shortcuts-directory)))
+  (let ((case-fold-search t))
+    (cond
+     ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
+     (emacspeak-m-player-hotkey-p   emacspeak-media-shortcuts-directory)
+     ((or                               ;  dir  contains media:
+       (string-match emacspeak-media-directory-regexp default-directory)
+       (directory-files default-directory   nil emacspeak-media-extensions))
+      default-directory)
+     (t   emacspeak-media-shortcuts-directory))))
 
 ;;;###autoload
 (defun emacspeak-m-player-url (url &optional playlist-p)
@@ -431,7 +432,8 @@ URL fragment specifies optional start position."
 (defsubst emacspeak-m-player-directory-files (directory)
   "Return media files in directory. "
   (cl-declare (special emacspeak-media-extensions))
-  (directory-files-recursively directory emacspeak-media-extensions))
+  (let ((case-fold-search t))
+    (directory-files-recursively directory emacspeak-media-extensions)))
 
 (defvar-local emacspeak-m-player-url-p nil
   "Records if  playing a URL")
@@ -448,7 +450,8 @@ URL fragment specifies optional start position."
 subfiles.  Interactive prefix arg causes it to read a directory
 rather than completing over all subfiles."
   (cl-declare (special default-directory))
-  (let ((completion-ignore-case t))
+  (let ((completion-ignore-case t)
+        (case-fold-search t))
     (cond
      (prefix
       (setq current-prefix-arg nil)
@@ -1889,6 +1892,7 @@ to play  tracks."
   (cl-declare  (special emacspeak-media-extensions
                         locate-command locate-make-command-line))
   (let ((inhibit-read-only t)
+        (case-fold-search t)
         (locate-make-command-line
          #'(lambda (s) (list locate-command "-i" "--regexp" s))))
     (locate-with-filter

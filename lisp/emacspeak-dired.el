@@ -439,6 +439,7 @@ current file in DirEd."
   (interactive)
   (let* ((f (dired-get-filename nil t))
          (ext (file-name-extension f))
+         (case-fold-search t)
          (handler nil))
     (unless f (error "No file here."))
     (unless ext (error "This entry has no extension."))
@@ -538,7 +539,8 @@ If on a directory, speak the total duration of all sound files under
              t "This command needs soxi installed.")
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")
-  (let* ((f   (dired-get-filename)))
+  (let ((f   (dired-get-filename))
+         (case-fold-search t))
     (cond
      ((and (not (file-directory-p f))
            (string-match emacspeak-media-extensions f))
