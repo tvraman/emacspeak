@@ -550,9 +550,8 @@ If on a directory, speak the total duration of all sound files under
        "%s in %s"
        (shell-command-to-string
         (format
-         "find %s -name '%s' -print0 | xargs -0 soxi -Td 2>/dev/null"
-         (shell-quote-argument f)
-         emacspeak-media-extensions))
+         "find %s -name '*.mp3' -print0 | xargs -0 soxi -Td 2>/dev/null"
+         (shell-quote-argument f)))
        (file-name-base f)))
      (t (message "No mp3  on current line.")))))
 
