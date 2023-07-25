@@ -104,9 +104,9 @@
     (let
         ((ext
           '("m3u" "pls"                 ; incorporate playlist ext
-            "mov" "wma" "wmv" "flv" "m4a" "m4b"  "flac"
+            "m4a" "m4b"  
             "aiff" "aac" "opus ""mkv"
-            "ogv" "oga""ogg" "mp3"  "mp4" "webm" "wav")))
+            "ogv" "oga" "ogg" "mp3"  "mp4" "webm" "wav")))
       (concat
        "\\."
        (regexp-opt
