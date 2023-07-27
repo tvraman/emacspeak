@@ -1908,6 +1908,21 @@ The %s is automatically spoken if there is no user activity."
          (kill-new  (emacspeak-google-canonicalize-result-url u))))
      (emacspeak-speak-current-kill))))
 
+
+(defadvice shr-maybe-probe-and-copy-url (around emacspeak pre act comp)
+  "Canonicalize Google URLs"
+  (ems-with-messages-silenced
+   ad-do-it
+   (when (ems-interactive-p)
+     (emacspeak-auditory-icon 'delete-object)
+     (let ((u (car kill-ring)))
+       (when
+           (and u (stringp u)
+                (string-prefix-p (emacspeak-google-result-url-prefix) u))
+         (kill-new  (emacspeak-google-canonicalize-result-url u))))
+     (emacspeak-speak-current-kill))))
+
+
 ;;}}}
 ;;{{{ Speech-enable EWW buffer list:
 
@@ -1918,7 +1933,7 @@ The %s is automatically spoken if there is no user activity."
   (let ((buffer (get-text-property (line-beginning-position) 'eww-buffer)))
     (if buffer
         (dtk-speak (buffer-name buffer))
-        (message "Can't find an EWW buffer for this line. "))))
+      (message "Can't find an EWW buffer for this line. "))))
 
 (defadvice eww-list-buffers (after emacspeak pre act comp)
   "speak."
