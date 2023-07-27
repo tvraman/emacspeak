@@ -530,11 +530,10 @@ name of the list.")
 (defun ems--ut-quotes-cleanup ()
   "Clean up stock quotes buffer."
   (let ((inhibit-read-only t))
-    (flush-lines "WATCHLIST" (point-min) (point-max))
-    (flush-lines "^Last " (point-min) (point-max))
-    (flush-lines "RT Quote " (point-min) (point-max))
-    (flush-lines "^quote price arrow " (point-min) (point-max))
-    (flush-lines "^$" (point-min) (point-max))
+    (mapc
+     #'(lambda (s) (flush-lines s (point-min) (point-max)))
+     '("WATCHLIST" "^52 High" "^Last " "RT Quote " "^quote price arrow "
+       "^Volume" "^$"))
     (goto-char (point-min))
     (forward-line 1)
     (emacspeak-speak-line)))
