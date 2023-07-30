@@ -266,7 +266,6 @@ emacspeak-tide.elc \
 emacspeak-todo-mode.elc \
 emacspeak-transient.elc \
 emacspeak-treesit.elc \
-emacspeak-twittering.elc \
 emacspeak-typo.elc \
 emacspeak-url-template.elc \
 emacspeak-vdiff.elc \
