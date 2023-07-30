@@ -820,7 +820,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.240 URL Templates
 ====================
 
-This section documents a total of 62 URL Templates.
+This section documents a total of 63 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -849,12 +849,12 @@ out the following steps:
   6. BBC Podcast Directory
 
      BBC PodCast Directory
-  7. Bing News
+  7. BBC Sounds
+
+     Search BBC Sounds.
+  8. Bing News
 
      Bing News results as RSS feed.
-  8. Bing Search
-
-     Bing results as RSS feed.
   9. Business Headlines From CNN
 
      Money Headlines From CNN
@@ -918,109 +918,112 @@ out the following steps:
   29. Hoogle Haskell API Search
 
      Haskell API Search against a local server.
-  30. NBA standings
+  30. Microsoft Search
+
+     Bing results as RSS feed.
+  31. NBA standings
 
      Display NBA standings.
-  31. NLS Bard Bookshelf
+  32. NLS Bard Bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  32. NLS Bard Popular
+  33. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  33. NLS Bard Recent
+  34. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  34. NLS Bard Search
+  35. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  35. NPR
+  36. NPR
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  36. NY Times Mobile
+  37. NY Times Mobile
 
      NYTimes Mobile Site
-  37. Old Time Radio
+  38. Old Time Radio
 
      This months Old Time Radio Programming
-  38. OpenLibrary
+  39. OpenLibrary
 
      Open Library Search
-  39. Patent Search From Google
+  40. Patent Search From Google
 
      Perform patent search via Google
-  40. Player FM BBC RSS Feeds
+  41. Player FM BBC RSS Feeds
 
      Player FM BBC RSS Feeds
-  41. RadioTime Browser
+  42. RadioTime Browser
 
      RadioTime Entry point.
-  42. RadioTime Categories
+  43. RadioTime Categories
 
      RadioTime Categories .
-  43. RadioTime Search
+  44. RadioTime Search
 
      RadioTime Search.
-  44. Reddit At Point.
+  45. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  45. Reddit By Topic.
+  46. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  46. Reddit Front Page.
+  47. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  47. Reddit Search.
+  48. Reddit Search.
 
      Reddit Search Results Feed.
-  48. StreamWorld Radio
+  49. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  49. Tech News From CNet
+  50. Tech News From CNet
 
      Display tech news from CNET
-  50. TuneIn Radio
+  51. TuneIn Radio
 
      Translate StreamId to playable stream.
-  51. US Stock Market From Google
+  52. US Stock Market From Google
 
      Light-weight Google US Stock Markets.
-  52. Washington Post
+  53. Washington Post
 
      Washington Post Contents
-  53. Wiki Data Search
+  54. Wiki Data Search
 
      Search WikiData.
-  54. WordNet Search
+  55. WordNet Search
 
      Look up term in WordNet.
-  55. Yahoo RSSNews
+  56. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  56. html Google News Search
+  57. html Google News Search
 
      Search Google news.
-  57. sourceforge Download
+  58. sourceforge Download
 
      Download specified file.
-  58. sourceforge browse mirrors
+  59. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  59. sourceforge project
+  60. sourceforge project
 
      Open specified project page at SourceForge.
-  60. w3c IRC Logs
+  61. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  61. w3c Lists
+  62. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  62. world CNN Content
+  63. world CNN Content
 
      Filter down to CNN content area.
 
