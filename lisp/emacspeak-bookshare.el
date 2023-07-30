@@ -1318,8 +1318,6 @@ Useful for fulltext search in a book."
                        emacspeak-xslt-program emacspeak-bookshare-directory
                        emacspeak-speak-directory-settings
                        emacspeak-bookshare-this-book))
-  (unless (fboundp 'eww)
-    (error "Your Emacs doesn't have EWW."))
   (let ((xsl (emacspeak-bookshare-xslt directory))
         (buffer (get-buffer-create "Full Text"))
         (command nil)
