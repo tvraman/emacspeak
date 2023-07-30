@@ -256,9 +256,11 @@ with duplicates removed when saving as a list of string."
 (emacspeak-url-template-define
  "BBC Sounds"
  "https://www.bbc.co.uk/sounds/search?q=%s"
- (list "BBC Sounds Search:")
- #'(lambda nil (emacspeak-speak-mode-line))
- "Search BBC Sounds.")
+ (list "BBC Sounds:")
+#'emacspeak-eww-next-h2
+ "Search BBC Sounds."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-role "main" url )))
 
 
 (declare-function
