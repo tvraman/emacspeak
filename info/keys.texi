@@ -170,7 +170,6 @@
 @item o  find-file
 @item r  emacspeak-wizards-find-file-as-root
 @item s  magit-status
-@item t  twit
 @item u  list-unicode-display
 @item w  emacspeak-wizards-noaa-weather
 @item y  yas-expand

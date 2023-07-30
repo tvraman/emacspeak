@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 25, 2023.
+last updated on July 29, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1097,7 +1097,6 @@ found on laptops is denoted <fn>
       ("o" find-file)
       ("r" emacspeak-wizards-find-file-as-root)
       ("s" magit-status)
-      ("t" twit)
       ("u" list-unicode-display)
       ("w" emacspeak-wizards-noaa-weather)
       ("y" yas-expand))
