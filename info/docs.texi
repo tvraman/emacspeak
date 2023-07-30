@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1153 commands and 147 options.
+This chapter documents a total of 1150 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -205,7 +205,6 @@ This chapter documents a total of 1153 commands and 147 options.
 * emacspeak-todo-mode::speech-enable todo.
 * emacspeak-transient::TRANSIENT.
 * emacspeak-treesit::Speech-enable TREESIT.
-* emacspeak-twittering::
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
@@ -15517,53 +15516,6 @@ Speech-enable treesit navigation commands.
 
 @format
 If inspect-mode is on, speak current node.
-@end format
-@end deffn
-
-@node emacspeak-twittering
-@section emacspeak-twittering
-
- module twittering-mode.el  is found on  the emacs wiki
-This module speech-enables twittering-mode which works using
- oauth for authentication.
-Note: As of Thu Sep  2 08:11:25 PDT 2010
-twit.el is broken.
-
-Advises interactive functions to speak
-
-@subsection Emacspeak-Twittering Commands
-
-@subsubsection emacspeak-twittering-jump-to-following-url
-@deffn {Command} emacspeak-twittering-jump-to-following-url   
-@findex emacspeak-twittering-jump-to-following-url
-
-@format
-Move to and open closest URI  following point.
-@end format
-@end deffn
-
-@subsubsection emacspeak-twittering-speak-this-tweet
-@deffn {Command} emacspeak-twittering-speak-this-tweet  (&optional copy-as-kill)
-@findex emacspeak-twittering-speak-this-tweet
-
-@format
-Speak tweet under point.
-With interactive prefix arg ‘copy-as-kill’, copy it to kill ring as well.
-
-(fn &optional COPY-AS-KILL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-twittering-twarc
-@deffn {Command} emacspeak-twittering-twarc  (&optional whose)
-@findex emacspeak-twittering-twarc
-
-@format
-Download data using credentials  for signed-in user.
-Interactive prefix arg ‘whose’ prompts for a username whose
-timeline we download. 
-
-(fn &optional WHOSE)
 @end format
 @end deffn
 

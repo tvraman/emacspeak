@@ -2992,7 +2992,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1153 commands and 147 options.
+   This chapter documents a total of 1150 commands and 147 options.
 
 * Menu:
 
@@ -3194,7 +3194,6 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-todo-mode::speech-enable todo.
 * emacspeak-transient::TRANSIENT.
 * emacspeak-treesit::Speech-enable TREESIT.
-* emacspeak-twittering::
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
