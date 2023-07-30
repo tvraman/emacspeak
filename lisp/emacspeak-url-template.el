@@ -253,6 +253,14 @@ with duplicates removed when saving as a list of string."
 ;;}}}
 ;;{{{ bbc
 
+(emacspeak-url-template-define
+ "BBC Sounds"
+ "https://www.bbc.co.uk/sounds/search?q=%s"
+ (list "BBC Sounds Search:")
+ #'(lambda nil (emacspeak-speak-mode-line))
+ "Search BBC Sounds.")
+
+
 (declare-function
  emacspeak-xslt-view-xml
  "emacspeak-xslt" (style url &optional unescape-charent))
@@ -719,7 +727,7 @@ Format is stationid+AM/FM."
 ;;{{{ Bing RSS
 
 (emacspeak-url-template-define
- "Bing Search"
+ "Microsoft Search"
  "http://www.bing.com/search?format=rss&q=%s%s"
  (list
   "Bing Search: "
