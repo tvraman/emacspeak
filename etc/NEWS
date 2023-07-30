@@ -30,3 +30,7 @@ adjusting audio volume.
 
 Command ~dtk-rate-adjust~ provides a single transient for adjusting
 speech rate in current buffer.
+
+** Twitter Support Removed
+
+Twitter support is obsolete, since the Twittre API is now history. 
