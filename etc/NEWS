@@ -34,3 +34,8 @@ speech rate in current buffer.
 ** Twitter Support Removed
 
 Twitter support is obsolete, since the Twittre API is now history. 
+
+** BBC Sounds URL Template
+
+URL Template BBC Sounds in combination with package ~mpv~ support
+enables playbac of content from BBC Sounds from within Emacs.
