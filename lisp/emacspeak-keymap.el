@@ -668,7 +668,6 @@
     ("o" find-file)
     ("r" emacspeak-wizards-find-file-as-root)
     ("s" magit-status)
-    ("t" twit)
     ("u" list-unicode-display)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand)
