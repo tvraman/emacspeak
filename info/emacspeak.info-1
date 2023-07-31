@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 30, 2023.
+last updated on July 31, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7809,7 +7809,7 @@ prefix-key ‘G’.
 ‘m’
      ‘emacspeak-we-extract-table-by-match’ Extract matching table.
 ‘p’
-     ‘emacspeak-we-xpath-filter-and-follow’ Follow link under point, and
+     ‘emacspeak-we-xpath-follow-and-filter’ Follow link under point, and
      filter results by a specified XPath filter.
 ‘r’
      ‘emacspeak-we-extract-by-role’ Extract elements by specified role
@@ -7824,7 +7824,7 @@ prefix-key ‘G’.
      ‘emacspeak-we-extract-matching-urls’ Display matching links on the
      page.
 ‘v’
-     ‘emacspeak-we-class-filter-and-follow-link’ Follow link under
+     ‘emacspeak-we-class-follow-and-filter-link’ Follow link under
      point, and filter by specified class value.
 ‘w’
      ‘emacspeak-we-extract-by-property’ Extract element using a
@@ -7833,7 +7833,7 @@ prefix-key ‘G’.
      ‘emacspeak-we-extract-nested-table’ Extract a nested table using a
      match-list.
 ‘y’
-     ‘emacspeak-we-class-filter-and-follow’ Follow link under point and
+     ‘emacspeak-we-class-follow-and-filter’ Follow link under point and
      filter by class values.
 
 12.75.8 EWW And EBooks On The Emacspeak Audio Desktop

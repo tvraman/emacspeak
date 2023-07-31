@@ -5690,7 +5690,7 @@ Debugging tool  --- retains the  HTML source after XSLT.
 @command{emacspeak-we-extract-table-by-match}
 Extract matching table.
 @item p
-@command{emacspeak-we-xpath-filter-and-follow}
+@command{emacspeak-we-xpath-follow-and-filter}
 Follow link under point, and filter results by a specified XPath filter.
 @item r
 @command{emacspeak-we-extract-by-role}
@@ -5705,7 +5705,7 @@ Extracts tables by their position on the page.
 @command{emacspeak-we-extract-matching-urls}
 Display matching links on the page.
 @item v
-@command{emacspeak-we-class-filter-and-follow-link}
+@command{emacspeak-we-class-follow-and-filter-link}
 Follow link under point, and filter by specified class value.
 @item w
 @command{emacspeak-we-extract-by-property}
@@ -5714,7 +5714,7 @@ Extract element using a combination of DOM attributes.
 @command{emacspeak-we-extract-nested-table}
 Extract a nested table using a match-list.
 @item y
-@command{emacspeak-we-class-filter-and-follow}
+@command{emacspeak-we-class-follow-and-filter}
 Follow link under point and filter by class values.
 @end table
 @subsection EWW And EBooks On The Emacspeak Audio Desktop
@@ -15892,8 +15892,8 @@ to handle Web pages.
 
 @subsection Emacspeak-We Commands
 
-@subsubsection emacspeak-we-class-filter-and-follow
-@deffn {Command} emacspeak-we-class-filter-and-follow  (class url &optional prompt)
+@subsubsection emacspeak-we-class-follow-and-filter
+@deffn {Command} emacspeak-we-class-follow-and-filter  (class url &optional prompt)
 @table @kbd
 @item C-e x e y
 @kindex C-e x e y
@@ -15901,7 +15901,7 @@ to handle Web pages.
 @kindex <fn> x e y
 @end table
 
-@findex emacspeak-we-class-filter-and-follow
+@findex emacspeak-we-class-follow-and-filter
 
 @format
 Follow url and point, and filter the result by specified class.
@@ -15913,8 +15913,8 @@ used as well.
 @end format
 @end deffn
 
-@subsubsection emacspeak-we-class-filter-and-follow-link
-@deffn {Command} emacspeak-we-class-filter-and-follow-link  (&optional prompt)
+@subsubsection emacspeak-we-class-follow-and-filter-link
+@deffn {Command} emacspeak-we-class-follow-and-filter-link  (&optional prompt)
 @table @kbd
 @item C-e x e v
 @kindex C-e x e v
@@ -15922,7 +15922,7 @@ used as well.
 @kindex <fn> x e v
 @end table
 
-@findex emacspeak-we-class-filter-and-follow-link
+@findex emacspeak-we-class-follow-and-filter-link
 
 @format
 Follow url and point, and filter the result by specified class.
@@ -16408,8 +16408,8 @@ a rewrite rule even if one is already defined.
 @end format
 @end deffn
 
-@subsubsection emacspeak-we-xpath-filter-and-follow
-@deffn {Command} emacspeak-we-xpath-filter-and-follow  (&optional prompt)
+@subsubsection emacspeak-we-xpath-follow-and-filter
+@deffn {Command} emacspeak-we-xpath-follow-and-filter  (&optional prompt)
 @table @kbd
 @item C-e x e p
 @kindex C-e x e p
@@ -16417,7 +16417,7 @@ a rewrite rule even if one is already defined.
 @kindex <fn> x e p
 @end table
 
-@findex emacspeak-we-xpath-filter-and-follow
+@findex emacspeak-we-xpath-follow-and-filter
 
 @format
 Follow url and point, and filter the result by specified xpath.

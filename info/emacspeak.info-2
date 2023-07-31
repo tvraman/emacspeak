@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 30, 2023.
+last updated on July 31, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -7277,10 +7277,10 @@ browse-url to handle Web pages.
 12.208.1 Emacspeak-We Commands
 ------------------------------
 
-12.208.1.1 emacspeak-we-class-filter-and-follow
+12.208.1.1 emacspeak-we-class-follow-and-filter
 ...............................................
 
- -- Command: emacspeak-we-class-filter-and-follow (class url &optional
+ -- Command: emacspeak-we-class-follow-and-filter (class url &optional
           prompt)
      ‘C-e x e y’
      ‘<fn> x e y’
@@ -7292,10 +7292,10 @@ browse-url to handle Web pages.
 
      (fn CLASS URL &optional PROMPT)
 
-12.208.1.2 emacspeak-we-class-filter-and-follow-link
+12.208.1.2 emacspeak-we-class-follow-and-filter-link
 ....................................................
 
- -- Command: emacspeak-we-class-filter-and-follow-link (&optional
+ -- Command: emacspeak-we-class-follow-and-filter-link (&optional
           prompt)
      ‘C-e x e v’
      ‘<fn> x e v’
@@ -7620,10 +7620,10 @@ browse-url to handle Web pages.
 
      (fn &optional PROMPT)
 
-12.208.1.27 emacspeak-we-xpath-filter-and-follow
+12.208.1.27 emacspeak-we-xpath-follow-and-filter
 ................................................
 
- -- Command: emacspeak-we-xpath-filter-and-follow (&optional prompt)
+ -- Command: emacspeak-we-xpath-follow-and-filter (&optional prompt)
      ‘C-e x e p’
      ‘<fn> x e p’
 
