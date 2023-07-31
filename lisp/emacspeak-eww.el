@@ -407,7 +407,7 @@
 ;; @command{emacspeak-we-extract-table-by-match}
 ;; Extract matching table.
 ;; @item p
-;; @command{emacspeak-we-xpath-filter-and-follow}
+;; @command{emacspeak-we-xpath-follow-and-filter}
 ;; Follow link under point, and filter results by a specified XPath filter.
 ;; @item r
 ;; @command{emacspeak-we-extract-by-role}
@@ -422,7 +422,7 @@
 ;; @command{emacspeak-we-extract-matching-urls}
 ;; Display matching links on the page.
 ;; @item v
-;; @command{emacspeak-we-class-filter-and-follow-link}
+;; @command{emacspeak-we-class-follow-and-filter-link}
 ;; Follow link under point, and filter by specified class value.
 ;; @item w
 ;; @command{emacspeak-we-extract-by-property}
@@ -431,7 +431,7 @@
 ;; @command{emacspeak-we-extract-nested-table}
 ;; Extract a nested table using a match-list.
 ;; @item y
-;; @command{emacspeak-we-class-filter-and-follow}
+;; @command{emacspeak-we-class-follow-and-filter}
 ;; Follow link under point and filter by class values.
 ;; @end table
 ;; @subsection EWW And EBooks On The Emacspeak Audio Desktop
