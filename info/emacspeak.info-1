@@ -2801,7 +2801,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘: emacspeak-m-player-using-openal’
 ‘; emacspeak-multimedia’
 ‘a emacspeak-amark-browse’
-‘b eww-list-buffers’
+‘b emacspeak-wizards-bbc-sounds’
 ‘c browse-url-chrome’
 ‘d magit-dispatch’
 ‘e gmaps’
@@ -2830,7 +2830,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 ‘SPC scratch-buffer’
 ‘. emacspeak-wizards-shell-directory-reset’
 ‘R emacspeak-webspace-feed-reader’
-‘b emacspeak-wizards-bbc-sounds’
+‘b eww-list-buffers’
 ‘c calculator’
 ‘d emacspeak-dired-downloads’
 ‘e elfeed’

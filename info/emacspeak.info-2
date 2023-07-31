@@ -1083,7 +1083,7 @@ found on laptops is denoted <fn>
       ("DEL" emacspeak-wizards-snarf-sexp)
       ("TAB" hippie-expand)
       ("a" emacspeak-amark-browse)
-      ("b" eww-list-buffers)
+      ("b" emacspeak-wizards-bbc-sounds)
       ("c" browse-url-chrome)
       ("d" magit-dispatch)
       ("e" gmaps)
@@ -1125,7 +1125,7 @@ found on laptops is denoted <fn>
       ("C-n" emacspeak-wizards-google-headlines)
       ("R" emacspeak-webspace-feed-reader)
       ("SPC" scratch-buffer)
-      ("b" emacspeak-wizards-bbc-sounds)
+      ("b" eww-list-buffers)
       ("c" calculator)
       ("d" emacspeak-dired-downloads)
       ("e" elfeed)
@@ -8378,8 +8378,8 @@ Contains various wizards for the Emacspeak desktop.
 ........................................
 
  -- Command: emacspeak-wizards-bbc-sounds
-     ‘C-. b’
-     ‘C-x @ s b’
+     ‘C-; b’
+     ‘C-x @ h b’
 
      Search BBC Sounds.
 

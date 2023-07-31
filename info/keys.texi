@@ -156,7 +156,7 @@
 @item :  emacspeak-m-player-using-openal
 @item ;  emacspeak-multimedia
 @item a  emacspeak-amark-browse
-@item b  eww-list-buffers
+@item b  emacspeak-wizards-bbc-sounds
 @item c  browse-url-chrome
 @item d  magit-dispatch
 @item e  gmaps
@@ -184,7 +184,7 @@
 @item SPC  scratch-buffer
 @item .  emacspeak-wizards-shell-directory-reset
 @item R  emacspeak-webspace-feed-reader
-@item b  emacspeak-wizards-bbc-sounds
+@item b  eww-list-buffers
 @item c  calculator
 @item d  emacspeak-dired-downloads
 @item e  elfeed
