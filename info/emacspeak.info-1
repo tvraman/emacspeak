@@ -2830,6 +2830,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 ‘SPC scratch-buffer’
 ‘. emacspeak-wizards-shell-directory-reset’
 ‘R emacspeak-webspace-feed-reader’
+‘b emacspeak-wizards-bbc-sounds’
 ‘c calculator’
 ‘d emacspeak-dired-downloads’
 ‘e elfeed’
@@ -2992,7 +2993,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1150 commands and 147 options.
+   This chapter documents a total of 1151 commands and 147 options.
 
 * Menu:
 

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1150 commands and 147 options.
+This chapter documents a total of 1151 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8304,6 +8304,7 @@ Default Value:
  ("C-n" emacspeak-wizards-google-headlines)
  ("R" emacspeak-webspace-feed-reader)
  ("SPC" scratch-buffer)
+ ("b" emacspeak-wizards-bbc-sounds)
  ("c" calculator)
  ("d" emacspeak-dired-downloads)
  ("e" elfeed)
@@ -17441,6 +17442,22 @@ Display emacspeak News for a given version.
 
 @format
 Browse  Emacspeak productivity tips.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-bbc-sounds
+@deffn {Command} emacspeak-wizards-bbc-sounds   
+@table @kbd
+@item C-. b
+@kindex C-. b
+@item C-x @@ s b
+@kindex C-x @@ s b
+@end table
+
+@findex emacspeak-wizards-bbc-sounds
+
+@format
+Search BBC Sounds.
 @end format
 @end deffn
 

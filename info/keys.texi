@@ -184,6 +184,7 @@
 @item SPC  scratch-buffer
 @item .  emacspeak-wizards-shell-directory-reset
 @item R  emacspeak-webspace-feed-reader
+@item b  emacspeak-wizards-bbc-sounds
 @item c  calculator
 @item d  emacspeak-dired-downloads
 @item e  elfeed
