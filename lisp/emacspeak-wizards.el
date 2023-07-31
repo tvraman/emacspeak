@@ -2715,6 +2715,18 @@ before brightness is checked.")
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{BC Sounds:
+
+(defun emacspeak-wizards-bbc-sounds ()
+  "Search BBC Sounds."
+  (interactive)
+  (require 'emacspeak-url-template)
+  (let ((name "BBC Sounds"))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+
+
+;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

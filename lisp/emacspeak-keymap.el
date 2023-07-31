@@ -706,6 +706,7 @@
     ("." emacspeak-wizards-shell-directory-reset)
     ("C-n" emacspeak-wizards-google-headlines)
     ("R" emacspeak-webspace-feed-reader)
+    ("b" emacspeak-wizards-bbc-sounds)
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("e" elfeed)
