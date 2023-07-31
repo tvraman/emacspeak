@@ -257,10 +257,10 @@ with duplicates removed when saving as a list of string."
  "BBC Sounds"
  "https://www.bbc.co.uk/sounds/search?q=%s"
  (list "BBC Sounds:")
-#'emacspeak-eww-next-h2
+#'emacspeak-speak-line
  "Search BBC Sounds."
  #'(lambda (url)
-     (emacspeak-we-extract-by-role "main" url )))
+     (emacspeak-we-xslt-filter "//article" url)))
 
 
 (declare-function
