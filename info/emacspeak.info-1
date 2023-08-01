@@ -4581,8 +4581,8 @@ Assuming you have correctly setup your API key:
 
  -- Command: emacspeak-bookshare-debugInfo-handler (&rest arguments)
 
-     Do nothing and return nil.
-     This function accepts any number of ARGUMENTS, but ignores them.
+     Ignore ARGUMENTS, do nothing, and return nil.
+     This function accepts any number of arguments in ARGUMENTS.
      Also see ‘always’.
 
      (fn &rest ARGUMENTS)
@@ -4916,8 +4916,8 @@ Assuming you have correctly setup your API key:
 
  -- Command: emacspeak-bookshare-version-handler (&rest arguments)
 
-     Do nothing and return nil.
-     This function accepts any number of ARGUMENTS, but ignores them.
+     Ignore ARGUMENTS, do nothing, and return nil.
+     This function accepts any number of arguments in ARGUMENTS.
      Also see ‘always’.
 
      (fn &rest ARGUMENTS)

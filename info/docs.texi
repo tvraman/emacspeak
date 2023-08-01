@@ -1974,8 +1974,8 @@ Optional interactive prefix arg prompts for a category to use as a filter.
 @findex emacspeak-bookshare-debugInfo-handler
 
 @format
-Do nothing and return nil.
-This function accepts any number of ARGUMENTS, but ignores them.
+Ignore ARGUMENTS, do nothing, and return nil.
+This function accepts any number of arguments in ARGUMENTS.
 Also see ‘always’.
 
 (fn &rest ARGUMENTS)
@@ -2373,8 +2373,8 @@ Custom URL executor for use in Bookshare TOC.
 @findex emacspeak-bookshare-version-handler
 
 @format
-Do nothing and return nil.
-This function accepts any number of ARGUMENTS, but ignores them.
+Ignore ARGUMENTS, do nothing, and return nil.
+This function accepts any number of arguments in ARGUMENTS.
 Also see ‘always’.
 
 (fn &rest ARGUMENTS)
@@ -20961,7 +20961,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 63 URL Templates.
+This section documents a total of 62 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21052,9 +21052,7 @@ template.@item @b{NLS Bard Search}
 
 Search NLS Bard Catalog. Login once before using this template.@item @b{NPR}
 
-Open NPR home , then display the alternative links to access RSS feeds.@item @b{NY Times Mobile}
-
-NYTimes Mobile Site@item @b{Old Time Radio}
+Open NPR home , then display the alternative links to access RSS feeds.@item @b{Old Time Radio}
 
 This months Old Time Radio Programming@item @b{OpenLibrary}
 
