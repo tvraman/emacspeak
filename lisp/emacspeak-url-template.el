@@ -418,20 +418,6 @@ with duplicates removed when saving as a list of string."
       (browse-url url))))
 
 ;;}}}
-;;{{{ NY Times
-
-(emacspeak-url-template-define
- "NY Times Mobile"
- "https://mobile.nytimes.com"
- nil
- #'(lambda ()
-     (emacspeak-url-template-setup-content-filter)
-     (emacspeak-speak-buffer))
- "NYTimes Mobile Site"
- #'(lambda (url)
-     (emacspeak-we-xslt-filter "//article" url)))
-
-;;}}}
 ;;{{{ google OverviewOfNews
 
 (emacspeak-url-template-define
