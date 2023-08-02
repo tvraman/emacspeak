@@ -643,7 +643,6 @@
     ("C-;" emacspeak-amark-bookshelf)
     ("C-l" emacspeak-librivox)
     (";" emacspeak-multimedia)
-    ("/" emacspeak-websearch-google-with-toolbelt)
     ("C-a" emacspeak-wizards-term)
     ("C-b" eww-list-bookmarks)
     ("C-d" dictionary-search)
