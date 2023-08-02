@@ -1068,8 +1068,7 @@ found on laptops is denoted <fn>
      Default Value:
 
      
-     (("/" emacspeak-websearch-google-with-toolbelt)
-      (";" emacspeak-multimedia)
+     ((";" emacspeak-multimedia)
       ("C-;" emacspeak-amark-bookshelf)
       ("C-a" emacspeak-wizards-term)
       ("C-b" eww-list-bookmarks)
@@ -7827,8 +7826,6 @@ This module provides utility functions for searching the WWW
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
-     ‘C-; /’
-     ‘C-x @ h /’
 
      Launch Google search with toolbelt.
 

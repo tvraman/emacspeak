@@ -2636,8 +2636,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. u:                                 soundscape.         (line  132)
 * C-. v:                                 extra-muggles.      (line  278)
 * C-/:                                   emacspeak-muggles.  (line  207)
-* C-; /:                                 emacspeak-websearch.
-                                                             (line  119)
 * C-; ;:                                 emacspeak-m-player. (line  810)
 * C-; a:                                 emacspeak-amark.    (line   45)
 * C-; b:                                 emacspeak-wizards.  (line  314)
@@ -3062,8 +3060,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a t:                             emacspeak-wizards.  (line  997)
 * C-x @ a u:                             emacspeak-m-player. (line  721)
 * C-x @ a y:                             emacspeak-m-player. (line  798)
-* C-x @ h /:                             emacspeak-websearch.
-                                                             (line  120)
 * C-x @ h ;:                             emacspeak-m-player. (line  812)
 * C-x @ h a:                             emacspeak-amark.    (line   46)
 * C-x @ h b:                             emacspeak-wizards.  (line  315)

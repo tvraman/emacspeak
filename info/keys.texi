@@ -151,7 +151,6 @@
 @item C-j  emacspeak-wizards-shell-toggle
 @item C-l  emacspeak-librivox
 @item C-t  emacspeak-wizards-tramp-open-location
-@item /  emacspeak-websearch-google-with-toolbelt
 @item ;  emacspeak-multimedia
 @item a  emacspeak-amark-browse
 @item b  emacspeak-wizards-bbc-sounds

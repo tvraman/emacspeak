@@ -8239,8 +8239,7 @@ Default Value:
 
 @verbatim
 
-(("/" emacspeak-websearch-google-with-toolbelt)
- (";" emacspeak-multimedia)
+((";" emacspeak-multimedia)
  ("C-;" emacspeak-amark-bookshelf)
  ("C-a" emacspeak-wizards-term)
  ("C-b" eww-list-bookmarks)
@@ -16684,13 +16683,6 @@ Use this from inside the calendar to do Google date-range searches.
 
 @subsubsection emacspeak-websearch-google-with-toolbelt
 @deffn {Command} emacspeak-websearch-google-with-toolbelt  (query)
-@table @kbd
-@item C-; /
-@kindex C-; /
-@item C-x @@ h /
-@kindex C-x @@ h /
-@end table
-
 @findex emacspeak-websearch-google-with-toolbelt
 
 @format
