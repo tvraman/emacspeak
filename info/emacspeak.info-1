@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 31, 2023.
+last updated on August 1, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2796,9 +2796,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘C-j emacspeak-wizards-shell-toggle’
 ‘C-l emacspeak-librivox’
 ‘C-t emacspeak-wizards-tramp-open-location’
-‘' emacspeak-m-player-using-hrtf’
 ‘/ emacspeak-websearch-google-with-toolbelt’
-‘: emacspeak-m-player-using-openal’
 ‘; emacspeak-multimedia’
 ‘a emacspeak-amark-browse’
 ‘b emacspeak-wizards-bbc-sounds’

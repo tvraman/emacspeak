@@ -8239,9 +8239,7 @@ Default Value:
 
 @verbatim
 
-(("'" emacspeak-m-player-using-hrtf)
- ("/" emacspeak-websearch-google-with-toolbelt)
- (":" emacspeak-m-player-using-openal)
+(("/" emacspeak-websearch-google-with-toolbelt)
  (";" emacspeak-multimedia)
  ("C-;" emacspeak-amark-bookshelf)
  ("C-a" emacspeak-wizards-term)
@@ -9448,13 +9446,6 @@ URL fragment specifies optional start position.
 
 @subsubsection emacspeak-m-player-using-hrtf
 @deffn {Command} emacspeak-m-player-using-hrtf   
-@table @kbd
-@item C-; '
-@kindex C-; '
-@item C-x @@ h '
-@kindex C-x @@ h '
-@end table
-
 @findex emacspeak-m-player-using-hrtf
 
 @format
@@ -9465,13 +9456,6 @@ This will work if the soundcard is set to 48000.
 
 @subsubsection emacspeak-m-player-using-openal
 @deffn {Command} emacspeak-m-player-using-openal   
-@table @kbd
-@item C-; :
-@kindex C-; :
-@item C-x @@ h :
-@kindex C-x @@ h :
-@end table
-
 @findex emacspeak-m-player-using-openal
 
 @format

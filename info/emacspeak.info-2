@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 31, 2023.
+last updated on August 1, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1068,9 +1068,7 @@ found on laptops is denoted <fn>
      Default Value:
 
      
-     (("'" emacspeak-m-player-using-hrtf)
-      ("/" emacspeak-websearch-google-with-toolbelt)
-      (":" emacspeak-m-player-using-openal)
+     (("/" emacspeak-websearch-google-with-toolbelt)
       (";" emacspeak-multimedia)
       ("C-;" emacspeak-amark-bookshelf)
       ("C-a" emacspeak-wizards-term)
@@ -2074,8 +2072,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 .........................................
 
  -- Command: emacspeak-m-player-using-hrtf
-     ‘C-; '’
-     ‘C-x @ h '’
 
      Add af resample=48000,hrtf to startup options.
      This will work if the soundcard is set to 48000.
@@ -2084,8 +2080,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal
-     ‘C-; :’
-     ‘C-x @ h :’
 
      Use openal.
 
