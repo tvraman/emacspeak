@@ -52,9 +52,9 @@
 ;; to bookmarks. Amarks are stored in a .amarks.am file in the working
 ;; directory.  It also provides a simple AMark Browser to use from a
 ;; directory containing mp3 files where Amarks have been created --
-;; see @xref{emacspeak-amarks-browse}.
-;; Command @xref{emacspeak-amarks-bookshelf} brings up a @emp{Amarks
-;; Bookshelf} that can be used to  browse available Amark files.
+;; see @command{emacspeak-amarks-browse}.
+;;  @command{emacspeak-amarks-bookshelf} brings up a @emph{AmarksBookshelf}
+;; that can be used to  browse available Amark files.
 
 ;;; Code:
 
