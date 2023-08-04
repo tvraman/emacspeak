@@ -532,6 +532,7 @@ name of the list.")
        "^Volume" "^$"))
     (goto-char (point-min))
     (forward-line 1)
+    (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (emacspeak-url-template-define
