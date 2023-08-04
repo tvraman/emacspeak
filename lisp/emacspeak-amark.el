@@ -258,14 +258,30 @@ via command `org-insert-link' bound to \\[org-insert-link]."
     (funcall-interactively #'switch-to-buffer buff)))
 
 ;;;###autoload
-(defun emacspeak-amark-bookshelf()
+(defun emacspeak-amark-bookshelf(&optional pattern)
   "Open a locate buffer with all .amarks.am files.
-Use \\[emacspeak-dired-open-this-file] to open the AMark Browser on
+Optional interactive prefix arg prompts for a pattern that is
+used to filter the amarks files to show.  Use
+\\[emacspeak-dired-open-this-file] to open the AMark Browser on
 current file."
-  (interactive)
+  (interactive "P")
   (cl-declare (special emacspeak-amark-file))
-  (funcall-interactively #'locate emacspeak-amark-file)
-  (rename-buffer "AMark Bookshelf" 'unique))
+  (when pattern (setq pattern (read-from-minibuffer "Filter Pattern:")))
+  (let ((case-fold-search t)
+        (locate-make-command-line
+         #'(lambda (s) (list locate-command "-i" "--regexp" s)))))
+  (cond
+   (pattern 
+    (locate-with-filter
+     (mapconcat
+      #'identity
+      (split-string pattern)
+      "[ '/\"_.,-]")
+     emacspeak-amark-file))
+   (t (funcall-interactively #'locate emacspeak-amark-file)))
+  (rename-buffer "AMark Bookshelf" 'unique)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide  'emacspeak-amark)
