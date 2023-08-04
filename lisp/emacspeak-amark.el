@@ -49,7 +49,7 @@
 ;; Position: time offset from start
 
 ;;  This library will be used from emacspeak-m-player to set and jump
-;; to bookmarks. Amarks are stored in a .amarks file in the working
+;; to bookmarks. Amarks are stored in a .amarks.am file in the working
 ;; directory.  It also provides a simple AMark Browser to use from a
 ;; directory containing mp3 files where Amarks have been created.
 
