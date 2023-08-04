@@ -1550,7 +1550,7 @@ given name, it is updated with path and position.
 @end deffn
 
 @subsubsection emacspeak-amark-bookshelf
-@deffn {Command} emacspeak-amark-bookshelf   
+@deffn {Command} emacspeak-amark-bookshelf  (&optional pattern)
 @table @kbd
 @item C-; C-;
 @kindex C-; C-;
@@ -1562,8 +1562,12 @@ given name, it is updated with path and position.
 
 @format
 Open a locate buffer with all .amarks.am files.
-Use M-x emacspeak-dired-open-this-file to open the AMark Browser on
+Optional interactive prefix arg prompts for a pattern that is
+used to filter the amarks files to show.  Use
+M-x emacspeak-dired-open-this-file to open the AMark Browser on
 current file.
+
+(fn &optional PATTERN)
 @end format
 @end deffn
 
