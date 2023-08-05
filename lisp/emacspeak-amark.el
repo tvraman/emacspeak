@@ -125,6 +125,7 @@ given name, it is updated with path and position."
         (print-length nil)
         (buff (find-file-noselect (expand-file-name emacspeak-amark-file))))
     (with-current-buffer buff
+      (set (make-local-variable 'backup-inhibited) t)
       (setq buffer-undo-list t)
       (erase-buffer)
       (prin1 l (current-buffer))
