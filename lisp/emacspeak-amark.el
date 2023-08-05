@@ -272,7 +272,9 @@ current file."
   (when pattern (setq pattern (read-from-minibuffer "Filter Pattern:")))
   (let ((case-fold-search t)
         (locate-make-command-line
-         #'(lambda (s) (list locate-command "-i" "--regexp" s)))))
+         #'(lambda (s)
+             (list
+              locate-command "-i" "-e" "--regexp" s)))))
   (cond
    (pattern 
     (locate-with-filter
