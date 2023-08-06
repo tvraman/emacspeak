@@ -230,7 +230,8 @@ Maps command \\[emacspeak-m-player] across elements of the amarks
   list.  Pressing `y' as the current item is playing skips to the
   next item; this `y/n' prompt is produced by
   \\[emacspeak-m-player] as is usual when that command is called
-  while media is already playing."
+  while media is already playing. Here, attempting to play the next
+  item while the current item is playing produces the prompt."
   (interactive)
   (cl-declare (special emacspeak-amark-list))
   (when (and emacspeak-amark-list (listp emacspeak-amark-list))
