@@ -1615,7 +1615,12 @@ Return matching AMark if found in buffer-local AMark list.
 @findex emacspeak-amark-list-play
 
 @format
-Play amark list as a playlist
+Play amark list as a playlist.
+Maps command M-x emacspeak-m-player across elements of the amarks
+  list.  Pressing ‘y’ as the current item is playing skips to the
+  next item; this ‘y/n’ prompt is produced by
+  M-x emacspeak-m-player as is usual when that command is called
+  while media is already playing.
 @end format
 @end deffn
 

@@ -225,7 +225,12 @@ via command `org-insert-link' bound to \\[org-insert-link]."
 ;;{{{Browse Amarks:
 
 (defun emacspeak-amark-list-play ()
-  "Play amark list as a playlist"
+  "Play amark list as a playlist.
+Maps command \\[emacspeak-m-player] across elements of the amarks
+  list.  Pressing `y' as the current item is playing skips to the
+  next item; this `y/n' prompt is produced by
+  \\[emacspeak-m-player] as is usual when that command is called
+  while media is already playing."
   (interactive)
   (cl-declare (special emacspeak-amark-list))
   (when (and emacspeak-amark-list (listp emacspeak-amark-list))
