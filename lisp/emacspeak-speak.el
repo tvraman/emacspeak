@@ -1427,6 +1427,7 @@ Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info."
   (interactive "P")
   (cl-declare (special mode-name major-mode vc-mode
+                       emacspeak-comint-autospeak
                        global-visual-line-mode visual-line-mode
                        header-line-format global-mode-string
                        folding-mode column-number-mode line-number-mode
@@ -1443,6 +1444,8 @@ Interactive prefix arg speaks buffer info."
      (t                                 ; main branch
       (let ((global-info (downcase (format-mode-line global-mode-string)))
             (window-count (length (window-list)))
+            (autospeak (when emacspeak-comint-autospeak
+           (propertize "Autospeak" 'personality voice-lighten)))
             (vc-state
              (when (and vc-mode (buffer-file-name))
                (vc-state (buffer-file-name))))
@@ -1473,6 +1476,7 @@ Interactive prefix arg speaks buffer info."
            'all
            (dtk-speak
             (concat
+             autospeak
              dir-info
              (propertize (buffer-name) 'personality
                          voice-lighten-medium)
