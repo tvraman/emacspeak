@@ -214,6 +214,7 @@
 @item l  eww-open-file
 @item o  emacspeak-feeds-opml-display
 @item p  emacspeak-wizards-pdf-open
+@item q  emacspeak-wizards-quotes
 @item r  emacspeak-feeds-rss-display
 @item s  emacspeak-wizards-tune-in-radio-search
 @item t  emacspeak-wizards-tune-in-radio-browse

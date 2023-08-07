@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1151 commands and 147 options.
+This chapter documents a total of 1152 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8209,6 +8209,7 @@ Default Value:
  ("l" eww-open-file)
  ("o" emacspeak-feeds-opml-display)
  ("p" emacspeak-wizards-pdf-open)
+ ("q" emacspeak-wizards-quotes)
  ("r" emacspeak-feeds-rss-display)
  ("s" emacspeak-wizards-tune-in-radio-search)
  ("t" emacspeak-wizards-tune-in-radio-browse)
@@ -18064,6 +18065,22 @@ Optional interactive prefix arg ask-pwd prompts for password.
 
 @format
 Navigate to and speak previous ‘bullet’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-quotes
+@deffn {Command} emacspeak-wizards-quotes   
+@table @kbd
+@item C-, q
+@kindex C-, q
+@item C-x @@ a q
+@kindex C-x @@ a q
+@end table
+
+@findex emacspeak-wizards-quotes
+
+@format
+View stock quotes
 @end format
 @end deffn
 
