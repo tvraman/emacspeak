@@ -2726,7 +2726,17 @@ before brightness is checked.")
 
 
 ;;}}}
+;;{{{Portfolio:
 
+;;;###autoload
+(defun emacspeak-wizards-quotes ()
+  "View stock quotes"
+  (interactive )
+  (require 'emacspeak-url-template)
+  (let ((name "CNBC Quotes"))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
