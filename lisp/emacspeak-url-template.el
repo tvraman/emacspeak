@@ -772,7 +772,7 @@ Format is stationid+AM/FM."
 (defvar emacspeak-url-template--radiotime-categories
   '("world" "music" "sports" "podcasts"
     "local" "talk" "sports" "lang"
-    "podcast""popular" "best")
+    "local" "podcast" "popular" "best")
   "Categories from Radio Time.")
 
 (emacspeak-url-template-define
