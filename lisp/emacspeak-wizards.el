@@ -76,7 +76,7 @@
   (require 'solar)
   (require 'term)
   (require 'texinfo))
-
+(require 'emacspeak-url-template)
 (declare-function word-at-point "thingatpt" (&optional no-properties))
 (declare-function sox-play "sox" t)
 
@@ -1804,17 +1804,15 @@ mapped to voices."
   "Browse Tune-In Radio.
 Optional interactive prefix arg `category' prompts for a category."
   (interactive "P")
-  (require 'emacspeak-url-template)
-  (let ((name (if category "RadioTime Categories" "RadioTime Browser")))
-    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+  (emacspeak-url-template-open
+   (emacspeak-url-template-get
+    (if category "RadioTime Categories" "RadioTime Browser"))))
 
 ;;;###autoload
 (defun emacspeak-wizards-tune-in-radio-search ()
   "Search Tune-In Radio."
   (interactive)
-  (require 'emacspeak-url-template)
-  (let ((name "RadioTime Search"))
-    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+  (emacspeak-url-template-open (emacspeak-url-template-get "RadioTime Search")))
 
 ;;}}}
 ;;{{{ Sports API:
@@ -2720,9 +2718,7 @@ before brightness is checked.")
 (defun emacspeak-wizards-bbc-sounds ()
   "Search BBC Sounds."
   (interactive)
-  (require 'emacspeak-url-template)
-  (let ((name "BBC Sounds"))
-    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+  (emacspeak-url-template-open (emacspeak-url-template-get "BBC Sounds")))
 
 
 ;;}}}
@@ -2732,9 +2728,7 @@ before brightness is checked.")
 (defun emacspeak-wizards-quotes ()
   "View stock quotes"
   (interactive )
-  (require 'emacspeak-url-template)
-  (let ((name "CNBC Quotes"))
-    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+  (emacspeak-url-template-open (emacspeak-url-template-get "CNBC Quotes")))
 
 ;;}}}
 (provide 'emacspeak-wizards)
