@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 7, 2023.
+last updated on August 9, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2637,11 +2637,11 @@ File: emacspeak.info,  Node: Emacspeak Keymaps,  Next: Emacspeak Commands And Op
 * Emacspeak Keybindings On emacspeak-hyper-keymap::
 * Emacspeak Keybindings On emacspeak-super-keymap::
 * Emacspeak Keybindings On emacspeak-alt-keymap::
-* Emacspeak Keybindings On emacspeak-x-keymap::
+* Emacspeak Keybindings On emacspeak-multi-keymap::
 * Emacspeak Keybindings On emacspeak-v-keymap::
+* Emacspeak Keybindings On emacspeak-x-keymap::
 * Emacspeak Keybindings On emacspeak-y-keymap::
 * Emacspeak Keybindings On emacspeak-z-keymap::
-* Emacspeak Keybindings On emacspeak-multi-keymap::
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: Emacspeak Keybindings On emacspeak-dtk-submap,  Up: Emacspeak Keymaps
@@ -2845,7 +2845,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 ‘y empv-youtube-tabulated’
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-x-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
 
 11.5 Emacspeak Keybindings On emacspeak-alt-keymap
 ==================================================
@@ -2871,9 +2871,29 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 ‘y emacspeak-m-player-youtube-player’
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next: Emacspeak Keybindings On emacspeak-v-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Next: Emacspeak Keybindings On emacspeak-v-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
 
-11.6 Emacspeak Keybindings On emacspeak-x-keymap
+11.6 Emacspeak Keybindings On emacspeak-multi-keymap
+====================================================
+
+‘' emacspeak-pianobar’
+‘d sdcv-search-input’
+‘l locate’
+‘o org-mode’
+‘y emacspeak-google-yt-feed’
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-v-keymap,  Next: Emacspeak Keybindings On emacspeak-x-keymap,  Prev: Emacspeak Keybindings On emacspeak-multi-keymap,  Up: Emacspeak Keymaps
+
+11.7 Emacspeak Keybindings On emacspeak-v-keymap
+================================================
+
+‘v view-register’
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next: Emacspeak Keybindings On emacspeak-y-keymap,  Prev: Emacspeak Keybindings On emacspeak-v-keymap,  Up: Emacspeak Keymaps
+
+11.8 Emacspeak Keybindings On emacspeak-x-keymap
 ================================================
 
 ‘C-c emacspeak-wizards-color-wheel’
@@ -2906,17 +2926,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next:
 ‘DEL desktop-clear’
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-v-keymap,  Next: Emacspeak Keybindings On emacspeak-y-keymap,  Prev: Emacspeak Keybindings On emacspeak-x-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next: Emacspeak Keybindings On emacspeak-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-x-keymap,  Up: Emacspeak Keymaps
 
-11.7 Emacspeak Keybindings On emacspeak-v-keymap
-================================================
-
-‘v view-register’
-
-
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next: Emacspeak Keybindings On emacspeak-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-v-keymap,  Up: Emacspeak Keymaps
-
-11.8 Emacspeak Keybindings On emacspeak-y-keymap
+11.9 Emacspeak Keybindings On emacspeak-y-keymap
 ================================================
 
 ‘a emacspeak-xslt-view-atom-file’
@@ -2926,10 +2938,10 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ‘y emacspeak-empv-play-url’
 
 
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-y-keymap,  Up: Emacspeak Keymaps
+File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-y-keymap,  Up: Emacspeak Keymaps
 
-11.9 Emacspeak Keybindings On emacspeak-z-keymap
-================================================
+11.10 Emacspeak Keybindings On emacspeak-z-keymap
+=================================================
 
 ‘SPC flyspell-mode’
 ‘b emacspeak-wizards-view-buffers-filtered-by-this-mode’
@@ -2943,18 +2955,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Next:
 ‘r restart-emacs’
 ‘s magit-status’
 ‘z suspend-frame’
-
-
-File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-z-keymap,  Up: Emacspeak Keymaps
-
-11.10 Emacspeak Keybindings On emacspeak-multi-keymap
-=====================================================
-
-‘' emacspeak-pianobar’
-‘d sdcv-search-input’
-‘l locate’
-‘o org-mode’
-‘y emacspeak-google-yt-feed’
 
 
 File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Running Terminal Based Applications,  Prev: Emacspeak Keymaps,  Up: Top

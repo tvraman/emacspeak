@@ -445,9 +445,10 @@ This chapter documents a total of %d commands and %d options.\n\n"
   '(
     emacspeak-keymap emacspeak-dtk-submap
     emacspeak-hyper-keymap emacspeak-super-keymap emacspeak-alt-keymap
-    emacspeak-x-keymap emacspeak-v-keymap
+    emacspeak-multi-keymap
+    emacspeak-v-keymap emacspeak-x-keymap
     emacspeak-y-keymap  emacspeak-z-keymap
-    emacspeak-multi-keymap)
+    )
 "List of keymaps that we document.")
 
 (defun self-document-keymap (keymap)

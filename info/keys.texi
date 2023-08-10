@@ -224,6 +224,24 @@
 @item y  emacspeak-m-player-youtube-player
 @end table
 
+@node Emacspeak Keybindings On emacspeak-multi-keymap
+ @section Emacspeak Keybindings On emacspeak-multi-keymap
+
+@table @kbd
+@item '  emacspeak-pianobar
+@item d  sdcv-search-input
+@item l  locate
+@item o  org-mode
+@item y  emacspeak-google-yt-feed
+@end table
+
+@node Emacspeak Keybindings On emacspeak-v-keymap
+ @section Emacspeak Keybindings On emacspeak-v-keymap
+
+@table @kbd
+@item v  view-register
+@end table
+
 @node Emacspeak Keybindings On emacspeak-x-keymap
  @section Emacspeak Keybindings On emacspeak-x-keymap
 
@@ -258,13 +276,6 @@
 @item DEL  desktop-clear
 @end table
 
-@node Emacspeak Keybindings On emacspeak-v-keymap
- @section Emacspeak Keybindings On emacspeak-v-keymap
-
-@table @kbd
-@item v  view-register
-@end table
-
 @node Emacspeak Keybindings On emacspeak-y-keymap
  @section Emacspeak Keybindings On emacspeak-y-keymap
 
@@ -292,15 +303,4 @@
 @item r  restart-emacs
 @item s  magit-status
 @item z  suspend-frame
-@end table
-
-@node Emacspeak Keybindings On emacspeak-multi-keymap
- @section Emacspeak Keybindings On emacspeak-multi-keymap
-
-@table @kbd
-@item '  emacspeak-pianobar
-@item d  sdcv-search-input
-@item l  locate
-@item o  org-mode
-@item y  emacspeak-google-yt-feed
 @end table

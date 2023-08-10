@@ -459,6 +459,35 @@
 (global-set-key '[silence] 'emacspeak-silence)
 
 ;;}}}
+;;{{{ Create personal c-e v map
+
+(defvar  emacspeak-v-keymap nil
+  "Emacspeak v keymap")
+
+(define-prefix-command 'emacspeak-v-keymap)
+
+(defcustom emacspeak-v-keys
+  '(
+    ("v" view-register)
+    )
+  "Key bindings for use with C-e v. "
+  :group 'emacspeak
+  :type
+  '(repeat
+    :tag "Emacspeak V Keymap"
+    (list
+     :tag "Key Binding"
+     (key-sequence :tag "Key")
+     (ems-interactive-command :tag "Command")))
+  :set
+  #'(lambda (sym val)
+      (emacspeak-keymap-bindings-update emacspeak-v-keymap val)
+      (set-default sym
+                   (sort
+                    val
+                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+;;}}}
 ;;{{{ Create a personal keymap for c-e x
 
 ;; Adding keys using custom:
@@ -506,7 +535,7 @@
   "Key bindings for  C-e x. "
   :group 'emacspeak
   :type '(repeat
-          :tag "Emacspeak Personal Keymap"
+          :tag "Emacspeak x Keymap"
           (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
@@ -519,6 +548,8 @@
        (sort
         val
         #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+
 (define-key emacspeak-keymap "v" 'emacspeak-v-keymap)
 (define-key  emacspeak-keymap "x" 'emacspeak-x-keymap)
 (define-key  emacspeak-keymap "y" 'emacspeak-y-keymap)
@@ -550,35 +581,6 @@
   :set
   #'(lambda (sym val)
       (emacspeak-keymap-bindings-update emacspeak-y-keymap val)
-      (set-default sym
-                   (sort
-                    val
-                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
-;;}}}
-;;{{{ Create personal c-e v map
-
-(defvar  emacspeak-v-keymap nil
-  "Emacspeak v keymap")
-
-(define-prefix-command 'emacspeak-v-keymap)
-
-(defcustom emacspeak-v-keys
-  '(
-    ("v" view-register)
-    )
-  "Key bindings for use with C-e v. "
-  :group 'emacspeak
-  :type
-  '(repeat
-    :tag "Emacspeak V Keymap"
-    (list
-     :tag "Key Binding"
-     (key-sequence :tag "Key")
-     (ems-interactive-command :tag "Command")))
-  :set
-  #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-v-keymap val)
       (set-default sym
                    (sort
                     val
