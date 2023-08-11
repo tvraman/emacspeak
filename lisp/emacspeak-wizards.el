@@ -2687,9 +2687,7 @@ before brightness is checked.")
           '("tex" "org" "html" "pdf")))
       (concat
        "\\."
-       (regexp-opt
-        (nconc ext (mapcar #'upcase ext))
-        'parens)
+       (regexp-opt (nconc ext (mapcar #'upcase ext)) 'parens)
        "$")))
   "Content extensions.")
 
