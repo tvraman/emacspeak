@@ -161,7 +161,6 @@
 @item g  gnus
 @item h  emacspeak-m-player-from-history
 @item i  ibuffer
-@item k  emacspeak-google-knowledge-search
 @item l  emacspeak-m-player-locate-media
 @item m  vm
 @item o  find-file

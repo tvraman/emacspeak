@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 9, 2023.
+last updated on August 10, 2023.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2603,7 +2603,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  262)
 * <XF86AudioRaiseVolume>:                amixer.             (line   80)
 * C-' ':                                 emacspeak-pianobar. (line   46)
-* C-' y:                                 emacspeak-google.   (line  163)
+* C-' y:                                 emacspeak-google.   (line  161)
 * C-, /:                                 extra-muggles.      (line  338)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
@@ -2620,11 +2620,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. .:                                 emacspeak-wizards.  (line  856)
 * C-. C-n:                               emacspeak-wizards.  (line  609)
 * C-. d:                                 emacspeak-dired.    (line   25)
-* C-. g l:                               emacspeak-google.   (line   92)
-* C-. g n:                               emacspeak-google.   (line  104)
-* C-. g p:                               emacspeak-google.   (line  114)
-* C-. g r:                               emacspeak-google.   (line  124)
-* C-. g s:                               emacspeak-google.   (line  135)
+* C-. g l:                               emacspeak-google.   (line   90)
+* C-. g n:                               emacspeak-google.   (line  102)
+* C-. g p:                               emacspeak-google.   (line  112)
+* C-. g r:                               emacspeak-google.   (line  122)
+* C-. g s:                               emacspeak-google.   (line  133)
 * C-. h:                                 emacspeak-org.      (line   27)
 * C-. l:                                 emacspeak-wizards.  (line  650)
 * C-. m:                                 emacspeak-wizards.  (line 1082)
@@ -2648,7 +2648,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; DEL:                               emacspeak-wizards.  (line  919)
 * C-; e:                                 gmaps.              (line   16)
 * C-; h:                                 emacspeak-m-player. (line  331)
-* C-; k:                                 emacspeak-google.   (line   28)
 * C-; l:                                 emacspeak-m-player. (line  364)
 * C-; r:                                 emacspeak-wizards.  (line  538)
 * C-; v %:                               emacspeak-empv.     (line   36)
@@ -3073,7 +3072,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h DEL:                           emacspeak-wizards.  (line  920)
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h h:                             emacspeak-m-player. (line  332)
-* C-x @ h k:                             emacspeak-google.   (line   29)
 * C-x @ h l:                             emacspeak-m-player. (line  367)
 * C-x @ h r:                             emacspeak-wizards.  (line  539)
 * C-x @ h v %:                           emacspeak-empv.     (line   37)
@@ -3084,11 +3082,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s .:                             emacspeak-wizards.  (line  859)
 * C-x @ s C-n:                           emacspeak-wizards.  (line  610)
 * C-x @ s d:                             emacspeak-dired.    (line   26)
-* C-x @ s g l:                           emacspeak-google.   (line   93)
-* C-x @ s g n:                           emacspeak-google.   (line  105)
-* C-x @ s g p:                           emacspeak-google.   (line  115)
-* C-x @ s g r:                           emacspeak-google.   (line  125)
-* C-x @ s g s:                           emacspeak-google.   (line  136)
+* C-x @ s g l:                           emacspeak-google.   (line   91)
+* C-x @ s g n:                           emacspeak-google.   (line  103)
+* C-x @ s g p:                           emacspeak-google.   (line  113)
+* C-x @ s g r:                           emacspeak-google.   (line  123)
+* C-x @ s g s:                           emacspeak-google.   (line  134)
 * C-x @ s h:                             emacspeak-org.      (line   28)
 * C-x @ s l:                             emacspeak-wizards.  (line  651)
 * C-x @ s m:                             emacspeak-wizards.  (line 1085)

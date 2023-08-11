@@ -7512,13 +7512,6 @@ Extract current  page from the Google cache.
 
 @subsubsection emacspeak-google-knowledge-search
 @deffn {Command} emacspeak-google-knowledge-search  (query &optional limit)
-@table @kbd
-@item C-; k
-@kindex C-; k
-@item C-x @@ h k
-@kindex C-x @@ h k
-@end table
-
 @findex emacspeak-google-knowledge-search
 
 @format
@@ -8273,7 +8266,6 @@ Default Value:
  ("g" gnus)
  ("h" emacspeak-m-player-from-history)
  ("i" ibuffer)
- ("k" emacspeak-google-knowledge-search)
  ("l" emacspeak-m-player-locate-media)
  ("m" vm)
  ("o" find-file)

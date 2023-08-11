@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 9, 2023.
+last updated on August 10, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -431,8 +431,6 @@ e.g.  blog search are tbm=
 ...........................................
 
  -- Command: emacspeak-google-knowledge-search (query &optional limit)
-     ‘C-; k’
-     ‘C-x @ h k’
 
      Perform a Google Knowledge Graph search.
      Optional interactive prefix arg ‘limit’ prompts for number of
@@ -1089,7 +1087,6 @@ found on laptops is denoted <fn>
       ("g" gnus)
       ("h" emacspeak-m-player-from-history)
       ("i" ibuffer)
-      ("k" emacspeak-google-knowledge-search)
       ("l" emacspeak-m-player-locate-media)
       ("m" vm)
       ("o" find-file)
