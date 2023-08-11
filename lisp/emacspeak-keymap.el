@@ -661,7 +661,6 @@
     ("g" gnus)
     ("h" emacspeak-m-player-from-history)
     ("i" ibuffer)
-    ("k" emacspeak-google-knowledge-search)
     ("l" emacspeak-m-player-locate-media)
     ("m" vm)
     ("o" find-file)
