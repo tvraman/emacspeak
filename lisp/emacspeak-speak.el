@@ -805,7 +805,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
                   (< l ems--speak-max-line)
                   (get-text-property start 'speak-line))
               t)
-             ((y-or-n-p (format "Speak  this  %s long line? " l))
+             ((y-or-n-p (format "Use visual line mode   for %s long line" l))
               (or visual-line-mode (visual-line-mode))
               (setq ems--speak-max-line (1+ l))
               (with-silent-modifications
