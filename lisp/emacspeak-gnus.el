@@ -558,6 +558,17 @@ Produce an auditory icon if possible."
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-speak-line))
 
+(defadvice gnus-summary-read-group (around emacspeak-fix pre act
+                                             comp)
+  "Deactivate our shr-external-rendering-functions"
+  (let ((shr-external-rendering-functions nil)) ad-do-it))
+
+
+(defadvice gnus-summary-show-article (around emacspeak-fix pre act
+                                             comp)
+  "Deactivate our shr-external-rendering-functions"
+  (let ((shr-external-rendering-functions nil)) ad-do-it))
+
 (defadvice gnus-summary-show-article (after emacspeak pre act comp)
   "Start speaking the article. "
   (when (ems-interactive-p)
