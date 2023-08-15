@@ -1306,7 +1306,7 @@ of the source buffer."
       (funcall-interactively #'switch-to-buffer buffer)))))
 
 (defcustom emacspeak-wizards-project-shells nil
-  "List of shell-name/initial-directory pairs."
+   "Project shells, a list of shell-name/initial-directory pairs."
   :type '(repeat
           (list
            (string :tag "Buffer Name")
