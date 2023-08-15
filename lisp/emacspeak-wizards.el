@@ -1310,7 +1310,8 @@ of the source buffer."
   :type '(repeat
           (list
            (string :tag "Buffer Name")
-           (directory :tag "Directory")))
+           (directory :tag "Directory")
+           (boolean :tag "AutoSpeak")))
   :group 'emacspeak-wizards)
 
 (defvar-local emacspeak-wizards--project-shell-directory "~/"
@@ -1322,13 +1323,15 @@ of the source buffer."
   (cl-declare (special emacspeak-wizards-project-shells))
   (unless emacspeak-wizards-project-shells (shell))
   (cl-loop
-   for pair in (reverse emacspeak-wizards-project-shells) do
+   for entry in (reverse emacspeak-wizards-project-shells) do
    (ems-with-messages-silenced
      (let* ((dtk-quiet t)
-            (name (cl-first pair))
-            (dir (cl-second pair))
+            (name (cl-first entry))
+            (dir (cl-second entry))
+            (auto (cl-third entry))
             (default-directory dir))
        (with-current-buffer (shell name)
+         (setq emacspeak-comint-autospeak auto)
          (setq emacspeak-wizards--project-shell-directory dir)))))
   (emacspeak-wizards--build-shells-table))
 
