@@ -9174,7 +9174,7 @@ Contains various wizards for the Emacspeak desktop.
      
 
  -- Variable: User Option emacspeak-wizards-project-shells
-     List of shell-name/initial-directory pairs.
+     Project shells, a list of shell-name/initial-directory pairs.
 
      Default Value:
 
