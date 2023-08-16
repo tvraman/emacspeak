@@ -611,7 +611,7 @@ Safari/537.36"
    for binding  in
    '(
      ("M-o" org-eww-copy-for-org-mode)
-     (":" emacspeak-eww-tags-at-point)
+     ("^" emacspeak-eww-tags-at-point)
      ("\"" emacspeak-eww-reading-settings)
      ("V" eww-view-source)
      ("'" emacspeak-speak-rest-of-buffer)
