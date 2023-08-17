@@ -3,7 +3,7 @@
 # Use per app volume 
 # A bs2b (binaural for headphones) sink:
 
-load-module module-ladspa-sink sink_name=binaural  master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,4.5
+load-module module-ladspa-sink sink_name=binaural  sink_master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,4.5
 
 # Use binaural as the default sink:
 #set-default-sink  binaural 
@@ -11,8 +11,8 @@ load-module module-ladspa-sink sink_name=binaural  master=@DEFAULT_SINK@ plugin=
 # A tts_right and tts_left device
 # Emacspeak will use the first as the notification device.
 
-load-module module-remap-sink sink_name=tts_right  master=binaural channels=2 master_channel_map=front-right,front-right, channel_map=front-left,front-right remix=no
-load-module module-remap-sink sink_name=tts_left  master=binaural channels=2 master_channel_map=front-left,front-left, channel_map=front-left,front-right remix=no
+load-module module-remap-sink sink_name=tts_right  sink_master=binaural channels=2 master_channel_map=front-right,front-right, channel_map=front-left,front-right remix=no
+load-module module-remap-sink sink_name=tts_left  sink_master=binaural channels=2 master_channel_map=front-left,front-left, channel_map=front-left,front-right remix=no
 
 # X11 Bell:
 load-module module-x11-bell
