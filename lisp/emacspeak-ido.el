@@ -79,23 +79,25 @@
   :type 'float 
   :group 'emacspeak-ido)
 
-(defadvice ido-exhibit (after emacspeak pre act comp)
+(defadvice ido-exhibit (around emacspeak pre act comp)
   "Speak ido minibuffer intelligently."
   (condition-case nil
-      (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
-        (dtk-speak
-         (concat
-          (if (bound-and-true-p ido--overlay)
-              (overlay-get ido--overlay 'after-string)
-            (minibuffer-contents))
-          (format " %d choices: "  (length ido-matches))
-          (if
-              (or (null ido-current-directory)
-                  (string-equal ido-current-directory emacspeak-ido-cache))
-              " "
-            (format "In directory: %s"
-                    (abbreviate-file-name ido-current-directory))))))
-    (error (dtk-initialize))))
+      (progn
+        ad-do-it
+        (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
+          (dtk-speak
+           (concat
+            (if (bound-and-true-p ido--overlay)
+                (overlay-get ido--overlay 'after-string)
+              (minibuffer-contents))
+            (format " %d choices: "  (length ido-matches))
+            (if
+                (or (null ido-current-directory)
+                    (string-equal ido-current-directory emacspeak-ido-cache))
+                " "
+              (format "In directory: %s"
+                      (abbreviate-file-name ido-current-directory))))))
+        (error (dtk-initialize)))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
