@@ -159,7 +159,8 @@ Use Custom to customize where possible. "
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
   (prefer-coding-system 'utf-8-emacs)
-  (global-set-key (kbd "C-]" ) ctl-x-map) ; easier to hit than C-x
+  (global-set-key (kbd "C-]" ) 'recenter-top-bottom)
+  (global-set-key (kbd "C-l" ) ctl-x-map) ; easier to hit than C-x
   (global-set-key[remap dabbrev-expand] 'hippie-expand)
   (cl-loop ;; global key-bindings
    for key in
@@ -301,6 +302,7 @@ configuration happens via the after-init-hook. "
 ;;live: so reuse it as the speaker 
 (defun n2s ()
   (interactive)
+  (cl-declare (special dtk-speaker-process dtk-notify-process))
   (setq dtk-speaker-process dtk-notify-process))
 
 ;;}}}
