@@ -263,7 +263,7 @@ with duplicates removed when saving as a list of string."
      (let ((filter
             (mapconcat
              #'(lambda  (i)
-                 (format "(/descendant::section[%s])" i))
+                 (format "/descendant::section[%s]" i))
              '(  3 4 5)
              " | ")))
        (emacspeak-we-xslt-filter filter url))))
