@@ -260,7 +260,7 @@ with duplicates removed when saving as a list of string."
 #'emacspeak-speak-line
  "Search BBC Sounds."
  #'(lambda (url)
-     (emacspeak-we-xslt-filter "//article" url)))
+     (emacspeak-we-xslt-filter "//article|//section" url)))
 
 
 (declare-function
