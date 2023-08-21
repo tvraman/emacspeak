@@ -271,6 +271,7 @@
 @item u  emacspeak-wizards-units
 @item v  emacspeak-wizards-vc-viewer
 @item w  emacspeak-wizards-noaa-weather
+@item x  exchange-point-and-mark
 @item |  emacspeak-wizards-squeeze-blanks
 @item DEL  desktop-clear
 @end table
