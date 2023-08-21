@@ -528,9 +528,9 @@
     ("u" emacspeak-wizards-units)
     ("v" emacspeak-wizards-vc-viewer)
     ("w" emacspeak-wizards-noaa-weather)
+    ("x" exchange-point-and-mark)
     ("|" emacspeak-wizards-squeeze-blanks)
     ("" desktop-clear)
-
     )
   "Key bindings for  C-e x. "
   :group 'emacspeak
