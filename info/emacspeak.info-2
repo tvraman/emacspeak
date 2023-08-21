@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 15, 2023.
+last updated on August 21, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -4792,9 +4792,9 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> k’
 
      Speak the current kill.
-     This is what will be yanked by the next S-<insertchar>. Prefix numeric
+     This is what will be yanked by the next <paste>. Prefix numeric
      arg, COUNT, specifies that the text that will be yanked as a
-     result of a S-<insertchar> followed by count-1 M-x yank-pop be
+     result of a <paste> followed by count-1 M-x yank-pop be
      spoken. The kill number that is spoken says what numeric prefix
      arg to give to command yank.
 
@@ -8371,6 +8371,12 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-x @ h b’
 
      Search BBC Sounds.
+     Result page is filtered down to two sections, Shows and Episodes.
+
+     Press [RET] on links in the Show section to open that show page.
+     The page for that show contains playable links for Episodes.
+
+     Press ‘y’ on Episode links to play them with MPV.
 
 12.214.1.29 emacspeak-wizards-cleanup-shell-path
 ................................................
