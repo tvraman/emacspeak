@@ -675,7 +675,7 @@ emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
 to some.")
 
-(defcustom ems--speak-max-line 512
+(defcustom ems--speak-max-line 256
   "Threshold for determining `long' lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
@@ -801,15 +801,14 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
           ((l (length line))
            (speakable ;; should we speak this line?
             (cond
-             ((or selective-display
-                  (< l ems--speak-max-line)
-                  (get-text-property start 'speak-line))
+             ((or
+               selective-display
+               (< l ems--speak-max-line)
+               (get-text-property start 'speak-line))
               t)
-             ((y-or-n-p (format "Use visual line mode   for %s long line" l))
-              (or visual-line-mode (visual-line-mode))
-              (setq ems--speak-max-line (1+ l))
-              (with-silent-modifications
-                (put-text-property start end 'speak-line t))
+             (t (call-interactively #'visual-line-mode)
+                (with-silent-modifications
+                  (put-text-property start end 'speak-line t))
               t))))
         (when speakable
           (when
