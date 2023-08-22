@@ -801,7 +801,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
           ((l (length line))
            (speakable ;; should we speak this line?
             (cond
-             ((or
+             ((or ;speakable
                selective-display
                (< l ems--speak-max-line)
                (get-text-property start 'speak-line))
