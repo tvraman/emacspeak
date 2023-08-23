@@ -2166,6 +2166,7 @@ Produce an auditory icon if possible."
 (defun emacspeak-minibuffer-exit-hook ()
   "Actions performed when exiting the minibuffer with Emacspeak loaded."
   (emacspeak-auditory-icon 'close-object)
+  (dtk-notify-stop)
   (dtk-stop))
 
 (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook)
