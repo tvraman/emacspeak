@@ -275,7 +275,8 @@ used to filter the amarks files to show.  Use
 \\[emacspeak-dired-open-this-file] to open the AMark Browser on
 current file."
   (interactive "P")
-  (cl-declare (special emacspeak-amark-file locate-command))
+  (cl-declare (special emacspeak-amark-file locate-command
+                       locate-make-command-line))
   (when pattern (setq pattern (read-from-minibuffer "Filter Pattern:")))
   (let ((case-fold-search t)
         (locate-make-command-line
