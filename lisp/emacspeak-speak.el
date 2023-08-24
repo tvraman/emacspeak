@@ -806,9 +806,11 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
                (< l ems--speak-max-line)
                (get-text-property start 'speak-line))
               t)
-             (t (call-interactively #'visual-line-mode)
-                (with-silent-modifications
-                  (put-text-property start end 'speak-line t))
+             (t
+              (put-text-property start end 'speak-line t)
+              (call-interactively #'visual-line-mode)
+              (with-silent-modifications
+                (put-text-property start end 'speak-line t))
               t))))
         (when speakable
           (when
