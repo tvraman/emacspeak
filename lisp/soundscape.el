@@ -491,6 +491,7 @@ Optional interactive prefix arg restarts the listener."
             (make-network-process
              :name "nc-connect"
              :family 'local
+             :service t ;dont-care port
              :remote soundscape--remote))))
   (when (process-live-p soundscape-remote-control)
     (process-send-string
