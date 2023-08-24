@@ -275,22 +275,22 @@ used to filter the amarks files to show.  Use
 \\[emacspeak-dired-open-this-file] to open the AMark Browser on
 current file."
   (interactive "P")
-  (cl-declare (special emacspeak-amark-file))
+  (cl-declare (special emacspeak-amark-file locate-command))
   (when pattern (setq pattern (read-from-minibuffer "Filter Pattern:")))
   (let ((case-fold-search t)
         (locate-make-command-line
          #'(lambda (s)
              (list
-              locate-command "-i" "-e" "--regexp" s)))))
-  (cond
-   (pattern 
-    (locate-with-filter
-     (mapconcat
-      #'identity
-      (split-string pattern)
-      "[ '/\"_.,-]")
-     emacspeak-amark-file))
-   (t (funcall-interactively #'locate emacspeak-amark-file)))
+              locate-command "-i" "-e" "--regexp" s))))
+    (cond
+     (pattern 
+      (locate-with-filter
+       (mapconcat
+        #'identity
+        (split-string pattern)
+        "[ '/\"_.,-]")
+       emacspeak-amark-file))
+     (t (funcall-interactively #'locate emacspeak-amark-file))))
   (rename-buffer "AMark Bookshelf" 'unique)
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'open-object))
