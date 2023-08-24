@@ -811,7 +811,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
                 (call-interactively #'visual-line-mode))
               (unless visual-line-mode
                 (put-text-property start end 'start-line t)
-                (setq ems--speak-max-line l))
+                (setq ems--speak-max-line (* 2 l)))
               t))))
         (when speakable
           (when
