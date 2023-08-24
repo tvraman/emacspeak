@@ -947,6 +947,7 @@ The time position can also be specified as HH:MM:SS."
             (delete-process  emacspeak-m-player-process))
           (setq emacspeak-m-player-process nil)
           (and (buffer-live-p buffer) (kill-buffer buffer))
+          (emacspeak-speak-mode-line)
           (emacspeak-auditory-icon 'close-object))))))
 
 (defun emacspeak-m-player-volume-up ()
