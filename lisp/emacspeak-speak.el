@@ -801,11 +801,17 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
           ((l (length line))
            (speakable ;; should we speak this line?
             (cond
-             ((or ;speakable
+             ((or                       ;speakable
                selective-display
-               (< l ems--speak-max-line))
+               (< l ems--speak-max-line)
+               (get-text-property start 'speak-line))
               t)
-             (t (call-interactively #'visual-line-mode)
+             (t
+              (when (y-or-n-p "use Visual Lines")
+                (call-interactively #'visual-line-mode))
+              (unless visual-line-mode
+                (put-text-property start end 'start-line t)
+                (setq ems--speak-max-line l))
               t))))
         (when speakable
           (when
