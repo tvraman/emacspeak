@@ -108,7 +108,7 @@
 (defadvice sp-backward-kill-word (before emacspeak pre act comp)
   "Speak word before killing it."
   (when (ems-interactive-p)
-    (when dtk-stop-immediately (dtk-stop))
+    (when dtk-stop-immediately (dtk-stop 'all))
     (let ((start (point))
           (dtk-stop-immediately nil))
       (save-excursion

@@ -123,14 +123,14 @@
   "speak."
   (cl-declare (special transient-show-common-commands))
   (when (ems-interactive-p)
-    (dtk-stop)
+    (dtk-stop 'all)
     (emacspeak-auditory-icon
      (if transient-show-common-commands 'on 'off))))
 
 (defadvice transient-resume (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-stop)
+    (dtk-stop 'all)
     (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop
@@ -141,7 +141,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (dtk-stop)
+       (dtk-stop 'all)
        (emacspeak-auditory-icon 'close-object)
        (when (eq major-mode 'emacspeak-transient-mode) (bury-buffer))
        (emacspeak-speak-mode-line)))))
@@ -155,7 +155,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'save-object)
-       (dtk-stop)))))
+       (dtk-stop 'all)))))
 
 (cl-loop
  for f in
@@ -248,7 +248,7 @@ Press `C-c' to resume the suspended transient."
   "Actions to execute after transient is done."
   (cl-declare (special transient--stack))
   (unless transient--stack
-    (dtk-stop)
+    (dtk-stop 'all)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 

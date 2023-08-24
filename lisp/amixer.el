@@ -237,7 +237,7 @@ to  ~/.emacs.d ")
     (start-process
      "AlsaCtl" nil alsactl-program
      "restore"))
-  (dtk-stop)
+  (dtk-stop 'all)
   (message "Resetting  sound to default")
   (amixer-build-db))
 

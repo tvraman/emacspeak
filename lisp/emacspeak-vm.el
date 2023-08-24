@@ -147,7 +147,7 @@ Note that some badly formed mime messages  cause trouble."
   (cl-declare (special vm-message-pointer))
   (cond
    (vm-message-pointer
-    (dtk-stop)
+    (dtk-stop 'all)
     (let*  ((message (car vm-message-pointer))
             (from (ems--vm-from-of message))
             (subject (ems--vm-subject-of  message))

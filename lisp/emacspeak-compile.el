@@ -87,7 +87,7 @@
           `(defadvice ,f (after  emacspeak pre act comp)
              "Speak the line containing the error. "
              (when (ems-interactive-p)
-               (dtk-stop)
+               (dtk-stop 'all)
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-compilation-speak-error)))))
 

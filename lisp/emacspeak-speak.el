@@ -161,7 +161,7 @@ Speech flushes as you type."
            (not executing-kbd-macro)
            (not noninteractive))
     (let ((display (get-char-property (1- (point)) 'display)))
-      (dtk-stop)
+      (dtk-stop 'all)
       (cond
        ((stringp display) (dtk-say display))
        ((and emacspeak-word-echo
@@ -727,7 +727,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
                emacspeak-decoration-rule emacspeak-horizontal-rule
                emacspeak-unspeakable-rule
                emacspeak-audio-indentation))
-  (dtk-stop)
+  (dtk-stop 'all)
   (when (listp arg) (setq arg (car arg)))
   (let* ((inhibit-field-text-motion t)
          (inhibit-read-only t)
@@ -1176,7 +1176,7 @@ Negative prefix arg speaks from start of buffer to point. "
   (let () (when (not emacspeak-speak-voice-annotated-paragraphs)
             (emacspeak-speak-voice-annotate-paragraphs))
        (when (listp arg) (setq arg (car arg)))
-       (dtk-stop)
+       (dtk-stop 'all)
        (let ((start nil)
              (end nil))
          (cond
@@ -1976,7 +1976,7 @@ location of the mark is indicated by an aural highlight. "
                      (not
                       (= emacspeak-execute-repeatedly-key
                          (string-to-char key))))
-            (dtk-stop)
+            (dtk-stop 'all)
             (setq continue nil)))))
     (dtk-speak "Exited continuous mode ")))
 
@@ -2507,7 +2507,7 @@ streams. Runs `emacspeak-silence-hook' which can be used to
 configure which media players get silenced or paused/resumed."
   (interactive)
   (cl-declare (special emacspeak-silence-hook))
-  (dtk-stop)
+  (dtk-stop 'all)
   (run-hooks 'emacspeak-silence-hook))
 
 ;;}}}

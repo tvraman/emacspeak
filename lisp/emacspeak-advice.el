@@ -2142,6 +2142,7 @@ Produce an auditory icon if possible."
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with emacspeak running."
   (cl-declare (special minibuffer-exit-hook minibuffer-default))
+  (dtk-stop 'all)
   (let ((inhibit-field-text-motion t))
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
@@ -2153,21 +2154,20 @@ Produce an auditory icon if possible."
     (emacspeak-pronounce-add-buffer-local-dictionary-entry
      default-directory "")
     (tts-with-punctuations
-     'all
-     (dtk-notify-speak
-      (concat
-       (buffer-string)
-       (if (stringp minibuffer-default)
-           minibuffer-default
-           ""))))))
+        'all
+      (dtk-notify-speak
+       (concat
+        (buffer-string)
+        (if (stringp minibuffer-default)
+            minibuffer-default
+          ""))))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 
 (defun emacspeak-minibuffer-exit-hook ()
   "Actions performed when exiting the minibuffer with Emacspeak loaded."
   (emacspeak-auditory-icon 'close-object)
-  (dtk-notify-stop)
-  (dtk-stop))
+  (dtk-stop 'all))
 
 (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook)
 ;;}}}

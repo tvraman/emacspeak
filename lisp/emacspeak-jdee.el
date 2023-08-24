@@ -97,7 +97,7 @@
 (defadvice jdee-complete-at-point (around emacspeak pre act comp)
   "Say what you completed."
   (let ((emacspeak-speak-messages nil))
-    (when dtk-stop-immediately (dtk-stop))
+    (when dtk-stop-immediately (dtk-stop 'all))
     ad-do-it
     (dtk-speak emacspeak-last-message)
     ad-return-value))

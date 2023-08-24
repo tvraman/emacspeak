@@ -201,7 +201,7 @@
 
 (defadvice message-beginning-of-line (before emacspeak pre act comp)
   "Stop speech first."
-  (when (ems-interactive-p) (dtk-stop)
+  (when (ems-interactive-p) (dtk-stop 'all)
         (emacspeak-auditory-icon 'select-object)
         (dtk-speak "beginning of line")))
 

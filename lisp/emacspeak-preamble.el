@@ -46,6 +46,7 @@
 
 (eval-when-compile (require 'subr-x))
 (require 'advice)
+(put 'defadvice 'byte-obsolete-info nil)
 (setq ad-redefinition-action 'accept)
 ;;{{{  Define locations
 

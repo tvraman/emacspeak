@@ -369,7 +369,7 @@ Provide contextual feedback when closing blocks"
       (condition-case nil
           (emacspeak-speak-region prior (point))
         (error (emacspeak-auditory-icon 'scroll)
-               (dtk-stop))))
+               (dtk-stop 'all))))
     ad-return-value))
 
 ;;}}}
@@ -403,7 +403,7 @@ Provide contextual feedback when closing blocks"
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
-    (dtk-stop)
+    (dtk-stop 'all)
     (emacspeak-speak-buffer)))
 
 ;;}}}

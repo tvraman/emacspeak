@@ -156,7 +156,7 @@ Uses corpus found in gweb-completion-corpus"
 
 (defun gweb-google-autocomplete (&optional prompt)
   "Autocomplete using Google Search corpus."
-  (dtk-stop)
+  (dtk-stop 'all)
   (let ((gweb-completion-corpus ""))
     (gweb--autocomplete-helper (or prompt "Google: "))))
 

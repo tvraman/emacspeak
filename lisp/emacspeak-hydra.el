@@ -86,7 +86,7 @@
 
 (defun emacspeak-hydra-post ()
   "Provide auditory icon. "
-  (dtk-stop)
+  (dtk-stop 'all)
   (when emacspeak-use-auditory-icons
     (emacspeak-play-auditory-icon 'close-object)))
 
@@ -123,7 +123,7 @@
 
 (defadvice lv-delete-window (after emacspeak pre act comp)
   "speak."
-  (dtk-stop)
+  (dtk-stop 'all)
   (emacspeak-auditory-icon 'delete-object))
 
 ;;}}}
