@@ -1206,6 +1206,7 @@ Useful to listen to a buffer without switching  contexts."
   "Speak remainder of the buffer starting at point"
   (interactive)
   (emacspeak-auditory-icon 'select-object)
+  (recenter 0); line-to-top
   (emacspeak-speak-buffer 1))
 
 (defun emacspeak-speak-help (&optional arg)
