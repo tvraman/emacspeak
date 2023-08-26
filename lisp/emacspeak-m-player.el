@@ -625,7 +625,7 @@ dynamic playlist. "
         (emacspeak-amark-load))
       (when (called-interactively-p 'interactive)
         (message
-         " MPlayer opened  %s"
+         "Playing   %s"
          (cond
           ((null resource)
            (format
@@ -633,7 +633,8 @@ dynamic playlist. "
             (length file-list) duration))
           ((file-directory-p resource)
            (car (last (split-string resource "/" t))))
-          (t (file-name-nondirectory resource))))))))
+          (t
+           (abbreviate-file-name (file-name-nondirectory resource)))))))))
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal ()
