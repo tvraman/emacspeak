@@ -203,7 +203,6 @@ Use Custom to customize where possible. "
   (make-thread #'(lambda nil (load "eww")))
   (require 'dired-x)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (tvr-set-color-for-today)
   (when (file-exists-p custom-file)
     (tvr-time-load (load custom-file)))
   (load-theme 'modus-vivendi-tinted t)
@@ -215,7 +214,8 @@ Use Custom to customize where possible. "
                           yas-minor-mode  auto-fill-function abbrev-mode auto-correct-mode)))
 
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
-  (bash-completion-setup))
+  (bash-completion-setup)
+  (tvr-set-color-for-today))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
