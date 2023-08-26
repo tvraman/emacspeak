@@ -513,25 +513,25 @@ command emacspeak-speak-line-set-column-filter.")
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
-(defun emacspeak-speak-line-apply-column-filter (line &optional invert-filter)
+(defun emacspeak-speak-line-apply-column-filter (line &optional invert)
+  "Apply column filter."
   (cl-declare (special emacspeak-speak-line-column-filter))
   (let ((filter emacspeak-speak-line-column-filter)
         (l (length line))
         (pair nil)
-        (personality (if invert-filter nil
+        (personality (if invert nil
                        'inaudible)))
     (with-silent-modifications
-      (when invert-filter
+      (when invert
         (put-text-property 0 l
                            'personality 'inaudible line))
       (while filter
         (setq pair (pop filter))
         (when (and (<= (cl-first pair) l)
                    (<= (cl-second pair) l))
-          (put-text-property (cl-first pair)
-                             (cl-second pair)
-                             'personality personality
-                             line))))
+          (put-text-property
+           (cl-first pair) (cl-second pair)
+           'personality personality line))))
     line))
 
 (defun emacspeak-speak-persist-filter-entry (k v)
