@@ -7,11 +7,11 @@ SETUP = emacs-startup.elc \
 sp-prepare.elc lispy-prepare.elc \
 vm-prepare.elc gnus-gmail-prepare.elc  \
 laptop-local.elc touchpad-disable.elc   slime-prepare.elc   \
-org-prepare.elc   all-prepare.elc 
+weekday-colors.elc org-prepare.elc   all-prepare.elc 
 
 ALL= 00-exwm-prepare.el yes-prepare.el\
 vm-prepare.el gnus-gmail-prepare.el \
-	laptop-local.el sp-prepare.el lispy-prepare.el slime-prepare.el org-prepare.el  kbd-macros.el
+	weekday-colors.el laptop-local.el sp-prepare.el lispy-prepare.el slime-prepare.el org-prepare.el  kbd-macros.el
 
 all: all-prepare.elc emacs-startup.elc setup
 

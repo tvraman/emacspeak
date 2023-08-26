@@ -203,6 +203,7 @@ Use Custom to customize where possible. "
   (make-thread #'(lambda nil (load "eww")))
   (require 'dired-x)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
+  (tvr-set-color-for-today)
   (when (file-exists-p custom-file)
     (tvr-time-load (load custom-file)))
   (load-theme 'modus-vivendi-tinted t)
