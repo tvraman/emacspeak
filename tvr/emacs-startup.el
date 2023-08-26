@@ -148,23 +148,21 @@ startup sound."
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        global-mode-string outline-minor-mode-prefix
-                       python-mode-hook outline-mode-prefix-map
+                       outline-mode-prefix-map
                        completion-auto-select emacspeak-directory))
   (load-library "aster")
-  (add-hook 'python-mode-hook #'elpy-enable)
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
-  (prefer-coding-system 'utf-8-emacs)
-  (global-set-key (kbd "C-]" ) 'recenter-top-bottom)
-  (global-set-key (kbd "C-l" ) ctl-x-map) ; easier to hit than C-x
+  (global-set-key (kbd "C-l") ctl-x-map)
   (global-set-key[remap dabbrev-expand] 'hippie-expand)
   (cl-loop ;; global key-bindings
    for key in
    '(
+     ("C-]"  recenter-top-bottom)
      (  "C-x r a"  append-to-register)
      ("C-x r p"  prepend-to-register)
      ("C-x v ." magit-commit-create)
@@ -182,6 +180,7 @@ Use Custom to customize where possible. "
      ("M-C-v" vm-visit-folder))
    do
    (global-set-key (ems-kbd (cl-first key)) (cl-second key)))
+  
   (cl-loop ;;; shell wizard
    for i from 0 to 9 do
    (global-set-key
