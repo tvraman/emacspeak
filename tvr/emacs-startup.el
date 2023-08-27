@@ -78,14 +78,10 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{ Fixups:
 
-
 (defadvice system-users (around fix pre act comp)
   "Just return user real name."
   (ignore ad--addoit-function)
   (setq ad-return-value (list user-real-login-name)))
-
-;; for twittering-mode:
-(defalias 'epa--decode-coding-string 'decode-coding-string)
 
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
@@ -180,7 +176,7 @@ Use Custom to customize where possible. "
      ("M-C-v" vm-visit-folder))
    do
    (global-set-key (ems-kbd (cl-first key)) (cl-second key)))
-  
+
   (cl-loop ;;; shell wizard
    for i from 0 to 9 do
    (global-set-key
@@ -224,7 +220,7 @@ Use Custom to customize where possible. "
   (tvr-time-load (load tvr-libs))
   (tvr-customize) ;;; customizations
   (with-eval-after-load
-    'yasnippet
+      'yasnippet
     (yas-reload-all)
     (diminish ' ""))
   (load "emacspeak-muggles")
@@ -255,10 +251,10 @@ Use Custom to customize where possible. "
   (hs-minor-mode)
   (auto-fill-mode)
   (cond
-    ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
-     (when dtk-caps (setq dtk-caps nil))
-     (lispy-mode ))
-    (t (smartparens-mode)))
+   ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
+    (when dtk-caps (setq dtk-caps nil))
+    (lispy-mode ))
+   (t (smartparens-mode)))
   (yas-minor-mode)
   (abbrev-mode))
 
@@ -273,10 +269,10 @@ configuration happens via the after-init-hook. "
   (setenv "PULSE_SINK" "binaural")
   (unless (featurep 'emacspeak)
     (tvr-time-load                      ; load emacspeak:
-     (load ;; setenv EMACSPEAK_DIR if you want to load a different version
-      (expand-file-name
-       "lisp/emacspeak-setup"
-       (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
+        (load ;; setenv EMACSPEAK_DIR if you want to load a different version
+         (expand-file-name
+          "lisp/emacspeak-setup"
+          (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
   (cl-pushnew (expand-file-name "tvr/" emacspeak-directory) load-path
               :test #'string-equal)
   (push (expand-file-name "aster-math/ui" emacspeak-directory) load-path)
@@ -287,6 +283,7 @@ configuration happens via the after-init-hook. "
 (tvr-emacs)
 
 ;;{{{ Forward Function Declarations:
+(declare-function tvr-set-color-for-today "all-prepare" nil)
 (declare-function nvm--installed-versions "emacs-startup" t)
 
 (declare-function ems-kbd "emacspeak-keymap" (string))
@@ -299,7 +296,7 @@ configuration happens via the after-init-hook. "
 ;;}}}
 ;;{{{quick tts rescue:
 ;;; debug aid: tts appears to not restart but notification stream is
-;;live: so reuse it as the speaker 
+;;live: so reuse it as the speaker
 (defun n2s ()
   (interactive)
   (cl-declare (special dtk-speaker-process dtk-notify-process))
