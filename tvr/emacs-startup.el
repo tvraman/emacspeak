@@ -112,7 +112,8 @@ Produce timing information as the last step."
 (defun tvr-nvm-setup ()
   "Set up NVM/NPM."
   (with-eval-after-load "nvm"
-    (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
+    (let ((v
+           (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
       (nvm-use v)
       (executable-find "node"))))
 
