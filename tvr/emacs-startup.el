@@ -108,20 +108,6 @@ Produce timing information as the last step."
   (tab-bar-switch-to-tab "Home"))
 
 ;;}}}
-;;{{{Node/NVM Setup:
-(defun tvr-nvm-setup ()
-  "Set up NVM/NPM."
-  (with-eval-after-load "nvm"
-    (let ((v
-           (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
-      (nvm-use v)
-      (executable-find "node"))))
-
-(defvar tvr-npm-node
-  (tvr-nvm-setup)
-  "Find the right Node executable.")
-
-;;}}}
 ;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
 
 (defun tvr-emacs-startup-hook ()
@@ -284,8 +270,6 @@ configuration happens via the after-init-hook. "
 
 ;;{{{ Forward Function Declarations:
 (declare-function tvr-set-color-for-today "all-prepare" nil)
-(declare-function nvm--installed-versions "emacs-startup" t)
-
 (declare-function ems-kbd "emacspeak-keymap" (string))
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
