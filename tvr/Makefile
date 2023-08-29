@@ -8,12 +8,10 @@ ALL= \
 00-exwm-prepare.el \
 gnus-gmail-prepare.el \
 kbd-macros.el \
-laptop-local.el \
 lispy-prepare.el \
 org-prepare.el \
 slime-prepare.el \
 sp-prepare.el \
-touchpad-disable.el \
 vm-prepare.el \
 weekday-colors.el
 
