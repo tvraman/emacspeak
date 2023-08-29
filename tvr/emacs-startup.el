@@ -205,10 +205,13 @@ Use Custom to customize where possible. "
   (cl-declare (special  tvr-libs ))
 ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
-  (tvr-customize) ;;; customizations
   (with-eval-after-load
       'yasnippet
-    (yas-reload-all))
+    (yas-reload-all)
+    (when (featurep 'diminish)
+      (diminish 'yas-minor-mode "")))
+;; customizations
+  (tvr-customize)
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize))
 
