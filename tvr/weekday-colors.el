@@ -2,9 +2,8 @@
 ;;{{{Weekday Colors:
 
 (defconst tvr-weekday-color-map
-  [; 0 is Sunday 
-   ("light sky blue" . "#6FBD87")                       ; light sky blue on silver tree
-   ("#FFF3FF" . "gold"); lavender blush on gold
+  [                                    ; 0 is Sunday 
+   ("light sky blue" . "#6FBD87")      ; light sky blue on silver tree
    ("royal blue" . "#FFD724")          ;RoyalBlue on pink
    ("#F4C430" . "sea green")           ; saffron on sea green
    ("#FFFFDA" . "royal blue")          ; light yellow on blue
