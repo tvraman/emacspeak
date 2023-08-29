@@ -208,8 +208,7 @@ Use Custom to customize where possible. "
   (tvr-customize) ;;; customizations
   (with-eval-after-load
       'yasnippet
-    (yas-reload-all)
-    (diminish ' ""))
+    (yas-reload-all))
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize))
 
