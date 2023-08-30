@@ -4,7 +4,9 @@
 (autoload 'vm-visit-folder "vm" "Open VM folder" t nil)
 (with-eval-after-load "vm"
   (global-set-key "\C-xm" 'vm-mail)
-  (when (require 'bbdb) (bbdb-insinuate-vm)))
+  (when
+      (locate-library "bbdb")
+      (require 'bbdb) (bbdb-insinuate-vm)))
 
 (defun make-local-hook (hook)
   "compatibility"
