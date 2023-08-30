@@ -223,10 +223,9 @@ Press `C-c' to resume the suspended transient."
           transient--window (selected-window))
     (when-let
         ((match
-          (funcall-interactively
-           #'text-property-search-forward
-           'face 'transient-heading t t)))
-      (goto-char (prop-match-beginning match)))))
+          (text-property-search-forward 'face 'transient-heading t t)))
+      (goto-char (prop-match-beginning match))
+      (emacspeak-speak-region (point) (prop-match-end match)))))
 
 (defun emacspeak-transient-previous-section ()
   "Previous transient section."
@@ -236,10 +235,10 @@ Press `C-c' to resume the suspended transient."
           transient--window (selected-window))
     (when-let
         ((match
-          (funcall-interactively
-           #'text-property-search-backward
+          (text-property-search-backward
            'face 'transient-heading t t)))
-      (goto-char (prop-match-beginning match)))))
+      (goto-char (prop-match-beginning match))
+      (emacspeak-speak-region (point) (prop-match-end match)))))
 
 ;;}}}
 ;;{{{Hooks:
