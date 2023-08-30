@@ -7,6 +7,7 @@ COMPILE = -f batch-byte-compile
 ALL= \
 gnus-gmail-prepare.el \
 kbd-macros.el \
+laptop-local.el \
 lispy-prepare.el \
 org-prepare.el \
 slime-prepare.el \
