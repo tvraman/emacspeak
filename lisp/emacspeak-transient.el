@@ -283,8 +283,8 @@ Press `C-c' to resume the suspended transient."
                        transient-popup-navigation-map
                        transient-predicate-map))
   
-(define-key transient-predicate-map [emacspeak-speak-line] 'transient--do-stay)
-(define-key transient-predicate-map [emacspeak-speak-mode-line] 'transient--do-stay)
+                                        ;(define-key transient-predicate-map [emacspeak-speak-line] 'transient--do-stay)
+                                        ;(define-key transient-predicate-map [emacspeak-speak-mode-line] 'transient--do-stay)
   (define-key transient-predicate-map
               [emacspeak-transient-previous-section] 'transient--do-move)
   (define-key transient-predicate-map
