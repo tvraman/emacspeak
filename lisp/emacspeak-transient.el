@@ -79,7 +79,7 @@
 ;; Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
 ;; temporarily suspend   the currently active transient. Emacspeak now
 ;; displays a  *transient-emacspeak* buffer that displays the contents of the
-;; most recently displayed transient choices. Pressing @kbd {C-c} resumes
+;; most recently displayed transient choices. Pressing @kbd {r} resumes
 ;; the transient; Pressing @kbd{C-q} quits the transient.
 ;; 
 ;;; Code:
@@ -176,7 +176,7 @@
   (local-set-key (ems-kbd "M-n") 'emacspeak-transient-next-section)
   (local-set-key (ems-kbd "M-p") 'emacspeak-transient-previous-section)
   (local-set-key "q" 'bury-buffer)
-  (local-set-key (ems-kbd "C-c") 'transient-resume))
+  (local-set-key "r" 'transient-resume))
 
 (defvar emacspeak-transient-cache nil
   "Cache of the last Transient buffer contents.")
@@ -194,7 +194,7 @@
 (defadvice transient-suspend (around emacspeak pre act comp)
   "Pop to *Transient-emacspeak* buffer where the message emitted by
 the transient can be browsed.
-Press `C-c' to resume the suspended transient."
+Press `r' to resume the suspended transient."
   (cl-declare (special emacspeak-transient-cache))
   (cond
    ((ems-interactive-p)
@@ -204,7 +204,7 @@ Press `C-c' to resume the suspended transient."
       (emacspeak-auditory-icon 'close-object)
       (with-current-buffer buff
         (erase-buffer)
-        (insert "C-c to resume, C-g to quit.\n\n")
+        (insert "r to resume, C-g to quit.\n\n")
         (insert emacspeak-transient-cache)
         (goto-char (point-min))
         (emacspeak-transient-mode))
