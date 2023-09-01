@@ -122,10 +122,11 @@ This moves them into the Spam folder."
 ;;{{{ Utils:
 
 (defun google-py-oauth2-cli (user app-secret)
-  "generate command-line for pasting into a shell."
+  "generate command-line for pasting into a shell.
+Uses the go oauth tool found in the xoauth git repo."
   (kill-new
    (format
-    "python oauth2.py --user %s --client_id %s --client_secret %s   --generate_oauth2_token"
+    "oauth --user %s --client_id %s --client_secret %s   --generate_oauth2_token"
     user
     (plist-get app-secret :client-id)
     (plist-get app-secret :client-secret))))
