@@ -13,7 +13,7 @@ See earlier articles on this topic for context:
 
 So to summarize,  my Emacs uses:
 
-  1. *CapsLock* as /Control.
+  1. *CapsLock* as /Control/.
   2. Using XCape, quickly releasing /Control/ emits /C-e/.
 
 * Next, Some Finger Tips
