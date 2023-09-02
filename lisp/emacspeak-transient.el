@@ -182,14 +182,13 @@
   "Cache of the last Transient buffer contents.")
 
 (defadvice transient--show (after emacspeak pre act comp)
-  "Set up cache."
+  "Speak and set up cache."
   (when (window-live-p transient--window)
     (with-current-buffer (window-buffer transient--window)
       (setq emacspeak-transient-cache
             (buffer-substring (point-min)  (point-max)))
-      (when (sit-for 0.1)
-        (emacspeak-speak-line)
-        (emacspeak-auditory-icon 'open-object)))))
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'open-object))))
 
 (defadvice transient-suspend (around emacspeak pre act comp)
   "Pop to *Transient-emacspeak* buffer where the message emitted by
