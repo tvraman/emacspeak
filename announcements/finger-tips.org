@@ -6,7 +6,56 @@ years, and some of these changes may well have helped me much earlier;
 on the other hand, I likely didn't notice these issues because my
 hands then were not the same as what they are now.
 
+See earlier articles on this topic for context:
 
+  -  [[https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html][Minimize chording using XCape]]
+  -  [[https://emacspeak.blogspot.com/2023/07/ergonomic-buffer-selection-on-emacs.html][Ergonomic Buffer Selection]]
+
+So to summarize,  my Emacs uses:
+
+  1. *CapsLock* as /Control.
+  2. Using XCape, quickly releasing /Control/ emits /C-e/.
+
+* Next, Some Finger Tips
+
+Note: I'm not a trained ergonomist; the following are observations
+based on my experience and may not apply to everyone; I suspect the
+size of one's hands, the width of the keyboard etc., all matter. For
+the last 3+ years, I've exclusively used a laptop keyboard, in my case
+a Lenovo.
+
+  1. I now find that replacing key-chords by a sequence of non-chords
+     makes my hands happier. The trick is to replace a chord by no
+     more than 2 keys.
+  2. Since Caps lock (left pinky) is my /Control/ key, /C-s/ is  not
+     as nice as /C-l/; notice that the former requires chording with
+     two fingres of the same hand, whereas the lattre spreads the work
+     among both hands on an English _qwerty_ keyboard.
+  3. On the left-hand, chords that require extending or scrunching
+     one's fingres when hitting a chord are more painful. Thus, /C-z/
+     and /C-x/ are more painful to hit than /C-d/. Emacs hardly uses
+     /C-z/; but unfortunately, /C-x/ is an important prefix key in
+     stock Emacs.
+
+* Now For The Finger Tips 
+
+
+  1. I have /left-shift/ and /right-shift/ emit /C-s/ and /C-r/
+   using XCape.
+  2. I bound /C-l/ to _ctl-x-map_ (still experimental). This remapping
+     fails to take effect in places like /Dired/ and /Gnus/.
+  3. I additionallly bound /find-file/ to /C-; o/.
+  4. When I remap things, I *never* take away the original Emacs
+     bindings; I only provide alternatives.
+  5. I use /C-,/, /C-./, /C-;/, and /C-'/ as prefix keys. Downside:
+     these only work under X, but the time where I only ran Emacs in a
+     terminal are long gone.
+
+
+* Conclusion
+
+There's likely a lot more to be discovered in this context; time will
+reveal all!
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
