@@ -35,6 +35,182 @@
   </openSearch:startIndex>
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
+<entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-3329932190031651752</id><published>
+      2023-09-02T19:34:00.001-07:00
+    </published>
+    <updated>2023-09-02T19:34:27.040-07:00</updated><title type='text'>
+      Emacs Ergonomics: Dont Punish Your Finger Tips
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Emacs Ergonomics: Dont Punish Your
+      Finger Tips&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org099d12d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org099d12d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      A collection of keybinding changes I have arrived at over time to
+      protect my fingers.Note that I have now used Emacs for more than 33
+      years, and some of these changes may well have helped me much
+      earlier;
+      on the other hand, I likely didn&#39;t notice these issues because
+      myhands then were not the same as what they are now.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      See earlier articles on this topic for context:
+      &lt;/p&gt;
+      
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html&quot;&gt;Minimize chording using XCape&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/07/ergonomic-buffer-selection-on-emacs.html&quot;&gt;Ergonomic Buffer Selection&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;p&gt;
+      So to summarize,  my Emacs uses:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;b&gt;CapsLock&lt;/b&gt; as
+      &lt;i&gt;Control&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;Using XCape, quickly releasing &lt;i&gt;Control&lt;/i&gt;
+      emits &lt;i&gt;C-e&lt;/i&gt; &amp;#x2014; the
+      eEmacspeak prefix-key.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgd0e879a&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd0e879a&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Next, Some
+      Finger Tips&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      Note: I&#39;m not a trained ergonomist; the following are
+      observations
+      based on my experience and may not apply to everyone; I suspect the
+      size of one&#39;s hands, the width of the keyboard etc., all matter.
+      For
+      the last 3+ years, I&#39;ve exclusively used a laptop keyboard, in
+      my case
+      a Lenovo.
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;I now find that replacing key-chords by a sequence of
+      non-chords
+      makes my hands happier. The trick is to replace a chord by no
+      more than 2 keys.&lt;/li&gt;
+      &lt;li&gt;Since Caps lock (left pinky) is my
+      &lt;i&gt;Control&lt;/i&gt; key, &lt;i&gt;C-s&lt;/i&gt; is  not
+      as nice as &lt;i&gt;C-l&lt;/i&gt;; notice that the former requires
+      chording with
+      two fingres of the same hand, whereas the lattre spreads the work
+      among both hands on an English &lt;span
+      class=&quot;underline&quot;&gt;qwerty&lt;/span&gt;
+      keyboard.&lt;/li&gt;
+      &lt;li&gt;One work-around for the above might be to have &lt;span
+      class=&quot;underline&quot;&gt;RET&lt;/span&gt; emit
+      &lt;i&gt;Control&lt;/i&gt; if held down,  but I haven&#39;t done
+      that (yet).&lt;/li&gt;
+      &lt;li&gt;On the left-hand, chords that require extending or
+      scrunching
+      one&#39;s fingres when hitting a chord are more painful. Thus,
+      &lt;i&gt;C-z&lt;/i&gt;
+      and &lt;i&gt;C-x&lt;/i&gt; are more painful to hit than
+      &lt;i&gt;C-d&lt;/i&gt;. Emacs hardly uses
+      &lt;i&gt;C-z&lt;/i&gt; and &lt;i&gt;C-c&lt;/i&gt;; but
+      unfortunately, &lt;i&gt;C-x&lt;/i&gt; is an important prefix key in
+      stock Emacs.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org7154a32&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org7154a32&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Now For The
+      Finger Tips&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;I have &lt;i&gt;left-shift&lt;/i&gt; and
+      &lt;i&gt;right-shift&lt;/i&gt; emit &lt;i&gt;C-s&lt;/i&gt; and
+      &lt;i&gt;C-r&lt;/i&gt;
+      using XCape.&lt;/li&gt;
+      &lt;li&gt;I bound &lt;i&gt;C-l&lt;/i&gt; to &lt;span
+      class=&quot;underline&quot;&gt;ctl-x-map&lt;/span&gt; (still
+      experimental). This remapping
+      fails to take effect in places like &lt;i&gt;Dired&lt;/i&gt; and
+      &lt;i&gt;Gnus&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;I additionallly bound &lt;i&gt;find-file&lt;/i&gt; to
+      &lt;i&gt;C-; o&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;A long time ago, I discovered &lt;i&gt;M-m&lt;/i&gt;
+      (back-to-indentation) and I
+      never hit &lt;i&gt;C-a&lt;/i&gt; to move to the start of the
+      line.&lt;/li&gt;
+      &lt;li&gt;When I remap things, I &lt;b&gt;never&lt;/b&gt; take away
+      the original Emacs
+      bindings; I only provide alternatives.&lt;/li&gt;
+      &lt;li&gt;I use &lt;i&gt;C-,&lt;/i&gt;, &lt;i&gt;C-.&lt;/i&gt;,
+      &lt;i&gt;C-;&lt;/i&gt;, and &lt;i&gt;C-&#39;&lt;/i&gt; as prefix
+      keys. Downside:
+      these only work under X, but the time where I only ran Emacs in a
+      terminal are long gone.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      See my 
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L245&quot;&gt;Emacs&lt;/a&gt; Startup File
+      for the setup.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org750d581&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org750d581&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt;
+      Conclusion&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;p&gt;
+      There&#39;s likely a lot more to be discovered in this context; time
+      will
+      reveal all!
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;
+      &lt;p class=&quot;date&quot;&gt;Date: 2023-09-01 Fri 00:00&lt;/p&gt;
+      &lt;p class=&quot;author&quot;&gt;Author: T.V Raman&lt;/p&gt;
+      &lt;p class=&quot;date&quot;&gt;Created: 2023-09-02 Sat
+      19:28&lt;/p&gt;
+      &lt;p class=&quot;validation&quot;&gt;&lt;a
+      
+      href=&quot;https://validator.w3.org/check?uri=referer&quot;&gt;Validate&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3329932190031651752'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3329932190031651752'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html' title='Emacs Ergonomics: Dont Punish Your Finger Tips'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
 <id>tag:blogger.com,1999:blog-20280042.post-5415414125614730451
 </id>
