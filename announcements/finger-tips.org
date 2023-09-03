@@ -37,7 +37,7 @@ a Lenovo.
   4. On the left-hand, chords that require extending or scrunching
      one's fingres when hitting a chord are more painful. Thus, /C-z/
      and /C-x/ are more painful to hit than /C-d/. Emacs hardly uses
-     /C-z/ and /C-c/; but unfortunately, /C-x/ is an important prefix key in
+     /C-z/; but unfortunately, /C-x/ is an important prefix key in
      stock Emacs.
 
 * Now For The Finger Tips 
