@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-09-02 Sat 10:00 -->
+<!-- 2023-09-02 Sat 19:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs Ergonomics: Dont Punish Your Finger Tips</title>
@@ -197,8 +197,8 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Emacs Ergonomics: Dont Punish Your Finger Tips</h1>
-<div id="outline-container-org6fe4095" class="outline-2">
-<h2 id="org6fe4095"><span class="section-number-2">1.</span> Summary</h2>
+<div id="outline-container-org099d12d" class="outline-2">
+<h2 id="org099d12d"><span class="section-number-2">1.</span> Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A collection of keybinding changes I have arrived at over time to
@@ -222,14 +222,15 @@ So to summarize,  my Emacs uses:
 </p>
 
 <ol class="org-ol">
-<li><b>CapsLock</b> as /Control.</li>
-<li>Using XCape, quickly releasing <i>Control</i> emits <i>C-e</i>.</li>
+<li><b>CapsLock</b> as <i>Control</i>.</li>
+<li>Using XCape, quickly releasing <i>Control</i> emits <i>C-e</i> &#x2014; the
+eEmacspeak prefix-key.</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orgeb373d4" class="outline-2">
-<h2 id="orgeb373d4"><span class="section-number-2">2.</span> Next, Some Finger Tips</h2>
+<div id="outline-container-orgd0e879a" class="outline-2">
+<h2 id="orgd0e879a"><span class="section-number-2">2.</span> Next, Some Finger Tips</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Note: I'm not a trained ergonomist; the following are observations
@@ -247,17 +248,19 @@ more than 2 keys.</li>
 as nice as <i>C-l</i>; notice that the former requires chording with
 two fingres of the same hand, whereas the lattre spreads the work
 among both hands on an English <span class="underline">qwerty</span> keyboard.</li>
+<li>One work-around for the above might be to have <span class="underline">RET</span> emit
+<i>Control</i> if held down,  but I haven't done that (yet).</li>
 <li>On the left-hand, chords that require extending or scrunching
 one's fingres when hitting a chord are more painful. Thus, <i>C-z</i>
 and <i>C-x</i> are more painful to hit than <i>C-d</i>. Emacs hardly uses
-<i>C-z</i>; but unfortunately, <i>C-x</i> is an important prefix key in
+<i>C-z</i> and <i>C-c</i>; but unfortunately, <i>C-x</i> is an important prefix key in
 stock Emacs.</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org38aa21d" class="outline-2">
-<h2 id="org38aa21d"><span class="section-number-2">3.</span> Now For The Finger Tips</h2>
+<div id="outline-container-org7154a32" class="outline-2">
+<h2 id="org7154a32"><span class="section-number-2">3.</span> Now For The Finger Tips</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>I have <i>left-shift</i> and <i>right-shift</i> emit <i>C-s</i> and <i>C-r</i>
@@ -265,18 +268,25 @@ using XCape.</li>
 <li>I bound <i>C-l</i> to <span class="underline">ctl-x-map</span> (still experimental). This remapping
 fails to take effect in places like <i>Dired</i> and <i>Gnus</i>.</li>
 <li>I additionallly bound <i>find-file</i> to <i>C-; o</i>.</li>
+<li>A long time ago, I discovered <i>M-m</i> (back-to-indentation) and I
+never hit <i>C-a</i> to move to the start of the line.</li>
 <li>When I remap things, I <b>never</b> take away the original Emacs
 bindings; I only provide alternatives.</li>
 <li>I use <i>C-,</i>, <i>C-.</i>, <i>C-;</i>, and <i>C-'</i> as prefix keys. Downside:
 these only work under X, but the time where I only ran Emacs in a
 terminal are long gone.</li>
 </ol>
+
+<p>
+See my 
+<a href="https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L245">Emacs</a> Startup File
+for the setup.
+</p>
 </div>
 </div>
 
-
-<div id="outline-container-org9ca434f" class="outline-2">
-<h2 id="org9ca434f"><span class="section-number-2">4.</span> Conclusion</h2>
+<div id="outline-container-org750d581" class="outline-2">
+<h2 id="org750d581"><span class="section-number-2">4.</span> Conclusion</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 There's likely a lot more to be discovered in this context; time will
@@ -288,7 +298,7 @@ reveal all!
 <div id="postamble" class="status">
 <p class="date">Date: 2023-09-01 Fri 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2023-09-02 Sat 10:00</p>
+<p class="date">Created: 2023-09-02 Sat 19:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -14,7 +14,8 @@ See earlier articles on this topic for context:
 So to summarize,  my Emacs uses:
 
   1. *CapsLock* as /Control/.
-  2. Using XCape, quickly releasing /Control/ emits /C-e/.
+  2. Using XCape, quickly releasing /Control/ emits /C-e/ --- the
+     eEmacspeak prefix-key.
 
 * Next, Some Finger Tips
 
@@ -31,10 +32,12 @@ a Lenovo.
      as nice as /C-l/; notice that the former requires chording with
      two fingres of the same hand, whereas the lattre spreads the work
      among both hands on an English _qwerty_ keyboard.
-  3. On the left-hand, chords that require extending or scrunching
+  3. One work-around for the above might be to have _RET_ emit
+     /Control/ if held down,  but I haven't done that (yet).
+  4. On the left-hand, chords that require extending or scrunching
      one's fingres when hitting a chord are more painful. Thus, /C-z/
      and /C-x/ are more painful to hit than /C-d/. Emacs hardly uses
-     /C-z/; but unfortunately, /C-x/ is an important prefix key in
+     /C-z/ and /C-c/; but unfortunately, /C-x/ is an important prefix key in
      stock Emacs.
 
 * Now For The Finger Tips 
@@ -45,12 +48,17 @@ a Lenovo.
   2. I bound /C-l/ to _ctl-x-map_ (still experimental). This remapping
      fails to take effect in places like /Dired/ and /Gnus/.
   3. I additionallly bound /find-file/ to /C-; o/.
-  4. When I remap things, I *never* take away the original Emacs
+  4. A long time ago, I discovered /M-m/ (back-to-indentation) and I
+     never hit /C-a/ to move to the start of the line.
+  5. When I remap things, I *never* take away the original Emacs
      bindings; I only provide alternatives.
-  5. I use /C-,/, /C-./, /C-;/, and /C-'/ as prefix keys. Downside:
+  6. I use /C-,/, /C-./, /C-;/, and /C-'/ as prefix keys. Downside:
      these only work under X, but the time where I only ran Emacs in a
      terminal are long gone.
 
+See my 
+[[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L245][Emacs]] Startup File
+for the setup.
 
 * Conclusion
 
