@@ -281,8 +281,7 @@ Press `r' to resume the suspended transient."
   (cl-declare (special transient-enable-popup-navigation
                        transient-popup-navigation-map
                        transient-predicate-map))
-                                        ;(define-key transient-predicate-map [emacspeak-speak-line] 'transient--do-stay)
-                                        ;(define-key transient-predicate-map [emacspeak-speak-mode-line] 'transient--do-stay)
+  (keymap-set  transient-popup-navigation-map "C-j" #'transient-push-button)
   (define-key transient-predicate-map
               [emacspeak-transient-previous-section] 'transient--do-move)
   (define-key transient-predicate-map
