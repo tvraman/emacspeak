@@ -13,7 +13,7 @@
 
 ;;; Commentary:
 ;; *   This startup file is set up with the following goals:
-;; 
+;;
 ;;   1. Speed up emacs startup
 ;;   2. Customize packages via a custom file where possible.
 ;;   3. Keep the  custom settings  in a separate file
@@ -43,8 +43,7 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-;;; Emacs @HEAD is broken:
-(defvar font-lock-reference-face 'font-lock-constant-face)
+
 (defvar tvr-site-lib
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
@@ -78,9 +77,10 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{ Fixups:
 
-
+;; Emacs @HEAD is broken:
+(defvar font-lock-reference-face 'font-lock-constant-face)
 (advice-add 'system-users :override #'(lambda nil   (list user-real-login-name)))
-  
+
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
 
@@ -162,7 +162,7 @@ Use Custom to customize where possible. "
    do
    (global-set-key (ems-kbd (cl-first key)) (cl-second key)))
 
-  (cl-loop ;;; shell wizard
+  (cl-loop ;; shell wizard
    for i from 0 to 9 do
    (global-set-key
     (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
@@ -176,7 +176,7 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
   ;; Outline Setup:
   (with-eval-after-load 'outline
-    (global-set-key (ems-kbd "C-o") outline-mode-prefix-map) ;;;restore
+    (global-set-key (ems-kbd "C-o") outline-mode-prefix-map) ;;restore
     (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
@@ -208,7 +208,7 @@ Use Custom to customize where possible. "
     (yas-reload-all)
     (when (featurep 'diminish)
       (diminish 'yas-minor-mode "")))
-;; customizations
+  ;; customizations
   (tvr-customize)
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize))
@@ -269,7 +269,7 @@ configuration happens via the after-init-hook. "
 (tvr-emacs)
 
 ;;{{{ Forward Function Declarations:
-(declare-function tvr-set-color-for-today "all-prepare" nil)
+
 (declare-function ems-kbd "emacspeak-keymap" (string))
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
@@ -279,7 +279,8 @@ configuration happens via the after-init-hook. "
 
 ;;}}}
 ;;{{{quick tts rescue:
-;;; debug aid: tts appears to not restart but notification stream is
+
+;; debug aid: tts appears to not restart but notification stream is
 ;;live: so reuse it as the speaker
 (defun n2s ()
   (interactive)
