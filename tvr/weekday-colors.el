@@ -2,7 +2,7 @@
 ;;{{{Weekday Colors:
 
 (defconst tvr-weekday-color-map ; background . foreground
-  [("Dark Blue" . "#6FBD87")       ; silver tree
+  [("#0d0e1c" . "#6FBD87")       ; silver tree
    ("Light blue" . "#FFD724")              ;RoyalBlue on pink
    ("#F4C430" . "sea green")            ; saffron
    ("#FFFFDA" . "royal blue")
