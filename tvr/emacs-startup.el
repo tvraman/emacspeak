@@ -78,11 +78,9 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{ Fixups:
 
-(defadvice system-users (around fix pre act comp)
-  "Just return user real name."
-  (ignore ad--addoit-function)
-  (setq ad-return-value (list user-real-login-name)))
 
+(advice-add 'system-users :override #'(lambda nil   (list user-real-login-name)))
+  
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
 
