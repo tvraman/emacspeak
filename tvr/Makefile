@@ -12,8 +12,8 @@ lispy-prepare.el \
 org-prepare.el \
 slime-prepare.el \
 sp-prepare.el \
-vm-prepare.el \
-weekday-colors.el
+vm-prepare.el 
+
 
 all: all-prepare.elc emacs-startup.elc 
 

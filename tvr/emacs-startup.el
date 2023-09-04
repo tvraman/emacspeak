@@ -197,7 +197,7 @@ Use Custom to customize where possible. "
 
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
-  (tvr-set-color-for-today))
+  (load-theme 'modus-vivendi-tinted t))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
