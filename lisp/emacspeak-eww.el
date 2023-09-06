@@ -833,15 +833,14 @@ Retain previously set punctuations  mode."
           emacspeak-eww-feed
           emacspeak-eww-style)
                                         ; this is a displayed feed
-     (let ((p dtk-punctuation-mode)
-           (r dtk-speech-rate)
+     (let ((r dtk-speech-rate)
            (u (eww-current-url))
            (s emacspeak-eww-style))
        (kill-buffer)
        (add-hook
         'emacspeak-eww-post-process-hook
         #'(lambda ()
-            (dtk-set-punctuations p)
+            (dtk-set-punctuations 'all)
             (dtk-set-rate r))
         'at-end)
        (emacspeak-feeds-feed-display u s 'speak)))
@@ -849,12 +848,11 @@ Retain previously set punctuations  mode."
                                         ; this is a url template
      (let
          ((n emacspeak-eww-url-template)
-          (p dtk-punctuation-mode)
           (r dtk-speech-rate))
        (add-hook
         'emacspeak-eww-post-process-hook
         #'(lambda nil
-            (dtk-set-punctuations p)
+            (dtk-set-punctuations 'all)
             (dtk-set-rate r))
         'at-end)
        (kill-buffer)
@@ -2214,7 +2212,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
   (interactive)
   (cl-declare (special dtk-speech-rate-base dtk-speech-rate-step))
   (dtk-set-rate (+ dtk-speech-rate-base (* dtk-speech-rate-step  3)))
-  (dtk-set-punctuations 'some)
+  (dtk-set-punctuations 'all)
   (when dtk-split-caps(dtk-toggle-split-caps))
   (emacspeak-speak-rest-of-buffer))
 
