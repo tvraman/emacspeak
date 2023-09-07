@@ -204,7 +204,7 @@ message area.  You can use command
       (erase-buffer)
       (setq default-directory directory)
       (ems-with-messages-silenced
-       (shell-command command output))
+        (shell-command command output))
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
@@ -635,16 +635,16 @@ the sense of the filter. "
   "Show matched paren with context."
   (interactive)
   (let ((data (show-paren--default)))
-    (when data 
+    (when data
       (save-excursion
-       (goto-char (cl-third  data))
-       (dtk-speak
-        (buffer-substring (point)
-                          (max (cl-fourth data)
-                               (line-end-position))))))))
+        (goto-char (cl-third  data))
+        (dtk-speak
+         (buffer-substring (point)
+                           (max (cl-fourth data)
+                                (line-end-position))))))))
 
 ;;}}}
- 
+
 ;;{{{  Speak units of text
 
 (defun emacspeak-speak-region (start end)
@@ -681,8 +681,6 @@ Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
 with a long string of gibberish.")
-
-
 
 (defconst emacspeak-speak-blank-line-regexp
   "^[[:space:]]+$"
@@ -759,10 +757,10 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
     (setq line
           (if emacspeak-show-point
               (ems-set-pause-temporarily
-               orig (1+ orig) 5
-               (ems-set-personality-temporarily
-                orig (1+ orig) voice-animate
-                (buffer-substring start end)))
+                  orig (1+ orig) 5
+                  (ems-set-personality-temporarily
+                      orig (1+ orig) voice-animate
+                      (buffer-substring start end)))
             (buffer-substring start end)))
     (when (and (null arg) emacspeak-speak-line-column-filter)
       (setq
@@ -883,8 +881,8 @@ Cues the start of a physical line with auditory icon `left'."
       (setq line
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
-                 orig (1+ orig)
-                 voice-animate (buffer-substring start end))
+                    orig (1+ orig)
+                    voice-animate (buffer-substring start end))
               (buffer-substring start end)))
       (dtk-speak line))))
 
@@ -1446,7 +1444,7 @@ Interactive prefix arg speaks buffer info."
       (let ((global-info (downcase (format-mode-line global-mode-string)))
             (window-count (length (window-list)))
             (autospeak (when emacspeak-comint-autospeak
-           (propertize "Autospeak" 'personality voice-lighten)))
+                         (propertize "Autospeak" 'personality voice-lighten)))
             (vc-state
              (when (and vc-mode (buffer-file-name))
                (vc-state (buffer-file-name))))
@@ -1474,47 +1472,47 @@ Interactive prefix arg speaks buffer info."
             (when buffer-read-only
               (emacspeak-auditory-icon 'unmodified-object)))
           (tts-with-punctuations
-           'all
-           (dtk-speak
-            (concat
-             autospeak
-             dir-info
-             (propertize (buffer-name) 'personality
-                         voice-lighten-medium)
-             (emacspeak-get-current-percentage-verbously)
-             (when window-count
-               (propertize window-count 'personality voice-smoothen))
-             (when vc-mode
-               (propertize (downcase vc-mode) 'personality voice-smoothen))
-             (when vc-state (format " %s " vc-state))
-             (when line-number-mode
-               (format "line %d" (emacspeak-get-current-line-number)))
-             (when column-number-mode
-               (format "column %d" (current-column)))
-             (propertize
-              (downcase
-               (format-mode-line mode-name)) 'personality voice-animate)
-             global-info frame-info recursion-info))))))))))
+              'all
+            (dtk-speak
+             (concat
+              autospeak
+              dir-info
+              (propertize (buffer-name) 'personality
+                          voice-lighten-medium)
+              (emacspeak-get-current-percentage-verbously)
+              (when window-count
+                (propertize window-count 'personality voice-smoothen))
+              (when vc-mode
+                (propertize (downcase vc-mode) 'personality voice-smoothen))
+              (when vc-state (format " %s " vc-state))
+              (when line-number-mode
+                (format "line %d" (emacspeak-get-current-line-number)))
+              (when column-number-mode
+                (format "column %d" (current-column)))
+              (propertize
+               (downcase
+                (format-mode-line mode-name)) 'personality voice-animate)
+              global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
   (tts-with-punctuations 'all
-                         (dtk-speak
-                          (buffer-name))))
+    (dtk-speak
+     (buffer-name))))
 
 (defsubst ems--pulse-speaker-p ()
   "Predicate to check if we are on speaker."
   (ems-with-messages-silenced
-   (zerop
-    (shell-command
-     "pacmd list-sinks | grep 'active port:'  | grep  Speaker"))))
+    (zerop
+     (shell-command
+      "pacmd list-sinks | grep 'active port:'  | grep  Speaker"))))
 
 (defsubst ems--pulse-headphones-p ()
   "Predicate to check if we are on Headphones."
   (ems-with-messages-silenced
-   (zerop
-    (shell-command
-     "pacmd list-sinks | grep 'active port:'  | grep  Headphones"))))
+    (zerop
+     (shell-command
+      "pacmd list-sinks | grep 'active port:'  | grep  Headphones"))))
 
 (defconst ems--vol-cmd
   (eval-when-compile
@@ -1553,7 +1551,7 @@ Optional interactive prefix arg `log-msg' logs spoken info to
          (info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
     (tts-with-punctuations 'some
-                           (dtk-speak  info))))
+      (dtk-speak  info))))
 
 (defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
@@ -1665,7 +1663,7 @@ See the documentation for function
   "Format for time in brief."
   :group 'emacspeak
   :type 'string)
- 
+
 (defcustom emacspeak-speak-zoneinfo-directory
   "/usr/share/zoneinfo/"
   "Directory containing timezone data."
@@ -1698,7 +1696,6 @@ Optional second arg `set' sets the TZ environment variable as well."
                      zone
                      (length emacspeak-speak-zoneinfo-directory)))))))
 
-
 (defun emacspeak-speak-brief-time ()
   "Time in brief"
   (interactive)
@@ -1716,12 +1713,12 @@ Second interactive prefix sets clock to new timezone."
   (cl-declare (special emacspeak-speak-time-format))
   (emacspeak-auditory-icon 'time)
   (cond
-    (world (call-interactively 'emacspeak-speak-world-clock))
-    (t
-     (let ((time-string
-             (format-time-string emacspeak-speak-time-format
-                                 (current-time) (getenv "TZ"))))
-       (dtk-notify-say time-string)))))
+   (world (call-interactively 'emacspeak-speak-world-clock))
+   (t
+    (let ((time-string
+           (format-time-string emacspeak-speak-time-format
+                               (current-time) (getenv "TZ"))))
+      (dtk-notify-say time-string)))))
 
 (defun emacspeak-speak-seconds-since-epoch (seconds)
   "Speaks time value specified as seconds  since epoch."
@@ -1790,13 +1787,13 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision."
        "mp3" nil "mplayer"
        (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
     (tts-with-punctuations
-     'some
-     (dtk-speak-and-echo
-      (concat
-       signature
-       (if speak-rev
-           (emacspeak-setup-get-revision)
-         (concat emacspeak-version " " (emacspeak-setup-get-revision))))))))
+        'some
+      (dtk-speak-and-echo
+       (concat
+        signature
+        (if speak-rev
+            (emacspeak-setup-get-revision)
+          (concat emacspeak-version " " (emacspeak-setup-get-revision))))))))
 
 (defun emacspeak-speak-current-kill (&optional count)
   "Speak the current kill.
@@ -1889,8 +1886,8 @@ location of the mark is indicated by an aural highlight. "
     (save-excursion
       (goto-char pos)
       (ems-set-personality-temporarily
-       pos (1+ pos) voice-animate
-       (setq line (ems--this-line)))
+          pos (1+ pos) voice-animate
+          (setq line (ems--this-line)))
       (dtk-speak
        (concat context line)))))
 
@@ -2042,7 +2039,7 @@ was spoken.  Any other key continues to speak the buffer."
 (defun emacspeak-speak-current-column ()
   "Speak the current column."
   (interactive)
-   (message "Column %d" (current-column)))
+  (message "Column %d" (current-column)))
 
 (defun emacspeak-speak-current-percentage ()
   "Announce the percentage into the current buffer."
@@ -2200,7 +2197,7 @@ is the same as for the Emacs builtin `other-window'."
       (other-window window)
       (emacspeak-speak-region
        (window-start (selected-window))
-       
+
        (window-end  (selected-window) 'update)))))
 ;;}}}
 ;;{{{  Intelligent interactive commands for reading:
@@ -2480,19 +2477,19 @@ directory."
   (cl-declare (special emacspeak-speak-directory-settings default-directory))
   (unless dir (setq dir default-directory))
   (ems-with-messages-silenced
-   (let ((emacspeak-speak-messages nil)
-         (inhibit-message t)
-         (res (locate-dominating-file dir emacspeak-speak-directory-settings)))
-     (when
-         (and res
-              (file-exists-p
-               (expand-file-name emacspeak-speak-directory-settings res)))
-       (ems--fastload (expand-file-name
-                       emacspeak-speak-directory-settings res))
-       (when (called-interactively-p 'interactive)
-         (message "loaded %s"
-                  (expand-file-name emacspeak-speak-directory-settings res)))
-       (emacspeak-auditory-icon 'task-done)))))
+    (let ((emacspeak-speak-messages nil)
+          (inhibit-message t)
+          (res (locate-dominating-file dir emacspeak-speak-directory-settings)))
+      (when
+          (and res
+               (file-exists-p
+                (expand-file-name emacspeak-speak-directory-settings res)))
+        (ems--fastload (expand-file-name
+                        emacspeak-speak-directory-settings res))
+        (when (called-interactively-p 'interactive)
+          (message "loaded %s"
+                   (expand-file-name emacspeak-speak-directory-settings res)))
+        (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{ silence:
@@ -2618,8 +2615,9 @@ This function is sensitive to calendar mode when prompting."
  minibuffer-local-completion-map
  (kbd "C-@")
  'emacspeak-minibuffer-choose-completion)
-(define-key minibuffer-local-completion-map
-            (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
+(define-key
+ minibuffer-local-completion-map
+ (kbd "RET") 'emacspeak-minibuffer-choose-completion)
 
 ;;}}}
 ;;{{{ Open Emacspeak Info Pages:
@@ -2788,8 +2786,7 @@ but quickly switch to a window by name."
      (format "%s%%" (emacspeak-get-current-percentage-into-buffer)))))
 
 ;;}}}
-;;{{{Utility: Accumulate 
-
+;;{{{Utility: Accumulate
 
 (defun emacspeak-accumulate-to-register (reg generator)
   "Call generator and append resulting content to specified register.
@@ -2837,7 +2834,7 @@ Appended entries are separated by newlines."
   (let ((next (emacspeak-buffer-cycle-next major-mode)))
     (cond
      (next ;  (bury-buffer)
-           (funcall-interactively #'switch-to-buffer next))
+      (funcall-interactively #'switch-to-buffer next))
      (t (error "No next buffer in mode %s" major-mode)))))
 
 ;; Inspired by text-adjust-scale:
@@ -2880,7 +2877,7 @@ p emacspeak-cycle-to-previous-buffer
      t (lambda nil (emacspeak-auditory-icon 'repeat-end))
      "Repeat with %k")))
 
-;;}}}       
+;;}}}
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 
