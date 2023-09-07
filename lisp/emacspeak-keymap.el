@@ -597,7 +597,7 @@
   "Emacspeak ctl-z keymap")
 
 (define-prefix-command 'emacspeak-z-keymap)
-
+(global-set-key (kbd "C-z") 'emacspeak-z-keymap)
 (defcustom emacspeak-ctl-z-keys
   '(
     ("SPC" flyspell-mode)
