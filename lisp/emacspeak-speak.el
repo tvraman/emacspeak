@@ -2613,10 +2613,6 @@ This function is sensitive to calendar mode when prompting."
  "\C-p" 'emacspeak-minibuffer-previous-completion)
 (define-key
  minibuffer-local-completion-map
- (kbd "C-@")
- 'emacspeak-minibuffer-choose-completion)
-(define-key
- minibuffer-local-completion-map
  (kbd "RET") 'emacspeak-minibuffer-choose-completion)
 
 ;;}}}
