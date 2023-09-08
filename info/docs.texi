@@ -8998,6 +8998,8 @@ Play both channels on left.
 @subsubsection emacspeak-m-player-locate-media
 @deffn {Command} emacspeak-m-player-locate-media  (pattern)
 @table @kbd
+@item C-z l
+@kindex C-z l
 @item C-; l
 @kindex C-; l
 @item C-e z l
@@ -17711,6 +17713,8 @@ interactive prompt.
 @subsubsection emacspeak-wizards-eww-buffer-list
 @deffn {Command} emacspeak-wizards-eww-buffer-list   
 @table @kbd
+@item C-z e
+@kindex C-z e
 @item C-e z e
 @kindex C-e z e
 @item <fn> z e
@@ -18534,6 +18538,8 @@ Buffer menu filtered by  m-player mode.
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-this-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-this-mode   
 @table @kbd
+@item C-z b
+@kindex C-z b
 @item C-. m
 @kindex C-. m
 @item C-e z b

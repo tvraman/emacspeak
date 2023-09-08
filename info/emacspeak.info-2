@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 31, 2023.
+last updated on September 7, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1702,6 +1702,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ...........................................
 
  -- Command: emacspeak-m-player-locate-media (pattern)
+     ‘C-z l’
      ‘C-; l’
      ‘C-e z l’
      ‘<fn> z l’
@@ -8573,6 +8574,7 @@ Contains various wizards for the Emacspeak desktop.
 .............................................
 
  -- Command: emacspeak-wizards-eww-buffer-list
+     ‘C-z e’
      ‘C-e z e’
      ‘<fn> z e’
 
@@ -9142,6 +9144,7 @@ Contains various wizards for the Emacspeak desktop.
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
+     ‘C-z b’
      ‘C-. m’
      ‘C-e z b’
      ‘<fn> z b’
