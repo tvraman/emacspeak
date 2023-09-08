@@ -89,16 +89,13 @@
                       0)))
         (to-speak nil))
     (unless (equal emacspeak-vertico--prev-candidate new-cand)
-      (push new-cand to-speak)
+      (setq to-speak new-cand)
       (when (or (equal vertico--index emacspeak-vertico--prev-index)
                 (and (not (equal vertico--index -1))
                      (equal emacspeak-vertico--prev-index -1)))
-        (push "candidate" to-speak)))
-    (when (and (not vertico--allow-prompt)
-               (equal emacspeak-vertico--prev-candidate nil))
-      (push "first candidate" to-speak))
+        (emacspeak-auditory-icon 'select-object)))
     (when to-speak
-      (dtk-speak (mapconcat 'identity to-speak " ")))
+      (dtk-speak to-speak))
     (setq-local
      emacspeak-vertico--prev-candidate new-cand
      emacspeak-vertico--prev-index vertico--index)))
