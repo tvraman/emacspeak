@@ -275,6 +275,7 @@ Press `r' to resume the suspended transient."
 
 ;;}}}
 ;;{{{Enable And Customize Transient Navigation:
+(declare-function transient-push-button "emacspeak-transient" t)
 
 (defun emacspeak-transient-setup ()
   "Emacspeak Transient Customizations"
