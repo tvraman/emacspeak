@@ -35,6 +35,157 @@
   </openSearch:startIndex>
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-746913157404581580</id><published>
+      2023-09-08T08:57:00.002-07:00
+    </published>
+    <updated>2023-09-08T08:57:39.478-07:00</updated><title type='text'>
+      Return To Control_Right Using XModmap And XCape
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;return to control-right using
+      xmodmap and xcape&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org26112df&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org26112df&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      see previous article on
+      &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html&quot;&gt;dont
+      punish your finger tips&lt;/a&gt; that described how to minimize
+      chording in
+      emacs. that article alluded to possibly using &lt;span
+      class=&quot;underline&quot;&gt;return&lt;/span&gt; as an
+      additional &lt;span
+      
+      class=&quot;underline&quot;&gt;control&lt;sub&gt;right&lt;/sub&gt;&lt;/span&gt; key; this article describes   the
+      implementation and things i discovered in setting it up.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      the design described here was discovered by &lt;a
+      
+      href=&quot;https://www.google.com/search?q=return+control%5fr+xmodmap+xcape&amp;amp;num=25&quot;&gt;this google search&lt;/a&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org95477e4&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org95477e4&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; overview of
+      changes&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org48cb184&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org48cb184&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.1.&lt;/span&gt;
+      xmodmap&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
+      &lt;p&gt;
+      add the following stanza to your xmodmap file to set up the needed
+      keys:
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      ! ret as ctrl_r
+      remove control = control_r
+      keycode 0x69 = return
+      keycode 0x24 = control_r
+      add control = control_r
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org9508184&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org9508184&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.2.&lt;/span&gt;
+      xcape&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
+      &lt;p&gt;
+      next, have xcape emit &lt;span
+      
+      class=&quot;underline&quot;&gt;control&lt;sub&gt;r&lt;/sub&gt;&lt;/span&gt; when &lt;span class=&quot;underline&quot;&gt;return&lt;/span&gt; is held down:
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      control_r=return;\
+      &lt;/pre&gt;
+      
+      &lt;p&gt;
+      you can find the complete implementation below:
+      &lt;/p&gt;
+      
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/stumpwm/xmodmap#l11&quot;&gt;xmodmap&lt;/a&gt; setup.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh#l21&quot;&gt;xcape setup&lt;/a&gt;.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org79a0a89&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org79a0a89&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; lessons
+      learn&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;1. the above works &amp;#x2014; i can now hold down
+      &lt;span class=&quot;underline&quot;&gt;return&lt;/span&gt; with my
+      right hand when hitting keys like &lt;span
+      class=&quot;underline&quot;&gt;a&lt;/span&gt; with my left; this 
+      makes
+      my fingers happy.&lt;/li&gt;
+      &lt;li&gt;one  issue that i failed to fix &amp;#x2014; though
+      unimportant except for
+      my curiosity:&lt;/li&gt;
+      &lt;li&gt;the &lt;span
+      
+      class=&quot;underline&quot;&gt;control&lt;sub&gt;r&lt;/sub&gt;&lt;/span&gt; key on my laptop has now turned into a &lt;span class=&quot;underline&quot;&gt;return&lt;/span&gt;
+      key, it produces &lt;span
+      class=&quot;underline&quot;&gt;return&lt;/span&gt; in &lt;b&gt;all
+      cases&lt;/b&gt;, i.e., whether tapped or
+      held-down.&lt;/li&gt;
+      
+      &lt;li&gt;i still continue to find xmodmap confusing &amp;#x2014;
+      though that is
+      likely my fault, and not that of xmodmap.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;
+      &lt;p class=&quot;date&quot;&gt;date: 2023-09-08 fri 00:00&lt;/p&gt;
+      &lt;p class=&quot;author&quot;&gt;author: t.v raman&lt;/p&gt;
+      &lt;p class=&quot;date&quot;&gt;created: 2023-09-08 fri
+      08:54&lt;/p&gt;
+      &lt;p class=&quot;validation&quot;&gt;&lt;a
+      
+      href=&quot;https://validator.w3.org/check?uri=referer&quot;&gt;validate&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;	
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/746913157404581580'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/746913157404581580'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2023/09/return-to-controlright-using-xmodmap.html' title='Return To Control_Right Using XModmap And XCape'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
 <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-3329932190031651752</id><published>
       2023-09-02T19:34:00.001-07:00
