@@ -1,0 +1,69 @@
+* Background
+
+See previous article on
+[[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Dont
+Punish Your Finger Tips]] that described how to minimize chording in
+Emacs. That article alluded to possibly using _Return_ as an
+additional _Control_Right_ key; this article describes   the
+implementation and things I discovered in setting it up.
+
+The design described here was discovered by [[https://www.google.com/search?q=Return+Control%5FR+Xmodmap+Xcape&num=25][this Google search]].
+
+* Overview Of Changes
+
+** XModmap
+
+   Add the following stanza to your XModmap file to set up the needed
+     keys:
+
+  #+begin_src 
+! RET as Ctrl_R
+ remove Control = Control_R
+ keycode 0x69 = Return
+ keycode 0x24 = Control_R
+ add Control = Control_R
+  #+end_src
+
+** XCape
+
+  Next, have XCape emit _Control_R_ when _Return_ is held down:
+
+  #+begin_src
+    Control_R=Return;\
+  #+end_src
+  
+You can find the complete implementation below:
+
+  - [[https://github.com/tvraman/emacspeak/blob/master/stumpwm/xmodmap#L11][XModmap]] Setup.
+  - [[https://github.com/tvraman/emacspeak/blob/master/tvr/xcape.sh#L21][XCape Setup]].
+
+* Lessons Learn
+
+  - 1. The above works --- I can now hold down _Return_ with my
+   right hand when hitting keys like _a_ with my left; this  makes
+   my fingers happy.
+  - One  issue that I failed to fix --- though unimportant except for
+    my curiosity:
+  - The _Control_R_ key on my laptop has now turned into a _Return_
+    key, it produces _Return_ in *all cases*, i.e., whether tapped or
+    held-down.
+
+  - I still continue to find XModmap confusing --- though that is
+    likely my fault, and not that of XModmap.
+
+    
+    
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Return To Control-Right Using XModmap And XCape
+#+date: <2023-09-08 Fri>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.7)
+#+cite_export:
