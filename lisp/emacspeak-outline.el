@@ -106,7 +106,7 @@
 ;;overlay advice alone.
 
 (defadvice outline-flag-region (around emacspeak pre act comp)
-  "Reflect hide/show via property invisible as wel"
+  "Reflect hide/show via property invisible as well"
   (defvar ems--voiceify-overlays)
   (let  ((ems--voiceify-overlays  nil)
          (beg (ad-get-arg 0))

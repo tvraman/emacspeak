@@ -616,7 +616,7 @@ widget before summarizing."
       (setq key (read-char))
       (cond
        ((= key ?q) (setq continue nil)
-        (message "exitting widget browser"))
+        (message "exiting widget browser"))
        ((= key ?.) nil)
        ((= key ?u)
         (if (numberp level)

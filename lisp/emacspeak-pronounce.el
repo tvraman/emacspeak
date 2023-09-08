@@ -163,7 +163,7 @@ the match  being passed to the func which returns  the new pronunciation."
              (buffer-name))))
 
 ;;}}}
-;;{{{mode hierarcy per define-derived-mode:
+;;{{{mode hierarchy per define-derived-mode:
 
 (defun ems--mode-derive-chain (mode)
   "Return mode derivation chain as a list."

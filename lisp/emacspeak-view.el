@@ -248,7 +248,7 @@
     (let ((buffer (current-buffer)))
       ad-do-it
       (cond
-       ((not (eq buffer (current-buffer))) ;we exitted view mode 
+       ((not (eq buffer (current-buffer))) ;we exited view mode 
         (emacspeak-auditory-icon 'close-object)
         (emacspeak-speak-mode-line))
        (t (emacspeak-auditory-icon 'scroll)

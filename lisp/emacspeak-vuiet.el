@@ -63,12 +63,12 @@
 (defadvice vuiet-love-track (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-notify-say "loved strack")))
+    (dtk-notify-say "loved track")))
 
 (defadvice vuiet-unlove-track (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-notify-say "UnLoved strack")))
+    (dtk-notify-say "UnLoved track")))
 
 (cl-loop
  for f in 
