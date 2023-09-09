@@ -3133,7 +3133,7 @@ The above is a one-time operation that sets up the audio environment
       &lt;ol class=&quot;org-ol&quot;&gt;
       &lt;li&gt;Temporarily  &lt;i&gt;trace&lt;/i&gt;  a given function
       &amp;#x2014; &lt;code&gt;advice&lt;/code&gt; can display
-      messages on entry and exit to the adviced function. Emacs&#39; own
+      messages on entry and exit to the advised function. Emacs&#39; own
       built-in debug-on-entry mostly obviates the need to do
       this.&lt;/li&gt;
       &lt;li&gt;You want custom  behavior for some command in a package,
@@ -3183,9 +3183,9 @@ The above is a one-time operation that sets up the audio environment
       &lt;code&gt;advice&lt;/code&gt; fragments consistently.&lt;/li&gt;
       &lt;li&gt;Do not depend on the argument names used in the function
       being
-      adviced, instead use &lt;span
+      advised, instead use &lt;span
       class=&quot;underline&quot;&gt;ad-get-arg&lt;/span&gt; to
-      positionally access the adviced
+      positionally access the advised
       function&#39;s arguments.&lt;/li&gt;
       &lt;li&gt;Use lexical scoping in all your functions, and be rigorous
       in
