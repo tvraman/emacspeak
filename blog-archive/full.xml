@@ -302,7 +302,7 @@
       experimental). This remapping
       fails to take effect in places like &lt;i&gt;Dired&lt;/i&gt; and
       &lt;i&gt;Gnus&lt;/i&gt;.&lt;/li&gt;
-      &lt;li&gt;I additionallly bound &lt;i&gt;find-file&lt;/i&gt; to
+      &lt;li&gt;I additionally bound &lt;i&gt;find-file&lt;/i&gt; to
       &lt;i&gt;C-; o&lt;/i&gt;.&lt;/li&gt;
       &lt;li&gt;A long time ago, I discovered &lt;i&gt;M-m&lt;/i&gt;
       (back-to-indentation) and I
@@ -812,7 +812,7 @@ their respective owners.
       
       href=&quot;https://emacspeak.blogspot.com/2023/02/enhance-emacs-ergonomics-under-x-happy.html&quot;&gt;Ergonomics Using xcape&lt;/a&gt;
       I described my setup to minimize chording  in Emacs. The setup is
-      working whell, and in the few weeks of usage, I&#39;ve reduce the
+      working well, and in the few weeks of usage, I&#39;ve reduce the
       &lt;code&gt;xcape
       timeout&lt;/code&gt; setting from 250ms to 170ms,  this is the
       timeout that
@@ -1141,7 +1141,7 @@ their respective owners.
       the time I learn to use &lt;i&gt;dvorak&lt;/i&gt; for text input; I
       still do so
       sometimes to give my hands a break.&lt;/li&gt;
-      &lt;li&gt;The new mappings give some surprizing results
+      &lt;li&gt;The new mappings give some surprising results
       &lt;i&gt;e.g.&lt;/i&gt;, &lt;code&gt;alt&lt;/code&gt;
       &lt;code&gt;shift&lt;/code&gt; saves the buffer, but buyer beware,
       &lt;code&gt;alt&lt;/code&gt; &lt;code&gt;super&lt;/code&gt; quits
@@ -2221,7 +2221,7 @@ reading E-Books  or listening to  audio material.&lt;/li&gt;
 &lt;li&gt;Enable the embedding of hyperlinks to the bookmarks mentioned
 earlier within these notes.&lt;/li&gt;
 &lt;li&gt;Final experience: creation of notes should require minimal
-effort; when reding the notes, it should be  easy to open the
+effort; when reading the notes, it should be  easy to open the
 relevant portion of the content that underlies the notes.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -3458,7 +3458,7 @@ The above is a one-time operation that sets up the audio environment
       &lt;li&gt;Depending on your SSH setup, you may or may not need to
       type your
       ssh password at this point; avoiding having to type a password is
-      beyond the perview of this article, consult the SSH manual
+      beyond the purview of this article, consult the SSH manual
       pages.&lt;/li&gt;
       &lt;li&gt;Now, run Emacs on  the cloud-top. Assuming that you have
       updated
@@ -5763,7 +5763,7 @@ The above is a one-time operation that sets up the audio environment
       &lt;p&gt;
       Function &lt;code&gt;emacspeak-eww-table-table&lt;/code&gt;
       generates a two-dimensional
-      vector that encaspulates the tabular data.
+      vector that encapsulates the tabular data.
       &lt;/p&gt;
       
       &lt;div class=&quot;org-src-container&quot;&gt;
@@ -27385,7 +27385,7 @@ The above is a one-time operation that sets up the audio environment
       installed
       on Jaunty. Consequence, ViaVoice produces a warning asking you to
       install the ViaVoice RTK, even though it&#39;s already installed. I
-      ended up rescueing the compat libs from my Hardy build. Perhaps
+      ended up rescuing the compat libs from my Hardy build. Perhaps
       we should put up a simple tar.gz file that drops those libs into
       /usr/lib?&lt;/li&gt;
       &lt;li&gt;Alsa is configured to use pulseaudio on Jaunty. 
@@ -32262,7 +32262,7 @@ The above is a one-time operation that sets up the audio environment
       &lt;/li&gt;
       &lt;li&gt; The above script assumes you have the
       &lt;code&gt;alsa-oss&lt;/code&gt;
-      package nstalled; you will need this to have Helix Player use
+      package installed; you will need this to have Helix Player use
       ALSA --- something that is essential if you want to be able to
       use your sound card with other applications while playing media
       streams.&lt;/li&gt;
@@ -33978,7 +33978,7 @@ The above is a one-time operation that sets up the audio environment
       Gestures For The Audio Desktop&lt;/a&gt; from Assets 1998.&lt;/p&gt;
       
       
-      &lt;h4&gt;Advicing Interactive Commands&lt;/h4&gt;
+      &lt;h4&gt;Advising Interactive Commands&lt;/h4&gt;
       &lt;p&gt;As with speech-enabling any Emacs module,
       &lt;code&gt;emacspeak-sudoku&lt;/code&gt;
       &lt;em&gt;advices&lt;/em&gt;
