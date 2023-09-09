@@ -6,4 +6,4 @@ raw.xml:
 	xmlindent -i 2  -l 75 -w raw.xml 
 
 spell:
-	codespell -i .codespell full.xml
+	codespell -I .codespell full.xml
