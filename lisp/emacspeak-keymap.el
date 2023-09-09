@@ -795,6 +795,7 @@
   '(
     ("'" emacspeak-pianobar)
     ("d" sdcv-search-input)
+    ("f" ffap)
     ("l" locate)
     ("o" org-mode)
     ("y" emacspeak-google-yt-feed))
