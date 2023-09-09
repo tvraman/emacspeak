@@ -229,6 +229,7 @@
 @table @kbd
 @item '  emacspeak-pianobar
 @item d  sdcv-search-input
+@item f  ffap
 @item l  locate
 @item o  org-mode
 @item y  emacspeak-google-yt-feed

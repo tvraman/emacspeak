@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 7, 2023.
+last updated on September 8, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2877,6 +2877,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  N
 
 ‘' emacspeak-pianobar’
 ‘d sdcv-search-input’
+‘f ffap’
 ‘l locate’
 ‘o org-mode’
 ‘y emacspeak-google-yt-feed’
