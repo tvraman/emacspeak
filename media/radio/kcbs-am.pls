@@ -1,12 +1,6 @@
 [playlist]
-File1=http://18423.live.streamtheworld.com:80/KCBSAM_SC
-File2=http://18423.live.streamtheworld.com:3690/KCBSAM_SC
-File3=http://17933.live.streamtheworld.com:80/KCBSAM_SC
-File4=http://17933.live.streamtheworld.com:3690/KCBSAM_SC
-File5=http://19273.live.streamtheworld.com:80/KCBSAM_SC
-File6=http://19273.live.streamtheworld.com:3690/KCBSAM_SC
+File1=https://live.amperwave.net/direct/audacy-kcbsammp3-imc?source=tritonredirect
 Title1=KCBSAM_SC
-Title2=KCBSAM_SC-Bak
 Length1=-1
-NumberOfEntries=6
+NumberOfEntries=1
 Version=2
