@@ -67,6 +67,7 @@ GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: 
 	@rm -f README
 	@echo "Emacspeak  Revision $(GITVERSION)" > $(README)
+	@echo "This release requires Emacs 29.1 or later."
 	@echo "Distribution created by `whoami` at `date`" >> $(README)
 	@echo "Unpack the  distribution And type make config " >> $(README)
 	@echo "Then type make" >> $(README)
@@ -137,6 +138,7 @@ cd .. ;\
 # {{{Install: 
 
 install:
+	@echo "This release requires Emacs 29.1 or later."
 	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
 	@echo "(load-file \"`pwd`/lisp/emacspeak-setup.el\")"
 	@echo "    Type make  <engine> [dtk, outloud,  espeak] to build TTS server. "
