@@ -10,11 +10,12 @@ kbd-macros.el \
 laptop-local.el \
 lispy-prepare.el \
 org-prepare.el \
+elfeed-prepare.el \
 slime-prepare.el \
 sp-prepare.el \
 sdcv-prepare.el \
-vm-prepare.el 
-
+vm-prepare.el  \
+yasnippet-prepare.el 
 
 all: all-prepare.elc emacs-startup.elc 
 

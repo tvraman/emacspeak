@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: nil; -*-
 
-;(load-library "elfeed-autoloads")
+
 (eval-after-load "elfeed"
   `(progn
      ;; Run once an hour
