@@ -86,7 +86,8 @@ If in locate-mode, speak full pathname."
     (cond
      (filename (dtk-speak (propertize filename 'personality personality))
                (setq emacspeak-speak-last-spoken-word-position (point)))
-     (t (emacspeak-speak-line)))))
+     (t (emacspeak-speak-line)
+      (ding)))))
 
 ;;}}}
 ;;{{{  advice:
