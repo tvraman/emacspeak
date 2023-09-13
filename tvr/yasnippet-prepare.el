@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: nil; -*-
 (defvar tvr-yas-snippets-loaded nil)
-(eval-after-load
+(with-eval-after-load
  'yasnippet
  `(progn
     (unless tvr-yas-snippets-loaded

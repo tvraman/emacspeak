@@ -1,3 +1,12 @@
+;; -*- lexical-binding: nil; -*-
+
+
+(eval-after-load "elfeed"
+  `(progn
+     ;; Run once an hour
+     (setq my-elfeed-timer 
+           (run-at-time t (* 60 60) #'elfeed-update))
+     ))
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;; Uses auth-source-xoauth2:
@@ -331,3 +340,14 @@ Set by locating it via xinput list | grep -i touchpad ")
     (make-local-variable hook)
     (set hook (list t)))
   hook)
+;; -*- lexical-binding: nil; -*-
+(defvar tvr-yas-snippets-loaded nil)
+(with-eval-after-load
+ 'yasnippet
+ `(progn
+    (unless tvr-yas-snippets-loaded
+      (run-with-idle-timer 1 nil #'yas-reload-all)
+      (setq tvr-yas-snippets-loaded t))
+    (setq yas-verbosity 0))
+ (diminish 'yas-minor-mode ""))
+
