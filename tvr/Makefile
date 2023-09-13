@@ -12,6 +12,7 @@ lispy-prepare.el \
 org-prepare.el \
 slime-prepare.el \
 sp-prepare.el \
+sdcv-prepare.el \
 vm-prepare.el 
 
 
