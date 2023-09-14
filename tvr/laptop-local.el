@@ -34,14 +34,14 @@ Set by locating it via xinput list | grep -i touchpad ")
 (defun tvr-chat ()
   "Open Google Chat in Chrome"
   (interactive)
-  (browse-url-chrome "chat/"))
+  (browse-url-chrome "go/chat/"))
 
 (define-key emacspeak-y-keymap " " 'tvr-chat)
 
 (defun tvr-mail ()
   "Open Google Mail in Chrome"
   (interactive)
-  (browse-url-chrome "chat/"))
+  (browse-url-chrome "https://mail//"))
 
 
 (define-key emacspeak-y-keymap "m" 'tvr-mail)
