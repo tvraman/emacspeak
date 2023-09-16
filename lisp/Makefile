@@ -331,6 +331,8 @@ emacspeak-loaddefs.el:
 indent:
 	$(EMACS) -batch -q -no-site-file -l ../utils/indent-files.el
 
+spell:
+	codespell -I .codespell *.el
 elint:
 	$(EMACS) -batch -q -no-site-file -l ../utils/elint-files.el
 
