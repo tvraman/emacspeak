@@ -431,8 +431,8 @@
  (emacspeak-keymap-update emacspeak-table-submap binding))
 
 ;; Put these in the global map:
-(global-set-key [(shift left)] 'previous-buffer)
-(global-set-key [(shift right)] 'next-buffer)
+(global-set-key [(shift left)] 'emacspeak-skip-space-backward)
+(global-set-key [(shift right)] 'emacspeak-skip-space-forwar)
 (global-set-key [(control left)] 'emacspeak-previous-frame-or-buffer)
 (global-set-key [(control right)] 'emacspeak-next-frame-or-buffer)
 (global-set-key [(control down)] 'pop-to-mark-command)

@@ -665,6 +665,25 @@ If optional arg property is not supplied, read it interactively. "
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 
 ;;}}}
+;;{{{Moving across spaces:
+;;;###autoload
+(defun emacspeak-skip-space-forwar ()
+  "Skip forward across blanks."
+  (interactive)
+  (skip-syntax-forward " ")
+  (when (called-interactively-p 'interactive)
+    (emacspeak-speak-char t)))
+
+;;;###autoload
+(defun emacspeak-skip-space-backward ()
+  "Skip back across blanks."
+  (interactive)
+  (skip-syntax-backward " ")
+  (when (called-interactively-p 'interactive)
+    (emacspeak-speak-preceding-char)))
+
+;;}}}
+
 ;;{{{ ansi term
 
 ;;}}}
