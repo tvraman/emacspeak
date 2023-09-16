@@ -2756,7 +2756,7 @@ Press `y' on Episode links to play them with MPV."
           (shell-command-to-string
            (format  "%s query %s" emacspeak-zoxide query)))))
     (or result (error "No match"))
-    (funcall-interactively #'find-file result)))
+    (funcall-interactively #'dired result)))
 
 
 ;;}}}
