@@ -2747,20 +2747,19 @@ Press `y' on Episode links to play them with MPV."
   "The zoxide executable.")
 
 ;;;###autoload 
-(defun emacspeak-zoxide (query)
-  "Query zoxide with query and open first match.
+(defun emacspeak-zoxide (q)
+  "Query zoxide with query and open  match.
 Shell Utility zoxide --- implemented in Rust --- lets you jump to
 directories that are used often.
 This command does for Emacs, what zoxide does at the  shell."
   (interactive "sZoxide:")
   (cl-assert emacspeak-zoxide t "Install zoxide first.")
-  (let ((result
-         (string-trim
-          (shell-command-to-string
-           (format  "%s query %s" emacspeak-zoxide query)))))
-    (or result (error "No match"))
-    (funcall-interactively #'dired result)))
-
+  (with-temp-buffer
+    (if
+        (equal 0
+               (apply #'call-process emacspeak-zoxide nil t nil "query"  `(,q)))
+        (funcall-interactively #'dired (string-trim (buffer-string)))
+      (error "No match"))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
