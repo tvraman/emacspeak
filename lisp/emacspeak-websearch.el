@@ -210,30 +210,6 @@ ARGS specifies additional arguments to SPEAKER if any."
    'emacspeak-speak-line))
 
 ;;}}}
-;;{{{ CiteSeer Citation index
-
-(defvar emacspeak-websearch-citeseer-uri
-  (concat
-   "https://citeseerx.ist.psu.edu/search"
-   "?t=doc&sort=rlv&s2=Semantic+Scholar&submit=Search&q=%s") 
-  "URI for searching CiteSeer index. ")
-
-(emacspeak-websearch-set-searcher
- 'citeseer
- 'emacspeak-websearch-citeseer-search)
-
-(emacspeak-websearch-set-key 3 'citeseer)
-
-(defun emacspeak-websearch-citeseer-search(term)
-  "Perform a CiteSeer search. "
-  (interactive
-   (list (emacspeak-websearch-read-query "Enter CiteSeer query term:")))
-  (cl-declare (special emacspeak-websearch-citeseer-uri))
-  (browse-url
-   (format  emacspeak-websearch-citeseer-uri (url-hexify-string term)))
-  (emacspeak-websearch-post-process term  #'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ FolDoc
 
 (emacspeak-websearch-set-searcher 'foldoc
