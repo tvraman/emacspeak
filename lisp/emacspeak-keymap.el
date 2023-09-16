@@ -569,6 +569,7 @@
     ("r" emacspeak-xslt-view-rss-file)
     ("x" emacspeak-xslt-view-file)
     ("y" emacspeak-empv-play-url)
+    ("z" emacspeak-zoxide)
     )
   "Key bindings for use with C-e y. "
   :group 'emacspeak
