@@ -2740,6 +2740,26 @@ Press `y' on Episode links to play them with MPV."
   (emacspeak-url-template-open (emacspeak-url-template-get "CNBC Quotes")))
 
 ;;}}}
+;;{{{zoxide:
+;;; Inspired by zoxide.el
+
+(defvar emacspeak-zoxide (executable-find "zoxide")
+  "The zoxide executable.")
+
+;;;###autoload 
+(defun emacspeak-zoxide (query)
+  "Query zoxide with query and open first match"
+  (interactive "sZoxide:")
+  (cl-assert emacspeak-zoxide t "Install zoxide first.")
+  (let ((result
+         (string-trim
+          (shell-command-to-string
+           (format  "%s query %s" emacspeak-zoxide query)))))
+    (or result (error "No match"))
+    (funcall-interactively #'find-file result)))
+
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

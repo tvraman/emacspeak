@@ -669,6 +669,7 @@
     ("u" list-unicode-display)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand)
+    ("z" emacspeak-zoxide)
     )
   "Hyper-Key bindings. "
   :group 'emacspeak
