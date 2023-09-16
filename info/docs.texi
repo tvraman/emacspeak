@@ -8266,6 +8266,7 @@ Default Value:
  ("g" gnus)
  ("h" emacspeak-m-player-from-history)
  ("i" ibuffer)
+ ("j" emacspeak-zoxide)
  ("l" emacspeak-m-player-locate-media)
  ("m" vm)
  ("o" find-file)
@@ -8273,8 +8274,7 @@ Default Value:
  ("s" magit-status)
  ("u" list-unicode-display)
  ("w" emacspeak-wizards-noaa-weather)
- ("y" yas-expand)
- ("z" emacspeak-zoxide))
+ ("y" yas-expand))
 
 @end verbatim
 
@@ -8410,8 +8410,7 @@ Default Value:
  ("p" emacspeak-pianobar)
  ("r" emacspeak-xslt-view-rss-file)
  ("x" emacspeak-xslt-view-file)
- ("y" emacspeak-empv-play-url)
- ("z" emacspeak-zoxide))
+ ("y" emacspeak-empv-play-url))
 
 @end verbatim
 
@@ -18563,14 +18562,10 @@ Buffer menu filtered by  mode of current-buffer.
 @subsubsection emacspeak-zoxide
 @deffn {Command} emacspeak-zoxide  (q)
 @table @kbd
-@item C-; z
-@kindex C-; z
-@item C-e y z
-@kindex C-e y z
-@item <fn> y z
-@kindex <fn> y z
-@item C-x @@ h z
-@kindex C-x @@ h z
+@item C-; j
+@kindex C-; j
+@item C-x @@ h j
+@kindex C-x @@ h j
 @end table
 
 @findex emacspeak-zoxide

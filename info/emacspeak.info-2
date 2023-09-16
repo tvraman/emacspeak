@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 15, 2023.
+last updated on September 16, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1087,6 +1087,7 @@ found on laptops is denoted <fn>
       ("g" gnus)
       ("h" emacspeak-m-player-from-history)
       ("i" ibuffer)
+      ("j" emacspeak-zoxide)
       ("l" emacspeak-m-player-locate-media)
       ("m" vm)
       ("o" find-file)
@@ -1094,8 +1095,7 @@ found on laptops is denoted <fn>
       ("s" magit-status)
       ("u" list-unicode-display)
       ("w" emacspeak-wizards-noaa-weather)
-      ("y" yas-expand)
-      ("z" emacspeak-zoxide))
+      ("y" yas-expand))
      
 
  -- Variable: User Option emacspeak-multi-keys
@@ -1207,8 +1207,7 @@ found on laptops is denoted <fn>
       ("p" emacspeak-pianobar)
       ("r" emacspeak-xslt-view-rss-file)
       ("x" emacspeak-xslt-view-file)
-      ("y" emacspeak-empv-play-url)
-      ("z" emacspeak-zoxide))
+      ("y" emacspeak-empv-play-url))
      
 
 
@@ -9159,10 +9158,8 @@ Contains various wizards for the Emacspeak desktop.
 .............................
 
  -- Command: emacspeak-zoxide (q)
-     ‘C-; z’
-     ‘C-e y z’
-     ‘<fn> y z’
-     ‘C-x @ h z’
+     ‘C-; j’
+     ‘C-x @ h j’
 
      Query zoxide with query and open  match.
      Shell Utility zoxide — implemented in Rust — lets you jump to

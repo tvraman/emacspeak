@@ -161,6 +161,7 @@
 @item g  gnus
 @item h  emacspeak-m-player-from-history
 @item i  ibuffer
+@item j  emacspeak-zoxide
 @item l  emacspeak-m-player-locate-media
 @item m  vm
 @item o  find-file
@@ -169,7 +170,6 @@
 @item u  list-unicode-display
 @item w  emacspeak-wizards-noaa-weather
 @item y  yas-expand
-@item z  emacspeak-zoxide
 @item DEL  emacspeak-wizards-snarf-sexp
 @end table
 
@@ -287,7 +287,6 @@
 @item r  emacspeak-xslt-view-rss-file
 @item x  emacspeak-xslt-view-file
 @item y  emacspeak-empv-play-url
-@item z  emacspeak-zoxide
 @end table
 
 @node Emacspeak Keybindings On emacspeak-z-keymap
