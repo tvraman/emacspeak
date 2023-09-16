@@ -18,7 +18,7 @@ last updated on September 16, 2023.
 Indirect:
 emacspeak.info-1: 434
 emacspeak.info-2: 301736
-emacspeak.info-3: 603107
+emacspeak.info-3: 603266
 
 Tag Table:
 (Indirect)
@@ -305,63 +305,63 @@ Node: emacspeak-vuiet511430
 Node: emacspeak-wdired511934
 Node: emacspeak-we512184
 Node: emacspeak-websearch525826
-Node: emacspeak-webspace530113
-Node: emacspeak-widget532965
-Node: emacspeak-windmove534459
-Node: emacspeak-winring534765
-Node: emacspeak-wizards535195
-Node: emacspeak-woman568812
-Node: emacspeak-xkcd569039
-Node: emacspeak-xref569635
-Node: emacspeak-xslt569911
-Node: emacspeak-yaml571700
-Node: emacspeak-yasnippet571955
-Node: espeak-voices572197
-Node: extra-muggles572846
-Node: g-utils586268
-Node: gm-nnir587380
-Node: gmaps588021
-Node: ladspa593327
-Node: light595243
-Node: mac-voices596337
-Node: omaps596743
-Node: outloud-voices596961
-Node: plain-voices597629
-Node: soundscape597973
-Node: sox603107
-Node: sox-gen605753
-Node: tetris612084
-Node: toy-braille612225
-Node: voice-defs612926
-Node: voice-setup618600
-Node: xbacklight623036
-Node: URL Templates624219
-Node: Running Terminal Based Applications628948
-Node: Emacspeak Keyboard Commands637507
-Node: TTS Servers639570
-Node: Emacspeak At Twenty645798
-Node: Turning Twenty647501
-Node: Using UNIX With Speech Output --- 1994648189
-Node: Key Enabler --- Emacs And Lisp Advice650030
-Node: Key Component --- Text To Speech (TTS)651075
-Node: Emacspeak And Software Development653619
-Node: Programming Defensively656235
-Node: Emacspeak And Authoring Documents657494
-Node: Emacspeak And The Early Days Of The Web659069
-Node: Audio Formatting --- Generalizing Aural CSS662517
-Node: Conversational Gestures For The Audio Desktop665585
-Node: Speech-Enabling Interactive Games668940
-Node: Accessing Media Streams670720
-Node: EBooks --- Ubiquitous Access To Books672827
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks675375
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols677239
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access680721
-Node: Mashing It Up --- Leveraging Evolving Web APIs684265
-Node: Conclusion --- Turning Twenty686770
-Node: References688152
-Node: Acknowledgments689082
-Node: Concept Index689238
-Node: Key Index692881
+Node: emacspeak-webspace529910
+Node: emacspeak-widget532762
+Node: emacspeak-windmove534256
+Node: emacspeak-winring534562
+Node: emacspeak-wizards534992
+Node: emacspeak-woman568971
+Node: emacspeak-xkcd569198
+Node: emacspeak-xref569794
+Node: emacspeak-xslt570070
+Node: emacspeak-yaml571859
+Node: emacspeak-yasnippet572114
+Node: espeak-voices572356
+Node: extra-muggles573005
+Node: g-utils586427
+Node: gm-nnir587539
+Node: gmaps588180
+Node: ladspa593486
+Node: light595402
+Node: mac-voices596496
+Node: omaps596902
+Node: outloud-voices597120
+Node: plain-voices597788
+Node: soundscape598132
+Node: sox603266
+Node: sox-gen605912
+Node: tetris612243
+Node: toy-braille612384
+Node: voice-defs613085
+Node: voice-setup618759
+Node: xbacklight623195
+Node: URL Templates624378
+Node: Running Terminal Based Applications629107
+Node: Emacspeak Keyboard Commands637666
+Node: TTS Servers639729
+Node: Emacspeak At Twenty645957
+Node: Turning Twenty647660
+Node: Using UNIX With Speech Output --- 1994648348
+Node: Key Enabler --- Emacs And Lisp Advice650189
+Node: Key Component --- Text To Speech (TTS)651234
+Node: Emacspeak And Software Development653778
+Node: Programming Defensively656394
+Node: Emacspeak And Authoring Documents657653
+Node: Emacspeak And The Early Days Of The Web659228
+Node: Audio Formatting --- Generalizing Aural CSS662676
+Node: Conversational Gestures For The Audio Desktop665744
+Node: Speech-Enabling Interactive Games669099
+Node: Accessing Media Streams670879
+Node: EBooks --- Ubiquitous Access To Books672986
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks675534
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols677398
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access680880
+Node: Mashing It Up --- Leveraging Evolving Web APIs684424
+Node: Conclusion --- Turning Twenty686929
+Node: References688311
+Node: Acknowledgments689241
+Node: Concept Index689397
+Node: Key Index693040
 
 End Tag Table
 

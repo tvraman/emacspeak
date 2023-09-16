@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1153 commands and 147 options.
+This chapter documents a total of 1154 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -16599,17 +16599,6 @@ Search Computer Science Bibliographies.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-citeseer-search
-@deffn {Command} emacspeak-websearch-citeseer-search  (term)
-@findex emacspeak-websearch-citeseer-search
-
-@format
-Perform a CiteSeer search. 
-
-(fn TERM)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-dispatch
 @deffn {Command} emacspeak-websearch-dispatch   
 @table @kbd
@@ -17241,6 +17230,34 @@ Move backward  across blank lines, then speak line.
 @format
 Move forward across blank lines, then speak line.
 
+@end format
+@end deffn
+
+@subsubsection emacspeak-skip-space-backward
+@deffn {Command} emacspeak-skip-space-backward   
+@table @kbd
+@item S-<left>
+@kindex S-<left>
+@end table
+
+@findex emacspeak-skip-space-backward
+
+@format
+Skip back across blanks.
+@end format
+@end deffn
+
+@subsubsection emacspeak-skip-space-forwar
+@deffn {Command} emacspeak-skip-space-forwar   
+@table @kbd
+@item S-<right>
+@kindex S-<right>
+@end table
+
+@findex emacspeak-skip-space-forwar
+
+@format
+Skip forward across blanks.
 @end format
 @end deffn
 
