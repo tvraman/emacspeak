@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 8, 2023.
+last updated on September 15, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2814,6 +2814,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘u list-unicode-display’
 ‘w emacspeak-wizards-noaa-weather’
 ‘y yas-expand’
+‘z emacspeak-zoxide’
 ‘DEL emacspeak-wizards-snarf-sexp’
 
 
@@ -2992,7 +2993,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1152 commands and 147 options.
+   This chapter documents a total of 1153 commands and 147 options.
 
 * Menu:
 

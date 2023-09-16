@@ -169,6 +169,7 @@
 @item u  list-unicode-display
 @item w  emacspeak-wizards-noaa-weather
 @item y  yas-expand
+@item z  emacspeak-zoxide
 @item DEL  emacspeak-wizards-snarf-sexp
 @end table
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 8, 2023.
+last updated on September 15, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1094,7 +1094,8 @@ found on laptops is denoted <fn>
       ("s" magit-status)
       ("u" list-unicode-display)
       ("w" emacspeak-wizards-noaa-weather)
-      ("y" yas-expand))
+      ("y" yas-expand)
+      ("z" emacspeak-zoxide))
      
 
  -- Variable: User Option emacspeak-multi-keys
@@ -9152,6 +9153,17 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-x @ s m’
 
      Buffer menu filtered by  mode of current-buffer.
+
+12.214.1.102 emacspeak-zoxide
+.............................
+
+ -- Command: emacspeak-zoxide (query)
+     ‘C-; z’
+     ‘C-x @ h z’
+
+     Query zoxide with query and open first match
+
+     (fn QUERY)
 
 12.214.2 emacspeak-wizards Options
 ----------------------------------

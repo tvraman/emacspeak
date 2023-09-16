@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1152 commands and 147 options.
+This chapter documents a total of 1153 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -8273,7 +8273,8 @@ Default Value:
  ("s" magit-status)
  ("u" list-unicode-display)
  ("w" emacspeak-wizards-noaa-weather)
- ("y" yas-expand))
+ ("y" yas-expand)
+ ("z" emacspeak-zoxide))
 
 @end verbatim
 
@@ -18555,6 +18556,24 @@ Buffer menu filtered by  m-player mode.
 
 @format
 Buffer menu filtered by  mode of current-buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-zoxide
+@deffn {Command} emacspeak-zoxide  (query)
+@table @kbd
+@item C-; z
+@kindex C-; z
+@item C-x @@ h z
+@kindex C-x @@ h z
+@end table
+
+@findex emacspeak-zoxide
+
+@format
+Query zoxide with query and open first match
+
+(fn QUERY)
 @end format
 @end deffn
 
