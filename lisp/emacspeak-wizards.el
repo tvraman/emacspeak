@@ -2755,7 +2755,7 @@ This command does for Emacs, what zoxide does at the  shell."
   (interactive "sZoxide:")
   (cl-assert emacspeak-zoxide t "Install zoxide first.")
   (with-temp-buffer
-    (if (= 0 (apply #'call-process emacspeak-zoxide nil t nil "query" (list q)))
+    (if (= 0 (call-process emacspeak-zoxide nil t nil "query" q))
         (funcall-interactively #'dired (string-trim (buffer-string)))
       (error "No match"))))
 
