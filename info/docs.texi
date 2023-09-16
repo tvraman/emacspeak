@@ -18571,7 +18571,7 @@ Buffer menu filtered by  mode of current-buffer.
 @findex emacspeak-zoxide
 
 @format
-Query zoxide with query and open  match.
+Query zoxide  and launch dired.
 Shell Utility zoxide --- implemented in Rust --- lets you jump to
 directories that are used often.
 This command does for Emacs, what zoxide does at the  shell.

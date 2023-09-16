@@ -9161,7 +9161,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-; j’
      ‘C-x @ h j’
 
-     Query zoxide with query and open  match.
+     Query zoxide  and launch dired.
      Shell Utility zoxide — implemented in Rust — lets you jump to
      directories that are used often.
      This command does for Emacs, what zoxide does at the  shell.
