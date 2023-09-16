@@ -1306,7 +1306,7 @@ of the source buffer."
       (funcall-interactively #'switch-to-buffer buffer)))))
 
 (defcustom emacspeak-wizards-project-shells nil
-   "Project shells, a list of shell-name/initial-directory pairs."
+  "Project shells, a list of shell-name/initial-directory pairs."
   :type '(repeat
           (list
            (string :tag "Buffer Name")
@@ -2716,7 +2716,6 @@ before brightness is checked.")
 ;;}}}
 ;;{{{BC Sounds:
 
-
 (defun emacspeak-wizards-bbc-sounds ()
   "Search BBC Sounds.
 Result page is filtered down to two sections, Shows and Episodes.
@@ -2724,11 +2723,9 @@ Result page is filtered down to two sections, Shows and Episodes.
 Press [RET] on links in the Show section to open that show page.
 The page for that show contains playable links for Episodes.
 
-
 Press `y' on Episode links to play them with MPV."
   (interactive)
   (emacspeak-url-template-open (emacspeak-url-template-get "BBC Sounds")))
-
 
 ;;}}}
 ;;{{{Portfolio:
@@ -2743,7 +2740,7 @@ Press `y' on Episode links to play them with MPV."
 ;;{{{zoxide:
 ;;; Inspired by zoxide.el
 
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-zoxide (q)
   "Query zoxide  and launch dired.
 Shell Utility zoxide --- implemented in Rust --- lets you jump to
