@@ -2607,13 +2607,13 @@ This function is sensitive to calendar mode when prompting."
 
 (define-key
  minibuffer-local-completion-map
- "\C-n" 'emacspeak-minibuffer-next-completion)
+ (kbd "C-n") 'emacspeak-minibuffer-next-completion)
 (define-key
  minibuffer-local-completion-map
- "\C-p" 'emacspeak-minibuffer-previous-completion)
+ (kbd "C-p") 'emacspeak-minibuffer-previous-completion)
 (define-key
  minibuffer-local-completion-map
- (kbd "C-j") 'emacspeak-minibuffer-choose-completion)
+ (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
 
 ;;}}}
 ;;{{{ Open Emacspeak Info Pages:
