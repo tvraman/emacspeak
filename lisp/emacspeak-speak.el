@@ -1064,7 +1064,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   "Speak character before point."
   (interactive)
   (let ((char (preceding-char))
-        (display (get-char-property (1- (point)) 'display)))
+        (display (get-char-property (max (point-min) (1- (point))) 'display)))
     (when char
       (cond
        ((stringp display) (dtk-speak display))

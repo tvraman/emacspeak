@@ -1972,6 +1972,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 (defun dtk-notify-say (text &optional dont-log)
   "Say text on notification stream. "
   (cl-declare (special dtk-speaker-process emacspeak-last-message))
+  (unless (stringp text) (setq text (format "%s" text)))
   (unless dont-log (emacspeak-log-notification text))
   (setq emacspeak-last-message text)
   (cond
