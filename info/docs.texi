@@ -18571,7 +18571,10 @@ Buffer menu filtered by  mode of current-buffer.
 @findex emacspeak-zoxide
 
 @format
-Query zoxide with query and open first match
+Query zoxide with query and open first match.
+Shell Utility zoxide --- implemented in Rust --- let’s you jump to
+directories that are used often.
+This command does for Emacs, what zoxide does at the  shell.
 
 (fn QUERY)
 @end format

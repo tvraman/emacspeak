@@ -9161,7 +9161,10 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-; z’
      ‘C-x @ h z’
 
-     Query zoxide with query and open first match
+     Query zoxide with query and open first match.
+     Shell Utility zoxide — implemented in Rust — let’s you jump to
+     directories that are used often.
+     This command does for Emacs, what zoxide does at the  shell.
 
      (fn QUERY)
 
