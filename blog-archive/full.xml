@@ -36,6 +36,162 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
   <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-7816169749967643501</id><published>
+      2023-09-16T10:08:00.000-07:00
+    </published>
+    <updated>2023-09-16T10:08:02.278-07:00</updated><title type='text'>
+      Augment Emacs With Zoxide For Efficient File System Navigation
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Augmenting Emacs With ZOxide For
+      Efficient File System Navigation&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-orgd598038&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd598038&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Emacs has no shortage of multiple built-in means of navigating the
+      file system with smart, context-sensitive and fuzzy completion. 
+      Thatsaid, there is one tool outside Emacs  I have discovered in the
+      last six
+      months that brings something extra &amp;#x2014; &lt;a
+      
+      href=&quot;https://github.com/ajeetdsouza/zoxide&quot;&gt;Zoxide&lt;/a&gt;, a smarter &lt;span class=&quot;underline&quot;&gt;cd&lt;/span&gt; built in
+      Rust.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org72a30ff&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org72a30ff&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Default
+      Usage&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      Once installed, &lt;span
+      class=&quot;underline&quot;&gt;zoxide&lt;/span&gt; works well in
+      Emacs shells, as well as at
+      terminals inside or outside Emacs. Read the &lt;span
+      class=&quot;underline&quot;&gt;zoxide&lt;/span&gt; docs for more
+      details, but in a nutshell, this tool remembers directories you 
+      workin, and lets you jump to them by typing short, unique
+      substrings.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgbf8abf6&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgbf8abf6&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Working In
+      Emacs&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      So with &lt;span class=&quot;underline&quot;&gt;zoxide&lt;/span&gt;
+      installed, you can:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Switch to a shell buffer,&lt;/li&gt;
+      &lt;li&gt;Execute a &lt;span
+      class=&quot;underline&quot;&gt;zoxide&lt;/span&gt; navigation
+      command, e.g., &lt;span class=&quot;underline&quot;&gt;z
+      &amp;lt;pattern&amp;gt;&lt;/span&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;
+      Once there, you can easily open files, launch &lt;span
+      class=&quot;underline&quot;&gt;dired&lt;/span&gt; etc.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      But given that opening &lt;span
+      class=&quot;underline&quot;&gt;dired&lt;/span&gt; on that target is
+      what I often
+      want, the above work-flow still involved two steps too many. So
+      in typical Emacs fashion, I wrote a short function that
+      short-circuits this process
+      &lt;/p&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgc58cf4f&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgc58cf4f&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; Command:
+      &lt;code&gt;emacspeak-zoxide&lt;/code&gt;&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;p&gt;
+      Note: there is nothing emacspeak specific in what follows.
+      &lt;/p&gt;
+      
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Interactive command &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#start-of-content&quot;&gt;emacspeak-zoxide&lt;/a&gt; prompts for a pattern,
+      then launches &lt;code&gt;dired&lt;/code&gt; on the &lt;span
+      class=&quot;underline&quot;&gt;zoxide&lt;/span&gt;
+      result.&lt;/li&gt;&lt;li&gt;It uses &lt;code&gt;if-let&lt;/code&gt; 
+      to  advantage:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;If  &lt;span
+      class=&quot;underline&quot;&gt;zoxide&lt;/span&gt; is
+      installed,and&lt;/li&gt;
+      &lt;li&gt;There is a &lt;span
+      class=&quot;underline&quot;&gt;zoxide&lt;/span&gt; result for the
+      specified query,&lt;/li&gt;
+      &lt;li&gt;Launch &lt;code&gt;dired&lt;/code&gt; on that
+      directory.&lt;/li&gt;
+      &lt;li&gt;Else, signal the appropriate error.&lt;/li&gt;
+      &lt;li&gt;Notice that &lt;code&gt;if-let&lt;/code&gt; expresses this
+      clearly.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-list&quot;&gt;(defun
+      emacspeak-zoxide (q)
+      &quot;Query zoxide  and launch dired.
+      Shell Utility zoxide --- implemented in Rust --- lets you jump to
+      directories that are used often.
+      This command does for Emacs, what zoxide does at the  shell.&quot;
+      (interactive &quot;sZoxide:&quot;)
+      (if-let
+      ((zoxide (executable-find &quot;zoxide&quot;))
+      (target
+      (with-temp-buffer
+      (if (= 0 (call-process zoxide nil t nil &quot;query&quot; q))
+      (string-trim (buffer-string))))))
+      (funcall-interactively #&#39;dired  target)
+      (unless zoxide (error &quot;Install zoxide&quot;))
+      (unless target (error &quot;No Match&quot;))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      In my setup, i bind this  to &lt;span
+      class=&quot;underline&quot;&gt;C-; j&lt;/span&gt; which is 
+      convenient  to press and is a mnemonic for
+      &lt;code&gt;jump&lt;/code&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/7816169749967643501'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/7816169749967643501'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2023/09/augment-with-zoxide.html' title='Augment With Zoxide'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-746913157404581580</id><published>
       2023-09-08T08:57:00.002-07:00
     </published>
