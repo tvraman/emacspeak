@@ -569,7 +569,6 @@
     ("r" emacspeak-xslt-view-rss-file)
     ("x" emacspeak-xslt-view-file)
     ("y" emacspeak-empv-play-url)
-    ("z" emacspeak-zoxide)
     )
   "Key bindings for use with C-e y. "
   :group 'emacspeak
@@ -662,6 +661,7 @@
     ("g" gnus)
     ("h" emacspeak-m-player-from-history)
     ("i" ibuffer)
+    ("j" emacspeak-zoxide)
     ("l" emacspeak-m-player-locate-media)
     ("m" vm)
     ("o" find-file)
@@ -670,7 +670,6 @@
     ("u" list-unicode-display)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand)
-    ("z" emacspeak-zoxide)
     )
   "Hyper-Key bindings. "
   :group 'emacspeak
