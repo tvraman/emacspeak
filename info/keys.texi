@@ -287,6 +287,7 @@
 @item r  emacspeak-xslt-view-rss-file
 @item x  emacspeak-xslt-view-file
 @item y  emacspeak-empv-play-url
+@item z  emacspeak-zoxide
 @end table
 
 @node Emacspeak Keybindings On emacspeak-z-keymap

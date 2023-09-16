@@ -1207,7 +1207,8 @@ found on laptops is denoted <fn>
       ("p" emacspeak-pianobar)
       ("r" emacspeak-xslt-view-rss-file)
       ("x" emacspeak-xslt-view-file)
-      ("y" emacspeak-empv-play-url))
+      ("y" emacspeak-empv-play-url)
+      ("z" emacspeak-zoxide))
      
 
 
@@ -9157,16 +9158,18 @@ Contains various wizards for the Emacspeak desktop.
 12.214.1.102 emacspeak-zoxide
 .............................
 
- -- Command: emacspeak-zoxide (query)
+ -- Command: emacspeak-zoxide (q)
      ‘C-; z’
+     ‘C-e y z’
+     ‘<fn> y z’
      ‘C-x @ h z’
 
-     Query zoxide with query and open first match.
-     Shell Utility zoxide — implemented in Rust — let’s you jump to
+     Query zoxide with query and open  match.
+     Shell Utility zoxide — implemented in Rust — lets you jump to
      directories that are used often.
      This command does for Emacs, what zoxide does at the  shell.
 
-     (fn QUERY)
+     (fn Q)
 
 12.214.2 emacspeak-wizards Options
 ----------------------------------

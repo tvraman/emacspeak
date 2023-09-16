@@ -2938,6 +2938,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ‘r emacspeak-xslt-view-rss-file’
 ‘x emacspeak-xslt-view-file’
 ‘y emacspeak-empv-play-url’
+‘z emacspeak-zoxide’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev: Emacspeak Keybindings On emacspeak-y-keymap,  Up: Emacspeak Keymaps
