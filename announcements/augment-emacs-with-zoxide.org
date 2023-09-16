@@ -1,0 +1,77 @@
+* Background
+
+Emacs has no shortage of multiple built-in means of navigating the
+file system with smart, context-sensitive and fuzzy completion.  That
+said, there is one tool outside Emacs  I have discovered in the last six
+months that brings something extra --- [[https://github.com/ajeetdsouza/zoxide][Zoxide]], a smarter _cd_ built in
+Rust.
+
+* Default Usage
+
+Once installed, _zoxide_ works well in Emacs shells, as well as at
+terminals inside or outside Emacs. Read the _zoxide_ docs for more
+details, but in a nutshell, this tool remembers directories you  work
+in, and lets you jump to them by typing short, unique substrings.
+
+* Working In Emacs
+
+So with _zoxide_ installed, you can:
+
+  1. Switch to a shell buffer,
+  2. Execute a _zoxide_ navigation command, e.g., _z <pattern>_.
+  3. Once there, you can easily open files, launch _dired_ etc.
+
+     But given that opening _dired_ on that target is what I often
+     want, the above work-flow still involved two steps too many. So
+     in typical Emacs fashion, I wrote a short function that
+     short-circuits this process
+
+* Command: ~emacspeak-zoxide~
+
+Note: there is nothing emacspeak specific in what follows.
+
+
+  1. Interactive command [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#start-of-content][emacspeak-zoxide]] prompts for a pattern,
+   then launches ~dired~ on the _zoxide_ result.
+  2. It uses ~if-let~  to  advantage:
+     - If  _zoxide_ is installed,and
+     - There is a _zoxide_ result for the specified query,
+     - Launch ~dired~ on that directory.
+     - Else, signal the appropriate error.
+     - Notice that ~if-let~ expresses this clearly.
+       
+#+begin_src  emacs-list
+(defun emacspeak-zoxide (q)
+  "Query zoxide  and launch dired.
+Shell Utility zoxide --- implemented in Rust --- lets you jump to
+directories that are used often.
+This command does for Emacs, what zoxide does at the  shell."
+  (interactive "sZoxide:")
+  (if-let
+      ((zoxide (executable-find "zoxide"))
+       (target
+        (with-temp-buffer
+          (if (= 0 (call-process zoxide nil t nil "query" q))
+              (string-trim (buffer-string))))))
+      (funcall-interactively #'dired  target)
+    (unless zoxide (error "Install zoxide"))
+    (unless target (error "No Match"))))
+#+end_src
+
+In my setup, i bind this  to _C-; j_ which is 
+convenient  to press and is a mnemonic for ~jump~.
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Augmenting Emacs With ZOxide For Efficient File System Navigation 
+#+date: <2023-09-16 Sat>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.7)
+#+cite_export:
