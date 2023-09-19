@@ -39,3 +39,8 @@ Twitter support is obsolete, since the Twittre API is now history.
 
 URL Template BBC Sounds in combination with package ~mpv~ support
 enables playbac of content from BBC Sounds from within Emacs.
+
+* ZOxide Integration
+
+Command ~emacspeak-zoxide~ provides ZOxide integration for rapid
+file-system navigation.
