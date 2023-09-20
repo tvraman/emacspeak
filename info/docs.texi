@@ -3054,6 +3054,27 @@ toggles personality under point.
 @end format
 @end deffn
 
+@subsubsection emacspeak-zoxide
+@deffn {Command} emacspeak-zoxide  (q)
+@table @kbd
+@item C-; j
+@kindex C-; j
+@item C-x @@ h j
+@kindex C-x @@ h j
+@end table
+
+@findex emacspeak-zoxide
+
+@format
+Query zoxide  and launch dired.
+Shell Utility zoxide --- implemented in Rust --- lets you jump to
+directories that are used often.
+This command does for Emacs, what zoxide does at the  shell.
+
+(fn Q)
+@end format
+@end deffn
+
 @subsection emacspeak-comint Options
 
 @defvar {User Option} emacspeak-comint-autospeak
@@ -18573,27 +18594,6 @@ Buffer menu filtered by  m-player mode.
 
 @format
 Buffer menu filtered by  mode of current-buffer.
-@end format
-@end deffn
-
-@subsubsection emacspeak-zoxide
-@deffn {Command} emacspeak-zoxide  (q)
-@table @kbd
-@item C-; j
-@kindex C-; j
-@item C-x @@ h j
-@kindex C-x @@ h j
-@end table
-
-@findex emacspeak-zoxide
-
-@format
-Query zoxide  and launch dired.
-Shell Utility zoxide --- implemented in Rust --- lets you jump to
-directories that are used often.
-This command does for Emacs, what zoxide does at the  shell.
-
-(fn Q)
 @end format
 @end deffn
 

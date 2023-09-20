@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 16, 2023.
+last updated on September 19, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -9160,20 +9160,6 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-x @ s m’
 
      Buffer menu filtered by  mode of current-buffer.
-
-12.214.1.104 emacspeak-zoxide
-.............................
-
- -- Command: emacspeak-zoxide (q)
-     ‘C-; j’
-     ‘C-x @ h j’
-
-     Query zoxide  and launch dired.
-     Shell Utility zoxide — implemented in Rust — lets you jump to
-     directories that are used often.
-     This command does for Emacs, what zoxide does at the  shell.
-
-     (fn Q)
 
 12.214.2 emacspeak-wizards Options
 ----------------------------------

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 16, 2023.
+last updated on September 19, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -5513,6 +5513,20 @@ comint == command interaction.  Advice comint and friends to speak.
      Toggle comint-autospeak when in a comint or vterm buffer.
      Otherwise call voice-setup-toggle-silence-personality which
      toggles personality under point.
+
+12.35.1.4 emacspeak-zoxide
+..........................
+
+ -- Command: emacspeak-zoxide (q)
+     ‘C-; j’
+     ‘C-x @ h j’
+
+     Query zoxide  and launch dired.
+     Shell Utility zoxide — implemented in Rust — lets you jump to
+     directories that are used often.
+     This command does for Emacs, what zoxide does at the  shell.
+
+     (fn Q)
 
 12.35.2 emacspeak-comint Options
 --------------------------------
