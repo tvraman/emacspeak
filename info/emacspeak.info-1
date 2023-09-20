@@ -2881,6 +2881,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  N
 ‘f ffap’
 ‘l locate’
 ‘o org-mode’
+‘s notmuch-search’
 ‘y emacspeak-google-yt-feed’
 
 

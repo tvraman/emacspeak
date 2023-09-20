@@ -233,6 +233,7 @@
 @item f  ffap
 @item l  locate
 @item o  org-mode
+@item s  notmuch-search
 @item y  emacspeak-google-yt-feed
 @end table
 
