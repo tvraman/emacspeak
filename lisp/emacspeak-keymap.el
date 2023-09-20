@@ -799,7 +799,7 @@
     ("f" ffap)
     ("l" locate)
     ("o" org-mode)
-    ("s" notmuch-search)
+    ("m" notmuch-search)
     ("y" emacspeak-google-yt-feed))
   "Multi key bindings. "
   :group 'emacspeak
