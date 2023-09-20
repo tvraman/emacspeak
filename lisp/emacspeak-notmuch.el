@@ -259,6 +259,12 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
+(defadvice notmuch-search (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
 (defadvice notmuch-search-show-thread (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
