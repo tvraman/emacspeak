@@ -3068,8 +3068,7 @@ toggles personality under point.
 @format
 Query zoxide  and launch dired.
 Shell Utility zoxide --- implemented in Rust --- lets you jump to
-directories that are used often.
-This command does for Emacs, what zoxide does at the  shell.
+directories that are used often. 
 
 (fn Q)
 @end format
