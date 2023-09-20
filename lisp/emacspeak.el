@@ -298,7 +298,9 @@ the Emacspeak desktop.")
 (defun emacspeak-prepare-emacs ()
   "Prepare Emacs to speech-enable packages when loaded."
   (cl-declare (special emacspeak-packages-to-prepare
+                       Info-file-list-for-emacs
                        emacspeak-soundscapes))
+  (push "emacspeak" Info-file-list-for-emacs)
   (setq-default line-move-visual nil)
   (setq use-dialog-box nil)
   (when (boundp 'Info-directory-list)
