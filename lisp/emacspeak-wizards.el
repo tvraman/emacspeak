@@ -2768,8 +2768,7 @@ This command does for Emacs, what zoxide does at the  shell."
       ((zoxide (executable-find "zoxide"))
        (target
         (with-temp-buffer
-          (if (= 0 (call-process zoxide nil t nil "query" q))
-              (string-trim (buffer-string))))))
+          (if (= 0 (call-process zoxide nil t nil "query" q)) (buffer-string)))))
       (funcall-interactively #'dired  target)
     (unless zoxide (error "Install zoxide"))
     (unless target (error "No Match"))))
