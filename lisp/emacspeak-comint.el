@@ -573,6 +573,26 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
   (add-hook 'shell-mode-hook 'dirtrack-procfs-mode))
 
 ;;}}}
+;;{{{zoxide:
+;;; Inspired by zoxide.el
+
+;;;###autoload
+(defun emacspeak-zoxide (q)
+  "Query zoxide  and launch dired.
+Shell Utility zoxide --- implemented in Rust --- lets you jump to
+directories that are used often.
+This command does for Emacs, what zoxide does at the  shell."
+  (interactive "sZoxide:")
+  (if-let
+      ((z (executable-find "zoxide"))
+       (target
+        (with-temp-buffer
+          (if (= 0 (call-process z nil t nil "query" q)) (buffer-string)))))
+      (funcall-interactively #'dired  target)
+    (unless z (error "Install zoxide"))
+    (unless target (error "No Match"))))
+
+;;}}}(provide 'emacspeak-wizards)
 (provide 'emacspeak-comint)
 ;;{{{ end of file
 

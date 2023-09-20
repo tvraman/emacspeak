@@ -2754,27 +2754,7 @@ Press `y' on Episode links to play them with MPV."
   (emacspeak-url-template-open (emacspeak-url-template-get "CNBC Quotes")))
 
 ;;}}}
-;;{{{zoxide:
-;;; Inspired by zoxide.el
 
-;;;###autoload
-(defun emacspeak-zoxide (q)
-  "Query zoxide  and launch dired.
-Shell Utility zoxide --- implemented in Rust --- lets you jump to
-directories that are used often.
-This command does for Emacs, what zoxide does at the  shell."
-  (interactive "sZoxide:")
-  (if-let
-      ((zoxide (executable-find "zoxide"))
-       (target
-        (with-temp-buffer
-          (if (= 0 (call-process zoxide nil t nil "query" q)) (buffer-string)))))
-      (funcall-interactively #'dired  target)
-    (unless zoxide (error "Install zoxide"))
-    (unless target (error "No Match"))))
-
-;;}}}
-(provide 'emacspeak-wizards)
 ;;{{{ end of file
 
 ;; local variables:
