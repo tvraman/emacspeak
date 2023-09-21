@@ -586,7 +586,8 @@ directories that are used often. "
       ((z (executable-find "zoxide"))
        (target
         (with-temp-buffer; match found here if process returns 0
-          (if (= 0 (call-process z nil t nil "query" q)) (buffer-string)))))
+          (if (= 0 (call-process z nil t nil "query" q))
+              (string-trim (buffer-string))))))
       (funcall-interactively #'dired  target)
     (unless z (error "Install zoxide"))
     (unless target (error "No Match"))))
