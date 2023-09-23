@@ -180,7 +180,7 @@ Use Custom to customize where possible. "
     (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
-  (make-thread #'(lambda nil (load "eww")))
+  (funcall #'(lambda nil (load "eww")))
   (require 'dired-x)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (when (file-exists-p custom-file)
