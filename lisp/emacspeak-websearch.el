@@ -497,7 +497,8 @@ Optional prefix arg prompts for toolbelt options."
 (emacspeak-websearch-set-key ?w 'wikipedia)
 
 (defun emacspeak-websearch-wikipedia-search (query)
-  "Search Wikipedia using Google."
+  "Search Wikipedia using Google.
+Use URL Template `wikipedia at point' to advantage in the results buffer."
   (interactive
    (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
   (emacspeak-websearch-google
