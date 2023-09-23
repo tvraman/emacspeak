@@ -943,7 +943,9 @@ Each URL template carries out the following steps:
  "" nil nil
  "Extract body content from Wikipedia link at point"
  #'(lambda (_)
-     (emacspeak-we-extract-by-id "bodyContent" (shr-url-at-point nil) 'speak)))
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-eww-autospeak)
+     (emacspeak-we-extract-by-id "bodyContent" (shr-url-at-point nil))))
 
 (emacspeak-url-template-define
  "Wiki Data Search"

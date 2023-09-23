@@ -16750,6 +16750,7 @@ Search the Merriam Webster Dictionary.
 
 @format
 Search Wikipedia using Google.
+Use URL Template ‘wikipedia at point’ to advantage in the results buffer.
 
 (fn QUERY)
 @end format
