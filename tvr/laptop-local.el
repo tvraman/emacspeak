@@ -2,7 +2,7 @@
       x-wait-for-event-timeout 0
       mail-host-address "google.com"
       user-mail-address "raman@google.com")
-(light-black)
+;(light-black)
 (defvar touchpad-device "10"
   "Device ID of synaptics.
 Set by locating it via xinput list | grep -i touchpad ")

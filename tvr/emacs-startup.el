@@ -199,6 +199,7 @@ Use Custom to customize where possible. "
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
+  (load "emacspeak-loaddefs")
   ;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs ))
 ;;; load  settings   not  customizable via custom.
