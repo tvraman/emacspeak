@@ -27,3 +27,6 @@ all-prepare.el:
 	$(EMACS) $(BATCH) -f package-initialize  $(COMPILE)  $<
 clean:
 	rm -f *.elc all-prepare.el
+
+test:
+	emacs -batch -q --eval '(setq debug-on-error t)' -l ./emacs-startup.el
