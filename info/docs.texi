@@ -8311,8 +8311,8 @@ Default Value:
  ("d" sdcv-search-input)
  ("f" ffap)
  ("l" locate)
+ ("m" notmuch-search)
  ("o" org-mode)
- ("s" notmuch-search)
  ("y" emacspeak-google-yt-feed))
 
 @end verbatim
@@ -21012,7 +21012,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 62 URL Templates.
+This section documents a total of 63 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21139,7 +21139,9 @@ Light-weight Google US Stock Markets.@item @b{Washington Post}
 
 Washington Post Contents@item @b{Wiki Data Search}
 
-Search WikiData.@item @b{WordNet Search}
+Search WikiData.@item @b{Wikipedia At Point.}
+
+Extract body content from Wikipedia link at point@item @b{WordNet Search}
 
 Look up term in WordNet.@item @b{Yahoo RSSNews}
 

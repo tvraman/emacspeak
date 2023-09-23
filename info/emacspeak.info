@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 19, 2023.
+last updated on September 23, 2023.
 
 
 Indirect:
@@ -336,32 +336,32 @@ Node: voice-defs613063
 Node: voice-setup618737
 Node: xbacklight623173
 Node: URL Templates624356
-Node: Running Terminal Based Applications629085
-Node: Emacspeak Keyboard Commands637644
-Node: TTS Servers639707
-Node: Emacspeak At Twenty645935
-Node: Turning Twenty647638
-Node: Using UNIX With Speech Output --- 1994648326
-Node: Key Enabler --- Emacs And Lisp Advice650167
-Node: Key Component --- Text To Speech (TTS)651212
-Node: Emacspeak And Software Development653756
-Node: Programming Defensively656372
-Node: Emacspeak And Authoring Documents657631
-Node: Emacspeak And The Early Days Of The Web659206
-Node: Audio Formatting --- Generalizing Aural CSS662654
-Node: Conversational Gestures For The Audio Desktop665722
-Node: Speech-Enabling Interactive Games669077
-Node: Accessing Media Streams670857
-Node: EBooks --- Ubiquitous Access To Books672964
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks675512
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols677376
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access680858
-Node: Mashing It Up --- Leveraging Evolving Web APIs684402
-Node: Conclusion --- Turning Twenty686907
-Node: References688289
-Node: Acknowledgments689219
-Node: Concept Index689375
-Node: Key Index693018
+Node: Running Terminal Based Applications629167
+Node: Emacspeak Keyboard Commands637726
+Node: TTS Servers639789
+Node: Emacspeak At Twenty646017
+Node: Turning Twenty647720
+Node: Using UNIX With Speech Output --- 1994648408
+Node: Key Enabler --- Emacs And Lisp Advice650249
+Node: Key Component --- Text To Speech (TTS)651294
+Node: Emacspeak And Software Development653838
+Node: Programming Defensively656454
+Node: Emacspeak And Authoring Documents657713
+Node: Emacspeak And The Early Days Of The Web659288
+Node: Audio Formatting --- Generalizing Aural CSS662736
+Node: Conversational Gestures For The Audio Desktop665804
+Node: Speech-Enabling Interactive Games669159
+Node: Accessing Media Streams670939
+Node: EBooks --- Ubiquitous Access To Books673046
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks675594
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols677458
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access680940
+Node: Mashing It Up --- Leveraging Evolving Web APIs684484
+Node: Conclusion --- Turning Twenty686989
+Node: References688371
+Node: Acknowledgments689301
+Node: Concept Index689457
+Node: Key Index693100
 
 End Tag Table
 

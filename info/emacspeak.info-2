@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 19, 2023.
+last updated on September 23, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -1108,8 +1108,8 @@ found on laptops is denoted <fn>
       ("d" sdcv-search-input)
       ("f" ffap)
       ("l" locate)
+      ("m" notmuch-search)
       ("o" org-mode)
-      ("s" notmuch-search)
       ("y" emacspeak-google-yt-feed))
      
 

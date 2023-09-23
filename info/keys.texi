@@ -232,8 +232,8 @@
 @item d  sdcv-search-input
 @item f  ffap
 @item l  locate
+@item m  notmuch-search
 @item o  org-mode
-@item s  notmuch-search
 @item y  emacspeak-google-yt-feed
 @end table
 
