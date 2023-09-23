@@ -939,6 +939,13 @@ Each URL template carries out the following steps:
 ;;{{{ wikiData:
 
 (emacspeak-url-template-define
+ "Wikipedia At Point."
+ "" nil nil
+ "Extract body content from Wikipedia link at point"
+ #'(lambda (_)
+     (emacspeak-we-extract-by-id "bodyContent" (shr-url-at-point nil) 'speak)))
+
+(emacspeak-url-template-define
  "Wiki Data Search"
  "https://www.wikidata.org/w/index.php?search=%s"
  (list "WikiData Query: ")
