@@ -32,5 +32,4 @@ clean:
 test:
 	emacs -batch  --eval \
 '(setq force-load-messages t  debug-on-error t)' \
-	-f package-initialize -l ./early-init.el -l ./emacs-startup.elc \
--f tvr-after-init
+	-f package-initialize  -l ./emacs-startup.elc -f tvr-after-init
