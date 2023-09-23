@@ -5,7 +5,6 @@ BATCH = -batch -q -no-site-file
 COMPILE = -f batch-byte-compile
 
 ALL= \
-elfeed-prepare.el \
 gnus-gmail-prepare.el \
 kbd-macros.el \
 laptop-local.el \

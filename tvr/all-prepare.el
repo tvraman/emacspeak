@@ -1,12 +1,3 @@
-;; -*- lexical-binding: nil; -*-
-
-
-(eval-after-load "elfeed"
-  `(progn
-     ;; Run once an hour
-     (setq my-elfeed-timer 
-           (run-at-time t (* 60 60) #'elfeed-update))
-     ))
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;; Uses auth-source-xoauth2:
