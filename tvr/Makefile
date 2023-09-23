@@ -18,7 +18,8 @@ vm-prepare.el   \
 yasnippet-prepare.el 
 
 
-all: all-prepare.elc emacs-startup.elc 
+all: all-prepare.elc emacs-startup.elc
+	make test
 
 all-prepare.el: 
 	cat $(ALL) > all-prepare.el
@@ -29,4 +30,5 @@ clean:
 	rm -f *.elc all-prepare.el
 
 test:
-	emacs -batch -q --eval '(setq debug-on-error t)' -l ./emacs-startup.el
+	emacs -batch -q --eval \
+'(setq force-load-messages t  debug-on-error t)' -l ./emacs-startup.el
