@@ -30,5 +30,6 @@ clean:
 	rm -f *.elc all-prepare.el
 
 test:
-	emacs -batch -q --eval \
-'(setq force-load-messages t  debug-on-error t)' -l ./emacs-startup.el
+	emacs -batch  --eval \
+'(setq force-load-messages t  debug-on-error t)' \
+	-l ./emacs-startup.elc -l ${HOME}/.customize-emacs 
