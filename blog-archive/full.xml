@@ -3451,7 +3451,7 @@ The above is a one-time operation that sets up the audio environment
       machine providing spoken feedback.  The underlying ssh-based scripts
       have changed over time; this article documents what I have been
       using for the last 7 years or more. As with everything else Linux,
-      youshould not use this without understanding how it works. All of
+      you should not use this without understanding how it works. All of
       therelevant code is checked into GitHub, but if you use it without
       understanding, you are likely to get 2 for the price of 1😀.
       &lt;/p&gt;
