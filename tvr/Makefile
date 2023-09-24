@@ -3,6 +3,10 @@
 EMACS=emacs
 BATCH = -batch -q -no-site-file      
 COMPILE = -f batch-byte-compile
+COMMON_TEST=	-f package-initialize  -l ./emacs-startup.elc \
+ -l ../lisp/emacspeak-loaddefs.el  -f tvr-after-init
+TEST=-batch  --eval '(setq force-load-messages t  debug-on-error t)'
+Q_TEST=-batch  --eval '(setq debug-on-error t)'
 
 ALL= \
 gnus-gmail-prepare.el \
@@ -28,7 +32,7 @@ clean:
 	rm -f *.elc all-prepare.el
 
 test: all-prepare.el emacs-startup.elc
-	emacs -batch  --eval \
-'(setq force-load-messages t  debug-on-error t)' \
-	-f package-initialize  -l ./emacs-startup.elc \
- -l ../lisp/emacspeak-loaddefs.el  -f tvr-after-init
+	emacs ${TEST} ${COMMON_TEST}
+
+q: all-prepare.el emacs-startup.elc
+	emacs ${Q_TEST} ${COMMON_TEST}	
