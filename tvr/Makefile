@@ -17,13 +17,13 @@ org-prepare.el \
 slime-prepare.el \
 sp-prepare.el \
 sdcv-prepare.el \
-vm-prepare.el   \
-yasnippet-prepare.el 
+vm-prepare.el   
+
 
 
 all:  emacs-startup.elc
 
-all-prepare.el: 
+all-prepare.el:  ${ALL}
 	cat $(ALL) > all-prepare.el
 
 %.elc: %.el

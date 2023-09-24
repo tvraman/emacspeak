@@ -215,9 +215,6 @@ Uses the go oauth tool found in the xoauth git repo."
   )
 (with-eval-after-load "orgalist"
   (diminish 'orgalist-mode ""))
-;;; slime-autoloads is broken alas:
-;; See https://github.com/susam/emacs4cl
-(load-library "slime")
 (with-eval-after-load "slime"
   (cl-declaim (special slime-lisp-implementations
                        slime-use-autodoc-mode slime-prefix-map slime-doc-map
@@ -291,12 +288,3 @@ Uses the go oauth tool found in the xoauth git repo."
     (make-local-variable hook)
     (set hook (list t)))
   hook)
-;; -*- lexical-binding: nil; -*-
-(defvar tvr-yas-snippets-loaded nil)
-(with-eval-after-load "yasnippet"
-  (cl-declaim (special yas-verbosity))
-  (unless tvr-yas-snippets-loaded
-    (run-with-idle-timer 1 nil #'yas-reload-all)
-    (setq tvr-yas-snippets-loaded t))
-  (setq yas-verbosity 0)
-  (diminish 'yas-minor-mode ""))
