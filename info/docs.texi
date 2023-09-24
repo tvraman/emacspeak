@@ -15615,7 +15615,7 @@ Add book under point to wishlist.
 @findex emacspeak-url-template-save
 
 @format
-Save out url templates.
+Save url templates.
 
 (fn FILE)
 @end format
@@ -21043,7 +21043,7 @@ Search Linux ArchWiki@item @b{bbc podcast directory}
 
 BBC PodCast Directory@item @b{bbc sounds}
 
-Search BBC Sounds.@item @b{bing news}
+Search BBC Sounds@item @b{bing news}
 
 Bing News results as RSS feed.@item @b{business headlines from cnn}
 
@@ -21118,15 +21118,15 @@ Player FM BBC RSS Feeds@item @b{radiotime browser}
 
 RadioTime Entry point.@item @b{radiotime categories}
 
-RadioTime Categories .@item @b{radiotime search}
+RadioTime Categories @item @b{radiotime search}
 
-RadioTime Search.@item @b{reddit at point}
+RadioTime Search@item @b{reddit at point}
 
-Open RSS Feed for Reddit URL under point.@item @b{reddit by topic.}
+Open RSS Feed for Reddit URL under point.@item @b{reddit by topic}
 
-Open RSS Feed for Reddit Topic.@item @b{reddit front page.}
+Open RSS Feed for Reddit Topic.@item @b{reddit front page}
 
-Open  Feed for Reddit  Front Page.@item @b{reddit search.}
+Open  Feed for Reddit  Front Page.@item @b{reddit search}
 
 Reddit Search Results Feed.@item @b{sourceforge browse mirrors}
 

@@ -7008,7 +7008,7 @@ presently defined.
 
  -- Command: emacspeak-url-template-save (file)
 
-     Save out url templates.
+     Save url templates.
 
      (fn FILE)
 
