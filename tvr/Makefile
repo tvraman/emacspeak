@@ -21,7 +21,7 @@ vm-prepare.el
 
 
 
-all:  emacs-startup.elc
+all:  emacs-startup.elc all-prepare.el
 
 all-prepare.el:  ${ALL}
 	cat $(ALL) > all-prepare.el
