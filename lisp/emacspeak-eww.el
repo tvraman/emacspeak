@@ -952,11 +952,19 @@ Retain previously set punctuations  mode."
      "speak."
      (ems-with-messages-silenced ad-do-it)
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (let ((host
+              (url-host
+               (url-generic-parse-url (funcall emacspeak-eww-url-at-point)))))
+         (cond                          ; smarter icon:
+          ((or
+            emacspeak-we-url-executor
+            (string-match "reddit" host)
+            (string-match "wikipedia" host))
+           (emacspeak-auditory-icon 'item))
+          (t (emacspeak-auditory-icon 'button))))
        (emacspeak-speak-region
         (point)
-        (next-single-property-change (point) 'help-echo
-                                     nil (point-max)))))))
+        (next-single-property-change (point) 'help-echo nil (point-max)))))))
 
 ;; Handle emacspeak-we-url-executor
 
