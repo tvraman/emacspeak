@@ -31,4 +31,5 @@ clean:
 test: all-prepare.el emacs-startup.elc
 	emacs -batch  --eval \
 '(setq force-load-messages t  debug-on-error t)' \
-	-f package-initialize  -l ./emacs-startup.elc 
+	-f package-initialize  -l ./emacs-startup.elc \
+ -l ../lisp/emacspeak-loaddefs.el  -f tvr-after-init
