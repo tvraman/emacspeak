@@ -178,7 +178,7 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'outline
     (global-set-key (kbd "C-o") outline-mode-prefix-map) ;;restore
     (define-key outline-mode-prefix-map "o" 'open-line))
-  (server-start)
+  (unless noninteractive (server-start))
   (with-eval-after-load 'magit (require 'forge))
   (funcall #'(lambda nil (load "eww")))
   (require 'dired-x)
