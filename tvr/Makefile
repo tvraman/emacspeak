@@ -18,7 +18,6 @@ yasnippet-prepare.el
 
 
 all:  emacs-startup.elc
-	make test
 
 all-prepare.el: 
 	cat $(ALL) > all-prepare.el
