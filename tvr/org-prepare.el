@@ -1,12 +1,11 @@
 ;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: nil; -*-
 
 (with-eval-after-load "org"
+  (cl-declaim (special org-mode-map org-multi-keymap))
   (require 'org-tempo)
   (add-hook 'org-mode-hook #'turn-on-org-cdlatex)
   (require 'ol-eww)
   (require 'ox-md)
-  
-
   (define-prefix-command 'org-multi-keymap)
   (define-key org-mode-map (ems-kbd "C-'") 'org-multi-keymap)
   (define-key org-multi-keymap "n" #'org-next-link)
