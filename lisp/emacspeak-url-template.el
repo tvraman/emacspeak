@@ -112,13 +112,13 @@
 (defun emacspeak-url-template-set (key ut)
   "Add specified template to key. "
   (cl-declare (special emacspeak-url-template-table))
-  (setf (gethash key emacspeak-url-template-table) ut))
+  (setf (gethash (downcase key) emacspeak-url-template-table) ut))
 
 ;;;###autoload
 (defun emacspeak-url-template-get (key)
   "Lookup key and return corresponding template. "
   (cl-declare (special emacspeak-url-template-table))
-  (gethash key emacspeak-url-template-table))
+  (gethash (downcase key) emacspeak-url-template-table))
 
 ;;}}}
 ;;{{{ define resources
@@ -939,7 +939,7 @@ Each URL template carries out the following steps:
 ;;{{{ wikiData:
 
 (emacspeak-url-template-define
- "Wikipedia At Point."
+ "Wikipedia At Point"
  "" nil nil
  "Extract body content from Wikipedia link at point"
  #'(lambda (_)
@@ -1068,7 +1068,7 @@ template."
 (declare-function shr-url-at-point "shr" (image-url))
 
 (emacspeak-url-template-define
- "Reddit At Point."
+ "Reddit At Point"
  "" nil nil
  "Open RSS Feed for Reddit URL under point."
  #'(lambda (_url)

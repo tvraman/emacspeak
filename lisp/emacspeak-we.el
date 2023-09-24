@@ -127,6 +127,12 @@ a rewrite rule even if one is already defined."
       (if prefix
           (funcall emacspeak-we-url-executor url prefix)
         (funcall emacspeak-we-url-executor url)))
+     ((string-match "reddit" url)       ; use reddit url template
+      (emacspeak-url-template-open
+       (emacspeak-url-template-get "Reddit At Point")))
+     ((string-match "wikipedia" url) ; Use wikipedia url template
+      (emacspeak-url-template-open
+   (emacspeak-url-template-get "Wikipedia At Point")))
      (t
       (setq emacspeak-we-url-executor
             (intern

@@ -831,201 +831,201 @@ out the following steps:
    • Fetch the resulting URL using an appropriate fetcher.
    • Set up the resulting resource with appropriate customizations.
 
-  1. AQI From Wunderground
-
-     Air quality from Wunderground
-  2. Air Traffic Control
+  1. air traffic control
 
      Find live streams for Air Traffic Control.
-  3. Airport conditions
+  2. airport conditions
 
      Display airport conditions from the FAA.
-  4. Amazon Product Details By ASIN
+  3. amazon product details by asin
 
      Retrieve product details from Amazon by either ISBN or ASIN.
-  5. ArchWiki Search
+  4. aqi from wunderground
+
+     Air quality from Wunderground
+  5. archwiki search
 
      Search Linux ArchWiki
-  6. BBC Podcast Directory
+  6. bbc podcast directory
 
      BBC PodCast Directory
-  7. BBC Sounds
+  7. bbc sounds
 
      Search BBC Sounds.
-  8. Bing News
+  8. bing news
 
      Bing News results as RSS feed.
-  9. Business Headlines From CNN
+  9. business headlines from cnn
 
      Money Headlines From CNN
-  10. CIA World Fact Book
+  10. cia world fact book
 
      Open CIA World Fact Book For Specified Country.
-  11. CNBC Quotes
+  11. cnbc quotes
 
      Stock portfolio via CNBC
-  12. CNBC Ticker
+  12. cnbc ticker
 
      Stock Quote via CNBC
-  13. CNN Headlines
+  13. cnn headlines
 
      News Headlines From CNN
-  14. CNN Money
+  14. cnn money
 
      CNN Money
-  15. CNN World
+  15. cnn world
 
      CNN World
-  16. Cricinfo Print
+  16. cricinfo print
 
      Printer friendly link on Cricinfo
-  17. Dictionary Lookup
+  17. dictionary lookup
 
      Dictionary Lookup
-  18. Finance Google
+  18. finance google
 
      Lookup ticker on Google Finance.
-  19. Finance Summary From Google
+  19. finance summary from google
 
      Display top stocks from Google Finance.
-  20. FreeSound
+  20. freesound
 
      Search FreeSound.
-  21. Google News Search
+  21. google news search
 
      Search Google news.
-  22. Google Quotes
+  22. google quotes
 
      Light-weight Google Stock quotes.
-  23. Google Scholar
+  23. google scholar
 
      Google Scholar Search
-  24. Google Trends
+  24. google trends
 
      Google Trends
-  25. Google Weather
+  25. google weather
 
      Light-weight Google weather.
-  26. Guardian RSS Feeds Directory
+  26. guardian rss feeds directory
 
      Guardian Feeds Directory
-  27. Hacker News Frontpage
+  27. hacker news frontpage
 
      Display Hacker News Front Page
-  28. Hacker News Search
+  28. hacker news search
 
      Display Hacker News Front Page
-  29. Hoogle Haskell API Search
+  29. hoogle haskell api search
 
      Haskell API Search against a local server.
-  30. Microsoft Search
+  30. html google news search
+
+     Search Google news.
+  31. microsoft search
 
      Bing results as RSS feed.
-  31. NBA standings
+  32. nba standings
 
      Display NBA standings.
-  32. NLS Bard Bookshelf
+  33. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  33. NLS Bard Popular
+  34. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  34. NLS Bard Recent
+  35. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  35. NLS Bard Search
+  36. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  36. NPR
+  37. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  37. Old Time Radio
+  38. old time radio
 
      This months Old Time Radio Programming
-  38. OpenLibrary
+  39. openlibrary
 
      Open Library Search
-  39. Patent Search From Google
+  40. patent search from google
 
      Perform patent search via Google
-  40. Player FM BBC RSS Feeds
+  41. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  41. RadioTime Browser
+  42. radiotime browser
 
      RadioTime Entry point.
-  42. RadioTime Categories
+  43. radiotime categories
 
      RadioTime Categories .
-  43. RadioTime Search
+  44. radiotime search
 
      RadioTime Search.
-  44. Reddit At Point.
+  45. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  45. Reddit By Topic.
+  46. reddit by topic.
 
      Open RSS Feed for Reddit Topic.
-  46. Reddit Front Page.
+  47. reddit front page.
 
      Open Feed for Reddit Front Page.
-  47. Reddit Search.
+  48. reddit search.
 
      Reddit Search Results Feed.
-  48. StreamWorld Radio
-
-     Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  49. Tech News From CNet
-
-     Display tech news from CNET
-  50. TuneIn Radio
-
-     Translate StreamId to playable stream.
-  51. US Stock Market From Google
-
-     Light-weight Google US Stock Markets.
-  52. Washington Post
-
-     Washington Post Contents
-  53. Wiki Data Search
-
-     Search WikiData.
-  54. Wikipedia At Point.
-
-     Extract body content from Wikipedia link at point
-  55. WordNet Search
-
-     Look up term in WordNet.
-  56. Yahoo RSSNews
-
-     News From Yahoo As RSS.
-  57. html Google News Search
-
-     Search Google news.
-  58. sourceforge Download
-
-     Download specified file.
-  59. sourceforge browse mirrors
+  49. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  60. sourceforge project
+  50. sourceforge download
+
+     Download specified file.
+  51. sourceforge project
 
      Open specified project page at SourceForge.
-  61. w3c IRC Logs
+  52. streamworld radio
+
+     Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
+  53. tech news from cnet
+
+     Display tech news from CNET
+  54. tunein radio
+
+     Translate StreamId to playable stream.
+  55. us stock market from google
+
+     Light-weight Google US Stock Markets.
+  56. w3c irc logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  62. w3c Lists
+  57. w3c lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  63. world CNN Content
+  58. washington post
+
+     Washington Post Contents
+  59. wiki data search
+
+     Search WikiData.
+  60. wikipedia at point
+
+     Extract body content from Wikipedia link at point
+  61. wordnet search
+
+     Look up term in WordNet.
+  62. world cnn content
 
      Filter down to CNN content area.
+  63. yahoo rssnews
+
+     News From Yahoo As RSS.
 
 
 File: emacspeak.info,  Node: Running Terminal Based Applications,  Next: Emacspeak Keyboard Commands,  Prev: Emacspeak Commands And Options,  Up: Top

@@ -52,6 +52,11 @@
 (require 'emacspeak-preamble)
 (require 'calibredb nil 'no-error)
 (require 'emacspeak-epub)
+(declare-function calibredb-getattr "calibredb" t)
+(declare-function calibredb-find-candidate-at-point "calibredb" t)
+
+
+
 ;;}}}
 ;;{{{ Map Faces:
 

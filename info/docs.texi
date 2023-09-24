@@ -21029,142 +21029,142 @@ Each URL template carries out the following steps:
 @end itemize
 @enumerate 
 
-@item @b{AQI From Wunderground}
+@item @b{air traffic control}
 
-Air quality from Wunderground@item @b{Air Traffic Control}
+Find live streams for Air Traffic Control.@item @b{airport conditions}
 
-Find live streams for Air Traffic Control.@item @b{Airport conditions}
+Display airport conditions from the FAA.@item @b{amazon product details by asin}
 
-Display airport conditions from the FAA.@item @b{Amazon Product Details By ASIN}
+Retrieve product details from Amazon by either ISBN or ASIN.@item @b{aqi from wunderground}
 
-Retrieve product details from Amazon by either ISBN or ASIN.@item @b{ArchWiki Search}
+Air quality from Wunderground@item @b{archwiki search}
 
-Search Linux ArchWiki@item @b{BBC Podcast Directory}
+Search Linux ArchWiki@item @b{bbc podcast directory}
 
-BBC PodCast Directory@item @b{BBC Sounds}
+BBC PodCast Directory@item @b{bbc sounds}
 
-Search BBC Sounds.@item @b{Bing News}
+Search BBC Sounds.@item @b{bing news}
 
-Bing News results as RSS feed.@item @b{Business Headlines From CNN}
+Bing News results as RSS feed.@item @b{business headlines from cnn}
 
-Money Headlines From CNN@item @b{CIA World Fact Book}
+Money Headlines From CNN@item @b{cia world fact book}
 
-Open CIA World Fact Book For Specified Country.@item @b{CNBC Quotes}
+Open CIA World Fact Book For Specified Country.@item @b{cnbc quotes}
 
-Stock portfolio via CNBC@item @b{CNBC Ticker}
+Stock portfolio via CNBC@item @b{cnbc ticker}
 
-Stock Quote via CNBC@item @b{CNN Headlines}
+Stock Quote via CNBC@item @b{cnn headlines}
 
-News Headlines From CNN@item @b{CNN Money}
+News Headlines From CNN@item @b{cnn money}
 
-CNN Money@item @b{CNN World}
+CNN Money@item @b{cnn world}
 
-CNN World@item @b{Cricinfo Print}
+CNN World@item @b{cricinfo print}
 
-Printer friendly   link on Cricinfo@item @b{Dictionary Lookup}
+Printer friendly   link on Cricinfo@item @b{dictionary lookup}
 
-Dictionary Lookup@item @b{Finance  Google}
+Dictionary Lookup@item @b{finance  google}
 
-Lookup ticker on Google Finance.@item @b{Finance Summary From Google}
+Lookup ticker on Google Finance.@item @b{finance summary from google}
 
-Display top stocks  from Google Finance.@item @b{FreeSound}
+Display top stocks  from Google Finance.@item @b{freesound}
 
-Search FreeSound.@item @b{Google News Search}
+Search FreeSound.@item @b{google news search}
 
-Search Google news.@item @b{Google Quotes}
+Search Google news.@item @b{google quotes}
 
-Light-weight Google Stock quotes.@item @b{Google Scholar}
+Light-weight Google Stock quotes.@item @b{google scholar}
 
-Google Scholar Search@item @b{Google Trends}
+Google Scholar Search@item @b{google trends}
 
-Google Trends@item @b{Google Weather}
+Google Trends@item @b{google weather}
 
-Light-weight Google weather.@item @b{Guardian RSS Feeds Directory}
+Light-weight Google weather.@item @b{guardian rss feeds directory}
 
-Guardian Feeds  Directory@item @b{Hacker  News Frontpage}
+Guardian Feeds  Directory@item @b{hacker  news frontpage}
 
-Display Hacker News Front Page@item @b{Hacker  News Search}
+Display Hacker News Front Page@item @b{hacker  news search}
 
-Display Hacker News Front Page@item @b{Hoogle Haskell API Search}
+Display Hacker News Front Page@item @b{hoogle haskell api search}
 
-Haskell API Search against a local server.@item @b{Microsoft Search}
+Haskell API Search against a local server.@item @b{html google news search}
 
-Bing results as RSS feed.@item @b{NBA  standings}
+Search Google news.@item @b{microsoft search}
 
-Display NBA standings.@item @b{NLS Bard Bookshelf}
+Bing results as RSS feed.@item @b{nba  standings}
+
+Display NBA standings.@item @b{nls bard bookshelf}
 
 NLS Bard Catalog: Most Popular. Login once before using this
-template.@item @b{NLS Bard Popular}
+template.@item @b{nls bard popular}
 
 NLS Bard Catalog: Most Popular. Login once before using this
-template.@item @b{NLS Bard Recent}
+template.@item @b{nls bard recent}
 
 NLS Bard Catalog: Recently Added. Login once before using this
-template.@item @b{NLS Bard Search}
+template.@item @b{nls bard search}
 
-Search NLS Bard Catalog. Login once before using this template.@item @b{NPR}
+Search NLS Bard Catalog. Login once before using this template.@item @b{npr}
 
-Open NPR home , then display the alternative links to access RSS feeds.@item @b{Old Time Radio}
+Open NPR home , then display the alternative links to access RSS feeds.@item @b{old time radio}
 
-This months Old Time Radio Programming@item @b{OpenLibrary}
+This months Old Time Radio Programming@item @b{openlibrary}
 
-Open Library Search@item @b{Patent Search From Google}
+Open Library Search@item @b{patent search from google}
 
-Perform patent search via Google@item @b{Player FM BBC RSS Feeds}
+Perform patent search via Google@item @b{player fm bbc rss feeds}
 
-Player FM BBC RSS Feeds@item @b{RadioTime Browser}
+Player FM BBC RSS Feeds@item @b{radiotime browser}
 
-RadioTime Entry point.@item @b{RadioTime Categories}
+RadioTime Entry point.@item @b{radiotime categories}
 
-RadioTime Categories .@item @b{RadioTime Search}
+RadioTime Categories .@item @b{radiotime search}
 
-RadioTime Search.@item @b{Reddit At Point.}
+RadioTime Search.@item @b{reddit at point}
 
-Open RSS Feed for Reddit URL under point.@item @b{Reddit By Topic.}
+Open RSS Feed for Reddit URL under point.@item @b{reddit by topic.}
 
-Open RSS Feed for Reddit Topic.@item @b{Reddit Front Page.}
+Open RSS Feed for Reddit Topic.@item @b{reddit front page.}
 
-Open  Feed for Reddit  Front Page.@item @b{Reddit Search.}
+Open  Feed for Reddit  Front Page.@item @b{reddit search.}
 
-Reddit Search Results Feed.@item @b{StreamWorld Radio}
+Reddit Search Results Feed.@item @b{sourceforge browse mirrors}
+
+Retrieve download page at Sourceforge for specified project.@item @b{sourceforge download}
+
+Download specified file.@item @b{sourceforge project}
+
+Open specified project page at SourceForge.@item @b{streamworld radio}
 
 Play radio stream.
 Example: kcbsFM.
-Format is stationid+AM/FM.@item @b{Tech News From CNet}
+Format is stationid+AM/FM.@item @b{tech news from cnet}
 
-Display tech news from CNET@item @b{TuneIn Radio}
+Display tech news from CNET@item @b{tunein radio}
 
-Translate StreamId to playable stream.@item @b{US Stock Market From Google }
+Translate StreamId to playable stream.@item @b{us stock market from google }
 
-Light-weight Google US Stock Markets.@item @b{Washington Post}
-
-Washington Post Contents@item @b{Wiki Data Search}
-
-Search WikiData.@item @b{Wikipedia At Point.}
-
-Extract body content from Wikipedia link at point@item @b{WordNet Search}
-
-Look up term in WordNet.@item @b{Yahoo RSSNews}
-
-News  From Yahoo As RSS.@item @b{html Google News Search}
-
-Search Google news.@item @b{sourceforge Download}
-
-Download specified file.@item @b{sourceforge browse mirrors}
-
-Retrieve download page at Sourceforge for specified project.@item @b{sourceforge project}
-
-Open specified project page at SourceForge.@item @b{w3c IRC Logs}
+Light-weight Google US Stock Markets.@item @b{w3c irc logs}
 
 Use this to pull up the
 archived logs from the W3C IRC. You need to know the exact
-name of the channel.@item @b{w3c Lists}
+name of the channel.@item @b{w3c lists}
 
 Use this to pull up the
 archived mail from the W3C list. You need to know the exact
-name of the list.@item @b{world CNN Content}
+name of the list.@item @b{washington post}
 
-Filter down to CNN content area.
+Washington Post Contents@item @b{wiki data search}
+
+Search WikiData.@item @b{wikipedia at point}
+
+Extract body content from Wikipedia link at point@item @b{wordnet search}
+
+Look up term in WordNet.@item @b{world cnn content}
+
+Filter down to CNN content area.@item @b{yahoo rssnews}
+
+News  From Yahoo As RSS.
 
 @end enumerate
 
