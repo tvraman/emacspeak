@@ -1,6 +1,3 @@
-;;; slime-autoloads is broken alas:
-;; See https://github.com/susam/emacs4cl
-(load-library "slime")
 (with-eval-after-load "slime"
   (cl-declaim (special slime-lisp-implementations
                        slime-use-autodoc-mode slime-prefix-map slime-doc-map
