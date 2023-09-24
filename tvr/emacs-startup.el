@@ -94,7 +94,7 @@ Produce timing information as the last step."
      ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
-   (define-key shell-mode-map (ems-kbd (cl-first b)) (cl-second b))))
+   (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
 ;;{{{tvr-tabs:
@@ -160,23 +160,23 @@ Use Custom to customize where possible. "
      ( "M-#" calc-dispatch)
      ("M-C-v" vm-visit-folder))
    do
-   (global-set-key (ems-kbd (cl-first key)) (cl-second key)))
+   (global-set-key (kbd (cl-first key)) (cl-second key)))
 
   (cl-loop ;; shell wizard
    for i from 0 to 9 do
    (global-set-key
-    (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
+    (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
   ;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
   (define-key ctl-x-map "j" 'pop-global-mark)
   (define-key ctl-x-map "u"  'undo-only)
-  (define-key ctl-x-map (ems-kbd "C-u") 'undo-redo)
-  (define-key ctl-x-map (ems-kbd "C-d") 'dired-jump)
+  (define-key ctl-x-map (kbd "C-u") 'undo-redo)
+  (define-key ctl-x-map (kbd "C-d") 'dired-jump)
   ;; Shell mode bindings:
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
   ;; Outline Setup:
   (with-eval-after-load 'outline
-    (global-set-key (ems-kbd "C-o") outline-mode-prefix-map) ;;restore
+    (global-set-key (kbd "C-o") outline-mode-prefix-map) ;;restore
     (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
@@ -271,7 +271,7 @@ configuration happens via the after-init-hook. "
 
 ;;{{{ Forward Function Declarations:
 
-(declare-function ems-kbd "emacspeak-keymap" (string))
+(declare-function kbd "emacspeak-keymap" (string))
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
 (declare-function

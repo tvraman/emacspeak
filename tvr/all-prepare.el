@@ -183,17 +183,17 @@ Uses the go oauth tool found in the xoauth git repo."
 
 (define-key emacspeak-y-keymap "m" 'tvr-mail)
 (provide 'laptop-local)
-(define-key emacs-lisp-mode-map (ems-kbd "C-c e") 'macrostep-expand)
+(define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand)
 (defun conditionally-enable-lispy ()
   (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
     (lispy-mode 1)))
 (with-eval-after-load "lispy"
   (cl-declare (special lispy-mode-map lispy-mode-map-lispy))
-  (define-key lispy-mode-map (ems-kbd "C-a") 'move-beginning-of-line)
+  (define-key lispy-mode-map (kbd "C-a") 'move-beginning-of-line)
   ;(define-key lispy-mode-map (concat emacspeak-prefix emacspeak-prefix) 'move-end-of-line)
-  (define-key lispy-mode-map (ems-kbd "C-,") nil)
-  (define-key lispy-mode-map-lispy (ems-kbd "C-,") nil)
-  (define-key lispy-mode-map (ems-kbd "C-<return>") 'complete)
+  (define-key lispy-mode-map (kbd "C-,") nil)
+  (define-key lispy-mode-map-lispy (kbd "C-,") nil)
+  (define-key lispy-mode-map (kbd "C-<return>") 'complete)
   (define-key lispy-mode-map "\M-m" nil)
   (define-key lispy-mode-map "\C-y" 'emacspeak-muggles-yank-pop/yank)
   (define-key lispy-mode-map ";" 'self-insert-command)
@@ -225,14 +225,17 @@ Uses the go oauth tool found in the xoauth git repo."
 ;; See https://github.com/susam/emacs4cl
 (load-library "slime")
 (with-eval-after-load "slime"
+  (cl-declaim (special slime-lisp-implementations
+                       slime-use-autodoc-mode slime-prefix-map slime-doc-map
+                       common-lisp-hyperspec-root inferior-lisp-program))
   (add-hook 'slime-repl-mode-hook 'lispy-mode)
   (define-key slime-prefix-map "d" slime-doc-map)
   (setq inferior-lisp-program (executable-find "sbcl"))
   (setq common-lisp-hyperspec-root
         (if (file-exists-p "/usr/share/doc/hyperspec/")
             "file:///usr/share/doc/hyperspec/"
-            "http://www.lispworks.com/reference/HyperSpec/"))
-  (global-set-key (ems-kbd "C-c s") 'slime-selector)
+          "http://www.lispworks.com/reference/HyperSpec/"))
+  (global-set-key (kbd "C-c s") 'slime-selector)
   (setq slime-contribs '(slime-fancy slime-hyperdoc slime-quicklisp slime-asdf))
   (slime-setup)
   (slime-autodoc--disable)
@@ -240,7 +243,7 @@ Uses the go oauth tool found in the xoauth git repo."
   (setq
    slime-lisp-implementations
    `((sbcl ("sbcl" "--core"
-                   ,(expand-file-name "sbcl.core-for-slime" user-emacs-directory))))))
+            ,(expand-file-name "sbcl.core-for-slime" user-emacs-directory))))))
 (with-eval-after-load "smartparens"
   (require 'smartparens-config)
   (sp-use-smartparens-bindings)
@@ -297,6 +300,7 @@ Uses the go oauth tool found in the xoauth git repo."
 ;; -*- lexical-binding: nil; -*-
 (defvar tvr-yas-snippets-loaded nil)
 (with-eval-after-load "yasnippet"
+  (cl-declaim (special yas-verbosity))
   (unless tvr-yas-snippets-loaded
     (run-with-idle-timer 1 nil #'yas-reload-all)
     (setq tvr-yas-snippets-loaded t))
