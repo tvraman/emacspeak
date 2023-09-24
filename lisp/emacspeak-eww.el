@@ -391,6 +391,10 @@
 ;; @item e
 ;; @command{emacspeak-we-url-expand-and-execute}
 ;; Follow link under point, but pass the result to a custom executor.
+;; Availability of special executors for link under point is indicated
+;; by auditory icon @emph{item} instead of @emph{button}
+;; You can then experiment by pressing @code{RET} or @code {e e}.
+;; Special executors are available for Reddit Links, Wikipedia Links etc.
 ;; @item f
 ;; @command{emacspeak-we-xslt-filter}
 ;; Apply a specified XSLT filter (XPath) to current page.

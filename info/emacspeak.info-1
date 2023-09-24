@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 23, 2023.
+last updated on September 24, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -7820,7 +7820,11 @@ prefix-key ‘G’.
      class value.
 ‘e’
      ‘emacspeak-we-url-expand-and-execute’ Follow link under point, but
-     pass the result to a custom executor.
+     pass the result to a custom executor.  Availability of special
+     executors for link under point is indicated by auditory icon _item_
+     instead of _button_ You can then experiment by pressing ‘RET’ or ‘e
+     e’.  Special executors are available for Reddit Links, Wikipedia
+     Links etc.
 ‘f’
      ‘emacspeak-we-xslt-filter’ Apply a specified XSLT filter (XPath) to
      current page.
