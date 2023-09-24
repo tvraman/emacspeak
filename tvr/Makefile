@@ -1,7 +1,7 @@
 # Build all-prepare.el
 
 EMACS=emacs
-BATCH = -batch -q -no-site-file     
+BATCH = -batch -q -no-site-file      
 COMPILE = -f batch-byte-compile
 
 ALL= \
@@ -17,7 +17,7 @@ vm-prepare.el   \
 yasnippet-prepare.el 
 
 
-all: all-prepare.elc emacs-startup.elc
+all:  emacs-startup.elc
 	make test
 
 all-prepare.el: 
@@ -28,7 +28,7 @@ all-prepare.el:
 clean:
 	rm -f *.elc all-prepare.el
 
-test:
+test: all-prepare.el emacs-startup.elc
 	emacs -batch  --eval \
 '(setq force-load-messages t  debug-on-error t)' \
-	-f package-initialize  -l ./emacs-startup.elc -f tvr-after-init
+	-f package-initialize  -l ./emacs-startup.elc 
