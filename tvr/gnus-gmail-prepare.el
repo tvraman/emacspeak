@@ -133,13 +133,7 @@ Uses the go oauth tool found in the xoauth git repo."
 ;;; Usage:
   ;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" file-app-secrets)
   ;;(google-py-oauth2-cli "emacspeak@gmail.com" file-app-secrets)
-(put 'defadvice 'byte-obsolete-info nil)
-  (defadvice auth-source-xoauth2--file-creds (around emacspeak pre act comp)
-    "Silence messages"
-    (let ((emacspeak-speak-messages nil))
-      ad-do-it
-      ad-return-value))
-
+  
   )
 
 ;; local variables:

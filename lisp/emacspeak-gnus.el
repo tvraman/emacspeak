@@ -876,6 +876,15 @@ Helps to prevent words from being spelled instead of spoken."
   (ems-with-messages-silenced ad-do-it))
 
 ;;}}}
+;;{{{xoauth:
+
+(defadvice auth-source-xoauth2--file-creds (around emacspeak pre act comp)
+    "Silence messages"
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      ad-return-value))
+
+;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
 ;; local variables:
