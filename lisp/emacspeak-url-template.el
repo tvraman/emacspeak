@@ -167,7 +167,7 @@ dont-url-encode if true then url arguments are not url-encoded "
                     file))))
 
 (defun emacspeak-url-template-save (file)
-  "Save out url templates."
+  "Save url templates."
   (interactive
    (list
     (read-file-name "Save URL templates to: " emacspeak-user-directory)))
@@ -258,7 +258,7 @@ with duplicates removed when saving as a list of string."
  "https://www.bbc.co.uk/sounds/search?q=%s"
  (list "BBC Sounds:")
 #'emacspeak-speak-line
- "Search BBC Sounds."
+ "Search BBC Sounds"
  #'(lambda (url)
      (let ((filter
             (mapconcat
@@ -772,7 +772,7 @@ Format is stationid+AM/FM."
  "http://opml.radiotime.com/Search.ashx?query=%s"
  (list "Search: ")
  nil
- "RadioTime Search."
+ "RadioTime Search"
  #'emacspeak-feeds-opml-display)
 
 (defvar emacspeak-url-template--radiotime-categories
@@ -788,7 +788,7 @@ Format is stationid+AM/FM."
       (completing-read
        "Category: " emacspeak-url-template--radiotime-categories)))
  nil
- "RadioTime Categories ."
+ "RadioTime Categories "
  #'emacspeak-feeds-opml-display)
 
 ;;}}}
@@ -1089,7 +1089,7 @@ template."
        (emacspeak-feeds-atom-display (concat url ".rss")))))
 
 (emacspeak-url-template-define
- "Reddit Search."
+ "Reddit Search"
  "https://www.reddit.com/search.rss?q=%s&sort=new&t=all"
  (list "Reddit Search:")
  nil
@@ -1097,7 +1097,7 @@ template."
  #'emacspeak-feeds-atom-display)
 
 (emacspeak-url-template-define
- "Reddit By Topic."
+ "Reddit By Topic"
  "https://www.reddit.com/r/%s/.rss"
  (list "Topic:")
  nil
@@ -1105,7 +1105,7 @@ template."
  #'emacspeak-feeds-atom-display)
 
 (emacspeak-url-template-define
- "Reddit Front Page."
+ "Reddit Front Page"
  "https://www.reddit.com/.rss"
  nil
  nil
