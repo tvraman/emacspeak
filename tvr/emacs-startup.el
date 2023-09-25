@@ -75,7 +75,7 @@ Produce timing information as the last step."
 
 ;; Emacs @HEAD is broken:
 (defvar font-lock-reference-face 'font-lock-constant-face)
-(advice-add 'system-users :override #'(lambda nil   (list user-real-login-name)))
+(advice-add 'system-users :override #'(lambda () (list user-real-login-name)))
 
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
@@ -180,8 +180,9 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'diminish
     (mapc
      #'(lambda (m) (diminish m ""))
-     '(outline-minor-mode reftex-mode voice-lock-mode company-mode hs-minor-mode
-                          yas-minor-mode  auto-fill-function abbrev-mode auto-correct-mode)))
+     '(
+       outline-minor-mode reftex-mode voice-lock-mode company-mode hs-minor-mode
+       yas-minor-mode  auto-fill-function abbrev-mode auto-correct-mode)))
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
   (load-theme 'modus-vivendi-tinted t))
@@ -254,7 +255,7 @@ configuration happens via the after-init-hook. "
 ;;{{{ Forward Function Declarations:
 
 
-(declare-function yas--load-snippet-dirs "yasnippet" (&optional no-jit interactive))
+(declare-function yas--load-snippet-dirs "yasnippet" (&optional nojit))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
 (declare-function
  emacspeak-wizards-project-shells-initialize
