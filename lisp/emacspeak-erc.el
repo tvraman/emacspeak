@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak module for speech-enabling erc.el
 ;; Keywords: Emacspeak, erc
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; erc.el is a modern Emacs client for IRC including color
@@ -49,19 +49,19 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'erc)
-;;}}}
-;;{{{  variables
+ 
+;;;   variables
 
 (cl-declaim (special emacspeak-sounds-directory))
 
-;;}}}
-;;{{{ personalities 
+ 
+;;;  personalities 
 
 (defgroup emacspeak-erc nil
   "Emacspeak extension for IRC client ERC."
@@ -90,11 +90,11 @@ server."
    (erc-keyword-face voice-animate)
    ))
 
-;;}}}
-;;{{{  helpers
+ 
+;;;   helpers
 
-;;}}}
-;;{{{ advice interactive commands
+ 
+;;;  advice interactive commands
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations
  'erc-mode
@@ -122,9 +122,9 @@ server."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)))
 
-;;}}}
+ 
 (provide 'emacspeak-erc)
-;;{{{ monitoring chatrooms 
+;;;  monitoring chatrooms 
 (defvar emacspeak-erc-room-monitor nil
   "Local to each chat room. If turned on,
 user is notified about activity in the room.")
@@ -288,8 +288,8 @@ set the current local value to the result.")
 Interactive PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
 
-;;}}}
-;;{{{ silence server messages 
+ 
+;;;  silence server messages 
 
 (defadvice erc-parse-line-from-server (around emacspeak pre
                                               act comp)
@@ -298,8 +298,8 @@ set the current local value to the result.")
     ad-do-it
     ad-return-value))
 
-;;}}}
-;;{{{ define emacspeak keys
+ 
+;;;  define emacspeak keys
 (cl-declaim (special erc-mode-map))
 (define-key erc-mode-map "\C-c "
             'emacspeak-erc-toggle-speak-all-participants)
@@ -310,9 +310,9 @@ set the current local value to the result.")
 (define-key erc-mode-map "\C-c\C-a"
             'emacspeak-erc-add-name-to-monitor)
 (define-key erc-mode-map "\C-c\C-d" 'emacspeak-erc-delete-name-from-monitor)
-;;}}}
+ 
 
-;;{{{ cricket rules 
+;;;  cricket rules 
 (defvar emacspeak-erc-cricket-bowling-figures-pattern
   " [0-9]+-[0-9]+-[0-9]+-[0-9] "
   "Pattern for matching bowling figures.")
@@ -381,11 +381,11 @@ set the current local value to the result.")
                 (substring pattern 0 -1)))))
   (dtk-set-punctuations 'some))
 
-;;}}}
-;;{{{ end of file
+ 
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

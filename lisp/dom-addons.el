@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak dom addons
 ;; Keywords: Emacspeak,  Audio Desktop DOM Addons
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,24 +36,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; Useful additional functions for dom.el
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'dom)
 (require 'g-utils)
-;;}}}
-;;{{{ Additional helpers:
+ 
+;;;  Additional helpers:
 (defun dom-alternate-links (dom)
   "Return link elements specifying rel=alternate."
   (cl-remove-if-not
@@ -81,8 +81,8 @@ Added element goes inside the HTML head if any."
     (when base (dom-html-add-base dom  base))
     dom))
 
-;;}}}
-;;{{{  Filtering Inspired by dom.el:
+ 
+;;;   Filtering Inspired by dom.el:
 
 (defun dom-by-tag-list (dom tag-list)
   "Return elements in DOM that is of type appearing in tag-list.
@@ -149,8 +149,8 @@ ATTRIBUTE would typically be `class', `id' or the like."
   "Return elements in DOM that have a itemprop name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'itemprop match-list))
 
-;;}}}
-;;{{{DOM From URL:
+ 
+;;; DOM From URL:
 (defun dom-from-url (url)
   "Return DOM for HTML content at URL."
   (cl-declare (special g-curl-program g-curl-common-options))
@@ -163,20 +163,20 @@ ATTRIBUTE would typically be `class', `id' or the like."
    (xml-remove-comments (point-min) (point-max))
    (libxml-parse-html-region (point-min) (point-max))))
 
-;;}}}
-;;{{{dom-node-as-text
+ 
+;;; dom-node-as-text
 (defsubst dom-node-as-text (node)
   "Return all the text bits in the current node and some specific
 children, e.g. `a', concatenated."
   (with-temp-buffer (shr-insert-document node)
                     (buffer-substring-no-properties (point-min) (point-max))))
 
-;;}}}
+ 
 (provide 'dom-addons)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

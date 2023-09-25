@@ -4,7 +4,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech enhance vm
 ;; Keywords: Emacspeak, VM, Email, Spoken Output, Voice annotations
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -14,8 +14,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -38,22 +38,22 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; This module extends the mail reader vm.
 ;; Uses voice locking for message headers and cited messages
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require  'vm "vm" 'no-error)
 
-;;}}}
-;;{{{ Forward Decls:
+ 
+;;;  Forward Decls:
 
 (defsubst ems--vm-from-of (message) (aref (aref message 3) 8))
 (defsubst ems--vm-subject-of (message) (aref (aref message 3) 11))
@@ -71,8 +71,8 @@
 (declare-function  u-vm-color-fontify-buffer "u-vm-color" nil)
 (declare-function  u-vm-color-summary-mode "u-vm-color" (&optional arg))
 
-;;}}}
-;;{{{ voice locking:
+ 
+;;;  voice locking:
 
 (defgroup emacspeak-vm nil
   "VM mail reader on the Emacspeak Desktop."
@@ -95,13 +95,13 @@ Note that some badly formed mime messages  cause trouble."
   (when dtk-caps
     (dtk-toggle-caps)))
 
-;;}}}
-;;{{{ inline helpers
+ 
+;;;  inline helpers
 
 (defun emacspeak-vm-number-of (message) (aref (aref message 1) 0))
 
-;;}}}
-;;{{{ Advice completions
+ 
+;;;  Advice completions
 
 (defadvice vm-minibuffer-complete-word (around emacspeak pre act comp)
   "Say what you completed."
@@ -133,8 +133,8 @@ Note that some badly formed mime messages  cause trouble."
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
-;;}}}
-;;{{{  Helper functions:
+ 
+;;;   Helper functions:
 
 (defvar emacspeak-vm-user-full-name (user-full-name)
   "Full name of user using this session")
@@ -262,13 +262,13 @@ Note that some badly formed mime messages  cause trouble."
                        (t ""))))
                 (cdr vm-ml-message-attributes-alist)   " "))))))
 
-;;}}}
-;;{{{  Moving between messages
+ 
+;;;   Moving between messages
 
 (add-hook 'vm-select-message-hook 'emacspeak-vm-summarize-message)
 
-;;}}}
-;;{{{  Scrolling messages:
+ 
+;;;   Scrolling messages:
 
 (defun emacspeak-vm-locate-subject-line()
   "Locates the subject line in a message being read.
@@ -304,8 +304,8 @@ Then speak the screenful. "
   (interactive)
   (emacspeak-execute-repeatedly 'forward-paragraph))
 
-;;}}}
-;;{{{  deleting and killing
+ 
+;;;   deleting and killing
 
 (defadvice vm-delete-message (after emacspeak pre act comp)
   "speak."
@@ -324,8 +324,8 @@ Then speak the screenful. "
     (emacspeak-auditory-icon 'delete-object)
     (call-interactively 'vm-next-message)))
 
-;;}}}
-;;{{{  Sending mail:
+ 
+;;;   Sending mail:
 
 (defadvice vm-forward-message (around emacspeak pre act comp)
   "Provide aural feedback."
@@ -393,8 +393,8 @@ Then speak the screenful. "
          (message "Composing a message")
          (emacspeak-speak-line))))))
 
-;;}}}
-;;{{{ quitting
+ 
+;;;  quitting
 
 (defadvice vm-quit (after emacspeak pre act comp)
   "Provide an auditory icon if requested"
@@ -403,8 +403,8 @@ Then speak the screenful. "
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-speak-mode-line))))
 
-;;}}}
-;;{{{ catching up on folders
+ 
+;;;  catching up on folders
 
 (defun emacspeak-vm-catch-up-all-messages ()
   "Mark all messages in folder to be deleted. Use with caution."
@@ -416,8 +416,8 @@ Then speak the screenful. "
   (message "All messages have been marked as deleted.")
   (emacspeak-auditory-icon 'delete-object))
 
-;;}}}
-;;{{{  Keybindings:
+ 
+;;;   Keybindings:
 (when (boundp 'vm-mode-map)
   (cl-declaim  (special
                 vm-mode-map
@@ -438,8 +438,8 @@ Then speak the screenful. "
               (concat emacspeak-prefix "m")
               'emacspeak-vm-mode-line)
   )
-;;}}}
-;;{{{ advise searching:
+ 
+;;;  advise searching:
 (defadvice vm-isearch-forward (around emacspeak pre act comp)
   "speak"
   (cl-declare (special vm-message-pointer))
@@ -470,8 +470,8 @@ Then speak the screenful. "
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{  silence mime parsing in vm 6.0 and above
+ 
+;;;   silence mime parsing in vm 6.0 and above
 
 (defadvice vm-mime-parse-entity (around emacspeak pre act comp)
   (ems-with-messages-silenced
@@ -493,16 +493,16 @@ Leave point at front of decoded attachment."
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{ silence unnecessary chatter
+ 
+;;;  silence unnecessary chatter
 
 (defadvice vm-emit-eom-blurb (around emacspeak pre act comp)
   "Stop chattering"
   (ems-with-messages-silenced
    ad-do-it))
 
-;;}}}
-;;{{{ advice password prompt
+ 
+;;;  advice password prompt
 
 (defadvice vm-read-password(before emacspeak pre act comp)
   "Speak the prompt"
@@ -513,8 +513,8 @@ Leave point at front of decoded attachment."
      (format "%s %s"
              prompt
              (if confirm "Confirm by retyping" "")))))
-;;}}}
-;;{{{ setup presentation buffer correctly
+ 
+;;;  setup presentation buffer correctly
 
 (add-hook 'vm-presentation-mode-hook
           #'(lambda nil
@@ -553,11 +553,11 @@ Leave point at front of decoded attachment."
   emacspeak-pronounce-iso-datetime-pattern
   (cons #'re-search-forward #'emacspeak-pronounce-decode-iso-datetime)))
 
-;;}}}
-;;{{{ advice button motion
+ 
+;;;  advice button motion
 
-;;}}}
-;;{{{  misc
+ 
+;;;   misc
 
 (defadvice vm (around emacspeak pre act comp)
   "Silence chatter."
@@ -569,14 +569,14 @@ Leave point at front of decoded attachment."
   (ad-set-arg 1 'quiet)
   ad-do-it)
 
-;;}}}
-;;{{{  button motion in vm
+ 
+;;;   button motion in vm
 
-;;}}}
-;;{{{ saving mime attachment under point
+ 
+;;;  saving mime attachment under point
 
-;;}}}
-;;{{{ Voice Lock:
+ 
+;;;  Voice Lock:
 
 (when (locate-library "u-vm-color")
   (require 'u-vm-color)
@@ -602,8 +602,8 @@ Leave point at front of decoded attachment."
   (add-hook 'vm-select-message-hook #'u-vm-color-fontify-buffer)
   )
 
-;;}}}
-;;{{{ configure and customize vm
+ 
+;;;  configure and customize vm
 
 ;; This is how I customize VM
 ;; First, Configure VM into using shr instead of w3m:
@@ -760,12 +760,12 @@ text using pdftotext."
 (when (and (featurep 'vm)emacspeak-vm-customize-mime-settings)
   (emacspeak-vm-customize-mime-settings))
 
-;;}}}
+ 
 (provide 'emacspeak-vm)
-;;{{{  local variables
+;;;   local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

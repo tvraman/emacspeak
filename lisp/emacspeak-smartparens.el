@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SMARTPARENS An Emacs Interface to smartparens
 ;; Keywords: Emacspeak,  Audio Desktop smartparens
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 
@@ -50,15 +50,15 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 (eval-when-compile (require 'cl-lib))
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -71,8 +71,8 @@
    (sp-wrap-overlay-opening-pair voice-bolden)
    (sp-wrap-tag-overlay-face voice-bolden)))
 
-;;}}}
-;;{{{ Advice low-level helpers:
+ 
+;;;  Advice low-level helpers:
 
 (defadvice sp--pair-overlay-create (after emacspeak pre act comp)
   "speak."
@@ -82,8 +82,8 @@
   "speak."
   (emacspeak-auditory-icon 'select-object))
 
-;;}}}
-;;{{{ Navigators And Modifiers:
+ 
+;;;  Navigators And Modifiers:
 
 (defadvice sp-backward-delete-char (around emacspeak pre act comp)
   "Speak character you're deleting."
@@ -187,12 +187,12 @@
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
 
-;;}}}
+ 
 (provide 'emacspeak-smartparens)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

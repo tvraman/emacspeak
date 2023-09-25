@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for OCR
 ;; Keywords: Emacspeak, ocr
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -58,12 +58,12 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Customization variables
+ 
+;;;   Customization variables
 (defgroup emacspeak-ocr nil
   "Emacspeak front end for scanning and OCR.
 Pre-requisites:
@@ -148,8 +148,8 @@ will be placed."
   :type 'string
   :group 'emacspeak-ocr)
 
-;;}}}
-;;{{{  helpers
+ 
+;;;   helpers
 
 (defvar emacspeak-ocr-current-page-number  nil
   "Number of current page in document.")
@@ -224,8 +224,8 @@ will be placed."
   (setq mode-line-format
         (emacspeak-ocr-get-mode-line-format)))
 
-;;}}}
-;;{{{  emacspeak-ocr mode
+ 
+;;;   emacspeak-ocr mode
 (cl-declaim (special emacspeak-ocr-mode-map))
 
 (define-derived-mode emacspeak-ocr-mode text-mode 
@@ -320,8 +320,8 @@ See \\{emacspeak-ocr-mode-map}.
                      (format "%s" i)
                      'emacspeak-ocr-page))
 
-;;}}}
-;;{{{ interactive commands
+ 
+;;;  interactive commands
 
 (defun emacspeak-ocr-customize ()
   "Customize OCR settings."
@@ -744,12 +744,12 @@ Setting persists for current Emacs session."
   (cl-declare (special emacspeak-ocr-compress-image-options))
   (setq emacspeak-ocr-compress-image-options setting))
 
-;;}}}
+ 
 (provide 'emacspeak-ocr)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

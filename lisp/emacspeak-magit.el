@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable MAGIT An Emacs Interface to magit
 ;; Keywords: Emacspeak,  Audio Desktop magit
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,24 +37,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; MAGIT ==  Git interface in Emacs
 ;; git clone git://github.com/magit/magit.git
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map voices to faces:
+ 
+;;;  Map voices to faces:
 
 (voice-setup-add-map
  '(
@@ -147,8 +147,8 @@
    (magit-signature-untrusted voice-brighten)
    (magit-tag voice-smoothen)))
 
-;;}}}
-;;{{{ Pronunciations in Magit:
+ 
+;;;  Pronunciations in Magit:
 (emacspeak-pronounce-add-dictionary-entry
  'magit-mode
  emacspeak-pronounce-sha-checksum-pattern
@@ -162,8 +162,8 @@
  'magit-mode-hook
  'emacspeak-pronounce-refresh-pronunciations)
 
-;;}}}
-;;{{{ Advice navigation commands:
+ 
+;;;  Advice navigation commands:
 
 ;; Advice navigators:
 (defadvice magit-mark-item (after emacspeak pre act comp)
@@ -191,8 +191,8 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ Section Toggle:
+ 
+;;;  Section Toggle:
 
 (cl-loop
  for f in
@@ -233,8 +233,8 @@
        (emacspeak-auditory-icon
         (if   (oref (ad-get-arg 0) hidden) 'close-object 'open-object))))))
 
-;;}}}
-;;{{{blob mode:
+ 
+;;; blob mode:
 
 (defadvice magit-kill-this-buffer (after emacspeak pre act comp)
   "Speak."
@@ -258,9 +258,9 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)))))
 
-;;}}}
+ 
 
-;;{{{ Additional commands to advice:
+;;;  Additional commands to advice:
 
 (defadvice magit-refresh (after emacspeak pre act comp)
   "speak."
@@ -298,15 +298,15 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ Advise process-sentinel:
+ 
+;;;  Advise process-sentinel:
 
 (defadvice magit-process-finish(after emacspeak pre act comp)
   "Produce auditory icon."
   (emacspeak-auditory-icon 'task-done))
 
-;;}}}
-;;{{{ Magit Blame:
+ 
+;;;  Magit Blame:
 
 (defun emacspeak-magit-blame-speak ()
   "Summarize current blame chunk."
@@ -361,8 +361,8 @@
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{Keys:
+ 
+;;; Keys:
 (cl-declaim (special magit-file-mode-map))
 (when (and (bound-and-true-p magit-file-mode-map)
            (keymapp magit-file-mode-map))
@@ -370,20 +370,20 @@
 (cl-declaim (special ctl-x-map))
 (define-key ctl-x-map  "g" 'magit-status)
 
-;;}}}
-;;{{{Rebase:
+ 
+;;; Rebase:
 
 (defadvice git-rebase-squash (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-;;}}}
+ 
 (provide 'emacspeak-magit)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

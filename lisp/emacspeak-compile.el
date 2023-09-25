@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extensions to  the compile package 
 ;; Keywords: Emacspeak compile
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -35,24 +35,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
 ;; This module makes compiling code from inside Emacs speech friendly.
 ;;; Code:
 
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Personalities  
+ 
+;;;  Personalities  
 (voice-setup-add-map
  '(
    (compilation-line-number voice-smoothen)
@@ -64,8 +64,8 @@
    (compilation-mode-line-fail voice-brighten)
    (compilation-mode-line-run voice-annotate)))
 
-;;}}}
-;;{{{  functions
+ 
+;;;   functions
 
 (defun emacspeak-compilation-speak-error ()
   "Speech feedback about the compilation error. "
@@ -74,8 +74,8 @@
         (emacspeak-show-point t))
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  advice  interactive commands
+ 
+;;;   advice  interactive commands
 (cl-loop for f in 
          '(
            next-error previous-error
@@ -104,8 +104,8 @@
              (when (ems-interactive-p)
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'select-object)))))
-;;}}}
-;;{{{ advise process filter and sentinels
+ 
+;;;  advise process filter and sentinels
 
 (defadvice compile (after emacspeak pre act comp)
   "provide auditory confirmation"
@@ -120,13 +120,13 @@
            (process-name  (ad-get-arg 0))
            (ad-get-arg 1)))
 
-;;}}}
+ 
 (provide 'emacspeak-compile)
 
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

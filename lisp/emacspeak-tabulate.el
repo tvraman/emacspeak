@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Utility to help emacspeak identify tabulated information
 ;; Keywords: Emacspeak, Tabulated Data,  Visual layout gives structure
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
 
-;;{{{  Introduction:
+;;;   Introduction:
 ;;; Commentary:
 ;; This module is a simple table recognizer.
 ;; Can recognize the columns in tabulated output, e.g. ps, ls output
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  helper functions:
+ 
+;;;   helper functions:
 
 ;; An interval is a cons of start and end 
 (defun ems-make-interval (start end) (cons start end))
@@ -63,8 +63,8 @@
                        (ems-interval-end i2)))))
     (if (< (car i) (cdr i)) i nil)))
 
-;;}}}
-;;{{{  Identify the fields in a region 
+ 
+;;;   Identify the fields in a region 
 
 (defun ems-tabulate-field-separators-in-this-line () 
   "Returns a list of intervals specifying the field separators on the line.
@@ -148,8 +148,8 @@ Fields are assumed to be delimited by whitespace. "
 ;; tl = start for first column
 ;; br = end for last column
 
-;;}}}
-;;{{{ Parse a region of tabular data
+ 
+;;;  Parse a region of tabular data
 ;;;###autoload
 (defun ems-tabulate-parse-region (start end)
   "Parse  region as tabular data and return a vector of vectors"
@@ -198,13 +198,13 @@ Fields are assumed to be delimited by whitespace. "
                (forward-line 1)))
     table))
 
-;;}}}
+ 
 (provide 'emacspeak-tabulate)
 
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

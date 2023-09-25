@@ -2,7 +2,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable EXWM An Emacs Interface to exwm
 ;;; Keywords: Emacspeak,  Audio Desktop exwm
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,8 +11,8 @@
 ;;; Location undetermined
 ;;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;;; EXWM ==  Emacs X Window Manager
@@ -46,23 +46,23 @@
 ;;; Audio Desktop
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'exwm "exwm" 'no-error)
 
-;;}}}
-;;{{{Advise internal helpers:
+ 
+;;; Advise internal helpers:
 
 (defadvice exwm-workspace--prompt-for-workspace (before emacspeak pre act comp)
   "speak prompt."
   (dtk-speak (ad-get-arg 0)))
 
-;;}}}
-;;{{{  Advice Interactive Commands
+ 
+;;;   Advice Interactive Commands
 
 (defadvice exwm-floating-hide (after emacspeak pre act comp)
   "speak."
@@ -141,8 +141,8 @@
   (when (ems-interactive-p)
     (emacspeak-speak-frame-title)))
 
-;;}}}
-;;{{{Additional Interactive Commands:
+ 
+;;; Additional Interactive Commands:
 ;; I bind this to s-/ via custom:
 
 (defun emacspeak-exwm-workspace-cycle ()
@@ -154,8 +154,8 @@
     (exwm-workspace-switch (% (1+ index) count))
     (emacspeak-speak-frame-title)))
 
-;;}}}
-;;{{{Orca Toggle:
+ 
+;;; Orca Toggle:
 
 ;;; Easily start/stop orca for use with Chrome etc.
 
@@ -173,9 +173,9 @@
 
 (global-set-key (kbd "s-o") 'emacspeak-exwm-orca-toggle)
 
-;;}}}
+ 
 
-;;{{{Configure Hooks:
+;;; Configure Hooks:
 
 (defun emacspeak-exwm-mode-hook ()
   "EXWM Setup For Emacspeak"
@@ -195,13 +195,13 @@
  'exwm-mode-hook
  #'emacspeak-exwm-mode-hook)
 
-;;}}}
+ 
 
 (provide 'emacspeak-exwm)
-;;{{{ end of file
+;;;  end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; end:
 
-;;}}}
+ 

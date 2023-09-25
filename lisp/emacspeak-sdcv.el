@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SDCV An Emacs Interface to sdcv
 ;; Keywords: Emacspeak,  Audio Desktop sdcv
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
 ;; 
@@ -34,10 +34,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; SDCV ==  Stardict  Dictionary Interface
@@ -50,16 +50,16 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'let-alist)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 (cl-loop
  for f in 
@@ -126,12 +126,12 @@
 (when (bound-and-true-p sdcv-mode-map)
   (emacspeak-sdcv-setup))
 
-;;}}}
+ 
 (provide 'emacspeak-sdcv)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable VDIFF An Emacs Interface to vdiff
 ;; Keywords: Emacspeak,  Audio Desktop vdiff
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; VDIFF ==  vimdiff
@@ -55,15 +55,15 @@
 ;; @end itemize
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'vdiff "vdiff" 'no-error)
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -77,8 +77,8 @@
    (vdiff-subtraction-fringe-face voice-smoothen-extra)
    (vdiff-target-face voice-monotone-extra)))
 
-;;}}}
-;;{{{ Emacspeak VDiff Commands:
+ 
+;;;  Emacspeak VDiff Commands:
 
 (defun emacspeak-vdiff-get-overlay-at-point ()
   "Return vdiff overlay  at point."
@@ -111,8 +111,8 @@
       (vdiff-switch-buffer (line-number-at-pos))
       (emacspeak-speak-line))))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 (cl-loop
  for f in
@@ -149,8 +149,8 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
-;;}}}
-;;{{{ open/close Folds:
+ 
+;;;  open/close Folds:
 (cl-loop
  for f in
  '(vdiff-open-all-folds vdiff-open-fold)
@@ -173,8 +173,8 @@
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ Navigation:
+ 
+;;;  Navigation:
 
 ;; (defadvice vdiff--scroll-function (around emacspeak pre act comp)
 ;;   "Silence messages."
@@ -191,8 +191,8 @@
        (emacspeak-vdiff-speak-this-hunk)
        (emacspeak-auditory-icon 'large-movement)))))
 
-;;}}}
-;;{{{ Setup:
+ 
+;;;  Setup:
 
 (eval-after-load
     "vdiff"
@@ -206,12 +206,12 @@
      (define-key vdiff-mode-prefix-map
                  (kbd "l") 'emacspeak-vdiff-speak-other-line)))
 
-;;}}}
+ 
 (provide 'emacspeak-vdiff)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

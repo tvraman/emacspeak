@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for Ruby mode
 ;; Keywords:emacspeak, audio interface to emacs Ruby
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -36,9 +36,9 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -46,13 +46,13 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ required modules 
+ 
+;;;  required modules 
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{ Advice navigation:
+ 
+;;;  Advice navigation:
 
 (cl-loop for command   in
          '(
@@ -72,8 +72,8 @@
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'paragraph)))))
 
-;;}}}
-;;{{{ Advice insertion and electric:
+ 
+;;;  Advice insertion and electric:
 
 (defadvice ruby-insert-end (after emacspeak pre act comp)
   "speak."
@@ -109,8 +109,8 @@ Cue electric insertion with a tone."
         (emacspeak-speak-this-char last-input-event)
         (dtk-tone 800 100 t)))))
 
-;;}}}
-;;{{{ Advice inferior ruby:
+ 
+;;;  Advice inferior ruby:
 (cl-loop for command in
          '(
            ruby-run
@@ -127,13 +127,13 @@ Cue electric insertion with a tone."
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-speak-line)))))
 
-;;}}}
+ 
 
 (provide  'emacspeak-ruby)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

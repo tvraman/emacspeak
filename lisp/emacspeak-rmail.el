@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extension for rmail
 ;; Keywords:emacspeak, audio interface to emacs mail
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
 ;; All Rights Reserved. 
@@ -36,19 +36,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction
+;;;   Introduction
 ;;; Commentary:
 ;; emacspeak extensions to rmail
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  customizations:
+ 
+;;;   customizations:
 (declare-function rmail-display-labels "rmail" nil)
 (declare-function rmail-msgend "rmail" (n))
 (declare-function rmail-msgbeg "rmail" (n))
@@ -61,8 +61,8 @@
               "^Mime-\\|"
               rmail-ignored-headers))
 
-;;}}}
-;;{{{  helper functions:
+ 
+;;;   helper functions:
 
 (defun emacspeak-rmail-summarize-message (message)
   "Summarize message in rmail identified by message number message"
@@ -80,9 +80,9 @@
              (if lines (format "%s lines" lines) "")
              labels))))
 
-;;}}}
-;;{{{  Advice some commands.
-;;{{{  buffer selection
+ 
+;;;   Advice some commands.
+;;;   buffer selection
 
 (defadvice rmail-quit(after emacspeak pre act comp)
   "speak"
@@ -106,8 +106,8 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
-;;}}}
-;;{{{  message navigation
+ 
+;;;   message navigation
 
 (defadvice rmail-beginning-of-message (after emacspeak pre act comp)
   "speak"
@@ -115,8 +115,8 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  folder navigation
+ 
+;;;   folder navigation
 
 (defadvice rmail-first-message (after emacspeak pre act comp)
   "speak"
@@ -193,8 +193,8 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))  
 
-;;}}}
-;;{{{ delete and undelete messages
+ 
+;;;  delete and undelete messages
 
 (defadvice rmail-undelete-previous-message (after emacspeak pre act
                                                   comp)
@@ -218,10 +218,10 @@
   "provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
-    (emacspeak-rmail-summarize-current-message))) ;;}}}
+    (emacspeak-rmail-summarize-current-message)))  
 
-;;}}}
-;;{{{  Additional interactive commands
+ 
+;;;   Additional interactive commands
 
 (defun emacspeak-rmail-summarize-current-message ()
   "Summarize current message"
@@ -235,20 +235,20 @@
    (format "Labels are %s"
            (rmail-display-labels))))
 
-;;}}}
-;;{{{  key bindings
+ 
+;;;   key bindings
 (when (and (boundp 'rmail-mode-map) (keymapp rmail-mode-map))  
   (cl-declaim (special rmail-mode-map))
   (define-key rmail-mode-map "\C-m" 'emacspeak-rmail-summarize-current-message)
   (define-key rmail-mode-map "L"
               'emacspeak-rmail-speak-current-message-labels))
 
-;;}}}
+ 
 (provide  'emacspeak-rmail)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

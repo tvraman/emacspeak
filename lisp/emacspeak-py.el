@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Auditory interface to python mode
 ;; Keywords: Emacspeak, Speak, Spoken Output, python
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ Introduction
+;;;  Introduction
 
 ;;; Commentary:
 
@@ -47,15 +47,15 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
 (with-no-warnings (require 'python-mode "python-mode" 'no-error))
-;;}}}
-;;{{{  electric editing
+ 
+;;;   electric editing
 
 (defadvice py-electric-backspace (around emacspeak pre act comp)
   "Speak character you're deleting.
@@ -86,8 +86,8 @@ Provide contextual feedback when closing blocks"
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{ interactive programming
+ 
+;;;  interactive programming
 
 (defadvice py-shell (after emacspeak pre act comp)
   "speak"
@@ -128,8 +128,8 @@ Provide contextual feedback when closing blocks"
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  whitespace management and indentation
+ 
+;;;   whitespace management and indentation
 
 (cl-loop
  for f in
@@ -184,8 +184,8 @@ Provide contextual feedback when closing blocks"
              (count-lines  (region-beginning)
                            (region-end))))))
 
-;;}}}
-;;{{{  buffer navigation
+ 
+;;;   buffer navigation
 (cl-loop
  for f in
  '(
@@ -354,8 +354,8 @@ Provide contextual feedback when closing blocks"
   (when (ems-interactive-p)
     (emacspeak-speak-word 1)))
 
-;;}}}
-;;{{{ the process buffer
+ 
+;;;  the process buffer
 
 (defadvice py-process-filter (around emacspeak pre act comp)
   "Make comint in Python speak its output. "
@@ -372,9 +372,9 @@ Provide contextual feedback when closing blocks"
                (dtk-stop 'all))))
     ad-return-value))
 
-;;}}}
+ 
 
-;;{{{ Voice Mappings:
+;;;  Voice Mappings:
 (voice-setup-add-map
  '(
    (py-number-face voice-lighten)
@@ -391,8 +391,8 @@ Provide contextual feedback when closing blocks"
    (py-try-if-face voice-lighten)
    ))
 
-;;}}}
-;;{{{ pydoc advice:
+ 
+;;;  pydoc advice:
 (defadvice pydoc (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -406,13 +406,13 @@ Provide contextual feedback when closing blocks"
     (dtk-stop 'all)
     (emacspeak-speak-buffer)))
 
-;;}}}
+ 
 
 (provide 'emacspeak-py)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

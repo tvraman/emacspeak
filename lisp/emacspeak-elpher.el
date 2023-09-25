@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ELPHER An Emacs Interface to elpher
 ;; Keywords: Emacspeak,  Audio Desktop elpher
-;;{{{  LCD Archive entry:men
+;;;   LCD Archive entry:men
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
 ;; 
@@ -34,25 +34,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; ELPHER ==  gopher/gemini client 
 ;; Let's see if we can rescue the Content-Oriented Web 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map 
  '(
@@ -74,8 +74,8 @@
    (elpher-text voice-monotone)
    (elpher-unknown voice-annotate)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 '(
   elpher-bookmark-current elpher-bookmark-link elpher-bookmarks
@@ -118,12 +118,12 @@
        (dtk-speak
         (car (get-text-property (point) 'elpher-page)))))))
 
-;;}}}
+ 
 (provide 'emacspeak-elpher)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

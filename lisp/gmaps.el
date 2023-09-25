@@ -3,7 +3,7 @@
 ;; $Author: raman $
 ;; Description:  Google Maps -> Lisp
 ;; Keywords: Google   Maps API
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; gcal| T. V. Raman |tv.raman.tv@gmail.com
@@ -14,8 +14,8 @@
 ;; License: GPL
 ;; 
 
-;;}}}
-;;{{{ Copyright:
+ 
+;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
 ;; All rights reserved.
@@ -46,21 +46,21 @@
 ;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 ;;; Commentary:
 ;; Implements the Google Maps API
 ;;; Code:
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'g-utils)
-;;}}}
-;;{{{ Customizations
+ 
+;;;  Customizations
 
 (defgroup gmaps nil
   "Google Maps"
@@ -74,8 +74,8 @@
           (string :value ""))
   :group 'gmaps)
 
-;;}}}
-;;{{{ Address Structure 
+ 
+;;;  Address Structure 
 
 (cl-defstruct gmaps--location
   address
@@ -158,9 +158,9 @@
     (when (featurep 'emacspeak)
       (emacspeak-auditory-icon 'save-object))))
 
-;;}}}
+ 
 
-;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
+;;;  Maps Geo-Coding and Reverse Geo-Coding:
 
 ;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/
 
@@ -254,8 +254,8 @@ coordinates via geocoding."
         val))
   :group 'gweb)
 
-;;}}}
-;;{{{ Maps Directions
+ 
+;;;  Maps Directions
 
 ;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gmaps-directions-base
@@ -287,8 +287,8 @@ Parameter `key' is the API  key."
   (cl-declare (special gmaps-places-base))
   (format gmaps-places-base  query-type key))
 
-;;}}}
-;;{{{ Google Maps API V3
+ 
+;;;  Google Maps API V3
 
 ;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gmaps-modes '("driving" "walking" "bicycling" "transit")
@@ -301,8 +301,8 @@ Parameter `key' is the API  key."
      ((string= "OK" .status) .routes)
      (t (error "Status %s from Maps" .status)))))
 
-;;}}}
-;;{{{ Maps UI:
+ 
+;;;  Maps UI:
 
 (make-variable-buffer-local 'gmaps-current-location)
 
@@ -361,8 +361,8 @@ Parameter `key' is the API  key."
         (setq buffer-read-only t))
       (switch-to-buffer gmaps-interaction-buffer)))))
 
-;;}}}
-;;{{{ Directions:
+ 
+;;;  Directions:
 
 (defun gmaps-display-leg (leg)
   "Display a leg of a route."
@@ -483,8 +483,8 @@ origin/destination may be returned as a lat,long string."
     (when routes (gmaps-display-routes routes))
     (goto-char start)))
 
-;;}}}
-;;{{{ Places:
+ 
+;;;  Places:
 
 ;; Place Types:
 ;;  https://developers.google.com/places/documentation/supported_types
@@ -974,12 +974,12 @@ Place details need to have been expanded first."
     (goto-char start)
     (message (format "Inserted %d reviews"  (length reviews)))))
 
-;;}}}
+ 
 (provide 'gmaps)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

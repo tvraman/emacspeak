@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable EVIL An Emacs Interface to evil
 ;; Keywords: Emacspeak,  Audio Desktop evil
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,25 +35,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; EVIL ==  VIM In Emacs
 ;; This is work-in-progress and is not complete.
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -64,11 +64,11 @@
    (evil-ex-substitute-matches voice-lighten)
    (evil-ex-substitute-replacement voice-smoothen)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
-;;}}}
-;;{{{ Structured  Motion:
+ 
+;;;  Structured  Motion:
 
 (cl-loop
  for f in
@@ -131,8 +131,8 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-current-window)))))
 
-;;}}}
-;;{{{ Word Motion
+ 
+;;;  Word Motion
 
 (cl-loop
  for f in
@@ -146,8 +146,8 @@
      (when (ems-interactive-p)
        (emacspeak-speak-word)))))
 
-;;}}}
-;;{{{ Char Motion :
+ 
+;;;  Char Motion :
 
 (defadvice evil-backward-char (after emacspeak pre act comp)
   "Speak char."
@@ -159,8 +159,8 @@
   (when (ems-interactive-p)
     (emacspeak-speak-this-char (preceding-char))))
 
-;;}}}
-;;{{{ Deletion:
+ 
+;;;  Deletion:
 
 (defadvice evil-delete-char (before emacspeak pre act comp)
   "Speak char we are deleting."
@@ -186,8 +186,8 @@
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-region (ad-get-arg 0) (ad-get-arg 1))))
 
-;;}}}
-;;{{{ Searching:
+ 
+;;;  Searching:
 (cl-loop
  for f in
  '(evil-search-next evil-search-previous)
@@ -200,8 +200,8 @@
          (emacspeak-speak-line)
          (emacspeak-auditory-icon 'search-hit))))))
 
-;;}}}
-;;{{{ Completion:
+ 
+;;;  Completion:
 
 (cl-loop
  for f in
@@ -234,8 +234,8 @@
          (emacspeak-auditory-icon 'complete)
          (emacspeak-speak-line))))))
 
-;;}}}
-;;{{{ Marks:
+ 
+;;;  Marks:
 (defadvice evil-set-marker (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -244,8 +244,8 @@
       (dtk-notify-speak (format "Marker %c" (ad-get-arg 0)))
       (emacspeak-speak-line))))
 
-;;}}}
-;;{{{ Update keymaps:
+ 
+;;;  Update keymaps:
 
 (defun emacspeak-evil-fix-emacspeak-prefix (keymap)
   "Move original evil command on C-e to C-e e."
@@ -283,8 +283,8 @@
        evil-evilified-state-map))
      (emacspeak-keymap-recover-eol)))
 
-;;}}}
-;;{{{ State Hooks:
+ 
+;;;  State Hooks:
 
 (defun  emacspeak-evil-state-change-hook  ()
   "State change feedback."
@@ -310,8 +310,8 @@
     (emacspeak-auditory-icon 'open-object)
     (dtk-notify-speak "Leaving Emacs state.")))
 
-;;}}}
-;;{{{ Additional Commands:
+ 
+;;;  Additional Commands:
 
 (declare-function evil-mode "evil-core" (&optional flag))
 
@@ -326,12 +326,12 @@
   (message "Turned %s evil-mode"
            (if evil-mode "on" "off")))
 
-;;}}}
+ 
 (provide 'emacspeak-evil)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

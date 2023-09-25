@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak module to speak voiceify rich text
 ;; Keywords:emacspeak, audio interface to emacs rich text
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
 ;; All Rights Reserved. 
@@ -36,19 +36,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction
+;;;   Introduction
 ;;; Commentary:
 ;; emacspeak extensions to voiceify rich  text.
 ;;; Code:
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ voiceify-faces 
+ 
+;;;  voiceify-faces 
 (defvar emacspeak-enriched-font-faces-to-voiceify
   (list 'bold 'italic   'bold-italic 'underlined)
   "List of font faces we voiceify")
@@ -109,8 +109,8 @@ Useful in voiceifying rich text."
           (setq start (point))))))
   (message "voicified faces"))
 
-;;}}}
-;;{{{ advice enriched to automatically map faces to voices
+ 
+;;;  advice enriched to automatically map faces to voices
 
 (defadvice enriched-decode (after emacspeak pre act comp)
   "Map faces to voices. "
@@ -124,18 +124,18 @@ Useful in voiceifying rich text."
   (emacspeak-enriched-voiceify-faces (point-min) (point-max))
   ad-return-value)
 
-;;}}}
-;;{{{ hooks
+ 
+;;;  hooks
 (add-hook 'enriched-mode-hook
           #'(lambda ()
               (or emacspeak-audio-indentation
                   (emacspeak-toggle-audio-indentation))))
-;;}}}
+ 
 (provide  'emacspeak-enriched)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

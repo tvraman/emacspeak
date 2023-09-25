@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extensions for tempo.el (used by html-helper-mode)
 ;; Keywords: Emacspeak, Spoken Feedback, Template filling, html editing
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -36,22 +36,22 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction:
+;;;   Introduction:
 ;;; Commentary:
 ;; tempo.el provides the
 ;; infrastructure  for building up templates.
 ;; This is used by html-helper-mode to allow for easy writing of HTML
 ;; This module extends Emacspeak to provide fluent spoken feedback
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  First setup tempo variables:
+ 
+;;;   First setup tempo variables:
 
 ;; Prompting in the minibuffer is useful:
 
@@ -63,8 +63,8 @@
      (dtk-speak string)
      string))
 
-;;}}}
-;;{{{  Advice: 
+ 
+;;;   Advice: 
 
 (defadvice tempo-forward-mark (after emacspeak pre act comp)
   "Speak the line."
@@ -81,23 +81,23 @@
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-;;}}}
+ 
 (emacspeak-pronounce-add-super 'sgml-mode 'html-helper-mode)
 
 (provide 'emacspeak-tempo)
 
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 
 
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extension for sgml mode
 ;; Keywords:emacspeak, audio interface to emacs sgml 
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
@@ -37,19 +37,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction
+;;;   Introduction
 ;;; Commentary:
 ;; emacspeak extensions to sgml mode
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ advice interactive commands 
+ 
+;;;  advice interactive commands 
 
 (defadvice sgml-skip-tag-forward (after emacspeak pre act comp)
   "speak"
@@ -90,12 +90,12 @@
     (emacspeak-auditory-icon 'button)
     (dtk-speak  "Toggled display of tags")))
 
-;;}}}
+ 
 (provide  'emacspeak-sgml-mode)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

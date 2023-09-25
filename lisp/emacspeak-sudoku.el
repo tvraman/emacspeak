@@ -2,7 +2,7 @@
 ;;
 ;; $Author: tv.raman.tv $
 ;; Description: Playing SuDoku ;;; Keywords: Emacspeak, sudoku
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -35,25 +35,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ Introduction:
+;;;  Introduction:
 
 ;;; Commentary:
 
 ;; Playing SuDoku using speech output.
 ;; Written to discover what type of feedback one needs for  this
 ;; task.
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'sudoku "sudoku" 'no-error)
-;;}}}
-;;{{{Forward Decl:
+ 
+;;; Forward Decl:
 
 (declare-function sudoku-column "sudoku" (board n))
 (declare-function sudoku-subsquare "sudoku" (board n))
@@ -66,8 +66,8 @@
 (declare-function sudoku-change-cell "sudoku" (board x y input))
 (declare-function sudoku-board-print "sudoku" (board message))
 
-;;}}}
-;;{{{ Define additional speak commands:
+ 
+;;;  Define additional speak commands:
 
 (defun emacspeak-sudoku-board-summarizer ()
   "Dispatch to  appropriate summarizer.
@@ -232,8 +232,8 @@ s   Sub-square Distribution.
    "%s squares remain"
    (sudoku-remaining-cells current-board)))
 
-;;}}}
-;;{{{ additional navigation by sub-square
+ 
+;;;  additional navigation by sub-square
 
 (defun emacspeak-sudoku-move-to-sub-square (step)
   "Move to sub-square specified as delta from current
@@ -269,8 +269,8 @@ s   Sub-square Distribution.
   (interactive)
   (emacspeak-sudoku-move-to-sub-square -1))
 
-;;}}}
-;;{{{ erase rows, columns or sub-squares:
+ 
+;;;  erase rows, columns or sub-squares:
 
 (defun emacspeak-sudoku-erase-these-cells (cell-list)
   "Erase cells in cell-list taking account of original values."
@@ -334,8 +334,8 @@ s   Sub-square Distribution.
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'delete-object)))
 
-;;}}}
-;;{{{ advice motion:
+ 
+;;;  advice motion:
 
 (cl-loop for f   in
          '(
@@ -357,8 +357,8 @@ s   Sub-square Distribution.
                    (emacspeak-auditory-icon 'item)
                  (emacspeak-auditory-icon 'select-object))))))
 
-;;}}}
-;;{{{ advice interaction:
+ 
+;;;  advice interaction:
 
 (defadvice sudoku (after emacspeak pre act comp)
   "Speech-enable SuDoKu.
@@ -381,8 +381,8 @@ s   Sub-square Distribution.
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 
-;;}}}
-;;{{{ implement history stack:
+ 
+;;;  implement history stack:
 
 (make-variable-buffer-local 'emacspeak-sudoku-history-stack)
 
@@ -417,8 +417,8 @@ s   Sub-square Distribution.
     (message "Reset board from history  %s squares remain."
              (sudoku-remaining-cells current-board))))
 
-;;}}}
-;;{{{ setup keymap:
+ 
+;;;  setup keymap:
 
 (when (and (boundp 'sudoku-mode-map) (keymapp sudoku-mode-map))
   (cl-loop for k in
@@ -458,12 +458,12 @@ s   Sub-square Distribution.
            do
            (define-key  sudoku-mode-map (cl-first k) (cl-second k))))
 
-;;}}}
+ 
 (provide 'emacspeak-sudoku)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

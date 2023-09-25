@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable FLYCHECK An Emacs Interface to flycheck
 ;; Keywords: Emacspeak,  Audio Desktop flycheck
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,24 +36,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; FLYCHECK == On-the-fly checking.
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map faces
+ 
+;;;  Map faces
 
 (voice-setup-add-map
  '(
@@ -67,8 +67,8 @@
    (flycheck-error-list-warning voice-animate)
    (flycheck-error-list-error voice-bolden)))
 
-;;}}}
-;;{{{ Advice interactive commands.
+ 
+;;;  Advice interactive commands.
 
 (cl-loop
  for  f in
@@ -111,13 +111,13 @@
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Refreshed errors")))
 
-;;}}}
+ 
 (provide 'emacspeak-flycheck)
 ;;; emacspeak-flycheck ends here
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

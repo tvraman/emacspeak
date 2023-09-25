@@ -9,7 +9,7 @@
 ;;  $Revision: 4532 $ |
 ;; Location undetermined
 ;; 
-;;{{{  Copyright:
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1995 by T. V. Raman
@@ -32,16 +32,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction
+;;;   Introduction
 
 ;;; Commentary:
 ;; User interface to tables
 ;;; Code:
 
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile
@@ -49,8 +49,8 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-table)
 
-;;}}}
-;;{{{  emacspeak table mode
+ 
+;;;   emacspeak table mode
 
 ;; emacspeak-table-submap makes these available globally.
 ;; Forward declaration
@@ -193,8 +193,8 @@ Full List Of Keybindings:
  (emacspeak-keymap-update emacspeak-table-mode-map binding)
  (emacspeak-keymap-update emacspeak-table-submap binding))
 
-;;}}}
-;;{{{  speaking current entry
+ 
+;;;   speaking current entry
 
 (defun emacspeak-table-synchronize-display ()
   "Bring visual display in sync with internal representation"
@@ -463,8 +463,8 @@ Optional prefix arg prompts for a new filter."
     emacspeak-table-speak-column-filter
     " ")))
 
-;;}}}
-;;{{{  what to do when point moves
+ 
+;;;   what to do when point moves
 
 (defun emacspeak-table-point-motion-hook (old new)
   "Bring internal representation in sync with visual display"
@@ -477,10 +477,10 @@ Optional prefix arg prompts for a new filter."
     (error nil))
   (push-mark old t))
 
-;;}}}
-;;{{{  opening a file of table data
+ 
+;;;   opening a file of table data
 
-;;{{{ csv helpers:
+;;;  csv helpers:
 
 (defun ems-csv-forward-field ()
   "Skip forward over one field."
@@ -496,7 +496,7 @@ Optional prefix arg prompts for a new filter."
       (backward-sexp)
     (skip-chars-backward "^,\n")))
 
-;;}}}
+ 
 ;;;###autoload
 (defun emacspeak-table-prepare-table-buffer (table buffer)
   "Prepare tabular data."
@@ -654,8 +654,8 @@ The processed  data is  presented using emacspeak table navigation. "
   (cl-declare (special g-curl-program g-curl-common-options))
   (url-retrieve url #'emacspeak-table-render-csv-url  (list buffer-name)))
 
-;;}}}
-;;{{{ Processing a region of tabular data
+ 
+;;;  Processing a region of tabular data
 ;;;###autoload
 (defun emacspeak-table-display-table-in-region (start end)
   "Recognize tabular data in current region and display it in table
@@ -733,8 +733,8 @@ the documentation on the table browser."
              (emacspeak-table-num-columns emacspeak-table)
              (buffer-name buffer)))))
 
-;;}}}
-;;{{{ select default speaking action
+ 
+;;;  select default speaking action
 
 (defvar emacspeak-table-select-automatic-speaking-method-prompt
   "Select: b both c column d default r row f filter row g filter column "
@@ -761,8 +761,8 @@ browsing table elements"
                        emacspeak-table-speak-element)))
     (emacspeak-auditory-icon 'button)))
 
-;;}}}
-;;{{{ Navigating the table:
+ 
+;;;  Navigating the table:
 
 (defvar emacspeak-table-speak-element
   'emacspeak-table-speak-current-element
@@ -872,8 +872,8 @@ browsing table elements"
   (funcall emacspeak-table-speak-element)
   (emacspeak-auditory-icon 'right))
 
-;;}}}
-;;{{{ searching and finding:
+ 
+;;;  searching and finding:
 
 (defun emacspeak-table-search (&optional what)
   "Search the table for matching elements.  Interactively prompts for
@@ -976,8 +976,8 @@ match, makes the matching row or column current."
      (t (emacspeak-auditory-icon 'search-miss)))
     (emacspeak-table-speak-both-headers-and-element)))
 
-;;}}}
-;;{{{ cutting and pasting tables:
+ 
+;;;  cutting and pasting tables:
 
 (defun emacspeak-table-copy-current-element-to-kill-ring ()
   "Copy current table element to kill ring."
@@ -998,15 +998,15 @@ match, makes the matching row or column current."
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'select-object)
     (message "Copied element to register %c" register)))
-;;}}}
-;;{{{ variables
+ 
+;;;  variables
 
 ;; Implementing table editing and table clipboard.
 (defvar emacspeak-table-clipboard nil
   "Variable to hold table copied to the clipboard.")
 
-;;}}}
-;;{{{  define table markup structure and accessors
+ 
+;;;   define table markup structure and accessors
 
 (cl-defstruct (emacspeak-table-markup
                (:constructor
@@ -1032,8 +1032,8 @@ table markup.")
   (or (gethash mode emacspeak-table-markup-table)
       (gethash 'fundamental-mode emacspeak-table-markup-table)))
 
-;;}}}
-;;{{{  define table markup for the various modes of interest
+ 
+;;;   define table markup for the various modes of interest
 (let ((html-table
        (emacspeak-table-make-markup
         :table-start "<TABLE>\n"
@@ -1102,8 +1102,8 @@ table markup.")
   :col-end ""
   :col-separator "\t"))
 
-;;}}}
-;;{{{ copy and paste tables
+ 
+;;;  copy and paste tables
 
 (defun emacspeak-table-copy-to-clipboard ()
   "Copy table in current buffer to the table clipboard.
@@ -1162,8 +1162,8 @@ markup to use."
        (insert (format "%s" row-end)))
       (insert (format "%s" table-end))))))
 
-;;}}}
-;;{{{  table sorting:
+ 
+;;;   table sorting:
 
 (defun emacspeak-table-sort-on-current-column ()
   "Sort table on current column. "
@@ -1214,8 +1214,8 @@ markup to use."
     (emacspeak-table-goto  0 column)
     (call-interactively #'emacspeak-table-next-row)))
 
-;;}}}
-;;{{{  persistent store
+ 
+;;;   persistent store
 
 (defun emacspeak-table-ui-generate-key ()
   "Generates a key for current context.
@@ -1280,12 +1280,12 @@ future  use."
       (basic-save-buffer)
       (kill-buffer buffer))))
 
-;;}}}
+ 
 (provide  'emacspeak-table-ui)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

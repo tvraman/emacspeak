@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SHX An Emacs Interface to shx
 ;; Keywords: Emacspeak,  Audio Desktop shx
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,29 +35,29 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; SHX ==  Shell Extras For emacs
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Forward Declaration 
+ 
+;;;  Forward Declaration 
 (declare-function shx-insert "shx" (&rest args))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 (defadvice shx (after emacspeak pre act comp)
   "Announce switching to shell mode.
@@ -117,8 +117,8 @@ Provide an auditory icon if possible."
           (comint-line-beginning-position) (point)))))))
    (t ad-do-it))
   ad-return-value)
-;;}}}
-;;{{{ Additional shx commands:
+ 
+;;;  Additional shx commands:
 
 (defun shx-cmd-browse (url)
   "Browse the supplied URL."
@@ -130,12 +130,12 @@ Provide an auditory icon if possible."
   (shx-insert "grep " 'font-lock-keyword-face grep-args "\n")
   (grep (concat "grep --color -nH -e " grep-args)))
 
-;;}}}
+ 
 (provide 'emacspeak-shx)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

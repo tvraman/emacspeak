@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ANNOTATE An Emacs Interface to annotate
 ;; Keywords: Emacspeak,  Audio Desktop annotate
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,8 +11,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
 ;; 
@@ -33,26 +33,26 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; ANNOTATE == annotate.el from melpa
 ;; Speech-enable creation and navigation of annotations.
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'annotate "annotate" 'noerror)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map 
  '(
@@ -62,8 +62,8 @@
    (annotate-highlight-secondary voice-lighten)
    (annotate-prefix voice-bolden)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 (defadvice annotate-annotate (after emacspeak pre act comp)
   "speak."
@@ -84,12 +84,12 @@
          (emacspeak-speak-line)
          (dtk-notify-speak (overlay-get o 'annotation)))))))
 
-;;}}}
+ 
 (provide 'emacspeak-annotate)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

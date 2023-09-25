@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to bookmark
 ;; Keywords: Emacspeak, Speak, Spoken Output, bookmark
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  Introduction 
+ 
+;;;   Introduction 
 ;;; Commentary:
 ;; Speech enable bookmarks
 ;;; Code:
-;;}}}
-;;{{{  bookmarks
+ 
+;;;   bookmarks
 (defadvice bookmark-set (after emacspeak pre act comp)
   "Announce yourself."
   (when (ems-interactive-p)
@@ -182,12 +182,12 @@
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-speak-line)))
 
-;;}}}
+ 
 (provide 'emacspeak-bookmark)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

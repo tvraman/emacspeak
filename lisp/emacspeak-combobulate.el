@@ -2,7 +2,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable COMBOBULATE An Emacs Interface to combobulate
 ;;; Keywords: Emacspeak,  Audio Desktop combobulate
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,8 +11,8 @@
 ;;; Location undetermined
 ;;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;;; COMBOBULATE: Navigate, Manipulate code with  tree-sitter's
@@ -47,15 +47,15 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile  (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map 
  '(
@@ -66,8 +66,8 @@
    (combobulate-tree-highlighted-node-face voice-brighten)
    (combobulate-tree-pulse-node-face voice-smoothen)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 '(
   combobulate-clone-node-dwim
@@ -116,12 +116,12 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-combobulate-speak-line)))))
 
-;;}}}
+ 
 (provide 'emacspeak-combobulate)
-;;{{{ end of file
+;;;  end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; end:
 
-;;}}}
+ 

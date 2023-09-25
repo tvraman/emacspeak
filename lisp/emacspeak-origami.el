@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ORIGAMI An Emacs Interface to origami
 ;; Keywords: Emacspeak,  Audio Desktop origami
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,24 +35,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; ORIGAMI ==  One More Flexible Folding Mechanism
 ;; This module speech-enables origami-mode.
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -60,8 +60,8 @@
    (origami-fold-header-face voice-bolden-medium)
    (origami-fold-replacement-face voice-smoothen)))
 
-;;}}}
-;;{{{ Advice low-level internals: hide/show overlay
+ 
+;;;  Advice low-level internals: hide/show overlay
 (defadvice origami-hide-overlay (after emacspeak pre act comp)
   "Attach auditory icon at front."
   (let ((s
@@ -80,8 +80,8 @@
         (e (overlay-end (ad-get-arg 0))))
     (put-text-property s e 'auditory-icon nil)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 (defvar origami-mode)
 
 (defadvice origami-mode (after emacspeak pre act comp)
@@ -150,12 +150,12 @@
          (message "%s nodes." (if flag "Expanded " "Collapsed "))
          (emacspeak-speak-line))))))
 
-;;}}}
+ 
 (provide 'emacspeak-origami)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

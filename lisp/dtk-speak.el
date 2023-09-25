@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacs interface to TTS
 ;; Keywords: TTS  Emacs Elisp
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ introduction:
+;;;  introduction:
 
 ;;; Commentary:
 ;; Defines the TTS interface.
@@ -48,16 +48,16 @@
 ;;; Code:
 ;;
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
 (declare-function ems--fastload "emacspeak-preamble" (file))
 
-;;}}}
-;;{{{ Forward Declarations:
+ 
+;;;  Forward Declarations:
 
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
@@ -76,11 +76,11 @@ dtk-exp     For the Dectalk Express.
 outloud     For IBM ViaVoice Outloud
 espeak      For eSpeak (default on Linux)
 mac for MAC TTS (default on Mac)")
-;;}}}
+ 
 
 ;; Importing dtk-interp by inclusion:
 
-;;{{{ macros
+;;;  macros
 ;;;###autoload
 (defmacro tts-with-punctuations (setting &rest body)
   "Set punctuation  and exec   body."
@@ -94,8 +94,8 @@ mac for MAC TTS (default on Mac)")
        (setq dtk-punctuation-mode save-punctuation-mode)
        (dtk-interp-set-punctuations save-punctuation-mode))))
 
-;;}}}
-;;{{{ silence
+ 
+;;;  silence
 
 (defsubst dtk-interp-silence (duration &optional force)
   (cl-declare (special dtk-speaker-process))
@@ -104,8 +104,8 @@ mac for MAC TTS (default on Mac)")
                                duration
                                (if force "\nd" ""))))
 
-;;}}}
-;;{{{  tone
+ 
+;;;   tone
 
 (defsubst dtk-interp-tone (pitch duration &optional force)
   (cl-declare (special dtk-speaker-process))
@@ -113,8 +113,8 @@ mac for MAC TTS (default on Mac)")
                        (format "t %d %d%s\n"
                                pitch duration
                                (if force "\nd" ""))))
-;;}}}
-;;{{{  queue
+ 
+;;;   queue
 
 (defsubst dtk-interp-queue (text)
   (cl-declare (special dtk-speaker-process))
@@ -126,30 +126,30 @@ mac for MAC TTS (default on Mac)")
   (process-send-string dtk-speaker-process
                        (format "c {%s }\n" code)))
 
-;;}}}
-;;{{{  speak
+ 
+;;;   speak
 
 (defsubst dtk-interp-speak ()
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "d\n"))
 
-;;}}}
-;;{{{ say
+ 
+;;;  say
 
 (defsubst dtk-interp-say (string)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_say { %s}\n" string)))
 
-;;}}}
-;;{{{ stop
+ 
+;;;  stop
 
 (defsubst dtk-interp-stop ()
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "s\n"))
 
-;;}}}
-;;{{{ sync
+ 
+;;;  sync
 
 (defsubst dtk-interp-sync ()
   (cl-declare (special
@@ -163,16 +163,16 @@ mac for MAC TTS (default on Mac)")
            (if dtk-caps 1 0)
            dtk-speech-rate)))
 
-;;}}}
-;;{{{  letter
+ 
+;;;   letter
 
 (defsubst dtk-interp-letter (letter)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "l {%s}\n" letter)))
 
-;;}}}
-;;{{{  language
+ 
+;;;   language
 
 (defsubst dtk-interp-next-language (&optional say_it)
   (cl-declare (special dtk-speaker-process))
@@ -195,8 +195,8 @@ mac for MAC TTS (default on Mac)")
                        (format "set_preferred_lang %s %s \n"
                                alias language)))
 
-;;}}}
-;;{{{  Version, rate
+ 
+;;;   Version, rate
 
 (defsubst dtk-interp-say-version ()
   (cl-declare (special dtk-speaker-process))
@@ -208,8 +208,8 @@ mac for MAC TTS (default on Mac)")
                        (format "tts_set_speech_rate %s\n"
                                rate)))
 
-;;}}}
-;;{{{ character scale
+ 
+;;;  character scale
 
 (defsubst dtk-interp-set-character-scale (factor)
   (cl-declare (special dtk-speaker-process))
@@ -217,8 +217,8 @@ mac for MAC TTS (default on Mac)")
                        (format "tts_set_character_scale %s\n"
                                factor)))
 
-;;}}}
-;;{{{  split caps
+ 
+;;;   split caps
 
 (defsubst dtk-interp-toggle-split-caps (flag)
   (cl-declare (special dtk-speaker-process))
@@ -226,8 +226,8 @@ mac for MAC TTS (default on Mac)")
                        (format "tts_split_caps %s\n"
                                (if flag 1 0))))
 
-;;}}}
-;;{{{ punctuations
+ 
+;;;  punctuations
 
 (defsubst dtk-interp-set-punctuations (mode)
   (cl-declare (special dtk-speaker-process))
@@ -235,15 +235,15 @@ mac for MAC TTS (default on Mac)")
    dtk-speaker-process
    (format "tts_set_punctuations %s\nd\n" mode)))
 
-;;}}}
-;;{{{ reset
+ 
+;;;  reset
 
 (defsubst dtk-interp-reset-state ()
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "tts_reset \n"))
 
-;;}}}
-;;{{{  user customizations:
+ 
+;;;   user customizations:
 
 (defgroup tts nil
   "TTS." ;; ¿¿I guess this is shorthand for "Thou art Totally Screwed"??
@@ -286,8 +286,8 @@ replaced with a repeat count. "
   :type '(repeat (string :tag "pattern"))
   :group 'tts)
 
-;;}}}
-;;{{{  internal variables
+ 
+;;;   internal variables
 
 (defvar dtk-character-scale 1.1
   "Factor used to  scale speech rate  when speaking letters.
@@ -312,8 +312,8 @@ bound to \\[dtk-toggle-caps].")
  Use `dtk-set-rate'
  bound to \\[dtk-set-rate].")
 
-;;}}}
-;;{{{Style Helper:
+ 
+;;; Style Helper:
 
 ;; helper: Identify (a . b).
 (defsubst dtk-plain-cons-p (value)
@@ -337,8 +337,8 @@ bound to \\[dtk-toggle-caps].")
    (get-text-property pos 'personality)
    (dtk-get-voice-for-face (get-text-property pos 'face))))
 
-;;}}}
-;;{{{ Tone Helpers:
+ 
+;;;  Tone Helpers:
 
 ;; Deletion Tone.
 (defsubst dtk-tone-deletion ()
@@ -350,8 +350,8 @@ bound to \\[dtk-toggle-caps].")
 (defsubst dtk-tone-downcase ()
   (dtk-tone 600 100 'force))
 
-;;}}}
-;;{{{ helper: apply pronunciations
+ 
+;;;  helper: apply pronunciations
 
 ;; moved here from the emacspeak-pronounce module for efficient
 ;;compilation
@@ -391,8 +391,8 @@ bound to \\[dtk-toggle-caps].")
                         (match-beginning 0) (match-end 0)))))
            (tts-replace-match pronunciation))))))))
 
-;;}}}
-;;{{{  Helpers to handle invisible text:
+ 
+;;;   Helpers to handle invisible text:
 
 (defun dtk--skip-invisible-forward ()
   "Move across invisible text."
@@ -425,8 +425,8 @@ bound to \\[dtk-toggle-caps].")
                (point-max)))
           (setq start (point)))))))
 
-;;}}}
-;;{{{  Tones, Language, formatting speech etc.
+ 
+;;;   Tones, Language, formatting speech etc.
 
 (defun dtk-silence (duration &optional force)
   "Produce `duration' ms of silence. "
@@ -885,8 +885,8 @@ notification stream as well."
   (cl-declare (special tts-default-voice))
   (dtk-dispatch (tts-get-voice-command tts-default-voice)))
 
-;;}}}
-;;{{{  adding cleanup patterns:
+ 
+;;;   adding cleanup patterns:
 
 (defun dtk-add-cleanup-pattern (&optional delete)
   "Add this pattern to the list of repeating patterns.
@@ -905,8 +905,8 @@ this pattern if previously added.    "
                 dtk-cleanup-repeats
                 :test #'string-equal))))
 
-;;}}}
-;;{{{ helper --generate state switcher:
+ 
+;;;  helper --generate state switcher:
 
 (defun ems-generate-switcher (command switch documentation)
   "Generate  command to switch  state."
@@ -930,8 +930,8 @@ this pattern if previously added.    "
                  ',switch
                  (if prefix "" " locally")))))))
 
-;;}}}
-;;{{{  sending commands
+ 
+;;;   sending commands
 
 (defun dtk-set-rate (rate &optional prefix)
   "Set speaking RATE.
@@ -1139,8 +1139,8 @@ Interactive PREFIX arg makes the new setting global."
   (interactive)
   (dtk-interp-say-version))
 
-;;}}}
-;;{{{  Internal variables:
+ 
+;;;   Internal variables:
 
 (defvar dtk-stop-immediately t
   "If t, speech stopped immediately when new speech received.
@@ -1180,8 +1180,8 @@ Set by \\[dtk-set-punctuations].")
         (forward-line 1)))
     (setq dtk-servers-alist result)))
 
-;;}}}
-;;{{{  Mapping characters to speech:
+ 
+;;;   Mapping characters to speech:
 
 (defvar dtk-character-to-speech-table
   (make-vector 256 "")
@@ -1459,8 +1459,8 @@ Set by \\[dtk-set-punctuations].")
     (or (dtk-unicode-short-name-for-char char)
         (format "octal %o" char))))
 
-;;}}}
-;;{{{  interactively selecting the server:
+ 
+;;;   interactively selecting the server:
 
 ;; These functions will be reset on a per TTS engine basis
 ;; via `voice-setup' called by `dtk-initialize'.
@@ -1571,8 +1571,8 @@ program. Port defaults to dtk-local-server-port"
       dtk-local-server-port)
     (expand-file-name program emacspeak-servers-directory))))
 
-;;}}}
-;;{{{  initialize the speech process
+ 
+;;;   initialize the speech process
 
 (defsubst tts-notification-from-env ()
   "Compute tts-notification device from env."
@@ -1670,8 +1670,8 @@ Set to nil to disable a secondary Notification stream."
   (when (process-live-p dtk-speaker-process)
     (dtk-interp-sync)))
 
-;;}}}
-;;{{{  interactively select how text is split:
+ 
+;;;   interactively select how text is split:
 
 (defun dtk-toggle-splitting-on-white-space ()
   "Toggle splitting of speech on white space. "
@@ -1697,8 +1697,8 @@ Argument S specifies the syntax class."
   (when (called-interactively-p 'interactive)
     (message "Set  separator to %s" s)))
 
-;;}}}
-;;{{{ speak text
+ 
+;;;  speak text
 
 (defvar-local dtk-yank-excluded-properties
     '(category field follow-link fontified font-lock-face help-echo
@@ -1929,8 +1929,8 @@ grouping"
         (dtk-stop))
       (dtk-interp-say words))))
 
-;;}}}
-;;{{{ Notify:
+ 
+;;;  Notify:
 
 (defun dtk-notify-process ()
   "Return  Notification TTS handle or nil. "
@@ -2029,11 +2029,11 @@ Designed to work with ALSA and Pulseaudio."
       (dtk-speak-using-voice voice text)
       (dtk-force))))
 
-;;}}}
+ 
 ;; Include dtk-unicode.el
 
 ;; dtk-unicode.el --- Pronounce Unicode characters
-;;{{{ Header: Lukas
+;;;  Header: Lukas
 
 ;; Copyright 2007, 2011 Lukas Loehrer
 ;; TVR: Integrated into Emacspeak July 6, 2008
@@ -2043,8 +2043,8 @@ Designed to work with ALSA and Pulseaudio."
 ;; Version: $Id$
 ;; Keywords:  TTS, Unicode
 
-;;}}}
-;;{{{ Customizations
+ 
+;;;  Customizations
 
 (defcustom dtk-unicode-character-replacement-alist
   '(
@@ -2107,8 +2107,8 @@ Designed to work with ALSA and Pulseaudio."
           (regexp :tag "pattern")
           (function :tag "transformation"))))
 
-;;}}}
-;;{{{ Variables
+ 
+;;;  Variables
 
 (defcustom dtk-unicode-untouched-charsets
   '(ascii latin-iso8859-1)
@@ -2123,8 +2123,8 @@ Designed to work with ALSA and Pulseaudio."
 an unspeakable character.  A handler returns a non-nil value if
 the replacement was successful, nil otherwise.")
 
-;;}}}
-;;{{{ Helper functions
+ 
+;;;  Helper functions
 
 (defun dtk-unicode-charset-limits (charset)
   "Return rough lower and upper limits for character codes in CHARSET."
@@ -2254,8 +2254,8 @@ When called interactively, CHAR defaults to the character after point."
              char char (char-charset char))))))
   (push (cons char replacement) dtk-unicode-character-replacement-alist))
 
-;;}}}
-;;{{{ Character replacement handlers
+ 
+;;;  Character replacement handlers
 
 (defun dtk-unicode-user-table-handler (char)
   "Return user defined replacement character if it exists."
@@ -2268,8 +2268,8 @@ When called interactively, CHAR defaults to the character after point."
       (format
        " %s " (dtk-unicode-apply-name-transformation-rules char-desc)))))
 
-;;}}}
-;;{{{ External interface
+ 
+;;;  External interface
 
 (defun dtk-unicode-full-name-for-char (char)
   "Return full name of CHAR. "
@@ -2301,15 +2301,15 @@ When called interactively, CHAR defaults to the character after point."
           (when props
             (set-text-properties pos (point) props)))))))
 
-;;}}}
+ 
 ;;; dtk-unicode.el ends here
 
 (provide 'dtk-speak)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; coding: utf-8
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   Speech-enable EShell
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; EShell is a shell implemented entirely in Emacs Lisp.
@@ -48,15 +48,15 @@
 ;; This module speech-enables EShell
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'esh-arg)
 
-;;}}}
-;;{{{  setup various EShell hooks
+ 
+;;;   setup various EShell hooks
 
 ;; Play an auditory icon as you display the prompt
 (defun emacspeak-eshell-prompt-function ()
@@ -82,8 +82,8 @@
  'emacspeak-eshell-speak-output
  'at-end)
 
-;;}}}
-;;{{{  Advice top-level EShell
+ 
+;;;   Advice top-level EShell
 
 (defadvice eshell (after emacspeak pre act comp)
   "Announce switching to shell mode.
@@ -96,8 +96,8 @@ Provide an auditory icon if possible."
     (emacspeak-pronounce-refresh-pronunciations)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ advice em-hist
+ 
+;;;  advice em-hist
 
 (cl-loop
  for f in
@@ -117,8 +117,8 @@ Provide an auditory icon if possible."
          (eshell-skip-prompt)
          (emacspeak-speak-line 1))))))
 
-;;}}}
-;;{{{  advice em-ls
+ 
+;;;   advice em-ls
 
 (defgroup emacspeak-eshell nil
   "EShell on the Emacspeak Audio Desktop."
@@ -130,8 +130,8 @@ Provide an auditory icon if possible."
   "Indicates if ls in eshell uses different voice
 personalities.")
 
-;;}}}
-;;{{{ voices
+ 
+;;;  voices
 
 (voice-setup-add-map 
  '(
@@ -147,8 +147,8 @@ personalities.")
    (eshell-ls-symlink voice-smoothen)
    (eshell-ls-unreadable voice-animate-extra)
    (eshell-prompt voice-bolden-and-animate)))
-;;}}}
-;;{{{ Advice em-prompt
+ 
+;;;  Advice em-prompt
 
 (cl-loop for f in
          '(
@@ -163,8 +163,8 @@ personalities.")
                  (emacspeak-auditory-icon 'select-object)
                  (emacspeak-speak-line 1))))))
 
-;;}}}
-;;{{{  advice esh-arg
+ 
+;;;   advice esh-arg
 
 (cl-loop for f in
          '(
@@ -186,8 +186,8 @@ personalities.")
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ advice esh-mode
+ 
+;;;  advice esh-mode
 
 (defadvice eshell-delchar-or-maybe-eof (around emacspeak pre act comp)
   "Speak character you're deleting."
@@ -254,8 +254,8 @@ personalities.")
      (t (emacspeak-speak-mode-line)))
     (emacspeak-auditory-icon 'select-object)))
 
-;;}}}
-;;{{{Additional Commands To Enable: 
+ 
+;;; Additional Commands To Enable: 
 
 (cl-loop
  for f in
@@ -307,13 +307,13 @@ personalities.")
       (emacspeak-auditory-icon 'yank-object)
       (emacspeak-speak-region start (point)))))
 
-;;}}}
+ 
 
 (provide 'emacspeak-eshell)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

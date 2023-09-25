@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Contains convenience wizards
 ;; Keywords: Emacspeak,  Audio Desktop Wizards
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 
@@ -47,8 +47,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'cl-extra)
@@ -80,8 +80,8 @@
 (declare-function word-at-point "thingatpt" (&optional no-properties))
 (declare-function sox-play "sox" t)
 
-;;}}}
-;;{{{Forward Decls:
+ 
+;;; Forward Decls:
 
 (declare-function org-table-previous-row "emacspeak-org" nil)
 (declare-function
@@ -94,15 +94,15 @@
 (declare-function emacspeak-org-table-speak-column-header-and-element
                   "emacspeak-org" nil)
 
-;;}}}
-;;{{{defgroup:
+ 
+;;; defgroup:
 (defgroup emacspeak-wizards nil
   "Wizards for the Emacspeak desktop."
   :group 'emacspeak
   :prefix "emacspeak-wizards-")
 
-;;}}}
-;;{{{Read JSON file:
+ 
+;;; Read JSON file:
 
 (defsubst ems--json-read-file (filename)
   "Use native json implementation if available to read json file."
@@ -115,8 +115,8 @@
         (kill-buffer ))))
    (t (json-read-file filename))))
 
-;;}}}
-;;{{{  Emacspeak News and Documentation
+ 
+;;;   Emacspeak News and Documentation
 
 ;;;###autoload
 (defun emacspeak-view-emacspeak-news ()
@@ -144,8 +144,8 @@
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
 
-;;}}}
-;;{{{ utility function to copy documents:
+ 
+;;;  utility function to copy documents:
 
 (defvar emacspeak-copy-file-location-history nil
   "History list for prompting for a copy location.")
@@ -264,8 +264,8 @@ Prompts for the new location and preserves modification time
     (emacspeak-auditory-icon 'select-object)
     (message "Symlinked  current doc>ument to %s" location)))
 
-;;}}}
-;;{{{ pop up messages buffer
+ 
+;;;  pop up messages buffer
 
 ;;;###autoload
 (defun emacspeak-speak-popup-messages ()
@@ -275,8 +275,8 @@ Prompts for the new location and preserves modification time
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-read-previous-line))
 
-;;}}}
-;;{{{ Network interface utils:
+ 
+;;;  Network interface utils:
 
 (defun ems-get-active-network-interfaces ()
   "Return  names of active network interfaces."
@@ -298,8 +298,8 @@ Prompts for the new location and preserves modification time
    (car (network-interface-info dev))
    'omit-port))
 
-;;}}}
-;;{{{ Show active network interfaces
+ 
+;;;  Show active network interfaces
 
 (defun emacspeak-speak-hostname ()
   "Speak host name."
@@ -320,8 +320,8 @@ also copied to the kill ring for convenient yanking."
                  (ems-get-active-network-interfaces)
                  " ")))))
 
-;;}}}
-;;{{{ Elisp Utils:
+ 
+;;;  Elisp Utils:
 
 (defun emacspeak-wizards-next-interactive-defun ()
   "Move point to the next interactive defun"
@@ -331,8 +331,8 @@ also copied to the kill ring for convenient yanking."
   (beginning-of-defun)
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{  simple phone book
+ 
+;;;   simple phone book
 
 (defcustom emacspeak-speak-telephone-directory
   (expand-file-name "tel-dir" emacspeak-user-directory)
@@ -362,8 +362,8 @@ With prefix arg, opens the phone book for editing."
    (t (error "First create your phone directory in %s"
              emacspeak-speak-telephone-directory))))
 
-;;}}}
-;;{{{ find file as root
+ 
+;;;  find file as root
 
 ;; http://emacs-fu.blogspot.com/
 ;; 2013/03/editing-with-root-privileges-once-more.html
@@ -383,8 +383,8 @@ tramp/sudo), if the file is not writable by user."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ browse chunks
+ 
+;;;  browse chunks
 
 (defun emacspeak-wizards-move-and-speak (command count)
   "Speaks a chunk of text bounded by point and a target position.
@@ -403,8 +403,8 @@ command."
     (funcall command count)
     (emacspeak-speak-region orig (point))))
 
-;;}}}
-;;{{{  Learn mode
+ 
+;;;   Learn mode
 
 ;;;###autoload
 (defun emacspeak-learn-emacs-mode ()
@@ -429,8 +429,8 @@ To leave, press \\[keyboard-quit]."
   (dtk-set-punctuations 'all)
   (emacspeak-speak-buffer))
 
-;;}}}
-;;{{{ Frame Nav:
+ 
+;;;  Frame Nav:
 
 ;;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)
@@ -450,8 +450,8 @@ With optional interactive prefix arg `frame', move to previous frame instead."
    (frame (funcall-interactively #'other-frame -1))
    (t (call-interactively #'previous-buffer))))
 
-;;}}}
-;;{{{  readng different displays of same buffer
+ 
+;;;   readng different displays of same buffer
 
 ;;;###autoload
 (defun emacspeak-speak-this-buffer-other-window-display ( window)
@@ -539,8 +539,8 @@ meaning of `next'."
   (interactive)
   (emacspeak-select-this-buffer-other-window-display 1))
 
-;;}}}
-;;{{{  Display properties conveniently
+ 
+;;;   Display properties conveniently
 
 ;; Useful for developping emacspeak:
 ;; Display selected properties of interest
@@ -596,8 +596,8 @@ If optional arg property is not supplied, read it interactively. "
        (message "%s"
                 (get-text-property (point) property)))))
 
-;;}}}
-;;{{{  moving across blank lines
+ 
+;;;   moving across blank lines
 
 ;;;###autoload
 (defun emacspeak-skip-blank-lines-forward ()
@@ -664,8 +664,8 @@ If optional arg property is not supplied, read it interactively. "
              (concat skipped (ems--this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 
-;;}}}
-;;{{{Moving across spaces:
+ 
+;;; Moving across spaces:
 ;;;###autoload
 (defun emacspeak-skip-space-forwar ()
   "Skip forward across blanks."
@@ -680,12 +680,12 @@ If optional arg property is not supplied, read it interactively. "
   (dtk-notify-say  (skip-syntax-backward " "))
   (emacspeak-speak-preceding-char))
 
-;;}}}
+ 
 
-;;{{{ ansi term
+;;;  ansi term
 
-;;}}}
-;;{{{ shell-toggle
+ 
+;;;  shell-toggle
 
 ;; inspired by eshell-toggle
 ;; switch to the shell buffer, and cd to the directory
@@ -705,8 +705,8 @@ If optional arg property is not supplied, read it interactively. "
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ pdf wizard
+ 
+;;;  pdf wizard
 
 (defvar emacspeak-wizards-pdf-to-text-program
   "pdftotext"
@@ -759,8 +759,8 @@ Optional interactive prefix arg ask-pwd prompts for password."
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
-;;}}}
-;;{{{ tramp wizard
+ 
+;;;  tramp wizard
 
 (defcustom emacspeak-wizards-tramp-locations nil
   "Tramp locations used by Emacspeak tramp wizard.
@@ -787,8 +787,8 @@ Location is specified by name."
   (let ((location (cdr (assoc name emacspeak-wizards-tramp-locations))))
     (find-file  location)))
 
-;;}}}
-;;{{{ customize emacspeak
+ 
+;;;  customize emacspeak
 
 (declare-function emacspeak-custom-goto-group "emacspeak-custom" nil)
 
@@ -800,8 +800,8 @@ Location is specified by name."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-custom-goto-group))
 
-;;}}}
-;;{{{ squeeze blank lines in current buffer:
+ 
+;;;  squeeze blank lines in current buffer:
 ;;;###autoload
 (defun emacspeak-wizards-squeeze-blanks (start end)
   "Squeeze multiple blank lines."
@@ -814,8 +814,8 @@ Location is specified by name."
   (untabify (point-min) (point-max))
   (delete-trailing-whitespace))
 
-;;}}}
-;;{{{  count slides in region: (LaTeX specific.
+ 
+;;;   count slides in region: (LaTeX specific.
 
 (defun emacspeak-wizards-count-slides-in-region (start end)
   "Count slides starting from point."
@@ -823,8 +823,8 @@ Location is specified by name."
   (how-many "begin\\({slide}\\|{part}\\)"
             start end 'interactive))
 
-;;}}}
-;;{{{  file specific  headers via occur
+ 
+;;;   file specific  headers via occur
 
 (defvar emacspeak-occur-pattern nil
   "Regexp pattern used to identify header lines by command
@@ -874,8 +874,8 @@ prompts for and sets value of the file local pattern."
       (setq emacspeak-occur-pattern pattern)
       (occur pattern)))))
 
-;;}}}
-;;{{{   Switching buffers, killing buffers etc
+ 
+;;;    Switching buffers, killing buffers etc
 
 ;;;###autoload
 (defun emacspeak-kill-buffer-quietly ()
@@ -886,8 +886,8 @@ prompts for and sets value of the file local pattern."
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ VC viewer
+ 
+;;;  VC viewer
 (defvar emacspeak-wizards-vc-viewer-command
   "setterm -dump %s -file %s"
   "Command line for dumping out virtual console.  Make sure you have
@@ -978,8 +978,8 @@ Ubuntu and Debian this is group `tty'.")
 (define-key emacspeak-wizards-vc-view-mode-map
             "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
-;;}}}
-;;{{{ longest line in region
+ 
+;;;  longest line in region
 ;;;###autoload
 (defun emacspeak-wizards-find-longest-line-in-region (start end)
   "Find longest line in region and move to it. "
@@ -1028,8 +1028,8 @@ Moves to the shortest line when called interactively."
       (goto-char where))
     min))
 
-;;}}}
-;;{{{ longest para in region
+ 
+;;;  longest para in region
 ;;;###autoload
 (defun emacspeak-wizards-find-longest-paragraph-in-region (start end)
   "Find longest paragraph in region, and move to it. "
@@ -1053,8 +1053,8 @@ Moves to the shortest line when called interactively."
       (goto-char where))
     max))
 
-;;}}}
-;;{{{ face wizard
+ 
+;;;  face wizard
 ;;;###autoload
 (defun emacspeak-wizards-show-face (face)
   "Show  properties of  face."
@@ -1085,8 +1085,8 @@ Moves to the shortest line when called interactively."
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object))))
 
-;;}}}
-;;{{{ ISO dates
+ 
+;;;  ISO dates
 ;; implementation based on icalendar.el
 
 ;;;###autoload
@@ -1101,8 +1101,8 @@ Moves to the shortest line when called interactively."
       (tts-with-punctuations 'some (dtk-speak time))
       (message time))))
 
-;;}}}
-;;{{{ date pronouncer wizard
+ 
+;;;  date pronouncer wizard
 (defvar emacspeak-wizards-mm-dd-yyyy-date-pronounce nil
   "Toggled by wizard to record how we are pronouncing mm-dd-yyyy
 dates.")
@@ -1176,8 +1176,8 @@ dates.")
            (if emacspeak-wizards-yyyymmdd-date-pronounce "" "
   not ")))
 
-;;}}}
-;;{{{ units wizard
+ 
+;;;  units wizard
 
 ;;;###autoload
 (defun emacspeak-wizards-units ()
@@ -1194,11 +1194,11 @@ dates.")
     (emacspeak-toggle-inaudible-or-comint-autospeak))
   (emacspeak-speak-mode-line))
 
-;;}}}
-;;{{{ shell history:
+ 
+;;;  shell history:
 
-;;}}}
-;;{{{ Organizing Shells: next, previous, tag
+ 
+;;;  Organizing Shells: next, previous, tag
 
 (defun ems--shell-pushd-if-needed (dir target)
   "Helper: execute pushd in shell `target' if needed."
@@ -1404,8 +1404,8 @@ buffer keyed by `key'gets the key of buffer `buffer'."
         (puthash swap-key swap-buffer emacspeak-wizards--shells-table))
       (message "%s is now  on %s" (buffer-name buffer) key)))))
 
-;;}}}
-;;{{{ show commentary:
+ 
+;;;  show commentary:
 
 (defun ems-cleanup-commentary (commentary)
   "Cleanup commentary."
@@ -1414,9 +1414,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
     (erase-buffer)
     (insert commentary)
     (goto-char (point-min))
-    (flush-lines "{{{")
     (goto-char (point-min))
-    (flush-lines "}}}")
     (goto-char (point-min))
     (delete-blank-lines)
     (goto-char (point-min))
@@ -1424,8 +1422,8 @@ buffer keyed by `key'gets the key of buffer `buffer'."
       (replace-match "" nil t))
     (buffer-string)))
 
-;;}}}
-;;{{{ Bullet navigation
+ 
+;;;  Bullet navigation
 
 (defun emacspeak-wizards-next-bullet ()
   "Navigate to and speak next `bullet'."
@@ -1443,8 +1441,8 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (emacspeak-auditory-icon 'item)
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{ Start or switch to term:
+ 
+;;;  Start or switch to term:
 
 ;;;###autoload
 (defun emacspeak-wizards-term (create)
@@ -1465,8 +1463,8 @@ term if needed."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ Espeak: MultiLingual Wizard
+ 
+;;;  Espeak: MultiLingual Wizard
 
 (defvar emacspeak-wizards-espeak-voices-alist nil
   "Association list of ESpeak voices to voice codes.")
@@ -1538,8 +1536,8 @@ interactive prompt."
     (emacspeak-wizards-espeak-region
      (line-beginning-position) (line-end-position))))
 
-;;}}}
-;;{{{ Emacs Dev utilities
+ 
+;;;  Emacs Dev utilities
 
 ;;;###autoload
 (defun emacspeak-wizards-show-eval-result (form)
@@ -1726,8 +1724,8 @@ mapped to voices."
         (funcall-interactively #'pop-to-buffer buffer)))
     result))
 
-;;}}}
-;;{{{ Shell Helper: Path Cleanup
+ 
+;;;  Shell Helper: Path Cleanup
 
 (defun emacspeak-wizards-cleanup-shell-path ()
   "Cleans up duplicates in shell path env variable."
@@ -1751,8 +1749,8 @@ mapped to voices."
      (cl-pushnew d updated :test #'string-equal))
     (setq exec-path updated)))
 
-;;}}}
-;;{{{ Run shell command on current file:
+ 
+;;;  Run shell command on current file:
 
 ;;;###autoload
 (defun emacspeak-wizards-shell-command-on-current-file (command)
@@ -1760,8 +1758,8 @@ mapped to voices."
   (interactive (list (read-shell-command "Command: ")))
   (shell-command (format "%s %s" command (buffer-file-name))))
 
-;;}}}
-;;{{{ Filtered buffer lists:
+ 
+;;;  Filtered buffer lists:
 
 (defun emacspeak-wizards-view-buffers-filtered-by-predicate (predicate)
   "Display list of buffers filtered by specified predicate."
@@ -1816,8 +1814,8 @@ mapped to voices."
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode 'eww-mode))
 
-;;}}}
-;;{{{ TuneIn:
+ 
+;;;  TuneIn:
 
 ;;;###autoload
 (defun emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -1834,8 +1832,8 @@ Optional interactive prefix arg `category' prompts for a category."
   (interactive)
   (emacspeak-url-template-open (emacspeak-url-template-get "RadioTime Search")))
 
-;;}}}
-;;{{{ Sports API:
+ 
+;;;  Sports API:
 
 (defvar emacspeak-wizards--xmlstats-standings-uri
   "https://erikberg.com/%s/standings.json"
@@ -1932,8 +1930,8 @@ Optional interactive prefix arg shows  unprocessed results."
       (goto-char (point-min))
       (funcall-interactively #'switch-to-buffer buffer))))
 
-;;}}}
-;;{{{ Color at point:
+ 
+;;;  Color at point:
 (defun ems--color-diff (c1 c2)
   "Color difference"
   (color-cie-de2000
@@ -2026,8 +2024,8 @@ under point as either the foreground or background color."
              (ems--color-name (foreground-color-at-point))
              (ems--color-name (background-color-at-point)))))
 
-;;}}}
-;;{{{ Color Wheel:
+ 
+;;;  Color Wheel:
 (cl-defstruct ems--color-wheel
   "Color wheel holds RGB balues and step-size."
   red green blue step)
@@ -2212,8 +2210,8 @@ q: Quit color wheel, after copying current hex value to kill-ring."
         (message
          "Left/Right Switches primary, Up/Down increases/decreases."))))))
 
-;;}}}
-;;{{{ Swap Foreground And Background:
+ 
+;;;  Swap Foreground And Background:
 
 ;;;###autoload
 (defun emacspeak-wizards-swap-fg-and-bg ()
@@ -2225,8 +2223,8 @@ q: Quit color wheel, after copying current hex value to kill-ring."
     (set-background-color fg)
     (call-interactively #'emacspeak-wizards-color-diff-at-point)))
 
-;;}}}
-;;{{{ Utility: Read from a pipe helper:
+ 
+;;;  Utility: Read from a pipe helper:
 
 ;; For use from etc/emacs-pipe.pl
 ;; Above can be used as a printer command in XTerm
@@ -2237,8 +2235,8 @@ q: Quit color wheel, after copying current hex value to kill-ring."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
-;;}}}
-;;{{{ Customize Saved Settings  By Pattern:
+ 
+;;;  Customize Saved Settings  By Pattern:
 
 ;; Emacs' built-in customize-saved can be slow if the saved
 ;; customizations are many. This function allows one to clean-up
@@ -2266,8 +2264,8 @@ updating custom settings for a specific package or group of packages."
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ NOAA Weather API:
+ 
+;;;  NOAA Weather API:
 
 (defvar  ems--noaa-grid-endpoint
   "https://api.weather.gov/points/")
@@ -2379,8 +2377,8 @@ Default is to display weather for `gmaps-my-address'."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ generate declare-function statements:
+ 
+;;;  generate declare-function statements:
 
 (declare-function help--symbol-completion-table
                   "help-fns" (string pred action))
@@ -2408,8 +2406,8 @@ external package."
       (if ext (format "ext:%s" file) file)
       arglist))))
 
-;;}}}
-;;{{{ Google Newspaper:
+ 
+;;;  Google Newspaper:
 (declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
 
 ;;;###autoload
@@ -2433,8 +2431,8 @@ external package."
   (interactive)
   (emacspeak-we-xslt-filter "//h3" "https://news.google.com" 'speak))
 
-;;}}}
-;;{{{ Use Threads To Call Command Asynchronously:
+ 
+;;;  Use Threads To Call Command Asynchronously:
 
 ;; Experimental: Handle with care.
 
@@ -2457,8 +2455,8 @@ external package."
        ((commandp g) (do-it g))
        (t (error "%s is not bound to a command." key))))))
 
-;;}}}
-;;{{{  Free Geo IP:
+ 
+;;;   Free Geo IP:
 
 (defun emacspeak-wizards-free-geo-ip (&optional reverse-geocode)
   "Return list consisting of city and region_name.
@@ -2472,8 +2470,8 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
           `((lat . ,.latitude) (lng . ,.longitude ))))
       (dtk-speak-list (list  .city .region_name)))))
 
-;;}}}
-;;{{{ Open Frame On Remote Emacs:
+ 
+;;;  Open Frame On Remote Emacs:
 
 (defcustom emacspeak-wizards-remote-workstation ""
   "Name of remote workstation."
@@ -2507,8 +2505,8 @@ Works best when you already are ssh-impel-ed in and have a talking
        "-a" "''"
        "-F" (shell-quote-argument (prin1-to-string title))))))
 
-;;}}}
-;;{{{ describe-voice at point:
+ 
+;;;  describe-voice at point:
 ;;;###autoload
 (defun emacspeak-wizards-describe-voice(personality)
   "Describe  voice --- analogous to \\[describe-face].
@@ -2546,8 +2544,8 @@ personality at point. "
         (emacspeak-speak-help)))
      (t (message "%s doesn't look like a valid personality." personality)))))
 
-;;}}}
-;;{{{ tex utils:
+ 
+;;;  tex utils:
 
 ;;;###autoload
 (defun emacspeak-wizards-end-of-word (arg)
@@ -2587,8 +2585,8 @@ personality at point. "
     (insert-char 126 1))
   (forward-word 1))
 
-;;}}}
-;;{{{Snarf contents of a delimiter
+ 
+;;; Snarf contents of a delimiter
 
 ;;;###autoload
 (defun emacspeak-wizards-snarf-sexp (&optional delete)
@@ -2635,8 +2633,8 @@ Optional interactive prefix arg deletes it."
             (emacspeak-auditory-icon 'mark-object)))
         (dtk-speak (car kill-ring))))))
 
-;;}}}
-;;{{{Brightness Alert:
+ 
+;;; Brightness Alert:
 
 ;; Watch for screen brightness changes and let user know if screen
 ;; comes on:
@@ -2694,8 +2692,8 @@ before brightness is checked.")
     (emacspeak-auditory-icon
      (if emacspeak-brightness-autoblack 'on 'off))))
 
-;;}}}
-;;{{{ Content Locator:
+ 
+;;;  Content Locator:
 
 ;; Content locate wizard:
 ;; Like  m-player-locate-media but for documents (tex,html, org, pdf
@@ -2730,8 +2728,8 @@ before brightness is checked.")
     (rename-buffer (format "Content  matching %s" pattern))
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{BC Sounds:
+ 
+;;; BC Sounds:
 
 (defun emacspeak-wizards-bbc-sounds ()
   "Search BBC Sounds.
@@ -2744,8 +2742,8 @@ Press `y' on Episode links to play them with MPV."
   (interactive)
   (emacspeak-url-template-open (emacspeak-url-template-get "BBC Sounds")))
 
-;;}}}
-;;{{{Portfolio:
+ 
+;;; Portfolio:
 
 ;;;###autoload
 (defun emacspeak-wizards-quotes ()
@@ -2753,13 +2751,13 @@ Press `y' on Episode links to play them with MPV."
   (interactive )
   (emacspeak-url-template-open (emacspeak-url-template-get "CNBC Quotes")))
 
-;;}}}
+ 
 
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; byte-compile-warnings: (noruntime )
 ;; end:
 
-;;}}}
+ 

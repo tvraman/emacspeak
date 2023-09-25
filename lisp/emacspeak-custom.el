@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to custom
 ;; Keywords: Emacspeak, Speak, Spoken Output, custom
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,24 +36,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'cus-edit)
-;;}}}
-;;{{{  Introduction
+ 
+;;;   Introduction
 ;;; Commentary:
 ;; Advise custom to speak.
 ;; most of the work is actually done by emacspeak-widget.el
 ;; which speech-enables the widget libraries.
 ;;; Code:
-;;}}}
+ 
 
-;;{{{ advice
+;;;  advice
 
 (defadvice Custom-reset-current (after emacspeak pre act comp)
   "speak."
@@ -171,16 +171,16 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
 
-;;}}}
-;;{{{ custom hook
+ 
+;;;  custom hook
 
 (add-hook 'Custom-mode-hook
           
           #'(lambda nil
               (emacspeak-pronounce-refresh-pronunciations)))
 
-;;}}}
-;;{{{ define voices
+ 
+;;;  define voices
 (voice-setup-add-map
  '(
    (custom-variable-obsolete voice-monotone-extra)
@@ -210,8 +210,8 @@
    (custom-variable-button voice-animate)
    (custom-variable-tag voice-bolden-medium)))
 
-;;}}}
-;;{{{  custom navigation
+ 
+;;;   custom navigation
 
 (defvar emacspeak-custom-group-regexp
   "^/-"
@@ -243,8 +243,8 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  bind emacspeak commands 
+ 
+;;;   bind emacspeak commands 
 
 (cl-declaim (special custom-mode-map))
 (define-key custom-mode-map "E" 'Custom-reset-standard)
@@ -259,15 +259,15 @@
 (define-key custom-mode-map  "\M-g"
             'emacspeak-custom-goto-group)
 
-;;}}}
-;;{{{ augment custom widgets
+ 
+;;;  augment custom widgets
 
-;;}}}
+ 
 (provide 'emacspeak-custom)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

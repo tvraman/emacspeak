@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable make-mode
 ;; Keywords: Emacspeak, Make
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -36,15 +36,15 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  required modules
+;;;   required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -52,8 +52,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ advice
+ 
+;;;  advice
 
 (defadvice makefile-next-dependency (after emacspeak pre act
                                            comp)
@@ -140,8 +140,8 @@
      "Inserted selections into client  %s"
      (buffer-name makefile-browser-client))))
 
-;;}}}
-;;{{{ personalities 
+ 
+;;;  personalities 
 
 (voice-setup-add-map
  '(
@@ -151,16 +151,16 @@
    (makefile-makepp-perl voice-smoothen)
    ))
 
-;;}}}
-;;{{{ setup mode hook:
+ 
+;;;  setup mode hook:
 
-;;}}}
+ 
 (provide 'emacspeak-make-mode)
 
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable hideshow
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,23 +36,23 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
 ;; speech-enable hideshow.el
 ;;; Code:
 
-;;}}}
-;;{{{ speech enable interactive commands 
+ 
+;;;  speech enable interactive commands 
 
 (defadvice hs-hide-all (after emacspeak pre act comp)
   "speak."
@@ -106,13 +106,13 @@
     (emacspeak-auditory-icon 'close-object)
     (message "Hid initial comment block.")))
 
-;;}}}
+ 
 
 (provide 'emacspeak-hideshow)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

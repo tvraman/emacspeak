@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Hide and expose blocks of text
 ;; Keywords: Emacspeak, Speak, Spoken Output, hide
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction
+;;;   Introduction
 
 ;;; Commentary:
 ;; Flexible hide and show for emacspeak.
@@ -50,15 +50,15 @@
 ;; the prefix parsing is inspired by filladapt.el
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ voice locking for block header lines
+ 
+;;;  voice locking for block header lines
 
 (defvar emacspeak-hidden-header-line-personality voice-annotate
   "Personality used to identify header lines of blocks.")
@@ -67,10 +67,10 @@
 (cl-declaim (special line-move-ignore-invisible))
 (setq line-move-ignore-invisible t)
 
-;;}}}
-;;{{{  Identifying the prefix
+ 
+;;;   Identifying the prefix
 
-;;{{{  define parsing tables
+;;;   define parsing tables
 
 (defvar emacspeak-hide-prefix-token-table
   '(
@@ -120,8 +120,8 @@ doesn't try any of the regexps in emacspeak-hide-prefix-token-table.
 
 Regexp matching is done case-sensitively.")
 
-;;}}}
-;;{{{  parse the prefix
+ 
+;;;   parse the prefix
 
 (defun emacspeak-hide-parse-prefix ()
   "Parse prefix   token after   point and return a prefix spec.
@@ -159,8 +159,8 @@ STRING is the token's text."
             (throw 'done token-list))))
         token-list))))
 
-;;}}}
-;;{{{  test for a prefix match
+ 
+;;;   test for a prefix match
 
 ;; Return t if this line matches the specified prefix spec
 
@@ -170,10 +170,10 @@ STRING is the token's text."
                   (buffer-substring-no-properties
                    (point) (+ (point) (nth 1  prefix))))))
 
-;;}}}
+ 
 
-;;}}}
-;;{{{  hiding a block
+ 
+;;;   hiding a block
 
 (defun emacspeak-hide-current-block (prefix)
   "Hide block starting on current line identified by  PREFIX.
@@ -219,8 +219,8 @@ Returns t if a block was found and hidden."
           t)
          (t (message "Not on a block") nil)))))))
 
-;;}}}
-;;{{{  Exposing a block
+ 
+;;;   Exposing a block
 
 ;; Hiding marks the body of a block to be invisible,
 ;; and marks the entire block
@@ -257,8 +257,8 @@ Returns t if a block was found and hidden."
        (t (message "Not on a hidden block")
           nil)))))
 
-;;}}}
-;;{{{  Hiding and exposing  all blocks in a buffer
+ 
+;;;   Hiding and exposing  all blocks in a buffer
 ;;;###autoload
 (defun emacspeak-hide-all-blocks-in-buffer ()
   "Hide all blocks."
@@ -298,8 +298,8 @@ Returns t if a block was found and hidden."
           (t (forward-line 1)))))
      (dtk-speak (format "Exposed %s blocks" count)))))
 
-;;}}}
-;;{{{ User interface
+ 
+;;;  User interface
 ;; helper to get prefix
 (defun emacspeak-hide-get-block-prefix ()
   (cl-declare (special emacspeak-hide-prefix-token-table))
@@ -353,8 +353,8 @@ buffer to be hidden or exposed."
   (interactive)
   (emacspeak-hide-or-expose-block 'all))
 
-;;}}}
-;;{{{  speaking blocks sans prefix
+ 
+;;;   speaking blocks sans prefix
 
 (defun emacspeak-hide-speak-block-sans-prefix ()
   "Speaks current block after stripping its prefix. "
@@ -394,12 +394,12 @@ buffer to be hidden or exposed."
         (emacspeak-speak-region (point-min) (point-max)))
        (t (message "Not on a hidden block"))))))
 
-;;}}}
+ 
 (provide 'emacspeak-hide)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

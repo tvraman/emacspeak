@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
 ;; Keywords: Emacspeak,  Audio Desktop muggles
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -10,8 +10,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -34,10 +34,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 
@@ -84,8 +84,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -101,8 +101,8 @@
   (require 'emacspeak-m-player))
 (with-no-warnings (require 'origami "origami" 'no-error))
 
-;;}}}
-;;{{{ Generate Muggles From Keymaps:
+ 
+;;;  Generate Muggles From Keymaps:
 
 ;; Generate A Muggle: Take a name of a keymap (symbol) And generate an
 ;; interactive command that can be bound to a key.  Invoking that
@@ -142,8 +142,8 @@ Argument `k-map' is a symbol  that names a keymap."
    (kbd "s-'")
    (emacspeak-muggles-generate 'pianobar-key-map)))
 
-;;}}}
-;;{{{ Media Player:
+ 
+;;;  Media Player:
 
 (declare-function emacspeak-amark-save "emacspeak-muggles" t)
 (global-set-key
@@ -204,8 +204,8 @@ Argument `k-map' is a symbol  that names a keymap."
            ("}" emacspeak-m-player-double-speed)
            ))
 
-;;}}}
-;;{{{ Outliner:
+ 
+;;;  Outliner:
 
 ;; Cloned from Hydra Wiki:
 (global-set-key
@@ -250,8 +250,8 @@ _d_: subtree
            ("b" outline-backward-same-level)      ; Backward - same level
            ("z" nil "leave")))
 
-;;}}}
-;;{{{ Info Summary:
+ 
+;;;  Info Summary:
 
 ;; Taken from Hydra wiki and customized to taste:
 (define-key Info-mode-map (kbd "?")
@@ -310,8 +310,8 @@ _d_: subtree
                       ("q"   quit-window "Info exit")
                       ("C-g" nil "cancel" :color blue)))
 
-;;}}}
-;;{{{ origami:
+ 
+;;;  origami:
 
 (declare-function origami-open-node "origami" (buffer point))
 (declare-function origami-close-node "origami" (buffer point))
@@ -343,8 +343,8 @@ _d_: subtree
            ("f" origami-forward-toggle-node)
            ("a" origami-toggle-all-nodes)))
 
-;;}}}
-;;{{{ Muggles Autoload Wizard:
+ 
+;;;  Muggles Autoload Wizard:
 
 (defvar emacspeak-muggles-pattern
   "emacspeak-muggles-.*/body$"
@@ -386,8 +386,8 @@ Also generates global keybindings if any."
       (save-buffer))
     (message "Generated autoloads for muggles.")))
 
-;;}}}
-;;{{{ smartParens:
+ 
+;;;  smartParens:
 
 (global-set-key
  (kbd "C-c ,")
@@ -428,8 +428,8 @@ Also generates global keybindings if any."
            ("w" sp-copy-sexp)  
            ("{" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
 
-;;}}}
-;;{{{  View Mode:
+ 
+;;;   View Mode:
 
 (global-set-key
  (kbd
@@ -490,8 +490,8 @@ Also generates global keybindings if any."
            ("}" forward-paragraph)
            ))
 
-;;}}}
-;;{{{Vuiet:
+ 
+;;; Vuiet:
 
 (declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
 (when (locate-library "vuiet")
@@ -524,8 +524,8 @@ Also generates global keybindings if any."
                ("t" vuiet-play-track)
                ("u" vuiet-unlove-track)))))
 
-;;}}}
-;;{{{ Org Mode Structure Navigation:
+ 
+;;;  Org Mode Structure Navigation:
 
 (with-eval-after-load "org"
   (define-key
@@ -549,13 +549,13 @@ Also generates global keybindings if any."
              ("u" outline-up-heading "up heading")
              ("g" org-goto "goto" :exit t))))
 
-;;}}}
+ 
 (provide 'extra-muggles)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; byte-compile-warnings: (docstring noruntime )
 ;; end:
 
-;;}}}
+ 

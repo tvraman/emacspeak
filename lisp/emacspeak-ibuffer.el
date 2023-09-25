@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable ibuffer
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,15 +36,15 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -52,8 +52,8 @@
 ;; this is an alternative to buffer-menu
 ;;; Code:
 
-;;}}}
-;;{{{ helpers 
+ 
+;;;  helpers 
 
 (defun emacspeak-ibuffer-speak-buffer-line ()
   "Speak information about this buffer"
@@ -63,15 +63,15 @@
     (error "This command can only be used in buffer menus"))
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{ summarizers
+ 
+;;;  summarizers
 
 (defun emacspeak-ibuffer-summarize-line ()
   "Summarize current line."
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{ speech enable interactive commands 
+ 
+;;;  speech enable interactive commands 
 
 (defadvice ibuffer (after emacspeak pre act comp)
   "speak."
@@ -594,12 +594,12 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-;;}}}
+ 
 (provide 'emacspeak-ibuffer)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

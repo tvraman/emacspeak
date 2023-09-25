@@ -3,7 +3,7 @@
 ;; $Author: raman $
 ;; Description:  Google Client utilities
 ;; Keywords: Google   Atom API, Google Services
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; g-client| T. V. Raman |tv.raman.tv@gmail.com
@@ -14,8 +14,8 @@
 ;; License: GPL
 ;; 
 
-;;}}}
-;;{{{ Copyright:
+ 
+;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
 ;; All rights reserved.
@@ -46,23 +46,23 @@
 ;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 ;;; Commentary:
 ;; Common Code  e.g. helper functions.
 ;; Used by modules like gphoto, gblogger etc.
 ;;; Code:
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'json)
 
-;;}}}
-;;{{{ Customizations:
+ 
+;;;  Customizations:
 
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
@@ -133,8 +133,8 @@ Customize this to live on your local disk."
   :type 'boolean
   :group 'g)
 
-;;}}}
-;;{{{  buffer bytes rather than buffer size
+ 
+;;;   buffer bytes rather than buffer size
 
 ;; buffer-size returns number of chars.
 ;; this helper returns number of bytes.
@@ -144,8 +144,8 @@ Customize this to live on your local disk."
     (and buffer (set-buffer buffer))
     (1- (position-bytes (point-max)))))
 
-;;}}}
-;;{{{ debug helpers
+ 
+;;;  debug helpers
 
 (defun g-curl-debug ()
   "Determines if we show stderr output."
@@ -154,8 +154,8 @@ Customize this to live on your local disk."
       ""
     " 2>/dev/null"))
 
-;;}}}
-;;{{{ url encode:
+ 
+;;;  url encode:
 
 (defun g-url-encode (str)
   "URL encode  string."
@@ -169,8 +169,8 @@ Customize this to live on your local disk."
              str
              ""))
 
-;;}}}
-;;{{{ transform region
+ 
+;;;  transform region
 
 (defun g-xsl-transform-region (start end xsl)
   "Replace region by result of transforming via XSL."
@@ -182,8 +182,8 @@ Customize this to live on your local disk."
    xsl
    "-"))
 
-;;}}}
-;;{{{ html unescape
+ 
+;;;  html unescape
 
 (defvar g-html-charent-alist
   '(("&lt;" . "<")
@@ -216,8 +216,8 @@ Customize this to live on your local disk."
                (while (search-forward entity end t)
                  (replace-match replacement nil t))))))
 
-;;}}}
-;;{{{ json conveniences:
+ 
+;;;  json conveniences:
 
 (defun g-json-get (key object)
   "Return object.key from json object or nil if not found.
@@ -269,8 +269,8 @@ references, poor-man's xpath."
 
 (defalias 'g-json-aref 'aref)
 
-;;}}}
-;;{{{ helper macros
+ 
+;;;  helper macros
 
 (defmacro g-using-scratch(&rest body)
   "Evaluate forms in a  ready to use temporary buffer."
@@ -341,8 +341,8 @@ XML  is transformed via style
       (g-xsl-transform-region (point-min) (point-max) style))
     (funcall g-html-handler (current-buffer))))
 
-;;}}}
-;;{{{  HTTP Headers:
+ 
+;;;   HTTP Headers:
 (defvar g-curl-atom-header
   "--header 'Content-Type: application/atom+xml' --header 'GData-Version: 2'"
   "Content type header for application/atom+xml")
@@ -412,8 +412,8 @@ Note that in the Curl output, we see lf rather than crlf.")
   "Return specified header from headers-alist."
   (when (assoc name header-alist) (cdr (assoc name header-alist))))
 
-;;}}}
-;;{{{ collect content from user via special buffer:
+ 
+;;;  collect content from user via special buffer:
 (defvar g-user-edit-buffer " *User Input*"
   "Special buffer used to read  user input.")
 
@@ -430,8 +430,8 @@ Note that in the Curl output, we see lf rather than crlf.")
     (bury-buffer)
     annotation))
 
-;;}}}
-;;{{{ convert html to text
+ 
+;;;  convert html to text
 
 (defun g-html-string (html-string)
   "Return formatted string."
@@ -439,12 +439,12 @@ Note that in the Curl output, we see lf rather than crlf.")
     (insert html-string)
     (shr-render-region  (point-min) (point-max))
     (buffer-string)))
-;;}}}
+ 
 (provide 'g-utils)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

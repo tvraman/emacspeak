@@ -4,7 +4,7 @@
 ;; Description:  Emacspeak extension to speech enable
 ;; reftex 
 ;; Keywords: Emacspeak, reftex
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -14,8 +14,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -37,15 +37,15 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -55,8 +55,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ advice interactive commands
+ 
+;;;  advice interactive commands
 
 (defadvice reftex-select-previous-heading (after emacspeak pre act
                                                  comp)
@@ -262,8 +262,8 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ highlighting 
+ 
+;;;  highlighting 
 (defadvice reftex-highlight (after emacspeak pre act comp)
   "Add  voice properties."
   (let ((beg (ad-get-arg 1))
@@ -274,16 +274,16 @@
     (emacspeak-speak-line)
     (sit-for 2)))
 
-;;}}}
-;;{{{  indexing 
+ 
+;;;   indexing 
 
-;;}}}
+ 
 
 (provide 'emacspeak-reftex)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable EXTRAS An Emacs Interface to extras
 ;; Keywords: Emacspeak,  Audio Desktop extras
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
 ;; 
@@ -34,26 +34,26 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; Infrequently used wizards archived for posterity.
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'term)
 
-;;}}}
-;;{{{ Keymaps <-> Org (text) Files :
+ 
+;;;  Keymaps <-> Org (text) Files :
 
 ;; This makes it easy to consolidate personal bindings across machines.
 ;; It also protects against custom losing settings due to Custom accidents.
@@ -94,8 +94,8 @@
       (save-buffer buffer))
     (switch-to-buffer buffer)))
 
-;;}}}
-;;{{{Midi Playback Using MuseScore ==mscore:
+ 
+;;; Midi Playback Using MuseScore ==mscore:
 
 (defvar emacspeak-wizards-media-pipe
   (expand-file-name "pipe.flac" emacspeak-user-directory)
@@ -119,8 +119,8 @@
            (executable-find "mscore")
            emacspeak-wizards-media-pipe midi-file)))
 
-;;}}}
-;;{{{ Braille
+ 
+;;;  Braille
 
 ;;;###autoload
 (defun emacspeak-wizards-braille (s)
@@ -131,8 +131,8 @@
   (emacspeak-auditory-icon 'yank-object)
   (message "Brailled %s" s))
 
-;;}}}
-;;{{{ Add autoload cookies:
+ 
+;;;  Add autoload cookies:
 
 (defvar emacspeak-autoload-cookie-pattern
   ";;;;###autoload"
@@ -164,8 +164,8 @@ Default is to add autoload cookies to current file."
             (end-of-defun))
         (error "Added %d autoload cookies." count)))))
 
-;;}}}
-;;{{{ voice sample
+ 
+;;;  voice sample
 
 (defsubst voice-setup-read-personality (&optional prompt)
   "Read name of a pre-defined personality using completion."
@@ -252,8 +252,8 @@ for the current voice family."
     (funcall-interactively #'pop-to-buffer buffer)
     (goto-char (point-min))))
 
-;;}}}
-;;{{{ list-voices-display
+ 
+;;;  list-voices-display
 
 (defvar ems--wizards-sampler-text
   "Emacspeak --- The Complete Audio Desktop!"
@@ -275,8 +275,8 @@ Sample text to use comes from variable
   (cl-declare (special voice-setup-face-voice-table))
   (cl-loop for f being the hash-keys of voice-setup-face-voice-table
            unless (facep f) collect f))
-;;}}}
-;;{{{ tramp wizard
+ 
+;;;  tramp wizard
 (defcustom emacspeak-wizards-tramp-locations nil
   "Tramp locations used by Emacspeak tramp wizard.
 Locations added here via custom can be opened using command
@@ -303,8 +303,8 @@ Location is specified by name."
     (find-file
      (read-file-name "Open: " location))))
 
-;;}}}
-;;{{{ find grep using compile
+ 
+;;;  find grep using compile
 
 (defun emacspeak-wizards-find-grep (glob pattern)
   "Run compile using find and grep.
@@ -319,8 +319,8 @@ Interactive  arguments specify filename pattern and search pattern."
     glob pattern))
   (emacspeak-auditory-icon 'task-done))
 
-;;}}}
-;;{{{ fix text that has gotten read-only accidentally
+ 
+;;;  fix text that has gotten read-only accidentally
 
 (defun emacspeak-wizards-fix-read-only-text (start end)
   "Nuke read-only property on text range."
@@ -329,8 +329,8 @@ Interactive  arguments specify filename pattern and search pattern."
     (put-text-property start end
                        'read-only nil)))
 
-;;}}}
-;;{{{ pod -- perl online docs
+ 
+;;;  pod -- perl online docs
 (declare-function cperl-pod2man-build-command "cperl-mode" nil)
 
 (defun emacspeak-wizards-display-pod-as-manpage (filename)
@@ -353,8 +353,8 @@ Interactive  arguments specify filename pattern and search pattern."
                         (format (cperl-pod2man-build-command) pod2man-args))
          'Man-bgproc-sentinel)))))
 
-;;}}}
-;;{{{ annotation wizard
+ 
+;;;  annotation wizard
 
 ;; I use this to collect my annotations into a buffer
 ;; e.g. an email message to be sent out--
@@ -426,8 +426,8 @@ annotation is inserted into the working buffer when complete."
       (switch-to-buffer parent-buffer))
     (emacspeak-auditory-icon 'close-object)))
 
-;;}}}
-;;{{{  launch Curl
+ 
+;;;   launch Curl
 
 (defcustom emacspeak-curl-cookie-store
   (expand-file-name "~/.curl-cookies")
@@ -450,8 +450,8 @@ annotation is inserted into the working buffer when complete."
      (current-buffer))
     (browse-url-of-buffer)))
 
-;;}}}
-;;{{{ emacspeak clipboard
+ 
+;;;  emacspeak clipboard
 
 (cl-eval-when (load)
   (condition-case nil
@@ -511,12 +511,12 @@ Emacspeak sessions running on  different machines. "
              (if paste-table "table clipboard"
                clipboard-file))))
 
-;;}}}
+ 
 (provide 'emacspeak-extras)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

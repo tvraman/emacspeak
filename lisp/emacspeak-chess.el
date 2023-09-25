@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable CHESS An Emacs Interface to chess
 ;; Keywords: Emacspeak,  Audio Desktop chess
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
 ;; 
@@ -34,10 +34,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; 
@@ -120,8 +120,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -130,8 +130,8 @@
 (require 'chess-pos nil 'noerror)
 (require 'chess-display nil 'noerror)
 
-;;}}}
-;;{{{Helpers:
+ 
+;;; Helpers:
 
 (defvar emacspeak-chess-piece-names
   '((?q . "queen")
@@ -204,8 +204,8 @@
     (cl-assert index t "Not  a valid square.")
     (dtk-speak-list  (emacspeak-chess-describe-square index) 2)))
 
-;;}}}
-;;{{{Board Navigation:
+ 
+;;; Board Navigation:
 
 (defun emacspeak-chess-goto-target ()
   "Jump to the most recent target square."
@@ -287,8 +287,8 @@
   (cl-declare (special chess-direction-southeast))
   (emacspeak-chess-move chess-direction-southeast))
 
-;;}}}
-;;{{{Examining the board:
+ 
+;;; Examining the board:
 
 (defun emacspeak-chess-collect-squares (direction)
   "Collect descriptions of squares along given direction from current position."
@@ -626,8 +626,8 @@ Argument `piece' specifies  piece-or-color as in command
      (f (call-interactively #'emacspeak-chess-look-north))
      (t (error "Rank or file")))))
 
-;;}}}
-;;{{{Speaking Moves:
+ 
+;;; Speaking Moves:
 (defvar emacspeak-chess-last-target nil
   "Target square of most recent move.")
 
@@ -696,8 +696,8 @@ specifies index of move, default is final index."
   (dtk-speak (emacspeak-chess-describe-move chess-module-game
                                             chess-display-index)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 (cl-loop
  for f in
  '(chess-display-search-forward chess-display-search-backward)
@@ -796,8 +796,8 @@ specifies index of move, default is final index."
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{emacspeak Handler:
+ 
+;;; emacspeak Handler:
 
 (defun chess-emacspeak-handler (game event &rest args)
   "Module chess-emacspeak handler."
@@ -814,8 +814,8 @@ specifies index of move, default is final index."
     (message (car args)))))
 
 (provide 'chess-emacspeak)
-;;}}}
-;;{{{Emacspeak Setup:
+ 
+;;; Emacspeak Setup:
 ;; Forward Declaration to help documentation builder.
 (defvar chess-default-modules nil)
 
@@ -846,12 +846,12 @@ specifies index of move, default is final index."
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
 
-;;}}}
+ 
 (provide 'emacspeak-chess)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

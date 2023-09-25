@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable ido
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,9 +36,9 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -52,16 +52,16 @@
 
 ;;; Code:
 
-;;}}}
+ 
 
-;;{{{ required modules
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'ido)
 
-;;}}}
-;;{{{ speech-enable feedback routines
+ 
+;;;  speech-enable feedback routines
 
 (defvar emacspeak-ido-cache nil
   "Cached value of ido-current-directory.")
@@ -97,8 +97,8 @@
                     (abbreviate-file-name ido-current-directory))))))
     (error (dtk-initialize))))
 
-;;}}}
-;;{{{ speech-enable interactive commands:
+ 
+;;;  speech-enable interactive commands:
 
 (defadvice ido-mode (after emacspeak pre act comp)
   "speak.
@@ -193,8 +193,8 @@ The default value of 12 is too high for using ido effectively with speech. "
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-auditory-icon 'open-object)))
 
-;;}}}
-;;{{{ define personalities 
+ 
+;;;  define personalities 
 
 (voice-setup-add-map
  '(
@@ -206,8 +206,8 @@ The default value of 12 is too high for using ido effectively with speech. "
    (ido-incomplete-regexp voice-monotone-extra)
    (flx-highlight-face voice-animate)))
 
-;;}}}
-;;{{{ Additional keybindings 
+ 
+;;;  Additional keybindings 
 
 (defun emacspeak-ido-keys ()
   "Setup additional  keybindings within ido."
@@ -223,12 +223,12 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 (emacspeak-ido-keys)
 
-;;}}}
+ 
 (provide 'emacspeak-ido)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

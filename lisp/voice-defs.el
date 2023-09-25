@@ -1,7 +1,7 @@
 ;;; voice-defs.el --- Define voices for voice-lock  -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Voice Definitions for Emacspeak
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -11,8 +11,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,8 +35,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ Introduction
+ 
+;;;  Introduction
 
 ;;; Commentary:
 ;; Contains just the voice definitions. Voices are defined using the
@@ -81,15 +81,15 @@
 ;; @end itemize 
 ;;; Code:
 
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'voice-setup)
 
-;;}}}
-;;{{{ Voice Definitions: 
+ 
+;;;  Voice Definitions: 
 
 (defvoice voice-animate '( nil nil 6 6 6))
 (defvoice voice-animate-extra '( nil nil 8 8 8 ))
@@ -117,8 +117,8 @@
 (defvoice voice-smoothen-extra '( nil nil nil 0 2))
 (defvoice voice-smoothen-medium '( nil nil nil 2 4))
 
-;;}}}
-;;{{{  Map some voice personalities:
+ 
+;;;   Map some voice personalities:
 
 (voice-setup-add-map
  '(
@@ -181,12 +181,12 @@
    (elisp-shorthand-font-lock-face voice-smoothen))
  )
 
-;;}}}
+ 
 (provide 'voice-defs)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

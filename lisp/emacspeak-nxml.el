@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Controlling mplayer from emacs 
 ;; Keywords: Emacspeak, nxml streaming media 
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,22 +36,22 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Introduction:
+ 
+;;;  Introduction:
 ;;; Commentary:
 ;; nxml-mode is a new XML mode for emacs by James Clark.
 ;;  Package nxml is available from the Emacs package archive.
 ;;; Code:
-;;}}}
-;;{{{ voice locking 
+ 
+;;;  voice locking 
 (voice-setup-add-map
  '(
    (nxml-attribute-colon voice-monotone-extra)
@@ -132,8 +132,8 @@
    (nxml-tag-slash voice-smoothen-medium)
    (rng-error voice-bolden-and-animate)))
 
-;;}}}
-;;{{{ pronunciations 
+ 
+;;;  pronunciations 
 (cl-declaim (special
              emacspeak-pronounce-xml-ns))
 
@@ -143,8 +143,8 @@
  emacspeak-pronounce-xml-ns)
 (emacspeak-pronounce-add-super 'xml-mode 'nxml-mode)
 
-;;}}}
-;;{{{ Advice interactive commands
+ 
+;;;  Advice interactive commands
 
 (defadvice nxml-electric-slash (around emacspeak pre act comp)
   "Speak."
@@ -203,7 +203,7 @@
                (dtk-speak
                 (format "Closed %s"
                         (xmltok-start-tag-qname)))))))
-;;{{{ speech enable outliner 
+;;;  speech enable outliner 
 
 (cl-loop for f in
          '(nxml-hide-all-text-content 
@@ -233,8 +233,8 @@
                (emacspeak-auditory-icon 'open-object)
                (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ Outline summarizer:
+ 
+;;;  Outline summarizer:
 
 (defun emacspeak-nxml-summarize-outline ()
   "Intelligent spoken display of current outline entry."
@@ -255,13 +255,13 @@
     (emacspeak-auditory-icon 'ellipses))
    (t (message "Not on a hidden outline"))))
 
-;;}}}
-;;}}}
+ 
+ 
 (provide 'emacspeak-nxml)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

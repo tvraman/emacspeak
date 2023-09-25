@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  autoload Wizard for the emacspeak desktop
 ;; Keywords: Emacspeak,  Audio Desktop autoload
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{ Copyright:
+ 
+;;;  Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman Copyright
 ;;(c) 1994, 1995 by Digital Equipment Corporation.  All Rights
 ;;Reserved.  This file is not part of GNU Emacs, but the same
@@ -30,7 +30,7 @@
 ;;to the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;;Boston,MA 02110-1301, USA.
 
-;;}}}
+ 
 
 ;;; Commentary:
 ;; generate autoloads for emacspeak
@@ -53,9 +53,9 @@
         (update-directory-autoloads emacspeak-lisp-directory)))))
 
 (provide 'emacspeak-autoload)
-;;{{{ end of file
+;;;  end of file
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

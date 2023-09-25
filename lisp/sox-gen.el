@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  collection of SoX  sound generators including Binaural Beats
 ;; Keywords: Emacspeak,  Audio Desktop sox
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 
@@ -112,22 +112,22 @@
 ;; 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'dtk-speak)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-;;}}}
-;;{{{ sox-gen-p:
+ 
+;;;  sox-gen-p:
 
 (defvar sox-gen-p
   (eval-when-compile (executable-find "sox"))
   "Is sox available?")
 
-;;}}}
-;;{{{ SoX Command Generator:
+ 
+;;;  SoX Command Generator:
 (defvar sox-gen-play (executable-find "play")
   "Location of play from SoX.")
 
@@ -137,8 +137,8 @@
   (when sox-gen-p
     (apply #'start-process "SoX" nil sox-gen-play  (split-string cmd))))
 
-;;}}}
-;;{{{ Binaural Audio:
+ 
+;;;  Binaural Audio:
 (defcustom sox-binaural-gain-offset 0
   "User specified offset that is added to default gain when generating
 tones using SoX, e.g., for binaural beats."
@@ -256,7 +256,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
   (cl-declare (special sox-binaural-effects-table))
   (or (gethash name sox-binaural-effects-table)
       (error "Effect not defined.")))
-;;{{{  Define Effects:
+;;;   Define Effects:
 
 ;; delta, theta, alpha, beta, gamma
 ;; sleep, dream, think, act, focus
@@ -356,10 +356,10 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
          (/ (+ (cl-first a-i) (cl-first b-i)) 2) ; carrier frequency
          (list (cl-second a-i) (cl-second b-i))))))))
 
-;;}}}
+ 
 
-;;}}}
-;;{{{ Defined Binaural Themes (Sequences):
+ 
+;;;  Defined Binaural Themes (Sequences):
 
 (defconst sox-rev-up-beats
   '(("dream" 1) ("think"  4) ("act" 2) ("focus" 1))
@@ -467,8 +467,8 @@ binaural beat to another."
   (cl-declare (special sox-relax-beats))
   (sox--theme-play sox-relax-beats length))
 
-;;}}}
-;;{{{ Chakra Themes:
+ 
+;;;  Chakra Themes:
 
 ;; Default Theme For Chakras:
 ;; From: https://www.youtube.com/watch?v=ARoih8HTPGw
@@ -534,8 +534,8 @@ Parameter `theme' specifies variant."
      (run-with-timer start nil #'(lambda (n) (sox-binaural n  duration)) name)
      (setq start (+ start duration)))))
 
-;;}}}
-;;{{{ synth:
+ 
+;;;  synth:
 
 (defconst sox-synth-cmd
   "-q -n synth %s "
@@ -549,8 +549,8 @@ Parameter `theme' specifies variant."
     (format sox-synth-cmd length)
     (mapconcat #'identity args " "))))
 
-;;}}}
-;;{{{ Sin:
+ 
+;;;  Sin:
 
 (defconst sox-sin-cmd
   "-q -n synth %s sin %s "
@@ -566,8 +566,8 @@ Remaining args specify additional commandline args."
     (format sox-sin-cmd length freq)
     (mapconcat #'identity args " "))))
 
-;;}}}
-;;{{{ Pluck:
+ 
+;;;  Pluck:
 
 (defconst sox-pluck-cmd
   "-q -n synth %s pluck %s channels 2 "
@@ -582,8 +582,8 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
     (format sox-pluck-cmd length freq)
     (mapconcat #'identity args " "))))
 
-;;}}}
-;;{{{ Chime:
+ 
+;;;  Chime:
 
 (defconst sox-chime-cmd
   "-q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
@@ -600,8 +600,8 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
     (when tempo (format " tempo %s" tempo))
     (when speed (format " speed %s" speed)))))
 
-;;}}}
-;;{{{ Multiwindow:
+ 
+;;;  Multiwindow:
 
 (defconst sox-multiwindow-cmd
   "-q -n synth -j 3 \
@@ -623,8 +623,8 @@ channels 2 tempo 1.3   gain -10"
     (when swap " swap ")
     (when speed (format " speed %s" speed)))))
 
-;;}}}
-;;{{{ scroll:
+ 
+;;;  scroll:
 
 (defconst sox-do-scroll-up-cmd
   "-q -n synth pinknoise brownnoise \
@@ -656,8 +656,8 @@ tempo 2 channels 2   "
     sox-do-scroll-down-cmd
     (when speed (format " speed %s" speed)))))
 
-;;}}}
-;;{{{ tone:
+ 
+;;;  tone:
 
 (defconst sox-tones-cmd
   "-q -n synth -j 3 \
@@ -676,8 +676,8 @@ delay  1.3 1 .76 .54 .27 \
     (when tempo (format " tempo %s" tempo))
     (when speed (format " speed %s" speed)))))
 
-;;}}}
-;;{{{ Guitar Chord:
+ 
+;;;  Guitar Chord:
 
 (defconst sox-guitar-chord-cmd
   "-q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 delay 0 .05 .1 .15 .2 .25 \
@@ -693,12 +693,12 @@ remix - fade 0 4 .1 norm -1 channels 2"
     (when tempo (format " tempo %s" tempo))
     (when speed (format " speed %s" speed)))))
 
-;;}}}
+ 
 (provide 'sox-gen)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -5,7 +5,7 @@
 ;; Keywords: Emacspeak, Speech, Dectalk,
 ;; Version: 55.0
 ;; Package-Requires: ((emacs "26") (hydra "0.5"))
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
@@ -14,8 +14,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -38,8 +38,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ Introduction
+ 
+;;;  Introduction
 
 ;;; Commentary:
 
@@ -52,15 +52,15 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  Customize groups
+ 
+;;;   Customize groups
 
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
@@ -81,8 +81,8 @@ the Emacspeak desktop.")
   ;; end links
   :group 'applications)
 
-;;}}}
-;;{{{ Package Setup Helper
+ 
+;;;  Package Setup Helper
 
 ;; This function adds the appropriate form to `after-load-alist' to
 ;; set up Emacspeak support for a given package.  Argument MODULE (a
@@ -97,8 +97,8 @@ the Emacspeak desktop.")
 (with-eval-after-load "doc-view"
   (add-hook 'doc-view-mode-hook #'doc-view-open-text))
 
-;;}}}
-;;{{{ Setup package extensions
+ 
+;;;  Setup package extensions
 (defvar emacspeak-packages-to-prepare
   '(
     ("abc-mode" emacspeak-abc-mode)
@@ -311,8 +311,8 @@ the Emacspeak desktop.")
    emacspeak-packages-to-prepare)
   (when emacspeak-soundscapes (soundscape-toggle)))
 
-;;}}}
-;;{{{ setup programming modes
+ 
+;;;  setup programming modes
 
 ;; turn on automatic voice locking , split caps and punctuations in
 ;; programming  modes
@@ -358,8 +358,8 @@ the Emacspeak desktop.")
      sgml-mode-hook xml-mode-hook nxml-mode-hook xsl-mode-hook
      TeX-mode-hook LaTeX-mode-hook bibtex-mode-hook)))
 
-;;}}}
-;;{{{ Emacspeak:
+ 
+;;;  Emacspeak:
 
 (defcustom emacspeak-play-emacspeak-startup-icon t
   "If set to T, emacspeak plays its icon as it launches."
@@ -438,14 +438,14 @@ commands and options for details."
   (message emacspeak-startup-message)
   (emacspeak-play-startup-icon))
 
-;;}}}
+ 
 (provide 'emacspeak)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 
 
 ;;; emacspeak.el ends here

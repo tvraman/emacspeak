@@ -4,7 +4,7 @@
 ;; Description:  Emacspeak module for speech-enabling Emacs
 ;; Class Browser
 ;; Keywords: Emacspeak, ecb
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -14,8 +14,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -37,23 +37,23 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; The ECB is an Emacs Class Browser.
 ;; This module speech-enables ECB
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Forward Declarations:
+ 
+;;;  Forward Declarations:
 
 (declare-function tree-node->expandable "tree-buffer" (cl-x))
 (declare-function tree-node->expanded "tree-buffer" (cl-x))
@@ -62,8 +62,8 @@
 (declare-function ecb-goto-window-history "ecb-file-browser" nil)
 (declare-function ecb-goto-window-sources "ecb-file-browser" nil)
 
-;;}}}
-;;{{{  advice interactive commands
+ 
+;;;   advice interactive commands
 
 (defadvice ecb-activate (after emacspeak pre act comp)
   "speak."
@@ -109,8 +109,8 @@
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
 
-;;}}}
-;;{{{  inform tree browser about emacspeak
+ 
+;;;   inform tree browser about emacspeak
 
 ;; define emacspeak versions of these special tree search
 ;; commands
@@ -238,8 +238,8 @@ available."
     (tree-buffer-show-menu-keyboard 'use-tmm))
    (t ad-do-it)))
 
-;;}}}
-;;{{{ commands to speak ECB windows without  moving
+ 
+;;;  commands to speak ECB windows without  moving
 
 (defun emacspeak-ecb-speak-window-methods ()
   "Speak contents of methods window."
@@ -273,12 +273,12 @@ available."
       (ecb-goto-window-sources)
       (emacspeak-speak-buffer))))
 
-;;}}}
+ 
 (provide 'emacspeak-ecb)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

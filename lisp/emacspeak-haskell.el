@@ -1,7 +1,7 @@
 ;;; emacspeak-haskell.el --- Speech-enable HASKELL  -*- lexical-binding: t; -*-
 ;; Description:  Speech-enable HASKELL An Emacs Interface to haskell
 ;; Keywords: Emacspeak,  Audio Desktop haskell
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,8 +11,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
 ;; 
@@ -33,25 +33,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; Speech-enable package haskell-mode
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -82,8 +82,8 @@
    (haskell-type-face voice-type-personality)
    (haskell-warning-face voice-warning)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 '(
   haskell-delete-nested
   haskell-describe
@@ -207,14 +207,14 @@
   (when (ems-interactive-p)
     (emacspeak-setup-programming-mode)))
 
-;;}}}
-;;{{{haskell-debugger:
+ 
+;;; haskell-debugger:
 
-;;}}}
-;;{{{haskell-interactive
+ 
+;;; haskell-interactive
 
-;;}}}
-;;{{{haskell-indentation
+ 
+;;; haskell-indentation
 
 (cl-loop
  for f in
@@ -231,20 +231,20 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
 
-;;}}}
-;;{{{haskell-mode-hook:
+ 
+;;; haskell-mode-hook:
 
 (add-hook
  'haskell-mode-hook
  #'(lambda ()
      (haskell-indentation-mode )))
 
-;;}}}
+ 
 (provide 'emacspeak-haskell)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

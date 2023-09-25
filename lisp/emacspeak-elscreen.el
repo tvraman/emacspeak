@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ELSCREEN An Emacs Interface to elscreen
 ;; Keywords: Emacspeak,  Audio Desktop elscreen
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,33 +35,33 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; ELSCREEN ==  Emacs Window Session Manager
 ;; Speech-enable interactive commands.
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map faces:
+ 
+;;;  Map faces:
 
 (voice-setup-add-map
  '
  ((elscreen-tab-current-screen-face voice-bolden)
   (elscreen-tab-other-screen-face voice-smoothen)))
 
-;;}}}
-;;{{{ Advice interactive commands:
+ 
+;;;  Advice interactive commands:
 (cl-loop
  for f in
  '(
@@ -98,8 +98,8 @@
        (emacspeak-speak-mode-line))))
  )
 
-;;}}}
-;;{{{ Override:  Display screen list
+ 
+;;;  Override:  Display screen list
 
 (defadvice elscreen-display-screen-name-list (around emacspeak pre act comp)
   "Display and Audio format the list of screens in mini-buffer."
@@ -120,12 +120,12 @@
            screen-list "  "))
     (dtk-speak-and-echo msg)))
 
-;;}}}
+ 
 (provide 'emacspeak-elscreen)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

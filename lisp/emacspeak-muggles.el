@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
 ;; Keywords: Emacspeak,  Audio Desktop muggles
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -10,8 +10,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -33,10 +33,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 
@@ -79,8 +79,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -111,8 +111,8 @@
 (declare-function emacspeak-org-table-speak-column-header-and-element
                   "emacspeak-org" nil)
 
-;;}}}
-;;{{{ Brightness:
+ 
+;;;  Brightness:
 
 (global-set-key
  (kbd "<print>")
@@ -143,8 +143,8 @@
 
 (global-set-key (kbd "s-.") 'emacspeak-muggles-brightness/body)
 
-;;}}}
-;;{{{ Org-Mode Table Navigation:
+ 
+;;;  Org-Mode Table Navigation:
 (with-eval-after-load "org"
   (define-key
    org-mode-map (kbd "C-c t")
@@ -166,8 +166,8 @@
              ("r"emacspeak-org-table-speak-row-header-and-element)
              ("c"emacspeak-org-table-speak-column-header-and-element))))
 
-;;}}}
-;;{{{ HideShow:
+ 
+;;;  HideShow:
 
 (global-set-key
  (kbd "C-, h")
@@ -188,8 +188,8 @@
             ("l" hs-hide-level)
             ("i" hs-hide-initial-comment-block)))
 
-;;}}}
-;;{{{ Option Toggle
+ 
+;;;  Option Toggle
 
 ;; Cloned from hydra-examples.el and modified to tase.
 ;;; Helper:
@@ -236,8 +236,8 @@ _p_ emacspeak-muggles-lispy-or-sp:
   ("p" emacspeak-muggles-lispy-or-sp)
   ("q" nil "quit")))
 
-;;}}}
-;;{{{ Navigate:
+ 
+;;;  Navigate:
 
 ;; Inspired by  Hydra wiki:
 ;; But bound to s-n --- instead of C-n
@@ -270,8 +270,8 @@ _p_ emacspeak-muggles-lispy-or-sp:
            ("<" beginning-of-buffer)
            (">" end-of-buffer)))
 
-;;}}}
-;;{{{ Repeatable Yank
+ 
+;;;  Repeatable Yank
 
 ;; Repeatable yank(-pop) command, with an option to switch to a list view using
 ;; browse-kill-ring.
@@ -314,8 +314,8 @@ _p_ emacspeak-muggles-lispy-or-sp:
 (global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
 
-;;}}}
-;;{{{ Repeatable Undo
+ 
+;;;  Repeatable Undo
 
 ;; Repeatable undo-only and undo-redo 
 (global-set-key
@@ -333,8 +333,8 @@ _p_ emacspeak-muggles-lispy-or-sp:
   ("/" undo-only nil)
   ("\\" undo-redo nil)))
 
-;;}}}
-;;{{{  Speak And Browse Math
+ 
+;;;   Speak And Browse Math
 
 (global-set-key
  (kbd "s-SPC")
@@ -357,13 +357,13 @@ _p_ emacspeak-muggles-lispy-or-sp:
            ("<left>" emacspeak-maths-left "left")
            ("<right>" emacspeak-maths-right "right")))
 
-;;}}}
+ 
 (provide 'emacspeak-muggles)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; byte-compile-warnings: (docstring  noruntime)
 ;; end:
 
-;;}}}
+ 

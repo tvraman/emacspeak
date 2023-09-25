@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SOX An Emacs Interface to sox
 ;; Keywords: Emacspeak,  Audio Desktop sox
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; This module defines a convenient speech-enabled
@@ -57,15 +57,15 @@
 ;; This module can be used independent of Emacspeak.
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (eval-when-compile (require 'derived))
 (require 'ladspa)
 
-;;}}}
-;;{{{ Customizations:
+ 
+;;;  Customizations:
 
 (defgroup sox nil
   "Audio workbench for the Emacspeak Audio Desktop."
@@ -79,8 +79,8 @@
 (defvar sox-play (executable-find "play")
   "Location of play from SoX utility.")
 
-;;}}}
-;;{{{ Define Special Mode
+ 
+;;;  Define Special Mode
 
 (defun sox-effect-at-point (&optional pos)
   "Return effect at  point."
@@ -187,8 +187,8 @@
    do
    (define-key sox-mode-map (kbd (cl-first k)) (cl-second k))))
 
-;;}}}
-;;{{{ Top-level Context:
+ 
+;;;  Top-level Context:
 
 (cl-defstruct sox-effect
   type ; native: nil ladspa: 'ladspa
@@ -209,8 +209,8 @@
 
 (make-variable-buffer-local 'sox-context)
 
-;;}}}
-;;{{{ Commands:
+ 
+;;;  Commands:
 
 (defvar sox-sound-regexp
   (regexp-opt  '(".mp3" ".wav" ".au" ".aiff"))
@@ -370,8 +370,8 @@
      (t ; recur till done
       (append r (sox-read-effect-params param-desc 'repeat))))))
 
-;;}}}
-;;{{{  Effects Infrastructure:
+ 
+;;;   Effects Infrastructure:
 (defvar sox-effects nil
   "Table of implemented effects.")
 
@@ -385,8 +385,8 @@
 ;; 2. Clone the code from one of the previously implemented effects,
 ;; And update per the SoX man page.
 
-;;}}}
-;;{{{ Ladspa Effects:
+ 
+;;;  Ladspa Effects:
 
 ;; Heavy lifting done by Ladspa module.
 
@@ -406,8 +406,8 @@ and return a suitable effect structure."
      :name (ladspa-plugin-label plugin)
      :params plugin)))
 
-;;}}}
-;;{{{ Apply Ladspa to SoX:
+ 
+;;;  Apply Ladspa to SoX:
 
 (defun sox-ladspa-cmd (plugin)
   "Convert Ladspa Plugin to SoX args."
@@ -415,8 +415,8 @@ and return a suitable effect structure."
     ,(ladspa-plugin-library plugin) ,(ladspa-plugin-label plugin)
     ,@(mapcar #'ladspa-control-value  (ladspa-plugin-controls plugin))))
 
-;;}}}
-;;{{{ Define SoX Effect: Macro
+ 
+;;;  Define SoX Effect: Macro
 
 (defun sox-def-effect (name params repeat)
   "Defines needed functions and variables for manipulating effect name."
@@ -443,8 +443,8 @@ and return a suitable effect structure." name)
          :name ,name
          :params (sox-read-effect-params ,p-sym ,repeat))))))
 
-;;}}}
-;;{{{ Use: sox-def-effect
+ 
+;;;  Use: sox-def-effect
 
 (sox-def-effect "echo" '("gain-in" "gain-out" "delay" "decay") t)
 
@@ -478,9 +478,9 @@ and return a suitable effect structure." name)
    "pre-delay"  "wet-gain")
  nil)
 
-;;}}}
+ 
 (provide 'sox)
-;;{{{ Add Emacspeak Support
+;;;  Add Emacspeak Support
 
 ;; Code here can be factored out to emacspeak-sox.el
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -502,11 +502,11 @@ and return a suitable effect structure." name)
     (emacspeak-auditory-icon 'delete-object)))
 (provide 'emacspeak-sox)
 
-;;}}}
-;;{{{ end of file
+ 
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

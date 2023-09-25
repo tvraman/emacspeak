@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to archive mode
 ;; Keywords: Emacspeak, Speak, Spoken Output, archive
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'arc-mode)
-;;}}}
-;;{{{  Introduction 
+ 
+;;;   Introduction 
 ;;; Commentary:
 ;; Auditory interface to archive mode
 ;; This lets Emacs manipulate package files such as .zip and .jar files.
 ;;; Code:
-;;}}}
-;;{{{ Helpers
+ 
+;;;  Helpers
 
 (defun emacspeak-archive-speak-line ()
   "Speak line in archive mode intelligently"
@@ -61,11 +61,11 @@
    (t (skip-syntax-backward "^ ")  
       (emacspeak-speak-line 1))))
 
-;;}}}
-;;{{{ fix interactive commands that need fixing 
+ 
+;;;  fix interactive commands that need fixing 
 
-;;}}}
-;;{{{ Advice
+ 
+;;;  Advice
 
 (defadvice archive-mark (after emacspeak pre act comp)
   "speak"
@@ -118,8 +118,8 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ interactive commands
+ 
+;;;  interactive commands
 
 (defvar emacspeak-arc-header-list-format nil
   "Field names in the header line")
@@ -225,12 +225,12 @@ first initializing it if necessary."
 
 (cl-eval-when (load)
   (emacspeak-arc-setup-keys))
-;;}}}
+ 
 (provide 'emacspeak-arc)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

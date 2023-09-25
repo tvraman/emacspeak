@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Bookmarks for audio content like mp3
 ;; Keywords:emacspeak, audio interface to emacs MP3
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1996 by T. V. Raman
@@ -37,9 +37,9 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -58,14 +58,14 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'dired)
-;;}}}
-;;{{{ Structure:
+ 
+;;;  Structure:
 
 (cl-defstruct
     emacspeak-amark
@@ -75,14 +75,14 @@
   position                               ; Offset in ms from start
   )
 
-;;}}}
-;;{{{ AMark List:
+ 
+;;;  AMark List:
 
 (defvar-local emacspeak-amark-list nil
   "List of buffer-local AMarks. ")
 
-;;}}}
-;;{{{ AMark Functions:
+ 
+;;;  AMark Functions:
 
 (defsubst emacspeak-amark-names ()
   "Return list of  amark names."
@@ -199,8 +199,8 @@ given name, it is updated with path and position."
     (emacspeak-m-player
      (expand-file-name (emacspeak-amark-path  amark) default-directory))))
 
-;;}}}
-;;{{{Amark Mode:
+ 
+;;; Amark Mode:
 
 (define-derived-mode emacspeak-amark-mode special-mode
   "AMark Browser"
@@ -221,8 +221,8 @@ via command `org-insert-link' bound to \\[org-insert-link]."
  do
  (emacspeak-keymap-update emacspeak-amark-mode-map b))
 
-;;}}}
-;;{{{Browse Amarks:
+ 
+;;; Browse Amarks:
 
 (defun emacspeak-amark-list-play ()
   "Play amark list as a playlist.
@@ -296,12 +296,12 @@ current file."
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'open-object))
 
-;;}}}
+ 
 (provide  'emacspeak-amark)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

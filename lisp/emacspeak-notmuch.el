@@ -2,7 +2,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable NOTMUCH An Emacs Interface to notmuch
 ;;; Keywords: Emacspeak,  Audio Desktop notmuch
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,8 +11,8 @@
 ;;; Location undetermined
 ;;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;;;Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;;; All Rights Reserved.
 ;;;
@@ -33,25 +33,25 @@
 ;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;;; NOTMUCH ==  Emacs interface to notmuch mail
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map 
  '(
@@ -73,8 +73,8 @@
    (notmuch-tag-face voice-bolden)
    (notmuch-wash-cited-text voice-smoothen)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 '(
   notmuch-cycle-notmuch-buffers
@@ -271,8 +271,8 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{MUA:
+ 
+;;; MUA:
 
 '(notmuch-mua-kill-buffer
   notmuch-mua-mail
@@ -281,12 +281,12 @@
   notmuch-mua-send-and-exit
   notmuch-mua-send-common)
 
-;;}}}
+ 
 (provide 'emacspeak-notmuch)
-;;{{{ end of file
+;;;  end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; end:
 
-;;}}}
+ 

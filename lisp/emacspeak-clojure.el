@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable CLOJURE-mode
 ;; Keywords: Emacspeak,  Audio Desktop clojure
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,25 +35,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; CLOJURE-mode: Specialized mode for Clojure programming.
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -61,8 +61,8 @@
    (clojure-character-face voice-bolden-medium)
    (clojure-keyword-face voice-animate)))
 
-;;}}}
-;;{{{ Speech-enable Editing:
+ 
+;;;  Speech-enable Editing:
 
 (defadvice clojure-toggle-keyword-string (after emacspeak pre act comp)
   "speak."
@@ -147,8 +147,8 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ Speech-Enable Refactoring:
+ 
+;;;  Speech-Enable Refactoring:
 
 (cl-loop
  for f in
@@ -164,12 +164,12 @@
          (forward-sexp)
          (dtk-speak(buffer-substring begin (point))))))))
 
-;;}}}
+ 
 (provide 'emacspeak-clojure)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

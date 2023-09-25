@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable GOOGLE An Emacs Interface to google
 ;; Keywords: Emacspeak,  Audio Desktop google
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; There are a number of search tools that can be implemented on
@@ -51,8 +51,8 @@
 ;; Now, some specialized searches, e.g. blog search are tbm=
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -60,8 +60,8 @@
 (require 'emacspeak-preamble)
 (require 'gweb)
 
-;;}}}
-;;{{{ Data Structures
+ 
+;;;  Data Structures
 
 ;; One tool on a tool-belt
 
@@ -383,8 +383,8 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)))))
 
-;;}}}
-;;{{{  URL Fixup
+ 
+;;;   URL Fixup
 
 ;; prefix: https://www.google.com/url?q=
 ;; Suffix: &sa=...
@@ -403,8 +403,8 @@ This variable is buffer-local.")
   (format "%s://www.google.com/url?q="
           (if emacspeak-google-use-https "https" "http")))
 
-;;}}}
-;;{{{Cache query, toolbelt
+ 
+;;; Cache query, toolbelt
 
 (defun emacspeak-google-cache-query(query)
   "Setup post process hook to cache google query when rendered."
@@ -424,8 +424,8 @@ This variable is buffer-local.")
                (setq emacspeak-google-toolbelt' ,belt)))))
     (add-hook 'emacspeak-eww-post-process-hook cache 'at-end)))
 
-;;}}}
-;;{{{  google tools
+ 
+;;;   google tools
 
 (declare-function eww-current-url "eww" nil)
 
@@ -469,8 +469,8 @@ current page."
     "%s%s"
     emacspeak-google-related-uri url)))
 
-;;}}}
-;;{{{ Interactive Commands
+ 
+;;;  Interactive Commands
 
 (cl-loop
  for this-tool in (emacspeak-google-toolbelt) do
@@ -572,8 +572,8 @@ current page."
      ems--websearch-google-filter
      url)))
 
-;;}}}
-;;{{{ Sign in, Sign out:
+ 
+;;;  Sign in, Sign out:
 
 (defvar emacspeak-google-sign-out-url
   "http://www.google.com/accounts/Logout"
@@ -597,8 +597,8 @@ current page."
   (cl-declare (special emacspeak-google-sign-out-url))
   (browse-url emacspeak-google-sign-out-url))
 
-;;}}}
-;;{{{  keymap
+ 
+;;;   keymap
 
 (define-prefix-command  'emacspeak-google-command
                         'emacspeak-google-keymap)
@@ -619,8 +619,8 @@ current page."
  do
  (emacspeak-keymap-update emacspeak-google-keymap k))
 
-;;}}}
-;;{{{ Advice GMaps:
+ 
+;;;  Advice GMaps:
 
 (defadvice gmaps (after emacspeak pre act comp)
   "Provide  auditory feedback."
@@ -663,8 +663,8 @@ current page."
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{ TTS:
+ 
+;;;  TTS:
 
 (define-prefix-command 'emacspeak-google-tts)
 
@@ -758,16 +758,16 @@ Use default voice for buffer."
      (put cmd 'repeat-map 'emacspeak-google-tts)))
  emacspeak-google-tts)
 
-;;}}}
-;;{{{ What Is My IP:
+ 
+;;;  What Is My IP:
 
 (defun emacspeak-google-what-is-my-ip ()
   "Show my public IP"
   (interactive)
   (emacspeak-websearch-google "what+is+my+ip"))
 
-;;}}}
-;;{{{ Google Knowledge Graph:
+ 
+;;;  Google Knowledge Graph:
 
 ;; Google Knowledge Graph Search API
 ;;  G https://developers.google.com/knowledge-graph/
@@ -865,8 +865,8 @@ results, default is 1."
       (emacspeak-eww-autospeak)
       (browse-url-of-buffer))))
 
-;;}}}
-;;{{{youtube to rss:
+ 
+;;; youtube to rss:
 
 (defun emacspeak-google-yt-feed (url)
   "Turn YT Channel or Playlist url into an RSS feed and open it."
@@ -903,12 +903,12 @@ results, default is 1."
        (format r "channel_id" channel)))
      (t (error "URL is not a channel or playlist.")))))
 
-;;}}}
+ 
 (provide 'emacspeak-google)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

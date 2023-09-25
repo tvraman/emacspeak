@@ -3,7 +3,7 @@
 ;; Description:  Speech-enable Vertico, a modern Emacs completion interface
 ;; Keywords: Emacspeak, Audio Desktop, Vertico, completion
 
-;;{{{  Copyright:
+;;;   Copyright:
 
 ;; Copyright (C) 2021 Krzysztof Drewniak <krzysdrewniak@gmail.com>
 ;; All Rights Reserved.
@@ -25,32 +25,32 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; Vertico is a modern completion UI that uses Emacs's native completion engine
 ;; This module speech-enables Vertico's UI
 
-;;}}}
+ 
 ;;; Code:
-;;{{{  Required modules
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'vertico nil 'noerror)
-;;}}}
-;;{{{ Map faces to voices:
+ 
+;;;  Map faces to voices:
 
 (voice-setup-add-map
  '((vertico-group-title voice-smoothen)
    (vertico-group-separator voice-overlay-0)))
 
-;;}}}
-;;{{{ Define bookkeeping variables for UI state
+ 
+;;;  Define bookkeeping variables for UI state
 
 (defvar-local emacspeak-vertico--prev-candidate nil
   "Previously spoken candidate")
@@ -58,12 +58,12 @@
 (defvar-local emacspeak-vertico--prev-index nil
   "Index of previously spoken candidate")
 
-;;}}}
-;;{{{
+ 
+;;; 
 (declare-function 'vertico--candidate "vertico.el" (&optional hl))
 
-;;}}}
-;;{{{ Advice interactive commands
+ 
+;;;  Advice interactive commands
 
 (defadvice vertico-insert (around emacspeak pre act comp)
   "speak."
@@ -117,12 +117,12 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon ',icon)))))
 
-;;}}}
+ 
 (provide 'emacspeak-vertico)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable DIFF-MODE An Emacs Interface to diff-mode
 ;; Keywords: Emacspeak,  Audio Desktop diff-mode
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,23 +36,23 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; DIFF-MODE  support.
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Faces from  diff-mode.el
+ 
+;;;  Faces from  diff-mode.el
 
 (voice-setup-add-map
  '(
@@ -73,8 +73,8 @@
    (diff-refine-removed voice-smoothen)
    (diff-removed voice-smoothen-extra)))
 
-;;}}}
-;;{{{ Advice Interactive Commands:
+ 
+;;;  Advice Interactive Commands:
 
 (cl-loop
  for f in
@@ -89,12 +89,12 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-;;}}}
+ 
 (provide 'emacspeak-diff-mode)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

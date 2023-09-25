@@ -1,7 +1,7 @@
 ;;; amixer.el --- Set Audio Volume from Emacs  -*- lexical-binding: t; -*-
 ;;
 ;; Emacs front-end to AMixer
-;;{{{  Copyright:
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -23,8 +23,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ introduction
+ 
+;;;  introduction
 
 ;;; Commentary:
 ;; Provide an emacs front-end to amixer,
@@ -41,21 +41,21 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ required packages
+ 
+;;;  required packages
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-;;}}}
-;;{{{ Decls:
+ 
+;;;  Decls:
 
 ;; forward decl:
 (defvar emacspeak-speak-messages)
 
-;;}}}
-;;{{{ Custom:
+ 
+;;;  Custom:
 
 (defcustom amixer-device "default"
   "ALSA Control Device."
@@ -79,8 +79,8 @@
   min max step
   current)
 
-;;}}}
-;;{{{ Manage amixer db:
+ 
+;;;  Manage amixer db:
 
 (defun amixer-populate-settings (control)
   "Populate control with its settings information."
@@ -174,8 +174,8 @@
       (mapc #'amixer-populate-settings controls)
       (setq amixer-db controls))))
 
-;;}}}
-;;{{{ Amixer:
+ 
+;;;  Amixer:
 
 (defun amixer-get-enumerated-values(control)
   "Return list of enumerated values."
@@ -328,8 +328,8 @@ Interactive prefix arg refreshes cache."
     (message "Persisted amixer state to %s."
              amixer-alsactl-config-file)))
 
-;;}}}
-;;{{{Raise/Lower Volume Using pactl:
+ 
+;;; Raise/Lower Volume Using pactl:
 (defcustom amixer-volume-step 2
   "Step-size for volume change."
   :type 'integer
@@ -390,10 +390,10 @@ of 3 and 4 lower or raise volume."
      "Repeat with %k")))
 
 (provide 'amixer)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

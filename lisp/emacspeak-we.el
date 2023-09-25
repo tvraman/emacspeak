@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Edit/Transform Web Pages using XSLT
 ;; Keywords: Emacspeak,  Audio Desktop Web, XSLT
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; we is for webedit
@@ -52,16 +52,16 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
 
-;;}}}
-;;{{{Helper:
+ 
+;;; Helper:
 
 (defun emacspeak-we-rename-buffer (key)
   "Setup emacspeak-eww-post-process-hook  to rename result buffer"
@@ -74,8 +74,8 @@
                   (buffer-name) ,key)
           'unique)))))
 
-;;}}}
-;;{{{ URL Rewrite:
+ 
+;;;  URL Rewrite:
 ;; forward decl to help compiler 
 (defvar emacspeak-eww-url-at-point)
 
@@ -106,8 +106,8 @@ a rewrite rule even if one is already defined."
     (emacspeak-auditory-icon 'select-object)
     (browse-url (or redirect url))))
 
-;;}}}
-;;{{{ url expand and execute
+ 
+;;;  url expand and execute
 ;;;###autoload
 (defvar emacspeak-we-url-executor nil
   "URL expand/execute function  to use in current buffer.")
@@ -145,8 +145,8 @@ a rewrite rule even if one is already defined."
         (error "Invalid executor %s"
                emacspeak-we-url-executor))))))
 
-;;}}}
-;;{{{ applying XSL transforms before displaying
+ 
+;;;  applying XSL transforms before displaying
 ;;;###autoload
 (define-prefix-command 'emacspeak-we-xsl-map)
 
@@ -828,8 +828,8 @@ specifies the page to extract contents  from."
    url
    (or (called-interactively-p 'interactive) speak)))
 
-;;}}}
-;;{{{ xpath  filter
+ 
+;;;  xpath  filter
 ;;;###autoload
 (defvar emacspeak-we-recent-xpath-filter
   "//p"
@@ -990,11 +990,11 @@ used as well."
      (or redirect url)
      'speak)))
 
-;;}}}
-;;{{{ Property filter
+ 
+;;;  Property filter
 
-;;}}}
-;;{{{  xsl keymap
+ 
+;;;   xsl keymap
 
 (cl-declaim (special emacspeak-we-xsl-map))
 
@@ -1039,8 +1039,8 @@ used as well."
          do
          (emacspeak-keymap-update emacspeak-we-xsl-map binding))
 
-;;}}}
-;;{{{  URL Advice: 
+ 
+;;;   URL Advice: 
 
 (cl-loop
  for f in
@@ -1056,12 +1056,12 @@ used as well."
      (let ((url-show-status nil))
        (ems-with-messages-silenced ad-do-it)))))
 
-;;}}}
+ 
 (provide 'emacspeak-we)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

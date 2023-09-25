@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Auditory interface to tar mode
 ;; Keywords: Emacspeak, Speak, Spoken Output, tar
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'tar-mode)
-;;}}}
-;;{{{  Introduction
+ 
+;;;   Introduction
 ;;; Commentary:
 ;; Auditory interface to tar mode
 ;;; Code:
-;;}}}
-;;{{{ Helpers
+ 
+;;;  Helpers
 
 (defun emacspeak-tar-speak-line ()
   "Speak line in tar mode intelligently"
@@ -59,8 +59,8 @@
     (message "No file on this line"))
    (t (emacspeak-speak-line))))
 
-;;}}}
-;;{{{ Advice
+ 
+;;;  Advice
 (defadvice tar-quit (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
@@ -112,8 +112,8 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ additional interactive commands
+ 
+;;;  additional interactive commands
 
 (defsubst ems--tar-mode-to-string (mode)
   "Convert mode to speakable string."
@@ -187,12 +187,12 @@
 (cl-eval-when (load)
   (emacspeak-tar-setup-keys))
 
-;;}}}
+ 
 (provide 'emacspeak-tar)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

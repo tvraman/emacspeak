@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Controlling mplayer from emacs 
 ;; Keywords: Emacspeak, rpm-spec streaming media 
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,20 +36,20 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{ Introduction:
+ 
+;;;  Introduction:
 ;;; Commentary:
 ;; speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
 ;;; Code:
-;;}}}
-;;{{{ Advice insertion commands:
+ 
+;;;  Advice insertion commands:
 
 (defvar emacspeak-rpm-spec-insertion-commands
   '(rpm-insert-file 
@@ -77,8 +77,8 @@
                  (message
                   (format "Inserted %s entry" entry)))))))
 
-;;}}}
-;;{{{ Advice navigation 
+ 
+;;;  Advice navigation 
 (defvar emacspeak-rpm-spec-navigation-commands
   '(rpm-backward-section rpm-beginning-of-section 
                          rpm-forward-section 
@@ -94,8 +94,8 @@
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ Advice build commands 
+ 
+;;;  Advice build commands 
 
 (defvar emacspeak-rpm-spec-build-commands
   '(rpm-build-bp 
@@ -121,8 +121,8 @@
                  (message
                   (format "Launched build %s " target)))))))
 
-;;}}}
-;;{{{ advice toggles 
+ 
+;;;  advice toggles 
 (defvar emacspeak-rpm-spec-toggle-commands
   '(rpm-toggle-short-circuit 
     rpm-toggle-rmsource 
@@ -147,8 +147,8 @@
                                                   toggle)))
                  (emacspeak-auditory-icon (if (eval switch) 'on 'off)))))))
 
-;;}}}
-;;{{{ voice locking 
+ 
+;;;  voice locking 
 
 (voice-setup-add-map
  '(
@@ -159,12 +159,12 @@
    (rpm-spec-doc-face voice-smoothen-extra)
    (rpm-spec-ghost-face voice-smoothen-medium)
    ))
-;;}}}
+ 
 (provide 'emacspeak-rpm-spec)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

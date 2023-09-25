@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Module to set up Dectalk voices and personalities
 ;; Keywords: Voice, Personality, Dectalk
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,25 +36,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; This module defines the various voices used in voice-lock mode.
 ;; This module is Dectalk specific.
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-;;}}}
-;;{{{ Customizations:
+ 
+;;;  Customizations:
 
 (defcustom dectalk-default-speech-rate 225
   "Default speech rate . "
@@ -65,8 +65,8 @@
            (when (string-match "dtk" dtk-program)
              (setq-default dtk-speech-rate val))))
 
-;;}}}
-;;{{{  Top-level TTS  switcher
+ 
+;;;   Top-level TTS  switcher
 
 ;;;###autoload
 (defun dectalk ()
@@ -88,16 +88,16 @@
     (dtk-initialize)
     (dtk-set-rate dectalk-default-speech-rate 'global)))
 
-;;}}}
-;;{{{ Forward declarations:
+ 
+;;;  Forward declarations:
 
 ;; From dtk-speak.el:
 
 (defvar dtk-speech-rate-step)
 (defvar dtk-speech-rate-base)
 
-;;}}}
-;;{{{  voice table
+ 
+;;;   voice table
 
 (defvar dectalk-default-voice-string ""
   "Dectalk string for  default voice --set to be a no-op.")
@@ -124,16 +124,16 @@
   (cl-declare (special dectalk-voice-table))
   (gethash name dectalk-voice-table))
 
-;;}}}
-;;{{{ voice definitions
+ 
+;;;  voice definitions
 
 ;; the nine predefined voices:
 (dectalk-define-voice 'paul "[:np ]")
 
-;;}}}
-;;{{{  Mapping css parameters to Dectalk codes
+ 
+;;;   Mapping css parameters to Dectalk codes
 
-;;{{{ voice family codes
+;;;  voice family codes
 
 (defvar dectalk-family-table nil
   "Association list of Dectalk voice names and control codes.")
@@ -157,8 +157,8 @@
 
 (dectalk-set-family-code 'paul ":np")
 
-;;}}}
-;;{{{  hash table for mapping families to their dimensions
+ 
+;;;   hash table for mapping families to their dimensions
 
 (defvar dectalk-css-code-tables (make-hash-table)
   "Hash table holding vectors of Dectalk codes. ")
@@ -177,8 +177,8 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key dectalk-css-code-tables)))
 
-;;}}}
-;;{{{  average pitch
+ 
+;;;   average pitch
 
 ;; Average pitch for standard male voice is 122hz --this is mapped to
 ;; a setting of 5.
@@ -187,7 +187,7 @@ and TABLE gives the values along that dimension."
 ;; We change parameter head-size in conjunction with average pitch to
 ;; produce a more natural change on the Dectalk.
 
-;;{{{  paul average pitch
+;;;   paul average pitch
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -211,9 +211,9 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'average-pitch table))
 
-;;}}}
+ 
 
-;;}}}
+ 
 
 (defun dectalk-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for  VALUE and  FAMILY."
@@ -223,8 +223,8 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  pitch range
+ 
+;;;   pitch range
 
 ;;  Standard pitch range is 100 and is  mapped to
 ;; a setting of 5.
@@ -232,7 +232,7 @@ and TABLE gives the values along that dimension."
 ;; produces a highly animated voice.
 ;; Additionally, we also set the assertiveness of the voice so the
 ;; voice is less assertive at lower pitch ranges.
-;;{{{  paul pitch range
+;;;   paul pitch range
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -256,7 +256,7 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'pitch-range table))
 
-;;}}}
+ 
 
 (defun dectalk-get-pitch-range-code (value family)
   "Get pitch-range code for  VALUE and FAMILY."
@@ -266,8 +266,8 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  stress
+ 
+;;;   stress
 
 ;; On the Dectalk we vary four parameters
 ;; The hat rise which controls the overall shape of the F0 contour
@@ -278,7 +278,7 @@ and TABLE gives the values along that dimension."
 ;; and the quickness --a parameter that controls whether the final
 ;; frequency targets are completely achieved in the phonetic
 ;; transitions.
-;;{{{  paul stress
+;;;   paul stress
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -304,7 +304,7 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'stress table))
 
-;;}}}
+ 
 
 (defun dectalk-get-stress-code (value family)
   (or family (setq family 'paul))
@@ -313,13 +313,13 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  richness
+ 
+;;;   richness
 
 ;; Smoothness and richness vary inversely.
 ;; a  maximally smooth voice produces a quieter effect
 ;; a rich voice is "bright" in contrast.
-;;{{{  paul richness
+;;;   paul richness
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -342,7 +342,7 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'richness table))
 
-;;}}}
+ 
 
 (defun dectalk-get-richness-code (value family)
   (or family (setq family 'paul))
@@ -351,8 +351,8 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  dectalk-define-voice-from-speech-style
+ 
+;;;   dectalk-define-voice-from-speech-style
 
 (defun dectalk-define-voice-from-speech-style (name style)
   "Define NAME to be a Dectalk voice as specified by settings in STYLE."
@@ -375,8 +375,8 @@ and TABLE gives the values along that dimension."
            "]")))
     (dectalk-define-voice name command)))
 
-;;}}}
-;;{{{ configurater
+ 
+;;;  configurater
 
 ;;;###autoload
 (defun dectalk-configure-tts ()
@@ -398,13 +398,13 @@ and TABLE gives the values along that dimension."
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
-;;}}}
+ 
 
 (provide 'dectalk-voices)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   Speech enable dictionary mode
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables emacs client for accessing dictionary
 ;; server at dict.org:2628
 ;;; Code:
-;;}}}
-;;{{{ Advice interactive commands to speak.
+ 
+;;;  Advice interactive commands to speak.
 (defadvice dictionary (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -106,12 +106,12 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-range 'link-function)))
 
-;;}}}
+ 
 (provide 'emacspeak-dictionary)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

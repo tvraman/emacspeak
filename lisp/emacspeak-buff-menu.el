@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to buff-menu
 ;; Keywords: Emacspeak, Speak, Spoken Output, buff-menu
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,30 +36,30 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction 
+;;;   Introduction 
 ;;; Commentary:
 ;; Speech-enable buffer-menus.
 ;;; Code:
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 ;;; Code:
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ voice personalities
+ 
+;;;  voice personalities
 (voice-setup-add-map
  '(
    (buffer-menu-buffer voice-bolden)
    ))
 
-;;}}}
-;;{{{  list buffers 
+ 
+;;;   list buffers 
 
 (defun emacspeak-list-buffers-speak-buffer-name ()
   "Speak the name of the buffer on this line"
@@ -152,7 +152,7 @@ and set up additional Emacspeak bindings."
     (emacspeak-auditory-icon 'task-done)
     (message "Displayed list of buffers in other window")))
 
-;;{{{  buffer manipulation commands 
+;;;   buffer manipulation commands 
 (defadvice Buffer-menu-bury (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
@@ -230,8 +230,8 @@ and set up additional Emacspeak bindings."
   (when (ems-interactive-p)
     (message "Visiting tags table on current line")))
 
-;;}}}
-;;{{{  display buffers 
+ 
+;;;   display buffers 
 
 (defadvice Buffer-menu-1-window (after emacspeak pre act comp)
   "Announce the newly selected buffer."
@@ -256,14 +256,14 @@ and set up additional Emacspeak bindings."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
+ 
 
-;;}}}
+ 
 (provide 'emacspeak-buff-menu)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

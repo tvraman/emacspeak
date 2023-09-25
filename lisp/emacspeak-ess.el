@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ESS An Emacs Interface to R and others
 ;; Keywords: Emacspeak,  Audio Desktop Statistics, R
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,24 +36,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; ESS == Emacs Speaks Statistics
 ;; This module makes ESS speak.
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Advice edeitor to speak
+ 
+;;;  Advice edeitor to speak
 
 (defadvice ess-indent-command(after emacspeak pre act comp)
   "Speak the line."
@@ -80,8 +80,8 @@ Cue electric insertion with a tone."
         (emacspeak-speak-this-char last-input-event)
         (dtk-tone 800 100 t)))))
 
-;;}}}
-;;{{{ Structure commands 
+ 
+;;;  Structure commands 
 
 (cl-loop for f in
          '(ess-beginning-of-function ess-end-of-function)
@@ -106,8 +106,8 @@ Cue electric insertion with a tone."
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current s expression ")))
 
-;;}}}
-;;{{{ Evaluators
+ 
+;;;  Evaluators
 
 (cl-loop for f in
          '(
@@ -127,8 +127,8 @@ Cue electric insertion with a tone."
             (when (ems-interactive-p)
               (emacspeak-auditory-icon 'select-object)))))
 
-;;}}}
-;;{{{ Switchers
+ 
+;;;  Switchers
 (defadvice ess-display-help-on-object(after emacspeak pre act
                                             comp)
   "Announce help."
@@ -146,17 +146,17 @@ Cue electric insertion with a tone."
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-speak-mode-line)))))
 
-;;}}}
-;;{{{ set up programming mode:
+ 
+;;;  set up programming mode:
 
 (add-hook 'ess-mode-hook 'emacspeak-setup-programming-mode)
 
-;;}}}
+ 
 (provide 'emacspeak-ess)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

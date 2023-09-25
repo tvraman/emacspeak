@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable LISPY An Emacs Interface to lispy
 ;; Keywords: Emacspeak,  Audio Desktop lispy
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; LISPY == smart Navigation Of Lisp code This module speech-enables
@@ -64,16 +64,16 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'lispy "lispy" 'no-error)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -90,8 +90,8 @@
    (lispy-face-rst-sel voice-lighten-extra)
    (lispy-test-face voice-annotate)))
 
-;;}}}
-;;{{{ Setup:
+ 
+;;;  Setup:
 
 (defun emacspeak-lispy-setup ()
   "Setup emacspeak for use with lispy"
@@ -101,8 +101,8 @@
 
 (emacspeak-lispy-setup)
 
-;;}}}
-;;{{{ Advice Navigation:
+ 
+;;;  Advice Navigation:
 
 (cl-loop ;;; Navigators:
  for f in
@@ -148,8 +148,8 @@ Indicate  no movement if we did not move."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'right)))
-;;}}}
-;;{{{Advice Insertions:
+ 
+;;; Advice Insertions:
 
 (defadvice lispy-clone (after emacspeak pre act comp)
   "speak."
@@ -202,8 +202,8 @@ Indicate  no movement if we did not move."
          (forward-char 1)
          (emacspeak-speak-sexp))))))
 
-;;}}}
-;;{{{ Slurp and barf:
+ 
+;;;  Slurp and barf:
 
 (cl-loop
  for f in
@@ -220,8 +220,8 @@ Indicate  no movement if we did not move."
          (emacspeak-auditory-icon 'select-object)
          (emacspeak-speak-line))))))
 
-;;}}}
-;;{{{Advice Marking:
+ 
+;;; Advice Marking:
 
 (cl-loop
  for f in
@@ -240,8 +240,8 @@ Indicate  no movement if we did not move."
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-region  (region-beginning) (region-end))))
 
-;;}}}
-;;{{{Advice WhiteSpace Manipulation:
+ 
+;;; Advice WhiteSpace Manipulation:
 (defadvice lispy-fill (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -266,8 +266,8 @@ Indicate  no movement if we did not move."
     (when (buffer-modified-p) (emacspeak-auditory-icon 'modified-object))
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{Advice Kill/Yank:
+ 
+;;; Advice Kill/Yank:
 (defadvice lispy-new-copy (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -311,8 +311,8 @@ Indicate  no movement if we did not move."
     ad-do-it)
    (t ad-do-it)))
 
-;;}}}
-;;{{{Advice Help:
+ 
+;;; Advice Help:
 
 (defadvice lispy-describe-inline (after emacspeak pre act comp)
   "speak."
@@ -330,8 +330,8 @@ Indicate  no movement if we did not move."
   (emacspeak-auditory-icon 'help)
   (dtk-speak (ad-get-arg 0)))
 
-;;}}}
-;;{{{Advice Outliner:
+ 
+;;; Advice Outliner:
 
 (defadvice lispy-narrow (after emacspeak pre act comp)
   "speak."
@@ -358,12 +358,12 @@ Indicate  no movement if we did not move."
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
 
-;;}}}
+ 
 (provide 'emacspeak-lispy)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

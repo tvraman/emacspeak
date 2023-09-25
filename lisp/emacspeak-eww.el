@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Speech-enable EWW An Emacs Interface to eww
 ;; Keywords: Emacspeak, Audio Desktop eww
-;;{{{ LCD Archive entry:
+;;;  LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{ Copyright:
+ 
+;;;  Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ introduction
+;;;  introduction
 
 ;;; Commentary:
 
@@ -454,8 +454,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -471,8 +471,8 @@
 (declare-function
  emacspeak-m-player "emacspeak-m-player" (resource &optional play-list))
 
-;;}}}
-;;{{{ Helpers:
+ 
+;;;  Helpers:
 
 ;;;###autoload
 (defsubst emacspeak-eww-browser-check ()
@@ -508,8 +508,8 @@
                 ,(intern (format ":%s" name))
                 value))))
 
-;;}}}
-;;{{{ Declare generated functions:
+ 
+;;;  Declare generated functions:
 
 (declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
@@ -517,8 +517,8 @@
 (declare-function emacspeak-eww-set-url "emacspeak-eww" (url))
 (declare-function emacspeak-eww-set-title "emacspeak-eww" (title))
 
-;;}}}
-;;{{{ Setup EWW Initialization:
+ 
+;;;  Setup EWW Initialization:
 
 (defvar emacspeak-eww-url-at-point
   #'(lambda ()
@@ -685,8 +685,8 @@ Safari/537.36"
 
 (emacspeak-eww-setup)
 
-;;}}}
-;;{{{play media:
+ 
+;;; play media:
 
 (defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
   "Play media url under point.
@@ -725,8 +725,8 @@ Useful in handling double-redirect from TuneIn."
     (message "Playing redirected media  URL under point: %s" url)
     (emacspeak-m-player url t)))
 
-;;}}}
-;;{{{ Inline Helpers:
+ 
+;;;  Inline Helpers:
 
 (defun emacspeak-eww-prepare-eww ()
   "Ensure that we are in an EWW buffer."
@@ -740,8 +740,8 @@ Useful in handling double-redirect from TuneIn."
   "Post-render actions."
   (emacspeak-eww-prepare-eww))
 
-;;}}}
-;;{{{ Viewing Page metadata: meta, links
+ 
+;;;  Viewing Page metadata: meta, links
 
 (defun emacspeak-eww-links-rel ()
   "Display Link tags of type rel.  Web pages for which alternate links
@@ -773,8 +773,8 @@ are available are cued by an auditory icon on the header line."
          (emacspeak-eww-autospeak)
          (browse-url-of-buffer))))))
 
-;;}}}
-;;{{{ Map Faces To Voices:
+ 
+;;;  Map Faces To Voices:
 
 (voice-setup-add-map
  '(
@@ -798,8 +798,8 @@ are available are cued by an auditory icon on the header line."
    (shr-selected-link  voice-animate)
    (shr-strike-through voice-annotate)))
 
-;;}}}
-;;{{{ Advice Interactive Commands:
+ 
+;;;  Advice Interactive Commands:
 
 (cl-loop
  for f in
@@ -989,8 +989,8 @@ Retain previously set punctuations  mode."
          (funcall emacspeak-we-url-executor url)))
       (t ad-do-it))))
 
-;;}}}
-;;{{{ web-pre-process
+ 
+;;;  web-pre-process
 
 ;;;###autoload
 (defun emacspeak-eww-autospeak()
@@ -1021,8 +1021,8 @@ Retain previously set punctuations  mode."
       (setq emacspeak-eww-pre-process-hook nil)))
     (setq emacspeak-eww-pre-process-hook nil)))
 
-;;}}}
-;;{{{ web-post-process
+ 
+;;;  web-post-process
 
 ;;;###autoload
 (defvar emacspeak-eww-post-process-hook nil
@@ -1043,8 +1043,8 @@ Note that the Web browser should reset this hook after using it.")
       (setq emacspeak-eww-post-process-hook nil)))
     (setq emacspeak-eww-post-process-hook nil)))
 
-;;}}}
-;;{{{ xslt transform on request:
+ 
+;;;  xslt transform on request:
 
 (defadvice eww-display-html (before emacspeak pre act comp)
   "Apply XSLT transform if requested."
@@ -1058,8 +1058,8 @@ Note that the Web browser should reset this hook after using it.")
        emacspeak-we-xsl-transform (point) (point-max)
        emacspeak-we-xsl-params)))))
 
-;;}}}
-;;{{{ DOM Structure In Rendered Buffer:
+ 
+;;;  DOM Structure In Rendered Buffer:
 
 (cl-loop
  for  tag in
@@ -1096,8 +1096,8 @@ Note that the Web browser should reset this hook after using it.")
   (shr-generic dom)
   (shr-ensure-newline))
 
-;;}}}
-;;{{{ Advice readable
+ 
+;;;  Advice readable
 (defadvice eww-readable (around emacspeak pre act comp)
   "Speak contents."
   (let ((inhibit-read-only t))
@@ -1105,15 +1105,15 @@ Note that the Web browser should reset this hook after using it.")
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
-;;}}}
-;;{{{  Customize image loading:
+ 
+;;;   Customize image loading:
 
 (defadvice eww-display-image (around emacspeak pre act comp)
   "Image inhibition"
   (unless emacspeak-eww-inhibit-images ad-do-it))
 
-;;}}}
-;;{{{ element, class, role, id caches:
+ 
+;;;  element, class, role, id caches:
 
 (defvar-local emacspeak-eww-cache-updated nil
   "Records if caches are updated.")
@@ -1171,8 +1171,8 @@ Note that the Web browser should reset this hook after using it.")
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
 
-;;}}}
-;;{{{ Filter DOM:
+ 
+;;;  Filter DOM:
 
 (defun emacspeak-eww-tag-article (dom)
   "Tag article, then render."
@@ -1680,8 +1680,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
-;;}}}
-;;{{{ Filters For Non-interactive  Use:
+ 
+;;;  Filters For Non-interactive  Use:
 
 (defun eww-display-dom-filter-helper (filter arg)
   "Helper for display filters."
@@ -1725,8 +1725,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   "Display DOM filtered by specified role-list."
   (eww-display-dom-filter-helper #'dom-by-role-list  role-list))
 
-;;}}}
-;;{{{ Element Navigation:
+ 
+;;;  Element Navigation:
 
 (defvar emacspeak-eww-el-nav-history nil
   "History for element navigation.")
@@ -1936,8 +1936,8 @@ The %s is automatically spoken if there is no user activity."
      (emacspeak-speak-current-kill))))
 
 
-;;}}}
-;;{{{ Speech-enable EWW buffer list:
+ 
+;;;  Speech-enable EWW buffer list:
 
 (defun emacspeak-eww-speak-buffer-line ()
   "Speak EWW buffer line."
@@ -1978,11 +1978,11 @@ The %s is automatically spoken if there is no user activity."
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-eww-speak-buffer-line)))))
 
-;;}}}
-;;{{{  EWW Filtering shortcuts:
+ 
+;;;   EWW Filtering shortcuts:
 
-;;}}}
-;;{{{ Tags At Point:
+ 
+;;;  Tags At Point:
 
 (defun emacspeak-eww-tags-at-point ()
   "Display tags at point."
@@ -1991,8 +1991,8 @@ The %s is automatically spoken if there is no user activity."
     (print tags)
     (dtk-speak-list tags)))
 
-;;}}}
-;;{{{ Handling Media (audio/video)
+ 
+;;;  Handling Media (audio/video)
 
 ;; This should ideally be handled through mailcap. At present, EWW
 ;; sets eww-use-external-browser-for-content-type to match
@@ -2009,8 +2009,8 @@ The %s is automatically spoken if there is no user activity."
       (media-p (emacspeak-m-player url))
       (t ad-do-it))))
 
-;;}}}
-;;{{{ eww-marks:
+ 
+;;;  eww-marks:
 
 ;; Bookmarks for use in reading ebooks with EWW:
 ;; They are called eww-marks to distinguish them from web bookmarks
@@ -2219,8 +2219,8 @@ via command `org-insert-link' bound to \\[org-insert-link]."
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buffer)))
 
-;;}}}
-;;{{{ quick setup for reading:
+ 
+;;;  quick setup for reading:
 
 (defun emacspeak-eww-reading-settings  ()
   "Setup speech-rate, punctuation and split-caps for reading prose."
@@ -2231,8 +2231,8 @@ via command `org-insert-link' bound to \\[org-insert-link]."
   (when dtk-split-caps(dtk-toggle-split-caps))
   (emacspeak-speak-rest-of-buffer))
 
-;;}}}
-;;{{{ Shell Command On URL Under Point:
+ 
+;;;  Shell Command On URL Under Point:
 (defvar emacspeak-eww-url-shell-commands
   (delete nil
           (list
@@ -2255,8 +2255,8 @@ via command `org-insert-link' bound to \\[org-insert-link]."
     (cl-assert url t "No url found")
     (async-shell-command (format "%s '%s'" cmd url))
     (emacspeak-auditory-icon 'task-done)))
-;;}}}
-;;{{{Smart Tabs:
+ 
+;;; Smart Tabs:
 
 (defvar emacspeak-eww-smart-tabs
   (make-hash-table :test #'eq)
@@ -2329,8 +2329,8 @@ with an interactive prefix arg. "
     (ems--fastload
      (expand-file-name "smart-eww-tabs" emacspeak-user-directory))))
 
-;;}}}
-;;{{{Form filling:
+ 
+;;; Form filling:
 
 (defun emacspeak-eww-fillin-form-field ()
   "Fill in user or passwd field using auth-source backend."
@@ -2349,8 +2349,8 @@ with an interactive prefix arg. "
     (when result (insert result))
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{Enable Table Browsing:
+ 
+;;; Enable Table Browsing:
 
 ;; Only works for plain tables, not nested tables.
 ;; Point has to be within the displayed table.
@@ -2529,8 +2529,8 @@ With interactive prefix arg, move to the start of the table."
     (setq data-table (emacspeak-table-make-table data))
     (emacspeak-table-prepare-table-buffer data-table buffer)))
 
-;;}}}
-;;{{{Dive Into DOM: div
+ 
+;;; Dive Into DOM: div
 
 (defadvice shr-tag-div (around eww-dom pre act comp)
   "Persist dom to the div node as a text property."
@@ -2550,8 +2550,8 @@ With interactive prefix arg, move to the start of the table."
     (emacspeak-eww-view-helper
      (dom-html-from-nodes (list dom) (eww-current-url)))))
 
-;;}}}
-;;{{{Open With External Browser: EAF, Chrome
+ 
+;;; Open With External Browser: EAF, Chrome
 
 (declare-function eaf-open-browser "eaf-browser" (url &optional args))
 ;;;###autoload
@@ -2568,12 +2568,12 @@ With interactive prefix arg, move to the start of the table."
   (interactive (list (emacspeak-eww-read-url)))
   (browse-url-chrome url))
 
-;;}}}
-;;{{{Repeat Support:
+ 
+;;; Repeat Support:
 (put 'emacspeak-eww-play-media-at-point
      'repeat-map  'emacspeak-m-player-mode-map)
-;;}}}
-;;{{{Command: eww-cleanup:
+ 
+;;; Command: eww-cleanup:
 
 ;;; Command to cleanup dom and source for large web pages: e.g. ebooks
 
@@ -2587,20 +2587,20 @@ Use for large EBook buffers."
   (when  (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'task-done)))
 
-;;}}}
-;;{{{Command: url-to-register
+ 
+;;; Command: url-to-register
 
 (defun emacspeak-eww-url-to-register ()
   "Accumulate  URL in register `u'"
   (interactive)
   (emacspeak-accumulate-to-register ?u #'(lambda () (shr-url-at-point nil))))
 
-;;}}}
+ 
 (provide 'emacspeak-eww)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

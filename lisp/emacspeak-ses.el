@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for SES 
 ;; Keywords: Emacspeak, ses 
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,24 +36,24 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;{{{  Introduction:
+;;;   Introduction:
 ;;; Commentary:
 ;; ses implements a simple spread sheet and is part of Emacs
 ;; This module speech-enables ses
 ;;; Code:
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'ses)
-;;}}}
-;;{{{ emacspeak ses accessors 
+ 
+;;;  emacspeak ses accessors 
 
 ;; these additional accessors are defined in terms of the
 ;; earlier helpers by Emacspeak.
@@ -78,8 +78,8 @@
    (car (ses-sym-rowcol cell-name))
    (cdr (ses-sym-rowcol cell-name))))
 
-;;}}}
-;;{{{ emacspeak ses summarizers 
+ 
+;;;  emacspeak ses summarizers 
 
 (defun emacspeak-ses-summarize-cell (cell-name)
   "Summarize specified  cell."
@@ -100,11 +100,11 @@
   (emacspeak-ses-summarize-cell
    (emacspeak-ses-current-cell-symbol)))
 
-;;}}}
-;;{{{ advice internals
+ 
+;;;  advice internals
 
-;;}}}
-;;{{{ new navigation commands 
+ 
+;;;  new navigation commands 
 
 ;; ses uses intangible properties to enable cell navigation
 ;; here we define navigation primitives that call built-ins and
@@ -134,8 +134,8 @@
   (forward-line -1)
   (emacspeak-ses-summarize-current-cell))
 
-;;}}}
-;;{{{ advice interactive commands
+ 
+;;;  advice interactive commands
 
 (defun emacspeak-ses-setup ()
   "Setup SES for use with emacspeak."
@@ -160,18 +160,18 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ses-summarize-current-cell)))
 
-;;}}}
-;;{{{ Setup:
+ 
+;;;  Setup:
 
 (emacspeak-ses-setup)
 
-;;}}}
+ 
 
 (provide 'emacspeak-ses)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

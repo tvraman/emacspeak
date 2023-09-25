@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak Feeds Support 
 ;; Keywords: Emacspeak, RSS, Atom
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,16 +36,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; This module provides Feeds support for Emacspeak
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
@@ -57,8 +57,8 @@
 (require 'eww)
 (require 'browse-url)
 
-;;}}}
-;;{{{  feed cache
+ 
+;;;   feed cache
 
 (defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
@@ -203,8 +203,8 @@ feeds."
                  (length emacspeak-feeds)))
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
 
-;;}}}
-;;{{{ display  feeds:
+ 
+;;;  display  feeds:
 
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
@@ -285,11 +285,11 @@ feeds."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
-;;}}}
-;;{{{ Validate Feed:
+ 
+;;;  Validate Feed:
 
-;;}}}
-;;{{{  view feed
+ 
+;;;   view feed
 
 ;;; Helper:
 (defun emacspeak-feeds-browse-feed (feed &optional speak)
@@ -317,8 +317,8 @@ Argument `feed' is a feed structure (label url type)."
             #'(lambda nil (emacspeak-auditory-icon 'open-object)))
   (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds) 'speak))
 
-;;}}}
-;;{{{ Finding Feeds:
+ 
+;;;  Finding Feeds:
 
 (define-button-type 'emacspeak-feeds-feed-button
   'follow-link t
@@ -343,8 +343,8 @@ Argument `feed' is a feed structure (label url type)."
       (emacspeak-feeds-rss-display url))
      (t (emacspeak-feeds-rss-display url)))))
 
-;;}}}
-;;{{{Awesome RSS
+ 
+;;; Awesome RSS
 
 (defcustom emacspeak-feeds-awesome-rss
   (expand-file-name "~/sourceforge/awesome-rss-feeds/")
@@ -384,12 +384,12 @@ and run the awesome-rss-fixup.sh script found  in %s"
     (emacspeak-eww-autospeak)
     (emacspeak-xslt-view-file emacspeak-opml-view-xsl feed)))
 
-;;}}}
+ 
 (provide 'emacspeak-feeds)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

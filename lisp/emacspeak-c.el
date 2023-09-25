@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for C and C++ mode
 ;; Keywords:emacspeak, audio interface to emacs C, C++
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,8 +36,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ Introduction:
+ 
+;;;  Introduction:
 
 ;;; Commentary:
 
@@ -47,8 +47,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
@@ -57,8 +57,8 @@
 (declare-function
  c-end-of-statement "cc-cmds" (&optional count lim sentence-flag))
 
-;;}}}
-;;{{{ advice electric deletion
+ 
+;;;  advice electric deletion
 
 (defadvice c-electric-delete-forward (around emacspeak pre act comp)
   "Speak character you're deleting."
@@ -84,9 +84,9 @@
       (t ad-do-it))
      ad-return-value)))
 
-;;}}}
-;;{{{  advice things to speak
-;;{{{  Electric chars speak
+ 
+;;;   advice things to speak
+;;;   Electric chars speak
 
 (defadvice c-electric-semi&comma (after emacspeak pre act comp)
   "Speak the line when a statement is completed."
@@ -101,8 +101,8 @@
     (emacspeak-speak-this-char(preceding-char))
     (dtk-tone-deletion)))
 
-;;}}}
-;;{{{  Moving across logical chunks
+ 
+;;;   Moving across logical chunks
 
 ;; CPP directives:
 
@@ -144,10 +144,10 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
 
-;;}}}
+ 
 
-;;}}}
-;;{{{ advice program navigation
+ 
+;;;  advice program navigation
 
 (defadvice  c-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
@@ -161,16 +161,16 @@
     (emacspeak-auditory-icon 'paragraph)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  extensions  provided by c++ mode
+ 
+;;;   extensions  provided by c++ mode
 
 (defadvice c-scope-operator (after emacspeak pre act comp)
   "speak what you inserted."
   (when (ems-interactive-p)
     (dtk-speak "colon colon")))
 
-;;}}}
-;;{{{  Some more navigation functions I define:
+ 
+;;;   Some more navigation functions I define:
 
 (defun c-previous-statement (count)
   "Move to the previous  C statement. "
@@ -233,8 +233,8 @@ level")
                         (emacspeak-c-speak-semantics)))
           (emacspeak-speak-line))))))
 
-;;}}}
-;;{{{  C semantics
+ 
+;;;   C semantics
 
 (defvar emacspeak-c-syntactic-table
   (list
@@ -354,8 +354,8 @@ and their meanings. ")
     (dtk-speak description)
     description))
 
-;;}}}
-;;{{{  indenting commands
+ 
+;;;   indenting commands
 
 (defadvice c-indent-defun (after emacspeak pre act comp)
   (when (ems-interactive-p)
@@ -367,8 +367,8 @@ and their meanings. ")
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ Additional Interactive Commands:
+ 
+;;;  Additional Interactive Commands:
 
 (cl-loop
  for f in
@@ -436,8 +436,8 @@ and their meanings. ")
        (emacspeak-auditory-icon 'button)
        (message   "Toggled %s"  ,(symbol-name f))))))
 
-;;}}}
-;;{{{ Additional keybindings:
+ 
+;;;  Additional keybindings:
 
 (cl-declaim (special c-mode-map c-mode-base-map))
 (add-hook
@@ -452,20 +452,20 @@ and their meanings. ")
        (define-key c-mode-base-map "\M-n" 'c-next-statement)
        (define-key c-mode-base-map "\M-p" 'c-previous-statement))))
 
-;;}}}
-;;{{{ personalities
+ 
+;;;  personalities
 
 (voice-setup-add-map
  '(
    (c-annotation-face voice-annotate)
    ))
 
-;;}}}
+ 
 (provide  'emacspeak-c)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

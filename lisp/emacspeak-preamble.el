@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak Preamble
 ;; Keywords:emacspeak, audio interface to emacs 
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,8 +37,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ Define Locations, Require modules
+ 
+;;;  Define Locations, Require modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -48,7 +48,7 @@
 (require 'advice)
 (put 'defadvice 'byte-obsolete-info nil)
 (setq ad-redefinition-action 'accept)
-;;{{{  Define locations
+;;;   Define locations
 
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
@@ -123,7 +123,7 @@
      "$"))
   "Playlist pattern.")
 
-;;}}}
+ 
 (require 'dtk-speak)
 (require 'voice-setup)
 (require 'voice-defs)
@@ -132,8 +132,8 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 
-;;}}}
-;;{{{ Interactive Check Implementation:
+ 
+;;;  Interactive Check Implementation:
 
 ;;; Notes:
 
@@ -194,8 +194,8 @@ FN-NAME to our stored value of ems--interactive-fn-name."
   (error
    (format "From %s: Unexpected call!" ems--interactive-fn-name)))
 
-;;}}}
-;;{{{defun: ems--fastload:
+ 
+;;; defun: ems--fastload:
 
 ;; Internal function  used to efficiently load files.
 
@@ -205,12 +205,12 @@ FN-NAME to our stored value of ems--interactive-fn-name."
         (load-source-file-function nil))
     (load file)))
 
-;;}}}
+ 
 (provide  'emacspeak-preamble)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

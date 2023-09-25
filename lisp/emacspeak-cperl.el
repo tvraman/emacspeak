@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for CPerl mode
 ;; Keywords:emacspeak, audio interface to emacs CPerl
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -36,14 +36,14 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{ required modules 
+;;;  required modules 
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -51,14 +51,14 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ voice locking:
+ 
+;;;  voice locking:
 
 ;; first pull in emacspeak-perl for voice lock definitions 
 (require 'emacspeak-perl)
 
-;;}}}
-;;{{{  Advice electric insertion to talk:
+ 
+;;;   Advice electric insertion to talk:
 
 (defadvice cperl-electric-backspace (around emacspeak pre act comp)
   "Speak character you're deleting."
@@ -94,8 +94,8 @@ Otherwise cue user to the line just created. "
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current s expression ")))
 
-;;}}}
-;;{{{ Advice info to talk:
+ 
+;;;  Advice info to talk:
 
 (defadvice cperl-info-on-current-command (after emacspeak pre act comp)
   "Speak the displayed info"
@@ -109,8 +109,8 @@ Otherwise cue user to the line just created. "
     (emacspeak-auditory-icon 'help)
     (message "Displayed help in other window.")))
 
-;;}}}
-;;{{{ structured editing
+ 
+;;;  structured editing
 
 (defadvice cperl-invert-if-unless (after emacspeak pre act
                                          comp)
@@ -161,8 +161,8 @@ Otherwise cue user to the line just created. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
-;;}}}
-;;{{{  misc
+ 
+;;;   misc
 
 (defadvice cperl-switch-to-doc-buffer (after emacspeak pre
                                              act comp)
@@ -177,8 +177,8 @@ Otherwise cue user to the line just created. "
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'task-done)))
-;;}}}
-;;{{{ set up hooks 
+ 
+;;;  set up hooks 
 
 (add-hook 'cperl-mode-hook
           #'(lambda ()
@@ -188,12 +188,12 @@ Otherwise cue user to the line just created. "
               (or emacspeak-audio-indentation
                   (emacspeak-toggle-audio-indentation))))
 
-;;}}}
+ 
 (provide  'emacspeak-cperl)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak module for laying grids on text
 ;; Keywords: Emacspeak, gridtext
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -62,15 +62,15 @@
 ;; The "grid" is specified as a list of (start end) tuples..
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-table)
 (require 'emacspeak-table-ui)
-;;}}}
-;;{{{  variables
+ 
+;;;   variables
 
 (defvar emacspeak-gridtext-current-grid nil
   "List that records currently active grid for this
@@ -78,8 +78,8 @@ buffer.")
 
 (make-variable-buffer-local 'emacspeak-gridtext-current-grid)
 
-;;}}}
-;;{{{  helpers
+ 
+;;;   helpers
 
 (defun emacspeak-gridtext-generate-key ()
   "Generates a key for current context.
@@ -132,8 +132,8 @@ end   as specified by grid."
          (forward-line 1))
         result-grid))))
 
-;;}}}
-;;{{{  persistent store 
+ 
+;;;   persistent store 
 
 (defvar emacspeak-gridtext-table (make-hash-table :test 'equal)
   "Stores grid settings.")
@@ -192,8 +192,8 @@ end   as specified by grid."
       (basic-save-buffer)
       (kill-buffer buffer))))
 
-;;}}}
-;;{{{ interactive commands
+ 
+;;;  interactive commands
 
 (defun emacspeak-gridtext-apply (start end grid)
   "Apply grid to region."
@@ -211,8 +211,8 @@ end   as specified by grid."
      (emacspeak-gridtext-generate-key) grid)
     (emacspeak-table-prepare-table-buffer grid-table buffer)))
 
-;;}}}
-;;{{{  keymaps 
+ 
+;;;   keymaps 
 (defvar emacspeak-gridtext-keymap nil
   "Prefix keymap used by gridtext.")
 ;;;###autoload
@@ -221,12 +221,12 @@ end   as specified by grid."
 (define-key emacspeak-gridtext-keymap "l"
             'emacspeak-gridtext-load)
 (define-key emacspeak-gridtext-keymap "s" 'emacspeak-gridtext-save)
-;;}}}
+ 
 (provide 'emacspeak-gridtext)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

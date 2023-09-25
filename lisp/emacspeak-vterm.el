@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable VTERM An Emacs Interface to vterm
 ;; Keywords: Emacspeak,  Audio Desktop vterm
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
 ;; 
@@ -34,10 +34,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; VTERM == vterm using native vterm library
@@ -53,15 +53,15 @@
 ;; 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -76,8 +76,8 @@
    (vterm-color-white 'paul)
    (vterm-color-yellow voice-animate)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 (defadvice vterm-clear (after emacspeak pre act comp)
   "speak."
@@ -144,8 +144,8 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{Speech-enable term emulation:
+ 
+;;; Speech-enable term emulation:
 
 ;; This sends what you typed to the term process.  Handle terminal
 ;; emulation logic here, as per term-emulate-term in emacspeak-eterm.
@@ -230,12 +230,12 @@
                  (beginning-of-line) (buffer-substring (1+ opoint) (point)))))))
         (emacspeak-speak-line))))))
 
-;;}}}
+ 
 (provide 'emacspeak-vterm)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech-enable EMMS
 ;; Keywords: Emacspeak, Multimedia
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction
+;;;   Introduction
 
 ;;; Commentary:
 ;; Speech-enables EMMS --- the Emacs equivalent of XMMS
@@ -51,16 +51,16 @@
 ;; 
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (declare-function emms-playlist-current-selected-track "emacspeak-emms" t)
 (declare-function emms-player-pause "emacspeak-emms" t)
 
-;;}}}
-;;{{{ module emms:
+ 
+;;;  module emms:
 
 (defun emacspeak-emms-speak-current-track ()
   "Speak current track."
@@ -117,8 +117,8 @@
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
 
-;;}}}
-;;{{{ Module emms-streaming:
+ 
+;;;  Module emms-streaming:
 (cl-declaim (special emms-stream-mode-map))
 (defadvice emms-stream-mode (after emacspeak pre act comp)
   "Update keymaps."
@@ -164,16 +164,16 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ silence chatter from info
+ 
+;;;  silence chatter from info
 
 (defadvice emms-info-really-initialize-track (around emacspeak pre act comp)
   "Silence messages."
   (ems-with-messages-silenced
    ad-do-it))
 
-;;}}}
-;;{{{ pause/resume if needed
+ 
+;;;  pause/resume if needed
 
 (defun emacspeak-emms-pause-or-resume ()
   "Pause/resume if emms is running. For use  in
@@ -185,12 +185,12 @@ emacspeak-silence-hook."
 
 (add-hook 'emacspeak-silence-hook 'emacspeak-emms-pause-or-resume)
 
-;;}}}
+ 
 (provide 'emacspeak-emms)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

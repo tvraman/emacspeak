@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable COMPANY An Emacs Interface to company
 ;; Keywords: Emacspeak,  Audio Desktop company
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; COMPANY -mode: Complete Anything Support for emacs.
@@ -53,16 +53,16 @@
 ;; @code{emacspeak-company-frontend} handles providing spoken
 ;; feedback, and leaves it to other frontends on
 ;; @var{company-frontends}   to generate their own feedback.
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (declare-function company-fetch-metadata "company" nil)
 
-;;}}}
-;;{{{ map faces:
+ 
+;;;  map faces:
 (voice-setup-add-map
  '(
    (company-echo voice-bolden)
@@ -72,8 +72,8 @@
    (company-preview-search voice-brighten)
    (company-template-field voice-smoothen)))
 
-;;}}}
-;;{{{ Helpers:
+ 
+;;;  Helpers:
 (defun ems-company-current ()
   "Helper: Return current selection in company."
   (cl-declare (special  company-selection company-candidates))
@@ -88,8 +88,8 @@
      (dtk-speak-and-echo
       (concat (ems-company-current) " " metadata)))))
 
-;;}}}
-;;{{{ Emacspeak Front-End For Company:
+ 
+;;;  Emacspeak Front-End For Company:
 
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
@@ -99,8 +99,8 @@
                   (emacspeak-company-speak-this))
     (hide nil)))
 
-;;}}}
-;;{{{ Advice Interactive Commands:
+ 
+;;;  Advice Interactive Commands:
 
 (defadvice company-complete-selection (before emacspeak pre act comp)
   "Speak the selection."
@@ -120,8 +120,8 @@
                                         ;(emacspeak-auditory-icon 'help)
     (with-current-buffer doc-buffer (dtk-speak (buffer-string)))))
 
-;;}}}
-;;{{{ Company Setup For Emacspeak:
+ 
+;;;  Company Setup For Emacspeak:
 
 (defun emacspeak-company-setup ()
   "Set front-end to our  front-end action."
@@ -135,13 +135,13 @@
    'company-completion-finished-hook
    #'(lambda (&rest _ignore) (emacspeak-play-auditory-icon 'close-object))))
 
-;;}}}
+ 
 (eval-after-load "company" #'emacspeak-company-setup)
 (provide 'emacspeak-company)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Light-weight  BBC 
 ;; Keywords: Emacspeak,  Audio Desktop bbc
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,26 +37,26 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; BBC developer API (backstage) is now history.
 ;; that implementation is in obsolete/emacspeak-bbc-backstage.el
 ;; This module contains a light-weight client.
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-forms)
 
-;;}}}
-;;{{{ Stream using get_iplayer:
+ 
+;;;  Stream using get_iplayer:
 
 (defvar emacspeak-bbc-iplayer-handle
   (expand-file-name  "iplayer-stream.mp3" temporary-file-directory)
@@ -98,8 +98,8 @@
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
-;;}}}
-;;{{{get_iplayer catalog 
+ 
+;;; get_iplayer catalog 
 
 ;; Run get_iplayer regularly to refresh ~/.get_iplayer/radio.cache.
 ;; This command then helps you view that listing using emacs
@@ -112,12 +112,12 @@
    #'emacspeak-forms-find-file
    (expand-file-name "forms/get-iplayer.el" emacspeak-etc-directory)))
 
-;;}}}
+ 
 (provide 'emacspeak-bbc)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

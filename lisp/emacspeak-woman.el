@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable WOMAN An Emacs Interface to Man pages
 ;; Keywords: Emacspeak,  Audio Desktop woman, Man Pages
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,18 +36,18 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; WOMAN ==  Man pages implemented in Emacs Lisp
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -55,8 +55,8 @@
 (require 'dired)
 (require 'woman nil 'no-error)
 
-;;}}}
-;;{{{ Map faces to voices
+ 
+;;;  Map faces to voices
 
 (voice-setup-add-map
  '(
@@ -66,8 +66,8 @@
    (woman-bold voice-bolden)
    (woman-italic voice-animate)))
 
-;;}}}
-;;{{{ Advice interactive functions
+ 
+;;;  Advice interactive functions
 
 (defadvice WoMan-next-manpage(after emacspeak pre act comp)
   "speak."
@@ -81,12 +81,12 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
+ 
 (provide 'emacspeak-woman)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable desktop calculator
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,15 +36,15 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -52,15 +52,15 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  helpers 
+ 
+;;;   helpers 
 
 (defun emacspeak-calculator-summarize ()
   "Summarize state of the calculator"
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{  advice interactive commands 
+ 
+;;;   advice interactive commands 
 (defadvice calculator (around emacspeak pre act comp)
   "Fix while waiting for a bug-fix in Emacs."
   (cond
@@ -222,20 +222,20 @@
   "Speak the updated  display. "
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{  keys 
+ 
+;;;   keys 
 (cl-declaim (special calculator-mode-map))
 (when (boundp 'calculator-mode-map)
   (define-key calculator-mode-map "k" 'calculator-copy)
   (define-key calculator-mode-map "p" 'calculator-paste)
   (define-key calculator-mode-map "\d" 'calculator-backspace)
   )
-;;}}}
+ 
 (provide 'emacspeak-calculator)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

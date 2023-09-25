@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to mail spool tracker
 ;; Keywords: Emacspeak, Speak, Spoken Output, mspools
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction
+ 
+;;;   Introduction
 ;;; Commentary:
 ;; Speech-enable  mspools --a package that lets you monitor
 ;; multiple maildrops
 ;;; Code:
-;;}}}
-;;{{{ advice
+ 
+;;;  advice
 
 (defadvice mspools-show (after emacspeak pre act comp)
   "speak"
@@ -68,8 +68,8 @@
   "speak"
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
-;;}}}
-;;{{{Smarter Spool-Size:
+ 
+;;; Smarter Spool-Size:
 ;; Smarter sppol-size compute functions.
 ;; These show the number of messages in a spool.
 
@@ -83,20 +83,20 @@
                (expand-file-name  spool mspools-folder-directory))))
     (unless (zerop size) (cons spool size))))
 
-;;}}}
-;;{{{ keymaps
+ 
+;;;  keymaps
 (cl-declaim (special mspools-mode-map))
 (cl-eval-when (load)
   (require 'emacspeak-keymap)
   )
 
-;;}}}
+ 
 (provide 'emacspeak-mspools)
 
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

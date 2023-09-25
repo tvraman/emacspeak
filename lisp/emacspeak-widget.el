@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extensions to widgets
 ;; Keywords:emacspeak, audio interface to emacs customized widgets
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
 ;; All Rights Reserved. 
@@ -36,17 +36,17 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction
+;;;   Introduction
 
 ;;; Commentary:
 
 ;; This module implements the necessary extensions to provide talking
 ;; widgets.
 
-;;}}}
-;;{{{ required modules 
+ 
+;;;  required modules 
 
 ;;; Code:
 
@@ -56,8 +56,8 @@
 (require 'voice-setup)
 (require 'wid-edit)
 
-;;}}}
-;;{{{  Customize global behavior
+ 
+;;;   Customize global behavior
 
 (voice-setup-add-map
  '(
@@ -72,8 +72,8 @@
 (cl-declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
 
-;;}}}
-;;{{{  helpers 
+ 
+;;;   helpers 
 
 (defun emacspeak-widget-label (w)
   "Construct a label for a widget.
@@ -107,8 +107,8 @@ Returns a string with appropriate personality."
                          'personality voice-animate help)
       help)))
 
-;;}}}
-;;{{{  define summarizer
+ 
+;;;   define summarizer
 
 (defun emacspeak-widget-help ()
   "Speak help for widget under point."
@@ -148,12 +148,12 @@ Returns a string with appropriate personality."
        (dtk-speak  (funcall emacspeak-help widget)))
       (t (dtk-speak (current-message)))))))
 
-;;}}}
-;;{{{ advice activators 
+ 
+;;;  advice activators 
 
-;;{{{  widget specific summarizers  --as per Per's suggestion
+;;;   widget specific summarizers  --as per Per's suggestion
 
-;;{{{  default
+;;;   default
 ;;;###autoload
 (defun emacspeak-widget-default-summarize (widget)
   "Fall back summarizer for all widgets"
@@ -175,8 +175,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'default 'widget-type)
             :emacspeak-help 'emacspeak-widget-default-summarize)
 
-;;}}}
-;;{{{ editable field
+ 
+;;;  editable field
 
 (defun emacspeak-widget-help-editable-field (widget)
   "Summarize an editable field"
@@ -192,8 +192,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'editable-field 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-field)
 
-;;}}}
-;;{{{ item 
+ 
+;;;  item 
 
 (defun emacspeak-widget-help-item (widget)
   "Summarize an   item"
@@ -207,8 +207,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-item)
 
-;;}}}
-;;{{{ visibility 
+ 
+;;;  visibility 
 
 (defun emacspeak-widget-help-visibility (widget)
   "Summarize visibility widget"
@@ -226,8 +226,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'visibility 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-visibility)
 
-;;}}}
-;;{{{  push button 
+ 
+;;;   push button 
 
 (defun emacspeak-widget-help-push-button (widget)
   "Summarize a push button."
@@ -245,8 +245,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'push-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-push-button)
 
-;;}}}
-;;{{{  link 
+ 
+;;;   link 
 
 (defun emacspeak-widget-help-link (widget)
   "Summarize a link"
@@ -257,8 +257,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-link)
 
-;;}}}
-;;{{{  info-link 
+ 
+;;;   info-link 
 
 (defun emacspeak-widget-help-info-link (widget)
   "Summarize an info  link"
@@ -269,8 +269,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'info-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-info-link)
 
-;;}}}
-;;{{{  url-link 
+ 
+;;;   url-link 
 
 (defun emacspeak-widget-help-url-link (widget)
   "Summarize a WWW    link"
@@ -283,8 +283,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'url-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-url-link)
 
-;;}}}
-;;{{{  variable-link 
+ 
+;;;   variable-link 
 
 (defun emacspeak-widget-help-variable-link (widget)
   "Summarize a     link to a variable."
@@ -295,8 +295,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'variable-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-variable-link)
 
-;;}}}
-;;{{{  function-link 
+ 
+;;;   function-link 
 
 (defun emacspeak-widget-help-function-link (widget)
   "Summarize a     link to a function."
@@ -306,8 +306,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'function-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-function-link)
 
-;;}}}
-;;{{{  file-link 
+ 
+;;;   file-link 
 
 (defun emacspeak-widget-help-file-link (widget)
   "Summarize a     link to a file."
@@ -320,8 +320,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'file-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-file-link)
 
-;;}}}
-;;{{{  emacs-library-link 
+ 
+;;;   emacs-library-link 
 
 (defun emacspeak-widget-help-emacs-library-link (widget)
   "Summarize a     link to an Emacs Library.."
@@ -334,8 +334,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'emacs-library-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-emacs-library-link)
 
-;;}}}
-;;{{{  emacs-commentary-link 
+ 
+;;;   emacs-commentary-link 
 
 (defun emacspeak-widget-help-emacs-commentary-link (widget)
   "Summarize a     link to a emacs commentary section.."
@@ -348,8 +348,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'emacs-commentary-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-emacs-commentary-link)
 
-;;}}}
-;;{{{  menu choice 
+ 
+;;;   menu choice 
 
 (defun emacspeak-widget-help-menu-choice  (widget)
   "Summarize a pull down list"
@@ -365,8 +365,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'menu-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-menu-choice)
 
-;;}}}
-;;{{{  toggle   
+ 
+;;;   toggle   
 
 (defun emacspeak-widget-help-toggle (widget)
   "Summarize a toggle."
@@ -383,8 +383,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'toggle 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-toggle)
 
-;;}}}
-;;{{{  checklist
+ 
+;;;   checklist
 
 (defun emacspeak-widget-help-checklist  (widget)
   "Summarize a check list"
@@ -404,8 +404,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'checklist 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checklist)
 
-;;}}}
-;;{{{ choice-item
+ 
+;;;  choice-item
 
 (defun emacspeak-widget-help-choice-item (widget)
   "Summarize a choice item"
@@ -422,8 +422,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'choice-item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-choice-item)
 
-;;}}}
-;;{{{ checkbox
+ 
+;;;  checkbox
 
 (defun emacspeak-widget-help-checkbox (widget)
   "Summarize a checkbox"
@@ -440,8 +440,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'checkbox 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checkbox)
 
-;;}}}
-;;{{{ radio-button
+ 
+;;;  radio-button
 
 (defun emacspeak-widget-help-radio-button (widget)
   "Summarize a radio button"
@@ -459,8 +459,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'radio-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-radio-button)
 
-;;}}}
-;;{{{ radio-button-choice
+ 
+;;;  radio-button-choice
 
 (defun emacspeak-widget-help-radio-button-choice  (widget)
   "Summarize a radio group "
@@ -483,8 +483,8 @@ Returns a string with appropriate personality."
 (widget-put (get 'radio-button-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-radio-button-choice)
 
-;;}}}
-;;{{{ editable-list
+ 
+;;;  editable-list
 
 (defun emacspeak-widget-help-editable-list (widget)
   "Summarize a editable list"
@@ -502,10 +502,10 @@ Returns a string with appropriate personality."
 (widget-put (get 'editable-list 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-list)
 
-;;}}}
+ 
 
-;;}}}
-;;{{{  Widget motion
+ 
+;;;   Widget motion
 
 ;; avoid redundant message speech output
 (defadvice widget-echo-help (around emacspeak pre act comp)
@@ -559,8 +559,8 @@ Returns a string with appropriate personality."
     (emacspeak-speak-current-kill 0)
     (dtk-tone-deletion)))
 
-;;}}}
-;;{{{  activating widgets:
+ 
+;;;   activating widgets:
 ;; forward declaration:
 
 (defadvice widget-button-press (around emacspeak pre act comp)
@@ -588,8 +588,8 @@ Returns a string with appropriate personality."
      (t ad-do-it))
     ad-return-value))
 
-;;}}}
-;;{{{  Interactively summarize a widget and its parents.
+ 
+;;;   Interactively summarize a widget and its parents.
 
 (defun emacspeak-widget-summarize-widget-under-point (&optional level)
   "Summarize a widget if any under point.
@@ -629,8 +629,8 @@ widget before summarizing."
        (t (read-key-sequence "Press any key to continue")))
       (emacspeak-widget-summarize-widget-under-point level))))
 
-;;}}}
-;;{{{ work around widget problems
+ 
+;;;  work around widget problems
 
 (defadvice widget-convert-text (around emacspeak pre act comp)
   "Protect value of personality if set originally"
@@ -644,8 +644,8 @@ widget before summarizing."
          (put-text-property start end 
                             'personality orig))))
 
-;;}}}
-;;{{{ update widget related keymaps so we dont loose the
+ 
+;;;  update widget related keymaps so we dont loose the
 ;;emacspeak prefix 
 
 (defadvice widget-setup (after emacspeak pre act comp)
@@ -665,8 +665,8 @@ widget before summarizing."
      (define-key map "\M-p" 'emacspeak-widget-summarize-parent)
      (define-key map "\M-\C-m" 'emacspeak-widget-update-from-minibuffer))))
 
-;;}}}
-;;{{{ augment widgets 
+ 
+;;;  augment widgets 
 
 (defun emacspeak-widget-update-from-minibuffer (pos)
   "Sets widget at `pos' by invoking its prompter."
@@ -686,10 +686,10 @@ widget before summarizing."
                      widget-field-keymap
                      widget-text-keymap))
 
-;;}}}
+ 
 
-;;}}}
-;;{{{ voice widgets 
+ 
+;;;  voice widgets 
 
 (define-widget 'voice  'menu-choice
   "Widget for selecting a voice.")
@@ -714,12 +714,12 @@ widget before summarizing."
                          (list 'personality :value key)))
     w))
 
-;;}}}
+ 
 (provide  'emacspeak-widget)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

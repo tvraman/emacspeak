@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak extensions for posting
 ;; Keywords:emacspeak, audio interface to emacs posting messages
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
 ;; All Rights Reserved. 
@@ -36,19 +36,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction
+;;;   Introduction
 ;;; Commentary:
 ;; advice for posting message commands
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ customize
+ 
+;;;  customize
 (defgroup emacspeak-message nil
   "Emacspeak customizations for message mode"
   :group 'emacspeak
@@ -63,8 +63,8 @@
           (const  :tag "all" all))
   :group 'emacspeak-message)
 
-;;}}}
-;;{{{ voice mapping
+ 
+;;;  voice mapping
 
 (voice-setup-add-map
  '(
@@ -79,8 +79,8 @@
    (message-mml voice-brighten)
    (message-separator voice-bolden-extra)))
 
-;;}}}
-;;{{{  advice interactive commands
+ 
+;;;   advice interactive commands
 (cl-loop
  for f in
  '(message-send message-send-and-exit)
@@ -231,12 +231,12 @@
             (message "Starting message %s ... done"
                      (buffer-name))))
 
-;;}}}
+ 
 (provide  'emacspeak-message)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

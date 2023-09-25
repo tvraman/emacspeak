@@ -2,7 +2,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable TABULATED-LIST 
 ;;; Keywords: Emacspeak,  Audio Desktop tabulated-list
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,8 +11,8 @@
 ;;; Location undetermined
 ;;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;;; TABULATED-LIST ==  tabulated list mode
@@ -47,22 +47,22 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map 
  '(
    (tabulated-list-fake-header voice-bolden)))
 
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 ;;;###autoload
 (defun emacspeak-tabulated-list-speak-cell ()
   "Speak current cell.
@@ -122,12 +122,12 @@ Optional interactive prefix arg speaks column header as well."
    (emacspeak-keymap-update tabulated-list-mode-map b)))
 
 (emacspeak-tabulated-list-setup)
-;;}}}
+ 
 (provide 'emacspeak-tabulated-list)
-;;{{{ end of file
+;;;  end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; end:
 
-;;}}}
+ 

@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv, zorkov  $
 ;; Description:  Speak MathML and LaTeX math expressions
 ;; Keywords: Emacspeak,  Audio Desktop maths
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; @subsection Setup 
@@ -89,8 +89,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'cl-lib))
@@ -98,8 +98,8 @@
 (eval-when-compile (require 'derived))
 (require 'nvm "nvm" 'no-error)
 
-;;}}}
-;;{{{ Customizations And Variables:
+ 
+;;;  Customizations And Variables:
 
 (defvar emacspeak-maths-inferior-program
   (cond
@@ -130,8 +130,8 @@ install.")
 (defvar emacspeak-maths nil
   "Structure holding all runtime context.")
 
-;;}}}
-;;{{{ Parser Setup:
+ 
+;;;  Parser Setup:
 
 (defvar emacspeak-maths-handler-table (make-hash-table :test #'eq)
   "Map of handlers for parsing Maths Server output.")
@@ -147,8 +147,8 @@ Throw error if no handler defined."
   (or (gethash name emacspeak-maths-handler-table)
       (error "No handler defined for %s" name)))
 
-;;}}}
-;;{{{ Handlers:
+ 
+;;;  Handlers:
 
 ;; All handlers are called with the body of the unit being parsed.
 ;; Handlers process input and render to output buffer
@@ -266,8 +266,8 @@ Expected: ((acss) string)."
   "Handle welcome message."
   (message "%s" contents))
 
-;;}}}
-;;{{{ Map Handlers:
+ 
+;;;  Map Handlers:
 
 (cl-loop
  for f in
@@ -277,8 +277,8 @@ Expected: ((acss) string)."
   f
   (intern (format "emacspeak-maths-handle-%s"  (symbol-name f)))))
 
-;;}}}
-;;{{{ Process Filter:
+ 
+;;;  Process Filter:
 
 (defun emacspeak-maths-read-output ()
   "Parse and return one complete chunk of output. Throws an error on an
@@ -318,8 +318,8 @@ left for next run."
             (error nil))))
       (if moving (goto-char (process-mark proc))))))
 
-;;}}}
-;;{{{ Setup:
+ 
+;;;  Setup:
 
 (defvar emacspeak-maths-server-program
   (expand-file-name "../js/node/math-server.js" emacspeak-lisp-directory)
@@ -393,8 +393,8 @@ left for next run."
   (emacspeak-maths-start)
   (message "Restarting Maths server and client."))
 
-;;}}}
-;;{{{ Navigators:
+ 
+;;;  Navigators:
 
 (declare-function calc-kill "calc-yank" (flag no-delete))
 ;; Guess expression from Calc:
@@ -528,8 +528,8 @@ Set calc-language to tex to use this feature."
       (emacspeak-maths-client-process emacspeak-maths)
       ,(format "%s:\n" move)))))
 
-;;}}}
-;;{{{ Output: spoken-math mode:
+ 
+;;;  Output: spoken-math mode:
 
 (define-derived-mode emacspeak-maths-spoken-mode special-mode
   "Spoken Math On The Complete Audio Desktop"
@@ -573,8 +573,8 @@ Emacs online help facility to look up help on these commands.
   (funcall-interactively
    #'pop-to-buffer (emacspeak-maths-output emacspeak-maths)))
 
-;;}}}
-;;{{{ Helpers:
+ 
+;;;  Helpers:
 
 (defun emacspeak-maths-speak-alt ()
   "Speak alt text as Maths.
@@ -585,8 +585,8 @@ For use on Wikipedia pages  for example."
     (unless (string-equal alt-text "No image under point")
       (funcall-interactively #'emacspeak-maths-enter alt-text))))
 
-;;}}}
-;;{{{ Advice Preview:
+ 
+;;;  Advice Preview:
 
 (defadvice preview-at-point (after emacspeak pre act comp)
   "Also preview using speech."
@@ -600,12 +600,12 @@ For use on Wikipedia pages  for example."
       (when (cl-some   #'identity preview-state)
         (emacspeak-maths-enter (emacspeak-maths-guess-tex))))))
 
-;;}}}
+ 
 (provide 'emacspeak-maths)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

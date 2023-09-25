@@ -3,7 +3,7 @@
 ;; $Author: raman $
 ;; Description:  Speech-enable JS2 An Emacs Interface to js2
 ;; Keywords: Emacspeak,  Audio Desktop js2
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,25 +36,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; JS2-mode http://js2-mode.googlecode.com/svn/trunk
 ;; is a new, powerful Emacs mode for working with JavaScript.
 ;; This module speech-enables js2.
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  map faces to voices:
+ 
+;;;   map faces to voices:
 
 (voice-setup-add-map
  '(
@@ -76,8 +76,8 @@
    (js2-warning voice-bolden-and-animate)
    ))
 
-;;}}}
-;;{{{ Advice new interactive commands:
+ 
+;;;  Advice new interactive commands:
 (defadvice js2-jump-to-definition (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -174,8 +174,8 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ js2-mode hook
+ 
+;;;  js2-mode hook
 
 (defun emacspeak-js2-hook ()
   "Hook to setup emacspeak."
@@ -188,12 +188,12 @@
 
 (add-hook 'js2-mode-hook 'emacspeak-js2-hook)
 
-;;}}}
+ 
 (provide 'emacspeak-js2)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

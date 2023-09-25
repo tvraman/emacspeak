@@ -4,7 +4,7 @@
 ;; Description:  Emacspeak module for speech-enabling
 ;; metapost mode
 ;; Keywords: Emacspeak, metapost
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -14,8 +14,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -37,15 +37,15 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 ;; Speech-enables metapost mode.
@@ -53,8 +53,8 @@
 ;; typically installed as mpost by modern TeX
 ;; installations.
 
-;;}}}
-;;{{{  completion 
+ 
+;;;   completion 
 
 (defadvice meta-complete-symbol (around emacspeak pre act comp)
   "Say what you completed."
@@ -68,8 +68,8 @@
                              (dtk-speak (buffer-substring prior (point)))))
     ad-return-value))
 
-;;}}}
-;;{{{ indentation
+ 
+;;;  indentation
 
 (defadvice meta-indent-line (after emacspeak pre act comp)
   "speak."
@@ -82,8 +82,8 @@
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
 
-;;}}}
-;;{{{  navigation 
+ 
+;;;   navigation 
 (defadvice  meta-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
@@ -96,8 +96,8 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  commenting etc
+ 
+;;;   commenting etc
 
 (defadvice meta-comment-region (after emacspeak pre act comp)
   "Speak."
@@ -160,12 +160,12 @@
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current defun. ")))
 
-;;}}}
+ 
 (provide 'emacspeak-metapost)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable bs
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,16 +36,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'bs)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -53,8 +53,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ helpers 
+ 
+;;;  helpers 
 
 (defun emacspeak-bs-speak-buffer-line ()
   "Speak information about this buffer"
@@ -113,8 +113,8 @@
      (t(emacspeak-auditory-icon 'warn-user)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ speech enable interactive commands 
+ 
+;;;  speech enable interactive commands 
 
 (defadvice bs-mode (after emacspeak pre act comp)
   "Speech-enable bs mode"
@@ -239,13 +239,13 @@
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-mode-line))))
 
-;;}}}
+ 
 
 (provide 'emacspeak-bs)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Module to set up Eloquent voices and personalities
 ;; Keywords: Voice, Personality, IBM ViaVoice Outloud
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,25 +36,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;;  Interface to outloud server.
 ;; This module is IBM ViaVoice Outloud specific.
 ;;; Code:
 
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)           ;For `ems--fastload'.
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-;;}}}
-;;{{{ Customizations:
+ 
+;;;  Customizations:
 
 (defcustom outloud-default-speech-rate 50
   "Default speech rate."
@@ -66,8 +66,8 @@
            (when (string-match "outloud" dtk-program)
              (setq-default dtk-speech-rate val))))
 
-;;}}}
-;;{{{ Top level TTS  switcher
+ 
+;;;  Top level TTS  switcher
 
 ;;;###autoload
 (defun outloud (&optional device)
@@ -78,8 +78,8 @@
   (funcall-interactively #'dtk-select-server "outloud" device)
   (dtk-initialize))
 
-;;}}}
-;;{{{  voice table
+ 
+;;;   voice table
 
 (defvar outloud-default-voice-string "`v1"
   "Default voice")
@@ -105,15 +105,15 @@
   (cl-declare (special outloud-voice-table))
   (gethash name outloud-voice-table))
 
-;;}}}
-;;{{{ voice definitions
+ 
+;;;  voice definitions
 
 (outloud-define-voice 'paul  " `v1 ")
 
-;;}}}
+ 
 ;;  mapping css parameters to tts codes
 ;;  --- see../servers /linux-outloud/lib/voice-params.org
-;;{{{  hash table for mapping families to their dimensions
+;;;   hash table for mapping families to their dimensions
 
 (defvar outloud-css-code-tables (make-hash-table)
   "Hash table holding vectors of outloud codes. ")
@@ -130,8 +130,8 @@
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key outloud-css-code-tables)))
 
-;;}}}
-;;{{{  average pitch
+ 
+;;;   average pitch
 
 ;; Average pitch for standard male voice is 65 --this is mapped to
 ;; a setting of 5.
@@ -141,7 +141,7 @@
 ;; We change parameter head-size in conjunction with average pitch to
 ;; produce a more natural change on the TTS engine.
 
-;;{{{  paul average pitch
+;;;   paul average pitch
 
 ;; median: pitch: 65  head-size 50
 (let ((table (make-vector 10 "")))
@@ -165,7 +165,7 @@
      (9 85 30)))
   (outloud-css-set-code-table 'paul 'average-pitch table))
 
-;;}}}
+ 
 
 (defun outloud-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for  VALUE and  FAMILY."
@@ -175,15 +175,15 @@
             value)
     ""))
 
-;;}}}
-;;{{{  pitch range
+ 
+;;;   pitch range
 
 ;;  Standard pitch range is 30 and is  mapped to
 ;; a setting of 5.
 ;; A value of 0 produces a flat monotone voice --maximum value of 100
 ;; produces a highly animated voice.
 
-;;{{{  paul pitch range
+;;;   paul pitch range
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -205,7 +205,7 @@
      (9  100)))
   (outloud-css-set-code-table 'paul 'pitch-range table))
 
-;;}}}
+ 
 
 (defun outloud-get-pitch-range-code (value family)
   "Get pitch-range code for  VALUE and FAMILY."
@@ -215,11 +215,11 @@
             value)
     ""))
 
-;;}}}
-;;{{{  stress
+ 
+;;;   stress
 
 ;; On the outloud we map stress to roughness
-;;{{{  paul stress
+;;;   paul stress
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -240,7 +240,7 @@
      (9  90 )))
   (outloud-css-set-code-table 'paul 'stress table))
 
-;;}}}
+ 
 (defun outloud-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -248,10 +248,10 @@
             value)
     ""))
 
-;;}}}
-;;{{{  richness
+ 
+;;;   richness
 
-;;{{{  paul richness
+;;;   paul richness
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -274,7 +274,7 @@
      (9 36 100)))
   (outloud-css-set-code-table 'paul 'richness table))
 
-;;}}}
+ 
 
 (defun outloud-get-richness-code (value family)
   (or family (setq family 'paul))
@@ -283,8 +283,8 @@
             value)
     ""))
 
-;;}}}
-;;{{{  outloud-define-voice-from-speech-style
+ 
+;;;   outloud-define-voice-from-speech-style
 
 (defun outloud-define-voice-from-speech-style (name style)
   "Define NAME  as  per   STYLE."
@@ -297,8 +297,8 @@
            (outloud-get-richness-code (acss-richness style) family))))
     (outloud-define-voice name command)))
 
-;;}}}
-;;{{{ Configurater
+ 
+;;;  Configurater
 
 ;;;###autoload
 (defun outloud-configure-tts ()
@@ -324,13 +324,13 @@
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9
      eight-bit-graphic)))
 
-;;}}}
+ 
 
 (provide 'outloud-voices)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

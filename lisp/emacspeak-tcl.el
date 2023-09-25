@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for tcl-mode
 ;; Keywords:emacspeak, audio interface to emacs tcl
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -36,19 +36,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction:
+;;;   Introduction:
 ;;; Commentary:
 ;; Provide additional advice to tcl-mode 
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ voice locking:
+ 
+;;;  voice locking:
 
 ;;  Snarfed from tcl.el /usr/local/lib/emacs/site-lisp/tcl.el
 
@@ -78,8 +78,8 @@ This exists because some people (eg, me) use \"defvar\" et al. ")
   "List of Tcl keywords.  Used only for highlighting.
 Default list includes some TclX keywords. ")
 
-;;}}}
-;;{{{  Advice electric insertion to talk:
+ 
+;;;   Advice electric insertion to talk:
 
 (defadvice tcl-electric-hash (after emacspeak pre act comp)
   "Speak what you inserted."
@@ -96,8 +96,8 @@ Default list includes some TclX keywords. ")
   (when (ems-interactive-p)
     (emacspeak-speak-this-char last-input-event)))
 
-;;}}}
-;;{{{  Actions in the tcl mode buffer:
+ 
+;;;   Actions in the tcl mode buffer:
 
 (defadvice switch-to-tcl (before emacspeak pre act comp)
   "Announce yourself."
@@ -127,8 +127,8 @@ Default list includes some TclX keywords. ")
     (emacspeak-auditory-icon 'help)
     (with-current-buffer "*Tcl help*"      (emacspeak-speak-buffer))))
 
-;;}}}
-;;{{{  Program structure:
+ 
+;;;   Program structure:
 
 (defadvice tcl-mark-defun (after emacspeak pre act comp)
   "speak"
@@ -156,13 +156,13 @@ Default list includes some TclX keywords. ")
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
-;;}}}
+ 
 
 (provide  'emacspeak-tcl)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

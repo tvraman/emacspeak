@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to speedbar
 ;; Keywords: Emacspeak, Speedbar
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction
+;;;   Introduction
 
 ;;; Commentary:
 
@@ -54,14 +54,14 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'speedbar "speedbar" 'no-error)
-;;}}}
-;;{{{ Helper:
+ 
+;;;  Helper:
 
 (defun emacspeak-speedbar-speak-line()
   "Speak a line in the speedbar display"
@@ -82,8 +82,8 @@
       (dtk-speak 
        (concat indent (ems--this-line))))))
 
-;;}}}
-;;{{{ Advice interactive commands:
+ 
+;;;  Advice interactive commands:
 
 (defadvice speedbar-close-frame (after emacspeak pre act comp)
   "Cue buffer that becomes active"
@@ -163,8 +163,8 @@ action"
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))
 
-;;}}}
-;;{{{ additional navigation
+ 
+;;;  additional navigation
 
 (defvar emacspeak-speedbar-disable-updates t
   "Non nil means speedbar does not automatically update.
@@ -216,8 +216,8 @@ An automatically updating speedbar consumes resources.")
                   (t 'large-movement))))
        (t (message "No target on this line"))))))
 
-;;}}}
-;;{{{  hooks
+ 
+;;;   hooks
 (cl-eval-when (load)
   )
 (defun emacspeak-speedbar-enter-hook ()
@@ -237,8 +237,8 @@ An automatically updating speedbar consumes resources.")
 (add-hook 'speedbar-mode-hook
           'emacspeak-speedbar-enter-hook)
 
-;;}}}
-;;{{{  voice locking 
+ 
+;;;   voice locking 
 ;; Map speedbar faces to voices
 ;;
 (defvar emacspeak-speedbar-button-personality  voice-bolden
@@ -289,15 +289,15 @@ An automatically updating speedbar consumes resources.")
       (save-match-data
         (beginning-of-line)))))
 
-;;}}}
-;;{{{ keys 
+ 
+;;;  keys 
 (cl-declaim (special emacspeak-keymap))
-;;}}}
+ 
 (provide 'emacspeak-speedbar)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

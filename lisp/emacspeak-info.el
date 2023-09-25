@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable Emacs Info Reader.
 ;; Keywords:emacspeak, audio interface to emacs
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,23 +35,23 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ Introduction:
+ 
+;;;  Introduction:
 
 ;;; Commentary:
 
 ;; This module speech-enables the Emacs Info Reader.
 ;;; Code:
 
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'info)
 
-;;}}}
-;;{{{  Voices
+ 
+;;;   Voices
 
 (voice-setup-add-map
  '(
@@ -69,8 +69,8 @@
    (info-menu-header voice-bolden)
    (info-xref-visited voice-animate-medium)))
 
-;;}}}
-;;{{{ advice
+ 
+;;;  advice
 
 (defcustom  emacspeak-info-select-node-speak-chunk 'screenfull
   "Specifies how much of the selected node gets spoken.
@@ -184,8 +184,8 @@ node-spec."
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
-;;}}}
-;;{{{ Info: Section navigation
+ 
+;;;  Info: Section navigation
 ;; Use property info-title-* to move across section titles.
 (defvar emacspeak-info--title-faces
   '(info-title-1 info-title-2 info-title-3 info-title-4 info-menu-header)
@@ -229,8 +229,8 @@ node-spec."
       (emacspeak-auditory-icon 'large-movement))
      (t (message "No previous section in   this node")))))
 
-;;}}}
-;;{{{ Speak header line if hidden
+ 
+;;;  Speak header line if hidden
 
 (defun emacspeak-info-speak-header ()
   "Speak info header line."
@@ -246,14 +246,14 @@ node-spec."
         (goto-char (point-min))
         (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{Hook:
+ 
+;;; Hook:
 (add-hook
  'Info-mode-hook
  'emacspeak-pronounce-toggle-use-of-dictionaries)
 
-;;}}}
-;;{{{ keymaps
+ 
+;;;  keymaps
 
 (cl-declaim (special Info-mode-map))
 (define-key Info-mode-map "T" 'emacspeak-info-speak-header)
@@ -261,12 +261,12 @@ node-spec."
 (define-key Info-mode-map "\M-n" 'emacspeak-info-next-section)
 (define-key Info-mode-map "\M-p" 'emacspeak-info-previous-section)
 
-;;}}}
+ 
 (provide  'emacspeak-info)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

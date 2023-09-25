@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to winring
 ;; Keywords: Emacspeak, Speak, Spoken Output, winring
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,15 +36,15 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction
+ 
+;;;   Introduction
 ;;; Commentary:
 ;; window configurations in emacs are very useful 
 ;; you can display the same file in different windows,
@@ -52,8 +52,8 @@
 ;; winring allows you to manage window configurations,
 ;; and this module speech-enables it.
 ;;; Code:
-;;}}}
-;;{{{ Advice commands
+ 
+;;;  Advice commands
 
 (defadvice winring-jump-to-configuration(after emacspeak pre
                                                act comp)
@@ -89,12 +89,12 @@
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
+ 
 (provide 'emacspeak-winring)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

@@ -4,7 +4,7 @@
 ;; Description:  Emacspeak extension to speech enable
 ;; texinfo mode
 ;; Keywords: Emacspeak, texinfo
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -14,8 +14,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -37,14 +37,14 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules 
+;;;   Required modules 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -52,8 +52,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ voice locking
+ 
+;;;  voice locking
 
 (defun emacspeak-texinfo-mode-hook ()
   "Setup Emacspeak extensions"
@@ -66,8 +66,8 @@
 
 (add-hook 'texinfo-mode-hook 'emacspeak-texinfo-mode-hook)
 
-;;}}}
-;;{{{ advice
+ 
+;;;  advice
 
 (defadvice texinfo-insert-@end (after emacspeak pre act
                                       comp)
@@ -97,12 +97,12 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-;;}}}
+ 
 (provide 'emacspeak-texinfo)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

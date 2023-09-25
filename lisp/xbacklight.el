@@ -1,7 +1,7 @@
 ;;; xbacklight.el --- Brightness   -*- lexical-binding: t; -*-
 ;;
 ;; Emacs front-end to XBacklight
-;;{{{  Copyright:
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -23,8 +23,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ introduction
+ 
+;;;  introduction
 
 ;;; Commentary:
 ;; Provide an emacs front-end to xbacklight.
@@ -36,21 +36,21 @@
 ;; M-x package-install hydra
 
 ;;; Code:
-;;}}}
-;;{{{ required packages
+ 
+;;;  required packages
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-;;}}}
-;;{{{  Variables:
+ 
+;;;   Variables:
 
 (defvar xbacklight-cmd
   (executable-find "xbacklight")
   "xbacklight executable.")
 
-;;}}}
-;;{{{ Commands:
+ 
+;;;  Commands:
 
 ;;;###autoload
 (defun xbacklight-get ()
@@ -100,12 +100,12 @@
   (interactive)
   (xbacklight-set "100"))
 
-;;}}}
+ 
 (provide 'xbacklight)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

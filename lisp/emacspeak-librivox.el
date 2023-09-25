@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable LIBRIVOX --- Free public-domain Audio Books
 ;; Keywords: Emacspeak,  Audio Desktop librivox
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; LIBRIVOX == @url{http://www.librivox.org} --- Free Audio Books.
@@ -65,8 +65,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -75,15 +75,15 @@
 (require 'g-utils)
 (declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
-;;}}}
-;;{{{ Variables:
+ 
+;;;  Variables:
 
 (defvar emacspeak-librivox-buffer-name
   "Librivox Interaction*"
   "Name of Librivox interaction buffer.")
 
-;;}}}
-;;{{{ API:
+ 
+;;;  API:
 
 (defvar emacspeak-librivox-api-base
   "https://librivox.org/api/feed/"
@@ -133,8 +133,8 @@
   (cl-declare (special emacspeak-librivox-api-base))
   (concat emacspeak-librivox-api-base "authors"))
 
-;;}}}
-;;{{{ Search Commands:
+ 
+;;;  Search Commands:
 
 (defun emacspeak-librivox-display-author (author)
   "Display single author."
@@ -316,8 +316,8 @@ more results."
            (url-hexify-string title))
    offset))
 
-;;}}}
-;;{{{ Top-Level Dispatch:
+ 
+;;;  Top-Level Dispatch:
 
 ;;;###autoload
 (defun emacspeak-librivox (search-type)
@@ -332,8 +332,8 @@ more results."
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
     (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
-;;}}}
-;;{{{ Cache Playlists:
+ 
+;;;  Cache Playlists:
 (defcustom emacspeak-librivox-local-cache
   (expand-file-name "librivox" emacspeak-user-directory)
   "Location where we cache LIBRIVOX playlists."
@@ -363,8 +363,8 @@ more results."
        (format "%s.m3u" (or title "Untitled"))
        emacspeak-librivox-local-cache))))
 
-;;}}}
-;;{{{ Play Librivox Streams:
+ 
+;;;  Play Librivox Streams:
 
 (defun emacspeak-librivox-play (rss-url)
   "Play book stream"
@@ -385,12 +385,12 @@ more results."
              file m3u-file))
     (emacspeak-m-player m3u-file 'playlist)))
 
-;;}}}
+ 
 (provide 'emacspeak-librivox)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

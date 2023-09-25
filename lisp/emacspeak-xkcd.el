@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable XKCD An Emacs Interface to xkcd
 ;; Keywords: Emacspeak,  Audio Desktop xkcd
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; XKCD ==  XKCD In Emacs
@@ -47,16 +47,16 @@
 ;; Speech enables package xkcd
 ;; Augments it by displaying the alt text and the transcript.
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'json)
 (require 'xkcd "xkcd" 'no-error)
-;;}}}
-;;{{{ Fix error when loading images on the console:
+ 
+;;;  Fix error when loading images on the console:
 
 (defadvice xkcd-insert-image (around emacspeak pre act comp)
   "no-Op on console"
@@ -64,7 +64,7 @@
    ((not window-system) t)
    (t ad-do-it)))
 
-;;}}}
+ 
 
 (defadvice xkcd-kill-buffer (after emacspeak pre act comp)
   "speak."
@@ -99,14 +99,14 @@
     (goto-char (point-min))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
-;;{{{ Advice browse-url-default-browser:
+;;;  Advice browse-url-default-browser:
 
 (defadvice browse-url-default-browser (around emacspeak pre act comp)
   "Use Emacs browser --- rather than an external browser."
   (when nil ad-do-it) ; to silence byte-compiler 
   (eww-browse-url (ad-get-arg 0)))
 
-;;}}}
+ 
 (defun emacspeak-xkcd-open-explanation-browser ()
   "Open explanation of current xkcd in default browser"
   (interactive)
@@ -116,10 +116,10 @@
 (when (boundp 'xkcd-mode-map)
   (define-key xkcd-mode-map "e" 'emacspeak-xkcd-open-explanation-browser))
 (provide 'emacspeak-xkcd)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

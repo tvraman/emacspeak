@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SAGE An Emacs Interface to sage
 ;; Keywords: Emacspeak,  Audio Desktop sage
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; Speech-enable @code{sage-shell-mode}.
@@ -49,23 +49,23 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Forward Decls:
+ 
+;;;  Forward Decls:
 (declare-function sage-shell:delete-output "sage-shell-mode" nil)
 (declare-function sage-shell:-send-input-one-line "sage-shell-mode" (line))
 (declare-function  sage-shell-help:describe-symbol "emacspeak-sage" t)
 (declare-function sage-shell-edit:process-alist "sage-shell-mode" nil)
 (declare-function sage-shell:last-output-beg-end "sage-shell-mode" nil)
 
-;;}}}
-;;{{{ Helpers:
+ 
+;;;  Helpers:
 
 (defun emacspeak-sage-get-output ()
   "Return most recent Sage output"
@@ -108,8 +108,8 @@
       (sage-shell:delete-output)
       result)))
 
-;;}}}
-;;{{{ Advice Help:
+ 
+;;;  Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
   "speak."
   (with-current-buffer (window-buffer (selected-window))
@@ -131,8 +131,8 @@
 
 (emacspeak-auditory-icon 'help)
 
-;;}}}
-;;{{{ Advice sage-edit:
+ 
+;;;  Advice sage-edit:
 
 (cl-loop
  for f in
@@ -171,8 +171,8 @@
      (sit-for 0.1)
      (emacspeak-sage-speak-output))))
 
-;;}}}
-;;{{{ sage-mode navigation:
+ 
+;;;  sage-mode navigation:
 
 (cl-loop
  for f in
@@ -185,8 +185,8 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ sage comint interaction:
+ 
+;;;  sage comint interaction:
 (defadvice sage-shell:list-outputs (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -239,8 +239,8 @@
     (emacspeak-sage-speak-output)
     (emacspeak-auditory-icon 'close-object)))
 
-;;}}}
-;;{{{ sage sagetext:
+ 
+;;;  sage sagetext:
 
 (cl-loop
  for f in
@@ -260,8 +260,8 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
-;;}}}
-;;{{{ Additional Interactive Commands:
+ 
+;;;  Additional Interactive Commands:
 
 (defun emacspeak-sage-describe-symbol (s)
   "Describe Sage symbol at point."
@@ -277,8 +277,8 @@
       (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
     (sage-shell-help:describe-symbol s)))
 
-;;}}}
-;;{{{ Keybindings:
+ 
+;;;  Keybindings:
 (cl-declaim (special sage-shell:sage-mode-map))
 (when (and (bound-and-true-p sage-shell:sage-mode-map))
   (cl-loop
@@ -290,12 +290,12 @@
    do
    (emacspeak-keymap-update sage-shell:sage-mode-map b)))
 
-;;}}}
+ 
 (provide 'emacspeak-sage)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

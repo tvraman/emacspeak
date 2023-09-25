@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for KMACRO 
 ;; Keywords: Emacspeak, kmacro 
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,27 +36,27 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
-;;{{{  Introduction
+;;;   Introduction
 ;; speech-enables kmacro --- a kbd macro interface
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ bind keys 
+ 
+;;;  bind keys 
 
 (global-set-key [f13] 'kmacro-start-macro-or-insert-counter)
 (global-set-key [f14] 'kmacro-end-or-call-macro)
 
-;;}}}
-;;{{{ Advice interactive commands
+ 
+;;;  Advice interactive commands
 
 (defadvice kmacro-start-macro (before emacspeak pre act comp)
   "Provide auditory icon."
@@ -115,13 +115,13 @@
     ad-do-it
     ad-return-value))
 
-;;}}}
+ 
 (provide 'emacspeak-kmacro)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 
 

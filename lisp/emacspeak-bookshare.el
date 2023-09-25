@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable BOOKSHARE An Emacs Interface to bookshare
 ;; Keywords: Emacspeak,  Audio Desktop bookshare
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; BOOKSHARE == http://www.bookshare.org
@@ -82,8 +82,8 @@
 ;; @item Now, use all of EWW  @xref{emacspeak-eww} extensions  and profit!
 ;; @end itemize
 ;;; Code:
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -97,8 +97,8 @@
                                                         no-error-if-not-filep))
 (declare-function emacspeak-xslt-get "emacspeak-xslt" (arg1))
 (declare-function emacspeak-xslt-params-from-xpath "emacspeak-bookshare" t)
-;;}}}
-;;{{{ Customizations
+ 
+;;;  Customizations
 
 (defgroup emacspeak-bookshare nil
   "Bookshare Access on the Complete Audio Desktop."
@@ -133,15 +133,15 @@ See http://developer.bookshare.org/docs for details on how to get
 This is used by the various Bookshare view commands to display
   content from Bookshare books.")
 
-;;}}}
-;;{{{ Variables:
+ 
+;;;  Variables:
 
 (defvar emacspeak-bookshare-api-base
   "https://api.bookshare.org"
   "Base end-point for Bookshare API  access.")
 
-;;}}}
-;;{{{ Helpers:
+ 
+;;;  Helpers:
 
 (defun emacspeak-bookshare-dom-clean-text (dom tag)
   "Extract text from specified tag, and clean up entity references."
@@ -323,8 +323,8 @@ Optional argument `no-auth' says we dont need a user auth."
    (substring target  0 -4)
    "-" 'no-null))
 
-;;}}}
-;;{{{ Book Actions:
+ 
+;;;  Book Actions:
 
 (defvar emacspeak-bookshare-categories nil
   "Cached list of categories.")
@@ -469,8 +469,8 @@ Optional interactive prefix arg prompts for a category to use as a filter."
        "book/browse/popular"
        (format "category/%s" filter))))))
 
-;;}}}
-;;{{{ Periodical Actions:
+ 
+;;;  Periodical Actions:
 
 ;; Returns periodical list
 
@@ -480,8 +480,8 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (emacspeak-bookshare-api-call
    "periodical" "list"))
 
-;;}}}
-;;{{{ Downloading Content:
+ 
+;;;  Downloading Content:
 
 (defun emacspeak-bookshare-download-internal(url target)
   "Download content  to target location."
@@ -523,8 +523,8 @@ Optional interactive prefix arg prompts for a category to use as a filter."
    (emacspeak-bookshare-download-url id 0)
    target))
 
-;;}}}
-;;{{{ Actions Table:
+ 
+;;;  Actions Table:
 
 (defvar emacspeak-bookshare-action-table (make-hash-table :test #'equal)
   "Table mapping Bookshare actions to  handlers.")
@@ -600,8 +600,8 @@ b Browse
    (define-key emacspeak-bookshare-mode-map (kbd (cl-first a))
                'emacspeak-bookshare-action)))
 
-;;}}}
-;;{{{ Bookshare XML  handlers:
+ 
+;;;  Bookshare XML  handlers:
 
 (defvar emacspeak-bookshare-handler-table
   (make-hash-table :test #'eq)
@@ -820,10 +820,10 @@ b Browse
      (format "Available: %s"
              (mapconcat #'dom-text available " ")))))
 
-;;}}}
-;;{{{  Property Accessors:
+ 
+;;;   Property Accessors:
 
-;;{{{ Generate Declarations:
+;;;  Generate Declarations:
 (declare-function emacspeak-bookshare-get-author    "emacspeak-bookshare" nil)
 
 (declare-function emacspeak-bookshare-get-title    "emacspeak-bookshare" nil)
@@ -833,7 +833,7 @@ b Browse
 (declare-function emacspeak-bookshare-get-directory
                   "emacspeak-bookshare" nil)
 
-;; ;;}}}
+;;  
 (cl-loop for p in
          '(author title id metadata target directory)
          do
@@ -842,8 +842,8 @@ b Browse
              ,(format "Auto-generated function: Get %s at point. " p)
              (get-text-property (point) ',p))))
 
-;;}}}
-;;{{{ Bookshare Mode:
+ 
+;;;  Bookshare Mode:
 
 (defun emacspeak-bookshare-define-keys ()
   "Define keys for  Bookshare Interaction."
@@ -1346,8 +1346,8 @@ Useful for fulltext search in a book."
       (browse-url-of-buffer)
       (kill-buffer buffer))))
 
-;;}}}
-;;{{{ Navigation in  Bookshare Interaction
+ 
+;;;  Navigation in  Bookshare Interaction
 
 (defun emacspeak-bookshare-next-result ()
   "Move to next result."
@@ -1374,12 +1374,12 @@ Useful for fulltext search in a book."
       (goto-char (next-single-property-change (point-min) 'face))
       (flush-lines regexp (point) (point-max)))))
 
-;;}}}
+ 
 (provide 'emacspeak-bookshare)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

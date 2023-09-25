@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for ANALOG log analyzer
 ;; Keywords: Emacspeak, analog
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,30 +36,30 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;{{{  Introduction:
+;;;   Introduction:
 ;;; Commentary:
 
 ;; Speech-enables package analog --convenient log analyzer 
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{ autoloads to help compiler
+ 
+;;;  autoloads to help compiler
 
 (autoload 'analog-get-entry-property "analog")
 
-;;}}}
+ 
 
-;;{{{ advice interactive commands
+;;;  advice interactive commands
 (defadvice analog (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -93,14 +93,14 @@
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'select-object)))))
 
-;;}}}
-;;{{{ voice setup 
+ 
+;;;  voice setup 
 (voice-setup-add-map
  '(
    (analog-entry-header-face voice-bolden)
    ))
-;;}}}
-;;{{{ field navigation
+ 
+;;;  field navigation
 
 ;; You can add a fields property that holds a list of field start
 ;; positions 
@@ -229,8 +229,8 @@ Speak field or char moved to."
            (emacspeak-analog-speak-field fields))
           (t (call-interactively 'next-line)))))
 
-;;}}}
-;;{{{ key bindings
+ 
+;;;  key bindings
 (when (boundp 'analog-mode-map)
   (cl-declaim (special analog-mode-map))
   (define-key analog-mode-map '[left]
@@ -239,12 +239,12 @@ Speak field or char moved to."
   (define-key analog-mode-map '[up] 'emacspeak-analog-previous-line)
   (define-key analog-mode-map '[down] 'emacspeak-analog-next-line))
 
-;;}}}
+ 
 (provide 'emacspeak-analog)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable Muse
 ;; Keywords: Emacspeak,  Audio Desktop Muse
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,16 +36,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; Speech enable Muse
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 ;;; Code:
 
@@ -54,8 +54,8 @@
 (require 'browse-url)
 (require 'emacspeak-outline)
 
-;;}}}
-;;{{{ Voice definitions:
+ 
+;;;  Voice definitions:
 (voice-setup-add-map
  '(
    (muse-bad-link-face voice-bolden-and-animate)
@@ -71,8 +71,8 @@
    (muse-verbatim-face voice-monotone-extra)
    ))
 
-;;}}}
-;;{{{ advice interactive commands
+ 
+;;;  advice interactive commands
 (cl-loop for f in
          '(muse-follow-name-at-point
            muse-follow-name-at-point-other-window
@@ -86,12 +86,12 @@
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-speak-line)))))
 
-;;}}}
+ 
 (provide 'emacspeak-muse)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

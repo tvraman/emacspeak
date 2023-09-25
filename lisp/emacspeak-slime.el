@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable SLIME An Emacs Interface to slime
 ;; Keywords: Emacspeak,  Audio Desktop slime
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
  ;;; SLIME == Superior  Lisp Interaction Mode For Emacs
@@ -49,15 +49,15 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+ 
+;;;  Map Faces:
 
 (voice-setup-add-map
  '(
@@ -96,8 +96,8 @@
    (slime-repl-prompt-face voice-smoothen)
    (slime-repl-result-face voice-animate)))
 
-;;}}}
-;;{{{ Navigation And Repl:
+ 
+;;;  Navigation And Repl:
 (cl-loop
  for f in
  '(
@@ -261,8 +261,8 @@
        (emacspeak-auditory-icon 'help)
        (dtk-speak "Displayed help in other window.")))))
 
-;;}}}
-;;{{{ Writing Code:
+ 
+;;;  Writing Code:
 (cl-loop
  for f in
  '(slime-compile-and-load-file
@@ -278,11 +278,11 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
-;;}}}
-;;{{{ Lisp Interaction:
+ 
+;;;  Lisp Interaction:
 
-;;}}}
-;;{{{ Browsing Documentation:
+ 
+;;;  Browsing Documentation:
 
 (cl-loop
  for f in
@@ -300,8 +300,8 @@
          (emacspeak-speak-buffer)
          (emacspeak-auditory-icon 'help))))))
 
-;;}}}
-;;{{{ Inspector:
+ 
+;;;  Inspector:
 
 (defadvice slime-inspector-pop (after emacspeak pre act comp)
   "speak."
@@ -381,15 +381,15 @@
 
   slime-inspector-toggle-verbose)
 
-;;}}}
-;;{{{ Debugger:
+ 
+;;;  Debugger:
 
-;;}}}
+ 
 (provide 'emacspeak-slime)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

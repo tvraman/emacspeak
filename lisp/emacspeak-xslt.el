@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  xslt transformation routines
 ;; Keywords: Emacspeak,  Audio Desktop XSLT
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; libxml and libxsl are XML libraries for GNOME.
@@ -48,13 +48,13 @@
 ;; using xsltproc
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  xslt Environment:
+ 
+;;;   xslt Environment:
 (defsubst emacspeak-xslt-get (style)
   "Return  stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
@@ -106,8 +106,8 @@
   "If T null chars in the region will be nuked.
 This is useful when handling bad HTML.")
 
-;;}}}
-;;{{{Macro: without-xsl
+ 
+;;; Macro: without-xsl
 (defmacro emacspeak-xslt-without-xsl (&rest body)
   "Execute body with XSL turned off."
   (declare (indent 1) (debug t))
@@ -122,8 +122,8 @@ This is useful when handling bad HTML.")
                  'append))
      ,@body))
 
-;;}}}
-;;{{{XSLT Transformer functions:
+ 
+;;; XSLT Transformer functions:
 
 (defun emacspeak-xslt-make-xsl-transformer  (xsl &optional params)
   "Return a function that can be attached to
@@ -151,8 +151,8 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
           (point) (point-max)
           (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
 
-;;}}}
-;;{{{ Functions:
+ 
+;;;  Functions:
 
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params no-comment)
@@ -361,8 +361,8 @@ and return the results in a newly created buffer. "
       (set-buffer-multibyte t)
       result)))
 
-;;}}}
-;;{{{handle charent
+ 
+;;; handle charent
 (defvar emacspeak-xslt-charent-alist
   '(("&lt;" . "<")
     ("&gt;" . ">")
@@ -382,8 +382,8 @@ and return the results in a newly created buffer. "
              (while (search-forward entity end t)
                (replace-match replacement nil t)))))
 
-;;}}}
-;;{{{ interactive commands:
+ 
+;;;  interactive commands:
 
 ;;;###autoload
 (defun emacspeak-xslt-view-file(style file)
@@ -485,12 +485,12 @@ and return the results in a newly created buffer. "
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
-;;}}}
+ 
 (provide 'emacspeak-xslt)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable MINES An Emacs Interface to mines
 ;; Keywords: Emacspeak,  Audio Desktop mines
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; MINES == Minesweeper game in emacs. The game itself provides a
@@ -63,15 +63,15 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'mines "mines" 'no-error)
-;;}}}
-;;{{{ Interactive Commands:
+ 
+;;;  Interactive Commands:
 
 (defun emacspeak-mines-speak-cell ()
   "Speak current cell."
@@ -224,8 +224,8 @@ to beginning of board before searching."
     (mines-goto (+ (1- mines-number-cols)(* row mines-number-cols)))
     (emacspeak-mines-speak-cell)))
 
-;;}}}
-;;{{{ Advice Interactive Commands
+ 
+;;;  Advice Interactive Commands
 (defadvice mines (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -269,13 +269,13 @@ to beginning of board before searching."
   "Provide an auditory icon."
   (emacspeak-auditory-icon 'task-done))
 
-;;}}}
+ 
 
 (provide 'emacspeak-mines)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for forms-mode 
 ;; Keywords:emacspeak, audio interface to emacs forms 
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1996 by T. V. Raman 
 ;; All Rights Reserved. 
@@ -36,20 +36,20 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{ requires
+;;;  requires
 
 (require 'forms)(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 ;;; Commentary:
 ;; Provide additional advice to forms-mode 
 ;;; Code:
-;;}}}
-;;{{{ Helper functions
+ 
+;;;  Helper functions
 
 (defvar emacspeak-forms-current-record-summarizer
   'emacspeak-forms-speak-field
@@ -103,8 +103,8 @@ Assumes that point is at the front of a field value."
                        'personality emacspeak-forms-rw-voice value)
     (dtk-speak (concat name " " value))))
 
-;;}}}
-;;{{{ Advise interactive  commands
+ 
+;;;  Advise interactive  commands
 (cl-loop
  for f in 
  '(forms-search-forward forms-search-backward)
@@ -202,8 +202,8 @@ Assumes that point is at the front of a field value."
   (when  (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
-;;}}}
-;;{{{ smart filters
+ 
+;;;  smart filters
 
 (defun emacspeak-forms-flush-unwanted-records ()
   "Prompt for pattern and flush matching lines"
@@ -238,8 +238,8 @@ Assumes that point is at the front of a field value."
   (message "%s records after filtering"
            forms--total-records))
 
-;;}}}
-;;{{{ emacspeak forms find file
+ 
+;;;  emacspeak forms find file
 ;;;###autoload
 (defun emacspeak-forms-find-file (filename)
   "Visit a forms file"
@@ -249,8 +249,8 @@ Assumes that point is at the front of a field value."
                     (expand-file-name "forms/" emacspeak-etc-directory))))
   (forms-find-file filename))
 
-;;}}}
-;;{{{ bind smart filters
+ 
+;;;  bind smart filters
 (cl-declaim (special forms-mode-map forms-mode-ro-map
                      forms-mode-edit-map))
 (add-hook
@@ -267,12 +267,12 @@ Assumes that point is at the front of a field value."
      ;; move to first field
      (forms-next-field 1)))
 
-;;}}}
+ 
 (provide  'emacspeak-forms)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

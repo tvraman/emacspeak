@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable ELFEED A Feed Reader For Emacs
 ;; Keywords: Emacspeak,  Audio Desktop elfeed, Feed Reader
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,25 +36,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; ELFEED ==  Feed Reader for Emacs.
 ;; Install from elpa
 ;; M-x package-install  elfeed
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'elfeed "elfeed" 'no-match)
-;;}}}
-;;{{{ Map Faces to voices
+ 
+;;;  Map Faces to voices
 
 (voice-setup-add-map
  '(
@@ -64,8 +64,8 @@
    (elfeed-search-feed-face voice-animate)
    (elfeed-search-tag-face voice-lighten)))
 
-;;}}}
-;;{{{ Advice interactive commands:
+ 
+;;;  Advice interactive commands:
 
 (cl-loop
  for f in
@@ -118,8 +118,8 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)))
 
-;;}}}
-;;{{{ Helpers:
+ 
+;;;  Helpers:
 
 (defun emacspeak-elfeed-entry-at-point ()
   "Return entry at point."
@@ -145,8 +145,8 @@
       (emacspeak-auditory-icon 'item)
       (elfeed-tag e 'seen))))
 
-;;}}}
-;;{{{ Define additional interactive commands:
+ 
+;;;  Define additional interactive commands:
 
 (defun emacspeak-elfeed-next-entry ()
   "Move to next entry and speak it."
@@ -184,8 +184,8 @@
             (eww link))
      (t (message "No link under point.")))))
 
-;;}}}
-;;{{{ Silence warnings/errors
+ 
+;;;  Silence warnings/errors
 (cl-loop
  for f in
  '(elfeed-update-feed elfeed-handle-parse-error  elfeed-handle-http-error
@@ -196,8 +196,8 @@
      "Silence messages and errors."
      (ems-with-errors-silenced ad-do-it))))
 
-;;}}}
-;;{{{ Set things up
+ 
+;;;  Set things up
 
 (defadvice elfeed-search-mode (after emacspeak pre act comp)
   "Set up Emacspeak commands."
@@ -213,12 +213,12 @@
   (define-key elfeed-search-mode-map
               " "'emacspeak-elfeed-speak-entry-at-point))
 
-;;}}}
+ 
 (provide 'emacspeak-elfeed)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

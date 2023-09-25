@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak extension to speech-enable WDIRED
 ;; Keywords: Emacspeak, Multimedia
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,22 +36,22 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction
+;;;   Introduction
 
 ;;; Commentary:
 ;; Speech-enable wdired to permit in-place renaming of groups of files.
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Advice interactive commands.
+ 
+;;;  Advice interactive commands.
 
 (cl-loop for c in
          '(wdired-next-line wdired-previous-line)
@@ -108,13 +108,13 @@
     (tts-with-punctuations 'some
                            (dtk-speak "Entering writeable dir ed mode. "))))
 
-;;}}}
+ 
 
 (provide 'emacspeak-wdired)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

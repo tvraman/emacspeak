@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  debugging dtk 
 ;; Keywords: Emacspeak,  Audio Desktop dtk-debug-tools
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,25 +35,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; DTK-DEBUG-TOOLS ==  Debug tools for Emacspeak's TTS layer
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{dtk-debug-speak-buffer
+ 
+;;; dtk-debug-speak-buffer
 
 (defun dtk--debug-speak-buffer (text)
   "Return the buffer that dtk-speak would have created as its scratch buffer."
@@ -123,13 +123,13 @@
         (skip-syntax-forward " ")       ;skip leading whitespace
         tts-scratch-buffer))))
 
-;;}}}
+ 
 
 (provide 'emacspeak-dtk-debug-tools)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

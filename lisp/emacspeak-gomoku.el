@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to gomoku
 ;; Keywords: Emacspeak, Speak, Spoken Output, gomoku
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'gomoku)
-;;}}}
-;;{{{  Introduction 
+ 
+;;;   Introduction 
 ;;; Commentary:
 ;; Auditory interface to gomoku
 ;;; Code:
-;;}}}
-;;{{{ helper functions
+ 
+;;;  helper functions
 
 (defun gomoku-point-x ()
   (gomoku-index-to-x (gomoku-point-square)))
@@ -59,8 +59,8 @@
   (aref  gomoku-board
          (gomoku-xy-to-index column row)))
 
-;;}}}
-;;{{{ Communicate state
+ 
+;;;  Communicate state
 (defun emacspeak-gomoku-goto-x-y (x y)
   "Prompt for and go to that square."
   (interactive
@@ -218,8 +218,8 @@
   (message "%s moves in this game"
            gomoku-number-of-moves))
 
-;;}}}
-;;{{{  additional interactive commands.
+ 
+;;;   additional interactive commands.
 
 (defun gomoku-move-left (&optional arg)
   "Move left on the Gomoku board"
@@ -231,10 +231,10 @@
   (interactive "p")
   (forward-char arg))
 
-;;}}}
-;;{{{ Advice
+ 
+;;;  Advice
 
-;;{{{  advice all navigation
+;;;   advice all navigation
 
 (cl-loop
  for f in
@@ -250,7 +250,7 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-gomoku-speak-square)))))
 
-;;}}}
+ 
 
 (defadvice gomoku-emacs-plays (after emacspeak pre act comp)
   "Tell me where you played"
@@ -275,8 +275,8 @@
   "Speech enable gomoku"
   (when (ems-interactive-p)
     (emacspeak-gomoku-setup-keys)))
-;;}}}
-;;{{{ keybindings
+ 
+;;;  keybindings
 
 (defun emacspeak-gomoku-setup-keys ()
   "Add additional keybindings"
@@ -316,13 +316,13 @@
   (define-key gomoku-mode-map "=" 'emacspeak-gomoku-speak-number-of-moves)
   )
 
-;;}}}
+ 
 
 (provide 'emacspeak-gomoku)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

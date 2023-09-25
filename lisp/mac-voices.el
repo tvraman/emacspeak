@@ -3,7 +3,7 @@
 ;; $Author: Dave $
 ;; Description:  Module to set up Mac voices and personalities
 ;; Keywords: Voice, Personality, Mac
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; All Rights Reserved.
@@ -36,26 +36,26 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; This module defines the various voices used in voice-lock mode by Mac TTS.
 
 ;;; Code:
 
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)           ;For `ems--fastload'.
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-;;}}}
-;;{{{mac:
+ 
+;;; mac:
 ;;;###autoload
 (defun mac ()
   "Mac TTS."
@@ -65,8 +65,8 @@
   (dtk-select-server "mac")
   (dtk-initialize))
 
-;;}}}
-;;{{{ Customizations:
+ 
+;;;  Customizations:
 
 (defcustom mac-default-speech-rate 225
   "Default speech rate for mac."
@@ -77,8 +77,8 @@
            (when (string= "mac"dtk-program)
              (setq-default dtk-speech-rate val))))
 
-;;}}}
-;;{{{  voice table
+ 
+;;;   voice table
 
 (defvar mac-default-voice-string "[{voice systemDefault}]"
   "Default Mac tag for  default voice.")
@@ -112,8 +112,8 @@ COMMAND-STRING to the TTS engine."
   (cl-declare (special mac-voice-table))
   (gethash name mac-voice-table))
 
-;;}}}
-;;{{{ voice definitions
+ 
+;;;  voice definitions
 
 ;; the nine predefined voices: TODO: figure out if embedding is
 ;; possible (and update voice names).
@@ -122,18 +122,18 @@ COMMAND-STRING to the TTS engine."
 
 ;; Modified voices:
 
-;;}}}
-;;{{{  the inau
-;;{{{  Mapping css parameters to tts codes
+ 
+;;;   the inau
+;;;   Mapping css parameters to tts codes
 
-;;{{{ voice family codes
+;;;  voice family codes
 
 (defun mac-get-family-code (name)
   "Get control code for voice family NAME."
   (mac-get-voice-command-internal name))
 
-;;}}}
-;;{{{  hash table for mapping families to their dimensions
+ 
+;;;   hash table for mapping families to their dimensions
 
 (defvar mac-css-code-tables (make-hash-table)
   "Hash table holding vectors of mac codes.
@@ -154,8 +154,8 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key mac-css-code-tables)))
 
-;;}}}
-;;{{{  average pitch
+ 
+;;;   average pitch
 
 ;; Average pitch for standard male voice is 65 --this is mapped to
 ;; a setting of 5.
@@ -164,7 +164,7 @@ and TABLE gives the values along that dimension."
 ;; We change parameter head-size in conjunction with average pitch to
 ;; produce a more natural change on the TTS engine.
 
-;;{{{  paul average pitch
+;;;   paul average pitch
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -186,7 +186,7 @@ and TABLE gives the values along that dimension."
      (9 62)))
   (mac-css-set-code-table 'paul 'average-pitch table))
 
-;;}}}
+ 
 
 (defun mac-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
@@ -196,15 +196,15 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  pitch range
+ 
+;;;   pitch range
 
 ;;  Standard pitch range is 30 and is  mapped to
 ;; a setting of 5.
 ;; A value of 0 produces a flat monotone voice --maximum value of 100
 ;; produces a highly animated voice.
 
-;;{{{  paul pitch range
+;;;   paul pitch range
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -226,7 +226,7 @@ and TABLE gives the values along that dimension."
      (9  127)))
   (mac-css-set-code-table 'paul 'pitch-range table))
 
-;;}}}
+ 
 (defun mac-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -235,10 +235,10 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  stress
+ 
+;;;   stress
 
-;;{{{  paul stress TODO
+;;;   paul stress TODO
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -264,7 +264,7 @@ and TABLE gives the values along that dimension."
      (9  1 1 90 .3)))
   (mac-css-set-code-table 'paul 'stress table))
 
-;;}}}
+ 
 (defun mac-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value 
@@ -272,13 +272,13 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  richness
+ 
+;;;   richness
 
-;;{{{  paul richness TODO
+;;;   paul richness TODO
 (let ((table (make-vector 10 "")))
   (mac-css-set-code-table 'paul 'richness table))
-;;}}}
+ 
 
 (defun mac-get-richness-code (value family)
   (or family (setq family 'paul))
@@ -287,9 +287,9 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;}}}
-;;{{{  mac-define-voice-from-speech-style
+ 
+ 
+;;;   mac-define-voice-from-speech-style
 
 (defun mac-define-voice-from-speech-style (name style)
   "Define NAME to be a mac voice as specified by settings in STYLE."
@@ -303,8 +303,8 @@ and TABLE gives the values along that dimension."
            (mac-get-richness-code (acss-richness style) family))))
     (mac-define-voice name command)))
 
-;;}}}
-;;{{{ Configurater 
+ 
+;;;  Configurater 
 ;;;###autoload
 (defun mac-configure-tts ()
   "Configure TTS  to use mac."
@@ -319,14 +319,14 @@ and TABLE gives the values along that dimension."
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
-;;}}}
-;;{{{ tts-env for Mac:
+ 
+;;;  tts-env for Mac:
 
 (provide 'mac-voices)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

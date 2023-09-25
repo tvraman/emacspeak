@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable HELM An Emacs Interface to helm
 ;; Keywords: Emacspeak,  Audio Desktop helm
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,10 +35,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; HELM == Smart narrowing/selection in emacs This module
@@ -48,16 +48,16 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-google)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Setup Helm Hooks:
+ 
+;;;  Setup Helm Hooks:
 
 (defadvice helm-mode (after emacspeak pre act comp)
   "Cue state of helm mode."
@@ -97,8 +97,8 @@
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
 
-;;}}}
-;;{{{ Advice helm-google-suggest to filter results:
+ 
+;;;  Advice helm-google-suggest to filter results:
 
 (declare-function eww-display-dom-by-id-list  "emacspeak-eww.el" (id-list))
 
@@ -110,8 +110,8 @@
        (let  ((emacspeak-google-toolbelt (emacspeak-google-toolbelt)))
          (eww-display-dom-by-id-list '("center_col" "rhs"))))))
 
-;;}}}
-;;{{{ Advice helm-recenter-top-bottom-other-window:
+ 
+;;;  Advice helm-recenter-top-bottom-other-window:
 
 (defadvice helm-recenter-top-bottom-other-window (after emacspeak pre act comp)
   "Speak current selection."
@@ -120,8 +120,8 @@
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-line))))
 
-;;}}}
-;;{{{ Advice helm-yank-selection
+ 
+;;;  Advice helm-yank-selection
 
 (defadvice helm-yank-selection (after emacspeak pre act comp)
   "Speak minibuffer after yanking."
@@ -129,9 +129,9 @@
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
 
-;;}}}
+ 
 
-;;{{{ Support helm-help
+;;;  Support helm-help
 (add-hook
  'helm-help-mode-before-hook
  #'(lambda()
@@ -146,12 +146,12 @@
      (setq emacspeak-speak-messages t)
      (emacspeak-auditory-icon 'close-object)))
 
-;;}}}
+ 
 (provide 'emacspeak-helm)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

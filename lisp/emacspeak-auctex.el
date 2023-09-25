@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for auctex-mode
 ;; Keywords:emacspeak, audio interface to emacs AUCTEX
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,19 +37,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{ Required modules 
+ 
+;;;  Required modules 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables the AucTeX package.  AucTeX, now available from
 ;; ELPA, has been my authoring environment of choice for writing LaTeX
 ;; since 1991.
 ;;; Code:
-;;}}}
-;;{{{ voice locking:
+ 
+;;;  voice locking:
 
 ;; faces from AUCTeX 11
 (voice-setup-add-map
@@ -67,8 +67,8 @@
    (font-latex-warning-face voice-bolden-and-animate)
    ))
 
-;;}}}
-;;{{{  Marking structured objects:
+ 
+;;;   Marking structured objects:
 
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
   "speak."
@@ -106,8 +106,8 @@ speak after formatting region"
    ((not (ems-interactive-p)) ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{  delimiter matching:
+ 
+;;;   delimiter matching:
 
 (defadvice LaTeX-find-matching-begin (after emacspeak pre act comp)
   "speak. "
@@ -140,8 +140,8 @@ speak after formatting region"
       (t ad-do-it))
      ad-return-value)))
 
-;;}}}
-;;{{{  Inserting structures
+ 
+;;;   Inserting structures
 
 (defadvice TeX-newline (after emacspeak pre act comp)
   "speak to indicate indentation."
@@ -166,8 +166,8 @@ the opening line of the newly inserted environment. "
     ad-do-it
     (emacspeak-speak-region opoint (point))))
 
-;;}}}
-;;{{{  Commenting chunks:
+ 
+;;;   Commenting chunks:
 
 (defadvice TeX-comment-region (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
@@ -193,8 +193,8 @@ the opening line of the newly inserted environment. "
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
-;;}}}
-;;{{{  Debugging tex
+ 
+;;;   Debugging tex
 
 (defadvice TeX-next-error (after emacspeak pre act comp)
   "Speak the error line. "
@@ -202,8 +202,8 @@ the opening line of the newly inserted environment. "
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  Hooks
+ 
+;;;   Hooks
 
 ;; We add imenu settings to LaTeX-mode-hook
 
@@ -220,8 +220,8 @@ the opening line of the newly inserted environment. "
                         "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
                         2)))))
 
-;;}}}
-;;{{{ advice font changes 
+ 
+;;;  advice font changes 
 
 (defadvice TeX-font (around emacspeak pre act comp)
   "Speak the font we inserted"
@@ -235,8 +235,8 @@ the opening line of the newly inserted environment. "
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{ tex utils:
+ 
+;;;  tex utils:
 
 (defun emacspeak-auctex-end-of-word (arg)
   "move to end of word"
@@ -269,12 +269,12 @@ the opening line of the newly inserted environment. "
     (insert-char 126 1))
   (forward-word 1))
 
-;;}}}
+ 
 (provide  'emacspeak-auctex)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

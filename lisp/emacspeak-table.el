@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Emacspeak table handling module
 ;; Keywords:emacspeak, audio interface to emacs tables are structured
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
 ;; All Rights Reserved. 
@@ -36,23 +36,23 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction
+;;;   Introduction
 
 ;;; Commentary:
 ;; Implements a module that provides a high level interface to
 ;; tabulated information.
 ;;; Code:
 
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  Define table data structure:
+ 
+;;;   Define table data structure:
 
 ;; Tables will be represented internally as vectors.
 ;; User of a table can:
@@ -102,8 +102,8 @@ vectors")
     (setf (emacspeak-table-current-column table) 0)
     table))
 
-;;}}}
-;;{{{ Accessors
+ 
+;;;  Accessors
 
 (defun emacspeak-table-this-element (table row column)
   (let ((elements (emacspeak-table-elements  table)))
@@ -140,8 +140,8 @@ vectors")
 (defun emacspeak-table-row-header-element (table row)
   (aref (emacspeak-table-row-header table) row))
 
-;;}}}
-;;{{{  enumerators
+ 
+;;;   enumerators
 
 (defun emacspeak-table-enumerate-rows (table callback &rest callback-args)
   "Enumerates the rows of a table.
@@ -162,8 +162,8 @@ Calls callback once per column."
             (emacspeak-table-this-column table column)
             callback-args))))
 
-;;}}}
-;;{{{ finders 
+ 
+;;;  finders 
 
 (defun emacspeak-table-find-match-in-row (table index pattern
                                                 &optional predicate)
@@ -202,8 +202,8 @@ Calls callback once per column."
              until found
              finally return (and found row))))
 
-;;}}}
-;;{{{  Moving point:
+ 
+;;;   Moving point:
 
 (defun emacspeak-table-goto-cell (table row column)
   "Move to a cell of the table"
@@ -269,13 +269,13 @@ Calls callback once per column."
                  count current)
         (emacspeak-auditory-icon 'warn-user)))))
 
-;;}}}
+ 
 
 (provide  'emacspeak-table)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

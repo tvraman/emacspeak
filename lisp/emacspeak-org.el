@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for ORG
 ;; Keywords: Emacspeak, org
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 ;; Speech-enable org ---
@@ -49,8 +49,8 @@
 ;;
 ;;; Code:
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -61,8 +61,8 @@
 (require 'org-table "org-table" 'no-error)
 (defvar org-ans2 nil)
 
-;;}}}
-;;{{{ voice locking:
+ 
+;;;  voice locking:
 
 (voice-setup-add-map
  '(
@@ -132,8 +132,8 @@
    (org-verbatim voice-monotone-extra)
    (org-habit-ready-face voice-monotone-extra)))
 
-;;}}}
-;;{{{ Structure Navigation:
+ 
+;;;  Structure Navigation:
 
 (defun emacspeak-org-speak-item  ()
   "Speak item"
@@ -246,8 +246,8 @@
                 (line-beginning-position)
                 (line-end-position))))))
 
-;;}}}
-;;{{{ Header insertion and relocation
+ 
+;;;  Header insertion and relocation
 
 (cl-loop
  for f in
@@ -278,8 +278,8 @@
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
-;;}}}
-;;{{{ cut and paste:
+ 
+;;;  cut and paste:
 
 (cl-loop
  for f in
@@ -295,8 +295,8 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'yank-object)))))
 
-;;}}}
-;;{{{ completion:
+ 
+;;;  completion:
 
 (defadvice org-complete (around emacspeak pre act comp)
   "Say what you completed."
@@ -312,8 +312,8 @@
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
-;;}}}
-;;{{{ toggles:
+ 
+;;;  toggles:
 
 (cl-loop
  for f in
@@ -327,11 +327,11 @@
        (emacspeak-auditory-icon 'button)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{ ToDo:
+ 
+;;;  ToDo:
 
-;;}}}
-;;{{{ timestamps and calendar:
+ 
+;;;  timestamps and calendar:
 
 (cl-loop
  for f in
@@ -359,8 +359,8 @@
   (cl-declare (special org-ans2))
   (dtk-speak org-ans2))
 
-;;}}}
-;;{{{ Agenda:
+ 
+;;;  Agenda:
 
 ;; AGENDA NAVIGATION
 
@@ -407,11 +407,11 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ tables:
+ 
+;;;  tables:
 
-;;}}}
-;;{{{ table minor mode:
+ 
+;;;  table minor mode:
 
 (defadvice orgtbl-mode (after emacspeak pre act comp)
   "speak."
@@ -421,8 +421,8 @@
     (message "Turned %s org table mode."
              (if orgtbl-mode 'on 'off))))
 
-;;}}}
-;;{{{ deleting chars:
+ 
+;;;  deleting chars:
 
 (defadvice org-return (after emacspeak pre act comp)
   "speak."
@@ -434,8 +434,8 @@
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object)))))
 
-;;}}}
-;;{{{ Keymap update:
+ 
+;;;  Keymap update:
 
 (defun emacspeak-org-update-keys ()
   "Update keys in org mode."
@@ -466,8 +466,8 @@
    do
    (emacspeak-keymap-update  org-mode-map k)))
 
-;;}}}
-;;{{{ mode hook:
+ 
+;;;  mode hook:
 
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
@@ -512,8 +512,8 @@
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ fix misc commands:
+ 
+;;;  fix misc commands:
 
 (cl-loop
  for f in
@@ -540,16 +540,16 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'right)))
 
-;;}}}
-;;{{{ global input wizard
+ 
+;;;  global input wizard
 
 (defun emacspeak-org-popup-input ()
   "Pops up an org input area."
   (interactive)
   (emacspeak-org-popup-input-buffer 'org-mode))
 
-;;}}}
-;;{{{ org capture
+ 
+;;;  org capture
 
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
   "speak."
@@ -635,8 +635,8 @@
      "speak."
      (funcall emacspeak-org-table-after-movement-function))))
 
-;;}}}
-;;{{{ Additional table function:
+ 
+;;;  Additional table function:
 
 (unless (fboundp 'org-table-previous-row)
   (defun org-table-previous-row ()
@@ -659,8 +659,8 @@ Before doing so, re-align the table if necessary."
         (skip-chars-backward "^|\n\r")
         (if (looking-at " ") (forward-char 1))))))
 
-;;}}}
-;;{{{ Capture
+ 
+;;;  Capture
 
 (defcustom emacspeak-org-hotlist  (expand-file-name
                                    "~/.org/hotlist.org")
@@ -687,8 +687,8 @@ arg just opens the file"
 
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 
-;;}}}
-;;{{{ Speech-enable export prompt:
+ 
+;;;  Speech-enable export prompt:
 (defadvice org-export--dispatch-action (before emacspeak pre act comp)
   "Speak prompt intelligently."
   (let ((prompt (ad-get-arg 0))
@@ -707,16 +707,16 @@ arg just opens the file"
       choices "\n"))
     (sit-for 5)))
 
-;;}}}
-;;{{{ Preview HTML With EWW:
+ 
+;;;  Preview HTML With EWW:
 
 (defun emacspeak-org-eww-file (file _link)
   "Preview HTML files with EWW from exporter."
   (add-hook 'emacspeak-eww-post-process-hook  #'emacspeak-speak-buffer)
   (funcall-interactively #'eww-open-file file))
 
-;;}}}
-;;{{{ Edit Special Advice:
+ 
+;;;  Edit Special Advice:
 
 (cl-loop
  for f in
@@ -739,8 +739,8 @@ arg just opens the file"
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
-;;}}}
-;;{{{ Fillers:
+ 
+;;;  Fillers:
 
 (defadvice org-fill-paragraph (after emacspeak pre act comp)
   "speak."
@@ -757,8 +757,8 @@ arg just opens the file"
           (message "State unset")
         (message state)))))
 
-;;}}}
-;;{{{TVR: Conveniences
+ 
+;;; TVR: Conveniences
 
 (defun tvr-org-itemize ()
   "Start a numbered  list."
@@ -776,8 +776,8 @@ arg just opens the file"
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'item))
 
-;;}}}
-;;{{{ specialized input buffers:
+ 
+;;;  specialized input buffers:
 
 ;; Taken from a message on the org mailing list.
 
@@ -806,8 +806,8 @@ arg just opens the file"
       (use-local-map map))
     (shrink-window-if-larger-than-buffer)))
 
-;;}}}
-;;{{{md export:
+ 
+;;; md export:
 
 (defadvice org-md-export-as-markdown (after emacspeak pre act comp)
   "speak."
@@ -815,13 +815,13 @@ arg just opens the file"
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{org-mks:
+ 
+;;; org-mks:
 
 ;;; Org should use transient --sigh!
 
-;;}}}
-;;{{{Amark:
+ 
+;;; Amark:
 
 (org-link-set-parameters
  "amark"
@@ -856,8 +856,8 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
     (emacspeak-amark-play
      (make-emacspeak-amark :path filename  :position position))))
 
-;;}}}
-;;{{{Play Amarks:
+ 
+;;; Play Amarks:
 
 (defun emacspeak-org-amarks-play ()
   "Loop through and play list of Amarks from org buffer.
@@ -872,8 +872,8 @@ Press `y' to move to next amark."
        (org-amark-follow-link
         (org-element-property :path link))))))
 
-;;}}}
-;;{{{EWW Marks:
+ 
+;;; EWW Marks:
 
 (org-link-set-parameters
  "ebook"
@@ -894,8 +894,8 @@ Press `y' to move to next amark."
      :type "ebook" :link link :description desc )
     link))
 
-;;}}}
-;;{{{e-media:
+ 
+;;; e-media:
 
 (defsubst org--ems-yt-p (url)
   "Predicate to check for YT urls."
@@ -926,13 +926,13 @@ Press `y' to move to next amark."
    ((org--ems-yt-p url) (empv-play url))
    (t (emacspeak-eww-play-media-at-point url))))
 
-;;}}}
+ 
 
 (provide 'emacspeak-org)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to JDEE
 ;; Keywords: Emacspeak, Speak, Spoken Output, Java
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction
+ 
+;;;   Introduction
 ;;; Commentary:
 ;; Speech enable Java IDE.
 ;; The Java IDE --JDEE-- can be found at 
 ;; http://sunsite.auc.dk/jdee/
 ;;; Code:
-;;}}}
-;;{{{ voice lock 
+ 
+;;;  voice lock 
 
 (voice-setup-add-map
  '(
@@ -70,8 +70,8 @@
                                         ;jdee-java-font-lock-doc-tag-face
                                         ;jdee-java-font-lock-modifier-face
 
-;;}}}
-;;{{{ Advice interactive commands:
+ 
+;;;  Advice interactive commands:
 (defadvice jdee-open-class-source (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -130,8 +130,8 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ jdeebug 
+ 
+;;;  jdeebug 
 
 (defadvice jdee-debug (after emacspeak pre act comp)
   "Speak the line where we eventually stop. "
@@ -228,8 +228,8 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ speech enable jdb interaction 
+ 
+;;;  speech enable jdb interaction 
 
 (cl-loop for command in
          '(
@@ -278,8 +278,8 @@
     (emacspeak-auditory-icon 'delete-object)
     (message "Cleared all break points.")))
 
-;;}}}
-;;{{{ advice jdee-xref
+ 
+;;;  advice jdee-xref
 (defadvice jdee-xref-first-caller(after emacspeak pre act comp)
   "Speak line we jumped to."
   (when (ems-interactive-p)
@@ -299,8 +299,8 @@ If we are on the last call, do nothing."
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{ Advice EFC widgets:
+ 
+;;;  Advice EFC widgets:
 
 (defadvice efc-option-dialog (after emacspeak pre act comp)
   "Announce dialog box we just opened."
@@ -308,8 +308,8 @@ If we are on the last call, do nothing."
   (dtk-speak
    (ad-get-arg 0)))
 
-;;}}}
-;;{{{ camel case deletion
+ 
+;;;  camel case deletion
 
 (defadvice jdee-kill-camel-tok (before emacspeak pre act comp)
   "Speak word before killing it."
@@ -319,13 +319,13 @@ If we are on the last call, do nothing."
       (point)
       (save-excursion (jdee-end-of-camel-tok))))))
 
-;;}}}
+ 
 
 (provide 'emacspeak-jdee)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

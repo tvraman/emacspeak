@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description: Core advice forms that make emacspeak work
 ;; Keywords: Emacspeak, Speech, Advice, Spoken output
-;;{{{ LCD Archive entry:a
+;;;  LCD Archive entry:a
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{ Copyright:
+ 
+;;;  Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1995, 1996, 1997 by T. V. Raman
@@ -40,10 +40,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ Introduction:
+;;;  Introduction:
 
 ;;; Commentary:
 
@@ -57,16 +57,16 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim (optimize (safety 0) (speed 3)))
 (eval-when-compile (require 'advice))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  Advice Replace
+ 
+;;;   Advice Replace
 
 (voice-setup-set-voice-for-face 'query-replace 'voice-animate)
 
@@ -86,8 +86,8 @@
   "Speak line. "
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{ advice overlays
+ 
+;;;  advice overlays
 
 ;;; Helpers:
 
@@ -201,8 +201,8 @@
           (with-silent-modifications
               (put-text-property beg end 'invisible invisible)))))))
 
-;;}}}
-;;{{{ advice cursor movement commands to speak
+ 
+;;;  advice cursor movement commands to speak
 
 (cl-loop
  for f in
@@ -426,8 +426,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (format "%s " (emacspeak-get-current-percentage-into-buffer))
          'personality voice-smoothen))))))
 
-;;}}}
-;;{{{ Advise modify case commands to speak
+ 
+;;;  Advise modify case commands to speak
 
 (defadvice upcase-word (around emacspeak pre act comp)
   "Provide a tone, then Speak the word at point. "
@@ -495,15 +495,15 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{ Advice insert-char:
+ 
+;;;  Advice insert-char:
 
 (defadvice insert-char (after emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p) (emacspeak-speak-char-name (ad-get-arg 0))))
 
-;;}}}
-;;{{{ Advice deletion commands:
+ 
+;;;  Advice deletion commands:
 
 (cl-loop
  for f in
@@ -597,8 +597,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
         (thisblank (message "Deleting surrounding blank lines"))
         (t (message "Deleting possible subsequent blank lines"))))))
 
-;;}}}
-;;{{{ advice tabify:
+ 
+;;;  advice tabify:
 
 (defadvice untabify (after emacspeak pre act comp)
   "Fix NBSP chars."
@@ -611,8 +611,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (while (re-search-forward (format "[%c]+" 160) end 'no-error)
              (replace-match " "))))))
 
-;;}}}
-;;{{{ Advice PComplete
+ 
+;;;  Advice PComplete
 
 (defadvice pcomplete-list (after emacspeak pre act comp)
   "speak."
@@ -632,8 +632,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
-;;}}}
-;;{{{ Advice hippie expand:
+ 
+;;;  Advice hippie expand:
 
 (cl-loop
  for f in
@@ -654,8 +654,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (t ad-do-it))
      ad-return-value)))
 
-;;}}}
-;;{{{ advice minibuffer to speak
+ 
+;;;  advice minibuffer to speak
 
 (voice-setup-set-voice-for-face 'minibuffer-prompt 'voice-bolden)
 
@@ -860,8 +860,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Silence messages from by timer events."
   (ems-with-messages-silenced ad-do-it))
 
-;;}}}
-;;{{{ Advice completion-at-point:
+ 
+;;;  Advice completion-at-point:
 
 (defadvice completion-at-point (around emacspeak pre act comp)
   "Speak completion."
@@ -872,8 +872,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
-;;}}}
-;;{{{ advice various input functions to speak:
+ 
+;;;  advice various input functions to speak:
 
 (defadvice read-passwd (before emacspeak pre act comp)
   "speak."
@@ -910,8 +910,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (ems--log-message m)
     (tts-with-punctuations 'all (dtk-speak m))))
 
-;;}}}
-;;{{{ advice completion functions to speak:
+ 
+;;;  advice completion functions to speak:
 
 (cl-loop
  for f in
@@ -995,8 +995,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
 
-;;}}}
-;;{{{ tmm support
+ 
+;;;  tmm support
 
 (defadvice tmm-goto-completions (after emacspeak pre act comp)
   "announce completions "
@@ -1012,8 +1012,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Icon"
   (emacspeak-auditory-icon 'button))
 
-;;}}}
-;;{{{ Advice centering and filling commands:
+ 
+;;;  Advice centering and filling commands:
 
 (defadvice center-line (after emacspeak pre act comp)
   "speak."
@@ -1053,8 +1053,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
              (count-lines (region-beginning)
                           (region-end)))))
 
-;;}}}
-;;{{{ vc:
+ 
+;;;  vc:
 
 (voice-setup-add-map
  '(
@@ -1163,8 +1163,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ composing mail
+ 
+;;;  composing mail
 
 (cl-loop
  for f in
@@ -1199,8 +1199,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ misc functions that have to be hand fixed:
+ 
+;;;  misc functions that have to be hand fixed:
 
 (defadvice zap-to-char (after emacspeak pre act comp)
   "Speak line that is left."
@@ -1750,8 +1750,8 @@ Provide an auditory icon if possible."
          (dtk-speak help)
          (emacspeak-auditory-icon 'help))))))
 
-;;}}}
-;;{{{ Emacs server
+ 
+;;;  Emacs server
 (defun emacspeak-speak-announce-server-buffer ()
   "Announce opening of an emacsclient buffer."
   (emacspeak-speak-mode-line)
@@ -1772,8 +1772,8 @@ Provide an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ view echo area
+ 
+;;;  view echo area
 
 (defadvice view-echo-area-messages (after emacspeak pre act comp)
   "speak."
@@ -1781,8 +1781,8 @@ Provide an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed messages in other window.")))
 
-;;}}}
-;;{{{ selective display
+ 
+;;;  selective display
 
 (defadvice set-selective-display (after emacspeak pre act comp)
   "Speak."
@@ -1791,8 +1791,8 @@ Provide an auditory icon if possible."
              (ad-get-arg 0))
     (emacspeak-auditory-icon 'button)))
 
-;;}}}
-;;{{{ avoid chatter when byte compiling etc
+ 
+;;;  avoid chatter when byte compiling etc
 
 (defadvice byte-compile-file (around emacspeak pre act comp)
   "Announce one message, quietly compile, and announce termination.
@@ -1807,8 +1807,8 @@ Produce an auditory icon if possible."
     (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{ Stop talking if activity
+ 
+;;;  Stop talking if activity
 
 (cl-loop
  for f in
@@ -1842,8 +1842,8 @@ Produce an auditory icon if possible."
        (emacspeak-speak-current-column)
        (emacspeak-auditory-icon 'right)))))
 
-;;}}}
-;;{{{ yanking and popping
+ 
+;;;  yanking and popping
 
 (cl-loop
  for f in
@@ -1857,8 +1857,8 @@ Produce an auditory icon if possible."
        (emacspeak-auditory-icon 'yank-object)
        (emacspeak-speak-region (mark 'force) (point))))))
 
-;;}}}
-;;{{{ advice non-incremental searchers
+ 
+;;;  advice non-incremental searchers
 
 (cl-loop
  for f in
@@ -1872,8 +1872,8 @@ Produce an auditory icon if possible."
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'search-hit)))))
 
-;;}}}
-;;{{{ customize isearch:
+ 
+;;;  customize isearch:
 
 ;; Fix key bindings:
 
@@ -1978,8 +1978,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Opened occur results")))
 
-;;}}}
-;;{{{ marking objects produces auditory icons
+ 
+;;;  marking objects produces auditory icons
 
 ;; Prevent push-mark from displaying its mark set message
 ;; when called from functions that know better.
@@ -2062,8 +2062,8 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)))
 
-;;}}}
-;;{{{ emacs registers
+ 
+;;;  emacs registers
 
 (defadvice point-to-register (after emacspeak pre act comp)
   "Produce auditory icon to indicate mark set."
@@ -2129,15 +2129,15 @@ Produce an auditory icon if possible."
      (when (ems-interactive-p)
        (message "Copied frame  configuration to register %c" (ad-get-arg 0))))))
 
-;;}}}
-;;{{{ set up clause boundaries for specific modes:
+ 
+;;;  set up clause boundaries for specific modes:
 
 (add-hook 'help-mode-hook #'emacspeak-speak-adjust-clause-boundaries)
 (add-hook 'help-mode-hook #'emacspeak-pronounce-toggle-use-of-dictionaries)
 (add-hook 'text-mode-hook #'emacspeak-speak-adjust-clause-boundaries)
 
-;;}}}
-;;{{{ setup minibuffer hooks:
+ 
+;;;  setup minibuffer hooks:
 
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with emacspeak running."
@@ -2170,8 +2170,8 @@ Produce an auditory icon if possible."
   (dtk-stop 'all))
 
 (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook)
-;;}}}
-;;{{{ Advice occur
+ 
+;;;  Advice occur
 
 (cl-loop
  for f in
@@ -2189,8 +2189,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed occurrence in other window")))
 
-;;}}}
-;;{{{ abbrev mode advice
+ 
+;;;  abbrev mode advice
 
 (defadvice abbrev-edit-save-buffer (after emacspeak pre act comp)
   "speak."
@@ -2234,8 +2234,8 @@ Produce an auditory icon if possible."
     (message "Turned %s abbrev mode"
              (if abbrev-mode "on" "off"))))
 
-;;}}}
-;;{{{ advice where-is and friends
+ 
+;;;  advice where-is and friends
 
 (defun ems-canonicalize-key-description (desc)
   "Change key description to a speech-friendly form."
@@ -2309,8 +2309,8 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (dtk-speak (ems--get-where-is (ad-get-arg 0)))))
 
-;;}}}
-;;{{{ apropos and friends
+ 
+;;;  apropos and friends
 (cl-loop
  for f in
  '(
@@ -2331,8 +2331,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-help)))
 
-;;}}}
-;;{{{ toggling debug state
+ 
+;;;  toggling debug state
 
 (defadvice toggle-debug-on-error (after emacspeak pre act comp)
   "Produce an auditory icon."
@@ -2353,8 +2353,8 @@ Produce an auditory icon if possible."
     (message "Turned %s debug on quit"
              debug-on-quit)))
 
-;;}}}
-;;{{{ alert if entering override mode
+ 
+;;;  alert if entering override mode
 
 (defadvice overwrite-mode (after emacspeak pre act comp)
   "Provide auditory indication that overwrite mode has changed."
@@ -2362,8 +2362,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'warn-user)
     (message "Turned %s overwrite mode" (or overwrite-mode "off"))))
 
-;;}}}
-;;{{{ Options mode and custom
+ 
+;;;  Options mode and custom
 
 (defadvice customize (after emacspeak pre act comp)
   "Provide status update."
@@ -2376,8 +2376,8 @@ Produce an auditory icon if possible."
    (let ((dtk-quiet t))
      ad-do-it)))
 
-;;}}}
-;;{{{ transient mark mode
+ 
+;;;  transient mark mode
 
 (defadvice transient-mark-mode (after emacspeak pre act comp)
   "speak."
@@ -2385,11 +2385,11 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon (if transient-mark-mode 'on 'off))
     (message "Turned %s transient mark." (if transient-mark-mode "on" "off"))))
 
-;;}}}
-;;{{{ provide auditory icon when window config changes
+ 
+;;;  provide auditory icon when window config changes
 
-;;}}}
-;;{{{ mail aliases
+ 
+;;;  mail aliases
 
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
   "speak."
@@ -2399,8 +2399,8 @@ Produce an auditory icon if possible."
       (message (buffer-substring start end))
       (emacspeak-auditory-icon 'select-object))))
 
-;;}}}
-;;{{{ elint
+ 
+;;;  elint
 
 (cl-loop
  for f in
@@ -2418,8 +2418,8 @@ Produce an auditory icon if possible."
        (t ad-do-it))
      ad-return-value)))
 
-;;}}}
-;;{{{ advice button creation to add voicification:
+ 
+;;;  advice button creation to add voicification:
 
 (cl-loop
  for f in
@@ -2442,8 +2442,8 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
 
-;;}}}
-;;{{{ silence whitespace cleanup:
+ 
+;;;  silence whitespace cleanup:
 
 (cl-loop
  for f in
@@ -2456,8 +2456,8 @@ Produce an auditory icon if possible."
       ad-do-it
       ad-return-value))))
 
-;;}}}
-;;{{{ advice Finder:
+ 
+;;;  advice Finder:
 (defadvice finder-commentary (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -2480,8 +2480,8 @@ Produce an auditory icon if possible."
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-speak-mode-line))))
 
-;;}}}
-;;{{{ display world time
+ 
+;;;  display world time
 
 (defadvice world-clock (after emacspeak pre act comp)
   "Speak what you displayed."
@@ -2491,8 +2491,8 @@ Produce an auditory icon if possible."
      (set-buffer "*wclock*")
      (emacspeak-speak-buffer))))
 
-;;}}}
-;;{{{ browse-url
+ 
+;;;  browse-url
 
 (cl-loop for f in
          '(browse-url-of-buffer browse-url-of-region)
@@ -2508,8 +2508,8 @@ Produce an auditory icon if possible."
                (t ad-do-it))
              ad-return-value)))
 
-;;}}}
-;;{{{ Cue input method changes
+ 
+;;;  Cue input method changes
 
 (defadvice toggle-input-method (after emacspeak pre act comp)
   "speak."
@@ -2519,13 +2519,13 @@ Produce an auditory icon if possible."
      (format "Current input method is %s"
              (or current-input-method "none")))))
 
-;;}}}
-;;{{{ silence midnight cleanup:
+ 
+;;;  silence midnight cleanup:
 (defadvice clean-buffer-list (around emacspeak pre act comp)
   (ems-with-messages-silenced ad-do-it))
 
-;;}}}
-;;{{{ Splash Screen:
+ 
+;;;  Splash Screen:
 
 (cl-loop
  for f in
@@ -2545,8 +2545,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{ copyright commands:
+ 
+;;;  copyright commands:
 
 (cl-loop
  for f in
@@ -2564,8 +2564,8 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
-;;}}}
-;;{{{ Asking Questions:
+ 
+;;;  Asking Questions:
 
 (defadvice yes-or-no-p (around emacspeak pre act comp)
   "Play auditory icon."
@@ -2594,8 +2594,8 @@ Produce an auditory icon if possible."
   "Play auditory icon."
   (emacspeak-auditory-icon 'help))
 
-;;}}}
-;;{{{ Advice process-menu
+ 
+;;;  Advice process-menu
 
 (defadvice process-menu-delete-process (after emacspeak pre act comp)
   "speak."
@@ -2615,8 +2615,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{list-timers:
+ 
+;;; list-timers:
 
 (defadvice list-timers (after emacspeak pre act comp)
   "speak."
@@ -2624,8 +2624,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{find-library:
+ 
+;;; find-library:
 
 (defadvice find-library (after emacspeak pre act comp)
   "speak."
@@ -2633,8 +2633,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{log-edit-done
+ 
+;;; log-edit-done
 
 (defadvice log-edit-done (after emacspeak pre act comp)
   "speak."
@@ -2642,8 +2642,8 @@ Produce an auditory icon if possible."
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
 
-;;}}}
-;;{{{ advice find-func etc.
+ 
+;;;  advice find-func etc.
 
 (cl-loop
  for f in
@@ -2658,8 +2658,8 @@ Produce an auditory icon if possible."
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{Advice Semantic:
+ 
+;;; Advice Semantic:
 
 (defadvice semantic-complete-symbol (around emacspeak pre act comp)
   "speak."
@@ -2672,10 +2672,10 @@ Produce an auditory icon if possible."
         (emacspeak-speak-completions-if-available))
     ad-return-value))
 
-;;}}}
+ 
 (provide 'emacspeak-cedet)
 
-;;{{{ advice Imenu
+;;;  advice Imenu
 
 (defadvice imenu (after emacspeak pre act comp)
   "speak"
@@ -2683,8 +2683,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{Advice property search
+ 
+;;; Advice property search
 
 (cl-loop
  for f in
@@ -2702,8 +2702,8 @@ Produce an auditory icon if possible."
                   (prop-match-beginning m) (prop-match-end m))
                  (emacspeak-auditory-icon 'select-object))))))
 
-;;}}}
-;;{{{ielm: header-line
+ 
+;;; ielm: header-line
 
 (defadvice ielm (after emacspeak pre act comp)
   "speak."
@@ -2718,8 +2718,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-header-line)))
 
-;;}}}
-;;{{{Help Navigation:
+ 
+;;; Help Navigation:
 
 (cl-loop
  for f in
@@ -2732,8 +2732,8 @@ Produce an auditory icon if possible."
        (emacspeak-auditory-icon 'scroll)
        (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{C-x x commands
+ 
+;;; C-x x commands
 
 (defadvice revert-buffer-quick (after emacspeak pre act comp)
   "speak."
@@ -2741,8 +2741,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{Battery:
+ 
+;;; Battery:
 (defadvice battery (around emacspeak pre act comp)
   "speak."
   (cond
@@ -2753,8 +2753,8 @@ Produce an auditory icon if possible."
     (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{emacs lisp mode:
+ 
+;;; emacs lisp mode:
 
 (add-hook
  'emacs-lisp-mode-hook
@@ -2775,12 +2775,12 @@ Produce an auditory icon if possible."
            (mode-line keymap
             (mouse-1 . elisp-enable-lexical-binding)))))))))
 
-;;}}}
+ 
 (provide 'emacspeak-advice)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable RST An Emacs Interface to rst
 ;; Keywords: Emacspeak,  Audio Desktop rst
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -35,25 +35,25 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;; RST ==  rst-mode for editing rst text files.
 ;; This module speech-enables rst-mode.
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces
+ 
+;;;  Map Faces
 
 (voice-setup-add-map
  '(
@@ -74,8 +74,8 @@
    (rst-level-4 voice-lighten-extra)
    ))
 
-;;}}}
-;;{{{ Speech-enable interactive commands:
+ 
+;;;  Speech-enable interactive commands:
 (cl-loop
  for f in
  '(rst-promote-region
@@ -178,12 +178,12 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 
-;;}}}
+ 
 (provide 'emacspeak-rst)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

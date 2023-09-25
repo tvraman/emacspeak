@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description:  Emacspeak extension to speech enable Gnus
 ;; Keywords: Emacspeak, Gnus, Advice, Spoken Output, News
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -36,8 +36,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -50,8 +50,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -62,8 +62,8 @@
 (require 'gnus-sum)
 (require 'gm-nnir) ; for smart GMail search
 
-;;}}}
-;;{{{  Customizations:
+ 
+;;;   Customizations:
 
 (defgroup emacspeak-gnus nil
   "Emacspeak customizations for the Gnus News/Mail/RSS reader"
@@ -113,8 +113,8 @@ instead you hear only the first screenful."
 
 (add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
 
-;;}}}
-;;{{{  helper functions
+ 
+;;;   helper functions
 
 (defun emacspeak-gnus-summary-speak-subject ()
   (dtk-speak (gnus-summary-article-subject)))
@@ -139,8 +139,8 @@ instead you hear only the first screenful."
               (end-of-line)
               (emacspeak-speak-region start (point)))))))))
 
-;;}}}
-;;{{{ Advise top-level gnus command
+ 
+;;;  Advise top-level gnus command
 
 ;; emacs can hang if too many message sfly by as gnus starts
 (defadvice gnus (around emacspeak pre act comp)
@@ -161,8 +161,8 @@ instead you hear only the first screenful."
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'close-object)))))
 
-;;}}}
-;;{{{  starting up:
+ 
+;;;   starting up:
 
 (defadvice gnus-group-post-news (after emacspeak pre act comp)
   "speak"
@@ -181,8 +181,8 @@ instead you hear only the first screenful."
   "Silence emacspeak"
   (ems-with-messages-silenced ad-do-it))
 
-;;}}}
-;;{{{  Newsgroup selection
+ 
+;;;   Newsgroup selection
 
 (cl-loop
  for f in
@@ -284,8 +284,8 @@ this group is being deselected."
     (emacspeak-auditory-icon 'open-object)
     (message "Customizing group %s" (gnus-group-group-name))))
 
-;;}}}
-;;{{{  summary mode 
+ 
+;;;   summary mode 
 (cl-loop
  for f in
  '(
@@ -548,8 +548,8 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{  Article reading
+ 
+;;;   Article reading
 
 (defun emacspeak-gnus-summary-catchup-quietly-and-exit ()
   "Catch up on all articles in current group."
@@ -718,8 +718,8 @@ Helps to prevent words from being spelled instead of spoken."
   (emacspeak-auditory-icon 'modified-object)
   (dtk-speak "Downcased article body"))
 
-;;}}}
-;;{{{ refreshing the pronunciation  and punctuation mode
+ 
+;;;  refreshing the pronunciation  and punctuation mode
 
 (cl-loop
  for hook  in 
@@ -735,8 +735,8 @@ Helps to prevent words from being spelled instead of spoken."
       (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
       (emacspeak-pronounce-refresh-pronunciations))))
 
-;;}}}
-;;{{{ rdc: mapping font faces to personalities 
+ 
+;;;  rdc: mapping font faces to personalities 
 
 ;; article buffer personalities
 
@@ -833,8 +833,8 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-server-offline voice-animate)
    (gnus-server-opened voice-lighten)))
 
-;;}}}
-;;{{{ server mode:
+ 
+;;;  server mode:
 
 (cl-loop
  for f in 
@@ -846,11 +846,11 @@ Helps to prevent words from being spelled instead of spoken."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)))))
 
-;;}}}
-;;{{{ Async Gnus:
+ 
+;;;  Async Gnus:
 
-;;}}}
-;;{{{ GMail Search Accelerators:
+ 
+;;;  GMail Search Accelerators:
 
 (defun emacspeak-gnus-personal-gmail-recent ()
   "Look for mail addressed personally in the last day."
@@ -868,15 +868,15 @@ Helps to prevent words from being spelled instead of spoken."
     (format-time-string "%Y/%m/%d")
     user-mail-address)))
 
-;;}}}
-;;{{{xoauth2
+ 
+;;; xoauth2
 
 (defadvice auth-source-do-debug (around quiet pre act comp)
   "silence"
   (ems-with-messages-silenced ad-do-it))
 
-;;}}}
-;;{{{xoauth:
+ 
+;;; xoauth:
 
 (defadvice auth-source-xoauth2--file-creds (around emacspeak pre act comp)
     "Silence messages"
@@ -884,11 +884,11 @@ Helps to prevent words from being spelled instead of spoken."
       ad-do-it
       ad-return-value))
 
-;;}}}
+ 
 (provide 'emacspeak-gnus)
-;;{{{  end of file 
+;;;   end of file 
 ;; local variables:
 ;; folded-file: t
 ;; byte-compile-warnings: (deprecated )
 ;; end: 
-;;}}}
+ 

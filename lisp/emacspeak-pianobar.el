@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Speech-enable PIANOBAR An Emacs Interface to pianobar
 ;; Keywords: Emacspeak,  Audio Desktop pianobar
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -36,10 +36,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 
@@ -79,8 +79,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -88,8 +88,8 @@
 (require 'ansi-color)
 (require 'emacspeak-comint)
                                         ;(require 'pianobar)
-;;}}}
-;;{{{ Pianobar Fixups:
+ 
+;;;  Pianobar Fixups:
 
 (defun emacspeak-pianobar-current-song  ()
   "Return current song."
@@ -102,8 +102,8 @@
   "Override with our own notifier."
   (message  (emacspeak-pianobar-current-song)))
 
-;;}}}
-;;{{{ Advice Interactive Commands:
+ 
+;;;  Advice Interactive Commands:
 
 (declare-function pianobar "ext:pianobar" nil)
 (declare-function pianobar-send-string  "ext:pianobar" (cmd))
@@ -188,8 +188,8 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-;;}}}
-;;{{{ emacspeak-pianobar
+ 
+;;;  emacspeak-pianobar
 
 (defvar emacspeak-pianobar-electric-mode t
   "Records if electric mode is on.")
@@ -303,14 +303,14 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive "sString:")
   (pianobar-send-string (format "%s\n" string)))
 
-;;}}}
+ 
 (provide 'emacspeak-pianobar)
 ;; reload pianobar to fix our vol-change commands.
 (load "pianobar")
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

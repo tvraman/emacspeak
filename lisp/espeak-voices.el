@@ -1,10 +1,10 @@
 ;;; espeak-voices.el --- Define  Espeak tags  -*- lexical-binding: t; -*-
 ;; Description:  Module to set up Espeak voices and personalities
 ;; Keywords: Voice, Personality, Espeak
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -26,10 +26,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -37,14 +37,14 @@
 ;; the ESpeak TTS engine.
 
 ;;; Code:
-;;}}}
-;;{{{ Required modules
+ 
+;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)           ;For `ems--fastload'.
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-;;}}}
-;;{{{ Customizations:
+ 
+;;;  Customizations:
 
 (defcustom espeak-default-speech-rate 175
   "Default speech rate for eSpeak."
@@ -55,8 +55,8 @@
            (when (string-match "espeak" dtk-program)
              (setq-default dtk-speech-rate val))))
 
-;;}}}
-;;{{{ Top-Level TTS Call
+ 
+;;;  Top-Level TTS Call
 
 ;;;###autoload
 (defun espeak ()
@@ -67,8 +67,8 @@
   (dtk-select-server "espeak")
   (dtk-initialize))
 
-;;}}}
-;;{{{  voice table
+ 
+;;;   voice table
 
 (defvar tts-default-voice
   ""
@@ -102,24 +102,24 @@ COMMAND-STRING to the TTS engine."
   (cl-declare (special espeak-voice-table))
   (gethash name espeak-voice-table))
 
-;;}}}
-;;{{{ voice definitions
+ 
+;;;  voice definitions
 
 ;; the nine predefined voices:
 (espeak-define-voice 'paul "")
 
 ;; Modified voices:
 
-;;}}}
+ 
 ;; Mapping css parameters to tts codes
-;;{{{ voice family codes
+;;;  voice family codes
 
 (defun espeak-get-family-code (_name)
   "Get control code for voice family NAME."
   "")
 
-;;}}}
-;;{{{  hash table for mapping families to their dimensions
+ 
+;;;   hash table for mapping families to their dimensions
 
 (defvar espeak-css-code-tables (make-hash-table)
   "Hash table holding vectors of espeak codes.
@@ -140,15 +140,15 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key espeak-css-code-tables)))
 
-;;}}}
-;;{{{  average pitch
+ 
+;;;   average pitch
 
 ;; Average pitch of standard text is aurally mapped to 
 ;; a setting of 5. These percentage changes interpolate
 ;; between the x-low, low, medium, high, and x-high
 ;; percentages defined by espeak
 
-;;{{{  paul average pitch
+;;;   paul average pitch
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -170,7 +170,7 @@ and TABLE gives the values along that dimension."
      (9 120))) ; x-high
   (espeak-css-set-code-table 'paul 'average-pitch table))
 
-;;}}}
+ 
 
 (defun espeak-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
@@ -180,12 +180,12 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  pitch range
+ 
+;;;   pitch range
 ;; Based on the sampler, it seems this setting is a range of 
 ;; values from 0 to 100%, 0 being monotone.
 
-;;{{{  paul pitch range
+;;;   paul pitch range
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -207,7 +207,7 @@ and TABLE gives the values along that dimension."
      (9 180))) ; x-high
   (espeak-css-set-code-table 'paul 'pitch-range table))
 
-;;}}}
+ 
 
 (defun espeak-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
@@ -217,8 +217,8 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  stress
+ 
+;;;   stress
 
 ;;  Not implemented for Espeak now.
 
@@ -226,14 +226,14 @@ and TABLE gives the values along that dimension."
   "Just a dummy."
   "")
 
-;;}}}
-;;{{{  richness
+ 
+;;;   richness
 
 ;; Smoothness and richness vary inversely.
 ;; Richness is currently implemented as volume, with a setting of 0
 ;; corresponding to mute.  Smoothness is not implemented.
 
-;;{{{  paul richness
+;;;   paul richness
 
 (let ((table (make-vector 10 "")))
   (mapc
@@ -257,7 +257,7 @@ and TABLE gives the values along that dimension."
      (9 100  0)))
   (espeak-css-set-code-table 'paul 'richness table))
 
-;;}}}
+ 
 
 (defun espeak-get-richness-code (value family)
   (or family (setq family 'paul))
@@ -266,8 +266,8 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;}}}
-;;{{{  espeak-define-voice-from-speech-style
+ 
+;;;   espeak-define-voice-from-speech-style
 
 (defun espeak-define-voice-from-speech-style (name style)
   "Define NAME to be a espeak voice as specified by settings in STYLE."
@@ -285,8 +285,8 @@ and TABLE gives the values along that dimension."
     ;;                  "]")))
     (espeak-define-voice name command)))
 
-;;}}}
-;;{{{ Configurater 
+ 
+;;;  Configurater 
 
 (defvar espeak-character-to-speech-table nil
   "Table that records how ISO ascii characters are spoken.")
@@ -317,13 +317,13 @@ and TABLE gives the values along that dimension."
   (espeak-setup-character-to-speech-table)
   (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1)))
 
-;;}}}
+ 
 
 (provide 'espeak-voices)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

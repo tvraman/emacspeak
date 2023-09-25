@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:   extension to speech enable universal directory client 
 ;; Keywords: Emacspeak, Audio Desktop
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
@@ -36,17 +36,17 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (declare-function widget-at "wid-edit" (&optional pos))
 (declare-function widget-type "wid-edit" (widget))
 
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -57,8 +57,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{ speech enable interactive commands 
+ 
+;;;  speech enable interactive commands 
 
 (defadvice eudc-move-to-next-record (after emacspeak pre act comp)
   "speak. "
@@ -73,8 +73,8 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ speech enable  eudc widgets 
+ 
+;;;  speech enable  eudc widgets 
 
 (defun emacspeak-eudc-widget-help (widget)
   "Provides emacspeak help for eudc widgets. "
@@ -114,8 +114,8 @@ Summarize the form to welcome the user. "
              (when (widget-at (point))
                (emacspeak-eudc-widget-help (widget-at (point))))))))
 
-;;}}}
-;;{{{ additional interactive commands 
+ 
+;;;  additional interactive commands 
 
 (defun emacspeak-eudc-send-mail ()
   "Send email to the address given by the current record. "
@@ -133,15 +133,15 @@ Summarize the form to welcome the user. "
       (error "Cannot determine email address from record %s"
              (cdr (assq 'mail record))))))
 
-;;}}}
-;;{{{ bind additional commands 
+ 
+;;;  bind additional commands 
 
 (cl-declaim (special eudc-mode-map))
 (when (boundp 'eudc-mode-map)
   (define-key eudc-mode-map "m" 'emacspeak-eudc-send-mail)
   )
-;;}}}
-;;{{{ voiceify values in results 
+ 
+;;;  voiceify values in results 
 
 (defvar emacspeak-eudc-attribute-value-personality
   voice-animate
@@ -161,12 +161,12 @@ Summarize the form to welcome the user. "
                              emacspeak-eudc-attribute-value-personality)))))
   ad-return-value)
 
-;;}}}
+ 
 (provide 'emacspeak-eudc)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

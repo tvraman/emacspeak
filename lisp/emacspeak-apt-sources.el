@@ -1,7 +1,7 @@
 ;;; emacspeak-apt-sources.el --- speech-enable apt -*- lexical-binding: t -*-
 ;; Description:  Emacspeak extension to speech-enable editing of sources.list
 ;; Keywords: Emacspeak, apt, sources.list
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -11,8 +11,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Initial version: Author: Igor B. Poretsky
 ;; <master@goga.energo.ru>
@@ -35,16 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
+;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -53,12 +53,12 @@
 ;; and provides a major mode for editing
 ;; APT's sources.list file.
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{ Advice interactive commands to speak.
+ 
+;;;  Advice interactive commands to speak.
 
 (defadvice apt-sources-mode (after emacspeak pre act comp)
   "Setup Emacspeak extensions"
@@ -98,12 +98,12 @@
                                  'on
                                'off))))
 
-;;}}}
+ 
 (provide 'emacspeak-apt-sources)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

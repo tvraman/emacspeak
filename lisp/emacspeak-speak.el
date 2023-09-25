@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Contains the functions for speaking various chunks of text
 ;; Keywords: Emacspeak,  Spoken Output
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;;; Commentary:
 
@@ -51,8 +51,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -69,23 +69,23 @@
 
 (declare-function word-at-point "thingatpt" (&optional no-properties))
 (require 'text-property-search)
-;;}}}
-;;{{{ This line:
+ 
+;;;  This line:
 
 (defsubst ems--this-line ()
   "Return current line as string."
   (buffer-substring (line-beginning-position) (line-end-position)))
 
-;;}}}
-;;{{{Clause Boundary Helper:
+ 
+;;; Clause Boundary Helper:
 
 (defun emacspeak-speak-adjust-clause-boundaries ()
   "Adjust clause boundaries so that newlines dont delimit clauses."
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax ".)$\""))
 
-;;}}}
-;;{{{Helper: Log Message Quietly
+ 
+;;; Helper: Log Message Quietly
 
 (defun ems--log-message (m)
   "Log a message without echoing it."
@@ -94,16 +94,16 @@
       (goto-char (point-max))
       (insert (format "%s\n" m)))))
 
-;;}}}
-;;{{{Helper: Speak Frame Title
+ 
+;;; Helper: Speak Frame Title
 
 (defsubst emacspeak-speak-frame-title ()
   "Speak Frame Title"
   (dtk-speak (cdr (assq 'name (frame-parameters))) ))
 
-;;}}}
+ 
 
-;;{{{  line, Word and Character echo
+;;;   line, Word and Character echo
 
 (defcustom emacspeak-line-echo nil
   "If t, then emacspeak echoes lines as you type.
@@ -145,8 +145,8 @@ setting."
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
-;;}}}
-;;{{{Echo Typing Chars:
+ 
+;;; Echo Typing Chars:
 
 (defun emacspeak-post-self-insert-hook ()
   "Speaks the character if emacspeak-character-echo is true.
@@ -177,8 +177,8 @@ Speech flushes as you type."
 
 (add-hook 'post-self-insert-hook 'emacspeak-post-self-insert-hook)
 
-;;}}}
-;;{{{ Shell Command Helper:
+ 
+;;;  Shell Command Helper:
 
 (defcustom emacspeak-speak-messages t
   "Option indicating if messages are spoken.  If nil,
@@ -208,8 +208,8 @@ message area.  You can use command
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
-;;}}}
-;;{{{ Utility command to run and tabulate shell output
+ 
+;;;  Utility command to run and tabulate shell output
 
 (defun emacspeak-speak-run-shell-command (command &optional read-as-csv)
   "Invoke shell COMMAND and display its output as a table. The
@@ -244,8 +244,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-mode-line))))
 
-;;}}}
-;;{{{ Notifications:
+ 
+;;;  Notifications:
 
 (defun emacspeak--notifications-init ()
   "Init Notifications buffer."
@@ -296,8 +296,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
   (run-at-time 1800 1800 #'emacspeak-notifications-truncate)
   "Idle timer that runs every 30 minutes to cleanup notifications.")
 
-;;}}}
-;;{{{ Completion helper:
+ 
+;;;  Completion helper:
 
 (defun emacspeak-speak-completions-if-available ()
   "Speak completions if available."
@@ -317,8 +317,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
             (emacspeak-speak-buffer)))))
      (t (emacspeak-speak-line)))))
 
-;;}}}
-;;{{{  Macros
+ 
+;;;   Macros
 
 ;; Save read-only and modification state, perform some actions and
 ;; restore state
@@ -367,8 +367,8 @@ Argument BODY specifies forms to execute."
   `(let ((emacspeak-speak-messages nil))
      ,@body))
 
-;;}}}
-;;{{{  Apply audio annotations
+ 
+;;;   Apply audio annotations
 
 (defun emacspeak-audio-annotate-paragraphs ()
   "Set property auditory-icon at front of all paragraphs."
@@ -419,8 +419,8 @@ Useful to do this before you listen to an entire buffer."
         (error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
-;;}}}
-;;{{{ Showing the point:
+ 
+;;;  Showing the point:
 
 (defvar emacspeak-show-point nil
   " If T, command `emacspeak-speak-line' \\[emacspeak-speak-line]
@@ -434,8 +434,8 @@ Command `emacspeak-toggle-show-point' bound to
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
-;;}}}
-;;{{{ compute percentage into the buffer:
+ 
+;;;  compute percentage into the buffer:
 
 (defsubst emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
@@ -473,8 +473,8 @@ Also set the mark at the position where point was."
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{  indentation:
+ 
+;;;   indentation:
 
 (defcustom emacspeak-audio-indentation nil
   "Option indicating if line indentation is cued.
@@ -489,8 +489,8 @@ setting."
 ;; Indicate indentation.
 ;; Argument indent   indicates number of columns to indent.
 
-;;}}}
-;;{{{ filtering columns
+ 
+;;;  filtering columns
 
 (defvar-local emacspeak-speak-line-column-filter nil
   "List that specifies columns to be filtered.
@@ -629,8 +629,8 @@ the sense of the filter. "
    (t
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}
-;;{{{Match Parens:
+ 
+;;; Match Parens:
 (defun emacspeak-speak-matching-paren ()
   "Show matched paren with context."
   (interactive)
@@ -643,9 +643,9 @@ the sense of the filter. "
                            (max (cl-fourth data)
                                 (line-end-position))))))))
 
-;;}}}
+ 
 
-;;{{{  Speak units of text
+;;;   Speak units of text
 
 (defun emacspeak-speak-region (start end)
   "Speak region bounded by start and end. "
@@ -952,7 +952,7 @@ spelled out  instead of being spoken."
   (and (= ?w (char-syntax c))
        (dtk-unicode-char-untouched-p c)))
 
-;;{{{  phonemic table
+;;;   phonemic table
 
 (defvar emacspeak-char-to-phonetic-table
   '(
@@ -1030,8 +1030,8 @@ char is assumed to be one of a--z."
         (dtk-unicode-full-name-for-char char)
         char-string)))
 
-;;}}}
-;;{{{ Speak Chars:
+ 
+;;;  Speak Chars:
 
 (defun emacspeak-speak-this-char (char)
   "Speak this CHAR."
@@ -1076,7 +1076,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive)
   (dtk-speak (dtk-unicode-name-for-char char)))
 
-;;}}}
+ 
 (defun emacspeak-speak-sentence (&optional arg)
   "Speak current sentence.
 With prefix ARG, speaks the rest of the sentence  from point.
@@ -1163,8 +1163,8 @@ Negative prefix arg will read from start of current paragraph to point. "
        ((< arg 0) (setq end orig)))
       (dtk-speak (buffer-substring start end)))))
 
-;;}}}
-;;{{{  Speak buffer objects such as help, completions minibuffer etc
+ 
+;;;   Speak buffer objects such as help, completions minibuffer etc
 
 (defun emacspeak-speak-buffer (&optional arg)
   "Speak current buffer  contents.
@@ -1236,8 +1236,8 @@ Negative prefix arg speaks from start of buffer to point."
     (setq end (or (next-single-property-change end 'mouse-face) (point-max)))
     (buffer-substring beg end)))
 
-;;}}}
-;;{{{ mail check
+ 
+;;;  mail check
 
 (defcustom emacspeak-mail-spool-file
   (expand-file-name
@@ -1315,8 +1315,8 @@ current local  value to the result.
 Turning on this option results in Emacspeak producing an auditory icon
 indicating the arrival  of new mail when displaying the mode line.")
 
-;;}}}
-;;{{{ Mode line info collectors
+ 
+;;;  Mode line info collectors
 
 (defsubst emacspeak-get-voicefied-recursion-info (level)
   "Return voicefied version of this recursive-depth level."
@@ -1335,8 +1335,8 @@ indicating the arrival  of new mail when displaying the mode line.")
      (format " %s " (frame-parameter frame 'name))
      'personality voice-lighten-extra ))))
 
-;;}}}
-;;{{{  Speak mode line information
+ 
+;;;   Speak mode line information
 
 ;; compute current line number
 (defsubst emacspeak-get-current-line-number ()
@@ -1567,8 +1567,8 @@ put in the kill ring for convenience."
     (kill-new location)
     (dtk-speak location)))
 
-;;}}}
-;;{{{ Speak header-line
+ 
+;;;  Speak header-line
 
 (defvar emacspeak-use-header-line t
   "Use default header line defined  by Emacspeak for buffers that
@@ -1608,8 +1608,8 @@ Displays name of current buffer.")
   (message "Turned %s default header line."
            (if header-line-format 'on 'off)))
 
-;;}}}
-;;{{{  Speak text without moving point
+ 
+;;;   Speak text without moving point
 
 ;; Functions to browse without moving:
 (defun emacspeak-read-line-internal (arg)
@@ -1647,8 +1647,8 @@ offset. Default  is to speak the previous word. "
       (emacspeak-speak-word 1))
      (t (dtk-speak "Not that many words ")))))
 
-;;}}}
-;;{{{  Speak misc information e.g. time, version, current-kill  etc
+ 
+;;;   Speak misc information e.g. time, version, current-kill  etc
 
 (defcustom emacspeak-speak-time-format
   "%l %M%p on %A %B %_e"
@@ -1752,8 +1752,8 @@ Seconds value is also placed in the kill-ring."
     (kill-new result)
     result))
 
-;;}}}
-;;{{{ Codenames etc.
+ 
+;;;  Codenames etc.
 (defvar emacspeak-codename
   (propertize "ErgoDog" 'face 'bold)
   "Code name of present release.")
@@ -1855,8 +1855,8 @@ Argument STRING specifies the alphanumeric phone number."
              (cl-incf i))
     string))
 
-;;}}}
-;;{{{ speaking marks
+ 
+;;;  speaking marks
 
 ;; Intelligent mark feedback for emacspeak:
 ;;
@@ -1891,13 +1891,13 @@ location of the mark is indicated by an aural highlight. "
       (dtk-speak
        (concat context line)))))
 
-;;}}}
-;;{{{ speaking personality chunks
+ 
+;;;  speaking personality chunks
 
 ;; Block navigation
 
-;;}}}
-;;{{{Face Ranges:
+ 
+;;; Face Ranges:
 
 (defun emacspeak-speak-face-browse ()
   "Use C-f and C-b to browse by current face."
@@ -1946,8 +1946,8 @@ location of the mark is indicated by an aural highlight. "
          'face (get-text-property (point) 'face) t t)))
     (goto-char (prop-match-beginning match))))
 
-;;}}}
-;;{{{  Execute command repeatedly:
+ 
+;;;   Execute command repeatedly:
 
 (defvar emacspeak-execute-repeatedly-key 32
   "Key to use to repeat command.")
@@ -1991,23 +1991,23 @@ was spoken.  Any other key continues to speak the buffer."
     (unless command (error "You specified an invalid key sequence.  "))
     (emacspeak-execute-repeatedly command)))
 
-;;}}}
-;;{{{  skimming
+ 
+;;;   skimming
 
 (defun emacspeak-speak-skim-buffer ()
   "Skim the current buffer  a paragraph at a time."
   (interactive)
   (emacspeak-execute-repeatedly 'forward-paragraph))
 
-;;}}}
-;;{{{   quieten messages
+ 
+;;;    quieten messages
 
 (ems-generate-switcher 'emacspeak-toggle-speak-messages
                        'emacspeak-speak-messages
                        "Toggle  state of whether emacspeak echoes messages.")
 
-;;}}}
-;;{{{  Moving across fields:
+ 
+;;;   Moving across fields:
 
 ;; Fields are defined by property 'field
 
@@ -2047,8 +2047,8 @@ was spoken.  Any other key continues to speak the buffer."
   (message "Point is  %d%% into  the current buffer"
            (emacspeak-get-current-percentage-into-buffer)))
 
-;;}}}
-;;{{{  Speak the last message again:
+ 
+;;;   Speak the last message again:
 
 (defvar ems--message-filter-pattern nil
   "Internal variable holding  pattern used to filter spoken messages.")
@@ -2071,8 +2071,8 @@ The message is also placed in the kill ring for convenient yanking "
       (when  (called-interactively-p 'interactive)
         (kill-new (ems--this-line)))))))
 
-;;}}}
-;;{{{  Using emacs's windows usefully:
+ 
+;;;   Using emacs's windows usefully:
 
 ;;Return current window contents
 (defsubst emacspeak-get-window-contents ()
@@ -2199,8 +2199,8 @@ is the same as for the Emacs builtin `other-window'."
        (window-start (selected-window))
 
        (window-end  (selected-window) 'update)))))
-;;}}}
-;;{{{  Intelligent interactive commands for reading:
+ 
+;;;   Intelligent interactive commands for reading:
 
 ;; Prompt the user if asked to prompt.
 ;; Prompt is:
@@ -2287,8 +2287,8 @@ any other key to speak entire sexp."
   (emacspeak-speak-sexp
    (emacspeak-ask-how-to-speak "sexp" (sit-for 1))))
 
-;;}}}
-;;{{{  emacs rectangles and regions:
+ 
+;;;   emacs rectangles and regions:
 
 ;; These help you listen to columns of text. Useful for tabulated data
 (defun emacspeak-speak-rectangle (start end)
@@ -2299,8 +2299,8 @@ program, arguments specify the START and END of the rectangle."
   (require 'rect)
   (dtk-speak-list (extract-rectangle start end)))
 
-;;}}}
-;;{{{  Auxiliary functions:
+ 
+;;;   Auxiliary functions:
 
 (defun emacspeak-kill-buffer-carefully (buffer)
   "Kill BUFFER BUF if it exists."
@@ -2315,8 +2315,8 @@ Argument O specifies overlay."
     (set-buffer (overlay-buffer o))
     (buffer-substring (overlay-start o) (overlay-end o))))
 
-;;}}}
-;;{{{ Speaking spaces
+ 
+;;;  Speaking spaces
 
 (defun emacspeak-speak-spaces-at-point ()
   "Speak the white space at point."
@@ -2335,8 +2335,8 @@ Argument O specifies overlay."
       (message "Space %s of %s"
                (1+ (- orig start)) (- end start))))))
 
-;;}}}
-;;{{{  completion helpers
+ 
+;;;   completion helpers
 
 ;; switching to completions window from minibuffer:
 
@@ -2413,8 +2413,8 @@ char, or dont move. "
                        (format "%c" char)
                        'emacspeak-completions-move-to-completion-group)))
 
-;;}}}
-;;{{{ mark convenience commands
+ 
+;;;  mark convenience commands
 
 (defun emacspeak-mark-speak-mark-line ()
   "Helper to speak line containing mark."
@@ -2441,8 +2441,8 @@ To cycle forward, use pop-to-mark-command bound to \\[pop-to-mark-command] "
       (when (called-interactively-p 'interactive)
         (emacspeak-mark-speak-mark-line)))))
 
-;;}}}
-;;{{{  speak message at time
+ 
+;;;   speak message at time
 
 (defun emacspeak-speak-message-at-time (time message)
   "Speak message at specified time.
@@ -2461,8 +2461,8 @@ See documentation for command run-at-time for details on time-spec."
   (message "Set alarm for %s" time)
   (emacspeak-auditory-icon 'button))
 
-;;}}}
-;;{{{ Directory specific settings
+ 
+;;;  Directory specific settings
 
 (defvar emacspeak-speak-directory-settings
   ".espeak.el"
@@ -2491,8 +2491,8 @@ directory."
                    (expand-file-name emacspeak-speak-directory-settings res)))
         (emacspeak-auditory-icon 'task-done)))))
 
-;;}}}
-;;{{{ silence:
+ 
+;;;  silence:
 
 (defcustom emacspeak-silence-hook nil
   "Functions run after emacspeak-silence is called."
@@ -2508,8 +2508,8 @@ configure which media players get silenced or paused/resumed."
   (dtk-stop 'all)
   (run-hooks 'emacspeak-silence-hook))
 
-;;}}}
-;;{{{ Smart date prompe:
+ 
+;;;  Smart date prompe:
 
 (defun emacspeak-speak-collect-date (prompt time-format-string)
   "Smart date collector.
@@ -2551,8 +2551,8 @@ This function is sensitive to calendar mode when prompting."
   (emacspeak-speak-collect-date "Date:"
                                 "%Y-%m-%d"))
 
-;;}}}
-;;{{{ Navigating completions:
+ 
+;;;  Navigating completions:
 
 (defun emacspeak-minibuffer-next-completion ()
   "Move to next available minibuffer completion."
@@ -2615,8 +2615,8 @@ This function is sensitive to calendar mode when prompting."
  minibuffer-local-completion-map
  (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
 
-;;}}}
-;;{{{ Open Emacspeak Info Pages:
+ 
+;;;  Open Emacspeak Info Pages:
 
 (defun emacspeak-open-info ()
   "Open Emacspeak Info Manual."
@@ -2627,8 +2627,8 @@ This function is sensitive to calendar mode when prompting."
    (expand-file-name "emacspeak.info" emacspeak-info-directory)
    "*Emacspeak Info*"))
 
-;;}}}
-;;{{{ Describe help map:
+ 
+;;;  Describe help map:
 
 (defun describe-help-keys ()
   "Show bindings under C-h."
@@ -2638,8 +2638,8 @@ This function is sensitive to calendar mode when prompting."
   (with-current-buffer (window-buffer (selected-window))
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{Utility: Persist variable to a file:
+ 
+;;; Utility: Persist variable to a file:
 (defun emacspeak--persist-variable (var file)
   "Persist variable  `var' to file `FILE'.
 Arranges for `VAR' to be restored when `file' is loaded."
@@ -2658,8 +2658,8 @@ Arranges for `VAR' to be restored when `file' is loaded."
         (save-buffer)
         (kill-buffer)))))
 
-;;}}}
-;;{{{Tapestry --Jump to window by name:
+ 
+;;; Tapestry --Jump to window by name:
 
 (defun emacspeak-describe-tapestry (&optional details)
   "Describe the current layout of visible buffers in current frame.
@@ -2717,8 +2717,8 @@ but quickly switch to a window by name."
   (pop-to-buffer buffer-name)
   (emacspeak-speak-line))
 
-;;}}}
-;;{{{Battery:
+ 
+;;; Battery:
 (require 'battery "battery" 'no-error)
 (defvar emacspeak-battery-prev nil
   "Previous battery status.")
@@ -2734,8 +2734,8 @@ but quickly switch to a window by name."
     (setq emacspeak-battery-prev data)))
 (when (boundp 'battery-update-functions)
   (add-to-list 'battery-update-functions 'emacspeak-battery-alarm))
-;;}}}
-;;{{{Repeat Mode:
+ 
+;;; Repeat Mode:
 ;; See https://karthinks.com/software/it-bears-repeating/
 
 (defvar emacspeak-repeat-was-active nil
@@ -2768,8 +2768,8 @@ but quickly switch to a window by name."
 
 (add-hook 'repeat-mode-hook 'emacspeak-repeat-mode-hook )
 
-;;}}}
-;;{{{go top or bottom
+ 
+;;; go top or bottom
 (defun emacspeak-beginning-or-end ()
   "Move to start or end of buffer."
   (interactive)
@@ -2781,8 +2781,8 @@ but quickly switch to a window by name."
     (dtk-notify-speak
      (format "%s%%" (emacspeak-get-current-percentage-into-buffer)))))
 
-;;}}}
-;;{{{Utility: Accumulate
+ 
+;;; Utility: Accumulate
 
 (defun emacspeak-accumulate-to-register (reg generator)
   "Call generator and append resulting content to specified register.
@@ -2794,8 +2794,8 @@ Appended entries are separated by newlines."
    "Accumulated %d lines"
    (length (split-string (get-register reg) "\n"))))
 
-;;}}}
-;;{{{ Buffer Select:
+ 
+;;;  Buffer Select:
 
 ;; Helpers:
 
@@ -2873,12 +2873,12 @@ p emacspeak-cycle-to-previous-buffer
      t (lambda nil (emacspeak-auditory-icon 'repeat-end))
      "Repeat with %k")))
 
-;;}}}
+ 
 (provide 'emacspeak-speak)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

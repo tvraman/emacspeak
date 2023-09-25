@@ -3,7 +3,7 @@
 ;; $Author: raman $
 ;; Description:  AJAX Search -> Lisp
 ;; Keywords: Google   AJAX API
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; gcal| T. V. Raman |tv.raman.tv@gmail.com
@@ -14,8 +14,8 @@
 ;; License: GPL
 ;; 
 
-;;}}}
-;;{{{ Copyright:
+ 
+;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
 ;; All rights reserved.
@@ -46,10 +46,10 @@
 ;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;; Commentary: Provide Google services --- such as search,
 ;; search-based completion etc.  For use from within Emacs tools.
@@ -58,19 +58,19 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'json)
 (require 'g-utils)
 
-;;}}}
-;;{{{ Customizations
+ 
+;;;  Customizations
 
-;;}}}
-;;{{{ Variables
+ 
+;;;  Variables
 
 (defvar gweb-referer "http://emacspeak.sf.net"
   "Referer URL to send to the API.")
@@ -90,8 +90,8 @@ Default == Web Search.
 yt == Youtube .
 n == News.")
 
-;;}}}
-;;{{{ google suggest helper:
+ 
+;;;  google suggest helper:
 
 (defvar gweb-g-suggest-url
   "http://suggestqueries.google.com/complete/search?ds=%s&q=%s&client=chrome"
@@ -181,12 +181,12 @@ Uses corpus found in gweb-completion-corpus"
      (emacspeak-speak-word)
      ad-return-value)))
 
-;;}}}
+ 
 (provide 'gweb)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

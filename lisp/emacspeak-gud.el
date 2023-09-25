@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for gud interaction
 ;; Keywords:emacspeak, audio interface to emacs debuggers
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1995 by T. V. Raman
 ;; All Rights Reserved.
@@ -36,19 +36,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Introduction:
+;;;   Introduction:
 ;;; Commentary:
 ;; Provide additional advice to ease debugger interaction with gud
 ;;; Code:
-;;}}}
-;;{{{ requires
+ 
+;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{  Advise key helpers:
+ 
+;;;   Advise key helpers:
 
 (defadvice gud-display-line (after emacspeak pre act comp)
   "Speak the error line"
@@ -85,15 +85,15 @@
       ad-do-it
       (emacspeak-auditory-icon 'select-object)
       ad-return-value))))
-;;}}}
-;;{{{ Advise interactive commands:
+ 
+;;;  Advise interactive commands:
 
-;;}}}
+ 
 (provide  'emacspeak-gud)
-;;{{{  emacs local variables
+;;;   emacs local variables
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

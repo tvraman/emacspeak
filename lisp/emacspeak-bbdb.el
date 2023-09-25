@@ -4,7 +4,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; DescriptionEmacspeak extensions for bbdb 
 ;; Keywords:emacspeak, audio interface to emacs bbdb 
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@crl.dec.com 
@@ -14,8 +14,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved. 
@@ -37,19 +37,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 
-;;{{{  Required libraries
+;;;   Required libraries
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+ 
+;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables BBDB.
 ;; I have used BBDB to manage email address and contact information since 1991.
 ;;; Code:
-;;}}}
-;;{{{ personalities 
+ 
+;;;  personalities 
 
 (voice-setup-add-map
  '(
@@ -57,8 +57,8 @@
    (bbdb-name voice-bolden)
    (bbdb-organization voice-lighten)))
 
-;;}}}
-;;{{{  Variable settings:
+ 
+;;;   Variable settings:
 
 ;; Emacspeak will not work if bbdb is in electric mode
 (cl-declaim (special bbdb-electric-p))
@@ -73,8 +73,8 @@
      (define-key bbdb-mode-map "c" 'bbdb-create)
      ))
 
-;;}}}
-;;{{{ Advice:
+ 
+;;;  Advice:
 
 (defadvice              bbdb-delete-current-field-or-record
     (after emacspeak pre act comp)
@@ -171,8 +171,8 @@
    (t ad-do-it))
   ad-return-value)
 
-;;}}}
-;;{{{  Advice mail-ua  specific hooks
+ 
+;;;   Advice mail-ua  specific hooks
 
 (defadvice bbdb/vm-show-sender (after emacspeak pre act comp)
   "Speak"
@@ -189,20 +189,20 @@
   (when (ems-interactive-p)
     (emacspeak-speak-other-window )))
 
-;;}}}
-;;{{{ silence messages 
+ 
+;;;  silence messages 
 
 (defadvice bbdb-update-records (around emacspeak pre act comp)
   "Silence messages."
   (ems-with-messages-silenced
    ad-do-it))
 
-;;}}}
+ 
 (provide  'emacspeak-bbdb)
-;;{{{  emacs local variables 
+;;;   emacs local variables 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 

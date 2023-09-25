@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Emacspeak front-end for NEWSTICKER 
 ;; Keywords: Emacspeak, newsticker 
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved.
@@ -36,32 +36,32 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
-;;{{{  Introduction:
+;;;   Introduction:
 
 ;; Newsticker provides a continuously updating newsticker using
 ;; RSS
 ;; Provides functionality similar to amphetadesk --but in pure elisp
 
-;;}}}
-;;{{{ required modules
+ 
+;;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{ define personalities 
+ 
+;;;  define personalities 
 (voice-setup-add-map
  '(
    (newsticker-new-item-face voice-brighten)
    (newsticker-old-item-face voice-monotone-extra)
    (newsticker-feed-face voice-animate)
    ))
-;;}}}
-;;{{{ advice functions
+ 
+;;;  advice functions
 
 (defadvice newsticker--cache-remove (around emacspeak pre act
                                             comp)
@@ -82,8 +82,8 @@
     ad-do-it
     ad-return-value))
 
-;;}}}
-;;{{{ advice interactive commands
+ 
+;;;  advice interactive commands
 
 (defun emacspeak-newsticker-summarize-item ()
   "Summarize current item."
@@ -103,8 +103,8 @@
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-newsticker-summarize-item)))))
 
-;;}}}
-;;{{{  silence auto activity
+ 
+;;;   silence auto activity
 
 (cl-loop for f in
          '(newsticker-get-news-with-delay
@@ -116,12 +116,12 @@
              "Silence messages."
              (let ((emacspeak-speak-messages nil))
                ad-do-it))))
-;;}}}
+ 
 (provide 'emacspeak-newsticker)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 

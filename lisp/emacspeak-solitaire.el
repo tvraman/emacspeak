@@ -3,7 +3,7 @@
 ;; $Author: tv.raman.tv $ 
 ;; Description: Auditory interface to solitaire
 ;; Keywords: Emacspeak, Speak, Spoken Output, solitaire
-;;{{{  LCD Archive entry: 
+;;;   LCD Archive entry: 
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com 
@@ -13,8 +13,8 @@
 ;; Location undetermined
 ;; 
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
 ;; All Rights Reserved. 
@@ -36,21 +36,21 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
+ 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
+;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'solitaire)
-;;}}}
-;;{{{  Introduction 
+ 
+;;;   Introduction 
 ;;; Commentary:
 ;; Auditory interface to solitaire
 ;;; Code:
-;;}}}
-;;{{{  Communicate state
+ 
+;;;   Communicate state
 
 (defun emacspeak-solitaire-current-row ()
   (cl-declare (special solitaire-start-y))
@@ -140,11 +140,11 @@
        #'emacspeak-auditory-icon
        (mapcar #'emacspeak-solitaire-cell-to-icon cells)))))
 
-;;}}}
-;;{{{ advice commands
+ 
+;;;  advice commands
 
-;;}}}
-;;{{{ advice commands
+ 
+;;;  advice commands
 
 (defvar emacspeak-solitaire-autoshow nil
   "T means rows and columns are toned as we move")
@@ -220,8 +220,8 @@ emacspeak-solitaire-speak-coordinates"
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
-;;}}}
-;;{{{  add keybindings
+ 
+;;;   add keybindings
 
 (defun emacspeak-solitaire-setup-keymap ()
   "Setup emacspeak keybindings for solitaire"
@@ -240,13 +240,13 @@ emacspeak-solitaire-speak-coordinates"
   (define-key solitaire-mode-map "k" 'solitaire-up)
   (define-key solitaire-mode-map "j" 'solitaire-down))
 
-;;}}}
+ 
 
 (provide 'emacspeak-solitaire)
-;;{{{ end of file 
+;;;  end of file 
 
 ;; local variables:
 ;; folded-file: t
 ;; end: 
 
-;;}}}
+ 
