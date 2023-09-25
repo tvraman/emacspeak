@@ -126,7 +126,7 @@ Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        global-mode-string outline-minor-mode-prefix
                        outline-mode-prefix-map
-                       completion-auto-select emacspeak-directory))
+                        emacspeak-directory))
   (load-library "aster")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
