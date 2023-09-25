@@ -561,7 +561,7 @@
     ("C-;" emacspeak-amark-bookshelf)
     ("C-l" emacspeak-librivox)
     (";" emacspeak-multimedia)
-    ("C-a" emacspeak-wizards-term)
+    ("C-a" ansi-term)
     ("C-b" eww-list-bookmarks)
     ("C-d" dictionary-search)
     ("C-e" eshell)

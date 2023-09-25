@@ -47,7 +47,8 @@
 
 ;;;   Required modules
 
-(eval-when-compile (require 'cl-lib))
+(eval-when-compile
+  (require 'cl-lib))
 (require 'cl-extra)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (eval-when-compile
@@ -55,6 +56,12 @@
   (require 'derived)
   (require 'light)
   (require 'let-alist))
+(require 'g-utils)
+(require 'find-func)
+(require 'comint)
+(require 'shell)
+(require 'dired)
+(require 'org)
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
 (require 'name-this-color "name-this-color" 'no-error )
@@ -1062,7 +1069,7 @@ Moves to the shortest line when called interactively."
     (read-from-minibuffer "ISO DateTime:"
                           (word-at-point))))
   (ems-with-messages-silenced
-   (let ((time (emacspeak-speak-decode-iso-datetime iso)))
+   (let ((time (emacspeak-pronounce-decode-iso-datetime iso)))
      (tts-with-punctuations 'some (dtk-speak time))
      (message time))))
 
@@ -1402,24 +1409,8 @@ buffer keyed by `key'gets the key of buffer `buffer'."
 
 ;;;  Start or switch to term:
 
-;;;###autoload
-(defun emacspeak-wizards-term (create)
-  "Switch to an ansi-term buffer or create one.
-With prefix arg, always creates a new terminal.
-Otherwise cycles through existing terminals, creating the first
-term if needed."
-  (interactive "P")
-  (cl-declare (special shell-file-name))
-  (let ((next (or create (emacspeak-wizards-buffer-cycle-next 'term-mode))))
-    (cond
-     ((or create (not next)) (ansi-term shell-file-name))
-     (next
 
-      (when (derived-mode-p 'term-mode) (bury-buffer))
-      (switch-to-buffer next))
-     (t (error "Confused?")))
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+
 
 ;;;  Espeak: MultiLingual Wizard
 
