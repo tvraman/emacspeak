@@ -2,7 +2,7 @@
 ;; $Author: tv.raman.tv $
 ;; Description:  Documentation Generator
 ;; Keywords: Emacspeak,  Audio Desktop self-document
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -12,8 +12,8 @@
 ;; Location undetermined
 ;;
 
-;;}}}
-;;{{{  Copyright:
+ 
+;;;   Copyright:
 ;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
@@ -34,10 +34,10 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
-;;}}}
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 
@@ -45,8 +45,8 @@
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+ 
+;;;   Required modules
 
 (require 'cl-lib)
 (require 'cl-extra)
@@ -56,8 +56,8 @@
 (require 'texnfo-upd)
 (require 'regexp-opt)
 
-;;}}}
-;;{{{ Load All Modules
+ 
+;;;  Load All Modules
 
 ;; Setup load-path
 (defconst self-document-lisp-directory
@@ -217,8 +217,8 @@
               self-document-map)))
   (mapatoms #'self-document-map-symbol )))
 
-;;}}}
-;;{{{ Document Commands In A Module
+ 
+;;;  Document Commands In A Module
 
 (defun sd-texinfo-escape (string)
   "Escape texinfo special chars"
@@ -315,8 +315,8 @@
     (when (self-document-commands self) (self-document-module-commands self))
     (when (self-document-options self)(self-document-module-options self)))))
 
-;;}}}
-;;{{{Document Keybindings For Various Prefix Maps:
+ 
+;;; Document Keybindings For Various Prefix Maps:
 
 (cl-declaim (special emacspeak-prefix))
 (defvar sd-emacspeak-prefixes
@@ -344,8 +344,8 @@
      (insert "|}}\n")
      )))
 
-;;}}}
-;;{{{ Iterate over all modules
+ 
+;;;  Iterate over all modules
 
 (declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
 (defun self-document-fix-quotes ()
@@ -427,8 +427,8 @@ This chapter documents a total of %d commands and %d options.\n\n"
        "cat -s" (current-buffer) 'replace)
       (save-buffer))))
 
-;;}}}
-;;{{{ Document all keybindings:
+ 
+;;;  Document all keybindings:
 
 (defun sd-sort-keymap (key-entries)
   "Safely sort and return keymap entries."
@@ -487,8 +487,8 @@ This chapter documents a total of %d commands and %d options.\n\n"
        "cat -s" (current-buffer) 'replace)
       (save-buffer))))
 
-;;}}}
-;;{{{ Tests:
+ 
+;;;  Tests:
 
 (defun self-document-load-test ()
   "Dump out command map in /tmp"
@@ -545,12 +545,12 @@ This chapter documents a total of %d commands and %d options.\n\n"
        (self-document-module v))
       (save-buffer))))
 
-;;}}}
+ 
 (provide 'self-document)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 
