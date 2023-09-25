@@ -87,7 +87,7 @@ Produce timing information as the last step."
    for b in
    '(
      ("C-c r" comint-redirect-send-command )
-     ("C-c C-SPC" comint-magic-space)
+     ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
