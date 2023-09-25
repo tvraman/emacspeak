@@ -278,7 +278,8 @@ Uses the go oauth tool found in the xoauth git repo."
   (global-set-key "\C-xm" 'vm-mail)
   (when
       (locate-library "bbdb")
-      (require 'bbdb) (bbdb-insinuate-vm)))
+    (require 'bbdb)
+    (when (functionp 'bbdb-insinuate-vm) (bbdb-insinuate-vm))))
 
 (defun make-local-hook (hook)
   "compatibility"

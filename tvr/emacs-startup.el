@@ -42,18 +42,14 @@
 ;;{{{  libs, vars:
 
 (require 'cl-lib)
-(cl-declaim (optimize (safety 0) (speed 3)))
-
-(defvar tvr-site-lib
-  (expand-file-name "~/emacs/lisp/site-lisp")
-  "Site libs.")
+(defvar tvr-site-lib (expand-file-name "~/emacs/lisp/site-lisp")
+  "Local library.")
 
 (when (file-exists-p tvr-site-lib)
   (push tvr-site-lib load-path)
   (push (expand-file-name "vm/lisp/" tvr-site-lib) load-path))
 
-(defvar tvr-libs
-  "all-prepare"
+(defvar tvr-libs "all-prepare"
   "Libraries that need extra setup.")
 
 ;;}}}
@@ -91,7 +87,7 @@ Produce timing information as the last step."
    for b in
    '(
      ("C-c r" comint-redirect-send-command )
-     ("SPC" comint-magic-space)
+     ("C-c C-SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
@@ -99,7 +95,7 @@ Produce timing information as the last step."
 ;;}}}
 ;;{{{tvr-tabs:
 
-(defun tvr-tabs ()
+(defsubst tvr-tabs ()
   "Set up  tab-bar"
   (tab-bar-rename-tab "Home")
   (tab-bar-switch-to-tab "Books")
@@ -119,10 +115,10 @@ startup sound."
   (start-process
    "play" nil "aplay"
    (expand-file-name "highbells.au" emacspeak-sounds-directory))
+  (tvr-tabs)
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
-   user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)
-  (tvr-tabs))
+   user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
 
 (defun tvr-customize ()
   "Customize my emacs.
@@ -147,12 +143,9 @@ Use Custom to customize where possible. "
      (  "C-x r a"  append-to-register)
      ("C-x r p"  prepend-to-register)
      ("C-x v ." magit-commit-create)
-     ("C-x <tab>"  previous-buffer)
-     ("C-c <tab>"  next-buffer)
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
      ("M--" undo-only)
-     ("M-/" hippie-expand)
      ("M-C-c" calendar)
      ("M-C-j" imenu)
      ("M-e" emacspeak-wizards-end-of-word)
@@ -180,19 +173,15 @@ Use Custom to customize where possible. "
     (define-key outline-mode-prefix-map "o" 'open-line))
   (unless noninteractive (server-start))
   (with-eval-after-load 'magit (require 'forge))
-  (funcall #'(lambda nil (load "eww")))
+  (load "eww")
   (require 'dired-x)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (when (file-exists-p custom-file)
-    (tvr-time-load (load custom-file)))
-  (load-theme 'modus-vivendi-tinted t)
+  (when (file-exists-p custom-file) (tvr-time-load (load custom-file)))
   (with-eval-after-load 'diminish
     (mapc
-     #'(lambda (m)
-         (diminish m ""))
+     #'(lambda (m) (diminish m ""))
      '(outline-minor-mode reftex-mode voice-lock-mode company-mode hs-minor-mode
                           yas-minor-mode  auto-fill-function abbrev-mode auto-correct-mode)))
-
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
   (load-theme 'modus-vivendi-tinted t))
@@ -203,12 +192,7 @@ Use Custom to customize where possible. "
   (cl-declare (special  tvr-libs ))
 ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
-  (with-eval-after-load
-      'yasnippet
-    (yas-reload-all)
-    (when (featurep 'diminish)
-      (diminish 'yas-minor-mode "")))
-  ;; customizations
+  (with-eval-after-load 'yasnippet (yas-reload-all))
   (tvr-customize)
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize))
@@ -259,8 +243,7 @@ configuration happens via the after-init-hook. "
          (expand-file-name
           "lisp/emacspeak-setup"
           (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
-  (cl-pushnew (expand-file-name "tvr/" emacspeak-directory) load-path
-              :test #'string-equal)
+  (push (expand-file-name "tvr/" emacspeak-directory) load-path)
   (push (expand-file-name "aster-math/ui" emacspeak-directory) load-path)
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook))
@@ -270,7 +253,7 @@ configuration happens via the after-init-hook. "
 
 ;;{{{ Forward Function Declarations:
 
-(declare-function kbd "emacspeak-keymap" (string))
+
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
 (declare-function

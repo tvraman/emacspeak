@@ -957,8 +957,11 @@ Retain previously set punctuations  mode."
      (ems-with-messages-silenced ad-do-it)
      (when (ems-interactive-p)
        (let ((host
-              (url-host
-               (url-generic-parse-url (funcall emacspeak-eww-url-at-point)))))
+              (condition-case nil
+                  (url-host
+                   (url-generic-parse-url (funcall
+                                           emacspeak-eww-url-at-point)))
+                (error ""))))
          (cond                          ; smarter icon:
           ((or
             emacspeak-we-url-executor

@@ -59,7 +59,7 @@
 
 ;;}}}
 ;;{{{ comint
-
+;;;###autoload
 (defcustom emacspeak-comint-autospeak t
   "Speak comint output.
 Use \\[emacspeak-toggle-comint-autospeak] to toggle this setting."
