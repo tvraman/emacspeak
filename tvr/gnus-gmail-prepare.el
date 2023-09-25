@@ -30,10 +30,11 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
   (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
    
-  ;;;  Tests:
+;;;  Tests:
 
   ;; (auth-source-xoauth2--search nil nil "gmail" "raman@google.com""993")
-  ;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
+  ;; (auth-source-search :host "smtp.gmail.com"
+  ;; :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
 
    
   ;;;  Sending Mail:
@@ -125,7 +126,7 @@ This moves them into the Spam folder."
 Uses the go oauth tool found in the xoauth git repo."
     (kill-new
      (format
-      "oauth --user %s --client_id %s --client_secret %s   --generate_oauth2_token"
+      "oauth --user %s --client_id %s --client_secret %s  --generate_oauth2_token"
       user
       (plist-get app-secret :client-id)
       (plist-get app-secret :client-secret))))

@@ -13,4 +13,5 @@
        "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
        (cons
         spool
-        (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))))
+        (mspools-compute-size
+         (expand-file-name  spool mspools-folder-directory))))))

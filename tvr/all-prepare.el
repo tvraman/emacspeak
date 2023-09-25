@@ -30,10 +30,11 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
   (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
    
-  ;;;  Tests:
+;;;  Tests:
 
   ;; (auth-source-xoauth2--search nil nil "gmail" "raman@google.com""993")
-  ;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
+  ;; (auth-source-search :host "smtp.gmail.com"
+  ;; :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
 
    
   ;;;  Sending Mail:
@@ -125,7 +126,7 @@ This moves them into the Spam folder."
 Uses the go oauth tool found in the xoauth git repo."
     (kill-new
      (format
-      "oauth --user %s --client_id %s --client_secret %s   --generate_oauth2_token"
+      "oauth --user %s --client_id %s --client_secret %s  --generate_oauth2_token"
       user
       (plist-get app-secret :client-id)
       (plist-get app-secret :client-secret))))
@@ -179,12 +180,12 @@ Uses the go oauth tool found in the xoauth git repo."
 (provide 'laptop-local)
 (define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand)
 (defun conditionally-enable-lispy ()
-  (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
+  (when (memq this-command
+              '(eval-expression emacspeak-wizards-show-eval-result))
     (lispy-mode 1)))
 (with-eval-after-load "lispy"
   (cl-declare (special lispy-mode-map lispy-mode-map-lispy))
   (define-key lispy-mode-map (kbd "C-a") 'move-beginning-of-line)
-  ;(define-key lispy-mode-map (concat emacspeak-prefix emacspeak-prefix) 'move-end-of-line)
   (define-key lispy-mode-map (kbd "C-,") nil)
   (define-key lispy-mode-map-lispy (kbd "C-,") nil)
   (define-key lispy-mode-map (kbd "C-<return>") 'complete)
@@ -204,7 +205,6 @@ Uses the go oauth tool found in the xoauth git repo."
   (diminish 'lispy-mode "")
   (diminish 'lispy-other-mode "")
   (diminish 'lispy-goto-mode ""))
-;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: nil; -*-
 
 (with-eval-after-load "org"
 
