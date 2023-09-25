@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 24, 2023.
+last updated on September 25, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -319,7 +319,7 @@ File: emacspeak.info,  Node: emacspeak-go-mode,  Next: emacspeak-gomoku,  Prev: 
 12.92 emacspeak-go-mode
 =======================
 
-GO-MODE == Go Language support in emacs
+GO-MODE == Go Language support in emacs Required modules
 
 
 File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-google,  Prev: emacspeak-go-mode,  Up: Emacspeak Commands And Options
@@ -1002,6 +1002,8 @@ File: emacspeak.info,  Node: emacspeak-js2,  Next: emacspeak-keymap,  Prev: emac
 JS2-mode http://js2-mode.googlecode.com/svn/trunk is a new, powerful
 Emacs mode for working with JavaScript.  This module speech-enables js2.
 
+   Required modules
+
 
 File: emacspeak.info,  Node: emacspeak-keymap,  Next: emacspeak-kmacro,  Prev: emacspeak-js2,  Up: Emacspeak Commands And Options
 
@@ -1069,7 +1071,7 @@ found on laptops is denoted <fn>
      
      ((";" emacspeak-multimedia)
       ("C-;" emacspeak-amark-bookshelf)
-      ("C-a" emacspeak-wizards-term)
+      ("C-a" ansi-term)
       ("C-b" eww-list-bookmarks)
       ("C-d" dictionary-search)
       ("C-e" eshell)
@@ -1217,7 +1219,9 @@ File: emacspeak.info,  Node: emacspeak-kmacro,  Next: emacspeak-librivox,  Prev:
 12.116 emacspeak-kmacro
 =======================
 
-speech-enables kmacro — a kbd macro interface
+Introduction speech-enables kmacro — a kbd macro interface
+
+   required modules
 
 
 File: emacspeak.info,  Node: emacspeak-librivox,  Next: emacspeak-lispy,  Prev: emacspeak-kmacro,  Up: Emacspeak Commands And Options
@@ -2281,6 +2285,8 @@ File: emacspeak.info,  Node: emacspeak-magit,  Next: emacspeak-make-mode,  Prev:
 MAGIT == Git interface in Emacs git clone
 git://github.com/magit/magit.git
 
+   Required modules
+
 
 File: emacspeak.info,  Node: emacspeak-make-mode,  Next: emacspeak-man,  Prev: emacspeak-magit,  Up: Emacspeak Commands And Options
 
@@ -2321,6 +2327,8 @@ File: emacspeak.info,  Node: emacspeak-markdown,  Next: emacspeak-maths,  Prev: 
 =========================
 
 MARKDOWN == Light-weight markup.  This module speech-enables markdown.el
+
+   Required modules
 
 
 File: emacspeak.info,  Node: emacspeak-maths,  Next: emacspeak-message,  Prev: emacspeak-markdown,  Up: Emacspeak Commands And Options
@@ -2527,6 +2535,8 @@ File: emacspeak.info,  Node: emacspeak-metapost,  Next: emacspeak-midge,  Prev: 
 
 Speech-enables metapost mode.  metapost is a powerful drawing package
 typically installed as mpost by modern TeX installations.
+
+   completion
 
 
 File: emacspeak.info,  Node: emacspeak-midge,  Next: emacspeak-mines,  Prev: emacspeak-metapost,  Up: Emacspeak Commands And Options
@@ -2890,7 +2900,7 @@ File: emacspeak.info,  Node: emacspeak-muse,  Next: emacspeak-net-utils,  Prev: 
 12.132 emacspeak-muse
 =====================
 
-Speech enable Muse
+Speech enable Muse Required modules
 
 
 File: emacspeak.info,  Node: emacspeak-net-utils,  Next: emacspeak-newsticker,  Prev: emacspeak-muse,  Up: Emacspeak Commands And Options
@@ -2898,16 +2908,13 @@ File: emacspeak.info,  Node: emacspeak-net-utils,  Next: emacspeak-newsticker,  
 12.133 emacspeak-net-utils
 ==========================
 
-This module speech enables net-utils
+This module speech enables net-utils requires
 
 
 File: emacspeak.info,  Node: emacspeak-newsticker,  Next: emacspeak-notmuch,  Prev: emacspeak-net-utils,  Up: Emacspeak Commands And Options
 
 12.134 emacspeak-newsticker
 ===========================
-
-Newsticker provides a continuously updating newsticker using RSS
-Provides functionality similar to amphetadesk –but in pure elisp
 
 
 File: emacspeak.info,  Node: emacspeak-notmuch,  Next: emacspeak-nov,  Prev: emacspeak-newsticker,  Up: Emacspeak Commands And Options
@@ -3533,6 +3540,8 @@ File: emacspeak.info,  Node: emacspeak-package,  Next: emacspeak-paradox,  Prev:
 PACKAGE == package.el Manage Emacs packages.  This module speech-enables
 package.el with a few convenience commands.
 
+   Required modules
+
 12.143.1 Emacspeak-Package Commands
 -----------------------------------
 
@@ -3566,6 +3575,8 @@ File: emacspeak.info,  Node: emacspeak-paradox,  Next: emacspeak-perl,  Prev: em
 PARADOX == paradox.el Improved package management interface Manage Emacs
 packages.  This module speech-enables paradox.el with a few convenience
 commands.
+
+   Required modules
 
 12.144.1 Emacspeak-Paradox Commands
 -----------------------------------
@@ -3715,6 +3726,8 @@ File: emacspeak.info,  Node: emacspeak-proced,  Next: emacspeak-project,  Prev: 
 
 PROCED == Process Editor A new Task Manager for Emacs.  Proced is part
 of emacs 23.
+
+   Required modules
 
 12.148.1 Emacspeak-Proced Commands
 ----------------------------------
@@ -4037,6 +4050,8 @@ File: emacspeak.info,  Node: emacspeak-re-builder,  Next: emacspeak-reftex,  Pre
 
 Speech-enable re-builder.  Will be used to advantage in efficiently
 setting up outline regexp wizards
+
+   required modules
 
 
 File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: emacspeak-re-builder,  Up: Emacspeak Commands And Options
@@ -4381,6 +4396,8 @@ emacspeak.
      found in appropriate subdirectories of emacspeak-sounds-directory.
    • The auditory icon player is configure via custom option
      ‘emacspeak-play-program’.
+
+   required modules
 
 12.177.2 Emacspeak-Sounds Commands
 ----------------------------------
@@ -5739,6 +5756,8 @@ File: emacspeak.info,  Node: emacspeak-sudoku,  Next: emacspeak-supercite,  Prev
 
 Playing SuDoku using speech output.  Written to discover what type of
 feedback one needs for this task.
+
+   Required modules
 
 12.181.1 Emacspeak-Sudoku Commands
 ----------------------------------
@@ -7258,6 +7277,7 @@ File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacs
 =======================
 
 Speech-enable wdired to permit in-place renaming of groups of files.
+required modules
 
 
 File: emacspeak.info,  Node: emacspeak-we,  Next: emacspeak-websearch,  Prev: emacspeak-wdired,  Up: Emacspeak Commands And Options
@@ -7986,6 +8006,8 @@ File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-windmove,  Prev:
 This module implements the necessary extensions to provide talking
 widgets.
 
+   required modules
+
 12.211.1 Emacspeak-Widget Commands
 ----------------------------------
 
@@ -8039,6 +8061,8 @@ File: emacspeak.info,  Node: emacspeak-windmove,  Next: emacspeak-winring,  Prev
 
 Package windmove (bundled with Emacs 21) provides commands for
 navigating to windows based on relative position.
+
+   required modules
 
 
 File: emacspeak.info,  Node: emacspeak-winring,  Next: emacspeak-wizards,  Prev: emacspeak-windmove,  Up: Emacspeak Commands And Options
@@ -9030,21 +9054,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Swap foreground and background.
 
-12.214.1.90 emacspeak-wizards-term
-..................................
-
- -- Command: emacspeak-wizards-term (create)
-     ‘C-; C-a’
-     ‘C-x @ h C-a’
-
-     Switch to an ansi-term buffer or create one.
-     With prefix arg, always creates a new terminal.
-     Otherwise cycles through existing terminals, creating the first
-     term if needed.
-
-     (fn CREATE)
-
-12.214.1.91 emacspeak-wizards-tex-tie-current-word
+12.214.1.90 emacspeak-wizards-tex-tie-current-word
 ..................................................
 
  -- Command: emacspeak-wizards-tex-tie-current-word (n)
@@ -9053,28 +9063,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn N)
 
-12.214.1.92 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.214.1.91 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ...............................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.214.1.93 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
+12.214.1.92 emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
 ...............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyy-mm-dd-date-pronouncer
 
      Toggle pronunciation of yyyy-mm-dd dates.
 
-12.214.1.94 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.214.1.93 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 .............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.214.1.95 emacspeak-wizards-tune-in-radio-browse
+12.214.1.94 emacspeak-wizards-tune-in-radio-browse
 ..................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -9086,7 +9096,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.214.1.96 emacspeak-wizards-tune-in-radio-search
+12.214.1.95 emacspeak-wizards-tune-in-radio-search
 ..................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -9095,7 +9105,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.214.1.97 emacspeak-wizards-units
+12.214.1.96 emacspeak-wizards-units
 ...................................
 
  -- Command: emacspeak-wizards-units
@@ -9104,14 +9114,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units.
 
-12.214.1.98 emacspeak-wizards-vc-n
+12.214.1.97 emacspeak-wizards-vc-n
 ..................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.214.1.99 emacspeak-wizards-vc-view-mode
+12.214.1.98 emacspeak-wizards-vc-view-mode
 ..........................................
 
  -- Command: emacspeak-wizards-vc-view-mode
@@ -9126,8 +9136,8 @@ Contains various wizards for the Emacspeak desktop.
      run, this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as
      the final or penultimate step during initialization.
 
-12.214.1.100 emacspeak-wizards-vc-viewer
-........................................
+12.214.1.99 emacspeak-wizards-vc-viewer
+.......................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
      ‘C-e x v’
@@ -9137,21 +9147,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.214.1.101 emacspeak-wizards-vc-viewer-refresh
+12.214.1.100 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.214.1.102 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.214.1.101 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 
      Buffer menu filtered by  m-player mode.
 
-12.214.1.103 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.214.1.102 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -9229,6 +9239,8 @@ File: emacspeak.info,  Node: emacspeak-xkcd,  Next: emacspeak-xref,  Prev: emacs
 XKCD == XKCD In Emacs View XKCD comics in Emacs.  Speech enables package
 xkcd Augments it by displaying the alt text and the transcript.
 
+   Required modules
+
 12.216.1 Emacspeak-Xkcd Commands
 --------------------------------
 
@@ -9247,6 +9259,8 @@ File: emacspeak.info,  Node: emacspeak-xref,  Next: emacspeak-xslt,  Prev: emacs
 
 XREF == Cross-references in source code.  This is part of Emacs 25.
 This module speech-enables xref
+
+   Required modules
 
 
 File: emacspeak.info,  Node: emacspeak-xslt,  Next: emacspeak-yaml,  Prev: emacspeak-xref,  Up: Emacspeak Commands And Options
@@ -10229,6 +10243,8 @@ File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voi
 This module defines the various voices used in voice-lock mode.  Module
 Plain is suitable for a device for which you haven’t yet implemented
 appropriate voice-locking controls
+
+   required modules
 
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options

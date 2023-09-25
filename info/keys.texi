@@ -143,7 +143,7 @@
  @section Emacspeak Keybindings On emacspeak-hyper-keymap
 
 @table @kbd
-@item C-a  emacspeak-wizards-term
+@item C-a  ansi-term
 @item C-b  eww-list-bookmarks
 @item C-d  dictionary-search
 @item C-e  eshell

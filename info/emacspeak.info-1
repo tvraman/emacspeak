@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 24, 2023.
+last updated on September 25, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2788,7 +2788,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 11.3 Emacspeak Keybindings On emacspeak-hyper-keymap
 ====================================================
 
-‘C-a emacspeak-wizards-term’
+‘C-a ansi-term’
 ‘C-b eww-list-bookmarks’
 ‘C-d dictionary-search’
 ‘C-e eshell’
@@ -2994,7 +2994,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1154 commands and 147 options.
+   This chapter documents a total of 1153 commands and 147 options.
 
 * Menu:
 
@@ -4280,7 +4280,7 @@ File: emacspeak.info,  Node: emacspeak-analog,  Next: emacspeak-annotate,  Prev:
 12.11 emacspeak-analog
 ======================
 
-Speech-enables package analog –convenient log analyzer
+Speech-enables package analog –convenient log analyzer required modules
 
 12.11.1 Emacspeak-Analog Commands
 ---------------------------------
@@ -4342,6 +4342,8 @@ File: emacspeak.info,  Node: emacspeak-apt-sources,  Next: emacspeak-arc,  Prev:
 This module speech-enables apt-sources.el that is included in the
 debian-el package and provides a major mode for editing APT’s
 sources.list file.
+
+   Required modules
 
 
 File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-auctex,  Prev: emacspeak-apt-sources,  Up: Emacspeak Commands And Options
@@ -4436,6 +4438,8 @@ File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacsp
 BBC developer API (backstage) is now history.  that implementation is in
 obsolete/emacspeak-bbc-backstage.el This module contains a light-weight
 client.
+
+   Required modules
 
 12.16.1 Emacspeak-Bbc Commands
 ------------------------------
@@ -4802,6 +4806,7 @@ Assuming you have correctly setup your API key:
 
      Key             Binding
      ——————————————————————————-
+     RET		emacspeak-bookshare-toc-at-point
      SPC		emacspeak-bookshare-expand-at-point
      +		emacspeak-bookshare-action
      /		emacspeak-bookshare-action
@@ -5557,6 +5562,8 @@ settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
 to generate their own feedback.
 
+   Required modules
+
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
 
@@ -5639,6 +5646,8 @@ startup file after this module has been loaded.  See relevant hooks for
 customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
 network/up-down can be separately enabled/disabled, and the actions
 customized via appropriately named hook functions.
+
+   Required modules
 
 12.40.2 Emacspeak-Dbus Commands
 -------------------------------
@@ -5757,7 +5766,7 @@ File: emacspeak.info,  Node: emacspeak-diff-mode,  Next: emacspeak-dired,  Prev:
 12.46 emacspeak-diff-mode
 =========================
 
-DIFF-MODE support.
+DIFF-MODE support.  Required modules
 
 
 File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-diff-mode,  Up: Emacspeak Commands And Options
@@ -6148,6 +6157,8 @@ into a headless server that can be called from other programs.  Package
 Emacs-Eclim connects Emacs to Eclim.  Package emacspeak-eclim
 speech-enables emacs-eclim.
 
+   Required modules
+
 
 File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-eglot,  Prev: emacspeak-eclim,  Up: Emacspeak Commands And Options
 
@@ -6194,6 +6205,8 @@ File: emacspeak.info,  Node: emacspeak-ein,  Next: emacspeak-elfeed,  Prev: emac
 EIN == Emacs IPython Notebook You can install package EIN via mELPA This
 module speech-enables EIN
 
+   Required modules
+
 12.55.1 Emacspeak-Ein Commands
 ------------------------------
 
@@ -6212,6 +6225,8 @@ File: emacspeak.info,  Node: emacspeak-elfeed,  Next: emacspeak-elisp-refs,  Pre
 
 ELFEED == Feed Reader for Emacs.  Install from elpa M-x package-install
 elfeed
+
+   Required modules
 
 12.56.1 Emacspeak-Elfeed Commands
 ---------------------------------
@@ -6860,6 +6875,7 @@ table of contents.
      ——————————————————————————-
      C-a		emacspeak-epub-bookshelf-add-directory
      C-d		emacspeak-epub-bookshelf-remove-directory
+     C-k		emacspeak-epub-delete
      C-l		emacspeak-epub-bookshelf-redraw
      RET		emacspeak-epub-eww
      C-o		emacspeak-epub-bookshelf-open-epub
@@ -7099,6 +7115,8 @@ File: emacspeak.info,  Node: emacspeak-ess,  Next: emacspeak-etable,  Prev: emac
 ===================
 
 ESS == Emacs Speaks Statistics This module makes ESS speak.
+
+   Required modules
 
 
 File: emacspeak.info,  Node: emacspeak-etable,  Next: emacspeak-eterm,  Prev: emacspeak-ess,  Up: Emacspeak Commands And Options
@@ -8808,7 +8826,7 @@ File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-ffap,  Prev: emac
 12.78 emacspeak-feeds
 =====================
 
-This module provides Feeds support for Emacspeak
+This module provides Feeds support for Emacspeak required modules
 
 12.78.1 Emacspeak-Feeds Commands
 --------------------------------

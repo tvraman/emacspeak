@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1154 commands and 147 options.
+This chapter documents a total of 1153 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -1656,6 +1656,7 @@ Save buffer-local AMarks in  currently playing directory.
 @section emacspeak-analog
 
 Speech-enables package analog --convenient log analyzer
+ required modules
 
 @subsection Emacspeak-Analog Commands
 
@@ -1721,6 +1722,8 @@ This module speech-enables apt-sources.el
 that is included in the debian-el package
 and provides a major mode for editing
 APT's sources.list file.
+
+  Required modules
 
 @node emacspeak-arc
 @section emacspeak-arc
@@ -1821,6 +1824,8 @@ Tie the next n  words.
 BBC developer API (backstage) is now history.
 that implementation is in obsolete/emacspeak-bbc-backstage.el
 This module contains a light-weight client.
+
+  Required modules
 
 @subsection Emacspeak-Bbc Commands
 
@@ -2237,6 +2242,7 @@ b Browse
 
 Key             Binding
 -------------------------------------------------------------------------------
+RET		emacspeak-bookshare-toc-at-point
 SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
 /		emacspeak-bookshare-action
@@ -3104,6 +3110,8 @@ along with other custom settings. Function
 feedback, and leaves it to other frontends on
 @var{company-frontends}   to generate their own feedback.
 
+  Required modules
+
 @node emacspeak-compile
 @section emacspeak-compile
 
@@ -3183,6 +3191,8 @@ See relevant hooks for customizing behavior.
 Note that each of the  sleep/wake-up, UDisks2   and network/up-down
 can be separately enabled/disabled, and the actions customized
 via appropriately named hook functions.
+
+  Required modules
 
 @subsection Emacspeak-Dbus Commands
 
@@ -3299,6 +3309,7 @@ server at dict.org:2628
 @section emacspeak-diff-mode
 
 DIFF-MODE  support.
+  Required modules
 
 @node emacspeak-dired
 @section emacspeak-dired
@@ -3761,6 +3772,8 @@ that can be called from other programs.
 Package Emacs-Eclim connects Emacs to Eclim.
 Package emacspeak-eclim speech-enables emacs-eclim.
 
+  Required modules
+
 @node emacspeak-ediff
 @section emacspeak-ediff
 
@@ -3801,6 +3814,8 @@ EIN ==  Emacs IPython Notebook
 You can install package EIN via mELPA
 This module speech-enables EIN
 
+  Required modules
+
 @subsection Emacspeak-Ein Commands
 
 @subsubsection emacspeak-ein-speak-current-cell
@@ -3818,6 +3833,8 @@ Speak current cell.
 ELFEED ==  Feed Reader for Emacs.
 Install from elpa
 M-x package-install  elfeed
+
+  Required modules
 
 @subsection Emacspeak-Elfeed Commands
 
@@ -4566,6 +4583,7 @@ Key             Binding
 -------------------------------------------------------------------------------
 C-a		emacspeak-epub-bookshelf-add-directory
 C-d		emacspeak-epub-bookshelf-remove-directory
+C-k		emacspeak-epub-delete
 C-l		emacspeak-epub-bookshelf-redraw
 RET		emacspeak-epub-eww
 C-o		emacspeak-epub-bookshelf-open-epub
@@ -4850,6 +4868,8 @@ This module speech-enables EShell
 
 ESS == Emacs Speaks Statistics
 This module makes ESS speak.
+
+  Required modules
 
 @node emacspeak-etable
 @section emacspeak-etable
@@ -6919,6 +6939,7 @@ Cycle to next workspace, with wrap-around
 @section emacspeak-feeds
 
 This module provides Feeds support for Emacspeak
+ required modules
 
 @subsection Emacspeak-Feeds Commands
 
@@ -7412,6 +7433,7 @@ all
 @section emacspeak-go-mode
 
 GO-MODE ==  Go Language support in emacs
+  Required modules
 
 @node emacspeak-gomoku
 @section emacspeak-gomoku
@@ -8200,6 +8222,8 @@ JS2-mode http://js2-mode.googlecode.com/svn/trunk
 is a new, powerful Emacs mode for working with JavaScript.
 This module speech-enables js2.
 
+  Required modules
+
 @node emacspeak-keymap
 @section emacspeak-keymap
 
@@ -8272,7 +8296,7 @@ Default Value:
 
 ((";" emacspeak-multimedia)
  ("C-;" emacspeak-amark-bookshelf)
- ("C-a" emacspeak-wizards-term)
+ ("C-a" ansi-term)
  ("C-b" eww-list-bookmarks)
  ("C-d" dictionary-search)
  ("C-e" eshell)
@@ -8444,7 +8468,10 @@ Default Value:
 @node emacspeak-kmacro
 @section emacspeak-kmacro
 
+  Introduction
 speech-enables kmacro --- a kbd macro interface
+
+ required modules
 
 @node emacspeak-librivox
 @section emacspeak-librivox
@@ -9739,6 +9766,8 @@ nil
 MAGIT ==  Git interface in Emacs
 git clone git://github.com/magit/magit.git
 
+  Required modules
+
 @node emacspeak-make-mode
 @section emacspeak-make-mode
 
@@ -9774,6 +9803,8 @@ Speak current section
 
 MARKDOWN ==  Light-weight markup.
 This module speech-enables markdown.el
+
+  Required modules
 
 @node emacspeak-maths
 @section emacspeak-maths
@@ -10008,6 +10039,8 @@ Speech-enables metapost mode.
 metapost is a powerful drawing package
 typically installed as mpost by modern TeX
 installations.
+
+  completion
 
 @node emacspeak-midge
 @section emacspeak-midge
@@ -10431,18 +10464,16 @@ The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 @section emacspeak-muse
 
 Speech enable Muse
+  Required modules
 
 @node emacspeak-net-utils
 @section emacspeak-net-utils
 
 This module speech enables net-utils
+ requires
 
 @node emacspeak-newsticker
 @section emacspeak-newsticker
-
-Newsticker provides a continuously updating newsticker using
-RSS
-Provides functionality similar to amphetadesk --but in pure elisp
 
 @node emacspeak-notmuch
 @section emacspeak-notmuch
@@ -11185,6 +11216,8 @@ PACKAGE == package.el
 Manage Emacs packages.
 This module speech-enables package.el with a few convenience commands.
 
+  Required modules
+
 @subsection Emacspeak-Package Commands
 
 @subsubsection emacspeak-package-next-line
@@ -11220,6 +11253,8 @@ Succinct Summary.
 PARADOX == paradox.el Improved package management interface
 Manage Emacs packages.
 This module speech-enables paradox.el with a few convenience commands.
+
+  Required modules
 
 @subsection Emacspeak-Paradox Commands
 
@@ -11389,6 +11424,8 @@ POPUP ==  popup.el from MELPA
 PROCED ==  Process Editor
 A new Task Manager for Emacs.
 Proced is part of emacs 23.
+
+  Required modules
 
 @subsection Emacspeak-Proced Commands
 
@@ -11739,6 +11776,7 @@ Will be used to advantage in efficiently setting up outline
 regexp wizards
 
 
+ required modules
 
 @node emacspeak-reftex
 @section emacspeak-reftex
@@ -12062,6 +12100,8 @@ found in appropriate subdirectories of emacspeak-sounds-directory.
 @item The auditory icon player is configure via
 custom option @code{emacspeak-play-program}.
 @end itemize
+
+ required modules
 
 @subsection Emacspeak-Sounds Commands
 
@@ -14029,6 +14069,8 @@ Playing SuDoku using speech output.
 Written to discover what type of feedback one needs for  this
 task.
 
+  Required modules
+
 @subsection Emacspeak-Sudoku Commands
 
 @subsubsection emacspeak-sudoku-board-columns-summarize
@@ -15897,6 +15939,7 @@ Speak current playing state.
 @section emacspeak-wdired
 
 Speech-enable wdired to permit in-place renaming of groups of files.
+ required modules
 
 @node emacspeak-we
 @section emacspeak-we
@@ -16905,6 +16948,8 @@ nil
 This module implements the necessary extensions to provide talking
 widgets.
 
+ required modules
+
 @subsection Emacspeak-Widget Commands
 
 @subsubsection emacspeak-widget-browse-widget-interactively
@@ -16964,6 +17009,8 @@ Sets widget at ‘pos’ by invoking its prompter.
 Package  windmove (bundled with Emacs 21)
 provides commands for navigating to windows based on
 relative position.
+
+ required modules
 
 @node emacspeak-winring
 @section emacspeak-winring
@@ -18408,27 +18455,6 @@ Swap foreground and background.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-term
-@deffn {Command} emacspeak-wizards-term  (create)
-@table @kbd
-@item C-; C-a
-@kindex C-; C-a
-@item C-x @@ h C-a
-@kindex C-x @@ h C-a
-@end table
-
-@findex emacspeak-wizards-term
-
-@format
-Switch to an ansi-term buffer or create one.
-With prefix arg, always creates a new terminal.
-Otherwise cycles through existing terminals, creating the first
-term if needed.
-
-(fn CREATE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-tex-tie-current-word
 @deffn {Command} emacspeak-wizards-tex-tie-current-word  (n)
 @findex emacspeak-wizards-tex-tie-current-word
@@ -18683,6 +18709,8 @@ View XKCD comics in Emacs.
 Speech enables package xkcd
 Augments it by displaying the alt text and the transcript.
 
+  Required modules
+
 @subsection Emacspeak-Xkcd Commands
 
 @subsubsection emacspeak-xkcd-open-explanation-browser
@@ -18700,6 +18728,8 @@ Open explanation of current xkcd in default browser
 XREF ==  Cross-references in source code.
 This is part of Emacs 25.
 This module speech-enables xref
+
+  Required modules
 
 @node emacspeak-xslt
 @section emacspeak-xslt
@@ -19822,6 +19852,8 @@ Default Value:
 This module defines the various voices used in voice-lock mode.
  Module Plain is  suitable for a device for which you haven't yet
  implemented appropriate voice-locking controls
+
+ required modules
 
 @node soundscape
 @section soundscape
