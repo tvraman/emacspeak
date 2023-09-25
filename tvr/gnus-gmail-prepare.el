@@ -5,7 +5,7 @@
 ;; That module extends Emacs' auth-source with xoauth2 support.
 ;; This module sets things up for GMail.
 ;;Using  a file-based creds store.
-;;{{{specials:
+;;; specials:
 (cl-declaim (special emacspeak-z-keymap gnus-summary-mode-map
                      emacspeak-y-keymap smtpmail-auth-supported
                      gnus-auto-subscribed-groups smtpmail-smtp-service
@@ -13,8 +13,8 @@
                      s smtpmail-smtp-user
                      mm-file-name-rewrite-functions smtpmail-auth-supported))
 
-;;}}}
-;;{{{ Requires:
+ 
+;;;  Requires:
 
 (with-eval-after-load "gnus"
   (require 'cl-lib)
@@ -29,14 +29,14 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
   (auth-source-xoauth2-enable)
   (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
-  ;;}}}
-  ;;{{{ Tests:
+   
+  ;;;  Tests:
 
   ;; (auth-source-xoauth2--search nil nil "gmail" "raman@google.com""993")
   ;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
 
-  ;;}}}
-  ;;{{{ Sending Mail:
+   
+  ;;;  Sending Mail:
 
   (setq
    send-mail-function 'smtpmail-send-it
@@ -47,8 +47,8 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
    smtpmail-smtp-server "smtp.gmail.com"
    smtpmail-smtp-service 465)
 
-  ;;}}}
-  ;;{{{GMail Using xoauth2  and Gnus:
+   
+  ;;; GMail Using xoauth2  and Gnus:
   (cl-declaim (special gnus-select-method gnus-secondary-select-methods))
   (setq
    gnus-select-method
@@ -79,8 +79,8 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
         (mapcar #'gm-user-to-nnimap
                 '( "tv.raman.tv" "emacspeak")))
 
-  ;;}}}
-  ;;{{{Additional gnus settings:
+   
+  ;;; Additional gnus settings:
 
   (setq gnus-auto-subscribed-groups nil)
   (defun gmail-report-spam ()
@@ -100,7 +100,7 @@ This moves them into the Spam folder."
          (emacspeak-auditory-icon 'task-done))))
 
   (define-key gnus-summary-mode-map "$" 'gmail-report-spam)
-  ;;}}}
+   
 
   (defun tvr-unlock-xoauth ()
     "Unlock xoauth creds if gpg-agent has timed out."
@@ -118,7 +118,7 @@ This moves them into the Spam folder."
           mm-file-name-collapse-whitespace
           mm-file-name-replace-whitespace))
 
-  ;;{{{ Utils:
+  ;;;  Utils:
 
   (defun google-py-oauth2-cli (user app-secret)
     "generate command-line for pasting into a shell.
@@ -140,4 +140,4 @@ Uses the go oauth tool found in the xoauth git repo."
 ;; folded-file: t
 ;; end:
 
-;;}}}
+ 
