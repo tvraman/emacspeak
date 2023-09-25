@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -47,12 +45,10 @@
 
 ;;; Code:
 
- 
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Advice
 (defadvice sc-cite-region (after emacspeak pre act comp)
   "speak"
@@ -102,14 +98,7 @@
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Opened a blank line")))
 
- 
-
 (provide 'emacspeak-supercite)
 
 ;;;  end of file 
 
- 
- 
-  
-
- 

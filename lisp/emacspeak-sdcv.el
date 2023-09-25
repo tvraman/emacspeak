@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -50,7 +48,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -58,7 +55,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Interactive Commands:
 
 (cl-loop
@@ -126,12 +122,6 @@
 (when (bound-and-true-p sdcv-mode-map)
   (emacspeak-sdcv-setup))
 
- 
 (provide 'emacspeak-sdcv)
 ;;;  end of file
 
- 
- 
- 
-
- 

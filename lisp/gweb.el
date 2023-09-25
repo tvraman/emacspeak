@@ -14,7 +14,6 @@
 ;; License: GPL
 ;; 
 
- 
 ;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
@@ -46,7 +45,6 @@
 ;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -58,7 +56,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -66,10 +63,8 @@
 (require 'json)
 (require 'g-utils)
 
- 
 ;;;  Customizations
 
- 
 ;;;  Variables
 
 (defvar gweb-referer "http://emacspeak.sf.net"
@@ -90,7 +85,6 @@ Default == Web Search.
 yt == Youtube .
 n == News.")
 
- 
 ;;;  google suggest helper:
 
 (defvar gweb-g-suggest-url
@@ -181,12 +175,6 @@ Uses corpus found in gweb-completion-corpus"
      (emacspeak-speak-word)
      ad-return-value)))
 
- 
 (provide 'gweb)
 ;;;  end of file
 
- 
- 
- 
-
- 

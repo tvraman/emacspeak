@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
@@ -36,18 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction
 ;;; Commentary:
 ;; advice for posting message commands
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  customize
 (defgroup emacspeak-message nil
   "Emacspeak customizations for message mode"
@@ -63,7 +60,6 @@
           (const  :tag "all" all))
   :group 'emacspeak-message)
 
- 
 ;;;  voice mapping
 
 (voice-setup-add-map
@@ -79,7 +75,6 @@
    (message-mml voice-brighten)
    (message-separator voice-bolden-extra)))
 
- 
 ;;;   advice interactive commands
 (cl-loop
  for f in
@@ -231,12 +226,6 @@
             (message "Starting message %s ... done"
                      (buffer-name))))
 
- 
 (provide  'emacspeak-message)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

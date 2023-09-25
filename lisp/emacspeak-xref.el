@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,12 @@
 ;; This is part of Emacs 25.
 ;; This module speech-enables xref
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   Advice Interactive Commands:
 
 (cl-loop
@@ -90,12 +86,6 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'task-done)))
 
- 
 (provide 'emacspeak-xref)
 ;;;  end of file
 
- 
- 
- 
-
- 

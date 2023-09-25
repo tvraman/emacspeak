@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
@@ -36,18 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction
 ;;; Commentary:
 ;; emacspeak extensions to voiceify rich  text.
 ;;; Code:
- 
+
 ;;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  voiceify-faces 
 (defvar emacspeak-enriched-font-faces-to-voiceify
   (list 'bold 'italic   'bold-italic 'underlined)
@@ -109,7 +106,6 @@ Useful in voiceifying rich text."
           (setq start (point))))))
   (message "voicified faces"))
 
- 
 ;;;  advice enriched to automatically map faces to voices
 
 (defadvice enriched-decode (after emacspeak pre act comp)
@@ -124,18 +120,12 @@ Useful in voiceifying rich text."
   (emacspeak-enriched-voiceify-faces (point-min) (point-max))
   ad-return-value)
 
- 
 ;;;  hooks
 (add-hook 'enriched-mode-hook
           #'(lambda ()
               (or emacspeak-audio-indentation
                   (emacspeak-toggle-audio-indentation))))
- 
+
 (provide  'emacspeak-enriched)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

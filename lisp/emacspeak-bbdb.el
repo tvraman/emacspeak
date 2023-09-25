@@ -14,7 +14,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -37,18 +36,17 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Required libraries
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables BBDB.
 ;; I have used BBDB to manage email address and contact information since 1991.
 ;;; Code:
- 
+
 ;;;  personalities 
 
 (voice-setup-add-map
@@ -57,7 +55,6 @@
    (bbdb-name voice-bolden)
    (bbdb-organization voice-lighten)))
 
- 
 ;;;   Variable settings:
 
 ;; Emacspeak will not work if bbdb is in electric mode
@@ -73,7 +70,6 @@
      (define-key bbdb-mode-map "c" 'bbdb-create)
      ))
 
- 
 ;;;  Advice:
 
 (defadvice              bbdb-delete-current-field-or-record
@@ -171,7 +167,6 @@
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;;   Advice mail-ua  specific hooks
 
 (defadvice bbdb/vm-show-sender (after emacspeak pre act comp)
@@ -189,7 +184,6 @@
   (when (ems-interactive-p)
     (emacspeak-speak-other-window )))
 
- 
 ;;;  silence messages 
 
 (defadvice bbdb-update-records (around emacspeak pre act comp)
@@ -197,12 +191,6 @@
   (ems-with-messages-silenced
    ad-do-it))
 
- 
 (provide  'emacspeak-bbdb)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

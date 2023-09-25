@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -48,14 +46,13 @@
 ;;; Commentary:
 ;; 2048 ==
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require '2048-game "2048-game" 'no-error)
- 
+
 ;;;  Push And Pop states:
 
 (cl-defstruct emacspeak-2048-game-state
@@ -116,7 +113,6 @@
            (length emacspeak-2048-game-stack))
   (emacspeak-auditory-icon 'delete-object))
 
- 
 ;;;  Export And Import Games:
 
 (defvar emacspeak-2048-game-file
@@ -160,7 +156,6 @@ Optional interactive prefix arg prompts for a filename."
     (emacspeak-auditory-icon 'task-done)
     (message "Imported game %s." file)))
 
- 
 ;;;  Adding rows and columns:
 
 (defun emacspeak-2048-add-row ()
@@ -233,7 +228,6 @@ Optional interactive prefix arg prompts for a filename."
   (setq *2048-rows* 4
         *2048-columns* 4))
 
- 
 ;;;  Advice commands, bind one review command
 
 (defun emacspeak-2048-speak-board ()
@@ -280,7 +274,6 @@ Optional interactive prefix arg prompts for a filename."
   (cl-declare (special *2048-score*))
   (message (format "Score: %d" *2048-score*)))
 
- 
 ;;;  Setup
 (declare-function
  emacspeak-pronounce-define-local-pronunciation
@@ -316,7 +309,7 @@ Optional interactive prefix arg prompts for a filename."
   (emacspeak-2048-speak-board))
 (cl-declaim (special-display-p 2048-mode-hook))
 (add-hook '2048-mode-hook 'emacspeak-2048-setup)
- 
+
 ;;;  Randomize game
 
 (defun emacspeak-2048-randomize-game (&optional count)
@@ -332,12 +325,6 @@ Optional interactive prefix arg prompts for a filename."
     (t (aset *2048-board* i 0))))
   (emacspeak-2048-speak-board))
 
- 
 (provide 'emacspeak-2048)
 ;;;  end of file
 
- 
- 
- 
-
- 

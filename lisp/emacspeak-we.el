@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -52,7 +50,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -60,7 +57,6 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
 
- 
 ;;; Helper:
 
 (defun emacspeak-we-rename-buffer (key)
@@ -74,7 +70,6 @@
                   (buffer-name) ,key)
           'unique)))))
 
- 
 ;;;  URL Rewrite:
 ;; forward decl to help compiler 
 (defvar emacspeak-eww-url-at-point)
@@ -106,7 +101,6 @@ a rewrite rule even if one is already defined."
     (emacspeak-auditory-icon 'select-object)
     (browse-url (or redirect url))))
 
- 
 ;;;  url expand and execute
 ;;;###autoload
 (defvar emacspeak-we-url-executor nil
@@ -132,7 +126,7 @@ a rewrite rule even if one is already defined."
        (emacspeak-url-template-get "Reddit At Point")))
      ((string-match "wikipedia" url) ; Use wikipedia url template
       (emacspeak-url-template-open
-   (emacspeak-url-template-get "Wikipedia At Point")))
+       (emacspeak-url-template-get "Wikipedia At Point")))
      (t
       (setq emacspeak-we-url-executor
             (intern
@@ -145,7 +139,6 @@ a rewrite rule even if one is already defined."
         (error "Invalid executor %s"
                emacspeak-we-url-executor))))))
 
- 
 ;;;  applying XSL transforms before displaying
 ;;;###autoload
 (define-prefix-command 'emacspeak-we-xsl-map)
@@ -828,7 +821,6 @@ specifies the page to extract contents  from."
    url
    (or (called-interactively-p 'interactive) speak)))
 
- 
 ;;;  xpath  filter
 ;;;###autoload
 (defvar emacspeak-we-recent-xpath-filter
@@ -990,10 +982,8 @@ used as well."
      (or redirect url)
      'speak)))
 
- 
 ;;;  Property filter
 
- 
 ;;;   xsl keymap
 
 (cl-declaim (special emacspeak-we-xsl-map))
@@ -1039,7 +1029,6 @@ used as well."
          do
          (emacspeak-keymap-update emacspeak-we-xsl-map binding))
 
- 
 ;;;   URL Advice: 
 
 (cl-loop
@@ -1056,12 +1045,6 @@ used as well."
      (let ((url-show-status nil))
        (ems-with-messages-silenced ad-do-it)))))
 
- 
 (provide 'emacspeak-we)
 ;;;  end of file
 
- 
- 
- 
-
- 

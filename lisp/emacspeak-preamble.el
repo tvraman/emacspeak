@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  Define Locations, Require modules
 
 (eval-when-compile (require 'cl-lib))
@@ -123,7 +121,6 @@
      "$"))
   "Playlist pattern.")
 
- 
 (require 'dtk-speak)
 (require 'voice-setup)
 (require 'voice-defs)
@@ -132,7 +129,6 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 
- 
 ;;;  Interactive Check Implementation:
 
 ;;; Notes:
@@ -194,7 +190,6 @@ FN-NAME to our stored value of ems--interactive-fn-name."
   (error
    (format "From %s: Unexpected call!" ems--interactive-fn-name)))
 
- 
 ;;; defun: ems--fastload:
 
 ;; Internal function  used to efficiently load files.
@@ -205,12 +200,6 @@ FN-NAME to our stored value of ems--interactive-fn-name."
         (load-source-file-function nil))
     (load file)))
 
- 
 (provide  'emacspeak-preamble)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

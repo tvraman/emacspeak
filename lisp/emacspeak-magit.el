@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,12 @@
 ;; MAGIT ==  Git interface in Emacs
 ;; git clone git://github.com/magit/magit.git
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map voices to faces:
 
 (voice-setup-add-map
@@ -147,7 +143,6 @@
    (magit-signature-untrusted voice-brighten)
    (magit-tag voice-smoothen)))
 
- 
 ;;;  Pronunciations in Magit:
 (emacspeak-pronounce-add-dictionary-entry
  'magit-mode
@@ -162,7 +157,6 @@
  'magit-mode-hook
  'emacspeak-pronounce-refresh-pronunciations)
 
- 
 ;;;  Advice navigation commands:
 
 ;; Advice navigators:
@@ -191,7 +185,6 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
- 
 ;;;  Section Toggle:
 
 (cl-loop
@@ -233,7 +226,6 @@
        (emacspeak-auditory-icon
         (if   (oref (ad-get-arg 0) hidden) 'close-object 'open-object))))))
 
- 
 ;;; blob mode:
 
 (defadvice magit-kill-this-buffer (after emacspeak pre act comp)
@@ -257,8 +249,6 @@
      "Speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)))))
-
- 
 
 ;;;  Additional commands to advice:
 
@@ -298,14 +288,12 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
- 
 ;;;  Advise process-sentinel:
 
 (defadvice magit-process-finish(after emacspeak pre act comp)
   "Produce auditory icon."
   (emacspeak-auditory-icon 'task-done))
 
- 
 ;;;  Magit Blame:
 
 (defun emacspeak-magit-blame-speak ()
@@ -361,7 +349,6 @@
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;; Keys:
 (cl-declaim (special magit-file-mode-map))
 (when (and (bound-and-true-p magit-file-mode-map)
@@ -370,7 +357,6 @@
 (cl-declaim (special ctl-x-map))
 (define-key ctl-x-map  "g" 'magit-status)
 
- 
 ;;; Rebase:
 
 (defadvice git-rebase-squash (after emacspeak pre act comp)
@@ -378,12 +364,6 @@
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
- 
 (provide 'emacspeak-magit)
 ;;;  end of file
 
- 
- 
- 
-
- 

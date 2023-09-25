@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
@@ -44,13 +42,12 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Introduction:
 ;;; Commentary:
 ;; nxml-mode is a new XML mode for emacs by James Clark.
 ;;  Package nxml is available from the Emacs package archive.
 ;;; Code:
- 
+
 ;;;  voice locking 
 (voice-setup-add-map
  '(
@@ -132,7 +129,6 @@
    (nxml-tag-slash voice-smoothen-medium)
    (rng-error voice-bolden-and-animate)))
 
- 
 ;;;  pronunciations 
 (cl-declaim (special
              emacspeak-pronounce-xml-ns))
@@ -143,7 +139,6 @@
  emacspeak-pronounce-xml-ns)
 (emacspeak-pronounce-add-super 'xml-mode 'nxml-mode)
 
- 
 ;;;  Advice interactive commands
 
 (defadvice nxml-electric-slash (around emacspeak pre act comp)
@@ -233,7 +228,6 @@
                (emacspeak-auditory-icon 'open-object)
                (emacspeak-speak-line)))))
 
- 
 ;;;  Outline summarizer:
 
 (defun emacspeak-nxml-summarize-outline ()
@@ -255,13 +249,6 @@
     (emacspeak-auditory-icon 'ellipses))
    (t (message "Not on a hidden outline"))))
 
- 
- 
 (provide 'emacspeak-nxml)
 ;;;  end of file 
 
- 
- 
-  
-
- 

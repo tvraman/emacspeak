@@ -25,7 +25,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -34,7 +33,6 @@
 ;; Vertico is a modern completion UI that uses Emacs's native completion engine
 ;; This module speech-enables Vertico's UI
 
- 
 ;;; Code:
 ;;;   Required modules
 
@@ -42,14 +40,13 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'vertico nil 'noerror)
- 
+
 ;;;  Map faces to voices:
 
 (voice-setup-add-map
  '((vertico-group-title voice-smoothen)
    (vertico-group-separator voice-overlay-0)))
 
- 
 ;;;  Define bookkeeping variables for UI state
 
 (defvar-local emacspeak-vertico--prev-candidate nil
@@ -58,11 +55,9 @@
 (defvar-local emacspeak-vertico--prev-index nil
   "Index of previously spoken candidate")
 
- 
 ;;; 
 (declare-function 'vertico--candidate "vertico.el" (&optional hl))
 
- 
 ;;;  Advice interactive commands
 
 (defadvice vertico-insert (around emacspeak pre act comp)
@@ -117,12 +112,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon ',icon)))))
 
- 
 (provide 'emacspeak-vertico)
 ;;;  end of file
 
- 
- 
- 
-
- 

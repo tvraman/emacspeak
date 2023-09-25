@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -58,11 +56,10 @@
 
 ;;; Code:
 
- 
 ;;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Customization variables
 (defgroup emacspeak-ocr nil
   "Emacspeak front end for scanning and OCR.
@@ -148,7 +145,6 @@ will be placed."
   :type 'string
   :group 'emacspeak-ocr)
 
- 
 ;;;   helpers
 
 (defvar emacspeak-ocr-current-page-number  nil
@@ -224,7 +220,6 @@ will be placed."
   (setq mode-line-format
         (emacspeak-ocr-get-mode-line-format)))
 
- 
 ;;;   emacspeak-ocr mode
 (cl-declaim (special emacspeak-ocr-mode-map))
 
@@ -320,7 +315,6 @@ See \\{emacspeak-ocr-mode-map}.
                      (format "%s" i)
                      'emacspeak-ocr-page))
 
- 
 ;;;  interactive commands
 
 (defun emacspeak-ocr-customize ()
@@ -744,12 +738,6 @@ Setting persists for current Emacs session."
   (cl-declare (special emacspeak-ocr-compress-image-options))
   (setq emacspeak-ocr-compress-image-options setting))
 
- 
 (provide 'emacspeak-ocr)
 ;;;  end of file
 
- 
- 
- 
-
- 

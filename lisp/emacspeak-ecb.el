@@ -14,7 +14,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Introduction:
 
@@ -46,13 +44,12 @@
 ;; This module speech-enables ECB
 ;;; Code:
 
- 
+
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Forward Declarations:
 
 (declare-function tree-node->expandable "tree-buffer" (cl-x))
@@ -62,7 +59,6 @@
 (declare-function ecb-goto-window-history "ecb-file-browser" nil)
 (declare-function ecb-goto-window-sources "ecb-file-browser" nil)
 
- 
 ;;;   advice interactive commands
 
 (defadvice ecb-activate (after emacspeak pre act comp)
@@ -109,7 +105,6 @@
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
 
- 
 ;;;   inform tree browser about emacspeak
 
 ;; define emacspeak versions of these special tree search
@@ -238,7 +233,6 @@ available."
     (tree-buffer-show-menu-keyboard 'use-tmm))
    (t ad-do-it)))
 
- 
 ;;;  commands to speak ECB windows without  moving
 
 (defun emacspeak-ecb-speak-window-methods ()
@@ -273,12 +267,6 @@ available."
       (ecb-goto-window-sources)
       (emacspeak-speak-buffer))))
 
- 
 (provide 'emacspeak-ecb)
 ;;;  end of file
 
- 
- 
- 
-
- 

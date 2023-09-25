@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
@@ -44,12 +42,12 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'tar-mode)
- 
+
 ;;;   Introduction
 ;;; Commentary:
 ;; Auditory interface to tar mode
 ;;; Code:
- 
+
 ;;;  Helpers
 
 (defun emacspeak-tar-speak-line ()
@@ -59,7 +57,6 @@
     (message "No file on this line"))
    (t (emacspeak-speak-line))))
 
- 
 ;;;  Advice
 (defadvice tar-quit (after emacspeak pre act comp)
   "speak"
@@ -112,22 +109,21 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;  additional interactive commands
 
 (defsubst ems--tar-mode-to-string (mode)
   "Convert mode to speakable string."
-    (format
-     "%c%c%c%c%c%c%c%c%c"
-     (if (zerop (logand 256 mode)) ?- ?r)
-     (if (zerop (logand 128 mode)) ?- ?w)
-     (if (zerop (logand  64 mode)) ?- ?x)
-     (if (zerop (logand  32 mode)) ?- ?r)
-     (if (zerop (logand  16 mode)) ?- ?w)
-     (if (zerop (logand   8 mode)) ?- ?x)
-     (if (zerop (logand   4 mode)) ?- ?r)
-     (if (zerop (logand   2 mode)) ?- ?w)
-     (if (zerop (logand   1 mode)) ?- ?x)))
+  (format
+   "%c%c%c%c%c%c%c%c%c"
+   (if (zerop (logand 256 mode)) ?- ?r)
+   (if (zerop (logand 128 mode)) ?- ?w)
+   (if (zerop (logand  64 mode)) ?- ?x)
+   (if (zerop (logand  32 mode)) ?- ?r)
+   (if (zerop (logand  16 mode)) ?- ?w)
+   (if (zerop (logand   8 mode)) ?- ?x)
+   (if (zerop (logand   4 mode)) ?- ?r)
+   (if (zerop (logand   2 mode)) ?- ?w)
+   (if (zerop (logand   1 mode)) ?- ?x)))
 
 (defun emacspeak-tar-speak-file-permissions()
   "Speak permissions of file current entry "
@@ -187,12 +183,6 @@
 (cl-eval-when (load)
   (emacspeak-tar-setup-keys))
 
- 
 (provide 'emacspeak-tar)
 ;;;  end of file
 
- 
- 
- 
-
- 

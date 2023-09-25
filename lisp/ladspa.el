@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -53,7 +51,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -61,7 +58,7 @@
 (eval-when-compile
   (require 'subr-x)
   (require 'derived))
- 
+
 ;;;  Structures:
 
 (cl-defstruct ladspa-control
@@ -72,7 +69,6 @@
 (cl-defstruct ladspa-plugin
   desc library label controls)
 
- 
 ;;;  Ladspa Setup:
 ;;;###autoload
 (defconst ladspa-home
@@ -103,7 +99,6 @@
            (nconc ladspa-libs (directory-files d  nil "\\.so\\'"))))
     ladspa-libs)))
 
- 
 ;;;  Ladspa Plugins:
 
 (defvar ladspa-plugins nil
@@ -176,7 +171,6 @@ list of parsed ladspa-plugin structures, one per label."
     (ladspa-table-init)
     ladspa-plugins)))
 
- 
 ;;;  Ladspa Table:
 
 (defvar ladspa-table (make-hash-table :test #'eq)
@@ -204,7 +198,6 @@ list of parsed ladspa-plugin structures, one per label."
            nil 'must-match))))
     (when label (gethash label ladspa-table))))
 
- 
 ;;;  Ladspa Mode:
 
 (defconst ladspa-header-line-format
@@ -286,7 +279,6 @@ list of parsed ladspa-plugin structures, one per label."
          do
          (define-key ladspa-mode-map (kbd (cl-first k)) (cl-second k)))
 
- 
 ;;;  Instantiate Ladspa Plugin:
 (defvar ladspa-edit-help
   (concat
@@ -360,7 +352,6 @@ list of parsed ladspa-plugin structures, one per label."
                   'face 'font-lock-keyword-face))))
         (funcall-interactively #'pop-to-buffer buffer))))))
 
- 
 ;;;  Edit Ladspa Plugin:
 
 (defun ladspa-edit-control ()
@@ -394,7 +385,6 @@ list of parsed ladspa-plugin structures, one per label."
      'ladspa plugin)
     (goto-char (line-beginning-position))))
 
- 
 ;;;  Analyse Plugin At Point
 
 (defun ladspa-analyse-plugin-at-point ()
@@ -409,12 +399,6 @@ list of parsed ladspa-plugin structures, one per label."
              ladspa-analyse
              (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)))))
 
- 
 (provide 'ladspa)
 ;;;  end of file
 
- 
- 
- 
-
- 

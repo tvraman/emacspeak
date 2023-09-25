@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -63,7 +59,6 @@
    (deadgrep-regexp-metachar-face voice-lighten)
    (deadgrep-search-term-face voice-bolden)))
 
- 
 ;;;  Interactive Commands:
 
 (defadvice deadgrep-toggle-file-results (after emacspeak pre act comp)
@@ -105,12 +100,6 @@
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
 
- 
 (provide 'emacspeak-deadgrep)
 ;;;  end of file
 
- 
- 
- 
-
- 

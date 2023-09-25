@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;;
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -47,7 +45,6 @@
 
 ;;; Code:
 
- 
 ;;;  requires
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -55,7 +52,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
 
- 
 ;;;  Custom Widget Types:
 
 (defun emacspeak-keymap-command-p (s)
@@ -93,7 +89,6 @@
   :value 'ignore
   :tag "Interactive Command")
 
- 
 ;;;   variables:
 
 (defvar emacspeak-prefix (kbd "C-e")
@@ -108,7 +103,6 @@
 (defvar emacspeak-table-submap nil
   "Submap used for table  commands. ")
 
- 
 ;;;    Binding keymap and submap
 
 (define-prefix-command  'emacspeak-keymap)
@@ -130,7 +124,6 @@
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap)
 (define-key emacspeak-keymap (kbd "C-t")  'emacspeak-table-submap-command)
 
- 
 ;;;   The Emacspeak key  bindings.
 
 ;; help map additions:
@@ -376,7 +369,6 @@
 (global-set-key  [27 next]  'emacspeak-owindow-scroll-up)
 (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
 
- 
 ;;;  emacspeak under X windows
 
 ;; Get hyper, alt, super, and multi:
@@ -385,11 +377,9 @@
 (global-set-key  (kbd "C-;") 'emacspeak-hyper-keymap)
 (global-set-key  (kbd "C-'") 'emacspeak-multi-keymap)
 
-
 ;; Our very own silence key on the console
 (global-set-key '[silence] 'emacspeak-silence)
 
- 
 ;;;  Create personal c-e v map
 
 (defvar  emacspeak-v-keymap nil
@@ -418,7 +408,6 @@
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
- 
 ;;;  Create a personal keymap for c-e x
 
 ;; Adding keys using custom:
@@ -480,12 +469,10 @@
         val
         #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-
 (define-key emacspeak-keymap "v" 'emacspeak-v-keymap)
 (define-key  emacspeak-keymap "x" 'emacspeak-x-keymap)
 (define-key  emacspeak-keymap "y" 'emacspeak-y-keymap)
 
- 
 ;;;  Create personal y map
 
 (defvar  emacspeak-y-keymap nil
@@ -517,7 +504,6 @@
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
- 
 ;;;  Create a C-z keymap that is customizable
 
 ;; 2020: Suspending emacs with C-z is something I've not done in 30
@@ -562,7 +548,6 @@
 
 (define-key emacspeak-keymap  "z" 'emacspeak-z-keymap)
 
- 
 ;;;  Create a hyper keymap that users can put personal commands
 
 (defvar  emacspeak-hyper-keymap nil
@@ -622,7 +607,6 @@
   (require 'empv)
   (global-set-key (kbd "C-; v") empv-map))
 
- 
 ;;;  Create a super keymap that users can put personal commands
 
 (defvar  emacspeak-super-keymap nil
@@ -670,7 +654,6 @@
 
 (global-set-key "\C-x@s" 'emacspeak-super-keymap)
 
- 
 ;;;  Create an  alt keymap that users can put personal commands
 
 (defvar  emacspeak-alt-keymap nil "Emacspeak alt keymap")
@@ -716,7 +699,6 @@
 
 (global-set-key "\C-x@a" 'emacspeak-alt-keymap)
 
- 
 ;;;  Create a multi keymap that users can put personal commands
 
 (defvar  emacspeak-multi-keymap nil "Emacspeak multi keymap")
@@ -747,7 +729,6 @@
                          val
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
- 
 ;;; Windows Key As One More Map
 (defcustom emacspeak-windows-keys nil
   "Key bindings on the windows  key. "
@@ -774,7 +755,6 @@
         val
         #'(lambda (a b) (< (car a) (car b)))))))
 
- 
 ;;;  Helper: recover end-of-line
 
 (defun emacspeak-keymap-recover-eol ()
@@ -784,18 +764,10 @@
   (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'move-end-of-line))
 (add-hook 'after-change-major-mode-hook  'emacspeak-keymap-recover-eol)
 
- 
 ;;;  Global Bindings From Other Modules:
 (global-set-key (kbd "C-x r C-e") 'emacspeak-eww-marks-browse)
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
 
- 
-
 (provide 'emacspeak-keymap)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

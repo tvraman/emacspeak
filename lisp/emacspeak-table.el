@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction
 
@@ -45,13 +43,11 @@
 ;; tabulated information.
 ;;; Code:
 
- 
 ;;;  requires
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   Define table data structure:
 
 ;; Tables will be represented internally as vectors.
@@ -102,7 +98,6 @@ vectors")
     (setf (emacspeak-table-current-column table) 0)
     table))
 
- 
 ;;;  Accessors
 
 (defun emacspeak-table-this-element (table row column)
@@ -140,7 +135,6 @@ vectors")
 (defun emacspeak-table-row-header-element (table row)
   (aref (emacspeak-table-row-header table) row))
 
- 
 ;;;   enumerators
 
 (defun emacspeak-table-enumerate-rows (table callback &rest callback-args)
@@ -162,7 +156,6 @@ Calls callback once per column."
             (emacspeak-table-this-column table column)
             callback-args))))
 
- 
 ;;;  finders 
 
 (defun emacspeak-table-find-match-in-row (table index pattern
@@ -202,7 +195,6 @@ Calls callback once per column."
              until found
              finally return (and found row))))
 
- 
 ;;;   Moving point:
 
 (defun emacspeak-table-goto-cell (table row column)
@@ -269,13 +261,6 @@ Calls callback once per column."
                  count current)
         (emacspeak-auditory-icon 'warn-user)))))
 
- 
-
 (provide  'emacspeak-table)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

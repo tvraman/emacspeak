@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -54,14 +52,13 @@
 ;; C-r and C-s.
 
 ;;; Code:
- 
+
 ;;;  requires
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   ispell command cl-loop:
 
 ;; defun ispell-command-loop (miss guess word start end)
@@ -124,7 +121,6 @@ many available corrections."
   (let ((dtk-stop-immediately nil))
     (dtk-speak (documentation 'ispell-help))))
 
- 
 ;;;   Advice top-level ispell commands:
 
 (cl-loop
@@ -155,12 +151,6 @@ many available corrections."
    (t ad-do-it))
   ad-return-value)
 
- 
 (provide 'emacspeak-ispell)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

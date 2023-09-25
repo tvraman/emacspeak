@@ -23,7 +23,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  introduction
 
 ;;; Commentary:
@@ -36,20 +35,18 @@
 ;; M-x package-install hydra
 
 ;;; Code:
- 
+
 ;;;  required packages
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
- 
 ;;;   Variables:
 
 (defvar xbacklight-cmd
   (executable-find "xbacklight")
   "xbacklight executable.")
 
- 
 ;;;  Commands:
 
 ;;;###autoload
@@ -100,12 +97,6 @@
   (interactive)
   (xbacklight-set "100"))
 
- 
 (provide 'xbacklight)
 ;;;  end of file
 
- 
- 
- 
-
- 

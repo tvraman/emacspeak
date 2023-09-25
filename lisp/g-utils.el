@@ -14,7 +14,6 @@
 ;; License: GPL
 ;; 
 
- 
 ;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
@@ -46,7 +45,6 @@
 ;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -54,14 +52,13 @@
 ;; Common Code  e.g. helper functions.
 ;; Used by modules like gphoto, gblogger etc.
 ;;; Code:
- 
+
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'json)
 
- 
 ;;;  Customizations:
 
 (defvar g-scratch-buffer" *g scratch*"
@@ -133,7 +130,6 @@ Customize this to live on your local disk."
   :type 'boolean
   :group 'g)
 
- 
 ;;;   buffer bytes rather than buffer size
 
 ;; buffer-size returns number of chars.
@@ -144,7 +140,6 @@ Customize this to live on your local disk."
     (and buffer (set-buffer buffer))
     (1- (position-bytes (point-max)))))
 
- 
 ;;;  debug helpers
 
 (defun g-curl-debug ()
@@ -154,7 +149,6 @@ Customize this to live on your local disk."
       ""
     " 2>/dev/null"))
 
- 
 ;;;  url encode:
 
 (defun g-url-encode (str)
@@ -169,7 +163,6 @@ Customize this to live on your local disk."
              str
              ""))
 
- 
 ;;;  transform region
 
 (defun g-xsl-transform-region (start end xsl)
@@ -182,7 +175,6 @@ Customize this to live on your local disk."
    xsl
    "-"))
 
- 
 ;;;  html unescape
 
 (defvar g-html-charent-alist
@@ -216,7 +208,6 @@ Customize this to live on your local disk."
                (while (search-forward entity end t)
                  (replace-match replacement nil t))))))
 
- 
 ;;;  json conveniences:
 
 (defun g-json-get (key object)
@@ -269,7 +260,6 @@ references, poor-man's xpath."
 
 (defalias 'g-json-aref 'aref)
 
- 
 ;;;  helper macros
 
 (defmacro g-using-scratch(&rest body)
@@ -341,7 +331,6 @@ XML  is transformed via style
       (g-xsl-transform-region (point-min) (point-max) style))
     (funcall g-html-handler (current-buffer))))
 
- 
 ;;;   HTTP Headers:
 (defvar g-curl-atom-header
   "--header 'Content-Type: application/atom+xml' --header 'GData-Version: 2'"
@@ -412,7 +401,6 @@ Note that in the Curl output, we see lf rather than crlf.")
   "Return specified header from headers-alist."
   (when (assoc name header-alist) (cdr (assoc name header-alist))))
 
- 
 ;;;  collect content from user via special buffer:
 (defvar g-user-edit-buffer " *User Input*"
   "Special buffer used to read  user input.")
@@ -430,7 +418,6 @@ Note that in the Curl output, we see lf rather than crlf.")
     (bury-buffer)
     annotation))
 
- 
 ;;;  convert html to text
 
 (defun g-html-string (html-string)
@@ -439,12 +426,7 @@ Note that in the Curl output, we see lf rather than crlf.")
     (insert html-string)
     (shr-render-region  (point-min) (point-max))
     (buffer-string)))
- 
+
 (provide 'g-utils)
 ;;;  end of file
 
- 
- 
- 
-
- 

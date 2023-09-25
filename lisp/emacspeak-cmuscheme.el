@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -46,14 +44,13 @@
 
 ;;; Code:
 
- 
 ;;;  required modules
 
 ;;; Code:
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  advice interactive commands.
 
 ;; speech-enable cmuscheme 
@@ -136,12 +133,6 @@
     (message "Compiled scheme file %s"
              (ad-get-arg 0))))
 
- 
 (provide 'emacspeak-cmuscheme)
 ;;;  end of file
 
- 
- 
- 
-
- 

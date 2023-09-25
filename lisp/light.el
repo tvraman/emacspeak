@@ -23,7 +23,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  introduction
 
 ;;; Commentary:
@@ -36,20 +35,18 @@
 ;; M-x package-install hydra
 
 ;;; Code:
- 
+
 ;;;  required packages
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
- 
 ;;;   Variables:
 
 (defvar light-cmd
   (executable-find "light")
   "light executable.")
 
- 
 ;;;  Commands:
 
 ;;;###autoload
@@ -110,12 +107,6 @@
   (when (called-interactively-p 'interactive)
     (message "Full brightness")))
 
- 
 (provide 'light)
 ;;;  end of file
 
- 
- 
- 
-
- 

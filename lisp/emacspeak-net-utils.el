@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -45,12 +43,10 @@
 
 ;; This module speech enables net-utils
 
- 
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  advice
 
 (cl-loop
@@ -68,13 +64,7 @@
        (message "Displayed results of %s in other window"
                 (quote ,f))))))
 
- 
 (provide 'emacspeak-net-utils)
 
 ;;;  end of file 
 
- 
- 
-  
-
- 

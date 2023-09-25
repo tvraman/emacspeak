@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -112,21 +110,18 @@
 ;; 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'dtk-speak)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
- 
 ;;;  sox-gen-p:
 
 (defvar sox-gen-p
   (eval-when-compile (executable-find "sox"))
   "Is sox available?")
 
- 
 ;;;  SoX Command Generator:
 (defvar sox-gen-play (executable-find "play")
   "Location of play from SoX.")
@@ -137,7 +132,6 @@
   (when sox-gen-p
     (apply #'start-process "SoX" nil sox-gen-play  (split-string cmd))))
 
- 
 ;;;  Binaural Audio:
 (defcustom sox-binaural-gain-offset 0
   "User specified offset that is added to default gain when generating
@@ -356,9 +350,6 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
          (/ (+ (cl-first a-i) (cl-first b-i)) 2) ; carrier frequency
          (list (cl-second a-i) (cl-second b-i))))))))
 
- 
-
- 
 ;;;  Defined Binaural Themes (Sequences):
 
 (defconst sox-rev-up-beats
@@ -467,7 +458,6 @@ binaural beat to another."
   (cl-declare (special sox-relax-beats))
   (sox--theme-play sox-relax-beats length))
 
- 
 ;;;  Chakra Themes:
 
 ;; Default Theme For Chakras:
@@ -534,7 +524,6 @@ Parameter `theme' specifies variant."
      (run-with-timer start nil #'(lambda (n) (sox-binaural n  duration)) name)
      (setq start (+ start duration)))))
 
- 
 ;;;  synth:
 
 (defconst sox-synth-cmd
@@ -549,7 +538,6 @@ Parameter `theme' specifies variant."
     (format sox-synth-cmd length)
     (mapconcat #'identity args " "))))
 
- 
 ;;;  Sin:
 
 (defconst sox-sin-cmd
@@ -566,7 +554,6 @@ Remaining args specify additional commandline args."
     (format sox-sin-cmd length freq)
     (mapconcat #'identity args " "))))
 
- 
 ;;;  Pluck:
 
 (defconst sox-pluck-cmd
@@ -582,7 +569,6 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
     (format sox-pluck-cmd length freq)
     (mapconcat #'identity args " "))))
 
- 
 ;;;  Chime:
 
 (defconst sox-chime-cmd
@@ -600,7 +586,6 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
     (when tempo (format " tempo %s" tempo))
     (when speed (format " speed %s" speed)))))
 
- 
 ;;;  Multiwindow:
 
 (defconst sox-multiwindow-cmd
@@ -623,7 +608,6 @@ channels 2 tempo 1.3   gain -10"
     (when swap " swap ")
     (when speed (format " speed %s" speed)))))
 
- 
 ;;;  scroll:
 
 (defconst sox-do-scroll-up-cmd
@@ -656,7 +640,6 @@ tempo 2 channels 2   "
     sox-do-scroll-down-cmd
     (when speed (format " speed %s" speed)))))
 
- 
 ;;;  tone:
 
 (defconst sox-tones-cmd
@@ -676,7 +659,6 @@ delay  1.3 1 .76 .54 .27 \
     (when tempo (format " tempo %s" tempo))
     (when speed (format " speed %s" speed)))))
 
- 
 ;;;  Guitar Chord:
 
 (defconst sox-guitar-chord-cmd
@@ -693,12 +675,6 @@ remix - fade 0 4 .1 norm -1 channels 2"
     (when tempo (format " tempo %s" tempo))
     (when speed (format " speed %s" speed)))))
 
- 
 (provide 'sox-gen)
 ;;;  end of file
 
- 
- 
- 
-
- 

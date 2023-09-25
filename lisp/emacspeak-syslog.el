@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map 
@@ -68,7 +64,6 @@
    (syslog-su voice-bolden)
    (syslog-warn voice-bolden)))
 
- 
 ;;;  Interactive Commands:
 
 (defadvice syslog-whois-reverse-lookup (after emacspeak pre act comp)
@@ -111,7 +106,6 @@
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'open-object)))))
 
- 
 ;;; keymap setup:
 (defun emacspeak-syslog-setup ()
   "Setup keybindings."
@@ -120,12 +114,7 @@
   (define-key syslog-mode-map "."  'emacspeak-speak-next-field))
 
 (add-hook 'syslog-mode-load-hook #'emacspeak-syslog-setup)
- 
+
 (provide 'emacspeak-syslog)
 ;;;  end of file
 
- 
- 
- 
-
- 

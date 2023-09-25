@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;  Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman Copyright
 ;;(c) 1994, 1995 by Digital Equipment Corporation.  All Rights
@@ -30,7 +29,6 @@
 ;;to the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;;Boston,MA 02110-1301, USA.
 
- 
 
 ;;; Commentary:
 ;; generate autoloads for emacspeak
@@ -54,8 +52,4 @@
 
 (provide 'emacspeak-autoload)
 ;;;  end of file
- 
- 
- 
 
- 

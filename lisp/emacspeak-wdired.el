@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction
@@ -44,13 +42,11 @@
 ;;; Commentary:
 ;; Speech-enable wdired to permit in-place renaming of groups of files.
 
- 
 ;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Advice interactive commands.
 
 (cl-loop for c in
@@ -108,13 +104,6 @@
     (tts-with-punctuations 'some
                            (dtk-speak "Entering writeable dir ed mode. "))))
 
- 
-
 (provide 'emacspeak-wdired)
 ;;;  end of file
 
- 
- 
- 
-
- 

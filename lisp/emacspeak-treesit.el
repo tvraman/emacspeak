@@ -11,7 +11,6 @@
 ;;; Location undetermined
 ;;;
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,13 @@
 ;; Speech-enable treesit navigation commands.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'treesit "treesit" 'no-error)
- 
+
 ;;;  Map Faces:
 
 (voice-setup-add-map 
@@ -60,7 +57,6 @@
    (treesit-explorer-anonymous-node 'voice-smoothen)
    (treesit-explorer-field-name voice-brighten)))
 
- 
 ;;;  Advice Interactive Commands:
 
 (cl-loop
@@ -74,7 +70,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 ;;; Interactive Helpers:
 
 (defun emacspeak-treesit-inspect ()
@@ -87,12 +82,10 @@
     (treesit-inspect-mode)
     (message (format-mode-line treesit--inspect-name)))))
 
- 
 (provide 'emacspeak-treesit)
 ;;;  end of file
 
-; 
-; 
-; 
+                                        ; 
+                                        ; 
+                                        ; 
 
- 

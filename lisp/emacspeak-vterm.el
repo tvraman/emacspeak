@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -53,14 +51,12 @@
 ;; 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -76,7 +72,6 @@
    (vterm-color-white 'paul)
    (vterm-color-yellow voice-animate)))
 
- 
 ;;;  Interactive Commands:
 
 (defadvice vterm-clear (after emacspeak pre act comp)
@@ -144,7 +139,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 ;;; Speech-enable term emulation:
 
 ;; This sends what you typed to the term process.  Handle terminal
@@ -230,12 +224,6 @@
                  (beginning-of-line) (buffer-substring (1+ opoint) (point)))))))
         (emacspeak-speak-line))))))
 
- 
 (provide 'emacspeak-vterm)
 ;;;  end of file
 
- 
- 
- 
-
- 

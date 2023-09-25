@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -57,14 +55,12 @@
 ;; This module can be used independent of Emacspeak.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (eval-when-compile (require 'derived))
 (require 'ladspa)
 
- 
 ;;;  Customizations:
 
 (defgroup sox nil
@@ -79,7 +75,6 @@
 (defvar sox-play (executable-find "play")
   "Location of play from SoX utility.")
 
- 
 ;;;  Define Special Mode
 
 (defun sox-effect-at-point (&optional pos)
@@ -187,7 +182,6 @@
    do
    (define-key sox-mode-map (kbd (cl-first k)) (cl-second k))))
 
- 
 ;;;  Top-level Context:
 
 (cl-defstruct sox-effect
@@ -209,7 +203,6 @@
 
 (make-variable-buffer-local 'sox-context)
 
- 
 ;;;  Commands:
 
 (defvar sox-sound-regexp
@@ -370,7 +363,6 @@
      (t ; recur till done
       (append r (sox-read-effect-params param-desc 'repeat))))))
 
- 
 ;;;   Effects Infrastructure:
 (defvar sox-effects nil
   "Table of implemented effects.")
@@ -385,7 +377,6 @@
 ;; 2. Clone the code from one of the previously implemented effects,
 ;; And update per the SoX man page.
 
- 
 ;;;  Ladspa Effects:
 
 ;; Heavy lifting done by Ladspa module.
@@ -406,7 +397,6 @@ and return a suitable effect structure."
      :name (ladspa-plugin-label plugin)
      :params plugin)))
 
- 
 ;;;  Apply Ladspa to SoX:
 
 (defun sox-ladspa-cmd (plugin)
@@ -415,7 +405,6 @@ and return a suitable effect structure."
     ,(ladspa-plugin-library plugin) ,(ladspa-plugin-label plugin)
     ,@(mapcar #'ladspa-control-value  (ladspa-plugin-controls plugin))))
 
- 
 ;;;  Define SoX Effect: Macro
 
 (defun sox-def-effect (name params repeat)
@@ -443,7 +432,6 @@ and return a suitable effect structure." name)
          :name ,name
          :params (sox-read-effect-params ,p-sym ,repeat))))))
 
- 
 ;;;  Use: sox-def-effect
 
 (sox-def-effect "echo" '("gain-in" "gain-out" "delay" "decay") t)
@@ -478,7 +466,6 @@ and return a suitable effect structure." name)
    "pre-delay"  "wet-gain")
  nil)
 
- 
 (provide 'sox)
 ;;;  Add Emacspeak Support
 
@@ -502,11 +489,5 @@ and return a suitable effect structure." name)
     (emacspeak-auditory-icon 'delete-object)))
 (provide 'emacspeak-sox)
 
- 
 ;;;  end of file
 
- 
- 
- 
-
- 

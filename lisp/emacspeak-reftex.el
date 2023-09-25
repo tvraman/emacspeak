@@ -14,7 +14,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -37,14 +36,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -55,7 +53,6 @@
 
 ;;; Code:
 
- 
 ;;;  advice interactive commands
 
 (defadvice reftex-select-previous-heading (after emacspeak pre act
@@ -262,7 +259,6 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;  highlighting 
 (defadvice reftex-highlight (after emacspeak pre act comp)
   "Add  voice properties."
@@ -274,16 +270,8 @@
     (emacspeak-speak-line)
     (sit-for 2)))
 
- 
 ;;;   indexing 
-
- 
 
 (provide 'emacspeak-reftex)
 ;;;  end of file
 
- 
- 
- 
-
- 

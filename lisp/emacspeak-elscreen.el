@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 ;; Speech-enable interactive commands.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map faces:
 
 (voice-setup-add-map
@@ -60,7 +56,6 @@
  ((elscreen-tab-current-screen-face voice-bolden)
   (elscreen-tab-other-screen-face voice-smoothen)))
 
- 
 ;;;  Advice interactive commands:
 (cl-loop
  for f in
@@ -98,7 +93,6 @@
        (emacspeak-speak-mode-line))))
  )
 
- 
 ;;;  Override:  Display screen list
 
 (defadvice elscreen-display-screen-name-list (around emacspeak pre act comp)
@@ -120,12 +114,6 @@
            screen-list "  "))
     (dtk-speak-and-echo msg)))
 
- 
 (provide 'emacspeak-elscreen)
 ;;;  end of file
 
- 
- 
- 
-
- 

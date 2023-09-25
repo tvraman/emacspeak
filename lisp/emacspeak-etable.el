@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,21 +35,20 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 ;;; Commentary:
 ;; table.el provides rich table editing for emacs.
 ;; this module speech-enables table.el
 ;;; Code:
- 
+
 ;;;  required modules 
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
 (require 'table )
- 
+
 ;;;  Update command remap list.
 (defadvice table--make-cell-map(after emacspeak pre act comp)
   "Set up emacspeak for table.el"
@@ -68,7 +66,6 @@
              do
              (emacspeak-keymap-update table-cell-map k))))
 
- 
 ;;;  Advice edit commands
 
 (defadvice *table--cell-delete-char (around emacspeak pre act comp)
@@ -150,8 +147,6 @@ Otherwise cue user to the line just created."
                (if (= count 1) "a" count)
                (if (= count 1) "" "s")))))
 
- 
-
 ;;;  speak cell contents:
 
 (defun emacspeak-etable-speak-cell ()
@@ -177,12 +172,6 @@ Otherwise cue user to the line just created."
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-etable-speak-cell)))))
 
- 
 (provide  'emacspeak-etable)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

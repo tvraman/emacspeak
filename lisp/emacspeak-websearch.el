@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Introduction:
 
@@ -47,7 +45,7 @@
 
 ;;; Code:
 
- 
+
 ;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -58,13 +56,11 @@
 (declare-function calendar-cursor-to-date "calendar" (&optional error event))
 (declare-function emacspeak-eww-autospeak "emacspeak-eww" nil)
 
- 
 ;;;  Forward Declarations:
 
 (declare-function gweb-google-autocomplete "gweb" (&optional prompt))
 (declare-function calendar-astro-date-string "cal-julian" (&optional date))
 
- 
 ;;;  searcher table
 
 (defvar emacspeak-websearch-table (make-hash-table)
@@ -78,7 +74,6 @@
   (cl-declare (special emacspeak-websearch-table))
   (gethash engine emacspeak-websearch-table))
 
- 
 ;;;  Key table
 
 (defvar emacspeak-websearch-keytable (make-hash-table)
@@ -92,7 +87,6 @@
   (cl-declare (special emacspeak-websearch-keytable))
   (gethash key emacspeak-websearch-keytable))
 
- 
 ;;;  top-level dispatch
 
 (defun emacspeak-websearch-help ()
@@ -141,7 +135,6 @@
         (call-interactively searcher)
       (error "I do not know how to search using %s" engine))))
 
- 
 ;;;  helpers to read the query
 
 (defvar emacspeak-websearch-history nil
@@ -159,7 +152,6 @@
     (cl-pushnew answer  emacspeak-websearch-history :test #'string=)
     answer))
 
- 
 ;;; post-processor
 (defun emacspeak-websearch-post-process (locator speaker &rest args)
   "Set up post processing steps on a result page.
@@ -180,8 +172,6 @@ ARGS specifies additional arguments to SPEAKER if any."
                 (t (message "Your search appears to have failed.")))
              (error nil)))))
    'at-end))
-
- 
 
 ;;;  Computer Science Bibliography
 
@@ -209,7 +199,6 @@ ARGS specifies additional arguments to SPEAKER if any."
    query
    'emacspeak-speak-line))
 
- 
 ;;;  FolDoc
 
 (emacspeak-websearch-set-searcher 'foldoc
@@ -233,7 +222,6 @@ ARGS specifies additional arguments to SPEAKER if any."
    query
    'emacspeak-speak-line))
 
- 
 ;;;  Gutenberg
 
 (emacspeak-websearch-set-searcher 'gutenberg
@@ -261,7 +249,6 @@ ARGS specifies additional arguments to SPEAKER if any."
    query
    'emacspeak-speak-line))
 
- 
 ;;;  google
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
@@ -430,7 +417,6 @@ Optional prefix arg prompts for toolbelt options."
   (define-key calendar-mode-map "gg"
               'emacspeak-websearch-google-search-in-date-range))
 
- 
 ;;;  Google News
 
 (emacspeak-websearch-set-searcher 'google-news
@@ -445,7 +431,6 @@ Optional prefix arg prompts for toolbelt options."
     (emacspeak-url-template-open
      (emacspeak-url-template-get name))))
 
- 
 ;;;   Ask Jeeves
 
 (emacspeak-websearch-set-searcher 'jeeves
@@ -466,7 +451,6 @@ Optional prefix arg prompts for toolbelt options."
            (url-hexify-string query)))
   (emacspeak-websearch-post-process query 'emacspeak-speak-line))
 
- 
 ;;;  Merriam Webster
 
 (emacspeak-websearch-set-searcher 'merriam-webster
@@ -488,7 +472,6 @@ Optional prefix arg prompts for toolbelt options."
    (concat emacspeak-websearch-merriam-webster-uri
            (url-hexify-string query))))
 
- 
 ;;;  wikipedia
 
 (emacspeak-websearch-set-searcher 'wikipedia
@@ -504,7 +487,6 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
   (emacspeak-websearch-google
    (url-hexify-string (format "site:wikipedia.org %s"query))))
 
- 
 ;;;  YouTube Search:
 
 (emacspeak-websearch-set-searcher 'youtube-search
@@ -518,7 +500,6 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
   (emacspeak-websearch-google
    (url-hexify-string (format "site:youtube.com  %s"query))))
 
- 
 ;;;  Shopping at Amazon
 
 (emacspeak-websearch-set-searcher 'amazon-search
@@ -536,12 +517,6 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
   (cl-declare (special emacspeak-websearch-amazon-search-form))
   (browse-url emacspeak-websearch-amazon-search-form))
 
- 
 (provide 'emacspeak-websearch)
 ;;;  end of file
 
- 
- 
- 
-
- 

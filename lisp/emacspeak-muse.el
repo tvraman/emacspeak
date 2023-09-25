@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -44,7 +42,6 @@
 ;;; Commentary:
 ;; Speech enable Muse
 
- 
 ;;;   Required modules
 
 ;;; Code:
@@ -54,7 +51,6 @@
 (require 'browse-url)
 (require 'emacspeak-outline)
 
- 
 ;;;  Voice definitions:
 (voice-setup-add-map
  '(
@@ -71,7 +67,6 @@
    (muse-verbatim-face voice-monotone-extra)
    ))
 
- 
 ;;;  advice interactive commands
 (cl-loop for f in
          '(muse-follow-name-at-point
@@ -86,12 +81,6 @@
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-speak-line)))))
 
- 
 (provide 'emacspeak-muse)
 ;;;  end of file
 
- 
- 
- 
-
- 

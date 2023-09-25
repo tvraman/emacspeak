@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -47,13 +45,12 @@
 ;; This module is IBM ViaVoice Outloud specific.
 ;;; Code:
 
- 
 ;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)           ;For `ems--fastload'.
 (cl-declaim  (optimize  (safety 0) (speed 3)))
- 
+
 ;;;  Customizations:
 
 (defcustom outloud-default-speech-rate 50
@@ -66,7 +63,6 @@
            (when (string-match "outloud" dtk-program)
              (setq-default dtk-speech-rate val))))
 
- 
 ;;;  Top level TTS  switcher
 
 ;;;###autoload
@@ -78,7 +74,6 @@
   (funcall-interactively #'dtk-select-server "outloud" device)
   (dtk-initialize))
 
- 
 ;;;   voice table
 
 (defvar outloud-default-voice-string "`v1"
@@ -105,12 +100,10 @@
   (cl-declare (special outloud-voice-table))
   (gethash name outloud-voice-table))
 
- 
 ;;;  voice definitions
 
 (outloud-define-voice 'paul  " `v1 ")
 
- 
 ;;  mapping css parameters to tts codes
 ;;  --- see../servers /linux-outloud/lib/voice-params.org
 ;;;   hash table for mapping families to their dimensions
@@ -130,7 +123,6 @@
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key outloud-css-code-tables)))
 
- 
 ;;;   average pitch
 
 ;; Average pitch for standard male voice is 65 --this is mapped to
@@ -165,8 +157,6 @@
      (9 85 30)))
   (outloud-css-set-code-table 'paul 'average-pitch table))
 
- 
-
 (defun outloud-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for  VALUE and  FAMILY."
   (or family (setq family 'paul))
@@ -175,7 +165,6 @@
             value)
     ""))
 
- 
 ;;;   pitch range
 
 ;;  Standard pitch range is 30 and is  mapped to
@@ -205,8 +194,6 @@
      (9  100)))
   (outloud-css-set-code-table 'paul 'pitch-range table))
 
- 
-
 (defun outloud-get-pitch-range-code (value family)
   "Get pitch-range code for  VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -215,7 +202,6 @@
             value)
     ""))
 
- 
 ;;;   stress
 
 ;; On the outloud we map stress to roughness
@@ -240,7 +226,6 @@
      (9  90 )))
   (outloud-css-set-code-table 'paul 'stress table))
 
- 
 (defun outloud-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -248,7 +233,6 @@
             value)
     ""))
 
- 
 ;;;   richness
 
 ;;;   paul richness
@@ -274,8 +258,6 @@
      (9 36 100)))
   (outloud-css-set-code-table 'paul 'richness table))
 
- 
-
 (defun outloud-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -283,7 +265,6 @@
             value)
     ""))
 
- 
 ;;;   outloud-define-voice-from-speech-style
 
 (defun outloud-define-voice-from-speech-style (name style)
@@ -297,7 +278,6 @@
            (outloud-get-richness-code (acss-richness style) family))))
     (outloud-define-voice name command)))
 
- 
 ;;;  Configurater
 
 ;;;###autoload
@@ -322,15 +302,8 @@
   (dtk-set-character-scale 1.5 'default)
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9
-     eight-bit-graphic)))
-
- 
+           eight-bit-graphic)))
 
 (provide 'outloud-voices)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

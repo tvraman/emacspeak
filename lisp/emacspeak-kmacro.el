@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,26 +35,23 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
 ;;;   Introduction
 ;; speech-enables kmacro --- a kbd macro interface
- 
+
 ;;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  bind keys 
 
 (global-set-key [f13] 'kmacro-start-macro-or-insert-counter)
 (global-set-key [f14] 'kmacro-end-or-call-macro)
 
- 
 ;;;  Advice interactive commands
 
 (defadvice kmacro-start-macro (before emacspeak pre act comp)
@@ -115,13 +111,6 @@
     ad-do-it
     ad-return-value))
 
- 
 (provide 'emacspeak-kmacro)
 ;;;  end of file
-
- 
- 
- 
-
- 
 

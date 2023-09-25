@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -90,7 +86,6 @@
    (cider-warning-highlight-face voice-animate-extra)
    ))
 
- 
 ;;;  Apropos:
 
 (cl-loop
@@ -109,7 +104,6 @@
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'open-object)))))
 
- 
 ;;;  Associate Connection:
 
 (cl-loop
@@ -126,7 +120,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
- 
 ;;;  Browse:
 
 (cl-loop
@@ -145,7 +138,6 @@
          (emacspeak-auditory-icon 'open-object)
          (emacspeak-speak-line))))))
 
- 
 ;;;  Speech-enable Eval:
 
 (cl-loop
@@ -162,7 +154,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
- 
 ;;;  cider-repl:
 
 ;;; Navigators:
@@ -243,7 +234,6 @@
     (message "Turned  %s pretty printing."
              (if cider-repl-use-pretty-printing 'on 'off))))
 
- 
 ;;;  find:
 
 (cl-loop
@@ -255,7 +245,6 @@
      "speak."(when (ems-interactive-p)
                (emacspeak-speak-line)))))
 
- 
 ;;;  misc commands:
 (cl-loop
  for f in
@@ -303,7 +292,6 @@
        (emacspeak-auditory-icon 'open-object)
        (message "Displayed in other window.")))))
 
- 
 ;;;  Speech-enable Debug:
 (cl-loop
  for f in
@@ -316,7 +304,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'button)))))
 
- 
 ;;;  Speech-enable Insert:
 
 (cl-loop
@@ -332,7 +319,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'yank-object)))))
 
- 
 ;;;  Inspect And Inspector:
 
 (cl-loop
@@ -369,12 +355,6 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
- 
 (provide 'emacspeak-cider)
 ;;;  end of file
 
- 
- 
- 
-
- 

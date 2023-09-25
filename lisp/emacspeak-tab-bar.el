@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -51,14 +49,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map 
@@ -68,7 +64,6 @@
    (tab-bar-tab-inactive voice-smoothen)
    (tab-line voice-lighten)))
 
- 
 ;;; Helpers:
 
 (defsubst emacspeak-tab-bar-speak-tab-name ()
@@ -78,7 +73,6 @@
    (format "%s"
            (alist-get 'name (alist-get 'current-tab (tab-bar-tabs))))))
 
- 
 ;;;  Interactive Commands:
 
 (defadvice tab-bar-switch-to-tab (after emacspeak pre act comp)
@@ -131,7 +125,6 @@
     (dtk-speak (message "Closed tab %s" (ad-get-arg  0)))
     (emacspeak-auditory-icon 'close-object)))
 
- 
 ;;; tab-list commands:
 
 (cl-loop
@@ -183,12 +176,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
- 
 (provide 'emacspeak-tab-bar)
 ;;;  end of file
 
- 
- 
- 
-
- 

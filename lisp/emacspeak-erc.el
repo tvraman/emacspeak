@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -49,18 +47,16 @@
 
 ;;; Code:
 
- 
 ;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'erc)
- 
+
 ;;;   variables
 
 (cl-declaim (special emacspeak-sounds-directory))
 
- 
 ;;;  personalities 
 
 (defgroup emacspeak-erc nil
@@ -90,10 +86,8 @@ server."
    (erc-keyword-face voice-animate)
    ))
 
- 
 ;;;   helpers
 
- 
 ;;;  advice interactive commands
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations
@@ -122,7 +116,6 @@ server."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)))
 
- 
 (provide 'emacspeak-erc)
 ;;;  monitoring chatrooms 
 (defvar emacspeak-erc-room-monitor nil
@@ -288,7 +281,6 @@ set the current local value to the result.")
 Interactive PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
 
- 
 ;;;  silence server messages 
 
 (defadvice erc-parse-line-from-server (around emacspeak pre
@@ -298,7 +290,6 @@ set the current local value to the result.")
     ad-do-it
     ad-return-value))
 
- 
 ;;;  define emacspeak keys
 (cl-declaim (special erc-mode-map))
 (define-key erc-mode-map "\C-c "
@@ -310,7 +301,6 @@ set the current local value to the result.")
 (define-key erc-mode-map "\C-c\C-a"
             'emacspeak-erc-add-name-to-monitor)
 (define-key erc-mode-map "\C-c\C-d" 'emacspeak-erc-delete-name-from-monitor)
- 
 
 ;;;  cricket rules 
 (defvar emacspeak-erc-cricket-bowling-figures-pattern
@@ -381,11 +371,5 @@ set the current local value to the result.")
                 (substring pattern 0 -1)))))
   (dtk-set-punctuations 'some))
 
- 
 ;;;  end of file
 
- 
- 
- 
-
- 

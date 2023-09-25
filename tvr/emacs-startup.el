@@ -8,7 +8,6 @@
 ;; September 2017: Optimized and Cleaned Up
 ;; August 2020: Limit code at top-level.
 
-
 ;;;  Introduction:
 
 ;;; Commentary:
@@ -38,7 +37,6 @@
 ;;      which sets up an efficient environment for loading files and
 ;;      helps in profiling.
 
-
 ;;;   libs, vars:
 
 (require 'cl-lib)
@@ -51,7 +49,6 @@
 
 (defvar tvr-libs "all-prepare"
   "Libraries that need extra setup.")
-
 
 ;;;  Macro: tvr-time-load:
 
@@ -70,13 +67,11 @@ Produce timing information as the last step."
               (float-time (time-subtract (current-time) start))
               gcs-done gc-elapsed)))
 
-
 ;;;  Fixups:
 
 ;; Emacs @HEAD is broken:
 (defvar font-lock-reference-face 'font-lock-constant-face)
 (advice-add 'system-users :override #'(lambda () (list user-real-login-name)))
-
 
 ;;;  tvr-shell-bind-keys:
 
@@ -92,7 +87,6 @@ Produce timing information as the last step."
    do
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
-
 ;;; tvr-tabs:
 
 (defsubst tvr-tabs ()
@@ -100,7 +94,6 @@ Produce timing information as the last step."
   (tab-bar-rename-tab "Home")
   (tab-bar-switch-to-tab "Books")
   (tab-bar-switch-to-tab "Home"))
-
 
 ;;; Functions: emacs-startup-hook, after-init-hook, tvr-customize
 
@@ -231,7 +224,6 @@ Use Custom to customize where possible. "
   (yas-minor-mode)
   (abbrev-mode))
 
-
 ;;; tvr-emacs:
 
 (defun tvr-emacs ()
@@ -242,15 +234,14 @@ configuration happens via the after-init-hook. "
   (setenv "PULSE_SINK" "binaural")
   (unless (featurep 'emacspeak)
     (tvr-time-load                      ; load emacspeak:
-        (load ;; setenv EMACSPEAK_DIR if you want to load a different version
-         (expand-file-name
-          "lisp/emacspeak-setup"
-          (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
+     (load ;; setenv EMACSPEAK_DIR if you want to load a different version
+      (expand-file-name
+       "lisp/emacspeak-setup"
+       (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
   (push (expand-file-name "tvr/" emacspeak-directory) load-path)
   (push (expand-file-name "aster-math/ui" emacspeak-directory) load-path)
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook))
-
 
 (tvr-emacs)
 
@@ -262,7 +253,6 @@ configuration happens via the after-init-hook. "
  emacspeak-wizards-project-shells-initialize
  "emacspeak-wizards" nil)
 
-
 ;;; quick tts rescue:
 
 ;; debug aid: tts appears to not restart but notification stream is
@@ -271,7 +261,6 @@ configuration happens via the after-init-hook. "
   (interactive)
   (cl-declare (special dtk-speaker-process dtk-notify-process))
   (setq dtk-speaker-process dtk-notify-process))
-
 
 (provide 'emacs-startup)
 ;;;  end of file

@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  Introduction
 
 ;;; Commentary:
@@ -52,7 +50,6 @@
 
 ;;; Code:
 
- 
 ;;; Load-path:
 (eval-when-compile (require 'cl-lib))
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string=)
@@ -65,14 +62,8 @@
     (load  "emacspeak-loaddefs")
     (emacspeak)))
 
- 
-
 (provide 'emacspeak-setup)
 ;;;   emacs local variables
 
- 
 ;; mode: emacs-lisp
- 
- 
 
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,14 +35,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -52,7 +50,6 @@
 
 ;;; Code:
 
- 
 ;;;  advice
 
 (defadvice makefile-next-dependency (after emacspeak pre act
@@ -140,7 +137,6 @@
      "Inserted selections into client  %s"
      (buffer-name makefile-browser-client))))
 
- 
 ;;;  personalities 
 
 (voice-setup-add-map
@@ -151,16 +147,9 @@
    (makefile-makepp-perl voice-smoothen)
    ))
 
- 
 ;;;  setup mode hook:
 
- 
 (provide 'emacspeak-make-mode)
 
 ;;;  end of file 
 
- 
- 
-  
-
- 

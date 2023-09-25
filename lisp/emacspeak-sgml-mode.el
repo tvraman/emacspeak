@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
@@ -37,18 +36,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction
 ;;; Commentary:
 ;; emacspeak extensions to sgml mode
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  advice interactive commands 
 
 (defadvice sgml-skip-tag-forward (after emacspeak pre act comp)
@@ -90,12 +87,6 @@
     (emacspeak-auditory-icon 'button)
     (dtk-speak  "Toggled display of tags")))
 
- 
 (provide  'emacspeak-sgml-mode)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,14 +35,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -56,7 +54,6 @@
 ;; interactively evaluate SQL expressions.
 ;;; Code:
 
- 
 ;;;  advice
 
 (defadvice sqlplus-execute-command (after emacspeak pre act comp)
@@ -114,13 +111,7 @@
    (t ad-do-it))
   ad-return-value)
 
- 
 (provide 'emacspeak-sql)
 
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;;
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -49,7 +47,6 @@
 ;;
 ;;; Code:
 
- 
 ;;;  required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -61,7 +58,6 @@
 (require 'org-table "org-table" 'no-error)
 (defvar org-ans2 nil)
 
- 
 ;;;  voice locking:
 
 (voice-setup-add-map
@@ -132,7 +128,6 @@
    (org-verbatim voice-monotone-extra)
    (org-habit-ready-face voice-monotone-extra)))
 
- 
 ;;;  Structure Navigation:
 
 (defun emacspeak-org-speak-item  ()
@@ -246,7 +241,6 @@
                 (line-beginning-position)
                 (line-end-position))))))
 
- 
 ;;;  Header insertion and relocation
 
 (cl-loop
@@ -268,7 +262,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
 
-
 (defadvice org-delete-char (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
@@ -278,7 +271,7 @@
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
- 
+
 ;;;  cut and paste:
 
 (cl-loop
@@ -295,7 +288,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'yank-object)))))
 
- 
 ;;;  completion:
 
 (defadvice org-complete (around emacspeak pre act comp)
@@ -312,7 +304,6 @@
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
- 
 ;;;  toggles:
 
 (cl-loop
@@ -327,10 +318,8 @@
        (emacspeak-auditory-icon 'button)
        (emacspeak-speak-line)))))
 
- 
 ;;;  ToDo:
 
- 
 ;;;  timestamps and calendar:
 
 (cl-loop
@@ -359,7 +348,6 @@
   (cl-declare (special org-ans2))
   (dtk-speak org-ans2))
 
- 
 ;;;  Agenda:
 
 ;; AGENDA NAVIGATION
@@ -407,10 +395,8 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
- 
 ;;;  tables:
 
- 
 ;;;  table minor mode:
 
 (defadvice orgtbl-mode (after emacspeak pre act comp)
@@ -421,7 +407,6 @@
     (message "Turned %s org table mode."
              (if orgtbl-mode 'on 'off))))
 
- 
 ;;;  deleting chars:
 
 (defadvice org-return (after emacspeak pre act comp)
@@ -434,7 +419,6 @@
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object)))))
 
- 
 ;;;  Keymap update:
 
 (defun emacspeak-org-update-keys ()
@@ -466,7 +450,6 @@
    do
    (emacspeak-keymap-update  org-mode-map k)))
 
- 
 ;;;  mode hook:
 
 (defun emacspeak-org-mode-setup ()
@@ -478,7 +461,7 @@
   (define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
   (define-key outline-minor-mode-map (kbd "C-o e")
               'tvr-org-enumerate)
-    (define-prefix-command 'org-multi-keymap)
+  (define-prefix-command 'org-multi-keymap)
   (define-key org-mode-map (kbd "C-'") 'org-multi-keymap)
   (define-key org-multi-keymap "n" #'org-next-link)
   (define-key org-multi-keymap "'" #'org-open-at-point)
@@ -512,7 +495,6 @@
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
- 
 ;;;  fix misc commands:
 
 (cl-loop
@@ -540,7 +522,6 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'right)))
 
- 
 ;;;  global input wizard
 
 (defun emacspeak-org-popup-input ()
@@ -548,7 +529,6 @@
   (interactive)
   (emacspeak-org-popup-input-buffer 'org-mode))
 
- 
 ;;;  org capture
 
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
@@ -635,7 +615,6 @@
      "speak."
      (funcall emacspeak-org-table-after-movement-function))))
 
- 
 ;;;  Additional table function:
 
 (unless (fboundp 'org-table-previous-row)
@@ -659,7 +638,6 @@ Before doing so, re-align the table if necessary."
         (skip-chars-backward "^|\n\r")
         (if (looking-at " ") (forward-char 1))))))
 
- 
 ;;;  Capture
 
 (defcustom emacspeak-org-hotlist  (expand-file-name
@@ -687,7 +665,6 @@ arg just opens the file"
 
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 
- 
 ;;;  Speech-enable export prompt:
 (defadvice org-export--dispatch-action (before emacspeak pre act comp)
   "Speak prompt intelligently."
@@ -707,7 +684,6 @@ arg just opens the file"
       choices "\n"))
     (sit-for 5)))
 
- 
 ;;;  Preview HTML With EWW:
 
 (defun emacspeak-org-eww-file (file _link)
@@ -715,7 +691,6 @@ arg just opens the file"
   (add-hook 'emacspeak-eww-post-process-hook  #'emacspeak-speak-buffer)
   (funcall-interactively #'eww-open-file file))
 
- 
 ;;;  Edit Special Advice:
 
 (cl-loop
@@ -739,7 +714,6 @@ arg just opens the file"
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
- 
 ;;;  Fillers:
 
 (defadvice org-fill-paragraph (after emacspeak pre act comp)
@@ -757,7 +731,6 @@ arg just opens the file"
           (message "State unset")
         (message state)))))
 
- 
 ;;; TVR: Conveniences
 
 (defun tvr-org-itemize ()
@@ -776,7 +749,6 @@ arg just opens the file"
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'item))
 
- 
 ;;;  specialized input buffers:
 
 ;; Taken from a message on the org mailing list.
@@ -806,7 +778,6 @@ arg just opens the file"
       (use-local-map map))
     (shrink-window-if-larger-than-buffer)))
 
- 
 ;;; md export:
 
 (defadvice org-md-export-as-markdown (after emacspeak pre act comp)
@@ -815,12 +786,10 @@ arg just opens the file"
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
- 
 ;;; org-mks:
 
 ;;; Org should use transient --sigh!
 
- 
 ;;; Amark:
 
 (org-link-set-parameters
@@ -856,7 +825,6 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
     (emacspeak-amark-play
      (make-emacspeak-amark :path filename  :position position))))
 
- 
 ;;; Play Amarks:
 
 (defun emacspeak-org-amarks-play ()
@@ -872,7 +840,6 @@ Press `y' to move to next amark."
        (org-amark-follow-link
         (org-element-property :path link))))))
 
- 
 ;;; EWW Marks:
 
 (org-link-set-parameters
@@ -894,7 +861,6 @@ Press `y' to move to next amark."
      :type "ebook" :link link :description desc )
     link))
 
- 
 ;;; e-media:
 
 (defsubst org--ems-yt-p (url)
@@ -926,13 +892,6 @@ Press `y' to move to next amark."
    ((org--ems-yt-p url) (empv-play url))
    (t (emacspeak-eww-play-media-at-point url))))
 
- 
-
 (provide 'emacspeak-org)
 ;;;  end of file
 
- 
- 
- 
-
- 

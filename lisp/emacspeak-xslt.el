@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -48,12 +46,11 @@
 ;; using xsltproc
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   xslt Environment:
 (defsubst emacspeak-xslt-get (style)
   "Return  stylesheet path."
@@ -106,7 +103,6 @@
   "If T null chars in the region will be nuked.
 This is useful when handling bad HTML.")
 
- 
 ;;; Macro: without-xsl
 (defmacro emacspeak-xslt-without-xsl (&rest body)
   "Execute body with XSL turned off."
@@ -122,7 +118,6 @@ This is useful when handling bad HTML.")
                  'append))
      ,@body))
 
- 
 ;;; XSLT Transformer functions:
 
 (defun emacspeak-xslt-make-xsl-transformer  (xsl &optional params)
@@ -151,7 +146,6 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
           (point) (point-max)
           (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
 
- 
 ;;;  Functions:
 
 ;;;###autoload
@@ -361,7 +355,6 @@ and return the results in a newly created buffer. "
       (set-buffer-multibyte t)
       result)))
 
- 
 ;;; handle charent
 (defvar emacspeak-xslt-charent-alist
   '(("&lt;" . "<")
@@ -382,7 +375,6 @@ and return the results in a newly created buffer. "
              (while (search-forward entity end t)
                (replace-match replacement nil t)))))
 
- 
 ;;;  interactive commands:
 
 ;;;###autoload
@@ -415,7 +407,6 @@ and return the results in a newly created buffer. "
   (funcall-interactively
    'emacspeak-xslt-view-file
    emacspeak-rss-view-xsl file))
-
 
 ;;;###autoload
 (defun emacspeak-xslt-view-atom-file (file)
@@ -485,12 +476,6 @@ and return the results in a newly created buffer. "
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
- 
 (provide 'emacspeak-xslt)
 ;;;  end of file
 
- 
- 
- 
-
- 

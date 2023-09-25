@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  Introduction:
 
 ;;; Commentary:
@@ -43,14 +41,12 @@
 ;; This module speech-enables the Emacs Info Reader.
 ;;; Code:
 
- 
 ;;;  requires
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'info)
 
- 
 ;;;   Voices
 
 (voice-setup-add-map
@@ -69,7 +65,6 @@
    (info-menu-header voice-bolden)
    (info-xref-visited voice-animate-medium)))
 
- 
 ;;;  advice
 
 (defcustom  emacspeak-info-select-node-speak-chunk 'screenfull
@@ -184,7 +179,6 @@ node-spec."
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
- 
 ;;;  Info: Section navigation
 ;; Use property info-title-* to move across section titles.
 (defvar emacspeak-info--title-faces
@@ -229,7 +223,6 @@ node-spec."
       (emacspeak-auditory-icon 'large-movement))
      (t (message "No previous section in   this node")))))
 
- 
 ;;;  Speak header line if hidden
 
 (defun emacspeak-info-speak-header ()
@@ -246,13 +239,11 @@ node-spec."
         (goto-char (point-min))
         (emacspeak-speak-line)))))
 
- 
 ;;; Hook:
 (add-hook
  'Info-mode-hook
  'emacspeak-pronounce-toggle-use-of-dictionaries)
 
- 
 ;;;  keymaps
 
 (cl-declaim (special Info-mode-map))
@@ -261,12 +252,6 @@ node-spec."
 (define-key Info-mode-map "\M-n" 'emacspeak-info-next-section)
 (define-key Info-mode-map "\M-p" 'emacspeak-info-previous-section)
 
- 
 (provide  'emacspeak-info)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

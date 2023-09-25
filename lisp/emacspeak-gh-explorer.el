@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,20 +44,17 @@
 ;; This module speech-enables Github Explorer.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map 
  '((github-explorer-directory-face voice-bolden-medium)))
 
- 
 ;;;  Interactive Commands:
 
 (cl-loop
@@ -106,12 +101,6 @@
      (define-key github-explorer-mode-map "n" 'emacspeak-gh-explorer-next))
   )
 
- 
 (provide 'emacspeak-gh-explorer)
 ;;;  end of file
 
- 
- 
- 
-
- 

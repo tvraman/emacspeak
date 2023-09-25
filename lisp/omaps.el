@@ -13,7 +13,6 @@
 ;; License: GPL
 ;;
 
- 
 ;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
@@ -45,7 +44,6 @@
 ;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -55,14 +53,12 @@
 ;; https://nominatim.org/
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'g-utils)
 
- 
 ;;;  Maps Geo-Coding and Reverse Geo-Coding:
 
 ;; https://nominatim.org/
@@ -112,12 +108,6 @@ Optional argument `full' returns full  object."
 
 ;; Example of use:
 
- 
 (provide 'omaps)
 ;;;  end of file
 
- 
- 
- 
-
- 

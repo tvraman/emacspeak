@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1996 by T. V. Raman 
@@ -36,18 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 ;;; Commentary:
 ;; Provide additional advice to view-mode
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   Setup view mode to work with emacspeak
 
 ;; restore emacspeak keybindings:
@@ -59,7 +56,6 @@
      (emacspeak-view-setup-keys)))
 ;; Generate automatic advise:
 
- 
 ;;;  additional interactive commands
 
 (defun emacspeak-view-line-to-top ()
@@ -69,7 +65,6 @@
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'select-object))
 
- 
 ;;;  Advise additional interactive commands:
 (defadvice view-file (after emacspeak pre act comp)
   "Load directory specific settings"
@@ -305,7 +300,6 @@
     (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
- 
 ;;;  bind convenience keys
 (defvar emacspeak-view-keys-optimized nil
   "Records if we have already optimized Emacspeak
@@ -368,12 +362,6 @@ keybindings for view mode")
   (define-key view-mode-map "w" 'emacspeak-speak-word)
   (emacspeak-view-optimize-view-keys))
 
- 
 (provide  'emacspeak-view)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

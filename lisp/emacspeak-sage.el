@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -49,14 +47,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Forward Decls:
 (declare-function sage-shell:delete-output "sage-shell-mode" nil)
 (declare-function sage-shell:-send-input-one-line "sage-shell-mode" (line))
@@ -64,7 +60,6 @@
 (declare-function sage-shell-edit:process-alist "sage-shell-mode" nil)
 (declare-function sage-shell:last-output-beg-end "sage-shell-mode" nil)
 
- 
 ;;;  Helpers:
 
 (defun emacspeak-sage-get-output ()
@@ -108,7 +103,6 @@
       (sage-shell:delete-output)
       result)))
 
- 
 ;;;  Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
   "speak."
@@ -131,7 +125,6 @@
 
 (emacspeak-auditory-icon 'help)
 
- 
 ;;;  Advice sage-edit:
 
 (cl-loop
@@ -171,7 +164,6 @@
      (sit-for 0.1)
      (emacspeak-sage-speak-output))))
 
- 
 ;;;  sage-mode navigation:
 
 (cl-loop
@@ -185,7 +177,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 ;;;  sage comint interaction:
 (defadvice sage-shell:list-outputs (after emacspeak pre act comp)
   "speak."
@@ -239,7 +230,6 @@
     (emacspeak-sage-speak-output)
     (emacspeak-auditory-icon 'close-object)))
 
- 
 ;;;  sage sagetext:
 
 (cl-loop
@@ -260,7 +250,6 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
- 
 ;;;  Additional Interactive Commands:
 
 (defun emacspeak-sage-describe-symbol (s)
@@ -277,7 +266,6 @@
       (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
     (sage-shell-help:describe-symbol s)))
 
- 
 ;;;  Keybindings:
 (cl-declaim (special sage-shell:sage-mode-map))
 (when (and (bound-and-true-p sage-shell:sage-mode-map))
@@ -290,12 +278,6 @@
    do
    (emacspeak-keymap-update sage-shell:sage-mode-map b)))
 
- 
 (provide 'emacspeak-sage)
 ;;;  end of file
 
- 
- 
- 
-
- 

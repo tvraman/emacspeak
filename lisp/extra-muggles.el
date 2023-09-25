@@ -10,7 +10,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -84,7 +82,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -101,7 +98,6 @@
   (require 'emacspeak-m-player))
 (with-no-warnings (require 'origami "origami" 'no-error))
 
- 
 ;;;  Generate Muggles From Keymaps:
 
 ;; Generate A Muggle: Take a name of a keymap (symbol) And generate an
@@ -142,7 +138,6 @@ Argument `k-map' is a symbol  that names a keymap."
    (kbd "s-'")
    (emacspeak-muggles-generate 'pianobar-key-map)))
 
- 
 ;;;  Media Player:
 
 (declare-function emacspeak-amark-save "emacspeak-muggles" t)
@@ -204,7 +199,6 @@ Argument `k-map' is a symbol  that names a keymap."
            ("}" emacspeak-m-player-double-speed)
            ))
 
- 
 ;;;  Outliner:
 
 ;; Cloned from Hydra Wiki:
@@ -250,7 +244,6 @@ _d_: subtree
            ("b" outline-backward-same-level)      ; Backward - same level
            ("z" nil "leave")))
 
- 
 ;;;  Info Summary:
 
 ;; Taken from Hydra wiki and customized to taste:
@@ -310,7 +303,6 @@ _d_: subtree
                       ("q"   quit-window "Info exit")
                       ("C-g" nil "cancel" :color blue)))
 
- 
 ;;;  origami:
 
 (declare-function origami-open-node "origami" (buffer point))
@@ -343,7 +335,6 @@ _d_: subtree
            ("f" origami-forward-toggle-node)
            ("a" origami-toggle-all-nodes)))
 
- 
 ;;;  Muggles Autoload Wizard:
 
 (defvar emacspeak-muggles-pattern
@@ -386,7 +377,6 @@ Also generates global keybindings if any."
       (save-buffer))
     (message "Generated autoloads for muggles.")))
 
- 
 ;;;  smartParens:
 
 (global-set-key
@@ -428,7 +418,6 @@ Also generates global keybindings if any."
            ("w" sp-copy-sexp)  
            ("{" #'(lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
 
- 
 ;;;   View Mode:
 
 (global-set-key
@@ -490,7 +479,6 @@ Also generates global keybindings if any."
            ("}" forward-paragraph)
            ))
 
- 
 ;;; Vuiet:
 
 (declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
@@ -524,7 +512,6 @@ Also generates global keybindings if any."
                ("t" vuiet-play-track)
                ("u" vuiet-unlove-track)))))
 
- 
 ;;;  Org Mode Structure Navigation:
 
 (with-eval-after-load "org"
@@ -549,13 +536,8 @@ Also generates global keybindings if any."
              ("u" outline-up-heading "up heading")
              ("g" org-goto "goto" :exit t))))
 
- 
 (provide 'extra-muggles)
 ;;;  end of file
 
- 
- 
 ;; byte-compile-warnings: (docstring noruntime )
- 
 
- 

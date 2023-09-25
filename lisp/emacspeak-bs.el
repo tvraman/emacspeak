@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
@@ -44,7 +42,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'bs)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -53,7 +51,6 @@
 
 ;;; Code:
 
- 
 ;;;  helpers 
 
 (defun emacspeak-bs-speak-buffer-line ()
@@ -113,7 +110,6 @@
      (t(emacspeak-auditory-icon 'warn-user)
        (emacspeak-speak-line)))))
 
- 
 ;;;  speech enable interactive commands 
 
 (defadvice bs-mode (after emacspeak pre act comp)
@@ -239,13 +235,6 @@
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-mode-line))))
 
- 
-
 (provide 'emacspeak-bs)
 ;;;  end of file
 
- 
- 
- 
-
- 

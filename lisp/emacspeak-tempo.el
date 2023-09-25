@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,8 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
-
 ;;;   Introduction:
 ;;; Commentary:
 ;; tempo.el provides the
@@ -45,12 +42,11 @@
 ;; This is used by html-helper-mode to allow for easy writing of HTML
 ;; This module extends Emacspeak to provide fluent spoken feedback
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   First setup tempo variables:
 
 ;; Prompting in the minibuffer is useful:
@@ -63,7 +59,6 @@
      (dtk-speak string)
      string))
 
- 
 ;;;   Advice: 
 
 (defadvice tempo-forward-mark (after emacspeak pre act comp)
@@ -81,23 +76,11 @@
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
- 
 (emacspeak-pronounce-add-super 'sgml-mode 'html-helper-mode)
 
 (provide 'emacspeak-tempo)
 
 ;;;  end of file 
 
- 
- 
-  
-
- 
-
 ;;;  end of file 
 
- 
- 
-  
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1995 by T. V. Raman
@@ -36,18 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 ;;; Commentary:
 ;; Provide additional advice to ease debugger interaction with gud
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   Advise key helpers:
 
 (defadvice gud-display-line (after emacspeak pre act comp)
@@ -85,15 +82,9 @@
       ad-do-it
       (emacspeak-auditory-icon 'select-object)
       ad-return-value))))
- 
+
 ;;;  Advise interactive commands:
 
- 
 (provide  'emacspeak-gud)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

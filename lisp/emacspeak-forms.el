@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1996 by T. V. Raman 
@@ -36,19 +35,17 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;  requires
 
 (require 'forms)(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   Introduction:
 ;;; Commentary:
 ;; Provide additional advice to forms-mode 
 ;;; Code:
- 
+
 ;;;  Helper functions
 
 (defvar emacspeak-forms-current-record-summarizer
@@ -103,7 +100,6 @@ Assumes that point is at the front of a field value."
                        'personality emacspeak-forms-rw-voice value)
     (dtk-speak (concat name " " value))))
 
- 
 ;;;  Advise interactive  commands
 (cl-loop
  for f in 
@@ -202,7 +198,6 @@ Assumes that point is at the front of a field value."
   (when  (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
- 
 ;;;  smart filters
 
 (defun emacspeak-forms-flush-unwanted-records ()
@@ -238,7 +233,6 @@ Assumes that point is at the front of a field value."
   (message "%s records after filtering"
            forms--total-records))
 
- 
 ;;;  emacspeak forms find file
 ;;;###autoload
 (defun emacspeak-forms-find-file (filename)
@@ -249,7 +243,6 @@ Assumes that point is at the front of a field value."
                     (expand-file-name "forms/" emacspeak-etc-directory))))
   (forms-find-file filename))
 
- 
 ;;;  bind smart filters
 (cl-declaim (special forms-mode-map forms-mode-ro-map
                      forms-mode-edit-map))
@@ -267,12 +260,6 @@ Assumes that point is at the front of a field value."
      ;; move to first field
      (forms-next-field 1)))
 
- 
 (provide  'emacspeak-forms)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

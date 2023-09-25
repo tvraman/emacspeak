@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -120,7 +118,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -130,7 +127,6 @@
 (require 'chess-pos nil 'noerror)
 (require 'chess-display nil 'noerror)
 
- 
 ;;; Helpers:
 
 (defvar emacspeak-chess-piece-names
@@ -204,7 +200,6 @@
     (cl-assert index t "Not  a valid square.")
     (dtk-speak-list  (emacspeak-chess-describe-square index) 2)))
 
- 
 ;;; Board Navigation:
 
 (defun emacspeak-chess-goto-target ()
@@ -287,7 +282,6 @@
   (cl-declare (special chess-direction-southeast))
   (emacspeak-chess-move chess-direction-southeast))
 
- 
 ;;; Examining the board:
 
 (defun emacspeak-chess-collect-squares (direction)
@@ -626,7 +620,6 @@ Argument `piece' specifies  piece-or-color as in command
      (f (call-interactively #'emacspeak-chess-look-north))
      (t (error "Rank or file")))))
 
- 
 ;;; Speaking Moves:
 (defvar emacspeak-chess-last-target nil
   "Target square of most recent move.")
@@ -696,7 +689,6 @@ specifies index of move, default is final index."
   (dtk-speak (emacspeak-chess-describe-move chess-module-game
                                             chess-display-index)))
 
- 
 ;;;  Interactive Commands:
 (cl-loop
  for f in
@@ -796,7 +788,6 @@ specifies index of move, default is final index."
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;; emacspeak Handler:
 
 (defun chess-emacspeak-handler (game event &rest args)
@@ -814,7 +805,7 @@ specifies index of move, default is final index."
     (message (car args)))))
 
 (provide 'chess-emacspeak)
- 
+
 ;;; Emacspeak Setup:
 ;; Forward Declaration to help documentation builder.
 (defvar chess-default-modules nil)
@@ -846,12 +837,6 @@ specifies index of move, default is final index."
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
 
- 
 (provide 'emacspeak-chess)
 ;;;  end of file
 
- 
- 
- 
-
- 

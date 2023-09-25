@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -84,7 +82,6 @@
 ;; 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -92,7 +89,7 @@
 (require 'emacspeak-preamble)
 (require 'derived)
 (eval-when-compile (require 'transient nil 'noerror))
- 
+
 ;;; Map Faces:
 
 (voice-setup-add-map
@@ -116,7 +113,6 @@
    (transient-pink voice-bolden-medium)
    (transient-teal voice-lighten-medium)))
 
- 
 ;;;  Advice Interactive Commands:
 
 (defadvice transient-toggle-common (after emacspeak pre act comp)
@@ -212,7 +208,6 @@ Press `r' to resume the suspended transient."
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;; section nav:
 
 (defun emacspeak-transient-next-section ()
@@ -240,7 +235,6 @@ Press `r' to resume the suspended transient."
       (goto-char (prop-match-beginning match))
       (emacspeak-speak-region (point) (prop-match-end match)))))
 
- 
 ;;; Hooks:
 
 (defun emacspeak-transient-post-hook ()
@@ -252,7 +246,7 @@ Press `r' to resume the suspended transient."
     (emacspeak-speak-mode-line)))
 
 (add-hook 'transient-exit-hook 'emacspeak-transient-post-hook)
- 
+
 ;;; Advice transient navigation:
 (cl-loop
  for f in
@@ -273,7 +267,6 @@ Press `r' to resume the suspended transient."
       (t ad-do-it))
      ad-return-value)))
 
- 
 ;;; Enable And Customize Transient Navigation:
 (declare-function transient-push-button "emacspeak-transient" t)
 
@@ -300,12 +293,6 @@ Press `r' to resume the suspended transient."
         transient-show-popup 1))
 (emacspeak-transient-setup)
 
- 
 (provide 'emacspeak-transient)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  Introduction
 
@@ -46,7 +44,6 @@
 ;; Will be used to advantage in efficiently setting up outline
 ;; regexp wizards
 
- 
 
 ;;;  required modules
 ;;; Code:
@@ -54,7 +51,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map faces to personalities 
 (voice-setup-add-map
  '(
@@ -62,7 +58,7 @@
    (reb-match-1 voice-overlay-1)
    (reb-match-2 voice-overlay-2)
    (reb-match-3 voice-overlay-3)))
- 
+
 ;;;  Speech-enable interactive commands.
 
 (defadvice  re-builder (after emacspeak pre act comp)
@@ -125,12 +121,6 @@
          #'(lambda (o) (overlay-put o 'auditory-icon 'item))  reb-overlays))))
   (emacspeak-speak-message-again))
 
- 
 (provide 'emacspeak-re-builder)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces->Voices
 
 (voice-setup-add-map
@@ -71,7 +67,6 @@
    (pydoc-sphinx-param-name-face voice-monotone-extra)
    (pydoc-sphinx-param-type-face voice-monotone-extra)))
 
- 
 ;;;  Advice Interactive Commands:
 
 (defadvice pydoc (after emacspeak pre act comp)
@@ -80,12 +75,6 @@
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))
 
- 
 (provide 'emacspeak-pydoc)
 ;;;  end of file
 
- 
- 
- 
-
- 

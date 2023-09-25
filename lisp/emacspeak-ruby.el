@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 
@@ -46,12 +44,11 @@
 
 ;;; Code:
 
- 
 ;;;  required modules 
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  Advice navigation:
 
 (cl-loop for command   in
@@ -72,7 +69,6 @@
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'paragraph)))))
 
- 
 ;;;  Advice insertion and electric:
 
 (defadvice ruby-insert-end (after emacspeak pre act comp)
@@ -109,7 +105,6 @@ Cue electric insertion with a tone."
         (emacspeak-speak-this-char last-input-event)
         (dtk-tone 800 100 t)))))
 
- 
 ;;;  Advice inferior ruby:
 (cl-loop for command in
          '(
@@ -127,13 +122,6 @@ Cue electric insertion with a tone."
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-speak-line)))))
 
- 
-
 (provide  'emacspeak-ruby)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

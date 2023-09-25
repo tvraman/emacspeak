@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;;
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 
@@ -58,13 +56,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'dired)
- 
+
 ;;;  Structure:
 
 (cl-defstruct
@@ -75,13 +72,11 @@
   position                               ; Offset in ms from start
   )
 
- 
 ;;;  AMark List:
 
 (defvar-local emacspeak-amark-list nil
   "List of buffer-local AMarks. ")
 
- 
 ;;;  AMark Functions:
 
 (defsubst emacspeak-amark-names ()
@@ -199,7 +194,6 @@ given name, it is updated with path and position."
     (emacspeak-m-player
      (expand-file-name (emacspeak-amark-path  amark) default-directory))))
 
- 
 ;;; Amark Mode:
 
 (define-derived-mode emacspeak-amark-mode special-mode
@@ -221,7 +215,6 @@ via command `org-insert-link' bound to \\[org-insert-link]."
  do
  (emacspeak-keymap-update emacspeak-amark-mode-map b))
 
- 
 ;;; Browse Amarks:
 
 (defun emacspeak-amark-list-play ()
@@ -296,12 +289,6 @@ current file."
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'open-object))
 
- 
 (provide  'emacspeak-amark)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

@@ -1,6 +1,5 @@
 ;; -*- lexical-binding: nil; -*-
 
-
 (eval-after-load "mspools"
   `(progn
      (and (featurep 'vm) (define-key vm-mode-map "o" 'mspools-show))

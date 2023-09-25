@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  Introduction:
 
 ;;; Commentary:
@@ -47,7 +45,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -57,7 +54,6 @@
 (declare-function
  c-end-of-statement "cc-cmds" (&optional count lim sentence-flag))
 
- 
 ;;;  advice electric deletion
 
 (defadvice c-electric-delete-forward (around emacspeak pre act comp)
@@ -84,7 +80,6 @@
       (t ad-do-it))
      ad-return-value)))
 
- 
 ;;;   advice things to speak
 ;;;   Electric chars speak
 
@@ -101,7 +96,6 @@
     (emacspeak-speak-this-char(preceding-char))
     (dtk-tone-deletion)))
 
- 
 ;;;   Moving across logical chunks
 
 ;; CPP directives:
@@ -144,9 +138,6 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
 
- 
-
- 
 ;;;  advice program navigation
 
 (defadvice  c-beginning-of-defun (after emacspeak pre act comp)
@@ -161,7 +152,6 @@
     (emacspeak-auditory-icon 'paragraph)
     (emacspeak-speak-line)))
 
- 
 ;;;   extensions  provided by c++ mode
 
 (defadvice c-scope-operator (after emacspeak pre act comp)
@@ -169,7 +159,6 @@
   (when (ems-interactive-p)
     (dtk-speak "colon colon")))
 
- 
 ;;;   Some more navigation functions I define:
 
 (defun c-previous-statement (count)
@@ -233,7 +222,6 @@ level")
                         (emacspeak-c-speak-semantics)))
           (emacspeak-speak-line))))))
 
- 
 ;;;   C semantics
 
 (defvar emacspeak-c-syntactic-table
@@ -354,7 +342,6 @@ and their meanings. ")
     (dtk-speak description)
     description))
 
- 
 ;;;   indenting commands
 
 (defadvice c-indent-defun (after emacspeak pre act comp)
@@ -367,7 +354,6 @@ and their meanings. ")
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
- 
 ;;;  Additional Interactive Commands:
 
 (cl-loop
@@ -436,7 +422,6 @@ and their meanings. ")
        (emacspeak-auditory-icon 'button)
        (message   "Toggled %s"  ,(symbol-name f))))))
 
- 
 ;;;  Additional keybindings:
 
 (cl-declaim (special c-mode-map c-mode-base-map))
@@ -452,7 +437,6 @@ and their meanings. ")
        (define-key c-mode-base-map "\M-n" 'c-next-statement)
        (define-key c-mode-base-map "\M-p" 'c-previous-statement))))
 
- 
 ;;;  personalities
 
 (voice-setup-add-map
@@ -460,12 +444,6 @@ and their meanings. ")
    (c-annotation-face voice-annotate)
    ))
 
- 
 (provide  'emacspeak-c)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

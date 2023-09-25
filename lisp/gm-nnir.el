@@ -14,7 +14,6 @@
 ;; License: GPL
 ;; 
 
- 
 ;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
@@ -48,7 +47,6 @@
 ;; THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 ;; SUCH DAMAGE.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -58,7 +56,6 @@
 ;; IMap search operators, GMail search extensions.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -66,7 +63,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (with-no-warnings (require 'nnir))
 (require 'gnus-group)
- 
+
 ;;;  IMap Search Operators:
 
 ;; this list is extracted from the IMap RFC 3501
@@ -133,7 +130,6 @@
       (setq clause (gm-nnir-read-imap-clause)))
     (mapconcat #'identity query " ")))
 
- 
 ;;;  NNIR Engine For GMail 
 
 ;; GMail Search Commands 
@@ -157,13 +153,8 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax.
       (emacspeak-speak-mode-line))
      (t (error "Not on a group.")))))
 
- 
 (provide 'gm-nnir)
 ;;;  end of file
 
- 
- 
 ;; byte-compile-warnings: (not obsolete)
- 
 
- 

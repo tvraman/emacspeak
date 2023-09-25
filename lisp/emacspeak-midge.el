@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,14 +35,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -62,7 +60,6 @@
 
 ;;; Code:
 
- 
 ;;;  Speech enable interactive commands.
 
 (defadvice midge-indent-line(after emacspeak pre act comp)
@@ -157,7 +154,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
- 
 ;;;  midge-mode-hook
 
 (defvar midge-mode-hook nil
@@ -167,13 +163,6 @@
   "Run midge-mode-hook"
   (run-hooks 'midge-mode-hook))
 
- 
-
 (provide 'emacspeak-midge)
 ;;;  end of file
 
- 
- 
- 
-
- 

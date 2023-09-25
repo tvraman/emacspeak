@@ -11,7 +11,6 @@
 ;;; Location undetermined
 ;;;
 
- 
 ;;;   Copyright:
 ;;;Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;;; All Rights Reserved.
@@ -33,7 +32,6 @@
 ;;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -43,14 +41,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map 
@@ -73,7 +69,6 @@
    (notmuch-tag-face voice-bolden)
    (notmuch-wash-cited-text voice-smoothen)))
 
- 
 ;;;  Interactive Commands:
 
 '(
@@ -271,7 +266,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
- 
 ;;; MUA:
 
 '(notmuch-mua-kill-buffer
@@ -281,12 +275,10 @@
   notmuch-mua-send-and-exit
   notmuch-mua-send-common)
 
- 
 (provide 'emacspeak-notmuch)
 ;;;  end of file
 
-; 
-; 
-; 
+                                        ; 
+                                        ; 
+                                        ; 
 
- 

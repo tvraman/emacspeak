@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -45,14 +43,14 @@
 ;; ses implements a simple spread sheet and is part of Emacs
 ;; This module speech-enables ses
 ;;; Code:
- 
+
 ;;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'ses)
- 
+
 ;;;  emacspeak ses accessors 
 
 ;; these additional accessors are defined in terms of the
@@ -78,7 +76,6 @@
    (car (ses-sym-rowcol cell-name))
    (cdr (ses-sym-rowcol cell-name))))
 
- 
 ;;;  emacspeak ses summarizers 
 
 (defun emacspeak-ses-summarize-cell (cell-name)
@@ -100,10 +97,8 @@
   (emacspeak-ses-summarize-cell
    (emacspeak-ses-current-cell-symbol)))
 
- 
 ;;;  advice internals
 
- 
 ;;;  new navigation commands 
 
 ;; ses uses intangible properties to enable cell navigation
@@ -134,7 +129,6 @@
   (forward-line -1)
   (emacspeak-ses-summarize-current-cell))
 
- 
 ;;;  advice interactive commands
 
 (defun emacspeak-ses-setup ()
@@ -160,18 +154,10 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ses-summarize-current-cell)))
 
- 
 ;;;  Setup:
 
 (emacspeak-ses-setup)
 
- 
-
 (provide 'emacspeak-ses)
 ;;;  end of file
 
- 
- 
- 
-
- 

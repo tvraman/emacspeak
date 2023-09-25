@@ -10,7 +10,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -33,7 +32,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -43,7 +41,6 @@
 ;; For  uses of hydra see module @xref{emacspeak-muggles}.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -51,7 +48,6 @@
 (require 'emacspeak-preamble)
 (require 'hydra "hydra" 'no-error)
 
- 
 ;;;  Map Hydra Colors To Voices:
 
 (voice-setup-add-map
@@ -62,7 +58,6 @@
    (hydra-face-pink voice-bolden-medium)
    (hydra-face-teal voice-lighten-medium)))
 
- 
 ;;;  Toggle Talkative:
 
 (defun emacspeak-hydra-toggle-talkative ()
@@ -72,7 +67,6 @@
   (setq hydra-is-helpful (not hydra-is-helpful))
   (emacspeak-auditory-icon (if hydra-is-helpful 'on 'off)))
 
- 
 ;;;  Emacspeak Helpers:
 
 (defun emacspeak-hydra-body-pre (&optional name)
@@ -90,7 +84,6 @@
   (when emacspeak-use-auditory-icons
     (emacspeak-play-auditory-icon 'close-object)))
 
- 
 ;;;  Setup Help And Hint 
 
 ;; We use plain messages:
@@ -105,7 +98,6 @@
   "Speak hint for specified Hydra."
   (message (eval (symbol-value (intern (format "%s/hint" name))))))
 
- 
 ;;; lv-message:
 
 (defvar ems--lv-cache nil
@@ -126,12 +118,6 @@
   (dtk-stop 'all)
   (emacspeak-auditory-icon 'delete-object))
 
- 
 (provide 'emacspeak-hydra)
 ;;;  end of file
 
- 
- 
- 
-
- 

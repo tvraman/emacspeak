@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,20 +35,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction
 ;;; Commentary:
 ;; Speech-enable  mspools --a package that lets you monitor
 ;; multiple maildrops
 ;;; Code:
- 
+
 ;;;  advice
 
 (defadvice mspools-show (after emacspeak pre act comp)
@@ -68,7 +66,7 @@
   "speak"
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
- 
+
 ;;; Smarter Spool-Size:
 ;; Smarter sppol-size compute functions.
 ;; These show the number of messages in a spool.
@@ -83,20 +81,13 @@
                (expand-file-name  spool mspools-folder-directory))))
     (unless (zerop size) (cons spool size))))
 
- 
 ;;;  keymaps
 (cl-declaim (special mspools-mode-map))
 (cl-eval-when (load)
   (require 'emacspeak-keymap)
   )
 
- 
 (provide 'emacspeak-mspools)
 
 ;;;  end of file 
 
- 
- 
-  
-
- 

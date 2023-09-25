@@ -14,7 +14,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,14 +36,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -53,7 +51,6 @@
 ;; typically installed as mpost by modern TeX
 ;; installations.
 
- 
 ;;;   completion 
 
 (defadvice meta-complete-symbol (around emacspeak pre act comp)
@@ -68,7 +65,6 @@
                              (dtk-speak (buffer-substring prior (point)))))
     ad-return-value))
 
- 
 ;;;  indentation
 
 (defadvice meta-indent-line (after emacspeak pre act comp)
@@ -82,7 +78,6 @@
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
 
- 
 ;;;   navigation 
 (defadvice  meta-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
@@ -96,7 +91,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
- 
 ;;;   commenting etc
 
 (defadvice meta-comment-region (after emacspeak pre act comp)
@@ -160,12 +154,6 @@
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current defun. ")))
 
- 
 (provide 'emacspeak-metapost)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -79,7 +77,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -88,7 +85,7 @@
 (require 'ansi-color)
 (require 'emacspeak-comint)
                                         ;(require 'pianobar)
- 
+
 ;;;  Pianobar Fixups:
 
 (defun emacspeak-pianobar-current-song  ()
@@ -102,7 +99,6 @@
   "Override with our own notifier."
   (message  (emacspeak-pianobar-current-song)))
 
- 
 ;;;  Advice Interactive Commands:
 
 (declare-function pianobar "ext:pianobar" nil)
@@ -188,7 +184,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
- 
 ;;;  emacspeak-pianobar
 
 (defvar emacspeak-pianobar-electric-mode t
@@ -303,14 +298,8 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive "sString:")
   (pianobar-send-string (format "%s\n" string)))
 
- 
 (provide 'emacspeak-pianobar)
 ;; reload pianobar to fix our vol-change commands.
 (load "pianobar")
 ;;;  end of file
 
- 
- 
- 
-
- 

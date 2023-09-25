@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -61,7 +57,6 @@
    (iedit-occurrence voice-overlay-1)
    (iedit-read-only-occurrence voice-monotone-extra)))
 
- 
 ;;;  Interactive Commands:
 
 '(
@@ -132,12 +127,6 @@
     (emacspeak-auditory-icon
      (if iedit-unmatched-lines-invisible 'on 'off))))
 
- 
 (provide 'emacspeak-iedit)
 ;;;  end of file
 
- 
- 
- 
-
- 

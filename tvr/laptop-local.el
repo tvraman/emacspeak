@@ -10,8 +10,6 @@
   (browse-url-chrome "calendar/"))
 (define-key emacspeak-y-keymap "c" 'tvr-calendar)
 
-
-
 (defun tvr-chat ()
   "Open Google Chat in Chrome"
   (interactive)
@@ -23,7 +21,6 @@
   "Open Google Mail in Chrome"
   (interactive)
   (browse-url-chrome "https://mail//"))
-
 
 (define-key emacspeak-y-keymap "m" 'tvr-mail)
 (provide 'laptop-local)

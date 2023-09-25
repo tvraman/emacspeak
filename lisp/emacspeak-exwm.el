@@ -11,7 +11,6 @@
 ;;; Location undetermined
 ;;;
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,7 +44,6 @@
 ;;; Audio Desktop
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -54,14 +51,12 @@
 (require 'emacspeak-preamble)
 (require 'exwm "exwm" 'no-error)
 
- 
 ;;; Advise internal helpers:
 
 (defadvice exwm-workspace--prompt-for-workspace (before emacspeak pre act comp)
   "speak prompt."
   (dtk-speak (ad-get-arg 0)))
 
- 
 ;;;   Advice Interactive Commands
 
 (defadvice exwm-floating-hide (after emacspeak pre act comp)
@@ -141,7 +136,6 @@
   (when (ems-interactive-p)
     (emacspeak-speak-frame-title)))
 
- 
 ;;; Additional Interactive Commands:
 ;; I bind this to s-/ via custom:
 
@@ -154,7 +148,6 @@
     (exwm-workspace-switch (% (1+ index) count))
     (emacspeak-speak-frame-title)))
 
- 
 ;;; Orca Toggle:
 
 ;;; Easily start/stop orca for use with Chrome etc.
@@ -172,8 +165,6 @@
    (t (setq emacspeak-exwm-orca-handle (start-process "Orca"nil "orca")))))
 
 (global-set-key (kbd "s-o") 'emacspeak-exwm-orca-toggle)
-
- 
 
 ;;; Configure Hooks:
 
@@ -195,13 +186,10 @@
  'exwm-mode-hook
  #'emacspeak-exwm-mode-hook)
 
- 
-
 (provide 'emacspeak-exwm)
 ;;;  end of file
 
-; 
-; 
-; 
+                                        ; 
+                                        ; 
+                                        ; 
 
- 

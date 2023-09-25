@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -45,19 +43,18 @@
 ;; and can be found at 
 ;; http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
 ;;; Code:
- 
+
 ;;;  required modules
 
 ;;; Code:
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  Forward decls:
 (declare-function eperiodic-get-element-property  "ext:eperiodic.el" (e prop))
 (declare-function eperiodic-element-at "ext:eperiodic.el" (&optional pos))
 
- 
 ;;;  faces and voices 
 (voice-setup-add-map
  '(
@@ -75,7 +72,6 @@
    (eperiodic-solid-face voice-bolden-extra)
    (eperiodic-unknown-face voice-bolden-and-animate)))
 
- 
 ;;;  helpers 
 
 (defun emacspeak-eperiodic-name-element-at-point ()
@@ -94,7 +90,6 @@
                           name)
     name))
 
- 
 ;;;  additional  commands
 
 (defun emacspeak-eperiodic-previous-line ()
@@ -134,7 +129,7 @@
   (define-key eperiodic-mode-map "l"
               'emacspeak-eperiodic-play-description)
   )
- 
+
 ;;;   listen off the web:
 (defvar emacspeak-eperiodic-media-location 
   "http://www.webelements.com/webelements/elements/media/snds-description/%s.rm"
@@ -151,7 +146,6 @@
               (eperiodic-get-element-property e 'symbol))
      nil)))
 
- 
 ;;;  advice interactive commands
 
 (defadvice eperiodic-find-element (after emacspeak pre act comp)
@@ -204,12 +198,6 @@
     (message "View %s"
              eperiodic-colour-element-function)))
 
- 
 (provide 'emacspeak-eperiodic)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Introduction:
 
@@ -48,7 +46,6 @@
 
 ;;; Code:
 
- 
 ;;;   required packages
 
 (eval-when-compile (require 'cl-lib))
@@ -56,7 +53,6 @@
 (require 'emacspeak-preamble)
 (require 'dired)
 
- 
 ;;;  Define personalities
 
 (voice-setup-add-map
@@ -73,7 +69,6 @@
    (dired-ignored voice-lighten-extra)
    (dired-flagged voice-animate-extra)))
 
- 
 ;;;   functions:
 
 (defun emacspeak-dired-speak-line ()
@@ -87,9 +82,8 @@ If in locate-mode, speak full pathname."
      (filename (dtk-speak (propertize filename 'personality personality))
                (setq emacspeak-speak-last-spoken-word-position (point)))
      (t (emacspeak-speak-line)
-      (ding)))))
+        (ding)))))
 
- 
 ;;;   advice:
 
 (defadvice dired-sort-toggle-or-edit (around emacspeak pre act comp)
@@ -195,7 +189,6 @@ If in locate-mode, speak full pathname."
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-dired-speak-line)))
 
- 
 ;;;   labeling fields in the dired buffer:
 
 (defun emacspeak-dired-label-fields-on-current-line ()
@@ -244,7 +237,6 @@ unless `dired-listing-switches' contains -l"
                 (forward-line 1))))
         (setq buffer-read-only read-only)))))
 
- 
 ;;;  Additional status speaking commands
 
 (defvar emacspeak-dired-file-cmd-options "-b"
@@ -346,7 +338,6 @@ On a directory line, run du -s on the directory to speak its size."
                (nth 8 (file-attributes filename))))
      (t (message "No file on current line")))))
 
- 
 ;;;   keys
 (cl-eval-when (load))
 
@@ -369,7 +360,7 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key dired-mode-map "\M-t" 'emacspeak-dired-speak-symlink-target)
   (define-key dired-mode-map "\C-i" 'emacspeak-speak-next-field)
   (define-key dired-mode-map  "," 'emacspeak-dired-speak-header-line))
- 
+
 ;;;  Advice locate:
 (defun emacspeak-dired-open-this-directory ()
   "Open directory corresponding to file on current line."
@@ -394,7 +385,7 @@ On a directory line, run du -s on the directory to speak its size."
 (define-key locate-mode-map  "j" 'emacspeak-dired-open-this-directory)
 (define-key locate-mode-map  (kbd "C-j") 'emacspeak-dired-open-this-file)
 (define-key locate-mode-map  [C-return] 'emacspeak-dired-open-this-file)
- 
+
 ;;;  Context-sensitive openers:
 
 (defun emacspeak-dired-play-this-media ()
@@ -493,7 +484,6 @@ current file in DirEd."
   (interactive)
   (emacspeak-table-find-csv-file (dired-get-filename current-prefix-arg)))
 
- 
 ;;;  Locate results as a play-list:
 
 (defun emacspeak-locate-play-results-as-playlist (&optional shuffle)
@@ -526,7 +516,6 @@ Optional interactive prefix arg shuffles playlist."
                emacspeak-m-player-options)))
         (emacspeak-m-player  m3u 'play-list)))))
 
- 
 ;;;  Play Duration Using Soxi:
 
 (defun emacspeak-dired-play-duration ()
@@ -541,7 +530,7 @@ If on a directory, speak the total duration of all sound files under
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")
   (let ((f   (dired-get-filename))
-         (case-fold-search t))
+        (case-fold-search t))
     (cond
      ((and (not (file-directory-p f))
            (string-match emacspeak-media-extensions f))
@@ -558,7 +547,6 @@ If on a directory, speak the total duration of all sound files under
        (file-name-base f)))
      (t (message "No mp3  on current line.")))))
 
- 
 ;;;  Open Downloads:
 
 (defun emacspeak-dired-downloads ()
@@ -566,7 +554,6 @@ If on a directory, speak the total duration of all sound files under
   (interactive)
   (funcall-interactively 'dired (expand-file-name "~/Downloads") "-alt"))
 
- 
 ;;; Smarter replacement for find-dired wizard:
 
 (defvar ems--find-switches
@@ -593,12 +580,6 @@ If on a directory, speak the total duration of all sound files under
       (setq arg (completing-read "Switch:" ems--find-switches nil t)))
     (find-dired directory (mapconcat #'identity (nreverse f-args) " "))))
 
- 
 (provide 'emacspeak-dired)
 ;;;  emacs local variables
 
- 
- 
- 
-
- 

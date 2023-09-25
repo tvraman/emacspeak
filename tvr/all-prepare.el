@@ -14,7 +14,6 @@
                      s smtpmail-smtp-user
                      mm-file-name-rewrite-functions smtpmail-auth-supported))
 
- 
 ;;;  Requires:
 
 (with-eval-after-load "gnus"
@@ -30,14 +29,14 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
   (auth-source-xoauth2-enable)
   (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
-   
+  
 ;;;  Tests:
 
   ;; (auth-source-xoauth2--search nil nil "gmail" "raman@google.com""993")
   ;; (auth-source-search :host "smtp.gmail.com"
   ;; :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
 
-   
+  
   ;;;  Sending Mail:
 
   (setq
@@ -49,7 +48,7 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
    smtpmail-smtp-server "smtp.gmail.com"
    smtpmail-smtp-service 465)
 
-   
+  
   ;;; GMail Using xoauth2  and Gnus:
   (cl-declaim (special gnus-select-method gnus-secondary-select-methods))
   (setq
@@ -81,7 +80,7 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
         (mapcar #'gm-user-to-nnimap
                 '( "tv.raman.tv" "emacspeak")))
 
-   
+  
   ;;; Additional gnus settings:
 
   (setq gnus-auto-subscribed-groups nil)
@@ -102,7 +101,7 @@ This moves them into the Spam folder."
          (emacspeak-auditory-icon 'task-done))))
 
   (define-key gnus-summary-mode-map "$" 'gmail-report-spam)
-   
+  
 
   (defun tvr-unlock-xoauth ()
     "Unlock xoauth creds if gpg-agent has timed out."
@@ -142,14 +141,13 @@ Uses the go oauth tool found in the xoauth git repo."
 ;; folded-file: t
 ;; end:
 
- 
 ;;; Jump to Emacs Git Logs At HEAD:
 (defalias 'tvr-km-emacs-log
-   (kmacro
-    "C-c 3 g i t SPC p <return> C-; d l l C-e | <return> <escape> < C-e s"))
+  (kmacro
+   "C-c 3 g i t SPC p <return> C-; d l l C-e | <return> <escape> < C-e s"))
 (define-key emacspeak-y-keymap "3" 'tvr-km-emacs-log)
 (defalias 'tvr-km-morning
-   (kmacro "C-<tab> C-e g b h <tab> <return> n n e c"))
+  (kmacro "C-<tab> C-e g b h <tab> <return> n n e c"))
 (define-key emacspeak-y-keymap "0" 'tvr-km-morning)
 (setq pre-redisplay-function nil
       x-wait-for-event-timeout 0
@@ -163,8 +161,6 @@ Uses the go oauth tool found in the xoauth git repo."
   (browse-url-chrome "calendar/"))
 (define-key emacspeak-y-keymap "c" 'tvr-calendar)
 
-
-
 (defun tvr-chat ()
   "Open Google Chat in Chrome"
   (interactive)
@@ -176,7 +172,6 @@ Uses the go oauth tool found in the xoauth git repo."
   "Open Google Mail in Chrome"
   (interactive)
   (browse-url-chrome "https://mail//"))
-
 
 (define-key emacspeak-y-keymap "m" 'tvr-mail)
 (provide 'laptop-local)

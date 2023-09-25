@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -47,7 +45,6 @@
 ;; Speech enables package xkcd
 ;; Augments it by displaying the alt text and the transcript.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -55,7 +52,7 @@
 (require 'emacspeak-preamble)
 (require 'json)
 (require 'xkcd "xkcd" 'no-error)
- 
+
 ;;;  Fix error when loading images on the console:
 
 (defadvice xkcd-insert-image (around emacspeak pre act comp)
@@ -63,8 +60,6 @@
   (cond
    ((not window-system) t)
    (t ad-do-it)))
-
- 
 
 (defadvice xkcd-kill-buffer (after emacspeak pre act comp)
   "speak."
@@ -106,7 +101,6 @@
   (when nil ad-do-it) ; to silence byte-compiler 
   (eww-browse-url (ad-get-arg 0)))
 
- 
 (defun emacspeak-xkcd-open-explanation-browser ()
   "Open explanation of current xkcd in default browser"
   (interactive)
@@ -118,8 +112,3 @@
 (provide 'emacspeak-xkcd)
 ;;;  end of file
 
- 
- 
- 
-
- 

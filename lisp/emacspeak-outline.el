@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 
@@ -46,14 +44,12 @@
 
 ;;; Code:
 
- 
 ;;;  requires
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'outline)
 
- 
 ;;;   Navigating through an outline:
 
 (defadvice outline-next-heading (after emacspeak pre act comp)
@@ -100,7 +96,6 @@
     (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
- 
 ;;; outline-flag-region:
 ;; Handle outline hide/show directly here --- rather than relying on
 ;;overlay advice alone.
@@ -188,7 +183,6 @@
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed subheadings below current level")))
 
- 
 ;;;   Interactive speaking of sections
 
 (defvar emacspeak-outline-dont-query-before-speaking t
@@ -292,10 +286,6 @@ except that the outline section is  spoken"
 (add-hook 'outline-mode-hook 'emacspeak-outline-setup-keys)
 (add-hook 'outline-minor-mode-hook 'emacspeak-outline-setup-keys)
 
- 
-
- 
-
 ;;;  Personalities (
 (voice-setup-add-map
  '(
@@ -307,7 +297,6 @@ except that the outline section is  spoken"
    (outline-6 voice-lighten-medium)
    ))
 
- 
 ;;;  silence errors to help org-mode:
 
 (defadvice outline-up-heading (around emacspeak pre act comp)
@@ -316,9 +305,6 @@ except that the outline section is  spoken"
    ad-do-it
    ad-return-value))
 
- 
-
- 
 ;;;  foldout specific advice
 
 (with-eval-after-load "foldout"
@@ -336,12 +322,6 @@ except that the outline section is  spoken"
       (emacspeak-auditory-icon 'close-object)
       (emacspeak-speak-line))))
 
- 
 (provide  'emacspeak-outline)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

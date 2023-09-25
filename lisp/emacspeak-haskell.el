@@ -11,7 +11,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -33,7 +32,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -43,14 +41,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -82,7 +78,6 @@
    (haskell-type-face voice-type-personality)
    (haskell-warning-face voice-warning)))
 
- 
 ;;;  Interactive Commands:
 '(
   haskell-delete-nested
@@ -207,13 +202,10 @@
   (when (ems-interactive-p)
     (emacspeak-setup-programming-mode)))
 
- 
 ;;; haskell-debugger:
 
- 
 ;;; haskell-interactive
 
- 
 ;;; haskell-indentation
 
 (cl-loop
@@ -231,7 +223,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
 
- 
 ;;; haskell-mode-hook:
 
 (add-hook
@@ -239,12 +230,6 @@
  #'(lambda ()
      (haskell-indentation-mode )))
 
- 
 (provide 'emacspeak-haskell)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -89,7 +87,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
@@ -98,7 +95,6 @@
 (eval-when-compile (require 'derived))
 (require 'nvm "nvm" 'no-error)
 
- 
 ;;;  Customizations And Variables:
 
 (defvar emacspeak-maths-inferior-program
@@ -130,7 +126,6 @@ install.")
 (defvar emacspeak-maths nil
   "Structure holding all runtime context.")
 
- 
 ;;;  Parser Setup:
 
 (defvar emacspeak-maths-handler-table (make-hash-table :test #'eq)
@@ -147,7 +142,6 @@ Throw error if no handler defined."
   (or (gethash name emacspeak-maths-handler-table)
       (error "No handler defined for %s" name)))
 
- 
 ;;;  Handlers:
 
 ;; All handlers are called with the body of the unit being parsed.
@@ -266,7 +260,6 @@ Expected: ((acss) string)."
   "Handle welcome message."
   (message "%s" contents))
 
- 
 ;;;  Map Handlers:
 
 (cl-loop
@@ -277,7 +270,6 @@ Expected: ((acss) string)."
   f
   (intern (format "emacspeak-maths-handle-%s"  (symbol-name f)))))
 
- 
 ;;;  Process Filter:
 
 (defun emacspeak-maths-read-output ()
@@ -318,7 +310,6 @@ left for next run."
             (error nil))))
       (if moving (goto-char (process-mark proc))))))
 
- 
 ;;;  Setup:
 
 (defvar emacspeak-maths-server-program
@@ -393,7 +384,6 @@ left for next run."
   (emacspeak-maths-start)
   (message "Restarting Maths server and client."))
 
- 
 ;;;  Navigators:
 
 (declare-function calc-kill "calc-yank" (flag no-delete))
@@ -528,7 +518,6 @@ Set calc-language to tex to use this feature."
       (emacspeak-maths-client-process emacspeak-maths)
       ,(format "%s:\n" move)))))
 
- 
 ;;;  Output: spoken-math mode:
 
 (define-derived-mode emacspeak-maths-spoken-mode special-mode
@@ -573,7 +562,6 @@ Emacs online help facility to look up help on these commands.
   (funcall-interactively
    #'pop-to-buffer (emacspeak-maths-output emacspeak-maths)))
 
- 
 ;;;  Helpers:
 
 (defun emacspeak-maths-speak-alt ()
@@ -585,7 +573,6 @@ For use on Wikipedia pages  for example."
     (unless (string-equal alt-text "No image under point")
       (funcall-interactively #'emacspeak-maths-enter alt-text))))
 
- 
 ;;;  Advice Preview:
 
 (defadvice preview-at-point (after emacspeak pre act comp)
@@ -600,12 +587,6 @@ For use on Wikipedia pages  for example."
       (when (cl-some   #'identity preview-state)
         (emacspeak-maths-enter (emacspeak-maths-guess-tex))))))
 
- 
 (provide 'emacspeak-maths)
 ;;;  end of file
 
- 
- 
- 
-
- 

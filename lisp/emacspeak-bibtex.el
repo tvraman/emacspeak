@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
@@ -36,17 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;  required modules 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction
 ;;; Commentary:
 ;; Speech extensions for bibtex mode.
 ;;; Code:
- 
+
 ;;;  Advice navigation commands
 
 (defadvice bibtex-next-field (after emacspeak pre act comp)
@@ -75,7 +73,6 @@
     (emacspeak-speak-line)
     ))
 
- 
 ;;;  Advice record editing commands
 
 (defadvice bibtex-remove-OPT (after emacspeak pre act comp)
@@ -102,7 +99,6 @@
     (emacspeak-auditory-icon 'task-done)
     (message "Cleaned up entry")))
 
- 
 ;;;   advice record creation
 
 ;; list of commands that are advised:
@@ -212,12 +208,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
- 
 (provide  'emacspeak-bibtex)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

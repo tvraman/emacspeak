@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -44,7 +42,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -52,7 +49,6 @@
 (require 'emacspeak-preamble)
 (require 'term)
 
- 
 ;;;  Keymaps <-> Org (text) Files :
 
 ;; This makes it easy to consolidate personal bindings across machines.
@@ -94,7 +90,6 @@
       (save-buffer buffer))
     (switch-to-buffer buffer)))
 
- 
 ;;; Midi Playback Using MuseScore ==mscore:
 
 (defvar emacspeak-wizards-media-pipe
@@ -119,7 +114,6 @@
            (executable-find "mscore")
            emacspeak-wizards-media-pipe midi-file)))
 
- 
 ;;;  Braille
 
 ;;;###autoload
@@ -131,7 +125,6 @@
   (emacspeak-auditory-icon 'yank-object)
   (message "Brailled %s" s))
 
- 
 ;;;  Add autoload cookies:
 
 (defvar emacspeak-autoload-cookie-pattern
@@ -164,7 +157,6 @@ Default is to add autoload cookies to current file."
             (end-of-defun))
         (error "Added %d autoload cookies." count)))))
 
- 
 ;;;  voice sample
 
 (defsubst voice-setup-read-personality (&optional prompt)
@@ -252,7 +244,6 @@ for the current voice family."
     (funcall-interactively #'pop-to-buffer buffer)
     (goto-char (point-min))))
 
- 
 ;;;  list-voices-display
 
 (defvar ems--wizards-sampler-text
@@ -275,7 +266,7 @@ Sample text to use comes from variable
   (cl-declare (special voice-setup-face-voice-table))
   (cl-loop for f being the hash-keys of voice-setup-face-voice-table
            unless (facep f) collect f))
- 
+
 ;;;  tramp wizard
 (defcustom emacspeak-wizards-tramp-locations nil
   "Tramp locations used by Emacspeak tramp wizard.
@@ -303,7 +294,6 @@ Location is specified by name."
     (find-file
      (read-file-name "Open: " location))))
 
- 
 ;;;  find grep using compile
 
 (defun emacspeak-wizards-find-grep (glob pattern)
@@ -319,7 +309,6 @@ Interactive  arguments specify filename pattern and search pattern."
     glob pattern))
   (emacspeak-auditory-icon 'task-done))
 
- 
 ;;;  fix text that has gotten read-only accidentally
 
 (defun emacspeak-wizards-fix-read-only-text (start end)
@@ -329,7 +318,6 @@ Interactive  arguments specify filename pattern and search pattern."
     (put-text-property start end
                        'read-only nil)))
 
- 
 ;;;  pod -- perl online docs
 (declare-function cperl-pod2man-build-command "cperl-mode" nil)
 
@@ -353,7 +341,6 @@ Interactive  arguments specify filename pattern and search pattern."
                         (format (cperl-pod2man-build-command) pod2man-args))
          'Man-bgproc-sentinel)))))
 
- 
 ;;;  annotation wizard
 
 ;; I use this to collect my annotations into a buffer
@@ -426,7 +413,6 @@ annotation is inserted into the working buffer when complete."
       (switch-to-buffer parent-buffer))
     (emacspeak-auditory-icon 'close-object)))
 
- 
 ;;;   launch Curl
 
 (defcustom emacspeak-curl-cookie-store
@@ -450,7 +436,6 @@ annotation is inserted into the working buffer when complete."
      (current-buffer))
     (browse-url-of-buffer)))
 
- 
 ;;;  emacspeak clipboard
 
 (cl-eval-when (load)
@@ -511,12 +496,6 @@ Emacspeak sessions running on  different machines. "
              (if paste-table "table clipboard"
                clipboard-file))))
 
- 
 (provide 'emacspeak-extras)
 ;;;  end of file
 
- 
- 
- 
-
- 

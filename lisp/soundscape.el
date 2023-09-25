@@ -11,7 +11,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -92,14 +90,12 @@
 ;; first scape.  soundscape 1 2 3 Will turn on first three scapes.
 ;; soundscape 0 Turns on null soundscape to give silence.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
 
- 
 ;;;  Configuration:
 
 (defconst soundscape-player (executable-find "boodler")
@@ -147,7 +143,6 @@ Defaults specify alsa as the output and set master volume"
   :type '(repeat
           (string :tag "Option")))
 
- 
 ;;;  Catalog:
 (defvar soundscape--missing-packages nil
   "Records missing packages when building up the catalog.")
@@ -201,7 +196,6 @@ Default is to return NullAgent if name not found."
     (soundscape-lookup-name
      (completing-read "Soundscape: " (soundscape-catalog)))))
 
- 
 ;;;  Running:
 
 (defvar soundscape-processes (make-hash-table :test #'equal)
@@ -261,7 +255,6 @@ Default is to return NullAgent if name not found."
     " ")
    'personality 'voice-smoothen))
 
- 
 ;;;  Modes->SoundScapes:
 
 (defvar soundscape-mode-table (make-hash-table :test #'eq)
@@ -281,7 +274,6 @@ Default is to return NullAgent if name not found."
   (when mode
     (puthash mode scape soundscape-mode-table)))
 
- 
 ;;;  Default mapping:
 
 (defconst soundscape-vc-modes
@@ -373,7 +365,6 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
     (soundscape-sync major-mode)
     (message "Now using %s for %s" scape mode)))
 
- 
 ;;;  Soundscape Remote Control
 
 (defvar soundscape--remote
@@ -499,7 +490,6 @@ Optional interactive prefix arg restarts the listener."
      (format "soundscape %s\n"
              (mapconcat #'soundscape-lookup-position names " ")))))
 
- 
 ;;;  Automatic soundscapes:
 
 (defvar soundscape--auto nil
@@ -544,7 +534,6 @@ Optional interactive prefix arg `force' skips optimization checks."
 ;;  soundscape-delay (default is 0.1)
 ;;   triggers fewer spurious changes than running on advice.
 
- 
 ;;;  SoundScape Toggle:
 (defun soundscape-quiet ()
   "Activate NullAgent."
@@ -618,7 +607,6 @@ The  is then saved to soundscape-device for future use."
     (soundscape-listener-shutdown))
   (soundscape-toggle))
 
- 
 ;;;  Display Theme:
 
 (defun soundscape-theme ()
@@ -649,12 +637,6 @@ The  is then saved to soundscape-device for future use."
             (expand-file-name soundscape-data)))
     (funcall-interactively #'pop-to-buffer buffer)))
 
- 
 (provide 'soundscape)
 ;;;  end of file
 
- 
- 
- 
-
- 

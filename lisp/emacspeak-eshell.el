@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -48,14 +46,12 @@
 ;; This module speech-enables EShell
 ;;; Code:
 
- 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'esh-arg)
 
- 
 ;;;   setup various EShell hooks
 
 ;; Play an auditory icon as you display the prompt
@@ -82,7 +78,6 @@
  'emacspeak-eshell-speak-output
  'at-end)
 
- 
 ;;;   Advice top-level EShell
 
 (defadvice eshell (after emacspeak pre act comp)
@@ -96,7 +91,6 @@ Provide an auditory icon if possible."
     (emacspeak-pronounce-refresh-pronunciations)
     (emacspeak-speak-line)))
 
- 
 ;;;  advice em-hist
 
 (cl-loop
@@ -117,7 +111,6 @@ Provide an auditory icon if possible."
          (eshell-skip-prompt)
          (emacspeak-speak-line 1))))))
 
- 
 ;;;   advice em-ls
 
 (defgroup emacspeak-eshell nil
@@ -130,7 +123,6 @@ Provide an auditory icon if possible."
   "Indicates if ls in eshell uses different voice
 personalities.")
 
- 
 ;;;  voices
 
 (voice-setup-add-map 
@@ -147,7 +139,7 @@ personalities.")
    (eshell-ls-symlink voice-smoothen)
    (eshell-ls-unreadable voice-animate-extra)
    (eshell-prompt voice-bolden-and-animate)))
- 
+
 ;;;  Advice em-prompt
 
 (cl-loop for f in
@@ -163,7 +155,6 @@ personalities.")
                  (emacspeak-auditory-icon 'select-object)
                  (emacspeak-speak-line 1))))))
 
- 
 ;;;   advice esh-arg
 
 (cl-loop for f in
@@ -186,7 +177,6 @@ personalities.")
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
- 
 ;;;  advice esh-mode
 
 (defadvice eshell-delchar-or-maybe-eof (around emacspeak pre act comp)
@@ -254,7 +244,6 @@ personalities.")
      (t (emacspeak-speak-mode-line)))
     (emacspeak-auditory-icon 'select-object)))
 
- 
 ;;; Additional Commands To Enable: 
 
 (cl-loop
@@ -307,13 +296,6 @@ personalities.")
       (emacspeak-auditory-icon 'yank-object)
       (emacspeak-speak-region start (point)))))
 
- 
-
 (provide 'emacspeak-eshell)
 ;;;  end of file
 
- 
- 
- 
-
- 

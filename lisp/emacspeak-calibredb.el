@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -44,7 +42,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -55,9 +52,6 @@
 (declare-function calibredb-getattr "calibredb" t)
 (declare-function calibredb-find-candidate-at-point "calibredb" t)
 
-
-
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -84,7 +78,6 @@
    (calibredb-title-detail-view-face voice-bolden-medium)
    (calibredb-title-face voice-bolden)))
 
- 
 ;;;  Advice Interactive Commands:
 
 '(
@@ -220,7 +213,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;; Emacspeak Commands:
 
 (defun emacspeak-calibredb-epub-eww (&optional broken-ncx)
@@ -235,7 +227,6 @@ with broken NCX files."
                        :file-path))
    broken-ncx))
 
- 
 ;;; setup:
 
 (defun emacspeak-calibredb-setup ()
@@ -245,12 +236,6 @@ with broken NCX files."
 
 (add-hook 'calibredb-search-mode-hook 'emacspeak-calibredb-setup)
 
- 
 (provide 'emacspeak-calibredb)
 ;;;  end of file
 
- 
- 
- 
-
- 

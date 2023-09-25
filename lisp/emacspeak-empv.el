@@ -11,7 +11,6 @@
 ;;; Location undetermined
 ;;;
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,7 +43,6 @@
 ;; Provides better Youtube integration
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -57,7 +54,6 @@
                   "emacspeak-google" (url))
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 
- 
 ;;; Interactive Commands:
 
 (cl-loop
@@ -84,10 +80,8 @@
 
     (emacspeak-speak-mode-line)))
 
- 
 ;;; Additional Commands:
 
- 
 ;;; Commands:
 
 (defvar emacspeak-empv-history nil
@@ -115,12 +109,10 @@
         (empv-play url))
     (empv-play url)))
 
-
 (declare-function emacspeak-media-local-resource "emacspeak-empv" t)
 
 (declare-function emacspeak-media-read-resource
                   "emacspeak-m-player" (&optional prefix))
-
 
 ;;;###autoload
 (defun emacspeak-empv-play-file (file &optional left-channel)
@@ -143,7 +135,6 @@
   (emacspeak-accumulate-to-register ?u
                                     'empv-youtube-results--current-video-url))
 
- 
 ;;; Seekers:
 
 (defun emacspeak-empv-relative-seek (target)
@@ -153,7 +144,6 @@
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'button)
     (call-interactively 'empv-display-current)))
-
 
 (defun emacspeak-empv-absolute-seek (target)
   "Absolute seek in seconds,see `empv-seek'"
@@ -171,7 +161,6 @@
     (emacspeak-auditory-icon 'button)
     (call-interactively 'empv-display-current)))
 
- 
 ;;; Setup:
 
 (defun emacspeak-empv-setup ()
@@ -207,12 +196,10 @@
 
 (emacspeak-empv-setup)
 
- 
 (provide 'emacspeak-empv)
 ;;;  end of file
 
-; 
-; 
-; 
+                                        ; 
+                                        ; 
+                                        ; 
 
- 

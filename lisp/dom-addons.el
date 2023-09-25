@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,13 @@
 ;; Useful additional functions for dom.el
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'dom)
 (require 'g-utils)
- 
+
 ;;;  Additional helpers:
 (defun dom-alternate-links (dom)
   "Return link elements specifying rel=alternate."
@@ -81,7 +78,6 @@ Added element goes inside the HTML head if any."
     (when base (dom-html-add-base dom  base))
     dom))
 
- 
 ;;;   Filtering Inspired by dom.el:
 
 (defun dom-by-tag-list (dom tag-list)
@@ -149,7 +145,6 @@ ATTRIBUTE would typically be `class', `id' or the like."
   "Return elements in DOM that have a itemprop name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'itemprop match-list))
 
- 
 ;;; DOM From URL:
 (defun dom-from-url (url)
   "Return DOM for HTML content at URL."
@@ -163,7 +158,6 @@ ATTRIBUTE would typically be `class', `id' or the like."
    (xml-remove-comments (point-min) (point-max))
    (libxml-parse-html-region (point-min) (point-max))))
 
- 
 ;;; dom-node-as-text
 (defsubst dom-node-as-text (node)
   "Return all the text bits in the current node and some specific
@@ -171,12 +165,6 @@ children, e.g. `a', concatenated."
   (with-temp-buffer (shr-insert-document node)
                     (buffer-substring-no-properties (point-min) (point-max))))
 
- 
 (provide 'dom-addons)
 ;;;  end of file
 
- 
- 
- 
-
- 

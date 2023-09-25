@@ -11,7 +11,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  Introduction
 
 ;;; Commentary:
@@ -94,7 +92,6 @@
 
 ;;; Code:
 
- 
 ;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -102,14 +99,12 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'easy-mmode))
 
- 
 ;;;  customization group
 
 (defgroup voice-fonts nil
   "Voices"
   :group 'emacspeak)
 
- 
 ;;; Configure:
 
 ;; This configures Emacspeak for the TTS engine used at start.
@@ -166,7 +161,6 @@ Define a voice for it if needed, then return the symbol."
       (tts-define-voice-from-speech-style name style))
     name))
 
- 
 ;;;  map faces to voices
 
 (defvar voice-setup-face-voice-table (make-hash-table :test #'eq)
@@ -189,7 +183,6 @@ Define a voice for it if needed, then return the symbol."
    do
    (voice-setup-set-voice-for-face (cl-first fv) (cl-second fv))))
 
- 
 ;;;   special form defvoice
 
 (defun voice-setup-acss-from-style (style-list)
@@ -238,7 +231,6 @@ Define a voice for it if needed, then return the symbol."
            (setq ,voice (voice-setup-acss-from-style val))
            (set-default sym val)))))
 
- 
 ;;;  new light-weight voice lock
 (declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
 
@@ -274,7 +266,6 @@ Define a voice for it if needed, then return the symbol."
 (unless (assq 'voice-lock-mode minor-mode-alist)
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
 
- 
 ;;;  interactively silence personalities
 
 (defvar voice-setup-buffer-face-voice-table (make-hash-table :test #'eq)
@@ -313,12 +304,6 @@ Define a voice for it if needed, then return the symbol."
         (emacspeak-auditory-icon 'close-object)))
     (when (buffer-file-name) (normal-mode))))
 
- 
 (provide 'voice-setup)
 ;;;  end of file
 
- 
- 
- 
-
- 

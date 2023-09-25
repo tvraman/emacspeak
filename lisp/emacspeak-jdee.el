@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,20 +35,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction
 ;;; Commentary:
 ;; Speech enable Java IDE.
 ;; The Java IDE --JDEE-- can be found at 
 ;; http://sunsite.auc.dk/jdee/
 ;;; Code:
- 
+
 ;;;  voice lock 
 
 (voice-setup-add-map
@@ -70,7 +68,6 @@
                                         ;jdee-java-font-lock-doc-tag-face
                                         ;jdee-java-font-lock-modifier-face
 
- 
 ;;;  Advice interactive commands:
 (defadvice jdee-open-class-source (after emacspeak pre act comp)
   "speak."
@@ -130,7 +127,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;  jdeebug 
 
 (defadvice jdee-debug (after emacspeak pre act comp)
@@ -228,7 +224,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
- 
 ;;;  speech enable jdb interaction 
 
 (cl-loop for command in
@@ -278,7 +273,6 @@
     (emacspeak-auditory-icon 'delete-object)
     (message "Cleared all break points.")))
 
- 
 ;;;  advice jdee-xref
 (defadvice jdee-xref-first-caller(after emacspeak pre act comp)
   "Speak line we jumped to."
@@ -299,7 +293,6 @@ If we are on the last call, do nothing."
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;;  Advice EFC widgets:
 
 (defadvice efc-option-dialog (after emacspeak pre act comp)
@@ -308,7 +301,6 @@ If we are on the last call, do nothing."
   (dtk-speak
    (ad-get-arg 0)))
 
- 
 ;;;  camel case deletion
 
 (defadvice jdee-kill-camel-tok (before emacspeak pre act comp)
@@ -319,13 +311,6 @@ If we are on the last call, do nothing."
       (point)
       (save-excursion (jdee-end-of-camel-tok))))))
 
- 
-
 (provide 'emacspeak-jdee)
 ;;;  end of file 
 
- 
- 
-  
-
- 

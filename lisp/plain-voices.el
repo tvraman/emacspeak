@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -45,15 +43,12 @@
 ;;  Module Plain is  suitable for a device for which you haven't yet
 ;;  implemented appropriate voice-locking controls
 
- 
 ;;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)           ;For `ems--fastload'.
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-
- 
 
 ;;; plain:
 ;;;###autoload
@@ -65,7 +60,6 @@
   (dtk-select-server "plain")
   (dtk-initialize))
 
- 
 ;;;  Forward declarations:
 
 ;; From dtk-speak.el:
@@ -74,7 +68,6 @@
 (defvar dtk-speech-rate-step)
 (defvar dtk-speech-rate-base)
 
- 
 ;;;   voice table
 
 (defvar plain-default-voice-string ""
@@ -105,13 +98,11 @@ COMMAND-STRING to the TTS server."
   (cl-declare (special plain-voice-table))
   (gethash name plain-voice-table))
 
- 
 ;;;  voice definitions
 
 ;; the nine predefined voices:
 (plain-define-voice 'paul "")
 
- 
 ;;;   the inau
 ;;;   Mapping css parameters to Plain codes
 
@@ -138,7 +129,6 @@ COMMAND-STRING to the TTS server."
 
 (plain-set-family-code 'paul "")
 
- 
 ;;;   hash table for mapping families to their dimensions
 
 (defvar plain-css-code-tables (make-hash-table)
@@ -160,7 +150,6 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key plain-css-code-tables)))
 
- 
 ;;;   average pitch
 
 ;; Average pitch for standard male voice is 122hz --this is mapped to
@@ -193,8 +182,6 @@ and TABLE gives the values along that dimension."
      ))
   (plain-css-set-code-table 'paul 'average-pitch table))
 
- 
-
 (defun plain-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
@@ -203,7 +190,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   pitch range
 
 ;;  Standard pitch range is 100 and is  mapped to
@@ -235,8 +221,6 @@ and TABLE gives the values along that dimension."
      ))
   (plain-css-set-code-table 'paul 'pitch-range table))
 
- 
-
 (defun plain-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -245,7 +229,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   stress
 
 ;;  we vary four parameters
@@ -280,8 +263,6 @@ and TABLE gives the values along that dimension."
      ))
   (plain-css-set-code-table 'paul 'stress table))
 
- 
-
 (defun plain-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -289,7 +270,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   richness
 
 ;; Smoothness and richness vary inversely.
@@ -317,8 +297,6 @@ and TABLE gives the values along that dimension."
      ))
   (plain-css-set-code-table 'paul 'richness table))
 
- 
-
 (defun plain-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -326,8 +304,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
- 
 ;;;   plain-define-voice-from-speech-style
 
 (defun plain-define-voice-from-speech-style (name style)
@@ -348,7 +324,6 @@ and TABLE gives the values along that dimension."
               (plain-get-richness-code (acss-richness style) family))))))
     (plain-define-voice name command)))
 
- 
 ;;;  configurater
 ;;;###autoload
 (defun plain-configure-tts ()
@@ -365,15 +340,8 @@ and TABLE gives the values along that dimension."
   (setq tts-default-speech-rate plain-default-speech-rate)
   (set-default 'tts-default-speech-rate plain-default-speech-rate))
 
- 
-
 (plain-configure-tts)
 
 (provide 'plain-voices)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

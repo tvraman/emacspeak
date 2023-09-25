@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -48,7 +46,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -56,7 +53,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Setup Helm Hooks:
 
 (defadvice helm-mode (after emacspeak pre act comp)
@@ -97,7 +93,6 @@
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
 
- 
 ;;;  Advice helm-google-suggest to filter results:
 
 (declare-function eww-display-dom-by-id-list  "emacspeak-eww.el" (id-list))
@@ -110,7 +105,6 @@
        (let  ((emacspeak-google-toolbelt (emacspeak-google-toolbelt)))
          (eww-display-dom-by-id-list '("center_col" "rhs"))))))
 
- 
 ;;;  Advice helm-recenter-top-bottom-other-window:
 
 (defadvice helm-recenter-top-bottom-other-window (after emacspeak pre act comp)
@@ -120,7 +114,6 @@
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-line))))
 
- 
 ;;;  Advice helm-yank-selection
 
 (defadvice helm-yank-selection (after emacspeak pre act comp)
@@ -128,8 +121,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
-
- 
 
 ;;;  Support helm-help
 (add-hook
@@ -146,12 +137,6 @@
      (setq emacspeak-speak-messages t)
      (emacspeak-auditory-icon 'close-object)))
 
- 
 (provide 'emacspeak-helm)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,13 @@
 ;; Manage Emacs packages.
 ;; This module speech-enables package.el with a few convenience commands.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'calendar)
- 
+
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -73,7 +70,7 @@
    (package-status-incompat voice-animate-extra)
    (package-status-avail-obso voice-monotone-extra)
    ))
- 
+
 ;;;  Additional Commands
 
 (defun emacspeak-package-summarize-line ()
@@ -122,7 +119,6 @@
 
 (add-hook 'package-menu-mode-hook 'emacspeak-package-mode-hook)
 
- 
 ;;;  Managing packages:
 
 (defadvice package-menu-describe-package (after emacspeak pre act comp)
@@ -149,7 +145,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'mark-object)))))
 
- 
 ;;;  Advice Upgrade:
 
 (defadvice package-menu-mark-upgrades (after emacspeak pre act comp)
@@ -159,12 +154,6 @@
       (when upgrades
         (dtk-notify-speak (format "%s" (mapcar #'car upgrades)))))))
 
- 
 (provide 'emacspeak-package)
 ;;;  end of file
 
- 
- 
- 
-
- 

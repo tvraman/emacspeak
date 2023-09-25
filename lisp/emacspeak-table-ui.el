@@ -32,7 +32,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction
 
@@ -40,7 +39,6 @@
 ;; User interface to tables
 ;;; Code:
 
- 
 ;;;  requires
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -49,7 +47,6 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-table)
 
- 
 ;;;   emacspeak table mode
 
 ;; emacspeak-table-submap makes these available globally.
@@ -193,7 +190,6 @@ Full List Of Keybindings:
  (emacspeak-keymap-update emacspeak-table-mode-map binding)
  (emacspeak-keymap-update emacspeak-table-submap binding))
 
- 
 ;;;   speaking current entry
 
 (defun emacspeak-table-synchronize-display ()
@@ -463,7 +459,6 @@ Optional prefix arg prompts for a new filter."
     emacspeak-table-speak-column-filter
     " ")))
 
- 
 ;;;   what to do when point moves
 
 (defun emacspeak-table-point-motion-hook (old new)
@@ -477,7 +472,6 @@ Optional prefix arg prompts for a new filter."
     (error nil))
   (push-mark old t))
 
- 
 ;;;   opening a file of table data
 
 ;;;  csv helpers:
@@ -496,7 +490,6 @@ Optional prefix arg prompts for a new filter."
       (backward-sexp)
     (skip-chars-backward "^,\n")))
 
- 
 ;;;###autoload
 (defun emacspeak-table-prepare-table-buffer (table buffer)
   "Prepare tabular data."
@@ -654,7 +647,6 @@ The processed  data is  presented using emacspeak table navigation. "
   (cl-declare (special g-curl-program g-curl-common-options))
   (url-retrieve url #'emacspeak-table-render-csv-url  (list buffer-name)))
 
- 
 ;;;  Processing a region of tabular data
 ;;;###autoload
 (defun emacspeak-table-display-table-in-region (start end)
@@ -733,7 +725,6 @@ the documentation on the table browser."
              (emacspeak-table-num-columns emacspeak-table)
              (buffer-name buffer)))))
 
- 
 ;;;  select default speaking action
 
 (defvar emacspeak-table-select-automatic-speaking-method-prompt
@@ -761,7 +752,6 @@ browsing table elements"
                        emacspeak-table-speak-element)))
     (emacspeak-auditory-icon 'button)))
 
- 
 ;;;  Navigating the table:
 
 (defvar emacspeak-table-speak-element
@@ -872,7 +862,6 @@ browsing table elements"
   (funcall emacspeak-table-speak-element)
   (emacspeak-auditory-icon 'right))
 
- 
 ;;;  searching and finding:
 
 (defun emacspeak-table-search (&optional what)
@@ -976,7 +965,6 @@ match, makes the matching row or column current."
      (t (emacspeak-auditory-icon 'search-miss)))
     (emacspeak-table-speak-both-headers-and-element)))
 
- 
 ;;;  cutting and pasting tables:
 
 (defun emacspeak-table-copy-current-element-to-kill-ring ()
@@ -998,14 +986,13 @@ match, makes the matching row or column current."
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'select-object)
     (message "Copied element to register %c" register)))
- 
+
 ;;;  variables
 
 ;; Implementing table editing and table clipboard.
 (defvar emacspeak-table-clipboard nil
   "Variable to hold table copied to the clipboard.")
 
- 
 ;;;   define table markup structure and accessors
 
 (cl-defstruct (emacspeak-table-markup
@@ -1032,7 +1019,6 @@ table markup.")
   (or (gethash mode emacspeak-table-markup-table)
       (gethash 'fundamental-mode emacspeak-table-markup-table)))
 
- 
 ;;;   define table markup for the various modes of interest
 (let ((html-table
        (emacspeak-table-make-markup
@@ -1102,7 +1088,6 @@ table markup.")
   :col-end ""
   :col-separator "\t"))
 
- 
 ;;;  copy and paste tables
 
 (defun emacspeak-table-copy-to-clipboard ()
@@ -1162,7 +1147,6 @@ markup to use."
        (insert (format "%s" row-end)))
       (insert (format "%s" table-end))))))
 
- 
 ;;;   table sorting:
 
 (defun emacspeak-table-sort-on-current-column ()
@@ -1214,7 +1198,6 @@ markup to use."
     (emacspeak-table-goto  0 column)
     (call-interactively #'emacspeak-table-next-row)))
 
- 
 ;;;   persistent store
 
 (defun emacspeak-table-ui-generate-key ()
@@ -1280,12 +1263,6 @@ future  use."
       (basic-save-buffer)
       (kill-buffer buffer))))
 
- 
 (provide  'emacspeak-table-ui)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

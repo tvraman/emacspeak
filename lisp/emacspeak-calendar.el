@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,14 +35,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;   Introduction:
 ;;; Commentary:
 ;; This module speech enables the Emacs Calendar.  Speech enabling is
 ;; not the same as speaking the screen: This is an excellent example
 ;; of the advantages of speech-enabled interaction.
 ;;; Code:
- 
+
 ;;;  required modules
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -52,7 +50,7 @@
 (require 'solar)
 (require 'g-utils)
 (require 'appt)
- 
+
 ;;;   personalities
 (voice-setup-add-map
  '(
@@ -64,7 +62,6 @@
 (defvar emacspeak-calendar-mark-personality voice-bolden
   "Personality to use when showing marked calendar entries.")
 
- 
 ;;;   functions:
 (defun emacspeak-calendar-sort-diary-entries ()
   "Sort entries in diary entries list."
@@ -96,7 +93,6 @@
        (dtk-speak-using-voice emacspeak-calendar-mark-personality date))
       (t (dtk-speak date))))))
 
- 
 ;;;   Advice:
 (defadvice calendar-exchange-point-and-mark (after emacspeak pre act comp)
   "Speak date under point"
@@ -362,7 +358,6 @@
    ad-do-it
    ad-return-value))
 
- 
 ;;;  Global sunrise/sunset wizard:
 
 (defun emacspeak-calendar-sunrise-sunset (address &optional arg)
@@ -389,7 +384,6 @@
          (time-string (solar-sunrise-sunset-string date)))
     (message "%s: %s at %s" date-string time-string address)))
 
- 
 ;;;   keymap
 
 (defun emacspeak-calendar-setup()
@@ -404,7 +398,6 @@
     (define-key calendar-mode-map  "\C-ee"
                 'calendar-end-of-week)))
 
- 
 ;;;   Appointments:
 
 ;;;  take over and speak the appointment
@@ -449,8 +442,6 @@
           (dtk-speak (buffer-string)))))
      (t (dtk-speak-and-echo "You have no appointments ")))))
 
- 
-
 (defadvice appt-add (after emacspeak pre act comp)
   "Confirm that the alarm got set."
   (when (ems-interactive-p)
@@ -459,7 +450,6 @@
       (message "Set alarm %s at %s"
                message time))))
 
- 
 ;;;  Use GWeb if available for configuring sunrise/sunset coords
 
 (defun emacspeak-calendar-setup-sunrise-sunset ()
@@ -491,7 +481,6 @@ To use, configure variable gmaps-my-address via M-x customize-variable."
                gmaps-my-address)))
    (t ad-do-it)))
 
- 
 ;;;  Lunar Phases
 
 (cl-loop for f in
@@ -516,12 +505,6 @@ To use, configure variable gmaps-my-address via M-x customize-variable."
                  (emacspeak-auditory-icon 'open-object)
                  (emacspeak-speak-buffer))))))
 
- 
 (provide 'emacspeak-calendar)
 ;;;  emacs local variables
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
@@ -45,7 +43,6 @@
 (declare-function widget-at "wid-edit" (&optional pos))
 (declare-function widget-type "wid-edit" (widget))
 
- 
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -57,7 +54,6 @@
 
 ;;; Code:
 
- 
 ;;;  speech enable interactive commands 
 
 (defadvice eudc-move-to-next-record (after emacspeak pre act comp)
@@ -73,7 +69,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
- 
 ;;;  speech enable  eudc widgets 
 
 (defun emacspeak-eudc-widget-help (widget)
@@ -114,7 +109,6 @@ Summarize the form to welcome the user. "
              (when (widget-at (point))
                (emacspeak-eudc-widget-help (widget-at (point))))))))
 
- 
 ;;;  additional interactive commands 
 
 (defun emacspeak-eudc-send-mail ()
@@ -133,14 +127,13 @@ Summarize the form to welcome the user. "
       (error "Cannot determine email address from record %s"
              (cdr (assq 'mail record))))))
 
- 
 ;;;  bind additional commands 
 
 (cl-declaim (special eudc-mode-map))
 (when (boundp 'eudc-mode-map)
   (define-key eudc-mode-map "m" 'emacspeak-eudc-send-mail)
   )
- 
+
 ;;;  voiceify values in results 
 
 (defvar emacspeak-eudc-attribute-value-personality
@@ -161,12 +154,6 @@ Summarize the form to welcome the user. "
                              emacspeak-eudc-attribute-value-personality)))))
   ad-return-value)
 
- 
 (provide 'emacspeak-eudc)
 ;;;  end of file
 
- 
- 
- 
-
- 

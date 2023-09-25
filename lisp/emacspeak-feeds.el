@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -44,7 +42,6 @@
 ;;; Commentary:
 ;; This module provides Feeds support for Emacspeak
 
- 
 ;;;  required modules
 
 ;;; Code:
@@ -57,7 +54,6 @@
 (require 'eww)
 (require 'browse-url)
 
- 
 ;;;   feed cache
 
 (defgroup emacspeak-feeds nil
@@ -203,7 +199,6 @@ feeds."
                  (length emacspeak-feeds)))
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
 
- 
 ;;;  display  feeds:
 
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
@@ -264,7 +259,6 @@ feeds."
   (cl-declare (special emacspeak-opml-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
-
 ;;;###autoload
 (defun emacspeak-feeds-select-feed (feed-type)
   "Prompt for feed-type (Atom, RSS, OPML and open it."
@@ -272,10 +266,10 @@ feeds."
    (list
     (read-char "a Atom, o OPML, r RSS")))
   (cl-case feed-type
-           (?a (call-interactively 'emacspeak-feeds-atom-display))
-           (?o (call-interactively 'emacspeak-feeds-opml-display))
-           (?r (call-interactively 'emacspeak-feeds-rss-display))
-           (otherwise (keyboard-quit))))
+    (?a (call-interactively 'emacspeak-feeds-atom-display))
+    (?o (call-interactively 'emacspeak-feeds-opml-display))
+    (?r (call-interactively 'emacspeak-feeds-rss-display))
+    (otherwise (keyboard-quit))))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
@@ -285,10 +279,8 @@ feeds."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
- 
 ;;;  Validate Feed:
 
- 
 ;;;   view feed
 
 ;;; Helper:
@@ -317,7 +309,6 @@ Argument `feed' is a feed structure (label url type)."
             #'(lambda nil (emacspeak-auditory-icon 'open-object)))
   (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds) 'speak))
 
- 
 ;;;  Finding Feeds:
 
 (define-button-type 'emacspeak-feeds-feed-button
@@ -343,7 +334,6 @@ Argument `feed' is a feed structure (label url type)."
       (emacspeak-feeds-rss-display url))
      (t (emacspeak-feeds-rss-display url)))))
 
- 
 ;;; Awesome RSS
 
 (defcustom emacspeak-feeds-awesome-rss
@@ -384,12 +374,6 @@ and run the awesome-rss-fixup.sh script found  in %s"
     (emacspeak-eww-autospeak)
     (emacspeak-xslt-view-file emacspeak-opml-view-xsl feed)))
 
- 
 (provide 'emacspeak-feeds)
 ;;;  end of file
 
- 
- 
- 
-
- 

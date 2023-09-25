@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,18 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 ;;; Commentary:
 ;; Provide additional advice to perl-mode 
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   Advice electric insertion to talk:
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
@@ -57,7 +54,6 @@
     (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event))))
 
- 
 ;;;   Program structure:
 
 (defadvice mark-perl-function (after emacspeak pre act comp)
@@ -77,13 +73,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)))
 
- 
-
 (provide  'emacspeak-perl)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

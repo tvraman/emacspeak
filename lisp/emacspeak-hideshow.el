@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,14 +35,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -51,7 +49,6 @@
 ;; speech-enable hideshow.el
 ;;; Code:
 
- 
 ;;;  speech enable interactive commands 
 
 (defadvice hs-hide-all (after emacspeak pre act comp)
@@ -106,13 +103,6 @@
     (emacspeak-auditory-icon 'close-object)
     (message "Hid initial comment block.")))
 
- 
-
 (provide 'emacspeak-hideshow)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 ;; This is work-in-progress and is not complete.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -64,10 +60,8 @@
    (evil-ex-substitute-matches voice-lighten)
    (evil-ex-substitute-replacement voice-smoothen)))
 
- 
 ;;;  Interactive Commands:
 
- 
 ;;;  Structured  Motion:
 
 (cl-loop
@@ -131,7 +125,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-current-window)))))
 
- 
 ;;;  Word Motion
 
 (cl-loop
@@ -146,7 +139,6 @@
      (when (ems-interactive-p)
        (emacspeak-speak-word)))))
 
- 
 ;;;  Char Motion :
 
 (defadvice evil-backward-char (after emacspeak pre act comp)
@@ -159,7 +151,6 @@
   (when (ems-interactive-p)
     (emacspeak-speak-this-char (preceding-char))))
 
- 
 ;;;  Deletion:
 
 (defadvice evil-delete-char (before emacspeak pre act comp)
@@ -186,7 +177,6 @@
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-region (ad-get-arg 0) (ad-get-arg 1))))
 
- 
 ;;;  Searching:
 (cl-loop
  for f in
@@ -200,7 +190,6 @@
          (emacspeak-speak-line)
          (emacspeak-auditory-icon 'search-hit))))))
 
- 
 ;;;  Completion:
 
 (cl-loop
@@ -234,7 +223,6 @@
          (emacspeak-auditory-icon 'complete)
          (emacspeak-speak-line))))))
 
- 
 ;;;  Marks:
 (defadvice evil-set-marker (after emacspeak pre act comp)
   "speak."
@@ -244,7 +232,6 @@
       (dtk-notify-speak (format "Marker %c" (ad-get-arg 0)))
       (emacspeak-speak-line))))
 
- 
 ;;;  Update keymaps:
 
 (defun emacspeak-evil-fix-emacspeak-prefix (keymap)
@@ -283,7 +270,6 @@
        evil-evilified-state-map))
      (emacspeak-keymap-recover-eol)))
 
- 
 ;;;  State Hooks:
 
 (defun  emacspeak-evil-state-change-hook  ()
@@ -310,7 +296,6 @@
     (emacspeak-auditory-icon 'open-object)
     (dtk-notify-speak "Leaving Emacs state.")))
 
- 
 ;;;  Additional Commands:
 
 (declare-function evil-mode "evil-core" (&optional flag))
@@ -326,12 +311,6 @@
   (message "Turned %s evil-mode"
            (if evil-mode "on" "off")))
 
- 
 (provide 'emacspeak-evil)
 ;;;  end of file
 
- 
- 
- 
-
- 

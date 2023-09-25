@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,7 +44,6 @@
 ;; You can install package EIN via mELPA
 ;; This module speech-enables EIN
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -54,7 +51,6 @@
 (require 'emacspeak-preamble)
 (require 'sox-gen)
 
- 
 ;;;   Face->Voice mappings
 
 (voice-setup-add-map
@@ -110,7 +106,6 @@
    (ein:notification-tab-selected voice-animate)
    (ein:pos-tip-face voice-annotate)))
 
- 
 ;;;  Additional Interactive Commands:
 
 (defsubst emacspeak-ein-sox-gen (type)
@@ -130,7 +125,6 @@
   (interactive)
   (emacspeak-speak-region (point) (next-overlay-change (point))))
 
- 
 ;;;  Bind additional interactive commands
 (when (boundp 'ein:notebook-mode-map)
   (cl-loop for k in
@@ -140,10 +134,8 @@
            do
            (emacspeak-keymap-update ein:notebook-mode-map k)))
 
- 
 ;;; Modules To Enable:
 
- 
 ;;; tb (traceback):
 
 (cl-loop
@@ -164,7 +156,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
- 
 ;;; pytools:
 
 (cl-loop
@@ -178,7 +169,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 ;;;  Worksheets:
 
 (cl-loop
@@ -306,7 +296,6 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
- 
 ;;; Notebooks:
 
 (cl-loop
@@ -353,7 +342,6 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;; Notebooklists:
 
 (cl-loop
@@ -367,12 +355,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 (provide 'emacspeak-ein)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -44,14 +42,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -61,7 +57,6 @@
    (rust-string-interpolation-face voice-lighten-medium)
    (rust-unsafe-face voice-animate)))
 
- 
 ;;;  Interactive Commands: (rust-mode
 
 (cl-loop
@@ -131,7 +126,6 @@
 
 (emacspeak-rust-mode-setup)
 
- 
 ;;; Interactive Commands: rustic
 
 (cl-loop
@@ -148,12 +142,6 @@
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
 
- 
 (provide 'emacspeak-rust-mode)
 ;;;  end of file
 
- 
- 
- 
-
- 

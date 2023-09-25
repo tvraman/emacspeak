@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,13 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'popup "popup" 'no-error)
- 
+
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -66,7 +63,6 @@
    (popup-summary-face voice-smoothen)
    (popup-tip-face voice-lighten)))
 
- 
 ;;;  Interactive Commands:
 
 (defun emacspeak-popup-speak-item (popup)
@@ -112,20 +108,12 @@
         (dtk-speak doc)
       (dtk-speak "helpless"))))
 
- 
 ;;;  Augment popup keymap:
 
 (eval-after-load
     "popup"
   `(define-key popup-menu-keymap   emacspeak-prefix 'emacspeak-keymap))
 
- 
-
 (provide 'emacspeak-popup)
 ;;;  end of file
 
- 
- 
- 
-
- 

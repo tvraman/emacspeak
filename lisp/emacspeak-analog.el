@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -45,19 +43,16 @@
 
 ;; Speech-enables package analog --convenient log analyzer 
 
- 
 ;;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  autoloads to help compiler
 
 (autoload 'analog-get-entry-property "analog")
-
- 
 
 ;;;  advice interactive commands
 (defadvice analog (after emacspeak pre act comp)
@@ -93,13 +88,12 @@
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'select-object)))))
 
- 
 ;;;  voice setup 
 (voice-setup-add-map
  '(
    (analog-entry-header-face voice-bolden)
    ))
- 
+
 ;;;  field navigation
 
 ;; You can add a fields property that holds a list of field start
@@ -229,7 +223,6 @@ Speak field or char moved to."
            (emacspeak-analog-speak-field fields))
           (t (call-interactively 'next-line)))))
 
- 
 ;;;  key bindings
 (when (boundp 'analog-mode-map)
   (cl-declaim (special analog-mode-map))
@@ -239,12 +232,6 @@ Speak field or char moved to."
   (define-key analog-mode-map '[up] 'emacspeak-analog-previous-line)
   (define-key analog-mode-map '[down] 'emacspeak-analog-next-line))
 
- 
 (provide 'emacspeak-analog)
 ;;;  end of file
 
- 
- 
- 
-
- 

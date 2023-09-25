@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,7 +44,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -55,7 +52,6 @@
 (require 'dired)
 (require 'woman nil 'no-error)
 
- 
 ;;;  Map faces to voices
 
 (voice-setup-add-map
@@ -66,7 +62,6 @@
    (woman-bold voice-bolden)
    (woman-italic voice-animate)))
 
- 
 ;;;  Advice interactive functions
 
 (defadvice WoMan-next-manpage(after emacspeak pre act comp)
@@ -81,12 +76,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
- 
 (provide 'emacspeak-woman)
 ;;;  end of file
 
- 
- 
- 
-
- 

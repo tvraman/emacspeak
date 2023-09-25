@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
@@ -46,13 +44,12 @@
 ;; RSS
 ;; Provides functionality similar to amphetadesk --but in pure elisp
 
- 
 ;;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  define personalities 
 (voice-setup-add-map
  '(
@@ -60,7 +57,7 @@
    (newsticker-old-item-face voice-monotone-extra)
    (newsticker-feed-face voice-animate)
    ))
- 
+
 ;;;  advice functions
 
 (defadvice newsticker--cache-remove (around emacspeak pre act
@@ -82,7 +79,6 @@
     ad-do-it
     ad-return-value))
 
- 
 ;;;  advice interactive commands
 
 (defun emacspeak-newsticker-summarize-item ()
@@ -103,7 +99,6 @@
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-newsticker-summarize-item)))))
 
- 
 ;;;   silence auto activity
 
 (cl-loop for f in
@@ -116,12 +111,7 @@
              "Silence messages."
              (let ((emacspeak-speak-messages nil))
                ad-do-it))))
- 
+
 (provide 'emacspeak-newsticker)
 ;;;  end of file
 
- 
- 
- 
-
- 

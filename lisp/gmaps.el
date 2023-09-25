@@ -14,7 +14,6 @@
 ;; License: GPL
 ;; 
 
- 
 ;;;  Copyright:
 
 ;; Copyright (c) 2006 and later, Google Inc.
@@ -46,20 +45,19 @@
 ;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 ;; OF THE POSSIBILITY OF SUCH DAMAGE.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
 ;;; Commentary:
 ;; Implements the Google Maps API
 ;;; Code:
- 
+
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'g-utils)
- 
+
 ;;;  Customizations
 
 (defgroup gmaps nil
@@ -74,7 +72,6 @@
           (string :value ""))
   :group 'gmaps)
 
- 
 ;;;  Address Structure 
 
 (cl-defstruct gmaps--location
@@ -157,8 +154,6 @@
       (message "Saved GMaps Locations."))
     (when (featurep 'emacspeak)
       (emacspeak-auditory-icon 'save-object))))
-
- 
 
 ;;;  Maps Geo-Coding and Reverse Geo-Coding:
 
@@ -254,7 +249,6 @@ coordinates via geocoding."
         val))
   :group 'gweb)
 
- 
 ;;;  Maps Directions
 
 ;; See  https://developers.google.com/maps/documentation/directions/
@@ -287,7 +281,6 @@ Parameter `key' is the API  key."
   (cl-declare (special gmaps-places-base))
   (format gmaps-places-base  query-type key))
 
- 
 ;;;  Google Maps API V3
 
 ;; See  https://developers.google.com/maps/documentation/directions/
@@ -301,7 +294,6 @@ Parameter `key' is the API  key."
      ((string= "OK" .status) .routes)
      (t (error "Status %s from Maps" .status)))))
 
- 
 ;;;  Maps UI:
 
 (make-variable-buffer-local 'gmaps-current-location)
@@ -361,7 +353,6 @@ Parameter `key' is the API  key."
         (setq buffer-read-only t))
       (switch-to-buffer gmaps-interaction-buffer)))))
 
- 
 ;;;  Directions:
 
 (defun gmaps-display-leg (leg)
@@ -483,7 +474,6 @@ origin/destination may be returned as a lat,long string."
     (when routes (gmaps-display-routes routes))
     (goto-char start)))
 
- 
 ;;;  Places:
 
 ;; Place Types:
@@ -974,12 +964,6 @@ Place details need to have been expanded first."
     (goto-char start)
     (message (format "Inserted %d reviews"  (length reviews)))))
 
- 
 (provide 'gmaps)
 ;;;  end of file
 
- 
- 
- 
-
- 

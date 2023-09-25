@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -44,14 +42,12 @@
 ;;; Commentary:
 ;; GO-MODE ==  Go Language support in emacs
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Advice interactive commands:
 
 (cl-loop
@@ -77,12 +73,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
- 
 (provide 'emacspeak-go-mode)
 ;;;  end of file
 
- 
- 
- 
-
- 

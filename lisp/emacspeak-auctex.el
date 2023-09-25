@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
@@ -37,18 +36,17 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  Required modules 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables the AucTeX package.  AucTeX, now available from
 ;; ELPA, has been my authoring environment of choice for writing LaTeX
 ;; since 1991.
 ;;; Code:
- 
+
 ;;;  voice locking:
 
 ;; faces from AUCTeX 11
@@ -67,7 +65,6 @@
    (font-latex-warning-face voice-bolden-and-animate)
    ))
 
- 
 ;;;   Marking structured objects:
 
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
@@ -106,7 +103,6 @@ speak after formatting region"
    ((not (ems-interactive-p)) ad-do-it))
   ad-return-value)
 
- 
 ;;;   delimiter matching:
 
 (defadvice LaTeX-find-matching-begin (after emacspeak pre act comp)
@@ -140,7 +136,6 @@ speak after formatting region"
       (t ad-do-it))
      ad-return-value)))
 
- 
 ;;;   Inserting structures
 
 (defadvice TeX-newline (after emacspeak pre act comp)
@@ -166,7 +161,6 @@ the opening line of the newly inserted environment. "
     ad-do-it
     (emacspeak-speak-region opoint (point))))
 
- 
 ;;;   Commenting chunks:
 
 (defadvice TeX-comment-region (after emacspeak pre act comp)
@@ -193,7 +187,6 @@ the opening line of the newly inserted environment. "
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
- 
 ;;;   Debugging tex
 
 (defadvice TeX-next-error (after emacspeak pre act comp)
@@ -202,7 +195,6 @@ the opening line of the newly inserted environment. "
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
- 
 ;;;   Hooks
 
 ;; We add imenu settings to LaTeX-mode-hook
@@ -220,7 +212,6 @@ the opening line of the newly inserted environment. "
                         "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
                         2)))))
 
- 
 ;;;  advice font changes 
 
 (defadvice TeX-font (around emacspeak pre act comp)
@@ -235,7 +226,6 @@ the opening line of the newly inserted environment. "
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;;  tex utils:
 
 (defun emacspeak-auctex-end-of-word (arg)
@@ -269,12 +259,6 @@ the opening line of the newly inserted environment. "
     (insert-char 126 1))
   (forward-word 1))
 
- 
 (provide  'emacspeak-auctex)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

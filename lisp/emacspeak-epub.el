@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -165,7 +163,7 @@
 ;; @item o
 ;; emacspeak-epub-open
 ;; @end table
- 
+
 ;;;  Required Modules:
 
 (eval-when-compile (require 'cl-lib))
@@ -177,7 +175,7 @@
   (require 'derived)
   (require 'subr-x))
 (require 'dom)
- 
+
 ;;;   Customizations, Variables:
 
 (defgroup emacspeak-epub nil
@@ -205,7 +203,6 @@
         (t (message "zipinfo not found.")))
   "Program to examine a zip file.")
 
- 
 ;;;  EPub Implementation:
 ;; Helper: dom from file in archive
 (defsubst emacspeak-epub-dom-from-archive (epub-file file &optional xml-p)
@@ -451,7 +448,6 @@ Useful if table of contents in toc.ncx is empty."
        emacspeak-epub-this-epub locator fragment)))
    (t (browse-url url))))
 
- 
 ;;;  Epub Mode:
 
 (defun emacspeak-epub-format-author (name)
@@ -576,7 +572,6 @@ Letters do not insert themselves; instead, they are commands.
  do
  (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
- 
 ;;;  Bookshelf Implementation:
 (defcustom emacspeak-epub-bookshelf-directory
   (file-name-as-directory
@@ -814,7 +809,6 @@ No book files are deleted."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-header-line)))
 
- 
 ;;;  Interactive Commands:
 
 (defvar emacspeak-epub-interaction-buffer "*EPub*"
@@ -958,7 +952,6 @@ to find Epubs  having full viewability.")
           (emacspeak-epub-bookshelf-refresh)
           (emacspeak-auditory-icon 'delete-object))))))
 
- 
 ;;;  Gutenberg Hookup:
 
 ;; Offline Catalog:
@@ -1050,7 +1043,6 @@ Fetch if needed, or if refresh is T."
   (view-file-other-window emacspeak-epub-gutenberg-cat)
   (emacspeak-auditory-icon 'task-done))
 
- 
 ;;;  Calibre Hookup:
 
 ;; Inspired by https://github.com/whacked/calibre-mode.git
@@ -1140,7 +1132,6 @@ Searches for matches in both  Title and Author."
         (forward-line 1)))
     result))
 
- 
 ;;;  Add  to bookshelf using calibre search:
 
 (defvar emacspeak-epub-calibre-results nil
@@ -1268,7 +1259,6 @@ Letters do not insert themselves; instead, they are commands.
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
- 
 ;;;  Locate epub using Locate:
 (defun emacspeak-epub-locate-epubs (pattern)
   "Locate epub files using locate."  (interactive "sSearch Pattern: ")
@@ -1276,7 +1266,6 @@ Letters do not insert themselves; instead, they are commands.
   (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
     (locate-with-filter pattern "\\.epub\\'")))
 
- 
 ;;;  nov Integration:
 
 (defun emacspeak-epub-open-with-nov ()
@@ -1290,12 +1279,6 @@ in emacspeak-epub-mode")
     (unless (locate-library "nov") nil "Package nov is  not installed.")
     (funcall-interactively #'find-file epub)))
 
- 
 (provide 'emacspeak-epub)
 ;;;  end of file
 
- 
- 
- 
-
- 

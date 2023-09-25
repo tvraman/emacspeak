@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -68,13 +66,13 @@
 ;; @item The auditory icon player is configure via 
 ;; custom option @code{emacspeak-play-program}.
 ;; @end itemize
- 
+
 ;;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
- 
+
 ;;;   state of auditory icons
 
 (defvar-local emacspeak-use-auditory-icons t
@@ -82,7 +80,6 @@
 Use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons].")
 
- 
 ;;;   setup play function
 
 (defvar emacspeak-auditory-icon-function #'emacspeak-play-auditory-icon
@@ -107,16 +104,15 @@ Use Serve when working with remote speech servers.")
   (when emacspeak-use-auditory-icons
     (let
         ((play-p ;; rate limit: id, time
-           (or 
-            (not (eq icon ems--last-icon))
-            (<
-             1.0
-             (float-time (time-subtract (current-time) ems--lazy-icon-time))))))
+          (or 
+           (not (eq icon ems--last-icon))
+           (<
+            1.0
+            (float-time (time-subtract (current-time) ems--lazy-icon-time))))))
       (setq ems--last-icon icon
             ems--lazy-icon-time (current-time))
       (when play-p  (funcall emacspeak-auditory-icon-function icon)))))
 
- 
 ;;;   Setup sound themes
 
 (defvar emacspeak-sounds-current-theme
@@ -240,7 +236,6 @@ Fully qualified filename if using Alsa; basename if using pactl. "
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
 
- 
 ;;;   queue an auditory icon
 
 (defun emacspeak-queue-auditory-icon (sound-name)
@@ -250,7 +245,6 @@ Fully qualified filename if using Alsa; basename if using pactl. "
                        (format "a %s\n"
                                (emacspeak-sounds-get-file sound-name))))
 
- 
 ;;;   serve an auditory icon
 
 (defun emacspeak-serve-auditory-icon (sound-name)
@@ -260,7 +254,6 @@ Fully qualified filename if using Alsa; basename if using pactl. "
                        (format "p %s\n"
                                (emacspeak-sounds-get-file sound-name))))
 
- 
 ;;;   Play an icon
 
 (defvar emacspeak-play-args nil
@@ -286,7 +279,6 @@ Automatically set to `play-sample' if using pactl.")
   
   "Name of SoX executable.")
 
- 
 ;;;   toggle auditory icons
 
 ;; This is the main entry point to this module:
@@ -311,7 +303,6 @@ Optional interactive PREFIX arg toggles global value."
   (when emacspeak-use-auditory-icons
     (emacspeak-auditory-icon 'on)))
 
- 
 ;;;  emacspeak-prompts:
 
 (defvar emacspeak-prompts-directory 
@@ -330,12 +321,6 @@ Optional interactive PREFIX arg toggles global value."
         (call-process
          emacspeak-m-player-program nil  0 nil file)))))
 
- 
 (provide  'emacspeak-sounds)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

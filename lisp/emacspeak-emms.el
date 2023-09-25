@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction
@@ -51,7 +49,6 @@
 ;; 
 ;;; Code:
 
- 
 ;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -59,7 +56,6 @@
 (declare-function emms-playlist-current-selected-track "emacspeak-emms" t)
 (declare-function emms-player-pause "emacspeak-emms" t)
 
- 
 ;;;  module emms:
 
 (defun emacspeak-emms-speak-current-track ()
@@ -117,7 +113,6 @@
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
 
- 
 ;;;  Module emms-streaming:
 (cl-declaim (special emms-stream-mode-map))
 (defadvice emms-stream-mode (after emacspeak pre act comp)
@@ -164,7 +159,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;  silence chatter from info
 
 (defadvice emms-info-really-initialize-track (around emacspeak pre act comp)
@@ -172,7 +166,6 @@
   (ems-with-messages-silenced
    ad-do-it))
 
- 
 ;;;  pause/resume if needed
 
 (defun emacspeak-emms-pause-or-resume ()
@@ -185,12 +178,6 @@ emacspeak-silence-hook."
 
 (add-hook 'emacspeak-silence-hook 'emacspeak-emms-pause-or-resume)
 
- 
 (provide 'emacspeak-emms)
 ;;;  end of file
 
- 
- 
- 
-
- 

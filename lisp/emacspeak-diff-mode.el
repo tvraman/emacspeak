@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -44,14 +42,12 @@
 ;;; Commentary:
 ;; DIFF-MODE  support.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Faces from  diff-mode.el
 
 (voice-setup-add-map
@@ -73,7 +69,6 @@
    (diff-refine-removed voice-smoothen)
    (diff-removed voice-smoothen-extra)))
 
- 
 ;;;  Advice Interactive Commands:
 
 (cl-loop
@@ -89,12 +84,6 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 (provide 'emacspeak-diff-mode)
 ;;;  end of file
 
- 
- 
- 
-
- 

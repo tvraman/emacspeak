@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Introduction:
@@ -45,13 +43,11 @@
 ;; This module makes compiling code from inside Emacs speech friendly.
 ;;; Code:
 
- 
 ;;;  Required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Personalities  
 (voice-setup-add-map
  '(
@@ -64,7 +60,6 @@
    (compilation-mode-line-fail voice-brighten)
    (compilation-mode-line-run voice-annotate)))
 
- 
 ;;;   functions
 
 (defun emacspeak-compilation-speak-error ()
@@ -74,7 +69,6 @@
         (emacspeak-show-point t))
     (emacspeak-speak-line)))
 
- 
 ;;;   advice  interactive commands
 (cl-loop for f in 
          '(
@@ -104,7 +98,7 @@
              (when (ems-interactive-p)
                (emacspeak-speak-line)
                (emacspeak-auditory-icon 'select-object)))))
- 
+
 ;;;  advise process filter and sentinels
 
 (defadvice compile (after emacspeak pre act comp)
@@ -120,13 +114,7 @@
            (process-name  (ad-get-arg 0))
            (ad-get-arg 1)))
 
- 
 (provide 'emacspeak-compile)
 
 ;;;   emacs local variables
 
- 
- 
-  
-
- 

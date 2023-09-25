@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 ;; ESS == Emacs Speaks Statistics
 ;; This module makes ESS speak.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Advice edeitor to speak
 
 (defadvice ess-indent-command(after emacspeak pre act comp)
@@ -80,7 +76,6 @@ Cue electric insertion with a tone."
         (emacspeak-speak-this-char last-input-event)
         (dtk-tone 800 100 t)))))
 
- 
 ;;;  Structure commands 
 
 (cl-loop for f in
@@ -106,7 +101,6 @@ Cue electric insertion with a tone."
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current s expression ")))
 
- 
 ;;;  Evaluators
 
 (cl-loop for f in
@@ -127,7 +121,6 @@ Cue electric insertion with a tone."
             (when (ems-interactive-p)
               (emacspeak-auditory-icon 'select-object)))))
 
- 
 ;;;  Switchers
 (defadvice ess-display-help-on-object(after emacspeak pre act
                                             comp)
@@ -146,17 +139,10 @@ Cue electric insertion with a tone."
                (emacspeak-auditory-icon 'select-object)
                (emacspeak-speak-mode-line)))))
 
- 
 ;;;  set up programming mode:
 
 (add-hook 'ess-mode-hook 'emacspeak-setup-programming-mode)
 
- 
 (provide 'emacspeak-ess)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction
@@ -54,13 +52,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'speedbar "speedbar" 'no-error)
- 
+
 ;;;  Helper:
 
 (defun emacspeak-speedbar-speak-line()
@@ -82,7 +79,6 @@
       (dtk-speak 
        (concat indent (ems--this-line))))))
 
- 
 ;;;  Advice interactive commands:
 
 (defadvice speedbar-close-frame (after emacspeak pre act comp)
@@ -163,7 +159,6 @@ action"
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))
 
- 
 ;;;  additional navigation
 
 (defvar emacspeak-speedbar-disable-updates t
@@ -216,7 +211,6 @@ An automatically updating speedbar consumes resources.")
                   (t 'large-movement))))
        (t (message "No target on this line"))))))
 
- 
 ;;;   hooks
 (cl-eval-when (load)
   )
@@ -237,7 +231,6 @@ An automatically updating speedbar consumes resources.")
 (add-hook 'speedbar-mode-hook
           'emacspeak-speedbar-enter-hook)
 
- 
 ;;;   voice locking 
 ;; Map speedbar faces to voices
 ;;
@@ -289,15 +282,9 @@ An automatically updating speedbar consumes resources.")
       (save-match-data
         (beginning-of-line)))))
 
- 
 ;;;  keys 
 (cl-declaim (special emacspeak-keymap))
- 
+
 (provide 'emacspeak-speedbar)
 ;;;  end of file 
 
- 
- 
-  
-
- 

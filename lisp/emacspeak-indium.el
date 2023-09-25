@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -70,7 +66,6 @@
    (indium-frame-url-face  voice-animate)
    (indium-litable-face voice-lighten)))
 
- 
 ;;;  Advice indium-backend.el:
 
 (defadvice indium-quit (after emacspeak pre act comp)
@@ -89,7 +84,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
- 
 ;;;  Advice indium-chrome.el
 
 (defadvice indium-connect-to-chrome (after emacspeak pre act comp)
@@ -97,7 +91,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
- 
 ;;;  Advice indium-debugger.el
 
 '(indium-debugger-eval-last-node
@@ -113,19 +106,14 @@
   indium-debugger-step-out
   indium-debugger-step-over)
 
- 
 ;;;  Advice indium-inspector.el
 
- 
 ;;;  Advice indium-interaction.el
 
- 
 ;;;  Advice indium-nodejs.el
 
- 
 ;;;  Advice indium-render.el
 
- 
 ;;;  Advice indium-repl.el
 
 (defadvice indium-repl-return (after emacspeak pre act comp)
@@ -147,19 +135,10 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 ;;;  Advice indium-scratch.el
 
- 
 ;;;  Advice indium-webkit.el
-
- 
 
 (provide 'emacspeak-indium)
 ;;;  end of file
 
- 
- 
- 
-
- 

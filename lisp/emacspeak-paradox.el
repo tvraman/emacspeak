@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,7 +44,6 @@
 ;; Manage Emacs packages.
 ;; This module speech-enables paradox.el with a few convenience commands.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -55,7 +52,6 @@
 (require 'paradox "paradox" 'no-error)
 (require 'calendar)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -72,7 +68,6 @@
    (paradox-highlight-face voice-animate)
    (paradox-homepage-button-face voice-bolden-medium)))
 
- 
 ;;;  Additional Commands
 
 (defun emacspeak-paradox-summarize-line ()
@@ -106,7 +101,6 @@
 
 (add-hook 'paradox-menu-mode-hook 'emacspeak-paradox-mode-hook)
 
- 
 ;;;  Managing Packages:
 
 (defadvice paradox-menu-execute(around emacspeak pre act comp)
@@ -124,7 +118,6 @@
      (when (ems-interactive-p)
        (emacspeak-paradox-summarize-line)))))
 
- 
 ;;;  Advice:
 
 (defadvice paradox-quit-and-close (after emacspeak pre act comp)
@@ -145,7 +138,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'task-done)))))
 
- 
 ;;;  Commit Navigation:
 (cl-loop
  for f in 
@@ -170,13 +162,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-
- 
 (provide 'emacspeak-paradox)
 ;;;  end of file
 
- 
- 
- 
-
- 

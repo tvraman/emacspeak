@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;;
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -51,7 +49,6 @@
 ;; Now, some specialized searches, e.g. blog search are tbm=
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -60,7 +57,6 @@
 (require 'emacspeak-preamble)
 (require 'gweb)
 
- 
 ;;;  Data Structures
 
 ;; One tool on a tool-belt
@@ -383,7 +379,6 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)))))
 
- 
 ;;;   URL Fixup
 
 ;; prefix: https://www.google.com/url?q=
@@ -403,7 +398,6 @@ This variable is buffer-local.")
   (format "%s://www.google.com/url?q="
           (if emacspeak-google-use-https "https" "http")))
 
- 
 ;;; Cache query, toolbelt
 
 (defun emacspeak-google-cache-query(query)
@@ -424,7 +418,6 @@ This variable is buffer-local.")
                (setq emacspeak-google-toolbelt' ,belt)))))
     (add-hook 'emacspeak-eww-post-process-hook cache 'at-end)))
 
- 
 ;;;   google tools
 
 (declare-function eww-current-url "eww" nil)
@@ -469,7 +462,6 @@ current page."
     "%s%s"
     emacspeak-google-related-uri url)))
 
- 
 ;;;  Interactive Commands
 
 (cl-loop
@@ -572,7 +564,6 @@ current page."
      ems--websearch-google-filter
      url)))
 
- 
 ;;;  Sign in, Sign out:
 
 (defvar emacspeak-google-sign-out-url
@@ -597,7 +588,6 @@ current page."
   (cl-declare (special emacspeak-google-sign-out-url))
   (browse-url emacspeak-google-sign-out-url))
 
- 
 ;;;   keymap
 
 (define-prefix-command  'emacspeak-google-command
@@ -619,7 +609,6 @@ current page."
  do
  (emacspeak-keymap-update emacspeak-google-keymap k))
 
- 
 ;;;  Advice GMaps:
 
 (defadvice gmaps (after emacspeak pre act comp)
@@ -663,7 +652,6 @@ current page."
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;;  TTS:
 
 (define-prefix-command 'emacspeak-google-tts)
@@ -758,7 +746,6 @@ Use default voice for buffer."
      (put cmd 'repeat-map 'emacspeak-google-tts)))
  emacspeak-google-tts)
 
- 
 ;;;  What Is My IP:
 
 (defun emacspeak-google-what-is-my-ip ()
@@ -766,7 +753,6 @@ Use default voice for buffer."
   (interactive)
   (emacspeak-websearch-google "what+is+my+ip"))
 
- 
 ;;;  Google Knowledge Graph:
 
 ;; Google Knowledge Graph Search API
@@ -865,7 +851,6 @@ results, default is 1."
       (emacspeak-eww-autospeak)
       (browse-url-of-buffer))))
 
- 
 ;;; youtube to rss:
 
 (defun emacspeak-google-yt-feed (url)
@@ -903,12 +888,6 @@ results, default is 1."
        (format r "channel_id" channel)))
      (t (error "URL is not a channel or playlist.")))))
 
- 
 (provide 'emacspeak-google)
 ;;;  end of file
 
- 
- 
- 
-
- 

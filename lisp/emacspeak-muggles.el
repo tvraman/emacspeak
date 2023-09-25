@@ -10,7 +10,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -33,7 +32,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -79,7 +77,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -111,7 +108,6 @@
 (declare-function emacspeak-org-table-speak-column-header-and-element
                   "emacspeak-org" nil)
 
- 
 ;;;  Brightness:
 
 (global-set-key
@@ -143,7 +139,6 @@
 
 (global-set-key (kbd "s-.") 'emacspeak-muggles-brightness/body)
 
- 
 ;;;  Org-Mode Table Navigation:
 (with-eval-after-load "org"
   (define-key
@@ -166,7 +161,6 @@
              ("r"emacspeak-org-table-speak-row-header-and-element)
              ("c"emacspeak-org-table-speak-column-header-and-element))))
 
- 
 ;;;  HideShow:
 
 (global-set-key
@@ -188,7 +182,6 @@
             ("l" hs-hide-level)
             ("i" hs-hide-initial-comment-block)))
 
- 
 ;;;  Option Toggle
 
 ;; Cloned from hydra-examples.el and modified to tase.
@@ -236,7 +229,6 @@ _p_ emacspeak-muggles-lispy-or-sp:
   ("p" emacspeak-muggles-lispy-or-sp)
   ("q" nil "quit")))
 
- 
 ;;;  Navigate:
 
 ;; Inspired by  Hydra wiki:
@@ -270,7 +262,6 @@ _p_ emacspeak-muggles-lispy-or-sp:
            ("<" beginning-of-buffer)
            (">" end-of-buffer)))
 
- 
 ;;;  Repeatable Yank
 
 ;; Repeatable yank(-pop) command, with an option to switch to a list view using
@@ -314,7 +305,6 @@ _p_ emacspeak-muggles-lispy-or-sp:
 (global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
 
- 
 ;;;  Repeatable Undo
 
 ;; Repeatable undo-only and undo-redo 
@@ -333,7 +323,6 @@ _p_ emacspeak-muggles-lispy-or-sp:
   ("/" undo-only nil)
   ("\\" undo-redo nil)))
 
- 
 ;;;   Speak And Browse Math
 
 (global-set-key
@@ -357,13 +346,8 @@ _p_ emacspeak-muggles-lispy-or-sp:
            ("<left>" emacspeak-maths-left "left")
            ("<right>" emacspeak-maths-right "right")))
 
- 
 (provide 'emacspeak-muggles)
 ;;;  end of file
 
- 
- 
 ;; byte-compile-warnings: (docstring  noruntime)
- 
 
- 

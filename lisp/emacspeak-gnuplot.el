@@ -14,7 +14,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -37,14 +36,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -56,8 +54,6 @@
 ;; for inclusion in documents.
 
 ;;; Code:
-
- 
 
 ;;;  advice interactive commands
 
@@ -145,12 +141,6 @@
           #'(lambda nil
               (dtk-set-punctuations 'all)))
 
- 
 (provide 'emacspeak-gnuplot)
 ;;;  end of file
 
- 
- 
- 
-
- 

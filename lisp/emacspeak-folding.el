@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -48,13 +46,11 @@
 ;; 
 ;;; Code:
 
- 
 ;;;  requires
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Advice
 
 (cl-loop
@@ -136,7 +132,6 @@ Then speak the  line."
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- 
 ;;;  Fix keymap:
 (add-hook
  'folding-mode-hook
@@ -146,18 +141,11 @@ Then speak the  line."
        (define-key
         folding-mode-map (kbd "C-e") 'emacspeak-keymap))))
 
- 
 ;;; Diminish:
 
 (when (featurep 'diminish)
   (diminish 'folding-mode ""))
 
- 
 (provide  'emacspeak-folding)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
@@ -44,12 +42,12 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'solitaire)
- 
+
 ;;;   Introduction 
 ;;; Commentary:
 ;; Auditory interface to solitaire
 ;;; Code:
- 
+
 ;;;   Communicate state
 
 (defun emacspeak-solitaire-current-row ()
@@ -140,10 +138,8 @@
        #'emacspeak-auditory-icon
        (mapcar #'emacspeak-solitaire-cell-to-icon cells)))))
 
- 
 ;;;  advice commands
 
- 
 ;;;  advice commands
 
 (defvar emacspeak-solitaire-autoshow nil
@@ -220,7 +216,6 @@ emacspeak-solitaire-speak-coordinates"
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;   add keybindings
 
 (defun emacspeak-solitaire-setup-keymap ()
@@ -240,13 +235,6 @@ emacspeak-solitaire-speak-coordinates"
   (define-key solitaire-mode-map "k" 'solitaire-up)
   (define-key solitaire-mode-map "j" 'solitaire-down))
 
- 
-
 (provide 'emacspeak-solitaire)
 ;;;  end of file 
 
- 
- 
-  
-
- 

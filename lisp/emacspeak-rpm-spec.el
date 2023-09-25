@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,19 +35,18 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  Introduction:
 ;;; Commentary:
 ;; speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
 ;;; Code:
- 
+
 ;;;  Advice insertion commands:
 
 (defvar emacspeak-rpm-spec-insertion-commands
@@ -77,7 +75,6 @@
                  (message
                   (format "Inserted %s entry" entry)))))))
 
- 
 ;;;  Advice navigation 
 (defvar emacspeak-rpm-spec-navigation-commands
   '(rpm-backward-section rpm-beginning-of-section 
@@ -94,7 +91,6 @@
                (emacspeak-auditory-icon 'large-movement)
                (emacspeak-speak-line)))))
 
- 
 ;;;  Advice build commands 
 
 (defvar emacspeak-rpm-spec-build-commands
@@ -121,7 +117,6 @@
                  (message
                   (format "Launched build %s " target)))))))
 
- 
 ;;;  advice toggles 
 (defvar emacspeak-rpm-spec-toggle-commands
   '(rpm-toggle-short-circuit 
@@ -147,7 +142,6 @@
                                                   toggle)))
                  (emacspeak-auditory-icon (if (eval switch) 'on 'off)))))))
 
- 
 ;;;  voice locking 
 
 (voice-setup-add-map
@@ -159,12 +153,7 @@
    (rpm-spec-doc-face voice-smoothen-extra)
    (rpm-spec-ghost-face voice-smoothen-medium)
    ))
- 
+
 (provide 'emacspeak-rpm-spec)
 ;;;  end of file 
 
- 
- 
-  
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,14 +35,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -52,7 +50,6 @@
 ;; this is an alternative to buffer-menu
 ;;; Code:
 
- 
 ;;;  helpers 
 
 (defun emacspeak-ibuffer-speak-buffer-line ()
@@ -63,14 +60,12 @@
     (error "This command can only be used in buffer menus"))
   (emacspeak-speak-line))
 
- 
 ;;;  summarizers
 
 (defun emacspeak-ibuffer-summarize-line ()
   "Summarize current line."
   (emacspeak-speak-line))
 
- 
 ;;;  speech enable interactive commands 
 
 (defadvice ibuffer (after emacspeak pre act comp)
@@ -594,12 +589,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
- 
 (provide 'emacspeak-ibuffer)
 ;;;  end of file
 
- 
- 
- 
-
- 

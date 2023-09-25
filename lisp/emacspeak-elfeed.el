@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,13 @@
 ;; Install from elpa
 ;; M-x package-install  elfeed
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'elfeed "elfeed" 'no-match)
- 
+
 ;;;  Map Faces to voices
 
 (voice-setup-add-map
@@ -64,7 +61,6 @@
    (elfeed-search-feed-face voice-animate)
    (elfeed-search-tag-face voice-lighten)))
 
- 
 ;;;  Advice interactive commands:
 
 (cl-loop
@@ -118,7 +114,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)))
 
- 
 ;;;  Helpers:
 
 (defun emacspeak-elfeed-entry-at-point ()
@@ -145,7 +140,6 @@
       (emacspeak-auditory-icon 'item)
       (elfeed-tag e 'seen))))
 
- 
 ;;;  Define additional interactive commands:
 
 (defun emacspeak-elfeed-next-entry ()
@@ -184,7 +178,6 @@
             (eww link))
      (t (message "No link under point.")))))
 
- 
 ;;;  Silence warnings/errors
 (cl-loop
  for f in
@@ -196,7 +189,6 @@
      "Silence messages and errors."
      (ems-with-errors-silenced ad-do-it))))
 
- 
 ;;;  Set things up
 
 (defadvice elfeed-search-mode (after emacspeak pre act comp)
@@ -213,12 +205,6 @@
   (define-key elfeed-search-mode-map
               " "'emacspeak-elfeed-speak-entry-at-point))
 
- 
 (provide 'emacspeak-elfeed)
 ;;;  end of file
 
- 
- 
- 
-
- 

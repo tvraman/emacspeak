@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;  Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1995 by T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;  Introduction
 
@@ -57,13 +55,12 @@
 ;; lists for a given file.
 ;;; Code:
 
- 
 ;;;  required Modules:
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-sounds)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
- 
+
 ;;; Helper:ems--pronounce-string-template:
 
 ;; Helper: split a string using split-pattern and format using format-template
@@ -96,7 +93,6 @@ String: Return it as is.
       values))
     (mapconcat #'identity (nreverse values) " ")))
 
- 
 ;;;  Dictionary structure:
 
 (defvar emacspeak-pronounce-dictionaries (make-hash-table :test #'eq)
@@ -162,7 +158,6 @@ the match  being passed to the func which returns  the new pronunciation."
     (message "Added local pronunciation in buffer %s"
              (buffer-name))))
 
- 
 ;;; mode hierarchy per define-derived-mode:
 
 (defun ems--mode-derive-chain (mode)
@@ -173,7 +168,6 @@ the match  being passed to the func which returns  the new pronunciation."
       (setq mode (get mode  'derived-mode-parent )))
     parents))
 
- 
 ;;;  setting up inheritance relations
 
 ;; child inherits parents dictionary
@@ -237,7 +231,6 @@ the match  being passed to the func which returns  the new pronunciation."
      (puthash (car element) (cdr element) table))
     table))
 
- 
 ;;;  defining some inheritance relations:
 
 ;; c++ mode inherits from C mode
@@ -258,7 +251,7 @@ the match  being passed to the func which returns  the new pronunciation."
 (emacspeak-pronounce-add-super 'text-mode 'eww-mode)
 (emacspeak-pronounce-add-super 'text-mode 'vm-presentation-mode)
 (emacspeak-pronounce-add-super 'text-mode 'org-mode)
- 
+
 ;;;  Composing and applying dictionaries:
 
 ;; Composing a dictionary results in the return of a hash table that
@@ -273,8 +266,6 @@ the match  being passed to the func which returns  the new pronunciation."
 (defun emacspeak-pronounce-get-supers (child)
   "Return list of supers for mode `child'. "
   (get child 'emacspeak-pronounce-supers))
-
- 
 
 (defvar-local emacspeak-pronounce-personality nil
   "Personality used for pronunciations")
@@ -292,7 +283,6 @@ the match  being passed to the func which returns  the new pronunciation."
   (message "Turned %s pronunciation personality"
            (if emacspeak-pronounce-personality 'on 'off)))
 
- 
 ;;;  loading, clearing and saving dictionaries
 
 (cl-declaim (special emacspeak-user-directory))
@@ -365,7 +355,6 @@ Default is emacspeak-pronounce-dictionaries-file."
     (setq emacspeak-pronounce-dictionaries (make-hash-table))
     (emacspeak-pronounce-refresh-pronunciations)))
 
- 
 ;;;  Front end to define pronunciations:
 
 (defvar emacspeak-pronounce-pronunciation-keys
@@ -503,7 +492,6 @@ First loads any persistent dictionaries if not already loaded."
       (emacspeak-pronounce-add-buffer-local-dictionary-entry
        word pronunciation))))
 
- 
 ;;;  Turning dictionaries on and off on a per buffer basis
 
 (defvar-local  emacspeak-pronounce-pronunciation-table nil
@@ -552,7 +540,6 @@ First loads any persistent dictionaries if not already loaded."
     (message
      "Refreshed pronunciations for this buffer")))
 
- 
 ;;;  common dictionary containing smileys and friends
 
 (defcustom emacspeak-pronounce-internet-smileys-pronunciations
@@ -575,7 +562,6 @@ First loads any persistent dictionaries if not already loaded."
                 (string :tag "Pronunciation")))
   :group 'emacspeak)
 
- 
 ;;;  xml namespace uri's
 
 (defcustom emacspeak-pronounce-xml-ns
@@ -601,7 +587,6 @@ First loads any persistent dictionaries if not already loaded."
                 (string :tag "Pronunciation")))
   :group 'emacspeak)
 
- 
 ;;;  adding predefined dictionaries to a mode:
 
 (defun emacspeak-pronounce-augment-pronunciations (mode dictionary)
@@ -613,7 +598,6 @@ First loads any persistent dictionaries if not already loaded."
        (push e mode-alist)))
     (emacspeak-pronounce-set-dictionary mode mode-alist)))
 
- 
 ;;;  dictionary editor
 
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor (key)
@@ -688,7 +672,6 @@ specified pronunciation dictionary key."
   (emacspeak-pronounce-edit-generate-pronunciation-editor
    (intern key)))
 
- 
 ;;;  top level dispatch routine
 
 (defvar emacspeak-pronounce-help
@@ -718,7 +701,6 @@ specified pronunciation dictionary key."
       (otherwise (message emacspeak-pronounce-help)))
     (emacspeak-auditory-icon 'close-object)))
 
- 
 ;;;  Helpers: pronouncers
 
 ;;;  dates and numbers
@@ -778,7 +760,6 @@ specified pronunciation dictionary key."
     (read (substring string 0 4)))
    nil 'nodayname))
 
- 
 ;;;  phone numbers
 
 (defvar emacspeak-pronounce-us-phone-number-pattern
@@ -836,9 +817,6 @@ with Git among other things."
             (substring uuid 0 2)
             (substring uuid -2 nil))))
 
- 
-
- 
 ;;;  helper function --decode ISO date-time 
 
 (defun ems-speak-rfc-3339-tz-offset (rfc-3339)
@@ -907,7 +885,6 @@ Value returned is compatible with `encode-time'."
                             (encode-time second minute hour day month year))
       (error iso))))
 
- 
 ;;;  helper function --decode rfc 3339 date-time
 
 (defvar emacspeak-pronounce-rfc-3339-datetime-pattern
@@ -955,7 +932,6 @@ Value returned is compatible with `encode-time'."
                                          year tz))
       (error rfc-3339))))
 
- 
 ;;; Text Mode Pronunciations:
 (emacspeak-pronounce-add-dictionary-entry
  'help-mode
@@ -971,7 +947,6 @@ Value returned is compatible with `encode-time'."
   #'(lambda (number)
       (concat " minus " (substring number 2)))))
 
- 
 ;;; Merge  Dictionaries:
 
 ;; Over time, you can end up with dictionary entries in  a child-mode
@@ -1002,12 +977,6 @@ Value returned is compatible with `encode-time'."
     (puthash into dst emacspeak-pronounce-dictionaries )
     (puthash from nil emacspeak-pronounce-dictionaries )))
 
- 
 (provide 'emacspeak-pronounce)
 ;;;  emacs local variables
 
- 
- 
- 
-
- 

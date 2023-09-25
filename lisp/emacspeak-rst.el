@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 ;; This module speech-enables rst-mode.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces
 
 (voice-setup-add-map
@@ -74,7 +70,6 @@
    (rst-level-4 voice-lighten-extra)
    ))
 
- 
 ;;;  Speech-enable interactive commands:
 (cl-loop
  for f in
@@ -178,12 +173,6 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 
- 
 (provide 'emacspeak-rst)
 ;;;  end of file
 
- 
- 
- 
-
- 

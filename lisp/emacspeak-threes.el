@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -80,7 +78,6 @@
 ;; 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -88,7 +85,6 @@
 (require 'emacspeak-preamble)
 (require 'sox-gen)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map 
@@ -99,7 +95,6 @@
    (threes-face-3 voice-bolden)
    (threes-face-max voice-animate)))
 
- 
 ;;;  Variables:
 
 (defvar emacspeak-threes-rows-max '(0 0 0 0)
@@ -110,7 +105,6 @@
   (cl-declare (special threes-cells))
   (mapcar #'(lambda (r) (apply #'max   r)) threes-cells))
 
- 
 ;;;  Helpers:
 
 (cl-loop
@@ -131,7 +125,6 @@
      ((= 2 number) (sox-sin .5 "%1:%3" fade))
      ((= 3 number) (sox-sin .5 "%4:%6"fade)))))
 
- 
 ;;;  Advice interactive commands:
 
 (defun emacspeak-threes-speak-board ()
@@ -225,7 +218,6 @@
 (when (boundp 'threes-mode-map)
   (emacspeak-threes-setup))
 
- 
 ;;;  Push And Pop states:
 
 (cl-defstruct emacspeak-threes-game-state
@@ -278,7 +270,6 @@
            (length emacspeak-threes-game-stack))
   (emacspeak-auditory-icon 'delete-object))
 
- 
 ;;;  Export And Import Games:
 
 (defvar emacspeak-threes-game-file
@@ -318,12 +309,6 @@ Optional interactive prefix arg prompts for a filename."
     (emacspeak-auditory-icon 'task-done)
     (message "Imported game %s." file)))
 
- 
 (provide 'emacspeak-threes)
 ;;;  end of file
 
- 
- 
- 
-
- 

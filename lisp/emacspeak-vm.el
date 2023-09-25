@@ -14,7 +14,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -38,21 +37,18 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
-
 ;;;   Introduction:
 
 ;;; Commentary:
 ;; This module extends the mail reader vm.
 ;; Uses voice locking for message headers and cited messages
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require  'vm "vm" 'no-error)
 
- 
 ;;;  Forward Decls:
 
 (defsubst ems--vm-from-of (message) (aref (aref message 3) 8))
@@ -71,7 +67,6 @@
 (declare-function  u-vm-color-fontify-buffer "u-vm-color" nil)
 (declare-function  u-vm-color-summary-mode "u-vm-color" (&optional arg))
 
- 
 ;;;  voice locking:
 
 (defgroup emacspeak-vm nil
@@ -95,12 +90,10 @@ Note that some badly formed mime messages  cause trouble."
   (when dtk-caps
     (dtk-toggle-caps)))
 
- 
 ;;;  inline helpers
 
 (defun emacspeak-vm-number-of (message) (aref (aref message 1) 0))
 
- 
 ;;;  Advice completions
 
 (defadvice vm-minibuffer-complete-word (around emacspeak pre act comp)
@@ -133,7 +126,6 @@ Note that some badly formed mime messages  cause trouble."
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
- 
 ;;;   Helper functions:
 
 (defvar emacspeak-vm-user-full-name (user-full-name)
@@ -262,12 +254,10 @@ Note that some badly formed mime messages  cause trouble."
                        (t ""))))
                 (cdr vm-ml-message-attributes-alist)   " "))))))
 
- 
 ;;;   Moving between messages
 
 (add-hook 'vm-select-message-hook 'emacspeak-vm-summarize-message)
 
- 
 ;;;   Scrolling messages:
 
 (defun emacspeak-vm-locate-subject-line()
@@ -304,7 +294,6 @@ Then speak the screenful. "
   (interactive)
   (emacspeak-execute-repeatedly 'forward-paragraph))
 
- 
 ;;;   deleting and killing
 
 (defadvice vm-delete-message (after emacspeak pre act comp)
@@ -324,7 +313,6 @@ Then speak the screenful. "
     (emacspeak-auditory-icon 'delete-object)
     (call-interactively 'vm-next-message)))
 
- 
 ;;;   Sending mail:
 
 (defadvice vm-forward-message (around emacspeak pre act comp)
@@ -393,7 +381,6 @@ Then speak the screenful. "
          (message "Composing a message")
          (emacspeak-speak-line))))))
 
- 
 ;;;  quitting
 
 (defadvice vm-quit (after emacspeak pre act comp)
@@ -403,7 +390,6 @@ Then speak the screenful. "
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-speak-mode-line))))
 
- 
 ;;;  catching up on folders
 
 (defun emacspeak-vm-catch-up-all-messages ()
@@ -416,7 +402,6 @@ Then speak the screenful. "
   (message "All messages have been marked as deleted.")
   (emacspeak-auditory-icon 'delete-object))
 
- 
 ;;;   Keybindings:
 (when (boundp 'vm-mode-map)
   (cl-declaim  (special
@@ -438,7 +423,7 @@ Then speak the screenful. "
               (concat emacspeak-prefix "m")
               'emacspeak-vm-mode-line)
   )
- 
+
 ;;;  advise searching:
 (defadvice vm-isearch-forward (around emacspeak pre act comp)
   "speak"
@@ -470,7 +455,6 @@ Then speak the screenful. "
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;;   silence mime parsing in vm 6.0 and above
 
 (defadvice vm-mime-parse-entity (around emacspeak pre act comp)
@@ -493,7 +477,6 @@ Leave point at front of decoded attachment."
    (t ad-do-it))
   ad-return-value)
 
- 
 ;;;  silence unnecessary chatter
 
 (defadvice vm-emit-eom-blurb (around emacspeak pre act comp)
@@ -501,7 +484,6 @@ Leave point at front of decoded attachment."
   (ems-with-messages-silenced
    ad-do-it))
 
- 
 ;;;  advice password prompt
 
 (defadvice vm-read-password(before emacspeak pre act comp)
@@ -513,7 +495,7 @@ Leave point at front of decoded attachment."
      (format "%s %s"
              prompt
              (if confirm "Confirm by retyping" "")))))
- 
+
 ;;;  setup presentation buffer correctly
 
 (add-hook 'vm-presentation-mode-hook
@@ -553,10 +535,8 @@ Leave point at front of decoded attachment."
   emacspeak-pronounce-iso-datetime-pattern
   (cons #'re-search-forward #'emacspeak-pronounce-decode-iso-datetime)))
 
- 
 ;;;  advice button motion
 
- 
 ;;;   misc
 
 (defadvice vm (around emacspeak pre act comp)
@@ -569,13 +549,10 @@ Leave point at front of decoded attachment."
   (ad-set-arg 1 'quiet)
   ad-do-it)
 
- 
 ;;;   button motion in vm
 
- 
 ;;;  saving mime attachment under point
 
- 
 ;;;  Voice Lock:
 
 (when (locate-library "u-vm-color")
@@ -602,7 +579,6 @@ Leave point at front of decoded attachment."
   (add-hook 'vm-select-message-hook #'u-vm-color-fontify-buffer)
   )
 
- 
 ;;;  configure and customize vm
 
 ;; This is how I customize VM
@@ -760,12 +736,6 @@ text using pdftotext."
 (when (and (featurep 'vm)emacspeak-vm-customize-mime-settings)
   (emacspeak-vm-customize-mime-settings))
 
- 
 (provide 'emacspeak-vm)
 ;;;   local variables
 
- 
- 
- 
-
- 

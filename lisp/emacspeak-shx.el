@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,18 +43,15 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Forward Declaration 
 (declare-function shx-insert "shx" (&rest args))
 
- 
 ;;;  Interactive Commands:
 
 (defadvice shx (after emacspeak pre act comp)
@@ -117,7 +112,7 @@ Provide an auditory icon if possible."
           (comint-line-beginning-position) (point)))))))
    (t ad-do-it))
   ad-return-value)
- 
+
 ;;;  Additional shx commands:
 
 (defun shx-cmd-browse (url)
@@ -130,12 +125,6 @@ Provide an auditory icon if possible."
   (shx-insert "grep " 'font-lock-keyword-face grep-args "\n")
   (grep (concat "grep --color -nH -e " grep-args)))
 
- 
 (provide 'emacspeak-shx)
 ;;;  end of file
 
- 
- 
- 
-
- 

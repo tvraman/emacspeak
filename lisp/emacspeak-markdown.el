@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 ;; MARKDOWN ==  Light-weight markup.
 ;; This module speech-enables markdown.el
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map faces to voices:
 (voice-setup-add-map
  '(
@@ -83,7 +79,7 @@
    (markdown-metadata-key-face voice-smoothen)
    (markdown-metadata-value-face voice-smoothen-medium)
    ))
- 
+
 ;;;  Advice Interactive Commands:
 (cl-loop
  for f in
@@ -182,12 +178,6 @@
        (emacspeak-auditory-icon 'complete)
        (emacspeak-speak-line)))))
 
- 
 (provide 'emacspeak-markdown)
 ;;;  end of file
 
- 
- 
- 
-
- 

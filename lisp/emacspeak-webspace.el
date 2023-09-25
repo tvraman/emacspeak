@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;  Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  introduction
@@ -45,7 +43,6 @@
 ;; WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 ;;; Code:
 
- 
 ;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -56,7 +53,6 @@
 (require 'gweb)
 (require 'emacspeak-feeds)
 
- 
 ;;;  WebSpace Mode:
 
 ;; Define a derived-mode called WebSpace that is generally useful for
@@ -121,7 +117,6 @@
          link 'speak)
       (message "No link under point."))))
 
- 
 ;;;  WebSpace Display:
 
 (defun emacspeak-webspace-display (infolet)
@@ -146,7 +141,6 @@ Generates auditory and visual display."
          do
          (define-key emacspeak-webspace-keymap (cl-first k) (cl-second k)))
 
- 
 ;;;  Headlines:
 
 (cl-defstruct emacspeak-webspace-fs
@@ -336,7 +330,6 @@ Updated headlines found in emacspeak-webspace-headlines."
    'type 'emacspeak-webspace-headline
    'link (cadr headline)))
 
- 
 ;;;  Feed Reader:
 
 ;; In memory of Google Reader:
@@ -395,12 +388,6 @@ Optional interactive prefix arg forces a refresh."
       (switch-to-buffer emacspeak-webspace-reader-buffer)
       (emacspeak-webspace-mode))))
 
- 
 (provide 'emacspeak-webspace)
 ;;;  end of file
 
- 
- 
- 
-
- 

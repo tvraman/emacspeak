@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
@@ -44,12 +42,12 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'gomoku)
- 
+
 ;;;   Introduction 
 ;;; Commentary:
 ;; Auditory interface to gomoku
 ;;; Code:
- 
+
 ;;;  helper functions
 
 (defun gomoku-point-x ()
@@ -59,7 +57,6 @@
   (aref  gomoku-board
          (gomoku-xy-to-index column row)))
 
- 
 ;;;  Communicate state
 (defun emacspeak-gomoku-goto-x-y (x y)
   "Prompt for and go to that square."
@@ -218,7 +215,6 @@
   (message "%s moves in this game"
            gomoku-number-of-moves))
 
- 
 ;;;   additional interactive commands.
 
 (defun gomoku-move-left (&optional arg)
@@ -231,7 +227,6 @@
   (interactive "p")
   (forward-char arg))
 
- 
 ;;;  Advice
 
 ;;;   advice all navigation
@@ -249,8 +244,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-gomoku-speak-square)))))
-
- 
 
 (defadvice gomoku-emacs-plays (after emacspeak pre act comp)
   "Tell me where you played"
@@ -275,7 +268,7 @@
   "Speech enable gomoku"
   (when (ems-interactive-p)
     (emacspeak-gomoku-setup-keys)))
- 
+
 ;;;  keybindings
 
 (defun emacspeak-gomoku-setup-keys ()
@@ -316,13 +309,6 @@
   (define-key gomoku-mode-map "=" 'emacspeak-gomoku-speak-number-of-moves)
   )
 
- 
-
 (provide 'emacspeak-gomoku)
 ;;;  end of file 
 
- 
- 
-  
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 ;;; Commentary:
@@ -46,12 +44,11 @@
 ;; And use an after advice on this function
 ;; To fix all of calc's interactive functions
 ;;; Code:
- 
+
 ;;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   advice calc interaction 
 (defadvice calc-dispatch (after emacspeak pre act comp)
   "speak."
@@ -64,7 +61,6 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;   speak output 
 
 (defadvice calc-call-last-kbd-macro (around emacspeak pre act comp)
@@ -92,12 +88,6 @@
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'select-object))
 
- 
 (provide 'emacspeak-calc)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

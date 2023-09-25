@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,14 +43,12 @@
 ;; FLYCHECK == On-the-fly checking.
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map faces
 
 (voice-setup-add-map
@@ -67,7 +63,6 @@
    (flycheck-error-list-warning voice-animate)
    (flycheck-error-list-error voice-bolden)))
 
- 
 ;;;  Advice interactive commands.
 
 (cl-loop
@@ -111,13 +106,7 @@
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Refreshed errors")))
 
- 
 (provide 'emacspeak-flycheck)
 ;;; emacspeak-flycheck ends here
 ;;;  end of file
 
- 
- 
- 
-
- 

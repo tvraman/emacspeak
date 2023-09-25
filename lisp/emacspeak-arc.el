@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,20 +35,19 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'arc-mode)
- 
+
 ;;;   Introduction 
 ;;; Commentary:
 ;; Auditory interface to archive mode
 ;; This lets Emacs manipulate package files such as .zip and .jar files.
 ;;; Code:
- 
+
 ;;;  Helpers
 
 (defun emacspeak-archive-speak-line ()
@@ -61,10 +59,8 @@
    (t (skip-syntax-backward "^ ")  
       (emacspeak-speak-line 1))))
 
- 
 ;;;  fix interactive commands that need fixing 
 
- 
 ;;;  Advice
 
 (defadvice archive-mark (after emacspeak pre act comp)
@@ -118,7 +114,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;  interactive commands
 
 (defvar emacspeak-arc-header-list-format nil
@@ -225,12 +220,7 @@ first initializing it if necessary."
 
 (cl-eval-when (load)
   (emacspeak-arc-setup-keys))
- 
+
 (provide 'emacspeak-arc)
 ;;;  end of file 
 
- 
- 
-  
-
- 

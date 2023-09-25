@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  Introduction
@@ -47,14 +45,13 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
 (require 'python "python" 'no-error)
- 
+
 ;;;  interactive programming
 
 (defadvice python-check (after emacspeak pre act comp)
@@ -74,7 +71,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
- 
 ;;;   whitespace management and indentation
 (defadvice python-indent-dedent-line (after emacspeak pre act comp)
   "speak."
@@ -123,7 +119,6 @@
              (count-lines  (region-beginning)
                            (region-end))))))
 
- 
 ;;;   buffer navigation
 (defadvice python-mark-defun (after emacspeak pre act comp)
   "speak."
@@ -153,12 +148,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'paragraph)))))
 
- 
 (provide 'emacspeak-python)
 ;;;  end of file
 
- 
- 
- 
-
- 

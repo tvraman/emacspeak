@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -48,14 +46,13 @@
 ;; relative position.
 ;; 
 
- 
 ;;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  advice window navigation
 
 (cl-loop
@@ -69,13 +66,6 @@
        (emacspeak-auditory-icon select-object)
        (emacspeak-speak-mode-line)))))
 
- 
-
 (provide 'emacspeak-windmove)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
@@ -36,14 +35,13 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -52,7 +50,6 @@
 
 ;;; Code:
 
- 
 ;;;   advice interactive commands
 
 (defadvice sh-mode (after emacspeak pre act comp)
@@ -104,7 +101,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
- 
 ;;;  advice skeleton insertion 
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
@@ -120,12 +116,6 @@
      (t ad-do-it))
     ad-return-value))
 
- 
 (provide 'emacspeak-sh-script)
 ;;;  end of file
 
- 
- 
- 
-
- 

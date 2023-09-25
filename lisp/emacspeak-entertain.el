@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction
@@ -47,12 +45,11 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  doctar
 
 (defadvice doctor-txtype (after emacspeak pre act comp)
@@ -63,14 +60,13 @@
     (ad-get-arg 0)
     " ")))
 
- 
 ;;;  mpuz
 (voice-setup-add-map
  '(
    (mpuz-trivial voice-monotone-extra)
    (mpuz-unsolved voice-bolden)
    (mpuz-solved voice-animate)))
- 
+
 ;;;  dunnet
 (cl-loop
  for f in
@@ -87,7 +83,6 @@
       (t ad-do-it))
      ad-return-value)))
 
- 
 ;;;   hangman
 
 (defun emacspeak-hangman-speak-statistics ()
@@ -138,12 +133,6 @@
   (define-key hm-map "=" 'emacspeak-hangman-speak-statistics)
   )
 
- 
 (provide 'emacspeak-entertain)
 ;;;  end of file
 
- 
- 
- 
-
- 

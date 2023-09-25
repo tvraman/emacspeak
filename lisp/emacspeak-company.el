@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -53,7 +51,7 @@
 ;; @code{emacspeak-company-frontend} handles providing spoken
 ;; feedback, and leaves it to other frontends on
 ;; @var{company-frontends}   to generate their own feedback.
- 
+
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -61,7 +59,6 @@
 (require 'emacspeak-preamble)
 (declare-function company-fetch-metadata "company" nil)
 
- 
 ;;;  map faces:
 (voice-setup-add-map
  '(
@@ -72,7 +69,6 @@
    (company-preview-search voice-brighten)
    (company-template-field voice-smoothen)))
 
- 
 ;;;  Helpers:
 (defun ems-company-current ()
   "Helper: Return current selection in company."
@@ -88,7 +84,6 @@
      (dtk-speak-and-echo
       (concat (ems-company-current) " " metadata)))))
 
- 
 ;;;  Emacspeak Front-End For Company:
 
 (defun emacspeak-company-frontend (command)
@@ -99,7 +94,6 @@
                   (emacspeak-company-speak-this))
     (hide nil)))
 
- 
 ;;;  Advice Interactive Commands:
 
 (defadvice company-complete-selection (before emacspeak pre act comp)
@@ -120,7 +114,6 @@
                                         ;(emacspeak-auditory-icon 'help)
     (with-current-buffer doc-buffer (dtk-speak (buffer-string)))))
 
- 
 ;;;  Company Setup For Emacspeak:
 
 (defun emacspeak-company-setup ()
@@ -135,13 +128,7 @@
    'company-completion-finished-hook
    #'(lambda (&rest _ignore) (emacspeak-play-auditory-icon 'close-object))))
 
- 
 (eval-after-load "company" #'emacspeak-company-setup)
 (provide 'emacspeak-company)
 ;;;  end of file
 
- 
- 
- 
-
- 

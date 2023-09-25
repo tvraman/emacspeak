@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;; All Rights Reserved.
@@ -34,7 +33,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -44,20 +42,17 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map 
  '((eglot-mode-line voice-lighten)))
 
- 
 ;;;  Interactive Commands:
 
 (defadvice eglot-help-at-point (after emacspeak pre act comp)
@@ -80,12 +75,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
- 
 (provide 'emacspeak-eglot)
 ;;;  end of file
 
- 
- 
- 
-
- 

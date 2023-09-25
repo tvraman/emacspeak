@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -47,7 +45,6 @@
 ;; that implementation is in obsolete/emacspeak-bbc-backstage.el
 ;; This module contains a light-weight client.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -55,7 +52,6 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-forms)
 
- 
 ;;;  Stream using get_iplayer:
 
 (defvar emacspeak-bbc-iplayer-handle
@@ -98,7 +94,6 @@
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
- 
 ;;; get_iplayer catalog 
 
 ;; Run get_iplayer regularly to refresh ~/.get_iplayer/radio.cache.
@@ -112,12 +107,6 @@
    #'emacspeak-forms-find-file
    (expand-file-name "forms/get-iplayer.el" emacspeak-etc-directory)))
 
- 
 (provide 'emacspeak-bbc)
 ;;;  end of file
 
- 
- 
- 
-
- 

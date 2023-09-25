@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -55,14 +53,13 @@
 ;; @end itemize
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'vdiff "vdiff" 'no-error)
- 
+
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -77,7 +74,6 @@
    (vdiff-subtraction-fringe-face voice-smoothen-extra)
    (vdiff-target-face voice-monotone-extra)))
 
- 
 ;;;  Emacspeak VDiff Commands:
 
 (defun emacspeak-vdiff-get-overlay-at-point ()
@@ -111,7 +107,6 @@
       (vdiff-switch-buffer (line-number-at-pos))
       (emacspeak-speak-line))))
 
- 
 ;;;  Interactive Commands:
 
 (cl-loop
@@ -149,7 +144,6 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
- 
 ;;;  open/close Folds:
 (cl-loop
  for f in
@@ -173,7 +167,6 @@
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-line)))))
 
- 
 ;;;  Navigation:
 
 ;; (defadvice vdiff--scroll-function (around emacspeak pre act comp)
@@ -191,7 +184,6 @@
        (emacspeak-vdiff-speak-this-hunk)
        (emacspeak-auditory-icon 'large-movement)))))
 
- 
 ;;;  Setup:
 
 (eval-after-load
@@ -206,12 +198,6 @@
      (define-key vdiff-mode-prefix-map
                  (kbd "l") 'emacspeak-vdiff-speak-other-line)))
 
- 
 (provide 'emacspeak-vdiff)
 ;;;  end of file
 
- 
- 
- 
-
- 

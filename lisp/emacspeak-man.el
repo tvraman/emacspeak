@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman 
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction:
 ;;; Commentary:
@@ -44,7 +42,6 @@
 ;;; Code:
 ;;; Code:
 
- 
 ;;;  Required modules
 
 ;;; Code:
@@ -53,7 +50,6 @@
 (require 'voice-setup)
 (require 'man)
 
- 
 ;;;   Configure man
 
 (cl-declaim (special Man-switches system-type))
@@ -61,7 +57,6 @@
 (when (eq system-type 'gnu/linux)
   (setq Man-switches "-a"))
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -70,7 +65,6 @@
    (Man-reverse voice-animate)
    (Man-underline voice-lighten)))
 
- 
 ;;;   advice interactive commands 
 
 (defadvice  Man-mode (after emacspeak pre act comp)
@@ -145,7 +139,6 @@ Also provide an auditory icon"
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;   Additional commands
 
 (defun emacspeak-man-speak-this-section ()
@@ -183,12 +176,6 @@ Also provide an auditory icon"
 (define-key Man-mode-map "[" 'backward-paragraph)
 (define-key Man-mode-map "]" 'forward-paragraph)
 
- 
 (provide  'emacspeak-man)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

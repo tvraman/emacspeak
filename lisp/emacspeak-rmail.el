@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
@@ -36,18 +35,16 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction
 ;;; Commentary:
 ;; emacspeak extensions to rmail
 ;;; Code:
- 
+
 ;;;  requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   customizations:
 (declare-function rmail-display-labels "rmail" nil)
 (declare-function rmail-msgend "rmail" (n))
@@ -61,7 +58,6 @@
               "^Mime-\\|"
               rmail-ignored-headers))
 
- 
 ;;;   helper functions:
 
 (defun emacspeak-rmail-summarize-message (message)
@@ -80,7 +76,6 @@
              (if lines (format "%s lines" lines) "")
              labels))))
 
- 
 ;;;   Advice some commands.
 ;;;   buffer selection
 
@@ -106,7 +101,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
- 
 ;;;   message navigation
 
 (defadvice rmail-beginning-of-message (after emacspeak pre act comp)
@@ -115,7 +109,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
- 
 ;;;   folder navigation
 
 (defadvice rmail-first-message (after emacspeak pre act comp)
@@ -193,7 +186,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))  
 
- 
 ;;;  delete and undelete messages
 
 (defadvice rmail-undelete-previous-message (after emacspeak pre act
@@ -220,7 +212,6 @@
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-rmail-summarize-current-message)))  
 
- 
 ;;;   Additional interactive commands
 
 (defun emacspeak-rmail-summarize-current-message ()
@@ -235,7 +226,6 @@
    (format "Labels are %s"
            (rmail-display-labels))))
 
- 
 ;;;   key bindings
 (when (and (boundp 'rmail-mode-map) (keymapp rmail-mode-map))  
   (cl-declaim (special rmail-mode-map))
@@ -243,12 +233,6 @@
   (define-key rmail-mode-map "L"
               'emacspeak-rmail-speak-current-message-labels))
 
- 
 (provide  'emacspeak-rmail)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

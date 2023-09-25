@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;  Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;  Introduction:
 
@@ -58,14 +56,13 @@
 ;; so that Emacs always displays Ediff windows in a single frame.
 ;;; Code:
 
- 
 ;;;  required:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'voice-setup)
 (require 'ediff)
- 
+
 ;;;  Map faces to voices.
 
 (voice-setup-add-map
@@ -88,7 +85,6 @@
    (ediff-odd-diff-Ancestor voice-lighten)
    ))
 
- 
 ;;;  Helper functions:
 
 (defvar emacspeak-ediff-control-buffer nil
@@ -155,7 +151,6 @@
 (defun emacspeak-ediff-difference-fine-diff (difference)
   (aref difference 2))
 
- 
 ;;;  Diff Overlay Accessors:
 
 (defun emacspeak-ediff-diff-overlay-from-difference (diff counter)
@@ -164,7 +159,6 @@
 (defun emacspeak-ediff-fine-overlays-from-difference (diff counter)
   (aref (aref diff counter) 1))
 
- 
 ;;;  Setup Ediff Hook
 
 (add-hook
@@ -176,7 +170,6 @@
      (define-key
       ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)))
 
- 
 ;;;  Speak an ediff difference:
 
 ;; To speak an ediff difference,
@@ -217,7 +210,6 @@
      (1- ediff-number-of-differences))
     (t ediff-current-difference))))
 
- 
 ;;;  Advice:
 
 (defadvice ediff-toggle-help (after emacspeak pre act comp)
@@ -311,7 +303,6 @@
     (message "turned %s file name truncation in Ediff registry"
              ediff-meta-truncate-filenames)))
 
- 
 ;;; Hooks:
 
 (add-hook
@@ -320,12 +311,6 @@
      (emacspeak-speak-mode-line)
      (emacspeak-auditory-icon 'open-object)))
 
- 
 (provide 'emacspeak-ediff)
 ;;;  emacs local variables
 
- 
- 
- 
-
- 

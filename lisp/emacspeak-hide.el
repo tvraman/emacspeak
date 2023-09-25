@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction
@@ -50,14 +48,12 @@
 ;; the prefix parsing is inspired by filladapt.el
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  voice locking for block header lines
 
 (defvar emacspeak-hidden-header-line-personality voice-annotate
@@ -67,7 +63,6 @@
 (cl-declaim (special line-move-ignore-invisible))
 (setq line-move-ignore-invisible t)
 
- 
 ;;;   Identifying the prefix
 
 ;;;   define parsing tables
@@ -120,7 +115,6 @@ doesn't try any of the regexps in emacspeak-hide-prefix-token-table.
 
 Regexp matching is done case-sensitively.")
 
- 
 ;;;   parse the prefix
 
 (defun emacspeak-hide-parse-prefix ()
@@ -159,7 +153,6 @@ STRING is the token's text."
             (throw 'done token-list))))
         token-list))))
 
- 
 ;;;   test for a prefix match
 
 ;; Return t if this line matches the specified prefix spec
@@ -170,9 +163,6 @@ STRING is the token's text."
                   (buffer-substring-no-properties
                    (point) (+ (point) (nth 1  prefix))))))
 
- 
-
- 
 ;;;   hiding a block
 
 (defun emacspeak-hide-current-block (prefix)
@@ -219,7 +209,6 @@ Returns t if a block was found and hidden."
           t)
          (t (message "Not on a block") nil)))))))
 
- 
 ;;;   Exposing a block
 
 ;; Hiding marks the body of a block to be invisible,
@@ -257,7 +246,6 @@ Returns t if a block was found and hidden."
        (t (message "Not on a hidden block")
           nil)))))
 
- 
 ;;;   Hiding and exposing  all blocks in a buffer
 ;;;###autoload
 (defun emacspeak-hide-all-blocks-in-buffer ()
@@ -298,7 +286,6 @@ Returns t if a block was found and hidden."
           (t (forward-line 1)))))
      (dtk-speak (format "Exposed %s blocks" count)))))
 
- 
 ;;;  User interface
 ;; helper to get prefix
 (defun emacspeak-hide-get-block-prefix ()
@@ -353,7 +340,6 @@ buffer to be hidden or exposed."
   (interactive)
   (emacspeak-hide-or-expose-block 'all))
 
- 
 ;;;   speaking blocks sans prefix
 
 (defun emacspeak-hide-speak-block-sans-prefix ()
@@ -394,12 +380,6 @@ buffer to be hidden or exposed."
         (emacspeak-speak-region (point-min) (point-max)))
        (t (message "Not on a hidden block"))))))
 
- 
 (provide 'emacspeak-hide)
 ;;;  end of file
 
- 
- 
- 
-
- 

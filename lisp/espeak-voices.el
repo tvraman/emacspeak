@@ -3,7 +3,6 @@
 ;; Keywords: Voice, Personality, Espeak
 ;;;   LCD Archive entry:
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -26,7 +25,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -37,13 +35,13 @@
 ;; the ESpeak TTS engine.
 
 ;;; Code:
- 
+
 ;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)           ;For `ems--fastload'.
 (cl-declaim  (optimize  (safety 0) (speed 3)))
- 
+
 ;;;  Customizations:
 
 (defcustom espeak-default-speech-rate 175
@@ -55,7 +53,6 @@
            (when (string-match "espeak" dtk-program)
              (setq-default dtk-speech-rate val))))
 
- 
 ;;;  Top-Level TTS Call
 
 ;;;###autoload
@@ -67,7 +64,6 @@
   (dtk-select-server "espeak")
   (dtk-initialize))
 
- 
 ;;;   voice table
 
 (defvar tts-default-voice
@@ -102,7 +98,6 @@ COMMAND-STRING to the TTS engine."
   (cl-declare (special espeak-voice-table))
   (gethash name espeak-voice-table))
 
- 
 ;;;  voice definitions
 
 ;; the nine predefined voices:
@@ -110,7 +105,6 @@ COMMAND-STRING to the TTS engine."
 
 ;; Modified voices:
 
- 
 ;; Mapping css parameters to tts codes
 ;;;  voice family codes
 
@@ -118,7 +112,6 @@ COMMAND-STRING to the TTS engine."
   "Get control code for voice family NAME."
   "")
 
- 
 ;;;   hash table for mapping families to their dimensions
 
 (defvar espeak-css-code-tables (make-hash-table)
@@ -140,7 +133,6 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key espeak-css-code-tables)))
 
- 
 ;;;   average pitch
 
 ;; Average pitch of standard text is aurally mapped to 
@@ -170,8 +162,6 @@ and TABLE gives the values along that dimension."
      (9 120))) ; x-high
   (espeak-css-set-code-table 'paul 'average-pitch table))
 
- 
-
 (defun espeak-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
@@ -180,7 +170,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   pitch range
 ;; Based on the sampler, it seems this setting is a range of 
 ;; values from 0 to 100%, 0 being monotone.
@@ -207,8 +196,6 @@ and TABLE gives the values along that dimension."
      (9 180))) ; x-high
   (espeak-css-set-code-table 'paul 'pitch-range table))
 
- 
-
 (defun espeak-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -217,7 +204,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   stress
 
 ;;  Not implemented for Espeak now.
@@ -226,7 +212,6 @@ and TABLE gives the values along that dimension."
   "Just a dummy."
   "")
 
- 
 ;;;   richness
 
 ;; Smoothness and richness vary inversely.
@@ -257,8 +242,6 @@ and TABLE gives the values along that dimension."
      (9 100  0)))
   (espeak-css-set-code-table 'paul 'richness table))
 
- 
-
 (defun espeak-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value 
@@ -266,7 +249,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   espeak-define-voice-from-speech-style
 
 (defun espeak-define-voice-from-speech-style (name style)
@@ -285,7 +267,6 @@ and TABLE gives the values along that dimension."
     ;;                  "]")))
     (espeak-define-voice name command)))
 
- 
 ;;;  Configurater 
 
 (defvar espeak-character-to-speech-table nil
@@ -317,13 +298,6 @@ and TABLE gives the values along that dimension."
   (espeak-setup-character-to-speech-table)
   (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1)))
 
- 
-
 (provide 'espeak-voices)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

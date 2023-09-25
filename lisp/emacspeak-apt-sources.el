@@ -11,7 +11,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Initial version: Author: Igor B. Poretsky
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  required modules
@@ -43,7 +41,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;   Introduction:
 
 ;;; Commentary:
@@ -53,11 +50,10 @@
 ;; and provides a major mode for editing
 ;; APT's sources.list file.
 
- 
 ;;;   Required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
- 
+
 ;;;  Advice interactive commands to speak.
 
 (defadvice apt-sources-mode (after emacspeak pre act comp)
@@ -98,12 +94,6 @@
                                  'on
                                'off))))
 
- 
 (provide 'emacspeak-apt-sources)
 ;;;  end of file 
 
- 
- 
-  
-
- 

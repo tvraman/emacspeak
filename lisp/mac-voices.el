@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -47,14 +45,12 @@
 
 ;;; Code:
 
- 
 ;;;  Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)           ;For `ems--fastload'.
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
- 
 ;;; mac:
 ;;;###autoload
 (defun mac ()
@@ -65,7 +61,6 @@
   (dtk-select-server "mac")
   (dtk-initialize))
 
- 
 ;;;  Customizations:
 
 (defcustom mac-default-speech-rate 225
@@ -77,7 +72,6 @@
            (when (string= "mac"dtk-program)
              (setq-default dtk-speech-rate val))))
 
- 
 ;;;   voice table
 
 (defvar mac-default-voice-string "[{voice systemDefault}]"
@@ -112,7 +106,6 @@ COMMAND-STRING to the TTS engine."
   (cl-declare (special mac-voice-table))
   (gethash name mac-voice-table))
 
- 
 ;;;  voice definitions
 
 ;; the nine predefined voices: TODO: figure out if embedding is
@@ -122,7 +115,6 @@ COMMAND-STRING to the TTS engine."
 
 ;; Modified voices:
 
- 
 ;;;   the inau
 ;;;   Mapping css parameters to tts codes
 
@@ -132,7 +124,6 @@ COMMAND-STRING to the TTS engine."
   "Get control code for voice family NAME."
   (mac-get-voice-command-internal name))
 
- 
 ;;;   hash table for mapping families to their dimensions
 
 (defvar mac-css-code-tables (make-hash-table)
@@ -154,7 +145,6 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key mac-css-code-tables)))
 
- 
 ;;;   average pitch
 
 ;; Average pitch for standard male voice is 65 --this is mapped to
@@ -186,8 +176,6 @@ and TABLE gives the values along that dimension."
      (9 62)))
   (mac-css-set-code-table 'paul 'average-pitch table))
 
- 
-
 (defun mac-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
@@ -196,7 +184,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   pitch range
 
 ;;  Standard pitch range is 30 and is  mapped to
@@ -226,7 +213,6 @@ and TABLE gives the values along that dimension."
      (9  127)))
   (mac-css-set-code-table 'paul 'pitch-range table))
 
- 
 (defun mac-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -235,7 +221,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   stress
 
 ;;;   paul stress TODO
@@ -264,7 +249,6 @@ and TABLE gives the values along that dimension."
      (9  1 1 90 .3)))
   (mac-css-set-code-table 'paul 'stress table))
 
- 
 (defun mac-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value 
@@ -272,13 +256,11 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   richness
 
 ;;;   paul richness TODO
 (let ((table (make-vector 10 "")))
   (mac-css-set-code-table 'paul 'richness table))
- 
 
 (defun mac-get-richness-code (value family)
   (or family (setq family 'paul))
@@ -287,8 +269,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
- 
 ;;;   mac-define-voice-from-speech-style
 
 (defun mac-define-voice-from-speech-style (name style)
@@ -303,7 +283,6 @@ and TABLE gives the values along that dimension."
            (mac-get-richness-code (acss-richness style) family))))
     (mac-define-voice name command)))
 
- 
 ;;;  Configurater 
 ;;;###autoload
 (defun mac-configure-tts ()
@@ -319,14 +298,8 @@ and TABLE gives the values along that dimension."
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
- 
 ;;;  tts-env for Mac:
 
 (provide 'mac-voices)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

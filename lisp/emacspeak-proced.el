@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -46,14 +44,12 @@
 ;; A new Task Manager for Emacs.
 ;; Proced is part of emacs 23.
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Variables
 
 (defvar emacspeak-proced-minibuffer-history nil
@@ -64,7 +60,6 @@
 (defvar emacspeak-proced-process-cache nil
   "Cache of processes that are displayed.")
 
- 
 ;;;  Helpers and actions
 
 (defun emacspeak-proced-update-fields ()
@@ -286,7 +281,6 @@
       (emacspeak-proced-speak-this-field))
      (t (error "Can't find %s" name)))))
 
- 
 ;;;  Advice interactive commands:
 
 (defadvice proced-mark (before emacspeak pre act comp)
@@ -342,7 +336,6 @@
        (emacspeak-proced-speak-this-field)
        (emacspeak-auditory-icon 'task-done)))))
 
- 
 ;;;  additional commands:
 
 (defun emacspeak-proced-next-line ()
@@ -366,12 +359,6 @@
       (skip-syntax-forward " ")
       (emacspeak-proced-speak-field 'args))))
 
- 
 (provide 'emacspeak-proced)
 ;;;  end of file
 
- 
- 
- 
-
- 

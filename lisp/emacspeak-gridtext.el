@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -62,14 +60,13 @@
 ;; The "grid" is specified as a list of (start end) tuples..
 ;;; Code:
 
- 
 ;;;  required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-table)
 (require 'emacspeak-table-ui)
- 
+
 ;;;   variables
 
 (defvar emacspeak-gridtext-current-grid nil
@@ -78,7 +75,6 @@ buffer.")
 
 (make-variable-buffer-local 'emacspeak-gridtext-current-grid)
 
- 
 ;;;   helpers
 
 (defun emacspeak-gridtext-generate-key ()
@@ -132,7 +128,6 @@ end   as specified by grid."
          (forward-line 1))
         result-grid))))
 
- 
 ;;;   persistent store 
 
 (defvar emacspeak-gridtext-table (make-hash-table :test 'equal)
@@ -192,7 +187,6 @@ end   as specified by grid."
       (basic-save-buffer)
       (kill-buffer buffer))))
 
- 
 ;;;  interactive commands
 
 (defun emacspeak-gridtext-apply (start end grid)
@@ -211,7 +205,6 @@ end   as specified by grid."
      (emacspeak-gridtext-generate-key) grid)
     (emacspeak-table-prepare-table-buffer grid-table buffer)))
 
- 
 ;;;   keymaps 
 (defvar emacspeak-gridtext-keymap nil
   "Prefix keymap used by gridtext.")
@@ -221,12 +214,7 @@ end   as specified by grid."
 (define-key emacspeak-gridtext-keymap "l"
             'emacspeak-gridtext-load)
 (define-key emacspeak-gridtext-keymap "s" 'emacspeak-gridtext-save)
- 
+
 (provide 'emacspeak-gridtext)
 ;;;  end of file
 
- 
- 
- 
-
- 

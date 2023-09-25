@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -60,14 +58,12 @@
 
 ;;; Code:
 
- 
 ;;;  Requires
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  define personalities
 
 (defgroup emacspeak-flyspell nil
@@ -81,7 +77,6 @@ fly spell checking."
  '((flyspell-incorrect voice-bolden)
    (flyspell-duplicate voice-monotone-extra)))
 
- 
 ;;;  advice
 
 (cl-declaim (special flyspell-delayed-commands))
@@ -116,7 +111,6 @@ fly spell checking."
      (unless (eq p 'doublon) (emacspeak-auditory-icon 'help))
      nil))
 
- 
 ;;;  use flyspell-correct if available:
 (defcustom emacspeak-flyspell-correct
   (cond
@@ -147,14 +141,7 @@ fly spell checking."
      (when (ems-interactive-p)
        (dtk-speak (car (flyspell-get-word nil)))))))
 
- 
 (provide 'emacspeak-flyspell)
 ;;;  emacs local variables
-
- 
- 
- 
-
- 
 
 ;;; emacspeak-flyspell.el ends here

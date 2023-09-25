@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Introduction:
@@ -46,14 +44,12 @@
 ;; This module is Dectalk specific.
 ;;; Code:
 
- 
 ;;;  required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
- 
 ;;;  Customizations:
 
 (defcustom dectalk-default-speech-rate 225
@@ -65,7 +61,6 @@
            (when (string-match "dtk" dtk-program)
              (setq-default dtk-speech-rate val))))
 
- 
 ;;;   Top-level TTS  switcher
 
 ;;;###autoload
@@ -88,7 +83,6 @@
     (dtk-initialize)
     (dtk-set-rate dectalk-default-speech-rate 'global)))
 
- 
 ;;;  Forward declarations:
 
 ;; From dtk-speak.el:
@@ -96,7 +90,6 @@
 (defvar dtk-speech-rate-step)
 (defvar dtk-speech-rate-base)
 
- 
 ;;;   voice table
 
 (defvar dectalk-default-voice-string ""
@@ -124,13 +117,11 @@
   (cl-declare (special dectalk-voice-table))
   (gethash name dectalk-voice-table))
 
- 
 ;;;  voice definitions
 
 ;; the nine predefined voices:
 (dectalk-define-voice 'paul "[:np ]")
 
- 
 ;;;   Mapping css parameters to Dectalk codes
 
 ;;;  voice family codes
@@ -157,7 +148,6 @@
 
 (dectalk-set-family-code 'paul ":np")
 
- 
 ;;;   hash table for mapping families to their dimensions
 
 (defvar dectalk-css-code-tables (make-hash-table)
@@ -177,7 +167,6 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key dectalk-css-code-tables)))
 
- 
 ;;;   average pitch
 
 ;; Average pitch for standard male voice is 122hz --this is mapped to
@@ -211,10 +200,6 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'average-pitch table))
 
- 
-
- 
-
 (defun dectalk-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for  VALUE and  FAMILY."
   (or family (setq family 'paul))
@@ -223,7 +208,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   pitch range
 
 ;;  Standard pitch range is 100 and is  mapped to
@@ -256,8 +240,6 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'pitch-range table))
 
- 
-
 (defun dectalk-get-pitch-range-code (value family)
   "Get pitch-range code for  VALUE and FAMILY."
   (or family (setq family 'paul))
@@ -266,7 +248,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   stress
 
 ;; On the Dectalk we vary four parameters
@@ -304,8 +285,6 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'stress table))
 
- 
-
 (defun dectalk-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -313,7 +292,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   richness
 
 ;; Smoothness and richness vary inversely.
@@ -342,8 +320,6 @@ and TABLE gives the values along that dimension."
      ))
   (dectalk-css-set-code-table 'paul 'richness table))
 
- 
-
 (defun dectalk-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value
@@ -351,7 +327,6 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
- 
 ;;;   dectalk-define-voice-from-speech-style
 
 (defun dectalk-define-voice-from-speech-style (name style)
@@ -375,7 +350,6 @@ and TABLE gives the values along that dimension."
            "]")))
     (dectalk-define-voice name command)))
 
- 
 ;;;  configurater
 
 ;;;###autoload
@@ -398,13 +372,6 @@ and TABLE gives the values along that dimension."
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
- 
-
 (provide 'dectalk-voices)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

@@ -11,7 +11,6 @@
 ;;; Location undetermined
 ;;;
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,21 +43,18 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile  (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map 
  '(
    (devdocs-code-block voice-monotone)))
 
- 
 ;;;  Interactive Commands:
 
 '(
@@ -86,12 +81,10 @@
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
 
- 
 (provide 'emacspeak-devdocs)
 ;;;  end of file
 
-; 
-; 
-; 
+                                        ; 
+                                        ; 
+                                        ; 
 
- 

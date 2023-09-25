@@ -23,7 +23,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;;;  introduction
 
 ;;; Commentary:
@@ -41,20 +40,17 @@
 
 ;;; Code:
 
- 
 ;;;  required packages
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
- 
 ;;;  Decls:
 
 ;; forward decl:
 (defvar emacspeak-speak-messages)
 
- 
 ;;;  Custom:
 
 (defcustom amixer-device "default"
@@ -79,7 +75,6 @@
   min max step
   current)
 
- 
 ;;;  Manage amixer db:
 
 (defun amixer-populate-settings (control)
@@ -174,7 +169,6 @@
       (mapc #'amixer-populate-settings controls)
       (setq amixer-db controls))))
 
- 
 ;;;  Amixer:
 
 (defun amixer-get-enumerated-values(control)
@@ -328,7 +322,6 @@ Interactive prefix arg refreshes cache."
     (message "Persisted amixer state to %s."
              amixer-alsactl-config-file)))
 
- 
 ;;; Raise/Lower Volume Using pactl:
 (defcustom amixer-volume-step 2
   "Step-size for volume change."
@@ -392,8 +385,3 @@ of 3 and 4 lower or raise volume."
 (provide 'amixer)
 ;;;  end of file
 
- 
- 
- 
-
- 

@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman 
 ;; Copyright (c) 1995 by T. V. Raman  
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 
 ;;;   Introduction
 
@@ -45,7 +43,6 @@
 ;; This module implements the necessary extensions to provide talking
 ;; widgets.
 
- 
 ;;;  required modules 
 
 ;;; Code:
@@ -56,7 +53,6 @@
 (require 'voice-setup)
 (require 'wid-edit)
 
- 
 ;;;   Customize global behavior
 
 (voice-setup-add-map
@@ -72,7 +68,6 @@
 (cl-declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
 
- 
 ;;;   helpers 
 
 (defun emacspeak-widget-label (w)
@@ -107,7 +102,6 @@ Returns a string with appropriate personality."
                          'personality voice-animate help)
       help)))
 
- 
 ;;;   define summarizer
 
 (defun emacspeak-widget-help ()
@@ -148,7 +142,6 @@ Returns a string with appropriate personality."
        (dtk-speak  (funcall emacspeak-help widget)))
       (t (dtk-speak (current-message)))))))
 
- 
 ;;;  advice activators 
 
 ;;;   widget specific summarizers  --as per Per's suggestion
@@ -175,7 +168,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'default 'widget-type)
             :emacspeak-help 'emacspeak-widget-default-summarize)
 
- 
 ;;;  editable field
 
 (defun emacspeak-widget-help-editable-field (widget)
@@ -192,7 +184,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'editable-field 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-field)
 
- 
 ;;;  item 
 
 (defun emacspeak-widget-help-item (widget)
@@ -207,7 +198,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-item)
 
- 
 ;;;  visibility 
 
 (defun emacspeak-widget-help-visibility (widget)
@@ -226,7 +216,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'visibility 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-visibility)
 
- 
 ;;;   push button 
 
 (defun emacspeak-widget-help-push-button (widget)
@@ -245,7 +234,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'push-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-push-button)
 
- 
 ;;;   link 
 
 (defun emacspeak-widget-help-link (widget)
@@ -257,7 +245,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-link)
 
- 
 ;;;   info-link 
 
 (defun emacspeak-widget-help-info-link (widget)
@@ -269,7 +256,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'info-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-info-link)
 
- 
 ;;;   url-link 
 
 (defun emacspeak-widget-help-url-link (widget)
@@ -283,7 +269,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'url-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-url-link)
 
- 
 ;;;   variable-link 
 
 (defun emacspeak-widget-help-variable-link (widget)
@@ -295,7 +280,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'variable-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-variable-link)
 
- 
 ;;;   function-link 
 
 (defun emacspeak-widget-help-function-link (widget)
@@ -306,7 +290,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'function-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-function-link)
 
- 
 ;;;   file-link 
 
 (defun emacspeak-widget-help-file-link (widget)
@@ -320,7 +303,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'file-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-file-link)
 
- 
 ;;;   emacs-library-link 
 
 (defun emacspeak-widget-help-emacs-library-link (widget)
@@ -334,7 +316,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'emacs-library-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-emacs-library-link)
 
- 
 ;;;   emacs-commentary-link 
 
 (defun emacspeak-widget-help-emacs-commentary-link (widget)
@@ -348,7 +329,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'emacs-commentary-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-emacs-commentary-link)
 
- 
 ;;;   menu choice 
 
 (defun emacspeak-widget-help-menu-choice  (widget)
@@ -365,7 +345,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'menu-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-menu-choice)
 
- 
 ;;;   toggle   
 
 (defun emacspeak-widget-help-toggle (widget)
@@ -383,7 +362,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'toggle 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-toggle)
 
- 
 ;;;   checklist
 
 (defun emacspeak-widget-help-checklist  (widget)
@@ -404,7 +382,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'checklist 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checklist)
 
- 
 ;;;  choice-item
 
 (defun emacspeak-widget-help-choice-item (widget)
@@ -422,7 +399,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'choice-item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-choice-item)
 
- 
 ;;;  checkbox
 
 (defun emacspeak-widget-help-checkbox (widget)
@@ -440,7 +416,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'checkbox 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checkbox)
 
- 
 ;;;  radio-button
 
 (defun emacspeak-widget-help-radio-button (widget)
@@ -459,7 +434,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'radio-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-radio-button)
 
- 
 ;;;  radio-button-choice
 
 (defun emacspeak-widget-help-radio-button-choice  (widget)
@@ -483,7 +457,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'radio-button-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-radio-button-choice)
 
- 
 ;;;  editable-list
 
 (defun emacspeak-widget-help-editable-list (widget)
@@ -502,9 +475,6 @@ Returns a string with appropriate personality."
 (widget-put (get 'editable-list 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-list)
 
- 
-
- 
 ;;;   Widget motion
 
 ;; avoid redundant message speech output
@@ -559,7 +529,6 @@ Returns a string with appropriate personality."
     (emacspeak-speak-current-kill 0)
     (dtk-tone-deletion)))
 
- 
 ;;;   activating widgets:
 ;; forward declaration:
 
@@ -588,7 +557,6 @@ Returns a string with appropriate personality."
      (t ad-do-it))
     ad-return-value))
 
- 
 ;;;   Interactively summarize a widget and its parents.
 
 (defun emacspeak-widget-summarize-widget-under-point (&optional level)
@@ -629,7 +597,6 @@ widget before summarizing."
        (t (read-key-sequence "Press any key to continue")))
       (emacspeak-widget-summarize-widget-under-point level))))
 
- 
 ;;;  work around widget problems
 
 (defadvice widget-convert-text (around emacspeak pre act comp)
@@ -644,7 +611,6 @@ widget before summarizing."
          (put-text-property start end 
                             'personality orig))))
 
- 
 ;;;  update widget related keymaps so we dont loose the
 ;;emacspeak prefix 
 
@@ -665,7 +631,6 @@ widget before summarizing."
      (define-key map "\M-p" 'emacspeak-widget-summarize-parent)
      (define-key map "\M-\C-m" 'emacspeak-widget-update-from-minibuffer))))
 
- 
 ;;;  augment widgets 
 
 (defun emacspeak-widget-update-from-minibuffer (pos)
@@ -686,9 +651,6 @@ widget before summarizing."
                      widget-field-keymap
                      widget-text-keymap))
 
- 
-
- 
 ;;;  voice widgets 
 
 (define-widget 'voice  'menu-choice
@@ -714,12 +676,6 @@ widget before summarizing."
                          (list 'personality :value key)))
     w))
 
- 
 (provide  'emacspeak-widget)
 ;;;   emacs local variables 
 
- 
- 
-  
-
- 

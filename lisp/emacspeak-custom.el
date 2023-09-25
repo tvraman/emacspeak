@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   Required modules
@@ -44,14 +42,13 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'cus-edit)
- 
+
 ;;;   Introduction
 ;;; Commentary:
 ;; Advise custom to speak.
 ;; most of the work is actually done by emacspeak-widget.el
 ;; which speech-enables the widget libraries.
 ;;; Code:
- 
 
 ;;;  advice
 
@@ -171,7 +168,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
 
- 
 ;;;  custom hook
 
 (add-hook 'Custom-mode-hook
@@ -179,7 +175,6 @@
           #'(lambda nil
               (emacspeak-pronounce-refresh-pronunciations)))
 
- 
 ;;;  define voices
 (voice-setup-add-map
  '(
@@ -210,7 +205,6 @@
    (custom-variable-button voice-animate)
    (custom-variable-tag voice-bolden-medium)))
 
- 
 ;;;   custom navigation
 
 (defvar emacspeak-custom-group-regexp
@@ -243,7 +237,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
- 
 ;;;   bind emacspeak commands 
 
 (cl-declaim (special custom-mode-map))
@@ -259,15 +252,8 @@
 (define-key custom-mode-map  "\M-g"
             'emacspeak-custom-goto-group)
 
- 
 ;;;  augment custom widgets
 
- 
 (provide 'emacspeak-custom)
 ;;;  end of file 
 
- 
- 
-  
-
- 

@@ -12,7 +12,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,7 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -49,14 +47,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
- 
 ;;;  Map Faces:
 
 (voice-setup-add-map
@@ -96,7 +92,6 @@
    (slime-repl-prompt-face voice-smoothen)
    (slime-repl-result-face voice-animate)))
 
- 
 ;;;  Navigation And Repl:
 (cl-loop
  for f in
@@ -261,7 +256,6 @@
        (emacspeak-auditory-icon 'help)
        (dtk-speak "Displayed help in other window.")))))
 
- 
 ;;;  Writing Code:
 (cl-loop
  for f in
@@ -278,10 +272,9 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
- 
+
 ;;;  Lisp Interaction:
 
- 
 ;;;  Browsing Documentation:
 
 (cl-loop
@@ -300,7 +293,6 @@
          (emacspeak-speak-buffer)
          (emacspeak-auditory-icon 'help))))))
 
- 
 ;;;  Inspector:
 
 (defadvice slime-inspector-pop (after emacspeak pre act comp)
@@ -381,15 +373,8 @@
 
   slime-inspector-toggle-verbose)
 
- 
 ;;;  Debugger:
 
- 
 (provide 'emacspeak-slime)
 ;;;  end of file
 
- 
- 
- 
-
- 

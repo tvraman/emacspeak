@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +36,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -65,7 +63,6 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
@@ -75,14 +72,12 @@
 (require 'g-utils)
 (declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
- 
 ;;;  Variables:
 
 (defvar emacspeak-librivox-buffer-name
   "Librivox Interaction*"
   "Name of Librivox interaction buffer.")
 
- 
 ;;;  API:
 
 (defvar emacspeak-librivox-api-base
@@ -133,7 +128,6 @@
   (cl-declare (special emacspeak-librivox-api-base))
   (concat emacspeak-librivox-api-base "authors"))
 
- 
 ;;;  Search Commands:
 
 (defun emacspeak-librivox-display-author (author)
@@ -316,7 +310,6 @@ more results."
            (url-hexify-string title))
    offset))
 
- 
 ;;;  Top-Level Dispatch:
 
 ;;;###autoload
@@ -332,7 +325,6 @@ more results."
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
     (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
- 
 ;;;  Cache Playlists:
 (defcustom emacspeak-librivox-local-cache
   (expand-file-name "librivox" emacspeak-user-directory)
@@ -363,7 +355,6 @@ more results."
        (format "%s.m3u" (or title "Untitled"))
        emacspeak-librivox-local-cache))))
 
- 
 ;;;  Play Librivox Streams:
 
 (defun emacspeak-librivox-play (rss-url)
@@ -385,12 +376,6 @@ more results."
              file m3u-file))
     (emacspeak-m-player m3u-file 'playlist)))
 
- 
 (provide 'emacspeak-librivox)
 ;;;  end of file
 
- 
- 
- 
-
- 

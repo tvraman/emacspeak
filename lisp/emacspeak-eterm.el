@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Introduction:
 
@@ -48,14 +46,13 @@
 ;; This module uses Control-t as an additional prefix key to allow the user
 ;; To move around the terminal and have different parts spoken.
 
- 
 ;;; Code:
 ;;;  required packages:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'term)
- 
+
 ;;;  custom
 
 (defgroup emacspeak-eterm nil
@@ -63,7 +60,6 @@
   :group 'emacspeak
   :prefix "emacspeak-eterm-")
 
- 
 ;;;   keybindings:
 
 (defvar emacspeak-eterm-keymap (make-keymap)
@@ -174,7 +170,6 @@ Useful when eterm is in review mode.")
     (define-key emacspeak-eterm-keymap emacspeak-eterm-raw-prefix
                 term-raw-map)))
 
- 
 ;;;   voice definitions  for eterm  highlight, underline etc
 
 (defvar emacspeak-eterm-highlight-personality voice-bolden
@@ -189,7 +184,6 @@ Useful when eterm is in review mode.")
 (defvar emacspeak-eterm-default-personality 'paul
   "Default personality for terminal.")
 
- 
 ;;;   functions
 
 ;; nuke term cache info
@@ -242,7 +236,6 @@ the Emacspeak pointer to be spoken."
       (emacspeak-speak-region term-home-marker  emacspeak-eterm-pointer)
     (emacspeak-speak-region  emacspeak-eterm-pointer (point-max))))
 
- 
 ;;;   Speaking the screen pointer:
 
 ;; The pointer is an invisible marker that is
@@ -275,7 +268,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
     (goto-char emacspeak-eterm-pointer)
     (emacspeak-speak-char prefix)))
 
- 
 ;;;   moving the screen pointer:
 
 (defun emacspeak-eterm-pointer-to-cursor ()
@@ -484,7 +476,6 @@ If found, the Emacspeak pointer is left at the hit. "
          (t(emacspeak-auditory-icon 'search-miss)
            (message "%s not found " string)))))))
 
- 
 ;;;   Highlight tracking:
 
 ;; Moving pointer  to the next highlighted portion of the screen:
@@ -527,7 +518,6 @@ Optional argument COUNT specifies how many changes to skip."
               (emacspeak-eterm-speak-pointer-line))
        (t (message "No color change found on the screen "))))))
 
- 
 ;;;   reviewing the terminal:
 (defvar-local emacspeak-eterm-pointer nil
   "Terminal pointer. Can be moved around to listen to the contents of the
@@ -565,7 +555,6 @@ without sending input to the terminal itself."
      "Terminal review should be used when eterm is in character mode "))
   (emacspeak-auditory-icon (if emacspeak-eterm-review-p 'on 'off)))
 
- 
 ;;;   Cut and paste while reviewing:
 
 (defvar emacspeak-eterm-marker nil
@@ -637,7 +626,6 @@ sent to the terminal as if it were typed by the user."
      (t (error "Register %c does not contain text"
                register)))))
 
- 
 ;;;   Defining and speaking terminal windows:
 
 ;; A window structure is of the form
@@ -1004,7 +992,6 @@ activity within the filter window."
        (read (format "%c" last-input-event))
      (error nil))))
 
- 
 ;;;   advice emulator
 
 (defvar eterm-current-personality nil
@@ -1204,7 +1191,6 @@ there is terminal activity.")
   (when (ems-interactive-p)
     (dtk-speak "Terminal character mode ")))
 
- 
 ;;;   Advice term functions 
 
 (defadvice term-next-input (after emacspeak pre act comp)
@@ -1286,13 +1272,6 @@ there is terminal activity.")
     (message "Switch to the completions window to browse the possible
 completions for filename at point")))
 
- 
-
 (provide 'emacspeak-eterm)
 ;;;   emacs local variables
 
- 
- 
- 
-
- 

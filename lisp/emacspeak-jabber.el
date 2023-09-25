@@ -13,7 +13,6 @@
 ;; Location undetermined
 ;; 
 
- 
 ;;;   Copyright:
 
 ;; Copyright (c) 1995 -- 2022, T. V. Raman
@@ -36,7 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
- 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;  Introduction:
@@ -48,13 +46,12 @@
 
 ;;; Code:
 
- 
 ;;;   Required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (with-no-warnings (require 'jabber "jabber" 'no-error))
- 
+
 ;;; Forward decls:
 (declare-function jabber-activity-switch-to "jabber" (&optional jid-param))
 (declare-function jabber-jid-user "jabber" (jid))
@@ -63,7 +60,6 @@
 (declare-function jabber-muc-sender-p "jabber" (jid))
 nil
 
- 
 ;;;  map voices
 
 (voice-setup-add-map
@@ -87,7 +83,7 @@ nil
    (jabber-title-medium         voice-bolden)
    (jabber-title-small          voice-lighten)
    ))
- 
+
 ;;;  Advice interactive commands:
 
 (defadvice jabber-switch-to-roster-buffer (after emacspeak pre act comp)
@@ -96,7 +92,6 @@ nil
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;  silence keepalive
 
 (cl-loop
@@ -114,7 +109,6 @@ nil
       ad-do-it
       ad-return-value))))
 
- 
 ;;;  jabber activity:
 
 (defadvice jabber-activity-switch-to (after emacspeak pre act comp)
@@ -123,7 +117,6 @@ nil
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
- 
 ;;;  chat buffer:
 
 (defadvice jabber-chat-buffer-send (after emacspeak pre act comp)
@@ -131,7 +124,6 @@ nil
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
- 
 ;;;  alerts
 
 (defcustom emacspeak-jabber-speak-presence-alerts nil
@@ -221,14 +213,12 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 
 (add-hook 'jabber-post-connect-hook 'jabber-switch-to-roster-buffer)
 
- 
 (defun emacspeak-jabber-connected ()
   "Function to add to jabber-post-connection-hook."
   (emacspeak-auditory-icon 'task-done)
   (dtk-notify-say "Connected to jabber."))
 (add-hook 'jabber-post-connect-hook #'emacspeak-jabber-connected)
 
- 
 ;;;  Pronunciations
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations
@@ -238,7 +228,6 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
  'jabber-mode
  emacspeak-pronounce-internet-smileys-pronunciations)
 
- 
 ;;;  Browse chat buffers:
 (defun emacspeak-jabber-chat-speak-this-message(&optional copy-as-kill)
   "Speak chat message under point.
@@ -296,7 +285,6 @@ the kill ring as well."
    do
    (emacspeak-keymap-update  jabber-chat-mode-map k)))
 
- 
 ;;;  Speak recent message:
 
 (defun emacspeak-jabber-speak-recent-message ()
@@ -311,7 +299,6 @@ the kill ring as well."
       (emacspeak-jabber-chat-previous-message)))
    (t (message "No recent message."))))
 
- 
 ;;; Setup:
 
 (defun emacspeak-jabber-setup ()
@@ -327,12 +314,7 @@ the kill ring as well."
    (define-key emacspeak-x-keymap (cl-first b) (cl-second b))))
 
 (cl-eval-when '(load) (emacspeak-jabber-setup))
- 
+
 (provide 'emacspeak-jabber)
 ;;;  end of file
 
- 
- 
- 
-
- 
