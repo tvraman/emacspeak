@@ -794,8 +794,8 @@
 (provide 'emacspeak-keymap)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -389,8 +389,8 @@ more results."
 (provide 'emacspeak-librivox)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

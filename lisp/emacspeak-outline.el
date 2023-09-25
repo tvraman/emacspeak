@@ -340,8 +340,8 @@ except that the outline section is  spoken"
 (provide  'emacspeak-outline)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

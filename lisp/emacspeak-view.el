@@ -372,8 +372,8 @@ keybindings for view mode")
 (provide  'emacspeak-view)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

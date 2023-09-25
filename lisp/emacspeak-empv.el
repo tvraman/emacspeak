@@ -211,8 +211,8 @@
 (provide 'emacspeak-empv)
 ;;;  end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+; 
+; 
+; 
 
  

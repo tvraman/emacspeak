@@ -392,8 +392,8 @@ of 3 and 4 lower or raise volume."
 (provide 'amixer)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -161,9 +161,9 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax.
 (provide 'gm-nnir)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
+ 
+ 
 ;; byte-compile-warnings: (not obsolete)
-;; end:
+ 
 
  

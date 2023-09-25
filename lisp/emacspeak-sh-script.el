@@ -124,8 +124,8 @@
 (provide 'emacspeak-sh-script)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

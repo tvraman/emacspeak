@@ -265,8 +265,8 @@ node-spec."
 (provide  'emacspeak-info)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

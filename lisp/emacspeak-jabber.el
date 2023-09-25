@@ -331,8 +331,8 @@ the kill ring as well."
 (provide 'emacspeak-jabber)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

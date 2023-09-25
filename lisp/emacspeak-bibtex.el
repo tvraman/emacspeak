@@ -216,8 +216,8 @@
 (provide  'emacspeak-bibtex)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

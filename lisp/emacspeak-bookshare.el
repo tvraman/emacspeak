@@ -1378,8 +1378,8 @@ Useful for fulltext search in a book."
 (provide 'emacspeak-bookshare)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

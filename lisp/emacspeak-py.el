@@ -411,8 +411,8 @@ Provide contextual feedback when closing blocks"
 (provide 'emacspeak-py)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

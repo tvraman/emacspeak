@@ -165,8 +165,8 @@ Summarize the form to welcome the user. "
 (provide 'emacspeak-eudc)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

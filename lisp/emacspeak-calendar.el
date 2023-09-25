@@ -520,8 +520,8 @@ To use, configure variable gmaps-my-address via M-x customize-variable."
 (provide 'emacspeak-calendar)
 ;;;  emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

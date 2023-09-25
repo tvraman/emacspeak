@@ -192,8 +192,8 @@ Otherwise cue user to the line just created. "
 (provide  'emacspeak-cperl)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

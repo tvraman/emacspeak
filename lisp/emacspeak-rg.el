@@ -115,8 +115,8 @@
 (provide 'emacspeak-rg)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

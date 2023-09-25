@@ -489,8 +489,8 @@ and return the results in a newly created buffer. "
 (provide 'emacspeak-xslt)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

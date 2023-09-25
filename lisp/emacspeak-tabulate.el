@@ -203,8 +203,8 @@ Fields are assumed to be delimited by whitespace. "
 
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

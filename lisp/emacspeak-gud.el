@@ -92,8 +92,8 @@
 (provide  'emacspeak-gud)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -887,8 +887,8 @@ Helps to prevent words from being spelled instead of spoken."
  
 (provide 'emacspeak-gnus)
 ;;;   end of file 
-;; local variables:
-;; folded-file: t
+ 
+ 
 ;; byte-compile-warnings: (deprecated )
-;; end: 
+  
  

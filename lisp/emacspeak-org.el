@@ -931,8 +931,8 @@ Press `y' to move to next amark."
 (provide 'emacspeak-org)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

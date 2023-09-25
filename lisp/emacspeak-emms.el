@@ -189,8 +189,8 @@ emacspeak-silence-hook."
 (provide 'emacspeak-emms)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

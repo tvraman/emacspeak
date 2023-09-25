@@ -229,8 +229,8 @@ first initializing it if necessary."
 (provide 'emacspeak-arc)
 ;;;  end of file 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

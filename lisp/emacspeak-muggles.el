@@ -361,9 +361,9 @@ _p_ emacspeak-muggles-lispy-or-sp:
 (provide 'emacspeak-muggles)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
+ 
+ 
 ;; byte-compile-warnings: (docstring  noruntime)
-;; end:
+ 
 
  

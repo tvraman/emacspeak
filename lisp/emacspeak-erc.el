@@ -384,8 +384,8 @@ set the current local value to the result.")
  
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -748,8 +748,8 @@ Setting persists for current Emacs session."
 (provide 'emacspeak-ocr)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

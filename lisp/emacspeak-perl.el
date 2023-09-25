@@ -82,8 +82,8 @@
 (provide  'emacspeak-perl)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

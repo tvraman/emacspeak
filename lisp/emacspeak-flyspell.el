@@ -151,9 +151,9 @@ fly spell checking."
 (provide 'emacspeak-flyspell)
 ;;;  emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  
 

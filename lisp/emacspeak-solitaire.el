@@ -245,8 +245,8 @@ emacspeak-solitaire-speak-coordinates"
 (provide 'emacspeak-solitaire)
 ;;;  end of file 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

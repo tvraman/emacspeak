@@ -161,8 +161,8 @@ Default list includes some TclX keywords. ")
 (provide  'emacspeak-tcl)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

@@ -978,8 +978,8 @@ Place details need to have been expanded first."
 (provide 'gmaps)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

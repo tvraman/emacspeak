@@ -317,8 +317,8 @@ Define a voice for it if needed, then return the symbol."
 (provide 'voice-setup)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

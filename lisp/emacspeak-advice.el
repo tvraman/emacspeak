@@ -2779,8 +2779,8 @@ Produce an auditory icon if possible."
 (provide 'emacspeak-advice)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

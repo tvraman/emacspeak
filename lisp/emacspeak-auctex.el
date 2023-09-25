@@ -273,8 +273,8 @@ the opening line of the newly inserted environment. "
 (provide  'emacspeak-auctex)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

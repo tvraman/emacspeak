@@ -2097,8 +2097,8 @@ our pre-defined filters if appropriate."
 (provide 'emacspeak-m-player)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

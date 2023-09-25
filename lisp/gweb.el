@@ -185,8 +185,8 @@ Uses corpus found in gweb-completion-corpus"
 (provide 'gweb)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

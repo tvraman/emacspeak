@@ -334,8 +334,8 @@ Optional interactive PREFIX arg toggles global value."
 (provide  'emacspeak-sounds)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

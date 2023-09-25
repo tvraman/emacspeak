@@ -604,8 +604,8 @@ For use on Wikipedia pages  for example."
 (provide 'emacspeak-maths)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

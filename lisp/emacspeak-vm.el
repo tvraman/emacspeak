@@ -764,8 +764,8 @@ text using pdftotext."
 (provide 'emacspeak-vm)
 ;;;   local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

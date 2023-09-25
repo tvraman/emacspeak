@@ -155,8 +155,8 @@ Cue electric insertion with a tone."
 (provide 'emacspeak-ess)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

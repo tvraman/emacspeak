@@ -227,8 +227,8 @@ The default value of 12 is too high for using ido effectively with speech. "
 (provide 'emacspeak-ido)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

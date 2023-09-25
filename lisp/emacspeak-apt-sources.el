@@ -102,8 +102,8 @@
 (provide 'emacspeak-apt-sources)
 ;;;  end of file 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

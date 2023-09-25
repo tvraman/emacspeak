@@ -116,8 +116,8 @@
 ;;; emacspeak-flycheck ends here
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -274,8 +274,8 @@ Calls callback once per column."
 (provide  'emacspeak-table)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

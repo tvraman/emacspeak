@@ -94,8 +94,8 @@
 (provide 'emacspeak-xref)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -113,8 +113,8 @@
 (provide 'emacspeak-wdired)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

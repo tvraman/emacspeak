@@ -413,8 +413,8 @@ list of parsed ladspa-plugin structures, one per label."
 (provide 'ladspa)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

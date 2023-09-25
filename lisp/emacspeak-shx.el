@@ -134,8 +134,8 @@ Provide an auditory icon if possible."
 (provide 'emacspeak-shx)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -96,8 +96,8 @@
 (provide 'emacspeak-calc)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

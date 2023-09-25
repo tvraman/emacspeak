@@ -109,8 +109,8 @@
 (provide 'emacspeak-deadgrep)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

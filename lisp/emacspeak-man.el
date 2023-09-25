@@ -187,8 +187,8 @@ Also provide an auditory icon"
 (provide  'emacspeak-man)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

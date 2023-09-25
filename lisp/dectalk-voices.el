@@ -403,8 +403,8 @@ and TABLE gives the values along that dimension."
 (provide 'dectalk-voices)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

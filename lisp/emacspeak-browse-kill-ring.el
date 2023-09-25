@@ -125,9 +125,9 @@
 (provide 'emacspeak-browse-kill-ring)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
 (defadvice browse-kill-ring-search-forward (after emacspeak pre act comp)
   "speak."

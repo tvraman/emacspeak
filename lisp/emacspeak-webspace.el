@@ -399,8 +399,8 @@ Optional interactive prefix arg forces a refresh."
 (provide 'emacspeak-webspace)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

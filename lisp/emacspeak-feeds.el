@@ -388,8 +388,8 @@ and run the awesome-rss-fixup.sh script found  in %s"
 (provide 'emacspeak-feeds)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

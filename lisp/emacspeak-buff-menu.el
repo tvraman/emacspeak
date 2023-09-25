@@ -262,8 +262,8 @@ and set up additional Emacspeak bindings."
 (provide 'emacspeak-buff-menu)
 ;;;  end of file 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

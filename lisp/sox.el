@@ -505,8 +505,8 @@ and return a suitable effect structure." name)
  
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

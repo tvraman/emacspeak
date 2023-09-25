@@ -718,8 +718,8 @@ widget before summarizing."
 (provide  'emacspeak-widget)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

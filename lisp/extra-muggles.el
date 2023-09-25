@@ -553,9 +553,9 @@ Also generates global keybindings if any."
 (provide 'extra-muggles)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
+ 
+ 
 ;; byte-compile-warnings: (docstring noruntime )
-;; end:
+ 
 
  

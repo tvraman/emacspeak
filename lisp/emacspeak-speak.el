@@ -2877,8 +2877,8 @@ p emacspeak-cycle-to-previous-buffer
 (provide 'emacspeak-speak)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

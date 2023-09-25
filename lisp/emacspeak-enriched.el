@@ -134,8 +134,8 @@ Useful in voiceifying rich text."
 (provide  'emacspeak-enriched)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

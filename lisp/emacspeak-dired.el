@@ -597,8 +597,8 @@ If on a directory, speak the total duration of all sound files under
 (provide 'emacspeak-dired)
 ;;;  emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

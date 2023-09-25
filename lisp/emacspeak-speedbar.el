@@ -296,8 +296,8 @@ An automatically updating speedbar consumes resources.")
 (provide 'emacspeak-speedbar)
 ;;;  end of file 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

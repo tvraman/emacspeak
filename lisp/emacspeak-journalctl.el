@@ -97,8 +97,8 @@
 (provide 'emacspeak-journalctl)
 ;;;  end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+; 
+; 
+; 
 
  

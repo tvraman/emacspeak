@@ -653,8 +653,8 @@ The  is then saved to soundscape-device for future use."
 (provide 'soundscape)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

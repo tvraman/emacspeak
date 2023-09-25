@@ -336,8 +336,8 @@ Optional interactive prefix arg prompts for a filename."
 (provide 'emacspeak-2048)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

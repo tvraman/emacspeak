@@ -304,8 +304,8 @@ Press `r' to resume the suspended transient."
 (provide 'emacspeak-transient)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

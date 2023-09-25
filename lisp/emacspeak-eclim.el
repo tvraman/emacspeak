@@ -99,8 +99,8 @@
 (provide 'emacspeak-eclim)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

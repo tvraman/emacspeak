@@ -2307,9 +2307,9 @@ When called interactively, CHAR defaults to the character after point."
 (provide 'dtk-speak)
 ;;;   emacs local variables
 
-;; local variables:
+ 
 ;; coding: utf-8
-;; folded-file: t
-;; end:
+ 
+ 
 
  

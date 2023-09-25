@@ -94,8 +94,8 @@
 (provide  'emacspeak-sgml-mode)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

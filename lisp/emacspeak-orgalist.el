@@ -75,8 +75,8 @@
 (provide 'emacspeak-orgalist)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

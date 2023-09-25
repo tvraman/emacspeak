@@ -515,8 +515,8 @@ Emacspeak sessions running on  different machines. "
 (provide 'emacspeak-extras)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

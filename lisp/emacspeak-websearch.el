@@ -540,8 +540,8 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
 (provide 'emacspeak-websearch)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

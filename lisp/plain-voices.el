@@ -372,8 +372,8 @@ and TABLE gives the values along that dimension."
 (provide 'plain-voices)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

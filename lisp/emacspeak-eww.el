@@ -2599,8 +2599,8 @@ Use for large EBook buffers."
 (provide 'emacspeak-eww)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

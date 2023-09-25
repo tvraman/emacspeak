@@ -1284,8 +1284,8 @@ future  use."
 (provide  'emacspeak-table-ui)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

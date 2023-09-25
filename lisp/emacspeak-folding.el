@@ -156,8 +156,8 @@ Then speak the  line."
 (provide  'emacspeak-folding)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

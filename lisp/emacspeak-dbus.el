@@ -420,8 +420,8 @@ already disabled."
 (provide 'emacspeak-dbus)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

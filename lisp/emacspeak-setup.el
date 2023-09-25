@@ -70,9 +70,9 @@
 (provide 'emacspeak-setup)
 ;;;   emacs local variables
 
-;; local variables:
+ 
 ;; mode: emacs-lisp
-;; folded-file: t
-;; end:
+ 
+ 
 
  

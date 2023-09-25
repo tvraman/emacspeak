@@ -271,8 +271,8 @@ Assumes that point is at the front of a field value."
 (provide  'emacspeak-forms)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

@@ -309,8 +309,8 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (load "pianobar")
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

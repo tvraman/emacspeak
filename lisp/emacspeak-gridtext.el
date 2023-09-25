@@ -225,8 +225,8 @@ end   as specified by grid."
 (provide 'emacspeak-gridtext)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

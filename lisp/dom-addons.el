@@ -175,8 +175,8 @@ children, e.g. `a', concatenated."
 (provide 'dom-addons)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

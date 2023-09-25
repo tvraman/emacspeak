@@ -388,8 +388,8 @@ end up building a template page first."
 (provide  'emacspeak-dismal)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

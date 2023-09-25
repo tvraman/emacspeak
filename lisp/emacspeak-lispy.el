@@ -362,8 +362,8 @@ Indicate  no movement if we did not move."
 (provide 'emacspeak-lispy)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

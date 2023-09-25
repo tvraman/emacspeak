@@ -159,8 +159,8 @@ many available corrections."
 (provide 'emacspeak-ispell)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

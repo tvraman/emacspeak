@@ -243,8 +243,8 @@ Speak field or char moved to."
 (provide 'emacspeak-analog)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

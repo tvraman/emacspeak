@@ -1294,8 +1294,8 @@ in emacspeak-epub-mode")
 (provide 'emacspeak-epub)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

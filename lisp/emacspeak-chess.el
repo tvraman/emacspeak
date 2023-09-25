@@ -850,8 +850,8 @@ specifies index of move, default is final index."
 (provide 'emacspeak-chess)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

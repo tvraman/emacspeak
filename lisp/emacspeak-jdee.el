@@ -324,8 +324,8 @@ If we are on the last call, do nothing."
 (provide 'emacspeak-jdee)
 ;;;  end of file 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

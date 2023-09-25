@@ -126,8 +126,8 @@ Optional interactive prefix arg speaks column header as well."
 (provide 'emacspeak-tabulated-list)
 ;;;  end of file
 
-;;; local variables:
-;;; folded-file: t
-;;; end:
+; 
+; 
+; 
 
  

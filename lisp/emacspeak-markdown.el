@@ -186,8 +186,8 @@
 (provide 'emacspeak-markdown)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

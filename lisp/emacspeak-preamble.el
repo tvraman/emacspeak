@@ -209,8 +209,8 @@ FN-NAME to our stored value of ems--interactive-fn-name."
 (provide  'emacspeak-preamble)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

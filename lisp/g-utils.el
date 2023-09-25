@@ -443,8 +443,8 @@ Note that in the Curl output, we see lf rather than crlf.")
 (provide 'g-utils)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -596,8 +596,8 @@ directories that are used often. "
 (provide 'emacspeak-comint)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

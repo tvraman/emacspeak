@@ -274,8 +274,8 @@ to beginning of board before searching."
 (provide 'emacspeak-mines)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

@@ -168,8 +168,8 @@
 (provide 'emacspeak-clojure)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

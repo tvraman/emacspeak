@@ -220,8 +220,8 @@
 (provide 'emacspeak-eaf)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

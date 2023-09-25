@@ -1291,8 +1291,8 @@ completions for filename at point")))
 (provide 'emacspeak-eterm)
 ;;;   emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

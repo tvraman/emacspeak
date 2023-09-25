@@ -132,8 +132,8 @@ Cue electric insertion with a tone."
 (provide  'emacspeak-ruby)
 ;;;   emacs local variables 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

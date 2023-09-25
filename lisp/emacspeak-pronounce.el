@@ -1006,8 +1006,8 @@ Value returned is compatible with `encode-time'."
 (provide 'emacspeak-pronounce)
 ;;;  emacs local variables
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

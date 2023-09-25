@@ -243,8 +243,8 @@
 (provide 'emacspeak-haskell)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

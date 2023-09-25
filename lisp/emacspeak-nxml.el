@@ -260,8 +260,8 @@
 (provide 'emacspeak-nxml)
 ;;;  end of file 
 
-;; local variables:
-;; folded-file: t
-;; end: 
+ 
+ 
+  
 
  

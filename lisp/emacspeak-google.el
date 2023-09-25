@@ -907,8 +907,8 @@ results, default is 1."
 (provide 'emacspeak-google)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  

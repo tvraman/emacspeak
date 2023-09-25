@@ -312,8 +312,8 @@ personalities.")
 (provide 'emacspeak-eshell)
 ;;;  end of file
 
-;; local variables:
-;; folded-file: t
-;; end:
+ 
+ 
+ 
 
  
