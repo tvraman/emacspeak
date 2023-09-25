@@ -192,7 +192,7 @@ Use Custom to customize where possible. "
   (cl-declare (special  tvr-libs ))
 ;;; load  settings   not  customizable via custom.
   (tvr-time-load (load tvr-libs))
-  (with-eval-after-load 'yasnippet (yas-reload-all))
+  (with-eval-after-load 'yasnippet (yas--load-snippet-dirs))
   (tvr-customize)
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize))
@@ -254,7 +254,7 @@ configuration happens via the after-init-hook. "
 ;;{{{ Forward Function Declarations:
 
 
-(declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
+(declare-function yas--load-snippet-dirs "yasnippet" (&optional no-jit interactive))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
 (declare-function
  emacspeak-wizards-project-shells-initialize
