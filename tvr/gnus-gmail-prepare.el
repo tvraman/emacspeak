@@ -6,6 +6,7 @@
 ;; This module sets things up for GMail.
 ;;Using  a file-based creds store.
 ;;; specials:
+(require 'cl-lib)
 (cl-declaim (special emacspeak-z-keymap gnus-summary-mode-map
                      emacspeak-y-keymap smtpmail-auth-supported
                      gnus-auto-subscribed-groups smtpmail-smtp-service

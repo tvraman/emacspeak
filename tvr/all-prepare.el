@@ -6,6 +6,7 @@
 ;; This module sets things up for GMail.
 ;;Using  a file-based creds store.
 ;;; specials:
+(require 'cl-lib)
 (cl-declaim (special emacspeak-z-keymap gnus-summary-mode-map
                      emacspeak-y-keymap smtpmail-auth-supported
                      gnus-auto-subscribed-groups smtpmail-smtp-service
@@ -144,7 +145,8 @@ Uses the go oauth tool found in the xoauth git repo."
  
 ;;; Jump to Emacs Git Logs At HEAD:
 (defalias 'tvr-km-emacs-log
-   (kmacro "C-c 3 g i t SPC p <return> C-; d l l C-e | <return> <escape> < C-e s"))
+   (kmacro
+    "C-c 3 g i t SPC p <return> C-; d l l C-e | <return> <escape> < C-e s"))
 (define-key emacspeak-y-keymap "3" 'tvr-km-emacs-log)
 (defalias 'tvr-km-morning
    (kmacro "C-<tab> C-e g b h <tab> <return> n n e c"))
