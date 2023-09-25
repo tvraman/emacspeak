@@ -205,6 +205,7 @@ Use Custom to customize where possible. "
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (cl-declare (special auto-correct-predicate))
+  (outline-minor-mode 1)
   (auto-fill-mode)
   (emacspeak-pronounce-toggle-use-of-dictionaries t)
   (setq auto-correct-predicate #'(lambda (&rest _) t))
@@ -217,6 +218,7 @@ Use Custom to customize where possible. "
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
   (cl-declare (special dtk-caps))
+  (outline-minor-mode 1)
   (local-set-key "\C-m" 'newline-and-indent)
   (company-mode)
   (hs-minor-mode)
