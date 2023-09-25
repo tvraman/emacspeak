@@ -37,7 +37,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 
-;;;  Introduction:
+:
 
 ;;; Commentary:
 

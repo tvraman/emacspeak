@@ -42,7 +42,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;  Introduction:
+:
 ;;; Commentary:
 ;; nxml-mode is a new XML mode for emacs by James Clark.
 ;;  Package nxml is available from the Emacs package archive.

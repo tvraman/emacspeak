@@ -37,7 +37,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;  Introduction:
+:
 
 ;;; Commentary:
 ;; emacs-jabber.el implements a  jabber client for emacs

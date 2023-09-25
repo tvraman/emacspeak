@@ -42,7 +42,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;  Introduction:
+:
 ;;; Commentary:
 ;; todo-mode (part of Emacs 21) provides todo-lists that can be
 ;; integrated with the Emacs calendar.

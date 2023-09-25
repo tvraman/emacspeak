@@ -1409,9 +1409,6 @@ buffer keyed by `key'gets the key of buffer `buffer'."
 
 ;;;  Start or switch to term:
 
-
-
-
 ;;;  Espeak: MultiLingual Wizard
 
 (defvar emacspeak-wizards-espeak-voices-alist nil
@@ -1491,10 +1488,10 @@ interactive prompt."
   "Pretty-print and view Lisp evaluation results."
   (interactive
    (list
-      (read-from-minibuffer
-       "Eval: "
-       nil read-expression-map t
-       'read-expression-history)))
+    (read-from-minibuffer
+     "Eval: "
+     nil read-expression-map t
+     'read-expression-history)))
   (cl-declare (special read-expression-map))
   (let ((buffer (get-buffer-create "*emacspeak:Eval*"))
         (print-length nil)

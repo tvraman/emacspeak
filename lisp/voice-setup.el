@@ -34,8 +34,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;;  Introduction
-
 ;;; Commentary:
 
 ;; A voice is to audio as a font is to a visual display.

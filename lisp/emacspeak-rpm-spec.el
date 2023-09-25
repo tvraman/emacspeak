@@ -42,7 +42,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;  Introduction:
+:
 ;;; Commentary:
 ;; speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
 ;;; Code:
