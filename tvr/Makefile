@@ -22,7 +22,7 @@ vm-prepare.el
 
 # We create all-prepare.el and compile our startup file.
 
-all:  all-prepare.el emacs-startup.elc 
+all:  all-prepare.elc  emacs-startup.elc 
 
 # Concatenate all files we will load to create all-prepare.el
 all-prepare.el:  ${ALL}
