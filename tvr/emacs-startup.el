@@ -1,5 +1,5 @@
-;;; Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
-;;{{{ History:
+;; Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
+;;;  History:
 
 ;; Segre March 22 1991
 ;; July 15, 2001 finally cutting over to custom.
@@ -8,8 +8,8 @@
 ;; September 2017: Optimized and Cleaned Up
 ;; August 2020: Limit code at top-level.
 
-;;}}}
-;;{{{ Introduction:
+
+;;;  Introduction:
 
 ;;; Commentary:
 ;; *   This startup file is set up with the following goals:
@@ -38,8 +38,8 @@
 ;;      which sets up an efficient environment for loading files and
 ;;      helps in profiling.
 
-;;}}}
-;;{{{  libs, vars:
+
+;;;   libs, vars:
 
 (require 'cl-lib)
 (defvar tvr-site-lib (expand-file-name "~/emacs/lisp/site-lisp")
@@ -52,8 +52,8 @@
 (defvar tvr-libs "all-prepare"
   "Libraries that need extra setup.")
 
-;;}}}
-;;{{{ Macro: tvr-time-load:
+
+;;;  Macro: tvr-time-load:
 
 (defmacro tvr-time-load (&rest body)
   "Execute body with  an environment condusive to fast-loading files.
@@ -70,15 +70,15 @@ Produce timing information as the last step."
               (float-time (time-subtract (current-time) start))
               gcs-done gc-elapsed)))
 
-;;}}}
-;;{{{ Fixups:
+
+;;;  Fixups:
 
 ;; Emacs @HEAD is broken:
 (defvar font-lock-reference-face 'font-lock-constant-face)
 (advice-add 'system-users :override #'(lambda () (list user-real-login-name)))
 
-;;}}}
-;;{{{ tvr-shell-bind-keys:
+
+;;;  tvr-shell-bind-keys:
 
 (defsubst tvr-shell-bind-keys ()
   "Set up  shell mode keys."
@@ -92,8 +92,8 @@ Produce timing information as the last step."
    do
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
-;;}}}
-;;{{{tvr-tabs:
+
+;;; tvr-tabs:
 
 (defsubst tvr-tabs ()
   "Set up  tab-bar"
@@ -101,8 +101,8 @@ Produce timing information as the last step."
   (tab-bar-switch-to-tab "Books")
   (tab-bar-switch-to-tab "Home"))
 
-;;}}}
-;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
+
+;;; Functions: emacs-startup-hook, after-init-hook, tvr-customize
 
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook.
@@ -126,7 +126,7 @@ Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        global-mode-string outline-minor-mode-prefix
                        outline-mode-prefix-map
-                        emacspeak-directory))
+                       emacspeak-directory))
   (load-library "aster")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
@@ -231,8 +231,8 @@ Use Custom to customize where possible. "
   (yas-minor-mode)
   (abbrev-mode))
 
-;;}}}
-;;{{{tvr-emacs:
+
+;;; tvr-emacs:
 
 (defun tvr-emacs ()
   "Start up emacs.
@@ -251,11 +251,10 @@ configuration happens via the after-init-hook. "
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook))
 
-;;}}}
+
 (tvr-emacs)
 
-;;{{{ Forward Function Declarations:
-
+;;;  Forward Function Declarations:
 
 (declare-function yas--load-snippet-dirs "yasnippet" (&optional nojit))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
@@ -263,8 +262,8 @@ configuration happens via the after-init-hook. "
  emacspeak-wizards-project-shells-initialize
  "emacspeak-wizards" nil)
 
-;;}}}
-;;{{{quick tts rescue:
+
+;;; quick tts rescue:
 
 ;; debug aid: tts appears to not restart but notification stream is
 ;;live: so reuse it as the speaker
@@ -273,12 +272,10 @@ configuration happens via the after-init-hook. "
   (cl-declare (special dtk-speaker-process dtk-notify-process))
   (setq dtk-speaker-process dtk-notify-process))
 
-;;}}}
+
 (provide 'emacs-startup)
-;;{{{ end of file
+;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
-
-;;}}}
