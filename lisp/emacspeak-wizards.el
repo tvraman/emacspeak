@@ -56,13 +56,14 @@
   (require 'light)
   (require 'let-alist))
 (require 'emacspeak-preamble)
+(require 'emacspeak-we)
+(require 'name-this-color "name-this-color" 'no-error )
 (require 'color)
 (eval-when-compile
   (require 'calendar)
   (require 'cus-edit)
   (require 'desktop)
   (require 'emacspeak-table-ui)
-  (require 'emacspeak-we)
   (require 'emacspeak-xslt)
   (require 'find-dired)
   (require 'gweb)
@@ -1499,11 +1500,10 @@ interactive prompt."
   "Pretty-print and view Lisp evaluation results."
   (interactive
    (list
-    (let ((minibuffer-completing-symbol t))
       (read-from-minibuffer
        "Eval: "
        nil read-expression-map t
-       'read-expression-history))))
+       'read-expression-history)))
   (cl-declare (special read-expression-map))
   (let ((buffer (get-buffer-create "*emacspeak:Eval*"))
         (print-length nil)
@@ -1568,8 +1568,7 @@ interactive prompt."
 Optional interactive prefix arg `bound'
 filters out commands that dont have an active key-binding."
   (interactive "sFilter Regex:\nP")
-  (let ((buffer (get-buffer-create "Result*"))
-        (result nil))
+  (let ((result nil))
     (mapatoms
      #'(lambda (s)
          (let ((name (symbol-name s)))
@@ -1583,21 +1582,13 @@ filters out commands that dont have an active key-binding."
                 (not (ad-find-some-advice s 'any "emacspeak")))
              (push s result)))))
     (sort result
-          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name
-                                                         b))))
-    (when (called-interactively-p 'interactive)
-      (when (called-interactively-p 'interactive)
-        (with-help-window buffer
-          (cl-prettyprint result)
-          (funcall-interactively #'pop-to-buffer buffer))))
-    result))
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
 
 ;;;###autoload
 (defun emacspeak-wizards-module-enumerate-uncovered-commands (m)
   "Enumerate uncovered commands from module m"
   (interactive (list (read-library-name)))
   (let ((result nil)
-        (buffer (get-buffer-create "*Result*"))
         (f
          (format "%sc"
                  (find-library-name m))))
@@ -1611,12 +1602,7 @@ filters out commands that dont have an active key-binding."
            (push s result))))
     (sort result
           #'(lambda (a b)
-              (string-lessp (symbol-name a) (symbol-name b))))
-    (when (called-interactively-p 'interactive)
-      (with-help-window buffer
-        (cl-prettyprint result)
-        (funcall-interactively #'pop-to-buffer buffer)))
-    result))
+              (string-lessp (symbol-name a) (symbol-name b))))))
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
@@ -2639,7 +2625,7 @@ before brightness is checked.")
           '("tex" "org" "html" "pdf")))
       (concat
        "\\."
-       (regexp-opt (nconc ext (mapcar #'upcase ext)) 'parens)
+       (regexp-opt (append ext (mapcar #'upcase ext)) 'parens)
        "$")))
   "Content extensions.")
 
