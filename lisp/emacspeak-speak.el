@@ -2402,7 +2402,7 @@ char, or dont move. "
 (define-key completion-list-mode-map
             "\C-o" 'emacspeak-switch-to-reference-buffer)
 (define-key completion-list-mode-map
-            (ems-kbd "<backspace>") 'previous-completion)
+            (kbd "<backspace>") 'previous-completion)
 (define-key completion-list-mode-map " " 'next-completion)
 (define-key completion-list-mode-map "\C-m" 'choose-completion)
 (let ((chars

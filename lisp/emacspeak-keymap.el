@@ -57,7 +57,7 @@
 
 ;;}}}
 ;;{{{ems-kbd: replacement for function kbd
-
+;; no longer used.
 ;; simplified kbd function:
 ;; Uses split-string to  simplify tokenizer.
 
@@ -82,7 +82,7 @@
     (?S . ?\S-\^@))
   "Map modifier names to modifier bit-values.")
 
-(defun ems-kbd (string )
+(defun emskbd (string )
   "Like function kbd, but returns a vector."
   (cl-declare (special ems--kbd-mod-table ems--kbd-char-table))
   (let ((res [])
@@ -133,14 +133,14 @@
 
 (defsubst emacspeak-keymap-update (keymap binding)
   "Update keymap with  binding."
-  (define-key keymap  (ems-kbd (cl-first binding)) (cl-second binding)))
+  (define-key keymap  (kbd (cl-first binding)) (cl-second binding)))
 
 (defsubst emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with  list of bindings."
   (cl-loop
    for binding in bindings
    do
-   (define-key keymap (ems-kbd (cl-first binding)) (cl-second binding))))
+   (define-key keymap (kbd (cl-first binding)) (cl-second binding))))
 
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command  or keymap that can be bound to a key."
@@ -165,7 +165,7 @@
 ;;}}}
 ;;{{{  variables:
 
-(defvar emacspeak-prefix (ems-kbd "C-e")
+(defvar emacspeak-prefix (kbd "C-e")
   "Emacspeak Prefix key. ")
 
 (defvar emacspeak-keymap nil
@@ -189,15 +189,15 @@
 
 ;;; Special keys:
 ;; One-finger use on laptop:
-(global-set-key (ems-kbd "<XF86WakeUp>")  'emacspeak-keymap)
-(global-set-key (ems-kbd "<XF86AudioPlay>")  'emacspeak-silence)
-(global-set-key (ems-kbd "C-<f1>")  'amixer-volume-down)
-(global-set-key (ems-kbd "C-<f2>")  'amixer-volume-up)
-(global-set-key (ems-kbd "<XF86AudioLowerVolume>")  'amixer-volume-down)
-(global-set-key (ems-kbd "<XF86AudioRaiseVolume>") 'amixer-volume-up)
+(global-set-key (kbd "<XF86WakeUp>")  'emacspeak-keymap)
+(global-set-key (kbd "<XF86AudioPlay>")  'emacspeak-silence)
+(global-set-key (kbd "C-<f1>")  'amixer-volume-down)
+(global-set-key (kbd "C-<f2>")  'amixer-volume-up)
+(global-set-key (kbd "<XF86AudioLowerVolume>")  'amixer-volume-down)
+(global-set-key (kbd "<XF86AudioRaiseVolume>") 'amixer-volume-up)
 
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap)
-(define-key emacspeak-keymap (ems-kbd "C-t")  'emacspeak-table-submap-command)
+(define-key emacspeak-keymap (kbd "C-t")  'emacspeak-table-submap-command)
 
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
@@ -449,10 +449,10 @@
 ;;{{{ emacspeak under X windows
 
 ;; Get hyper, alt, super, and multi:
-(global-set-key (ems-kbd "C-,") 'emacspeak-alt-keymap)
-(global-set-key  (ems-kbd "C-.") 'emacspeak-super-keymap)
-(global-set-key  (ems-kbd "C-;") 'emacspeak-hyper-keymap)
-(global-set-key  (ems-kbd "C-'") 'emacspeak-multi-keymap)
+(global-set-key (kbd "C-,") 'emacspeak-alt-keymap)
+(global-set-key  (kbd "C-.") 'emacspeak-super-keymap)
+(global-set-key  (kbd "C-;") 'emacspeak-hyper-keymap)
+(global-set-key  (kbd "C-'") 'emacspeak-multi-keymap)
 
 
 ;; Our very own silence key on the console
@@ -689,7 +689,7 @@
 (global-set-key "\C-x@h" 'emacspeak-hyper-keymap)
 (when (locate-library "empv")
   (require 'empv)
-  (global-set-key (ems-kbd "C-; v") empv-map))
+  (global-set-key (kbd "C-; v") empv-map))
 
 ;;}}}
 ;;{{{ Create a super keymap that users can put personal commands
@@ -855,8 +855,8 @@
 
 ;;}}}
 ;;{{{ Global Bindings From Other Modules:
-(global-set-key (ems-kbd "C-x r C-e") 'emacspeak-eww-marks-browse)
-(global-set-key (ems-kbd "C-x r e") 'emacspeak-eww-open-mark)
+(global-set-key (kbd "C-x r C-e") 'emacspeak-eww-marks-browse)
+(global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
 

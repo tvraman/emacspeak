@@ -133,13 +133,13 @@ Argument `k-map' is a symbol  that names a keymap."
 ;; Create a command to invoke our media player map:
 
 (global-set-key
- (ems-kbd "s-m")
+ (kbd "s-m")
  (emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
 
 ;; Create one for pianobar
 (when (featurep 'pianobar)
   (global-set-key
-   (ems-kbd "s-'")
+   (kbd "s-'")
    (emacspeak-muggles-generate 'pianobar-key-map)))
 
 ;;}}}
@@ -147,7 +147,7 @@ Argument `k-map' is a symbol  that names a keymap."
 
 (declare-function emacspeak-amark-save "emacspeak-muggles" t)
 (global-set-key
- (ems-kbd "s-;")
+ (kbd "s-;")
  (defhydra emacspeak-muggles-m-player
            (:body-pre (emacspeak-hydra-body-pre "Media Player")
                       :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
@@ -209,7 +209,7 @@ Argument `k-map' is a symbol  that names a keymap."
 
 ;; Cloned from Hydra Wiki:
 (global-set-key
- (ems-kbd "C-. o")
+ (kbd "C-. o")
  (defhydra emacspeak-muggles-outliner
            (:body-pre
             (progn
@@ -254,7 +254,7 @@ _d_: subtree
 ;;{{{ Info Summary:
 
 ;; Taken from Hydra wiki and customized to taste:
-(define-key Info-mode-map (ems-kbd "?")
+(define-key Info-mode-map (kbd "?")
             (defhydra emacspeak-muggles-info-summary
                       (
                        :color blue :hint nil
@@ -322,7 +322,7 @@ _d_: subtree
 (declare-function origami-mode "origami" (&optional arg))
 
 (global-set-key
- (ems-kbd "C-, /")
+ (kbd "C-, /")
  (defhydra emacspeak-origami
            (:color red
                    :body-pre
@@ -390,7 +390,7 @@ Also generates global keybindings if any."
 ;;{{{ smartParens:
 
 (global-set-key
- (ems-kbd "C-c ,")
+ (kbd "C-c ,")
  (defhydra emacspeak-muggles-smartparens
            (:body-pre
             (progn
@@ -432,7 +432,7 @@ Also generates global keybindings if any."
 ;;{{{  View Mode:
 
 (global-set-key
- (ems-kbd
+ (kbd
   "C-. v")
  (defhydra emacspeak-muggles-view
            (:body-pre
@@ -497,7 +497,7 @@ Also generates global keybindings if any."
 (when (locate-library "vuiet")
   (with-no-warnings
     (global-set-key
-     (ems-kbd "C-; v")
+     (kbd "C-; v")
      (defhydra emacspeak-muggles-vuiet
                (:body-pre
                 (progn
@@ -530,7 +530,7 @@ Also generates global keybindings if any."
 (with-eval-after-load "org"
   (define-key
    org-mode-map
-   (ems-kbd "C-c C-SPC")
+   (kbd "C-c C-SPC")
    (defhydra emacspeak-muggles-org-nav
              (:body-pre
               (progn

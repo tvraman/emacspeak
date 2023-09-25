@@ -199,12 +199,12 @@
   `(progn
      (cl-declare (special vdiff-mode-prefix-map vdiff-mode-map))
      (define-key vdiff-mode-prefix-map "h" 'vdiff-hydra/body)
-     (define-key vdiff-mode-map (ems-kbd "C-c") vdiff-mode-prefix-map)
+     (define-key vdiff-mode-map (kbd "C-c") vdiff-mode-prefix-map)
      (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk)
      (define-key vdiff-mode-prefix-map
-                 (ems-kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)
+                 (kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)
      (define-key vdiff-mode-prefix-map
-                 (ems-kbd "l") 'emacspeak-vdiff-speak-other-line)))
+                 (kbd "l") 'emacspeak-vdiff-speak-other-line)))
 
 ;;}}}
 (provide 'emacspeak-vdiff)

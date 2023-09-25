@@ -355,14 +355,14 @@ On a directory line, run du -s on the directory to speak its size."
   (cl-declare (special dired-mode-map))
   (define-key dired-mode-map "F" 'emacspeak-wizards-find-file-as-root)
   (define-key dired-mode-map "E" 'emacspeak-dired-epub-eww)
-  (define-key dired-mode-map (ems-kbd "C-j") 'emacspeak-dired-open-this-file)
-  (define-key dired-mode-map (ems-kbd "C-RET") 'emacspeak-dired-open-this-file)
+  (define-key dired-mode-map (kbd "C-j") 'emacspeak-dired-open-this-file)
+  (define-key dired-mode-map (kbd "C-RET") 'emacspeak-dired-open-this-file)
   (define-key dired-mode-map [C-return] 'emacspeak-dired-open-this-file)
   (define-key dired-mode-map "'" 'emacspeak-dired-show-file-type)
   (define-key  dired-mode-map "/" 'emacspeak-dired-speak-file-permissions)
   (define-key  dired-mode-map ";" 'emacspeak-dired-play-duration)
   (define-key  dired-mode-map
-               (ems-kbd "M-;") 'emacspeak-m-player-add-dynamic)
+               (kbd "M-;") 'emacspeak-m-player-add-dynamic)
   (define-key  dired-mode-map "a" 'emacspeak-dired-speak-file-access-time)
   (define-key dired-mode-map "c" 'emacspeak-dired-speak-file-modification-time)
   (define-key dired-mode-map "z" 'emacspeak-dired-speak-file-size)
@@ -392,7 +392,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 (cl-declaim (special locate-mode-map))
 (define-key locate-mode-map  "j" 'emacspeak-dired-open-this-directory)
-(define-key locate-mode-map  (ems-kbd "C-j") 'emacspeak-dired-open-this-file)
+(define-key locate-mode-map  (kbd "C-j") 'emacspeak-dired-open-this-file)
 (define-key locate-mode-map  [C-return] 'emacspeak-dired-open-this-file)
 ;;}}}
 ;;{{{ Context-sensitive openers:

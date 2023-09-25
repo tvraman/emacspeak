@@ -115,7 +115,7 @@
 ;;{{{ Brightness:
 
 (global-set-key
- (ems-kbd "<print>")
+ (kbd "<print>")
  (defhydra
   emacspeak-muggles-brightness
   (:body-pre
@@ -141,13 +141,13 @@
   ("i" light-increment "brighter")
   ("SPC" light-increment "brighter")))
 
-(global-set-key (ems-kbd "s-.") 'emacspeak-muggles-brightness/body)
+(global-set-key (kbd "s-.") 'emacspeak-muggles-brightness/body)
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
 (with-eval-after-load "org"
   (define-key
-   org-mode-map (ems-kbd "C-c t")
+   org-mode-map (kbd "C-c t")
    (defhydra emacspeak-muggles-org-table
              (:body-pre
               (progn
@@ -170,7 +170,7 @@
 ;;{{{ HideShow:
 
 (global-set-key
- (ems-kbd "C-, h")
+ (kbd "C-, h")
  (defhydra  emacspeak-muggles-hideshow
             (
              :body-pre
@@ -208,7 +208,7 @@
             (t "neither lispy or sp"))))
 
 (global-set-key
- (ems-kbd "C-c o")
+ (kbd "C-c o")
  (defhydra
   emacspeak-muggles-toggle-option
   (
@@ -243,7 +243,7 @@ _p_ emacspeak-muggles-lispy-or-sp:
 ;; But bound to s-n --- instead of C-n
 
 (global-set-key
- (ems-kbd "s-n")
+ (kbd "s-n")
  (defhydra emacspeak-muggles-navigate
            (:body-pre
             (progn
@@ -291,7 +291,7 @@ _p_ emacspeak-muggles-lispy-or-sp:
       (emacspeak-auditory-icon 'yank-object)
       (emacspeak-speak-region orig (point)))))
 
-(global-set-key (ems-kbd "M-C-y") 'emacspeak-muggles-ido-yank)
+(global-set-key (kbd "M-C-y") 'emacspeak-muggles-ido-yank)
 
 (defhydra
  emacspeak-muggles-yank-pop
@@ -311,15 +311,15 @@ _p_ emacspeak-muggles-lispy-or-sp:
  ("s" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
  ("l" browse-kill-ring "list" :color blue))
 
-(global-set-key (ems-kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
-(global-set-key (ems-kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
+(global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
+(global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
 
 ;;}}}
 ;;{{{ Repeatable Undo
 
 ;; Repeatable undo-only and undo-redo 
 (global-set-key
- (ems-kbd "C-/") 
+ (kbd "C-/") 
  (defhydra
   emacspeak-muggles-undo-only/undo-redo
   (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
@@ -337,7 +337,7 @@ _p_ emacspeak-muggles-lispy-or-sp:
 ;;{{{  Speak And Browse Math
 
 (global-set-key
- (ems-kbd "s-SPC")
+ (kbd "s-SPC")
  (defhydra emacspeak-muggles-maths-navigator
            (:body-pre
             (progn

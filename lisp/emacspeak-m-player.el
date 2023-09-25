@@ -309,7 +309,7 @@ Reset immediately after being used.")
        #'(lambda (binding)
            (let ((key (cl-first binding))
                  (directory (cl-second binding)))
-             (emacspeak-m-player-bind-hotkey directory (ems-kbd key))))
+             (emacspeak-m-player-bind-hotkey directory (kbd key))))
        val)
       (set-default sym val)))
 
@@ -1539,7 +1539,7 @@ flat classical club dance full-bass full-bass-and-treble
 (cl-loop
  for i from 1 to 9 do
  (define-key emacspeak-m-player-mode-map
-             (ems-kbd (format "%s" i)) 'emacspeak-m-player-volume-set))
+             (kbd (format "%s" i)) 'emacspeak-m-player-volume-set))
 
 ;;}}}
 ;;{{{ YouTube Player
@@ -1878,7 +1878,7 @@ As the default, use current position."
 (defvar emacspeak-locate-media-map
   (let ((map (make-sparse-keymap)))
     (define-key map "               ;" 'emacspeak-dired-play-duration)
-    (define-key  map (ems-kbd "M-;") 'emacspeak-m-player-add-dynamic)
+    (define-key  map (kbd "M-;") 'emacspeak-m-player-add-dynamic)
     (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
     map)
   "Keymap used to play locate results.")

@@ -173,8 +173,8 @@
   "emacspeak integration with Transient."
   (cl-declare (special transient-sticky-map))
   (use-local-map transient-sticky-map)
-  (local-set-key (ems-kbd "M-n") 'emacspeak-transient-next-section)
-  (local-set-key (ems-kbd "M-p") 'emacspeak-transient-previous-section)
+  (local-set-key (kbd "M-n") 'emacspeak-transient-next-section)
+  (local-set-key (kbd "M-p") 'emacspeak-transient-previous-section)
   (local-set-key "q" 'bury-buffer)
   (local-set-key "r" 'transient-resume))
 

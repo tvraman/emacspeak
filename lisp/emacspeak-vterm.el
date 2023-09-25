@@ -101,9 +101,9 @@
 
 (with-eval-after-load "vterm"
   (cl-declaim (special vterm-mode-map vterm-copy-mode-map))
-  (define-key vterm-mode-map (ems-kbd "C-e")
+  (define-key vterm-mode-map (kbd "C-e")
               'emacspeak-keymap)
-  (define-key vterm-copy-mode-map (ems-kbd "C-e") 'emacspeak-keymap))
+  (define-key vterm-copy-mode-map (kbd "C-e") 'emacspeak-keymap))
 
 (defadvice vterm (after emacspeak pre act comp)
   "speak."

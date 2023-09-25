@@ -1885,8 +1885,8 @@ Produce an auditory icon if possible."
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-keymap)
 (define-key isearch-mode-map "\M-y" 'isearch-yank-pop)
 ;; face navigators
-(define-key isearch-mode-map (ems-kbd "M-C-b") 'emacspeak-speak-face-backward )
-(define-key isearch-mode-map (ems-kbd "M-C-f") 'emacspeak-speak-face-forward )
+(define-key isearch-mode-map (kbd "M-C-b") 'emacspeak-speak-face-backward )
+(define-key isearch-mode-map (kbd "M-C-f") 'emacspeak-speak-face-forward )
 ;; ISearch setup/teardown
 
 ;; Produce auditory icon
