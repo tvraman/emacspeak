@@ -37,7 +37,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
- 
 
 ;;; Commentary:
 ;; There are a number of search tools that can be implemented on

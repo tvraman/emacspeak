@@ -37,7 +37,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
- 
 
 ;;; Commentary:
 ;; Useful additional functions for dom.el

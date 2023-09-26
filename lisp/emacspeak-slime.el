@@ -36,7 +36,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
- 
 
 ;;; Commentary:
  ;;; SLIME == Superior  Lisp Interaction Mode For Emacs

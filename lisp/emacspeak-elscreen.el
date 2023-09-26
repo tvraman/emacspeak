@@ -36,7 +36,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
- 
 
 ;;; Commentary:
 ;; ELSCREEN ==  Emacs Window Session Manager

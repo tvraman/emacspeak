@@ -36,7 +36,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
- 
 
 ;;; Commentary:
 ;; CLOJURE-mode: Specialized mode for Clojure programming.

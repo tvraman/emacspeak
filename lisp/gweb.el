@@ -47,8 +47,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
- 
-
 ;; Commentary: Provide Google services --- such as search,
 ;; search-based completion etc.  For use from within Emacs tools.
 ;; This is meant to be fast and efficient --- and uses WebAPIs as
