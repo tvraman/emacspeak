@@ -38,7 +38,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   Introduction:
 
 ;;; Commentary:
 
@@ -1400,12 +1399,15 @@ Interactive prefix arg speaks buffer info."
   (cl-declare (special mode-name major-mode vc-mode
                        emacspeak-comint-autospeak
                        global-visual-line-mode visual-line-mode
-                       header-line-format global-mode-string
+                       header-line-format global-mode-string outline-minor-mode
                        folding-mode column-number-mode line-number-mode
                        emacspeak-mail-alert mode-line-format))
   (with-current-buffer (window-buffer (selected-window))
     (force-mode-line-update)
-    (when (bound-and-true-p folding-mode) (emacspeak-auditory-icon 'ellipses))
+    (when
+        (or
+         (bound-and-true-p outline-minor-mode) (bound-and-true-p folding-mode))
+      (emacspeak-auditory-icon 'ellipses))
     (when (and visual-line-mode (not global-visual-line-mode)) (sox-chime 2 2))
     (when emacspeak-mail-alert (emacspeak-mail-alert-user))
     (cond
