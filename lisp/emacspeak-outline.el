@@ -269,6 +269,8 @@ except that the outline section is  spoken"
        (list outline-mode-prefix-map outline-navigation-repeat-map)
      (list outline-mode-prefix-map ))
    do
+   (define-key map "j" 'outline-next-visible-heading)
+   (define-key map "k" 'outline-previous-visible-heading)
    (define-key map "p" 'emacspeak-outline-speak-previous-heading)
    (define-key map "n" 'emacspeak-outline-speak-next-heading)
    (define-key map "b" 'emacspeak-outline-speak-backward-heading)
