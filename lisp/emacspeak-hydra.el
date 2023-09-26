@@ -59,7 +59,7 @@
    (hydra-face-teal voice-lighten-medium)))
 
 ;;;  Toggle Talkative:
-
+;;;###autoload
 (defun emacspeak-hydra-toggle-talkative ()
   "Toggle hydra-is-helpful"
   (interactive)
@@ -68,7 +68,7 @@
   (emacspeak-auditory-icon (if hydra-is-helpful 'on 'off)))
 
 ;;;  Emacspeak Helpers:
-
+;;;###autoload
 (defun emacspeak-hydra-body-pre (&optional name)
   "Provide auditory icon"
   (when name (dtk-speak name))
@@ -77,7 +77,7 @@
 (defun emacspeak-hydra-pre ()
   "Provide auditory icon"
   (emacspeak-auditory-icon 'progress))
-
+;;;###autoload
 (defun emacspeak-hydra-post ()
   "Provide auditory icon. "
   (dtk-stop 'all)
