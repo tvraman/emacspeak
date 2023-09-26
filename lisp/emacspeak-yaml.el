@@ -36,7 +36,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 
 ;;; Commentary:
 ;; YAML == Yet Another Markup Language

@@ -37,7 +37,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 
 ;;; Commentary:
 ;; FLYCHECK == On-the-fly checking.

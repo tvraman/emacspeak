@@ -34,7 +34,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 
 ;;; Commentary:
 ;; Speech-enable package haskell-mode

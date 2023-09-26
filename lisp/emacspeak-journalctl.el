@@ -34,7 +34,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 
 ;;; Commentary:
 ;;; JOURNALCTL ==  SystemD Journal From emacs

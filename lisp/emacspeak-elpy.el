@@ -36,7 +36,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 
 ;;; Commentary:
 ;; ELPY ==  Emacs Lisp Python IDE

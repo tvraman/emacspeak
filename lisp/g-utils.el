@@ -47,7 +47,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 ;;; Commentary:
 ;; Common Code  e.g. helper functions.
 ;; Used by modules like gphoto, gblogger etc.

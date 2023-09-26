@@ -47,7 +47,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 ;;; Commentary:
 ;; Implements the Google Maps API
 ;;; Code:

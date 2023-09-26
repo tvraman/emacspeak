@@ -47,7 +47,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   introduction
+ 
 
 ;; Commentary: Provide Google services --- such as search,
 ;; search-based completion etc.  For use from within Emacs tools.
