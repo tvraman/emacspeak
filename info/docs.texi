@@ -10475,6 +10475,12 @@ This module speech enables net-utils
 @node emacspeak-newsticker
 @section emacspeak-newsticker
 
+Newsticker provides a continuously updating newsticker using
+RSS
+Provides functionality similar to amphetadesk --but in pure elisp
+
+ required modules
+
 @node emacspeak-notmuch
 @section emacspeak-notmuch
 

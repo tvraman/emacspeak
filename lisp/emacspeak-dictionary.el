@@ -42,7 +42,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables emacs client for accessing dictionary
 ;; server at dict.org:2628

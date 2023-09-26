@@ -37,7 +37,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   Introduction:
+
 ;;; Commentary:
 ;; This module speech enables ispell.  Implementation note: This is
 ;; hard because of how ispell.el is written Namely, all of the work is

@@ -37,7 +37,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   Introduction:
+
 ;;; Commentary:
 ;; eperiodic produces an interactive periodic table of elements
 ;; and can be found at 

@@ -37,7 +37,6 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   Introduction:
 
 ;;; Commentary:
 ;; EShell is a shell implemented entirely in Emacs Lisp.

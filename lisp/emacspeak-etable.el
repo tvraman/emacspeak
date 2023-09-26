@@ -36,7 +36,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 
-;;;   Introduction:
+
 ;;; Commentary:
 ;; table.el provides rich table editing for emacs.
 ;; this module speech-enables table.el

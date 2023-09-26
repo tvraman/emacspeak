@@ -43,8 +43,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   Introduction:
-
 ;;; Commentary:
 ;; Speech-enables metapost mode.
 ;; metapost is a powerful drawing package

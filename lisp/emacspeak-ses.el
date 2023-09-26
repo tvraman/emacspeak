@@ -38,7 +38,6 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;   Introduction:
 ;;; Commentary:
 ;; ses implements a simple spread sheet and is part of Emacs
 ;; This module speech-enables ses

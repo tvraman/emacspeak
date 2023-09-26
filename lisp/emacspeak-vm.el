@@ -37,8 +37,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;;   Introduction:
-
 ;;; Commentary:
 ;; This module extends the mail reader vm.
 ;; Uses voice locking for message headers and cited messages

@@ -41,7 +41,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables BBDB.
 ;; I have used BBDB to manage email address and contact information since 1991.

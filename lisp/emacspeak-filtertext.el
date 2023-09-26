@@ -42,7 +42,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   Introduction:
 ;;; Commentary:
 ;; It is often useful  to view the results of filtering
 ;; large amounts of text.;;; Typically you do this with

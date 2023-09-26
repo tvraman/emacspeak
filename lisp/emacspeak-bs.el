@@ -43,8 +43,6 @@
 (require 'emacspeak-preamble)
 (require 'bs)
 
-;;;   Introduction:
-
 ;;; Commentary:
 
 ;; speech-enable bs.el -- an alternative to Emacs' default  list-buffers

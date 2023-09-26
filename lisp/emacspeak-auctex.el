@@ -40,7 +40,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   Introduction:
 ;;; Commentary:
 ;; Speech-enables the AucTeX package.  AucTeX, now available from
 ;; ELPA, has been my authoring environment of choice for writing LaTeX

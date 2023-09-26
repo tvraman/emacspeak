@@ -38,7 +38,6 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
-;;;   Introduction:
 
 ;; Newsticker provides a continuously updating newsticker using
 ;; RSS

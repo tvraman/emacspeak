@@ -2916,6 +2916,11 @@ File: emacspeak.info,  Node: emacspeak-newsticker,  Next: emacspeak-notmuch,  Pr
 12.134 emacspeak-newsticker
 ===========================
 
+Newsticker provides a continuously updating newsticker using RSS
+Provides functionality similar to amphetadesk –but in pure elisp
+
+   required modules
+
 
 File: emacspeak.info,  Node: emacspeak-notmuch,  Next: emacspeak-nov,  Prev: emacspeak-newsticker,  Up: Emacspeak Commands And Options
 

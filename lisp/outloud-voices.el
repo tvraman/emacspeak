@@ -38,8 +38,6 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;   Introduction:
-
 ;;; Commentary:
 ;;  Interface to outloud server.
 ;; This module is IBM ViaVoice Outloud specific.

@@ -36,7 +36,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;   Introduction:
+
 ;;; Commentary:
 ;; Browse the kill ring using 
 ;; browse-kill-ring.el - interactively insert items from kill-ring 

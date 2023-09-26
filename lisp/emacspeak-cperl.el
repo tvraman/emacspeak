@@ -41,8 +41,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   Introduction:
-
 ;;; Commentary:
 
 ;; Provide additional advice to CPerl mode 

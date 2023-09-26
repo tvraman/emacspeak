@@ -35,8 +35,6 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;;   Introduction:
-
 ;;; Commentary:
 ;; Folding mode turns emacs into a folding editor.
 ;; Folding mode is what I use:

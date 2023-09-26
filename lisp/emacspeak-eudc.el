@@ -43,8 +43,6 @@
 (declare-function widget-at "wid-edit" (&optional pos))
 (declare-function widget-type "wid-edit" (widget))
 
-;;;   Introduction:
-
 ;;; Commentary:
 
 ;; EUDC --Emacs Universal Directory Client 
