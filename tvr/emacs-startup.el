@@ -186,7 +186,7 @@ Use Custom to customize where possible. "
   (tvr-time-load (load tvr-libs))
   (with-eval-after-load 'yasnippet
     (yas--load-snippet-dirs)
-    (diminis 'yas-minor-mode ""))
+    (diminish 'yas-minor-mode ""))
   (tvr-customize)
   (load "emacspeak-muggles")
   (emacspeak-wizards-project-shells-initialize))
