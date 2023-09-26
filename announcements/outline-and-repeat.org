@@ -1,0 +1,84 @@
+* Executive Summary
+
+Emacs has had long-standing features like ~outline-mode~ and
+~outline-minor-mode~ that often get forgotten in the face of newer
+affordances like ~org-mode~. At the same time, Emacs continues to
+acquire new features --- in this article, I am specifically alluding
+to ~repeat-mode~. The combinatorial explosion that is the result of
+the various ways of bringing these together is mind-boggling --- and
+often the result is that one fails to take advantage of what has
+become possible. The result is that one ends up sticking to one's
+long-established habits at the risk of failing to significantly
+enhance one's productivity.
+
+* Background
+
+- Structured navigation is a significant productivity enhancer ---
+  especially in my case since I rely exclusively on an auditory interface.
+- The above applies to both textual documents and programming source.
+- Starting all the way back in 1991, I started using ~folding-mode~
+  to organize code into hierarchical containers that could be
+  expanded and collapsed; and this is what makes Emacs' eco-system
+  amazing; ~folding-mode~ still works and is available on melpa in 2023.
+- About a year ago one of the Emacs maintainers (Stefan Mounier)
+  helped me update portions of Emacspeak, and in the process pointed
+  out that I could just use ~outline-minor-mode~ to expand and
+  collapse sections of  code in ~.el~ files.
+- At the time I filed this away for /later use/ --- I was still
+  reluctant to  abandon the 30+ year investment in ~folding-mode~.
+- About a year ago, I discovered ~repeat-mode~ in Emacs and started
+  leveraging it for everything --- including ~outline-mode~ and
+  ~org-mode~ amongst others.
+- Despite the years of investment in ~folding-mode~, it had one
+  drawback; keeping the /fold-marks/ (special comments) in sync was
+  always a bit of a hastle.
+
+  * Bringing The Old And New Together
+
+    This week I brought all of the above context together to:
+
+- Cut over the Emacspeak codebase to stop using ~folding-mode~.
+
+- Turning the _fold-marks_ to comments that ~outline-minor-mode~
+  understood  was a trivial application of my [[https://github.com/tvraman/emacspeak/blob/master/etc/typo.pl#L1][typo.pl]]Perl script.
+
+- I had already set up Emacspeak to use ~repeat-mode~ for the
+  various outline modes.
+
+- Another annoyance with ~outline~ that I had fixed over 20+ years
+  ago was to pick an easier to press prefix-key for ~outline~; I use
+  _C-o_.
+
+* The Resulting Experience
+
+- I can now skim the Emacspeak sources (as well as the Emacs
+  sources of course) with very few keystrokes.
+- Example: Pressing _C-o C-n_ navigates by section headings; when
+  skimming, I only need to press _C-o_ the first time thanks to
+  ~repeat-mode~.
+- I also bound _j_ and _k_ in  the outline-mode keymaps to avoid
+  having to chord when skimming --- _j_ is easier to press than _C-n_.
+
+* For The Future
+
+- Would be nice to enhance ~outline-minor-mode~ to understand
+  sectioning comments in other programming languages.
+  - The annoyance with the default (and unusable) prefix key for the
+    outline modes needs to fix in Emacs core.
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Together: The Old And New Are  Much Better!
+#+date: <2023-09-26 Tue>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.8)
+#+cite_export:
